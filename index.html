@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Developers Changelog</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            color: #111;
+        }
+
+        .loading {
+            text-align: center;
+            color: #888;
+            margin-top: 50px;
+        }
+
+        .error {
+            color: #c62828;
+            text-align: center;
+            margin-top: 20px;
+            background: #ffebee;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .group {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .group-header {
+            margin: 0;
+            padding: 15px 20px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        .group-content {
+            padding: 5px 0;
+        }
+
+        .entry {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .entry:last-child {
+            border-bottom: none;
+        }
+
+        .title {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .title a {
+            text-decoration: none;
+            color: #2563eb;
+        }
+
+        .title a:hover {
+            text-decoration: underline;
+        }
+
+        .summary {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-left: 2px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 700;
+            color: white;
+            line-height: 1.4;
+        }
+
+        .tag.new {
+            background-color: #2e7d32;
+        }
+
+        /* Green */
+        .tag.update {
+            background-color: #1976d2;
+        }
+
+        /* Blue */
+        .tag.delete {
+            background-color: #c62828;
+        }
+
+        /* Red */
+
+        /* GitHub Style Diff View */
+        .diff-view {
+            margin-top: 10px;
+            border: 1px solid #d1d5da;
+            border-radius: 6px;
+            background: #f6f8fa;
+            font-family: monospace;
+            font-size: 0.85em;
+            overflow-x: auto;
+        }
+
+        .diff-view details {
+            padding: 0;
+        }
+
+        .diff-view summary {
+            padding: 8px 12px;
+            cursor: pointer;
+            color: #24292e;
+            background: #e1e4e8;
+            font-weight: 600;
+            list-style: none;
+            user-select: none;
+        }
+
+        .diff-view summary:hover {
+            background: #d1d5da;
+        }
+
+        .diff-view summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .diff-view summary::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 6px;
+            font-size: 0.8em;
+            transition: transform 0.2s;
+        }
+
+        .diff-view details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .diff-content {
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            border-top: 1px solid #e1e4e8;
+            white-space: pre;
+            line-height: 1.5;
+            color: #24292e;
+            min-height: 40px;
+        }
+
+        .diff-line {
+            display: block;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .diff-header {
+            color: #6f42c1;
+            background-color: #f1f8ff;
+            font-weight: bold;
+            border-top: 1px solid #dbedff;
+            border-bottom: 1px solid #dbedff;
+            margin: 5px 0;
+            display: block;
+            padding-left: 10px;
+        }
+
+        .diff-add {
+            background-color: #e6ffec;
+            display: block;
+            padding-left: 10px;
+        }
+
+        .diff-del {
+            background-color: #ffebe9;
+            display: block;
+            padding-left: 10px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.8em;
+            color: #888;
+            text-align: center;
+        }
+
+        .commit-hash {
+            color: #999;
+            text-decoration: none;
+            font-family: monospace;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Android Developers Changelog</h1>
+    <p style="color: #666; margin-bottom: 30px;">Automated changelog tracked by Gemini.</p>
+
+    <div id="app">
+        <div class="loading">Loading changelog data...</div>
+    </div>
+
+    <div class="footer">
+        Updated automatically by GitHub Actions
+    </div>
+
+    <script>
+        async function fetchChangelog() {
+            try {
+                // Ensure cache-busting to get fresh data
+                const response = await fetch('pages/changelog.json?t=' + new Date().getTime());
+                if (!response.ok) throw new Error('Failed to load changelog data');
+                const history = await response.json();
+                renderChangelog(history);
+            } catch (error) {
+                console.error(error);
+                document.getElementById('app').innerHTML = `<div class="error">Failed to load changelog.json<br>${error.message}</div>`;
+            }
+        }
+
+        function formatDate(isoDate) {
+            if (!isoDate) return '';
+            try {
+                const date = new Date(isoDate);
+                const utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+                const kstOffset = 9 * 60 * 60 * 1000;
+                const kstDate = new Date(utc + kstOffset);
+
+                const year = kstDate.getFullYear();
+                const month = String(kstDate.getMonth() + 1).padStart(2, '0');
+                const day = String(kstDate.getDate()).padStart(2, '0');
+                const hours = String(kstDate.getHours()).padStart(2, '0');
+                const minutes = String(kstDate.getMinutes()).padStart(2, '0');
+
+                return `${year}-${month}-${day} ${hours}:${minutes}`;
+            } catch (e) {
+                return isoDate;
+            }
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function formatDiff(diffText) {
+            if (!diffText) return '';
+
+            const lines = diffText.split('\n');
+            let html = '';
+
+            for (const line of lines) {
+                // Filter metadata
+                if (line.startsWith('diff --git') ||
+                    line.startsWith('index ') ||
+                    line.startsWith('--- ') ||
+                    line.startsWith('+++ ')) {
+                    continue;
+                }
+
+                const safeLine = escapeHtml(line);
+
+                if (line.startsWith('@@')) {
+                    html += `<span class="diff-header">${safeLine}</span>`;
+                } else if (line.startsWith('+')) {
+                    html += `<span class="diff-add">${safeLine}</span>`;
+                } else if (line.startsWith('-')) {
+                    html += `<span class="diff-del">${safeLine}</span>`;
+                } else {
+                    html += `<span class="diff-line">${safeLine}</span>`;
+                }
+            }
+            return html;
+        }
+
+        async function loadDiff(detailsElement, diffPath) {
+            const contentDiv = detailsElement.querySelector('.diff-content');
+            // If already loaded or loading, do nothing
+            if (contentDiv.dataset.loaded === 'true') return;
+
+            // If currently empty, show loading
+            if (!contentDiv.innerHTML) {
+                contentDiv.innerHTML = '<div style="padding:10px; color:#666;">Loading diff...</div>';
+            }
+
+            try {
+                // Determine path relative to current location
+                const response = await fetch(diffPath);
+                if (!response.ok) throw new Error('Diff file not found');
+                const text = await response.text();
+                contentDiv.innerHTML = formatDiff(text);
+                contentDiv.dataset.loaded = 'true';
+            } catch (error) {
+                console.error(error);
+                contentDiv.innerHTML = `<div style="padding:10px; color:#c62828;">Failed to load diff: ${error.message}</div>`;
+            }
+        }
+
+        function renderChangelog(history) {
+            const app = document.getElementById('app');
+            let html = '';
+
+            if (history.length === 0) {
+                app.innerHTML = '<div class="loading">No history found.</div>';
+                return;
+            }
+
+            history.forEach(group => {
+                const displayDate = formatDate(group.date);
+                let commitLink = '';
+
+                if (group.commit_hash) {
+                    const repoBase = "https://github.com/fornewid/android-developers-changelog";
+                    commitLink = ` <a href="${repoBase}/commit/${group.commit_hash}" target="_blank" class="commit-hash">${group.commit_hash}</a>`;
+                }
+
+                html += `
+                <div class="group">
+                    <h3 class="group-header">${displayDate}${commitLink}</h3>
+                    <div class="group-content">
+                `;
+
+                group.entries.forEach(entry => {
+                    let diffHtml = '';
+
+                    if (entry.diff) {
+                        // Legacy support (embedded diff)
+                        const formattedDiff = formatDiff(entry.diff);
+                        diffHtml = `
+                        <div class="diff-view">
+                            <details>
+                                <summary>변경사항 보기 (Show Diff)</summary>
+                                <div class="diff-content">${formattedDiff}</div>
+                            </details>
+                        </div>`;
+                    } else if (entry.diff_file) {
+                        // Lazy load support
+                        diffHtml = `
+                        <div class="diff-view">
+                            <details ontoggle="if(this.open) loadDiff(this, '${entry.diff_file}')">
+                                <summary>변경사항 보기 (Show Diff)</summary>
+                                <div class="diff-content" data-loaded="false"></div>
+                            </details>
+                        </div>`;
+                    }
+
+                    html += `
+                        <div class="entry">
+                            <div class="title">
+                                <span class="tag ${entry.tag_class}">${entry.tag_text}</span>
+                                ${entry.title}
+                            </div>
+                            <div class="summary">${entry.summary}</div>
+                            ${diffHtml}
+                        </div>
+                    `;
+                });
+
+                html += `
+                    </div>
+                </div>
+                `;
+            });
+
+            app.innerHTML = html;
+        }
+
+        // Initialize
+        fetchChangelog();
+    </script>
+</body>
+
+</html>

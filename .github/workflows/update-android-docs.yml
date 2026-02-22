@@ -18,6 +18,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        ref: main
     
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -32,7 +33,7 @@ jobs:
     - name: Fetch Android Docs
       id: fetch-docs
       run: |
-        python scripts/fetch_android_docs.py
+        python scripts/fetch_android_docs.py || echo "fetch_failed=true" >> $GITHUB_OUTPUT
       continue-on-error: true
     
     - name: Check for changes
@@ -53,15 +54,52 @@ jobs:
         git config --local user.name "github-actions[bot]"
         
         git add docs/
-        git commit -m "Update docs - $(date +'%Y-%m-%d')"
+        
+        if git diff --staged --quiet docs/; then
+          echo "No documentation changes to commit."
+        else
+          git commit -m "Update docs - $(date +'%Y-%m-%d')"
+          echo "Docs committed."
+        fi
         
         COMMIT_HASH=$(git rev-parse --short HEAD)
         CHANGED_FILES=$(git diff-tree --no-commit-id --name-status -r HEAD | grep "^[AMD]" | grep "docs/.*\.md$" | awk '{print $1 ":" $2}' | paste -sd " " -)
         
         if [ -n "$CHANGED_FILES" ]; then
+          echo "Detected changes in HEAD ($COMMIT_HASH): $CHANGED_FILES"
+          
           python3 scripts/summarize_android_changes.py --commit-hash $COMMIT_HASH --files $CHANGED_FILES
           
           git add pages/
           git commit -m "Update changelog for $COMMIT_HASH"
-          git push
         fi
+        
+        git push
+
+    - name: Create GitHub Release
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        if [ -f "release_body.md" ]; then
+          DATE_TAG=$(date +'%Y%m%d-%H%M')
+          gh release create "doc-update-$DATE_TAG" \
+            --title "Documentation Update - $(date +'%Y-%m-%d %H:%M')" \
+            --notes-file release_body.md
+        else
+          echo "No release body found, skipping release creation."
+        fi
+    
+    - name: Create issue on failure
+      if: steps.fetch-docs.outputs.fetch_failed == 'true'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const date = new Date().toISOString().split('T')[0];
+          await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: `Documentation update failed - ${date}`,
+            body: `The automated documentation update failed on ${date}.\n\nPlease check the [workflow run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for details.`,
+            labels: ['bug', 'automation']
+          })

@@ -143,9 +143,28 @@ def save_changelog(data):
     CHANGELOG_JSON.parent.mkdir(exist_ok=True)
     CHANGELOG_JSON.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding='utf-8')
 
+def get_commit_date(commit_hash):
+    """Get the commit date in ISO 8601 format."""
+    try:
+        iso_date = subprocess.check_output(
+            ['git', 'show', '-s', '--format=%cI', commit_hash],
+            text=True
+        ).strip()
+        return iso_date
+    except Exception as e:
+        logger.warning(f"Failed to get commit date for {commit_hash}: {e}")
+        return datetime.now(timezone.utc).isoformat()
+
 def update_json_data(updates, commit_hash=None):
+    if not updates:
+        return load_changelog()
+
     history = load_changelog()
-    date_str = datetime.now(timezone.utc).isoformat()
+    
+    if commit_hash:
+        date_str = get_commit_date(commit_hash)
+    else:
+        date_str = datetime.now(timezone.utc).isoformat()
     
     new_entry = {
         "date": date_str,
@@ -254,14 +273,9 @@ def main():
         
         # Generate Release Body for GitHub
         release_body_path = ROOT_DIR / 'release_body.md'
-        release_content = "## Android Docs Updates
-
-"
+        release_content = "## Android Docs Updates\n\n"
         for update in updates:
-            release_content += f"### {update['tag_text']} {update['title']}
-{update['summary']}
-
-"
+            release_content += f"### {update['tag_text']} {update['title']}\n{update['summary']}\n\n"
         release_body_path.write_text(release_content, encoding='utf-8')
 
 if __name__ == '__main__':

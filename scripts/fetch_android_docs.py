@@ -229,6 +229,19 @@ def save_markdown_file(docs_dir: Path, rel_path: str, content: str) -> str:
         logger.error(f"Failed to save {rel_path}: {e}")
         raise
 
+def cleanup_old_files(docs_dir: Path, current_files: set, manifest: dict) -> None:
+    """Remove files that were previously fetched but no longer exist in the sitemap."""
+    previous_files = set(manifest.get("files", {}).keys())
+    files_to_remove = previous_files - current_files
+    
+    for filename in files_to_remove:
+        if filename == MANIFEST_FILE:
+            continue
+        file_path = docs_dir / filename
+        if file_path.exists():
+            logger.info(f"Removing obsolete file: {filename}")
+            file_path.unlink()
+
 def process_sitemap_urls(session: requests.Session, urls: List[str], docs_dir: Path, manifest: dict, lock: threading.Lock) -> Tuple[int, int]:
     """Process a list of URLs from a sitemap: filter and download content."""
     
@@ -334,12 +347,14 @@ def main():
     docs_dir = Path(__file__).parent.parent / 'docs'
     docs_dir.mkdir(exist_ok=True)
     
+    old_manifest = load_manifest(docs_dir)
     manifest = load_manifest(docs_dir)
     lock = threading.Lock()
     
     total_successful = 0
     total_failed = 0
     all_failed_urls = []
+    fetched_files = set()
     
     with requests.Session() as session:
         # 1. Get list of all child sitemaps
@@ -360,9 +375,16 @@ def main():
             total_failed += fail
             all_failed_urls.extend(failed_urls)
             
+            # Track fetched files
+            with lock:
+                fetched_files.update(manifest.get("files", {}).keys())
+            
             # Save manifest after each sitemap to checkpoint progress
             save_manifest(docs_dir, manifest)
             logger.info(f"Checkpoint saved. Total Success: {total_successful}, Total Failed: {total_failed}")
+    
+    # Clean up files that no longer exist in the sitemap
+    cleanup_old_files(docs_dir, fetched_files, old_manifest)
             
     logger.info("="*50)
     logger.info(f"All completed. Total Successful: {total_successful}, Total Failed: {total_failed}")
