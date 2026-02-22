@@ -11540,9 +11540,9 @@
     },
     "design/ui/cars/guides/components/voice-input.md": {
       "original_url": "https://developer.android.com/design/ui/cars/guides/components/voice-input",
-      "hash": "dc3fd6b6416039cbb6d0b89b31dd8eddf01174958c0cadf67680a838995867d3",
-      "last_updated": "2026-02-23T02:00:28.629077",
-      "fetch_method": "html-scrape"
+      "hash": "3aa918c0b679fca52b696866e80f0cde5eb095252d99b0a39e4ecb52a35601b2",
+      "last_updated": "2026-02-22T17:49:38.004935",
+      "fetch_method": "md.txt"
     },
     "about/versions/16/behavior-changes-all.md": {
       "original_url": "https://developer.android.com/about/versions/16/behavior-changes-all",
@@ -25183,5 +25183,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-02-23T02:04:29.665179"
+  "last_updated": "2026-02-22T17:52:41.443654"
 }
