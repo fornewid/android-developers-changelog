@@ -1,0 +1,33 @@
+---
+title: https://developer.android.com/guide/topics/ui/accessibility/custom-views
+url: https://developer.android.com/guide/topics/ui/accessibility/custom-views
+source: md.txt
+---
+
+# Make custom views more accessible
+
+If your application requires a[custom view component](https://developer.android.com/guide/topics/ui/custom-components), you must make the view more accessible. The following steps can improve your custom view's accessibility, as described on this page:
+
+- Handle directional controller clicks.
+- Implement accessibility API methods.
+- Send[AccessibilityEvent](https://developer.android.com/reference/android/view/accessibility/AccessibilityEvent)objects specific to your custom view.
+- Populate`AccessibilityEvent`and[AccessibilityNodeInfo](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo)for your view.
+
+## Handle directional controller clicks
+
+On most devices, clicking a view using a directional controller sends a[KeyEvent](https://developer.android.com/reference/android/view/KeyEvent)with[KEYCODE_DPAD_CENTER](https://developer.android.com/reference/android/view/KeyEvent#KEYCODE_DPAD_CENTER)to the view currently in focus. All standard Android views handle`KEYCODE_DPAD_CENTER`appropriately. When building a custom[View](https://developer.android.com/reference/android/view/View)control, make sure this event has the same effect as tapping the view on the touchscreen.
+
+Your custom control must treat the[KEYCODE_ENTER](https://developer.android.com/reference/android/view/KeyEvent#KEYCODE_ENTER)event the same as`KEYCODE_DPAD_CENTER`. This makes interactions with a full keyboard easier for users.
+| **Note:** If your view uses[ImeAction](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/ImeAction), it must handle`KEYCODE_DPAD_CENTER`and`KEYCODE_ENTER`the same way it handles the`ImeAction`.
+
+## Implement accessibility API methods
+
+Accessibility events are messages about users' interactions with your app's visual interface components. These messages are handled by[accessibility services](https://developer.android.com/guide/topics/ui/accessibility/services), which use the information in these events to produce supplemental feedback and prompts. The accessibility methods are part of the`View`and[View.AccessibilityDelegate](https://developer.android.com/reference/android/view/View.AccessibilityDelegate)classes. The methods are as follows:
+[dispatchPopulateAccessibilityEvent()](https://developer.android.com/reference/android/view/View#dispatchPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent))The system calls this method when your custom view generates an accessibility event. The default implementation of this method calls`onPopulateAccessibilityEvent()`for this view and then the`dispatchPopulateAccessibilityEvent()`method for each child of this view.[onInitializeAccessibilityEvent()](https://developer.android.com/reference/android/view/View#onInitializeAccessibilityEvent(android.view.accessibility.AccessibilityEvent))The system calls this method to obtain additional information about the state of the view beyond text content. If your custom view provides interactive control beyond a simple[TextView](https://developer.android.com/reference/android/widget/TextView)or[Button](https://developer.android.com/reference/android/widget/Button), override this method and set the additional information about your view---such as password field type, checkbox type, or states that provide user interaction or feedback into the event---using this method. If you override this method, call its super implementation and only modify properties that are not set by the super class.[onInitializeAccessibilityNodeInfo()](https://developer.android.com/reference/android/view/View#onInitializeAccessibilityNodeInfo(android.view.accessibility.AccessibilityNodeInfo))This method provides accessibility services with information about the state of the view. The default`View`implementation has a standard set of view properties, but if your custom view provides interactive control beyond a simple`TextView`or`Button`, override this method and set the additional information about your view into the`AccessibilityNodeInfo`object handled by this method.[onPopulateAccessibilityEvent()](https://developer.android.com/reference/android/view/View#onPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent))This method sets the spoken text prompt of the`AccessibilityEvent`for your view. It is also called if the view is a child of a view that generates an accessibility event.**Note:** Modifying additional attributes beyond the text within this method potentially overwrites properties set by other methods. While you can modify attributes of the accessibility event with this method, limit these changes to text content, and use the`onInitializeAccessibilityEvent()`method to modify other properties of the event. Also, if your implementation of this event completely overrides the output text without letting other parts of your layout to modify its content, then don't call the super implementation of this method in your code.
+[onRequestSendAccessibilityEvent()](https://developer.android.com/reference/android/view/ViewGroup#onRequestSendAccessibilityEvent(android.view.View, android.view.accessibility.AccessibilityEvent))The system calls this method when a child of your view generates an`AccessibilityEvent`. This step lets the parent view amend the accessibility event with additional information. Implement this method only if your custom view can have child views and if the parent view can provide context information to the accessibility event that is useful to accessibility services.
+
+[sendAccessibilityEvent()](https://developer.android.com/reference/android/view/View#sendAccessibilityEvent(int))
+:   The system calls this method when a user takes action on a view. The event is classified with a user action type, such as`TYPE_VIEW_CLICKED`. In general, you must send an`AccessibilityEvent`whenever the content of your custom view changes.
+
+[sendAccessibilityEventUnchecked()](https://developer.android.com/reference/android/view/View#sendAccessibilityEventUnchecked(android.view.accessibility.AccessibilityEvent))
+:   This method is used when the calling code needs to directly control the check for accessibility being enabled on the device ([AccessibilityManager.isEnabled()](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager#isEnabled())). If you implement this method, perform the call as if accessibility is enabled, regardless of the system setting. You typically don't need to implement this method for a custom view.

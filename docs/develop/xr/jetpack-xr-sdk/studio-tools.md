@@ -1,0 +1,125 @@
+---
+title: https://developer.android.com/develop/xr/jetpack-xr-sdk/studio-tools
+url: https://developer.android.com/develop/xr/jetpack-xr-sdk/studio-tools
+source: md.txt
+---
+
+This documentation walks you through using the Android XR Emulator and the Layout Inspector in Android Studio for building an XR app.
+| **Note:** Verify you are using the latest Canary version of Android Studio. Other versions might not include Android XR tools. See[Set up your development environment](https://developer.android.com/develop/xr/jetpack-xr-sdk/setup)for more information.
+| **Preview:** This is a Canary build. Many features are still in development, and not all Android Studio features work with XR.
+| **Caution:** In rare cases, using the emulator can result in system freezes or crashes on some Windows configurations. Verify all data is saved before running the emulator. As a workaround,[enable WHPX](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx). See[release notes](https://developer.android.com/studio/preview/features)for more known issues.
+
+Android Studio includes the following features for XR:
+
+- Android XR Emulator
+- XR Support in Layout Inspector
+
+![Android studio emulator screen](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/emulator_loaded.png)
+
+## Android XR Emulator
+
+The Android XR Emulator provides virtualized XR devices for testing and debugging your XR apps in Android Studio. It emulates XR devices, allowing you to experience your app in a 3D spatial environment. This lets you build your apps without the need for physical hardware during early development stages, streamlining your workflow and accelerating iteration.
+| **Note:** The emulator is designed for developing Android apps in Android Studio. It's not currently supported for OpenXR or Unity applications of any kind.
+
+If this is your first time using an emulator with Android Studio, consider reviewing[general documentation for the Android emulator](https://developer.android.com/studio/run/emulator).
+
+### Launch the Android XR Emulator
+
+After[installing the Android XR Emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/setup), click the**Run**button for the corresponding device in Device Manager.
+
+![Android studio device manager screen](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/device_manager2.png)
+
+### XR Emulator Controls
+
+When the Android XR Emulator loads, notice the menu in the bottom right corner. This menu lets you select various controls for emulator interaction.
+
+![Android studio device manager screen](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/emulator_menu.png)
+
+### Enable the mouse and keyboard
+
+The emulator supports interaction through mouse and keyboard input. When interacting with the system or an android application in the emulator, make sure the interaction icon is selected.
+
+![Android studio device mouse and keyboard icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/interaction.png)
+
+Once you've done this, you can start interacting with various elements within the virtual space by moving the mouse over the emulator window.
+
+### Look and move around in the virtual environment
+
+The Android XR emulator renders applications and their content in a virtual 3D environment. Use the following controls to change the direction of your view, rotate, pan, dolly, and reset:
+
+|------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| ![Android studio rotate icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/rotate.png) | Rotate: Drag the mouse to pivot your view in that direction                                                                 |
+| ![Android studio pan icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/pan.png)       | Pan: Drag the mouse to move up, down, and side to side. This will allow viewing the emulator contents from different angles |
+| ![Android studio dolly icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/dolly.png)   | Dolly: Drag the mouse to move closer or farther from the objects in view                                                    |
+| ![Android studio reset icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/reset.png)   | Reset: Click this button to return the emulator to the default view                                                         |
+
+You can also use the following keyboard shortcuts to move around in the virtual environment. To use these while using mouse and keyboard input, hold the Option key (macOS) or Alt key (Windows).
+
+- W: (or up arrow key): Move forward in your current view.
+- A: (or left arrow key): Side-step left.
+- S: (or down arrow key): Move backward.
+- D: (or right arrow key): Side-step right.
+- Q: Move vertically downward.
+- E: Move vertically upward.
+
+### Enable passthrough mode
+
+The menu at the top of the emulator includes the option to enable or disable a simulated passthrough environment.
+
+![Android studio passthrough mode UI](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/passthrough.png)
+
+When enabled, passthrough mode will display a simulated indoor environment. Use this mode to test applications in mixed reality.
+
+![Android studio emulator screen](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/emulator_passthrough.png)
+
+### Other Emulator Controls
+
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| ![Android studio power icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/power.png)                                                                                                                                                      | Power: Simulates powering the device on or off                                        |
+| ![Android studio volume up icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/volume-up.png)![Android studio volume down icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/volume-down.png)        | Volume: Simulates volume control                                                      |
+| ![Android studio screenshot icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/screen_shot.png)![Android studio screen record icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/screen_record.png) | Screenshot: Takes a screenshot or screen recording of the current state of the device |
+| :back:![Android studio home icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/home.png)![Android studio overview icon](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/overview.png)                  | Android 3 button control: Simulates the back, Home, and Overview buttons              |
+
+### Troubleshooting
+
+Check the[release notes](https://developer.android.com/studio/releases)for any known issues and workarounds.
+
+If you encounter a problem that is not a known issue, view the[support page](https://developer.android.com/studio/report-bugs)for instructions on getting help and reporting issues.
+
+Including a crash report or a bug report will help us better understand the issue. Screenshots and recordings also provide additional details needed. The instructions in this section explain how to upload a crash report and use adb to generate a bug report.
+
+## Use the Android Studio Layout Inspector with an XR app
+
+Once you have started building your spatial panels and orbiters, you can inspect your layout with the Android Studio Layout Inspector. If you are unfamiliar with the Layout Inspector, see our[guide](https://developer.android.com/studio/debug/layout-inspector)on layout debugging.
+
+Follow these steps to use the Layout Inspector with your Android XR app:
+
+1. With your project open in Android Studio, ensure that the embedded Layout Inspector is enabled.
+
+   ![Android studio layout inspector settings](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/layout-inspector-settings.png)
+2. Run your app.
+
+3. Once the application deployment has completed, choose**Tools \> Layout Inspector**.
+
+This Layout Inspector will open in an embedded window. After a few seconds, the preview displays on the left and the component tree displays on the right. Orbiters and panels appear as separate objects beneath your main content.
+
+![Android studio layout inspector page](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/components1.png)
+
+Now, you can interact with your app in the emulator. If you want to inspect any component, click it on the preview or in the component tree.
+
+You can see the component attributes by clicking the attributes tab on the right corner.
+
+![Android studio layout inspector page](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/attributes.png)
+| **Preview:** Currently, the layout inspector doesn't display depth on the z axis.
+
+## Enable Usage Statistics to help improve Android Studio for XR
+
+Consider enabling usage statistics and sending feedback to help us improve these tools. Because this is a canary version of Android Studio, many of these features are still under development.
+
+Click**Settings \> Appearance \& Behavior \> System Settings \> Data Sharing** , and ensure that**Send usage statistics**is selected.
+
+![Android studio data sharing settings](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-tools/studio-data-sharing-settings.png)
+
+*** ** * ** ***
+
+OpenXR™ and the OpenXR logo are trademarks owned by The Khronos Group Inc. and are registered as a trademark in China, the European Union, Japan and the United Kingdom.

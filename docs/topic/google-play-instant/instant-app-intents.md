@@ -1,0 +1,36 @@
+---
+title: https://developer.android.com/topic/google-play-instant/instant-app-intents
+url: https://developer.android.com/topic/google-play-instant/instant-app-intents
+source: md.txt
+---
+
+# Instant App Common Intents
+
+**Warning:** Google Play Instant will no longer be available. Starting December 2025, Instant Apps cannot be published through Google Play, and all[Google Play services Instant APIs](https://developers.google.com/android/reference/com/google/android/gms/instantapps/package-summary)will no longer work. Users will no longer be served Instant Apps by Play using any mechanism.
+
+We're making this change based on developer feedback and our continuous investments to improve the ecosystem since the introduction of Google Play Instant.
+
+To continue optimizing for user growth, we encourage developers to refer users to their regular app or game, using[deeplinks](https://support.google.com/googleplay/android-developer/answer/12463044)to redirect them to specific journeys or features when relevant.
+
+Instant apps rely on pickers and other system-defined components to do work. To ensure a basic set of functionality for Instant Apps, the Android CDD specifies a set of core apps that must be present on compatible devices and provide their functionality to Instant Apps through Intent handlers. Instant apps can safely request the functionality through these Intents and be assured that the Intent is handled properly.
+
+The table below lists the common Intents for Instant Apps on compatible Android devices, along with the API level in which they were introduced as CTS requirements on devices that support Instant Apps. To learn more about Intents or how to send them, see the[documentation](https://developer.android.com/guide/components/intents-filters).
+
+|                                                            Intent action                                                             |                                            Intent category                                            |             Intent MIME type             | API introduced (for Instant Apps) |
+|--------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|------------------------------------------|-----------------------------------|
+| [android.intent.action.CHOOSER](https://developer.android.com/reference/android/content/Intent#CHOOSER)                              | none                                                                                                  | none                                     | Android 8 (API 26)                |
+| [android.intent.action.PICK](https://developer.android.com/reference/android/content/Intent#ACTION_PICK)                             | none                                                                                                  | vnd.android.cursor.dir/contact           | Android 8 (API 26)                |
+| [android.intent.action.PICK](https://developer.android.com/reference/android/content/Intent#ACTION_PICK)                             | none                                                                                                  | vnd.android.cursor.dir/phone_v2          | Android 8 (API 26)                |
+| [android.intent.action.PICK](https://developer.android.com/reference/android/content/Intent#ACTION_PICK)                             | none                                                                                                  | vnd.android.cursor.dir/email_v2          | Android 8 (API 26)                |
+| [android.intent.action.PICK](https://developer.android.com/reference/android/content/Intent#ACTION_PICK)                             | none                                                                                                  | vnd.android.cursor.dir/postal-address_v2 | Android 8 (API 26)                |
+| [android.intent.action.OPEN_DOCUMENT](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT)           | [CATEGORY_OPENABLE](https://developer.android.com/reference/android/content/Intent#CATEGORY_OPENABLE) | \*/\*                                    | Android 8 (API 26)                |
+| [android.intent.action.OPEN_DOCUMENT](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT)           | none                                                                                                  | \*/\*                                    | Android 8 (API 26)                |
+| [android.intent.action.GET_CONTENT](https://developer.android.com/reference/android/content/Intent#ACTION_GET_CONTENT)               | [CATEGORY_OPENABLE](https://developer.android.com/reference/android/content/Intent#CATEGORY_OPENABLE) | \*/\*                                    | Android 8 (API 26)                |
+| [android.intent.action.GET_CONTENT](https://developer.android.com/reference/android/content/Intent#ACTION_GET_CONTENT)               | none                                                                                                  | \*/\*                                    | Android 8 (API 26)                |
+| [android.intent.action.OPEN_DOCUMENT_TREE](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT_TREE) | none                                                                                                  | none                                     | Android 8 (API 26)                |
+| [android.intent.action.CREATE_DOCUMENT](https://developer.android.com/reference/android/content/Intent#ACTION_CREATE_DOCUMENT)       | [CATEGORY_OPENABLE](https://developer.android.com/reference/android/content/Intent#CATEGORY_OPENABLE) | text/plain                               | Android 8 (API 26)                |
+| [android.intent.action.CREATE_DOCUMENT](https://developer.android.com/reference/android/content/Intent#ACTION_CREATE_DOCUMENT)       | none                                                                                                  | text/plain                               | Android 8 (API 26)                |
+| [android.media.action.IMAGE_CAPTURE](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE)^1^    | none                                                                                                  | none                                     | Android 8 (API 26)                |
+| [android.media.action.VIDEO_CAPTURE](https://developer.android.com/reference/android/provider/MediaStore#ACTION_VIDEO_CAPTURE)^1^    | none                                                                                                  | none                                     | Android 8 (API 26)                |
+
+1. Available only on devices that support[FEATURE_CAMERA](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CAMERA)or[FEATURE_CAMERA_ANY](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CAMERA_ANY)

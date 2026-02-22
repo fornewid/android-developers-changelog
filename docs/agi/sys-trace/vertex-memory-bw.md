@@ -1,0 +1,47 @@
+---
+title: https://developer.android.com/agi/sys-trace/vertex-memory-bw
+url: https://developer.android.com/agi/sys-trace/vertex-memory-bw
+source: md.txt
+---
+
+# Analyze vertex memory bandwidth usage
+
+The memory bandwidth of vertex data can be a potential bottleneck for your game's GPU performance. There are some counters in an AGI system profile that can help diagnose vertex memory bandwidth issues.
+
+## Qualcomm Adreno counters
+
+On devices with Qualcomm Adreno GPUs, some notable counters include:
+
+|       Counter        |                             Description                             |
+|----------------------|---------------------------------------------------------------------|
+| Vertex Memory Read   | Bandwidth of vertex data read from external memory.                 |
+| Average Bytes/Vertex | Average size of vertex data, in bytes.                              |
+| % Vertex Fetch Stall | Percentage of clock cycles where the GPU is blocked on vertex data. |
+
+## ARM Mali counters (WIP)
+
+On devices with ARM Mali GPUs, some notable counters include:
+
+|                  Counter                   |                                         Description                                          |
+|--------------------------------------------|----------------------------------------------------------------------------------------------|
+| Load/store read beats from external memory | Data beats read from external memory by the load/store unit, averaged over the shader cores. |
+| Load/store read beats from L2 cache        | Data beats read from the L2 cache by the load/store unit, averaged over the shader cores.    |
+| \[More\]                                   |                                                                                              |
+
+To calculate the overall bandwidth from average read beats, the counter value is multiplied by the bus width (typically 16 bytes) and by the total number of shader cores. \[More\]
+
+## Counter analysis
+
+To measure the behavior of these counters, you can measure the average and peak bandwidth over the course of a single GPU frame, which can be delineated with a contiguous block of**GPU Utilization**.
+![Vertex memory read bandwidth for a single frame, with an average value of 327 MBps and a peak value of 1.16 GBps](https://developer.android.com/static/images/agi/vertex-memory-bw-images/sample_vert_bw.png)**Figure 1:**Vertex memory read bandwidth for a single frame, with an average value of 327 MBps and a peak value of 1.16 GBps
+
+We recommend a peak vertex memory read bandwidth of no higher than 1.5 GBps, and an average bandwidth no higher than 500 MBps. Higher values are indicators of one of a few common issues:
+
+- **Vertex size is too big**: Vertices may have large vertex attributes or a large number of vertex attributes, affecting vertex shading time at large.
+- **Vertex attribute streams are not split**: Vertex attributes are interleaved into a single buffer, reducing cache efficiency.
+- **Too many vertices submitted per frame**: Complex models and/or a large number of models may take up greater bandwidth and take longer to shade.
+
+Vertex size issues may also be diagnosed through the**Average Bytes / Vertex**track, which we recommend to be no higher than 32 bytes or verteces.
+![Average vertex size for a single frame, with an average value of 31.3 bytes](https://developer.android.com/static/images/agi/vertex-memory-bw-images/sample_bytes_per_vert.png)**Figure 2:**Average vertex size for a single frame, with an average value of 31.3 bytes
+
+The best way to diagnose which of these problems you may be facing is by taking a frame profile trace to[analyze vertex formats](https://developer.android.com/agi/frame-trace/vertex-formats).

@@ -1,0 +1,53 @@
+---
+title: https://developer.android.com/guide/components/activities/process-lifecycle
+url: https://developer.android.com/guide/components/activities/process-lifecycle
+source: md.txt
+---
+
+# Processes and app lifecycle
+
+In most cases, every Android application runs in its own Linux process. This process is created for the application when some of its code needs to run and remains running until the system needs to reclaim its memory for use by other applications and it is no longer needed.
+
+An unusual and fundamental feature of Android is that an application process's lifetime*isn't*directly controlled by the application itself. Instead, it is determined by the system through a combination of the parts of the application that the system knows are running, how important these things are to the user, and how much overall memory is available in the system.
+
+It is important that application developers understand how different application components (in particular[Activity](https://developer.android.com/reference/android/app/Activity),[Service](https://developer.android.com/reference/android/app/Service), and[BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver)) impact the lifetime of the application's process.**Not using these components correctly can result in the system killing the application's process while it is doing important work.**
+
+A common example of a process lifecycle bug is a`BroadcastReceiver`that starts a thread when it receives an`Intent`in its[BroadcastReceiver.onReceive()](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context, android.content.Intent))method and then returns from the function. Once it returns, the system considers the`BroadcastReceiver`to no longer be active, and its hosting process to no longer be needed, unless other application components are active in it.
+
+So, the system can kill the process at any time to reclaim memory, and in doing so, it terminates the spawned thread running in the process. The solution to this problem is typically to schedule a[JobService](https://developer.android.com/reference/android/app/job/JobService)from the`BroadcastReceiver`so the system knows that there is active work occurring in the process.
+
+To determine which processes to kill when low on memory, Android places each process into an importance hierarchy based on the components running in them and the state of those components. In order of importance, these process types are:
+
+1. A**foreground process** is one that is required for what the user is currently doing. Various application components can cause its containing process to be considered foreground in different ways. A process is considered to be in the foreground if any of the following conditions hold:
+   - It is running an[Activity](https://developer.android.com/reference/android/app/Activity)at the top of the screen that the user is interacting with (its[onResume()](https://developer.android.com/reference/android/app/Activity#onResume())method has been called).
+   - It has a[BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver)that is currently running (its[BroadcastReceiver.onReceive()](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context, android.content.Intent))method is executing).
+   - It has a[Service](https://developer.android.com/reference/android/app/Service)that is currently executing code in one of its callbacks ([Service.onCreate()](https://developer.android.com/reference/android/app/Service#onCreate()),[Service.onStart()](https://developer.android.com/reference/android/app/Service#onStart(android.content.Intent, int)), or[Service.onDestroy()](https://developer.android.com/reference/android/app/Service#onDestroy())).
+2. There are only ever a few such processes in the system, and these are only killed as a last resort if memory is so low that not even these processes can continue to run. Generally, if this happens the device has reached a memory paging state, so this action is required to keep the user interface responsive.
+3. A**visible process** is doing work that the user is currently aware of, so killing it has a noticeable negative impact on the user experience. A process is considered visible in the following conditions:
+   - It is running an[Activity](https://developer.android.com/reference/android/app/Activity)that is visible to the user on-screen but not in the foreground (its[onPause()](https://developer.android.com/reference/android/app/Activity#onPause())method has been called). This might occur, for example, if the foreground`Activity`is displayed as a dialog that lets the previous`Activity`be seen behind it.
+   - It has a[Service](https://developer.android.com/reference/android/app/Service)that is running as a foreground service, through[Service.startForeground()](https://developer.android.com/reference/android/app/Service#startForeground(int, android.app.Notification))(which asks the system to treat the service as something the user is aware of, or essentially as if it were visible).
+   - It is hosting a service that the system is using for a particular feature that the user is aware of, such as a live wallpaper or an input method service.
+
+   The number of these processes running in the system is less bounded than foreground processes, but still relatively controlled. These processes are considered extremely important and aren't killed unless doing so is required to keep all foreground processes running.
+4. A**service process** is one holding a[Service](https://developer.android.com/reference/android/app/Service)that has been started with the[startService()](https://developer.android.com/reference/android/content/Context#startService(android.content.Intent))method. Though these processes are not directly visible to the user, they are generally doing things that the user cares about (such as background network data upload or download), so the system always keeps such processes running unless there is not enough memory to retain all foreground and visible processes.
+
+   Services that have been running for a long time (such as 30 minutes or more) might be demoted in importance to let their process drop to the cached list.
+
+   Processes that do need to be run over a long period can be created with[setForeground](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#setForeground(androidx.work.ForegroundInfo)). If it is a periodic process that requires strict time of execution, it can be scheduled through the[AlarmManager](https://developer.android.com/reference/android/app/AlarmManager). For more information, refer to[Support for long-running workers](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/long-running). This helps avoid situations where long-running services that use excessive resources, for example, by leaking memory, prevent the system from delivering a good user experience.
+5. A**cached process** is one that is not currently needed, so the system is free to kill it as needed when resources like memory are needed elsewhere. In a normally behaving system, these are the only processes involved in resource management.
+
+   <br />
+
+   A well-running system has multiple cached processes always available, for efficient switching between applications, and regularly kills the cached apps as needed. Only in very critical situations does the system get to a point where all cached processes are killed and it must start killing service processes.
+
+   Since cached processes can be killed by the system at any time, apps should cease all work while in the cached state. If user-critical work must be performed by the app, it should use one of the above APIs to run work from an active process state.
+
+   Cached processes often hold one or more[Activity](https://developer.android.com/reference/android/app/Activity)instances that are not currently visible to the user (their[onStop()](https://developer.android.com/reference/android/app/Activity#onStop())method has been called and has returned). Provided they implement their`Activity`lifecycle correctly when the system kills such processes, it doesn't impact the user's experience when returning to that app. It can restore the previously saved state when the associated activity recreates in a new process. Be aware that[onDestroy()](https://developer.android.com/guide/components/activities/activity-lifecycle#ondestroy)is not guaranteed to be called in the case that a process is killed by the system. For more details, see[Activity](https://developer.android.com/reference/android/app/Activity).
+
+   Starting in Android 13, an app process may receive limited or no execution time until it enters one of the above active lifecycle states.
+
+   Cached processes are kept in a list. The exact ordering policy for this list is an implementation detail of the platform. Generally, it tries to keep more useful processes, such as those hosting the user's home application or the last activity the user saw, before other types of processes. Other policies for killing processes can also be applied, like setting hard limits on the number of processes allowed or limiting the amount of time a process can stay continually cached.
+
+When deciding how to classify a process, the system bases its decision on the most important level found among all the components currently active in the process. See the[Activity](https://developer.android.com/reference/android/app/Activity),[Service](https://developer.android.com/reference/android/app/Service), and[BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver)documentation for more detail on how each of these components contributes to the overall lifecycle of a process and of the application.
+
+A process's priority might also be increased based on other dependencies a process has to it. For example, if process A has bound to a[Service](https://developer.android.com/reference/android/app/Service)with the[Context.BIND_AUTO_CREATE](https://developer.android.com/reference/android/content/Context#BIND_AUTO_CREATE)flag or is using a[ContentProvider](https://developer.android.com/reference/android/content/ContentProvider)in process B, then process B's classification is always at least as important as process A's.

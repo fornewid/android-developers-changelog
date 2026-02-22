@@ -1,0 +1,226 @@
+---
+title: https://developer.android.com/studio/gemini/availability
+url: https://developer.android.com/studio/gemini/availability
+source: md.txt
+---
+
+# Gemini availability
+
+Gemini in Android Studio is available in many countries and territories, with support for the English language.
+
+We'll gradually expand to more countries and territories in a way that is consistent with local regulations and our[AI principles](https://ai.google/principles/).
+
+**Gemini in Android Studio is available in the following countries and territories:**
+
+- Algeria
+- American Samoa
+- Angola
+- Anguilla
+- Antigua and Barbuda
+- Argentina
+- Armenia
+- Aruba
+- Australia
+- Austria
+- Azerbaijan
+- Bahrain
+- Bangladesh
+- Barbados
+- Belgium
+- Belize
+- Benin
+- Bermuda
+- Bhutan
+- Bolivia
+- Botswana
+- Brazil
+- British Indian Ocean Territory
+- British Virgin Islands
+- Brunei
+- Bulgaria
+- Burkina Faso
+- Burundi
+- Cabo Verde
+- Cambodia
+- Cameroon
+- Canada
+- Caribbean Netherlands
+- Cayman Islands
+- Central African Republic
+- Chad
+- Chile
+- Christmas Island
+- Cocos (Keeling) Islands
+- Colombia
+- Comoros
+- Cook Islands
+- Costa Rica
+- Côte d'Ivoire
+- Croatia
+- Curaçao
+- Cyprus
+- Czech Republic
+- Democratic Republic of the Congo
+- Denmark
+- Djibouti
+- Dominica
+- Dominican Republic
+- Ecuador
+- Egypt
+- El Salvador
+- Equatorial Guinea
+- Eritrea
+- Estonia
+- Eswatini
+- Ethiopia
+- Falkland Islands (Islas Malvinas)
+- Fiji
+- Finland
+- France
+- Gabon
+- Georgia
+- Germany
+- Ghana
+- Gibraltar
+- Greece
+- Grenada
+- Guam
+- Guatemala
+- Guernsey
+- Guinea
+- Guinea-Bissau
+- Guyana
+- Haiti
+- Heard Island and McDonald Islands
+- Honduras
+- Hungary
+- Iceland
+- India
+- Indonesia
+- Iraq
+- Ireland
+- Isle of Man
+- Israel
+- Italy
+- Jamaica
+- Japan
+- Jersey
+- Jordan
+- Kazakhstan
+- Kenya
+- Kiribati
+- Kuwait
+- Kyrgyzstan
+- Laos
+- Latvia
+- Lebanon
+- Lesotho
+- Liberia
+- Libya
+- Liechtenstein
+- Lithuania
+- Luxembourg
+- Madagascar
+- Malawi
+- Malaysia
+- Maldives
+- Mali
+- Malta
+- Marshall Islands
+- Mauritania
+- Mauritius
+- Mexico
+- Micronesia
+- Mongolia
+- Montserrat
+- Morocco
+- Mozambique
+- Namibia
+- Nauru
+- Nepal
+- Netherlands
+- New Caledonia
+- New Zealand
+- Nicaragua
+- Niger
+- Nigeria
+- Niue
+- Norfolk Island
+- Northern Mariana Islands
+- Norway
+- Oman
+- Pakistan
+- Palau
+- Palestine
+- Panama
+- Papua New Guinea
+- Paraguay
+- Peru
+- Philippines
+- Pitcairn Islands
+- Poland
+- Portugal
+- Puerto Rico
+- Qatar
+- Republic of the Congo
+- Romania
+- Rwanda
+- Saint Barthélemy
+- Saint Helena, Ascension and Tristan da Cunha
+- Saint Kitts and Nevis
+- Saint Lucia
+- Saint Pierre and Miquelon
+- Saint Vincent and the Grenadines
+- Samoa
+- São Tomé and Príncipe
+- Saudi Arabia
+- Senegal
+- Seychelles
+- Sierra Leone
+- Singapore
+- Slovakia
+- Slovenia
+- Solomon Islands
+- Somalia
+- South Africa
+- South Georgia and the South Sandwich Islands
+- South Korea
+- South Sudan
+- Spain
+- Sri Lanka
+- Sudan
+- Suriname
+- Sweden
+- Switzerland
+- Taiwan
+- Tajikistan
+- Tanzania
+- Thailand
+- Timor-Leste
+- The Bahamas
+- The Gambia
+- Togo
+- Tokelau
+- Tonga
+- Trinidad and Tobago
+- Tunisia
+- Türkiye
+- Turkmenistan
+- Turks and Caicos Islands
+- Tuvalu
+- US Virgin Islands
+- Uganda
+- United Arab Emirates
+- United Kingdom
+- United States
+- United States Minor Outlying Islands
+- Uruguay
+- Uzbekistans
+- Vanuatu
+- Venezuela
+- Vietnam
+- Wallis and Futuna
+- Western Sahara
+- Yemen
+- Zambia
+- Zimbabwe

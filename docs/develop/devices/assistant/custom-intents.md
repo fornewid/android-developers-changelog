@@ -1,0 +1,166 @@
+---
+title: https://developer.android.com/develop/devices/assistant/custom-intents
+url: https://developer.android.com/develop/devices/assistant/custom-intents
+source: md.txt
+---
+
+# Custom intents
+
+Every app is different, and not all app functionality matches an available[App Actions built-in intent](https://developer.android.com/reference/app-actions/built-in-intents)(BII). For cases where there isn't a BII for your app functionality, you can instead use a custom intent to extend your app with App Actions.
+
+Like BIIs, custom intents follow the[`shortcuts.xml`](https://developer.android.com/guide/app-actions/action-schema)schema and act as connection points between Assistant and your defined fulfillments. Custom intents also have intent parameters, which you can map to parameters in your corresponding fulfillment.
+
+Unlike BIIs, custom intents require[query patterns](https://developer.android.com/develop/devices/assistant/custom-intents#query-patterns)to describe example queries that a user might say. This approach differs from built-in intents, which model common ways that users express that intent.
+
+## Limitations
+
+Custom intents have the following limitations:
+
+- The name of a custom intent can't begin with`actions.intent`.
+- The name of a custom intent must be unique among the custom intent names for your app.
+- Only certain data types are available for parameter extraction by Google Assistant (see[Supported types](https://developer.android.com/develop/devices/assistant/custom-intents#supported-types)).
+- Custom intents must contain examples of usable query patterns (see[Query patterns](https://developer.android.com/develop/devices/assistant/custom-intents#query-patterns)).
+- Each query supports a maximum of two text parameters. This limit does not apply to other data types.
+- Custom intents support only the en-US locale. Also, the device and Assistant language settings must match.
+
+## Supported types
+
+Custom intents support the following[schema.org](https://schema.org)types for parameter extraction:
+
+- `https://schema.org/Text`
+- `https://schema.org/Date`
+- `https://schema.org/Time`
+- `https://schema.org/Number`
+
+## Define App Actions with custom intents
+
+As with other App Actions that use BIIs, you define a custom intent in the`<capability>`element in[`shortcuts.xml`](https://developer.android.com/guide/app-actions/action-schema).
+
+Capabilities are defined in the`<shortcuts>`root element. When you define your`<shortcuts>`element, include the namespaces of the attributes you want to access, as shown in the following example:  
+
+    <shortcuts
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+      ...
+    </shortcuts>
+
+Provide the name of the custom intent in the`android:name`attribute, and reference a[query patterns](https://developer.android.com/develop/devices/assistant/custom-intents#query-patterns)resource file in the`queryPatterns`attribute.  
+
+    <shortcuts
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+      \<capability
+    android:name="custom.actions.intent.EXAMPLE_INTENT"
+    app:queryPatterns="@array/ExampleQueries"\>
+    \<intent ...\>
+    \<url-template
+    android:value="http://custom.com{?number_of_items,item_name}" /\>
+    \<parameter
+    android:name="number_of_items"
+    android:key="number_of_items"
+    android:mimeType="https://schema.org/Number" /\>
+    \<parameter
+    android:name="item_name"
+    android:key="item_name"
+    android:mimeType="https://schema.org/Text" /\>
+    \</intent\>
+    \</capability\>
+      ...
+    </shortcuts>
+
+Custom intent names can't begin with`actions.intent`, because that namespace is reserved for BIIs. Instead, when naming your custom intents, use the prefix`custom.actions.intent`to distinguish your custom intents from both BIIs and Android intents, which function differently.
+
+For each parameter, provide the[supported schema.org type](https://developer.android.com/develop/devices/assistant/custom-intents#supported-types)that best describes the meaning of the parameter. For example, you can use`https://schema.org/Date`to describe a date you expect to receive:  
+
+    ...
+    <intent>
+      <url-template android:value="https://example.com/appt{?apptType,date,time}" />
+      <parameter
+          android:name="date"
+          android:key="date"
+          android:mimeType="https://schema.org/Date" /\>
+      ...
+    </intent>
+    ...
+
+Define shortcuts for custom intents in`shortcuts.xml`using the same format as shortcuts for BIIs.
+
+The following code describes an App Action that uses the referenced query patterns to trigger the`SCHEDULE_APPOINTMENT`custom intent and uses a defined set of values,`DRIVERS_LICENSE`and`VEHICLE_REGISTRATION`, for the`apptType`parameter.  
+
+    <shortcuts
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+      <capability
+          android:name="custom.actions.intent.SCHEDULE_APPOINTMENT"
+          app:queryPatterns="@array/scheduleApptQueries">
+        <intent ...>
+         <url-template android:value="https://example.com/appt{?apptType,date,time}" />
+           <parameter
+              android:name="date"
+              android:key="date"
+              android:mimeType="https://schema.org/Date" />
+           <parameter
+              android:name="time"
+              android:key="time"
+              android:mimeType="https://schema.org/Time" />
+           <!-- The following parameter has no type because the shortcuts are bound to it -->
+           <parameter android:name="apptType" android:key="apptType" />
+        </intent>
+      </capability>
+
+      <shortcut
+          android:shortcutShortLabel="Driver's License"
+          android:shortcutId="DRIVERS_LICENSE">
+        <capability-binding android:key="custom.actions.intent.SCHEDULE_APPOINTMENT">
+          <parameter-binding
+              android:key="apptType"
+              android:value="@string/driversLicense" />
+        </capability-binding>
+      </shortcut>
+
+      <shortcut
+          android:shortcutsShortLabel="Vehicle Registration"
+          android:shortcutId="VEHICLE_REGISTRATION">
+        <capability-binding android:key="custom.actions.intent.SCHEDULE_APPOINTMENT">
+          <parameter-binding
+              android:key="apptType"
+              android:value="@string/vehicleRegistration" />
+        </capability-binding>
+      </shortcut>
+    </shortcuts>
+
+You can configure custom intent parameters with[inline inventory](https://developer.android.com/guide/app-actions/action-schema#inline-inventory), which you can use to guide entity extraction to a set of supported entities specified in`shortcuts.xml`.
+| **Note:** [Web inventory](https://developer.android.com/guide/app-actions/web-inventory)is not supported for custom intent parameters.
+
+## Query patterns
+
+Each custom intent you use requires a set of queries expected from the user for that intent. This approach is unlike BIIs, where queries are already modeled for common ways that users express tasks they're trying to do or information they seek.
+
+In an Android resource file (usually`/res/values/strings.xml`), specify query patterns as items in a[string array](https://developer.android.com/guide/topics/resources/string-resource). When your App Action is invoked, Google Assistant checks the user query against your query patterns as part of matching the user's intent for fulfillment. Each query pattern you provide represents a phrase that you consider valid for the corresponding custom intent.
+| **Note:** Each custom intent can be associated with up to 100 query patterns.
+
+When providing query patterns for custom intents, expect each pattern to follow an explicit invocation like "open Example App and" or "start Example App and." For example, consider the following user queries:
+
+- *"Hey Google, open Example Game App and start making a cake."*
+- *"Hey Google, open Example Game App and start making an apple pie."*
+- *"Hey Google, start Example Game App and craft 5 cake items."*
+- *"Hey Google, use Example Game App to produce cake 5 times."*
+
+To match user queries, provide query patterns that contain the portion of the query after the invocation phrase. For information you want to extract from the query (like text or a number provided by the user), you assign values to the corresponding intent parameter with placeholders in the query pattern.
+| **Note:** Assistant makes exact matches based on the query patterns you provide for custom intents. Query pattern matching doesn't include invocation phrases, and uses the Assistant language setting.
+
+To reference a parameter in a query pattern, add`$`to the name of the parameter in your pattern. For example, to create a placeholder value for a parameter such as`<parameter name="date1" ...`(in`actions.xml`) or`<parameter android:name="date1" ...`(in`shortcuts.xml`), you use`$date1`.
+
+The following code describes query patterns that match the preceding user queries and extract values for item names and the number of items to be made:  
+
+    <resources>
+      <string-array name="ExampleQueries">
+        <item>start making a $text1</item>
+        <item>start making an $text1</item>
+        <item>craft $number1 $text1 items</item>
+        <item>produce $text1 $number1 times</item>
+      </string-array>
+    </resources>
+
+Query patterns support conditionals. For example,`set (an)? appointment
+$date $time`. In this case, both "set appointment today at noon" and "set an appointment today at noon" are valid queries.

@@ -1,0 +1,24 @@
+---
+title: https://developer.android.com/design/ui/cars/guides/flows/grant-permissions-on-phone
+url: https://developer.android.com/design/ui/cars/guides/flows/grant-permissions-on-phone
+source: md.txt
+---
+
+# Grant permissions on the phone
+
+When a user tries to open your app but hasn't authorized the necessary permissions, you can use the Message template to request permissions.
+
+In Android Auto, if you use the method described in[Request Permissions](https://developer.android.com/training/cars/apps#permissions), the permissions dialog will open on the phone if the user is not driving (for technical details, see[Handle user input](https://developer.android.com/training/cars/apps#handle-user-input)).
+
+In this case, provide a toast directing the user to the phone. After the user grants permissions, refresh the car screen so the user doesn't return to the Message template.  
+First, the app requests permissions on the car screen.  
+Next, the user confirms permissions on their phone when not driving.
+
+## Sample flow
+
+|                                        User action                                         |                                                                                                                                                                                                                                                Where action is performed                                                                                                                                                                                                                                                |      Step count after action       |
+|--------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
+| The user opens the app.                                                                    | On your landing template (not shown)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 1                                  |
+| The user selects the option to grant app permissions, then reviews the confirmation toast. | First, use the Message template with two buttons to allow users the chance to grant the permissions that they need: ![Message template with primary and secondary action buttons](https://developer.android.com/static/images/design/ui/cars/flows/grant-permissions-phone-1.png) Then, display a toast on that same Message template to direct the user to their phone: ![Message template with two buttons and toast](https://developer.android.com/static/images/design/ui/cars/flows/grant-permissions-phone-2.png) | 2                                  |
+| The user grants permission on their phone.                                                 | No template, as this action occurs on the user's phone: ![User taps on Allow button on phone](https://developer.android.com/static/images/design/ui/cars/flows/grant-permissions-phone-3.png)                                                                                                                                                                                                                                                                                                                           | 2 (no interaction with app in car) |
+| After the user grants permissions, the app returns to the landing template.                | Landing template; in this case, the Place List (navigation) template: ![Place List template with Recents, Favorites, and Saved lists](https://developer.android.com/static/images/design/ui/cars/flows/grant-permissions-phone-4.png)                                                                                                                                                                                                                                                                                   | 1 (step count resets)              |

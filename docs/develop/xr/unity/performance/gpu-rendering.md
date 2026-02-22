@@ -1,0 +1,62 @@
+---
+title: https://developer.android.com/develop/xr/unity/performance/gpu-rendering
+url: https://developer.android.com/develop/xr/unity/performance/gpu-rendering
+source: md.txt
+---
+
+# Optimize GPU rendering
+
+Unity provides a variety of advanced GPU features that use instancing and occlusion culling to significantly reduce draw calls and eliminate rendering of hidden objects. These features work together to maximize GPU efficiency in complex scenes.
+
+## GPU Resident Drawer
+
+The[GPU Resident Drawer](https://unity.com/roadmap/2602-gpu-resident-drawer)automatically uses GPU instancing to reduce draw calls and free up CPU processing time. This feature is most effective for large scenes with many objects that share the same mesh.
+
+### Enable this feature
+
+1. From the Unity main menu, click**Edit \> Project Settings \> Graphics**.
+2. In the**Shader Stripping** section, set**Batch Renderer Group Variants** to**Keep All**.
+3. Find your**Default Render Pipeline**asset, which is also your URP asset.
+4. Search for this asset in your project.
+5. Right-click the asset and select**Properties**.
+6. In the**Renderer List** , right-click the**Universal Renderer** and select**Properties**.
+7. Set**Rendering Path** to**Forward+**.
+8. Return to your URP asset, select it, and then click the three dots in the and select**Debug**.
+9. Set**GPU Resident Drawer Mode** to**Instanced Drawing**.
+
+## GPU Occlusion Culling
+
+[Occlusion Culling](https://docs.unity3d.com/6000.2/Documentation/Manual/urp/gpu-culling.html)uses the GPU instead of the CPU to exclude objects that are hidden behind other objects. This feature is most effective in scenes with significant occlusion, such as interiors or dense environments.
+
+### Enable this feature
+
+1. From the Unity main menu, click**Edit \> Project Settings \> Graphics**.
+2. Enable**GPU Occlusion Culling**.
+3. Select the**URP**tab.
+4. In the**Render Graph** section, disable**Compatibility Mode (Render Graph Disabled)**.
+
+## Optimize Buffer Discards
+
+This optimization improves performance by discarding unnecessary depth buffer data and efficiently processing MSAA color buffers, which reduces memory operations.
+
+### Benefits
+
+- Eliminates unnecessary copying and moving of graphics data.
+- Speeds up GPU rendering for all cases.
+
+### Enable this feature
+
+1. From the Unity main menu, click**Edit \> Project Settings**.
+2. Expand the**XR Plug-in Management** section, and then click**OpenXR**.
+3. Select the**Android**tab.
+4. Select the**Android XR**feature group.
+5. Click the cog icon next to**Android XR Support**.
+6. Enable**Optimize Buffer Discards (Vulkan)**.
+
+   ![Unity settings optimizing buffer discards](https://developer.android.com/static/images/develop/xr/unity/performance/optimize-buffer-discards.png)
+
+## Disable front-to-back rendering
+
+Front-to-back rendering is a rendering order experiment you can try in your scene. When combined with optimizations like Low-Resolution-Z (LRZ), it might help with performance in scenes with significant occlusion where background objects use expensive fragment shaders.
+
+However, enabling this setting might also reduce performance. For this reason, leaving it at the default setting (disabled) is the recommended approach.

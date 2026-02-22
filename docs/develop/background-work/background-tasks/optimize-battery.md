@@ -1,0 +1,35 @@
+---
+title: https://developer.android.com/develop/background-work/background-tasks/optimize-battery
+url: https://developer.android.com/develop/background-work/background-tasks/optimize-battery
+source: md.txt
+---
+
+# Optimize battery use for task scheduling APIs
+
+This page suggests a few best practices for setting up well-behaved background tasks. These best practices are specifically aimed at reducing battery consumption, but they can also improve device performance in other ways, like reducing network use.
+| **Note:** This page focuses on how to optimize tasks created with[WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent), our preferred library for scheduling tasks. In many cases, these suggestions also apply to[`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler)jobs, though the APIs you use are slightly different. Where appropriate, we've called out some corresponding`JobScheduler`APIs.
+
+## Choose optimal constraints and combine tasks
+
+To minimize the load your tasks place on the device, it's important to[specify optimal constraints](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work#work-constraints). (For JobScheduler jobs, see[`JobInfo.Builder`](https://developer.android.com/reference/android/app/job/JobInfo.Builder#setExpedited(boolean))for the list of constraints.) To take one example, if you want to make sure your app doesn't run down the battery, it's a good idea to specify the`RequiresCharging`constraint. This constraint tells the system not to run the job unless the battery level is actually increasing. Similarly, using Wi-Fi generally requires less power than mobile data, so if your task needs a network connection but can wait until an unmetered network is available, it's a good idea to set a[`NetworkType.UNMETERED`](https://developer.android.com/reference/androidx/work/NetworkType#UNMETERED)constraint.
+
+Also, if you have several similar tasks that would fall under the same constraints, it's usually a good idea to combine them into a single task, so the device only gets woken up once. For example, suppose your app has three different data sets it needs to sync with cloud storage. Instead of scheduling three different tasks--one for each data set--it's usually a better idea to just schedule a single "synchronize the data" task, define appropriate constraints, and let that task do all the pending data synchronization when it runs.
+
+That said, you shouldn't try to combine*unrelated*tasks into a single do-it-all task. Instead, just make sure to give each task appropriate constraints. For example, if tasks are low priority, make sure to specify that they should run when the device is idle and charging. That way, even if the device gets woken up several times, it won't hurt the user experience or impact battery life.
+
+## Only mark tasks as expedited when they're time-sensitive
+
+If a task is particularly urgent, you can[mark it as expedited](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work#expedited). (For JobScheduler jobs, call[`JobInfo.Builder.setExpedited(true)`](https://developer.android.com/reference/android/app/job/JobInfo.Builder#setExpedited(boolean)).) Doing so prioritizes the task in a number of ways. For example, the system runs those tasks immediately when it can, and power management restrictions are less likely to affect expedited tasks.
+
+For these reasons, you should be careful to*only*mark a task as expedited when you need to. Because expedited tasks can override some system efficiencies, expedited tasks can drain more power than they would if they weren't marked that way.
+
+You should only mark a task as expedited if it's time-sensitive, and the user experience would be impaired if the task took longer to execute. For example, if your app runs a task to handle a high-priority FCM message, that's an appropriate reason to mark the task as expedited. But you shouldn't mark a task as expedited just to override system optimizations.
+
+## Check why your tasks were stopped
+
+If your tasks stop before they finish, you can check why they were stopped by calling[`WorkInfo.getStopReason()`](https://developer.android.com/reference/androidx/work/WorkInfo#getStopReason()). (For JobScheduler jobs, call[`JobParameters.getStopReason()`](https://developer.android.com/reference/android/app/job/JobParameters#getStopReason())It's important to do this for a couple of reasons. First of all, of course, you want your tasks to finish. Finding out why your tasks stopped helps you avoid similar situations. But also, the system is likely to stop tasks because of behavior that overuses system resources. You don't want your app to be a bad citizen, using the battery or network unnecessarily.
+
+For example, if your tasks frequently get stopped with the reason[`STOP_REASON_TIMEOUT`](https://developer.android.com/reference/androidx/work/WorkInfo#STOP_REASON_TIMEOUT()), there might be an edge case that sometimes causes your tasks to take much longer than you're expecting.
+
+We recommend that you use your analytics engine to track whether your app's tasks are stopped, and for what reasons.
+| **Important:** On Android 14 or higher, if an app's tasks time out too often, the system can[put the app in the restricted standby bucket](https://developer.android.com/about/versions/14/behavior-changes-all#triggers-to-restricted-bucket).

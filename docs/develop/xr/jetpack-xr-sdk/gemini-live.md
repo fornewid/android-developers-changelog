@@ -1,0 +1,23 @@
+---
+title: https://developer.android.com/develop/xr/jetpack-xr-sdk/gemini-live
+url: https://developer.android.com/develop/xr/jetpack-xr-sdk/gemini-live
+source: md.txt
+---
+
+<br />
+
+<br />
+
+Applicable XR devices  
+This guidance helps you build experiences for these types of XR devices.  
+[Learn about XR device types →](https://developer.android.com/develop/xr/devices)  
+![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg)AI Glasses[](https://developer.android.com/develop/xr/devices#ai-glasses)  
+[Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+
+<br />
+
+The[Gemini Live API](https://firebase.google.com/docs/ai-logic/live-api/)provides a comprehensive solution for implementing conversational interfaces with your user. When building for Android XR, you can integrate with the Gemini Live API through[Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic). Unlike using[Text to Speech (TTS)](https://developer.android.com/develop/xr/jetpack-xr-sdk/asr)and[Automatic Speech Recognition (ASR)](https://developer.android.com/develop/xr/jetpack-xr-sdk/asr), the Gemini Live API handles both audio input and output in a seamless way. The Gemini Live API does require a persistent internet connection, incur cost, supports a[limited number of concurrent connections per project](https://firebase.google.com/docs/ai-logic/live-api/limits-and-specs)and might not be ideal for handling error conditions or other critical user communication, especially on AI glasses with no display.
+
+In addition to supporting audio interfaces, you can also use the Gemini Live API to build agentic experiences.
+
+To get started with the Gemini Live API, follow along the steps outlined in the[Gemini Live API guide](https://developer.android.com/ai/gemini/live). It walks you through instantiating and configuring a[`LiveGenerativeModel`](https://firebase.google.com/docs/reference/kotlin/com/google/firebase/ai/LiveGenerativeModel), establishing a[`LiveSession`](https://firebase.google.com/docs/reference/kotlin/com/google/firebase/ai/type/LiveSession)and creating custom[`FunctionDeclaration`](https://firebase.google.com/docs/ai-logic/live-api?api=dev#function-calling)instances that allow your app to process requests from Gemini.

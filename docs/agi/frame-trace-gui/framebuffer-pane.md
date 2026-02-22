@@ -1,0 +1,41 @@
+---
+title: https://developer.android.com/agi/frame-trace-gui/framebuffer-pane
+url: https://developer.android.com/agi/frame-trace-gui/framebuffer-pane
+source: md.txt
+---
+
+# Framebuffer pane
+
+The**Framebuffer** pane shows the contents of the currently-bound framebuffer. Depending on the item you select in the**Commands** pane, the**Framebuffer**pane can show onscreen or offscreen framebuffers.
+
+![](https://developer.android.com/static/images/agi/framebuffer-pane-images/framebuffer-pane.png)
+
+When you select a command in the**Commands** pane, the**Framebuffer**pane displays the contents of the framebuffer after that call finishes. If you select a command group, it displays the framebuffer that best represents the group. Typically, this is the framebuffer after the last call in the group finishes.
+
+Start by selecting the first call within a frame, then click each successive call to watch the framebuffer components draw one-by-one until the end of the frame. These framebuffer displays, for both onscreen and offscreen graphics, help you to locate the source of any rendering errors.
+
+Move the cursor over the image to display a zoomed-in preview of the surrounding pixels in the bottom-left hand corner of the view as in the image above. The pane also shows the image width and height as well as the*x* and*y*coordinates, normalized image coordinates (U and V values), and RBGA hex value for that point on the image.
+
+## Select different attachments
+
+A framebuffer can contain multiple attachments. You can select which attachment to display and click**Show Attachments** or**Hide Attachments**as needed. Attachment thumbnails are labeled with the type of the attachment (for example, COLOR, DEPTH, and INPUT) as well as its index.
+
+Once you select an attachment, the main view displays in the upper left corner.
+
+## Operations
+
+You can perform operations on the framebuffer image using the following buttons:
+
+|                                                            Button                                                             |                                                                        Description                                                                         |                                          Example Result                                           |
+|-------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| ![Render shaded geometry](https://developer.android.com/static/images/agi/framebuffer-pane-images/icons/wireframe_none.png)   | Renders the shaded geometry of the image.                                                                                                                  | ![](https://developer.android.com/static/images/agi/framebuffer-pane-images/shaded-geometry.png)  |
+| ![Render wireframe geometry](https://developer.android.com/static/images/agi/framebuffer-pane-images/icons/wireframe_all.png) | Shows the wireframe of the image.                                                                                                                          | ![](https://developer.android.com/static/images/agi/framebuffer-pane-images/wireframe.png)        |
+| ![Zoom to Fit](https://developer.android.com/static/images/agi/framebuffer-pane-images/icons/zoom_fit.png)                    | Adjusts the image to fit completely within the pane. You can also right-click the image to adjust the zoom to fit the image.                               | ![](https://developer.android.com/static/images/agi/framebuffer-pane-images/zoom-to-fit.png)      |
+| ![Zoom to Actual Size](https://developer.android.com/static/images/agi/framebuffer-pane-images/icons/zoom_actual.png)         | Displays the image at no scale, where one device pixel is equivalent to one screen pixel.                                                                  | ![](https://developer.android.com/static/images/agi/framebuffer-pane-images/original-size.png)    |
+| ![Zoom In](https://developer.android.com/static/images/agi/framebuffer-pane-images/icons/zoom_mode.png)                       | Zooms in on the image. You can also use your mouse wheel, or two-finger swipes on a touchpad, to zoom in and out. You can drag the image with your cursor. | ![](https://developer.android.com/static/images/agi/framebuffer-pane-images/zoom-in.png)          |
+| ![Zoom Out](https://developer.android.com/static/images/agi/framebuffer-pane-images/icons/zoom_out.png)                       | Zooms out on the image. You can also use your mouse wheel, or two-finger swipes on a touchpad, to zoom in and out.                                         | ![](https://developer.android.com/static/images/agi/framebuffer-pane-images/zoom-out.png)         |
+| ![Color Histogram](https://developer.android.com/static/images/agi/framebuffer-pane-images/icons/histogram.png)               | Displays the color histogram for the image. You can select the control handles on either side to limit the color values displayed.                         | ![](https://developer.android.com/static/images/agi/framebuffer-pane-images/histogram.png)        |
+| ![Color Channels](https://developer.android.com/static/images/agi/framebuffer-pane-images/icons/color_channels_15.png)        | Select the color channels to render. The options are**Red** ,**Green** ,**Blue** , and**Alpha**(transparency).                                             | ![](https://developer.android.com/static/images/agi/framebuffer-pane-images/color-channel.png)    |
+| ![Background](https://developer.android.com/static/images/agi/framebuffer-pane-images/icons/transparency.png)                 | Select a checkerboard pattern or a solid color for the image background.                                                                                   | ![](https://developer.android.com/static/images/agi/framebuffer-pane-images/image-background.png) |
+| ![Flip Vertically](https://developer.android.com/static/images/agi/framebuffer-pane-images/icons/flip_vertically.png)         | Flips the image vertically.                                                                                                                                | ![](https://developer.android.com/static/images/agi/framebuffer-pane-images/flip-vertical.png)    |
+| ![Save To File](https://developer.android.com/static/images/agi/framebuffer-pane-images/icons/save.png)                       | Saves the image to a file.                                                                                                                                 |                                                                                                   |

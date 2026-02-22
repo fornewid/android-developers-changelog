@@ -1,0 +1,120 @@
+---
+title: https://developer.android.com/build/dependency-verification
+url: https://developer.android.com/build/dependency-verification
+source: md.txt
+---
+
+# Dependency verification
+
+Compromised Gradle dependencies pose a security risk. A malicious actor could potentially inject a modified dependency into the build process, for example, through a man-in-the-middle attack during dependency resolution.
+
+If a build dependency (a library) has been compromised, it can affect the way your application executes on a device. If a plugin dependency has been compromised, it can change the way your build works, or even run external commands on the build machine.
+
+To mitigate this, you can enable[**Dependency verification**](https://docs.gradle.org/current/userguide/dependency_verification.html)in your build.
+
+## Library checksums and signatures
+
+Library authors can provide two pieces of metadata that can help verify the authenticity of the dependencies you are downloading. You define a file named`gradle/verification-metadata.xml`to specify which values you approve. It can contain:
+
+- **Checksums**- a hash of an artifact that you can use to verify that the artifact was not corrupted during transport. If the checksum was retrieved from a trusted source, it tells you that the artifact has not changed, reducing man-in-the-middle attacks.
+
+  The downside is that, because checksums are calculated from the artifacts, they change with every release, requiring you to update`gradle/verification-metadata.xml`whenever you upgrade them.
+- **Signatures**- allows dependency users to specify a public key for a given artifact in order to validate that this artifact was built and signed by the library author who is the authenticated owner of that public key. This is more work for the library author, but as long as their private key itself has not been compromised, the signature tells you the library is legitimate.
+
+  If the library author signs each version of an artifact with the same key, you don't need to update`gradle/verification-metadata.xml`when you upgrade them.
+
+## Enable dependency verification
+
+[Gradle dependency verification](https://docs.gradle.org/current/userguide/dependency_verification.html)compares checksums and signatures during your build.
+
+Create a`gradle/verification-metadata.xml`file that contains the following:  
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <verification-metadata
+        xmlns="https://schema.gradle.org/dependency-verification"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://schema.gradle.org/dependency-verification https://schema.gradle.org/dependency-verification/dependency-verification-1.3.xsd">
+        <configuration>
+            <!-- verify .pom and .module files -->
+            <verify-metadata>true</verify-metadata>
+            <!-- verify .asc PGP files that come with the artifacts -->
+            <verify-signatures>true</verify-signatures>
+            <!-- use human readable keyring format -->
+            <keyring-format>armored</keyring-format>
+            <!-- read keys in a local file, fewer requests to network -->
+            <key-servers enabled="false">
+                <key-server uri="https://keyserver.ubuntu.com"/>
+                <key-server uri="https://keys.openpgp.org"/>
+            </key-servers>
+        </configuration>
+        <components>
+        </components>
+    </verification-metadata>
+
+This serves as a starting point and will be updated shortly.
+
+Run`./gradlew assembleDebug`to see how this changes the build. You'll see messages such as  
+
+    * What went wrong:
+    Error resolving plugin [id: 'com.android.application', version: '8.7.3', apply: false]
+    > Dependency verification failed for configuration 'detachedConfiguration1'
+      One artifact failed verification: com.android.application.gradle.plugin-8.7.3.pom ...
+      This can indicate that a dependency has been compromised ...
+      
+      Open this report for more details: .../dependency-verification-report.html
+
+Gradle is telling you that you are pulling in versions of dependencies that you have not explicitly approved.
+
+## Bootstrap the checksum and signature data
+
+You can bootstrap the initial set trusted keys and components. This process gathers the current signatures and checksums for all libraries used by your project.
+
+Generate the initial metadata by running  
+
+    ./gradlew --write-verification-metadata pgp,sha256 --export-keys help
+
+This command tells Gradle to build a list of PGP keys and fallback checksums for all the dependencies that are used in this project. You will see a change to your verification-metadata.xml with a number of entries like:  
+
+    <trusted-key id="8461EFA0E74ABAE010DE66994EB27DB2A3B88B8B">
+        <trusting group="androidx.activity"/>
+    </trusted-key>
+
+This tells Gradle that if it sees a dependency from maven group`androidx.activity`, it will ensure that the accompanying .asc files (signatures stored in the repository) match that key.
+
+Bootstrapping will also generate`gradle/verification-keyring.keys`that contains the public PGP keys used by your build. Check in both of these files into your version tracking system. Any future changes that modify either`verification-metadata.xml`or`verification-keyring.keys`should be carefully reviewed.
+| **Note:** It's possible that the current set of checksums and signatures are already compromised. Whenever you bootstrap or update checksums and signatures, you should verify that you trust them. This can require extra effort to locate trusted locations of those checksums and signatures, but if you want to ensure you're getting the correct libraries, you should compare ones you know to be trusted against the data generated here.
+
+## Strip versions from trusted keys
+
+Signing keys rarely change between releases of a library. The generated data in the`gradle/verification-metadata.xml`file contains version details, meaning You would need to re-add key information for each new dependency version.
+
+To avoid this, and specify that the key applies to all versions of a library, remove the version specifications.
+
+In the Android Studio editor, use**Edit \> Find \> Replace...**using regular expression to replace all version specifications for trusted keys.
+
+- from:`<trusted-key(.*) version=\".*\"/>`
+- to:`<trusted-key$1/>`
+
+## Android Studio synchronization
+
+So far, your command-line build works, but if you try to synchronize in Android Studio you'll see errors like  
+
+    A build operation failed.
+        Dependency verification failed for configuration ':app:detachedConfiguration3'
+    One artifact failed verification: gradle-8.10.2-src.zip (gradle:gradle:8.10.2) from repository Gradle distributions
+    If the artifacts are trustworthy, you will need to update the gradle/verification-metadata.xml file. For more on how to do this, please refer to https://docs.gradle.org/8.10.2/userguide/dependency_verification.html#sec:troubleshooting-verification in the Gradle documentation.
+
+Android Studio wants to download the Gradle sources (along with other sources and docs). The easiest way to correct this is to trust all source and javadocs. Add`<trusted-artifacts>`in`gradle/verification-metadata.xml`:  
+
+    <verification-metadata ...>
+       <configuration>
+          <trusted-artifacts>
+             <trust file=".*-javadoc[.]jar" regex="true"/>
+             <trust file=".*-sources[.]jar" regex="true"/>
+             <trust group="gradle" name="gradle"/>
+          </trusted-artifacts>
+          ...
+      </configuration>
+    </verification-metadata>
+
+Your build will now work properly from the command line and Android Studio.

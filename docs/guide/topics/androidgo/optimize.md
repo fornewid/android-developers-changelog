@@ -1,0 +1,21 @@
+---
+title: https://developer.android.com/guide/topics/androidgo/optimize
+url: https://developer.android.com/guide/topics/androidgo/optimize
+source: md.txt
+---
+
+# Optimize for Android (Go edition)
+
+Android (Go edition) has a rapidly growing user base, and with that comes the need to optimize existing applications to perform well on these low-RAM devices. Some of the most common challenges around this type of development requires limiting some app features or capabilities, improving startup time, and handling memory pressure within your app. That's where optimizing your app for Android (Go edition) can help.
+
+## Approach
+
+Follow the steps below before beginning your app optimization approach. This guidance helps establish a baseline for identifying potential areas for improvement and how to resolve your findings.
+
+|            Phases            |                                                                                                                                                                                                                                   Description                                                                                                                                                                                                                                   |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Define                       | Before starting any optimization effort, it's important to define Key Performance Indicators (KPIs) around areas of improvement that you're targeting for your app. Some common improvement areas include app startup latency, app crash rate, or application not responding (ANRs). Once these KPIs have been defined, you should establish target thresholds from a minimum user experience and benchmarking perspective, balancing user experience and technical complexity. |
+| Breakdown                    | It's recommended to break these improvement areas into individual signal metrics. For example, app crash rates can be categorized granularly into reasons for the crash --- such as unhandled errors, high memory usage, or ANRs.                                                                                                                                                                                                                                               |
+| Benchmark                    | Next, you can benchmark the targeted improvement area to identify current performance. If your targets aren't met, try to identify the bottlenecks by looking at individual breakdowns.                                                                                                                                                                                                                                                                                         |
+| Repeat the process           | After optimizing certain bottlenecks, repeat the benchmarking process to view potential improvements. If your pre-defined KPI targets aren't met, then you can repeat the process for a second iteration.                                                                                                                                                                                                                                                                       |
+| Add regular regression tests | Regular regression tests can run at any frequency you desire for your app to identify regressions against your KPIs. It's more efficient to identify and cut off any regressions or bugs before they make their way into your codebase. Don't publish any changes that fail your KPI goals unless you make the decision to update your KPI targets.                                                                                                                             |

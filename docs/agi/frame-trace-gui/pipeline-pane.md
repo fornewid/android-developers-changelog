@@ -1,0 +1,43 @@
+---
+title: https://developer.android.com/agi/frame-trace-gui/pipeline-pane
+url: https://developer.android.com/agi/frame-trace-gui/pipeline-pane
+source: md.txt
+---
+
+# Pipeline pane
+
+The**Pipeline** pane shows the contents of the currently bound pipeline. Select a valid draw or dispatch call in the**Command**pane. If you select a group of commands that includes a draw or dispatch call, it displays the last bound pipeline.
+![Pipeline pane](https://developer.android.com/static/images/agi/pipeline-view/pipeline-view.png)**Figure 1.**Pipeline pane
+
+The stages of the currently-bound pipeline are located at the top of the pane. They are presented in the order they are used in their respective pipelines. However, not every stage might be used. If a stage is unused, the stage is not unselectable and any arrows from previous stages are drawn over it to indicate that it is being skipped. When a user selects a stage, the rest of the pane displays data relevant to only that stage. Here are the currently supported stages:
+
+| Stage |           Full Name            | Pipeline Type (Call Type) |
+|-------|--------------------------------|---------------------------|
+| IA    | Input Assembly                 | Graphics (Draw)           |
+| VS    | Vertex Shader                  | Graphics (Draw)           |
+| TCS   | Tessellation Control Shader    | Graphics (Draw)           |
+| TES   | Tessellation Evaluation Shader | Graphics (Draw)           |
+| GS    | Geometry Shader                | Graphics (Draw)           |
+| RAST  | Rasterizer                     | Graphics (Draw)           |
+| FS    | Fragment Shader                | Graphics (Draw)           |
+| BLEND | Color Blending                 | Graphics (Draw)           |
+| CS    | Compute Shader                 | Compute (Dispatch)        |
+
+## Data organization
+
+The data in each stage is organized in shader code, tables, and key-value pairs.
+
+### Shader Code
+
+This box contains the shader for the currently-selected stage, but only it's a shader stage. Tabs on the top of the box allow you see the shader in SPIR-V and GLSL. Note that GLSL might be decompiled from the SPIR-V instead of being the actual original source.
+![Shader code](https://developer.android.com/static/images/agi/pipeline-view/shader-code.png)**Figure 2.**Shader code
+
+### Tables
+
+Tables usually contain data that you have defined statically or dynamically. If the data was dynamically set, a message displays next to the table's name. Some tables, such as**Stencil State** , represent state instead of user-defined data such as buffers or descriptors and are greyed out when inactive. The tables might contain links that open up other panes. For example, clicking any handle under the**View** header of**Descriptor Set** tables opens a**Texture**tab of the texture that descriptor represents.
+![Tables](https://developer.android.com/static/images/agi/pipeline-view/table.png)**Figure 3.**Tables
+
+### Key-value pairs
+
+Key-value pairs typically represents state data. The exceptions are the**Static Analysis**statistics in the shader stages. A pair with a dynamically-set has have an asterisk next to its key. Any pair that is inactive is greyed out. The user can hover the mouse over any deactivated pair to check what other pair deactivated it.
+![Key-value pairs](https://developer.android.com/static/images/agi/pipeline-view/kv-pairs.png)**Figure 4.**Key-value pairs

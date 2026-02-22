@@ -1,0 +1,21 @@
+---
+title: https://developer.android.com/design/ui/wear/guides/get-started/levels-expression
+url: https://developer.android.com/design/ui/wear/guides/get-started/levels-expression
+source: md.txt
+---
+
+# Levels of expression
+
+Material 3 Expressive introduces three tiers of expression: foundational, excellent and transformational.
+
+Use these tiers to gauge the level of expression being achieved. Target the excellent or transformative level for your app to achieve optimal expression.
+
+|                  |                       Foundational (Required in 2024)                        |                                                       Excellent (Required)                                                        |                                                                                Transformative (Recommended)                                                                                |
+|------------------|------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Components**   | Baseline component migration                                                 | Multiple expressive components                                                                                                    | Multiple expressive components and customization                                                                                                                                           |
+| **Color**        | Baseline palette                                                             | Dynamic palette themes                                                                                                            | Dynamic palette themes and/or unexpected color combinations                                                                                                                                |
+| **Typography**   | Roboto Flex                                                                  | Roboto Flex                                                                                                                       | Roboto Flex with morphing                                                                                                                                                                  |
+| **Shape**        | -                                                                            | Some use of shape library and containment                                                                                         | Use of shape library and expressive containment                                                                                                                                            |
+| **Motion**       | Motion tokens                                                                | Motion tokens with some use of expressive motion (shape morphing and spring animations)                                           | Motion tokens with some use of expressive motion (shape morphing and spring animations)                                                                                                    |
+| **Hero moments** | -                                                                            | Product specific expressive design moments                                                                                        | Product specific expressive design moments and dramatic hierarchy and customization                                                                                                        |
+| **Adaptive**     | Apply responsive behavior to layouts and components (use percentage margins) | Apply responsive and adaptive behavior to layouts and components (use percentage margins), add value after the breakpoint (225dp) | Apply responsive and adaptive behavior to layouts and components (use percentage margins), add value after the breakpoint (225dp), and supply large screen specific designs where possible |
