@@ -101,14 +101,14 @@ def generate_summary(client, filename, content, is_new=False):
     Task:
     {task_instructions}
     
-    3. **Write informative properties.** The summary should explain "what changed" and "why it matters" in Korean. (Max 150 characters).
+    3. **Write informative properties.** The summary should explain "what changed" and "why it matters" in English. (Max 150 characters).
     4. Return the result in JSON format.
     
     Format example:
     [
         {{
             "header": "Overview", 
-            "summary": "새로운 Activity Lifecycle 콜백이 추가되어, 더 정밀한 상태 관리가 가능해졌습니다."
+            "summary": "New Activity Lifecycle callbacks have been added, enabling more precise state management."
         }}
     ]
     
@@ -129,7 +129,7 @@ def generate_summary(client, filename, content, is_new=False):
             if attempt == 2:
                 logger.error(f"Gemini API failed for {filename}: {e}")
                 
-    return [{"header": "Overview", "summary": f"{filename} 문서가 업데이트되었습니다."}]
+    return [{"header": "Overview", "summary": f"{filename} documentation has been updated."}]
 
 def load_changelog():
     if not CHANGELOG_JSON.exists():
@@ -217,7 +217,7 @@ def main():
         if status == 'D':
             updates.append({
                 'title': filename,
-                'summary': "문서가 삭제되었습니다.",
+                'summary': "Documentation has been removed.",
                 'tag_text': tag_text,
                 'tag_class': tag_class
             })
