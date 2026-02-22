@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "date": "2026-02-22T17:52:42Z",
+    "commit_hash": "9958543",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/cars/guides/components/voice-input\" target=\"_blank\">voice-input.md</a>",
+        "summary": "Updated links and image URLs, and minor wording changes for clarity and formatting. No functional changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/9958543_voice-input.md.txt"
+      }
+    ]
+  }
+]
