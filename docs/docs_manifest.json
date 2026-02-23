@@ -3338,8 +3338,8 @@
     },
     "develop/ui/views/layout/support-multi-window-mode.md": {
       "original_url": "https://developer.android.com/develop/ui/views/layout/support-multi-window-mode",
-      "hash": "288f93586cf1288729c28d5b864433730fa4277bb7b20cb78f0d0fb9ab2e90fe",
-      "last_updated": "2026-02-23T01:58:01.808443",
+      "hash": "5ab8b94e37bb01af3218d42d2696ac4e1539aee7654fe88ea64216f273d5ba2a",
+      "last_updated": "2026-02-23T15:17:26.794313",
       "fetch_method": "md.txt"
     },
     "games/services/management/api/players/hide.md": {
@@ -3818,8 +3818,8 @@
     },
     "guide/topics/manifest/data-element.md": {
       "original_url": "https://developer.android.com/guide/topics/manifest/data-element",
-      "hash": "d0a7d47bd5902a29aedc57d5ff50e1b8b4bd2a3790fb75f149173219b5245991",
-      "last_updated": "2026-02-23T01:58:07.357849",
+      "hash": "ddf83c611959c6673e64e22a03bde72d47b9a93be54e3e6f5220e8e5e4941e0e",
+      "last_updated": "2026-02-23T15:17:32.425011",
       "fetch_method": "md.txt"
     },
     "guide/navigation/design/actions.md": {
@@ -5234,8 +5234,8 @@
     },
     "topic/performance/app-optimization/keep-rules-overview.md": {
       "original_url": "https://developer.android.com/topic/performance/app-optimization/keep-rules-overview",
-      "hash": "00f859a33715ae4a5fe7428ec9b3ed735225d9170f3967c6920566dd0835de85",
-      "last_updated": "2026-02-23T01:58:23.155522",
+      "hash": "1eeacf26d5823dcdbaad503c9f638285e37b0ff32a84d44c924f64b26cb5154a",
+      "last_updated": "2026-02-23T15:17:32.965914",
       "fetch_method": "md.txt"
     },
     "about/versions/14/changes/data-safety.md": {
@@ -6824,8 +6824,8 @@
     },
     "topic/performance/app-optimization/add-keep-rules.md": {
       "original_url": "https://developer.android.com/topic/performance/app-optimization/add-keep-rules",
-      "hash": "dd6dc99ffbe8f5a62ffbdb0f319cb5f00594b83152d04263309bbfecaf201259",
-      "last_updated": "2026-02-23T01:59:03.109860",
+      "hash": "f09b5d46f830ed0b95c48bc8e732b2c660394528244d1969bb703cc600cee452",
+      "last_updated": "2026-02-23T15:18:05.397988",
       "fetch_method": "md.txt"
     },
     "develop/connectivity/bluetooth/ble-audio/audio-recording.md": {
@@ -13622,8 +13622,8 @@
     },
     "develop/ui/compose/layouts/adaptive/support-multi-window-mode.md": {
       "original_url": "https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode",
-      "hash": "82413565ae8f461063ec7bd2219e678fc931dd671ee10299809882a3caf5238f",
-      "last_updated": "2026-02-23T02:01:11.408674",
+      "hash": "699832ede36d1b66dad02bb760ed77bc9974fd8b2e10f919ba9baed008f4331c",
+      "last_updated": "2026-02-23T15:19:10.918951",
       "fetch_method": "md.txt"
     },
     "develop/devices/assistant/inline-inventory.md": {
@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "13910f4d80861baf62faf066eeee6f8112f649d4f2238786eb90e68f9351d3f5",
-      "last_updated": "2026-02-23T02:01:14.093165",
+      "hash": "8100c0936f67c9f64eeaade79999a74adb5d112564a610ccde311ca829d096fc",
+      "last_updated": "2026-02-23T15:19:12.449654",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -20690,8 +20690,8 @@
     },
     "index.md": {
       "original_url": "https://developer.android.com/",
-      "hash": "e2997f52af099447f01309c9c2648d97950d5a0424a2a2eb32a41f62a28c23d8",
-      "last_updated": "2026-02-23T02:03:16.814660",
+      "hash": "82b5778475c7e581c75d005b8a60104a9f3712448923c11289957ec3e2c835fa",
+      "last_updated": "2026-02-23T15:20:38.311906",
       "fetch_method": "md.txt"
     },
     "courses/pathways/jetpack-compose-for-android-developers-3.md": {
@@ -21764,8 +21764,8 @@
     },
     "topic/performance/app-optimization/keep-rule-examples.md": {
       "original_url": "https://developer.android.com/topic/performance/app-optimization/keep-rule-examples",
-      "hash": "596937a12e44f11fb637a691182a4aab19b392c7aae87e84863bc1797621ce00",
-      "last_updated": "2026-02-23T02:03:28.472129",
+      "hash": "9252d4d620a00c2f00b65d7e0c7bd37a0bcc4c1306dae00956ceffff3d474ad3",
+      "last_updated": "2026-02-23T15:20:25.895213",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/system/insets-views-compose.md": {
@@ -25183,5 +25183,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-02-22T17:52:41.443654"
+  "last_updated": "2026-02-23T15:21:20.681670"
 }

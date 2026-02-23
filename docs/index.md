@@ -15,11 +15,11 @@ Learn about the latest Android innovations and what we're doing to help you tran
   Launch Play Console](https://play.google.com/apps/publish)
 - [![](https://developer.android.com/static/images/picto-icons/stars.svg)
   View Latest Updates](https://developer.android.com/latest-updates)
-[![](http://developer.android.com/static/images/home/xr-promo.png)](http://developer.android.com/xr) Featured
+[![](http://developer.android.com/static/images/home/promo-ecosystem-blog.png)](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html) Featured
 
-### [Take your apps beyond the screen with the new Samsung Galaxy XR!](http://developer.android.com/xr)
+### [Keeping Google Play \& Android app ecosystems safe in 2025](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html)
 
-Extend your app's reach to the next dimension with the Samsung Galaxy XR, the first device powered by Android XR. [Read more](http://developer.android.com/xr) [![](http://developer.android.com/static/images/home/google-play-level-up.svg)](https://play.google.com/console/about/levelup) Featured
+Safety is at the heart of everything we do. We want developers to thrive and users to feel confident downloading apps. By investing in world-class defenses, we're stopping threats before they reach our digital world and providing stronger protections for your business. [Read more](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html) [![](http://developer.android.com/static/images/home/google-play-level-up.svg)](https://play.google.com/console/about/levelup) Featured
 
 ### [Accelerate your games success with Google Play Games Level Up](https://play.google.com/console/about/levelup)
 

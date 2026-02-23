@@ -65,15 +65,17 @@ The multi-window user experience depends on the version of Android and type of d
 > [!NOTE]
 > **Note:** Device manufacturers can override these multi-window behaviors.
 
-## Split-screen mode
+## Implementation strategies
 
-Users activate split-screen mode by doing the following:
+Multi-window mode can be initiated multiple ways.
+
+### Support user-initiated split-screen
 
 1. Open the [Recents screen](https://developer.android.com/guide/components/recents)
 2. Swipe an app into view
-3. Press the app icon in the app title bar
-4. Select the split screen menu option
-5. Select another app from the Recents screen, or close the Recents screen and run another app
+3. Press the app icon in the app's title bar
+4. Select the **Split screen** menu option
+5. Select another app from the Recents screen
 
 Users exit split-screen mode by dragging the window divider to the edge of the
 screen---up or down, left or right.
@@ -81,19 +83,10 @@ screen---up or down, left or right.
 > [!NOTE]
 > **Note:** Android 12L (API level 32) and higher enable users to activate split-screen mode from the Recents screen by selecting the **Split** action displayed below the active app when two or more apps are in Recents.
 
-### Launch adjacent
+### Programmatic split-screen (launch adjacent)
 
-If your app needs to access content through an intent, you can use
-[`FLAG_ACTIVITY_LAUNCH_ADJACENT`](https://developer.android.com/reference/kotlin/android/content/Intent#flag_activity_launch_adjacent) to open the content in an adjacent
-split-screen window.
-
-`FLAG_ACTIVITY_LAUNCH_ADJACENT` was introduced in Android 7.0 (API level 24) to
-enable apps running in split-screen mode to launch activities in the adjacent
-window.
-
-Android 12L (API level 32) and higher have extended the flag's definition to
-enable apps running full screen to activate split-screen mode and then launch
-activities in the adjacent window.
+If your app needs to launch another activity into an adjacent window, use the [`FLAG_ACTIVITY_LAUNCH_ADJACENT`](https://developer.android.com/reference/kotlin/android/content/Intent#flag_activity_launch_adjacent) intent flag. On Android 12L (API level 32) and higher, the flag allows an app running full screen to enter split-screen mode and launch a target activity into the adjacent window.
+`FLAG_ACTIVITY_LAUNCH_ADJACENT` was introduced in Android 7.0 (API level 24).
 
 To launch an adjacent activity, use `FLAG_ACTIVITY_LAUNCH_ADJACENT` in
 conjunction with [`FLAG_ACTIVITY_NEW_TASK`](https://developer.android.com/reference/kotlin/android/content/Intent#flag_activity_new_task), for example:
@@ -119,6 +112,10 @@ conjunction with [`FLAG_ACTIVITY_NEW_TASK`](https://developer.android.com/refere
 
 > [!NOTE]
 > **Note:** OEMs can enable 12L behavior on older Android versions, in which case `FLAG_ACTIVITY_LAUNCH_ADJACENT` functions as it does on API level 32.
+
+### Activity embedding (split activities in the same task)
+
+Activity embedding enables apps composed of multiple activities to split activities *within the same app task* , such as for a [list‑detail](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#list-detail) layout on large screens. Activity embedding, part of [Jetpack WindowManager](https://developer.android.com/reference/androidx/window/embedding/package-summary), lets you define configuration rules (such as split-pair rules) using XML or API calls that determine whether activities are displayed side by side or stacked. For full details, see [Activity embedding](https://developer.android.com/develop/ui/views/layout/activity-embedding).
 
 ## Activity lifecycle in multi-window mode
 
