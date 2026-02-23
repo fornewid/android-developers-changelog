@@ -1,0 +1,136 @@
+diff --git a/docs/topic/performance/app-optimization/add-keep-rules.md b/docs/topic/performance/app-optimization/add-keep-rules.md
+index 39f3bd2..d144761 100644
+--- a/docs/topic/performance/app-optimization/add-keep-rules.md
++++ b/docs/topic/performance/app-optimization/add-keep-rules.md
+@@ -21,7 +21,7 @@ keep option, `allowoptimization` as the modifier, and keeps
+     }
+ 
+ > [!NOTE]
+-> **Note:** Apart from rules that specify items that must be kept, R8 also lets you configure additional rules that impact the optimization. For more information, see [Additional rule types](https://developer.android.com/topic/performance/app-optimization/additional-rules-types), [Troubleshooting rules](https://developer.android.com/topic/performance/app-optimization/troubleshooting-rules), and [Global options](https://developer.android.com/topic/performance/app-optimization/global-options).
++> **Note:** Apart from rules that specify items that must be kept, R8 also lets you configure additional rules that impact the optimization. For more information, see [Additional rule types](https://developer.android.com/topic/performance/app-optimization/additional-rule-types), [Troubleshooting rules](https://developer.android.com/topic/performance/app-optimization/troubleshooting-rules), and [Global options](https://developer.android.com/topic/performance/app-optimization/global-options).
+ 
+ ## Keep option
+ 
+@@ -34,7 +34,7 @@ The following table describes these keep options:
+ 
+ | **Keep option** | **Description** |
+ |---|---|
+-| `keepclassmembers` | Preserves specified members only *if the class exists after optimization*. |
++| `keepclassmembers` | Preserves specified members only if R8 doesn't remove the class that contains them. |
+ | `keep` | Preserves specified classes and the specified members (fields and methods), preventing them from being optimized. **Note** : `keep` should generally only be used with [keep option modifiers](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#keep-option-modifier) because `keep` by itself prevents optimizations of any kind from happening on matched classes. |
+ | `keepclasseswithmembers` | Preserves a class and its specified members only if the class has all of the members from the class specification. |
+ | `keepclassmembernames` | Prevents the renaming of specified class members, but does not prevent the class or its members from being removed. **Note:** The meaning of this option is often misunderstood; consider using the equivalent `-keepclassmembers,allowshrinking` instead. |
+@@ -496,7 +496,7 @@ To keep all public fields and public methods, see the following example:
+         public *;
+     }
+ 
+-### Omitting the member specification
++### Omit the member specification
+ 
+ Omitting the member specification causes R8 to keep the default constructor for
+ the class.
+@@ -588,6 +588,104 @@ Here are some examples of how to use the special wildcards:
+ 
+       -keepclasseswithmembers class ** { public static void main(java.lang.String[];) }
+ 
++## Conditional keep rules
++
++In addition to standard keep rules, you can use conditional keep rules, which
++only apply if a specific condition is met. You can specify conditional rules
++using the `-if` flag. The keep rule that follows an `-if` flag is only active if
++the class specification in the `-if` flag has a match.
++
++Conditional keep rules are particularly useful when dealing with libraries or
++code patterns that use reflection, where a keep rule is only needed if a certain
++class or member is present or matches a pattern. Using conditional rules helps
++minimize your app's size by preventing unnecessary code retention.
++
++The general syntax for a conditional keep rule is as follows:
++
++    -if <class_specification_if> <keep_rule>
++
++If the class specification in an `-if` condition contains wildcards (such as
++`*` or `**`), the sequence of characters matching a wildcard is *captured* .
++You can refer to these captured strings in the subsequent keep rule using
++backreferences: `<1>` refers to the string captured by the first wildcard,
++`<2>` refers to the string captured by the second wildcard, and so on.
++
++For example, the Jetpack Navigation component generates `NavArgs` classes for
++type-safe argument passing between destinations. When using `NavArgsLazy`
++delegate, it uses reflection to find and invoke a static `fromBundle` method on
++the generated `NavArgs` class to deserialize arguments. If your app uses
++`NavArgs`, you only need to keep the `fromBundle` method for classes that
++implement the `NavArgs` interface.
++
++You can use a conditional keep rule to specify that if any class implements
++`androidx.navigation.NavArgs`, then R8 should keep the `fromBundle` method for
++that specific class:
++
++    # If a class implements NavArgs...
++    -if public class ** implements androidx.navigation.NavArgs
++    # ...then keep the fromBundle method of that matched class (<1>).
++    -keepclassmembers public class <1> {
++        public static ** fromBundle(android.os.Bundle);
++    }
++
++In this example, `**` is the first and only wildcard in the `-if` condition. It
++matches the class name of any class implementing
++`androidx.navigation.NavArgs`. The string that `**` matches (in this case, the
++class name) is captured, and you can refer to it using `<1>` in the subsequent
++rule. The `-keepclassmembers` rule thus applies to any class implementing
++`androidx.navigation.NavArgs` that was matched by the `-if` condition. If R8
++finds no classes implementing `NavArgs`, it ignores this keep rule.
++
++Another common use case is with JSON serialization libraries like Gson. If your
++data model classes use Gson's `@SerializedName` annotation on any field, you
++can use a conditional rule to protect any such class and its members that Gson
++needs for reflection:
++
++    # If a class has fields annotated with @SerializedName...
++    -if class ** { @com.google.gson.annotations.SerializedName <fields>; }
++    # ...then keep that class (<1>), its @SerializedName fields,
++    # and its constructors for Gson.
++    -keep class <1> {
++        @com.google.gson.annotations.SerializedName <fields>;
++        <init>(...);
++    }
++
++Backreferences capture strings, which can be substrings of class names if a
++wildcard only matches part of the name. For example, if you use
++`-if class com.example.*X*`, R8 captures the substring before `X` as `<1>`
++and the substring after `X` as `<2>`. The following rule uses this to find any
++class name containing `X` and keep a corresponding class where `X` is replaced
++by `Y`:
++
++    # If a class like com.example.PrefixXPostfix exists...
++    -if class com.example.*X*
++    # ...keep com.example.PrefixYPostfix.
++    -keep class com.example.<1>Y<2>
++
++### Conditional keep rules for reflection
++
++One common use case for conditional keep rules is to handle reflection, where
++specific methods or classes are accessed dynamically at runtime. For example,
++if a library uses reflection to interact with your code, you might only need to
++keep certain members if you use a specific feature of that library.
++
++The Jetpack Navigation library uses reflection using the `NavArgsLazy` delegate
++to call a static `fromBundle` method on generated `NavArgs` classes for
++type-safe argument passing. To make sure this method is only kept for `NavArgs`
++implementations, and not for every class, Jetpack Navigation includes the
++following conditional keep rule:
++
++    # If a class implements NavArgs...
++    -if public class ** implements androidx.navigation.NavArgs
++    # ...then keep the fromBundle method of that matched class (<1>).
++    -keepclassmembers public class <1> {
++        public static ** fromBundle(android.os.Bundle);
++    }
++
++This rule keeps `fromBundle` only for classes that need it, rather than
++keeping it in all classes or requiring you to manually specify which classes
++need it.
++
+ ## Inspect generated Java names
+ 
+ When writing keep rules, you must specify classes and other reference types

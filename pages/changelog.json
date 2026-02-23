@@ -1,5 +1,67 @@
 [
   {
+    "date": "2026-02-23T15:21:21Z",
+    "commit_hash": "1c9ee25",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode\" target=\"_blank\">support-multi-window-mode.md</a>",
+        "summary": "Updated content on how to initiate and support multi-window mode, with new sections on programmatic split-screen and activity embedding.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/1c9ee25_support-multi-window-mode.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/support-multi-window-mode\" target=\"_blank\">support-multi-window-mode.md</a>",
+        "summary": "Updated split-screen mode instructions, added programmatic split-screen details and explained Activity Embedding.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/1c9ee25_support-multi-window-mode.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/manifest/data-element\" target=\"_blank\">data-element.md</a>",
+        "summary": "Updated links to use HTTPS and added clarification on path matching and escaping special characters.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/1c9ee25_data-element.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/index\" target=\"_blank\">index.md</a>",
+        "summary": "Updated featured content, replacing XR device promotion with a security blog post. Focus shifts to Play Store safety.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/1c9ee25_index.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">nightly.md</a>",
+        "summary": "nightly.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/1c9ee25_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/add-keep-rules\" target=\"_blank\">add-keep-rules.md</a>",
+        "summary": "Added documentation for conditional keep rules, explaining their use in reflection and with libraries like Gson.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/1c9ee25_add-keep-rules.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/keep-rule-examples\" target=\"_blank\">keep-rule-examples.md</a>",
+        "summary": "keep-rule-examples.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/1c9ee25_keep-rule-examples.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/keep-rules-overview\" target=\"_blank\">keep-rules-overview.md</a>",
+        "summary": "keep-rules-overview.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/1c9ee25_keep-rules-overview.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-02-22T17:52:42Z",
     "commit_hash": "9958543",
     "entries": [
