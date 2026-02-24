@@ -206,20 +206,16 @@ The following are new features in Android Studio Panda 3.
 To see what's been fixed in this version of Android Studio, see the [closed
 issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.3).
 
-### Suggested fixes for crashes
+### Suggested fixes for crashes with Agent integration in AQI
 
-In Android Studio Meerkat Feature Drop, we launched Gemini insights for crashes
-reported in the [App Quality Insights](https://developer.android.com/studio/debug/app-quality-insights) tool
-window. Now, Android Studio can use Gemini to analyze the crash data along with
-your source code to suggest potential fixes. After selecting a crash in the App
-Quality Insights tool window, navigate to the **Insights** tab and click
-**Suggest a fix** after Gemini generates an insight for the crash. Gemini then
-generates suggested code changes that you can review and accept in an editor
-diff tab.
-![](https://developer.android.com/static/studio/preview/features/images/suggested-fixes.png)
-
-> [!NOTE]
-> **Note:** Before you get started, make sure you enable context sharing in the Gemini settings (**Android Studio \> Settings \> Gemini** ) under **Context Awareness**.
+The [App Quality Insights](https://developer.android.com/studio/debug/app-quality-insights) tool
+window is now integrated with the AI agent to analyze crash data along with
+your source code to provide detailed explanations and suggest potential fixes.
+After selecting a crash in the App Quality Insights tool window, navigate to
+the **Insights** tab and click **See more** to see a detailed explanation of
+the crash. Click **Fix with AI** to have the agent suggest code changes that
+you can review and accept.
+![](https://developer.android.com/static/studio/preview/features/images/aqi-agent-integration.png) New agent integration in AQI with options to "See more" and "Fix with AI"
 
 ### Compose Preview Screenshot Testing tool
 

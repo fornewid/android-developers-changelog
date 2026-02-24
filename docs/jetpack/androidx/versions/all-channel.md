@@ -20,9 +20,14 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
-| **Note:** the Jetpack team started signing Jetpack libraries in June 2023. For more information, see [verifying Jetpack dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies).
-| **Note:** Starting in June 2025, new releases of many AndroidX libraries previously targeting minSdk 21 will be updated to require minSdk 23. Some libraries won't be re-released and will therefore continue to support minSdk 21.
-| To get the latest product updates delivered to you in an RSS feed, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the feed's URL directly: `https://developer.android.com/feeds/androidx-release-notes.xml`
+
+> [!NOTE]
+> **Note:** the Jetpack team started signing Jetpack libraries in June 2023. For more information, see [verifying Jetpack dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies).
+
+> [!NOTE]
+> **Note:** Starting in June 2025, new releases of many AndroidX libraries previously targeting minSdk 21 will be updated to require minSdk 23. Some libraries won't be re-released and will therefore continue to support minSdk 21.
+
+To get the latest product updates delivered to you in an RSS feed, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the feed's URL directly: `https://developer.android.com/feeds/androidx-release-notes.xml`
 
 ## Latest Release
 
@@ -56,7 +61,7 @@ These Jetpack libraries have been recently updated.
 - [Core-telecom Version 1.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0-alpha03)
 - [Glance Wear Wear-core Version 1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha03)
 - [Health-services-client Health-services-client-external-protobuf Health-services-client-proto Version 1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/health#health-services-client-1.1.0-beta01)
-- [Mediarouter Version 1.9.0-alpha01](https://developer.android.com/jetpack/androidx/composereleases/mediarouter#1.9.0-alpha01)
+- [Mediarouter Version 1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-alpha01)
 - [Navigation3 Version 1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-alpha04)
 - [Navigation3 Version 1.0.1](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.1)
 - [Paging Version 3.4.1](https://developer.android.com/jetpack/androidx/releases/paging#3.4.1)

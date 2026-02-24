@@ -10,12 +10,45 @@ removing unused code and resources, rewriting code to optimize runtime
 performance, and more. To your users, this means:
 
 - Faster startup time
+- Reduced memory usage
 - Improved rendering and runtime performance
 - Fewer [ANRs](https://developer.android.com/topic/performance/anrs/keep-your-app-responsive)
 
 > [!IMPORTANT]
 > **Important:** You should always enable optimization for your app's release build; however, you probably don't want to enable it for tests or libraries. For more information about using R8 with tests, see [Test and troubleshoot the
 > optimization](https://developer.android.com/topic/performance/app-optimization/test-and-troubleshoot-the-optimization). For more information about enabling R8 from libraries, see [Optimization for library authors](https://developer.android.com/topic/performance/app-optimization/library-optimization).
+
+## R8 optimization overview
+
+R8 uses a multi-phase process to optimize your app for size and speed. Key
+operations include the following:
+
+- **Code shrinking (also known as tree shaking)** : R8 identifies and removes
+  unreachable code from your application and its library dependencies. By
+  analyzing the entry points of your app (such as `Activities` or `Services`
+  defined in the manifest), R8 builds a graph of referenced code and removes
+  anything that remains unreferenced.
+
+- **Logical optimizations**: R8 rewrites your code to improve execution
+  efficiency and reduce overhead. Key techniques include:
+
+  - **Method inlining**: R8 replaces a method call site with the actual body
+    of the called method. This eliminates the overhead of a function call and
+    lets R8 conduct further optimizations.
+
+  - **Class merging**: R8 combines sets of classes and interfaces into a
+    single class. This reduces the number of classes in the app, lowering
+    memory pressure and improving startup speed.
+
+- **Obfuscation (also known as minification)** : To reduce the size of the DEX
+  file, R8 shortens the names of classes, fields, and methods (for example,
+  `com.example.MyActivity` could become `a.b.a`).
+
+Since 8.12.0 version of Android Gradle Plugin (AGP), R8 also optimizes resources
+as part of its optimization phases. For more information, see [Optimized
+resource shrinking](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#optimize-resource-shrinking).
+
+## Enable optimization
 
 To enable app optimization, set `isMinifyEnabled = true` (for code optimization)
 and `isShrinkResources = true` (for resource optimization) in your [release
@@ -111,8 +144,8 @@ following line from your project's `gradle.properties` file, if it exists:
 
 Note that enabling app optimization makes stack traces difficult to understand,
 especially if R8 renames class or method names. To get stack traces that
-correctly correspond to your source code, see
-[Recover the original stack trace](https://developer.android.com/topic/performance/app-optimization/test-and-troubleshoot-the-optimization#recover-original-stack-trace).
+correctly correspond to your source code, see [Recover the original stack
+trace](https://developer.android.com/topic/performance/app-optimization/test-and-troubleshoot-the-optimization#recover-original-stack-trace).
 
 If R8 is enabled, you should also [create Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) for even better
 startup performance.
@@ -122,7 +155,8 @@ fix them:
 
 - [Add keep rules](https://developer.android.com/topic/performance/app-optimization/add-keep-rules) to keep some code untouched.
 - [Adopt optimizations incrementally](https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally).
-- Update your code to [use libraries that are better suited for optimization](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely).
+- Update your code to [use libraries that are better suited for
+  optimization](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely).
 
 > [!CAUTION]
 > **Caution:** Tools that replace or modify R8's output can negatively impact runtime performance. R8 is careful about including and testing many optimizations at the code level, in [DEX layout](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations), and in correctly producing Baseline Profiles - other tools producing or modifying DEX files can break these optimizations, or otherwise regress performance.

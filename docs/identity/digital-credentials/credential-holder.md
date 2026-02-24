@@ -4,56 +4,218 @@ url: https://developer.android.com/identity/digital-credentials/credential-holde
 source: md.txt
 ---
 
-# Credential Manager - Holder API
+The Credential Manager Holder API enables your Android holder (also called
+"wallet") app to manage and present digital credentials to verifiers.
+![Image showing the digital credentials UI in Credential Manager](https://developer.android.com/static/identity/digital-credentials/images/digital_credentials_ui.svg) **Figure 1.** The digital credentials selector UI.
 
-The Credential Manager - Holder API enables Android apps to manage and present digital credentials to verifiers.
+## Core concepts
 
-## Get started
+It is important to familiarize yourself with the following concepts before
+utilizing the Holder API.
 
-To use the Credential Manager - Holder API, add the following dependencies to your app module's build script:  
+### Credential formats
 
-    // In your app module's build.gradle:
-    dependencies {
-        implementation(libs.androidx.registry.provider)
-        implementation(libs.androidx.registry.provider.play.services)
+Credentials can be stored in holder apps in different credential formats. These
+formats are specifications for how a credential should be represented, and each
+one contains the following information about the credential:
+
+- **Type:** The category such a university degree or a mobile drivers license.
+- **Properties:** Attributes such as first and last name.
+- **Encoding:** The way the credential is structured, for example SD-JWT or mdoc
+- **Validity:** Method to cryptographically verify the credential's authenticity.
+
+Each credential format does the encoding and validation slightly differently,
+but functionally they are the same.
+
+The registry supports two formats:
+
+- **SD-JWT:** conforms to the [IETF SD-JWT-based Verifiable Credentials
+  (SD-JWT VC) specification](https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/).
+- **Mobile Documents or mdocs:** conforms to the [ISO/IEC 18013-5:2021
+  specification](https://www.iso.org/standard/69084.html).
+
+A verifier may make an OpenID4VP request for SD-JWT and mdocs when using
+Credential Manager. The choice varies depending on the use case and the industry
+choice.
+
+### Credential metadata registration
+
+Credential Manager doesn't store a holder's credentials directly, but rather the
+credentials' **metadata** . A holder app must first register credential metadata
+with Credential Manager using `RegistryManager`. This registration process
+creates a registry record which serves two key purposes:
+
+- **Matching:** Registered credential metadata is used to match with future verifier requests.
+- **Display:** Customized UI elements are shown to the user on the credential selector interface.
+
+You will use the `OpenId4VpRegistry` class to register your digital credentials,
+as it supports both mdoc and SD-JWT credential formats. Verifiers will send
+[OpenID4VP requests](https://developer.android.com/identity/digital-credentials/credential-verifier#construct_a_digital_credential_request) to request these credentials.
+
+## Register your app's credentials
+
+To use the Credential Manager Holder API, add the following dependencies to your
+app module's build script:
+
+### Groovy
+
+```groovy
+dependencies {
+    // Use to implement credentials registrys
+
+    implementation "androidx.credentials.registry:registry-digitalcredentials-mdoc:1.0.0-alpha04"
+    implementation "androidx.credentials.registry:registry-digitalcredentials-preview:1.0.0-alpha04"
+    implementation "androidx.credentials.registry:registry-provider:1.0.0-alpha04"
+    implementation "androidx.credentials.registry:registry-provider-play-services:1.0.0-alpha04"
+
+}
+```
+
+### Kotlin
+
+```kotlin
+dependencies {
+    // Use to implement credentials registrys
+
+    implementation("androidx.credentials.registry:registry-digitalcredentials-mdoc:1.0.0-alpha04")
+    implementation("androidx.credentials.registry:registry-digitalcredentials-preview:1.0.0-alpha04")
+    implementation("androidx.credentials.registry:registry-provider:1.0.0-alpha04")
+    implementation("androidx.credentials.registry:registry-provider-play-services:1.0.0-alpha04")
+
+}
+```
+
+### Create the RegistryManager
+
+Create a `RegistryManager` instance and register an `OpenId4VpRegistry` request
+with it.
+
+    // Create the registry manager
+    val registryManager = RegistryManager.create(context)
+
+    // The guide covers how to build this out later
+    val registryRequest = OpenId4VpRegistry(credentialEntries, id)
+
+    try {
+        registryManager.registerCredentials(registryRequest)
+    } catch (e: Exception) {
+        // Handle exceptions
     }
 
-    // In libs.versions.toml:
-    registryDigitalCredentials = "1.0.0-alpha02"
+### Build an OpenId4VpRegistry request
 
-    androidx-registry-provider = { module = "androidx.credentials.registry:registry-provider", version.ref = "registryDigitalCredentials" }
-    androidx-registry-provider-play-services = { module = "androidx.credentials.registry:registry-provider-play-services", version.ref = "registryDigitalCredentials" }
+As mentioned earlier, you will need to register an `OpenId4VpRegistry` to handle
+an OpenID4VP request from a verifier. We'll assume you have some local data
+types loaded with your wallet credentials (for example, `sdJwtsFromStorage`).
+You will now convert them into our Jetpack `DigitalCredentialEntry` equivalents
+based on their format - `SdJwtEntry` or `MdocEntry` for SD-JWT or mdoc,
+respectively.
 
-## Register credentials with Credential Manager
+**Add Sd-JWTs into the registry**
 
-A wallet needs to register credential metadata so Credential Manager can filter and display them in the credential selector when a request comes in.
-![Image showing the digital credentials UI in Credential Manager](https://developer.android.com/static/identity/digital-credentials/images/digital_credentials_ui.png)**Figure 1.**The digital credentials UI.
+Map each local SD-JWT credential to an [`SdJwtEntry`](https://developer.android.com/reference/kotlin/androidx/credentials/registry/digitalcredentials/sdjwt/SdJwtEntry) for the registry:
 
-## The Credential Manager Selector UI
+    fun mapToSdJwtEntries(sdJwtsFromStorage: List<StoredSdJwtEntry>): List<SdJwtEntry> {
+        val list = mutableListOf<SdJwtEntry>()
 
-The format for this metadata is passed into a`RegisterCredentialsRequest`. Create a`[RegistryManager][1]`and register the credentials:
+        for (sdJwt in sdJwtsFromStorage) {
+            list.add(
+                SdJwtEntry(
+                    verifiableCredentialType = sdJwt.getVCT(),
+                    claims = sdJwt.getClaimsList(),
+                    entryDisplayPropertySet = sdJwt.toDisplayProperties(),
+                    id = sdJwt.getId() // Make sure this cannot be readily guessed
+                )
+            )
+        }
+        return list
+    }
 
-In this example, the metadata is compiled from a database of credentials entries. You can find a[reference in our sample wallet](https://github.com/digitalcredentialsdev/CMWallet/blob/main/app/src/main/java/com/credman/cmwallet/CmWalletApplication.kt#L74-L91)which registers the metadata on app load. In the future, credential database composition will be supported by the Jetpack API. At that point, you can register the credential metadata as well-defined data structures.
+**Add mdocs into the Registry**
 
-The registry persists across device reboots. Re-registering the same registry of the same ID + type overwrites the previous registry record. Therefore, re-register only when your credential data has changed.
+Map your local mdoc credentials into the Jetpack type [`MdocEntry`](https://developer.android.com/reference/kotlin/androidx/credentials/registry/digitalcredentials/mdoc/MdocEntry):
 
-### Optional: Create a matcher
+    fun mapToMdocEntries(mdocsFromStorage: List<StoredMdocEntry>): List<MdocEntry> {
+        val list = mutableListOf<MdocEntry>()
 
-Credential Manager is protocol-agnostic; it treats the metadata registry as an opaque blob and doesn't verify or check its contents. Therefore, the wallet has to provide a matcher, a runnable binary that can process the wallet's own data and generate the display metadata based on an incoming request. Credential Manager runs the matcher in a sandbox environment without network or disk access so that nothing leaks to a wallet before the UI is rendered to the user.
+        for (mdoc in mdocsFromStorage) {
+            list.add(
+                MdocEntry(
+                    docType = mdoc.retrieveDocType(),
+                    fields = mdoc.getFields(),
+                    entryDisplayPropertySet = mdoc.toDisplayProperties(),
+                    id = mdoc.getId() // Make sure this cannot be readily guessed
+                )
+            )
+        }
+        return list
+    }
 
-The Credential Manager API will provide matchers for popular protocols, today OpenID4VP. It is not officially released yet, so for now use our[sample matcher](https://github.com/digitalcredentialsdev/CMWallet/blob/main/app/src/main/assets/openid4vp1_0.wasm)for the[OpenID4VP protocol](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html#name-format-identifier).
+### Key points about the code
+
+- One method of configuring the `id` field is to register an encrypted credential identifier, so only you can decrypt the value.
+- The UI display fields for both formats should be localized.
+
+### Register your credentials
+
+Combine your converted entries and register the request with the
+`RegistryManager`:
+
+    val credentialEntries = mapToSdJwtEntries(sdJwtsFromStorage) + mapToMdocEntries(mdocsFromStorage)
+
+    val openidRegistryRequest = OpenId4VpRegistry(
+        credentialEntries = credentialEntries,
+        id = "my-wallet-openid-registry-v1" // A stable, unique ID to identify your registry record.
+    )
+
+Now, we are ready to register your credentials with CredentialManager.
+
+    try {
+        val response = registryManager.registerCredentials(openidRegistryRequest)
+    } catch (e: Exception) {
+        // Handle failure
+    }
+
+You've now registered your credentials with Credential Manager.
+
+### App metadata management
+
+The metadata your holder app registers with CredentialManager has the following
+properties:
+
+- **Persistence:** The information is saved locally, persisting across reboots.
+- **Siloed Storage:** Each app's registry records are stored separately, meaning one app cannot change another app's registry records.
+- **Keyed Updates:** Each app's registry records are keyed by an [`id`](https://developer.android.com/reference/kotlin/androidx/credentials/registry/digitalcredentials/openid4vp/OpenId4VpRegistry#:%7E:text=protocol%20based%20request.-,The%20(type%2C%20id),-properties%20together%20act), which allows re-identifying, updating, or deleting records.
+- **Updating Metadata:** It is good practice to update the persisted metadata whenever your app changes or is first loaded. If a registry is called multiple times under the same `id`, the latest call overwrites all prior records. To update, re-register without needing to clear the old record first.
+
+## Optional: Create a matcher
+
+A matcher is a Wasm binary that Credential Manager runs in a sandbox to filter
+your registered credentials against an incoming Verifier request.
+
+- **Default matcher:** The `OpenId4VpRegistry` class **automatically includes
+  the default `OpenId4VP` matcher** (`OpenId4VpDefaults.DEFAULT_MATCHER`) when you instantiate it. For all standard OpenID4VP use cases, the library handles matching for you.
+- **Custom matcher:** You would only implement a custom matcher if you are supporting a non-standard protocol that requires its own matching logic.
 
 ## Handle a selected credential
 
-Next, the wallet needs to handle when a credential is selected by the user. You can define an Activity that listens to the`androidx.credentials.registry.provider.action.GET_CREDENTIAL`intent filter. Our sample wallet[demonstrates this procedure](https://github.com/digitalcredentialsdev/CMWallet/blob/9a0e1a713dc7559aaec6bf2c9583ab809b678cc9/app/src/main/AndroidManifest.xml#L26-L35).
+When a user selects a credential, your holder app needs to handle the request.
+You will need to define an Activity that listens to the
+`androidx.credentials.registry.provider.action.GET_CREDENTIAL` intent filter.
+Our [sample wallet demonstrates this procedure](https://github.com/digitalcredentialsdev/CMWallet/blob/9a0e1a713dc7559aaec6bf2c9583ab809b678cc9/app/src/main/AndroidManifest.xml#L26-L35).
 
-The intent that launches the activity contains the Verifier request and calling origin, which you can[extract with the`PendingIntentHandler.retrieveProviderGetCredentialRequest`function](https://github.com/digitalcredentialsdev/CMWallet/blob/9a0e1a713dc7559aaec6bf2c9583ab809b678cc9/app/src/main/java/com/credman/cmwallet/getcred/GetCredentialActivity.kt#L153). The API returns a[`ProviderGetCredentialRequest`](https://developer.android.com/reference/androidx/credentials/provider/ProviderGetCredentialRequest)containing all the information associated with the verifier request. There are three key components:
+The intent launches your activity with the Verifier request and calling origin,
+which you [extract with the
+`PendingIntentHandler.retrieveProviderGetCredentialRequest` function](https://github.com/digitalcredentialsdev/CMWallet/blob/9a0e1a713dc7559aaec6bf2c9583ab809b678cc9/app/src/main/java/com/credman/cmwallet/getcred/GetCredentialActivity.kt#L153). This
+returns a [`ProviderGetCredentialRequest`](https://developer.android.com/reference/androidx/credentials/provider/ProviderGetCredentialRequest) containing all the information
+associated with the verifier request. There are three key components:
 
-- The app which made the request. You can retrieve this with[`getCallingAppInfo`](https://developer.android.com/reference/androidx/credentials/provider/ProviderGetCredentialRequest#getCallingAppInfo()).
-- The selected credential. You can get information about which candidate the user has chosen through[the`selectedEntryId`extension method](https://developer.android.com/reference/androidx/credentials/registry/provider/ProviderGetCredentialRequest#(androidx.credentials.provider.ProviderGetCredentialRequest).getSelectedEntryId()); this will match the credential ID that you registered.
-- Any specific requests that the verifier has made. You can get this from the[`getCredentialOptions`](https://developer.android.com/reference/androidx/credentials/provider/ProviderGetCredentialRequest#getCredentialOptions())method. In this case, you can expect to find a[`GetDigitalCredentialOption`](https://developer.android.com/reference/kotlin/androidx/credentials/GetDigitalCredentialOption)in this list, containing the Digital Credentials request.
+- **The calling app:** The app that made the request, retrievable with [`getCallingAppInfo`](https://developer.android.com/reference/androidx/credentials/provider/ProviderGetCredentialRequest#getCallingAppInfo()).
+- **The selected credential:** Information about which candidate the user has chosen, retrieved through the [`selectedCredentialSet extension method`](https://developer.android.com/reference/androidx/credentials/registry/provider/ProviderGetCredentialRequest#(androidx.credentials.provider.ProviderGetCredentialRequest).getSelectedCredentialSet()); this will match the credential ID you registered.
+- **Specific requests:** The specific request made by the verifier, retrieved from the [`getCredentialOptions`](https://developer.android.com/reference/androidx/credentials/provider/ProviderGetCredentialRequest#getCredentialOptions()) method. For a Digital Credentials request flow, you can expect to find a single [`GetDigitalCredentialOption`](https://developer.android.com/reference/kotlin/androidx/credentials/GetDigitalCredentialOption) in this list.
 
-Most commonly, the verifier makes a digital credential**presentation**request so you can process it with the following sample code:  
+Most commonly, the verifier makes a digital credential presentation request,
+which you can process with the following sample code:
 
     request.credentialOptions.forEach { option ->
         if (option is GetDigitalCredentialOption) {
@@ -62,15 +224,54 @@ Most commonly, the verifier makes a digital credential**presentation**request so
         }
     }
 
-You can see an example of this in our[sample wallet](https://github.com/digitalcredentialsdev/CMWallet/blob/9a0e1a713dc7559aaec6bf2c9583ab809b678cc9/app/src/main/java/com/credman/cmwallet/getcred/GetCredentialActivity.kt#L172).
+An example of this can be seen in the [sample wallet](https://github.com/digitalcredentialsdev/CMWallet/blob/9a0e1a713dc7559aaec6bf2c9583ab809b678cc9/app/src/main/java/com/credman/cmwallet/getcred/GetCredentialActivity.kt#L172).
 
-### Render the wallet UI
+### Check the verifier identity
 
-Once the credential is selected, the wallet is invoked and the user is taken through its UI. In the sample, this is a[biometric prompt](https://github.com/digitalcredentialsdev/CMWallet/blob/9a0e1a713dc7559aaec6bf2c9583ab809b678cc9/app/src/main/java/com/credman/cmwallet/getcred/GetCredentialActivity.kt#L299).
+1. **Extract the `ProviderGetCredentialRequest` from the intent:**
 
-## Return the credential response
+    val request = PendingIntentHandler.retrieveProviderGetCredentialRequest(intent)
 
-Once the wallet is ready to send back the result, you can do so by finishing the activity with the credential response:  
+1. **Check for Privileged Origin:** Privileged apps (like web browsers) can make calls on behalf of other verifiers by setting the origin parameter. To retrieve this origin, you must pass a list of privileged and trusted callers (an allow list in JSON format) to the `CallingAppInfo`'s `getOrigin()` API.
+
+    val origin = request?.callingAppInfo?.getOrigin(
+        privilegedAppsJson // Your allow list JSON
+    )
+
+**If origin is not empty:** The origin is returned if the `packageName` and the
+certificate fingerprints obtained from `signingInfo` match those of an app found
+in the allow list passed to the `getOrigin()` API. After the origin value is
+obtained, the provider app should consider this a privileged call and set this
+origin on the OpenID4VP response, instead of computing the origin using the
+calling app's signature.
+
+Google Password Manager uses an openly-available [allow list](https://www.gstatic.com/gpm-passkeys-privileged-apps/apps.json) for calls to
+`getOrigin()`. As a credential provider, you can use this list or provide your
+own in the JSON format described by the API. It is up to the provider to select
+which list is used. To get privileged access with third party credential
+providers, refer to the documentation provided by the third party.
+
+**If origin is empty,** the verifier request is from an Android app. The app
+origin to be put in the OpenID4VP response should be calculated as
+`android:apk-key-hash:<encoded SHA 256 fingerprint>`.
+
+    val appSigningInfo = request?.callingAppInfo?.signingInfoCompat?.signingCertificateHistory[0]?.toByteArray()
+    val md = MessageDigest.getInstance("SHA-256")
+    val certHash = Base64.encodeToString(md.digest(appSigningInfo), Base64.NO_WRAP or Base64.NO_PADDING)
+    return "android:apk-key-hash:$certHash"
+
+### Render the Holder UI
+
+When a credential is selected, the holder app is invoked, guiding the user
+through the app's UI. There are two standard ways to handle this workflow:
+
+- If additional user authentication is needed to release the credential, use the [BiometricPrompt API](https://developer.android.com/reference/androidx/biometric/BiometricPrompt). This is demonstrated [in the sample](https://github.com/digitalcredentialsdev/CMWallet/blob/9a0e1a713dc7559aaec6bf2c9583ab809b678cc9/app/src/main/java/com/credman/cmwallet/getcred/GetCredentialActivity.kt#L299).
+- Otherwise, many wallets opt for a silent return by rendering an empty activity that immediately passes the data back to the calling app. This minimizes user clicks and provides a more seamless experience.
+
+### Return the credential response
+
+Once your holder app is ready to send the result back, finish the activity with
+the credential response:
 
     PendingIntentHandler.setGetCredentialResponse(
         resultData,
@@ -79,7 +280,7 @@ Once the wallet is ready to send back the result, you can do so by finishing the
     setResult(RESULT_OK, resultData)
     finish()
 
-If there's an exception, you can similarly send the credential exception:  
+If there is an exception, you can similarly send the credential exception:
 
     PendingIntentHandler.setGetCredentialException(
         resultData,
@@ -88,4 +289,5 @@ If there's an exception, you can similarly send the credential exception:
     setResult(RESULT_OK, resultData)
     finish()
 
-Refer to the[sample app](https://github.com/digitalcredentialsdev/CMWallet/blob/9a0e1a713dc7559aaec6bf2c9583ab809b678cc9/app/src/main/java/com/credman/cmwallet/getcred/GetCredentialActivity.kt#L276-L282)for an example of how to return the credential response in context.
+Refer to the [sample app](https://github.com/digitalcredentialsdev/CMWallet/blob/9a0e1a713dc7559aaec6bf2c9583ab809b678cc9/app/src/main/java/com/credman/cmwallet/getcred/GetCredentialActivity.kt#L276-L282) for a full example of returning the credential
+response in context.
