@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/versions/alpha-channel.md b/docs/jetpack/androidx/versions/alpha-channel.md
+index ced3551..04cd724 100644
+--- a/docs/jetpack/androidx/versions/alpha-channel.md
++++ b/docs/jetpack/androidx/versions/alpha-channel.md
+@@ -33,7 +33,7 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
+ - [Core-pip Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/core#core-pip-1.0.0-alpha02)
+ - [Core-telecom Version 1.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0-alpha03)
+ - [Glance Wear Wear-core Version 1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha03)
+-- [Mediarouter Version 1.9.0-alpha01](https://developer.android.com/jetpack/androidx/composereleases/mediarouter#1.9.0-alpha01)
++- [Mediarouter Version 1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-alpha01)
+ - [Navigation3 Version 1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-alpha04)
+ - [Pdf Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha13)
+ - [Security-state Version 1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/security#security-state-1.1.0-alpha01)
