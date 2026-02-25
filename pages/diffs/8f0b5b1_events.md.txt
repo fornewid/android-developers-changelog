@@ -1,0 +1,171 @@
+diff --git a/docs/training/wearables/data/events.md b/docs/training/wearables/data/events.md
+index abe628b..76a6487 100644
+--- a/docs/training/wearables/data/events.md
++++ b/docs/training/wearables/data/events.md
+@@ -69,23 +69,19 @@ blocking call to `putDataItem`.
+ <br />
+ 
+ ```kotlin
+-private fun Context.sendDataSync(count: Int) {
+-    // Create a data item with the path and data to be sent
+-    val putDataReq: PutDataRequest = PutDataMapRequest.create("/count").run {
++private fun Context.sendDataSync(count: Int) = runBlocking {
++    val putDataReq = PutDataMapRequest.create("/count").run {
+         dataMap.putInt("count_key", count)
+         asPutDataRequest()
+     }
+-    // Create a task to send the data to the data layer
+-    val task: Task<DataItem> = Wearable.getDataClient(this).putDataItem(putDataReq)
++
+     try {
+-        Tasks.await(task).apply {
+-            // Add your logic here
+-        }
+-    } catch (e: ExecutionException) {
+-        // TODO: Handle exception
+-    } catch (e: InterruptedException) {
+-        // TODO: Handle exception
+-        Thread.currentThread().interrupt()
++        val result = Wearable.getDataClient(this@sendDataSync)
++            .putDataItem(putDataReq)
++            .await()
++        // Logic for success
++    } catch (e: Exception) {
++        // Handle failure
+     }
+ }
+ ```
+@@ -238,56 +234,90 @@ When matching intent filters, remember two important rules:
+ 
+ If your app only cares about data-layer events when the user is interacting with
+ the app, it may not need a long-running service to handle every data change. In
+-such a case, you can listen for events in an activity by implementing one or
+-more of the following interfaces:
++such a case, you can listen for events in an activity.
+ 
+-- [`DataClient.OnDataChangedListener`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient.OnDataChangedListener)
+-- [`MessageClient.OnMessageReceivedListener`](https://developers.google.com/android/reference/com/google/android/gms/wearable/MessageClient.OnMessageReceivedListener)
+-- [`CapabilityClient.OnCapabilityChangedListener`](https://developers.google.com/android/reference/com/google/android/gms/wearable/CapabilityClient.OnCapabilityChangedListener)
+-- [`ChannelClient.ChannelCallback`](https://developers.google.com/android/reference/com/google/android/gms/wearable/ChannelClient.ChannelCallback)
++To recommend a cleaner and safer approach, use a **Lifecycle Observer** . By
++using a Lifecycle Observer, you move the registration logic out of the
++Activity's [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) and into a separate, reusable class that
++implements `DefaultLifecycleObserver`.
+ 
+-To create an activity that listens for data events, follow these steps:
++This approach keeps your Activity lean and prevents common bugs like forgetting
++to unregister the listener.
+ 
+-1. Implement the required interfaces.
+-2. In the `onCreate()` or `onResume()` method, call `Wearable.getDataClient(this).addListener()`, `MessageClient.addListener()`, `CapabilityClient.addListener()`, or `ChannelClient.registerChannelCallback()` to notify Google Play services that your activity is interested in data layer events.
+-3. In [`onStop()`](https://developer.android.com/reference/android/app/Activity#onStop()) or [`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()), unregister any listeners with `DataClient.removeListener()`, `MessageClient.removeListener()`, `CapabilityClient.removeListener()`, or `ChannelClient.unregisterChannelCallback()`.
+-4. If an activity only needs to receive events with a specific path prefix, add a listener with a prefix filter to only receive data relevant to the current application state.
+-5. Implement `onDataChanged()`, `onMessageReceived()`, `onCapabilityChanged()`, or methods from [`ChannelClient.ChannelCallback`](https://developers.google.com/android/reference/com/google/android/gms/wearable/ChannelClient.ChannelCallback), depending on the interfaces that you implemented. These methods are called on the main thread, or you can specify a custom `Looper` using [`WearableOptions`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Wearable.WearableOptions).
++#### 1. Create the lifecycle-aware listener
+ 
+-Here's an example that implements [`DataClient.OnDataChangedListener`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient.OnDataChangedListener):
++This class wraps the [`DataClient.OnDataChangedListener`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient.OnDataChangedListener) and automatically
++manages its own subscription based on the Activity's lifecycle.
+ 
+ <br />
+ 
+ ```kotlin
+-class MainActivity : Activity(), DataClient.OnDataChangedListener {
++class WearDataLayerObserver(
++    private val dataClient: DataClient,
++    private val onDataReceived: (DataEventBuffer) -> Unit
++) : DefaultLifecycleObserver, DataClient.OnDataChangedListener {
+ 
+-    public override fun onResume() {
+-        super.onResume()
+-        Wearable.getDataClient(this).addListener(this)
++    // Implementation of the DataClient listener
++    override fun onDataChanged(dataEvents: DataEventBuffer) {
++        onDataReceived(dataEvents)
+     }
+ 
+-    override fun onPause() {
+-        super.onPause()
+-        Wearable.getDataClient(this).removeListener(this)
++    // Automatically register when the Activity starts
++    override fun onResume(owner: LifecycleOwner) {
++        dataClient.addListener(this)
+     }
+ 
+-    override fun onDataChanged(dataEvents: DataEventBuffer) {
+-        dataEvents.forEach { event ->
+-            if (event.type == DataEvent.TYPE_DELETED) {
+-                Log.d(TAG, "DataItem deleted: " + event.dataItem.uri)
+-            } else if (event.type == DataEvent.TYPE_CHANGED) {
+-                Log.d(TAG, "DataItem changed: " + event.dataItem.uri)
+-            }
++    // Automatically unregister when the Activity pauses
++    override fun onPause(owner: LifecycleOwner) {
++        dataClient.removeListener(this)
++    }
++}
++```
++
++<br />
++
++#### 2. Usage in your Activity
++
++Now, your Activity doesn't need to override [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) or
++[`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()) for the Wear API. You add the observer once in `onCreate()`.
++
++<br />
++
++```kotlin
++class DataLayerLifecycleActivity : ComponentActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++
++        val dataClient = Wearable.getDataClient(this)
++
++        // Create the observer and link it to the activity's lifecycle
++        val wearObserver = WearDataLayerObserver(dataClient) { dataEvents ->
++            handleDataEvents(dataEvents)
+         }
++
++        lifecycle.addObserver(wearObserver)
++    }
++
++    private fun handleDataEvents(dataEvents: DataEventBuffer) {
++        // ... filter and process events ...
+     }
+ }
+ ```
+ 
+ <br />
+ 
+-**Caution:** Before using the Wearable Data Layer API, check that it's available
+-on a device; otherwise, an exception occurs. Use the
+-[`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) class, as implemented in [Horologist](https://github.com/google/horologist/blob/release-0.5.x/datalayer/core/src/main/java/com/google/android/horologist/data/WearableApiAvailability.kt#L29).
++#### Why this is better:
++
++- **Cleaner Activity:** You remove boilerplate from the Activity lifecycle methods.
++- **Safety:** `DefaultLifecycleObserver` helps verify that the listener is removed even if the Activity is destroyed unexpectedly, preventing memory leaks.
++- **Reusability:** You can plug this `WearDataLayerObserver` into any Activity or Fragment without rewriting the registration logic.
++- **Decoupling:** The logic for when to listen is separated from the logic of what to do with the data.
++
++> [!TIP]
++> **Tip:** If you are using a `ViewModel`, collect these events as a `Flow` using `callbackFlow` and then observe that `Flow` in the `Activity` using `repeatOnLifecycle`. This completely eliminates the need for the `Activity` to even know the `DataClient` exists.
++
++> [!CAUTION]
++> **Caution:** Before using the Wearable Data Layer API, check that it's available on a device; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) class, as demonstrated in the [overview](https://developer.android.com/training/wearables/data/overview#client).
+ 
+ ### Use filters with live listeners
+ 
+@@ -296,8 +326,7 @@ manifest-based `WearableListenerService` objects, you can use intent filters
+ when registering a live listener through the [Wearable API](https://developers.google.com/android/reference/com/google/android/gms/wearable/Wearable). The same rules
+ apply to both API-based live listeners and manifest-based listeners.
+ 
+-A common pattern is to register a listener with a specific path or path prefix
+-in an activity's [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) method, and then to remove the listener in
+-the activity's [`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()) method. Implementing listeners in this fashion
+-lets your app more selectively receive events, improving its design and
++A common pattern is to [register a listener with a specific path or path prefix
++using a `LifecycleObserver`](https://developer.android.com/training/wearables/data/events#use-live-listener). By implementing listeners in this fashion,
++your app can more selectively receive events, improving its design and
+ efficiency.
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/docs/games/playgames/native-pc/downloads.md b/docs/games/playgames/native-pc/downloads.md
+index 5900d72..5f7b354 100644
+--- a/docs/games/playgames/native-pc/downloads.md
++++ b/docs/games/playgames/native-pc/downloads.md
+@@ -16,7 +16,7 @@ With the Play Games PC SDK you can access Google Play services to build and mone
+ 
+ | Name | Language | Version |
+ |---|---|---|
+-| [Play Games PC C++ SDK](https://developer.android.com/games/playgames/native-pc/downloads/cpp) | C/C++ | 25.11.757.0 |
++| [Play Games PC C++ SDK](https://developer.android.com/games/playgames/native-pc/downloads/cpp) | C/C++ | 26.2.121.0 |
+ 
+ *** ** * ** ***
+ 

@@ -1,0 +1,107 @@
+diff --git a/docs/training/wearables/data/overview.md b/docs/training/wearables/data/overview.md
+index 0273e78..7158bda 100644
+--- a/docs/training/wearables/data/overview.md
++++ b/docs/training/wearables/data/overview.md
+@@ -23,26 +23,22 @@ open low-level sockets to create a communication channel.
+ 
+ ## Common use cases
+ 
+-The Data Layer API is particularly useful for fitness and media use cases.
++Use the Data Layer API when the interaction is strictly between the
++watch and phone. For example:
+ 
+-### Fitness apps
++- **Remote Control**: The watch acts as a remote for the phone (e.g., controlling a music player running on the phone, sliding a presentation, acting as a camera shutter).
++- **Handheld App Launching**: The "Open on Phone" button feature.
++- **Authentication Bridging**: Sending a session token from the phone to the watch during initial setup.
+ 
+-Sending exercise data from Wear OS app to mobile app Fitness apps often need to
+-write the exercise data captured by a watch to a mobile app or to [Health
+-Connect](https://developer.android.com/health-and-fitness/guides/health-connect). If using the Data Layer API to transfer data, use a
+-[message client](https://developer.android.com/training/wearables/data/client-types#message-client) to send exercise data from the Wear OS app to the mobile app
+-in order to write to Health Connect.
++Many common scenarios should instead use your existing cloud infrastructure, for
++example:
+ 
+-#### Stream live data to the mobile device during a home workout
++- **Saving Data**: Workouts, notes.
++- **Fetching Content**: Loading a list of past workouts, downloading music, fetching weather.
++- **Syncing State**: If the user changes their profile photo on the web, the watch updates using the cloud, not by querying the phone.
+ 
+-A [common home workout scenario](https://medium.com/androiddevelopers/wear-os-home-workouts-with-health-services-b9951fa9e0dc) is streaming heart rate data from a Wear OS
+-device to a mobile device and showing the user up-to-date heart rate information
+-on their mobile device's screen. To stream this data, use a [channel client](https://developer.android.com/training/wearables/data/client-types#channel-client).
+-
+-### Media apps
+-
+-To control a media player through the action of pause/resume/start/end from the
+-watch to the phone, use a [message client](https://developer.android.com/training/wearables/data/client-types#message-client).
++For these scenarios, use your own existing endpoints and infrastructure, instead
++of the Data Layer API.
+ 
+ ## Options for communication
+ 
+@@ -114,20 +110,32 @@ For more information, refer to the [DataLayer sample](https://github.com/android
+ 
+ To create a client, see the following example code:
+ 
+-### Kotlin
++<br />
+ 
+ ```kotlin
+-val dataClient: DataClient = Wearable.getDataClient(context)
++val dataClient = Wearable.getDataClient(this)
+ ```
+ 
+-### Java
++<br />
++
++> [!CAUTION]
++> **Caution:** Before using the Wearable Data Layer API, check that it's available on a device; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) API:
++
++<br />
+ 
+-```java
+-DataClient dataClient = Wearable.getDataClient(context);
++```kotlin
++val available = try {
++    GoogleApiAvailability.getInstance()
++        .checkApiAvailability(client)
++        .await()
++    true
++} catch (e: AvailabilityException) {
++    // API is not available in this device.
++    false
++}
+ ```
+ 
+-> [!CAUTION]
+-> **Caution:** Before using the Wearable Data Layer API, check that it's available on a device; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) class, as implemented in [Horologist](https://github.com/google/horologist/blob/release-0.5.x/datalayer/core/src/main/java/com/google/android/horologist/data/WearableApiAvailability.kt#L29).
++<br />
+ 
+ The context can be any valid Android context. If you are using the API within
+ the scope of an `Activity`, use the `getDataClient()` method of the `Wearable`
+@@ -137,22 +145,7 @@ Play services.
+ 
+ By default, callbacks to listeners are made on the app's main UI thread. To have
+ callbacks made on a different thread, use a [`WearableOptions`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Wearable.WearableOptions) object to
+-specify a custom `Looper`:
+-
+-### Kotlin
+-
+-```kotlin
+-runBlocking {
+-    Wearable.getDataClient(context, options)
+-}
+-```
+-
+-### Java
+-
+-```java
+-WearableOptions options = new WearableOptions.Builder().setLooper(myLooper).build();
+-DataClient dataClient = Wearable.getDataClient(context, options);
+-```
++specify a custom `Looper`.
+ 
+ For more information, see the [`WearableOptions.Builder`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Wearable.WearableOptions.Builder) reference.
+ 

@@ -1,0 +1,15 @@
+diff --git a/docs/jetpack/androidx/versions/all-channel.md b/docs/jetpack/androidx/versions/all-channel.md
+index 15b94d4..977b363 100644
+--- a/docs/jetpack/androidx/versions/all-channel.md
++++ b/docs/jetpack/androidx/versions/all-channel.md
+@@ -33,6 +33,10 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
+ 
+ These Jetpack libraries have been recently updated.
+ 
++### February 25, 2026
++
++- [Media3 Version 1.10.0-beta01](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-beta01)
++
+ ### February 11, 2026
+ 
+ - [Activity Version 1.12.4](https://developer.android.com/jetpack/androidx/releases/activity#1.12.4)

@@ -1,0 +1,77 @@
+diff --git a/docs/jetpack/androidx/releases/media3.md b/docs/jetpack/androidx/releases/media3.md
+index b7c41b7..8844c5f 100644
+--- a/docs/jetpack/androidx/releases/media3.md
++++ b/docs/jetpack/androidx/releases/media3.md
+@@ -6,10 +6,9 @@ source: md.txt
+ 
+ # Media3
+ 
+-[Code Sample](https://github.com/androidx/media/tree/main/demos)  
+-API Reference  
++[Code Sample](https://github.com/androidx/media/tree/main/demos) API Reference  
+ [androidx.media3.common](https://developer.android.com/reference/kotlin/androidx/media3/common/package-summary)  
+-Support libraries for media use cases.  
++Support libraries for media use cases.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+@@ -22,7 +21,7 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:  
++your app or module:
+ 
+ ### Groovy
+ 
+@@ -197,6 +196,50 @@ to questions, known issues and feature requests, and to file new issues.
+ 
+ ## Version 1.10.0
+ 
++### 1.10.0-beta01
++
++February 25, 2026
++
++Version 1.10.0-beta01 contains the following
++[commits](https://github.com/androidx/media/commits/1.10.0-beta01).
++
++- Common library:
++  - Add `Format.primaryTrackGroupId` to identify the primary group of embedded `Format` instances ([#294](https://github.com/androidx/media/issues/294)).
++- ExoPlayer:
++  - Fix issue where ExoPlayer would not request delayed audio focus when playback is requested during phone calls.
++  - Fix bug where transitions from on-demand to live content may cause re-buffers at the end of the on-demand content ([#3052](https://github.com/androidx/media/issues/3052)).
++  - Add support for Dolby Vision Profile 10 ([#2830](https://github.com/androidx/media/pull/2830)).
++- Track selection:
++  - Change signature of `DefaultTrackSelector.selectAllTracks` to include the output array as a parameter, pre-populated with track overrides.
++  - Fix issue where embedded metadata tracks are selected irrespective of whether the corresponding primary track is selected ([#294](https://github.com/androidx/media/issues/294)).
++  - Stabilize `TrackSelectionParameters` options for `preferredVideoLanguages`, `preferredVideoLabels`, `preferredAudioLabels`, `preferredTextLabels` and `selectTextByDefault`.
++- Extractors:
++  - MP4: Support files with large `uuid` boxes before other boxes like `moov` ([#3046](https://github.com/androidx/media/issues/3046)).
++  - MP4: Add support for Versatile Video Coding (VVC) tracks in MP4 containers.
++- Audio:
++  - Improve the retry logic of `AudioOutput` initialization in `DefaultAudioSink` ([#2905](https://github.com/androidx/media/issues/2905)).
++  - Attempt to match the output layout of the speakers (or Spatializer if applicable) when decoding IAMF, both with the IAMF extension and media codec decoders, supported by new fields and logic in AudioCapabilities and AudioCapabilitiesReceiver.
++- Metadata:
++  - Increase default count of metadata renderers to four to cover all potential metadata tracks published by HLS variants and renditions ([#3043](https://github.com/androidx/media/issues/3043)).
++- Session:
++  - Fix issue where system UI button placement workaround negatively affects other UI surface like Android Auto or manufacturers not needing the workaround ([#3041](https://github.com/androidx/media/issues/3041)).
++  - Fix issue where access to subscriptions was not synchronized ([#3056](https://github.com/androidx/media/issues/3056)).
++- UI:
++  - Add `Player` Composable to `media3-ui-compose-material3` which combines a `ContentFrame` with customizable controls aligned to top, center, and bottom.
++- HLS extension:
++  - Expose ID3 (EMSG) metadata track in audio renditions ([#3043](https://github.com/androidx/media/issues/3043)).
++  - Allow location fallback upon encountering load errors, if redundant streams from different locations are available ([#1988](https://github.com/androidx/media/issues/1988)).
++  - Fix X-SNAP behaviour for HLS interstitials to correctly calculate start and resumption position ([#3013](https://github.com/androidx/media/issues/3013)).
++- DASH extension:
++  - Fix issue where tracks with unaligned segment start times cause delays or missed samples at the beginning of playback ([#3057](https://github.com/androidx/media/issues/3057)).
++  - Fix bug where timestamps of inband EMSG v0 metadata are not set correctly ([#3024](https://github.com/androidx/media/issues/3024)).
++- Decoder extensions (FFmpeg, VP9, AV1, etc.):
++  - Add MPEG-H UI manager support to the MPEG-H decoder extension ([#3066](https://github.com/androidx/media/pull/3066)).
++- Remove deprecated symbols:
++  - Remove `androidx.media3.extractor.metadata.flac.VorbisComment`. Use `androidx.media3.extractor.metadata.vorbis.VorbisComment` instead.
++  - Remove `MediaSource.prepareSource(MediaSourceCaller, TransferListener)`. Use `MediaSource.prepareSource(MediaSourceCaller, TransferListener,
++    PlayerId)` instead.
++
+ ### 1.10.0-alpha01
+ 
+ February 6, 2026

@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/explorer.md b/docs/jetpack/androidx/explorer.md
+index 23840c5..79e1079 100644
+--- a/docs/jetpack/androidx/explorer.md
++++ b/docs/jetpack/androidx/explorer.md
+@@ -23,7 +23,7 @@ Select a category:
+ | [ads](https://developer.android.com/jetpack/androidx/releases/ads) | Get an advertising ID with or without Play Services. |
+ | [annotation](https://developer.android.com/jetpack/androidx/releases/annotation) | Expose metadata that helps tools and other developers understand your app's code. |
+ | [appcompat \*](https://developer.android.com/jetpack/androidx/releases/appcompat) | Allows access to new APIs on older API versions of the platform (many using Material Design). |
+-| [appfunctions](https://developer.android.com/jetpack/androidx/releases/appfunctions) | TODO |
++| [appfunctions](https://developer.android.com/jetpack/androidx/releases/appfunctions) | Allows apps to share functionality and data with AI assistants, enabling them to discover and execute tasks directly on the device to fulfill user requests. |
+ | [appsearch \*](https://developer.android.com/jetpack/androidx/releases/appsearch) | Build custom in-app search capabilities for your users. |
+ | [arch.core](https://developer.android.com/jetpack/androidx/releases/arch-core) | Helper for other arch dependencies, including JUnit test rules that can be used with LiveData. |
+ | [asynclayoutinflater](https://developer.android.com/jetpack/androidx/releases/asynclayoutinflater) | Inflate layouts asynchronously to avoid jank in the UI. |

@@ -1,0 +1,12 @@
+diff --git a/docs/google/play/age-signals/test-age-signals-api.md b/docs/google/play/age-signals/test-age-signals-api.md
+index ace3fb1..68550ab 100644
+--- a/docs/google/play/age-signals/test-age-signals-api.md
++++ b/docs/google/play/age-signals/test-age-signals-api.md
+@@ -20,6 +20,7 @@ The following example simulates the response for a verified adult:
+ val fakeVerifiedUser =
+     AgeSignalsResult.builder()
+         .setUserStatus(AgeSignalsVerificationStatus.VERIFIED)
++        .setAgeLower(18)
+         .build()
+ val manager = FakeAgeSignalsManager()
+ manager.setNextAgeSignalsResult(fakeVerifiedUser)

@@ -1,5 +1,156 @@
 [
   {
+    "date": "2026-02-25T15:24:13Z",
+    "commit_hash": "8f0b5b1",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality\" target=\"_blank\">adaptive-app-quality.md</a>",
+        "summary": "adaptive-app-quality.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_adaptive-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/billing\" target=\"_blank\">billing.md</a>",
+        "summary": "billing.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_billing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/downloads\" target=\"_blank\">downloads.md</a>",
+        "summary": "downloads.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_downloads.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/notify-significant-changes\" target=\"_blank\">notify-significant-changes.md</a>",
+        "summary": "notify-significant-changes.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_notify-significant-changes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/revoked-app-approval\" target=\"_blank\">revoked-app-approval.md</a>",
+        "summary": "revoked-app-approval.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_revoked-app-approval.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/test-age-signals-api\" target=\"_blank\">test-age-signals-api.md</a>",
+        "summary": "test-age-signals-api.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_test-age-signals-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/use-age-signals-api\" target=\"_blank\">use-age-signals-api.md</a>",
+        "summary": "use-age-signals-api.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_use-age-signals-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/integrate\" target=\"_blank\">integrate.md</a>",
+        "summary": "integrate.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_integrate.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/skill\" target=\"_blank\">skill.md</a>",
+        "summary": "skill.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/type-safe-destinations\" target=\"_blank\">type-safe-destinations.md</a>",
+        "summary": "type-safe-destinations.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack\" target=\"_blank\">jetpack.md</a>",
+        "summary": "jetpack.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_jetpack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/explorer\" target=\"_blank\">explorer.md</a>",
+        "summary": "explorer.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_explorer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/media3\" target=\"_blank\">media3.md</a>",
+        "summary": "media3.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_media3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/security\" target=\"_blank\">security.md</a>",
+        "summary": "security.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_security.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">versions.md</a>",
+        "summary": "versions.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">all-channel.md</a>",
+        "summary": "all-channel.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/beta-channel\" target=\"_blank\">beta-channel.md</a>",
+        "summary": "beta-channel.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_beta-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">nightly.md</a>",
+        "summary": "nightly.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/data/dynamic\" target=\"_blank\">dynamic.md</a>",
+        "summary": "dynamic.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_dynamic.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/data/events\" target=\"_blank\">events.md</a>",
+        "summary": "events.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_events.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/data/overview\" target=\"_blank\">overview.md</a>",
+        "summary": "overview.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/8f0b5b1_overview.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-02-24T15:23:02Z",
     "commit_hash": "74785b0",
     "entries": [
