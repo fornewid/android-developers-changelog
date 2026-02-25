@@ -16,7 +16,7 @@ With the Play Games PC SDK you can access Google Play services to build and mone
 
 | Name | Language | Version |
 |---|---|---|
-| [Play Games PC C++ SDK](https://developer.android.com/games/playgames/native-pc/downloads/cpp) | C/C++ | 25.11.757.0 |
+| [Play Games PC C++ SDK](https://developer.android.com/games/playgames/native-pc/downloads/cpp) | C/C++ | 26.2.121.0 |
 
 *** ** * ** ***
 

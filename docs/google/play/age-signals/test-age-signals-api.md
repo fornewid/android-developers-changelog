@@ -20,6 +20,7 @@ The following example simulates the response for a verified adult:
 val fakeVerifiedUser =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.VERIFIED)
+        .setAgeLower(18)
         .build()
 val manager = FakeAgeSignalsManager()
 manager.setNextAgeSignalsResult(fakeVerifiedUser)

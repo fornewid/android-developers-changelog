@@ -242,6 +242,105 @@ is the same as done for an Android game that has integrated with Play Billing.
        return true;
     }
 
+### Client-side purchase verification
+
+> [!NOTE]
+> **Note:** To receive the signature on your [`ProductPurchaseDetails`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-purchase-details) requires allowlisting. Please contact your Google Partner if your game requires access.
+
+You get the `signature` from
+[`ProductPurchaseDetails`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-purchase-details). The `signature` field is
+signed with your private key with `SHA1withRSA` signature algorithm. You can
+verify using your public key as follows:
+
+    #include <openssl/bio.h>
+    #include <openssl/err.h>
+    #include <openssl/evp.h>
+    #include <openssl/pem.h>
+    #include <openssl/rsa.h>
+    #include <openssl/sha.h>
+
+    #include <fstream>
+    #include <iostream>
+    #include <sstream>
+    #include <string>
+    #include <vector>
+
+    // Decodes a Base64 string into a vector of bytes using OpenSSL BIOs.
+    std::vector<unsigned char> base64_decode(const std::string& base64_string) {
+        BIO *bio, *b64;
+        b64 = BIO_new(BIO_f_base64());
+        BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);
+        bio = BIO_new_mem_buf(base64_string.data(), base64_string.length());
+        bio = BIO_push(b64, bio);
+
+        std::vector<unsigned char> decoded_data;
+        decoded_data.resize(base64_string.length());
+        int length = BIO_read(bio, decoded_data.data(), decoded_data.size());
+        if (length > 0) {
+          decoded_data.resize(length);
+        } else {
+          decoded_data.clear();
+        }
+        BIO_free_all(bio);
+        return decoded_data;
+    }
+
+    // Reads a PEM-encoded public key string and returns an EVP_PKEY object.
+    EVP_PKEY* createPublicKey(const std::string& publicKeyPem) {
+      BIO* bio = BIO_new_mem_buf(publicKeyPem.data(), publicKeyPem.length());
+      EVP_PKEY* pkey = PEM_read_bio_PUBKEY(bio, nullptr, nullptr, nullptr);
+      BIO_free(bio);
+      return pkey;
+    }
+
+    // Verifies the RSA-SHA1 signature of given data using a public key.
+    bool verifySignature(const std::string& publicKeyPem,
+                         const std::string& originalData,
+                         const std::string& signature_b64) {
+      std::vector<unsigned char> signature = base64_decode(signature_b64);
+      EVP_PKEY* pkey = createPublicKey(publicKeyPem);
+      if (!pkey) {
+        std::cerr << "Error loading public key." << std::endl;
+        ERR_print_errors_fp(stderr);
+        return false;
+      }
+
+      EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
+      if (!mdctx) {
+        std::cerr << "EVP_MD_CTX_new failed." << std::endl;
+        EVP_PKEY_free(pkey);
+        return false;
+      }
+
+      if (EVP_DigestVerifyInit(mdctx, nullptr, EVP_sha1(), nullptr, pkey) <= 0 ||
+          EVP_DigestVerifyUpdate(mdctx, originalData.c_str(),
+                                 originalData.length()) <= 0) {
+        EVP_MD_CTX_free(mdctx);
+        EVP_PKEY_free(pkey);
+        std::cerr << "Error during EVP_DigestVerifyInit or EVP_DigestVerifyUpdate."
+                  << std::endl;
+        return false;
+      }
+
+      int result = EVP_DigestVerifyFinal(
+          mdctx, reinterpret_cast<const unsigned char*>(signature.data()),
+          signature.size());
+
+      EVP_MD_CTX_free(mdctx);
+      EVP_PKEY_free(pkey);
+
+      if (result == 0) {
+        std::cerr << "Signature verification failed." << std::endl;
+        return false;
+      } else if (result != 1) {
+        std::cerr << "Error during signature verification." << std::endl;
+        ERR_print_errors_fp(stderr);
+        return false;
+      }
+
+      return true;
+    }
+
 ## **Step 5**: Test your integration
 
 You are now ready to test your integration with Play Billing. To test during the

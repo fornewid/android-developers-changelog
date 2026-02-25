@@ -60,7 +60,8 @@ In the release notes you'll find:
 - A code snippet with the default Gradle dependency declarations to use the artifacts.
 - Links to the Kotlin and Java reference pages for the packages in each artifact.
 
-| **Note:** Jetpack libraries don't send any user data to a backend service of any kind. This means that integrating a Jetpack library into your app has no impact on your app's [Data safety form](https://developer.android.com/guide/topics/data/collect-share) in the Play Console.
+> [!NOTE]
+> **Note:** Jetpack libraries don't send any user data to a backend service of any kind. This means that integrating a Jetpack library into your app has no impact on your app's [Data safety form](https://developer.android.com/guide/topics/data/collect-share) in the Play Console.
 
 **Minimum SDK Version**
 
@@ -226,4 +227,4 @@ release notes to view the version updates for all of the artifacts.
 
 (\*) This library has multiple artifacts. See its release notes for more information.  
 
-Last updated: February 11, 2026
+Last updated: February 25, 2026

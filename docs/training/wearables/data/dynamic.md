@@ -86,6 +86,14 @@ val animatedAdditionResult = DynamicInt32.constant(1).plus(2).animate()
 
 <br />
 
+## Additional resources
+
+To learn more about how to use dynamic expressions in specific surfaces, see the
+following pages:
+
+- [Use dynamic values in complications](https://developer.android.com/training/wearables/complications/exposing-data#providing-dynamic-values)
+- [Dynamic expressions in Tiles](https://developer.android.com/training/wearables/tiles/dynamic)
+
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
