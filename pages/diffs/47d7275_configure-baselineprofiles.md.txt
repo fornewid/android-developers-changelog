@@ -1,0 +1,305 @@
+diff --git a/docs/topic/performance/baselineprofiles/configure-baselineprofiles.md b/docs/topic/performance/baselineprofiles/configure-baselineprofiles.md
+index 4bc7a92..774ed89 100644
+--- a/docs/topic/performance/baselineprofiles/configure-baselineprofiles.md
++++ b/docs/topic/performance/baselineprofiles/configure-baselineprofiles.md
+@@ -4,24 +4,28 @@ url: https://developer.android.com/topic/performance/baselineprofiles/configure-
+ source: md.txt
+ ---
+ 
+-# Configure Baseline Profile generation
+-
+-The Baseline Profile Gradle plugin makes it easier to generate and maintain[Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview). It helps you do the following tasks:
++The Baseline Profile Gradle plugin makes it easier to generate and maintain
++[Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview). It helps you
++do the following tasks:
+ 
+ - [Create new Baseline Profiles for your app](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-baselineprofile-plugin).
+ - [Create new Baseline Profiles for your library](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile-library).
+ - Customize your Baseline Profile generation.
+ 
+-This page explains how to use the Baseline Profile Gradle plugin to customize the generation of your Baseline Profiles.
++This page explains how to use the Baseline Profile Gradle plugin to customize
++the generation of your Baseline Profiles.
+ 
+ ## Plugin requirements
+ 
+ - AGP 8.0 or higher
+-- Dependency on the[latest Gradle plugin version](https://maven.google.com/web/index.html?q=benchmark#androidx.benchmark:benchmark-baseline-profile-gradle-plugin)
++- Dependency on the [latest Gradle plugin version](https://maven.google.com/web/index.html?q=benchmark#androidx.benchmark:benchmark-baseline-profile-gradle-plugin)
+ 
+ ## Use a Gradle Managed Devices to generate Baseline Profiles
+ 
+-To use a[Gradle Managed Device (GMD)](https://developer.android.com/studio/test/gradle-managed-devices)to generate your Baseline Profile, add one in the`build.gradle.kts`configuration of the profile producer module---likely the`:baselineprofile`test module---as shown in the following example:  
++To use a [Gradle Managed Device (GMD)](https://developer.android.com/studio/test/gradle-managed-devices) to
++generate your Baseline Profile, add one in the `build.gradle.kts` configuration
++of the profile producer module---likely the `:baselineprofile` test module---as
++shown in the following example:
+ 
+ ### Kotlin
+ 
+@@ -51,7 +55,9 @@ android {
+ }
+ ```
+ 
+-Use the GMD to generate Baseline Profiles by adding it to the Baseline Profile Gradle plugin configuration as follows, in the`build.gradle.kts`of the`:baselineprofile`test module:  
++Use the GMD to generate Baseline Profiles by adding it to the Baseline Profile
++Gradle plugin configuration as follows, in the `build.gradle.kts` of the
++`:baselineprofile` test module:
+ 
+ ### Kotlin
+ 
+@@ -69,7 +75,8 @@ baselineProfile {
+ }
+ ```
+ 
+-When you use a GMD to generate Baseline Profiles, set`useConnectedDevices`to`false`, in your`:baselineprofile`test module:  
++When you use a GMD to generate Baseline Profiles, set `useConnectedDevices` to
++`false`, in your `:baselineprofile` test module:
+ 
+ ### Kotlin
+ 
+@@ -91,7 +98,10 @@ baselineProfile {
+ 
+ ## Generate Baseline Profiles for different variants
+ 
+-You can generate Baseline Profiles per variant, per flavor, or as a single file to utilize for all variants. Control this behavior through the merge setting, as shown in the following example, in the`build.gradle.kts`of the application or library module.  
++You can generate Baseline Profiles per variant, per flavor, or as a single file
++to utilize for all variants. Control this behavior through the merge setting, as
++shown in the following example, in the `build.gradle.kts` of the
++application or library module.
+ 
+ ### Kotlin
+ 
+@@ -109,15 +119,22 @@ baselineProfile {
+ }
+ ```
+ 
+-To merge the generated profiles for all variants into a single profile, set`mergeIntoMain`to`true`. It isn't possible to generate per-variant Baseline Profiles when this setting is`true`, so there's a single Gradle task called`generateBaselineProfile`. The profile is output at`src/main/generated/baselineProfiles`.
++To merge the generated profiles for all variants into a single profile, set
++`mergeIntoMain` to `true`. It isn't possible to generate per-variant Baseline
++Profiles when this setting is `true`, so there's a single Gradle task called
++`generateBaselineProfile`. The profile is output at
++`src/main/generated/baselineProfiles`.
+ 
+-To disable merging and have one profile per variant, set`mergeIntoMain`to`false`. In this case, multiple variant-specific Gradle tasks exist. For example, when there are two flavors---such as free and paid---and one release build type, the tasks are the following:  
++To disable merging and have one profile per variant, set `mergeIntoMain` to
++`false`. In this case, multiple variant-specific Gradle tasks exist. For
++example, when there are two flavors---such as free and paid---and one
++release build type, the tasks are the following:
+ 
+     * `generateFreeReleaseBaselineProfile`
+     * `generatePaidReleaseBaselineProfile`
+     * `generateReleaseBaselineProfile`
+ 
+-To specify the merging behavior per variant, use the following code:  
++To specify the merging behavior per variant, use the following code:
+ 
+ ### Kotlin
+ 
+@@ -143,15 +160,21 @@ baselineProfile {
+ }
+ ```
+ 
+-In the preceding example, the variants where the flag is set to`true`are all merged into`src/main/generated/baselineProfiles`, while the profiles for the variants where the flag is set to`false`are kept in the folder`src/<variant>/generated/baselineProfiles`.
++In the preceding example, the variants where the flag is set to `true` are all
++merged into `src/main/generated/baselineProfiles`, while the profiles for the
++variants where the flag is set to `false` are kept in the folder
++`src/<variant>/generated/baselineProfiles`.
+ 
+-By default,`mergeIntoMain`is set to`true`for libraries and`false`for apps.
++By default, `mergeIntoMain` is set to `true` for libraries and `false` for apps.
+ 
+ ## Automatically generate Baseline Profiles when assembling a new release
+ 
+-You can configure Baseline Profiles to automatically generate with every release build, instead of manually using the task`generateBaselineProfile`. With automatic generation, the most updated profile is included in the release build.
++You can configure Baseline Profiles to automatically generate with every release
++build, instead of manually using the task `generateBaselineProfile`. With
++automatic generation, the most updated profile is included in the release build.
+ 
+-To enable automatic generation for release builds, use the`automaticGenerationDuringBuild`flag:  
++To enable automatic generation for release builds, use the
++`automaticGenerationDuringBuild` flag:
+ 
+ ### Kotlin
+ 
+@@ -169,10 +192,20 @@ baselineProfile {
+ }
+ ```
+ 
+-Setting the`automaticGenerationDuringBuild`flag to`true`triggers the generation of a new Baseline Profile for each release assembly. This means that running an assemble release build task, such as`./gradlew:app:assembleRelease`, also triggers`:app:generateReleaseBaselineProfile`, starts the Baseline Profile instrumentation tests, and builds the Baseline Profile build on which they run. While automatic generation helps users gain the best performance benefit, it also increases the build time because of the double build and instrumentation tests.
+-| **Note:** You can always explicitly run the Baseline Profile generation and assemble a release build with`./gradlew :app:generateReleaseBaseline :app:assembleRelease`, in which case the Baseline Profile is generated first and then packaged with the assembled release version.
++Setting the `automaticGenerationDuringBuild` flag to `true` triggers the
++generation of a new Baseline Profile for each release assembly. This means that
++running an assemble release build task, such as `./gradlew:app:assembleRelease`,
++also triggers `:app:generateReleaseBaselineProfile`, starts the Baseline Profile
++instrumentation tests, and builds the Baseline Profile build on which they run.
++While automatic generation helps users gain the best performance benefit, it
++also increases the build time because of the double build and instrumentation
++tests.
++
++> [!NOTE]
++> **Note:** You can always explicitly run the Baseline Profile generation and assemble a release build with `./gradlew :app:generateReleaseBaseline :app:assembleRelease`, in which case the Baseline Profile is generated first and then packaged with the assembled release version.
+ 
+-You can also specify this behavior per variant, as shown in the following example:  
++You can also specify this behavior per variant, as shown in the following
++example:
+ 
+ ### Kotlin
+ 
+@@ -198,17 +231,22 @@ baselineProfile {
+ }
+ ```
+ 
+-In the preceding example, the task`generateFreeReleaseBaselineProfile`runs when starting`assembleFreeRelease`. This helps when the user wants to have, for example, a`release`for distribution build that always generates the profile when building, and a`releaseWithoutProfile`build for internal testing.
++In the preceding example, the task `generateFreeReleaseBaselineProfile` runs
++when starting `assembleFreeRelease`. This helps when the user wants to have, for
++example, a `release` for distribution build that always generates the profile
++when building, and a `releaseWithoutProfile` build for internal testing.
+ 
+-Instead of adding a new variant without a Baseline Profile, you can also disable generation from the command line like this:  
++Instead of adding a new variant without a Baseline Profile, you can also disable
++generation from the command line like this:
+ 
+     ./gradlew assembleRelease -Pandroid.baselineProfile.automaticGenerationDuringBuild=false
+ 
+ ## Store Baseline Profiles into sources
+ 
+-You can store Baseline Profiles in the source directory through the`saveInSrc`flag in the`build.gradle.kts`of the application or library module:
++You can store Baseline Profiles in the source directory through the `saveInSrc`
++flag in the `build.gradle.kts` of the application or library module:
+ 
+-- `true`: the Baseline Profile is stored in`src/<variant>/generated/baselineProfiles`. This lets you commit the latest generated profile with your sources.
++- `true`: the Baseline Profile is stored in `src/<variant>/generated/baselineProfiles`. This lets you commit the latest generated profile with your sources.
+ - `false`: the Baseline Profile is stored in the intermediate files in the build directory. This way, when committing your code, you don't save the latest generated profile.
+ 
+ ### Kotlin
+@@ -227,7 +265,7 @@ baselineProfile {
+ }
+ ```
+ 
+-You can also specify this behavior per variant:  
++You can also specify this behavior per variant:
+ 
+ ### Kotlin
+ 
+@@ -255,7 +293,9 @@ baselineProfile {
+ 
+ ## Disable warnings
+ 
+-By default, the Baseline Profile Gradle Plugin warns you of situations that might cause issues. To disable the warnings, you can set the relevant option to`false`in your`build.gradle.kts`file. Here are the warning options:  
++By default, the Baseline Profile Gradle Plugin warns you of situations that
++might cause issues. To disable the warnings, you can set the relevant option to
++`false` in your `build.gradle.kts` file. Here are the warning options:
+ 
+     baselineProfile {
+         warnings {
+@@ -294,15 +334,20 @@ By default, the Baseline Profile Gradle Plugin warns you of situations that migh
+ 
+ ## Filter profile rules
+ 
+-The Baseline Profile Gradle plugin lets you filter the Baseline Profile rules generated. This is particularly helpful for libraries, if you want to exclude profile rules for classes and methods that are part of other dependencies of the sample app or the library itself. The filters can include and exclude specific packages and classes. When you only specify excludes, only matching Baseline Profile rules are excluded and everything else is included.
++The Baseline Profile Gradle plugin lets you filter the Baseline Profile rules
++generated. This is particularly helpful for libraries, if you want to exclude
++profile rules for classes and methods that are part of other dependencies of the
++sample app or the library itself. The filters can include and exclude specific
++packages and classes. When you only specify excludes, only matching Baseline
++Profile rules are excluded and everything else is included.
+ 
+ The filters specification can be any of the following:
+ 
+-- Package name ending with double wildcards to match the specified package and all subpackages. For example,`com.example.**`matches`com.example.method`and`com.example.method.bar`.
+-- Package name ending with wildcard to match specified package only. For example,`com.example.*`matches`com.example.method`but doesn't match`com.example.method.bar`.
+-- Class names to match a specific class---for example,`com.example.MyClass`.
++- Package name ending with double wildcards to match the specified package and all subpackages. For example, `com.example.**` matches `com.example.method` and `com.example.method.bar`.
++- Package name ending with wildcard to match specified package only. For example, `com.example.*` matches `com.example.method` but doesn't match `com.example.method.bar`.
++- Class names to match a specific class---for example, `com.example.MyClass`.
+ 
+-The following examples show how to include and exclude specific packages:  
++The following examples show how to include and exclude specific packages:
+ 
+ ### Kotlin
+ 
+@@ -334,7 +379,7 @@ baselineProfile {
+ }
+ ```
+ 
+-Customize the filter rules for different variants as follows:  
++Customize the filter rules for different variants as follows:
+ 
+ ### Kotlin
+ 
+@@ -429,15 +474,30 @@ baselineProfile {
+     }
+ }
+ ```
+-| **Note:** Filters for a specific variant (`freeRelease`), are added to the flavor-level (`free`) filters, build-level (`release`) filters, and global filters specified outside the`variants`block.
+ 
+-You can also filter rules using the[`filterPredicate`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:benchmark/benchmark-macro-junit4/src/main/java/androidx/benchmark/macro/junit4/BaselineProfileRule.kt;l=67;drc=4f34c5b0ef80804dcb9838902aa89f5f813560d9)argument in`BaselineProfileRule.collect()`, but we recommend using the Gradle plugin to filter because it provides a simpler way to filter subpackages and a single place to configure the entire module.
++> [!NOTE]
++> **Note:** Filters for a specific variant (`freeRelease`), are added to the flavor-level (`free`) filters, build-level (`release`) filters, and global filters specified outside the `variants` block.
++
++You can also filter rules using the [`filterPredicate`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:benchmark/benchmark-macro-junit4/src/main/java/androidx/benchmark/macro/junit4/BaselineProfileRule.kt;l=67;drc=4f34c5b0ef80804dcb9838902aa89f5f813560d9) argument in
++`BaselineProfileRule.collect()`, but we recommend using the Gradle plugin to
++filter because it provides a simpler way to filter subpackages and a single
++place to configure the entire module.
+ 
+ ## Customize benchmark and Baseline Profile build types
+ 
+-The Baseline Profile Gradle plugin creates additional build types to generate the profiles and to run benchmarks. These build types are prefixed with`benchmark`and`nonMinified`. For example, for the`release`build type, the plugin creates the`benchmarkRelease`and`nonMinifiedRelease`build types. These build types are automatically configured for the specific use case and don't generally need any customization. But there are some cases in which it might still be useful to apply some custom options, for example to apply a different signing config.
++The Baseline Profile Gradle plugin creates additional build types to generate
++the profiles and to run benchmarks. These build types are prefixed with
++`benchmark` and `nonMinified`. For example, for the `release` build type, the
++plugin creates the `benchmarkRelease` and `nonMinifiedRelease` build types.
++These build types are automatically configured for the specific use case and
++don't generally need any customization. But there are some cases in which it
++might still be useful to apply some custom options, for example to apply a
++different signing config.
+ 
+-You can customize the automatically generated build types using a subset of build type properties; properties that aren't usable are overridden. The following example shows how to customize the additional build types and which properties are overridden:  
++You can customize the automatically generated build types using a subset of
++build type properties; properties that aren't usable are overridden.
++The following example shows how to customize the additional build types and
++which properties are overridden:
+ 
+ ### Kotlin
+ 
+@@ -511,19 +571,30 @@ android {
+ 
+ When creating Baseline Profiles, here are some additional things to be aware of:
+ 
+-- *Compiled* Baseline Profiles must be smaller than 1.5 MB. This doesn't apply to the text format in your source files, which are typically much larger prior to compilation. Verify the size of your binary Baseline Profile by locating it in the output artifact under`assets/dexopt/baseline.prof`for APK or`BUNDLE-METADATA/com.android.tools.build.profiles/baseline.prof`for AAB.
++- *Compiled* Baseline Profiles must be smaller than 1.5 MB. This doesn't
++  apply to the text format in your source files, which are typically much
++  larger prior to compilation. Verify the size of your binary Baseline
++  Profile by locating it in the output artifact under
++  `assets/dexopt/baseline.prof` for APK or
++  `BUNDLE-METADATA/com.android.tools.build.profiles/baseline.prof` for AAB.
++
++  > [!TIP]
++  > **Tip:** In Android Studio Flamingo (2022.2.1) or later, verify the size in the [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer).
+ 
+-  | **Tip:** In Android Studio Flamingo (2022.2.1) or later, verify the size in the[APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer).
+-- Broad rules that compile too much of the application can slow down startup due to increased disk access. If you're just starting with Baseline Profiles, don't worry about this. However, depending on your app and the size and number of journeys, adding a lot of journeys can result in suboptimal performance. Test the performance of your app by trying different profiles and verifying that the performance doesn't regress after the additions.
++- Broad rules that compile too much of the application can slow down startup
++  due to increased disk access. If you're just starting with Baseline
++  Profiles, don't worry about this. However, depending on your app and the
++  size and number of journeys, adding a lot of journeys can result in
++  suboptimal performance. Test the performance of your app by trying different
++  profiles and verifying that the performance doesn't regress after the
++  additions.
+ 
+ ## Codelabs
+ 
+ ### [Inspect app performance with Macrobenchmark](https://developer.android.com/codelabs/android-macrobenchmark-inspect)
+ 
+-Dive into macrobenchmarking to measure performance.  
+-[Learn more](https://developer.android.com/codelabs/android-macrobenchmark-inspect)  
++Dive into macrobenchmarking to measure performance. [Learn more](https://developer.android.com/codelabs/android-macrobenchmark-inspect)
+ 
+ ### [Improve app performance with Baseline Profiles](https://developer.android.com/codelabs/android-baseline-profiles-improve)
+ 
+-Generate a custom Baseline Profile tailored to an Android app and verify its effectiveness.  
+-[Learn more](https://developer.android.com/codelabs/android-baseline-profiles-improve)
+\ No newline at end of file
++Generate a custom Baseline Profile tailored to an Android app and verify its effectiveness. [Learn more](https://developer.android.com/codelabs/android-baseline-profiles-improve)
+\ No newline at end of file

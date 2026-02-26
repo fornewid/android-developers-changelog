@@ -1,0 +1,101 @@
+diff --git a/docs/develop/devices/chromeos/learn/input-compatibility.md b/docs/develop/devices/chromeos/learn/input-compatibility.md
+index 99e5f29..f229cc8 100644
+--- a/docs/develop/devices/chromeos/learn/input-compatibility.md
++++ b/docs/develop/devices/chromeos/learn/input-compatibility.md
+@@ -15,6 +15,8 @@ Developers who want their app to work well with input on ChromeOS, and other lar
+ - Test app-specific input devices such as stylus for drawing apps, game controllers for games, and MIDI controllers for music apps.
+ - Consider advanced input support that could make the app stand-out in desktop environments: touchpad as a cross-fader for DJ apps, mouse capture for games, and extensive keyboard shortcuts for power users.
+ 
++[Video](https://www.youtube.com/watch?v=FPuaaYpUd5s)
++
+ ## Keyboard
+ 
+ 
+@@ -26,21 +28,21 @@ The way your app responds to keyboard input contributes to a good desktop experi
+ Keyboard navigation is rarely implemented in touch-centric apps, but users expect it when they are using an app with a keyboard. It can also be essential for users with accessibility needs on both phones and desktop devices.
+ 
+ 
+-For many apps, arrow key and tab navigation is all that is needed and is mostly handled automatically by the Android framework. For example, a view of a `Button` is focusable by default, and keyboard navigation should generally work without any additional code. In order to enable keyboard navigation for views that are not focusable by default, developers should mark them as focusable. This can be done programmatically or in XML, as follows. See the [Focus Handling](https://developer.android.com/reference/android/view/View#FocusHandling) documentation for more information.  
++For many apps, arrow key and tab navigation is all that is needed and is mostly handled automatically by the Android framework. For example, a view of a `Button` is focusable by default, and keyboard navigation should generally work without any additional code. In order to enable keyboard navigation for views that are not focusable by default, developers should mark them as focusable. This can be done programmatically or in XML, as follows. See the [Focus Handling](https://developer.android.com/reference/android/view/View#FocusHandling) documentation for more information.
+ 
+ ```kotlin
+ yourView.isFocusable = true
+ ```
+ 
+ 
+-Alternatively you can set the `focusable` attribute in your layout file:  
++Alternatively you can set the `focusable` attribute in your layout file:
+ 
+ ```xml
+ android:focusable="true"
+ ```
+ 
+ 
+-Once focus is enabled, the Android framework will create a navigational mapping for all focusable views based on their position. This usually works as expected and no further work is needed. When the default mapping is not correct for an app's needs, it can be overridden as follows:  
++Once focus is enabled, the Android framework will create a navigational mapping for all focusable views based on their position. This usually works as expected and no further work is needed. When the default mapping is not correct for an app's needs, it can be overridden as follows:
+ 
+ ```kotlin
+ // Arrow keys
+@@ -67,7 +69,7 @@ For text input that would be handled by an on-screen virtual keyboard ([IME](htt
+ Some examples are chat apps that use the enter key to send a message, media apps that start/stop playback with the space key, and games that control movement with the w,a,s, and d keys.
+ 
+ 
+-Most apps override the [`onKeyUp`](https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyUp(int,%20android.view.KeyEvent)) event and add the expected behavior for each received keycode, as follows.  
++Most apps override the [`onKeyUp`](https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyUp(int,%20android.view.KeyEvent)) event and add the expected behavior for each received keycode, as follows.
+ 
+ ```kotlin
+ override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
+@@ -106,7 +108,7 @@ Some common shortcuts include save (`ctrl`+`s`), undo (`ctrl`+`z`), and redo (`c
+ Shortcuts can be implemented using [`dispatchKeyShortcutEvent`](https://developer.android.com/reference/android/view/Window.Callback#dispatchKeyShortcutEvent(android.view.KeyEvent)). This intercepts all meta-key combinations (`alt`, `ctrl`, and `shift`) for a given keycode. To check for a specific meta-key, use [`KeyEvent.isCtrlPressed()`](https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()), [`KeyEvent.isShiftPressed()`](https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()), [`KeyEvent.isAltPressed()`](https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()), or [`KeyEvent.hasModifiers()`](https://developer.android.com/reference/android/view/KeyEvent#hasModifiers(int)).
+ 
+ 
+-Separating shortcut code from other keystroke handling (such as `onKeyUp` or `onKeyDown`) can make code maintenance easier and maintains the default acceptance of meta-keys without having to manually implement meta-key checks in every case. Allowing all meta-key combinations can also be more convenient for users who are accustomed to different keyboard layouts and operating systems.  
++Separating shortcut code from other keystroke handling (such as `onKeyUp` or `onKeyDown`) can make code maintenance easier and maintains the default acceptance of meta-keys without having to manually implement meta-key checks in every case. Allowing all meta-key combinations can also be more convenient for users who are accustomed to different keyboard layouts and operating systems.
+ 
+ ```kotlin
+ override fun dispatchKeyShortcutEvent(event: KeyEvent): Boolean {
+@@ -134,7 +136,7 @@ override fun dispatchKeyShortcutEvent(event: KeyEvent): Boolean {
+ ```
+ 
+ 
+-You can also implement shortcuts in `onKeyUp` by checking for [`KeyEvent.isCtrlPressed()`](https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()), [`KeyEvent.isShiftPressed()`](https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()), or [`KeyEvent.isAltPressed()`](https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()) in the same manner. This can be easier to maintain if the meta-behavior is more of a modification to an app behavior than a shortcut. For example, when w means "walk forward" and shift+w means "run forward".  
++You can also implement shortcuts in `onKeyUp` by checking for [`KeyEvent.isCtrlPressed()`](https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()), [`KeyEvent.isShiftPressed()`](https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()), or [`KeyEvent.isAltPressed()`](https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()) in the same manner. This can be easier to maintain if the meta-behavior is more of a modification to an app behavior than a shortcut. For example, when w means "walk forward" and shift+w means "run forward".
+ 
+ ```kotlin
+ override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
+@@ -165,7 +167,7 @@ ChromeOS automatically handles most mouse and trackpad events so that they act l
+ ### Right-click
+ 
+ 
+-Any actions that cause an app to show a context menu, like a long-press on a list item, should also react to right-click events. To handle right-click events, apps should register a [`View.OnContextClickListener`](https://developer.android.com/reference/android/view/View.OnContextClickListener). For details on constructing a context menu, see the Android [context menu documentation](https://developer.android.com/guide/topics/ui/menus#context-menu)  
++Any actions that cause an app to show a context menu, like a long-press on a list item, should also react to right-click events. To handle right-click events, apps should register a [`View.OnContextClickListener`](https://developer.android.com/reference/android/view/View.OnContextClickListener). For details on constructing a context menu, see the Android [context menu documentation](https://developer.android.com/guide/topics/ui/menus#context-menu)
+ 
+ ```kotlin
+ yourView.setOnContextClickListener { view ->
+@@ -269,13 +271,13 @@ This event tells the app that certain touches are invalid and it should undo all
+ ### Note-taking apps
+ 
+ 
+-ChromeOS has a special intent that surfaces registered note-taking apps to users. To register an app as a note-taking app, add the following to the Android manifest:  
++ChromeOS has a special intent that surfaces registered note-taking apps to users. To register an app as a note-taking app, add the following to the Android manifest:
+ 
+ ```xml
+ <intent-filter>
+-    <action android:name="org.chromium.arc.intent.action.CREATE_NOTE" />
+-    <category android:name="android.intent.category.DEFAULT" />
+-  </intent-filter>
++ <   action android:name="org.chromium.arc.intent.action.CREATE_NOTE&<quot; />
++    category android:name="android.intent.ca<tegory.DEFAULT" />
++  /intent-filter>
+ ```
+ 
+ 
+@@ -313,7 +315,7 @@ Buttons are mapped to common values following a [common mapping](https://develop
+ ChromeOS enables an input translation mode by default. For most Android apps this mode helps apps work as expected in a desktop environment. Some examples include automatically enabling two-finger scrolling on the touchpad, mouse wheel scrolling, and mapping raw display coordinates to window coordinates. Generally, app developers don't need to implement any of these behaviors themselves.
+ 
+ 
+-If an app implements custom input behavior, for example defining a custom two-finger touchpad pinch action, or these input translations do not provide the input events expected by the app, you can disable the input translation mode by adding the following tag to the Android manifest:  
++If an app implements custom input behavior, for example defining a custom two-finger touchpad pinch action, or these input translations do not provide the input events expected by the app, you can disable the input translation mode by adding the following tag to the Android manifest:
+ 
+ ```xml
+ <uses-feature android:name="android.hardware.type.pc"

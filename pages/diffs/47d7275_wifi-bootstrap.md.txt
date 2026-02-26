@@ -1,0 +1,24 @@
+diff --git a/docs/develop/connectivity/wifi/wifi-bootstrap.md b/docs/develop/connectivity/wifi/wifi-bootstrap.md
+index 10abdd1..7964da8 100644
+--- a/docs/develop/connectivity/wifi/wifi-bootstrap.md
++++ b/docs/develop/connectivity/wifi/wifi-bootstrap.md
+@@ -43,7 +43,9 @@ To use this API, do the following:
+ 
+ Initiating the request to connect to a peer device launches a dialog box on the
+ same device, from which that device's user can accept the connection request.
+-| **Note:** Creating a connection using this API does not provide an internet connection to the app or to the device. To provide an internet connection to the apps on a device, use the [Wi-Fi Suggestion API](https://developer.android.com/develop/connectivity/wifi/wifi-suggest) instead.
++
++> [!NOTE]
++> **Note:** Creating a connection using this API does not provide an internet connection to the app or to the device. To provide an internet connection to the apps on a device, use the [Wi-Fi Suggestion API](https://developer.android.com/develop/connectivity/wifi/wifi-suggest) instead.
+ 
+ ## Bypassing user approval
+ 
+@@ -61,7 +63,7 @@ user must approve the request.
+ ## Code sample
+ 
+ The following code sample shows how to connect to an open network with an SSID
+-prefix of `"test"` and a BSSID OUI of `"10:03:23"`:  
++prefix of `"test"` and a BSSID OUI of `"10:03:23"`:
+ 
+ ### Kotlin
+ 

@@ -1,0 +1,47 @@
+diff --git a/docs/develop/ui/views/touch-and-input/drag-drop/multi-window.md b/docs/develop/ui/views/touch-and-input/drag-drop/multi-window.md
+index 668e548..2a9c0cf 100644
+--- a/docs/develop/ui/views/touch-and-input/drag-drop/multi-window.md
++++ b/docs/develop/ui/views/touch-and-input/drag-drop/multi-window.md
+@@ -4,18 +4,22 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/mu
+ source: md.txt
+ ---
+ 
+-# Drag and drop in multi-window mode
++Devices that run Android 7.0 (API level 24) or higher support [multi-window
++mode](https://developer.android.com/develop/ui/views/layout/support-multi-window-mode), which lets users
++move data from one app to another by dragging and dropping.
+ 
+-Devices that run Android 7.0 (API level 24) or higher support[multi-window mode](https://developer.android.com/develop/ui/views/layout/support-multi-window-mode), which lets users move data from one app to another by dragging and dropping.
++The *source app* , where the operation starts, provides the data.
++The *target app*, where the operation ends, receives the data.
+ 
+-The*source app* , where the operation starts, provides the data. The*target app*, where the operation ends, receives the data.
++When the user starts to drag content, the source app should set the
++[`DRAG_FLAG_GLOBAL`](https://developer.android.com/reference/android/view/View#DRAG_FLAG_GLOBAL) flag to
++indicate that the user can drag data to another app.
+ 
+-When the user starts to drag content, the source app should set the[`DRAG_FLAG_GLOBAL`](https://developer.android.com/reference/android/view/View#DRAG_FLAG_GLOBAL)flag to indicate that the user can drag data to another app.
++Because the data moves across app boundaries, the apps share access to the data
++using a content URI. This requires the following:
+ 
+-Because the data moves across app boundaries, the apps share access to the data using a content URI. This requires the following:
+-
+-- The source app must set either or both of the[`DRAG_FLAG_GLOBAL_URI_READ`](https://developer.android.com/reference/android/view/View#DRAG_FLAG_GLOBAL_URI_READ)and[`DRAG_FLAG_GLOBAL_URI_WRITE`](https://developer.android.com/reference/android/view/View#DRAG_FLAG_GLOBAL_URI_WRITE)flags, depending on the read or write access to the data that the source app wants to grant to the target app.
+-- The target app must call[`requestDragAndDropPermissions()`](https://developer.android.com/reference/android/app/Activity#requestDragAndDropPermissions(android.view.DragEvent))immediately before handling the data that the user drags into the app. If the target app no longer needs access to the dragged data, the app can then call[`release()`](https://developer.android.com/reference/android/view/DragAndDropPermissions#release())on the object that was returned from`requestDragAndDropPermissions()`. Otherwise, the permissions are released when the containing activity is destroyed. If your implementation involves starting a new Activity to process the dropped URIs, you will need to grant the new Activity the same permissions. You must set the clip data and a flag:  
++- The source app must set either or both of the [`DRAG_FLAG_GLOBAL_URI_READ`](https://developer.android.com/reference/android/view/View#DRAG_FLAG_GLOBAL_URI_READ) and [`DRAG_FLAG_GLOBAL_URI_WRITE`](https://developer.android.com/reference/android/view/View#DRAG_FLAG_GLOBAL_URI_WRITE) flags, depending on the read or write access to the data that the source app wants to grant to the target app.
++- The target app must call [`requestDragAndDropPermissions()`](https://developer.android.com/reference/android/app/Activity#requestDragAndDropPermissions(android.view.DragEvent)) immediately before handling the data that the user drags into the app. If the target app no longer needs access to the dragged data, the app can then call [`release()`](https://developer.android.com/reference/android/view/DragAndDropPermissions#release()) on the object that was returned from `requestDragAndDropPermissions()`. Otherwise, the permissions are released when the containing activity is destroyed. If your implementation involves starting a new Activity to process the dropped URIs, you will need to grant the new Activity the same permissions. You must set the clip data and a flag:
+ 
+   ### Kotlin
+ 
+@@ -31,7 +35,10 @@ Because the data moves across app boundaries, the apps share access to the data
+   intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+   ```
+ 
+-The following code snippets demonstrate how to release read-only access to dragged data immediately after the user drop operation takes place. See the[Drag and Drop Demo](https://github.com/android/user-interface-samples/tree/main/DragAndDrop)on GitHub for a more complete example.
++The following code snippets demonstrate how to release read-only access to
++dragged data immediately after the user drop operation takes place. See the
++[Drag and Drop Demo](https://github.com/android/user-interface-samples/tree/main/DragAndDrop)
++on GitHub for a more complete example.
+ 
+ ## Source activity
+ 

@@ -1,0 +1,46 @@
+diff --git a/docs/develop/devices/assistant/inline-inventory.md b/docs/develop/devices/assistant/inline-inventory.md
+index af5ce5f..9f624be 100644
+--- a/docs/develop/devices/assistant/inline-inventory.md
++++ b/docs/develop/devices/assistant/inline-inventory.md
+@@ -4,6 +4,9 @@ url: https://developer.android.com/develop/devices/assistant/inline-inventory
+ source: md.txt
+ ---
+ 
++Project: /develop/devices/assistant/_project.yaml
++Book: /develop/devices/assistant/_book.yaml
++
+ When you implement App Actions for your Android app, you might find yourself
+ having to handle requests that are variations on a theme. For example, say your
+ fitness app implements the [`START_EXERCISE`](https://developer.android.com/reference/app-actions/built-in-intents/health-and-fitness/start-exercise) built-in intent (BII) to let
+@@ -40,7 +43,8 @@ parameters.
+ 
+ <br />
+ 
+-| **Note:** Inline inventory is supported by specific parameters of certain BIIs. For details, refer to each BII's "Inventory availability by field" section in the [BII reference](https://developer.android.com/reference/app-actions/built-in-intents).
++> [!NOTE]
++> **Note:** Inline inventory is supported by specific parameters of certain BIIs. For details, refer to each BII's "Inventory availability by field" section in the [BII reference](https://developer.android.com/reference/app-actions/built-in-intents).
+ 
+ ## Limitations and alternatives
+ 
+@@ -143,7 +147,9 @@ placeholder for the parameter. The following code from a sample
+ 
+ In the preceding sample, Assistant generates the fulfillment deep link
+ `myapp://workout?exercise=CARDIO_RUN`.
+-| **Note:** Inline inventory supports a maximum of one `parameter` per fulfillment `intent` element of a `capability`.
++
++> [!NOTE]
++> **Note:** Inline inventory supports a maximum of one `parameter` per fulfillment `intent` element of a `capability`.
+ 
+ ## Fulfillment using shortcut intents
+ 
+@@ -177,7 +183,9 @@ shortcut fulfillment:
+ In the preceding sample, if the user query matches an inline inventory value
+ for the `exercise.name` parameter, the `<shortcut-fulfillment>` tag
+ specifies that the `intent` of the bound shortcut is used for fulfillment.
+-| **Note:** Each inline inventory `<shortcut>` intended for shortcut fulfillment must contain a fulfillment `<intent>`. To avoid fulfillment errors, don't use shortcuts that don't contain intent elements for shortcut fulfillment.
++
++> [!NOTE]
++> **Note:** Each inline inventory `<shortcut>` intended for shortcut fulfillment must contain a fulfillment `<intent>`. To avoid fulfillment errors, don't use shortcuts that don't contain intent elements for shortcut fulfillment.
+ 
+ ## Inline inventory for open app feature BII
+ 

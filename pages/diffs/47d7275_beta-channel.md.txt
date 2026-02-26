@@ -1,0 +1,15 @@
+diff --git a/docs/jetpack/androidx/versions/beta-channel.md b/docs/jetpack/androidx/versions/beta-channel.md
+index 8a29937..8d9a671 100644
+--- a/docs/jetpack/androidx/versions/beta-channel.md
++++ b/docs/jetpack/androidx/versions/beta-channel.md
+@@ -20,6 +20,10 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
+ 
+ ### February 25, 2026
+ 
++- [Wear Compose Version 1.6.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.0-beta01)
++
++### February 25, 2026
++
+ - [Media3 Version 1.10.0-beta01](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-beta01)
+ 
+ ### February 11, 2026

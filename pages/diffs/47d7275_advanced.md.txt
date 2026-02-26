@@ -1,0 +1,38 @@
+diff --git a/docs/develop/ui/views/appwidgets/advanced.md b/docs/develop/ui/views/appwidgets/advanced.md
+index ca885e9..1a803f0 100644
+--- a/docs/develop/ui/views/appwidgets/advanced.md
++++ b/docs/develop/ui/views/appwidgets/advanced.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/appwidgets/advanced
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs.  
+-[Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 
+@@ -128,8 +125,10 @@ You can let users adjust the frequency of updates in a configuration. For
+ example, they might want a stock ticker to update every 15 minutes or only four
+ times a day. In this case, set the `updatePeriodMillis` to 0 and use
+ [`WorkManager`](https://developer.android.com/topic/libraries/architecture/workmanager) instead.
+-| **Note:** Using repeating tasks with `WorkManager` is a good option, but similar power restrictions apply. See [App Standby
+-| Buckets](https://developer.android.com/about/versions/pie/power#buckets) for more information.
++
++> [!NOTE]
++> **Note:** Using repeating tasks with `WorkManager` is a good option, but similar power restrictions apply. See [App Standby
++> Buckets](https://developer.android.com/about/versions/pie/power#buckets) for more information.
+ 
+ #### Update in response to a user interaction
+ 
+@@ -182,7 +181,7 @@ Responding](https://developer.android.com/topic/performance/vitals/anr) (ANR) er
+ main thread while handling the broadcast, use the
+ [`goAsync`](https://developer.android.com/reference/android/content/BroadcastReceiver#goAsync()) method. If it takes
+ longer to update the widget, consider scheduling a task
+-using [`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager).  
++using [`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager).
+ 
+     Caution: Any work you do here blocks further broadcasts until it completes,
+     so it can slow the receiving of later events.

@@ -1,0 +1,84 @@
+diff --git a/docs/jetpack/androidx/releases/xr-arcore.md b/docs/jetpack/androidx/releases/xr-arcore.md
+index a799e9a..423a70b 100644
+--- a/docs/jetpack/androidx/releases/xr-arcore.md
++++ b/docs/jetpack/androidx/releases/xr-arcore.md
+@@ -6,8 +6,7 @@ source: md.txt
+ 
+ # ARCore for Jetpack XR
+ 
+-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore)  
+-API Reference  
++[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore) API Reference  
+ [androidx.xr.arcore](https://developer.android.com/reference/androidx/xr/arcore)  
+ 
+ 
+@@ -16,7 +15,7 @@ Bring digital content into the real world with perception capabilities.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| January 28, 2026 | - | - | - | [1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha10) |
++| February 25, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha11) |
+ 
+ 
+ ## Declaring dependencies
+@@ -27,17 +26,17 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:  
++your app or module:
+ 
+ ### Groovy
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha10"
++    implementation "androidx.xr.arcore:arcore:1.0.0-alpha11"
+ 
+     // Optional dependencies for asynchronous conversions
+-    implementation "androidx.xr.arcore:arcore-guava:1.0.0-alpha10"
+-    implementation "androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha10"
++    implementation "androidx.xr.arcore:arcore-guava:1.0.0-alpha11"
++    implementation "androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha11"
+ }
+ ```
+ 
+@@ -45,11 +44,11 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha10")
++    implementation("androidx.xr.arcore:arcore:1.0.0-alpha11")
+ 
+     // Optional dependencies for asynchronous conversions
+-    implementation("androidx.xr.arcore:arcore-guava:1.0.0-alpha10")
+-    implementation("androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha10")
++    implementation("androidx.xr.arcore:arcore-guava:1.0.0-alpha11")
++    implementation("androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha11")
+ }
+ ```
+ 
+@@ -70,6 +69,12 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha11
++
++February 25, 2026
++
++`androidx.xr.arcore:arcore-*:1.0.0-alpha11` is released. Version 1.0.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/dee6404678a4a9ffe984428550062cb96908292e..c6ef8fa5ea41c72f3cc3e7c77e7981305dfecf33/xr/arcore).
++
+ ### Version 1.0.0-alpha10
+ 
+ January 28, 2026
+@@ -155,7 +160,9 @@ July 30, 2025
+ May 7, 2025
+ 
+ `androidx.xr.arcore:arcore:1.0.0-alpha04` is released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/043342a8810f3356110a0afce48c662e841c428f..b6c541571b9fb5471f965fc52612cb280713e5e4/xr/arcore/arcore).
+-| **Note:** You'll need Android Emulator version 35.6.7 or later to use this version of the library.
++
++> [!NOTE]
++> **Note:** You'll need Android Emulator version 35.6.7 or later to use this version of the library.
+ 
+ **API Changes**
+ 

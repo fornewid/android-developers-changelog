@@ -1,0 +1,49 @@
+diff --git a/docs/develop/connectivity/network-ops/connecting.md b/docs/develop/connectivity/network-ops/connecting.md
+index 016b805..5ace8e1 100644
+--- a/docs/develop/connectivity/network-ops/connecting.md
++++ b/docs/develop/connectivity/network-ops/connecting.md
+@@ -5,13 +5,14 @@ source: md.txt
+ ---
+ 
+ To perform network operations in your application, your manifest must include
+-the following permissions:  
++the following permissions:
+ 
+     <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+ 
+-| **Note:** Both the [`INTERNET`](https://developer.android.com/reference/android/Manifest.permission#INTERNET) and [`ACCESS_NETWORK_STATE`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_NETWORK_STATE) permissions are [normal
+-| permissions](https://developer.android.com/develop/permissions/overview#normal-dangerous), which means they're granted at install time and don't need to be [requested at runtime](https://developer.android.com/training/permissions/requesting).
++> [!NOTE]
++> **Note:** Both the [`INTERNET`](https://developer.android.com/reference/android/Manifest.permission#INTERNET) and [`ACCESS_NETWORK_STATE`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_NETWORK_STATE) permissions are [normal
++> permissions](https://developer.android.com/develop/permissions/overview#normal-dangerous), which means they're granted at install time and don't need to be [requested at runtime](https://developer.android.com/training/permissions/requesting).
+ 
+ ## Best practices for secure network communication
+ 
+@@ -67,7 +68,7 @@ clean API abstraction over some specific data or resource.
+ 
+ You can use Retrofit to declare an interface that specifies the HTTP method,
+ URL, arguments, and response type for network operations, as in the following
+-example:  
++example:
+ 
+ ### Kotlin
+ 
+@@ -92,7 +93,7 @@ expose their results. This encapsulation ensures that the components that call
+ the repository don't need to know how the data is stored. Any future changes to
+ how the data is stored are isolated to the repository class as well. For
+ example, you might have a remote change such as an update to API endpoints, or
+-you might want to implement local caching.  
++you might want to implement local caching.
+ 
+ ### Kotlin
+ 
+@@ -150,7 +151,7 @@ your data survive configuration changes. The `ViewModel` component is
+ designed to store and manage UI-related data in a lifecycle-conscious
+ way. Using the preceding `UserRepository`, the `ViewModel` can make the
+ necessary network requests and provide the result to your fragment or activity
+-using [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata):  
++using [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata):
+ 
+ ### Kotlin
+ 

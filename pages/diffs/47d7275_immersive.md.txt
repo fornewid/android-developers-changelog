@@ -1,0 +1,33 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/run/immersive.md b/docs/develop/xr/jetpack-xr-sdk/run/immersive.md
+index 2a60a89..7e0458d 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/run/immersive.md
++++ b/docs/develop/xr/jetpack-xr-sdk/run/immersive.md
+@@ -6,19 +6,19 @@ source: md.txt
+ 
+ <br />
+ 
+-<br />
+ 
+-Applicable XR devices  
+-This guidance helps you build experiences for these types of XR devices.  
+-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)  
+-![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg)XR Headsets[](https://developer.android.com/develop/xr/devices#xr-headsets)  
+-![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg)Wired XR Glasses[](https://developer.android.com/develop/xr/devices#xr-glasses)  
+-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)
++Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+ 
+ <br />
+ 
+-To see how your immersive experiences look and behave on XR headsets and XR glasses and debug your code, you need to build and run your app. The Jetpack XR SDK includes all the tools you need through Android Studio and the Android XR Emulator.
+-| **Preview:** The Android XR Emulator is part of the Android XR Developer Preview and is still in early development. If you encounter issues, please[report a bug or submit feedback](https://developer.android.com/develop/xr/support#android-xr-emulator).
++To see how your immersive experiences look and behave on XR headsets and XR
++glasses and debug your code, you need to build and run your app. The Jetpack XR
++SDK includes all the tools you need through Android Studio and the Android XR
++Emulator.
++
++> [!WARNING]
++> **Preview:** The Android XR Emulator is part of the Android XR Developer Preview and is still in early development. If you encounter issues, please [report a
++> bug or submit feedback](https://developer.android.com/develop/xr/support#android-xr-emulator).
+ 
+ This guide covers the following areas:
+ 

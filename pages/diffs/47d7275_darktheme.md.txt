@@ -1,0 +1,80 @@
+diff --git a/docs/develop/ui/views/theming/darktheme.md b/docs/develop/ui/views/theming/darktheme.md
+index 2082f67..4248307 100644
+--- a/docs/develop/ui/views/theming/darktheme.md
++++ b/docs/develop/ui/views/theming/darktheme.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/theming/darktheme
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with theming in Compose.  
+-[Color Scheme - Material Design 3 →](https://developer.android.com/jetpack/compose/designsystems/material3#color-scheme)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with theming in Compose. [Color Scheme - Material Design 3 →](https://developer.android.com/jetpack/compose/designsystems/material3#color-scheme) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 
+@@ -34,12 +31,12 @@ component, see [Darken web content in WebView](https://developer.android.com/gui
+ ## Support dark theme in your app
+ 
+ To support dark theme, set your app's theme---usually found in
+-`res/values/styles.xml`---to inherit from a `DayNight` theme:  
++`res/values/styles.xml`---to inherit from a `DayNight` theme:
+ 
+     <style name="AppTheme" parent="Theme.AppCompat.DayNight">
+ 
+ You can also use the [Material Components dark
+-theme](https://material.io/develop/android/theming/dark):  
++theme](https://material.io/develop/android/theming/dark):
+ 
+     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+ 
+@@ -93,7 +90,8 @@ To switch the theme, do the following:
+   [`AppCompatDelegate.setDefaultNightMode()`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatDelegate#setDefaultNightMode(int))
+   to switch the theme.
+ 
+-| **Note:** Starting with `AppCompat` v1.1.0, `setDefaultNightMode()` automatically recreates any started activities.
++> [!NOTE]
++> **Note:** Starting with `AppCompat` v1.1.0, `setDefaultNightMode()` automatically recreates any started activities.
+ 
+ ## Force Dark
+ 
+@@ -165,7 +163,9 @@ reflects the selected theme.
+ 
+ Remove any hardcoded colors such as background colors set programmatically to
+ white. Use the `?android:attr/colorBackground` theme attribute instead.
+-| **Note:** Dark-themed `android:windowBackground` drawables only work on Android 10.
++
++> [!NOTE]
++> **Note:** Dark-themed `android:windowBackground` drawables only work on Android 10.
+ 
+ ### Configuration changes
+ 
+@@ -178,7 +178,7 @@ example, you might want to delay a configuration change because a video is
+ playing.
+ 
+ An app can handle the implementation of dark theme by declaring that each
+-`Activity` can handle the `uiMode` configuration change:  
++`Activity` can handle the `uiMode` configuration change:
+ 
+     <activity
+         android:name=".MyActivity"
+@@ -188,7 +188,7 @@ When an `Activity` declares that it handles configuration changes, its
+ [`onConfigurationChanged()`](https://developer.android.com/reference/android/app/Activity#onConfigurationChanged(android.content.res.Configuration))
+ method is called when there is a theme change.
+ 
+-To check what the current theme is, apps can run code like this:  
++To check what the current theme is, apps can run code like this:
+ 
+ ### Kotlin
+ 
+@@ -213,4 +213,6 @@ switch (currentNightMode) {
+         break;
+ }
+ ```
+-| **Note:** To learn more about configuration changes, how to restrict Activity recreation if needed, and how to react to those configuration changes from the View system and Jetpack Compose, check out the [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes) page.
+\ No newline at end of file
++
++> [!NOTE]
++> **Note:** To learn more about configuration changes, how to restrict Activity recreation if needed, and how to react to those configuration changes from the View system and Jetpack Compose, check out the [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes) page.
+\ No newline at end of file

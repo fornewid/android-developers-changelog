@@ -1,0 +1,254 @@
+diff --git a/docs/develop/ui/views/haptics/custom-haptic-effects.md b/docs/develop/ui/views/haptics/custom-haptic-effects.md
+index 3f767a0..be16a20 100644
+--- a/docs/develop/ui/views/haptics/custom-haptic-effects.md
++++ b/docs/develop/ui/views/haptics/custom-haptic-effects.md
+@@ -65,7 +65,8 @@ to achieve rich haptic effects.
+ - Use scales of 0.5, 0.7, and 1.0 to create a low, medium, and high intensity
+   version of a primitive.
+ 
+-  | **Note:** A 0.0 `scale` parameter indicates minimum perceivable vibration, not off.
++  > [!NOTE]
++  > **Note:** A 0.0 `scale` parameter indicates minimum perceivable vibration, not off.
+ 
+ ## Create custom vibration patterns
+ 
+@@ -78,7 +79,9 @@ Waveform effects are usually perceivable, but sudden long vibrations can startle
+ the user if played in a quiet environment. Ramping to a target amplitude too
+ fast might also produce audible buzzing noises. Design waveform patterns to
+ smooth the amplitude transitions to create ramp up and down effects.
+-| **Important:** Start and end a waveform at zero amplitude whenever possible. This avoids any sudden changes in the input voltage amplitude to the actuator which may cause the actuator to resonate; in other words, vibrate at its resonance frequency. Also, some drivers apply *active braking* if the waveform ends at 0, so the vibration stops more quickly. See [Vibration actuators primer](https://developer.android.com/develop/ui/views/haptics/actuators) for details.
++
++> [!IMPORTANT]
++> **Important:** Start and end a waveform at zero amplitude whenever possible. This avoids any sudden changes in the input voltage amplitude to the actuator which may cause the actuator to resonate; in other words, vibrate at its resonance frequency. Also, some drivers apply *active braking* if the waveform ends at 0, so the vibration stops more quickly. See [Vibration actuators primer](https://developer.android.com/develop/ui/views/haptics/actuators) for details.
+ 
+ ## Examples of vibration patterns
+ 
+@@ -95,7 +98,7 @@ Waveforms are represented as [`VibrationEffect`](https://developer.android.com/r
+ Here is an example waveform that pulses twice with a pause of 350 ms in between
+ pulses. The first pulse is a smooth ramp up to the maximum amplitude, and the
+ second is a quick ramp to hold maximum amplitude. Stopping at the end is defined
+-by the negative repeat index value.  
++by the negative repeat index value.
+ 
+ ### Kotlin
+ 
+@@ -124,7 +127,7 @@ by the negative repeat index value.
+ Waveforms can also be played repeatedly until cancelled. The way to create a
+ repeating waveform is to set a non-negative `repeat` parameter. When you play a
+ repeating waveform, the vibration continues until it's explicitly cancelled in
+-the service:  
++the service:
+ 
+ ### Kotlin
+ 
+@@ -172,7 +175,7 @@ without this capability causes the device to vibrate at the maximum amplitude
+ for each positive entry in the amplitude array. If your app needs to accommodate
+ such devices, either use a pattern that doesn't generate a buzzing effect when
+ played in that condition, or design a simpler ON/OFF pattern that can be played
+-as a fallback instead.  
++as a fallback instead.
+ 
+ ### Kotlin
+ 
+@@ -194,7 +197,8 @@ as a fallback instead.
+         onOffTimings, onOffRepeatIdx));
+     }
+ 
+-| **Note:** The ON/OFF pattern is actually specified in the API as a OFF/ON sequence of durations. See more details in the [API reference documentation](https://developer.android.com/reference/android/os/VibrationEffect#createWaveform(long%5B%5D,%20int)).
++> [!NOTE]
++> **Note:** The ON/OFF pattern is actually specified in the API as a OFF/ON sequence of durations. See more details in the [API reference documentation](https://developer.android.com/reference/android/os/VibrationEffect#createWaveform(long%5B%5D,%20int)).
+ 
+ ## Create vibration compositions
+ 
+@@ -203,7 +207,9 @@ custom effects, and goes beyond that to explore rich haptics using more advanced
+ hardware capabilities. You can use combinations of effects that vary amplitude
+ and frequency to create more complex haptic effects on devices with haptic
+ actuators that have a wider frequency bandwidth.
+-| **Note:** See [Add haptics feedback to events](https://developer.android.com/develop/ui/views/haptics/haptic-feedback) for predefined haptic effects and how to use them.
++
++> [!NOTE]
++> **Note:** See [Add haptics feedback to events](https://developer.android.com/develop/ui/views/haptics/haptic-feedback) for predefined haptic effects and how to use them.
+ 
+ The process for [creating custom vibration patterns](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#custom_vibration_patterns), described previously on
+ this page, explains how to control the vibration amplitude to create smooth
+@@ -234,7 +240,7 @@ sections.
+ 
+ You can create composed vibration effects with
+ [`VibrationEffect.Composition`](https://developer.android.com/reference/android/os/VibrationEffect.Composition). Here is an example of a slowly rising
+-effect followed by a sharp click effect:  
++effect followed by a sharp click effect:
+ 
+ ### Kotlin
+ 
+@@ -276,7 +282,7 @@ primitives. This delay is expressed in milliseconds since the end of the
+ previous primitive. In general, a 5 to 10 ms gap between two primitives is too
+ short to be detectable. Use a gap on the order of 50 ms or longer if you want to
+ create a discernible gap between two primitives. Here is an example of a
+-composition with delays:  
++composition with delays:
+ 
+ ### Kotlin
+ 
+@@ -305,7 +311,7 @@ composition with delays:
+ ### Check which primitives are supported
+ 
+ The following APIs can be used to verify the device support for specific
+-primitives:  
++primitives:
+ 
+ ### Kotlin
+ 
+@@ -330,7 +336,7 @@ primitives:
+     }
+ 
+ It's also possible to check multiple primitives and then decide which ones to
+-compose based on the device support level:  
++compose based on the device support level:
+ 
+ ### Kotlin
+ 
+@@ -362,12 +368,11 @@ feedback to an action in progress. Closely-spaced scale values can be used to
+ create a smooth crescendo effect of a primitive. The delay between consecutive
+ [primitives](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#primitives) can also be dynamically set based on the user interaction. This
+ is illustrated in the following example of a view animation controlled by a drag
+-gesture and augmented with haptics.  
+-![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of a circle being dragged down.](https://developer.android.com/static/develop/ui/views/haptics/images/resist-demo.gif)  
+-![Plot of input vibration waveform.](https://developer.android.com/static/develop/ui/views/haptics/images/resist-waveform.svg)
++gesture and augmented with haptics.
++![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of a circle being dragged down.](https://developer.android.com/static/develop/ui/views/haptics/images/resist-demo.gif) ![Plot of input vibration waveform.](https://developer.android.com/static/develop/ui/views/haptics/images/resist-waveform.svg)
+ 
+ **Figure 1.** This waveform represents the
+-output acceleration of the vibration on a device.  
++output acceleration of the vibration on a device.
+ 
+ ### Kotlin
+ 
+@@ -489,12 +494,11 @@ shift the emphasis towards the falling portion.
+ Here is an example of an application of this composition for expanding and
+ collapsing a circle. The rise effect can enhance the feeling of expansion during
+ the animation. The combination of rise and fall effects helps emphasize the
+-collapsing at the end of the animation.  
+-![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of an expanding circle.](https://developer.android.com/static/develop/ui/views/haptics/images/expand-demo.gif)  
+-![Plot of input vibration waveform.](https://developer.android.com/static/develop/ui/views/haptics/images/expand-waveform.svg)
++collapsing at the end of the animation.
++![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of an expanding circle.](https://developer.android.com/static/develop/ui/views/haptics/images/expand-demo.gif) ![Plot of input vibration waveform.](https://developer.android.com/static/develop/ui/views/haptics/images/expand-waveform.svg)
+ 
+ **Figure 2.**This waveform represents the
+-output acceleration of the vibration on a device.  
++output acceleration of the vibration on a device.
+ 
+ ### Kotlin
+ 
+@@ -606,12 +610,11 @@ integrate well and begin to feel like individual effects.
+ 
+ Here is an example of a elastic shape that bounces back after being dragged down
+ and then released. The animation is enhanced with a pair of spin effects, played
+-with varying intensities that are proportional to the bounce displacement.  
+-![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of an elastic shape bouncing](https://developer.android.com/static/develop/ui/views/haptics/images/wobble-demo.gif)  
+-![Plot of input vibration waveform](https://developer.android.com/static/develop/ui/views/haptics/images/wobble-waveform.svg)
++with varying intensities that are proportional to the bounce displacement.
++![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of an elastic shape bouncing](https://developer.android.com/static/develop/ui/views/haptics/images/wobble-demo.gif) ![Plot of input vibration waveform](https://developer.android.com/static/develop/ui/views/haptics/images/wobble-waveform.svg)
+ 
+ **Figure 3.** This waveform represents the
+-output acceleration of the vibration on a device.  
++output acceleration of the vibration on a device.
+ 
+ ### Kotlin
+ 
+@@ -735,12 +738,11 @@ effect, which can be paired with the visualization of an impact, in a video or
+ animation for example, to augment the overall experience.
+ 
+ Here is an example of a ball drop animation enhanced with a thud effect played
+-each time the ball bounces off the bottom of the screen:  
+-![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of a dropped ball bouncing off the bottom of the screen.](https://developer.android.com/static/develop/ui/views/haptics/images/bounce-demo.gif)  
+-![Plot of input vibration waveform.](https://developer.android.com/static/develop/ui/views/haptics/images/bounce-waveform.svg)
++each time the ball bounces off the bottom of the screen:
++![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of a dropped ball bouncing off the bottom of the screen.](https://developer.android.com/static/develop/ui/views/haptics/images/bounce-demo.gif) ![Plot of input vibration waveform.](https://developer.android.com/static/develop/ui/views/haptics/images/bounce-waveform.svg)
+ 
+ **Figure 4.** This waveform represents the
+-output acceleration of the vibration on a device.  
++output acceleration of the vibration on a device.
+ 
+ ### Kotlin
+ 
+@@ -861,16 +863,19 @@ parameters:
+   crispness of the vibration. Lower values translate to smoother vibrations,
+   while higher values create a more sharp sensation.
+ 
+-  | **Note:** Setting an initial sharpness is optional. If omitted, the framework defaults the initial sharpness to the value of the first control point.
++  > [!NOTE]
++  > **Note:** Setting an initial sharpness is optional. If omitted, the framework defaults the initial sharpness to the value of the first control point.
++
+ - A **duration** value, which represents the time, in milliseconds, taken to
+   transition from the last control point---that is, an intensity and sharpness
+   pair---to the new one.
+ 
+-| **Caution:** When using the basic envelope API for envelope based vibrations, check that your effect concludes with a control point of zero intensity. Otherwise, an [`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException) occurs.
++> [!CAUTION]
++> **Caution:** When using the basic envelope API for envelope based vibrations, check that your effect concludes with a control point of zero intensity. Otherwise, an [`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException) occurs.
+ 
+ Here is an example waveform that ramps up the intensity from a low-pitch to a
+ high-pitch, maximum-strength vibration over 500 ms and then ramps back down to
+-\\( 0 \\) (off) over 100 ms.  
++\\( 0 \\) (off) over 100 ms.
+ 
+     vibrator.vibrate(VibrationEffect.BasicEnvelopeBuilder()
+         .setInitialSharpness(0.0f)
+@@ -887,18 +892,21 @@ using `WaveformEnvelopeBuilder`. When using this object, you can access the
+ - An amplitude value in the range \\( \[0, 1\] \\), which represents the achievable vibration strength at given frequency, as determined by the device FOAM. For example, a value of \\( 0.5 \\) generates half the maximum output acceleration that can be achieved at the given frequency.
+ - A **frequency** value, specified in Hertz.
+ 
+-  | **Note:** Setting an initial frequency for `WaveformEnvelopeBuilder` is optional. If omitted, the framework defaults the initial frequency to the value of the first control point.
++  > [!NOTE]
++  > **Note:** Setting an initial frequency for `WaveformEnvelopeBuilder` is optional. If omitted, the framework defaults the initial frequency to the value of the first control point.
++
+ - A **duration** value, which represents the time, in milliseconds, taken to
+   transition from the last control point to the new one.
+ 
+-| **Note:** To help your vibration patterns play correctly, use frequencies within the device's capabilities. The system completely ignores vibration effects that contain unsupported frequencies. Refer to the [`VibratorFrequencyProfile` API
+-| reference](https://developer.android.com/reference/android/os/vibrator/VibratorFrequencyProfile) to determine the supported frequency range. In addition, check device support for envelope effects using [`VibratorEnvelopeEffectInfo`](https://developer.android.com/reference/android/os/vibrator/VibratorEnvelopeEffectInfo).
++> [!NOTE]
++> **Note:** To help your vibration patterns play correctly, use frequencies within the device's capabilities. The system completely ignores vibration effects that contain unsupported frequencies. Refer to the [`VibratorFrequencyProfile` API
++> reference](https://developer.android.com/reference/android/os/vibrator/VibratorFrequencyProfile) to determine the supported frequency range. In addition, check device support for envelope effects using [`VibratorEnvelopeEffectInfo`](https://developer.android.com/reference/android/os/vibrator/VibratorEnvelopeEffectInfo).
+ 
+ The following code shows an example waveform that defines a 400 ms vibration
+ effect. It begins with a 50 ms amplitude ramp, from off to full, at a constant
+ 60 Hz. Then, the frequency ramps up to 120 Hz over the next 100 ms and remains
+ at that level for 200 ms. Finally, the amplitude ramps down to \\( 0 \\), and
+-the frequency returns to 60 Hz over the last 50 ms:  
++the frequency returns to 60 Hz over the last 50 ms:
+ 
+     vibrator.vibrate(VibrationEffect.WaveformEnvelopeBuilder()
+         .addControlPoint(1.0f, 60f, 50)
+@@ -920,12 +928,11 @@ This results in haptic feedback that more accurately follows animated events.
+ 
+ Here's an example of a free-falling spring with the animation enhanced with a
+ basic envelope effect played each time the spring bounces off the bottom of the
+-screen:  
+-![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of a dropped spring bouncing off the bottom of the screen.](https://developer.android.com/static/develop/ui/views/haptics/images/bouncing-spring.gif)  
+-![Plot of input vibration waveform.](https://developer.android.com/static/develop/ui/views/haptics/images/spring-waveform-graph.svg)
++screen:
++![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of a dropped spring bouncing off the bottom of the screen.](https://developer.android.com/static/develop/ui/views/haptics/images/bouncing-spring.gif) ![Plot of input vibration waveform.](https://developer.android.com/static/develop/ui/views/haptics/images/spring-waveform-graph.svg)
+ 
+ **Figure 5.** An output acceleration waveform graph for a vibration that
+-simulates a bouncing spring.  
++simulates a bouncing spring.
+ 
+     @Composable
+     fun BouncingSpringAnimation() {
+@@ -1052,12 +1059,11 @@ a launch into space.
+ This effect isn't possible with the basic envelope API, as it abstracts away the
+ device-specific information about its resonant frequency and output acceleration
+ curve. Increasing sharpness can push the equivalent frequency beyond resonance,
+-potentially causing an unintended acceleration dip.  
+-![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of a rocket ship taking off from the bottom of the screen.](https://developer.android.com/static/develop/ui/views/haptics/images/rocket-launch.gif)  
+-![Plot of input vibration waveform.](https://developer.android.com/static/develop/ui/views/haptics/images/rocket-waveform-graph.svg)
++potentially causing an unintended acceleration dip.
++![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Animation of a rocket ship taking off from the bottom of the screen.](https://developer.android.com/static/develop/ui/views/haptics/images/rocket-launch.gif) ![Plot of input vibration waveform.](https://developer.android.com/static/develop/ui/views/haptics/images/rocket-waveform-graph.svg)
+ 
+ **Figure 6.** An output acceleration waveform graph for a vibration that
+-simulates a rocket launch.  
++simulates a rocket launch.
+ 
+     @Composable
+     fun RocketLaunchAnimation() {

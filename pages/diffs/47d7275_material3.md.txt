@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/designsystems/material3.md b/docs/develop/ui/compose/designsystems/material3.md
+index 5391cc8..44c686c 100644
+--- a/docs/develop/ui/compose/designsystems/material3.md
++++ b/docs/develop/ui/compose/designsystems/material3.md
+@@ -104,7 +104,7 @@ val md_theme_dark_primary = Color(0xFFACD370)
+ val md_theme_dark_onPrimary = Color(0xFF213600)
+ val md_theme_dark_primaryContainer = Color(0xFF324F00)
+ // ..
+-// ..https://github.com/android/snippets/blob/e6bd0ecb017905ea2b0423d974e826421caa7d2b/compose/snippets/src/main/java/com/example/compose/snippets/designsystems/Material3Snippets.kt#L96-L106
++// ..https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/compose/snippets/src/main/java/com/example/compose/snippets/designsystems/Material3Snippets.kt#L96-L106
+ ```
+ 
+ <br />
+@@ -283,7 +283,7 @@ val replyTypography = Typography(
+     ),
+     // ..
+ )
+-// ..https://github.com/android/snippets/blob/e6bd0ecb017905ea2b0423d974e826421caa7d2b/compose/snippets/src/main/java/com/example/compose/snippets/designsystems/Material3Snippets.kt#L194-L209
++// ..https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/compose/snippets/src/main/java/com/example/compose/snippets/designsystems/Material3Snippets.kt#L194-L209
+ ```
+ 
+ <br />

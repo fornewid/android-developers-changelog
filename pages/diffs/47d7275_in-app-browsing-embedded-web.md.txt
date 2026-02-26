@@ -1,0 +1,18 @@
+diff --git a/docs/develop/ui/views/layout/webapps/in-app-browsing-embedded-web.md b/docs/develop/ui/views/layout/webapps/in-app-browsing-embedded-web.md
+index 20be76f..e373615 100644
+--- a/docs/develop/ui/views/layout/webapps/in-app-browsing-embedded-web.md
++++ b/docs/develop/ui/views/layout/webapps/in-app-browsing-embedded-web.md
+@@ -25,10 +25,11 @@ Use the following table to help you decide which tool fits your needs:
+ | **Primary use case** | Building hybrid apps with web as primary or supporting content, displaying ads, in-app campaigns, or terms of service pages. | Displaying content from external websites (like news articles or product pages). |
+ | **UI control** | **Full.** It is a `View` component you can place anywhere. You control all the surrounding UI. | **Limited.** You can theme the toolbar color and add a few custom actions. |
+ | **Data and sessions** | **Sandboxed.** It doesn't share cookies or logins with the user's main browser. | **Shared.** It uses the user's default browser session, including cookies and saved passwords. |
+-| **Native \<-\> Web bridge** | **Yes.** You can use a JavaScript bridge for deep, bidirectional communication between web content and native app code. | **Limited.** You can use the [window.postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) method for basic string passing. |
++| **Native \<-\> Web bridge** | **Yes.** You can use a JavaScript bridge for deep, bidirectional communication between web content and native app code. | **Limited.** You can use the `https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage` method for basic string passing. |
+ | **Developer effort** | **High.** You need to manage the lifecycle, navigation, and performance yourself. | **Low.** You can implement it with just a few lines of code. |
+ 
+-| **Note:** You can also choose to not use an in-app browser at all. Instead, use an [Android Intent](https://developer.android.com/guide/components/intents-filters) to link out of your app to the user's default browser. Doing so launches the browser and takes the user to the website in the user's default browser app. However, keep in mind that this approach takes users out of your app.
++> [!NOTE]
++> **Note:** You can also choose to not use an in-app browser at all. Instead, use an [Android Intent](https://developer.android.com/guide/components/intents-filters) to link out of your app to the user's default browser. Doing so launches the browser and takes the user to the website in the user's default browser app. However, keep in mind that this approach takes users out of your app.
+ 
+ ## WebView
+ 

@@ -1,0 +1,61 @@
+diff --git a/docs/develop/devices/assistant/dynamic-shortcuts.md b/docs/develop/devices/assistant/dynamic-shortcuts.md
+index 431e9b9..223cc58 100644
+--- a/docs/develop/devices/assistant/dynamic-shortcuts.md
++++ b/docs/develop/devices/assistant/dynamic-shortcuts.md
+@@ -4,6 +4,9 @@ url: https://developer.android.com/develop/devices/assistant/dynamic-shortcuts
+ source: md.txt
+ ---
+ 
++Project: /develop/devices/assistant/_project.yaml
++Book: /develop/devices/assistant/_book.yaml
++
+ [Android shortcuts](https://developer.android.com/guide/topics/ui/shortcuts) provide users with quick
+ methods to perform an action or access content in an app.
+ Assistant can proactively suggest your Android dynamic shortcuts to users at
+@@ -35,7 +38,7 @@ To add this Jetpack library and configure your project, follow these steps:
+ 
+ 1. Update your `gradle.properties` file to handle Jetpack libraries:
+ 
+-   **gradle.properties**  
++   **gradle.properties**
+ 
+        android.useAndroidX=true
+        # Automatically convert third-party libraries to use AndroidX
+@@ -43,7 +46,7 @@ To add this Jetpack library and configure your project, follow these steps:
+ 
+ 2. Add the Jetpack library dependencies to your `build.gradle`:
+ 
+-   **app/build.gradle**  
++   **app/build.gradle**
+ 
+        dependencies {
+         implementation "androidx.core:core:1.6.0"
+@@ -60,7 +63,9 @@ To add this Jetpack library and configure your project, follow these steps:
+    Shortcuts Integration library. This library contains no developer-facing
+    API. By adding it as a dependency, you enable Assistant to take in the
+    dynamic shortcuts you push using the `ShortcutManagerCompat` class.
+-   | **Note:** Visit the [Jetpack library explorer](https://developer.android.com/jetpack/androidx/explorer) to find the latest versions of the Core and Google Shortcuts Integration libraries.
++
++   > [!NOTE]
++   > **Note:** Visit the [Jetpack library explorer](https://developer.android.com/jetpack/androidx/explorer) to find the latest versions of the Core and Google Shortcuts Integration libraries.
+ 
+ ## Push dynamic shortcuts
+ 
+@@ -73,7 +78,7 @@ You then push the shortcut using the
+ whenever a user completes a relevant action in your app. The following sample
+ code pushes a shortcut every time a user creates a list in a notes and lists app.
+ 
+-**ExampleOrderActivity**  
++**ExampleOrderActivity**
+ 
+ ### Kotlin
+ 
+@@ -126,7 +131,7 @@ semantic [built-in intent](https://developer.android.com/guide/app-actions/inten
+ Dynamic shortcuts sometimes are pushed without any particular BII parameter
+ association. When invoked by the user, Assistant triggers the `intent` defined
+ in the shortcut to fulfill the action. The following example shows a dynamic
+-shortcut with no parameter association:  
++shortcut with no parameter association:
+ 
+ ### Kotlin
+ 

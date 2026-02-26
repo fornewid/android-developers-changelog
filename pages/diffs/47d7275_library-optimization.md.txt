@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/app-optimization/library-optimization.md b/docs/topic/performance/app-optimization/library-optimization.md
+index 8f998a8..ce45fa2 100644
+--- a/docs/topic/performance/app-optimization/library-optimization.md
++++ b/docs/topic/performance/app-optimization/library-optimization.md
+@@ -113,7 +113,6 @@ recommendations.
+   - `-repackageclasses`
+   - `-flattenpackagehierarchy`
+   - `-allowaccessmodification`
+-  - `-overloadaggressively`
+   - `-renamesourcefileattribute`
+   - `-ignorewarnings`
+   - `-addconfigurationdebugging`

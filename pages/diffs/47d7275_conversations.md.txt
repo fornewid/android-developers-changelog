@@ -1,0 +1,35 @@
+diff --git a/docs/develop/ui/views/notifications/conversations.md b/docs/develop/ui/views/notifications/conversations.md
+index 08e08ba..cf99b1b 100644
+--- a/docs/develop/ui/views/notifications/conversations.md
++++ b/docs/develop/ui/views/notifications/conversations.md
+@@ -15,6 +15,8 @@ the people and conversations initiative.
+ 
+ ## Conversation space
+ 
++<iframe width="560" height="315" src="https://www.youtube.com/embed/CKlVSvFyt3s" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
++
+ <br />
+ 
+ ![The conversation space is a dedicated notification area for real-time
+@@ -86,7 +88,9 @@ Although shortcuts are removable, apps **shouldn't remove cached shortcuts**
+ unless absolutely necessary; a shortcut is probably cached because the user
+ interacted with it to change their experience, and removing the shortcut will
+ undo those changes, leading to user frustration.
+-| **Note:** If removing a cached shortcut removes a person-specific conversation notification channel, the deleted category count in **Settings** is incremented.
++
++> [!NOTE]
++> **Note:** If removing a cached shortcut removes a person-specific conversation notification channel, the deleted category count in **Settings** is incremented.
+ 
+ ### Conversation Notifications
+ 
+@@ -132,7 +136,9 @@ If an app doesn't target Android 11, its messages can still be
+ surfaced in the conversation space. However, the app still must meet certain
+ requirements. This section describes the requirements for those apps, and the
+ fallback behavior if the app doesn't meet the requirements.
+-| **Note:** If the app targets Android 11 or higher, it must follow the requirements described in [API guidelines](https://developer.android.com/develop/ui/views/notifications/conversations#api-guidelines) to have its messages appear in the conversation space.
++
++> [!NOTE]
++> **Note:** If the app targets Android 11 or higher, it must follow the requirements described in [API guidelines](https://developer.android.com/develop/ui/views/notifications/conversations#api-guidelines) to have its messages appear in the conversation space.
+ 
+ The core requirement for participation in the messaging space is, the app must
+ implement [`MessagingStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle)

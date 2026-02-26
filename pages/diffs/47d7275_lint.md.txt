@@ -1,0 +1,218 @@
+diff --git a/docs/studio/write/lint.md b/docs/studio/write/lint.md
+index 3c50b10..d4b70ea 100644
+--- a/docs/studio/write/lint.md
++++ b/docs/studio/write/lint.md
+@@ -82,18 +82,18 @@ entering one of the following commands from the root directory of your project:
+ [Android Gradle plugin](https://developer.android.com/build/releases/gradle-plugin) as up-to-date as possible to
+ use the latest lint rules.
+ 
+-- On Windows:  
++- On Windows:
+ 
+   ```
+   gradlew lint
+   ```
+-- On Linux or macOS:  
++- On Linux or macOS:
+ 
+   ```
+   ./gradlew lint
+   ```
+ 
+-You should see output similar to the following:  
++You should see output similar to the following:
+ 
+ ```
+ > Task :app:lintDebug
+@@ -108,7 +108,7 @@ as shown in figure 2.
+ 
+ If your project includes [build
+ variants](https://developer.android.com/studio/build/build-variants), lint checks only the default variant. If you want to run lint on a different
+-variant, you must capitalize the variant name and prefix it with `lint`.  
++variant, you must capitalize the variant name and prefix it with `lint`.
+ 
+ ```
+ ./gradlew lintRelease
+@@ -128,13 +128,13 @@ Gradle tasks from the command line, read [Build your app from the command line](
+ If you're not using Android Studio or Gradle,
+ install the [Android SDK command-line tools](https://developer.android.com/studio/command-line#tools-sdk)
+ to use the standalone lint tool. Locate the lint tool
+-at <var translate="no">android_sdk</var>`/cmdline-tools/`<var translate="no">version</var>`/bin/lint`.
++at `android_sdk/cmdline-tools/version/bin/lint`.
+ 
+ **Note:** If you attempt to run the standalone tool on a Gradle project, it gives
+ an error. You should always use `gradle lint` (on Windows) or `./gradlew
+ lint` (on macOS or Linux) to run lint on a Gradle project.
+ 
+-To run lint against a list of files in a project directory, use the following command:  
++To run lint against a list of files in a project directory, use the following command:
+ 
+ ```
+ lint [flags] <project directory>
+@@ -142,21 +142,21 @@ lint [flags] <project directory>
+ 
+ For example, you can issue the following command to scan the files under the
+ `myproject` directory and its subdirectories. The issue ID `MissingPrefix`
+-tells lint to only scan for XML attributes that are missing the Android namespace prefix.  
++tells lint to only scan for XML attributes that are missing the Android namespace prefix.
+ 
+ ```
+ lint --check MissingPrefix myproject 
+ ```
+ 
+ To see the full list of flags and command-line arguments supported by the tool, use the
+-following command:  
++following command:
+ 
+ ```
+ lint --help
+ ```
+ 
+ The following example shows the console output when the lint command is run against a
+-project called Earthquake:  
++project called Earthquake:
+ 
+ ```
+ $ lint Earthquake
+@@ -220,7 +220,7 @@ are creating this file manually, place it in the root directory of your Android
+ 
+ The `lint.xml` file consists of an enclosing `<lint>` parent tag that
+ contains one or more children `<issue>` elements. Lint defines a unique
+-`id` attribute value for each `<issue>`:  
++`id` attribute value for each `<issue>`:
+ 
+ ```xml
+ <?xml version="1.0" encoding="UTF-8"?>
+@@ -238,7 +238,7 @@ from the [standalone lint tool](https://developer.android.com/studio/write/lint#
+ 
+ #### Sample lint.xml file
+ 
+-The following example shows the contents of a `lint.xml` file:  
++The following example shows the contents of a `lint.xml` file:
+ 
+ ```xml
+ <?xml version="1.0" encoding="UTF-8"?>
+@@ -286,7 +286,7 @@ add the `@SuppressLint` annotation to that code.
+ 
+ The following example shows how you can turn off lint checking for the `NewApi`
+ issue in the `onCreate` method. The lint tool continues to check for the
+-`NewApi` issue in other methods of this class.  
++`NewApi` issue in other methods of this class.
+ 
+ ### Kotlin
+ 
+@@ -308,7 +308,7 @@ public void onCreate(Bundle savedInstanceState) {
+ ```
+ 
+ The same can be accomplished on any Composable. The following code snippet shows how you can turn
+-off `NewApi` checks on any Composable.  
++off `NewApi` checks on any Composable.
+ 
+ ### Kotlin
+ 
+@@ -322,7 +322,7 @@ off `NewApi` checks on any Composable.
+ ```
+ 
+ The following example shows how to turn off lint checking for the `ParserError`
+-issue in the `FeedProvider` class:  
++issue in the `FeedProvider` class:
+ 
+ ### Kotlin
+ 
+@@ -338,7 +338,7 @@ class FeedProvider : ContentProvider() {
+ public class FeedProvider extends ContentProvider {
+ ```
+ 
+-To suppress checking for all lint issues in the file, use the `all` keyword:  
++To suppress checking for all lint issues in the file, use the `all` keyword:
+ 
+ ### Kotlin
+ 
+@@ -358,7 +358,7 @@ You can use the same annotation to suppress lint checks on any Composable functi
+ 
+ Use the `tools:ignore` attribute to turn off lint checking for specific
+ sections of your XML files. Put the following namespace value in the `lint.xml` file
+-so the lint tool recognizes the attribute:  
++so the lint tool recognizes the attribute:
+ 
+ ```xml
+ namespace xmlns:tools="http://schemas.android.com/tools"
+@@ -368,7 +368,7 @@ The following example shows how you can turn off lint checking for the
+ `UnusedResources` issue in a `<LinearLayout>` element of an XML
+ layout file. The `ignore` attribute is inherited by the children elements of the parent
+ element where the attribute is declared. In this example, the lint check is also disabled for the
+-child `<TextView>` element:  
++child `<TextView>` element:
+ 
+ ```xml
+ <LinearLayout
+@@ -382,14 +382,14 @@ child `<TextView>` element:
+ ```
+ 
+ To disable more than one issue, list the issues to disable in a comma-separated string. For
+-example:  
++example:
+ 
+ ```xml
+ tools:ignore="NewApi,StringFormatInvalid"
+ ```
+ 
+ To suppress checking for all lint issues in the XML element, use the `all`
+-keyword:  
++keyword:
+ 
+ ```xml
+ tools:ignore="all"
+@@ -404,7 +404,7 @@ such as which checks to run or ignore, using the
+ `build.gradle` file.
+ 
+ The following code snippet shows some of
+-the properties you can configure:  
++the properties you can configure:
+ 
+ ### Kotlin
+ 
+@@ -479,7 +479,7 @@ The baseline snapshot lets you start using lint to fail the build without having
+ to go back and address all existing issues first.
+ 
+ 
+-To create a baseline snapshot, modify your project's `build.gradle` file as follows:  
++To create a baseline snapshot, modify your project's `build.gradle` file as follows:
+ 
+ ### Kotlin
+ 
+@@ -509,7 +509,7 @@ to create a new baseline, manually delete the file and run lint again to re-crea
+ 
+ Then, run lint from the IDE by selecting **Code \> Inspect Code** or from the command line
+ as follows. The output prints the location of the `lint-baseline.xml` file. The
+-file location for your setup might be different from what is shown here:  
++file location for your setup might be different from what is shown here:
+ 
+ ```
+ $ ./gradlew lintDebug -Dlint.baselines.continue=true
+@@ -521,14 +521,14 @@ Created baseline file /app/lint-baseline.xml
+ 
+ Running `lint` records all the
+ current issues in the `lint-baseline.xml` file. The set of current issues is
+-called the *baseline* . You can check the `lint-baseline.xml`
++called the *baseline*. You can check the `lint-baseline.xml`
+ file into version control if you want to share it with others.
+ 
+ ### Customize the baseline
+ 
+ 
+ If you want to add only certain issue types to the baseline, specify the
+-issues to add by editing your project's `build.gradle` file as follows:  
++issues to add by editing your project's `build.gradle` file as follows:
+ 
+ ### Kotlin
+ 
+@@ -586,7 +586,7 @@ To manually run configured lint and other IDE inspections, select
+ ### Set the inspection scope and profile
+ 
+ 
+-Select the files you want to analyze (the inspection *scope* ) and the
++Select the files you want to analyze (the inspection *scope*) and the
+ inspections you want to run (the inspection *profile*) as follows:
+ 
+ 1. In the **Android** view, open your project and select the project, folder, or file that you want to analyze.

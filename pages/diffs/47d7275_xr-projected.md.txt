@@ -1,0 +1,74 @@
+diff --git a/docs/jetpack/androidx/releases/xr-projected.md b/docs/jetpack/androidx/releases/xr-projected.md
+index c97c504..c57c24d 100644
+--- a/docs/jetpack/androidx/releases/xr-projected.md
++++ b/docs/jetpack/androidx/releases/xr-projected.md
+@@ -8,11 +8,11 @@ source: md.txt
+ 
+ API Reference  
+ [androidx.xr.projected](https://developer.android.com/reference/kotlin/androidx/xr/projected/package-summary)  
+-Build experiences that leverage the unique capabilities of connected XR devices.  
++Build experiences that leverage the unique capabilities of connected XR devices.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| January 28, 2026 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha04) |
++| February 25, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha05) |
+ 
+ ## Declaring dependencies
+ 
+@@ -21,14 +21,14 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:  
++your app or module:
+ 
+ ### Groovy
+ 
+ ```groovy
+ dependencies {
+     // Use to implement xr projecteds
+-    implementation "androidx.xr.projected:projected:1.0.0-alpha04"
++    implementation "androidx.xr.projected:projected:1.0.0-alpha05"
+ }
+ ```
+ 
+@@ -37,20 +37,20 @@ dependencies {
+ ```kotlin
+ dependencies {
+     // Use to implement xr projecteds
+-    implementation("androidx.xr.projected:projected:1.0.0-alpha04")
++    implementation("androidx.xr.projected:projected:1.0.0-alpha05")
+ 
+     // Use to implement xr projected complications
+-    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha04"
++    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha05"
+     // (Kotlin-specific extensions)
+-    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha04"
++    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha05"
+ 
+     // Use to implement a projected style and complication editor
+-    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha04")
++    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha05")
+ 
+     // Can use to render complications.
+     // This library is optional and projecteds may have custom implementation for rendering
+     // complications.
+-    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha04"
++    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha05"
+ }
+ ```
+ 
+@@ -71,6 +71,12 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha05
++
++February 25, 2026
++
++`androidx.xr.projected:projected:1.0.0-alpha05`, `androidx.xr.projected:projected-binding:1.0.0-alpha05`, and `androidx.xr.projected:projected-testing:1.0.0-alpha05` are released. Version 1.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5dd0fe5f4702e29b6874a10d29459dc59f0d8502..855e9d89b825c1acd405c8aeb81dab7792e61dbc/xr/projected).
++
+ ### Version 1.0.0-alpha04
+ 
+ January 28, 2026

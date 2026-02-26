@@ -1,0 +1,33 @@
+diff --git a/docs/develop/sensors-and-location/location/retrieve-current.md b/docs/develop/sensors-and-location/location/retrieve-current.md
+index 745c55b..15ca654 100644
+--- a/docs/develop/sensors-and-location/location/retrieve-current.md
++++ b/docs/develop/sensors-and-location/location/retrieve-current.md
+@@ -15,7 +15,7 @@ location provider](https://developers.google.com/android/reference/com/google/an
+ location provider is one of the location APIs in Google Play services. It
+ manages the underlying location technology and provides a simple API so that
+ you can specify requirements at a high level, like high accuracy or low power.
+-It also optimizes the device's use of battery power.  
++It also optimizes the device's use of battery power.
+ **Note:** When your app is running in the background,
+ [access to location](https://developer.android.com/training/location/background) should be
+ critical to the core functionality of the app and is accompanied with proper
+@@ -43,8 +43,8 @@ depending on the use cases of those features.
+ 
+ ## Create location services client
+ 
+-In your activity's [onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method,
+-create an instance of the Fused Location Provider Client as the following code snippet shows.  
++In your activity's `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method,
++create an instance of the Fused Location Provider Client as the following code snippet shows.
+ 
+ ### Kotlin
+ 
+@@ -87,7 +87,7 @@ manifest, as described in the guide on how to
+ To request the last known location, call the
+ [`getLastLocation()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient.html#getLastLocation())
+ method. The following code snippet illustrates the request and a simple handling of the
+-response:  
++response:
+ 
+ ### Kotlin
+ 

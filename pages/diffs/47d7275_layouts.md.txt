@@ -1,0 +1,104 @@
+diff --git a/docs/develop/ui/views/appwidgets/layouts.md b/docs/develop/ui/views/appwidgets/layouts.md
+index 79b069f..9144319 100644
+--- a/docs/develop/ui/views/appwidgets/layouts.md
++++ b/docs/develop/ui/views/appwidgets/layouts.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/appwidgets/layouts
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs.  
+-[Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance/build-ui#define-sizemode)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance/build-ui#define-sizemode) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 
+@@ -57,7 +54,7 @@ attributes, use the following new `appwidget-provider` attributes:
+   and [`maxResizeHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeHeight):
+   define the maximum size that the launcher allows the user to resize the widget to.
+ 
+-The following XML shows how to use the sizing attributes.  
++The following XML shows how to use the sizing attributes.
+ 
+     <appwidget-provider
+       ...
+@@ -78,7 +75,7 @@ This feature allows for smoother scaling and overall better system
+ health, because the system doesn't have to wake up the app every time
+ it displays the widget in a different size.
+ 
+-The following code example shows how to provide a list of layouts.  
++The following code example shows how to provide a list of layouts.
+ 
+ ### Kotlin
+ 
+@@ -118,7 +115,7 @@ public void onUpdate(...) {
+ }
+ ```
+ 
+-Assume the widget has the following attributes:  
++Assume the widget has the following attributes:
+ 
+     <appwidget-provider
+         android:minResizeWidth="160dp"
+@@ -134,8 +131,9 @@ The preceding code snippet means the following:
+ - `wideView` supports from 215dp × 110dp (`minResizeHeight`) to 250dp
+   (`maxResizeWidth`) × 200dp (`maxResizeHeight`).
+ 
+-  | **Note:** It's possible for the widget's size to be larger than `maxResizeWidth` × `maxResizeHeight`. See [Widget sizing
+-  | attributes](https://developer.android.com/guide/topics/appwidgets#widget-sizing-attributes) for more details.
++  > [!NOTE]
++  > **Note:** It's possible for the widget's size to be larger than `maxResizeWidth` × `maxResizeHeight`. See [Widget sizing
++  > attributes](https://developer.android.com/guide/topics/appwidgets#widget-sizing-attributes) for more details.
+ 
+ Your widget must support the size range from `minResizeWidth` ×
+ `minResizeHeight` to `maxResizeWidth` × `maxResizeHeight`. Within that range,
+@@ -159,9 +157,10 @@ To implement this solution, your app needs to perform the following steps:
+ 
+ 3. Access the [`AppWidgetManager.OPTION_APPWIDGET_SIZES`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#OPTION_APPWIDGET_SIZES) key from the `Bundle`.
+ 
+-| **Note:** Providing the list of sizes is the launcher's responsibility. If the device has a launcher that doesn't support that field, the list of sizes might be empty or null.
++> [!NOTE]
++> **Note:** Providing the list of sizes is the launcher's responsibility. If the device has a launcher that doesn't support that field, the list of sizes might be empty or null.
+ 
+-The following code example shows how to provide exact layouts.  
++The following code example shows how to provide exact layouts.
+ 
+ ### Kotlin
+ 
+@@ -252,7 +251,8 @@ number of occupied grid cells you want:
+ | ... | ... | ... |
+ | n x m | (73n - 16) x (118m - 16) | (142n - 15) x (66m - 15) |
+ 
+-| **Note:** The preceding table shows the available sizes on a Google Pixel 4 to demonstrate the rough estimation of general available sizes in both portrait and landscape modes.
++> [!NOTE]
++> **Note:** The preceding table shows the available sizes on a Google Pixel 4 to demonstrate the rough estimation of general available sizes in both portrait and landscape modes.
+ 
+ Use the portrait mode cell sizes to inform the values you provide for
+ the `minWidth`, `minResizeWidth`, and `maxResizeWidth` attributes. Similarly,
+@@ -275,11 +275,13 @@ the value for the `minResizeHeight` attribute is smaller than
+ Each widget is resizable within the size ranges between the
+ `minResizeWidth`/`minResizeHeight` and `maxResizeWidth`/`maxResizeHeight`
+ attributes, which means it needs to adapt to any size ranges between them.
+-| **Note:** As mentioned previously, it's possible for the widget's size to be larger than `maxResizeWidth` x `maxResizeHeight`. See [Widget sizing
+-| attributes](https://developer.android.com/guide/topics/appwidgets#widget-sizing-attributes) for more details.
++
++> [!NOTE]
++> **Note:** As mentioned previously, it's possible for the widget's size to be larger than `maxResizeWidth` x `maxResizeHeight`. See [Widget sizing
++> attributes](https://developer.android.com/guide/topics/appwidgets#widget-sizing-attributes) for more details.
+ 
+ For example, to set the default size of the widget on placement, you can
+-set the following attributes:  
++set the following attributes:
+ 
+     <appwidget-provider
+         android:targetCellWidth="3"
+@@ -295,7 +297,7 @@ Android 11 or lower. In the latter case, the size in cells can
+ vary depending on the device.
+ 
+ Also, to set the supported size ranges of your widget, you can set the following
+-attributes:  
++attributes:
+ 
+     <appwidget-provider
+         android:minResizeWidth="180dp"

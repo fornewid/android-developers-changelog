@@ -1,0 +1,13 @@
+diff --git a/docs/training/wearables/compose/screen-size.md b/docs/training/wearables/compose/screen-size.md
+index 9305588..74c2ddc 100644
+--- a/docs/training/wearables/compose/screen-size.md
++++ b/docs/training/wearables/compose/screen-size.md
+@@ -138,7 +138,7 @@ fun isLargeDisplay() =
+     } else {
+         // Show content only for smaller displays.
+     }
+-    // ...https://github.com/android/snippets/blob/754ba17967bfc1fdecec5ff99edc18f1aa2fcc7c/wear/src/main/java/com/example/wear/snippets/m3/list/List.kt#L140-L158
++    // ...https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/wear/src/main/java/com/example/wear/snippets/m3/list/List.kt#L140-L158
+ ```
+ 
+ The [design guidance](https://developer.android.com/design/ui/wear/guides/foundations/larger-screens-differentiated) illustrates more of these opportunities.

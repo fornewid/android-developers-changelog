@@ -1,0 +1,76 @@
+diff --git a/docs/develop/connectivity/bluetooth/ble-audio/audio-manager.md b/docs/develop/connectivity/bluetooth/ble-audio/audio-manager.md
+index 776d28a..1235fb3 100644
+--- a/docs/develop/connectivity/bluetooth/ble-audio/audio-manager.md
++++ b/docs/develop/connectivity/bluetooth/ble-audio/audio-manager.md
+@@ -4,14 +4,14 @@ url: https://developer.android.com/develop/connectivity/bluetooth/ble-audio/audi
+ source: md.txt
+ ---
+ 
+-# Audio Manager self-managed call guide
+-
+ This guide covers communication applications, such as Voice over Internet Protocol (VoIP), that want to self-manage their audio and hearable device state.
+-| **Note:** Starting in Android 13 (API level 33), applications must migrate from[`AudioManager#startBluetoothSco()`](https://developer.android.com/reference/android/media/AudioManager#startBluetoothSco())to[`AudioManager#setCommunicationDevice()`](https://developer.android.com/reference/android/media/AudioManager#setCommunicationDevice(android.media.AudioDeviceInfo))to support upcoming BLE audio headsets. This change is backward-compatible with Hands-Free Profile (HFP) devices.
++
++> [!NOTE]
++> **Note:** Starting in Android 13 (API level 33), applications must migrate from [`AudioManager#startBluetoothSco()`](https://developer.android.com/reference/android/media/AudioManager#startBluetoothSco()) to [`AudioManager#setCommunicationDevice()`](https://developer.android.com/reference/android/media/AudioManager#setCommunicationDevice(android.media.AudioDeviceInfo)) to support upcoming BLE audio headsets. This change is backward-compatible with Hands-Free Profile (HFP) devices.
+ 
+ ## Register audio callback
+ 
+-First, create an`AudioDeviceCallback`, which notifies your app when audio devices connect or disconnect from the device.  
++First, create an `AudioDeviceCallback`, which notifies your app when audio devices connect or disconnect from the device.
+ 
+ ### Kotlin
+ 
+@@ -43,7 +43,7 @@ audioManager.registerAudioDeviceCallback(audioDeviceCallback);
+ 
+ ## Check for active communication device
+ 
+-The audio manager lets you know which communication device is currently active.  
++The audio manager lets you know which communication device is currently active.
+ 
+ ### Kotlin
+ 
+@@ -57,7 +57,7 @@ val currentCommunicationDevice: AudioDeviceInfo? = audioManager.communicationDev
+ AudioDeviceInfo currentCommunicationDevice = audioManager.getCommunicationDevice();
+ ```
+ 
+-Listening for when a communication device has changed lets your app know when routing is applied and the device that you selected is active.  
++Listening for when a communication device has changed lets your app know when routing is applied and the device that you selected is active.
+ 
+ ### Kotlin
+ 
+@@ -85,7 +85,7 @@ AudioManager.addOnCommunicationDeviceChangedListener(executor, listener);
+ 
+ ## Find BLE audio device
+ 
+-Use[`getAvailableCommuncationDevices()`](https://developer.android.com/reference/android/media/AudioManager#getAvailableCommunicationDevices())to see which devices are available for a VoIP call. Use`AudioDeviceInfo`to see if the device is a BLE headset. This example looks for the first device that supports BLE Audio, but you might also consider finding all supported devices and allowing users to choose.  
++Use [`getAvailableCommuncationDevices()`](https://developer.android.com/reference/android/media/AudioManager#getAvailableCommunicationDevices()) to see which devices are available for a VoIP call. Use `AudioDeviceInfo` to see if the device is a BLE headset. This example looks for the first device that supports BLE Audio, but you might also consider finding all supported devices and allowing users to choose.
+ 
+ ### Kotlin
+ 
+@@ -125,7 +125,7 @@ Use[`getAvailableCommuncationDevices()`](https://developer.android.com/reference
+ 
+ ## Set communication device
+ 
+-After you find a compatible device, use`setCommunicationDevice`to set the device you wish to route to. Checking the result informs your app if the audio manager is trying to set the device or if it encountered an error.  
++After you find a compatible device, use `setCommunicationDevice` to set the device you wish to route to. Checking the result informs your app if the audio manager is trying to set the device or if it encountered an error.
+ 
+ ### Kotlin
+ 
+@@ -145,13 +145,14 @@ After you find a compatible device, use`setCommunicationDevice`to set the device
+     }
+     // Wait for currentCommunicationDevice to become selectedDevice with a timeout (e.g. 30s)
+ 
+-| **Note:** Once you set a communication device, wait a maximum of 30 seconds. Unless an error occurs,`AudioDeviceCallback`is called within 30 seconds. If an error occurs, call`clearCommuncationDevice()`, and then call`setCommunicationDevice()`.
++> [!NOTE]
++> **Note:** Once you set a communication device, wait a maximum of 30 seconds. Unless an error occurs, `AudioDeviceCallback` is called within 30 seconds. If an error occurs, call `clearCommuncationDevice()`, and then call `setCommunicationDevice()`.
+ 
+ Now that the BLE Audio device has been set, when placing a call, the audio stream will have the correct audio routing.
+ 
+ ## End the session
+ 
+-After your app finishes a call or session, clear the active communication device. This helps ensure the user has a great experience when moving between different applications.  
++After your app finishes a call or session, clear the active communication device. This helps ensure the user has a great experience when moving between different applications.
+ 
+ ### Kotlin
+ 

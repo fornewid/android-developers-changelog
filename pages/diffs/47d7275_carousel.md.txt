@@ -1,0 +1,63 @@
+diff --git a/docs/develop/ui/views/animations/motionlayout/carousel.md b/docs/develop/ui/views/animations/motionlayout/carousel.md
+index f67997b..819027d 100644
+--- a/docs/develop/ui/views/animations/motionlayout/carousel.md
++++ b/docs/develop/ui/views/animations/motionlayout/carousel.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/animations/motionlayout/caro
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add a carousel in Compose.  
+-[Carousel →](https://developer.android.com/develop/ui/compose/components/carousel)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add a carousel in Compose. [Carousel →](https://developer.android.com/develop/ui/compose/components/carousel) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 
+@@ -21,7 +18,9 @@ for your `Carousel` by taking advantage of
+ 
+ The `Carousel` widget supports lists with a start and end as well as circular
+ wrap-around lists.
+-| **Note:** For a more hands-on approach, see the [CarouselExperiments sample project](https://github.com/androidx/constraintlayout/tree/main/projects/CarouselExperiments) on GitHub.
++
++> [!NOTE]
++> **Note:** For a more hands-on approach, see the [CarouselExperiments sample project](https://github.com/androidx/constraintlayout/tree/main/projects/CarouselExperiments) on GitHub.
+ 
+ ## How Carousel with MotionLayout works
+ 
+@@ -65,7 +64,7 @@ transitions---forward and backward---between the **start** and **next**
+ states and the **start** and **previous** states. Add an
+ [`OnSwipe`](https://developer.android.com/training/constraint-layout/motionlayout/ref/onswipe) handler to
+ trigger the transitions in response to a gesture, as shown in the following
+-example:  
++example:
+ 
+         <Transition
+             motion:constraintSetStart="@id/start"
+@@ -100,7 +99,7 @@ Set the following attributes for the `Carousel` helper:
+ - `app:carousel_backwardTransition`: the [`Transition`](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout#transition) ID applied between the **start** and **previous** states.
+ - `app:carousel_forwardTransition`: the `Transition` ID applied between the **start** and **next** states.
+ 
+-For example, you have something like this in your layout XML file:  
++For example, you have something like this in your layout XML file:
+ 
+         <androidx.constraintlayout.motion.widget.MotionLayout ... >
+ 
+@@ -124,7 +123,7 @@ For example, you have something like this in your layout XML file:
+ 
+         </androidx.constraintlayout.motion.widget.MotionLayout>
+ 
+-Set up a `Carousel` adapter in code:  
++Set up a `Carousel` adapter in code:
+ 
+ ### Kotlin
+ 
+@@ -174,7 +173,7 @@ this automatically. By default, it marks those views as `View.INVISIBLE` in
+ these situations, so the overall layout doesn't change.
+ 
+ An alternative mode is available in which the `Carousel` helper instead marks
+-those views as `View.GONE`. You can set this mode using the following property:  
++those views as `View.GONE`. You can set this mode using the following property:
+ 
+     app:carousel_emptyViewsBehavior="gone"
+ 

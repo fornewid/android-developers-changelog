@@ -1,0 +1,83 @@
+diff --git a/docs/build/building-cmdline.md b/docs/build/building-cmdline.md
+index d42c642..c673d06 100644
+--- a/docs/build/building-cmdline.md
++++ b/docs/build/building-cmdline.md
+@@ -213,7 +213,9 @@ bundle is:
+ ```console
+ jarsigner -keystore pathToKeystore app-release.aab keyAlias
+ ```
+-| **Note:** You cannot use `apksigner` to sign your app bundle.
++
++> [!NOTE]
++> **Note:** You cannot use `apksigner` to sign your app bundle.
+ 
+ ### Build an app bundle using bundletool
+ 
+@@ -252,7 +254,9 @@ simpler.
+ You can generate your app's manifest file and resource table in
+ protobuf format using the latest version of AAPT2 from the
+ [Google Maven repository](https://developer.android.com/studio/build/dependencies#google-maven).
+-| **Caution:** Do not use the version of AAPT2 that is included in the Android build tools package---that version of AAPT2 does not support `bundletool`.
++
++> [!CAUTION]
++> **Caution:** Do not use the version of AAPT2 that is included in the Android build tools package---that version of AAPT2 does not support `bundletool`.
+ 
+ To download AAPT2 from Google's Maven repository, proceed as follows:
+ 
+@@ -279,7 +283,9 @@ project_root/module_root/src/main/res/drawable/Image1.png \
+ project_root/module_root/src/main/res/drawable/Image2.png \
+ -o compiled_resources/
+ ```
+-| **Note:** Although you can pass resource directories to AAPT2 using the `--dir` flag, doing so recompiles all files in the directory, regardless of how many files actually changed.
++
++> [!NOTE]
++> **Note:** Although you can pass resource directories to AAPT2 using the `--dir` flag, doing so recompiles all files in the directory, regardless of how many files actually changed.
+ 
+ During the link phase, where AAPT2 links your various compiled resources into a
+ single APK, instruct AAPT2 to convert your app's manifest and compiled resources
+@@ -292,7 +298,9 @@ aapt2 link --proto-format -o output.apk \
+ -R compiled_resources/*.flat \
+ --auto-add-overlay
+ ```
+-| **Note:** Alternatively, when specifying compiled resources with the `-R` flag, you can specify a text file that includes the absolute path for each of your compiled resources---with each path separated by a single space. You can then pass that text file to AAPT2 as follows: `aapt2 link ... -R @compiled_resources.txt`.
++
++> [!NOTE]
++> **Note:** Alternatively, when specifying compiled resources with the `-R` flag, you can specify a text file that includes the absolute path for each of your compiled resources---with each path separated by a single space. You can then pass that text file to AAPT2 as follows: `aapt2 link ... -R @compiled_resources.txt`.
+ 
+ You can then extract content from the output APK, such as your app's
+ `AndroidManifest.xml`, `resources.pb`, and other resource files---now
+@@ -328,7 +336,9 @@ shown below:
+ ```
+ bundletool build-bundle --modules=base.zip --output=mybundle.aab
+ ```
+-| **Note:** If you plan to publish the app bundle, you need to sign it using [`jarsigner`](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jarsigner.html). You can not use `apksigner` to sign your app bundle.
++
++> [!NOTE]
++> **Note:** If you plan to publish the app bundle, you need to sign it using [`jarsigner`](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jarsigner.html). You can not use `apksigner` to sign your app bundle.
+ 
+ The following table describes flags for the `build-bundle` command in more
+ detail:
+@@ -348,7 +358,9 @@ Although `bundletool` creates this file for you, you can configure some aspects
+ of the metadata in a `BundleConfig.json` file and pass it to the
+ `bundletool build-bundle` command---`bundletool` later converts and merges this
+ file with the protobuf version included in each app bundle.
+-| **Note:** To learn more about how the JSON maps to the protobuf format, read [JSON Mapping](https://developers.google.com/protocol-buffers/docs/proto3#json). However, that information is more advanced than what is required for this page.
++
++> [!NOTE]
++> **Note:** To learn more about how the JSON maps to the protobuf format, read [JSON Mapping](https://developers.google.com/protocol-buffers/docs/proto3#json). However, that information is more advanced than what is required for this page.
+ 
+ For example, you can control which categories of configuration APKs to enable or
+ disable. The following example of an `BundleConfig.json` file disables
+@@ -520,8 +532,10 @@ android {
+     }
+ }
+ ```
+-| **Note:** In this case, the keystore and key password are visible directly in the `build.gradle` file. For improved security, you should [remove
+-| the signing information from your build file](https://developer.android.com/studio/publish/app-signing#secure-shared-keystore).
++
++> [!NOTE]
++> **Note:** In this case, the keystore and key password are visible directly in the `build.gradle` file. For improved security, you should [remove
++> the signing information from your build file](https://developer.android.com/studio/publish/app-signing#secure-shared-keystore).
+ 
+ Now, when you build your app by
+ invoking a Gradle task, Gradle signs your app (and runs zipalign) for you.

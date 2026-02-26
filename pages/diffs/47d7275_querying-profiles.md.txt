@@ -1,0 +1,26 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/querying-profiles.md b/docs/topic/performance/tracing/profiling-manager/querying-profiles.md
+index 451192a..62a3886 100644
+--- a/docs/topic/performance/tracing/profiling-manager/querying-profiles.md
++++ b/docs/topic/performance/tracing/profiling-manager/querying-profiles.md
+@@ -40,7 +40,9 @@ This query finds repeated slices in a trace and sorts them by how often they
+ appear, showing the most duplicated ones first.
+ 
+ Finding duplicated work is a common way to find unnecessary work in a trace.
+-| **Note:** This query defines a Perfetto function that lets you use any GLOB pattern to find duplicates, making it easier to reuse. For more information on functions, checkout [Perfetto SQL Syntax docs](https://perfetto.dev/docs/analysis/perfetto-sql-syntax#defining-functions).
++
++> [!NOTE]
++> **Note:** This query defines a Perfetto function that lets you use any GLOB pattern to find duplicates, making it easier to reuse. For more information on functions, checkout [Perfetto SQL Syntax docs](https://perfetto.dev/docs/analysis/perfetto-sql-syntax#defining-functions).
+ 
+     -- You only need to call this once in the session to create the function
+     DROP TABLE IF EXISTS find_duplicates;
+@@ -69,7 +71,9 @@ assuming an expected frame rate of 60 Hz (16.6 ms). The `dur` is set to
+ This query is useful to find locations where jank occurs in the trace because
+ the app takes too long to generate a frame. This means that the UI thread failed
+ to generate a frame. Under extreme circumstances, this could precede an ANR.
+-| **Note:** Jank detection in this query depends on the device refresh rate. A higher refresh rate means less tolerance for jank.
++
++> [!NOTE]
++> **Note:** Jank detection in this query depends on the device refresh rate. A higher refresh rate means less tolerance for jank.
+ 
+ ### Find most duplicated objects
+ 

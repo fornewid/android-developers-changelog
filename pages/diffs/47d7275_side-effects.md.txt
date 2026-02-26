@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/side-effects.md b/docs/develop/ui/compose/side-effects.md
+index f23e0e1..fc3c57c 100644
+--- a/docs/develop/ui/compose/side-effects.md
++++ b/docs/develop/ui/compose/side-effects.md
+@@ -412,7 +412,7 @@ var firstName by remember { mutableStateOf("") }
+ var lastName by remember { mutableStateOf("") }
+ 
+ val fullNameBad by remember { derivedStateOf { "$firstName $lastName" } } // This is bad!!!
+-val fullNameCorrect = "$firstName $lastName" // This is correcthttps://github.com/android/snippets/blob/7c22ddefef24d05120e5544719689b2954d4d5f2/compose/snippets/src/main/java/com/example/compose/snippets/sideeffects/SideEffectsSnippets.kt#L258-L263
++val fullNameCorrect = "$firstName $lastName" // This is correcthttps://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/compose/snippets/src/main/java/com/example/compose/snippets/sideeffects/SideEffectsSnippets.kt#L258-L263
+ ```
+ 
+ <br />

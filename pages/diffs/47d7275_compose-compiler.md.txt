@@ -1,0 +1,52 @@
+diff --git a/docs/jetpack/androidx/releases/compose-compiler.md b/docs/jetpack/androidx/releases/compose-compiler.md
+index 0c8aac8..1c2f032 100644
+--- a/docs/jetpack/androidx/releases/compose-compiler.md
++++ b/docs/jetpack/androidx/releases/compose-compiler.md
+@@ -8,7 +8,10 @@ source: md.txt
+ 
+ [User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) API Reference  
+ [androidx.compose](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary)  
+-(*See the API reference docs for all compose packages*) Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. **Note:** The Compose compiler has moved to the Kotlin repository. Future release notes will be available as part of [What's New In Kotlin](https://kotlinlang.org/docs/whatsnew20.html#0). For more information, see the announcement [blog post](https://android-developers.googleblog.com/2024/04/jetpack-compose-compiler-moving-to-kotlin-repository.html).
++(*See the API reference docs for all compose packages*) Transform @Composable functions and enable optimizations with a Kotlin compiler plugin.
++
++> [!NOTE]
++> **Note:** The Compose compiler has moved to the Kotlin repository. Future release notes will be available as part of [What's New In Kotlin](https://kotlinlang.org/docs/whatsnew20.html#0). For more information, see the announcement [blog post](https://android-developers.googleblog.com/2024/04/jetpack-compose-compiler-moving-to-kotlin-repository.html).
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+@@ -896,8 +899,10 @@ June 2, 2021
+ May 18, 2021
+ 
+ `androidx.compose.compiler:compiler:1.0.0-beta07` is released. [Version 1.0.0-beta07 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/4c1927601bfcaaaf049d0fc7a4e5801ff5cf9729..b648147c5fdfc5ecbad57e40e2dc0c69aa23bf12/compose/compiler/compiler)
+-| **Note:** Libraries dependent on Compose will need to recompile with version `1.0.0`‑`beta07`. Otherwise, libraries may encounter a `NoSuchMethodError`, such as:  
+-| `java.lang.NoSuchMethodError: No interface method startReplaceableGroup(ILjava/lang/String;)V in class Landroidx/compose/runtime/Composer; or its super classes`. ([Ia34e6](https://android-review.googlesource.com/#/q/Ia34e699fdbeaeb86b74e9da27d79d186e6e71757))
++
++> [!NOTE]
++> **Note:** Libraries dependent on Compose will need to recompile with version `1.0.0`‑`beta07`. Otherwise, libraries may encounter a `NoSuchMethodError`, such as:  
++> `java.lang.NoSuchMethodError: No interface method startReplaceableGroup(ILjava/lang/String;)V in class Landroidx/compose/runtime/Composer; or its super classes`. ([Ia34e6](https://android-review.googlesource.com/#/q/Ia34e699fdbeaeb86b74e9da27d79d186e6e71757))
+ 
+ ### Version 1.0.0-beta06
+ 
+@@ -966,7 +971,9 @@ December 16, 2020
+ December 2, 2020
+ 
+ `androidx.compose.compiler:compiler:1.0.0-alpha08` is released. [Version 1.0.0-alpha08 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/358bdaf3c3c4a917883408e9f747da521fdf9e65..10b5e9fd366c1c413d5576aed50a305d300938e1/compose/compiler/compiler)
+-| **Note:** This release is only compatible with Kotlin `1.4.20`, so you will need to update your Kotlin version.
++
++> [!NOTE]
++> **Note:** This release is only compatible with Kotlin `1.4.20`, so you will need to update your Kotlin version.
+ 
+ ### Version 1.0.0-alpha07
+ 
+@@ -995,7 +1002,9 @@ October 14, 2020
+ October 1, 2020
+ 
+ `androidx.compose.compiler:compiler:1.0.0-alpha04` is released. [Version 1.0.0-alpha04 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/f5a2c7477391539d8bc9f65a8f0db1e8a7bf2cf5/compose/compiler/compiler)
+-| **Note:** Compose Version 1.0.0-alpha04 is only compatible with Android Studio 4.2 Canary 13 and later.
++
++> [!NOTE]
++> **Note:** Compose Version 1.0.0-alpha04 is only compatible with Android Studio 4.2 Canary 13 and later.
+ 
+ `androidx.compose:compose-compiler` has been refactored to `androidx.compose.compiler:compiler`.
+ This is the first release in the new group.
+\ No newline at end of file

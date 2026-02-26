@@ -1,0 +1,123 @@
+diff --git a/docs/jetpack/androidx/releases/navigationevent.md b/docs/jetpack/androidx/releases/navigationevent.md
+index 4994dba..a3474c4 100644
+--- a/docs/jetpack/androidx/releases/navigationevent.md
++++ b/docs/jetpack/androidx/releases/navigationevent.md
+@@ -8,11 +8,11 @@ source: md.txt
+ 
+ API Reference  
+ [androidx.navigationevent](https://developer.android.com/reference/kotlin/androidx/navigationevent/package-summary)  
+-The Navigation Event library provides a KMP-first API for handling system back as well as [Predictive Back](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture).  
++The Navigation Event library provides a KMP-first API for handling system back as well as [Predictive Back](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture).
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| January 28, 2026 | [1.0.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.2) | - | - | - |
++| February 25, 2026 | [1.0.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.2) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -21,13 +21,13 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:  
++your app or module:
+ 
+ ### Groovy
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.navigationevent:navigationevent:1.0.2"
++    implementation "androidx.navigationevent:navigationevent:1.1.0-alpha01"
+ }
+ ```
+ 
+@@ -35,7 +35,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.navigationevent:navigationevent:1.0.2")
++    implementation("androidx.navigationevent:navigationevent:1.1.0-alpha01")
+ }
+ ```
+ 
+@@ -56,6 +56,22 @@ for more information.
+ 
+ There are no release notes for this artifact.
+ 
++## Version 1.1
++
++### Version 1.1.0-alpha01
++
++February 25, 2026
++
++`androidx.navigationevent:navigationevent-*:1.1.0-alpha01` is released. Version 1.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a7bd43e4ff5a6c4f70a22b93597ac88425fe5e84..c640b9aa8e30b5db9ee258561ad1fc4bc947e69d/navigationevent).
++
++**New Features**
++
++- Support all Kotlin Multiplatform (KMP) targets in NavigationEvent-Compose. Decouple owner resolution from `LocalView` to allow platform hosts to provide a default `LocalNavigationEventDispatcherOwner` while maintaining `LocalView` as a safe fallback on Android. ([Iae980](https://android-review.googlesource.com/#/q/Iae98083eb2c25556d3c6f385ef0948197a2208e8), [b/434940570](https://issuetracker.google.com/issues/434940570), [Iccf58](https://android-review.googlesource.com/#/q/Iccf58b765b5c005e49db1b7cc740c0463897d4e4))
++
++**API Changes**
++
++- Add `NavigationEvent.toBackEvent()` and `BackEvent.toNavigationEvent()` extension functions to convert between Android's `BackEvent` and `NavigationEvent`. ([Ie3b71](https://android-review.googlesource.com/#/q/Ie3b71219bd08caa63daccd9d0237c6fd977583b4), [b/477001292](https://issuetracker.google.com/issues/477001292))
++
+ ## Version 1.0
+ 
+ ### Version 1.0.2
+@@ -305,7 +321,7 @@ This feature has two parts:
+ - `NavigationEventCallback` now exposes `setInfo(currentInfo, previousInfo)` method to set gesture context in one call ([I1d5e7](https://android-review.googlesource.com/#/q/I1d5e7e5ce95016448869088b18fd9ac5c775b469), [b/424470518](https://issuetracker.google.com/issues/424470518)).
+ - `NavigationEventHandler` adds a new overload that accepts `currentInfo` and `previousInfo`, making it the primary API for supplying context in Compose apps ([I6ecd3](https://android-review.googlesource.com/#/q/I6ecd3707a3f521b9e1d828f658b27ffdd856e516), [b/424470518](https://issuetracker.google.com/issues/424470518)).
+ 
+-Example:  
++Example:
+ 
+       data class MyScreenInfo(val screenName: String) : NavigationEventInfo
+ 
+@@ -317,7 +333,7 @@ Example:
+ 
+ - `NavigationEventDispatcher` now exposes `dispatcher.state` and `dispatcher.getState<T>()` ([If7fae](https://android-review.googlesource.com/#/q/If7faebaedefbc51a0dcec6ac7e1e08c858b4014d), [Ia90ca](https://android-review.googlesource.com/#/q/Ia90ca93bf3030c059bf4d63a817e182d59d10c2f), [b/424470518](https://issuetracker.google.com/issues/424470518)). These `StateFlow`-based APIs let any UI observe gesture progress and contextual data without handling the event directly.
+ 
+-Example:  
++Example:
+ 
+       val gestureState by LocalNavigationEventDispatcherOwner.current!!
+           .navigationEventDispatcher
+@@ -381,7 +397,7 @@ July 30, 2025
+ 
+ **Parent-Child Hierarchy Support:**
+ 
+-A `NavigationEventDispatcher` can now have parent and child dispatchers, forming a hierarchical tree structure. This enables navigation events to propagate and be managed more flexibly across complex Compose UI components by reflecting the UI's structural hierarchy through chained dispatchers. ([I194ac](https://android-review.googlesource.com/#/q/I194acc61f09116048ab048e3f84cb6c58d34bbb6))  
++A `NavigationEventDispatcher` can now have parent and child dispatchers, forming a hierarchical tree structure. This enables navigation events to propagate and be managed more flexibly across complex Compose UI components by reflecting the UI's structural hierarchy through chained dispatchers. ([I194ac](https://android-review.googlesource.com/#/q/I194acc61f09116048ab048e3f84cb6c58d34bbb6))
+ 
+       // Create a parent dispatcher that will manage navigation events at a higher level.
+       val parentDispatcher = NavigationEventDispatcher()
+@@ -389,12 +405,12 @@ A `NavigationEventDispatcher` can now have parent and child dispatchers, forming
+       // Create a child dispatcher linked to the parent, forming a hierarchy.
+       val childDispatcher = NavigationEventDispatcher(parentDispatcher)
+ 
+-The hierarchical `isEnabled` property allows for top-down control of a dispatcher. When `isEnabled` is set to `false` on a dispatcher, it automatically disables all its descendant dispatchers. This feature enables entire branches of the navigation event system to be toggled off efficiently. ([I9e985](https://android-review.googlesource.com/#/q/I9e985d5571ea07b9e2c0223ad2b4aaeab5266ab8))  
++The hierarchical `isEnabled` property allows for top-down control of a dispatcher. When `isEnabled` is set to `false` on a dispatcher, it automatically disables all its descendant dispatchers. This feature enables entire branches of the navigation event system to be toggled off efficiently. ([I9e985](https://android-review.googlesource.com/#/q/I9e985d5571ea07b9e2c0223ad2b4aaeab5266ab8))
+ 
+       // Disabling the child dispatcher disables all its callbacks and any of its children recursively.
+       childDispatcher.isEnabled = false
+ 
+-Moreover, the `isEnabled` property on `NavigationEventCallback` now respects the enabled state of its associated dispatcher. This means a callback is considered enabled only if both the callback itself and its dispatcher (including its ancestors) are enabled, ensuring consistent hierarchical control over callback activation. ([I1799a](https://android-review.googlesource.com/#/q/I1799a02884a3167abf74e67b35fd10cc02cc9486))  
++Moreover, the `isEnabled` property on `NavigationEventCallback` now respects the enabled state of its associated dispatcher. This means a callback is considered enabled only if both the callback itself and its dispatcher (including its ancestors) are enabled, ensuring consistent hierarchical control over callback activation. ([I1799a](https://android-review.googlesource.com/#/q/I1799a02884a3167abf74e67b35fd10cc02cc9486))
+ 
+       // Create a test callback and add it to the child dispatcher.
+       val callback1 = TestNavigationEventCallback(isEnabled = true)
+@@ -403,12 +419,12 @@ Moreover, the `isEnabled` property on `NavigationEventCallback` now respects the
+       // Since the childDispatcher is disabled, the callback is effectively disabled as well.
+       assertThat(callback1.isEnabled).isFalse()
+ 
+-A new `dispose()` method has been introduced for proper cleanup of dispatchers and their children. Calling `dispose()` stops listeners to prevent memory leaks, recursively disposes all child dispatchers, removes all callbacks registered to the dispatcher, and unlinks it from its parent. This guarantees resources are released correctly when dispatchers are no longer needed. ([I9e985](https://android-review.googlesource.com/#/q/I9e985d5571ea07b9e2c0223ad2b4aaeab5266ab8))  
++A new `dispose()` method has been introduced for proper cleanup of dispatchers and their children. Calling `dispose()` stops listeners to prevent memory leaks, recursively disposes all child dispatchers, removes all callbacks registered to the dispatcher, and unlinks it from its parent. This guarantees resources are released correctly when dispatchers are no longer needed. ([I9e985](https://android-review.googlesource.com/#/q/I9e985d5571ea07b9e2c0223ad2b4aaeab5266ab8))
+ 
+       // Dispose the child dispatcher to clean up resources.
+       childDispatcher.dispose()
+ 
+-If any public method is called on a disposed dispatcher, an `IllegalStateException` is thrown immediately. This prevents silent failures and helps developers identify improper usage during development. ([Ic2dc3](https://android-review.googlesource.com/#/q/Ic2dc36f3de36bed58eeef3ff2cfb185bc7f9df59))  
++If any public method is called on a disposed dispatcher, an `IllegalStateException` is thrown immediately. This prevents silent failures and helps developers identify improper usage during development. ([Ic2dc3](https://android-review.googlesource.com/#/q/Ic2dc36f3de36bed58eeef3ff2cfb185bc7f9df59))
+ 
+       val callback2 = TestNavigationEventCallback()
+ 

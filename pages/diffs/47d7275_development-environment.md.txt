@@ -1,0 +1,57 @@
+diff --git a/docs/develop/devices/chromeos/learn/development-environment.md b/docs/develop/devices/chromeos/learn/development-environment.md
+index e54ae46..44a2d07 100644
+--- a/docs/develop/devices/chromeos/learn/development-environment.md
++++ b/docs/develop/devices/chromeos/learn/development-environment.md
+@@ -4,6 +4,9 @@ url: https://developer.android.com/develop/devices/chromeos/learn/development-en
+ source: md.txt
+ ---
+ 
++Project: /develop/devices/chromeos/merged/_project.yaml
++Book: /develop/devices/chromeos/merged/_book.yaml
++
+ Running Android apps on a Chromebook gives users access to the vast Android
+ ecosystem and gives Android developers the opportunity to reach ChromeOS users.
+ 
+@@ -18,7 +21,8 @@ Chromebooks.
+ 
+ ## Enable ADB debugging
+ 
+-| **Note:** This feature is available on Chromebooks launched after 2020.
++> [!NOTE]
++> **Note:** This feature is available on Chromebooks launched after 2020.
+ 
+ Previously, using ADB on a Chromebook was only possible in developer mode. Since
+ Chrome 81, developers can keep their devices out of developer mode and still
+@@ -34,7 +38,11 @@ deploy apps they develop directly in ChromeOS. Here's how:
+ 
+ 4. Toggle **Enable ADB debugging**. The Chromebook restarts.
+ 
+-   ![Enabling ADB debugging in Linux settings.](https://developer.android.com/static/images/topic/arc/debug_settings.gif) **Figure 2.** Enabling ADB debugging in Linux settings. **Note:** If the ADB toggle is not available after you enable Linux, or if it can't be toggled, you might have to factory-reset your device.
++   ![Enabling ADB debugging in Linux settings.](https://developer.android.com/static/images/topic/arc/debug_settings.gif) **Figure 2.** Enabling ADB debugging in Linux settings.
++
++   > [!NOTE]
++   > **Note:** If the ADB toggle is not available after you enable Linux, or if it can't be toggled, you might have to factory-reset your device.
++
+ 5. After the Chromebook restarts, a message lets you know that there might be
+    applications that were not downloaded from the app store on the device.
+ 
+@@ -112,7 +120,8 @@ Follow these steps to connect to ADB over a network:
+    - Click the network type you are connected to, such as Wi-Fi or mobile data, then the name of the network.
+    - Take note of the IP address.
+ 
+-| **Tip:** Another quick way to find your Chromebook's IP address is to click the clock in the bottom right, then click the Wi-Fi icon, and finally click the Network info button.
++> [!TIP]
++> **Tip:** Another quick way to find your Chromebook's IP address is to click the clock in the bottom right, then click the Wi-Fi icon, and finally click the Network info button.
+ 
+ Connect to your Chromebook:
+ 
+@@ -126,7 +135,8 @@ Connect to your Chromebook:
+ 
+ #### Troubleshoot ADB debugging over a network
+ 
+-| **Note:** If your network prohibits these kinds of connections, you can set up your own router or hotspot or you can try Ethernet using a port or dongle.
++> [!NOTE]
++> **Note:** If your network prohibits these kinds of connections, you can set up your own router or hotspot or you can try Ethernet using a port or dongle.
+ 
+ Sometimes the ADB device shows that it's offline when everything is connected
+ properly. In this case, complete the following steps to troubleshoot the issue:

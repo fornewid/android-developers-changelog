@@ -1,0 +1,14 @@
+diff --git a/docs/build/jcenter-migration.md b/docs/build/jcenter-migration.md
+index 3d8eccd..1346e17 100644
+--- a/docs/build/jcenter-migration.md
++++ b/docs/build/jcenter-migration.md
+@@ -15,4 +15,6 @@ packages to a new host, such as
+ 
+ Developers who use dependencies from JCenter must find the new location of
+ updated versions of those dependencies.
+-| **Warning:** Don't include the `jcenter()` repository in your build config to avoid getting outdated dependencies.
+\ No newline at end of file
++
++> [!WARNING]
++> **Warning:** Don't include the `jcenter()` repository in your build config to avoid getting outdated dependencies.
+\ No newline at end of file

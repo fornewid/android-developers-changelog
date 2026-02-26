@@ -1,0 +1,88 @@
+diff --git a/docs/develop/ui/views/notifications/notification-permission.md b/docs/develop/ui/views/notifications/notification-permission.md
+index 3591d05..019f19c 100644
+--- a/docs/develop/ui/views/notifications/notification-permission.md
++++ b/docs/develop/ui/views/notifications/notification-permission.md
+@@ -17,7 +17,9 @@ as possible to benefit from the additional control and flexibility of this
+ feature. If you continue to target 12L (API level 32) or lower, you
+ lose some flexibility with [requesting the permission in the context of your app's
+ functionality](https://developer.android.com/develop/ui/views/notifications/notification-permission#request-in-context).
+-| **Note:** Apps don't need to request the `POST_NOTIFICATIONS` permission in order to launch a foreground service. However, apps must include a notification when they start a foreground service, just as they do on previous versions of Android.
++
++> [!NOTE]
++> **Note:** Apps don't need to request the `POST_NOTIFICATIONS` permission in order to launch a foreground service. However, apps must include a notification when they start a foreground service, just as they do on previous versions of Android.
+ 
+ ## Declare the permission
+ 
+@@ -28,7 +30,7 @@ shown in the following sections.
+ 
+ The permission that you need to
+ [declare in your app's manifest file](https://developer.android.com/training/permissions/declaring)
+-appears in the following code snippet:  
++appears in the following code snippet:
+ 
+ ```xml
+ <manifest ...>
+@@ -65,7 +67,7 @@ If the user selects the **don't allow** option, your app can't send
+ notifications unless it qualifies for an [exemption](https://developer.android.com/develop/ui/views/notifications/notification-permission#exemptions). All
+ notification channels are blocked, except for a few specific
+ roles. This is similar to the behavior that occurs when the user manually turns
+-off all notifications for your app in system settings.  
++off all notifications for your app in system settings.
+ **Caution:** If your app targets 12L or lower
+ and the user taps **Don't allow**, even just once, they aren't prompted
+ again until one of the following occurs:
+@@ -100,9 +102,11 @@ system automatically pre-grants the permission to all
+ [eligible apps](https://developer.android.com/develop/ui/views/notifications/notification-permission#eligibility) when the user upgrades their device to
+ Android 13 or higher. In other words, these apps can continue to
+ send notifications to users, and users don't see a runtime permission prompt.
+-| **Note:** Consider the case where an eligible app was installed on a device running 12L or lower that the user is discarding, and the user allowed notifications on that old device. The user now has a new device that runs Android 13 or higher and restores the app using the [backup and restore](https://support.google.com/android/answer/2819582) feature.  
+-|
+-| In this situation, the system considers your app to be an "existing app," so the system automatically grants the permission to your app so that your app can continue to send notifications.
++
++> [!NOTE]
++> **Note:** Consider the case where an eligible app was installed on a device running 12L or lower that the user is discarding, and the user allowed notifications on that old device. The user now has a new device that runs Android 13 or higher and restores the app using the [backup and restore](https://support.google.com/android/answer/2819582) feature.  
++>
++> In this situation, the system considers your app to be an "existing app," so the system automatically grants the permission to your app so that your app can continue to send notifications.
+ 
+ ## Eligibility for permission pre-grant
+ 
+@@ -157,30 +161,30 @@ without needing to reset your test device:
+ - App is newly installed on a device that runs
+   Android 13 or higher:
+ 
+-      adb shell pm revoke <var translate="no">PACKAGE_NAME</var> android.permission.POST_NOTIFICATIONS
+-      adb shell pm clear-permission-flags <var translate="no">PACKAGE_NAME</var> \
++      adb shell pm revoke PACKAGE_NAME android.permission.POST_NOTIFICATIONS
++      adb shell pm clear-permission-flags PACKAGE_NAME \
+         android.permission.POST_NOTIFICATIONS user-set
+-      adb shell pm clear-permission-flags <var translate="no">PACKAGE_NAME</var> \
++      adb shell pm clear-permission-flags PACKAGE_NAME \
+         android.permission.POST_NOTIFICATIONS user-fixed
+ 
+ - The user keeps notifications enabled when the app is installed on a
+   device that runs 12L or lower, then the device
+   upgrades to Android 13 or higher:
+ 
+-      adb shell pm grant <var translate="no">PACKAGE_NAME</var> android.permission.POST_NOTIFICATIONS
+-      adb shell pm set-permission-flags <var translate="no">PACKAGE_NAME</var> \
++      adb shell pm grant PACKAGE_NAME android.permission.POST_NOTIFICATIONS
++      adb shell pm set-permission-flags PACKAGE_NAME \
+         android.permission.POST_NOTIFICATIONS user-set
+-      adb shell pm clear-permission-flags <var translate="no">PACKAGE_NAME</var> \
++      adb shell pm clear-permission-flags PACKAGE_NAME \
+         android.permission.POST_NOTIFICATIONS user-fixed
+ 
+ - The user manually disables notifications when the app is installed on a
+   device that runs 12L or lower, then the device
+   upgrades to Android 13 or higher:
+ 
+-      adb shell pm revoke <var translate="no">PACKAGE_NAME</var> android.permission.POST_NOTIFICATIONS
+-      adb shell pm set-permission-flags <var translate="no">PACKAGE_NAME</var> \
++      adb shell pm revoke PACKAGE_NAME android.permission.POST_NOTIFICATIONS
++      adb shell pm set-permission-flags PACKAGE_NAME \
+         android.permission.POST_NOTIFICATIONS user-set
+-      adb shell pm clear-permission-flags <var translate="no">PACKAGE_NAME</var> \
++      adb shell pm clear-permission-flags PACKAGE_NAME \
+         android.permission.POST_NOTIFICATIONS user-fixed
+ 
+ ## Best practices

@@ -1,0 +1,99 @@
+diff --git a/docs/jetpack/androidx/releases/xr-compose.md b/docs/jetpack/androidx/releases/xr-compose.md
+index 24f5a50..79d5336 100644
+--- a/docs/jetpack/androidx/releases/xr-compose.md
++++ b/docs/jetpack/androidx/releases/xr-compose.md
+@@ -6,19 +6,18 @@ source: md.txt
+ 
+ # Jetpack Compose for XR
+ 
+-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui) [Code Sample](https://github.com/android/xr-samples) [Codelab](https://github.com/android/xr-codelabs)  
+-API Reference  
++[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui) [Code Sample](https://github.com/android/xr-samples) [Codelab](https://github.com/android/xr-codelabs) API Reference  
+ [androidx.xr.compose.platform](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/package-summary)  
+ [androidx.xr.compose.spatial](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary)  
+ [androidx.xr.compose.subspace](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary)  
+ [androidx.xr.compose.subspace.layout](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/package-summary)  
+ [androidx.xr.compose.subspace.node](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/node/package-summary)  
+ [androidx.xr.compose.unit](https://developer.android.com/reference/kotlin/androidx/xr/compose/unit/package-summary)  
+-Declaratively build spatial UI layouts that take advantage of Android XR's spatial capabilities.  
++Declaratively build spatial UI layouts that take advantage of Android XR's spatial capabilities.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| January 28, 2026 | - | - | - | [1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha10) |
++| February 25, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha11) |
+ 
+ ## Declaring dependencies
+ 
+@@ -27,16 +26,16 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:  
++your app or module:
+ 
+ ### Groovy
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.compose:compose:1.0.0-alpha10"
++    implementation "androidx.xr.compose:compose:1.0.0-alpha11"
+ 
+     // Use to write unit tests
+-    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha10"
++    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha11"
+ }
+ ```
+ 
+@@ -44,10 +43,10 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.compose:compose:1.0.0-alpha10")
++    implementation("androidx.xr.compose:compose:1.0.0-alpha11")
+ 
+     // Use to write unit tests
+-    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha10")
++    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha11")
+ }
+ ```
+ 
+@@ -68,6 +67,27 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha11
++
++February 25, 2026
++
++`androidx.xr.compose:compose:1.0.0-alpha11` and `androidx.xr.compose:compose-testing:1.0.0-alpha11` are released. Version 1.0.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0da43ebb1f8dc8fba8df8f2cf05d8164688aa0ab..a34b6c25f6fbb862348d1696a3ac8806f66842c5/xr/compose).
++
++**New Features**
++
++- Adding `SuperSampling` parameter to `SpatialExternalSurfaces` ([Icd4d1](https://android-review.googlesource.com/#/q/Icd4d18c137960ab4c84f03ce97e3ada0c7dc4cb6))
++
++**API Changes**
++
++- Subspace modifier padding changes for layout direction awareness. ([I53e25](https://android-review.googlesource.com/#/q/I53e25bced4273331204eac3910dd285c16b9c394))
++- `SpatialCapabilities` is now sealed and cannot be extended. ([I07aef](https://android-review.googlesource.com/#/q/I07aef87e644421fb5ac63464d88b76a094c5215f))
++- The `SpatialRow` and `SpatialColumn` APIs that accept a generic `SpatialAlignment` parameter are deprecated; instead, use the APIs that accept either `verticalAlignment` or `horizontalAlignment` for `SpatialRow` and `SpatialColumn`, respectively. ([Iec390](https://android-review.googlesource.com/#/q/Iec390d2f302fe756f7c112ff30e877f74c36589b))
++- Combining overloading `SubspaceLayout` function APIs ([Idd30a](https://android-review.googlesource.com/#/q/Idd30a865bf5ff5249be94abae6b5ba2da847450c))
++- Renamed `SubspaceModifier.lookAtUser` to `rotateToLookAtUser` and the `up` parameter to `upDirection`. ([Icafb8](https://android-review.googlesource.com/#/q/Icafb85196f75e75e8530eb658981f26141abb6e3))
++- Making `SpatialRow` an inline function ([Ia2f20](https://android-review.googlesource.com/#/q/Ia2f20b8af183cf5064676fb597ed587cba240266))
++- Making `SpatialColumn` an inline function ([I681be](https://android-review.googlesource.com/#/q/I681be0b9b5263f0a2b54eac21d54c81c502b02ce))
++- Removed billboard API ([Ib76cd](https://android-review.googlesource.com/#/q/Ib76cd43fe8338322d20b062ef937538a8c7fd04d))
++
+ ### Version 1.0.0-alpha10
+ 
+ January 28, 2026
+@@ -211,7 +231,9 @@ July 30, 2025
+ May 7, 2025
+ 
+ `androidx.xr.compose:compose:1.0.0-alpha04` and `androidx.xr.compose:compose-testing:1.0.0-alpha04` are released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/043342a8810f3356110a0afce48c662e841c428f..b6c541571b9fb5471f965fc52612cb280713e5e4/xr/compose).
+-| **Note:** You'll need Android Emulator version 35.6.7 or later to use this version of the library.
++
++> [!NOTE]
++> **Note:** You'll need Android Emulator version 35.6.7 or later to use this version of the library.
+ 
+ **New Features**
+ 

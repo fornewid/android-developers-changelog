@@ -1,0 +1,386 @@
+diff --git a/docs/topic/libraries/architecture/datastore.md b/docs/topic/libraries/architecture/datastore.md
+index e1748cc..7b7eeb6 100644
+--- a/docs/topic/libraries/architecture/datastore.md
++++ b/docs/topic/libraries/architecture/datastore.md
+@@ -8,10 +8,7 @@ source: md.txt
+ Part of [Android Jetpack](https://developer.android.com/jetpack).
+ 
+ 
+-Try with Kotlin Multiplatform  
+-Kotlin Multiplatform allows sharing the data layer with other platforms. Learn how to set up and work with DataStore in KMP  
+-[Set up DataStore for KMP →](https://developer.android.com/kotlin/multiplatform/datastore)  
+-![](https://developer.android.com/static/images/android-kmp-logo.png)
++Try with Kotlin Multiplatform Kotlin Multiplatform allows sharing the data layer with other platforms. Learn how to set up and work with DataStore in KMP [Set up DataStore for KMP →](https://developer.android.com/kotlin/multiplatform/datastore) ![](https://developer.android.com/static/images/android-kmp-logo.png)
+ 
+ <br />
+ 
+@@ -22,7 +19,9 @@ transactionally.
+ 
+ If you're using [`SharedPreferences`](https://developer.android.com/reference/kotlin/android/content/SharedPreferences) to store data, consider migrating to
+ DataStore instead.
+-| **Note:** If you need to support large or complex datasets, partial updates, or referential integrity, consider using [Room](https://developer.android.com/training/data-storage/room) instead of DataStore. DataStore is ideal for small datasets and does not support partial updates or referential integrity.
++
++> [!NOTE]
++> **Note:** If you need to support large or complex datasets, partial updates, or referential integrity, consider using [Room](https://developer.android.com/training/data-storage/room) instead of DataStore. DataStore is ideal for small datasets and does not support partial updates or referential integrity.
+ 
+ ## DataStore API
+ 
+@@ -55,7 +54,7 @@ depending on which implementation you want to use:
+ 
+ ### Preferences DataStore
+ 
+-Add the following lines to the dependencies part of your gradle file:  
++Add the following lines to the dependencies part of your gradle file:
+ 
+ ### Groovy
+ 
+@@ -83,7 +82,7 @@ Add the following lines to the dependencies part of your gradle file:
+     
+ ```
+ 
+-To add optional RxJava support, add the following dependencies:  
++To add optional RxJava support, add the following dependencies:
+ 
+ ### Groovy
+ 
+@@ -113,7 +112,7 @@ To add optional RxJava support, add the following dependencies:
+ 
+ ### DataStore
+ 
+-Add the following lines to the dependencies part of your gradle file:  
++Add the following lines to the dependencies part of your gradle file:
+ 
+ ### Groovy
+ 
+@@ -141,7 +140,7 @@ Add the following lines to the dependencies part of your gradle file:
+     
+ ```
+ 
+-Add the following optional dependencies for RxJava support:  
++Add the following optional dependencies for RxJava support:
+ 
+ ### Groovy
+ 
+@@ -173,7 +172,7 @@ To serialize content, add dependencies for either Protocol Buffers or JSON seria
+ 
+ #### JSON serialization
+ 
+-To use JSON serialization, add the following to your Gradle file:  
++To use JSON serialization, add the following to your Gradle file:
+ 
+ ### Groovy
+ 
+@@ -203,7 +202,7 @@ To use JSON serialization, add the following to your Gradle file:
+ 
+ #### Protobuf serialization
+ 
+-To use Protobuf serialization, add the following to your Gradle file:  
++To use Protobuf serialization, add the following to your Gradle file:
+ 
+ ### Groovy
+ 
+@@ -285,14 +284,14 @@ In order to use DataStore correctly always keep in mind the following rules:
+ 
+ ### Preferences DataStore
+ 
+-Define a key that will be used to persist data to disk.  
++Define a key that will be used to persist data to disk.
+ 
+     val EXAMPLE_COUNTER = intPreferencesKey("example_counter")
+ 
+ ### JSON DataStore
+ 
+ For JSON datastore, add a `@Serialization` annotation to the data that you
+-want to persist  
++want to persist
+ 
+     @Serializable
+     data class Settings(
+@@ -301,7 +300,7 @@ want to persist
+ 
+ Define a class that implements `Serializer<T>`, where T is the type of the
+ class you added the earlier annotation to. Make sure you include a default
+-value for the serializer to be used if there is no file created yet.  
++value for the serializer to be used if there is no file created yet.
+ 
+     object SettingsSerializer : Serializer<Settings> {
+ 
+@@ -334,7 +333,7 @@ Proto DataStore requires a predefined schema in a proto file in the
+ that you persist in your Proto DataStore. To learn more about defining a proto
+ schema, see the [protobuf language guide](https://developers.google.com/protocol-buffers/docs/proto3).
+ 
+-Add a file called settings.proto inside `src/main/proto` folder:  
++Add a file called settings.proto inside `src/main/proto` folder:
+ 
+     syntax = "proto3";
+ 
+@@ -348,7 +347,7 @@ Add a file called settings.proto inside `src/main/proto` folder:
+ Define a class that implements `Serializer<T>`, where `T` is the type defined
+ in the proto file. This serializer class defines how DataStore reads and
+ writes your data type. Make sure you include a default value for the
+-serializer to be used if there is no file created yet.  
++serializer to be used if there is no file created yet.
+ 
+     object SettingsSerializer : Serializer<Settings> {
+         override val defaultValue: Settings = Settings.getDefaultInstance()
+@@ -366,11 +365,12 @@ serializer to be used if there is no file created yet.
+         }
+     }
+ 
+-| **Note:** The class for your stored objects is generated at compile time from the message defined in the proto file. Make sure you rebuild your project.
++> [!NOTE]
++> **Note:** The class for your stored objects is generated at compile time from the message defined in the proto file. Make sure you rebuild your project.
+ 
+ ## Create a DataStore
+ 
+-You need to specify a name for the file that is used to persist the data.  
++You need to specify a name for the file that is used to persist the data.
+ 
+ ### Preferences DataStore
+ 
+@@ -381,7 +381,7 @@ of `DataStore<Preferences>`. Call it once at the top level of your Kotlin
+ file. Access DataStore through this property throughout the rest of your
+ application. This makes it easier to keep your DataStore as a singleton.
+ Alternatively, use [RxPreferenceDataStoreBuilder](https://developer.android.com/reference/kotlin/androidx/datastore/rxjava2/RxDataStoreBuilder) if you're using RxJava.
+-The mandatory `name` parameter is the name of the Preferences DataStore.  
++The mandatory `name` parameter is the name of the Preferences DataStore.
+ 
+     // At the top level of your kotlin file:
+     val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+@@ -393,7 +393,7 @@ Use the property delegate created by `dataStore` to create an instance of
+ at the top level of your kotlin file and access it through this property
+ delegate throughout the rest of your app. The `fileName` parameter tells
+ DataStore which file to use to store the data, and the `serializer` parameter
+-tells DataStore the name of the serializer class defined in step 1.  
++tells DataStore the name of the serializer class defined in step 1.
+ 
+     val Context.dataStore: DataStore<Settings> by dataStore(
+         fileName = "settings.json",
+@@ -407,7 +407,7 @@ Use the property delegate created by `dataStore` to create an instance of
+ once at the top level of your Kotlin file and access it through this property
+ delegate throughout the rest of your app. The `fileName` parameter tells
+ DataStore which file to use to store the data, and the `serializer` parameter
+-tells DataStore the name of the serializer class defined in step 1.  
++tells DataStore the name of the serializer class defined in step 1.
+ 
+     val Context.dataStore: DataStore<Settings> by dataStore(
+         fileName = "settings.pb",
+@@ -416,7 +416,7 @@ tells DataStore the name of the serializer class defined in step 1.
+ 
+ ## Read from DataStore
+ 
+-You need to specify a name for the file that is used to persist the data.  
++You need to specify a name for the file that is used to persist the data.
+ 
+ ### Preferences DataStore
+ 
+@@ -425,7 +425,7 @@ the corresponding key type function to define a key for each value that you
+ need to store in the `DataStore<Preferences>` instance. For example, to define
+ a key for an int value, use [`intPreferencesKey()`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/package-summary#intPreferencesKey(kotlin.String)). Then, use the
+ [DataStore.data](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore#data) property to expose the appropriate stored value using a
+-Flow.  
++Flow.
+ 
+     fun counterFlow(): Flow<Int> = context.dataStore.data.map { preferences ->
+         preferences[EXAMPLE_COUNTER] ?: 0
+@@ -434,7 +434,7 @@ Flow.
+ ### JSON DataStore
+ 
+ Use `DataStore.data` to expose a `Flow` of the appropriate property from your
+-stored object.  
++stored object.
+ 
+     fun counterFlow(): Flow<Int> = context.dataStore.data.map { settings ->
+         settings.exampleCounter
+@@ -443,7 +443,7 @@ stored object.
+ ### Proto DataStore
+ 
+ Use `DataStore.data` to expose a `Flow` of the appropriate property from your
+-stored object.  
++stored object.
+ 
+     fun counterFlow(): Flow<Int> = context.dataStore.data.map { settings ->
+         settings.exampleCounter
+@@ -455,7 +455,7 @@ DataStore provides an [updateData()](https://developer.android.com/reference/kot
+ stored object. `updateData` gives you the current state of the data as an
+ instance of your data type and updates the data transactionally in an atomic
+ read-write-modify operation. All of the code in the `updateData` block is
+-treated as a single transaction.  
++treated as a single transaction.
+ 
+ ### Preferences DataStore
+ 
+@@ -467,7 +467,8 @@ treated as a single transaction.
+         }
+     }
+ 
+-| **Note:** You can also use the `[edit][11]` suspend function. This function provides a `MutablePreferences` object that you can modify.
++> [!NOTE]
++> **Note:** You can also use the `[edit][11]` suspend function. This function provides a `MutablePreferences` object that you can modify.
+ 
+ ### JSON DataStore
+ 
+@@ -487,12 +488,12 @@ treated as a single transaction.
+ 
+ ## Compose Sample
+ 
+-You can put these functions together in a class and use it in a Compose app.  
++You can put these functions together in a class and use it in a Compose app.
+ 
+ ### Preferences DataStore
+ 
+ We can now put these functions into a class called `PreferencesDataStore` and
+-use it in a Compose App.  
++use it in a Compose App.
+ 
+     val context = LocalContext.current
+     val coroutineScope = rememberCoroutineScope()
+@@ -518,7 +519,7 @@ use it in a Compose App.
+ ### JSON DataStore
+ 
+ We can now put these functions into a class called `JSONDataStore` and use it
+-in a Compose App.  
++in a Compose App.
+ 
+     val context = LocalContext.current
+     val coroutineScope = rememberCoroutineScope()
+@@ -540,7 +541,7 @@ in a Compose App.
+ ### Proto DataStore
+ 
+ We can now put these functions into a class called `ProtoDataStore` and use it
+-in a Compose App.  
++in a Compose App.
+ 
+     val context = LocalContext.current
+     val coroutineScope = rememberCoroutineScope()
+@@ -561,7 +562,8 @@ in a Compose App.
+ 
+ ## Use DataStore in synchronous code
+ 
+-| **Caution:** Avoid blocking threads on DataStore data reads whenever possible. Blocking the UI thread can cause [ANRs](https://developer.android.com/topic/performance/vitals/anr) or unresponsive UI, and blocking other threads can result in [deadlock](https://en.wikipedia.org/wiki/Deadlock).
++> [!CAUTION]
++> **Caution:** Avoid blocking threads on DataStore data reads whenever possible. Blocking the UI thread can cause [ANRs](https://developer.android.com/topic/performance/vitals/anr) or unresponsive UI, and blocking other threads can result in [deadlock](https://en.wikipedia.org/wiki/Deadlock).
+ 
+ One of the primary benefits of DataStore is the asynchronous API, but it may not
+ always be feasible to change your surrounding code to be asynchronous. This
+@@ -573,7 +575,7 @@ Kotlin coroutines provide the [`runBlocking()`](https://kotlin.github.io/kotlinx
+ bridge the gap between synchronous and asynchronous code. You can use
+ `runBlocking()` to read data from DataStore synchronously. RxJava offers
+ blocking methods on `Flowable`. The following code blocks the calling thread
+-until DataStore returns data:  
++until DataStore returns data:
+ 
+ ### Kotlin
+ 
+@@ -585,7 +587,7 @@ until DataStore returns data:
+ 
+ Performing synchronous I/O operations on the UI thread can cause ANRs or
+ unresponsive UI. You can mitigate these issues by asynchronously preloading the
+-data from DataStore:  
++data from DataStore:
+ 
+ ### Kotlin
+ 
+@@ -606,7 +608,8 @@ operation altogether if the initial read has completed.
+ 
+ ## Use DataStore in multi-process code
+ 
+-| **Note:** DataStore multi-process has been available since the 1.1.0 release
++> [!NOTE]
++> **Note:** DataStore multi-process has been available since the 1.1.0 release
+ 
+ You can configure DataStore to access the same data across different processes
+ with the same data consistency properties as from within a single process. In
+@@ -621,7 +624,7 @@ Consider a sample application with a service and an activity where the service
+ is running in a separate process and periodically updates the DataStore.
+ 
+ This example uses a JSON datastore, but you can also use a preferences or proto
+-datastore.  
++datastore.
+ 
+     @Serializable
+     data class Time(
+@@ -631,7 +634,7 @@ datastore.
+ A serializer tells `DataStore` how to read and write your data type. Make sure
+ you include a default value for the serializer to be used if there is no file
+ created yet. The following is an example implementation using
+-[kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization):  
++[kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization):
+ 
+     object TimeSerializer : Serializer<Time> {
+ 
+@@ -656,7 +659,7 @@ created yet. The following is an example implementation using
+ 
+ To be able to use `DataStore` across different processes, you need to construct
+ the DataStore object using the `MultiProcessDataStoreFactory` for both the app
+-and the service code:  
++and the service code:
+ 
+     val dataStore = MultiProcessDataStoreFactory.create(
+         serializer = TimeSerializer,
+@@ -666,16 +669,17 @@ and the service code:
+         corruptionHandler = null
+     )
+ 
+-Add the following to your `AndroidManifiest.xml`:  
++Add the following to your `AndroidManifiest.xml`:
+ 
+     <service
+         android:name=".TimestampUpdateService"
+         android:process=":my_process_id" />
+ 
+-| **Important:** To run the service in a different process, use the android:process attribute. Note that the process ID is prefixed with a colon (':'). This makes the service run in a new process, private to the application.
++> [!IMPORTANT]
++> **Important:** To run the service in a different process, use the android:process attribute. Note that the process ID is prefixed with a colon (':'). This makes the service run in a new process, private to the application.
+ 
+ The service periodically calls `updateLastUpdateTime()`, which writes to the
+-datastore using `updateData`.  
++datastore using `updateData`.
+ 
+     suspend fun updateLastUpdateTime() {
+         dataStore.updateData { time ->
+@@ -683,7 +687,7 @@ datastore using `updateData`.
+         }
+     }
+ 
+-The app reads the value written by the service using the data flow:  
++The app reads the value written by the service using the data flow:
+ 
+     fun timeFlow(): Flow<Long> = dataStore.data.map { time ->
+         time.lastUpdateMillis
+@@ -692,7 +696,7 @@ The app reads the value written by the service using the data flow:
+ Now, we can put all these functions together in a class called
+ `MultiProcessDataStore` and use it in an App.
+ 
+-Here is the service code:  
++Here is the service code:
+ 
+     class TimestampUpdateService : Service() {
+         val serviceScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+@@ -715,7 +719,7 @@ Here is the service code:
+         }
+     }
+ 
+-And the app code:  
++And the app code:
+ 
+     val context = LocalContext.current
+     val coroutineScope = rememberCoroutineScope()
+@@ -738,7 +742,7 @@ And the app code:
+     }
+ 
+ You can use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) dependency injection so that your DataStore
+-instance is unique per process:  
++instance is unique per process:
+ 
+     @Provides
+     @Singleton
+@@ -759,7 +763,7 @@ predefined default value.
+ 
+ To set up this handler, provide a `corruptionHandler` when creating the
+ DataStore instance in `by dataStore()` or in the `DataStoreFactory` factory
+-method:  
++method:
+ 
+     val dataStore: DataStore<Settings> = DataStoreFactory.create(
+        serializer = SettingsSerializer(),

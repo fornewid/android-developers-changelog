@@ -1,0 +1,38 @@
+diff --git a/docs/games/guidelines.md b/docs/games/guidelines.md
+index 890c40a..cb21d36 100644
+--- a/docs/games/guidelines.md
++++ b/docs/games/guidelines.md
+@@ -56,11 +56,11 @@ Refer to: [Achievements](https://developer.android.com/games/pgs/achievements)
+ 
+ #### Required
+ 
+-- Implement [platform authentication](https://developer.android.com/games/pgs/play-games-sidekick) with Play Games Services v2 SDK.
+ - A minimum of ten achievements spread across the lifetime of the game.
+-- At least four achievements are reasonably and reliably achievable within an hour of gameplay by everyone who plays. You can create a maximum of 400 achievements across the lifetime of the game.
+ - All achievements should have unique names and descriptions. These should make clear to users what they need to do to get the achievement.
+-- All achievements should have unique icons.
++- Only new achievements should have unique icons.
++- Required for Quests eligibility only:
++  - At least four achievements are reasonably and reliably achievable within an hour of gameplay by everyone who plays. You can create a maximum of 400 achievements across the lifetime of the game.
+ 
+ #### Recommended
+ 
+@@ -107,7 +107,8 @@ Refer to:
+ - Access the Play Games Sidekick while playing your game. See [Play Games Sidekick (beta)](https://developer.android.com/games/pgs/play-games-sidekick).
+ - From December 2025, you can enable this experience for internal testing by using a toggle in Play Console with a streamlined testing process.
+ 
+-| **Beta:** The Play Games Sidekick feature is now available to early access partners, as we work to enhance its performance and stability.
++> [!WARNING]
++> **Beta:** The Play Games Sidekick feature is now available to early access partners, as we work to enhance its performance and stability.
+ 
+ ## Cross device gameplay
+ 
+@@ -155,7 +156,7 @@ The key dates dates are as follows:
+ 
+ |---|---|
+ | **Deadline** | **Milestone** |
+-| **July 31, 2026** | Games released before July 31, 2026 will be automatically enrolled in the program and can enjoy the program [benefits](https://play.google.com/console/about/levelup) upon release. After July 31, 2026, games will have to meet the required user experience guidelines for the following features: - **[Achievements](https://developer.android.com/games/guidelines#achievements)** You must have integrated your game to use [Play Games Services](https://developer.android.com/games/pgs/overview) v2 SDK. - **[Play Games Sidekick](https://developer.android.com/games/guidelines#play-games-sidekick)** From early 2026, you can enable this experience for internal testing by using a toggle in Play Console with a streamlined testing process. | **Beta:** The Play Games Sidekick feature is now available to early access partners, as we work to enhance its performance and stability. |
++| **July 31, 2026** | Games released before July 31, 2026 will be automatically enrolled in the program and can enjoy the program [benefits](https://play.google.com/console/about/levelup) upon release. After July 31, 2026, games will have to meet the required user experience guidelines for the following features: - **[Achievements](https://developer.android.com/games/guidelines#achievements)** You must have integrated your game to use [Play Games Services](https://developer.android.com/games/pgs/overview) v2 SDK. - **[Play Games Sidekick](https://developer.android.com/games/guidelines#play-games-sidekick)** From early 2026, you can enable this experience for internal testing by using a toggle in Play Console with a streamlined testing process. > [!WARNING] > **Beta:** The Play Games Sidekick feature is now available to early access partners, as we work to enhance its performance and stability. |
+ | **November 30, 2026** | After November 30, 2026, games will have to meet the required user experience guidelines for the following features: - **[Cloud save](https://developer.android.com/games/guidelines#cloud-save)** |
+ 
+ ## Frequently asked questions

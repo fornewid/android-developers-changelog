@@ -1,0 +1,221 @@
+diff --git a/docs/develop/ui/views/touch-and-input/gestures/scroll.md b/docs/develop/ui/views/touch-and-input/gestures/scroll.md
+index 0e6f33a..6b8f46d 100644
+--- a/docs/develop/ui/views/touch-and-input/gestures/scroll.md
++++ b/docs/develop/ui/views/touch-and-input/gestures/scroll.md
+@@ -4,15 +4,12 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/gestures/scr
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.  
+-[Scrolling →](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/scroll)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose. [Scrolling →](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/scroll) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 
+ In Android, scrolling is typically achieved by using the
+-[ScrollView](https://developer.android.com/reference/android/widget/ScrollView)
++`https://developer.android.com/reference/android/widget/ScrollView`
+ class. Nest any standard layout that might extend beyond the bounds of its
+ container in a `ScrollView` to provide a scrollable view managed by
+ the framework. Implementing a custom scroller is only necessary for special
+@@ -20,9 +17,9 @@ scenarios. This document describes how to display a scrolling effect in response
+ to touch gestures using *scrollers*.
+ 
+ Your app can use
+-scrollers---[Scroller](https://developer.android.com/reference/android/widget/Scroller)
++scrollers---`https://developer.android.com/reference/android/widget/Scroller`
+ or
+-[OverScroller](https://developer.android.com/reference/android/widget/OverScroller)---to
++`https://developer.android.com/reference/android/widget/OverScroller`---to
+ collect the data needed to produce a scrolling animation in response to a touch
+ event. They are similar, but `OverScroller` also includes methods for
+ indicating to users when they reach the content edges after a pan or fling
+@@ -32,16 +29,18 @@ gesture.
+ - On Android 11 (API level 30) and earlier, the boundaries display a "glow" effect after a drag or fling gesture to the edge.
+ 
+ The `InteractiveChart` sample in this document uses the
+-[EdgeEffect](https://developer.android.com/reference/android/widget/EdgeEffect)
++`https://developer.android.com/reference/android/widget/EdgeEffect`
+ class to display these overscroll effects.
+-| **Note:** Use `OverScroller` instead of `Scroller`
+-| for scrolling animations. `OverScroller` provides the best backward
+-| compatibility with earlier devices.
+-|
+-| You generally only need to use scrollers when implementing scrolling
+-| yourself. `ScrollView` and
+-| [HorizontalScrollView](https://developer.android.com/reference/android/widget/HorizontalScrollView)
+-| do all of this for you if you nest your layout within them.
++
++> [!NOTE]
++> **Note:** Use `OverScroller` instead of `Scroller`
++> for scrolling animations. `OverScroller` provides the best backward
++> compatibility with earlier devices.
++>
++> You generally only need to use scrollers when implementing scrolling
++> yourself. `ScrollView` and
++> `https://developer.android.com/reference/android/widget/HorizontalScrollView`
++> do all of this for you if you nest your layout within them.
+ 
+ You can use a scroller to animate scrolling over time, using
+ platform-standard scrolling physics such as friction, velocity, and other
+@@ -57,18 +56,18 @@ the context.
+ 
+ *Scrolling* is the general process of moving the viewport---that is,
+ the "window" of content you're looking at. When scrolling is in both the
+-*x* - and *y* -axes, it's called *panning* . The
++*x*- and *y*-axes, it's called *panning*. The
+ `InteractiveChart` sample app in this document illustrates two
+ different types of scrolling, dragging and flinging:
+ 
+-- **Dragging:** this is the type of scrolling that occurs when a user drags their finger across the touchscreen. You can implement dragging by overriding [onScroll()](https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onScroll(android.view.MotionEvent, android.view.MotionEvent, float, float)) in [GestureDetector.OnGestureListener](https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener). For more information about dragging, see [Drag and scale](https://developer.android.com/develop/ui/views/touch-and-input/gestures/scale).
+-- **Flinging:** this is the type of scrolling that occurs when a user drags and lifts their finger quickly. After the user lifts their finger, you generally want to keep moving the viewport, but decelerate until the viewport stops moving. You can implement flinging by overriding [onFling()](https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onFling(android.view.MotionEvent, android.view.MotionEvent, float, float)) in `GestureDetector.OnGestureListener` and using a scroller object.
+-- **Panning:** scrolling simultaneously along both the *x* - and *y* -axes is called *panning*.
++- **Dragging:** this is the type of scrolling that occurs when a user drags their finger across the touchscreen. You can implement dragging by overriding `https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onScroll(android.view.MotionEvent, android.view.MotionEvent, float, float)` in `https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener`. For more information about dragging, see [Drag and scale](https://developer.android.com/develop/ui/views/touch-and-input/gestures/scale).
++- **Flinging:** this is the type of scrolling that occurs when a user drags and lifts their finger quickly. After the user lifts their finger, you generally want to keep moving the viewport, but decelerate until the viewport stops moving. You can implement flinging by overriding `https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onFling(android.view.MotionEvent, android.view.MotionEvent, float, float)` in `GestureDetector.OnGestureListener` and using a scroller object.
++- **Panning:** scrolling simultaneously along both the *x*- and *y*-axes is called *panning*.
+ 
+ It's common to use scroller objects in conjunction with a fling gesture, but
+ you can use them in any context where you want the UI to display scrolling in
+ response to a touch event. For example, you can override
+-[onTouchEvent()](https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent))
++`https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent)`
+ to process touch events directly and produce a scrolling effect or a
+ "snap-to-page" animation in response to those touch events.
+ 
+@@ -77,14 +76,14 @@ to process touch events directly and produce a scrolling effect or a
+ The following Android components contain built-in support for scrolling and
+ overscrolling behavior:
+ 
+-- [GridView](https://developer.android.com/reference/android/widget/GridView)
+-- [HorizontalScrollView](https://developer.android.com/reference/android/widget/HorizontalScrollView)
+-- [ListView](https://developer.android.com/reference/android/widget/ListView)
+-- [NestedScrollView](https://developer.android.com/reference/androidx/core/widget/NestedScrollView)
+-- [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView)
+-- [ScrollView](https://developer.android.com/reference/android/widget/ScrollView)
+-- [ViewPager](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/ViewPager)
+-- [ViewPager2](https://developer.android.com/reference/androidx/viewpager2/widget/ViewPager2)
++- `https://developer.android.com/reference/android/widget/GridView`
++- `https://developer.android.com/reference/android/widget/HorizontalScrollView`
++- `https://developer.android.com/reference/android/widget/ListView`
++- `https://developer.android.com/reference/androidx/core/widget/NestedScrollView`
++- `https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView`
++- `https://developer.android.com/reference/android/widget/ScrollView`
++- `https://developer.android.com/reference/kotlin/androidx/viewpager/widget/ViewPager`
++- `https://developer.android.com/reference/androidx/viewpager2/widget/ViewPager2`
+ 
+ If your app needs to support scrolling and overscrolling inside a different
+ component, complete the following steps:
+@@ -104,9 +103,9 @@ scrolling and overscrolling.
+ The following snippet comes from the
+ [`InteractiveChart`
+ sample](https://android.googlesource.com/platform/frameworks/base/+/8c4a8243c77bcbd434fb30587be2feffd2835728/docs/html/training/gestures/scroll.jd). It uses a
+-[GestureDetector](https://developer.android.com/reference/android/view/GestureDetector)
++`https://developer.android.com/reference/android/view/GestureDetector`
+ and overrides the
+-[GestureDetector.SimpleOnGestureListener](https://developer.android.com/reference/android/view/GestureDetector.SimpleOnGestureListener)
++`https://developer.android.com/reference/android/view/GestureDetector.SimpleOnGestureListener`
+ method `onFling()`. It uses `OverScroller` to track the
+ fling gesture. If the user reaches the content edges after they perform the
+ fling gesture, the container indicates when the user reaches the end of the
+@@ -116,10 +115,11 @@ runs:
+ - On Android 12 and later, the visual elements stretch and bounce back.
+ - On Android 11 and earlier, the visual elements display a glow effect.
+ 
+-| **Note:** The `InteractiveChart` sample app displays a chart that you can zoom, pan, or scroll. In the following snippet, `contentRect` represents the rectangle coordinates within the view that the chart is drawn into. At any given time, a subset of the total chart domain and range are drawn into this rectangular area. `currentViewport` represents the portion of the chart that is visible on the screen. Because pixel offsets are generally treated as integers, `contentRect` is of the type [Rect](https://developer.android.com/reference/android/graphics/Rect). Because the graph domain and range are decimal or float values, `currentViewport` is of the type [RectF](https://developer.android.com/reference/android/graphics/RectF).
++> [!NOTE]
++> **Note:** The `InteractiveChart` sample app displays a chart that you can zoom, pan, or scroll. In the following snippet, `contentRect` represents the rectangle coordinates within the view that the chart is drawn into. At any given time, a subset of the total chart domain and range are drawn into this rectangular area. `currentViewport` represents the portion of the chart that is visible on the screen. Because pixel offsets are generally treated as integers, `contentRect` is of the type `https://developer.android.com/reference/android/graphics/Rect`. Because the graph domain and range are decimal or float values, `currentViewport` is of the type `https://developer.android.com/reference/android/graphics/RectF`.
+ 
+ The first part of the following snippet shows the implementation of
+-`onFling()`:  
++`onFling()`:
+ 
+ ### Kotlin
+ 
+@@ -296,25 +296,25 @@ private void fling(int velocityX, int velocityY) {
+ ```
+ 
+ When `onFling()` calls
+-[postInvalidateOnAnimation()](https://developer.android.com/reference/androidx/core/view/ViewCompat#postInvalidateOnAnimation(android.view.View)),
++`https://developer.android.com/reference/androidx/core/view/ViewCompat#postInvalidateOnAnimation(android.view.View)`,
+ it triggers
+-[computeScroll()](https://developer.android.com/reference/android/view/View#computeScroll())
++`https://developer.android.com/reference/android/view/View#computeScroll()`
+ to update the values for *x* and *y*. This is typically done when a
+ view child is animating a scroll using a scroller object, as shown the preceding
+ example.
+ 
+ Most views pass the scroller object's *x* and *y* position directly
+ to
+-[scrollTo()](https://developer.android.com/reference/android/view/View#scrollTo(int, int)).
++`https://developer.android.com/reference/android/view/View#scrollTo(int, int)`.
+ The following implementation of `computeScroll()` takes a different
+ approach: it calls
+-[computeScrollOffset()](https://developer.android.com/reference/android/widget/OverScroller#computeScrollOffset())
+-to get the current location of *x* and *y* . When the criteria for
++`https://developer.android.com/reference/android/widget/OverScroller#computeScrollOffset()`
++to get the current location of *x* and *y*. When the criteria for
+ displaying an overscroll "glow" edge effect are met--- that is, the display
+ is zoomed in, *x* or *y* is out of bounds, and the app isn't already
+ showing an overscroll---the code sets up the overscroll glow effect and
+ calls `postInvalidateOnAnimation()` to trigger an invalidate on the
+-view.  
++view.
+ 
+ ### Kotlin
+ 
+@@ -461,7 +461,7 @@ public void computeScroll() {
+     }
+ ```
+ 
+-Here is the section of the code that performs the actual zoom:  
++Here is the section of the code that performs the actual zoom:
+ 
+ ### Kotlin
+ 
+@@ -529,7 +529,7 @@ This is the `computeScrollSurfaceSize()` method that's called in
+ the preceding snippet. It computes the current scrollable surface size in
+ pixels. For example, if the entire chart area is visible, this is the current
+ size of `mContentRect`. If the chart is zoomed in 200% in both
+-directions, the returned size is twice as large horizontally and vertically.  
++directions, the returned size is twice as large horizontally and vertically.
+ 
+ ### Kotlin
+ 
+@@ -580,7 +580,7 @@ When a user catches an active stretch animation,
+ `EdgeEffect.getDistance()` returns `0`. This condition
+ indicates that the stretch must be manipulated by the touch motion. In most
+ containers, the catch is detected in `onInterceptTouchEvent()`, as
+-shown in the following code snippet:  
++shown in the following code snippet:
+ 
+ ### Kotlin
+ 
+@@ -623,7 +623,7 @@ consume it.
+ 
+ It's important to release the stretch effect prior to scrolling to prevent
+ the stretch from being applied to the scrolling content. The following code
+-sample applies this best practice:  
++sample applies this best practice:
+ 
+ ### Kotlin
+ 
+@@ -700,7 +700,7 @@ show glow effects.
+ You can opt out of overscroll in your layout file or programmatically.
+ 
+ To opt out in your layout file, set `android:overScrollMode` as
+-shown in the following example:  
++shown in the following example:
+ 
+ ```xml
+ <MyCustomView android:overScrollMode="never">
+@@ -708,7 +708,7 @@ shown in the following example:
+ </MyCustomView>
+ ```
+ 
+-To opt out programmatically, use code like the following:  
++To opt out programmatically, use code like the following:
+ 
+ ### Kotlin
+ 

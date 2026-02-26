@@ -1,0 +1,40 @@
+diff --git a/docs/build/configure-apk-splits.md b/docs/build/configure-apk-splits.md
+index 6e87474..6ca9e30 100644
+--- a/docs/build/configure-apk-splits.md
++++ b/docs/build/configure-apk-splits.md
+@@ -66,7 +66,7 @@ ABI:
+ 
+     The following snippet sets the list of ABIs to just `x86` and
+     `x86_64` by calling `reset()` to clear the list, and
+-    then using `include`:  
++    then using `include`:
+ 
+     ```
+     reset()                 // Clears the default list from all ABIs to no ABIs.
+@@ -91,7 +91,7 @@ Kotlin script
+ The following example generates a separate APK for each ABI: `x86`
+ and `x86_64`. This is done by using `reset()`
+ to start with an empty list of ABIs, followed by `include` with a
+-list of ABIs that each get an APK.  
++list of ABIs that each get an APK.
+ 
+ ### Groovy
+ 
+@@ -237,7 +237,7 @@ compatible with the target device and has the highest
+ universal APK ensures that Google Play Store tries to install one of your
+ APKs before falling back to the universal APK. The following sample code
+ handles this by not overriding a universal APK's
+-default `versionCode`.  
++default `versionCode`.
+ 
+ ### Groovy
+ 
+@@ -407,7 +407,7 @@ When building multiple APKs, Gradle generates APK filenames using the following
+ scheme:
+ 
+ 
+-<var translate="no">modulename</var>`-`<var translate="no">ABI</var>`-`<var translate="no">buildvariant</var>`.apk`
++`modulename-ABI-buildvariant.apk`
+ 
+ The scheme components are:
+ 

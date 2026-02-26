@@ -1,0 +1,62 @@
+diff --git a/docs/develop/ui/views/notifications/bubbles.md b/docs/develop/ui/views/notifications/bubbles.md
+index 6682841..fff3773 100644
+--- a/docs/develop/ui/views/notifications/bubbles.md
++++ b/docs/develop/ui/views/notifications/bubbles.md
+@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/views/notifications/bubbles
+ source: md.txt
+ ---
+ 
+-Bubbles make it easier for users to see and participate in conversations.  
++Bubbles make it easier for users to see and participate in conversations.
+ **Figure 1.** A chat bubble.
+ 
+ Bubbles are built into the notification system. They float on top of other app
+@@ -33,7 +33,7 @@ Configure the activity to display properly as a bubble. The activity must be
+ [embedded](https://developer.android.com/guide/topics/manifest/activity-element#embedded). If it lacks
+ either of these requirements, it displays as a notification instead.
+ 
+-The following code demonstrates how to implement a bubble:  
++The following code demonstrates how to implement a bubble:
+ 
+     <activity
+       android:name=".bubbles.BubbleActivity"
+@@ -61,7 +61,7 @@ To send a bubble, follow these steps:
+ 4. If targeting Android 11 or higher, make sure the bubble metadata or notification references a sharing shortcut.
+ 5. Modify your app to **not** cancel notifications that appear as bubbles. To check if the notification activity is launched as a bubble, call [`Activity#isLaunchedFromBubble()`](https://developer.android.com/reference/android/app/Activity#isLaunchedFromBubble()). Canceling a notification removes the bubble from the screen. Opening a bubble automatically hides the notification associated with it.
+ 
+-These steps are shown in the following example:  
++These steps are shown in the following example:
+ 
+ ### Kotlin
+ 
+@@ -143,7 +143,9 @@ Notification.Builder builder =
+         .setShortcutId(shortcutId)
+         .addPerson(chatPartner);
+ ```
+-| **Note:** The first time you send the notification to display a bubble, make sure it's in a notification channel with [`IMPORTANCE_MIN`](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_MIN) or higher.
++
++> [!NOTE]
++> **Note:** The first time you send the notification to display a bubble, make sure it's in a notification channel with [`IMPORTANCE_MIN`](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_MIN) or higher.
+ 
+ If your app is in the foreground when a bubble is sent, importance is ignored
+ and your bubble is always shown, unless the user blocks bubbles or notifications
+@@ -163,7 +165,7 @@ and
+ [`setSuppressNotification()`](https://developer.android.com/reference/android/app/Notification.BubbleMetadata.Builder#setSuppressNotification(boolean)).
+ 
+ The following example shows how to configure a bubble to automatically present
+-in an expanded state:  
++in an expanded state:
+ 
+ ### Kotlin
+ 
+@@ -215,7 +217,9 @@ one or more of the following conditions are met:
+ 
+ If none of these conditions are met, the notification is shown instead of a
+ bubble.
+-| **Note:** Android 10 doesn't support Bubbles out-of-the-box. To see them appearing, you will need to enable [Developer Options](https://developer.android.com/studio/debug/dev-options), search for "bubbles" in the Settings menu, and enable the Bubbles settings.
++
++> [!NOTE]
++> **Note:** Android 10 doesn't support Bubbles out-of-the-box. To see them appearing, you will need to enable [Developer Options](https://developer.android.com/studio/debug/dev-options), search for "bubbles" in the Settings menu, and enable the Bubbles settings.
+ 
+ ## Launching activities from bubbles
+ 

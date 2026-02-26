@@ -1,0 +1,77 @@
+diff --git a/docs/develop/ui/views/animations/fling-animation.md b/docs/develop/ui/views/animations/fling-animation.md
+index 0c8dac7..2c009cb 100644
+--- a/docs/develop/ui/views/animations/fling-animation.md
++++ b/docs/develop/ui/views/animations/fling-animation.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/animations/fling-animation
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose.  
+-[Spring AnimationSpec →](https://developer.android.com/jetpack/compose/animation#spring)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose. [Spring AnimationSpec →](https://developer.android.com/jetpack/compose/animation#spring) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ 
+ Fling-based animation uses a friction force that is proportional to an
+@@ -32,7 +29,7 @@ To use the physics-based animations, you must add the AndroidX library to your p
+ as follows:
+ 
+ 1. Open the `build.gradle` file for your app module.
+-2. Add the AndroidX library to the `dependencies` section.  
++2. Add the AndroidX library to the `dependencies` section.
+ 
+    ### Groovy
+ 
+@@ -55,10 +52,10 @@ as follows:
+ ## Create a fling animation
+ 
+ 
+-The [FlingAnimation](https://developer.android.com/reference/androidx/dynamicanimation/animation/FlingAnimation) class lets you create
++The `https://developer.android.com/reference/androidx/dynamicanimation/animation/FlingAnimation` class lets you create
+ a fling animation for an object. To build a fling animation, create an
+-instance of the [FlingAnimation](https://developer.android.com/reference/androidx/dynamicanimation/animation/FlingAnimation) class and
+-provide an object and the object's property that you want to animate.  
++instance of the `https://developer.android.com/reference/androidx/dynamicanimation/animation/FlingAnimation` class and
++provide an object and the object's property that you want to animate.
+ 
+ ### Kotlin
+ 
+@@ -97,8 +94,8 @@ the velocity in pixels per second. The method returns the fling object on
+ which the velocity is set.
+ 
+ **Note:** Use the
+-[GestureDetector.OnGestureListener](https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener) and the
+-[VelocityTracker](https://developer.android.com/reference/android/view/VelocityTracker) classes to retrieve and compute
++`https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener` and the
++`https://developer.android.com/reference/android/view/VelocityTracker` classes to retrieve and compute
+ the velocity of touch gestures, respectively.
+ 
+ ### Set an animation value range
+@@ -136,7 +133,7 @@ provide.
+ The example below illustrates a horizontal fling. The velocity captured from
+ the velocity tracker is `velocityX` and, the scroll bounds are
+ set to 0 and
+-maxScroll. The friction is set to 1.1.  
++maxScroll. The friction is set to 1.1.
+ 
+ ### Kotlin
+ 
+@@ -169,7 +166,7 @@ minimal change of animation value that is visible to users. It
+ determines a reasonable threshold for ending the animation.
+ 
+ It isn't necessary to call this method when animating
+-[DynamicAnimation.ViewProperty](https://developer.android.com/reference/androidx/dynamicanimation/animation/DynamicAnimation.ViewProperty) because the
++`https://developer.android.com/reference/androidx/dynamicanimation/animation/DynamicAnimation.ViewProperty` because the
+ minimum visible change is derived from the property. For example:
+ 
+ - The default minimum visible change value is 1 pixel for view properties such as `TRANSLATION_X`, `TRANSLATION_Y`, `TRANSLATION_Z`, `SCROLL_X`, and `SCROLL_Y`.
+@@ -183,7 +180,7 @@ one of the minimum visible constants or a value that you need to calculate
+ for a custom property. For more information on calculating this value,
+ refer to the
+ [Calculating a minimum visible change value](https://developer.android.com/develop/ui/views/animations/fling-animation#calculating-mvc-value)
+-section.  
++section.
+ 
+ ### Kotlin
+ 

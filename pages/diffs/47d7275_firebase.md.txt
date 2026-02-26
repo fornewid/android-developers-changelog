@@ -1,0 +1,268 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/firebase.md b/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/firebase.md
+index ee04bec..fca6265 100644
+--- a/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/firebase.md
++++ b/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/firebase.md
+@@ -4,19 +4,27 @@ url: https://developer.android.com/develop/background-work/background-tasks/pers
+ source: md.txt
+ ---
+ 
+-# Migrating from Firebase JobDispatcher to WorkManager
+-
+-WorkManager is a library for scheduling and executing deferrable background work in Android. It is the recommended replacement for Firebase JobDispatcher. The following guide will walk you through the process of migrating your Firebase JobDispatcher implementation to WorkManager.
++WorkManager is a library for scheduling and executing deferrable background work
++in Android. It is the recommended replacement for Firebase JobDispatcher. The
++following guide will walk you through the process of migrating your Firebase
++JobDispatcher implementation to WorkManager.
+ 
+ ## Gradle setup
+ 
+-To import the WorkManager library into your Android project, add the dependencies listed in[Getting started with WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager/basics).
++To import the WorkManager library into your Android project, add the
++dependencies listed in
++[Getting started with WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager/basics).
+ 
+ ## From JobService to workers
+ 
+-[`FirebaseJobDispatcher`](https://github.com/googlearchive/firebase-jobdispatcher-android/blob/e609dabf6cbd0fcc2451b8515f095cfbc3d9450a/jobdispatcher/src/main/java/com/firebase/jobdispatcher/FirebaseJobDispatcher.java)uses a subclass of[`JobService`](https://github.com/firebase/firebase-jobdispatcher-android/blob/master/jobdispatcher/src/main/java/com/firebase/jobdispatcher/JobService.java)as an entry point for defining the work which needs to be done. You might be using`JobService`directly, or using[`SimpleJobService`](https://github.com/firebase/firebase-jobdispatcher-android/blob/master/jobdispatcher/src/main/java/com/firebase/jobdispatcher/SimpleJobService.java).
++[`FirebaseJobDispatcher`](https://github.com/googlearchive/firebase-jobdispatcher-android/blob/e609dabf6cbd0fcc2451b8515f095cfbc3d9450a/jobdispatcher/src/main/java/com/firebase/jobdispatcher/FirebaseJobDispatcher.java)
++uses a subclass of
++[`JobService`](https://github.com/firebase/firebase-jobdispatcher-android/blob/master/jobdispatcher/src/main/java/com/firebase/jobdispatcher/JobService.java)
++as an entry point for defining the work which needs to be done. You might be
++using `JobService` directly, or using
++[`SimpleJobService`](https://github.com/firebase/firebase-jobdispatcher-android/blob/master/jobdispatcher/src/main/java/com/firebase/jobdispatcher/SimpleJobService.java).
+ 
+-A`JobService`will look something like this:  
++A `JobService` will look something like this:
+ 
+ ### Kotlin
+ 
+@@ -56,17 +64,30 @@ public class MyJobService extends JobService {
+ }
+ ```
+ 
+-If you are using`SimpleJobService`you will have overridden`onRunJob()`, which returns a`@JobResult int`type.
++If you are using `SimpleJobService` you will have overridden `onRunJob()`,
++which returns a `@JobResult int` type.
+ 
+-The key difference is when you are using`JobService`directly,`onStartJob()`is called on the main thread, and it is the app's responsibility to offload the work to a background thread. On the other hand, if you are using`SimpleJobService`, that service is responsible for executing your work on a background thread.
++The key difference is when you are using `JobService` directly, `onStartJob()`
++is called on the main thread, and it is the app's responsibility to offload the
++work to a background thread. On the other hand, if you are using
++`SimpleJobService`, that service is responsible for executing your work on a
++background thread.
+ 
+-WorkManager has similar concepts. The fundamental unit of work in WorkManager is a[`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker). There are also other useful subtypes of workers like[`Worker`](https://developer.android.com/reference/androidx/work/Worker),[`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker), and`CoroutineWorker`(when using Kotlin coroutines).
++WorkManager has similar concepts. The fundamental unit of work in WorkManager is
++a [`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker). There are
++also other useful subtypes of workers like
++[`Worker`](https://developer.android.com/reference/androidx/work/Worker),
++[`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker), and `CoroutineWorker` (when
++using Kotlin coroutines).
+ 
+ ### JobService maps to a ListenableWorker
+ 
+-If you are using`JobService`directly, then the worker it maps to is a`ListenableWorker`. If you are using`SimpleJobService`then you should use`Worker`instead.
++If you are using `JobService` directly, then the worker it maps to is a
++`ListenableWorker`. If you are using `SimpleJobService` then you should use
++`Worker` instead.
+ 
+-Let's use the above example (`MyJobService`) and look at how we can convert it to a`ListenableWorker`.  
++Let's use the above example (`MyJobService`) and look at how we can convert it
++to a `ListenableWorker`.
+ 
+ ### Kotlin
+ 
+@@ -121,15 +142,28 @@ class MyWorker extends ListenableWorker {
+ }
+ ```
+ 
+-The basic unit of work in WorkManager is a`ListenableWorker`. Just like`JobService.onStartJob()`,`startWork()`is called on the main thread. Here`MyWorker`implements`ListenableWorker`and returns an instance of[`ListenableFuture`](https://google.github.io/guava/releases/21.0-rc1/api/docs/com/google/common/util/concurrent/ListenableFuture.html), which is used to signal work completion*asynchronously*. You should choose your own threading strategy here.
+-
+-The`ListenableFuture`here eventually returns a`ListenableWorker.Result`type which can be one of`Result.success()`,`Result.success(Data outputData)`,`Result.retry()`,`Result.failure()`, or`Result.failure(Data outputData)`. For more information, see the reference page for[`ListenableWorker.Result`](https://developer.android.com/reference/androidx/work/ListenableWorker.Result).
+-
+-`onStopped()`is called to signal that the`ListenableWorker`needs to stop, either because the constraints are no longer being met (for example, because the network is no longer available), or because a`WorkManager.cancel...()`method was called.`onStopped()`may also be called if the OS decides to shut down your work for some reason.
++The basic unit of work in WorkManager is a `ListenableWorker`. Just like
++`JobService.onStartJob()`, `startWork()` is called on the main thread. Here
++`MyWorker` implements `ListenableWorker` and returns an instance of
++[`ListenableFuture`](https://google.github.io/guava/releases/21.0-rc1/api/docs/com/google/common/util/concurrent/ListenableFuture.html),
++which is used to signal work completion *asynchronously*. You should choose your
++own threading strategy here.
++
++The `ListenableFuture` here eventually returns a `ListenableWorker.Result` type
++which can be one of `Result.success()`, `Result.success(Data outputData)`,
++`Result.retry()`, `Result.failure()`, or `Result.failure(Data outputData)`. For
++more information, see the reference page for
++[`ListenableWorker.Result`](https://developer.android.com/reference/androidx/work/ListenableWorker.Result).
++
++`onStopped()` is called to signal that the `ListenableWorker` needs to stop,
++either because the constraints are no longer being met (for example, because the
++network is no longer available), or because a `WorkManager.cancel...()` method was
++called. `onStopped()` may also be called if the OS decides to shut down your
++work for some reason.
+ 
+ ### SimpleJobService maps to a Worker
+ 
+-When using`SimpleJobService`the above worker will look like:  
++When using `SimpleJobService` the above worker will look like:
+ 
+ ### Kotlin
+ 
+@@ -187,17 +221,25 @@ class MyWorker extends Worker {
+ }
+ ```
+ 
+-Here`doWork()`returns an instance of`ListenableWorker.Result`to signal work completion synchronously. This is similar to`SimpleJobService`, which schedules jobs on a background thread.
++Here `doWork()` returns an instance of `ListenableWorker.Result` to signal work
++completion synchronously. This is similar to `SimpleJobService`, which schedules
++jobs on a background thread.
+ 
+ ## JobBuilder maps to WorkRequest
+ 
+-FirebaseJobBuilder uses`Job.Builder`to represent`Job`metadata. WorkManager uses[`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest)to fill this role.
++FirebaseJobBuilder uses `Job.Builder` to represent `Job` metadata. WorkManager
++uses [`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest) to fill this role.
+ 
+-WorkManager has two types of`WorkRequest`s:[`OneTimeWorkRequest`](https://developer.android.com/reference/androidx/work/OneTimeWorkRequest)and[`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest).
++WorkManager has two types of `WorkRequest`s:
++[`OneTimeWorkRequest`](https://developer.android.com/reference/androidx/work/OneTimeWorkRequest) and
++[`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest).
+ 
+-If you are currently using`Job.Builder.setRecurring(true)`, then you should create a new`PeriodicWorkRequest`. Otherwise, you should use a`OneTimeWorkRequest`.
++If you are currently using `Job.Builder.setRecurring(true)`, then you should
++create a new `PeriodicWorkRequest`. Otherwise, you should use a
++`OneTimeWorkRequest`.
+ 
+-Let's look at what scheduling a complex`Job`with`FirebaseJobDispatcher`might look like:  
++Let's look at what scheduling a complex `Job` with `FirebaseJobDispatcher` might
++look like:
+ 
+ ### Kotlin
+ 
+@@ -270,13 +312,15 @@ dispatcher.mustSchedule(myJob);
+ 
+ To achieve the same with WorkManager you will need to:
+ 
+-- Build input data which can be used as input for the`Worker`.
+-- Build a`WorkRequest`with the input data and constraints similar to the ones defined above for`FirebaseJobDispatcher`.
+-- Enqueue the`WorkRequest`.
++- Build input data which can be used as input for the `Worker`.
++- Build a `WorkRequest` with the input data and constraints similar to the ones defined above for `FirebaseJobDispatcher`.
++- Enqueue the `WorkRequest`.
+ 
+ ### Setting up inputs for the Worker
+ 
+-`FirebaseJobDispatcher`uses a`Bundle`to send input data to the`JobService`. WorkManager uses[`Data`](https://developer.android.com/reference/androidx/work/Data.Builder)instead. So that becomes:  
++`FirebaseJobDispatcher` uses a `Bundle` to send input data to the `JobService`.
++WorkManager uses [`Data`](https://developer.android.com/reference/androidx/work/Data.Builder) instead. So
++that becomes:
+ 
+ ### Kotlin
+ 
+@@ -296,7 +340,10 @@ Data input = new Data.Builder()
+ 
+ ### Setting up Constraints for the Worker
+ 
+-`FirebaseJobDispatcher`uses[`Job.Builder.setConstaints(...)`](https://github.com/firebase/firebase-jobdispatcher-android/blob/master/jobdispatcher/src/main/java/com/firebase/jobdispatcher/Job.java#L287)to set up constraints on jobs. WorkManager uses[`Constraints`](https://developer.android.com/reference/androidx/work/Constraints)instead.  
++`FirebaseJobDispatcher` uses
++[`Job.Builder.setConstaints(...)`](https://github.com/firebase/firebase-jobdispatcher-android/blob/master/jobdispatcher/src/main/java/com/firebase/jobdispatcher/Job.java#L287)
++to set up constraints on jobs. WorkManager uses
++[`Constraints`](https://developer.android.com/reference/androidx/work/Constraints) instead.
+ 
+ ### Kotlin
+ 
+@@ -326,9 +373,12 @@ Constraints constraints = new Constraints.Builder()
+ 
+ ### Creating the WorkRequest (OneTime or Periodic)
+ 
+-To create`OneTimeWorkRequest`s and`PeriodicWorkRequest`s you should use[`OneTimeWorkRequest.Builder`](https://developer.android.com/reference/androidx/work/OneTimeWorkRequest.Builder)and[`PeriodicWorkRequest.Builder`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest.Builder).
++To create `OneTimeWorkRequest`s and `PeriodicWorkRequest`s you should use
++[`OneTimeWorkRequest.Builder`](https://developer.android.com/reference/androidx/work/OneTimeWorkRequest.Builder)
++and [`PeriodicWorkRequest.Builder`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest.Builder).
+ 
+-To create a`OneTimeWorkRequest`which is similar to the above`Job`you should do the following:  
++To create a `OneTimeWorkRequest` which is similar to the above `Job` you should
++do the following:
+ 
+ ### Kotlin
+ 
+@@ -378,9 +428,10 @@ OneTimeWorkRequest request =
+         .build();
+ ```
+ 
+-The key difference here is that WorkManager's jobs are always persisted across device reboot automatically.
++The key difference here is that WorkManager's jobs are always persisted across
++device reboot automatically.
+ 
+-If you want to create a`PeriodicWorkRequest`then you would do something like:  
++If you want to create a `PeriodicWorkRequest` then you would do something like:
+ 
+ ### Kotlin
+ 
+@@ -419,9 +470,13 @@ PeriodicWorkRequest request =
+ 
+ ## Scheduling work
+ 
+-Now that you have defined a`Worker`and a`WorkRequest`, you are ready to schedule work.
++Now that you have defined a `Worker` and a `WorkRequest`, you are ready to
++schedule work.
+ 
+-Every`Job`defined with`FirebaseJobDispatcher`had a`tag`which was used to*uniquely identify* a`Job`. It also provided a way for the application to tell the scheduler if this instance of a`Job`was to replace an existing copy of the`Job`by calling`setReplaceCurrent`.  
++Every `Job` defined with `FirebaseJobDispatcher` had a `tag` which was used to
++*uniquely identify* a `Job`. It also provided a way for the application to tell
++the scheduler if this instance of a `Job` was to replace an existing copy of the
++`Job` by calling `setReplaceCurrent`.
+ 
+ ### Kotlin
+ 
+@@ -453,9 +508,14 @@ Job myJob = dispatcher.newJobBuilder()
+ dispatcher.mustSchedule(myJob);
+ ```
+ 
+-When using WorkManager, you can achieve the same result by using`enqueueUniqueWork()`and`enqueueUniquePeriodicWork()`APIs (when using a`OneTimeWorkRequest`and a`PeriodicWorkRequest`, respectively). For more information, see the reference pages for[`WorkManager.enqueueUniqueWork()`](https://developer.android.com/reference/androidx/work/WorkManager#enqueueUniqueWork(java.lang.String,%20androidx.work.ExistingWorkPolicy,%20androidx.work.OneTimeWorkRequest))and[`WorkManager.enqueueUniquePeriodicWork()`](https://developer.android.com/reference/androidx/work/WorkManager#enqueueUniquePeriodicWork(java.lang.String,%20androidx.work.ExistingPeriodicWorkPolicy,%20androidx.work.PeriodicWorkRequest)).
++When using WorkManager, you can achieve the same result by using
++`enqueueUniqueWork()` and `enqueueUniquePeriodicWork()` APIs (when using a
++`OneTimeWorkRequest` and a `PeriodicWorkRequest`, respectively). For more
++information, see the reference pages for
++[`WorkManager.enqueueUniqueWork()`](https://developer.android.com/reference/androidx/work/WorkManager#enqueueUniqueWork(java.lang.String,%20androidx.work.ExistingWorkPolicy,%20androidx.work.OneTimeWorkRequest))
++and [`WorkManager.enqueueUniquePeriodicWork()`](https://developer.android.com/reference/androidx/work/WorkManager#enqueueUniquePeriodicWork(java.lang.String,%20androidx.work.ExistingPeriodicWorkPolicy,%20androidx.work.PeriodicWorkRequest)).
+ 
+-This will look something like:  
++This will look something like:
+ 
+ ### Kotlin
+ 
+@@ -481,11 +541,13 @@ WorkManager.getInstance(myContext)
+     // work.
+     .enqueueUniqueWork("my-unique-name", ExistingWorkPolicy.KEEP, workRequest);
+ ```
+-| **Note:** `Job`tags in FirebaseJobDispatcher map to the`name`of the`WorkRequest`for WorkManager.
++
++> [!NOTE]
++> **Note:** `Job` tags in FirebaseJobDispatcher map to the `name` of the `WorkRequest` for WorkManager.
+ 
+ ## Cancelling work
+ 
+-With`FirebaseJobDispatcher`you could cancel work using:  
++With `FirebaseJobDispatcher` you could cancel work using:
+ 
+ ### Kotlin
+ 
+@@ -499,7 +561,7 @@ dispatcher.cancel("my-unique-tag")
+ dispatcher.cancel("my-unique-tag");
+ ```
+ 
+-When using WorkManager you can use:  
++When using WorkManager you can use:
+ 
+ ### Kotlin
+ 
+@@ -517,4 +579,6 @@ WorkManager.getInstance(myContext).cancelUniqueWork("my-unique-name");
+ 
+ ## Initializing WorkManager
+ 
+-WorkManager typically initializes itself by using a`ContentProvider`. If you require more control over how WorkManager organizes and schedules work, you can[customize the WorkManager configuration and initialization](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration).
+\ No newline at end of file
++WorkManager typically initializes itself by using a `ContentProvider`.
++If you require more control over how WorkManager organizes and schedules work, you
++can [customize the WorkManager configuration and initialization](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration).
+\ No newline at end of file

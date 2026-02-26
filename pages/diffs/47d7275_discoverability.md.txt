@@ -1,0 +1,15 @@
+diff --git a/docs/develop/ui/views/appwidgets/discoverability.md b/docs/develop/ui/views/appwidgets/discoverability.md
+index 6f5ee85..25f37ea 100644
+--- a/docs/develop/ui/views/appwidgets/discoverability.md
++++ b/docs/develop/ui/views/appwidgets/discoverability.md
+@@ -63,7 +63,9 @@ if (appWidgetManager.isRequestPinAppWidgetSupported()) {
+     appWidgetManager.requestPinAppWidget(myProvider, null, successCallback);
+ }
+ ```
+-| **Note:** If your app doesn't need to be notified of whether the system successfully pins a widget onto a supported launcher, you can pass in `null` as the third argument to `requestPinAppWidget()`.
++
++> [!NOTE]
++> **Note:** If your app doesn't need to be notified of whether the system successfully pins a widget onto a supported launcher, you can pass in `null` as the third argument to `requestPinAppWidget()`.
+ 
+ ## Related design guidance
+ 

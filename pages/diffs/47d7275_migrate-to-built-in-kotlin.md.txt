@@ -1,0 +1,210 @@
+diff --git a/docs/build/migrate-to-built-in-kotlin.md b/docs/build/migrate-to-built-in-kotlin.md
+index db903f6..bb2948d 100644
+--- a/docs/build/migrate-to-built-in-kotlin.md
++++ b/docs/build/migrate-to-built-in-kotlin.md
+@@ -10,7 +10,9 @@ by default. That means you no longer have to apply the
+ to compile Kotlin source files.
+ With built-in Kotlin, your build files are simpler and you can avoid
+ compatibility issues between AGP and the `kotlin-android` plugin.
+-| **Note:** Built-in Kotlin replaces the `kotlin-android` plugin only. If you are writing a Kotlin Multiplatform (KMP) library module, you still need to apply the `org.jetbrains.kotlin.multiplatform` plugin and the [`com.android.kotlin.multiplatform.library`](https://developer.android.com/kotlin/multiplatform/plugin) plugin. Also, using the `org.jetbrains.kotlin.multiplatform` plugin together with the `com.android.library` or `com.android.application` plugin is no longer allowed when built-in Kotlin is enabled.
++
++> [!NOTE]
++> **Note:** Built-in Kotlin replaces the `kotlin-android` plugin only. If you are writing a Kotlin Multiplatform (KMP) library module, you still need to apply the `org.jetbrains.kotlin.multiplatform` plugin and the [`com.android.kotlin.multiplatform.library`](https://developer.android.com/kotlin/multiplatform/plugin) plugin. Also, using the `org.jetbrains.kotlin.multiplatform` plugin together with the `com.android.library` or `com.android.application` plugin is no longer allowed when built-in Kotlin is enabled.
+ 
+ ## Enable built-in Kotlin
+ 
+@@ -20,7 +22,9 @@ AGP, so you don't need to do anything to enable it. However, if you previously
+ [opted out of built-in Kotlin](https://developer.android.com/build/migrate-to-built-in-kotlin#opt-out-of-built-in-kotlin) by setting `android.builtInKotlin=false`
+ in the `gradle.properties` file, you need to remove that setting or set it to
+ `true`.
+-| **Note:** You can also enable built-in Kotlin for [one module at a time](https://developer.android.com/build/migrate-to-built-in-kotlin#module-by-module-migration).
++
++> [!NOTE]
++> **Note:** You can also enable built-in Kotlin for [one module at a time](https://developer.android.com/build/migrate-to-built-in-kotlin#module-by-module-migration).
+ 
+ Built-in Kotlin requires some changes to your project, so after you
+ have built-in Kotlin enabled, follow the next steps to migrate your project.
+@@ -29,19 +33,21 @@ have built-in Kotlin enabled, follow the next steps to migrate your project.
+ 
+ After you upgrade your project from an older AGP version to AGP 9.0 or after
+ you manually [enable built-in Kotlin](https://developer.android.com/build/migrate-to-built-in-kotlin#enable-built-in-kotlin), you might see the following error
+-message:  
++message:
+ 
+     Failed to apply plugin 'org.jetbrains.kotlin.android'.
+     > Cannot add extension with name 'kotlin', as there is an extension already registered with that name.
+ 
+-...or  
++...or
+ 
+     Failed to apply plugin 'com.jetbrains.kotlin.android'
+     > The 'org.jetbrains.kotlin.android' plugin is no longer required for Kotlin support since AGP 9.0.
+ 
+ This error occurs because built-in Kotlin requires some changes to your project.
+ To resolve this error, follow these steps:
+-| **Note:** If you're not yet ready to migrate your project, you can also [opt out of built-in Kotlin](https://developer.android.com/build/migrate-to-built-in-kotlin#opt-out-of-built-in-kotlin).
++
++> [!NOTE]
++> **Note:** If you're not yet ready to migrate your project, you can also [opt out of built-in Kotlin](https://developer.android.com/build/migrate-to-built-in-kotlin#opt-out-of-built-in-kotlin).
+ 
+ 1. [Remove the `kotlin-android` plugin](https://developer.android.com/build/migrate-to-built-in-kotlin#migration-steps-remove-kotlin-android-plugin)
+ 2. [Migrate the `kotlin-kapt` plugin if necessary](https://developer.android.com/build/migrate-to-built-in-kotlin#migration-steps-migrate-kotlin-kapt-plugin)
+@@ -53,7 +59,7 @@ To resolve this error, follow these steps:
+ Remove the `org.jetbrains.kotlin.android` (or `kotlin-android`) plugin from
+ the module-level build files where you apply it.
+ The exact code to remove depends on
+-whether you use [version catalogs](https://docs.gradle.org/current/userguide/version_catalogs.html) to declare plugins.  
++whether you use [version catalogs](https://docs.gradle.org/current/userguide/version_catalogs.html) to declare plugins.
+ 
+ ### With version catalogs
+ 
+@@ -95,7 +101,7 @@ plugins {
+ }
+ ```
+ 
+-Then, remove the plugin from your top-level build file:  
++Then, remove the plugin from your top-level build file:
+ 
+ ### With version catalogs
+ 
+@@ -124,7 +130,7 @@ plugins {
+ ```kotlin
+ // Top-level build file
+ plugins {
+-    id("org.jetbrains.kotlin.android") version "<var class="readonly" translate="no">KOTLIN_VERSION</var>" apply false
++    id("org.jetbrains.kotlin.android") version "KOTLIN_VERSION" apply false
+ }
+ ```
+ 
+@@ -133,16 +139,16 @@ plugins {
+ ```groovy
+ // Top-level build file
+ plugins {
+-    id 'org.jetbrains.kotlin.android' version '<var class="readonly" translate="no">KOTLIN_VERSION</var>' apply false
++    id 'org.jetbrains.kotlin.android' version 'KOTLIN_VERSION' apply false
+ }
+ ```
+ 
+ If you use version catalogs, also remove the plugin definition from the
+-version catalog TOML file (usually `gradle/libs.versions.toml`):  
++version catalog TOML file (usually `gradle/libs.versions.toml`):
+ 
+ ```toml
+ [plugins]
+-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "<var class="readonly" translate="no">KOTLIN_VERSION</var>" }
++kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "KOTLIN_VERSION" }
+ ```
+ 
+ ### 2. Migrate the `kotlin-kapt` plugin if necessary
+@@ -156,20 +162,20 @@ If you can't migrate to KSP yet, replace the `kotlin-kapt` plugin with the
+ plugin.
+ 
+ For example, with version catalogs, update your version catalog TOML
+-file as follows:  
++file as follows:
+ 
+ ```toml
+ [plugins]
+-android-application = { id = "com.android.application", version.ref = "<var class="readonly" translate="no">AGP_VERSION</var>" }
++android-application = { id = "com.android.application", version.ref = "AGP_VERSION" }
+ 
+ # Add the following plugin definition
+-legacy-kapt = { id = "com.android.legacy-kapt", version.ref = "<var class="readonly" translate="no">AGP_VERSION</var>" }
++legacy-kapt = { id = "com.android.legacy-kapt", version.ref = "AGP_VERSION" }
+ 
+ # Remove the following plugin definition
+-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "<var class="readonly" translate="no">KOTLIN_VERSION</var>" }
++kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "KOTLIN_VERSION" }
+ ```
+ 
+-Then, update your build files:  
++Then, update your build files:
+ 
+ ### Kotlin
+ 
+@@ -189,7 +195,7 @@ plugins {
+     alias(libs.plugins.legacy.kapt) apply false
+     alias(libs.plugins.kotlin.kapt) apply false
+ }
+-```  
++```
+ 
+ ### Kotlin
+ 
+@@ -210,14 +216,16 @@ plugins {
+     alias(libs.plugins.kotlin.kapt)
+ }
+ ```
+-| **Note:** If you declare the `kotlin-kapt` plugin in the `plugins{}` block as `kotlin("kapt") version "<KOTLIN_VERSION>"`, then remove that line instead.
++
++> [!NOTE]
++> **Note:** If you declare the `kotlin-kapt` plugin in the `plugins{}` block as `kotlin("kapt") version "<KOTLIN_VERSION>"`, then remove that line instead.
+ 
+ ### 3. Migrate the `android.kotlinOptions{}` DSL if necessary
+ 
+ If you use the `android.kotlinOptions{}` DSL, you need to
+ migrate it to the [`kotlin.compilerOptions{}`](https://kotlinlang.org/docs/gradle-compiler-options.html#migrate-from-kotlinoptions-to-compileroptions) DSL.
+ 
+-For example, update this code:  
++For example, update this code:
+ 
+ ### Kotlin
+ 
+@@ -241,7 +249,7 @@ android {
+ }
+ ```
+ 
+-...to the new DSL:  
++...to the new DSL:
+ 
+ ### Kotlin
+ 
+@@ -266,7 +274,9 @@ kotlin {
+     }
+ }
+ ```
+-| **Note:** With built-in Kotlin, you don't need to set `kotlin.compilerOptions.jvmTarget` because its value defaults to `android.compileOptions.targetCompatibility`.
++
++> [!NOTE]
++> **Note:** With built-in Kotlin, you don't need to set `kotlin.compilerOptions.jvmTarget` because its value defaults to `android.compileOptions.targetCompatibility`.
+ 
+ ### 4. Migrate the `kotlin.sourceSets{}` DSL if necessary
+ 
+@@ -278,7 +288,7 @@ With the `android.sourceSets{}` DSL, you can add the directories to either the
+ 
+ With built-in Kotlin, the only supported option is to add the directories to the
+ `AndroidSourceSet.kotlin` set using the `android.sourceSets{}` DSL.
+-If you use unsupported options, migrate them as follows:  
++If you use unsupported options, migrate them as follows:
+ 
+ ### Kotlin
+ 
+@@ -321,7 +331,7 @@ android.sourceSets.named("main") {
+ If you want to add a Kotlin source directory to a specific variant or if the
+ directory is generated by a task, you can use the
+ [`addStaticSourceDirectory`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/variant/SourceDirectories#addStaticSourceDirectory(kotlin.String)) or [`addGeneratedSourceDirectory`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/variant/SourceDirectories#addGeneratedSourceDirectory(org.gradle.api.tasks.TaskProvider,kotlin.Function1)) methods
+-in the [variant API](https://developer.android.com/build/extend-agp#variant-api-artifacts-tasks):  
++in the [variant API](https://developer.android.com/build/extend-agp#variant-api-artifacts-tasks):
+ 
+ ### Kotlin
+ 
+@@ -355,7 +365,9 @@ disable it.
+ When you do that, the build shows a warning reminding you to migrate to built-in
+ Kotlin as you won't be able to disable built-in Kotlin in a future version of
+ AGP 9.x before AGP 10.0.
+-| **Note:** You also need to set `android.newDsl=false` to opt out of the [new DSL](https://developer.android.com/r/tools/new-dsl) because the `kotlin-android` plugin is not compatible with it.
++
++> [!NOTE]
++> **Note:** You also need to set `android.newDsl=false` to opt out of the [new DSL](https://developer.android.com/r/tools/new-dsl) because the `kotlin-android` plugin is not compatible with it.
+ 
+ Once you're ready to migrate your project, [enable built-in Kotlin](https://developer.android.com/build/migrate-to-built-in-kotlin#enable-built-in-kotlin)
+ and follow the [migration steps](https://developer.android.com/build/migrate-to-built-in-kotlin#migration-steps).
+@@ -392,7 +404,7 @@ This removes both the Kotlin compilation task, which has a small build
+ performance cost, and the automatic dependency on the Kotlin standard library.
+ 
+ To disable built-in Kotlin for a module,
+-set `enableKotlin = false` in that module's build file:  
++set `enableKotlin = false` in that module's build file:
+ 
+ ### Kotlin
+ 

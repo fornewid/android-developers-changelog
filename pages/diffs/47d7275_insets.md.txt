@@ -1,0 +1,16 @@
+diff --git a/docs/develop/ui/views/layout/insets.md b/docs/develop/ui/views/layout/insets.md
+index 8036fb0..7f78f41 100644
+--- a/docs/develop/ui/views/layout/insets.md
++++ b/docs/develop/ui/views/layout/insets.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/layout/insets
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with WindowInsets in Compose.  
+-[WindowInsets in Compose →](https://developer.android.com/develop/ui/compose/system/insets)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with WindowInsets in Compose. [WindowInsets in Compose →](https://developer.android.com/develop/ui/compose/system/insets) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 

@@ -1,0 +1,137 @@
+diff --git a/docs/jetpack/androidx/releases/lifecycle.md b/docs/jetpack/androidx/releases/lifecycle.md
+index 332564c..3d51839 100644
+--- a/docs/jetpack/androidx/releases/lifecycle.md
++++ b/docs/jetpack/androidx/releases/lifecycle.md
+@@ -15,10 +15,10 @@ This table lists all the artifacts in the `androidx.lifecycle` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| lifecycle-\* | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | - | - |
+-| lifecycle-viewmodel-navigation3 | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | - | - |
++| lifecycle-\* | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | - | [2.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha01) |
++| lifecycle-viewmodel-navigation3 | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | - | [2.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha01) |
+ 
+-This library was last updated on: November 19, 2025
++This library was last updated on: February 25, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -28,7 +28,9 @@ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+ your app or module:
+-| The APIs in `lifecycle-extensions` have been deprecated. Instead, add dependencies for the specific Lifecycle artifacts you need.
++
++> [!NOTE]
++> The APIs in `lifecycle-extensions` have been deprecated. Instead, add dependencies for the specific Lifecycle artifacts you need.
+ 
+ ### Kotlin
+ 
+@@ -54,7 +56,7 @@ your app or module:
+         implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+ 
+         // ViewModel integration with Navigation3
+-        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0"
++        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-alpha01"
+ 
+         // Annotation processor
+         kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+@@ -101,7 +103,7 @@ your app or module:
+         implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+ 
+         // ViewModel integration with Navigation3
+-        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0")
++        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-alpha01")
+ 
+         // Annotation processor
+         kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+@@ -223,6 +225,24 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 2.11
++
++### Version 2.11.0-alpha01
++
++February 25, 2026
++
++`androidx.lifecycle:lifecycle-*:2.11.0-alpha01` is released. Version 2.11.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ee621bea3237b1eab3c48eef4cf7ef7c7943b4bb..c640b9aa8e30b5db9ee258561ad1fc4bc947e69d/lifecycle).
++
++**New Features**
++
++- Support all Kotlin Multiplatform (KMP) targets in ViewModel-Compose. Decouple owner resolution from `LocalView` to allow platform hosts to provide a default `ViewModelStoreOwner` while maintaining `LocalView` as a safe fallback on Android. ([I09fab](https://android-review.googlesource.com/#/q/I09fab05e9ab9f8fb3a6fdbdf4247e5201710fe34), [b/434940570](https://issuetracker.google.com/issues/434940570), [Ic8526](https://android-review.googlesource.com/#/q/Ic8526f7e8ab9ffe58997333808a93bec7f9f2380), [b/478146897](https://issuetracker.google.com/issues/478146897))
++
++**API Changes**
++
++- Add a `toString` implementation to `ViewModelStore` that lists all stored keys to help streamline debugging. ([I0a6f4](https://android-review.googlesource.com/#/q/I0a6f48651211c317fca47e1491837bde2e0f4e34))
++- Add a default implementation for `HasDefaultViewModelProviderFactory.defaultViewModelProviderFactory`, meaning you no longer need to override this property explicitly when implementing the interface. ([Ia7095](https://android-review.googlesource.com/#/q/Ia709580f9344ae5e77eabcc840a384c4bd516e1c))
++- Annotate `ViewModel.onCleared` with `@EmptySuper` to explicitly indicate that overriding methods do not need to call `super.onCleared()`. ([I8c226](https://android-review.googlesource.com/#/q/I8c226596b028fd4bf39b9f440d047fdc82ff2eee))
++
+ ## Version 2.10
+ 
+ ### Version 2.10.0
+@@ -1733,7 +1753,8 @@ June 16, 2021
+ 
+ - `viewModel()` now takes an optional `ViewModelStoreOwner`, making it easier to work with owners other than the `LocalViewModelStoreOwner`. For example, you can now use `viewModel(navBackStackEntry)` to retrieve a ViewModel associated with a particular navigation graph. ([I2628d](https://android-review.googlesource.com/#/q/I2628d27791bfeb8a0d2f45b0fa8e9e72cb00c34b), [b/188693123](https://issuetracker.google.com/issues/188693123))
+ 
+-| **Note:** this is a binary breaking change - you must upgrade to [Hilt-Navigation-Compose `1.0.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/hilt#hilt-navigation-compose-1.0.0-alpha03) and [Navigation Compose `2.4.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.0-alpha03). This may be a source breaking change if you were not specifying `key =` when using `viewModel(key, factory)`. You should use named arguments: `viewModel(key = key, factory = factory)`.
++> [!NOTE]
++> **Note:** this is a binary breaking change - you must upgrade to [Hilt-Navigation-Compose `1.0.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/hilt#hilt-navigation-compose-1.0.0-alpha03) and [Navigation Compose `2.4.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.0-alpha03). This may be a source breaking change if you were not specifying `key =` when using `viewModel(key, factory)`. You should use named arguments: `viewModel(key = key, factory = factory)`.
+ 
+ ### Version 1.0.0-alpha06
+ 
+@@ -1787,7 +1808,8 @@ February 24, 2021
+ 
+ - `LocalViewModelStoreOwner` now has a `provides` functions that can be used with `CompositionLocalProvider`, replacing the `asProvidableCompositionLocal()` API. ([I45d24](https://android-review.googlesource.com/#/q/I45d244bea668db72a536c1f9bbdb7b24073aba0c))
+ 
+-| **Note:** Lifecycle ViewModel Compose 1.0.0-alpha02 is only compatible with Compose 1.0.0-beta01.
++> [!NOTE]
++> **Note:** Lifecycle ViewModel Compose 1.0.0-alpha02 is only compatible with Compose 1.0.0-beta01.
+ 
+ ### Lifecycle-Viewmodel-Compose Version 1.0.0-alpha01
+ 
+@@ -1799,7 +1821,8 @@ February 10, 2021
+ 
+ - The `viewModel()` composable and `LocalViewModelStoreOwner` were moved from `androidx.compose.ui.viewinterop` to this artifact in the `androidx.lifecycle.viewmodel.compose` package. ([I7a374](https://android-review.googlesource.com/#/q/I7a374b76168a6387e585337c131a988bddcb912b))
+ 
+-| **Note:** Lifecycle ViewModel Compose 1.0.0-alpha01 is only compatible with Compose 1.0.0-alpha12.
++> [!NOTE]
++> **Note:** Lifecycle ViewModel Compose 1.0.0-alpha01 is only compatible with Compose 1.0.0-alpha12.
+ 
+ ## Version 2.3.1
+ 
+@@ -1962,7 +1985,8 @@ March 4, 2020
+ 
+ - The `lifecycle-runtime` artifact now has a unique package name. ([aosp/1187196](https://android-review.googlesource.com/1187196))
+ 
+-| **Note:** as per the [Lifecycle `2.2.0` release notes](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.2.0), the `lifecycle-extensions` artifact is no longer published.
++> [!NOTE]
++> **Note:** as per the [Lifecycle `2.2.0` release notes](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.2.0), the `lifecycle-extensions` artifact is no longer published.
+ 
+ ## Version 2.2.0
+ 
+@@ -2232,7 +2256,9 @@ May 7, 2019
+ April 3, 2019
+ 
+ `androidx.lifecycle:*:2.1.0-alpha04` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/69fcbbce9f910d6cb9b2693dacd7c40040ffa495..7e9a5afb451c3bff1c20e2ce0121c3677810cd5b/lifecycle).
+-| **Note:** lifecycle-viewmodel-ktx is incompatible with Activity 1.0.0-alpha01 through 1.0.0-alpha05 and Fragment 1.1.0-alpha01 through 1.1.0-alpha05. Please upgrade to Activity 1.0.0-alpha06 and Fragment 1.1.0-alpha06, respectively.
++
++> [!NOTE]
++> **Note:** lifecycle-viewmodel-ktx is incompatible with Activity 1.0.0-alpha01 through 1.0.0-alpha05 and Fragment 1.1.0-alpha01 through 1.1.0-alpha05. Please upgrade to Activity 1.0.0-alpha06 and Fragment 1.1.0-alpha06, respectively.
+ 
+ **API changes**
+ 
+@@ -2344,8 +2370,11 @@ New, much smaller dependencies are now available:
+ - `android.arch.lifecycle:livedata:1.1.0`
+ - `android.arch.lifecycle:viewmodel:1.1.0`
+ 
+-| **Note:** Lifecycle Extensions `1.0.0` (`android.arch.lifecycle:extensions:1.0.0`) is **not** compatible with `livedata:1.1.0` or `viewmodel:1.1.0`. Please update to `extensions:1.1.0`, which includes a transitive dependency on `livedata:1.1.0` and `viewmodel 1.1.0`.
+-| **Note:** `android.arch.lifecycle:reactivestreams:1.1.0` now only depends on `android.arch.lifecycle:livedata:1.1.0`, not all of `android.arch.lifecycle:extensions:1.1.0`.
++> [!NOTE]
++> **Note:** Lifecycle Extensions `1.0.0` (`android.arch.lifecycle:extensions:1.0.0`) is **not** compatible with `livedata:1.1.0` or `viewmodel:1.1.0`. Please update to `extensions:1.1.0`, which includes a transitive dependency on `livedata:1.1.0` and `viewmodel 1.1.0`.
++
++> [!NOTE]
++> **Note:** `android.arch.lifecycle:reactivestreams:1.1.0` now only depends on `android.arch.lifecycle:livedata:1.1.0`, not all of `android.arch.lifecycle:extensions:1.1.0`.
+ 
+ **API Changes**
+ 

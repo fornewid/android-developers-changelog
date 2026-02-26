@@ -1,0 +1,59 @@
+diff --git a/docs/jetpack/androidx/releases/glance-wear.md b/docs/jetpack/androidx/releases/glance-wear.md
+index b40a066..540a477 100644
+--- a/docs/jetpack/androidx/releases/glance-wear.md
++++ b/docs/jetpack/androidx/releases/glance-wear.md
+@@ -12,7 +12,7 @@ Glance Wear is a library for building Widgets for Wear OS
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| February 11, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha03) |
++| February 25, 2026 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha04) |
+ 
+ ## Declaring dependencies
+ 
+@@ -27,9 +27,9 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.glance.wear:wear:1.0.0-alpha03"
++    implementation "androidx.glance.wear:wear:1.0.0-alpha04"
+ 
+-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha03"
++    implementation "androidx.glance.wear:wear-core:1.0.0-alpha04"
+ }
+ ```
+ 
+@@ -37,9 +37,9 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.glance.wear:wear:1.0.0-alpha03")
++    implementation("androidx.glance.wear:wear:1.0.0-alpha04")
+ 
+-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha03")
++    implementation("androidx.glance.wear:wear-core:1.0.0-alpha04")
+ }
+ ```
+ 
+@@ -60,6 +60,21 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha04
++
++February 25, 2026
++
++`androidx.glance.wear:wear:1.0.0-alpha04` and `androidx.glance.wear:wear-core:1.0.0-alpha04` are released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..6e23fc0c137022098ae2d043778ffdc56402ba5e/glance/wear).
++
++**API Changes**
++
++- Added `GlanceWearWidgetManager` API for allowing Apps to query their active widgets and tiles. ([I5be95](https://android-review.googlesource.com/#/q/I5be95954c759493c4bf978b812e5a5e53daf6394))
++- We have moved APIs from the `glance:wear:wear-core` library into the `androidx.glance.wear.core` package. ([I429cf](https://android-review.googlesource.com/#/q/I429cf4c36d27bc8fc01115194b20806f10950dde))
++
++**Bug Fixes**
++
++- Expose common Remote Composable and Modifier types ([Id1d40](https://android-review.googlesource.com/#/q/Id1d40acae7af63f9acb99438adaa992035fd3c01))
++
+ ### Version 1.0.0-alpha03
+ 
+ February 11, 2026

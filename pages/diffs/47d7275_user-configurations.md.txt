@@ -1,0 +1,22 @@
+diff --git a/docs/training/wearables/wff/personalization/user-configurations.md b/docs/training/wearables/wff/personalization/user-configurations.md
+index 7bcddde..26cbc72 100644
+--- a/docs/training/wearables/wff/personalization/user-configurations.md
++++ b/docs/training/wearables/wff/personalization/user-configurations.md
+@@ -71,7 +71,7 @@ Boolean options can then be used in a two ways:
+        <Compare expression="my_expression">
+            <!-- Content goes here -->
+        </Compare>
+-   </Condition>https://github.com/android/snippets/blob/bf60b1e59478ef481b1a2936dd14e2c41b9a26e2/watchface/src/main/res/raw/watchface_boolean_configuration.xml#L59-L75
++   </Condition>https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/watchface/src/main/res/raw/watchface_boolean_configuration.xml#L59-L75
+    ```
+ 
+    <br />
+@@ -135,7 +135,7 @@ Similar to boolean options, there are again two ways to use this:
+        <Compare expression="background_zero_and_something_else">
+            <!-- Content goes here -->
+        </Compare>
+-   </Condition>https://github.com/android/snippets/blob/bf60b1e59478ef481b1a2936dd14e2c41b9a26e2/watchface/src/main/res/raw/watchface_list_configuration.xml#L58-L74
++   </Condition>https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/watchface/src/main/res/raw/watchface_list_configuration.xml#L58-L74
+    ```
+ 
+    <br />

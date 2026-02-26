@@ -1,0 +1,52 @@
+diff --git a/docs/jetpack/androidx/releases/camera-featurecombinationquery.md b/docs/jetpack/androidx/releases/camera-featurecombinationquery.md
+index 552fae3..c5160aa 100644
+--- a/docs/jetpack/androidx/releases/camera-featurecombinationquery.md
++++ b/docs/jetpack/androidx/releases/camera-featurecombinationquery.md
+@@ -12,7 +12,7 @@ Query camera capabilities.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| February 11, 2026 | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.5.3) | - | [1.6.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.0-beta02) | - |
++| February 25, 2026 | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.0-rc01) | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -29,10 +29,10 @@ your app or module:
+ ```groovy
+ dependencies {
+     // Use to pull in the base feature combination query library
+-    implementation "androidx.camera.featurecombinationquery:featurecombinationquery:1.6.0-beta02"
++    implementation "androidx.camera.featurecombinationquery:featurecombinationquery:1.6.0-rc01"
+ 
+     // Optional [recommended]: Use to enable play services as a query provider
+-    implementation "androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.6.0-beta02"
++    implementation "androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.6.0-rc01"
+ }
+ ```
+ 
+@@ -41,10 +41,10 @@ dependencies {
+ ```kotlin
+ dependencies {
+     // Use to pull in the base feature combination query library
+-    implementation("androidx.camera.featurecombinationquery:featurecombinationquery:1.6.0-beta02")
++    implementation("androidx.camera.featurecombinationquery:featurecombinationquery:1.6.0-rc01")
+ 
+     // Optional [recommended]: Use to enable play services as a query provider
+-    implementation("androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.6.0-beta02")
++    implementation("androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.6.0-rc01")
+ }
+ ```
+ 
+@@ -65,6 +65,12 @@ for more information.
+ 
+ ## Version 1.6
+ 
++### Version 1.6.0-rc01
++
++February 25, 2026
++
++`androidx.camera.featurecombinationquery:featurecombinationquery:1.6.0-rc01` and `androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.6.0-rc01` are released. Version 1.6.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/82004373076cf552e53b43166e1b4ddfbcfec21e..0dc6fa695e63a0bbc17f07b7368ba2567fb47d01/camera/featurecombinationquery).
++
+ ### Version 1.6.0-beta02
+ 
+ February 11, 2026

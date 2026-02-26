@@ -1,0 +1,29 @@
+diff --git a/docs/develop/ui/views/notifications/time-sensitive.md b/docs/develop/ui/views/notifications/time-sensitive.md
+index 06ac3bd..e7c88c1 100644
+--- a/docs/develop/ui/views/notifications/time-sensitive.md
++++ b/docs/develop/ui/views/notifications/time-sensitive.md
+@@ -94,8 +94,11 @@ permission` button triggers the dialog shown in figure 2:
+ 
+ If the user accepts the permission request, the app's **App info** section looks
+ like figure 3:
+-![An image showing the App Info screen after granted notification permission request](https://developer.android.com/static/images/ui/notifications/time-sensitive_notification_permission_granted.png) **Figure 3.** Notification permissions granted. **Experimental:** See the Accompanist [Jetpack Compose
+-| Permissions](https://google.github.io/accompanist/permissions/) library for experimental permission management.
++![An image showing the App Info screen after granted notification permission request](https://developer.android.com/static/images/ui/notifications/time-sensitive_notification_permission_granted.png) **Figure 3.** Notification permissions granted.
++
++> [!WARNING]
++> **Experimental:** See the Accompanist [Jetpack Compose
++> Permissions](https://google.github.io/accompanist/permissions/) library for experimental permission management.
+ 
+ ## Create a high-priority notification
+ 
+@@ -141,7 +144,9 @@ The notification in this example looks like figure 4:
+ When you display your notification to the user, they can acknowledge or dismiss
+ your app's alert or reminder. For example, the user can accept or reject an
+ incoming phone call.
+-| **Note:** While the user is using the device, the system UI might display a heads-up notification instead of launching your full-screen intent.
++
++> [!NOTE]
++> **Note:** While the user is using the device, the system UI might display a heads-up notification instead of launching your full-screen intent.
+ 
+ If your notification is an ongoing one, such as an incoming phone call,
+ associate the notification with a [foreground

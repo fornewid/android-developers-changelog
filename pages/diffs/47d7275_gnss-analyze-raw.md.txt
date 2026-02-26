@@ -1,0 +1,84 @@
+diff --git a/docs/develop/sensors-and-location/sensors/gnss-analyze-raw.md b/docs/develop/sensors-and-location/sensors/gnss-analyze-raw.md
+index 7069c04..0272932 100644
+--- a/docs/develop/sensors-and-location/sensors/gnss-analyze-raw.md
++++ b/docs/develop/sensors-and-location/sensors/gnss-analyze-raw.md
+@@ -4,44 +4,54 @@ url: https://developer.android.com/develop/sensors-and-location/sensors/gnss-ana
+ source: md.txt
+ ---
+ 
+-# Analyze raw measurements with GnssLogger
++With GnssLogger v3.1, users can view and analyze raw GNSS data on the
++**Measurements** screen.
+ 
+-With GnssLogger v3.1, users can view and analyze raw GNSS data on the**Measurements**screen.
+-
+-Here is the**Measurements**screen, followed by a few tips and tricks to make the most out of this data:
+-![Basic UI element showing the cards described in the following text.](https://developer.android.com/static/images/sensors/gnss-analyze-3.png)**Figure 1.**Measurements screen
++Here is the **Measurements** screen, followed by a few tips
++and tricks to make the most out of this data:
++![Basic UI element showing the cards described in the following text.](https://developer.android.com/static/images/sensors/gnss-analyze-3.png) **Figure 1.** Measurements screen
+ 
+ In the top card:
+ 
+-- The top left shows the GNSS clock data (corresponding to[`GnssClock`](https://developer.android.com/reference/android/location/GnssClock)).
+-- The top right shows the count of GNSS hardware (HW) discontinuities (from[`GnssClock.getHardwareClockDiscontinuityCount`](https://developer.android.com/reference/android/location/GnssClock#getHardwareClockDiscontinuityCount%28%29)), which helps determine if duty-cycling is on or off. When this counter increments, it indicates that there was a disruption in the continuous observation of GNSS signals (e.g.,[duty-cycling](https://barbeau.medium.com/gnss-interrupted-the-hidden-android-setting-you-need-to-know-d812d28a3821)is on). Further down, the card displays aggregate information for all measurements:
+-  - **# valid measurements** --- For a measurement to be considered valid, the[`STATE_CODE_LOCK`](https://developer.android.com/reference/android/location/GnssMeasurement#STATE_CODE_LOCK)and[`STATE_TOW_KNOWN`](https://developer.android.com/reference/android/location/GnssMeasurement#STATE_TOW_KNOWN)or[`STATE_TOW_DECODED`](https://developer.android.com/reference/android/location/GnssMeasurement#STATE_TOW_DECODED))flags must be set in[`GnssMeasurement.getState`](https://developer.android.com/reference/android/location/GnssMeasurement#getState%28%29)().
+-  - **# usable accumulated delta range (ADR) --- For** ADR, or carrier phase, to be considered usable for positioning, the[`ADR_STATE_VALID`](https://developer.android.com/reference/android/location/GnssMeasurement#ADR_STATE_VALID)flag must be set and neither the[`ADR_STATE_RESET`](https://developer.android.com/reference/android/location/GnssMeasurement#ADR_STATE_RESET)nor the[`ADR_STATE_CYCLE_SLIP`](https://developer.android.com/reference/android/location/GnssMeasurement#ADR_STATE_CYCLE_SLIP)flags can be set in[`GnssMeasurement.getAccumulatedDeltaRangeState`](https://developer.android.com/reference/android/location/GnssMeasurement#getAccumulatedDeltaRangeState%28%29)().
++- The top left shows the GNSS clock data (corresponding to [`GnssClock`](https://developer.android.com/reference/android/location/GnssClock)).
++- The top right shows the count of GNSS hardware (HW) discontinuities (from [`GnssClock.getHardwareClockDiscontinuityCount`](https://developer.android.com/reference/android/location/GnssClock#getHardwareClockDiscontinuityCount%28%29)), which helps determine if duty-cycling is on or off. When this counter increments, it indicates that there was a disruption in the continuous observation of GNSS signals (e.g., [duty-cycling](https://barbeau.medium.com/gnss-interrupted-the-hidden-android-setting-you-need-to-know-d812d28a3821) is on). Further down, the card displays aggregate information for all measurements:
++  - **# valid measurements** --- For a measurement to be considered valid, the [`STATE_CODE_LOCK`](https://developer.android.com/reference/android/location/GnssMeasurement#STATE_CODE_LOCK) and [`STATE_TOW_KNOWN`](https://developer.android.com/reference/android/location/GnssMeasurement#STATE_TOW_KNOWN) or [`STATE_TOW_DECODED`](https://developer.android.com/reference/android/location/GnssMeasurement#STATE_TOW_DECODED)) flags must be set in [`GnssMeasurement.getState`](https://developer.android.com/reference/android/location/GnssMeasurement#getState%28%29)().
++  - **# usable accumulated delta range (ADR) --- For** ADR, or carrier phase, to be considered usable for positioning, the [`ADR_STATE_VALID`](https://developer.android.com/reference/android/location/GnssMeasurement#ADR_STATE_VALID) flag must be set and neither the [`ADR_STATE_RESET`](https://developer.android.com/reference/android/location/GnssMeasurement#ADR_STATE_RESET) nor the [`ADR_STATE_CYCLE_SLIP`](https://developer.android.com/reference/android/location/GnssMeasurement#ADR_STATE_CYCLE_SLIP) flags can be set in [`GnssMeasurement.getAccumulatedDeltaRangeState`](https://developer.android.com/reference/android/location/GnssMeasurement#getAccumulatedDeltaRangeState%28%29)().
+ 
+-If your device always reports 0 usable ADR, even when in open sky with duty-cycling disabled, that's a good indication that your device doesn't support carrier phase measurements that can be used for high-accuracy GNSS.
++If your device always reports 0 usable ADR, even when in open sky with
++duty-cycling disabled, that's a good indication that your
++device doesn't support carrier phase measurements that can be used for
++high-accuracy GNSS.
+ 
+-In the bottom card, each row represents an individual[`GnssMeasurement`](https://developer.android.com/reference/android/location/GnssMeasurement).
++In the bottom card, each row represents an individual [`GnssMeasurement`](https://developer.android.com/reference/android/location/GnssMeasurement).
+ 
+-- The**Code type** column shows the exact type of GNSS signal using the code types defined in[RINEX 4.01](https://www.igs.org/wg/rinex/). For example, the GPS L1 signals with code type "C", represent L1 C/A, as indicated by the last letter in the three character code in the RINEX tables. GPS L5 Q would similarly have a "Q" code type. See the tables for other GNSS constellations at the end of this document for reference.
+-- In the**Rx SV Time (ns)**column, the text is green if the measurement is valid.
+-- In the**State column** , the state is also green if the measurement is valid. State shows a human-readable version of the bitwise flags that are set in the[GnssMeasurement.getState()](https://developer.android.com/reference/android/location/GnssMeasurement#getState%28%29)field.
++- The **Code type** column shows the exact type of GNSS signal using the code types defined in [RINEX 4.01](https://www.igs.org/wg/rinex/). For example, the GPS L1 signals with code type "C", represent L1 C/A, as indicated by the last letter in the three character code in the RINEX tables. GPS L5 Q would similarly have a "Q" code type. See the tables for other GNSS constellations at the end of this document for reference.
++- In the **Rx SV Time (ns)** column, the text is green if the measurement is valid.
++- In the **State column** , the state is also green if the measurement is valid. State shows a human-readable version of the bitwise flags that are set in the [GnssMeasurement.getState()](https://developer.android.com/reference/android/location/GnssMeasurement#getState%28%29) field.
+ 
+-Provide feedback on new features using our[public issue tracker](https://issuetracker.google.com/issues/new?component=313183&template=0).
++Provide feedback on new features using our
++[public issue tracker](https://issuetracker.google.com/issues/new?component=313183&template=0).
+ 
+ **Table 10 : RINEX Version 4.01 GPS Observation Codes**
+ 
+-For each measurement, the "Code Type" shown is the last letter of the "Pseudo Range" value defined in the RINEX 4.01 specification for the relevant GNSS system and carrier frequency. For example, "C" is used for GPS L1 \[C/A\] while "Q" is used for GPS L5 Q.
+-![Table 10: RINEX Version 4.01 GPS Observation Codes](https://developer.android.com/static/images/sensors/gnss-analyze-tab10.png)**Figure 2.**Table 10: RINEX Version 4.01 GPS Observation Codes
++For each measurement, the "Code Type" shown is the last letter of the "Pseudo
++Range" value defined in the RINEX 4.01 specification for the relevant GNSS
++system and carrier frequency. For example, "C" is used for GPS L1
++\[C/A\] while "Q" is used for GPS L5 Q.
++![Table 10: RINEX Version 4.01 GPS Observation Codes](https://developer.android.com/static/images/sensors/gnss-analyze-tab10.png) **Figure 2.** Table 10: RINEX Version 4.01 GPS Observation Codes
+ 
+ Users can scroll to the right to see additional columns for each measurement:
+-![Additional columns are shown](https://developer.android.com/static/images/sensors/gnss-analyze-addcols.png)**Figure 3.**Additional columns on the Measurements screen in Table 10.
++![Additional columns are shown](https://developer.android.com/static/images/sensors/gnss-analyze-addcols.png) **Figure 3.** Additional columns on the Measurements screen in Table 10.
+ 
+-- **PRR** is the Pseudo Range Rate in meters per second from[GnssMeasurement.getPseudorangeRateMetersPerSecond()](https://developer.android.com/reference/android/location/GnssMeasurement#getPseudorangeRateMetersPerSecond())
+-- The**ADR State** column shows the human-readable version of the bitwise flags set in the[GnssMeasurement.getAccumulatedDeltaRangeState()](https://developer.android.com/reference/android/location/GnssMeasurement#getAccumulatedDeltaRangeState%28%29)column. If the ADR is usable for positioning, the text in the**ADR (m)** and**ADR State**fields is green.
++- **PRR** is the Pseudo Range Rate in meters per second from [GnssMeasurement.getPseudorangeRateMetersPerSecond()](https://developer.android.com/reference/android/location/GnssMeasurement#getPseudorangeRateMetersPerSecond())
++- The **ADR State** column shows the human-readable version of the bitwise flags set in the [GnssMeasurement.getAccumulatedDeltaRangeState()](https://developer.android.com/reference/android/location/GnssMeasurement#getAccumulatedDeltaRangeState%28%29) column. If the ADR is usable for positioning, the text in the **ADR (m)** and **ADR State** fields is green.
+ 
+ ## RINEX 4.01 observation codes
+ 
+-The last of the three letters in the RINEX observation codes in the Pseudo Range column is the**Code type** value shown on the**Measurements**screen in GnssLogger.
++The last of the three letters in the RINEX observation codes in the Pseudo Range
++column is the **Code type** value shown on the **Measurements** screen in
++GnssLogger.
+ 
+-Following are tables from the[RINEX 4.01 spec](https://www.igs.org/wg/rinex/)for convenience. See the full specification for details.
+-![Table 10: RINEX Version 4.01 GPS Observation Codes](https://developer.android.com/static/images/sensors/gnss-analyze-tab10.png)**Figure 4.**Table 10: RINEX Version 4.01 GPS Observation Codes![INSERT ALT TEXT HERE](https://developer.android.com/static/images/sensors/gnss-analyze-tab11.png)**Figure 5.**Table 11: RINEX Version 4.01 GLONASS Observation Codes![INSERT ALT TEXT HERE](https://developer.android.com/static/images/sensors/gnss-analyze-tab12.png)**Figure 6.**Table 12: RINEX Version 4.01 Galileo Observation Codes![INSERT ALT TEXT HERE](https://developer.android.com/static/images/sensors/gnss-analyze-tab13.png)**Figure 7.**Table 13: RINEX Version 4.01 SBAS Observation Codes![INSERT ALT TEXT HERE](https://developer.android.com/static/images/sensors/gnss-analyze-tab14.png)**Figure 8.**Table 14: RINEX Version 4.01 QZSS Observation Codes![INSERT ALT TEXT HERE](https://developer.android.com/static/images/sensors/gnss-analyze-tab15.png)**Figure 9.**Table 15: RINEX Version 4.01 BDS Observation Codes![Table 16: RINEX Version 4.01 BDS Observation Codes](https://developer.android.com/static/images/sensors/gnss-analyze-tab16.png)**Figure 10.**RINEX Version 4.01 NavIC Observation Codes
+\ No newline at end of file
++Following are tables from the [RINEX 4.01 spec](https://www.igs.org/wg/rinex/) for convenience.
++See the full specification for details.
++![Table 10: RINEX Version 4.01 GPS Observation Codes](https://developer.android.com/static/images/sensors/gnss-analyze-tab10.png) **Figure 4.** Table 10: RINEX Version 4.01 GPS Observation Codes ![INSERT ALT TEXT HERE](https://developer.android.com/static/images/sensors/gnss-analyze-tab11.png) **Figure 5.** Table 11: RINEX Version 4.01 GLONASS Observation Codes ![INSERT ALT TEXT HERE](https://developer.android.com/static/images/sensors/gnss-analyze-tab12.png) **Figure 6.** Table 12: RINEX Version 4.01 Galileo Observation Codes ![INSERT ALT TEXT HERE](https://developer.android.com/static/images/sensors/gnss-analyze-tab13.png) **Figure 7.** Table 13: RINEX Version 4.01 SBAS Observation Codes ![INSERT ALT TEXT HERE](https://developer.android.com/static/images/sensors/gnss-analyze-tab14.png) **Figure 8.** Table 14: RINEX Version 4.01 QZSS Observation Codes ![INSERT ALT TEXT HERE](https://developer.android.com/static/images/sensors/gnss-analyze-tab15.png) **Figure 9.** Table 15: RINEX Version 4.01 BDS Observation Codes ![Table 16: RINEX Version 4.01 BDS Observation Codes](https://developer.android.com/static/images/sensors/gnss-analyze-tab16.png) **Figure 10.** RINEX Version 4.01 NavIC Observation Codes
+\ No newline at end of file

@@ -1,0 +1,14 @@
+diff --git a/docs/develop/ui/views/notifications/live-update.md b/docs/develop/ui/views/notifications/live-update.md
+index 757ae8d..1030104 100644
+--- a/docs/develop/ui/views/notifications/live-update.md
++++ b/docs/develop/ui/views/notifications/live-update.md
+@@ -37,7 +37,8 @@ notification:
+ - `NotificationManager.canPostPromotedNotifications()` checks whether your app can post a promoted notification, for example, if the user enabled or disabled it in settings.
+ - `Settings.ACTION_MANAGE_APP_PROMOTED_NOTIFICATIONS` is the intent action that allows apps to send users to Settings to enable this feature.
+ 
+-| **Note:** Original Equipment Manufacturers (OEMs) can enforce additional criteria for Live update eligibility. Check their respective documentation for details.
++> [!NOTE]
++> **Note:** Original Equipment Manufacturers (OEMs) can enforce additional criteria for Live update eligibility. Check their respective documentation for details.
+ 
+ ## Usage criteria
+ 

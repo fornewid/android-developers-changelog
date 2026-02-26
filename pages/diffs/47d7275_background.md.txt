@@ -1,0 +1,15 @@
+diff --git a/docs/develop/sensors-and-location/location/permissions/background.md b/docs/develop/sensors-and-location/location/permissions/background.md
+index d361b5c..0f3b7cc 100644
+--- a/docs/develop/sensors-and-location/location/permissions/background.md
++++ b/docs/develop/sensors-and-location/location/permissions/background.md
+@@ -10,7 +10,9 @@ This page discusses the following:
+ - How to handle the request based on your app's target SDK version.
+ - How user preferences for approximate location affect how your app gets background location.
+ 
+-**Note:** If a feature in your app accesses location from the background, verify that access is necessary. Consider getting the information that the feature needs in other ways. To learn more about background location access, see the [Access location in the background](https://developer.android.com/training/location/background) page.  
++> [!NOTE]
++> **Note:** If a feature in your app accesses location from the background, verify that access is necessary. Consider getting the information that the feature needs in other ways. To learn more about background location access, see the [Access location in the background](https://developer.android.com/training/location/background) page.
++
+ ![](https://developer.android.com/static/images/training/location/request-device-location-background-11.svg) **Figure 7.** Settings page includes an option called **Allow all the time**, which grants background location access.
+ 
+ ## Permission dialog contents depend on target SDK version

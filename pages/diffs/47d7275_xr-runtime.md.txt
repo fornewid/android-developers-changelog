@@ -1,0 +1,107 @@
+diff --git a/docs/jetpack/androidx/releases/xr-runtime.md b/docs/jetpack/androidx/releases/xr-runtime.md
+index ea2152b..5038a91 100644
+--- a/docs/jetpack/androidx/releases/xr-runtime.md
++++ b/docs/jetpack/androidx/releases/xr-runtime.md
+@@ -6,8 +6,7 @@ source: md.txt
+ 
+ # XR Runtime
+ 
+-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore)  
+-API Reference  
++[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore) API Reference  
+ [androidx.xr.runtime](https://developer.android.com/reference/androidx/xr/runtime/package-summary)  
+ 
+ [androidx.xr.runtime.java](https://developer.android.com/reference/androidx/xr/runtime/java/package-summary)  
+@@ -20,7 +19,7 @@ Start your custom AR or 3D session with our native runtime.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| January 28, 2026 | - | - | - | [1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha10) |
++| February 25, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha11) |
+ 
+ 
+ ## Declaring dependencies
+@@ -31,20 +30,20 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:  
++your app or module:
+ 
+ ### Groovy
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.runtime:runtime:1.0.0-alpha10"
++    implementation "androidx.xr.runtime:runtime:1.0.0-alpha11"
+ 
+     // Optional dependencies for asynchronous conversions
+-    implementation "androidx.xr.runtime:runtime-guava:1.0.0-alpha10"
+-    implementation "androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha10"
++    implementation "androidx.xr.runtime:runtime-guava:1.0.0-alpha11"
++    implementation "androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha11"
+ 
+     // Use in environments that do not support OpenXR
+-    testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-alpha10"
++    testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-alpha11"
+ }
+ ```
+ 
+@@ -52,14 +51,14 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.runtime:runtime:1.0.0-alpha10")
++    implementation("androidx.xr.runtime:runtime:1.0.0-alpha11")
+ 
+     // Optional dependencies for asynchronous conversions
+-    implementation("androidx.xr.runtime:runtime-guava:1.0.0-alpha10")
+-    implementation("androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha10")
++    implementation("androidx.xr.runtime:runtime-guava:1.0.0-alpha11")
++    implementation("androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha11")
+ 
+     // Use in environments that do not support OpenXR
+-    testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-alpha10")
++    testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-alpha11")
+ }
+ ```
+ 
+@@ -80,6 +79,27 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha11
++
++February 25, 2026
++
++`androidx.xr.runtime:runtime-*:1.0.0-alpha11` is released. Version 1.0.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6d802bc724002ae38712673fb300c314f88fdd9e..6671838a2686d9e8b03e38681b78ebb63031c549/xr/runtime).
++
++**API Changes**
++
++- Restricted `ConfigMode` interface to internal use ([Ibfb87](https://android-review.googlesource.com/#/q/Ibfb8747c911fd6166d0310ad2f3b17378d20a145))
++- Moved `androidx.xr.runtime.Config.GeospatialMode` to package level ([Ibe682](https://android-review.googlesource.com/#/q/Ibe68273f6c15f39a84ecac823b11e163da8eb8fe))
++- Moved `androidx.xr.runtime.Config.FaceTrackingMode` to package level ([Iac501](https://android-review.googlesource.com/#/q/Iac5018bff5fc2c1467b0d9371c3d3b85fc7ca825))
++- Moved `androidx.xr.runtime.Config.AnchorPersistenceMode` to package level ([I0360f](https://android-review.googlesource.com/#/q/I0360f5c8efe16dd8acf0b3a065bda0b366bba079))
++- Moved `androidx.xr.runtime.Config.DepthEstimationMode` to package level ([I7e3e9](https://android-review.googlesource.com/#/q/I7e3e9e44d4d7e3a662108eab0b1afa977363e983))
++- Moved `androidx.xr.runtime.Config.DeviceTrackingMode` to package level ([I3aacd](https://android-review.googlesource.com/#/q/I3aacdbeb3cc159286471c970557920aab9e0277a))
++- Moved `androidx.xr.runtime.Config.HandTrackingMode` to package level ([I658f3](https://android-review.googlesource.com/#/q/I658f3ac7f134fee3faa9279b2a29542f2bc42078))
++- Moved `androidx.xr.runtime.Config.PlaneTrackingMode` to package level ([Ia251b](https://android-review.googlesource.com/#/q/Ia251b2c84696209bf4558ad9d3a8a07aef234288))
++- Moved `androidx.xr.runtime.XrDevice.DisplayBlendMode` to package level ([I6f333](https://android-review.googlesource.com/#/q/I6f333283c6e1d92a86e3616567d78f0a391193dc))
++- Added a factory method to create an `XrDevice` using a Context, Session and a `CoroutineContext`. ([I139c5](https://android-review.googlesource.com/#/q/I139c5f1ec5f3ecd64f1a6fe3ffb51e9139c1c1b8))
++- Added `SpatialApiVersionHelper` to help query the runtime version of Android XR available on the platform. ([I7c53c](https://android-review.googlesource.com/#/q/I7c53cc27a8c3e014ecf9144d2688830a7013b3cc))
++- Added `xr:runtime:runtime-openxr` module ([Ib42ea](https://android-review.googlesource.com/#/q/Ib42eae999da3aaf37b8e45f0594d43d0ff0bc0b3))
++
+ ### Version 1.0.0-alpha10
+ 
+ January 28, 2026
+@@ -175,7 +195,9 @@ July 30, 2025
+ May 7, 2025
+ 
+ `androidx.xr.runtime:runtime:1.0.0-alpha04`, `androidx.xr.runtime:runtime-openxr:1.0.0-alpha04`, and `androidx.xr.runtime:runtime-testing:1.0.0-alpha04` are released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/043342a8810f3356110a0afce48c662e841c428f..b6c541571b9fb5471f965fc52612cb280713e5e4/xr/runtime).
+-| **Note:** You'll need Android Emulator version 35.6.7 or later to use this version of the library.
++
++> [!NOTE]
++> **Note:** You'll need Android Emulator version 35.6.7 or later to use this version of the library.
+ 
+ **New Features**
+ 

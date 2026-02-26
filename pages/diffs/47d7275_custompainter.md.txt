@@ -1,0 +1,15 @@
+diff --git a/docs/develop/ui/compose/graphics/images/custompainter.md b/docs/develop/ui/compose/graphics/images/custompainter.md
+index 1491d51..a1668c0 100644
+--- a/docs/develop/ui/compose/graphics/images/custompainter.md
++++ b/docs/develop/ui/compose/graphics/images/custompainter.md
+@@ -4,8 +4,8 @@ url: https://developer.android.com/develop/ui/compose/graphics/images/custompain
+ source: md.txt
+ ---
+ 
+-In Compose, a `Painter` object is used to represent something that can be drawn
+-(a replacement to the `Drawable` APIs defined in Android) and influence
++In Compose, a [`Painter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/painter/Painter) object is used to represent something that can be
++drawn (a replacement to the `Drawable` APIs defined in Android) and influence
+ measurement and layout of the corresponding composable that is using it . A
+ `BitmapPainter` takes an `ImageBitmap` that can draw a `Bitmap` on screen.
+ 

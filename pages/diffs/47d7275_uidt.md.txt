@@ -1,0 +1,56 @@
+diff --git a/docs/develop/background-work/background-tasks/uidt.md b/docs/develop/background-work/background-tasks/uidt.md
+index b3695f3..5ec70cc 100644
+--- a/docs/develop/background-work/background-tasks/uidt.md
++++ b/docs/develop/background-work/background-tasks/uidt.md
+@@ -20,8 +20,10 @@ user (or in one of the [allowed conditions](https://developer.android.com/develo
+ user initiated jobs can be executed by the OS, subject to system health
+ restrictions. The system may also use the provided estimated payload size to
+ determine how long the job executes.
+-| **Note:** If you're currently using [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) for network data transfer use cases that are short duration and interruptible, we recommend that you continue using WorkManager instead of changing to user-initiated data transfer jobs. To understand better if you should be using UIDT, see the [Data transfer background
+-| task options](https://developer.android.com/develop/background-work/background-tasks/data-transfer-options) documentation.
++
++> [!NOTE]
++> **Note:** If you're currently using [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) for network data transfer use cases that are short duration and interruptible, we recommend that you continue using WorkManager instead of changing to user-initiated data transfer jobs. To understand better if you should be using UIDT, see the [Data transfer background
++> task options](https://developer.android.com/develop/background-work/background-tasks/data-transfer-options) documentation.
+ 
+ ## Schedule user-initiated data transfer jobs
+ 
+@@ -36,7 +38,7 @@ To run a user initiated data-transfer job, do the following:
+                ...
+        </service>
+ 
+-   Also, define a concrete subclass of `JobService` for your data transfer:  
++   Also, define a concrete subclass of `JobService` for your data transfer:
+ 
+    ### Kotlin
+ 
+@@ -121,7 +123,7 @@ To run a user initiated data-transfer job, do the following:
+    the Task Manager and in the status bar notification area.
+ 
+    When execution is complete, call `jobFinished()` to signal to the system
+-   that the job is complete, or that the job should be rescheduled.  
++   that the job is complete, or that the job should be rescheduled.
+ 
+    ### Kotlin
+ 
+@@ -230,7 +232,7 @@ running on Android 14 or higher. On lower Android versions, you
+ can use [WorkManager's foreground service implementation](https://developer.android.com/develop/background-work/background-tasks/persistent/how-to/long-running) as a
+ fallback approach.
+ 
+-Here's an example of code that checks for the appropriate system version:  
++Here's an example of code that checks for the appropriate system version:
+ 
+ ### Kotlin
+ 
+@@ -327,8 +329,9 @@ visible window, or if certain conditions are met:
+ - [If an app can launch activities from the background](https://developer.android.com/guide/components/activities/background-starts#exceptions), it can also launch user-initiated data transfer jobs from the background.
+ - If an app has an activity in the back stack of an existing task on the **Recents** screen, that alone doesn't allow a user-initiated data transfer job to run.
+ 
+-| **Note:** The conditions for [launching a UIDT job from the background](https://developer.android.com/guide/components/activities/background-starts#exceptions) are **not** the same as the exemptions that allow an app to [start foreground
+-| services from the background](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#background-start-restriction-exemptions).
++> [!NOTE]
++> **Note:** The conditions for [launching a UIDT job from the background](https://developer.android.com/guide/components/activities/background-starts#exceptions) are **not** the same as the exemptions that allow an app to [start foreground
++> services from the background](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#background-start-restriction-exemptions).
+ 
+ If the job is scheduled to run at a time when the necessary conditions are not
+ met, the job fails and returns a `RESULT_FAILURE` error code.

@@ -1,0 +1,73 @@
+diff --git a/docs/develop/ui/views/text-and-emoji/emoji2.md b/docs/develop/ui/views/text-and-emoji/emoji2.md
+index ff66209..09fb65b 100644
+--- a/docs/develop/ui/views/text-and-emoji/emoji2.md
++++ b/docs/develop/ui/views/text-and-emoji/emoji2.md
+@@ -4,14 +4,12 @@ url: https://developer.android.com/develop/ui/views/text-and-emoji/emoji2
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to support emoji in Compose.  
+-[Support emoji →](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2#emoji-compose)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to support emoji in Compose. [Support emoji →](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2#emoji-compose) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 
+-| **Important:** This page describes the [`androidx.emoji2:emoji2`](https://developer.android.com/jetpack/androidx/releases/emoji2) library, which replaces the deprecated androidx.emoji:emoji library.
++> [!IMPORTANT]
++> **Important:** This page describes the [`androidx.emoji2:emoji2`](https://developer.android.com/jetpack/androidx/releases/emoji2) library, which replaces the deprecated androidx.emoji:emoji library.
+ 
+ The standard set of emoji is [refreshed annually by
+ Unicode](https://emojipedia.org/new/), as emoji usage is increasing
+@@ -224,7 +222,7 @@ render correct images. Therefore, it has to convert any given
+ [`Spanned`](https://developer.android.com/reference/android/text/Spanned) object with `EmojiSpan` objects.
+ The EmojiCompat class provides the `process()` method to convert `CharSequences`
+ into `Spanned` instances. Using this method, you can call `process()` in the
+-background and cache the results, which improves the performance of your app.  
++background and cache the results, which improves the performance of your app.
+ 
+ ### Kotlin
+ 
+@@ -321,7 +319,8 @@ Complete the following steps to support custom views for apps that don't use
+    - 12.1: 🧑🏻‍🦰, 🧑🏿‍🦯, 👩🏻‍🤝‍👩🏼
+    - 12.0: 🦩, 🦻🏿, 👩🏼‍🤝‍👩🏻
+ 
+-| **Note:** For apps not using `AppCompat`, you can either extend the `EmojiCompat*View` classes or use view helper classes to integrate manually.
++> [!NOTE]
++> **Note:** For apps not using `AppCompat`, you can either extend the `EmojiCompat*View` classes or use view helper classes to integrate manually.
+ 
+ ## Optional features for handling emoji2
+ 
+@@ -357,7 +356,8 @@ the following:
+      This class provides several options to modify your `EmojiCompat`
+      behavior, as described in the following section.
+ 
+-| **Caution:** If you disable the default configuration, verify that emoji appear correctly in your app. Call `EmojiCompat.init` shortly after startup. You can safely call `init()` from `Application.onCreate()`, passing in [`LOAD_STRATEGY_MANUAL`](https://developer.android.com/reference/androidx/emoji2/text/EmojiCompat#LOAD_STRATEGY_MANUAL()), and then later call [`EmojiCompat.load()`](https://developer.android.com/reference/androidx/emoji2/text/EmojiCompat#load()) from a background thread.
++> [!CAUTION]
++> **Caution:** If you disable the default configuration, verify that emoji appear correctly in your app. Call `EmojiCompat.init` shortly after startup. You can safely call `init()` from `Application.onCreate()`, passing in [`LOAD_STRATEGY_MANUAL`](https://developer.android.com/reference/androidx/emoji2/text/EmojiCompat#LOAD_STRATEGY_MANUAL()), and then later call [`EmojiCompat.load()`](https://developer.android.com/reference/androidx/emoji2/text/EmojiCompat#load()) from a background thread.
+ 
+ #### Modify your EmojiCompat behavior
+ 
+@@ -431,7 +431,9 @@ To use the `emoji2-bundled` artifact, do the following:
+        implementation "androidx.emoji2:emoji2:$emojiVersion"
+        implementation "androidx.emoji2:emoji2-bundled:$emojiVersion"
+ 
+-   | **Caution:** Including the `emoji2-bundled` artifact disables the `EmojiCompatInitializer`, so your app must call `EmojiCompat.init()`.
++   > [!CAUTION]
++   > **Caution:** Including the `emoji2-bundled` artifact disables the `EmojiCompatInitializer`, so your app must call `EmojiCompat.init()`.
++
+ 2. Configure `emoji2` to use the bundled configuration:
+ 
+    ### Kotlin
+@@ -472,7 +474,9 @@ any potential latency due to font loading in a background thread.
+ provider that implements the `EmojiCompat` interface, such as Google Play
+ services. On devices powered by Google Play services, this loads the font using
+ Google Play services.
+-| **Note:** The default `emoji2` configuration uses downloadable fonts to fetch a compatible font file. On devices powered by Google Play services, the app sends this query at startup to Google Play services. The request for a font is logged by Google Play services and downloadable fonts.
++
++> [!NOTE]
++> **Note:** The default `emoji2` configuration uses downloadable fonts to fetch a compatible font file. On devices powered by Google Play services, the app sends this query at startup to Google Play services. The request for a font is logged by Google Play services and downloadable fonts.
+ 
+ The initializer creates a background thread to load the emoji font, and font
+ download can take up to 10 seconds before timing out. After the font is

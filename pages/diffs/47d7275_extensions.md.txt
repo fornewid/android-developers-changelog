@@ -1,0 +1,41 @@
+diff --git a/docs/develop/xr/openxr/extensions.md b/docs/develop/xr/openxr/extensions.md
+index 09ce7fe..7f8111f 100644
+--- a/docs/develop/xr/openxr/extensions.md
++++ b/docs/develop/xr/openxr/extensions.md
+@@ -7,12 +7,7 @@ source: md.txt
+ <br />
+ 
+ 
+-Applicable XR devices  
+-This guidance helps you build experiences for these types of XR devices.  
+-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)  
+-![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets)  
+-![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses)  
+-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)
++Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+ 
+ <br />
+ 
+@@ -25,7 +20,8 @@ jetpack-xr-natives repository](https://github.com/google-ar/jetpack-xr-natives/t
+ 
+ ### Android XR Vendor Extensions
+ 
+-| **Preview:** All `XR_ANDROID` extensions have been submitted to the Khronos group for approval. Documentation for these extensions will be relocated to the official specification documentation over time.
++> [!WARNING]
++> **Preview:** All `XR_ANDROID` extensions have been submitted to the Khronos group for approval. Documentation for these extensions will be relocated to the official specification documentation over time.
+ 
+ | Extension Name | Description |
+ |---|---|
+@@ -50,8 +46,10 @@ jetpack-xr-natives repository](https://github.com/google-ar/jetpack-xr-natives/t
+ 
+ The following additional extensions are also supported. Information is located
+ on external sites.
+-| **Note:** Extensions marked with an asterisk (\*) require [Android runtime
+-| permissions](https://developer.android.com/develop/xr/get-started#permissions-xr).
++
++> [!NOTE]
++> **Note:** Extensions marked with an asterisk (\*) require [Android runtime
++> permissions](https://developer.android.com/develop/xr/get-started#permissions-xr).
+ 
+ - [`XR_EXT_debug_utils`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XR_EXT_debug_utils)
+ - [`XR_EXT_dpad_binding`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XR_EXT_dpad_binding)

@@ -1,0 +1,92 @@
+diff --git a/docs/build/migrate-to-catalogs.md b/docs/build/migrate-to-catalogs.md
+index bb5b5ba..8c2e4db 100644
+--- a/docs/build/migrate-to-catalogs.md
++++ b/docs/build/migrate-to-catalogs.md
+@@ -4,8 +4,6 @@ url: https://developer.android.com/build/migrate-to-catalogs
+ source: md.txt
+ ---
+ 
+-# Migrate your build to version catalogs
+-
+ [Gradle version catalogs](https://docs.gradle.org/current/userguide/platforms.html)
+ enable you to add and maintain dependencies and plugins in a scalable way.
+ Using Gradle version catalogs makes managing dependencies and plugins easier
+@@ -25,9 +23,11 @@ Start by creating a version catalog file. In your root project's `gradle`
+ folder, create a file called `libs.versions.toml`. Gradle looks for the catalog
+ in the `libs.versions.toml` file by [default](https://docs.gradle.org/current/userguide/platforms.html#sub:conventional-dependencies-toml),
+ so we recommend using this default name.
+-| **Note:** It's possible to change the catalog file name; however, this requires changing your build files, so we don't recommend doing it.
+ 
+-In your `libs.versions.toml` file, add these sections:  
++> [!NOTE]
++> **Note:** It's possible to change the catalog file name; however, this requires changing your build files, so we don't recommend doing it.
++
++In your `libs.versions.toml` file, add these sections:
+ 
+     [versions]
+ 
+@@ -60,7 +60,7 @@ of the `libs.versions.toml` file. Sync your project, and then replace their
+ declarations in the build files with their catalog names.
+ 
+ This code snippet shows the `build.gradle.kts` file before removing the
+-dependency:  
++dependency:
+ 
+ ### Kotlin
+ 
+@@ -81,7 +81,7 @@ dependencies {
+ ```
+ 
+ This code snippet shows how to define the dependency in the version
+-catalog file:  
++catalog file:
+ 
+     [versions]
+     ktx = "1.9.0"
+@@ -95,7 +95,7 @@ The recommended naming for dependencies block in catalogs is kebab case (such as
+ in your build files.
+ 
+ In the `build.gradle.kts` file of each module that requires the dependency,
+-define the dependencies by the names you defined in the TOML file.  
++define the dependencies by the names you defined in the TOML file.
+ 
+ ### Kotlin
+ 
+@@ -123,7 +123,7 @@ declarations in the `plugins{}` block in the build files with their catalog
+ names.
+ 
+ This code snippet shows the `build.gradle.kts` file before removing the
+-plugin:  
++plugin:
+ 
+ ### Kotlin
+ 
+@@ -157,7 +157,7 @@ plugins {
+ }
+ ```
+ 
+-This code snippet shows how to define the plugin in the version catalog file:  
++This code snippet shows how to define the plugin in the version catalog file:
+ 
+     [versions]
+     androidGradlePlugin = "7.4.1"
+@@ -174,7 +174,7 @@ The following code shows how to define the `com.android.application` plugin in
+ the top and module level `build.gradle.kts` files. Use `alias` for plugins
+ that come from the version catalog file and `id` for plugins that don't come
+ from the version catalog file, such as
+-[convention plugins](https://docs.gradle.org/current/samples/sample_convention_plugins.html#organizing_build_logic).  
++[convention plugins](https://docs.gradle.org/current/samples/sample_convention_plugins.html#organizing_build_logic).
+ 
+ ### Kotlin
+ 
+@@ -207,7 +207,9 @@ plugins {
+ 
+ }
+ ```
+-| **Note:** If you are using a version of Gradle below 8.1, you need to annotate the `plugins{}` block with `@Suppress("DSL_SCOPE_VIOLATION")` when using version catalogs. Refer to [issue #22797](https://github.com/gradle/gradle/issues/22797) for more info.
++
++> [!NOTE]
++> **Note:** If you are using a version of Gradle below 8.1, you need to annotate the `plugins{}` block with `@Suppress("DSL_SCOPE_VIOLATION")` when using version catalogs. Refer to [issue #22797](https://github.com/gradle/gradle/issues/22797) for more info.
+ 
+ ## Learn more
+ 

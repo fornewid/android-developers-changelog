@@ -1,0 +1,34 @@
+diff --git a/docs/develop/ui/views/haptics/haptics-apis.md b/docs/develop/ui/views/haptics/haptics-apis.md
+index 43505e5..1139ac2 100644
+--- a/docs/develop/ui/views/haptics/haptics-apis.md
++++ b/docs/develop/ui/views/haptics/haptics-apis.md
+@@ -130,7 +130,9 @@ requires that devices supporting this feature can handle a minimum duration of
+ The framework doesn't modify the requested frequency and amplitude values
+ provided by the developer. However, the API also fixes the start amplitude at
+ zero to create smooth transitions.
+-| **Caution:** Check that the frequency specified in their envelope effects fall within the device's supported range, as defined by the device's [frequency-to-output-acceleration mapping (FOAM)](https://developer.android.com/develop/ui/views/haptics/actuators#vibrator-output-acceleration). If values exceed these limits, the device doesn't play any vibration.
++
++> [!CAUTION]
++> **Caution:** Check that the frequency specified in their envelope effects fall within the device's supported range, as defined by the device's [frequency-to-output-acceleration mapping (FOAM)](https://developer.android.com/develop/ui/views/haptics/actuators#vibrator-output-acceleration). If values exceed these limits, the device doesn't play any vibration.
+ 
+ To help you optimize your app's waveform envelope effects and provide
+ compatibility across devices, Android provides APIs for querying important
+@@ -183,13 +185,16 @@ to ensure that the *primitives* are available.
+ 
+ #### Check for vibration primitive support
+ 
+-| **Caution:** If a composition contains primitives that aren't supported by the device, the entire `VibrationEffect.Composition` won't play any vibration. Therefore, to ensure a predictable experience, the set of primitives used in your app should be checked for support when considering which haptic experiences to enable.
++> [!CAUTION]
++> **Caution:** If a composition contains primitives that aren't supported by the device, the entire `VibrationEffect.Composition` won't play any vibration. Therefore, to ensure a predictable experience, the set of primitives used in your app should be checked for support when considering which haptic experiences to enable.
+ 
+ Per-primitive support can be retrieved using the
+ [`Vibrator.arePrimitivesSupported`](https://developer.android.com/reference/android/os/Vibrator#arePrimitivesSupported(int...)) method. Alternatively, a set of primitives
+ may be checked together by using the [`Vibrator.areAllPrimitivesSupported`](https://developer.android.com/reference/android/os/Vibrator#areAllPrimitivesSupported(int...))
+ method - this is equivalent to `AND`-ing the per-primitive support.
+-| **Note:** The support for checking individual primitives is fully available starting in Android 12 (SDK 31). In Android 11, the check relies only in the ability to compose primitives, returning `TRUE` for all requested primitive IDs.
++
++> [!NOTE]
++> **Note:** The support for checking individual primitives is fully available starting in Android 12 (SDK 31). In Android 11, the check relies only in the ability to compose primitives, returning `TRUE` for all requested primitive IDs.
+ 
+ ### Usage of `VibrationEffect` Compositions
+ 

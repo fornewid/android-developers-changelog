@@ -1,0 +1,88 @@
+diff --git a/docs/develop/connectivity/network-ops/reading-network-state.md b/docs/develop/connectivity/network-ops/reading-network-state.md
+index 6e756c8..18c92b1 100644
+--- a/docs/develop/connectivity/network-ops/reading-network-state.md
++++ b/docs/develop/connectivity/network-ops/reading-network-state.md
+@@ -29,7 +29,9 @@ register a callback with `ConnectivityManager` to be alerted to changes that the
+ app cares about. Using the callback, your app can react immediately to any
+ relevant change in connectivity, without having to resort to expensive polling
+ that might miss fast updates.
+-| **Note:** If your app needs to schedule tasks for when the device next has connectivity or is on an unmetered network, such as to do background downloads, see [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) instead. Although `ConnectivityManager` tells you about these states, WorkManager lets your app run its jobs at more appropriate times with finer control---and with a lot less work.
++
++> [!NOTE]
++> **Note:** If your app needs to schedule tasks for when the device next has connectivity or is on an unmetered network, such as to do background downloads, see [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) instead. Although `ConnectivityManager` tells you about these states, WorkManager lets your app run its jobs at more appropriate times with finer control---and with a lot less work.
+ 
+ Using `NetworkCallback` and other ways of finding out about the
+ connectivity state of the device doesn't require any particular permission.
+@@ -44,7 +46,7 @@ documentation for each call for details.
+ 
+ An Android-powered device can maintain many connections at the same time.
+ To get information about the current network state, first obtain
+-an instance of `ConnectivityManager`:  
++an instance of `ConnectivityManager`:
+ 
+ ### Kotlin
+ 
+@@ -59,7 +61,7 @@ ConnectivityManager connectivityManager = getSystemService(ConnectivityManager.c
+ ```
+ 
+ Next, use this instance to get a reference to the current default network for your
+-app:  
++app:
+ 
+ ### Kotlin
+ 
+@@ -73,7 +75,7 @@ val currentNetwork = connectivityManager.getActiveNetwork()
+ Network currentNetwork = connectivityManager.getActiveNetwork();
+ ```
+ 
+-With a reference to a network, your app can request information about it:  
++With a reference to a network, your app can request information about it:
+ 
+ ### Kotlin
+ 
+@@ -210,7 +212,7 @@ When a new network becomes the default, any new connection the app opens uses
+ this network. At some point later, all remaining connections on the previous
+ default network are forcefully terminated. If it is important for the app to
+ know when the default network changes, it registers a default network
+-callback as follows:  
++callback as follows:
+ 
+ ### Kotlin
+ 
+@@ -266,7 +268,9 @@ for the new network. Implement
+ [`onCapabilitiesChanged(Network,NetworkCapabilities)`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback#onCapabilitiesChanged(android.net.Network,%20android.net.NetworkCapabilities)),
+ [`onLinkPropertiesChanged(Network,LinkProperties)`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback#onLinkPropertiesChanged(android.net.Network,%20android.net.LinkProperties)),
+ or both to react appropriately to changes in connectivity.
+-| **Caution:** Don't call the synchronous methods to find out about the properties of a newly available network in the callback, as this suffers from race conditions. Instead, wait for calls to `onCapabilitiesChanged()` and `onLinkPropertiesChanged()` for that network, which are called immediately after `onAvailable()` on devices running Android 8.0 (API level 26) and higher.
++
++> [!CAUTION]
++> **Caution:** Don't call the synchronous methods to find out about the properties of a newly available network in the callback, as this suffers from race conditions. Instead, wait for calls to `onCapabilitiesChanged()` and `onLinkPropertiesChanged()` for that network, which are called immediately after `onAvailable()` on devices running Android 8.0 (API level 26) and higher.
+ 
+ For a callback registered with `registerDefaultNetworkCallback()`, `onLost()`
+ means the network has lost the status of being the default network. It might be disconnected.
+@@ -298,11 +302,14 @@ Unregister your callback when you have no use for it anymore by calling
+ Your main activity's [`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause())
+ is a good place to do this, especially if you register the callback in
+ [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()).
+-| **Note:** There is a limit to the number of callbacks that can be registered concurrently. Unregister callbacks once they are no longer needed so that your app can register more.
++
++> [!NOTE]
++> **Note:** There is a limit to the number of callbacks that can be registered concurrently. Unregister callbacks once they are no longer needed so that your app can register more.
+ 
+ ## Additional networks (advanced use cases)
+ 
+-| **Caution:** Most apps don't need to use additional networks, and instead should use the default network. Only apps that must use other networks should register additional network callbacks. For example, an app that must use Wi-Fi, and only Wi-Fi, for a particular operation is an app that must use additional networks.
++> [!CAUTION]
++> **Caution:** Most apps don't need to use additional networks, and instead should use the default network. Only apps that must use other networks should register additional network callbacks. For example, an app that must use Wi-Fi, and only Wi-Fi, for a particular operation is an app that must use additional networks.
+ 
+ Although the default network is the only relevant network for most apps, some
+ apps
+@@ -322,7 +329,7 @@ anymore.
+ The app builds a `NetworkRequest` to inform `ConnectivityManager` of what kind
+ of networks it wants to listen to. The following example shows how to build a
+ `NetworkRequest` for an app that is only interested in unmetered internet
+-connections:  
++connections:
+ 
+ ### Kotlin
+ 

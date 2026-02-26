@@ -1,0 +1,34 @@
+diff --git a/docs/develop/ui/views/components/floating-action-button.md b/docs/develop/ui/views/components/floating-action-button.md
+index 2b1e8f4..c64d890 100644
+--- a/docs/develop/ui/views/components/floating-action-button.md
++++ b/docs/develop/ui/views/components/floating-action-button.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/components/floating-action-b
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose.  
+-[Floating Action Button →](https://developer.android.com/develop/ui/compose/components/fab)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose. [Floating Action Button →](https://developer.android.com/develop/ui/compose/components/fab) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 
+@@ -25,7 +22,7 @@ FAB](https://m3.material.io/components/floating-action-button/overview)
+ 
+ The following code shows how the
+ [`FloatingActionButton`](https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton)
+-appears in your layout file:  
++appears in your layout file:
+ 
+ ```xml
+ <com.google.android.material.floatingactionbutton.FloatingActionButton
+@@ -55,7 +52,7 @@ You can then apply an
+ [`View.OnClickListener`](https://developer.android.com/reference/android/view/View.OnClickListener) to
+ handle FAB taps. For example, the following code displays a
+ [`Snackbar`](https://developer.android.com/reference/com/google/android/material/snackbar/Snackbar) when
+-the user taps the FAB:  
++the user taps the FAB:
+ 
+ ### Kotlin
+ 

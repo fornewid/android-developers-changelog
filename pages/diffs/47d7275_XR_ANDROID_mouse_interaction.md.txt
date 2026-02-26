@@ -1,0 +1,134 @@
+diff --git a/docs/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction.md b/docs/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction.md
+index 4ef9874..417e910 100644
+--- a/docs/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction.md
++++ b/docs/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction.md
+@@ -44,45 +44,69 @@ Spencer Quin, Google
+ 
+ ## Overview
+ 
+-This extension provides an[`XrPath`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrPath)for getting mouse input and defines one commonly used action pose for user mouse profiles, including both mouse devices and trackpad devices.
++This extension provides an [`XrPath`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrPath) for getting mouse input and defines one
++commonly used action pose for user mouse profiles, including both mouse devices
++and trackpad devices.
+ 
+-This extension also introduces a new interaction profile specifically designed for mouse devices to input through the[OpenXR action system](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#input).
++This extension also introduces a new interaction profile specifically designed
++for mouse devices to input through the [OpenXR action system](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#input).
+ 
+ ## Action pose for mouse interactions
+ 
+-The following action pose (i.e. "aim") enables a 3D pointer ray, whether the tracking inputs are provided by a mouse device or a trackpad device.
++The following action pose (i.e. "aim") enables a 3D pointer ray, whether the
++tracking inputs are provided by a mouse device or a trackpad device.
+ 
+-The*.../input/aim/pose* action subpath will be supported on all[interaction profiles](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#semantic-paths-interaction-profiles)that are valid for the user path of*/user/mouse*, including those interaction profiles enabled through extensions.
++The *.../input/aim/pose* action subpath will be supported on all
++[interaction profiles](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#semantic-paths-interaction-profiles) that are valid for the user path of */user/mouse*,
++including those interaction profiles enabled through extensions.
+ 
+ ### Aim pose
+ 
+-The*.../input/aim/pose*is designed for interacting with objects through a mouse pointer in 3D space. For example, using a virtual laser pointer to aim at a virtual button on the wall is an interaction suited to the "aim" pose.
++The *.../input/aim/pose* is designed for interacting with objects through a mouse
++pointer in 3D space. For example, using a virtual laser pointer to aim at a
++virtual button on the wall is an interaction suited to the "aim" pose.
+ 
+-This is the same "aim" pose defined in[Standard pose identifiers](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#semantic-paths-standard-pose-identifiers). Every tracked controller profile already supports this pose.
++This is the same "aim" pose defined in [Standard pose identifiers](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#semantic-paths-standard-pose-identifiers). Every
++tracked controller profile already supports this pose.
+ 
+ ![Example aim pose](https://developer.android.com/static/images/develop/xr/openxr/mouse-interaction-aim-pose-1.png)
+ 
+ **Position**
+ 
+-The position of the "aim" pose is typically the user's head, that is, the same position of the head when a mouse movement is detected. The aim pose for the mouse is calculated when there is a mouse movement. The last known aim position will be kept until the next mouse movement.
++The position of the "aim" pose is typically the user's head, that is, the same
++position of the head when a mouse movement is detected. The aim pose for the
++mouse is calculated when there is a mouse movement. The last known aim position
++will be kept until the next mouse movement.
+ 
+ **Orientation**
+ 
+-The orientation of the "aim" pose**may**be used to render a 3D pointer ray to interact with a virtual object, for example, clicking a menu button on the wall.
++The orientation of the "aim" pose **may** be used to render a 3D pointer ray to
++interact with a virtual object, for example, clicking a menu button on the wall.
+ 
+-The aim pose for the mouse is calculated when there is a mouse movement. The last known aim orientation will be kept until the next mouse movement.
++The aim pose for the mouse is calculated when there is a mouse movement. The
++last known aim orientation will be kept until the next mouse
++movement.
+ 
+-The -Z direction is the forward direction of the aiming gesture, that is, where the aiming ray is pointing at.
++The -Z direction is the forward direction of the aiming gesture, that is, where
++the aiming ray is pointing at.
+ 
+-The relative X,Y movement of the mouse is used to compute the relative movement of the mouse along a sphere around the user's head.
++The relative X,Y movement of the mouse is used to compute the relative movement
++of the mouse along a sphere around the user's head.
+ 
+ ![Example aim pose](https://developer.android.com/static/images/develop/xr/openxr/mouse-interaction-aim-pose-2.png)
+ 
+-Depth movement will be supported using primary click and scroll. When an action to move in depth is in process, the position is offset from the head position in positive or negative Z-direction along the ray depending on the positive or negative scroll value. The system will stabilize the depth movement within the sphere around the user's head.
++Depth movement will be supported using primary click and scroll.
++When an action to move in depth is in process, the position is offset from the
++head position in positive or negative Z-direction along the ray depending on the
++positive or negative scroll value. The system will stabilize the depth
++movement within the sphere around the user's head.
+ 
+ ## The interaction profile for mouse devices
+ 
+-The mouse interaction profile is designed for runtimes which provide mouse inputs using mouse devices or trackpad devices with buttons and scroll. This allows mouse devices and trackpad devices to provide commonly used clicks, scroll, and action pose to the[OpenXR action system](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#input).
++The mouse interaction profile is designed for runtimes which provide mouse
++inputs using mouse devices or trackpad devices with buttons and scroll. This
++allows mouse devices and trackpad devices to provide commonly used clicks,
++scroll, and action pose to the [OpenXR action system](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#input).
+ 
+ Interaction profile path:
+ 
+@@ -100,23 +124,29 @@ Supported component paths:
+ - *.../input/tertiary_android/click*
+ - *.../input/scroll_android/value*
+ 
+-This interaction profile supports the[action pose](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction#android_mouse_interaction-action-pose)described in this section, as well as the following two groups of action inputs.
++This interaction profile supports the [action pose](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction#android_mouse_interaction-action-pose) described in this
++section, as well as the following two groups of action inputs.
+ 
+ ### Click action
+ 
+-This interaction profile supports*.../input/select/click, .../input/secondary_android/click*and /input/tertiary_android/click actions.
++This interaction profile supports *.../input/select/click,
++.../input/secondary_android/click* and /input/tertiary_android/click actions.
+ 
+-The*.../input/select/click* is a boolean input, where the value`XR_TRUE`indicates that the primary button on the mouse or trackpad is pressed.
++The *.../input/select/click* is a boolean input, where the value `XR_TRUE`
++indicates that the primary button on the mouse or trackpad is pressed.
+ 
+-The*.../input/secondary_android/click* is a boolean input, where the value`XR_TRUE`indicates that the secondary button on the mouse or trackpad is pressed.
++The *.../input/secondary_android/click* is a boolean input, where the value `XR_TRUE`
++indicates that the secondary button on the mouse or trackpad is pressed.
+ 
+-The*.../input/tertiary_android/click* is a boolean input, where the value`XR_TRUE`indicates that the mouse scroll or the tertiary button is pressed.
++The *.../input/tertiary_android/click* is a boolean input, where the value `XR_TRUE`
++indicates that the mouse scroll or the tertiary button is pressed.
+ 
+ ### Scroll action
+ 
+-This interaction profile supports*.../input/scroll_android/value*actions.
++This interaction profile supports *.../input/scroll_android/value* actions.
+ 
+-The*.../input/scroll_android/value*is a 1D input component varying from -1 to 1 to map to scroll down and scroll up.
++The *.../input/scroll_android/value* is a 1D input component varying from -1 to 1 to map
++to scroll down and scroll up.
+ 
+ **New Object Types**
+ 
+@@ -139,4 +169,6 @@ The*.../input/scroll_android/value*is a 1D input component varying from -1 to 1
+ 
+ *** ** * ** ***
+ 
+-OpenXR™ and the OpenXR logo are trademarks owned by The Khronos Group Inc. and are registered as a trademark in China, the European Union, Japan and the United Kingdom.
+\ No newline at end of file
++OpenXR™ and the OpenXR logo are trademarks owned
++by The Khronos Group Inc. and are registered as a trademark in China,
++the European Union, Japan and the United Kingdom.
+\ No newline at end of file

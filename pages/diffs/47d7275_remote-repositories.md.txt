@@ -1,0 +1,64 @@
+diff --git a/docs/build/remote-repositories.md b/docs/build/remote-repositories.md
+index 101b0ff..395e6b7 100644
+--- a/docs/build/remote-repositories.md
++++ b/docs/build/remote-repositories.md
+@@ -14,7 +14,7 @@ list A first, Gradle downloads the dependency from repository A.
+ 
+ By default, new Android Studio projects specify [Google's Maven repository](https://developer.android.com/build/remote-repositories#google-maven), and the
+ [Maven central repository](https://search.maven.org/) as
+-repository locations in the project's `settings.gradle` file, as shown below:  
++repository locations in the project's `settings.gradle` file, as shown below:
+ 
+ ### Kotlin
+ 
+@@ -39,10 +39,12 @@ dependencyResolutionManagement {
+     }
+ }
+ ```
+-| **Warning:** The JCenter repository, which was included by default in the past, became read-only on March 31st, 2021. For more information, see [JCenter service
+-| update](https://developer.android.com/studio/build/jcenter-migration).
+ 
+-If you want something from a local repository use `mavenLocal()`:  
++> [!WARNING]
++> **Warning:** The JCenter repository, which was included by default in the past, became read-only on March 31st, 2021. For more information, see [JCenter service
++> update](https://developer.android.com/studio/build/jcenter-migration).
++
++If you want something from a local repository use `mavenLocal()`:
+ 
+ ### Kotlin
+ 
+@@ -70,7 +72,7 @@ dependencyResolutionManagement {
+ }
+ ```
+ 
+-Or you can declare specific Maven or Ivy repositories as follows:  
++Or you can declare specific Maven or Ivy repositories as follows:
+ 
+ ### Kotlin
+ 
+@@ -128,7 +130,7 @@ You can see all available artifacts at
+ (see below for [programmatic access](https://developer.android.com/build/remote-repositories#gmaven-access)).
+ 
+ To add one of these libraries to your build, include Google's Maven repository
+-in your top-level `build.gradle.kts` file:  
++in your top-level `build.gradle.kts` file:
+ 
+ ### Kotlin
+ 
+@@ -168,7 +170,7 @@ dependencyResolutionManagement {
+ 
+ Then add the desired library to your module's `dependencies` block.
+ For example,the [appcompat library](https://developer.android.com/jetpack/androidx/releases/appcompat)
+-looks like this:  
++looks like this:
+ 
+ ### Kotlin
+ 
+@@ -218,4 +220,4 @@ from the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-man
+ Then you can add these libraries to your `dependencies` block as usual.
+ 
+ The offline libraries are saved in
+-<var translate="no">android_sdk</var>`/extras/`.
+\ No newline at end of file
++`android_sdk/extras/`.
+\ No newline at end of file

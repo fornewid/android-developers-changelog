@@ -1,0 +1,78 @@
+diff --git a/docs/develop/connectivity/wifi/wifi-rtt.md b/docs/develop/connectivity/wifi/wifi-rtt.md
+index ef0a113..abae130 100644
+--- a/docs/develop/connectivity/wifi/wifi-rtt.md
++++ b/docs/develop/connectivity/wifi/wifi-rtt.md
+@@ -78,7 +78,7 @@ To set up your app to use Wi-Fi RTT, perform the following steps.
+ 
+ #### 1. Request permissions
+ 
+-Request the following permissions in your app's manifest:  
++Request the following permissions in your app's manifest:
+ 
+     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+@@ -100,12 +100,14 @@ perform an RTT scan operation. Your app will need to request the user's
+ permission if the permission has not already been granted. For more information
+ about runtime permissions, see
+ [Request App Permissions](https://developer.android.com/training/permissions/requesting).
+-| **Note:** If the necessary permission is revoked during a ranging operation, the operation will be aborted and a failure reported.
++
++> [!NOTE]
++> **Note:** If the necessary permission is revoked during a ranging operation, the operation will be aborted and a failure reported.
+ 
+ #### 2. Check whether the device supports Wi-Fi RTT
+ 
+ To check whether the device supports Wi-Fi RTT, use the
+-[`PackageManager`](https://developer.android.com/reference/android/content/pm/PackageManager) API:  
++[`PackageManager`](https://developer.android.com/reference/android/content/pm/PackageManager) API:
+ 
+ ### Kotlin
+ 
+@@ -135,7 +137,7 @@ which is sent when availability changes. When your app receives the broadcast
+ intent, the app should check the current state of availability and adjust its
+ behavior accordingly.
+ 
+-For example:  
++For example:
+ 
+ ### Kotlin
+ 
+@@ -171,7 +173,9 @@ BroadcastReceiver myReceiver = new BroadcastReceiver() {
+ };
+ context.registerReceiver(myReceiver, filter);
+ ```
+-| **Note:** Make sure that you register the broadcast receiver before checking availability. Otherwise, there could be a period of time when the app thinks that Wi-Fi RTT is available but isn't notified if availability changes.
++
++> [!NOTE]
++> **Note:** Make sure that you register the broadcast receiver before checking availability. Otherwise, there could be a period of time when the app thinks that Wi-Fi RTT is available but isn't notified if availability changes.
+ 
+ For more information, see [Broadcasts](https://developer.android.com/guide/components/broadcasts).
+ 
+@@ -185,7 +189,7 @@ single ranging request; the distances to all devices are measured and returned.
+ 
+ For example, a request can use the
+ [`addAccessPoint()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingRequest.Builder#addAccessPoint(android.net.wifi.ScanResult))
+-method to specify an access point to which to measure the distance:  
++method to specify an access point to which to measure the distance:
+ 
+ ### Kotlin
+ 
+@@ -241,7 +245,7 @@ the callback context, and a
+ [`RangingResultCallback`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResultCallback)
+ to receive the results.
+ 
+-For example:  
++For example:
+ 
+ ### Kotlin
+ 
+@@ -363,7 +367,8 @@ values with the respective `get` methods:
+ 
+   [`get80211azNumberOfRxSpatialStreams()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#get80211azNumberOfRxSpatialStreams())
+ 
+-| **Note:** Both LTF repetitions and number of transmit and receive space time streams (STS) can be used to estimate the accuracy of an IEEE 802.11az NTB result.
++> [!NOTE]
++> **Note:** Both LTF repetitions and number of transmit and receive space time streams (STS) can be used to estimate the accuracy of an IEEE 802.11az NTB result.
+ 
+ ## Android devices that support WiFi-RTT
+ 

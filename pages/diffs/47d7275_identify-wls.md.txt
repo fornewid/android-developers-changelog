@@ -1,0 +1,113 @@
+diff --git a/docs/develop/background-work/background-tasks/awake/wakelock/identify-wls.md b/docs/develop/background-work/background-tasks/awake/wakelock/identify-wls.md
+index c7e07ce..e2372b5 100644
+--- a/docs/develop/background-work/background-tasks/awake/wakelock/identify-wls.md
++++ b/docs/develop/background-work/background-tasks/awake/wakelock/identify-wls.md
+@@ -21,7 +21,9 @@ tool is obfuscating the wake lock name you use in the app. You can use the
+ debugging tools to identify misbehaving wake locks, then search for the wake
+ lock name in this document to identify which API may be causing the problem and
+ how to solve it.
+-| **Note:** This document is not intended as a comprehensive list of wake locks that might be created by various APIs and libraries. In addition, the name of a wake lock is not usually part of a library's API, so the wake lock names in this document are subject to change.
++
++> [!NOTE]
++> **Note:** This document is not intended as a comprehensive list of wake locks that might be created by various APIs and libraries. In addition, the name of a wake lock is not usually part of a library's API, so the wake lock names in this document are subject to change.
+ 
+ This document covers the scenarios where wake locks might be created. In each
+ case, while the wake lock might be created by some other library or API, the
+@@ -172,25 +174,25 @@ literal text `<package name>`. However, `*job*` is the character sequence
+ 
+ ##### Android 15 and lower
+ 
+-User initiated jobs create wake locks with names following this pattern:  
++User initiated jobs create wake locks with names following this pattern:
+ 
+     *job*u/@<name_space>@/<package_name>/<classname>
+ 
+-Other jobs use this pattern:  
++Other jobs use this pattern:
+ 
+     *job*/@<name_space>@/<package_name>/<classname>
+ 
+ ##### Android 16 and higher
+ 
+-User-initiated jobs create wake locks with names following this pattern:  
++User-initiated jobs create wake locks with names following this pattern:
+ 
+     *job*u/@<name_space>@/#<trace_tag>#/<package_name>/<classname>
+ 
+-Expedited jobs use this pattern:  
++Expedited jobs use this pattern:
+ 
+     *job*e/@<name_space>@/#<trace_tag>#/<package_name>/<classname>
+ 
+-Regular jobs use this pattern:  
++Regular jobs use this pattern:
+ 
+     *job*r/@<name_space>@/#<trace_tag>#/<package_name>/<classname>
+ 
+@@ -200,11 +202,11 @@ Suppose there's an expedited job with the namespace `backup` and the trace
+ tag `started`. The package name is `com.example.app`, and the class that
+ created the job is `com.backup.BackupFileService`.
+ 
+-On devices running Android 15 or lower, the wake lock would be named:  
++On devices running Android 15 or lower, the wake lock would be named:
+ 
+     *job*/@backup@/com.example.app/com.backup.BackupFileService
+ 
+-On devices running Android 16 or higher, the wake lock would be named:  
++On devices running Android 16 or higher, the wake lock would be named:
+ 
+     *job*e/@backup@/#started#/com.example.app/com.backup.BackupFileService
+ 
+@@ -230,7 +232,8 @@ Location services use the following names:
+ - `NlpWakeLock`
+ - `*location*`
+ 
+-| **Note:** The last wake lock name is the string literal "`*location*`", with asterisks. The asterisks are not being used as wildcards.
++> [!NOTE]
++> **Note:** The last wake lock name is the string literal "`*location*`", with asterisks. The asterisks are not being used as wildcards.
+ 
+ #### Recommendation
+ 
+@@ -247,21 +250,23 @@ workers.
+ 
+ The wake lock names acquired by WorkManager depend on what version of the
+ Android system they're running on.
+-| **Note:** The items surrounded by angle brackets are variables. For example, "\<package_name\>" is the name of your app's package, not the literal text `<package name>`. However, `*job*` is the character sequence `*job*`, with asterisks; the asterisks are not being used as wild cards.
++
++> [!NOTE]
++> **Note:** The items surrounded by angle brackets are variables. For example, "\<package_name\>" is the name of your app's package, not the literal text `<package name>`. However, `*job*` is the character sequence `*job*`, with asterisks; the asterisks are not being used as wild cards.
+ 
+ ##### Android 15 and lower
+ 
+-WorkManager tasks create wake locks with names following this pattern:  
++WorkManager tasks create wake locks with names following this pattern:
+ 
+     *job*/<package_name>/androidx.work.impl.background.systemjob.SystemJobService
+ 
+ ##### Android 16 and higher
+ 
+-Expedited tasks create wake locks with names following this pattern:  
++Expedited tasks create wake locks with names following this pattern:
+ 
+     *job*e/#<trace_tag>#/<package_name>/androidx.work.impl.background.systemjob.SystemJobService
+ 
+-Regular tasks follow this pattern:  
++Regular tasks follow this pattern:
+ 
+     *job*r/#<trace_tag>#/<package_name>/androidx.work.impl.background.systemjob.SystemJobService
+ 
+@@ -272,12 +277,12 @@ By default, `<trace_tag>` is the worker name.
+ Suppose there's an expedited worker named `BackupFileWorker`. The package name
+ is `com.example.app`.
+ 
+-On devices running Android 15 or lower, the wake lock would be named:  
++On devices running Android 15 or lower, the wake lock would be named:
+ 
+     *job*/com.example.app/androidx.work.impl.background.systemjob.SystemJobService
+ 
+ On devices running Android 16 or higher and using `WorkManager 2.10.0+`,
+-the wake lock would be named:  
++the wake lock would be named:
+ 
+     *job*e/#BackupFileWorker#/com.example.app/androidx.work.impl.background.systemjob.SystemJobService
+ 

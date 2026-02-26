@@ -1,0 +1,194 @@
+diff --git a/docs/identity/digital-credentials/phone-number-verification.md b/docs/identity/digital-credentials/phone-number-verification.md
+index 0ed621e..86cf2e8 100644
+--- a/docs/identity/digital-credentials/phone-number-verification.md
++++ b/docs/identity/digital-credentials/phone-number-verification.md
+@@ -4,23 +4,27 @@ url: https://developer.android.com/identity/digital-credentials/phone-number-ver
+ source: md.txt
+ ---
+ 
+-This guide details how to use the[DigitalCredential API](https://developer.android.com/reference/kotlin/androidx/credentials/DigitalCredential)to obtain verified phone numbers for your users. The process involves two steps:
++This guide details how to use the [DigitalCredential API](https://developer.android.com/reference/kotlin/androidx/credentials/DigitalCredential) to obtain verified
++phone numbers for your users. The process involves two steps:
+ 
+-1. **Request a`TS.43 token`** : Your client app (the "verifier") requests a temporary TS.43 token from the user's device. The`TS.43 token`is a carrier-issued credential that represents the user's identity.
+-2. **Exchange the token for a phone number** : Your app's backend exchanges the`TS.43 token`with an aggregator or a carrier for the user's verified phone number.
++1. **Request a `TS.43 token`** : Your client app (the "verifier") requests a temporary TS.43 token from the user's device. The `TS.43 token` is a carrier-issued credential that represents the user's identity.
++2. **Exchange the token for a phone number** : Your app's backend exchanges the `TS.43 token` with an aggregator or a carrier for the user's verified phone number.
+ 
+ ## Prerequisites
+ 
+-To implement phone number verification with the DigitalCredential API, you need an account with an aggregator. An aggregator interacts with carriers and provides the necessary API surface for your app, usually as a billable cloud API endpoint.
++To implement phone number verification with the DigitalCredential API, you need
++an account with an aggregator. An aggregator interacts with carriers and
++provides the necessary API surface for your app, usually as a billable cloud API
++endpoint.
+ 
+-You also need to add the following dependencies to your Gradle build script:  
++You also need to add the following dependencies to your Gradle build script:
+ 
+ ### Kotlin
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.credentials:credentials:1.6.0-rc01")
+-    implementation("androidx.credentials:credentials-play-services-auth:1.6.0-rc01")
++    implementation("androidx.credentials:credentials:1.6.0-rc02")
++    implementation("androidx.credentials:credentials-play-services-auth:1.6.0-rc02")
+ }
+ ```
+ 
+@@ -28,8 +32,8 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.credentials:credentials:1.6.0-rc01"
+-    implementation "androidx.credentials:credentials-play-services-auth:1.6.0-rc01"
++    implementation "androidx.credentials:credentials:1.6.0-rc02"
++    implementation "androidx.credentials:credentials-play-services-auth:1.6.0-rc02"
+ }
+ ```
+ 
+@@ -37,22 +41,37 @@ dependencies {
+ 
+ The end-to-end process generally follows these steps:
+ 
+-1. [**Request DCQL (Digital Credential Query Language) parameters from an aggregator**](https://developer.android.com/identity/digital-credentials/phone-number-verification#get-dcql): Call one or more aggregators and request a set of DCQL parameters. DCQL lets you specify the exact digital credentials that you need from each aggregator.
+-2. [**Create the OpenID4VP request**](https://developer.android.com/identity/digital-credentials/phone-number-verification#create-openid4vp): From your app's backend, create the OpenID4VP request, while including the DCQL parameters from the aggregator. Then, send the OpenID4VP request to your client app.
++1. [**Request DCQL (Digital Credential Query Language) parameters from an
++   aggregator**](https://developer.android.com/identity/digital-credentials/phone-number-verification#get-dcql): Call one or more aggregators and request a set of DCQL parameters. DCQL lets you specify the exact digital credentials that you need from each aggregator.
++2. [**Create the OpenID4VP request**](https://developer.android.com/identity/digital-credentials/phone-number-verification#create-openid4vp): From your app's backend, create the
++   OpenID4VP request, while including the DCQL parameters from the aggregator.
++   Then, send the OpenID4VP request to your client app.
+ 
+-   | **Note:** The OpenID4VP request is a standardized protocol used to request digital credentials. It can also include requests for other digital credentials, such as mobile driving licenses.
+-3. [**Call the Credential Manager API**](https://developer.android.com/identity/digital-credentials/phone-number-verification#make-credentialmanager): In your client app, use the Credential Manager API to send the OpenID4VP request to the operating system. In response, you receive an OpenID4VP response object containing the`TS.43 Digital Credential`. This credential is encrypted and can only be decrypted by the associated aggregator. After receiving the carrier token, send the response from your client app to the app's backend.
++   > [!NOTE]
++   > **Note:** The OpenID4VP request is a standardized protocol used to request digital credentials. It can also include requests for other digital credentials, such as mobile driving licenses.
+ 
+-4. [**Validate the response**](https://developer.android.com/identity/digital-credentials/phone-number-verification#handle-digital): In your app's backend, validate the OpenID4VP response.
++3. [**Call the Credential Manager API**](https://developer.android.com/identity/digital-credentials/phone-number-verification#make-credentialmanager): In your client app, use the
++   Credential Manager API to send the OpenID4VP request to the operating
++   system. In response, you receive an OpenID4VP response object containing the
++   `TS.43 Digital Credential`. This credential is encrypted and can only be
++   decrypted by the associated aggregator. After receiving the carrier token,
++   send the response from your client app to the app's backend.
+ 
+-5. [**Exchange for phone number**](https://developer.android.com/identity/digital-credentials/phone-number-verification#exchange-phone): From your app's backend, send the`TS.43
+-   Digital Credential`to the aggregator. The aggregator validates the credential and returns the verified phone number.
++4. [**Validate the response**](https://developer.android.com/identity/digital-credentials/phone-number-verification#handle-digital): In your app's backend, validate the
++   OpenID4VP response.
+ 
+-![Image showing the flow of a phone number verification request](https://developer.android.com/static/identity/digital-credentials/images/pnv_verifier_diagram.svg)**Figure 1.**The life of a phone number verification request, starting from the Verifier backend requesting parameters from an aggregator and ending with a returned verified phone number.
++5. [**Exchange for phone number**](https://developer.android.com/identity/digital-credentials/phone-number-verification#exchange-phone): From your app's backend, send the `TS.43
++   Digital Credential` to the aggregator. The aggregator validates the
++   credential and returns the verified phone number.
++
++![Image showing the flow of a phone number verification request](https://developer.android.com/static/identity/digital-credentials/images/pnv_verifier_diagram.svg) **Figure 1.**The life of a phone number verification request, starting from the Verifier backend requesting parameters from an aggregator and ending with a returned verified phone number.
+ 
+ ## Request DCQL parameters from an aggregator
+ 
+-From your app's backend, send a request to the aggregator for a Digital Credential Query Language (DCQL) credential object. Make sure to provide a nonce and a request ID in your request. The aggregator returns the DCQL credential object, which has a structure similar to the following:  
++From your app's backend, send a request to the aggregator for a Digital
++Credential Query Language (DCQL) credential object. Make sure to provide a nonce
++and a request ID in your request. The aggregator returns the DCQL credential
++object, which has a structure similar to the following:
+ 
+     {
+       // The credential ID is mapped to the request ID that is sent in your request to the aggregator.
+@@ -78,7 +97,9 @@ From your app's backend, send a request to the aggregator for a Digital Credenti
+ 
+ ## Create the OpenID4VP request
+ 
+-First, from your app's backend, create a`dcql_query`object by placing the DCQL credential object in a`credentials`array nested within a`dcql_query`object as shown in the following example:  
++First, from your app's backend, create a `dcql_query` object by placing the DCQL
++credential object in a `credentials` array nested within a `dcql_query` object
++as shown in the following example:
+ 
+     "dcql_query": {
+       "credentials": [
+@@ -103,7 +124,7 @@ First, from your app's backend, create a`dcql_query`object by placing the DCQL c
+       ]
+     }
+ 
+-Then, create an OpenID4VP request with the following structure:  
++Then, create an OpenID4VP request with the following structure:
+ 
+     {
+       "protocol": "openid4vp-v1-unsigned",
+@@ -115,13 +136,14 @@ Then, create an OpenID4VP request with the following structure:
+       }
+     }
+ 
+-- `protocol`: Must be set to`openid4vp-v1-unsigned`for phone number verification requests.
+-- `response_type`and`response_mode`: Constants denoting the format of the request with fixed values`vp_token`and`dc_api`, respectively.
++- `protocol`: Must be set to `openid4vp-v1-unsigned` for phone number verification requests.
++- `response_type` and `response_mode`: Constants denoting the format of the request with fixed values `vp_token` and `dc_api`, respectively.
+ - `nonce`: A unique value generated by your backend for each request. The nonce in the aggregator DCQL credential object must match this nonce.
+-- `dcql_query`: In this case, use the`dcql_query`to specify that a`TS.43
+-  Digital Credential`is being requested. You can also request other digital credentials here.
++- `dcql_query`: In this case, use the `dcql_query` to specify that a `TS.43
++  Digital Credential` is being requested. You can also request other digital credentials here.
+ 
+-Then, wrap the OpenID4VP request in a DigitalCredential API request object and send it to the client app.  
++Then, wrap the OpenID4VP request in a DigitalCredential API request object and
++send it to the client app.
+ 
+     {
+       "requests":
+@@ -138,7 +160,8 @@ Then, wrap the OpenID4VP request in a DigitalCredential API request object and s
+         ]
+     }
+ 
+-The following snippet demonstrates how to generate the DigitalCredential API request:  
++The following snippet demonstrates how to generate the DigitalCredential API
++request:
+ 
+     def GenerateDCRequest():
+         credentials = []
+@@ -165,7 +188,7 @@ The following snippet demonstrates how to generate the DigitalCredential API req
+ 
+ ## Call the Credential Manager API
+ 
+-In your client app, make a call to the Credential Manager API, with the DigitalCredential API request provided by your app's backend.  
++In your client app, make a call to the Credential Manager API, with the DigitalCredential API request provided by your app's backend.
+ 
+     val requestJson = generateTs43DigitalCredentialRequestFromServer()
+     val digiCredOption = GetDigitalCredentialOption(requestJson = requestJson)
+@@ -199,7 +222,8 @@ In your client app, make a call to the Credential Manager API, with the DigitalC
+       }
+     }
+ 
+-The DigitalCredential API response contains the OpenID4VP response. A typical credential json from the[`DigitalCredential`](https://developer.android.com/identity/digital-credentials/phone-number-verification#create-openid4vp)result is as follows:  
++The DigitalCredential API response contains the OpenID4VP response. A typical
++credential json from the [`DigitalCredential`](https://developer.android.com/identity/digital-credentials/phone-number-verification#create-openid4vp) result is as follows:
+ 
+     {
+       "protocol": "openid4vp-v1-unsigned",
+@@ -212,11 +236,14 @@ The DigitalCredential API response contains the OpenID4VP response. A typical cr
+       }
+     }
+ 
+-From your client app, send the DigitalCredential API response back to the backend server where it can be validated and used to exchange for the verified phone number with an aggregator.
++From your client app, send the DigitalCredential API response back to the
++backend server where it can be validated and used to exchange for the verified
++phone number with an aggregator.
+ 
+ ## Validate the Digital Credential response
+ 
+-The following is an example of how to parse the response and perform the validation step in your app's backend:  
++The following is an example of how to parse the response and perform the
++validation step in your app's backend:
+ 
+     def processDigitalCredentialsResponse(response):
+       # Step 1: Parse out the TS.43 Digital Credential from the response
+@@ -244,7 +271,9 @@ The following is an example of how to parse the response and perform the validat
+ 
+ ## Exchange for phone number
+ 
+-From your app's backend, send the validated`TS.43 Digital Credential`to the aggregator's endpoint, to validates the credential and receive the verified phone number.  
++From your app's backend, send the validated `TS.43 Digital Credential` to the
++aggregator's endpoint, to validates the credential and receive the verified
++phone number.
+ 
+     def processDigitalCredentialsResponse(response):
+       # ... prior steps

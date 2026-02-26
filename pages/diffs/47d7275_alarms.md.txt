@@ -1,0 +1,158 @@
+diff --git a/docs/develop/background-work/services/alarms.md b/docs/develop/background-work/services/alarms.md
+index f3ebfe8..9027bae 100644
+--- a/docs/develop/background-work/services/alarms.md
++++ b/docs/develop/background-work/services/alarms.md
+@@ -24,7 +24,8 @@ Alarms have these characteristics:
+ - They help you minimize your app's resource requirements. You can schedule
+   operations without relying on timers or continuously running services.
+ 
+-| **Note:** For timing operations that are guaranteed to occur **during** the lifetime of your application, consider using the [`Handler`](https://developer.android.com/reference/android/os/Handler) class in conjunction with [`Timer`](https://developer.android.com/reference/java/util/Timer) and [`Thread`](https://developer.android.com/reference/java/lang/Thread) This approach gives Android better control over system resources.
++> [!NOTE]
++> **Note:** For timing operations that are guaranteed to occur **during** the lifetime of your application, consider using the [`Handler`](https://developer.android.com/reference/android/os/Handler) class in conjunction with [`Timer`](https://developer.android.com/reference/java/util/Timer) and [`Thread`](https://developer.android.com/reference/java/lang/Thread) This approach gives Android better control over system resources.
+ 
+ ## Set an inexact alarm
+ 
+@@ -33,7 +34,8 @@ in the future. Inexact alarms provide some guarantees regarding the timing of
+ alarm delivery while respecting battery-saving restrictions such as
+ [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby).
+ 
+-| **Note:** Most apps can schedule tasks and events using inexact alarms. If your app's core functionality depends on a precisely-timed alarm---such as for an alarm clock app or a calendar app---then it's OK to use an [exact alarm](https://developer.android.com/develop/background-work/services/alarms#exact) instead.
++> [!NOTE]
++> **Note:** Most apps can schedule tasks and events using inexact alarms. If your app's core functionality depends on a precisely-timed alarm---such as for an alarm clock app or a calendar app---then it's OK to use an [exact alarm](https://developer.android.com/develop/background-work/services/alarms#exact) instead.
+ 
+ Developers can leverage the following API guarantees to customize the timing of
+ inexact alarm delivery.
+@@ -78,7 +80,9 @@ Most apps can schedule tasks and events using [inexact alarms](https://developer
+ complete several [common use cases](https://developer.android.com/develop/background-work/services/alarms#use-cases). If your app's core
+ functionality depends on a precisely-timed alarm---such as for an alarm clock app
+ or a calendar app---then it's OK to use an exact alarm instead.
+-| **Note:** If your app targets Android 12 or higher, you must [declare one of the "Alarms \& reminders"](https://developer.android.com/develop/background-work/services/alarms#exact-permission-declare) permissions. Otherwise, a [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException) occurs.
++
++> [!NOTE]
++> **Note:** If your app targets Android 12 or higher, you must [declare one of the "Alarms \& reminders"](https://developer.android.com/develop/background-work/services/alarms#exact-permission-declare) permissions. Otherwise, a [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException) occurs.
+ 
+ ### Use cases that might not require exact alarms
+ 
+@@ -140,7 +144,8 @@ time-critical tasks but demand more system resources.
+     system identifies these alarms as the most critical ones and leaves low-power
+     modes if necessary to deliver the alarms.
+ 
+-    | **Caution:** When your app schedules an exact alarm using this method, the invocation of the alarm can significantly affect the device's resources, such as battery life.
++    > [!CAUTION]
++    > **Caution:** When your app schedules an exact alarm using this method, the invocation of the alarm can significantly affect the device's resources, such as battery life.
+ 
+ ### System resource consumption
+ 
+@@ -157,15 +162,17 @@ possible. To perform longer work, schedule it using
+ the device is in Doze, create an inexact alarm using
+ [`setAndAllowWhileIdle()`](https://developer.android.com/reference/android/app/AlarmManager#setAndAllowWhileIdle(int,%20long,%20android.app.PendingIntent)),
+ and start a job from the alarm.
+-| **Note:** Android considers exact alarms to be critical, time-sensitive interruptions. For this reason, exact alarms aren't affected by [foreground service launch
+-| restrictions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start).
++
++> [!NOTE]
++> **Note:** Android considers exact alarms to be critical, time-sensitive interruptions. For this reason, exact alarms aren't affected by [foreground service launch
++> restrictions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start).
+ 
+ ### Declare the appropriate exact alarm permission
+ 
+ If your app targets Android 12 or higher, you must obtain the
+ "Alarms \& reminders" special app access. To do so, declare the
+ [`SCHEDULE_EXACT_ALARM`](https://developer.android.com/reference/android/Manifest.permission#SCHEDULE_EXACT_ALARM)
+-permission in your app's manifest file, as shown in the following code snippet:  
++permission in your app's manifest file, as shown in the following code snippet:
+ 
+ ```xml
+ <manifest ...>
+@@ -179,7 +186,7 @@ permission in your app's manifest file, as shown in the following code snippet:
+ If your app targets Android 13 (API level 33) or higher, you have the option to
+ declare either the [`SCHEDULE_EXACT_ALARM`](https://developer.android.com/reference/android/Manifest.permission#SCHEDULE_EXACT_ALARM)
+ or the [`USE_EXACT_ALARM`](https://developer.android.com/reference/android/Manifest.permission#USE_EXACT_ALARM)
+-permission.  
++permission.
+ 
+ ```xml
+ <manifest ...>
+@@ -280,7 +287,7 @@ To cancel a `PendingIntent()`, pass
+ [`FLAG_NO_CREATE`](https://developer.android.com/reference/android/app/PendingIntent.getService()#FLAG_NO_CREATE)
+ to [`PendingIntent.getService()`](https://developer.android.com/reference/android/app/PendingIntent#getService(android.content.Context,%2520int,%2520android.content.Intent,%2520int))
+ to get an instance of the intent (if it exists), then pass that intent to
+-[`AlarmManager.cancel()`](https://developer.android.com/reference/android/app/AlarmManager#cancel(android.app.PendingIntent))  
++[`AlarmManager.cancel()`](https://developer.android.com/reference/android/app/AlarmManager#cancel(android.app.PendingIntent))
+ 
+ ### Kotlin
+ 
+@@ -307,7 +314,9 @@ if (pendingIntent != null && alarmManager != null) {
+   alarmManager.cancel(pendingIntent);
+ }
+ ```
+-| **Note:** If the `PendingIntent` was created with [`FLAG_ONE_SHOT`](https://developer.android.com/reference/android/app/PendingIntent#FLAG_ONE_SHOT) it **cannot** be canceled.
++
++> [!NOTE]
++> **Note:** If the `PendingIntent` was created with [`FLAG_ONE_SHOT`](https://developer.android.com/reference/android/app/PendingIntent#FLAG_ONE_SHOT) it **cannot** be canceled.
+ 
+ ### Choose an alarm type
+ 
+@@ -364,7 +373,7 @@ Here is the list of types:
+ Here are some examples of using [`ELAPSED_REALTIME_WAKEUP`](https://developer.android.com/reference/android/app/AlarmManager#ELAPSED_REALTIME_WAKEUP)
+ 
+ Wake up the device to fire the alarm in 30 minutes, and every 30 minutes
+-after that:  
++after that:
+ 
+ ### Kotlin
+ 
+@@ -387,7 +396,7 @@ alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+         AlarmManager.INTERVAL_HALF_HOUR, alarmIntent);
+ ```
+ 
+-Wake up the device to fire a one-time (non-repeating) alarm in one minute:  
++Wake up the device to fire a one-time (non-repeating) alarm in one minute:
+ 
+ ### Kotlin
+ 
+@@ -428,7 +437,7 @@ Here are some examples of using
+ [`RTC_WAKEUP`](https://developer.android.com/reference/android/app/AlarmManager#RTC_WAKEUP).
+ 
+ Wake up the device to fire the alarm at approximately 2:00 p.m., and
+-repeat once a day at the same time:  
++repeat once a day at the same time:
+ 
+ ### Kotlin
+ 
+@@ -464,7 +473,7 @@ alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()
+ ```
+ 
+ Wake up the device to fire the alarm at precisely 8:30 a.m., and every 20 minutes
+-thereafter:  
++thereafter:
+ 
+ ### Kotlin
+ 
+@@ -544,7 +553,7 @@ Depending on your app, you may want to include the ability to cancel the alarm.
+ To cancel an alarm, call [`cancel()`](https://developer.android.com/develop/background-work/services/reference/android/app/AlarmManager#cancel(android.app.AlarmManager.OnAlarmListener))
+ on the Alarm Manager, passing in the
+ [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) you no longer want
+-to fire. For example:  
++to fire. For example:
+ 
+ ### Kotlin
+ 
+@@ -629,7 +638,7 @@ Here are the steps:
+    `android:enabled="false"`. This means that the receiver will
+    not be called unless the application explicitly enables it. This prevents the
+    boot receiver from being called unnecessarily. You can enable a receiver
+-   (for example, if the user sets an alarm) as follows:  
++   (for example, if the user sets an alarm) as follows:
+ 
+    ### Kotlin
+ 
+@@ -658,7 +667,7 @@ Here are the steps:
+    reboots the device. In other words, programmatically enabling the receiver
+    overrides the manifest setting, even across reboots. The receiver will stay
+    enabled until your app disables it. You can disable a receiver (for example,
+-   if the user cancels an alarm) as follows:  
++   if the user cancels an alarm) as follows:
+ 
+    ### Kotlin
+ 

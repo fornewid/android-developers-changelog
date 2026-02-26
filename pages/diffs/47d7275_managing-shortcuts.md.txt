@@ -1,0 +1,321 @@
+diff --git a/docs/develop/ui/views/launch/shortcuts/managing-shortcuts.md b/docs/develop/ui/views/launch/shortcuts/managing-shortcuts.md
+index 22fcc6c..0d730b2 100644
+--- a/docs/develop/ui/views/launch/shortcuts/managing-shortcuts.md
++++ b/docs/develop/ui/views/launch/shortcuts/managing-shortcuts.md
+@@ -4,128 +4,243 @@ url: https://developer.android.com/develop/ui/views/launch/shortcuts/managing-sh
+ source: md.txt
+ ---
+ 
+-# Manage shortcuts
++After creating shortcuts, you might need to manage them over the lifetime of
++your app. For example, you might want to optimize your app by determining how
++often your users complete specific actions with your shortcuts. In another case,
++you might decide to disable a pinned shortcut to prevent your app from
++performing outdated or missing actions. For shortcuts referenced in
++conversations, you might want to track usage to provide signals that improve
++shortcut ranking.
+ 
+-After creating shortcuts, you might need to manage them over the lifetime of your app. For example, you might want to optimize your app by determining how often your users complete specific actions with your shortcuts. In another case, you might decide to disable a pinned shortcut to prevent your app from performing outdated or missing actions. For shortcuts referenced in conversations, you might want to track usage to provide signals that improve shortcut ranking.
+-
+-This page describes these and several other common ways to manage your shortcuts.
++This page describes these and several other common ways to manage your
++shortcuts.
+ 
+ ## Shortcut behavior
+ 
+-The following sections contain general information about shortcut behavior, including visibility, display order, and ranks.
++The following sections contain general information about shortcut behavior,
++including visibility, display order, and ranks.
+ 
+ ### Shortcut visibility
+ 
+-| **Important:** All shortcut information is stored in[credential encrypted storage](https://developer.android.com/training/articles/direct-boot), so your app can't access a user's shortcuts until after they unlock the device.
++> [!IMPORTANT]
++> **Important:** All shortcut information is stored in [credential encrypted
++> storage](https://developer.android.com/training/articles/direct-boot), so your app can't access a user's shortcuts until after they unlock the device.
+ 
+-Static shortcuts and dynamic shortcuts appear in a supported launcher or assistant when the user performs a specific gesture or voice command. On supported launchers, the gesture is a touch \& hold on the app's launcher icon, but the gesture might be different on other launcher apps. With Google Assistant, shortcuts can be displayed within Assistant or launched from a user voice command.
++Static shortcuts and dynamic shortcuts appear in a supported launcher or
++assistant when the user performs a specific gesture or voice command. On
++supported launchers, the gesture is a touch \& hold on the app's launcher icon,
++but the gesture might be different on other launcher apps. With Google
++Assistant, shortcuts can be displayed within Assistant or launched from a user
++voice command.
+ 
+-The[`LauncherApps`](https://developer.android.com/reference/android/content/pm/LauncherApps)class provides APIs for launcher apps to access shortcuts.
++The [`LauncherApps`](https://developer.android.com/reference/android/content/pm/LauncherApps) class provides APIs for launcher apps to access
++shortcuts.
+ 
+-Because pinned shortcuts appear in the launcher itself, they're always visible. A pinned shortcut is removed from the launcher only in the following situations:
++Because pinned shortcuts appear in the launcher itself, they're always visible.
++A pinned shortcut is removed from the launcher only in the following situations:
+ 
+ - The user removes it.
+ - The app associated with the shortcut is uninstalled.
+-- The user clears an app's data by going to**Settings \> Apps \& notifications** , selecting the app, then tapping**Storage \> Clear storage**.
++- The user clears an app's data by going to **Settings \> Apps \& notifications** , selecting the app, then tapping **Storage \> Clear storage**.
+ 
+-[Share targets](https://developer.android.com/training/sharing/receive#providing-direct-share-targets)are a subset of dynamic shortcuts that appear in the direct share row of the Android share sheet.
+-![A screenshot of Android Sharesheet](https://developer.android.com/static/images/guide/topics/ui/shortcuts/sharesheet.png)**Figure 1.**The Android Sharesheet. Direct share targets appear in the first row, followed by ranked apps and then the Apps lists.
++[Share targets](https://developer.android.com/training/sharing/receive#providing-direct-share-targets)
++are a subset of dynamic shortcuts that appear in the direct share row of the
++Android share sheet.
++![A screenshot of Android Sharesheet](https://developer.android.com/static/images/guide/topics/ui/shortcuts/sharesheet.png) **Figure 1.** The Android Sharesheet. Direct share targets appear in the first row, followed by ranked apps and then the Apps lists.
+ 
+ ### Shortcut display order
+ 
+-When the launcher displays an app's shortcuts, they must appear in the following order:
+-
+-1. **Static shortcuts** : shortcuts whose[`isDeclaredInManifest()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat#isDeclaredInManifest())method returns`true`.
+-2. **Dynamic shortcuts** : shortcuts whose[`ShortcutInfo.isDynamic()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat#isDynamic())method returns`true`.
+-
+-Within each shortcut type---static and dynamic---shortcuts are sorted in order of increasing*rank* according to[`ShortcutInfo.getRank`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat#getRank())(). Google Assistant also considers shortcut rank when determining contextual shortcuts to display to users.
+-
+-Ranks are non-negative, sequential integers. Static shortcuts are ranked from first-to-last in the order they appear in your`shortcuts.xml`file. For dynamic shortcuts, you can update ranks of existing shortcuts when you call[`updateShortcuts(Context, List)`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#updateShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)),[`addDynamicShortcuts(Context, List)`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#addDynamicShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)),[`pushDynamicShortcut(Context, ShortcutInfoCompat)`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#pushDynamicShortcut(android.content.Context,androidx.core.content.pm.ShortcutInfoCompat)), or[`setDynamicShortcuts(Context, List)`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#setDynamicShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)).
+-
+-The order of share targets is based on various factors including past user history, recency, frequency,[rank hint](https://developer.android.com/reference/android/content/pm/ShortcutInfo.Builder#setRank(int)), app usage, and the priority set on the conversation that is associated with a sharing shortcut. Share targets created using the[Sharing Shortcuts API](https://developer.android.com/training/sharing/receive#sharing-shortcuts-api)are prioritized over the share targets produced by the[`ChooserTargetService`](https://developer.android.com/reference/android/service/chooser/ChooserTargetService)which was deprecated in Android 11. In Android 12 and higher share targets generated by the deprecated`ChooserTargetService`will no longer appear in the share sheet.
+-
+-Most launchers display a maximum of four shortcuts. For any combination of static shortcuts and dynamic shortcuts that are defined, the launcher displays a maximum of two static shortcuts and two dynamic shortcuts. For example, if you define four static shortcuts and programmatically create three dynamic shortcuts, the launcher displays the first two static shortcuts, and the two most highly-ranked dynamic shortcuts.
+-| **Note:** Ranks are auto-adjusted so they're unique for each type of shortcut---static or dynamic. For example, if there are three dynamic shortcuts with ranks 0, 1, and 2, adding another dynamic shortcut with a rank of 1 represents a request to place this shortcut in the second position. In response, the ranks of the shortcuts previously ranked 1 and 2 change to 2 and 3, respectively.
++When the launcher displays an app's shortcuts, they must appear in the following
++order:
++
++1. **Static shortcuts** : shortcuts whose [`isDeclaredInManifest()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat#isDeclaredInManifest()) method returns `true`.
++2. **Dynamic shortcuts** : shortcuts whose [`ShortcutInfo.isDynamic()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat#isDynamic()) method returns `true`.
++
++Within each shortcut type---static and dynamic---shortcuts are sorted in order of
++increasing *rank* according to [`ShortcutInfo.getRank`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat#getRank())(). Google Assistant
++also considers shortcut rank when determining contextual shortcuts to display to
++users.
++
++Ranks are non-negative, sequential integers. Static shortcuts are ranked from
++first-to-last in the order they appear in your `shortcuts.xml` file. For dynamic
++shortcuts, you can update ranks of existing shortcuts when you call
++[`updateShortcuts(Context, List)`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#updateShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)),
++[`addDynamicShortcuts(Context, List)`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#addDynamicShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)),
++[`pushDynamicShortcut(Context, ShortcutInfoCompat)`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#pushDynamicShortcut(android.content.Context,androidx.core.content.pm.ShortcutInfoCompat)), or
++[`setDynamicShortcuts(Context, List)`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#setDynamicShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)).
++
++The order of share targets is based on various factors including past user
++history, recency, frequency,
++[rank hint](https://developer.android.com/reference/android/content/pm/ShortcutInfo.Builder#setRank(int)),
++app usage, and the priority set on the conversation that is associated with a
++sharing shortcut. Share targets created using the
++[Sharing Shortcuts API](https://developer.android.com/training/sharing/receive#sharing-shortcuts-api)
++are prioritized over the share targets produced by the
++[`ChooserTargetService`](https://developer.android.com/reference/android/service/chooser/ChooserTargetService)
++which was deprecated in Android 11. In Android 12 and higher share targets
++generated by the deprecated `ChooserTargetService` will no longer appear in the
++share sheet.
++
++Most launchers display a maximum of four shortcuts. For any combination of
++static shortcuts and dynamic shortcuts that are defined, the launcher displays a
++maximum of two static shortcuts and two dynamic shortcuts. For example, if you
++define four static shortcuts and programmatically create three dynamic
++shortcuts, the launcher displays the first two static shortcuts, and the two
++most highly-ranked dynamic shortcuts.
++
++> [!NOTE]
++> **Note:** Ranks are auto-adjusted so they're unique for each type of shortcut---static or dynamic. For example, if there are three dynamic shortcuts with ranks 0, 1, and 2, adding another dynamic shortcut with a rank of 1 represents a request to place this shortcut in the second position. In response, the ranks of the shortcuts previously ranked 1 and 2 change to 2 and 3, respectively.
+ 
+ ## Manage multiple intents and activities
+ 
+-If you want your app to perform multiple operations when your user activates a shortcut, you can configure it to trigger successive activities. You can accomplish this by assigning multiple intents, starting one activity from another, or setting intent flags, depending on the shortcut's type.
++If you want your app to perform multiple operations when your user activates a
++shortcut, you can configure it to trigger successive activities. You can
++accomplish this by assigning multiple intents, starting one activity from
++another, or setting intent flags, depending on the shortcut's type.
+ 
+ ### Assign multiple intents
+ 
+-When creating a shortcut with[`ShortcutInfoCompat.Builder`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat.Builder), you can use[`setIntents()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat.Builder#setIntents(android.content.Intent%5B%5D))instead of`setIntent()`. By calling`setIntents()`, you can launch multiple activities within your app when the user selects a shortcut, placing all but the last activity in the list on the back[stack](https://developer.android.com/guide/components/tasks-and-back-stack). If the user then taps the device's back button, they see another activity in your app instead of returning to the device's launcher.
+-| **Note:** When the user selects a shortcut and then taps the back button, your app launches the activity corresponding with the second-to-last intent listed in the shortcuts resource file. This behavior pattern continues as the user continues to tap the back button until the user clears the back stack that a shortcut creates. Then, if the user taps the back button again, the system navigates them back to the launcher.
++When creating a shortcut with [`ShortcutInfoCompat.Builder`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat.Builder), you can use
++[`setIntents()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat.Builder#setIntents(android.content.Intent%5B%5D)) instead of `setIntent()`. By calling `setIntents()`, you
++can launch multiple activities within your app when the user selects a shortcut,
++placing all but the last activity in the list on the back [stack](https://developer.android.com/guide/components/tasks-and-back-stack). If the
++user then taps the device's back button, they see another activity in your app
++instead of returning to the device's launcher.
++
++> [!NOTE]
++> **Note:** When the user selects a shortcut and then taps the back button, your app launches the activity corresponding with the second-to-last intent listed in the shortcuts resource file. This behavior pattern continues as the user continues to tap the back button until the user clears the back stack that a shortcut creates. Then, if the user taps the back button again, the system navigates them back to the launcher.
+ 
+ ### Start one activity from another
+ 
+-Static shortcuts can't have custom intent flags. The first intent of a static shortcut always has[`Intent.FLAG_ACTIVITY_NEW_TASK`](https://developer.android.com/reference/android/content/Intent#FLAG_ACTIVITY_NEW_TASK)and`Intent.FLAG_ACTIVITY_CLEAR_TASK`[set](https://developer.android.com/reference/android/content/Intent#FLAG_ACTIVITY_CLEAR_TASK). This means that when your app is running, all the existing activities in the app are destroyed when a static shortcut is launched. If you don't want this behavior, you can use a*trampoline activity* ---an invisible activity that starts another activity---in`Activity.onCreate(Bundle)`[that](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle))calls`Activity.finish()`:
++Static shortcuts can't have custom intent flags. The first intent of a static
++shortcut always has [`Intent.FLAG_ACTIVITY_NEW_TASK`](https://developer.android.com/reference/android/content/Intent#FLAG_ACTIVITY_NEW_TASK) and
++`Intent.FLAG_ACTIVITY_CLEAR_TASK` [set](https://developer.android.com/reference/android/content/Intent#FLAG_ACTIVITY_CLEAR_TASK). This means that when your app is
++running, all the existing activities in the app are destroyed when a static
++shortcut is launched. If you don't want this behavior, you can use a *trampoline
++activity* ---an invisible activity that starts another activity---in
++`Activity.onCreate(Bundle)` [that](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) calls `Activity.finish()`:
+ 
+-1. In the`AndroidManifest.xml`file, include the attribute assignment`android:taskAffinity=`"" in the trampoline activity.
++1. In the `AndroidManifest.xml` file, include the attribute assignment `android:taskAffinity=`"" in the trampoline activity.
+ 2. In the shortcuts resource file, reference the trampoline activity in the intent within the static shortcut.
+ 
+-For more information about trampoline activities, see[Starting one activity from another](https://developer.android.com/guide/components/activities/activity-lifecycle#soafa).
++For more information about trampoline activities, see [Starting one activity
++from another](https://developer.android.com/guide/components/activities/activity-lifecycle#soafa).
+ 
+ ### Set intent flags
+ 
+-You can publish dynamic shortcuts with any set of[`Intent`](https://developer.android.com/reference/android/content/Intent#addFlags(int))flags. Preferably, specify`Intent.FLAG_ACTIVITY_CLEAR_TASK`along with your other flags. Otherwise, if you attempt to start another task while your app is running, the target activity might not appear.
++You can publish dynamic shortcuts with any set of [`Intent`](https://developer.android.com/reference/android/content/Intent#addFlags(int)) flags.
++Preferably, specify `Intent.FLAG_ACTIVITY_CLEAR_TASK` along with your other
++flags. Otherwise, if you attempt to start another task while your app is
++running, the target activity might not appear.
+ 
+-To learn more about tasks and intent flags, see[Tasks and the back stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack).
++To learn more about tasks and intent flags, see [Tasks and the back stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack).
+ 
+ ## Update shortcuts
+ 
+-Each app's launcher icon can contain, at most, a number of static and dynamic shortcuts combined that is equal to the value returned by[`getMaxShortcutCountPerActivity`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#getMaxShortcutCountPerActivity(android.content.Context))(). There isn't a limit to the number of pinned shortcuts that an app can create.
++Each app's launcher icon can contain, at most, a number of static and dynamic
++shortcuts combined that is equal to the value returned by
++[`getMaxShortcutCountPerActivity`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#getMaxShortcutCountPerActivity(android.content.Context))(). There isn't a limit to the number of
++pinned shortcuts that an app can create.
+ 
+-When a dynamic shortcut is pinned, even when the publisher removes it as a dynamic shortcut, the pinned shortcut is still visible and launchable. This lets an app have more than`getMaxShortcutCountPerActivity()`number of shortcuts.
++When a dynamic shortcut is pinned, even when the publisher removes it as a
++dynamic shortcut, the pinned shortcut is still visible and launchable. This lets
++an app have more than `getMaxShortcutCountPerActivity()` number of shortcuts.
+ 
+-Consider the following example, which assumes that the value returned by`getMaxShortcutCountPerActivity()`is`4`:
++Consider the following example, which assumes that the value returned by
++`getMaxShortcutCountPerActivity()` is `4`:
+ 
+ 1. A chat app publishes four dynamic shortcuts, representing the four most recent conversations: c1, c2, c3, and c4.
+ 2. The user pins all four of the shortcuts.
+ 3. Later, the user starts three additional conversations: c5, c6, and c7. The publisher app re-publishes its dynamic shortcuts. The new dynamic shortcut list is: c4, c5, c6, and c7.
+ 
+-The app has to remove c1, c2, and c3, because it can't display more than four dynamic shortcuts. However, c1, c2, and c3 are still pinned shortcuts that the user can access and launch.
++The app has to remove c1, c2, and c3, because it can't display more than four
++dynamic shortcuts. However, c1, c2, and c3 are still pinned shortcuts that the
++user can access and launch.
+ 
+-The user can then access a total of seven shortcuts that link to activities in the publisher app. This is because the total includes the maximum number of shortcuts and the three pinned shortcuts.
++The user can then access a total of seven shortcuts that link to activities in
++the publisher app. This is because the total includes the maximum number of
++shortcuts and the three pinned shortcuts.
+ 
+-1. The app can use`updateShortcuts(Context, List)`to update any of the existing seven shortcuts. For example, you might update this set of shortcuts when the chat peers' icons change.
+-2. You can use the[`addDynamicShortcuts(Context, List)`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#addDynamicShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E))and`setDynamicShortcuts(Context, List)`methods to update existing shortcuts with the same IDs. However, you can't use them for updating non-dynamic, pinned shortcuts, because these two methods try to convert the given lists of shortcuts to dynamic shortcuts.
++1. The app can use `updateShortcuts(Context, List)` to update any of the existing seven shortcuts. For example, you might update this set of shortcuts when the chat peers' icons change.
++2. You can use the [`addDynamicShortcuts(Context, List)`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#addDynamicShortcuts(android.content.Context,%20java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E)) and `setDynamicShortcuts(Context, List)` methods to update existing shortcuts with the same IDs. However, you can't use them for updating non-dynamic, pinned shortcuts, because these two methods try to convert the given lists of shortcuts to dynamic shortcuts.
+ 
+-There isn't a limit to the number of shortcuts that can be pushed for display on assistant apps such as Google Assistant. Use the[`pushDynamicShortcut()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#pushDynamicShortcut(android.content.Context,%20androidx.core.content.pm.ShortcutInfoCompat))method of the`ShortcutManagerCompat`Jetpack library to create and update shortcuts for use on assistant apps. Also, add the[Google Shortcuts Integration library](https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts#gsi-library)to your app to make dynamic links eligible to appear on Google Assistant.
++There isn't a limit to the number of shortcuts that can be pushed for display on
++assistant apps such as Google Assistant. Use the [`pushDynamicShortcut()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#pushDynamicShortcut(android.content.Context,%20androidx.core.content.pm.ShortcutInfoCompat))
++method of the `ShortcutManagerCompat` Jetpack library to create and update
++shortcuts for use on assistant apps. Also, add the [Google Shortcuts Integration
++library](https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts#gsi-library) to your app to make dynamic links eligible to appear on Google
++Assistant.
+ 
+-To learn more about guidelines for app shortcuts, including updating shortcuts, see[Best practices for shortcuts](https://developer.android.com/guide/topics/ui/shortcuts/best-practices).
++To learn more about guidelines for app shortcuts, including updating shortcuts,
++see [Best practices for shortcuts](https://developer.android.com/guide/topics/ui/shortcuts/best-practices).
+ 
+ ### Handle system locale changes
+ 
+-Apps must update dynamic and pinned shortcuts when they receive the[`Intent.ACTION_LOCALE_CHANGED`](https://developer.android.com/reference/android/content/Intent#ACTION_LOCALE_CHANGED)broadcast indicating a change to the system locale.
++Apps must update dynamic and pinned shortcuts when they receive the
++[`Intent.ACTION_LOCALE_CHANGED`](https://developer.android.com/reference/android/content/Intent#ACTION_LOCALE_CHANGED) broadcast indicating a change to the system
++locale.
+ 
+ ### Track shortcut usage
+ 
+-To determine the situations during which static and dynamic shortcuts appear, the launcher examines the activation history of shortcuts. For static shortcuts, you can keep track of when users complete specific actions within your app by calling the[`reportShortcutUsed()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#reportShortcutUsed(android.content.Context,%20java.lang.String))method and passing it the ID of a shortcut when either of the following events occurs:
++To determine the situations during which static and dynamic shortcuts appear,
++the launcher examines the activation history of shortcuts. For static shortcuts,
++you can keep track of when users complete specific actions within your app by
++calling the [`reportShortcutUsed()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#reportShortcutUsed(android.content.Context,%20java.lang.String)) method and passing it the ID of a
++shortcut when either of the following events occurs:
+ 
+ - The user selects the shortcut with the given ID.
+ - Within the app, the user manually completes the action corresponding to the same shortcut.
+ 
+-Your app tracks usage for dynamic shortcuts by calling the`pushDynamicShortcut()`method and passing it the ID of the shortcut when a relevant event occurs. Pushing dynamic shortcut usage with this method lets assistant apps such as Google Assistant suggest relevant shortcuts to users. Because the`pushDynamicShortcut()`method reports usage when called, don't call the`reportShortcutUsed()`method for the same shortcuts.
++Your app tracks usage for dynamic shortcuts by calling the
++`pushDynamicShortcut()` method and passing it the ID of the shortcut when a
++relevant event occurs. Pushing dynamic shortcut usage with this method lets
++assistant apps such as Google Assistant suggest relevant shortcuts to users.
++Because the `pushDynamicShortcut()` method reports usage when called, don't call
++the `reportShortcutUsed()` method for the same shortcuts.
+ 
+-For conversation-related shortcuts, it is important to track usage for outgoing and incoming messages. For details, see the[best practices](https://developer.android.com/develop/ui/views/notifications/conversations#best-practices)for people and conversations.
+-| **Note:** The[Google Shortcuts Integration Library](https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts#gsi-library)is required to enable the dynamic links your app pushes to be eligible to appear on Google surfaces such as Google Assistant. By adding this library to your app, you let Assistant take in your dynamic links and suggest them to users from the Assistant app.
++For conversation-related shortcuts, it is important to track usage for outgoing
++and incoming messages. For details, see the [best practices](https://developer.android.com/develop/ui/views/notifications/conversations#best-practices) for people and
++conversations.
++
++> [!NOTE]
++> **Note:** The [Google Shortcuts Integration Library](https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts#gsi-library) is required to enable the dynamic links your app pushes to be eligible to appear on Google surfaces such as Google Assistant. By adding this library to your app, you let Assistant take in your dynamic links and suggest them to users from the Assistant app.
+ 
+ ## Disable shortcuts
+ 
+-Because your app and its users can pin shortcuts to the device's launcher, it's possible that these pinned shortcuts can direct users to actions within your app that are out of date or no longer exist. To manage this situation, you can disable the shortcuts that you don't want users to select by calling[`disableShortcuts`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#disableShortcuts(android.content.Context,%20java.util.List%3Cjava.lang.String%3E,%20java.lang.CharSequence))), which removes the specified shortcuts from the static and dynamic shortcuts list and disables pinned copies of these shortcuts. You can also use an overloaded version of this method that accepts a[`CharSequence`](https://developer.android.com/reference/java/lang/CharSequence)as a custom error message. That error message then appears when users attempt to launch any disabled shortcut.
+-| **Note:** If you remove some of your app's static shortcuts when you update your app, the system disables these shortcuts automatically.
++Because your app and its users can pin shortcuts to the device's launcher, it's
++possible that these pinned shortcuts can direct users to actions within your app
++that are out of date or no longer exist. To manage this situation, you can
++disable the shortcuts that you don't want users to select by calling
++[`disableShortcuts`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#disableShortcuts(android.content.Context,%20java.util.List%3Cjava.lang.String%3E,%20java.lang.CharSequence))), which removes the specified shortcuts from the static
++and dynamic shortcuts list and disables pinned copies of these shortcuts. You
++can also use an overloaded version of this method that accepts a
++[`CharSequence`](https://developer.android.com/reference/java/lang/CharSequence) as a custom error message. That error message then appears
++when users attempt to launch any disabled shortcut.
++
++> [!NOTE]
++> **Note:** If you remove some of your app's static shortcuts when you update your app, the system disables these shortcuts automatically.
+ 
+ ## Rate limiting
+ 
+-When using the`setDynamicShortcuts(), addDynamicShortcuts()`, or`updateShortcuts()`methods, you might only be able to call these methods a specific number of times in a*background app* ---an app with no activities or services in the foreground. The limit on the specific number of times you can call these methods is called*rate limiting* . This feature prevents[`ShortcutManagerCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat)from over-consuming device resources.
++When using the `setDynamicShortcuts(), addDynamicShortcuts()`, or
++`updateShortcuts()` methods, you might only be able to call these methods a
++specific number of times in a *background app* ---an app with no activities or
++services in the foreground. The limit on the specific number of times you can
++call these methods is called *rate limiting* . This feature prevents
++[`ShortcutManagerCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat) from over-consuming device resources.
+ 
+-When rate limiting is active,[`isRateLimitingActive()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#isratelimitingactive)returns true. However, rate limiting is reset during certain events, so even background apps can call`ShortcutManager`methods until the rate limit is reached again. These events include the following:
++When rate limiting is active, [`isRateLimitingActive()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#isratelimitingactive) returns true.
++However, rate limiting is reset during certain events, so even background apps
++can call `ShortcutManager` methods until the rate limit is reached again. These
++events include the following:
+ 
+ - An app comes to the foreground.
+ - The system locale changes.
+-- The user performs the[inline reply](https://developer.android.com/guide/topics/ui/notifiers/notifications)action on a notification.
++- The user performs the [inline reply](https://developer.android.com/guide/topics/ui/notifiers/notifications) action on a notification.
+ 
+-If you encounter rate limiting during development or testing, you can select**Developer Options \> Reset ShortcutManager rate-limiting** from the[device's settings](https://developer.android.com/studio/debug/dev-options), or you can enter the following command in`adb`:  
++If you encounter rate limiting during development or testing, you can select
++**Developer Options \> Reset ShortcutManager rate-limiting** from the [device's
++settings](https://developer.android.com/studio/debug/dev-options), or you can enter the following command in `adb`:
+ 
+ ```
+ $ adb shell cmd shortcut reset-throttling [ --user your-user-id ]
+@@ -133,13 +248,17 @@ $ adb shell cmd shortcut reset-throttling [ --user your-user-id ]
+ 
+ ## Backup and restore
+ 
+-You can let users perform backup and restore operations on your app when changing devices by including the[`android:allowBackup="true`](https://developer.android.com/guide/topics/manifest/application-element#allowbackup)" attribute assignment in your app's manifest file. If you support backup and restore, keep the following points about app shortcuts in mind:
++You can let users perform backup and restore operations on your app when
++changing devices by including the [`android:allowBackup="true`](https://developer.android.com/guide/topics/manifest/application-element#allowbackup)" attribute
++assignment in your app's manifest file. If you support backup and restore, keep
++the following points about app shortcuts in mind:
+ 
+ - Static shortcuts are re-published automatically, but only after the user re-installs your app on a new device.
+ - Dynamic shortcuts aren't backed up, so include logic in your app to re-publish them when a user opens your app on a new device.
+ - Pinned shortcuts are restored to the device's launcher automatically, but the system doesn't back up icons associated with pinned shortcuts. Therefore, save your pinned shortcuts' images in your app so that it's easy to restore them on a new device.
+ 
+-The following code snippet shows how best to restore your app's dynamic shortcuts and how to check whether your app's pinned shortcuts were preserved:  
++The following code snippet shows how best to restore your app's dynamic
++shortcuts and how to check whether your app's pinned shortcuts were preserved:
+ 
+ ### Kotlin
+ 

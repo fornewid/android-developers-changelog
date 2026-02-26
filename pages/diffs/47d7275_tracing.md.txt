@@ -1,0 +1,30 @@
+diff --git a/docs/jetpack/androidx/releases/tracing.md b/docs/jetpack/androidx/releases/tracing.md
+index ae7625e..f9fb1b2 100644
+--- a/docs/jetpack/androidx/releases/tracing.md
++++ b/docs/jetpack/androidx/releases/tracing.md
+@@ -12,7 +12,7 @@ Write trace events to the system trace buffer.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| January 28, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha01) |
++| February 25, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha02) |
+ 
+ ## Feedback
+ 
+@@ -29,6 +29,16 @@ for more information.
+ 
+ ## Version 2.0
+ 
++### Version 2.0.0-alpha02
++
++February 25, 2026
++
++`androidx.tracing:tracing-*:2.0.0-alpha02` is released. Version 2.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d975db48960bccfb22a55f6578ef5cf204907306..6e23fc0c137022098ae2d043778ffdc56402ba5e/tracing).
++
++**New Features**
++
++- Improved performance for the Perfetto Trace Sink implementation by using the `suspendCoroutineUninterceptedOrReturn` intrinsic ([2ea97b](https://r.android.com/3955484)).
++
+ ### Version 2.0.0-alpha01
+ 
+ January 28, 2026

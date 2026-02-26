@@ -1,0 +1,112 @@
+diff --git a/docs/jetpack/androidx/releases/compose-ui.md b/docs/jetpack/androidx/releases/compose-ui.md
+index 569da09..8b0a851 100644
+--- a/docs/jetpack/androidx/releases/compose-ui.md
++++ b/docs/jetpack/androidx/releases/compose-ui.md
+@@ -16,7 +16,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| February 11, 2026 | [1.10.3](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.3) | - | - | [1.11.0-alpha05](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.0-alpha05) |
++| February 25, 2026 | [1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.4) | - | - | [1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.0-alpha06) |
+ 
+ ## Structure
+ 
+@@ -49,7 +49,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.compose.ui:ui:1.10.3"
++    implementation "androidx.compose.ui:ui:1.10.4"
+ }
+ 
+ android {
+@@ -71,7 +71,7 @@ android {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.compose.ui:ui:1.10.3")
++    implementation("androidx.compose.ui:ui:1.10.4")
+ }
+ 
+ android {
+@@ -106,6 +106,21 @@ for more information.
+ 
+ ## Version 1.11
+ 
++### Version 1.11.0-alpha06
++
++February 25, 2026
++
++`androidx.compose.ui:ui-*:1.11.0-alpha06` is released. Version 1.11.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..6e23fc0c137022098ae2d043778ffdc56402ba5e/compose/ui).
++
++**API Changes**
++
++- The `ComposeUiFlags.areWindowInsetsRulersEnabled` flag has been replaced with the `ComposeView.disableWindowInsetsRulers()` API. ([Idcdb4](https://android-review.googlesource.com/#/q/Idcdb499fe497b5b3ac6119436ae8086812870d75), [b/455590696](https://issuetracker.google.com/issues/455590696))
++- Moved the experimental Android-only feature flag `isAccessibilityShowOnScreenNestedScrollingEnabled` to ([I1c13a](https://android-review.googlesource.com/#/q/I1c13a5c1af88602e2d7cef0b6398e4e367db9209))
++- Add support for walking up ([I1c13a](https://android-review.googlesource.com/#/q/I1c13a5c1af88602e2d7cef0b6398e4e367db9209))
++- Report off-screen semantics nodes that are children of partially visible merging nodes in scrollable containers for better user experience with screen readers and similar accessibility services ([I71df9](https://android-review.googlesource.com/#/q/I71df9662d589f8a78bad0f58881dee4db8362937), [b/434782764](https://issuetracker.google.com/issues/434782764))
++- When `AndroidComposeUiFlags.isSharedClipboardManagerEnabled` is true, clipboard-related instances can be shared across `ComposeViews` using `ComposeViewContext` ([I65e2c](https://android-review.googlesource.com/#/q/I65e2ce3e05f6a883146aa571f4537f6ee0ffaf37))
++- `ComposeUiFlags.isRectManagerOffsetUsageFromLayoutCoordinatesEnabled` was removed ([I6e14a](https://android-review.googlesource.com/#/q/I6e14a1bf7267e9ea61169a2ce556f53afad2ffd2), [b/455601894](https://issuetracker.google.com/issues/455601894))
++
+ ### Version 1.11.0-alpha05
+ 
+ February 11, 2026
+@@ -197,6 +212,12 @@ December 03, 2025
+ 
+ ## Version 1.10
+ 
++### Version 1.10.4
++
++February 25, 2026
++
++`androidx.compose.ui:ui-*:1.10.4` is released. Version 1.10.4 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0d23f956849b578e041ea4245127d4007eae43be..6b6d8d062bfb0daa907101a196d1ea43d60ecfe2/compose/ui).
++
+ ### Version 1.10.3
+ 
+ February 11, 2026
+@@ -3275,8 +3296,10 @@ June 2, 2021
+ May 18, 2021
+ 
+ `androidx.compose.ui:ui-*:1.0.0-beta07` is released. [Version 1.0.0-beta07 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/4c1927601bfcaaaf049d0fc7a4e5801ff5cf9729..b648147c5fdfc5ecbad57e40e2dc0c69aa23bf12/compose/ui)
+-| **Note:** Libraries dependent on Compose will need to recompile with version `1.0.0`‑`beta07`. Otherwise, libraries may encounter a `NoSuchMethodError`, such as:  
+-| `java.lang.NoSuchMethodError: No interface method startReplaceableGroup(ILjava/lang/String;)V in class Landroidx/compose/runtime/Composer; or its super classes`. ([Ia34e6](https://android-review.googlesource.com/#/q/Ia34e699fdbeaeb86b74e9da27d79d186e6e71757))
++
++> [!NOTE]
++> **Note:** Libraries dependent on Compose will need to recompile with version `1.0.0`‑`beta07`. Otherwise, libraries may encounter a `NoSuchMethodError`, such as:  
++> `java.lang.NoSuchMethodError: No interface method startReplaceableGroup(ILjava/lang/String;)V in class Landroidx/compose/runtime/Composer; or its super classes`. ([Ia34e6](https://android-review.googlesource.com/#/q/Ia34e699fdbeaeb86b74e9da27d79d186e6e71757))
+ 
+ **API Changes**
+ 
+@@ -3546,7 +3569,9 @@ This is the first release of Compose 1.0.0 Beta.
+ February 10, 2021
+ 
+ `androidx.compose.ui:ui-*:1.0.0-alpha12` is released. [Version 1.0.0-alpha12 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/6950aab50fe6c9f7e9d97cf865161f2d3999eb9e..9ed3262e0dfca1d352bdbf8f8e10253a61ef6218/compose/ui)
+-| **Note:** An issue was found in Activity Compose that causes a `NoSuchMethodError: No static method setContent` exception to be thrown by default for Apps that depend on either `androidx.compose.ui:ui-tooling:1.0.0-alpha12` or `androidx.compose.ui:ui-test-junit4:1.0.0-alpha12`, or internally use `setContent` ([b/179911234](https://issuetracker.google.com/issues/179911234)). To fix, add a dependency on [`androidx.activity:activity-compose:1.3.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity#1.3.0-alpha02).
++
++> [!NOTE]
++> **Note:** An issue was found in Activity Compose that causes a `NoSuchMethodError: No static method setContent` exception to be thrown by default for Apps that depend on either `androidx.compose.ui:ui-tooling:1.0.0-alpha12` or `androidx.compose.ui:ui-test-junit4:1.0.0-alpha12`, or internally use `setContent` ([b/179911234](https://issuetracker.google.com/issues/179911234)). To fix, add a dependency on [`androidx.activity:activity-compose:1.3.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity#1.3.0-alpha02).
+ 
+ **API Changes**
+ 
+@@ -3976,7 +4001,9 @@ December 16, 2020
+ December 2, 2020
+ 
+ `androidx.compose.ui:ui-*:1.0.0-alpha08` is released. [Version 1.0.0-alpha08 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/358bdaf3c3c4a917883408e9f747da521fdf9e65..10b5e9fd366c1c413d5576aed50a305d300938e1/compose/ui)
+-| **Note:** This release is only compatible with Kotlin `1.4.20`, so you will need to update your Kotlin version.
++
++> [!NOTE]
++> **Note:** This release is only compatible with Kotlin `1.4.20`, so you will need to update your Kotlin version.
+ 
+ **API Changes**
+ 
+@@ -4216,7 +4243,9 @@ October 14, 2020
+ October 1, 2020
+ 
+ `androidx.compose.ui:ui-*:1.0.0-alpha04` is released. [Version 1.0.0-alpha04 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/18a5639262f8504db530176550e338a5d0e2e044..f5a2c7477391539d8bc9f65a8f0db1e8a7bf2cf5/compose/ui)
+-| **Note:** Compose Version 1.0.0-alpha04 is only compatible with Android Studio 4.2 Canary 13 and later.
++
++> [!NOTE]
++> **Note:** Compose Version 1.0.0-alpha04 is only compatible with Android Studio 4.2 Canary 13 and later.
+ 
+ **API Changes**
+ 

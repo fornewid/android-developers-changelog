@@ -1,0 +1,41 @@
+diff --git a/docs/develop/ui/views/touch-and-input/drag-drop/view.md b/docs/develop/ui/views/touch-and-input/drag-drop/view.md
+index 7655bb7..16a74d6 100644
+--- a/docs/develop/ui/views/touch-and-input/drag-drop/view.md
++++ b/docs/develop/ui/views/touch-and-input/drag-drop/view.md
+@@ -23,7 +23,7 @@ data movement, you might want to use `null` instead of an actual object.
+ 
+ For example, this code snippet shows how to respond to a touch \& hold
+ gesture on an `ImageView` by creating a `ClipData` object that contains the
+-tag (or label) of an `ImageView`:  
++tag (or label) of an `ImageView`:
+ 
+ ### Kotlin
+ 
+@@ -215,7 +215,7 @@ Each drag event listener must do the following:
+ ## Respond to drag events: An example
+ 
+ All drag events are received by your drag event method or listener. The
+-following code snippet is an example of responding to drag events:  
++following code snippet is an example of responding to drag events:
+ 
+ ### Kotlin
+ 
+@@ -432,7 +432,7 @@ imageView.setOnDragListener( (v, e) -> {
+ 
+ You can define a customized `myDragShadowBuilder` by overriding the methods in
+ `View.DragShadowBuilder`. The following code snippet creates a small,
+-rectangular, gray drag shadow for a `TextView`:  
++rectangular, gray drag shadow for a `TextView`:
+ 
+ ### Kotlin
+ 
+@@ -536,4 +536,6 @@ private static class MyDragShadowBuilder extends View.DragShadowBuilder {
+     }
+ }
+ ```
+-| **Note:** You don't have to extend `View.DragShadowBuilder`. The constructor [`View.DragShadowBuilder(View)`](https://developer.android.com/reference/android/view/View.DragShadowBuilder#DragShadowBuilder(android.view.View)) creates a default drag shadow that's the same size as the `View` argument passed to it. The constructor also centers the touch point in the drag shadow.
+\ No newline at end of file
++
++> [!NOTE]
++> **Note:** You don't have to extend `View.DragShadowBuilder`. The constructor [`View.DragShadowBuilder(View)`](https://developer.android.com/reference/android/view/View.DragShadowBuilder#DragShadowBuilder(android.view.View)) creates a default drag shadow that's the same size as the `View` argument passed to it. The constructor also centers the touch point in the drag shadow.
+\ No newline at end of file

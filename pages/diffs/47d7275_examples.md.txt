@@ -1,0 +1,16 @@
+diff --git a/docs/develop/ui/views/animations/motionlayout/examples.md b/docs/develop/ui/views/animations/motionlayout/examples.md
+index 8e101b9..60ff1b1 100644
+--- a/docs/develop/ui/views/animations/motionlayout/examples.md
++++ b/docs/develop/ui/views/animations/motionlayout/examples.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/animations/motionlayout/exam
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use animations in Compose.  
+-[Animations in Compose →](https://developer.android.com/develop/ui/compose/animation/introduction)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use animations in Compose. [Animations in Compose →](https://developer.android.com/develop/ui/compose/animation/introduction) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 

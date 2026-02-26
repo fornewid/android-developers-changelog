@@ -1,0 +1,13 @@
+diff --git a/docs/develop/connectivity/wifi/localonlyhotspot.md b/docs/develop/connectivity/wifi/localonlyhotspot.md
+index ad663d0..cd29568 100644
+--- a/docs/develop/connectivity/wifi/localonlyhotspot.md
++++ b/docs/develop/connectivity/wifi/localonlyhotspot.md
+@@ -17,7 +17,7 @@ If your app targets Android 13 (API level 33) or higher, you must request the
+ [`NEARBY_WIFI_DEVICES`](https://developer.android.com/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES)
+ to use a local-only hotspot, as shown in the following code snippet. Apps that
+ target an earlier version of Android must request `ACCESS_FINE_LOCATION`
+-instead.  
++instead.
+ 
+ ```xml
+ <manifest ...>

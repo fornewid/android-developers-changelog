@@ -1,0 +1,107 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md b/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md
+index 5b750da..8c9bb9a 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md
++++ b/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md
+@@ -43,20 +43,20 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.runtime:runtime:1.0.0-alpha10"
+-    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha11"
+-    implementation "androidx.xr.compose:compose:1.0.0-alpha10"
+-    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha14"
+-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha10"
++    implementation "androidx.xr.runtime:runtime:1.0.0-alpha11"
++    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha12"
++    implementation "androidx.xr.compose:compose:1.0.0-alpha11"
++    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha15"
++    implementation "androidx.xr.arcore:arcore:1.0.0-alpha11"
+ 
+     // For compatibility with guava, use these dependencies:
+-    implementation "androidx.xr.arcore:arcore-guava:1.0.0-alpha10"
+-    implementation "androidx.xr.runtime:runtime-guava:1.0.0-alpha10"
+-    implementation "androidx.xr.scenecore:scenecore-guava:1.0.0-alpha11"
++    implementation "androidx.xr.arcore:arcore-guava:1.0.0-alpha11"
++    implementation "androidx.xr.runtime:runtime-guava:1.0.0-alpha11"
++    implementation "androidx.xr.scenecore:scenecore-guava:1.0.0-alpha12"
+ 
+     // For compatibility with rxjava3, use these dependencies:
+-    implementation "androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha10"
+-    implementation "androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha10"
++    implementation "androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha11"
++    implementation "androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha11"
+ }
+ ```
+ 
+@@ -64,20 +64,20 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.runtime:runtime:1.0.0-alpha10")
+-    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha11")
+-    implementation("androidx.xr.compose:compose:1.0.0-alpha10")
+-    implementation("androidx.xr.compose.material3:material3:1.0.0-alpha14")
+-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha10")
++    implementation("androidx.xr.runtime:runtime:1.0.0-alpha11")
++    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha12")
++    implementation("androidx.xr.compose:compose:1.0.0-alpha11")
++    implementation("androidx.xr.compose.material3:material3:1.0.0-alpha15")
++    implementation("androidx.xr.arcore:arcore:1.0.0-alpha11")
+ 
+     // For compatibility with guava, use these dependencies:
+-    implementation("androidx.xr.arcore:arcore-guava:1.0.0-alpha10")
+-    implementation("androidx.xr.runtime:runtime-guava:1.0.0-alpha10")
+-    implementation("androidx.xr.scenecore:scenecore-guava:1.0.0-alpha11")
++    implementation("androidx.xr.arcore:arcore-guava:1.0.0-alpha11")
++    implementation("androidx.xr.runtime:runtime-guava:1.0.0-alpha11")
++    implementation("androidx.xr.scenecore:scenecore-guava:1.0.0-alpha12")
+ 
+     // For compatibility with rxjava3, use these dependencies:
+-    implementation("androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha10")
+-    implementation("androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha10")
++    implementation("androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha11")
++    implementation("androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha11")
+ }
+ ```
+ 
+@@ -107,7 +107,9 @@ dependencies {
+     compileOnly("com.android.extensions.xr:extensions-xr:1.1.0")
+ }
+ ```
+-| **Caution:** You must use `compileOnly` for this dependency. Using `implementation` or `api` will cause your app to break at runtime.
++
++> [!CAUTION]
++> **Caution:** You must use `compileOnly` for this dependency. Using `implementation` or `api` will cause your app to break at runtime.
+ 
+ ### Add library dependencies for augmented experiences (AI glasses)
+ 
+@@ -125,10 +127,10 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.runtime:runtime:1.0.0-alpha10"
+-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha06"
+-    implementation "androidx.xr.projected:projected:1.0.0-alpha04"
+-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha10"
++    implementation "androidx.xr.runtime:runtime:1.0.0-alpha11"
++    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha07"
++    implementation "androidx.xr.projected:projected:1.0.0-alpha05"
++    implementation "androidx.xr.arcore:arcore:1.0.0-alpha11"
+ }
+ ```
+ 
+@@ -136,9 +138,9 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.runtime:runtime:1.0.0-alpha10")
+-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha06")
+-    implementation("androidx.xr.projected:projected:1.0.0-alpha04")
+-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha10")
++    implementation("androidx.xr.runtime:runtime:1.0.0-alpha11")
++    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha07")
++    implementation("androidx.xr.projected:projected:1.0.0-alpha05")
++    implementation("androidx.xr.arcore:arcore:1.0.0-alpha11")
+ }
+ ```
+\ No newline at end of file

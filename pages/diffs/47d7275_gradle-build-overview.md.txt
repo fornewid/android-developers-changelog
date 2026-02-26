@@ -1,0 +1,33 @@
+diff --git a/docs/build/gradle-build-overview.md b/docs/build/gradle-build-overview.md
+index db714cb..9daaf1a 100644
+--- a/docs/build/gradle-build-overview.md
++++ b/docs/build/gradle-build-overview.md
+@@ -67,7 +67,7 @@ contribute to a project, defining a small language that represents data in a
+ more natural way. Gradle plugins can extend the DSL to configure the data they
+ need for their tasks.
+ 
+-For example, configuring the Android part of your build might look like:  
++For example, configuring the Android part of your build might look like:
+ 
+ ### Kotlin
+ 
+@@ -119,7 +119,7 @@ android {
+ }
+ ```
+ 
+-Behind the scenes, the DSL code is similar to:  
++Behind the scenes, the DSL code is similar to:
+ 
+     fun Project.android(configure: ApplicationExtension.() -> Unit) {
+         ...
+@@ -142,7 +142,9 @@ Behind the scenes, the DSL code is similar to:
+ Each block in the DSL is represented by a function that takes a lambda to
+ configure it, and a property with the same name to access it. This makes the
+ code in your build files feel more like a data specification.
+-| **Note:** If you're interested in the details that make this work in Kotlin, see [Type-safe builders](https://kotlinlang.org/docs/type-safe-builders.html). For more details on DSLs in general, see the book [Domain Specific Languages](https://martinfowler.com/books/dsl.html), by Martin Fowler and Rebecca Parsons.
++
++> [!NOTE]
++> **Note:** If you're interested in the details that make this work in Kotlin, see [Type-safe builders](https://kotlinlang.org/docs/type-safe-builders.html). For more details on DSLs in general, see the book [Domain Specific Languages](https://martinfowler.com/books/dsl.html), by Martin Fowler and Rebecca Parsons.
+ 
+ ## External dependencies
+ 

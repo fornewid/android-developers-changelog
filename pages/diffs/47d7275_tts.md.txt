@@ -1,0 +1,71 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/tts.md b/docs/develop/xr/jetpack-xr-sdk/tts.md
+index 1d8595d..a8ce234 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/tts.md
++++ b/docs/develop/xr/jetpack-xr-sdk/tts.md
+@@ -6,21 +6,22 @@ source: md.txt
+ 
+ <br />
+ 
+-<br />
+ 
+-Applicable XR devices  
+-This guidance helps you build experiences for these types of XR devices.  
+-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)  
+-![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg)AI Glasses[](https://developer.android.com/develop/xr/devices#ai-glasses)  
+-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)
++Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+ 
+ <br />
+ 
+-One of the ways that you can communicate with your users is by using Text to Speech (TTS) technology. TTS is built into Android (requiring no additional libraries) and works even when offline. These characteristics makes TTS ideal for handling error conditions in displayless mode. You can reference TTS features using the[`TextToSpeech`](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech)class.
++One of the ways that you can communicate with your users is by using Text to
++Speech (TTS) technology. TTS is built into Android (requiring no additional
++libraries) and works even when offline. These characteristics makes TTS ideal
++for handling error conditions in displayless mode. You can reference TTS
++features using the [`TextToSpeech`](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech) class.
+ 
+ ### Instantiate TextToSpeech
+ 
+-We recommend instantiating the`TextToSpeech`class on your AI glasses activity's[`onCreate()`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle))method so that it's available for the lifetime of the[`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity):  
++We recommend instantiating the `TextToSpeech` class on your AI glasses
++activity's [`onCreate()`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle)) method so that it's available for the lifetime of
++the [`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity):
+ 
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+@@ -37,7 +38,8 @@ We recommend instantiating the`TextToSpeech`class on your AI glasses activity's[
+ 
+ ## Notify the user when TTS starts
+ 
+-For displayless (audio-only) experiences, let the user know that your app successfully launched by notifying them in the[`onStart()`](https://developer.android.com/reference/kotlin/android/app/Activity#onStart())method:  
++For displayless (audio-only) experiences, let the user know that your app
++successfully launched by notifying them in the [`onStart()`](https://developer.android.com/reference/kotlin/android/app/Activity#onStart()) method:
+ 
+     override fun onStart() {
+       super.onStart()
+@@ -51,12 +53,12 @@ For displayless (audio-only) experiences, let the user know that your app succes
+ 
+ ## Key points about the code
+ 
+-- [`TextToSpeech.QUEUE_FLUSH`](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech#queue_flush)indicates that the text should be spoken immediately and any other TTS utterance should be interrupted.
+-- The`utteranceId`, in this case`"welcome_utterance"`, is used to identify when this text is finished being spoken. For more information, see the[`UtteranceProgressListener`](https://developer.android.com/reference/kotlin/android/speech/tts/UtteranceProgressListener).
++- [`TextToSpeech.QUEUE_FLUSH`](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech#queue_flush) indicates that the text should be spoken immediately and any other TTS utterance should be interrupted.
++- The `utteranceId`, in this case `"welcome_utterance"`, is used to identify when this text is finished being spoken. For more information, see the [`UtteranceProgressListener`](https://developer.android.com/reference/kotlin/android/speech/tts/UtteranceProgressListener).
+ 
+ ## Interrupt TTS
+ 
+-If your app ever needs to interrupt TTS, call the[stop()](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech#stop)method:  
++If your app ever needs to interrupt TTS, call the [stop()](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech#stop) method:
+ 
+     // This interrupts the current utterance and discards other utterances in the queue.
+     tts?.stop()
+@@ -64,7 +66,8 @@ If your app ever needs to interrupt TTS, call the[stop()](https://developer.andr
+ 
+ ### Clean up TTS resources
+ 
+-You should clean up resources when your activity is destroyed by calling the[shutdown()](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech#shutdown)method within the activity's[`onDestroy()`](https://developer.android.com/reference/kotlin/android/app/Activity#onDestroy())method:  
++You should clean up resources when your activity is destroyed by calling the
++[shutdown()](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech#shutdown) method within the activity's [`onDestroy()`](https://developer.android.com/reference/kotlin/android/app/Activity#onDestroy()) method:
+ 
+     override fun onDestroy() {
+         super.onDestroy()

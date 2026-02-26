@@ -1,0 +1,72 @@
+diff --git a/docs/develop/ui/views/notifications.md b/docs/develop/ui/views/notifications.md
+index 382bc39..3a96888 100644
+--- a/docs/develop/ui/views/notifications.md
++++ b/docs/develop/ui/views/notifications.md
+@@ -162,12 +162,12 @@ notification appear only in the expanded view.
+ 
+ The most common parts of a notification are indicated in figure 7, as follows:
+ 
+-1. Small icon: required; set using [setSmallIcon()](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setSmallIcon(int)).
++1. Small icon: required; set using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setSmallIcon(int)`.
+ 2. App name: provided by the system.
+-3. Time stamp: provided by the system, but you can override it using [setWhen()](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setWhen(long)) or hide it using [setShowWhen(false)](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setShowWhen(boolean)).
+-4. Large icon: optional; usually used only for contact photos. Don't use it for your app icon. Set using [setLargeIcon()](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setLargeIcon(android.graphics.Bitmap)).
+-5. Title: optional; set using [setContentTitle()](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentTitle(java.lang.CharSequence)).
+-6. Text: optional; set using [setContentText()](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentText(java.lang.CharSequence)).
++3. Time stamp: provided by the system, but you can override it using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setWhen(long)` or hide it using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setShowWhen(boolean)`.
++4. Large icon: optional; usually used only for contact photos. Don't use it for your app icon. Set using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setLargeIcon(android.graphics.Bitmap)`.
++5. Title: optional; set using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentTitle(java.lang.CharSequence)`.
++6. Text: optional; set using `https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentText(java.lang.CharSequence)`.
+ 
+ We strongly recommend using system templates for proper design compatibility on
+ all devices. If necessary, you can [create a custom notification
+@@ -214,7 +214,7 @@ security to notifications on locked devices.
+ To require a device to be unlocked before your app invokes a given notification
+ action, pass `true` into
+ [`setAuthenticationRequired()`](https://developer.android.com/reference/android/app/Notification.Action.Builder#setAuthenticationRequired(boolean))
+-when creating your notification action, as shown in the following code snippet:  
++when creating your notification action, as shown in the following code snippet:
+ 
+ ### Kotlin
+ 
+@@ -281,7 +281,9 @@ figure 10.
+ 
+ To learn how to add notifications to a group, see [Create a group of
+ notifications](https://developer.android.com/training/notify-user/group).
+-| **Note:** If the same app sends four or more notifications and doesn't specify a grouping, the system automatically groups them together.
++
++> [!NOTE]
++> **Note:** If the same app sends four or more notifications and doesn't specify a grouping, the system automatically groups them together.
+ 
+ ## Notification channels
+ 
+@@ -303,7 +305,8 @@ on Android 7.1 and lower.
+ 
+ <br />
+ 
+-| **Note:** The user interface refers to channels as "categories."
++> [!NOTE]
++> **Note:** The user interface refers to channels as "categories."
+ 
+ An app can have separate channels for each type of notification the app issues.
+ An app can also create notification channels in response to choices made by
+@@ -430,7 +433,9 @@ Android 15 introduces a notification cooldown feature that aims to improve the
+ experience of notifications that arrive in quick succession. This feature
+ reduces the appearance, sound volume and vibration intensity for repetitive
+ notifications for up to two minutes.
+-| **Note:** The affected notifications can still be found in the notification drawer.
++
++> [!NOTE]
++> **Note:** The affected notifications can still be found in the notification drawer.
+ 
+ Critical notifications that require audio and haptics to get attention are not
+ subject to cooldown. The user can turn off notification cooldown in Settings.
+@@ -441,7 +446,7 @@ subject to cooldown. The user can turn off notification cooldown in Settings.
+ 
+ <br />
+ 
+-The following is an example of how to locate the notification cooldown settings:  
++The following is an example of how to locate the notification cooldown settings:
+ 
+ ### Kotlin
+ 

@@ -1,0 +1,67 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/threading/coroutineworker.md b/docs/develop/background-work/background-tasks/persistent/threading/coroutineworker.md
+index e718571..d24e6cd 100644
+--- a/docs/develop/background-work/background-tasks/persistent/threading/coroutineworker.md
++++ b/docs/develop/background-work/background-tasks/persistent/threading/coroutineworker.md
+@@ -4,9 +4,10 @@ url: https://developer.android.com/develop/background-work/background-tasks/pers
+ source: md.txt
+ ---
+ 
+-# Threading in CoroutineWorker
+-
+-For Kotlin users, WorkManager provides first-class support for[coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html). To get started, include[`work-runtime-ktx`in your gradle file](https://developer.android.com/jetpack/androidx/releases/work#declaring_dependencies). Instead of extending[`Worker`](https://developer.android.com/reference/androidx/work/Worker), you should extend[`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker), which has a suspending version of`doWork()`. For example, if you wanted to build a simple`CoroutineWorker`to perform some network operations, you would do the following:  
++For Kotlin users, WorkManager provides first-class support for [coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html). To get
++started, include [`work-runtime-ktx` in your gradle file](https://developer.android.com/jetpack/androidx/releases/work#declaring_dependencies). Instead of extending [`Worker`](https://developer.android.com/reference/androidx/work/Worker), you should extend [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker), which has a suspending
++version of `doWork()`. For example, if you wanted to build a simple `CoroutineWorker`
++to perform some network operations, you would do the following:
+ 
+     class CoroutineDownloadWorker(
+         context: Context,
+@@ -20,7 +21,10 @@ For Kotlin users, WorkManager provides first-class support for[coroutines](https
+         }
+     }
+ 
+-Note that[`CoroutineWorker.doWork()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#doWork())is a*suspending* function. Unlike`Worker`, this code does*not* run on the`Executor`specified in your[`Configuration`](https://developer.android.com/reference/androidx/work/Configuration). Instead, it defaults to`Dispatchers.Default`. You can customize this by providing your own`CoroutineContext`. In the above example, you would probably want to do this work on`Dispatchers.IO`, as follows:  
++Note that [`CoroutineWorker.doWork()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#doWork()) is a *suspending*
++function. Unlike `Worker`, this code does *not* run on the `Executor` specified
++in your [`Configuration`](https://developer.android.com/reference/androidx/work/Configuration). Instead, it
++defaults to `Dispatchers.Default`. You can customize this by providing your own `CoroutineContext`. In the above example, you would probably want to do this work on `Dispatchers.IO`, as follows:
+ 
+     class CoroutineDownloadWorker(
+         context: Context,
+@@ -36,15 +40,22 @@ Note that[`CoroutineWorker.doWork()`](https://developer.android.com/reference/ko
+         }
+     }
+ 
+-`CoroutineWorker`handles stoppages automatically by cancelling the coroutine and propagating the cancellation signals. You don't need to do anything special to handle[work stoppages](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/managing-work#cancelling).
++`CoroutineWorker` handles stoppages automatically by cancelling the coroutine
++and propagating the cancellation signals. You don't need to do anything special
++to handle [work stoppages](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/managing-work#cancelling).
+ 
+ ## Running a CoroutineWorker in a different process
+ 
+-You can also bind a worker to a specific process by using[`RemoteCoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/multiprocess/RemoteCoroutineWorker), an implementation of`ListenableWorker`.
++You can also bind a worker to a specific process by using
++[`RemoteCoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/multiprocess/RemoteCoroutineWorker),
++an implementation of `ListenableWorker`.
+ 
+-`RemoteCoroutineWorker`binds to a specific process with two extra arguments that you provide as part of the input data when building the work request:`ARGUMENT_CLASS_NAME`and`ARGUMENT_PACKAGE_NAME`.
++`RemoteCoroutineWorker` binds to a specific process with two extra arguments
++that you provide as part of the input data when building the work request:
++`ARGUMENT_CLASS_NAME` and `ARGUMENT_PACKAGE_NAME`.
+ 
+-The following example demonstrates building a work request that is bound to a specific process:  
++The following example demonstrates building a work request that is bound to a
++specific process:
+ 
+ ### Kotlin
+ 
+@@ -82,7 +93,8 @@ return new OneTimeWorkRequest.Builder(ExampleRemoteCoroutineWorker.class)
+         .build();
+ ```
+ 
+-For each`RemoteWorkerService`, you also need to add a service definition in your`AndroidManifest.xml`file:  
++For each `RemoteWorkerService`, you also need to add a service definition in
++your `AndroidManifest.xml` file:
+ 
+ ```xml
+ <manifest ... >

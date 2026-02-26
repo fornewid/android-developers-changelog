@@ -1,0 +1,22 @@
+diff --git a/docs/health-and-fitness/health-services/monitor-background.md b/docs/health-and-fitness/health-services/monitor-background.md
+index 4ea4074..9805fae 100644
+--- a/docs/health-and-fitness/health-services/monitor-background.md
++++ b/docs/health-and-fitness/health-services/monitor-background.md
+@@ -28,7 +28,7 @@ In your module-level `build.gradle` file, add the following dependency:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.health:health-services-client:1.1.0-beta01"
++    implementation "androidx.health:health-services-client:1.1.0-rc01"
+ }
+ ```
+ 
+@@ -36,7 +36,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.health:health-services-client:1.1.0-beta01")
++    implementation("androidx.health:health-services-client:1.1.0-rc01")
+ }
+ ```
+ 

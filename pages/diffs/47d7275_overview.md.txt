@@ -1,0 +1,23 @@
+diff --git a/docs/games/pgs/overview.md b/docs/games/pgs/overview.md
+index 7895224..984b817 100644
+--- a/docs/games/pgs/overview.md
++++ b/docs/games/pgs/overview.md
+@@ -36,13 +36,13 @@ retention and cross-platform continuity.
+ 
+ The Google Play Games platform provides an extensive array of compelling and
+ rewarding and engaging mechanics, including leagues, quests, achievements,
+-and streaks. These impactful capabilities are restricted to titles enrolled in
++and streaks. These features are restricted to titles enrolled in
+ the [LevelUp program](https://developer.android.com/games/pgs/%5Bhttps:/play.google.com/console/about/levelup), a cornerstone of the Google Play Games ecosystem.
+ 
+-Developers can obtain instant access to these powerful tools by integrating
+-their games with Play Games Services. As the primary method for platform
+-authentication, Play Games Services serves as the link to the full range of
+-rewarding features, provided that program guidelines are followed.
++Integrate your games with Play Games Services to get instant access to these
++features. As the primary method for platform authentication,
++Play Games Services links to the full range of features if you follow program
++guidelines.
+ 
+ These mechanics are proven to drive significant improvements in acquisition,
+ retention, engagement, and monetization.

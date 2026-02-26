@@ -1,0 +1,33 @@
+diff --git a/docs/develop/connectivity/bluetooth/connect-bluetooth-devices.md b/docs/develop/connectivity/bluetooth/connect-bluetooth-devices.md
+index 7bf5963..7774c51 100644
+--- a/docs/develop/connectivity/bluetooth/connect-bluetooth-devices.md
++++ b/docs/develop/connectivity/bluetooth/connect-bluetooth-devices.md
+@@ -36,7 +36,9 @@ server socket on demand, and the other device initiates the connection.
+ ![](https://developer.android.com/static/images/develop/connectivity/bluetooth/bluetooth-pairing.png)   
+ 
+ **Figure 1.** The Bluetooth pairing dialog.
+-| **Note:** If the two devices have not been previously paired, then the Android framework automatically shows a pairing request notification or dialog to the user during the connection procedure, as shown in figure 1. Therefore, when your app attempts to connect devices, it doesn't need to be concerned about whether or not the devices are paired. Your RFCOMM connection attempt gets blocked until the user has successfully paired the two devices, and the attempt fails if the user rejects pairing, or if the pairing process fails or times out.
++
++> [!NOTE]
++> **Note:** If the two devices have not been previously paired, then the Android framework automatically shows a pairing request notification or dialog to the user during the connection procedure, as shown in figure 1. Therefore, when your app attempts to connect devices, it doesn't need to be concerned about whether or not the devices are paired. Your RFCOMM connection attempt gets blocked until the user has successfully paired the two devices, and the attempt fails if the user rejects pairing, or if the pairing process fails or times out.
+ 
+ ### Connect as a server
+ 
+@@ -103,7 +105,7 @@ thread-safe.
+ #### Example
+ 
+ The following is a simplified thread for the server component that accepts
+-incoming connections:  
++incoming connections:
+ 
+ ### Kotlin
+ 
+@@ -255,7 +257,7 @@ thread.
+ #### Example
+ 
+ The following is a basic example of a client thread that initiates a Bluetooth
+-connection:  
++connection:
+ 
+ ### Kotlin
+ 

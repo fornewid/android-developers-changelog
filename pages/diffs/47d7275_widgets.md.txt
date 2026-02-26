@@ -1,0 +1,122 @@
+diff --git a/docs/develop/devices/assistant/widgets.md b/docs/develop/devices/assistant/widgets.md
+index 0e58342..b509551 100644
+--- a/docs/develop/devices/assistant/widgets.md
++++ b/docs/develop/devices/assistant/widgets.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/devices/assistant/widgets
+ source: md.txt
+ ---
+ 
++Project: /develop/devices/assistant/_project.yaml
++Book: /develop/devices/assistant/_book.yaml
+ ![](https://developer.android.com/static/guide/app-actions/images/Fitness4-widget.png) **Figure 1.** Launching a widget for `GET_EXERCISE_OBSERVATION`.
+ 
+ For many intents, the best response is to deliver a simple answer, brief
+@@ -59,7 +61,8 @@ App Actions offers these advantages:
+ - **Custom TTS introductions:** You can provide a text-to-speech (TTS) string for Assistant to announce when displaying your widget.
+ - **Widget pinning:** Assistant displays an **Add this widget** button near your widget, letting users easily pin your widgets to their launcher.
+ 
+-| **Note:** Not all BIIs support widget fulfillment. Refer to the [BII reference](https://developer.android.com/reference/app-actions/built-in-intents) for the BII you plan to use.
++> [!NOTE]
++> **Note:** Not all BIIs support widget fulfillment. Refer to the [BII reference](https://developer.android.com/reference/app-actions/built-in-intents) for the BII you plan to use.
+ 
+ ## Implement widget fulfillment
+ 
+@@ -124,7 +127,7 @@ this widget. This tag requires the following attribute values:
+ 
+ The following example from a `shortcuts.xml` file demonstrates a widget
+ fulfillment configuration for a
+-[`GET_EXERCISE_OBSERVATION`](https://developer.android.com/reference/app-actions/built-in-intents/health-and-fitness/get-exercise-observation) BII capability:  
++[`GET_EXERCISE_OBSERVATION`](https://developer.android.com/reference/app-actions/built-in-intents/health-and-fitness/get-exercise-observation) BII capability:
+ 
+     <capability android:name="actions.intent.GET_EXERCISE_OBSERVATION">
+       <app-widget
+@@ -147,13 +150,15 @@ in their query, you can direct them to the activity in your app that shows
+ options for setting the pick-up and drop-off locations. See the
+ [Fallback intents](https://developer.android.com/develop/devices/assistant/widgets#guideline_fallback) section for more information
+ about defining fallback intents.
+-| **Note:** Assistant fulfills App Actions for capabilities containing multiple fulfillment options by evaluating each fulfillment element in the order it was defined. Assistant fulfills the action by selecting the first fulfillment whose required `<parameter>` values are fully provided in the user query.
++
++> [!NOTE]
++> **Note:** Assistant fulfills App Actions for capabilities containing multiple fulfillment options by evaluating each fulfillment element in the order it was defined. Assistant fulfills the action by selecting the first fulfillment whose required `<parameter>` values are fully provided in the user query.
+ 
+ #### Extract parameter values
+ 
+ In the following sample `AppWidgetProvider` class, the private function
+ `updateAppWidget()` is used to extract the BII name and parameters from the
+-widget options `Bundle`:  
++widget options `Bundle`:
+ 
+ ### Kotlin
+ 
+@@ -264,7 +269,7 @@ it easy for users to save the widgets displayed in Assistant to their launcher
+ screens.
+ 
+ Get started by adding the library to the dependencies section of the
+-`build.gradle` file for your app module:  
++`build.gradle` file for your app module:
+ 
+     dependencies {
+         //...
+@@ -276,7 +281,7 @@ Get started by adding the library to the dependencies section of the
+ After importing the Widgets Extension library, you can provide custom TTS
+ introductions for your widgets. To add your definition to the widget's
+ `AppWidgetProvider`, open the class in your IDE and import the Widgets Extension
+-library:  
++library:
+ 
+ ### Kotlin
+ 
+@@ -289,7 +294,7 @@ import com.google.assistant.appactions.widgets.AppActionsWidgetExtension
+ ```java
+ import com.google.assistant.appactions.widgets.AppActionsWidgetExtension;
+ ```
+-Next, use the library to define your introduction strings and update the widget, as shown in this \`ExampleAppWidget\`:  
++Next, use the library to define your introduction strings and update the widget, as shown in this \`ExampleAppWidget\`:
+ 
+ ### Kotlin
+ 
+@@ -358,7 +363,7 @@ public class MyAppWidget extends AppWidgetProvider {
+ Use the following style recommendations to optimize your custom widget
+ introductions for TTS and displayed prompts.
+ 
+-| Recommendation | thumb_up Recommended | thumb_down Not recommended |
++| Recommendation | Recommended | Not recommended |
+ |---|---|---|
+ | ##### Contractions Use contractions in TTS prompts. Messages without contractions sound stilted and robotic rather than natural and conversational. Speaking words like "cannot" and "do not" can sound punishing and harsh. | **`ResponseSpeech`** (TTS) Sorry, I can't find a reservation. **`ResponseText`** Sorry, I can't find a reservation. | **`ResponseSpeech`** (TTS) Sorry, I cannot find a reservation. **`ResponseText`** Sorry, I cannot find a reservation. |
+ | ##### Commas Add clarity by using serial commas in lists of three or more items. Without the serial comma, individual items in your list might be incorrectly heard, or read as groups. For example, in "daffodils, daisies and sunflowers," "daisies and sunflowers" sound like they come together. In "daffodils, daisies, and sunflowers," all three are clearly separate. | **`ResponseSpeech`** (TTS) Our most popular ones include yellow roses, daffodils, daisies, and sunflowers. **`ResponseText`** Our most popular ones include yellow roses, daffodils, daisies, and sunflowers. | **`ResponseSpeech`** (TTS) Our most popular ones include yellow roses, daffodils, daisies and sunflowers. **`ResponseText`** Our most popular ones include yellow roses, daffodils, daisies and sunflowers. |
+@@ -374,7 +379,7 @@ introductions for TTS and displayed prompts.
+ 
+ The Widgets Extension library lets the **Add this widget** button be displayed
+ with your widget in Assistant. To enable pinning, add the following receiver
+-definition to `AndroidManifest.xml`:  
++definition to `AndroidManifest.xml`:
+ 
+     <application>
+       <receiver android:name="com.google.assistant.appactions.widgets.pinappwidget.PinAppWidgetBroadcastReceiver"
+@@ -404,7 +409,7 @@ inventories to your widget fulfillments.
+ 
+ The following code from a sample `shortcuts.xml` file demonstrates a
+ [`START_EXERCISE`](https://developer.android.com/reference/app-actions/built-in-intents/health-and-fitness/start-exercise) BII capability
+-configured for inline inventory and widget fulfillment:  
++configured for inline inventory and widget fulfillment:
+ 
+     <capability
+       android:name="actions.intent.START_EXERCISE">
+@@ -439,7 +444,7 @@ Assistant, *"Start running with ExampleApp,"* the option bundle for the
+ #### Web inventory
+ 
+ The following code from a sample `shortcuts.xml` file shows a capability
+-enabled for web inventory and widget fulfillment:  
++enabled for web inventory and widget fulfillment:
+ 
+     <shortcuts>
+       <capability
+@@ -504,7 +509,7 @@ you integrate App Actions with widgets.
+ 
+ The following code from a sample `shortcuts.xml` file demonstrates a
+ `<capability>` with a fallback `<intent>` supporting a primary
+-`<app-widget>` fulfillment:  
++`<app-widget>` fulfillment:
+ 
+     <shortcuts>
+       <capability

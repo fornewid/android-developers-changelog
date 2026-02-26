@@ -1,0 +1,15 @@
+diff --git a/docs/develop/connectivity/bluetooth/ble-audio/audio-recording.md b/docs/develop/connectivity/bluetooth/ble-audio/audio-recording.md
+index d23da1e..aa3fd32 100644
+--- a/docs/develop/connectivity/bluetooth/ble-audio/audio-recording.md
++++ b/docs/develop/connectivity/bluetooth/ble-audio/audio-recording.md
+@@ -145,6 +145,8 @@ recorder.preferredDevice = audioDevice
+ ```java
+ recorder.setPreferredDevice(bleInputDevice);
+ ```
+-| **Note:** The user can manually override this preference in device settings.
++
++> [!NOTE]
++> **Note:** The user can manually override this preference in device settings.
+ 
+ Now, you can record audio as outlined in [the MediaRecorder guide](https://developer.android.com/guide/topics/media/mediarecorder).
+\ No newline at end of file

@@ -1,0 +1,82 @@
+diff --git a/docs/jetpack/androidx/releases/wear-tiles.md b/docs/jetpack/androidx/releases/wear-tiles.md
+index 762377d..716fe25 100644
+--- a/docs/jetpack/androidx/releases/wear-tiles.md
++++ b/docs/jetpack/androidx/releases/wear-tiles.md
+@@ -12,7 +12,7 @@ Create applications for Wear OS by Google smartwatches.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| February 11, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.5.0) | - | [1.6.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.0-beta01) | - |
++| February 25, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.5.0) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.0-rc01) | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -88,6 +88,16 @@ for more information.
+ 
+ ## Version 1.6
+ 
++### Version 1.6.0-rc01
++
++February 25, 2026
++
++`androidx.wear.tiles:tiles-*:1.6.0-rc01`is released. Version 1.6.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..ab5b6a7b57eb87f47a018419129d770797386e00/wear/tiles).
++
++**Bug Fixes**
++
++- Clean up saved resources on Tile remove event.
++
+ ### Version 1.6.0-beta01
+ 
+ February 11, 2026
+@@ -102,22 +112,29 @@ The 1.6.0-beta01 release of Wear Tiles indicates that this release of the librar
+   - This significantly improves Tiles loading time by removing the need for two binder calls as only the `onTileResourcesRequest` method can be implemented.
+   - When using image resources directly in the layout, there is no longer a need to manually override `onTileResourcesRequest` or specify resources in `TilePreviewData`.
+ - **Material3TileService:** Introduced a new, Kotlin-friendly service for creating tiles. It simplifies development by providing a single `suspend` function to return both tile layout and resources. It automatically manages the `MaterialScope` and `ProtoLayoutScope` for better resource handling and performance improvements on faster Tiles loading.
+-  - Simplified code snippet: `class MyTileService : Material3TileService() {
+-    override suspend fun **MaterialScope.tileResponse**(
+-    requestParams: RequestBuilders.TileRequest
+-    ): TileBuilders.Tile = tile(
+-    timeline = timeline(timelineEntry(
+-    primaryLayout(
+-    // layout setup here
+-    iconContent = { **icon**(
+-    **imageResource**(
+-    **androidImageResource**(R.drawable.myIcon)))})
+-    //...
+-    )))
+-    }`
++
++  - Simplified code snippet:
++
++      class MyTileService : Material3TileService() {
++          override suspend fun **MaterialScope.tileResponse**(
++              requestParams: RequestBuilders.TileRequest
++          ): TileBuilders.Tile = tile(
++      timeline = timeline(timelineEntry(
++      primaryLayout(
++          // layout setup here
++      iconContent = { **icon**(
++      **imageResource**(
++      **androidImageResource**(R.drawable.myIcon)))})
++      //...
++      )))
++      }
++
+ - **Tile Previews Update:** Tooling for Tile Previews has been updated to support the new `ProtoLayoutScope` automatic resource handling, ensuring previews reflect inlined resources correctly without extra configuration.
++
+ - **Many Kotlin DSL Improvements:** Added specialized Kotlin helpers for `Tile` and all other APIs needed to build a tile (such as `Timeline`) to improve the developer experience for Kotlin users.
++
+ - **Dynamic Service Switching:** Introduced `METADATA_GROUP_KEY`, allowing developers to group multiple `TileService` instances in the manifest. This enables dynamic switching between different services that represent the same tile on new OS versions.
++
+ - **Tile ID in Updates:** Developers can now specify a particular `tileId` in update requests, allowing for more granular control over which tile instances are refreshed.
+ 
+ **API Changes**
+@@ -1088,4 +1105,5 @@ March 10, 2021
+ 
+ - The Wear Tiles Renderer library provides functionality to build custom Tiles for Wear OS devices, along with the classes that allow the system to fetch your Tile and display it right next to your watch face.
+ 
+-| **Note:** While you can build and test Tiles with the alpha version of this library, these Tiles aren't currently displayed to Wear OS users.
+\ No newline at end of file
++> [!NOTE]
++> **Note:** While you can build and test Tiles with the alpha version of this library, these Tiles aren't currently displayed to Wear OS users.
+\ No newline at end of file

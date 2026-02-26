@@ -1,0 +1,37 @@
+diff --git a/docs/develop/ui/views/animations/screen-slide-2.md b/docs/develop/ui/views/animations/screen-slide-2.md
+index bb28c5a..3d93e69 100644
+--- a/docs/develop/ui/views/animations/screen-slide-2.md
++++ b/docs/develop/ui/views/animations/screen-slide-2.md
+@@ -33,17 +33,17 @@ text:
+ ```xml
+ <!-- fragment_screen_slide_page.xml -->
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:id="@+id/content"
++    an@droid:id="+id/content"
+     android:layout_width="match_parent"
+-    android:layout_height="match_parent" >
++    android>:layou<t_height="match_parent" 
+ 
+-    <TextView style="?android:textAppearanceMedium"
++    TextView style="?android:textAppearanceMedium"
+         android:padding="16dp"
+         android:lineSpacingMultiplier="1.2"
+         android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text="@string/lorem_ipsum" />
+-</ScrollView>
++        a>n<droid:layou>t_height="wrap_content"
++        android:text="@string/lorem_ipsum" /
++/ScrollView
+ ```
+ 
+ ## Create the fragment
+@@ -103,7 +103,7 @@ To begin, create a layout that contains a `ViewPager2` object:
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/pager"
+     android:layout_width="match_parent"
+-    android:layout_height="match_parent" />
++    android:>layout_height="match_parent" /
+ ```
+ 
+ Create an activity that does the following:

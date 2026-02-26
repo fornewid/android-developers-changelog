@@ -1,0 +1,94 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material3.md b/docs/jetpack/androidx/releases/compose-material3.md
+index e01e0bc..15ef44a 100644
+--- a/docs/jetpack/androidx/releases/compose-material3.md
++++ b/docs/jetpack/androidx/releases/compose-material3.md
+@@ -12,9 +12,10 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| February 11, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha14](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha14) |
++| February 25, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha15](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha15) |
+ 
+-| **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
++> [!NOTE]
++> **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
+ 
+ ## Structure
+ 
+@@ -49,7 +50,7 @@ your app or module:
+ dependencies {
+     implementation "androidx.compose.material3:material3:1.4.0"
+     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
+-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha14"
++    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha15"
+ }
+ 
+ android {
+@@ -73,7 +74,7 @@ android {
+ dependencies {
+     implementation("androidx.compose.material3:material3:1.4.0")
+     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
+-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha14")
++    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha15")
+ }
+ 
+ android {
+@@ -127,7 +128,8 @@ Themeless components that can be used to build Material Design components:
+ 
+ ## Compose Material3 Adaptive Navigation Suite Version 1.0
+ 
+-| **Note:** As of 1.0.0-alpha07, the `androidx.compose.material3:material3-adaptive-navigation-suite` package is released as part of the Compose Material3 package (Material3 versions 1.3.0-\*). As a result, Compose Material3 adaptive navigation suite versioning has jumped from 1.0.0-xxxx to 1.3.0-xxxx. To find the current and future navigation suite release notes and commits, see [Compose Material3 Version 1.3.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.3.0) and later versions.
++> [!NOTE]
++> **Note:** As of 1.0.0-alpha07, the `androidx.compose.material3:material3-adaptive-navigation-suite` package is released as part of the Compose Material3 package (Material3 versions 1.3.0-\*). As a result, Compose Material3 adaptive navigation suite versioning has jumped from 1.0.0-xxxx to 1.3.0-xxxx. To find the current and future navigation suite release notes and commits, see [Compose Material3 Version 1.3.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.3.0) and later versions.
+ 
+ ### Version 1.0.0-alpha07
+ 
+@@ -215,7 +217,8 @@ November 15, 2023
+ 
+ ## Compose Material3 Adaptive Version 1.0
+ 
+-| **Note:** As of 1.0.0-alpha07, `androidx.compose.material3:material3-adaptive` was migrated to `androidx.compose.material3.adaptive`. For future releases, please use `androidx.compose.material3.adaptive` and the associated release notes on our [Compose Material3 Adaptive](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive) page.
++> [!NOTE]
++> **Note:** As of 1.0.0-alpha07, `androidx.compose.material3:material3-adaptive` was migrated to `androidx.compose.material3.adaptive`. For future releases, please use `androidx.compose.material3.adaptive` and the associated release notes on our [Compose Material3 Adaptive](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive) page.
+ 
+ ### Version 1.0.0-alpha06
+ 
+@@ -317,6 +320,38 @@ Material3 adaptive pane scaffold APIs:
+ 
+ ## Compose Material3 Version 1.5
+ 
++### Version 1.5.0-alpha15
++
++February 25, 2026
++
++`androidx.compose.material3:material3-*:1.5.0-alpha15` is released. Version 1.5.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..6e23fc0c137022098ae2d043778ffdc56402ba5e/compose/material3).
++
++**New Features**
++
++- Scrim component introduced for use alongside Modal components. ([I29555](https://android-review.googlesource.com/#/q/I2955549d37aa4a851db38265c562b8f7975c7541), [b/455862212](https://issuetracker.google.com/issues/455862212), [b/372395682](https://issuetracker.google.com/issues/372395682), [b/375853129](https://issuetracker.google.com/issues/375853129))
++- Introduces standalone static sheet component. ([I0ef95](https://android-review.googlesource.com/#/q/I0ef95ed8717bb1cb4ece596b8e6730026e082a95), [b/455862212](https://issuetracker.google.com/issues/455862212), [b/350779977](https://issuetracker.google.com/issues/350779977), [b/444176963](https://issuetracker.google.com/issues/444176963), [b/336349080](https://issuetracker.google.com/issues/336349080))
++
++**API Changes**
++
++- `MaterialTheme` has been refactored to use a single `CompositionLocal` for theme data. Composition locals can now be accessed through `MaterialTheme.LocalMaterialTheme.current`, or `currentValueOf(MaterialTheme.LocalMaterialTheme)` in `CompositionLocalAccessorScope` ([Idee2e](https://android-review.googlesource.com/#/q/Idee2e8c3dcc0db95341a59c50a58b6718a4d5b93), [b/483676974](https://issuetracker.google.com/issues/483676974))
++- Update default content padding of the expressive text button to correct specs. Also remove deprecation of `TextButtonContentPadding` and `TextButtonWithIconContentPadding`. ([I67283](https://android-review.googlesource.com/#/q/I6728315f2e6df3550118201bae7a639985a71eb4))
++- Introduce parameter to disable backhandler from `BottomSheet` ([Iff81e](https://android-review.googlesource.com/#/q/Iff81e33d4b6a5753298d6cdc550a836993c1c1b4), [b/483763626](https://issuetracker.google.com/issues/483763626))
++- Graduate motion scheme from experimental ([If822f](https://android-review.googlesource.com/#/q/If822f61b9496387e84900f9e39b586d8ffb33788), [b/484003769](https://issuetracker.google.com/issues/484003769))
++- Added 'enabled' and 'threshold' parameters to `PullToRefreshBox` in Material3. ([I5610b](https://android-review.googlesource.com/#/q/I5610bd5380e75382dc6cb2f1596fc363ca2621aa), [b/369044003](https://issuetracker.google.com/issues/369044003))
++- Replace `horizontalSpacing` with `horizontalArrangement` in `FilterChip` and `ElevatedFilterChip`. Add `horizontalArrangement` defaults to `FilterChipDefaults`. ([If3d6a](https://android-review.googlesource.com/#/q/If3d6a9ee91fae7070f187e371f3317cbf4c750ca), [b/304853782](https://issuetracker.google.com/issues/304853782))
++- Improved KDoc for `TopAppBarDefaults` scroll behaviors to better explain usage with reversed and pre-scrolled content. ([I247dd](https://android-review.googlesource.com/#/q/I247dd205b0fd7bd8e5aa1cc72a001b8c9cbd5f03), [b/405129274](https://issuetracker.google.com/issues/405129274))
++- Replace `horizontalSpacing` parameter with `horizontalArrangmenet` parameter. Add `horizontalArrangement` defaults to `AssistChipDefaults`. ([I15cec](https://android-review.googlesource.com/#/q/I15cecb376a9024674fcebe18c7432fe0759c7bad), [b/304853782](https://issuetracker.google.com/issues/304853782))
++- Add getter for `shouldUsePrecisionPointerComponentSizing` ([I234ce](https://android-review.googlesource.com/#/q/I234cefcb6a0f3c82b15c5a5ca35daf09e6b33a32))
++- Added overloads to `TopAppBarDefaults.enterAlwaysScrollBehavior` and `TopAppBarDefaults.pinnedScrollBehavior` that accept an `isAtTopState` parameter. This allows for custom `at top state` detection when using the scroll behaviors. ([I785b9](https://android-review.googlesource.com/#/q/I785b977d3981b20a2158302f9b4a10ab52265722), [b/405129274](https://issuetracker.google.com/issues/405129274))
++- Add `contentPadding` and `horizontalArrangement` parameters to `InputChip` and `ElevatedInputChip`. Add `horizontalArrangement` and `contentPadding` defaults to `InputChipDefaults`. ([Iae39c](https://android-review.googlesource.com/#/q/Iae39c91a1227d3557b007eff2776cccc6642d661), [b/304853782](https://issuetracker.google.com/issues/304853782))
++- Added precision pointer sizing and paddings for Buttons and deprecated obsolete `TextButtonContentPadding` val. ([I6d7b6](https://android-review.googlesource.com/#/q/I6d7b634f2ee907588c7ae055d5278477263bb8c9), [b/479879803](https://issuetracker.google.com/issues/479879803))
++- Added `rememberWithGapSearchBarState` to be used with `ExpandedDockedSearchBarWithGap`. ([Ia3361](https://android-review.googlesource.com/#/q/Ia336100f392864316472b9107f4ab019bf8950cb))
++
++**Bug Fixes**
++
++- Fixes the issue shadows are not showing for levitated panes ([Ie6108](https://android-review.googlesource.com/#/q/Ie61088ab5a283291a0f16060ff935e421afbf6c3), [b/470517507](https://issuetracker.google.com/issues/470517507))
++- Update `TextButtons` to have correct material3 paddings specs. In order to opt out and revert to the old behavior you should set `isTextButtonContentPaddingFixEnabled` to false in your application. ([I66c8e](https://android-review.googlesource.com/#/q/I66c8e7f63fd431ab067d388aec4fd436c30e697a))
++
+ ### Version 1.5.0-alpha14
+ 
+ February 11, 2026

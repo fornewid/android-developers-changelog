@@ -1,0 +1,81 @@
+diff --git a/docs/develop/ui/views/touch-and-input/gestures/movement.md b/docs/develop/ui/views/touch-and-input/gestures/movement.md
+index b2e047a..28b50c6 100644
+--- a/docs/develop/ui/views/touch-and-input/gestures/movement.md
++++ b/docs/develop/ui/views/touch-and-input/gestures/movement.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/gestures/mov
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.  
+-[Gestures →](https://developer.android.com/jetpack/compose/touch-input/pointer-input)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose. [Gestures →](https://developer.android.com/jetpack/compose/touch-input/pointer-input) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 
+@@ -37,7 +34,7 @@ the needs of your application. The following are examples:
+ 
+ - The starting and ending position of a pointer, such as moving an on-screen object from point A to point B.
+ - The direction the pointer is traveling in, as determined by the X and Y coordinates.
+-- History. You can find the size of a gesture's history by calling the `MotionEvent` method [`getHistorySize()`](https://developer.android.com/reference/android/view/MotionEvent#getHistorySize()). You can then obtain the positions, sizes, time, and pressures of each of the historical events by using the motion event's `getHistorical`*<Value>* methods. History is useful when rendering a trail of the user's finger, such as for touch drawing. See the `MotionEvent` reference for details.
++- History. You can find the size of a gesture's history by calling the `MotionEvent` method [`getHistorySize()`](https://developer.android.com/reference/android/view/MotionEvent#getHistorySize()). You can then obtain the positions, sizes, time, and pressures of each of the historical events by using the motion event's `getHistorical\<Value\>` methods. History is useful when rendering a trail of the user's finger, such as for touch drawing. See the `MotionEvent` reference for details.
+ - The velocity of the pointer as it moves across the touchscreen.
+ 
+ Refer to the following related resources:
+@@ -58,7 +55,7 @@ for gestures in which velocity is part of the criteria for the gesture, such as
+ a fling.
+ 
+ Here is an example that illustrates the purpose of the methods in the
+-`VelocityTracker` API:  
++`VelocityTracker` API:
+ 
+ ### Kotlin
+ 
+@@ -154,7 +151,9 @@ public class MainActivity extends Activity {
+     }
+ }
+ ```
+-| **Note:** Calculate velocity after an `ACTION_MOVE` event, not after [`ACTION_UP`](https://developer.android.com/reference/android/view/MotionEvent#ACTION_UP). After an `ACTION_UP`, the X and Y velocities are 0.
++
++> [!NOTE]
++> **Note:** Calculate velocity after an `ACTION_MOVE` event, not after [`ACTION_UP`](https://developer.android.com/reference/android/view/MotionEvent#ACTION_UP). After an `ACTION_UP`, the X and Y velocities are 0.
+ 
+ ## Use pointer capture
+ 
+@@ -176,7 +175,7 @@ event handler of your activity.
+ To request pointer capture, call the
+ [`requestPointerCapture()`](https://developer.android.com/reference/android/view/View#requestPointerCapture())
+ method on the view. The following code example shows how to request pointer
+-capture when the user clicks a view:  
++capture when the user clicks a view:
+ 
+ ### Kotlin
+ 
+@@ -214,7 +213,7 @@ following tasks:
+ - Otherwise, register an [`OnCapturedPointerListener`](https://developer.android.com/reference/android/view/View.OnCapturedPointerListener).
+ 
+ The following code example shows how to implement
+-[`onCapturedPointerEvent(MotionEvent)`](https://developer.android.com/reference/android/view/View#onCapturedPointerEvent(android.view.MotionEvent)):  
++[`onCapturedPointerEvent(MotionEvent)`](https://developer.android.com/reference/android/view/View#onCapturedPointerEvent(android.view.MotionEvent)):
+ 
+ ### Kotlin
+ 
+@@ -242,7 +241,7 @@ public boolean onCapturedPointerEvent(MotionEvent motionEvent) {
+ ```
+ 
+ The following code example shows how to register an
+-[`OnCapturedPointerListener`](https://developer.android.com/reference/android/view/View.OnCapturedPointerListener):  
++[`OnCapturedPointerListener`](https://developer.android.com/reference/android/view/View.OnCapturedPointerListener):
+ 
+ ### Kotlin
+ 
+@@ -282,7 +281,7 @@ retrieve the coordinates by using
+ 
+ The view in your app can release the pointer capture by calling
+ [`releasePointerCapture()`](https://developer.android.com/reference/android/view/View#releasePointerCapture()),
+-as shown in the following code example:  
++as shown in the following code example:
+ 
+ ### Kotlin
+ 

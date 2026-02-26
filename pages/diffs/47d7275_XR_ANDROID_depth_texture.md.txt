@@ -1,0 +1,29 @@
+diff --git a/docs/develop/xr/openxr/extensions/XR_ANDROID_depth_texture.md b/docs/develop/xr/openxr/extensions/XR_ANDROID_depth_texture.md
+index 7291a25..5dd4aef 100644
+--- a/docs/develop/xr/openxr/extensions/XR_ANDROID_depth_texture.md
++++ b/docs/develop/xr/openxr/extensions/XR_ANDROID_depth_texture.md
+@@ -51,14 +51,16 @@ creation.
+ This extension is intended to expose raw and smooth depth for occlusion, hit
+ tests and other specific tasks that make use of accurate scene geometry, for
+ example, counterfeit face detection.
+-| **Caution:**   
+-|
+-| **Permissions**   
+-| This extension exposes a downsampled depth texture to mitigate PII concerns. Android applications **must** have the `android.permission.SCENE_UNDERSTANDING_FINE` permission listed in their manifest as this extension exposes the geometry of the environment.  
+-|
+-| The `android.permission.SCENE_UNDERSTANDING_FINE` permission is considered a dangerous permission. The application **must** request the [permission at runtime](https://developer.android.com/training/permissions/requesting) to use these functions:  
+-| [`xrCreateDepthSwapchainANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_depth_texture#xrCreateDepthSwapchainANDROID)  
+-| (protection level: dangerous)
++
++> [!CAUTION]
++> **Caution:**   
++>
++> **Permissions**   
++> This extension exposes a downsampled depth texture to mitigate PII concerns. Android applications **must** have the `android.permission.SCENE_UNDERSTANDING_FINE` permission listed in their manifest as this extension exposes the geometry of the environment.  
++>
++> The `android.permission.SCENE_UNDERSTANDING_FINE` permission is considered a dangerous permission. The application **must** request the [permission at runtime](https://developer.android.com/training/permissions/requesting) to use these functions:  
++> [`xrCreateDepthSwapchainANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_depth_texture#xrCreateDepthSwapchainANDROID)  
++> (protection level: dangerous)
+ 
+ ## Inspect system capability
+ 

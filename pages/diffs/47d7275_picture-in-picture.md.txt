@@ -1,0 +1,159 @@
+diff --git a/docs/develop/ui/views/picture-in-picture.md b/docs/develop/ui/views/picture-in-picture.md
+index 77868aa..f2400a5 100644
+--- a/docs/develop/ui/views/picture-in-picture.md
++++ b/docs/develop/ui/views/picture-in-picture.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/picture-in-picture
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to support picture-in-picture in Compose.  
+-[Picture-in-picture →](https://developer.android.com/develop/ui/compose/system/picture-in-picture)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to support picture-in-picture in Compose. [Picture-in-picture →](https://developer.android.com/develop/ui/compose/system/picture-in-picture) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 
+@@ -16,7 +13,10 @@ picture-in-picture (PiP) mode. PiP is a special type of multi-window mode used
+ for video playback, video calls, and navigation. It lets the user pin the
+ existing activity window to a corner of the screen while navigating between apps
+ or browsing content on the main screen.
+-**Caution:** Don't use a system alert window (SAW) for implementing a Picture-in-Picture experience. SAW is reserved for the framework's system-level user interactions.  
++
++> [!CAUTION]
++> **Caution:** Don't use a system alert window (SAW) for implementing a Picture-in-Picture experience. SAW is reserved for the framework's system-level user interactions.
++
+ Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/pip.mp4) and watch it with a video player.
+ 
+ PiP leverages the multi-window APIs made available in Android 7.0 to provide the
+@@ -27,7 +27,9 @@ is in PiP mode.
+ 
+ The PiP window appears in the topmost layer of the screen, in a corner chosen by
+ the system.
+-| **Tip:** While this guide describes implementing PiP in views, see [Add PiP to your app with a Compose video player](https://developer.android.com/jetpack/compose/system/picture-in-picture) to do this in Compose.
++
++> [!TIP]
++> **Tip:** While this guide describes implementing PiP in views, see [Add PiP to your app with a Compose video player](https://developer.android.com/jetpack/compose/system/picture-in-picture) to do this in Compose.
+ 
+ PiP is also supported on compatible Android TV OS devices running
+ Android 14 (API level 34) or later. While there are many similarities, there are
+@@ -76,7 +78,7 @@ By default, the system does not automatically support PiP for apps. If you want
+ support PiP in your app, register your video activity in your manifest by
+ setting `android:supportsPictureInPicture` to `true`. Also, specify that your
+ activity handles layout configuration changes so that your activity doesn't
+-relaunch when layout changes occur during PiP mode transitions.  
++relaunch when layout changes occur during PiP mode transitions.
+ 
+     <activity android:name="VideoActivity"
+         android:supportsPictureInPicture="true"
+@@ -84,7 +86,8 @@ relaunch when layout changes occur during PiP mode transitions.
+             "screenSize|smallestScreenSize|screenLayout|orientation"
+         ...
+ 
+-| **Note:** To learn more about configuration changes, how to restrict Activity recreation if needed, and how to react to those configuration changes from the View system and Jetpack Compose, check out the [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes) page.
++> [!NOTE]
++> **Note:** To learn more about configuration changes, how to restrict Activity recreation if needed, and how to react to those configuration changes from the View system and Jetpack Compose, check out the [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes) page.
+ 
+ ## Implement PiP with Jetpack
+ 
+@@ -106,7 +109,7 @@ transitions to PiP mode smoother from gesture navigation](https://developer.andr
+ If you're targeting Android 11 or lower, an activity must call
+ [`enterPictureInPictureMode()`](https://developer.android.com/reference/android/app/Activity#enterPictureInPictureMode())
+ to switch to PiP mode. For example, the following code switches an activity to
+-PiP mode when the user clicks a dedicated button in the app's UI:  
++PiP mode when the user clicks a dedicated button in the app's UI:
+ 
+ ### Kotlin
+ 
+@@ -136,7 +139,7 @@ You might want to include logic that switches an activity into PiP mode instead
+ of going into the background. For example, Google Maps switches to PiP mode if
+ the user presses the home or recents button while the app is navigating. You can
+ catch this case by overriding
+-[`onUserLeaveHint()`](https://developer.android.com/reference/android/app/Activity#onUserLeaveHint()):  
++[`onUserLeaveHint()`](https://developer.android.com/reference/android/app/Activity#onUserLeaveHint()):
+ 
+ ### Kotlin
+ 
+@@ -211,7 +214,10 @@ Complete the following steps to make this change:
+        .setAutoEnterEnabled(true)
+        .build());
+    ```
+-   | **Note:** When `setAutoEnterEnabled` is enabled, you don't need to explicitly call [`enterPictureInPictureMode`](https://developer.android.com/reference/android/app/Activity#enterPictureInPictureMode(android.app.PictureInPictureParams)) in [`onUserLeaveHint`](https://developer.android.com/reference/android/app/Activity#onUserLeaveHint()).
++
++   > [!NOTE]
++   > **Note:** When `setAutoEnterEnabled` is enabled, you don't need to explicitly call [`enterPictureInPictureMode`](https://developer.android.com/reference/android/app/Activity#enterPictureInPictureMode(android.app.PictureInPictureParams)) in [`onUserLeaveHint`](https://developer.android.com/reference/android/app/Activity#onUserLeaveHint()).
++
+ 2. Call `setPictureInPictureParams` with the up-to-date
+    `PictureInPictureParams` early. The app doesn't wait for the
+    `onUserLeaveHint` callback (as it would have done in Android 11).
+@@ -230,7 +236,9 @@ picture-in-picture---for example, the video view bounds in a video player.
+ 
+ With Android 12, the system uses `sourceRectHint` to implement a much smoother
+ animation both when entering and exiting PiP mode.
+-| **Note:** If your app doesn't provide a proper `sourceRectHint`, the system tries to apply a content overlay during the PiP entering animation, which makes for a poor user experience.
++
++> [!NOTE]
++> **Note:** If your app doesn't provide a proper `sourceRectHint`, the system tries to apply a content overlay during the PiP entering animation, which makes for a poor user experience.
+ 
+ To properly set `sourceRectHint` for entering and exiting PiP mode:
+ 
+@@ -323,7 +331,8 @@ To properly set `sourceRectHint` for entering and exiting PiP mode:
+    });
+    ```
+ 
+-| **Note:** The Jetpack library `androidx.activity` exposes the method [`trackPipAnimationHintView`](https://developer.android.com/reference/kotlin/androidx/activity/package-summary#(android.app.Activity).trackPipAnimationHintView(android.view.View)) that does the work of setting the [`sourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSourceRectHint(android.graphics.Rect)). It implements the work outlined in the preceding steps, using the view passed into that method.
++> [!NOTE]
++> **Note:** The Jetpack library `androidx.activity` exposes the method [`trackPipAnimationHintView`](https://developer.android.com/reference/kotlin/androidx/activity/package-summary#(android.app.Activity).trackPipAnimationHintView(android.view.View)) that does the work of setting the [`sourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSourceRectHint(android.graphics.Rect)). It implements the work outlined in the preceding steps, using the view passed into that method.
+ 
+ ### Disable seamless resizing for non-video content
+ 
+@@ -331,9 +340,11 @@ Android 12 adds the [`setSeamlessResizeEnabled`](https://developer.android.com/r
+ smoother cross-fading animation when resizing non-video content in the PiP
+ window. Previously, resizing non-video content in a PiP window could create
+ jarring visual artifacts.
+-| **Note:** Make sure the content is actually seamless resize capable before turning on this flag.
+ 
+-To enable seamless resizing for video content:  
++> [!NOTE]
++> **Note:** Make sure the content is actually seamless resize capable before turning on this flag.
++
++To enable seamless resizing for video content:
+ 
+ ### Kotlin
+ 
+@@ -369,7 +380,7 @@ callback being invoked with [`isTransitioningToPip()`](https://developer.android
+ There are many UI elements that are not relevant for the app when it is in PiP mode,
+ for example, views or layout that include information such as suggestions, upcoming
+ video, ratings, and titles. When the app goes into PiP mode, use the `onPictureInPictureUiStateChanged()` callback to hide these UI elements. When the
+-app goes to full screen mode from the PiP window, use the `onPictureInPictureModeChanged()` callback to unhide these elements, as shown in the following examples:  
++app goes to full screen mode from the PiP window, use the `onPictureInPictureModeChanged()` callback to unhide these elements, as shown in the following examples:
+ 
+ ### Kotlin
+ 
+@@ -390,7 +401,7 @@ public void onPictureInPictureUiStateChanged(PictureInPictureUiState pipState) {
+           // Hide UI elements.
+         }
+     }
+-```  
++```
+ 
+ ### Kotlin
+ 
+@@ -465,7 +476,7 @@ explicitly continuing playback.
+ 
+ If you haven't set the [`setAutoEnterEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setAutoEnterEnabled(boolean)) flag to `true` and you need to
+ pause playback in your `onPause()` implementation, check for PiP mode by calling
+-`isInPictureInPictureMode()` and handle playback appropriately. For example:  
++`isInPictureInPictureMode()` and handle playback appropriately. For example:
+ 
+ ### Kotlin
+ 
+@@ -510,7 +521,7 @@ new activity that might confuse the user.
+ 
+ To ensure a single activity is used for video playback requests and switched
+ into or out of PiP mode as needed, set the activity's `android:launchMode` to
+-`singleTask` in your manifest:  
++`singleTask` in your manifest:
+ 
+     <activity android:name="VideoActivity"
+         ...

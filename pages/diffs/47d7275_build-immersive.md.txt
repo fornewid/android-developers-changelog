@@ -1,0 +1,121 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/build-immersive.md b/docs/develop/xr/jetpack-xr-sdk/build-immersive.md
+index b52c5b5..733b347 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/build-immersive.md
++++ b/docs/develop/xr/jetpack-xr-sdk/build-immersive.md
+@@ -7,12 +7,7 @@ source: md.txt
+ <br />
+ 
+ 
+-Applicable XR devices  
+-This guidance helps you build experiences for these types of XR devices.  
+-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)  
+-![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets)  
+-![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses)  
+-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)
++Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+ 
+ <br />
+ 
+@@ -51,7 +46,7 @@ This property has the following values:
+ Use this start mode to launch your app in Home Space. In Home Space, multiple
+ apps can run side-by-side, so users can multitask. Any mobile or large screen
+ Android app can operate in Home Space, as well as XR apps built using the
+-Jetpack XR SDK.  
++Jetpack XR SDK.
+ 
+     <manifest ... >
+ 
+@@ -74,7 +69,7 @@ Jetpack XR SDK.
+ #### XR_ACTIVITY_START_MODE_FULL_SPACE_MANAGED
+ 
+ Use this start mode to launch your app in Full Space. In Full Space, only one
+-app runs at a time, with no space boundaries, and all other apps are hidden.  
++app runs at a time, with no space boundaries, and all other apps are hidden.
+ 
+ 
+     <manifest ... >
+@@ -104,7 +99,7 @@ of boundary. Your app needs to specify
+ users move around their physical space. Specifying
+ [`XR_BOUNDARY_TYPE_NO_RECOMMENDATION`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/manifest/package-summary#XR_BOUNDARY_TYPE_NO_RECOMMENDATION()) provides no
+ recommendations for the type of safety boundary, so the system uses the type
+-that is already in use.  
++that is already in use.
+ 
+     <manifest ... >
+ 
+@@ -134,14 +129,14 @@ include this feature in the app manifest. The value you set for the
+ 
+ If your app bundles XR-differentiated features or content into an existing
+ mobile APK and is published on the mobile release track, then set the
+-`android:required` attribute to `false`:  
++`android:required` attribute to `false`:
+ 
+     <!-- If you are publishing an existing mobile APK using the mobile release track, set android:required to false.-->
+     <uses-feature android:name="android.software.xr.api.spatial" android:required="false" />
+ 
+ If your app is built specifically for XR-enabled devices and is published to the
+ Android XR dedicated release track, then set the `android:required` attribute to
+-`true`:  
++`true`:
+ 
+     <!-- If you are publishing a separate APK for XR using the dedicated Android XR release track, set android:required to true.-->
+     <uses-feature android:name="android.software.xr.api.spatial" android:required="true" />
+@@ -153,7 +148,9 @@ This feature indicates that the app requires input from a high precision, 6DoF
+ supports controllers and can't function without them, set the value to `true`.
+ If your app supports controllers but can operate without them, set it to
+ `false`.
+-**Note:** 6DoF motion controllers are a pair of hardware controllers, one for each hand. Each controller is tracked independently in space through six degrees of freedom - both linear and rotational movements. These controllers typically have several hardware buttons, including a trigger as well as haptic feedback.  
++
++> [!NOTE]
++> **Note:** 6DoF motion controllers are a pair of hardware controllers, one for each hand. Each controller is tracked independently in space through six degrees of freedom - both linear and rotational movements. These controllers typically have several hardware buttons, including a trigger as well as haptic feedback.
+ 
+     <!-- Sets android:required to true, indicating that your app can't function on devices without controllers. -->
+     <uses-feature android:name="android.hardware.xr.input.controller" android:required="true" />
+@@ -165,7 +162,9 @@ function correctly, including position, orientation, and velocity of joints in
+ the user's hand. If your app supports hand tracking and can't function without
+ it, set the value to `true`. If your app supports hand tracking, but can operate
+ without it, set it to `false`.
+-**Note:** This flag is not required for detecting basic gestures such as pinching, poking, aiming, and gripping.  
++
++> [!NOTE]
++> **Note:** This flag is not required for detecting basic gestures such as pinching, poking, aiming, and gripping.
+ 
+     <!-- Sets android:required to true, indicating that your app can't function on devices without hand tracking. -->
+     <uses-feature android:name="android.hardware.xr.input.hand_tracking" android:required="true" />
+@@ -175,17 +174,19 @@ without it, set it to `false`.
+ This flag indicates that the app requires high-fidelity eye tracking for input
+ to function correctly. If your app supports eye tracking for input and can't
+ function without it, set the value to `true`. If your app supports eye tracking
+-for input, but can operate without it, set it to `false`.  
++for input, but can operate without it, set it to `false`.
+ 
+     <!-- Sets android:required to true, indicating that your app can't function on devices without eye tracking. -->
+     <uses-feature android:name="android.hardware.xr.input.eye_tracking" android:required="true" />
+ 
+-| **Note:** Hand tracking and eye tracking are privacy-sensitive input methods and require the apps to request special permissions. See [Understand permissions for
+-| XR](https://developer.android.com/develop/xr/permissions) on this page for more information on declaring permissions.
++> [!NOTE]
++> **Note:** Hand tracking and eye tracking are privacy-sensitive input methods and require the apps to request special permissions. See [Understand permissions for
++> XR](https://developer.android.com/develop/xr/permissions) on this page for more information on declaring permissions.
+ 
+ ## App manifest compatibility considerations for mobile and large screen apps
+ 
+-| **Important:** This section applies only to mobile or large screen apps that haven't been optimized for XR. By default, these kinds of Android apps will run on Android XR. However, if your app requires one or more of the features in this section, the app won't be shown in the Play Store on Android XR.
++> [!IMPORTANT]
++> **Important:** This section applies only to mobile or large screen apps that haven't been optimized for XR. By default, these kinds of Android apps will run on Android XR. However, if your app requires one or more of the features in this section, the app won't be shown in the Play Store on Android XR.
+ 
+ As described in the [PackageManager features for XR apps](https://developer.android.com/develop/xr/jetpack-xr-sdk/build-immersive#packagemanager-features) section, apps
+ declare that they use a feature by declaring it in a [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element)
+@@ -200,8 +201,10 @@ shell pm list features`.
+ The [Google Play store filters applications](https://developer.android.com/guide/topics/manifest/uses-feature-element#market-feature-filtering) available
+ for installation on a device by using the following Android feature
+ declarations.
+-| **Caution:** If your app requires a feature that is not supported on the device, then that app won't be available for installation from the Play Store for XR devices. If your app uses the feature, but is designed to run without it, you should set `android:required="false`". For example, `<uses-feature android:name="android.hardware.location.gps"
+-| android:required="false" />`.
++
++> [!CAUTION]
++> **Caution:** If your app requires a feature that is not supported on the device, then that app won't be available for installation from the Play Store for XR devices. If your app uses the feature, but is designed to run without it, you should set `android:required="false`". For example, `<uses-feature android:name="android.hardware.location.gps"
++> android:required="false" />`.
+ 
+ #### Camera Hardware
+ 

@@ -1,0 +1,24 @@
+diff --git a/docs/develop/connectivity/bluetooth/ble-audio/telecom-api-managed-calls.md b/docs/develop/connectivity/bluetooth/ble-audio/telecom-api-managed-calls.md
+index a2534a5..6171803 100644
+--- a/docs/develop/connectivity/bluetooth/ble-audio/telecom-api-managed-calls.md
++++ b/docs/develop/connectivity/bluetooth/ble-audio/telecom-api-managed-calls.md
+@@ -124,7 +124,9 @@ public void onCallAudioStateChanged(CallAudioState audioState) {
+ Get the current active device using
+ [`CallAudioState.getActiveBluetoothDevice()`](https://developer.android.com/reference/android/telecom/CallAudioState#getActiveBluetoothDevice()).
+ This function returns the active Bluetooth device.
+-| **Note:** This feature is only available in API level 28 and higher.
++
++> [!NOTE]
++> **Note:** This feature is only available in API level 28 and higher.
+ 
+ ### Kotlin
+ 
+@@ -175,4 +177,5 @@ This defaults routing to current, active bluetooth devices on Android 9 and high
+ 
+     setAudioRoute(CallAudioState.ROUTE_BLUETOOTH);
+ 
+-| **Note:** This step isn't required if the app already knows which Bluetooth device to route audio to.
+\ No newline at end of file
++> [!NOTE]
++> **Note:** This step isn't required if the app already knows which Bluetooth device to route audio to.
+\ No newline at end of file

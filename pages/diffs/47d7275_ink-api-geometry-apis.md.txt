@@ -1,0 +1,30 @@
+diff --git a/docs/develop/ui/views/touch-and-input/stylus-input/ink-api-geometry-apis.md b/docs/develop/ui/views/touch-and-input/stylus-input/ink-api-geometry-apis.md
+index f3eca4a..f937ccb 100644
+--- a/docs/develop/ui/views/touch-and-input/stylus-input/ink-api-geometry-apis.md
++++ b/docs/develop/ui/views/touch-and-input/stylus-input/ink-api-geometry-apis.md
+@@ -4,9 +4,10 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input
+ source: md.txt
+ ---
+ 
+-The Geometry APIs let you create interactive tools such as selection mechanisms and erasers.
++The Geometry APIs let you create interactive tools such as selection
++mechanisms and erasers.
+ 
+-This section shows how to use the Geometry APIs to implement an eraser.  
++This section shows how to use the Geometry APIs to implement an eraser.
+ 
+     private fun eraseIntersectingStrokes(
+       currentX: Float,
+@@ -27,6 +28,7 @@ This section shows how to use the Geometry APIs to implement an eraser.
+         }
+     }
+ 
+-| **Note:** You can implement an eraser that only removes the parts of strokes it touches by checking if a stroke intersects with individual line segments of a[`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).  
+-|
+-| Then, create new`StrokeInputBatch`and[`Stroke`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/Stroke)objects from the line segments that weren't intersected.
+\ No newline at end of file
++> [!NOTE]
++> **Note:** You can implement an eraser that only removes the parts of strokes it touches by checking if a stroke intersects with individual line segments of a [`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).  
++>
++> Then, create new `StrokeInputBatch` and [`Stroke`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/Stroke) objects from the line segments that weren't intersected.
+\ No newline at end of file

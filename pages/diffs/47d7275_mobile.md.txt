@@ -1,0 +1,22 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/arcore/mobile.md b/docs/develop/xr/jetpack-xr-sdk/arcore/mobile.md
+index 1ecac6a..b68b8ca 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/arcore/mobile.md
++++ b/docs/develop/xr/jetpack-xr-sdk/arcore/mobile.md
+@@ -42,7 +42,7 @@ Use the following dependency specification in your `build.gradle` file:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.arcore:arcore-play-services:1.0.0-alpha10"
++    implementation "androidx.xr.arcore:arcore-play-services:1.0.0-alpha11"
+     implementation "com.google.ar:core:1.51.0"
+ }
+ ```
+@@ -51,7 +51,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.arcore:arcore-play-services:1.0.0-alpha10")
++    implementation("androidx.xr.arcore:arcore-play-services:1.0.0-alpha11")
+     implementation("com.google.ar:core:1.51.0")
+ }
+ ```

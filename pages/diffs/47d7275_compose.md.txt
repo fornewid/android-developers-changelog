@@ -1,0 +1,23 @@
+diff --git a/docs/training/wearables/compose.md b/docs/training/wearables/compose.md
+index 68357bb..aae36e3 100644
+--- a/docs/training/wearables/compose.md
++++ b/docs/training/wearables/compose.md
+@@ -113,7 +113,8 @@ Mobile:
+ | [androidx.wear.compose:compose-navigation](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation/package-summary) | ***instead of*** | androidx.navigation:navigation-compose |
+ | [androidx.wear.compose:compose-foundation](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/package-summary) | ***in addition to*** | androidx.compose.foundation:foundation |
+ 
+-| **Note:** Other non-mobile material dependencies can be used, such as material ripple and material icons extended.
++> [!NOTE]
++> **Note:** Other non-mobile material dependencies can be used, such as material ripple and material icons extended.
+ 
+ The following snippet shows an example `build.gradle` file that includes these
+ dependencies:
+@@ -128,7 +129,7 @@ dependencies {
+     // General compose dependencies
+     implementation(composeBom)
+     implementation("androidx.activity:activity-compose:1.12.4")
+-    implementation("androidx.compose.ui:ui-tooling-preview:1.10.3")
++    implementation("androidx.compose.ui:ui-tooling-preview:1.10.4")
+     // Other compose dependencies
+ 
+     // Compose for Wear OS dependencies

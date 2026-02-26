@@ -1,0 +1,101 @@
+diff --git a/docs/jetpack/androidx/releases/xr-scenecore.md b/docs/jetpack/androidx/releases/xr-scenecore.md
+index 1ed07aa..1136160 100644
+--- a/docs/jetpack/androidx/releases/xr-scenecore.md
++++ b/docs/jetpack/androidx/releases/xr-scenecore.md
+@@ -6,15 +6,14 @@ source: md.txt
+ 
+ # Jetpack SceneCore
+ 
+-[User Guide](https://developer.android.com/develop/devices/xr/jetpack-xr-sdk) [Code Sample](https://github.com/android/xr-samples)  
+-API Reference  
++[User Guide](https://developer.android.com/develop/devices/xr/jetpack-xr-sdk) [Code Sample](https://github.com/android/xr-samples) API Reference  
+ [androidx.xr.scenecore](https://developer.android.com/reference/androidx/xr/scenecore/package-summary)  
+ [androidx.xr.scenecore.testing](https://developer.android.com/reference/androidx/xr/scenecore/testing/package-summary)  
+-Build and manipulate the Android XR scene graph with 3D content.  
++Build and manipulate the Android XR scene graph with 3D content.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| January 28, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha11) |
++| February 25, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha12) |
+ 
+ ## Declaring dependencies
+ 
+@@ -23,19 +22,19 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:  
++your app or module:
+ 
+ ### Groovy
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha11"
++    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha12"
+ 
+     // Optional dependencies for asynchronous conversions
+-    implementation "androidx.xr.scenecore:scenecore-guava:1.0.0-alpha11"
++    implementation "androidx.xr.scenecore:scenecore-guava:1.0.0-alpha12"
+ 
+     // Use to write unit tests
+-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha11"
++    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha12"
+ }
+ ```
+ 
+@@ -43,13 +42,13 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha11")
++    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha12")
+ 
+     // Optional dependencies for asynchronous conversions
+-    implementation("androidx.xr.scenecore:scenecore-guava:1.0.0-alpha11")
++    implementation("androidx.xr.scenecore:scenecore-guava:1.0.0-alpha12")
+ 
+     // Use to write unit tests
+-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha11")
++    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha12")
+ }
+ ```
+ 
+@@ -70,6 +69,25 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha12
++
++February 25, 2026
++
++`androidx.xr.scenecore:scenecore-*:1.0.0-alpha12` is released. Version 1.0.0-alpha12 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/858c4795b789900a14f261bc90ed7e375af2b9be..bf48d1095789789d9d62bfd42bb4f8c9a335ecea/xr/scenecore).
++
++**Known Issues**
++
++- Anchored entities may snap from their anchored position to the activity space origin after several seconds.
++
++**API Changes**
++
++- `ActivitySpace.addOnSpaceUpdatedListener` and `ActivitySpace.removeOnSpaceUpdatedListener` have been renamed to `addOnOriginChangedListener` and `removeOnOriginChangedListener`. `AnchorEntity.setOnSpaceUpdatedListener` has been renamed to `setOnOriginChangedListener`. ([I5d8fb](https://android-review.googlesource.com/#/q/I5d8fb8dc2994f2241c03c9adab17dfa56c11eb6f))
++- Added public name property to `FakeEntity` and made view public on `FakePanelEntity`. ([Ifa1f9](https://android-review.googlesource.com/#/q/Ifa1f9ed8b3116c2baba71cec85659d944feb42e8))
++
++**Bug Fixes**
++
++- Fixed pixel density calculations on newer system images ([I57d04](https://android-review.googlesource.com/#/q/I57d043ac72367c8765502991141c42389bf9e9d9))
++
+ ### Version 1.0.0-alpha11
+ 
+ January 28, 2026
+@@ -263,7 +281,9 @@ Extensive API changes were made to `SceneCore` for this release. Several classes
+ May 7, 2025
+ 
+ `androidx.xr.scenecore:scenecore:1.0.0-alpha04` and `androidx.xr.scenecore:scenecore-testing:1.0.0-alpha04` are released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/043342a8810f3356110a0afce48c662e841c428f..b6c541571b9fb5471f965fc52612cb280713e5e4/xr/scenecore).
+-| **Note:** You'll need Android Emulator version 35.6.7 or later to use this version of the library.
++
++> [!NOTE]
++> **Note:** You'll need Android Emulator version 35.6.7 or later to use this version of the library.
+ 
+ **New Features**
+ 

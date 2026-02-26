@@ -1,0 +1,123 @@
+diff --git a/docs/develop/ui/views/quicksettings-tiles.md b/docs/develop/ui/views/quicksettings-tiles.md
+index 3a5d56c..9d4bc6f 100644
+--- a/docs/develop/ui/views/quicksettings-tiles.md
++++ b/docs/develop/ui/views/quicksettings-tiles.md
+@@ -11,7 +11,10 @@ class, and use a [`Tile`](https://developer.android.com/reference/android/servic
+ you could create a tile that lets users turn a VPN provided by your app on or
+ off.
+ ![Quick Settings panel with the VPN tile turned
+-on and off](https://developer.android.com/static/develop/ui/views/images/quick-settings-vpn-on-off.png) **Figure 1.** Quick Settings panel with the VPN tile turned on and off. **Note:** This guide only discusses non-Wear tiles --- Quick Settings tiles have no relation to the tiles defined within Wear OS. For Wear OS tiles, see the [WearOS Tiles Guide](https://developer.android.com/training/wearables/tiles).
++on and off](https://developer.android.com/static/develop/ui/views/images/quick-settings-vpn-on-off.png) **Figure 1.** Quick Settings panel with the VPN tile turned on and off.
++
++> [!NOTE]
++> **Note:** This guide only discusses non-Wear tiles --- Quick Settings tiles have no relation to the tiles defined within Wear OS. For Wear OS tiles, see the [WearOS Tiles Guide](https://developer.android.com/training/wearables/tiles).
+ 
+ ## Decide when to create a tile
+ 
+@@ -44,7 +47,9 @@ avoiding certain practices:
+ 
+ To create a tile, you need to first create an appropriate tile icon, then
+ create and declare your `TileService` in your app's manifest file.
+-| **Note:** Creating a `TileService` for your app does not add it to the user's Quick Settings panel. Your `TileService` acts as an interface with the tile only after the user has added it.
++
++> [!NOTE]
++> **Note:** Creating a `TileService` for your app does not add it to the user's Quick Settings panel. Your `TileService` acts as an interface with the tile only after the user has added it.
+ 
+ The [Quick Settings sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/quicksettings) provides an example of how to create
+ and manage a tile.
+@@ -160,7 +165,9 @@ requested by your app or if the system needs to communicate with it. A typical
+ [`onCreate()`](https://developer.android.com/reference/android/app/Service#onCreate()), [`onBind()`](https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)), [`onUnbind()`](https://developer.android.com/reference/android/app/Service#onUnbind(android.content.Intent)), and
+ [`onDestroy()`](https://developer.android.com/reference/android/app/Service#onDestroy()). These methods are invoked by the system each time the
+ service enters a new lifecycle phase.
+-| **Important:** Your `TileService` will still go through the typical `Service` lifecycle. However, `TileService` differs from most other bound services because it contains `TileService`-specific lifecycle methods that your app must react to.
++
++> [!IMPORTANT]
++> **Important:** Your `TileService` will still go through the typical `Service` lifecycle. However, `TileService` differs from most other bound services because it contains `TileService`-specific lifecycle methods that your app must react to.
+ 
+ ### TileService lifecycle overview
+ 
+@@ -178,7 +185,9 @@ by the system each time your `TileService` enters a new lifecycle phase:
+   This is the best time to do any one-time initialization. However, this may
+   not satisfy all the needed initialization.
+ 
+-  | **Note:** `onTileAdded()` is not called whenever the tile is created. For example, `onTileAdded()` is not called when the device is rebooted or powered on if the tile had been added and not removed before the device was powered off.
++  > [!NOTE]
++  > **Note:** `onTileAdded()` is not called whenever the tile is created. For example, `onTileAdded()` is not called when the device is rebooted or powered on if the tile had been added and not removed before the device was powered off.
++
+ - [`onStartListening()`](https://developer.android.com/reference/android/service/quicksettings/TileService#onStartListening()) and [`onStopListening()`](https://developer.android.com/reference/android/service/quicksettings/TileService#onStopListening()): These methods are
+   called whenever your app updates the tile, and are called often. The
+   `TileService` remains bound between `onStartListening()` and
+@@ -187,7 +196,8 @@ by the system each time your `TileService` enters a new lifecycle phase:
+ - [`onTileRemoved()`](https://developer.android.com/reference/android/service/quicksettings/TileService#onTileRemoved()): This method is called only if the user removes your
+   tile.
+ 
+-| **Caution:** These phases may not occur consecutively. `onTileAdded()` may only be called once when your tile is added by a user to their Quick Settings panel. `onStartListening()` and `onStopListening()` may be called multiple times throughout the `TileService` lifecycle. `onTileRemoved()` will never be called if the user doesn't remove your tile from their Quick Settings panel.
++> [!CAUTION]
++> **Caution:** These phases may not occur consecutively. `onTileAdded()` may only be called once when your tile is added by a user to their Quick Settings panel. `onStartListening()` and `onStopListening()` may be called multiple times throughout the `TileService` lifecycle. `onTileRemoved()` will never be called if the user doesn't remove your tile from their Quick Settings panel.
+ 
+ ### Select a listening mode
+ 
+@@ -232,7 +242,9 @@ also may be unbound and destroyed when the user is not viewing the tile.
+ Your app receives a callback to `onStartListening()` after the user opens their
+ Quick Settings panel. You can update your `Tile` object as many times as you
+ want between `onStartListening()` and `onStopListening()`.
+-| **Caution:** If you use non-active mode instead of active mode, your `TileService` may be bound every time the user opens their Quick Settings panel.
++
++> [!CAUTION]
++> **Caution:** If you use non-active mode instead of active mode, your `TileService` may be bound every time the user opens their Quick Settings panel.
+ 
+ You do not need to declare non-active mode---simply do not add the
+ `META_DATA_ACTIVE_TILE` to your app's manifest file.
+@@ -258,7 +270,9 @@ After a user adds your tile, it always exists in one of the following states.
+ 
+   For example, a tile in `STATE_UNAVAILABLE` means that the tile is not
+   currently available to the user for some reason.
+-  | **Caution:** Use `STATE_UNAVAILABLE` for tiles that are currently unavailable but could be put into an available state later. If the component will never be available for the user again, pass `COMPONENT_ENABLED_STATE_DISABLED` into [`setComponentEnabledSetting()`](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager#setcomponentenabledsetting).
++
++  > [!CAUTION]
++  > **Caution:** Use `STATE_UNAVAILABLE` for tiles that are currently unavailable but could be put into an available state later. If the component will never be available for the user again, pass `COMPONENT_ENABLED_STATE_DISABLED` into [`setComponentEnabledSetting()`](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager#setcomponentenabledsetting).
+ 
+ The system only sets the initial state of your `Tile` object. You set the `Tile`
+ object's state throughout the rest of its lifecycle.
+@@ -278,7 +292,9 @@ receiving a callback to `onStopListening()`.
+ In active mode, you can update your tile exactly once before receiving a
+ callback to `onStopListening()`. In non-active mode, you can update your tile as
+ many times as you want between `onStartListening()` and `onStopListening()`.
+-| **Note:** Active mode lets you update your tile regardless of whether your tile is visible to the user or not.
++
++> [!NOTE]
++> **Note:** Active mode lets you update your tile regardless of whether your tile is visible to the user or not.
+ 
+ You can retrieve your `Tile` object by calling [`getQsTile()`](https://developer.android.com/reference/android/service/quicksettings/TileService.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#getQsTile()). To update
+ specific fields of your `Tile` object, call the following methods:
+@@ -290,7 +306,8 @@ specific fields of your `Tile` object, call the following methods:
+ - [`setStateDescription()`](https://developer.android.com/reference/android/service/quicksettings/Tile#setStateDescription(java.lang.CharSequence))
+ - [`setSubtitle()`](https://developer.android.com/reference/android/service/quicksettings/Tile#setSubtitle(java.lang.CharSequence))
+ 
+-| **Note:** The icon and label set in your app's manifest file are the default values displayed on the tile in the Quick Settings panel. However, you can call the `setIcon()` and `setLabel()` methods when updating your tile to set the fields to new values.
++> [!NOTE]
++> **Note:** The icon and label set in your app's manifest file are the default values displayed on the tile in the Quick Settings panel. However, you can call the `setIcon()` and `setLabel()` methods when updating your tile to set the fields to new values.
+ 
+ You must call `updateTile()` to update your tile once you're done setting the
+ fields of the `Tile` object to the correct values. This will make the system
+@@ -385,7 +402,9 @@ public void onClick() {
+ [`showDialog()`](https://developer.android.com/reference/android/service/quicksettings/TileService#showDialog(android.app.Dialog)) collapses the Quick Settings panel and shows a dialog.
+ Use a dialog to add context to your action if it requires additional input
+ or user consent.
+-| **Note:** [`isLocked()`](https://developer.android.com/reference/android/service/quicksettings/TileService#isLocked()) checks if the user's lock screen is showing. When `isLocked()` returns true, `showDialog()` doesn't present a visible dialog because it loads under the lock screen.
++
++> [!NOTE]
++> **Note:** [`isLocked()`](https://developer.android.com/reference/android/service/quicksettings/TileService#isLocked()) checks if the user's lock screen is showing. When `isLocked()` returns true, `showDialog()` doesn't present a visible dialog because it loads under the lock screen.
+ 
+ #### Launch an activity
+ 
+@@ -516,4 +535,6 @@ The system can choose to stop processing requests for a given
+ [`ComponentName`](https://developer.android.com/reference/android/content/ComponentName) if it has been denied by the user enough times before. The
+ user is determined from the [`Context`](https://developer.android.com/reference/android/content/Context) used to retrieve this
+ service---it must match the current user.
+-| **Note:** We recommend calling `requestAddTileService()` to increase the discoverability of your tile and reduce the burden on the user to add your tile to their Quick Settings panel.
+\ No newline at end of file
++
++> [!NOTE]
++> **Note:** We recommend calling `requestAddTileService()` to increase the discoverability of your tile and reduce the burden on the user to add your tile to their Quick Settings panel.
+\ No newline at end of file

@@ -1,0 +1,69 @@
+diff --git a/docs/develop/connectivity/uwb.md b/docs/develop/connectivity/uwb.md
+index 26f6086..f3040d5 100644
+--- a/docs/develop/connectivity/uwb.md
++++ b/docs/develop/connectivity/uwb.md
+@@ -4,9 +4,10 @@ url: https://developer.android.com/develop/connectivity/uwb
+ source: md.txt
+ ---
+ 
+-# Ultra-wideband (UWB) communication
++> [!NOTE]
++> **Note:** UWB is currently only available using [Jetpack](https://developer.android.com/jetpack/androidx/releases/core-uwb).
+ 
+-**Note:** UWB is currently only available using [Jetpack](https://developer.android.com/jetpack/androidx/releases/core-uwb).  
++[Video](https://www.youtube.com/watch?v=8X_9no-9tCg)
+ 
+ Ultra-wideband communication is a radio technology focused on precise ranging
+ (measuring the location to an accuracy of 10 cm) between devices.
+@@ -54,11 +55,11 @@ Timestamp Sequence (STS). Provisioned STS is more secure than a static STS
+ configuration. Provisioned STS is supported on all UWB-enabled devices running
+ Android 14 or higher.
+ 
+-|      Threat category      | Static STS  | Provisoned STS |
+-|---------------------------|-------------|----------------|
+-| Air: Passive observer     | Mitigated   | Mitigated      |
+-| Air: Signal amplification | Mitigated   | Mitigated      |
+-| Air: Replay/relay attack  | Susceptible | Mitigated      |
++| Threat category | Static STS | Provisoned STS |
++|---|---|---|
++| Air: Passive observer | Mitigated | Mitigated |
++| Air: Signal amplification | Mitigated | Mitigated |
++| Air: Replay/relay attack | Susceptible | Mitigated |
+ 
+ For provisioned STS:
+ 
+@@ -97,7 +98,7 @@ For an end-to-end example on how to use the [UWB Jetpack library](https://develo
+ 
+ ### UWB Ranging
+ 
+-This code sample initiates and terminates UWB ranging for a Controlee:  
++This code sample initiates and terminates UWB ranging for a Controlee:
+ 
+     // The coroutineScope responsible for handling uwb ranging.
+     // This will be initialized when startRanging is called.
+@@ -151,7 +152,7 @@ This code sample initiates and terminates UWB ranging for a Controlee:
+ 
+ Rxjava3 support is now available to help achieve interoperability with Java
+ clients. This library provides a way to get ranging results as an Observable or
+-Flowable stream, and to retrieve the UwbClientSessionScope as a Single object.  
++Flowable stream, and to retrieve the UwbClientSessionScope as a Single object.
+ 
+     private final UwbManager uwbManager;
+ 
+@@ -215,11 +216,11 @@ Here are the supported partner devices and third party SDKs.
+ 
+ As of January 2025, these devices support the Android UWB Jetpack library:
+ 
+-|  Vendor  |                                      Device Model                                      |
+-|----------|----------------------------------------------------------------------------------------|
+-| Google   | Pixel Pro (6 pro and newer), Fold, Tablet                                              |
+-| Motorola | Edge 50 Ultra                                                                          |
+-| Samsung  | Galaxy Note 20, Galaxy Plus and Ultra (S21 and newer), Galaxy Z Fold (Fold2 and newer) |
++| Vendor | Device Model |
++|---|---|
++| Google | Pixel Pro (6 pro and newer), Fold, Tablet |
++| Motorola | Edge 50 Ultra |
++| Samsung | Galaxy Note 20, Galaxy Plus and Ultra (S21 and newer), Galaxy Z Fold (Fold2 and newer) |
+ 
+ *Note*: Background UWB ranging is supported on all devices except for the following:
+ 

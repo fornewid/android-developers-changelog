@@ -1,0 +1,68 @@
+diff --git a/docs/develop/sensors-and-location/location/maps-and-places.md b/docs/develop/sensors-and-location/location/maps-and-places.md
+index 4f100f1..0f62450 100644
+--- a/docs/develop/sensors-and-location/location/maps-and-places.md
++++ b/docs/develop/sensors-and-location/location/maps-and-places.md
+@@ -4,32 +4,52 @@ url: https://developer.android.com/develop/sensors-and-location/location/maps-an
+ source: md.txt
+ ---
+ 
+-# Maps and places
+-
+ ![](https://developer.android.com/static/images/google/gps-maps.png)
+ 
+-Allow your users to explore the world with rich maps provided by Google. Identify locations with custom markers, augment the map data with image overlays, embed one or more maps as fragments, show details about nearby points of interest, and much more.
++Allow your users to explore the world with rich maps provided by Google.
++Identify locations with custom markers, augment the map data with image
++overlays, embed one or more maps as fragments, show details about nearby points
++of interest, and much more.
+ 
+ ## Maps SDK
+ 
+-The[Maps SDK for Android](https://developers.google.com/maps/documentation/android-sdk/)is part of the Google Play services platform and lets you include maps and customized mapping information in your app. Follow the[Get Started](https://developers.google.com/maps/documentation/android-sdk/start)guide to set up Google Play services in your project, then dive into the key features of the Maps SDK.
++The [Maps SDK for Android](https://developers.google.com/maps/documentation/android-sdk/) is part of the Google Play services
++platform and lets you include maps and customized mapping information in your
++app. Follow the [Get Started](https://developers.google.com/maps/documentation/android-sdk/start) guide to set up Google Play services
++in your project, then dive into the key features of the Maps SDK.
+ 
+ #### Add a map to your app
+ 
+-With Maps SDK for Android, you can embed maps into an activity as a fragment using an XML snippet. This SDK offers exciting features such as 3D maps; indoor, satellite, terrain, and hybrid maps; vector-based tiles for efficient caching and drawing; animated transitions; and much more. Learn about how to[add a map object](https://developers.google.com/maps/documentation/android-sdk/map).
++With Maps SDK for Android, you can embed maps into an activity as a fragment
++using an XML snippet. This SDK offers exciting features such as 3D maps;
++indoor, satellite, terrain, and hybrid maps; vector-based tiles for efficient
++caching and drawing; animated transitions; and much more. Learn about how to
++[add a map object](https://developers.google.com/maps/documentation/android-sdk/map).
+ 
+ #### Customize the map
+ 
+-Add markers onto the map to indicate special points of interest for your users. You can define custom colors or icons for your map markers to match your app's look and feel. To further enhance the app, draw polylines and polygons to indicate paths or regions, or provide complete image overlays. Learn more in the guide about how to[draw markers](https://developers.google.com/maps/documentation/android-sdk/marker).
++Add markers onto the map to indicate special points of interest for your users.
++You can define custom colors or icons for your map markers to match your app's
++look and feel. To further enhance the app, draw polylines and polygons to
++indicate paths or regions, or provide complete image overlays. Learn more in the
++guide about how to [draw markers](https://developers.google.com/maps/documentation/android-sdk/marker).
+ 
+ #### Control the user's view
+ 
+-Give your users a different view of the world with the ability to control the rotation, tilt, zoom, and pan properties of the "camera" perspective of the map. Learn how to[change the view](https://developers.google.com/maps/documentation/android-sdk/views).
++Give your users a different view of the world with the ability to control the
++rotation, tilt, zoom, and pan properties of the "camera" perspective of the map.
++Learn how to [change the view](https://developers.google.com/maps/documentation/android-sdk/views).
+ 
+ #### Add Street View to your app
+ 
+-[Add Street View](https://developers.google.com/maps/documentation/android-sdk/streetview)into an activity and let your users explore the world through panoramic 360-degree views. Programmatically control the zoom and orientation (tilt and bearing) of the Street View camera, and animate the camera movements over a given duration.
++[Add Street View](https://developers.google.com/maps/documentation/android-sdk/streetview) into an activity and let your users explore
++the world through panoramic 360-degree views. Programmatically control the zoom
++and orientation (tilt and bearing) of the Street View camera, and animate the
++camera movements over a given duration.
+ 
+ ## Places API
+ 
+-Help your users find businesses, restaurants, and other points of interest based on their current location. Use the[Places SDK for Android](https://developers.google.com/maps/documentation/places/android-sdk)to provide convenient, relevant information like contact information and business hours when your users need it.
+\ No newline at end of file
++Help your users find businesses, restaurants, and other points of interest based
++on their current location. Use the [Places SDK for Android](https://developers.google.com/maps/documentation/places/android-sdk)
++to provide convenient, relevant information like contact information and
++business hours when your users need it.
+\ No newline at end of file

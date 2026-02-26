@@ -1,0 +1,48 @@
+diff --git a/docs/develop/ui/views/components/settings/programmatic-hierarchy.md b/docs/develop/ui/views/components/settings/programmatic-hierarchy.md
+index 9f448e5..179210e 100644
+--- a/docs/develop/ui/views/components/settings/programmatic-hierarchy.md
++++ b/docs/develop/ui/views/components/settings/programmatic-hierarchy.md
+@@ -5,10 +5,15 @@ source: md.txt
+ ---
+ 
+ # Create a hierarchy in code
++Part of [Android Jetpack](https://developer.android.com/jetpack).
+ 
+-# Create a hierarchy in codePart of[Android Jetpack](https://developer.android.com/jetpack).
+-
+-You can create a hierarchy programmatically in[`onCreatePreferences()`](https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat#oncreatepreferences). The following example demonstrates a programmatic approach to creating the same preference screen created through XML on the[overview](https://developer.android.com/develop/ui/views/components/settings#create_a_hierarchy)page. To create the screen programmatically, create each setting and set its relevant properties, then add it to the preference screen:  
++You can create a hierarchy programmatically in
++[`onCreatePreferences()`](https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat#oncreatepreferences).
++The following example demonstrates a programmatic approach to creating the same
++preference screen created through XML on the
++[overview](https://developer.android.com/develop/ui/views/components/settings#create_a_hierarchy) page. To
++create the screen programmatically, create each setting and set its relevant
++properties, then add it to the preference screen:
+ 
+ ### Kotlin
+ 
+@@ -57,7 +62,13 @@ public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+ }
+ ```
+ 
+-Adding a[`PreferenceCategory`](https://developer.android.com/reference/androidx/preference/PreferenceCategory)is similar. The following example demonstrates a programmatic approach to creating the preference screen seen in[Organize your settings](https://developer.android.com/develop/ui/views/components/settings/organize-your-settings#preference_categories). The children are added to the`PreferenceCategory`and not to the root`PreferenceScreen`.  
++Adding a
++[`PreferenceCategory`](https://developer.android.com/reference/androidx/preference/PreferenceCategory) is
++similar. The following example demonstrates a programmatic approach to creating
++the preference screen seen in
++[Organize your settings](https://developer.android.com/develop/ui/views/components/settings/organize-your-settings#preference_categories).
++The children are added to the `PreferenceCategory` and not to the root
++`PreferenceScreen`.
+ 
+ ### Kotlin
+ 
+@@ -123,4 +134,6 @@ public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+     setPreferenceScreen(screen);
+ }
+ ```
+-| **Warning:** Add the`PreferenceCategory`to the`PreferenceScreen`before adding children to it. Preferences can't be added to a`PreferenceCategory`that isn't attached to the root screen.
+\ No newline at end of file
++
++> [!WARNING]
++> **Warning:** Add the `PreferenceCategory` to the `PreferenceScreen` before adding children to it. Preferences can't be added to a `PreferenceCategory` that isn't attached to the root screen.
+\ No newline at end of file

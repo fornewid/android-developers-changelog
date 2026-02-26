@@ -1,0 +1,58 @@
+diff --git a/docs/jetpack/androidx/releases/browser.md b/docs/jetpack/androidx/releases/browser.md
+index c4c9546..49b61d3 100644
+--- a/docs/jetpack/androidx/releases/browser.md
++++ b/docs/jetpack/androidx/releases/browser.md
+@@ -14,7 +14,7 @@ Display webpages in the user's default browser.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| February 11, 2026 | [1.9.0](https://developer.android.com/jetpack/androidx/releases/browser#1.9.0) | - | - | [1.10.0-alpha03](https://developer.android.com/jetpack/androidx/releases/browser#1.10.0-alpha03) |
++| February 25, 2026 | [1.9.0](https://developer.android.com/jetpack/androidx/releases/browser#1.9.0) | - | - | [1.10.0-alpha04](https://developer.android.com/jetpack/androidx/releases/browser#1.10.0-alpha04) |
+ 
+ ## Declaring dependencies
+ 
+@@ -58,6 +58,16 @@ for more information.
+ 
+ ## Version 1.10
+ 
++### Version 1.10.0-alpha04
++
++February 25, 2026
++
++`androidx.browser:browser:1.10.0-alpha04` is released. Version 1.10.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..6e23fc0c137022098ae2d043778ffdc56402ba5e/browser/browser).
++
++**API Changes**
++
++- Removes `@ExperimentalOpenInBrowser` annotation for official release ([I538fd](https://android-review.googlesource.com/#/q/I538fdec0f49b685fe543a207fc6362884bccc2ed), [b/414825188](https://issuetracker.google.com/issues/414825188))
++
+ ### Version 1.10.0-alpha03
+ 
+ February 11, 2026
+@@ -672,7 +682,9 @@ October 23, 2019
+ September 18, 2019
+ 
+ `androidx.browser:browser:1.2.0-alpha08` is released. [Version 1.2.0-alpha08 contains these commits](https://android.googlesource.com/platform/frameworks/support/+log/aa4d9f606c70daf3cbd6033de426e84d21930733..dfdbbcb30249aa226e33ebb323f7d12ad692297a/browser).
+-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
++
++> [!NOTE]
++> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+ 
+ **New features**
+ 
+@@ -697,10 +709,14 @@ September 18, 2019
+ ### Version 1.2.0-alpha07
+ 
+ August 7, 2019
+-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
++
++> [!NOTE]
++> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+ 
+ `androidx.browser:browser:1.2.0-alpha07` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/50a39caa72955aae0c75225fd9805ab537cbf049..ece690f1fdb4481b47c5128fd21d88da7d6850a6/browser).
+-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
++
++> [!NOTE]
++> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+ 
+ **New features**
+ 

@@ -1,0 +1,14 @@
+diff --git a/docs/develop/connectivity/preserving-battery.md b/docs/develop/connectivity/preserving-battery.md
+index 3bbb31e..3bf2ba0 100644
+--- a/docs/develop/connectivity/preserving-battery.md
++++ b/docs/develop/connectivity/preserving-battery.md
+@@ -37,4 +37,6 @@ with tools and techniques for maximizing the efficiency of each category.
+ Ultimately, it's all of our responsibilities as a developer community to provide
+ the best app experience for our users.
+ 
+-## Additional material
+\ No newline at end of file
++## Additional material
++
++[Video](https://www.youtube.com/watch?v=fEEulSk1kNY)
+\ No newline at end of file

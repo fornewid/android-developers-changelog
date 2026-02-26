@@ -1,0 +1,141 @@
+diff --git a/docs/develop/connectivity/bluetooth/ble/transfer-ble-data.md b/docs/develop/connectivity/bluetooth/ble/transfer-ble-data.md
+index 8fa573f..c789b4c 100644
+--- a/docs/develop/connectivity/bluetooth/ble/transfer-ble-data.md
++++ b/docs/develop/connectivity/bluetooth/ble/transfer-ble-data.md
+@@ -4,15 +4,31 @@ url: https://developer.android.com/develop/connectivity/bluetooth/ble/transfer-b
+ source: md.txt
+ ---
+ 
+-# Transfer BLE data
+-
+-Once you have[connected to a BLE GATT server](https://developer.android.com/develop/connectivity/bluetooth/connect-gatt-server), you can use the connection to find out what services are available on the device, query data from the device, and request notifications when a certain GATT characteristic changes.
++Once you have [connected to a BLE GATT
++server](https://developer.android.com/develop/connectivity/bluetooth/connect-gatt-server), you can use
++the connection to find out what services are available on the device, query data
++from the device, and request notifications when a certain GATT characteristic
++changes.
+ 
+ ## Discover services
+ 
+-The first thing to do once you connect to the GATT Server on the BLE device is to perform service discovery. This provides information about the services available on the remote device as well as the service characteristics and their descriptors. In the following example, once the service successfully connects to the device (indicated by the appropriate call to the[`onConnectionStateChange()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onConnectionStateChange(android.bluetooth.BluetoothGatt,%20int,%20int))function of the[`BluetoothGattCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback)), the[`discoverServices()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#discoverServices())function queries the information from the BLE device.
+-
+-The service needs to override the[`onServicesDiscovered()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onServicesDiscovered(android.bluetooth.BluetoothGatt,%20int))function in the[`BluetoothGattCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback). This function is called when the device reports on its available services.  
++The first thing to do once you connect to the GATT Server on the BLE device is
++to perform service discovery. This provides information about the services
++available on the remote device as well as the service characteristics and their
++descriptors. In the following example, once the service successfully connects to
++the device (indicated by the appropriate call to the
++[`onConnectionStateChange()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onConnectionStateChange(android.bluetooth.BluetoothGatt,%20int,%20int))
++function of the
++[`BluetoothGattCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback)),
++the
++[`discoverServices()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#discoverServices())
++function queries the information from the BLE device.
++
++The service needs to override the
++[`onServicesDiscovered()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onServicesDiscovered(android.bluetooth.BluetoothGatt,%20int))
++function in the
++[`BluetoothGattCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback).
++This function is called when the device reports on its available services.
+ 
+ ### Kotlin
+ 
+@@ -97,7 +113,10 @@ class BluetoothLeService extends Service {
+ }
+ ```
+ 
+-The service uses[broadcasts](https://developer.android.com/guide/components/broadcasts)to notify the activity. Once the services have been discovered, the service can call[`getServices()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#getServices())to get the reported data.  
++The service uses [broadcasts](https://developer.android.com/guide/components/broadcasts) to notify the
++activity. Once the services have been discovered, the service can call
++[`getServices()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#getServices()) to
++get the reported data.
+ 
+ ### Kotlin
+ 
+@@ -126,7 +145,8 @@ class BluetoothLeService extends Service {
+ }
+ ```
+ 
+-The activity can then call this function when it receives the broadcast intent, indicating that service discovery has finished.  
++The activity can then call this function when it receives the broadcast intent,
++indicating that service discovery has finished.
+ 
+ ### Kotlin
+ 
+@@ -184,7 +204,10 @@ class DeviceControlsActivity extends AppCompatActivity {
+ 
+ ## Read BLE characteristics
+ 
+-Once your app has connected to a GATT server and discovered services, it can read and write attributes, where supported. For example, the following snippet iterates through the server's services and characteristics and displays them in the UI:  
++Once your app has connected to a GATT server and discovered services, it
++can read and write attributes, where supported. For example, the following
++snippet iterates through the server's services and characteristics and displays
++them in the UI:
+ 
+ ### Kotlin
+ 
+@@ -295,7 +318,13 @@ public class DeviceControlActivity extends Activity {
+ }
+ ```
+ 
+-The GATT service provides a list of characteristics you can read from the device. In order to query the data, call the[`readCharacteristic()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#readCharacteristic(android.bluetooth.BluetoothGattCharacteristic))function on the[`BluetoothGatt`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt), passing in the[`BluetoothGattCharacteristic`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic)you want to read.  
++The GATT service provides a list of characteristics you can read from the
++device. In order to query the data, call the
++[`readCharacteristic()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#readCharacteristic(android.bluetooth.BluetoothGattCharacteristic))
++function on the
++[`BluetoothGatt`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt), passing in the
++[`BluetoothGattCharacteristic`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic)
++you want to read.
+ 
+ ### Kotlin
+ 
+@@ -332,7 +361,12 @@ class BluetoothLeService extends Service {
+ }
+ ```
+ 
+-In this example, the service implements a function to call[`readCharacteristic()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#readCharacteristic(android.bluetooth.BluetoothGattCharacteristic)). This is an asynchronous call. The results are sent to the[`BluetoothGattCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback)function[`onCharacteristicRead()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onCharacteristicRead(android.bluetooth.BluetoothGatt,%20android.bluetooth.BluetoothGattCharacteristic,%20int)).  
++In this example, the service implements a function to call
++[`readCharacteristic()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#readCharacteristic(android.bluetooth.BluetoothGattCharacteristic)).
++This is an asynchronous call. The results are sent to the
++[`BluetoothGattCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback)
++function
++[`onCharacteristicRead()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onCharacteristicRead(android.bluetooth.BluetoothGatt,%20android.bluetooth.BluetoothGattCharacteristic,%20int)).
+ 
+ ### Kotlin
+ 
+@@ -383,7 +417,10 @@ class BluetoothLeService extends Service {
+ }
+ ```
+ 
+-When a particular callback is triggered, it calls the appropriate`broadcastUpdate()`helper method and passes it an action. Note that the data parsing in this section is performed in accordance with the Bluetooth Heart Rate Measurement profile specifications.  
++When a particular callback is triggered, it calls the appropriate
++`broadcastUpdate()` helper method and passes it an action. Note that the data
++parsing in this section is performed in accordance with the Bluetooth Heart Rate
++Measurement profile specifications.
+ 
+ ### Kotlin
+ 
+@@ -464,7 +501,11 @@ private void broadcastUpdate(final String action,
+ 
+ ## Receive GATT notifications
+ 
+-It's common for BLE apps to ask to be notified when a particular characteristic changes on the device. In the following example, the service implements a function to call the[`setCharacteristicNotification()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#setCharacteristicNotification(android.bluetooth.BluetoothGattCharacteristic,%20boolean))method:  
++It's common for BLE apps to ask to be notified when a particular characteristic
++changes on the device. In the following example, the service implements a
++function to call the
++[`setCharacteristicNotification()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#setCharacteristicNotification(android.bluetooth.BluetoothGattCharacteristic,%20boolean))
++method:
+ 
+ ### Kotlin
+ 
+@@ -517,7 +558,9 @@ class BluetoothLeService extends Service {
+ }
+ ```
+ 
+-Once notifications are enabled for a characteristic, an[`onCharacteristicChanged()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onCharacteristicChanged(android.bluetooth.BluetoothGatt,%20android.bluetooth.BluetoothGattCharacteristic))callback is triggered if the characteristic changes on the remote device:  
++Once notifications are enabled for a characteristic, an
++[`onCharacteristicChanged()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onCharacteristicChanged(android.bluetooth.BluetoothGatt,%20android.bluetooth.BluetoothGattCharacteristic))
++callback is triggered if the characteristic changes on the remote device:
+ 
+ ### Kotlin
+ 

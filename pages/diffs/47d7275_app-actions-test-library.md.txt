@@ -1,0 +1,191 @@
+diff --git a/docs/develop/devices/assistant/app-actions-test-library.md b/docs/develop/devices/assistant/app-actions-test-library.md
+index 69847a3..16cb85e 100644
+--- a/docs/develop/devices/assistant/app-actions-test-library.md
++++ b/docs/develop/devices/assistant/app-actions-test-library.md
+@@ -4,45 +4,62 @@ url: https://developer.android.com/develop/devices/assistant/app-actions-test-li
+ source: md.txt
+ ---
+ 
+-# App Actions Test Library
++Project: /develop/devices/assistant/_project.yaml
++Book: /develop/devices/assistant/_book.yaml
+ 
+-The App Actions test library (AATL) provides capabilities to enable developers to test App Action fulfillment programmatically, automating testing that would normally be done using actual voice queries or the App Actions test tool.
++The App Actions test library (AATL) provides capabilities to enable developers
++to test App Action fulfillment programmatically, automating testing that would
++normally be done using actual voice queries or the App Actions test tool.
+ 
+-The library helps ensure that the`shortcut.xml`configuration is correct and the described Android intent invocation succeeds. App Actions Test Library provides a mechanism to test your app's ability to fulfill given Google Assistant intent and parameters, by converting them into an Android deep link or Android intent, that can be asserted and used to instantiate an Android activity.
++The library helps ensure that the `shortcut.xml` configuration is correct and
++the described Android intent invocation succeeds. App Actions Test Library
++provides a mechanism to test your app's ability to fulfill given Google
++Assistant intent and parameters, by converting them into an Android deep link or
++Android intent, that can be asserted and used to instantiate an Android
++activity.
+ 
+-Testing is performed in the form of Robolectric unit or instrumented tests in the Android environment. This allows developers to comprehensively test their application by emulating the actual app behavior. For testing BIIs, custom intents, or deep link fulfillment, any instrumented testing framework can be used (UI Automator, Espresso, JUnit4, Appium, Detox, Calabash).
++Testing is performed in the form of Robolectric unit or instrumented tests in
++the Android environment. This allows developers to comprehensively test their
++application by emulating the actual app behavior. For testing BIIs, custom
++intents, or deep link fulfillment, any instrumented testing framework can be
++used (UI Automator, Espresso, JUnit4, Appium, Detox, Calabash).
+ 
+-If the application is multi-lingual, developers can validate that the application's functionality is behaving correctly in different locales.
++If the application is multi-lingual, developers can validate that the
++application's functionality is behaving correctly in different locales.
+ 
+ ## How it works
+ 
+-To integrate App Actions Test Library within the app's testing environment, developers should create new or update existing Robolectric or instrumented tests on the`app`module of the app.
++To integrate App Actions Test Library within the app's testing environment, developers should
++create new or update existing Robolectric or instrumented tests on the `app`
++module of the app.
+ 
+ Test code contains the following parts:
+ 
+ - Initialization of the library instance, in the common setup method or in individual test cases.
+-- Each individual test calls the`fulfill`method of the library instance to produce the intent creation result.
++- Each individual test calls the `fulfill` method of the library instance to produce the intent creation result.
+ - The developer then asserts the deep link or triggers the App fulfillment, and runs custom validation on the app state.
+ 
+ ## Setup requirements
+ 
+-In order to use the test library, there is some initial app configuration required prior to adding the tests to your application.
++In order to use the test library, there is some initial app configuration
++required prior to adding the tests to your application.
+ 
+ ### Configuration
+ 
+ To use the App Actions Test Library, make sure your app is configured as follows:
+ 
+-- Install the[Android Gradle Plugin](https://developer.android.com/reference/tools/gradle-api)(AGP)
+-- Include a`shortcuts.xml`file in the`res/xml`folder in the`app`module.
+-- Make sure`AndroidManifest.xml`includes`<meta-data
+-  android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />`under either:
+-  - the`<application>`tag
+-  - the launcher`<activity>`tag
+-- Place the`<capability>`element inside the`<shortcuts>`element in`shortcuts.xml`
++- Install the [Android Gradle Plugin](https://developer.android.com/reference/tools/gradle-api) (AGP)
++- Include a `shortcuts.xml` file in the `res/xml` folder in the`app` module.
++- Make sure `AndroidManifest.xml` includes `<meta-data
++  android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />` under either:
++  - the `<application>` tag
++  - the launcher `<activity>` tag
++- Place the `<capability>` element inside the `<shortcuts>` element in `shortcuts.xml`
+ 
+ ### Add App Actions Test Library dependencies
+ 
+-1. Add the Google repository to the list of project repositories in`settings.gradle`:
++1. Add the Google repository to the list of project repositories in
++   `settings.gradle`:
+ 
+            allprojects {
+                repositories {
+@@ -51,7 +68,7 @@ To use the App Actions Test Library, make sure your app is configured as follows
+                }
+            }
+ 
+-2. In the app module`build.gradle`file, add the AATL dependencies:
++2. In the app module `build.gradle` file, add the AATL dependencies:
+ 
+            androidTestImplementation 'com.google.assistant.appactions:testing:1.0.0'
+ 
+@@ -59,7 +76,8 @@ To use the App Actions Test Library, make sure your app is configured as follows
+ 
+ ### Create integration tests
+ 
+-1. Create new tests under`app/src/androidTest`. For Robolectric tests, create them under`app/src/test`:
++1. Create new tests under `app/src/androidTest`. For Robolectric tests, create
++   them under `app/src/test`:
+ 
+    ### Kotlin
+ 
+@@ -163,7 +181,9 @@ To use the App Actions Test Library, make sure your app is configured as follows
+      
+    ```
+ 
+-   If you are using Espresso, you need to modify how you launch the Activity based on the AATL results. Here is an example for Espresso using the`ActivityScenario`method:  
++   If you are using Espresso, you need to modify how you launch the Activity
++   based on the AATL results. Here is an example for Espresso using the
++   `ActivityScenario` method:
+ 
+    ### Kotlin
+ 
+@@ -184,9 +204,14 @@ To use the App Actions Test Library, make sure your app is configured as follows
+            .check(ViewAssertions.matches(ViewMatchers.withText("Launching...")))
+        
+    ```
+-2. Have the name and key properties in the parameter mappings match the parameters from the BII. For example,`exercisePlan.forExercise.name`matches the documentation for the parameter in[`GET_EXERCISE_PLAN`]().
++2. Have the name and key properties in the parameter mappings match the
++   parameters from the BII. For example, `exercisePlan.forExercise.name` matches the
++   documentation for the parameter in [`GET_EXERCISE_PLAN`]().
+ 
+-3. Instantiate API instance with the Android Context parameter (obtained from[`ApplicationProvider`](https://developer.android.com/reference/androidx/test/core/app/ApplicationProvider)or[`InstrumentationRegistry`](https://developer.android.com/reference/androidx/test/InstrumentationRegistry)):
++3. Instantiate API instance with the Android Context parameter (obtained from
++   [`ApplicationProvider`](https://developer.android.com/reference/androidx/test/core/app/ApplicationProvider)
++   or
++   [`InstrumentationRegistry`](https://developer.android.com/reference/androidx/test/InstrumentationRegistry)):
+ 
+    - Single module app architecture:
+ 
+@@ -252,26 +277,28 @@ To use the App Actions Test Library, make sure your app is configured as follows
+        
+      
+    ```
+-4. Execute the`fulfill`method of the API and obtain the`AppActionsFulfillmentResult`object.
++4. Execute the `fulfill` method of the API and obtain the
++   `AppActionsFulfillmentResult` object.
+ 
+ #### Perform assertions
+ 
+ The recommended way to assert App Actions Test Library is:
+ 
+-1. Assert the fulfillment type of the`AppActionsFulfillmentResult`. It has to be`FulfillmentType.INTENT`, or`FulfillmentType.UNFULFILLED`in order to test how the app behaves in case of unexpected BII requests.
+-2. There are 2 flavors of fulfillment:`INTENT`and`DEEPLINK`fulfillments.
+-   - Normally, the developer can differentiate between`INTENT`and`DEEPLINK`fulfillments by looking at the intent tag in`shortcuts.xml`that they are fulfilling by triggering the library.
+-   - If there is an url-template tag under the intent tag, this indicates that the`DEEPLINK`fulfills this intent.
+-   - If the result intent's`getData()`method returns a non-null object, this also indicates`DEEPLINK`fulfillment. Likewise, if`getData`returns`null`it means that it is an`INTENT`fulfillment.
+-3. For`INTENT`case, typecast`AppActionsFulfillmentResult`to`AppActionsIntentFulfillmentResult`, fetch the Android Intent by calling`getIntent`method and do one of the following:
++1. Assert the fulfillment type of the `AppActionsFulfillmentResult`. It has to be `FulfillmentType.INTENT`, or `FulfillmentType.UNFULFILLED` in order to test how the app behaves in case of unexpected BII requests.
++2. There are 2 flavors of fulfillment: `INTENT` and `DEEPLINK` fulfillments.
++   - Normally, the developer can differentiate between `INTENT` and `DEEPLINK` fulfillments by looking at the intent tag in `shortcuts.xml` that they are fulfilling by triggering the library.
++   - If there is an url-template tag under the intent tag, this indicates that the `DEEPLINK` fulfills this intent.
++   - If the result intent's `getData()` method returns a non-null object, this also indicates`DEEPLINK` fulfillment. Likewise, if `getData` returns `null` it means that it is an `INTENT` fulfillment.
++3. For `INTENT` case, typecast `AppActionsFulfillmentResult` to `AppActionsIntentFulfillmentResult`, fetch the Android Intent by calling `getIntent` method and do one of the following:
+    - Assert individual fields of Android Intent.
+    - Assert the uri of an intent that is accessed through intent.getData.getHost method.
+-4. For`DEEPLINK`case, typecast`AppActionsFulfillmentResult`to`AppActionsIntentFulfillmentResult`(same as for the`INTENT`scenario above), fetch the Android Intent by calling`getIntent`method and assert the deeplink url (accessed through`intent.getData.getHost`).
+-5. For both`INTENT`and`DEEPLINK`, you can use the resulting intent to launch the activity with the chosen Android testing framework.
++4. For `DEEPLINK` case, typecast `AppActionsFulfillmentResult` to `AppActionsIntentFulfillmentResult` (same as for the `INTENT` scenario above), fetch the Android Intent by calling `getIntent` method and assert the deeplink url (accessed through `intent.getData.getHost`).
++5. For both `INTENT` and `DEEPLINK`, you can use the resulting intent to launch the activity with the chosen Android testing framework.
+ 
+ ### Internationalization
+ 
+-If your App has multiple locales, you can configure tests to run a particular locale under-test. Alternatively, you can directly change the locale:  
++If your App has multiple locales, you can configure tests to run a particular
++locale under-test. Alternatively, you can directly change the locale:
+ 
+ ### Kotlin
+ 
+@@ -300,7 +327,7 @@ If your App has multiple locales, you can configure tests to run a particular lo
+   
+ ```
+ 
+-Here is an example of an AATL test configured for Spanish (ES) locale:  
++Here is an example of an AATL test configured for Spanish (ES) locale:
+ 
+ ### Kotlin
+ 
+@@ -408,7 +435,11 @@ Here is an example of an AATL test configured for Spanish (ES) locale:
+ 
+ ## Troubleshoot
+ 
+-If your integration test fails unexpectedly, you can look for AATL log messages in the Android Studio logcat window to get the warning or error level message. You can also[increase the logging level](https://developer.android.com/studio/debug/logcat#configure-log-view)to capture more output from the library.
++If your integration test fails unexpectedly, you can look for AATL log messages
++in the Android Studio logcat window to get the warning or error level message.
++You can also [increase the logging
++level](https://developer.android.com/studio/debug/logcat#configure-log-view) to capture more output from
++the library.
+ 
+ ## Limitations
+ 

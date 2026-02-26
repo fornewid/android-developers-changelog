@@ -1,0 +1,70 @@
+diff --git a/docs/develop/ui/views/layout/webapps/webview.md b/docs/develop/ui/views/layout/webapps/webview.md
+index 96a9cbc..535adc5 100644
+--- a/docs/develop/ui/views/layout/webapps/webview.md
++++ b/docs/develop/ui/views/layout/webapps/webview.md
+@@ -152,7 +152,9 @@ String encodedHtml = Base64.encodeToString(unencodedHtml.getBytes(),
+         Base64.NO_PADDING);
+ myWebView.loadData(encodedHtml, "text/html", "base64");
+ ```
+-| **Note:** There are restrictions on what this HTML can do. See [`loadData()`](https://developer.android.com/reference/android/webkit/WebView#loadData(java.lang.String,%20java.lang.String,%20java.lang.String)) and [`loadDataWithBaseURL()`](https://developer.android.com/reference/android/webkit/WebView#loadDataWithBaseURL(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)) for more info about encoding options.
++
++> [!NOTE]
++> **Note:** There are restrictions on what this HTML can do. See [`loadData()`](https://developer.android.com/reference/android/webkit/WebView#loadData(java.lang.String,%20java.lang.String,%20java.lang.String)) and [`loadDataWithBaseURL()`](https://developer.android.com/reference/android/webkit/WebView#loadDataWithBaseURL(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)) for more info about encoding options.
+ 
+ Your app must have access to the internet. To get internet access, request the
+ [`INTERNET`](https://developer.android.com/reference/android/Manifest.permission#INTERNET) permission in your
+@@ -224,7 +226,9 @@ To bind a new interface between your JavaScript and Android code, call
+ [`addJavascriptInterface()`](https://developer.android.com/reference/android/webkit/WebView#addJavascriptInterface(java.lang.Object,%20java.lang.String)),
+ passing it a class instance to bind to your JavaScript and an interface name
+ that your JavaScript can call to access the class.
+-| **Warning:** Using `addJavascriptInterface()` lets JavaScript control your Android app. Although this can be useful, it can also be a dangerous security issue. When the HTML in the `WebView` is untrustworthy---for example, part or all of the HTML is provided by an unknown person or process---then an attacker can include HTML that executes your client-side code and possibly any code of the attacker's choosing. Therefore, don't use `addJavascriptInterface()` unless you wrote all of the HTML and JavaScript that appears in your `WebView`. Don't let the user navigate within your `WebView` to web pages that aren't your own. Instead, let the user's default browser application open foreign links. By default, the user's web browser opens all URL links, so this warning primarily applies if you handle page navigation yourself, as described in the following section.
++
++> [!WARNING]
++> **Warning:** Using `addJavascriptInterface()` lets JavaScript control your Android app. Although this can be useful, it can also be a dangerous security issue. When the HTML in the `WebView` is untrustworthy---for example, part or all of the HTML is provided by an unknown person or process---then an attacker can include HTML that executes your client-side code and possibly any code of the attacker's choosing. Therefore, don't use `addJavascriptInterface()` unless you wrote all of the HTML and JavaScript that appears in your `WebView`. Don't let the user navigate within your `WebView` to web pages that aren't your own. Instead, let the user's default browser application open foreign links. By default, the user's web browser opens all URL links, so this warning primarily applies if you handle page navigation yourself, as described in the following section.
+ 
+ For example, you can include the following class in your Android app:
+ 
+@@ -260,7 +264,9 @@ public class WebAppInterface {
+     }
+ }
+ ```
+-| **Caution:** If you set your [`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target) to 17 or later, add the `@JavascriptInterface` annotation to any method that you want to be available to your JavaScript. The method must be public. If you don't provide this annotation, the method isn't accessible by your web page.
++
++> [!CAUTION]
++> **Caution:** If you set your [`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target) to 17 or later, add the `@JavascriptInterface` annotation to any method that you want to be available to your JavaScript. The method must be public. If you don't provide this annotation, the method isn't accessible by your web page.
+ 
+ In this example, the `WebAppInterface` class lets the web page create a
+ [`Toast`](https://developer.android.com/reference/android/widget/Toast) message, using the `showToast()`
+@@ -302,7 +308,9 @@ There's no need to initialize the `Android` interface from JavaScript. The
+ `WebView` automatically makes it available to your web page. So, when a user
+ taps the button, the `showAndroidToast()` function uses the `Android` interface
+ to call the `WebAppInterface.showToast()` method.
+-| **Note:** The object that is bound to your JavaScript runs in another thread and not in the thread in which it is constructed.
++
++> [!NOTE]
++> **Note:** The object that is bound to your JavaScript runs in another thread and not in the thread in which it is constructed.
+ 
+ ## Handle page navigation
+ 
+@@ -312,7 +320,9 @@ loads the destination URL. However, you can override this behavior for your
+ `WebView` so links open within your `WebView`. You can then let the user
+ navigate backward and forward through their web page history that's maintained
+ by your `WebView`.
+-| **Note:** For security reasons, the system's browser app doesn't share its application data with your app.
++
++> [!NOTE]
++> **Note:** For security reasons, the system's browser app doesn't share its application data with your app.
+ 
+ To open links tapped by the user, provide a `WebViewClient` for your `WebView`
+ using
+@@ -454,7 +464,9 @@ for specific URLs. When implementing it, make sure to return `false` for URLs
+ the `WebView` handles. You aren't limited to launching intents, though. You can
+ replace launching intents with any custom behavior in the preceding code
+ samples.
+-| **Caution:** Don't call `loadUrl()`, `reload()`, or similar methods from within `shouldOverrideUrlLoading()`. This leads to inefficient apps. It's more efficient to return `false` to let `WebView` continue loading the URL with its default implementation.
++
++> [!CAUTION]
++> **Caution:** Don't call `loadUrl()`, `reload()`, or similar methods from within `shouldOverrideUrlLoading()`. This leads to inefficient apps. It's more efficient to return `false` to let `WebView` continue loading the URL with its default implementation.
+ 
+ ### Navigate web page history
+ 

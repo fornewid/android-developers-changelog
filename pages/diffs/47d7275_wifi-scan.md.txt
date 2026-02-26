@@ -1,0 +1,23 @@
+diff --git a/docs/develop/connectivity/wifi/wifi-scan.md b/docs/develop/connectivity/wifi/wifi-scan.md
+index b94903c..66e551f 100644
+--- a/docs/develop/connectivity/wifi/wifi-scan.md
++++ b/docs/develop/connectivity/wifi/wifi-scan.md
+@@ -38,7 +38,7 @@ There are three steps to the scanning process:
+    [`SCAN_RESULTS_AVAILABLE_ACTION`](https://developer.android.com/reference/android/net/wifi/WifiManager#SCAN_RESULTS_AVAILABLE_ACTION)
+    broadcast.
+ 
+-The following code provides an example of how to implement these steps:  
++The following code provides an example of how to implement these steps:
+ 
+ ### Kotlin
+ 
+@@ -138,7 +138,8 @@ Wi-Fi scans.
+ 
+ ### Permissions
+ 
+-| **Note:** In each of the following sections that mention location permissions or location-gathering logic, keep in mind that, when your app is running in the background, [access to location](https://developer.android.com/training/location/background) should be critical to the core functionality of the app and is accompanied with proper disclosure to users.
++> [!NOTE]
++> **Note:** In each of the following sections that mention location permissions or location-gathering logic, keep in mind that, when your app is running in the background, [access to location](https://developer.android.com/training/location/background) should be critical to the core functionality of the app and is accompanied with proper disclosure to users.
+ 
+ **Android 8.0 and Android 8.1:**
+ 

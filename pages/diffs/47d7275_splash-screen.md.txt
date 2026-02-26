@@ -1,0 +1,16 @@
+diff --git a/docs/develop/ui/views/launch/splash-screen.md b/docs/develop/ui/views/launch/splash-screen.md
+index 73ae92f..f4c4545 100644
+--- a/docs/develop/ui/views/launch/splash-screen.md
++++ b/docs/develop/ui/views/launch/splash-screen.md
+@@ -4,8 +4,9 @@ url: https://developer.android.com/develop/ui/views/launch/splash-screen
+ source: md.txt
+ ---
+ 
+-| **Important:** If you implemented a custom splash screen in Android 11 or lower, migrate your app to the [`SplashScreen`](https://developer.android.com/reference/android/window/SplashScreen) API to ensure it displays correctly in Android 12 and higher. For instructions, see [Migrate your existing splash screen implementation to Android
+-| 12](https://developer.android.com/guide/topics/ui/splash-screen/migrate).
++> [!IMPORTANT]
++> **Important:** If you implemented a custom splash screen in Android 11 or lower, migrate your app to the [`SplashScreen`](https://developer.android.com/reference/android/window/SplashScreen) API to ensure it displays correctly in Android 12 and higher. For instructions, see [Migrate your existing splash screen implementation to Android
++> 12](https://developer.android.com/guide/topics/ui/splash-screen/migrate).
+ 
+ Starting in Android 12, the
+ [`SplashScreen`](https://developer.android.com/reference/android/window/SplashScreen) API lets apps launch

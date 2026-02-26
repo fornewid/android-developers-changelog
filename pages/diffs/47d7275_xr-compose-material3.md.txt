@@ -1,0 +1,76 @@
+diff --git a/docs/jetpack/androidx/releases/xr-compose-material3.md b/docs/jetpack/androidx/releases/xr-compose-material3.md
+index ff2b4a6..5444ce1 100644
+--- a/docs/jetpack/androidx/releases/xr-compose-material3.md
++++ b/docs/jetpack/androidx/releases/xr-compose-material3.md
+@@ -6,14 +6,13 @@ source: md.txt
+ 
+ # Material Design for XR
+ 
+-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design)  
+-API Reference  
++[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design) API Reference  
+ [androidx.xr.compose.material3](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/package-summary)  
+-Build with Material components and layouts that adapt for XR  
++Build with Material components and layouts that adapt for XR
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| January 28, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha14) |
++| February 25, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha15) |
+ 
+ ## Declaring dependencies
+ 
+@@ -22,14 +21,14 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:  
++your app or module:
+ 
+ ### Groovy
+ 
+ ```groovy
+ dependencies {
+     // Use to implement XR Compose Material3
+-    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha14"
++    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha15"
+ }
+ ```
+ 
+@@ -38,7 +37,7 @@ dependencies {
+ ```kotlin
+ dependencies {
+     // Use to implement XR Compose Material3
+-   implementation("androidx.xr.compose.material3:material3:1.0.0-alpha14")
++   implementation("androidx.xr.compose.material3:material3:1.0.0-alpha15")
+ }
+ ```
+ 
+@@ -59,6 +58,16 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha15
++
++February 25, 2026
++
++`androidx.xr.compose.material3:material3:1.0.0-alpha15` is released. Version 1.0.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/2988e872bfff335fa602a4f4a11b5e35bfe2cb3f..3c5ca110d9a6bce5bd9efd6a97f6579d27385abc/xr/compose/material3/material3).
++
++**API Changes**
++
++- Subspace modifier padding changes for layout direction awareness ([I53e25](https://android-review.googlesource.com/#/q/I53e25bced4273331204eac3910dd285c16b9c394), [b/475290780](https://issuetracker.google.com/issues/475290780), [b/474410590](https://issuetracker.google.com/issues/474410590))
++
+ ### Version 1.0.0-alpha14
+ 
+ January 28, 2026
+@@ -130,7 +139,9 @@ May 20, 2025
+ May 7, 2025
+ 
+ `androidx.xr.compose.material3:material3:1.0.0-alpha07` is released. Version 1.0.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a767811381d88baed6503d9aa2bd8defbd849351..b6c541571b9fb5471f965fc52612cb280713e5e4/xr/compose/material3/material3).
+-| **Note:** You'll need Android Emulator version 35.6.7 or later to use this version of the library.
++
++> [!NOTE]
++> **Note:** You'll need Android Emulator version 35.6.7 or later to use this version of the library.
+ 
+ **API Changes**
+ 

@@ -1,0 +1,67 @@
+diff --git a/docs/develop/connectivity/network-ops/managing.md b/docs/develop/connectivity/network-ops/managing.md
+index fb1c68a..6151193 100644
+--- a/docs/develop/connectivity/network-ops/managing.md
++++ b/docs/develop/connectivity/network-ops/managing.md
+@@ -47,7 +47,7 @@ typically use the following classes:
+ This code snippet tests network connectivity for Wi-Fi and mobile. It determines
+ whether these network interfaces are available (that is, whether network
+ connectivity is possible) and/or connected (that is, whether network
+-connectivity exists and if it is possible to establish sockets and pass data):  
++connectivity exists and if it is possible to establish sockets and pass data):
+ 
+ ### Kotlin
+ 
+@@ -105,7 +105,7 @@ follows. The method
+ returns a `NetworkInfo` instance
+ representing the first connected network interface it can find, or `null` if
+ none of the interfaces is connected (meaning that an internet connection is not
+-available):  
++available):
+ 
+ ### Kotlin
+ 
+@@ -150,7 +150,7 @@ manifest must have the right permissions and intent filters.
+ 
+ In the sample application, this action is handled by the class
+ `SettingsActivity`, which displays a preferences UI to let users decide when to
+-download a feed.  
++download a feed.
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -187,7 +187,7 @@ does provide a way for you to reduce the chance of bugs in your app causing a
+ data leak.
+ 
+ The following shows a sample of a manifest file that uses the per-process
+-functionality:  
++functionality:
+ 
+     <processes>
+         <process />
+@@ -224,7 +224,7 @@ Here is `SettingsActivity`. Note that it implements
+ When a user changes a preference, it fires
+ [`onSharedPreferenceChanged()`](https://developer.android.com/reference/android/content/SharedPreferences.OnSharedPreferenceChangeListener#onSharedPreferenceChanged(android.content.SharedPreferences,%20java.lang.String)),
+ which sets `refreshDisplay` to true. This causes the display to refresh when the
+-user returns to the main activity:  
++user returns to the main activity:
+ 
+ ### Kotlin
+ 
+@@ -321,7 +321,7 @@ consequences for the app's behavior. In this snippet, the app checks the
+ preferences settings in `onStart()`. if there is a match between the setting and
+ the device's network connection (for example, if the setting is `"Wi-Fi"` and the
+ device has a Wi-Fi connection), the app downloads the feed and refreshes the
+-display.  
++display.
+ 
+ ### Kotlin
+ 
+@@ -533,7 +533,7 @@ can use
+ [`setComponentEnabledSetting()`](https://developer.android.com/reference/android/content/pm/PackageManager#setComponentEnabledSetting(android.content.ComponentName,%20int,%20int))
+ to enable and disable it as appropriate.
+ 
+-Here is `NetworkReceiver`:  
++Here is `NetworkReceiver`:
+ 
+ ### Kotlin
+ 

@@ -1,0 +1,61 @@
+diff --git a/docs/develop/connectivity/troubleshoot-network-issues.md b/docs/develop/connectivity/troubleshoot-network-issues.md
+index 22bb593..d8682d4 100644
+--- a/docs/develop/connectivity/troubleshoot-network-issues.md
++++ b/docs/develop/connectivity/troubleshoot-network-issues.md
+@@ -50,10 +50,12 @@ Concurrent access to the same socket by multiple threads will use whatever tag
+ the socket had when the network packets were sent or received (which may be
+ different from when the user wrote or read the data, due to buffering and
+ retransmits).
+-| **Note:** This technique for tagging network traffic from your app depends on how the APIs that you are using access and manage network sockets. Some networking libraries may not allow the [`TrafficStats`](https://developer.android.com/reference/android/net/TrafficStats) utilities to tag traffic from your app.
++
++> [!NOTE]
++> **Note:** This technique for tagging network traffic from your app depends on how the APIs that you are using access and manage network sockets. Some networking libraries may not allow the [`TrafficStats`](https://developer.android.com/reference/android/net/TrafficStats) utilities to tag traffic from your app.
+ 
+ For example, you can define constants to represent different types of network
+-traffic, as shown in the following code sample:  
++traffic, as shown in the following code sample:
+ 
+ ### Kotlin
+ 
+@@ -71,7 +73,7 @@ public static final int APP_INITIATED = 0x2000;
+ public static final int SERVER_INITIATED = 0x3000;
+ ```
+ 
+-You can then tag your network requests accordingly:  
++You can then tag your network requests accordingly:
+ 
+ ### Kotlin
+ 
+@@ -95,7 +97,7 @@ The [`HttpURLConnection`](https://developer.android.com/reference/java/net/HttpU
+ library automatically tags sockets based on the current
+ [`TrafficStats.getThreadStatsTag()`](https://developer.android.com/reference/android/net/TrafficStats#getThreadStatsTag())
+ value. The library also tags and untags sockets when recycled through
+-keep-alive pools as shown in the following code sample:  
++keep-alive pools as shown in the following code sample:
+ 
+ ### Kotlin
+ 
+@@ -124,8 +126,10 @@ public class IdentifyTransferSpikeTask {
+     }
+ }
+ ```
+-| **Note:** When running performance tests, your APK should be as close as possible to the production build. You may want to create a new debuggable build type, separate from the debug build type, in order to achieve this. For more information on creating build types, see [Configure build
+-| types](https://developer.android.com/studio/build/build-variants#build-types).
++
++> [!NOTE]
++> **Note:** When running performance tests, your APK should be as close as possible to the production build. You may want to create a new debuggable build type, separate from the debug build type, in order to achieve this. For more information on creating build types, see [Configure build
++> types](https://developer.android.com/studio/build/build-variants#build-types).
+ 
+ ## Analyze network traffic types
+ 
+@@ -154,7 +158,9 @@ with your app.
+ For recommendations to optimize user-initiated traffic, see [Optimize
+ user-initiated
+ requests](https://developer.android.com/develop/connectivity/minimize-effect-regular-updates#user-initiated).
+-| **Caution:** Beware of network activity grouping bias in your user activity test data. If you ran a set of user scenarios with your network testing plan, the graph of user-initiated network access may be unrealistically grouped together, potentially causing you to optimize for user behavior that does not actually occur. Make sure your user network test scenarios reflect realistic use of your app.
++
++> [!CAUTION]
++> **Caution:** Beware of network activity grouping bias in your user activity test data. If you ran a set of user scenarios with your network testing plan, the graph of user-initiated network access may be unrealistically grouped together, potentially causing you to optimize for user behavior that does not actually occur. Make sure your user network test scenarios reflect realistic use of your app.
+ 
+ ### Analyze app-initiated traffic
+ 

@@ -1,0 +1,147 @@
+diff --git a/docs/build/annotation-processors.md b/docs/build/annotation-processors.md
+index dcc9694..3c0bf65 100644
+--- a/docs/build/annotation-processors.md
++++ b/docs/build/annotation-processors.md
+@@ -4,26 +4,29 @@ url: https://developer.android.com/build/annotation-processors
+ source: md.txt
+ ---
+ 
+-# Add annotation processors
++This page includes detailed guidance on how to add and configure annotation
++processors as project dependencies. To learn more about annotation processors,
++see the entry in
++[Configure dependencies](https://developer.android.com/build/dependencies#dependency_configurations).
+ 
+-This page includes detailed guidance on how to add and configure annotation processors as project dependencies. To learn more about annotation processors, see the entry in[Configure dependencies](https://developer.android.com/build/dependencies#dependency_configurations).
+-
+-If you add annotation processors to your compile classpath, you'll see an error message similar to the following:  
++If you add annotation processors to your compile classpath, you'll see
++an error message similar to the following:
+ 
+ ```
+ Error: Annotation processors must be explicitly declared now.
+ ```
+ 
+-To resolve this error, add annotation processors to your project by configuring your dependency using`annotationProcessor`as shown below:  
++To resolve this error, add annotation processors to your project by configuring
++your dependency using `annotationProcessor` as shown below:
+ 
+ ### Kotlin
+ 
+ ```kotlin
+ dependencies {
+     // Adds libraries defining annotations to only the compile classpath.
+-    compileOnly("com.google.dagger:dagger:<var translate="no">version-number</var>")
++    compileOnly("com.google.dagger:dagger:version-number")
+     // Adds the annotation processor dependency to the annotation processor classpath.
+-    annotationProcessor("com.google.dagger:dagger-compiler:<var translate="no">version-number</var>")
++    annotationProcessor("com.google.dagger:dagger-compiler:version-number")
+ }
+ ```
+ 
+@@ -32,17 +35,22 @@ dependencies {
+ ```groovy
+ dependencies {
+     // Adds libraries defining annotations to only the compile classpath.
+-    compileOnly 'com.google.dagger:dagger:<var translate="no">version-number</var>'
++    compileOnly 'com.google.dagger:dagger:version-number'
+     // Adds the annotation processor dependency to the annotation processor classpath.
+-    annotationProcessor 'com.google.dagger:dagger-compiler:<var translate="no">version-number</var>'
++    annotationProcessor 'com.google.dagger:dagger-compiler:version-number'
+ }
+ ```
+ 
+-**Note:** Android plugin for Gradle 3.0.0+ no longer supports[`android-apt`plugin.](https://github.com/littlerobots/android-apt)
++**Note:** Android plugin for Gradle 3.0.0+ no longer
++supports [`android-apt` plugin.](https://github.com/littlerobots/android-apt)
+ 
+ ## Pass arguments to annotation processors
+ 
+-If you need to pass arguments to an annotation processor, you can do so using the[`AnnotationProcessorOptions`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/AnnotationProcessorOptions)block in your module's build configuration. For example, if you want to pass primitive data types as key-value pairs, you can use the`argument`property, as shown below:  
++If you need to pass arguments to an annotation processor, you can do so using
++the [`AnnotationProcessorOptions`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/AnnotationProcessorOptions)
++block in your module's build configuration. For example, if you want to pass
++primitive data types as key-value pairs, you can use the `argument` property,
++as shown below:
+ 
+ ### Kotlin
+ 
+@@ -78,12 +86,21 @@ android {
+ }
+ ```
+ 
+-However, when using Android Gradle plugin 3.2.0 and higher, you need to pass processor arguments that represent files or directories using Gradle's[`CommandLineArgumentProvider`](https://docs.gradle.org/current/javadoc/org/gradle/process/CommandLineArgumentProvider.html)interface.
++However, when using Android Gradle plugin 3.2.0 and higher, you need to
++pass processor arguments that represent files or directories using Gradle's
++[`CommandLineArgumentProvider`](https://docs.gradle.org/current/javadoc/org/gradle/process/CommandLineArgumentProvider.html) interface.
++
++Using `CommandLineArgumentProvider` allows you or the
++annotation processor author to improve the correctness and performance of
++incremental and cached clean builds by applying [incremental build property type
++annotations](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks)
++to each argument.
+ 
+-Using`CommandLineArgumentProvider`allows you or the annotation processor author to improve the correctness and performance of incremental and cached clean builds by applying[incremental build property type annotations](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks)to each argument.
++For example, the class below implements `CommandLineArgumentProvider` and
++annotates each argument for the processor.
+ 
+-For example, the class below implements`CommandLineArgumentProvider`and annotates each argument for the processor.
+-**Note:** Typically, annotation processor authors provide either this class or instructions on how to write such a class. That's because each argument needs to specify the correct build property type annotation in order to work as intended.  
++> [!NOTE]
++> **Note:** Typically, annotation processor authors provide either this class or instructions on how to write such a class. That's because each argument needs to specify the correct build property type annotation in order to work as intended.
+ 
+ ### Kotlin
+ 
+@@ -150,7 +167,10 @@ class MyArgsProvider implements CommandLineArgumentProvider {
+ android {...}
+ ```
+ 
+-After you define a class that implements`CommandLineArgumentProvider`, you need to create an instance and pass it to the Android plugin using the[`annotationProcessorOptions.compilerArgumentProvider`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/AnnotationProcessorOptions#compilerArgumentProvider(org.gradle.process.CommandLineArgumentProvider))method, as shown below.  
++After you define a class that implements `CommandLineArgumentProvider`, you need
++to create an instance and pass it to the Android plugin using the
++[`annotationProcessorOptions.compilerArgumentProvider`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/AnnotationProcessorOptions#compilerArgumentProvider(org.gradle.process.CommandLineArgumentProvider))
++method, as shown below.
+ 
+ ### Kotlin
+ 
+@@ -190,11 +210,17 @@ android {
+ }
+ ```
+ 
+-To learn more about how implementing`CommandLineArgumentProvider`helps improve build performance, read[Caching Java projects](https://docs.gradle.org/current/userguide/build_cache_use_cases.html).
++To learn more about how implementing `CommandLineArgumentProvider` helps
++improve build performance, read
++[Caching Java projects](https://docs.gradle.org/current/userguide/build_cache_use_cases.html).
+ 
+ ## Disable the annotation processor error check
+ 
+-If you have dependencies on the compile classpath that include annotation processors you don't need, you can disable the error check by adding the following to your`build.gradle.kts`file. Keep in mind, the annotation processors you add to the compile classpath are still not added to the processor classpath.  
++If you have dependencies on the compile classpath that include annotation
++processors you don't need, you can disable the error check by adding
++the following to your `build.gradle.kts` file. Keep in mind, the annotation
++processors you add to the compile classpath are still not added to the
++processor classpath.
+ 
+ ### Kotlin
+ 
+@@ -228,7 +254,7 @@ android {
+ }
+ ```
+ 
+-If you use Kotlin and[kapt](https://kotlinlang.org/docs/kapt.html):  
++If you use Kotlin and [kapt](https://kotlinlang.org/docs/kapt.html):
+ 
+ ### Kotlin
+ 
+@@ -258,4 +284,8 @@ android {
+ }
+ ```
+ 
+-If you experience issues after migrating your project's annotation processors to the processor classpath, you can allow annotation processors on the compile classpath by setting`includeCompileClasspath`to`true`. However, setting this property to`true`is not recommended, and the option to do so will be removed in a future update of the Android plugin.
+\ No newline at end of file
++If you experience issues after migrating your project's annotation processors to
++the processor classpath, you can allow annotation processors on the compile
++classpath by setting `includeCompileClasspath` to `true`. However, setting this
++property to `true` is not recommended, and the option to do so will be removed
++in a future update of the Android plugin.
+\ No newline at end of file

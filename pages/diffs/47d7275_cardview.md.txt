@@ -1,0 +1,40 @@
+diff --git a/docs/develop/ui/views/layout/cardview.md b/docs/develop/ui/views/layout/cardview.md
+index 006496b..8c14381 100644
+--- a/docs/develop/ui/views/layout/cardview.md
++++ b/docs/develop/ui/views/layout/cardview.md
+@@ -4,14 +4,12 @@ url: https://developer.android.com/develop/ui/views/layout/cardview
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose.  
+-[Card in Material 3 →](https://developer.android.com/develop/ui/compose/components/card)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose. [Card in Material 3 →](https://developer.android.com/develop/ui/compose/components/card) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ <br />
+ 
+-| **Note:** For a better user experience, see [Material Design Cards](https://m3.material.io/components/cards/overview).
++> [!NOTE]
++> **Note:** For a better user experience, see [Material Design Cards](https://m3.material.io/components/cards/overview).
+ 
+ Apps often need to display data in similarly styled containers, such as
+ containers that hold information about the items in a list. The system provides
+@@ -26,7 +24,7 @@ views while providing a consistent style for the container.
+ 
+ The `CardView` widget is part of [AndroidX](https://developer.android.com/jetpack/androidx). To use it in
+ your project, add the following dependency to your app module's `build.gradle`
+-file:  
++file:
+ 
+ ### Groovy
+ 
+@@ -48,7 +46,7 @@ dependencies {
+ 
+ To use a `CardView`, add it to your layout file. Use it as a view group to
+ contain other views. In the following example, the `CardView` contains an
+-`ImageView` and a few `TextViews` to display some information to the user:  
++`ImageView` and a few `TextViews` to display some information to the user:
+ 
+     <?xml version="1.0" encoding="utf-8"?>
+     <androidx.constraintlayout.widget.ConstraintLayout
