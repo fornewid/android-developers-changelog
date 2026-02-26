@@ -23,20 +23,20 @@ This table lists all the artifacts in the `androidx.camera` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| camera-camera2 | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | - | [1.6.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-beta02) | - |
-| camera-core | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | - | [1.6.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-beta02) | - |
-| camera-compose | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | - | [1.6.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-beta02) | - |
-| camera-effects | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | - | [1.6.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-beta02) | - |
-| camera-extensions | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | - | [1.6.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-beta02) | - |
+| camera-camera2 | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | - |
+| camera-core | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | - |
+| camera-compose | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | - |
+| camera-effects | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | - |
+| camera-extensions | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | - |
 | camera-feature-combination-query | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
 | camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-lifecycle | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | - | [1.6.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-beta02) | - |
-| camera-mlkit-vision | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | - | [1.6.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-beta02) | - |
-| camera-view | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | - | [1.6.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-beta02) | - |
+| camera-lifecycle | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | - |
+| camera-mlkit-vision | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | - |
+| camera-view | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | - |
 | camera-viewfinder | - | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.3.0-beta02) | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/camera#1.4.0-alpha07) |
-| camera-video | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | - | [1.6.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-beta02) | - |
+| camera-video | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | - |
 
-This library was last updated on: February 11, 2026
+This library was last updated on: February 25, 2026
 
 ## Device testing
 
@@ -59,7 +59,7 @@ your app or module:
 ```groovy
 dependencies {
   // CameraX core library using the camera2 implementation
-  def camerax_version = "1.6.0-beta02"
+  def camerax_version = "1.6.0-rc01"
   // The following line is optional, as the core library is included indirectly by camera-camera2
   implementation "androidx.camera:camera-core:${camerax_version}"
   implementation "androidx.camera:camera-camera2:${camerax_version}"
@@ -81,7 +81,7 @@ dependencies {
 ```kotlin
 dependencies {
     // CameraX core library using the camera2 implementation
-    val camerax_version = "1.6.0-beta02"
+    val camerax_version = "1.6.0-rc01"
     // The following line is optional, as the core library is included indirectly by camera-camera2
     implementation("androidx.camera:camera-core:${camerax_version}")
     implementation("androidx.camera:camera-camera2:${camerax_version}")
@@ -149,6 +149,12 @@ May 14, 2024
 - Added `ZoomGestureDetector.ZoomEvent` to encapsulates the states of a zoom gesture. ([I84cdf](https://android-review.googlesource.com/#/q/I84cdfd505443171f9910fb0b3fd40fdaf307796b))
 
 ## Camera Version 1.6
+
+### Version 1.6.0-rc01
+
+February 25, 2026
+
+`androidx.camera:camera-*:1.6.0-rc01` is released. Version 1.6.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/82004373076cf552e53b43166e1b4ddfbcfec21e..0dc6fa695e63a0bbc17f07b7368ba2567fb47d01/camera).
 
 ### Version 1.6.0-beta02
 
@@ -1594,7 +1600,8 @@ July 21, 2021
 
 ## Camera-Camera2, Camera-Core, \& Camera-Lifecycle Version 1.0.0
 
-| **Note:** Newer versions of AndroidX libraries now correctly reflect `implementation` dependencies versus `api` dependencies. If your project relies on an implicit dependency exposed through an `implementation` dependency in version `1.0.0`, you must explicitly depend on that dependency in your `build.gradle`.
+> [!NOTE]
+> **Note:** Newer versions of AndroidX libraries now correctly reflect `implementation` dependencies versus `api` dependencies. If your project relies on an implicit dependency exposed through an `implementation` dependency in version `1.0.0`, you must explicitly depend on that dependency in your `build.gradle`.
 
 ### Version 1.0.0
 
@@ -1736,7 +1743,9 @@ android 11 or later devices which contains valid
 September 23, 2020
 
 `androidx.camera:camera-core:1.0.0-beta10` is released. [Version 1.0.0-beta10 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/9ebe09b1cb65d62b65b01054fd9ecd055d653a22..691e3a429902a0a3e087f28877e7cd5f668114fe/camera/camera-core)
-| **Caution:** Please do not use **Camera-Core Version 1.0.0-beta09** as there is a Known Issue \[See Bug Fixes Below\] around image capture. Please do not use this version in your applications. Instead use **Camera-Core Version 1.0.0-beta10** and above.
+
+> [!CAUTION]
+> **Caution:** Please do not use **Camera-Core Version 1.0.0-beta09** as there is a Known Issue \[See Bug Fixes Below\] around image capture. Please do not use this version in your applications. Instead use **Camera-Core Version 1.0.0-beta10** and above.
 
 **Bug Fixes**
 
@@ -1757,7 +1766,9 @@ September 23, 2020
 September 16, 2020
 
 `androidx.camera:camera-camera2:1.0.0-beta09` is released. [Version 1.0.0-beta09 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/96eb302ee1740ba656c90c9fb27df3723a1a89c1..9ebe09b1cb65d62b65b01054fd9ecd055d653a22/camera/camera-camera2)
-| **Caution:** Please do not use **Camera-Core Version 1.0.0-beta09** as there is a Known Issue around image capture. Please do not use this version in your applications. Instead use [`Camera-Core Version 1.0.0-beta10`](https://developer.android.com/jetpack/androidx/releases/camera#camera-core-1.0.0-beta10) and above.
+
+> [!CAUTION]
+> **Caution:** Please do not use **Camera-Core Version 1.0.0-beta09** as there is a Known Issue around image capture. Please do not use this version in your applications. Instead use [`Camera-Core Version 1.0.0-beta10`](https://developer.android.com/jetpack/androidx/releases/camera#camera-core-1.0.0-beta10) and above.
 
 **API Changes**
 
@@ -2364,7 +2375,9 @@ September 5, 2019
 August 7, 2019
 
 `androidx.camera:camera-camera2:1.0.0-alpha04` and `androidx.camera:camera-core:1.0.0-alpha04` are released. [Version 1.0.0-alpha04 contains these commits](https://android.googlesource.com/platform/frameworks/support/+log/da18b8e358a305e4ae90edc548eb48927f037696..6bc5fc2e82861585a6f28128dee9abbbe2e18591/camera).
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 **New Features**
 
@@ -2410,7 +2423,9 @@ Some changes have been made for setting resolutions and aspect ratios, intended 
 July 2, 2019
 
 `androidx.camera:camera-core:1.0.0-alpha03` and `androidx.camera:camera-camera2:1.0.0-alpha03` are released. [Version 1.0.0-alpha03 contains these commits](https://android.googlesource.com/platform/frameworks/support/+log/57ec1f21171cea40e93847ce2776a6604ea47872..da18b8e358a305e4ae90edc548eb48927f037696/camera).
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 **API Changes**
 

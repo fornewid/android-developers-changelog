@@ -107,7 +107,7 @@ Here's an example of registering two tasks, `GitVersionTask` and
 `ManifestProducerTask`, while deferring creation of the `Task` instances until
 they are actually required. The `ManifestProducerTask` input value is set to a
 `Provider` obtained from the output of `GitVersionTask`, so
-`ManifestProducerTask` implicitly depends on `GitVersionTask`.  
+`ManifestProducerTask` implicitly depends on `GitVersionTask`.
 
     // Register a task lazily to get its TaskProvider.
     val gitVersionProvider: TaskProvider =
@@ -171,7 +171,9 @@ computations from depending on inputs other than the build scripts themselves.
 That is, you shouldn't execute external programs or read from the network, or
 perform long computations that can be deferred to the execution phase as proper
 `Task` instances.
-| **Note:** With the upcoming configuration caching feature the result of this phase will be cached for subsequent runs, but only if [special care](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:requirements) is taken to let the build system know about any dynamic inputs such as file reads or access to environment variables.
+
+> [!NOTE]
+> **Note:** With the upcoming configuration caching feature the result of this phase will be cached for subsequent runs, but only if [special care](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:requirements) is taken to let the build system know about any dynamic inputs such as file reads or access to environment variables.
 
 ### Execution phase
 
@@ -238,7 +240,7 @@ to proper `Task` instances during the execution phase instead.
 AGP introduces an
 [`AndroidComponentsExtension`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/extension/AndroidComponentsExtension) that lets
 you register callbacks for `finalizeDsl()`, `beforeVariants()` and `onVariants()`.
-The extension is available in build scripts through the `androidComponents` block:  
+The extension is available in build scripts through the `androidComponents` block:
 
     // This is used only for configuring the Android build through DSL.
     android { ... }
@@ -253,7 +255,7 @@ The extension is available in build scripts through the `androidComponents` bloc
 However, our recommendation is to keep build scripts only for declarative
 configuration using the android block's DSL and
 [move any custom imperative logic to `buildSrc`](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources) or external plugins. You can also take a look at the [`buildSrc`
-samples](https://github.com/android/gradle-recipes/tree/agp-7.0/BuildSrc/) in our Gradle recipes GitHub repository to learn how to create a plugin in your project. Here is an example of registering the callbacks from plugin code:  
+samples](https://github.com/android/gradle-recipes/tree/agp-7.0/BuildSrc/) in our Gradle recipes GitHub repository to learn how to create a plugin in your project. Here is an example of registering the callbacks from plugin code:
 
     abstract class ExamplePlugin: Plugin<Project> {
 
@@ -277,7 +279,7 @@ phases of the build. For example, you can programmatically create new
 configurations or override properties---but keep in mind that all values must be
 resolved at configuration time, so they must not rely on any external inputs.
 After this callback finishes executing, the DSL objects are no longer useful and
-you should no longer hold references to them or modify their values.  
+you should no longer hold references to them or modify their values.
 
     abstract class ExamplePlugin: Plugin<Project> {
 
@@ -299,7 +301,7 @@ you can programmatically disable certain variants, their tests, or change a
 property's value (for example, `minSdk`) only for a chosen variant. Similar to
 `finalizeDsl()`, all of the values you provide must be resolved at configuration
 time and not depend on external inputs. The `VariantBuilder` objects must not be
-modified once execution of the `beforeVariants()` callback finishes.  
+modified once execution of the `beforeVariants()` callback finishes.
 
     androidComponents {
         beforeVariants { variantBuilder ->
@@ -310,7 +312,7 @@ modified once execution of the `beforeVariants()` callback finishes.
 The `beforeVariants()` callback optionally takes a [`VariantSelector`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/extension/VariantSelector), which you can
 obtain through the [`selector()`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/extension/AndroidComponentsExtension#selector()) method on the [`androidComponentsExtension`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/extension/AndroidComponentsExtension). You can
 use it to filter components participating in the callback invocation based on
-their name, build type, or product flavor.  
+their name, build type, or product flavor.
 
     androidComponents {
         beforeVariants(selector().withName("adfree")) { variantBuilder ->
@@ -326,7 +328,7 @@ modify some of the values used for the tasks by setting them for
 `Property` attributes in the `Variant` objects. Because the `Property` values will
 only be resolved when AGP's tasks are executed, you can safely wire them up to
 providers from your own custom tasks that will perform any required
-computations, including reading from external inputs such as files or the network.  
+computations, including reading from external inputs such as files or the network.
 
     // onVariants also supports VariantSelectors:
     onVariants(selector().withBuildType("release")) { variant ->
@@ -348,7 +350,8 @@ computations, including reading from external inputs such as files or the networ
         mainOutput.versionCode.set(versionCodeTask.map { it.outputFile.get().asFile.readText().toInt() })
     }
 
-| **Note:** When you generate files per variant make sure to add `${variant.name}/` to all filenames to prevent them from being overwritten when building multiple variants.
+> [!NOTE]
+> **Note:** When you generate files per variant make sure to add `${variant.name}/` to all filenames to prevent them from being overwritten when building multiple variants.
 
 ### Contribute generated sources to the build
 
@@ -364,7 +367,7 @@ For the full list of sources you can add, see the
 
 This code snippet shows how to add a custom source folder called
 `${variant.name}` to the Java source set using the `addStaticSourceDirectory()`
-function. The Android toolchain then processes this folder.  
+function. The Android toolchain then processes this folder.
 
     onVariants { variant ->
         variant.sources.java?.let { java ->
@@ -377,7 +380,7 @@ for more details.
 
 This code snippet shows how to add a directory with Android resources
 generated from a custom task to the `res` source set. The process is similar for other
-source types.  
+source types.
 
     onVariants(selector().withBuildType("release")) { variant ->
         // Step 1. Register the task.
@@ -473,7 +476,7 @@ And finally, you pass in the `Artifact` type to a method representing the chosen
 operation on the `*OperationRequest` object that you get in return, for example,
 [`toAppendTo()`](https://developer.android.com/reference/tools/gradle-%0Aapi/7.1/com/android/build/api/artifact/OutOperationRequest#toappendto),
 [`toTransform()`](https://developer.android.com/reference/tools/gradle-%0Aapi/7.1/com/android/build/api/artifact/InAndOutFileOperationRequest#totransform)
-, or [`toCreate()`](https://developer.android.com/reference/tools/gradle-%0Aapi/7.1/com/android/build/api/artifact/OutOperationRequest#tocreate) (3).  
+, or [`toCreate()`](https://developer.android.com/reference/tools/gradle-%0Aapi/7.1/com/android/build/api/artifact/OutOperationRequest#tocreate) (3).
 
     androidComponents.onVariants { variant ->
         val manifestUpdater = // Custom task that will be used for the transform.

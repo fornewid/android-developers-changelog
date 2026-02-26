@@ -4,73 +4,120 @@ url: https://developer.android.com/develop/ui/views/haptics/actuators
 source: md.txt
 ---
 
-# Analyze vibration waveforms
+The most common vibration actuators on Android devices are [linear resonant
+actuators (LRAs)](https://medium.com/@SomaticLabs/what-is-a-linear-resonant-actuator-81cc25f85779). LRAs simulate the feeling of a button click
+on what is otherwise an unresponsive glass surface. A clear and crisp click
+feedback signal typically lasts between 10 and 20 milliseconds in duration. This
+sensation makes user interactions feel more natural. For virtual keyboards, this
+click feedback can increase typing speed and reduce errors.
 
-<br />
-
-The most common vibration actuators on Android devices are[linear resonant actuators (LRAs)](https://medium.com/@SomaticLabs/what-is-a-linear-resonant-actuator-81cc25f85779). LRAs simulate the feeling of a button click on what is otherwise an unresponsive glass surface. A clear and crisp click feedback signal typically lasts between 10 and 20 milliseconds in duration. This sensation makes user interactions feel more natural. For virtual keyboards, this click feedback can increase typing speed and reduce errors.
-
-LRAs have a few common[resonant frequencies](https://en.wikipedia.org/wiki/Resonance#Examples):
+LRAs have a few common [resonant frequencies](https://en.wikipedia.org/wiki/Resonance#Examples):
 
 - Some LRAs had resonant frequencies in the 200 to 300 Hz range, which coincides with the frequency at which human skin is most sensitive to vibration. The sensation of vibrations at this frequency range are usually described as smooth, sharp, and penetrating.
-- Other models of LRAs have lower resonance frequencies, at around 150 Hz. The sensation is qualitatively softer and fuller (in dimension).  
-![Components include, from top to bottom, a cover, plate, middle magnet, 2 side magnets, mass, 2 springs, coil, flexible circuit, base, and adhesive.](https://developer.android.com/static/develop/ui/views/haptics/images/lra-overview.svg)Components of a linear resonant actuator (LRA).
+- Other models of LRAs have lower resonance frequencies, at around 150 Hz. The sensation is qualitatively softer and fuller (in dimension).
+![Components include, from top to bottom, a cover, plate, middle
+magnet, 2 side magnets, mass, 2 springs, coil, flexible circuit, base,
+and adhesive.](https://developer.android.com/static/develop/ui/views/haptics/images/lra-overview.svg) Components of a linear resonant actuator (LRA).
 
 <br />
 
-Given the same input voltage at two different frequencies, the vibration output amplitudes can be different. The further away the frequency is from the LRA's resonant frequency, the lower its vibration amplitude.
+Given the same input voltage at two different frequencies, the vibration output
+amplitudes can be different. The further away the frequency is from the LRA's
+resonant frequency, the lower its vibration amplitude.
 
-A given device's haptic effects use both the vibration actuator and its driver. Haptic drivers that include overdrive and active braking features can reduce the rise time and ringing of LRAs, leading to a more responsive and clear vibration.
+A given device's haptic effects use both the vibration actuator and its driver.
+Haptic drivers that include overdrive and active braking features can reduce the
+rise time and ringing of LRAs, leading to a more responsive and clear vibration.
 
 ## Vibrator output acceleration
 
-<br />
 
-The frequency-to-output-acceleration mapping (FOAM) describes the maximum achievable output acceleration (in G peak) at a given vibration frequency (in Hertz). Starting in Android 16 (API level 36), the platform provides built-in support for this mapping through the`VibratorFrequencyProfile`. You can use this class, along with the[basic](https://developer.android.com/reference/android/os/VibrationEffect.BasicEnvelopeBuilder)and[advanced](https://developer.android.com/reference/android/os/VibrationEffect.WaveformEnvelopeBuilder)envelope APIs, to create haptic effects.
+The frequency-to-output-acceleration mapping (FOAM) describes the maximum
+achievable output acceleration (in G peak) at a given vibration frequency (in
+Hertz). Starting in Android 16 (API level 36), the platform provides built-in
+support for this mapping through the `VibratorFrequencyProfile`. You can use
+this class, along with the [basic](https://developer.android.com/reference/android/os/VibrationEffect.BasicEnvelopeBuilder) and [advanced](https://developer.android.com/reference/android/os/VibrationEffect.WaveformEnvelopeBuilder) envelope APIs, to create
+haptic effects.
 
-Most LRA motors have a single peak in their FOAM, typically near their resonant frequency. Acceleration generally decreases exponentially as frequency deviates from this range. The curve may not be symmetrical and might feature a plateau around the resonant frequency to protect the motor from damage.
+Most LRA motors have a single peak in their FOAM, typically near their resonant
+frequency. Acceleration generally decreases exponentially as frequency deviates
+from this range. The curve may not be symmetrical and might feature a plateau
+around the resonant frequency to protect the motor from damage.
 
-The adjacent plot shows an example FOAM for an LRA motor.  
-![As frequency increases to about 120 Hz, acceleration increases exponentially. Acceleration then remains steady through about 180 Hz, after which it tapers off.](https://developer.android.com/static/develop/ui/views/haptics/images/foam.svg)Example FOAM for an LRA motor.
+The adjacent plot shows an example FOAM for an LRA motor.
+![As frequency increases to about 120 Hz, acceleration increases
+exponentially. Acceleration then remains steady through about 180 Hz,
+after which it tapers off.](https://developer.android.com/static/develop/ui/views/haptics/images/foam.svg) Example FOAM for an LRA motor.
 
 <br />
 
 ### Human perception detection threshold
 
+
+The *human perception detection threshold* refers to the minimum acceleration of
+a vibration that a person can reliably detect. This level varies based on the
+vibration frequency.
+
+The adjacent plot shows the human haptic perception detection threshold, in
+acceleration, as a function of temporal frequency. The threshold data is
+converted from displacement threshold in Figure 1 of Bolanowski Jr., S. J., et
+al.'s 1988 article,
+["Four channels mediate the mechanical aspects of touch."](https://pubmed.ncbi.nlm.nih.gov/3209773/).
+
+Android automatically handles this threshold in the `BasicEnvelopeBuilder`,
+which verifies that all effects use a frequency range that prodcues vibration
+amplitudes that exceed the human perception detection threshold by at least
+10 dB.
+![As frequency increases to about 20 Hz, the human detection threshold
+rises logarithmically to about -35 dB. The threshold remains steady
+through about 200 Hz, after which it increases roughly linearly through
+-20 dB.](https://developer.android.com/static/develop/ui/views/haptics/images/human-detection-threshold.svg) Human haptic perception detection threshold.
+
 <br />
 
-The*human perception detection threshold*refers to the minimum acceleration of a vibration that a person can reliably detect. This level varies based on the vibration frequency.
-
-The adjacent plot shows the human haptic perception detection threshold, in acceleration, as a function of temporal frequency. The threshold data is converted from displacement threshold in Figure 1 of Bolanowski Jr., S. J., et al.'s 1988 article,["Four channels mediate the mechanical aspects of touch."](https://pubmed.ncbi.nlm.nih.gov/3209773/).
-
-Android automatically handles this threshold in the`BasicEnvelopeBuilder`, which verifies that all effects use a frequency range that prodcues vibration amplitudes that exceed the human perception detection threshold by at least 10 dB.  
-![As frequency increases to about 20 Hz, the human detection threshold rises logarithmically to about -35 dB. The threshold remains steady through about 200 Hz, after which it increases roughly linearly through -20 dB.](https://developer.android.com/static/develop/ui/views/haptics/images/human-detection-threshold.svg)Human haptic perception detection threshold.
-
-<br />
-
-An online tutorial further explains the[conversion between acceleration amplitude and displacement amplitude](https://www.tangerinex.com/tutorial-1).
+An online tutorial further explains the [conversion between acceleration
+amplitude and displacement amplitude](https://www.tangerinex.com/tutorial-1).
 
 ### Vibration acceleration levels
 
-<br />
 
-Human perception of vibration intensity, a*perception* measure, doesn't grow linearly with vibration amplitude, a*physical*parameter. Perceived intensity is characterized by sensation level (SL), which is defined as a dB amount above the detection threshold at the same frequency.
+Human perception of vibration intensity, a *perception* measure, doesn't grow
+linearly with vibration amplitude, a *physical* parameter. Perceived intensity
+is characterized by sensation level (SL), which is defined as a dB amount above
+the detection threshold at the same frequency.
 
-The corresponding vibration acceleration amplitude (in G peak) can be calculated as follows:  
+The corresponding vibration acceleration amplitude (in G peak) can be calculated
+as follows:
 $$ Amplitude(G) = 10\^{Amplitude(db)/20} $$
 
-...where the amplitude dB is the sum of SL and detection threshold---the value along the vertical axis in the adjacent plot---at a particular frequency.
+...where the amplitude dB is the sum of SL and detection threshold---the value
+along the vertical axis in the adjacent plot---at a particular frequency.
 
-The adjacent plot shows the vibration acceleration levels at 10, 20, 30, 40 and 50 dB SL, along with the human haptic perception detection threshold (0 dB SL), as a function of temporal frequency. The data is estimated from Figure 8 in Verrillo, R. T., et al.'s 1969 article,["Sensation magnitude of vibrotactile stimuli."](https://link.springer.com/article/10.3758/BF03212793).  
-![As the desired sensation level increases, the required acceleration, in dB, increases by roughly the same amount. For example, the 10 dB sensation level for a vibration of 100 Hz is about -20 dB, instead of -30 dB.](https://developer.android.com/static/develop/ui/views/haptics/images/vibration-acceleration-levels.svg)Vibration acceleration levels.
+The adjacent plot shows the vibration acceleration levels at 10, 20, 30, 40 and
+50 dB SL, along with the human haptic perception detection threshold (0 dB SL),
+as a function of temporal frequency. The data is estimated from Figure 8 in
+Verrillo, R. T., et al.'s 1969 article, ["Sensation magnitude of vibrotactile
+stimuli."](https://link.springer.com/article/10.3758/BF03212793).
+![As the desired sensation level increases, the required acceleration,
+in dB, increases by roughly the same amount. For example, the 10 dB
+sensation level for a vibration of 100 Hz is about -20 dB, instead of
+-30 dB.](https://developer.android.com/static/develop/ui/views/haptics/images/vibration-acceleration-levels.svg) Vibration acceleration levels.
 
 <br />
 
-Android automatically handles this conversion in the`BasicEnvelopeBuilder`, which takes values as normalized intensities in the sensation level space (dB SL) and converts them to output acceleration. The`WaveformEnvelopeBuilder`, on the other hand, doesn't apply this conversion and takes values as normalized output acceleration amplitudes in the acceleration space (Gs) instead. The envelope API assumes that, when a designer or developer thinks about changes in vibration strength, they expect the perceived intensity to follow a piecewise linear envelope.
+Android automatically handles this conversion in the `BasicEnvelopeBuilder`,
+which takes values as normalized intensities in the sensation level space (dB
+SL) and converts them to output acceleration. The `WaveformEnvelopeBuilder`, on
+the other hand, doesn't apply this conversion and takes values as normalized
+output acceleration amplitudes in the acceleration space (Gs) instead. The
+envelope API assumes that, when a designer or developer thinks about changes in
+vibration strength, they expect the perceived intensity to follow a piecewise
+linear envelope.
 
 ## Default waveform smoothing on devices
 
-For illustration, consider how a custom waveform pattern behaves on a generic device:  
+For illustration, consider how a custom waveform pattern behaves on a generic
+device:
 
 ### Kotlin
 
@@ -88,18 +135,23 @@ For illustration, consider how a custom waveform pattern behaves on a generic de
 
     vibrator.vibrate(VibrationEffect.createWaveform(timings, amplitudes, repeatIndex));
 
-The following plots show the input waveform and output acceleration corresponding to the preceding code snippets. Note that the acceleration increases gradually, not suddenly, whenever there is a step change of amplitude in the pattern---that is, at 0ms, 150ms, 200ms, 250ms, and 700ms. There is also an overshoot at each step change of amplitude, and there is visible ringing that lasts at least 50ms when the input amplitude suddenly drops to 0.
+The following plots show the input waveform and output acceleration
+corresponding to the preceding code snippets. Note that the acceleration
+increases gradually, not suddenly, whenever there is a step change of amplitude
+in the pattern---that is, at 0ms, 150ms, 200ms, 250ms, and 700ms. There is also an
+overshoot at each step change of amplitude, and there is visible ringing that
+lasts at least 50ms when the input amplitude suddenly drops to 0.
 
-<br />
 
-![](https://developer.android.com/static/develop/ui/views/haptics/images/lra-input-waveform.svg)Plot of step function input waveform.  
-![](https://developer.android.com/static/develop/ui/views/haptics/images/lra-measured-waveform.svg)Plot of actual measured waveform, showing more organic transitions between levels.
+![](https://developer.android.com/static/develop/ui/views/haptics/images/lra-input-waveform.svg) Plot of step function input waveform. ![](https://developer.android.com/static/develop/ui/views/haptics/images/lra-measured-waveform.svg) Plot of actual measured waveform, showing more organic transitions between levels.
 
 <br />
 
 ## Improved haptic pattern
 
-To avoid overshoot and reduce ringing time, change the amplitudes more gradually. The following shows the waveform and acceleration plots of the revised version:  
+To avoid overshoot and reduce ringing time, change the amplitudes more
+gradually. The following shows the waveform and acceleration plots of the
+revised version:
 
 ### Kotlin
 
@@ -129,18 +181,20 @@ To avoid overshoot and reduce ringing time, change the amplitudes more gradually
 
     vibrator.vibrate(VibrationEffect.createWaveform(timings, amplitudes, repeatIndex));
 
-<br />
 
-![](https://developer.android.com/static/develop/ui/views/haptics/images/lra-input-waveform-more-steps.svg)Plot of input waveform with additional steps.  
-![](https://developer.android.com/static/develop/ui/views/haptics/images/lra-measured-waveform-more-steps.svg)Plot of measured waveform, showing smoother transitions.
+![](https://developer.android.com/static/develop/ui/views/haptics/images/lra-input-waveform-more-steps.svg) Plot of input waveform with additional steps. ![](https://developer.android.com/static/develop/ui/views/haptics/images/lra-measured-waveform-more-steps.svg) Plot of measured waveform, showing smoother transitions.
 
 <br />
 
 ## Create more complex haptic effects
 
-Other elements in a satisfying click response are more intricate, requiring some knowledge of the LRA used in a device. For best results, use the device's pre-fabricated waveforms and platform-provided constants, which let you do the following:
+Other elements in a satisfying click response are more intricate, requiring some
+knowledge of the LRA used in a device. For best results, use the device's
+pre-fabricated waveforms and platform-provided constants, which let you do the
+following:
 
-- Perform clear effects and[primitives](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#primitives).
+- Perform clear effects and [primitives](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#primitives).
 - Concatenate them to compose new haptic effects.
 
-These predefined haptic constants and primitives can greatly speed up your work while creating high-quality haptic effects.
+These predefined haptic constants and primitives can greatly speed up your work
+while creating high-quality haptic effects.

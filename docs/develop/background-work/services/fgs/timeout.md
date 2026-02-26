@@ -24,19 +24,22 @@ tracked separately for `dataSync` and for `mediaProcessing` services. For
 example, if a `dataSync` service just ran for one hour, the app would only have
 five hours available for `dataSync` foreground services, but it would
 have a full six hours available for `mediaProcessing` services.
-| **Note:** `shortService` foreground services have a more restrictive time limit. For more information, see the [short service documentation](https://developer.android.com/develop/background-work/services/fgs/service-types#short-service).
+
+> [!NOTE]
+> **Note:** `shortService` foreground services have a more restrictive time limit. For more information, see the [short service documentation](https://developer.android.com/develop/background-work/services/fgs/service-types#short-service).
 
 When a foreground service reaches the six-hour limit, the service has a few
 seconds to call [`Service.stopSelf()`](https://developer.android.com/reference/android/app/Service#stopSelf()). When the system calls
 `Service.onTimeout()`, the service is no longer considered a foreground service.
 If the service does not call `Service.stopSelf()`, the system throws an internal
 exception. The exception is logged in [Logcat](https://developer.android.com/tools/logcat) with the following
-message:  
+message:
 
     Fatal Exception: android.app.RemoteServiceException: "A foreground service of
     type [service type] did not stop within its timeout: [component name]"
 
-| **Note:** The 6-hour time limit is shared by all of an app's foreground services of the specified type. For example, if an app runs a `dataSync` service for four hours, then starts a different `dataSync` service, that second service will only be allowed to run for two hours. However, if the user brings the app to the foreground, the timer resets and the app has 6 hours available.
+> [!NOTE]
+> **Note:** The 6-hour time limit is shared by all of an app's foreground services of the specified type. For example, if an app runs a `dataSync` service for four hours, then starts a different `dataSync` service, that second service will only be allowed to run for two hours. However, if the user brings the app to the foreground, the timer resets and the app has 6 hours available.
 
 To avoid problems with this behavior change, you can do one or more of the
 following:
@@ -59,17 +62,17 @@ type dataSync".
 
 To test your app's behavior, you can enable data sync timeouts even if your app
 is not targeting Android 15 (as long as the app is running on an Android 15
-device). To enable timeouts, run the following [`adb`](https://developer.android.com/tools/adb) command:  
+device). To enable timeouts, run the following [`adb`](https://developer.android.com/tools/adb) command:
 
-    adb shell am compat enable FGS_INTRODUCE_TIME_LIMITS <var label="package-name" translate="no">your-package-name</var>
+    adb shell am compat enable FGS_INTRODUCE_TIME_LIMITS your-package-name
 
 You can also adjust the timeout period, to make it easier to test how your
 app behaves when the limit is reached. To set a new timeout period for
-`dataSync` foreground services, run the following `adb` command:  
+`dataSync` foreground services, run the following `adb` command:
 
-    adb shell device_config put activity_manager data_sync_fgs_timeout_duration <var label="timeout-duration" translate="no">duration-in-milliseconds</var>
+    adb shell device_config put activity_manager data_sync_fgs_timeout_duration duration-in-milliseconds
 
 To set a new timeout period for `mediaProcessing` foreground services, run this
-command:  
+command:
 
-    adb shell device_config put activity_manager media_processing_fgs_timeout_duration <var label="timeout-duration" translate="no">duration-in-milliseconds</var>
+    adb shell device_config put activity_manager media_processing_fgs_timeout_duration duration-in-milliseconds

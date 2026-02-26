@@ -7,20 +7,16 @@ source: md.txt
 <br />
 
 
-Applicable XR devices  
-This guidance helps you build experiences for these types of XR devices.  
-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)  
-![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets)  
-![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses)  
-![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses)  
-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
 With ARCore for Jetpack XR, your app can retrieve a device's *pose*: the
 orientation (pitch, yaw, roll) and a position (X, Y, Z) of the device relative
 to the world origin.
-| **Note:** The accuracy of the positional data varies depending on the sensors and capabilities of the user's device.
+
+> [!NOTE]
+> **Note:** The accuracy of the positional data varies depending on the sensors and capabilities of the user's device.
 
 Use this information to render digital content in the real world, or convert the
 device pose to a geospatial pose to generate location-aware data.
@@ -34,7 +30,7 @@ which your [app must create](https://developer.android.com/develop/xr/jetpack-xr
 
 Device pose information is not enabled by default on XR sessions. To enable your
 app to retrieve device pose information, configure the session and set the
-[`DeviceTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config.DeviceTrackingMode#LAST_KNOWN()) mode:  
+[`DeviceTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config.DeviceTrackingMode#LAST_KNOWN()) mode:
 
     // Define the configuration object to enable tracking device pose.
     val newConfig = session.config.copy(
@@ -56,12 +52,14 @@ app to retrieve device pose information, configure the session and set the
 
 Not all XR devices support the `DeviceTrackingMode.LAST_KNOWN` mode. If
 [`Session.configure()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#configure(androidx.xr.runtime.Config)) succeeds, the device supports this mode.
-| **Note:** Enabling this mode on immersive devices requires the `android.permission.HEAD_TRACKING` \[runtime permission\]\[requesting-permissions\] to be granted to your app.
+
+> [!NOTE]
+> **Note:** Enabling this mode on immersive devices requires the `android.permission.HEAD_TRACKING` \[runtime permission\]\[requesting-permissions\] to be granted to your app.
 
 ## Obtain the device pose
 
 Once the session is configured, you can obtain the device's pose within the AR
-coordinate system using the [`ArDevice`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/ArDevice) object:  
+coordinate system using the [`ArDevice`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/ArDevice) object:
 
     // Get the ArDevice instance
     val arDevice = ArDevice.getInstance(session)

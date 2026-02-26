@@ -4,35 +4,64 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/image-keyboa
 source: md.txt
 ---
 
-# Image keyboard support
+Users often want to communicate using emoji, stickers, and other kinds of rich
+content. In previous versions of Android, soft keyboards---also known as
+[input method editors](https://developer.android.com/guide/topics/text/creating-input-method), or
+IMEs---could send only Unicode emoji to apps. For rich content, apps built
+app-specific APIs that couldn't be used in other apps or used workarounds like
+sending images through [simple share action](https://developer.android.com/training/sharing/shareaction)
+or the clipboard.
+![An image showing a keyboard that support image search](https://developer.android.com/static/images/guide/topics/text/image-keyboard-sample.png) **Figure 1.** Example of image keyboard support.
 
-Users often want to communicate using emoji, stickers, and other kinds of rich content. In previous versions of Android, soft keyboards---also known as[input method editors](https://developer.android.com/guide/topics/text/creating-input-method), or IMEs---could send only Unicode emoji to apps. For rich content, apps built app-specific APIs that couldn't be used in other apps or used workarounds like sending images through[simple share action](https://developer.android.com/training/sharing/shareaction)or the clipboard.
-![An image showing a keyboard that support image search](https://developer.android.com/static/images/guide/topics/text/image-keyboard-sample.png)**Figure 1.**Example of image keyboard support.
+Starting with Android 7.1 (API level 25), the Android SDK includes the Commit
+Content API, which provides a universal way for IMEs to send images and other
+rich content directly to a text editor in an app. The API is also available in
+the v13 Support Library as of revision 25.0.0. We recommend using the Support
+Library because it contains helper methods that simplify implementation.
 
-Starting with Android 7.1 (API level 25), the Android SDK includes the Commit Content API, which provides a universal way for IMEs to send images and other rich content directly to a text editor in an app. The API is also available in the v13 Support Library as of revision 25.0.0. We recommend using the Support Library because it contains helper methods that simplify implementation.
+With this API, you can build messaging apps that accept rich content from any
+keyboard as well as keyboards that can send rich content to any app. The [Google
+Keyboard](https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin)
+and apps like [Messages by
+Google](https://play.google.com/store/apps/details?id=com.google.android.apps.messaging)
+support the Commit Content API in Android 7.1, as shown in figure 1.
 
-With this API, you can build messaging apps that accept rich content from any keyboard as well as keyboards that can send rich content to any app. The[Google Keyboard](https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin)and apps like[Messages by Google](https://play.google.com/store/apps/details?id=com.google.android.apps.messaging)support the Commit Content API in Android 7.1, as shown in figure 1.
-
-This document shows how to implement the Commit Content API in both IMEs and apps.
+This document shows how to implement the Commit Content API in both IMEs and
+apps.
 
 ## How it works
 
-Keyboard image insertion requires participation from the IME and the app. The following sequence describes each step in the image insertion process:
+Keyboard image insertion requires participation from the IME and the app. The
+following sequence describes each step in the image insertion process:
 
-1. When the user taps an[`EditText`](https://developer.android.com/reference/android/widget/EditText), the editor sends a list of MIME content types that it accepts in[`EditorInfo.contentMimeTypes`](https://developer.android.com/reference/android/view/inputmethod/EditorInfo#contentMimeTypes).
+1. When the user taps an [`EditText`](https://developer.android.com/reference/android/widget/EditText),
+   the editor sends a list of MIME content types that it accepts in
+   [`EditorInfo.contentMimeTypes`](https://developer.android.com/reference/android/view/inputmethod/EditorInfo#contentMimeTypes).
 
-2. The IME reads the list of supported types and displays content in the soft keyboard that the editor can accept.
+2. The IME reads the list of supported types and displays content in the soft
+   keyboard that the editor can accept.
 
-3. When the user selects an image, the IME calls[`commitContent()`](https://developer.android.com/reference/android/view/inputmethod/InputConnection#commitContent(android.view.inputmethod.InputContentInfo,%20int,%20android.os.Bundle))and sends an[`InputContentInfo`](https://developer.android.com/reference/android/view/inputmethod/InputContentInfo)to the editor. The`commitContent()`call is analogous to the[`commitText()`](https://developer.android.com/reference/android/view/inputmethod/InputConnection#commitText(java.lang.CharSequence,%0Aint))call, but for rich content.`InputContentInfo`contains an URI that identifies the content in a[content provider](https://developer.android.com/guide/topics/providers/content-providers).
+3. When the user selects an image, the IME calls
+   [`commitContent()`](https://developer.android.com/reference/android/view/inputmethod/InputConnection#commitContent(android.view.inputmethod.InputContentInfo,%20int,%20android.os.Bundle))
+   and sends an
+   [`InputContentInfo`](https://developer.android.com/reference/android/view/inputmethod/InputContentInfo)
+   to the editor. The `commitContent()` call is analogous to the
+   [`commitText()`](https://developer.android.com/reference/android/view/inputmethod/InputConnection#commitText(java.lang.CharSequence,%0Aint)) call, but for rich content. `InputContentInfo` contains an URI that
+   identifies the content in a [content
+   provider](https://developer.android.com/guide/topics/providers/content-providers).
 
 This process is depicted in figure 2:
-![An image showing the sequence from Application to IME and back to Application](https://developer.android.com/static/images/guide/topics/text/image-keyboard-diagram.png)**Figure 2.**Application to IME to application flow.
+![An image showing the sequence from Application to IME and back to Application](https://developer.android.com/static/images/guide/topics/text/image-keyboard-diagram.png) **Figure 2.** Application to IME to application flow.
 
 ## Add image support to apps
 
-| **Important:** For editable`TextView`objects, follow the implementation steps in the[Receive rich content](https://developer.android.com/guide/topics/input/receive-rich-content)documentation to quickly add support for accepting rich content from IMEs in your app. This section describes how to accept rich content for`View`objects that don't yet support the[`OnReceiveContentListener`](https://developer.android.com/reference/android/view/OnReceiveContentListener).
+> [!IMPORTANT]
+> **Important:** For editable `TextView` objects, follow the implementation steps in the [Receive rich content](https://developer.android.com/guide/topics/input/receive-rich-content) documentation to quickly add support for accepting rich content from IMEs in your app. This section describes how to accept rich content for `View` objects that don't yet support the [`OnReceiveContentListener`](https://developer.android.com/reference/android/view/OnReceiveContentListener).
 
-To accept rich content from IMEs, an app must tell IMEs what content types it accepts and specify a callback method that is executed when content is received. The following example demonstrates how to create an`EditText`that accepts PNG images:  
+To accept rich content from IMEs, an app must tell IMEs what content types it
+accepts and specify a callback method that is executed when content is received.
+The following example demonstrates how to create an `EditText` that accepts PNG
+images:
 
 ### Kotlin
 
@@ -71,38 +100,69 @@ EditText editText = new EditText(this) {
 
 The following is further explanation:
 
-- This example uses the Support Library, so there are some references to[`android.support.v13.view.inputmethod`](https://developer.android.com/reference/android/support/v13/view/inputmethod/package-summary)instead of[`android.view.inputmethod`](https://developer.android.com/reference/android/view/inputmethod/package-summary).
+- This example uses the Support Library, so there are some references to
+  [`android.support.v13.view.inputmethod`](https://developer.android.com/reference/android/support/v13/view/inputmethod/package-summary)
+  instead of
+  [`android.view.inputmethod`](https://developer.android.com/reference/android/view/inputmethod/package-summary).
 
-- This example creates an`EditText`and overrides its[`onCreateInputConnection(EditorInfo)`](https://developer.android.com/reference/android/widget/TextView#onCreateInputConnection(android.view.inputmethod.EditorInfo))method to modify the[`InputConnection`](https://developer.android.com/reference/android/view/inputmethod/InputConnection). The`InputConnection`is the communication channel between an IME and the app that is receiving its input.
+- This example creates an `EditText` and overrides its
+  [`onCreateInputConnection(EditorInfo)`](https://developer.android.com/reference/android/widget/TextView#onCreateInputConnection(android.view.inputmethod.EditorInfo))
+  method to modify the
+  [`InputConnection`](https://developer.android.com/reference/android/view/inputmethod/InputConnection).
+  The `InputConnection` is the communication channel between an IME and the
+  app that is receiving its input.
 
-- The call[`super.onCreateInputConnection()`](https://developer.android.com/reference/android/widget/TextView#onCreateInputConnection(android.view.inputmethod.EditorInfo))preserves the built-in behavior---sending and receiving text---and gives you a reference to the`InputConnection`.
+- The call
+  [`super.onCreateInputConnection()`](https://developer.android.com/reference/android/widget/TextView#onCreateInputConnection(android.view.inputmethod.EditorInfo))
+  preserves the built-in behavior---sending and receiving text---and
+  gives you a reference to the `InputConnection`.
 
-- [`setContentMimeTypes()`](https://developer.android.com/reference/androidx/core/view/inputmethod/EditorInfoCompat#setContentMimeTypes(android.view.inputmethod.EditorInfo,java.lang.String%5B%5D))adds a list of supported MIME types to the[`EditorInfo`](https://developer.android.com/reference/android/view/inputmethod/EditorInfo). Call`super.onCreateInputConnection()`before`setContentMimeTypes()`.
+- [`setContentMimeTypes()`](https://developer.android.com/reference/androidx/core/view/inputmethod/EditorInfoCompat#setContentMimeTypes(android.view.inputmethod.EditorInfo,java.lang.String%5B%5D))
+  adds a list of supported MIME types to the
+  [`EditorInfo`](https://developer.android.com/reference/android/view/inputmethod/EditorInfo). Call
+  `super.onCreateInputConnection()` before `setContentMimeTypes()`.
 
-- `callback`is executed whenever the IME commits content. The method[`onCommitContent()`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputConnectionCompat.OnCommitContentListener#onCommitContent(androidx.core.view.inputmethod.InputContentInfoCompat,int,android.os.Bundle))has a reference to[`InputContentInfoCompat`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputContentInfoCompat), which contains a content URI.
+- `callback` is executed whenever the IME commits content. The method
+  [`onCommitContent()`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputConnectionCompat.OnCommitContentListener#onCommitContent(androidx.core.view.inputmethod.InputContentInfoCompat,int,android.os.Bundle))
+  has a reference to
+  [`InputContentInfoCompat`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputContentInfoCompat),
+  which contains a content URI.
 
-  - Request and release permissions if your app is running on API level 25 or higher and the[`INPUT_CONTENT_GRANT_READ_URI_PERMISSION`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputConnectionCompat#INPUT_CONTENT_GRANT_READ_URI_PERMISSION())flag is set by the IME. Otherwise, you already have access to the content URI because it is granted by the IME or because the content provider doesn't restrict access. For more information, see[Add image support to IMEs](https://developer.android.com/develop/ui/views/touch-and-input/image-keyboard#imes).
-- [`createWrapper()`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputConnectionCompat#createWrapper(android.view.View,android.view.inputmethod.InputConnection,android.view.inputmethod.EditorInfo))wraps the`InputConnection`, the modified`EditorInfo`, and the callback into a new`InputConnection`and returns it.
+  - Request and release permissions if your app is running on API level 25 or higher and the [`INPUT_CONTENT_GRANT_READ_URI_PERMISSION`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputConnectionCompat#INPUT_CONTENT_GRANT_READ_URI_PERMISSION()) flag is set by the IME. Otherwise, you already have access to the content URI because it is granted by the IME or because the content provider doesn't restrict access. For more information, see [Add image support to
+    IMEs](https://developer.android.com/develop/ui/views/touch-and-input/image-keyboard#imes).
+- [`createWrapper()`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputConnectionCompat#createWrapper(android.view.View,android.view.inputmethod.InputConnection,android.view.inputmethod.EditorInfo))
+  wraps the `InputConnection`, the modified `EditorInfo`, and the callback
+  into a new `InputConnection` and returns it.
 
 The following are recommended practices:
 
-- Editors that don't support rich content don't call[`setContentMimeTypes()`](https://developer.android.com/reference/androidx/core/view/inputmethod/EditorInfoCompat#setContentMimeTypes(android.view.inputmethod.EditorInfo,%0Ajava.lang.String%5B%5D)), and they leave their`EditorInfo.contentMimeTypes`set to`null`.
+- Editors that don't support rich content don't call
+  [`setContentMimeTypes()`](https://developer.android.com/reference/androidx/core/view/inputmethod/EditorInfoCompat#setContentMimeTypes(android.view.inputmethod.EditorInfo,%0Ajava.lang.String%5B%5D)), and they leave their `EditorInfo.contentMimeTypes` set
+  to `null`.
 
-- Editors ignore the content if the MIME type specified in`InputContentInfo`doesn't match any of the types they accept.
+- Editors ignore the content if the MIME type specified in `InputContentInfo`
+  doesn't match any of the types they accept.
 
-- Rich content doesn't affect and isn't affected by the position of the text cursor. Editors can ignore cursor position when working with content.
+- Rich content doesn't affect and isn't affected by the position of the text
+  cursor. Editors can ignore cursor position when working with content.
 
-- In the editor's[`OnCommitContentListener.onCommitContent()`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputConnectionCompat.OnCommitContentListener#onCommitContent(android.support.v13.view.inputmethod.InputContentInfoCompat,%0Aint,%20android.os.Bundle))method, you can return`true`asynchronously, even before loading the content.
+- In the editor's
+  [`OnCommitContentListener.onCommitContent()`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputConnectionCompat.OnCommitContentListener#onCommitContent(android.support.v13.view.inputmethod.InputContentInfoCompat,%0Aint,%20android.os.Bundle)) method, you can return `true` asynchronously, even
+  before loading the content.
 
-- Unlike text, which can be edited in the IME before being committed, rich content is committed immediately. If you want to let users edit or delete content, implement the logic yourself.
+- Unlike text, which can be edited in the IME before being committed, rich
+  content is committed immediately. If you want to let users edit or delete
+  content, implement the logic yourself.
 
-To test your app, make sure your device or emulator has a keyboard that can send rich content. You can use the Google Keyboard in Android 7.1 or higher.
+To test your app, make sure your device or emulator has a keyboard that can send
+rich content. You can use the Google Keyboard in Android 7.1 or higher.
 
 ## Add image support to IMEs
 
-IMEs that want to send rich content to apps must implement the Commit Content API, as shown in the following example:
+IMEs that want to send rich content to apps must implement the Commit Content
+API, as shown in the following example:
 
-- Override[`onStartInput()`](https://developer.android.com/reference/android/inputmethodservice/InputMethodService#onStartInput(android.view.inputmethod.EditorInfo,%0Aboolean))or[`onStartInputView()`](https://developer.android.com/reference/android/inputmethodservice/InputMethodService#onStartInputView(android.view.inputmethod.EditorInfo,%0Aboolean))and read the list of supported content types from the target editor. The following code snippet shows how to check whether the target editor accepts GIF images.
+- Override [`onStartInput()`](https://developer.android.com/reference/android/inputmethodservice/InputMethodService#onStartInput(android.view.inputmethod.EditorInfo,%0Aboolean)) or [`onStartInputView()`](https://developer.android.com/reference/android/inputmethodservice/InputMethodService#onStartInputView(android.view.inputmethod.EditorInfo,%0Aboolean)) and read the list of supported content types from the target editor. The following code snippet shows how to check whether the target editor accepts GIF images.
 
 ### Kotlin
 
@@ -146,7 +206,7 @@ public void onStartInputView(EditorInfo info, boolean restarting) {
 }
 ```
 
-- Commit content to the app when the user selects an image. Avoid calling[`commitContent()`](https://developer.android.com/reference/android/view/inputmethod/InputConnection#commitContent(android.view.inputmethod.InputContentInfo,%0Aint,%20android.os.Bundle))when there is any text being composed, because it might cause the editor to lose focus. The following code snippet shows how to commit a GIF image.
+- Commit content to the app when the user selects an image. Avoid calling [`commitContent()`](https://developer.android.com/reference/android/view/inputmethod/InputConnection#commitContent(android.view.inputmethod.InputContentInfo,%0Aint,%20android.os.Bundle)) when there is any text being composed, because it might cause the editor to lose focus. The following code snippet shows how to commit a GIF image.
 
 ### Kotlin
 
@@ -197,12 +257,36 @@ public static void commitGifImage(Uri contentUri, String imageDescription) {
 }
 ```
 
-As an IME author, you most likely have to implement your own content provider to respond to content URI requests. The exception is if your IME supports content from existing content providers like[`MediaStore`](https://developer.android.com/reference/android/provider/MediaStore). For information on building content providers, see the[content provider](https://developer.android.com/guide/topics/providers/content-providers)and[file provider](https://developer.android.com/training/secure-file-sharing/setup-sharing)documentation.
+As an IME author, you most likely have to implement your own content provider to
+respond to content URI requests. The exception is if your IME supports content
+from existing content providers like
+[`MediaStore`](https://developer.android.com/reference/android/provider/MediaStore). For information on
+building content providers, see the [content
+provider](https://developer.android.com/guide/topics/providers/content-providers) and [file
+provider](https://developer.android.com/training/secure-file-sharing/setup-sharing) documentation.
 
-If you are building your own content provider, we recommend you don't export it by setting[`android:exported`](https://developer.android.com/guide/topics/manifest/provider-element#exported)to`false`. Instead, enable permission granting in the provider by setting[`android:grantUriPermission`](https://developer.android.com/guide/topics/manifest/provider-element#gprmsn)to`true`. Then, your IME can grant permissions to access the content URI when the content is committed. There are two ways to do this:
+If you are building your own content provider, we recommend you don't export it
+by setting
+[`android:exported`](https://developer.android.com/guide/topics/manifest/provider-element#exported) to
+`false`. Instead, enable permission granting in the provider by setting
+[`android:grantUriPermission`](https://developer.android.com/guide/topics/manifest/provider-element#gprmsn)
+to `true`. Then, your IME can grant permissions to access the content URI when
+the content is committed. There are two ways to do this:
 
-- On Android 7.1 (API level 25) and higher, when calling`commitContent()`, set the flag parameter to[`INPUT_CONTENT_GRANT_READ_URI_PERMISSION`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputConnectionCompat#INPUT_CONTENT_GRANT_READ_URI_PERMISSION()). Then, the`InputContentInfo`object that the app receives can request and release temporary read permissions by calling[`requestPermission()`](https://developer.android.com/reference/android/view/inputmethod/InputContentInfo#requestPermission())and[`releasePermission()`](https://developer.android.com/reference/android/view/inputmethod/InputContentInfo#releasePermission()).
+- On Android 7.1 (API level 25) and higher, when calling `commitContent()`,
+  set the flag parameter to
+  [`INPUT_CONTENT_GRANT_READ_URI_PERMISSION`](https://developer.android.com/reference/androidx/core/view/inputmethod/InputConnectionCompat#INPUT_CONTENT_GRANT_READ_URI_PERMISSION()).
+  Then, the `InputContentInfo` object that the app receives can request and
+  release temporary read permissions by calling
+  [`requestPermission()`](https://developer.android.com/reference/android/view/inputmethod/InputContentInfo#requestPermission())
+  and
+  [`releasePermission()`](https://developer.android.com/reference/android/view/inputmethod/InputContentInfo#releasePermission()).
 
-- On Android 7.0 (API level 24) and lower,`INPUT_CONTENT_GRANT_READ_URI_PERMISSION`is ignored, so manually grant permission to the content. One way to do this is with[`grantUriPermission()`](https://developer.android.com/reference/android/content/Context#grantUriPermission(java.lang.String,%0Aandroid.net.Uri,%20int)), but you can implement your own mechanism that satisfies your own requirements.
+- On Android 7.0 (API level 24) and lower,
+  `INPUT_CONTENT_GRANT_READ_URI_PERMISSION` is ignored, so manually grant
+  permission to the content. One way to do this is with
+  [`grantUriPermission()`](https://developer.android.com/reference/android/content/Context#grantUriPermission(java.lang.String,%0Aandroid.net.Uri,%20int)), but you can implement your own mechanism that
+  satisfies your own requirements.
 
-To test your IME, make sure your device or emulator has an app that can receive rich content. You can use the Google Messenger app in Android 7.1 or higher.
+To test your IME, make sure your device or emulator has an app that can receive
+rich content. You can use the Google Messenger app in Android 7.1 or higher.

@@ -80,6 +80,44 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
     .addOnFailureListener(/* handle failure case */);
 ```
 
+The following example simulates the response for a declared user with a custom
+age range of 13 to 15:
+
+### Kotlin
+
+```kotlin
+val fakeDeclaredUserWithCustomAgeRange =
+    AgeSignalsResult.builder()
+        .setUserStatus(AgeSignalsVerificationStatus.DECLARED)
+        .setAgeLower(13)
+        .setAgeUpper(15)
+        .setInstallId("fake_install_id")
+        .build()
+val manager = FakeAgeSignalsManager()
+manager.setNextAgeSignalsResult(fakeDeclaredUserWithCustomAgeRange)
+manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+    .addOnSuccessListener { /* handle success case */ }
+    .addOnFailureListener { /* handle failure case */ }
+```
+
+### Java
+
+```java
+AgeSignalsResult fakeDeclaredUserWithCustomAgeRange =
+    AgeSignalsResult.builder()
+        .setUserStatus(AgeSignalsVerificationStatus.DECLARED)
+        .setAgeLower(13)
+        .setAgeUpper(15)
+        .setInstallId("fake_install_id")
+        .build();
+FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
+manager.setNextAgeSignalsResult(fakeDeclaredUserWithCustomAgeRange);
+manager
+    .checkAgeSignals(AgeSignalsRequest.builder().build())
+    .addOnSuccessListener(/* handle success case */)
+    .addOnFailureListener(/* handle failure case */)
+```
+
 The following example simulates the response for a pending significant change
 approval for a supervised user between 13 and 17 years old with no previous
 significant change having been approved:
@@ -231,6 +269,37 @@ manager.setNextAgeSignalsResult(fakeUnknownUser);
 manager.checkAgeSignals(AgeSignalsRequest.builder().build())
     .addOnSuccessListener(/* handle success case */)
     .addOnFailureListener(/* handle failure case */);
+```
+
+The following example simulates the response for a `null` user status value:
+
+### Kotlin
+
+```kotlin
+val fakeNullUserStatus =
+    AgeSignalsResult.builder()
+        .setUserStatus(null)
+        .build()
+val manager = FakeAgeSignalsManager()
+manager.setNextAgeSignalsResult(fakeNullUserStatus)
+manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+    .addOnSuccessListener { /* handle success case */ }
+    .addOnFailureListener { /* handle failure case */ }
+```
+
+### Java
+
+```java
+AgeSignalsResult fakeNullUserStatus =
+    AgeSignalsResult.builder()
+        .setUserStatus(null)
+        .build();
+FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
+manager.setNextAgeSignalsResult(fakeNullUserStatus);
+manager
+    .checkAgeSignals(AgeSignalsRequest.builder().build())
+    .addOnSuccessListener(/* handle success case */)
+    .addOnFailureListener(/* handle failure case */)
 ```
 
 The following example simulates the response with a network error code:

@@ -4,6 +4,9 @@ url: https://developer.android.com/develop/devices/assistant/troubleshoot
 source: md.txt
 ---
 
+Project: /develop/devices/assistant/_project.yaml
+Book: /develop/devices/assistant/_book.yaml
+
 When developing App Actions, you might encounter issues with your setup or with
 the App Actions test tool. This page describes some commonly encountered issues
 and their fixes.
@@ -32,7 +35,7 @@ workaround, you can disable lint check for this tag by adding the
 
 Here's an example of an entity set reference with a disabled lint check:
 
-```gdscript
+```
 <entity-set-reference entitySetId="example" tools:ignore="ValidActionsXml" />
 ```
 

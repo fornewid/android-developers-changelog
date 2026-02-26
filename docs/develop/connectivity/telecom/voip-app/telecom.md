@@ -18,13 +18,13 @@ applications on GitHub:
 ## Set up Core-Telecom
 
 Add the `androidx.core:core-telecom` dependency to your app's `build.gradle`
-file:  
+file:
 
     dependencies {
         implementation ("androidx.core:core-telecom:1.0.0")
     }
 
-Declare the `MANAGE_OWN_CALLS` permission in your `AndroidManifest.xml`:  
+Declare the `MANAGE_OWN_CALLS` permission in your `AndroidManifest.xml`:
 
     <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
 
@@ -32,7 +32,7 @@ Declare the `MANAGE_OWN_CALLS` permission in your `AndroidManifest.xml`:
 
 Register your calling app with Android using `CallsManager` to begin adding
 calls to the system. When registering, specify your app's capabilities (for
-example, audio, video support):  
+example, audio, video support):
 
     val callsManager = CallsManager(context)
 
@@ -57,7 +57,7 @@ which can have the following characteristics:
 - `callType`: Audio or video.
 - `callCapabilities`: Supports transfer and hold.
 
-Here's an example of how to create an incoming call:  
+Here's an example of how to create an incoming call:
 
     fun createIncomingCallAttributes(
         callerName: String,
@@ -84,7 +84,7 @@ Here's an example of how to create an incoming call:
 Use `callsManager.addCall` with `CallAttributesCompat` and callbacks to add a
 new call to the system and manage remote surface updates. The `callControlScope`
 within the `addCall` block primarily allows your app to transition the call
-state and receive audio updates:  
+state and receive audio updates:
 
     try {
         callsManager.addCall(
@@ -102,11 +102,12 @@ state and receive audio updates:
        // Handle the addCall failure.
     }
 
-| **Note:** Once you add a call and the `CallControlScope` block is run, this does not mean your call is active, but rather that the platform is able to add a call and your call is now either `DIALING` or `RINGING`.
+> [!NOTE]
+> **Note:** Once you add a call and the `CallControlScope` block is run, this does not mean your call is active, but rather that the platform is able to add a call and your call is now either `DIALING` or `RINGING`.
 
 ### Answer a call
 
-Answer an incoming call within the `CallControlScope`:  
+Answer an incoming call within the `CallControlScope`:
 
     when (val result = answer(CallAttributesCompat.CALL_TYPE_AUDIO_CALL)) {
         is CallControlResult.Success -> { /* Call answered */ }
@@ -116,13 +117,13 @@ Answer an incoming call within the `CallControlScope`:
 ### Reject a call
 
 Reject a call using `disconnect()` with `DisconnectCause.REJECTED` within the
-`CallControlScope`:  
+`CallControlScope`:
 
     disconnect(DisconnectCause(DisconnectCause.REJECTED))
 
 ### Make an outgoing call active
 
-Set an outgoing call to active once the remote party answers:  
+Set an outgoing call to active once the remote party answers:
 
     when (val result = setActive()) {
         is CallControlResult.Success -> { /* Call active */ }
@@ -131,7 +132,7 @@ Set an outgoing call to active once the remote party answers:
 
 ### Place a call on hold
 
-Use `setInactive()` to put a call on hold:  
+Use `setInactive()` to put a call on hold:
 
     when (val result = setInactive()) {
         is CallControlResult.Success -> { /* Call on hold */ }
@@ -140,14 +141,14 @@ Use `setInactive()` to put a call on hold:
 
 ### Disconnect a call
 
-Disconnect a call using `disconnect()` with a `DisconnectCause`:  
+Disconnect a call using `disconnect()` with a `DisconnectCause`:
 
     disconnect(DisconnectCause(DisconnectCause.LOCAL))
 
 ## Manage call audio endpoints
 
 Observe and manage audio endpoints using `currentCallEndpoint`,
-`availableEndpoints`, and `isMuted` `Flow`s within the `CallControlScope`  
+`availableEndpoints`, and `isMuted` `Flow`s within the `CallControlScope`
 
     fun observeAudioStateChanges(callControlScope: CallControlScope) {
         with(callControlScope) {
@@ -157,13 +158,14 @@ Observe and manage audio endpoints using `currentCallEndpoint`,
         }
     }
 
-Change the active audio device using `requestEndpointChange()`:  
+Change the active audio device using `requestEndpointChange()`:
 
     coroutineScope.launch {
          callControlScope.requestEndpointChange(callEndpoint)
     }
 
-| **Note:** Ensure media stream uses [AudioManager.STREAM_VOICE_CALL](https://developer.android.com/reference/android/media/AudioManager#STREAM_VOICE_CALL).
+> [!NOTE]
+> **Note:** Ensure media stream uses [AudioManager.STREAM_VOICE_CALL](https://developer.android.com/reference/android/media/AudioManager#STREAM_VOICE_CALL).
 
 ## Foreground support
 
@@ -178,7 +180,9 @@ To ensure that your app gets foreground execution priority, create a
 notification once you add the call with the platform. Foreground priority is
 removed when your app terminates the call or your notification is no longer
 valid.
-| **Note:** You are required to post a notification within 5 seconds of adding the call to the platform.
+
+> [!NOTE]
+> **Note:** You are required to post a notification within 5 seconds of adding the call to the platform.
 
 [Learn more about foreground services](https://developer.android.com/guide/components/foreground-services).
 
@@ -191,7 +195,9 @@ callback lambdas (`onAnswerCall`, `onSetCallDisconnected`, `onSetCallActive`,
 initiated by these devices.
 
 When a remote action occurs, the corresponding lambda is invoked.
-| **Warning:** Your app must execute the requested action within a 5-second timeout. Failure to do so (either by not returning or by throwing an exception) is considered a transaction failure and may tear down the call session.
+
+> [!WARNING]
+> **Warning:** Your app must execute the requested action within a 5-second timeout. Failure to do so (either by not returning or by throwing an exception) is considered a transaction failure and may tear down the call session.
 
 Successful completion of the lambda signals that the command was processed. If
 the command cannot be obeyed, the lambda should throw an exception.
@@ -201,7 +207,8 @@ Test thoroughly with various remote surfaces.
 
 ### Call Extensions
 
-| **Note:** This feature is still experimental while we work on supporting new extensions. Use `@OptIn(ExperimentalAppActions::class)` to opt-in to supporting call extensions and use the [issue tracker](https://issuetracker.google.com/issues/new?component=1356313&template=1817517) to file bugs or request support for new call extensions.
+> [!NOTE]
+> **Note:** This feature is still experimental while we work on supporting new extensions. Use `@OptIn(ExperimentalAppActions::class)` to opt-in to supporting call extensions and use the [issue tracker](https://issuetracker.google.com/issues/new?component=1356313&template=1817517) to file bugs or request support for new call extensions.
 
 In addition to managing the call state and audio route of your calls, the
 library also supports call extensions, which are optional features that your app
@@ -220,7 +227,7 @@ app access to a different scope called `ExtensionInitializationScope`. This
 scope allows the application to initialize the set of optional extensions that
 it supports. Additionally, this scope provides an extra method, `onCall`,
 which provides a `CallControlScope` back to the app after extension capability
-exchange and initialization completes.  
+exchange and initialization completes.
 
     scope.launch {
         mCallsManager.addCallWithExtensions(
@@ -248,7 +255,7 @@ exchange and initialization completes.
 
 If your app supports call participants for meetings or group calls, use
 `addParticipantExtension` to declare support for this extension and
-use the related APIs to update remote surfaces when the participants change.  
+use the related APIs to update remote surfaces when the participants change.
 
     mCallsManager.addCallWithExtensions(...) {
             // Initialize extensions...
@@ -278,7 +285,7 @@ the active participant can also be updated using
 There's also support for optional actions related to the call participants.
 The app can use `ParticipantExtension#addRaiseHandSupport` to support the
 notion of participants raising their hand in the call and see which other
-participants also have their hands raised.  
+participants also have their hands raised.
 
     mCallsManager.addCallWithExtensions(...) {
             // Initialize extensions...
@@ -319,7 +326,7 @@ managed per call, so Jetpack handles the complexity of managing the global mute
 state of ongoing cellular calls while a VOIP call is active. This makes
 silencing outgoing audio less error prone in multi-call scenarios while also
 allowing for helpful features such as "are you speaking" indications when the
-user is speaking while not realizing that call silence is enabled.  
+user is speaking while not realizing that call silence is enabled.
 
     mCallsManager.addCallWithExtensions(...) {
             // Initialize extensions...
@@ -351,7 +358,9 @@ user is speaking while not realizing that call silence is enabled.
 A call icon allows the app to specify a custom icon representing the call to be
 displayed on remote surfaces during the call. This icon can also be updated over
 the lifetime of the call.
-**Note:** Content URIs are not accessible to other apps unless an app explicitly grants another app permission to use that URI. Use a `FileProvider` to generate the `content://` URIs that are shared with remote surfaces. See the [`CallIconExtension`](https://developer.android.com/reference/kotlin/androidx/core/telecom/extensions/CallIconExtension) docs for more details on how to set up call icon support for remote surfaces in your app.  
+
+> [!NOTE]
+> **Note:** Content URIs are not accessible to other apps unless an app explicitly grants another app permission to use that URI. Use a `FileProvider` to generate the `content://` URIs that are shared with remote surfaces. See the [`CallIconExtension`](https://developer.android.com/reference/kotlin/androidx/core/telecom/extensions/CallIconExtension) docs for more details on how to set up call icon support for remote surfaces in your app.
 
     mCallsManager.addCallWithExtensions(...) {
             // Initialize extensions...

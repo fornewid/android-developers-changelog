@@ -38,3 +38,5 @@ Ultimately, it's all of our responsibilities as a developer community to provide
 the best app experience for our users.
 
 ## Additional material
+
+[Video](https://www.youtube.com/watch?v=fEEulSk1kNY)

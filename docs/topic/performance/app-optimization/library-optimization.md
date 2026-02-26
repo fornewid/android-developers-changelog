@@ -113,7 +113,6 @@ recommendations.
   - `-repackageclasses`
   - `-flattenpackagehierarchy`
   - `-allowaccessmodification`
-  - `-overloadaggressively`
   - `-renamesourcefileattribute`
   - `-ignorewarnings`
   - `-addconfigurationdebugging`

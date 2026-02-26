@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/appwidgets/overview
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs.  
-[Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -229,8 +226,10 @@ Think of an email widget where the user needs to select the mail folder before
 the inbox can be displayed or a static photo widget where the user has to assign
 a picture from the gallery to be displayed. Android widgets display their
 configuration choices right after the user drops the widget onto a home screen.
-| **Note:** Android 12 adds new options to let you provide a more seamless configuration experience for users. See [Enable users to configure app
-| widgets](https://developer.android.com/guide/topics/appwidgets/configuration) for details on letting users reconfigure already-placed widgets and skip the default configuration step.
+
+> [!NOTE]
+> **Note:** Android 12 adds new options to let you provide a more seamless configuration experience for users. See [Enable users to configure app
+> widgets](https://developer.android.com/guide/topics/appwidgets/configuration) for details on letting users reconfigure already-placed widgets and skip the default configuration step.
 
 ## Widget design checklist
 

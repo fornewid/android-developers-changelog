@@ -73,7 +73,9 @@ There are other scenarios that may be more useful to benchmark:
 In order to benchmark these use cases, you can create a scenario that will be
 used to drive the `gradle-profiler` execution and which applies appropriate
 changes to your sources. You can examine some of the common scenarios below.
-| **Note:** Depending on a variety of factors, Gradle profiler may take a long time to complete. These factors include the size of your codebase and the type of build you're running -- for example, a clean build generally takes longer than other operations.
+
+> [!NOTE]
+> **Note:** Depending on a variety of factors, Gradle profiler may take a long time to complete. These factors include the size of your codebase and the type of build you're running -- for example, a clean build generally takes longer than other operations.
 
 ### Profiling different memory/CPU settings
 

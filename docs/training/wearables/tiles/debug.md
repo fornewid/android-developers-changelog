@@ -68,8 +68,8 @@ Include the following dependencies in your app's `build.gradle.kts` or
 `build.gradle` file:
 
     dependencies {
-        implementation("androidx.wear.tiles:tiles-tooling-preview:1.6.0-beta01")
-        debugImplementation("androidx.wear.tiles:tiles-tooling:1.6.0-beta01")
+        implementation("androidx.wear.tiles:tiles-tooling-preview:1.6.0-rc01")
+        debugImplementation("androidx.wear.tiles:tiles-tooling:1.6.0-rc01")
         implementation("androidx.wear:wear-tooling-preview:1.0.0")
     }
 

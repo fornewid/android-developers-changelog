@@ -42,7 +42,7 @@ system which regions need to receive touch input. You can do this by passing a
 API introduced in Android 10. This method is also available in [`ViewCompat`](https://developer.android.com/reference/androidx/core/view/ViewCompat) as of
 `androidx.core:core:1.1.0-dev01`.
 
-For example:  
+For example:
 
 ### Kotlin
 
@@ -77,7 +77,9 @@ public void onDraw(Canvas canvas) {
     setSystemGestureExclusionRects(exclusionRects);
 }
 ```
-| **Note:** The `DrawerLayout` and `SeekBar` components support automatic opt-out behavior out of the box.
+
+> [!NOTE]
+> **Note:** The `DrawerLayout` and `SeekBar` components support automatic opt-out behavior out of the box.
 
 ### Conflicts with home or quick-switch gestures
 

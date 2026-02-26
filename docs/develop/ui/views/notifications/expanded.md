@@ -114,8 +114,11 @@ Notification notification = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .bigText(emailObject.getSubjectAndSnippet()))
         .build();
 ```
-![An image showing a collapsed notification and an expanded notification using BigTextStyle](https://developer.android.com/static/images/ui/notifications/template-large-text_2x.png) **Figure 2.** A notification using `NotificationCompat.BigTextStyle`. **Tip:** To add formatting in your text---such as bold, italic, line breaks, and so on---you can [add styling with HTML
-| markup](https://developer.android.com/guide/topics/resources/string-resource#StylingWithHTML).
+![An image showing a collapsed notification and an expanded notification using BigTextStyle](https://developer.android.com/static/images/ui/notifications/template-large-text_2x.png) **Figure 2.** A notification using `NotificationCompat.BigTextStyle`.
+
+> [!TIP]
+> **Tip:** To add formatting in your text---such as bold, italic, line breaks, and so on---you can [add styling with HTML
+> markup](https://developer.android.com/guide/topics/resources/string-resource#StylingWithHTML).
 
 ## Create an inbox-style notification
 
@@ -130,8 +133,10 @@ To add a new line, call
 [`addLine()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.InboxStyle#addLine(java.lang.CharSequence))
 up to six times, as shown in the following example. If you add more than six
 lines, only the first six are visible.
-| **Tip:** You can distinguish the message's subject and message in each line by [adding styling with HTML
-| markup](https://developer.android.com/guide/topics/resources/string-resource#StylingWithHTML), such as bolding the subject.
+
+> [!TIP]
+> **Tip:** You can distinguish the message's subject and message in each line by [adding styling with HTML
+> markup](https://developer.android.com/guide/topics/resources/string-resource#StylingWithHTML), such as bolding the subject.
 
 ### Kotlin
 
@@ -168,7 +173,10 @@ Notification notification = NotificationCompat.Builder(context, CHANNEL_ID)
 ```
 
 The result looks like the following figure:
-![An image showing an expanded inbox-style notification](https://developer.android.com/static/images/ui/notifications/expanded_inbox_style_2.png) **Figure 3.** An expanded inbox-style notification. **Note:** For more information about how to group multiple notifications, see [Create a group of notifications](https://developer.android.com/develop/ui/views/notifications/group).
+![An image showing an expanded inbox-style notification](https://developer.android.com/static/images/ui/notifications/expanded_inbox_style_2.png) **Figure 3.** An expanded inbox-style notification.
+
+> [!NOTE]
+> **Note:** For more information about how to group multiple notifications, see [Create a group of notifications](https://developer.android.com/develop/ui/views/notifications/group).
 
 ## Show a conversation in a notification
 
@@ -252,7 +260,8 @@ reply action](https://developer.android.com/training/notify-user/build-notificat
 
 ## Create a notification with media controls
 
-| **Note:** When using AndroidX Media3, the [media notification is created automatically](https://developer.android.com/media/implement/playback-app#publishing_a_notification).
+> [!NOTE]
+> **Note:** When using AndroidX Media3, the [media notification is created automatically](https://developer.android.com/media/implement/playback-app#publishing_a_notification).
 
 Apply
 [`MediaStyleNotificationHelper.MediaStyle`](https://developer.android.com/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle)
@@ -314,7 +323,10 @@ Notification notification = new NotificationCompat.Builder(context, CHANNEL_ID)
         .setLargeIcon(albumArtBitmap)
         .build();
 ```
-![An image showing a notification with media style](https://developer.android.com/static/images/ui/notifications/template-media_2x.png) **Figure 5.** A notification using `MediaStyleNotificationHelper.MediaStyle`. **Note:** Notifications created with `MediaStyleNotificationHelper.MediaStyle` have their category set to [`CATEGORY_TRANSPORT`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#CATEGORY_TRANSPORT()) unless you set a different category using [`setCategory()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setCategory(java.lang.String)).
+![An image showing a notification with media style](https://developer.android.com/static/images/ui/notifications/template-media_2x.png) **Figure 5.** A notification using `MediaStyleNotificationHelper.MediaStyle`.
+
+> [!NOTE]
+> **Note:** Notifications created with `MediaStyleNotificationHelper.MediaStyle` have their category set to [`CATEGORY_TRANSPORT`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#CATEGORY_TRANSPORT()) unless you set a different category using [`setCategory()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setCategory(java.lang.String)).
 
 ## Additional resources
 

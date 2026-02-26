@@ -15,7 +15,9 @@ This guide shows how developers using the Java Programming Language can use a
 *thread pool* to set up and use multiple threads in an Android app. This guide
 also shows you how to define code to run on a thread and how to communicate
 between one of these threads and the main thread.
-| **Important:** If you're writing your app in Kotlin, we instead recommend [coroutines](https://developer.android.com/kotlin/coroutines) as a lightweight solution for asynchronous background work. Coroutines include features such as structured concurrency, built-in cancellation support, Jetpack integration, and more.
+
+> [!IMPORTANT]
+> **Important:** If you're writing your app in Kotlin, we instead recommend [coroutines](https://developer.android.com/kotlin/coroutines) as a lightweight solution for asynchronous background work. Coroutines include features such as structured concurrency, built-in cancellation support, Jetpack integration, and more.
 
 ## Concurrency libraries
 
@@ -55,7 +57,7 @@ Creating threads is expensive, so you should create a thread pool only once as
 your app initializes. Be sure to save the instance of the [`ExecutorService`](https://developer.android.com/reference/java/util/concurrent/ExecutorService)
 either in your `Application` class or in a [dependency injection container](https://developer.android.com/training/dependency-injection/manual).
 The following example creates a thread pool of four threads that we can use to
-run background tasks.  
+run background tasks.
 
     public class MyApplication extends Application {
         ExecutorService executorService = Executors.newFixedThreadPool(4);
@@ -75,7 +77,7 @@ thread.
 ### Make the request
 
 First, let's take a look at our `LoginRepository` class and see how it's making
-the network request:  
+the network request:
 
     // Result.java
     public abstract class Result<T> {
@@ -132,7 +134,7 @@ response of the network request, we have our own `Result` class.
 ### Trigger the request
 
 The `ViewModel` triggers the network request when the user taps, for example, on
-a button:  
+a button:
 
     public class LoginViewModel {
 
@@ -156,7 +158,7 @@ the execution to a background thread.
 
 First, following the [principles of dependency injection](https://developer.android.com/dependency-injection), `LoginRepository`
 takes an instance of [Executor](https://developer.android.com/reference/java/util/concurrent/Executor) as opposed to `ExecutorService` because it's
-executing code and not managing threads:  
+executing code and not managing threads:
 
     public class LoginRepository {
         ...
@@ -176,7 +178,7 @@ a thread when invoked.
 ### Execute in the background
 
 Let's create another function called `makeLoginRequest()` that moves the
-execution to the background thread and ignores the response for now:  
+execution to the background thread and ignores the response for now:
 
     public class LoginRepository {
         ...
@@ -199,7 +201,9 @@ Inside the `execute()` method, we create a new `Runnable` with the block of code
 we want to execute in the background thread---in our case, the synchronous network
 request method. Internally, the `ExecutorService` manages the `Runnable` and
 executes it in an available thread.
-| **Note:** In Kotlin, you can use a lambda expression to create an anonymous class that implements the SAM interface.
+
+> [!NOTE]
+> **Note:** In Kotlin, you can use a lambda expression to create an anonymous class that implements the SAM interface.
 
 ### Considerations
 
@@ -224,7 +228,7 @@ The function `makeLoginRequest()` should take a callback as a parameter so that
 it can return a value asynchronously. The callback with the result is called
 whenever the network request completes or a failure occurs. In Kotlin, we can
 use a higher-order function. However, in Java, we have to create a new callback
-interface to have the same functionality:  
+interface to have the same functionality:
 
     interface RepositoryCallback<T> {
         void onComplete(Result<T> result);
@@ -253,7 +257,7 @@ interface to have the same functionality:
     }
 
 The `ViewModel` needs to implement the callback now. It can perform different
-logic depending on the result:  
+logic depending on the result:
 
     public class LoginViewModel {
         ...
@@ -275,7 +279,9 @@ logic depending on the result:
 In this example, the callback is executed in the calling thread, which is a
 background thread. This means that you cannot modify or communicate directly
 with the UI layer until you switch back to the main thread.
-| **Note:** To communicate with the `View` from the `ViewModel` layer, use `LiveData` as recommended in the [Guide to app architecture](https://developer.android.com/jetpack/docs/guide). If the code is being executed on a background thread, you can call `MutableLiveData.postValue()` to communicate with the UI layer.
+
+> [!NOTE]
+> **Note:** To communicate with the `View` from the `ViewModel` layer, use `LiveData` as recommended in the [Guide to app architecture](https://developer.android.com/jetpack/docs/guide). If the code is being executed on a background thread, you can call `MutableLiveData.postValue()` to communicate with the UI layer.
 
 ## Use handlers
 
@@ -290,7 +296,7 @@ corresponding thread.
 `Looper` of the main thread. You can run code in the main thread by using this
 `Looper` to create a `Handler`. As this is something you might do quite often,
 you can also save an instance of the `Handler` in the same place you saved the
-`ExecutorService`:  
+`ExecutorService`:
 
     public class MyApplication extends Application {
         ExecutorService executorService = Executors.newFixedThreadPool(4);
@@ -301,7 +307,7 @@ It's a good practice to inject the handler into the repository, as it gives
 you more flexibility. For example, in the future you might want to pass in a
 different `Handler` to schedule tasks on a separate thread. If you're always
 communicating back to the same thread, you can pass the `Handler` into the
-repository constructor, as shown in the following example.  
+repository constructor, as shown in the following example.
 
     public class LoginRepository {
         ...
@@ -347,7 +353,7 @@ repository constructor, as shown in the following example.
     }
 
 Alternatively, if you want more flexibility, you can pass in a `Handler` to each
-function:  
+function:
 
     public class LoginRepository {
         ...
@@ -402,7 +408,7 @@ details:
 - An input queue that holds `Runnable` tasks. This queue must implement the [BlockingQueue](https://developer.android.com/reference/java/util/concurrent/BlockingQueue) interface. To match the requirements of your app, you can choose from the available queue implementations. To learn more, see the class overview for [ThreadPoolExecutor](https://developer.android.com/reference/java/util/concurrent/ThreadPoolExecutor).
 
 Here's an example that specifies thread pool size based on the total number of
-processor cores, a keep alive time of one second, and an input queue.  
+processor cores, a keep alive time of one second, and an input queue.
 
     public class MyApplication extends Application {
         /*

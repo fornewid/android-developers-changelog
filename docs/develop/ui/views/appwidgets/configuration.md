@@ -18,7 +18,7 @@ specify.
 Declare the configuration activity as a normal activity in the Android manifest
 file. The app widget host launches it with the
 [`ACTION_APPWIDGET_CONFIGURE`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#ACTION_APPWIDGET_CONFIGURE)
-action, so the activity needs to accept this intent. For example:  
+action, so the activity needs to accept this intent. For example:
 
     <activity android:name=".ExampleAppWidgetConfigurationActivity">
         <intent-filter>
@@ -29,7 +29,7 @@ action, so the activity needs to accept this intent. For example:
 Declare the activity in the `AppWidgetProviderInfo.xml` file with the
 `android:configure` attribute. See more information about
 [declaring this file](https://developer.android.com/guide/topics/appwidgets#AppWidgetProviderInfo). Here's an example of
-how to declare the configuration activity:  
+how to declare the configuration activity:
 
     <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
         ...
@@ -90,7 +90,7 @@ configuration activity:
 
    This way, if the user backs out of the activity before reaching the end, the
    system notifies the app widget host that the configuration is canceled and
-   the host doesn't add the widget:  
+   the host doesn't add the widget:
 
    ### Kotlin
 
@@ -167,7 +167,9 @@ By default, the app widget host only launches the configuration activity once,
 immediately after the user adds the widget to their home screen. However, you
 can specify options that let you enable users to reconfigure existing widgets or
 skip initial widget configuration by providing a default widget configuration.
-| **Note:** These options are only available starting in Android 12 (API level 31). You can specify them for previous versions of Android, but the system ignores them and follows the default behavior.
+
+> [!NOTE]
+> **Note:** These options are only available starting in Android 12 (API level 31). You can specify them for previous versions of Android, but the system ignores them and follows the default behavior.
 
 ### Enable users to reconfigure placed widgets
 
@@ -177,7 +179,7 @@ flag in the
 [`widgetFeatures`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#widgetFeatures)
 attribute of `appwidget-provider`. See the guide to [declaring the
 `AppWidgetProviderInfo.xml` file](https://developer.android.com/guide/topics/appwidgets#AppWidgetProviderInfo) for more
-information. For example:  
+information. For example:
 
     <appwidget-provider
         android:configure="com.myapp.ExampleAppWidgetConfigurationActivity"
@@ -187,7 +189,10 @@ information. For example:
 Users can reconfigure their widget by touching \& holding the widget and tapping
 the **Reconfigure** button, which is labeled
 1 in figure 1.
-![Button appears in bottom-right corner](https://developer.android.com/static/images/appwidgets/widget-reconfigure-button.png) **Figure 1.** Widget **Reconfigure** button. **Note:** The `reconfigurable` flag was introduced in Android 9 (API level 28), but it was not widely supported until Android 12.
+![Button appears in bottom-right corner](https://developer.android.com/static/images/appwidgets/widget-reconfigure-button.png) **Figure 1.** Widget **Reconfigure** button.
+
+> [!NOTE]
+> **Note:** The `reconfigurable` flag was introduced in Android 9 (API level 28), but it was not widely supported until Android 12.
 
 ### Use the widget's default configuration
 
@@ -201,7 +206,7 @@ afterward. For example, a clock widget can bypass the initial configuration and
 show the device time zone by default.
 
 Here is an example of how to mark your configuration activity as both
-reconfigurable and optional:  
+reconfigurable and optional:
 
     <appwidget-provider
         android:configure="com.myapp.ExampleAppWidgetConfigurationActivity"

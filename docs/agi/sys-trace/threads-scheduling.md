@@ -4,8 +4,6 @@ url: https://developer.android.com/agi/sys-trace/threads-scheduling
 source: md.txt
 ---
 
-# Analyze thread scheduling
-
 There are a few things to consider in order to determine if your game process threads are appropriately utilized and scheduled for the best performance.
 
 - Frame pacing
@@ -16,38 +14,57 @@ There are a few things to consider in order to determine if your game process th
 
 Many games and game engines use multithreading to divide CPU work into logical tasks, which may be run somewhat independently. One typical configuration is a game thread for input and game logic, a render thread for preparing and submitting objects to be drawn, and worker threads for other subtasks such as animations or audio.
 
-We recommend parallelizing threads to take advantage of performance gains of multithreading. An example of this is a scenario where the game and render threads are running partially or fully concurrently on different cores. This won't always be possible, such as in cases with shared data dependencies; however, when possible, this may result in lower CPU times and thus potentially higher frame rates.
-![Game with a well-parallelized main and render thread, as well as a worker thread and audio thread](https://developer.android.com/static/images/agi/threads-scheduling-images/sample_multithreading.png)**Figure 1.**Game with a well-parallelized main and render thread, as well as a worker thread and audio thread
+We recommend parallelizing threads to take advantage of performance gains of
+multithreading. An example of this is a scenario where the game and render
+threads are running partially or fully concurrently on different cores. This
+won't always be possible, such as in cases with shared data dependencies;
+however, when possible, this may result in lower CPU times and thus potentially
+higher frame rates.
+![Game with a well-parallelized main and render thread, as well as a worker thread and audio thread](https://developer.android.com/static/images/agi/threads-scheduling-images/sample_multithreading.png) **Figure 1.**Game with a well-parallelized main and render thread, as well as a worker thread and audio thread
 
 ## CPU core affinity
 
-| **Important:** CPU core affinity has been superseded by the[Performance Hint API](https://developer.android.com/games/optimize/adpf/performance-hint-api). Use this API when your app is on a device running Android 12 and later.
+> [!IMPORTANT]
+> **Important:** CPU core affinity has been superseded by the [Performance Hint API](https://developer.android.com/games/optimize/adpf/performance-hint-api). Use this API when your app is on a device running Android 12 and later.
 
 One factor that significantly affects the performance of your CPU workloads is how they are scheduled on the cores. This may be split into two components:
 
 - Whether your game threads are running on the most suitable core for their workload.
 - Whether your game threads switch between cores frequently.
 
-Modern devices often use an architecture called*heterogeneous computing*, where the cores have different levels of performance:
+Modern devices often use an architecture called *heterogeneous computing*, where the cores have different levels of performance:
 
 - One or a few cores offer top peak performance, but consume more power. These are sometimes called "big" cores.
 - Other cores have lower peak performance, but are more power-efficient. These are sometimes called "little" cores.
 - Optionally: one or more cores offer a balance between performance and power. These are sometimes called "mid" cores.
 
-You may investigate CPU thread behavior under**CPU Usage** by enabling the**CPU**in the profile config when taking a trace. By zooming into a section of your trace \<200 ms, you can view the individual processes running on your device's CPU cores. Typically, smaller cores correspond to smaller indexes (for example, CPUs '0'-'3') whereas larger cores correspond to higher indexes (for example, CPUs '6'-'7') and middle cores if present will occupy indexes in between (for example, CPUs '5'-'6'). This is by common convention, but it's not a guarantee.
+You may investigate CPU thread behavior under **CPU Usage** by enabling the
+**CPU** in the profile config when taking a trace. By zooming into a section of
+your trace \<200 ms, you can view the individual processes running on your device's CPU cores. Typically, smaller cores correspond to smaller indexes (for example, CPUs '0'-'3')
+whereas larger cores correspond to higher indexes (for example, CPUs '6'-'7')
+and middle cores if present will occupy indexes in between (for example, CPUs '5'-'6').
+This is by common convention, but it's not a guarantee.
 
-If you find that certain threads are being scheduled on CPUs that don't meet their needs for performance or power, consider manually setting the CPU affinity for those threads.
-![Game with main and render thread primarily running on the large cores (CPU 6-7), shown in light blue](https://developer.android.com/static/images/agi/threads-scheduling-images/sample_bigcores.png)**Figure 2.**Game with main and render thread primarily running on the large cores (CPU 6-7), shown in light blue
+If you find that certain threads are being scheduled on CPUs that don't meet their needs for performance or power,
+consider manually setting the CPU affinity for those threads.
+![Game with main and render thread primarily running on the large cores (CPU 6-7), shown in light blue](https://developer.android.com/static/images/agi/threads-scheduling-images/sample_bigcores.png) **Figure 2.**Game with main and render thread primarily running on the large cores (CPU 6-7), shown in light blue
 
-You may also observe whether your threads switch between cores. Such core switches incur some overhead from the context switch and the loss of state with a core's cache/registers.
-![Game with main (Thread-7) and render thread (Thread-8) that switch between cores, shown in purple](https://developer.android.com/static/images/agi/threads-scheduling-images/sample_coreswitching.png)**Figure 3.**Game with main (Thread-7) and render thread (Thread-8) that switch between cores, shown in purple
+You may also observe whether your threads switch between cores.
+Such core switches incur some overhead from the context switch and the loss of state with a core's cache/registers.
+![Game with main (Thread-7) and render thread (Thread-8) that switch between cores, shown in purple](https://developer.android.com/static/images/agi/threads-scheduling-images/sample_coreswitching.png) **Figure 3.**Game with main (Thread-7) and render thread (Thread-8) that switch between cores, shown in purple
 
-Setting CPU affinity for a thread instructs the system to schedule it on the given core when your game is in the foreground. There are several factors to consider when doing this:
+Setting CPU affinity for a thread instructs the system to schedule it on the given core when your game is in the foreground.
+There are several factors to consider when doing this:
 
 - The platform software can't dynamically adjust task placement for runtime factors such as load and thermal throttling.
-- Performance testing on different devices may yield very different performance characteristics, especially if the devices vary considerably by price point or by release date.
+- Performance testing on different devices may yield very different
+  performance characteristics, especially if the devices vary considerably by
+  price point or by release date.
 
-  A newer or more expensive device might run a given workload comfortably on a little core, but an older or more affordable device might require a bigger core to meet deadlines for that same workload.
-- By forcing affinities to big cores, you may unnecessarily increase battery drain and thermal load.
+  A newer or more expensive device might run a given workload comfortably on
+  a little core, but an older or more affordable device might require a
+  bigger core to meet deadlines for that same workload.
+- By forcing affinities to big cores, you may unnecessarily increase battery
+  drain and thermal load.
 
 For these reasons, it's generally best to avoid manually setting CPU affinities.

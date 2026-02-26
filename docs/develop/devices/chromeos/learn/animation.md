@@ -4,6 +4,9 @@ url: https://developer.android.com/develop/devices/chromeos/learn/animation
 source: md.txt
 ---
 
+Project: /develop/devices/chromeos/merged/_project.yaml
+Book: /develop/devices/chromeos/merged/_book.yaml
+
 One of the most difficult problems for app developers is creating smooth,
 glitch-free animation. This can be especially hard to debug when the system is
 also performing resource-intensive background tasks. It can be difficult to

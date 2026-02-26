@@ -52,15 +52,17 @@ system calls the service's
 [`Service.onTimeout(int,int)`](https://developer.android.com/reference/android/app/Service#onTimeout(int,%20int)) method. The service has
 a few seconds to call [`stopSelf()`](https://developer.android.com/reference/android/app/Service#stopSelf()). If the service does not
 stop itself, the system triggers an Application Not Responding error.
-| **Note:** Media processing and data sync foreground services also have time limits, though the limit is longer. If one of those services runs too long, the system sends an internal exception causing the app to crash. For more information, see [Time-limited foreground service does not shut down causing app to
-| crash](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#fgs-exceeds-timeout).
+
+> [!NOTE]
+> **Note:** Media processing and data sync foreground services also have time limits, though the limit is longer. If one of those services runs too long, the system sends an internal exception causing the app to crash. For more information, see [Time-limited foreground service does not shut down causing app to
+> crash](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#fgs-exceeds-timeout).
 
 **Diagnose**:
 
 If the ANR was caused by a foreground service failing to stop itself, the system
 throws an internal exception. You can verify that this was the issue by checking
 the ANR reports. If this is the problem, the report will include the following
-message:  
+message:
 
     Fatal Exception: android.app.RemoteServiceException: "A foreground service of
     type FOREGROUND_SERVICE_TYPE_SHORT_SERVICE did not stop within its timeout:
@@ -92,15 +94,17 @@ the service exceeds that limit, the system calls the service's
 `Service.onTimeout(int,int)` method. The service has a few seconds to call
 `stopSelf()`. If the service does not stop itself, the system generates an
 internal `RemoteServiceException` causing the app to crash.
-| **Note:** The short service foreground service type has even stricter time limits. If a short service runs too long, the system generates an ANR. For more information, see [Short service runs too long causing
-| ANR](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#short-service).
+
+> [!NOTE]
+> **Note:** The short service foreground service type has even stricter time limits. If a short service runs too long, the system generates an ANR. For more information, see [Short service runs too long causing
+> ANR](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#short-service).
 
 **Diagnose**:
 
 You can find out what the exception was by
 [looking in the stack trace](https://developer.android.com/studio/debug/stacktraces), and you can check [Logcat](https://developer.android.com/tools/logcat) for
 more detailed error information. In this case, Logcat has the following error
-message:  
+message:
 
     Fatal Exception: android.app.RemoteServiceException: "A foreground service of
     type [service type] did not stop within its timeout: [component name]"
@@ -128,7 +132,7 @@ If the service does not do so, the throws an internal
 You can find out what the exception was by
 [looking in the stack trace](https://developer.android.com/studio/debug/stacktraces), and you can check [Logcat](https://developer.android.com/tools/logcat) for
 more detailed error information. In this case, Logcat has the following error
-message:  
+message:
 
     android.app.RemoteServiceException$ForegroundServiceDidNotStartInTimeException:
     Context.startForegroundService() did not then call Service.startForeground()
@@ -145,7 +149,7 @@ foreground service](https://developer.android.com/develop/background-work/backgr
 (call `setForegound` or `setForegroundAsync`). When the lifecycle of two
 foreground workers overlaps as one worker attempts to start a foreground service
 while a previously running foreground service is attempting to shut down, this
-crash will be accompanied by the following log:  
+crash will be accompanied by the following log:
 
     Re-initializing SystemForegroundService after a request to shut-down
 

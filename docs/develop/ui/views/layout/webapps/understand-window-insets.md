@@ -61,7 +61,7 @@ system dimensions regardless of overlap, use the
 `windowInsets` object from the listener. Providing complete system dimensions
 can help ensure design consistency by enabling web content to align with the
 device hardware regardless of the WebView's current position. This ensures a
-smooth transition as the WebView moves or expands to touch the screen edges.  
+smooth transition as the WebView moves or expands to touch the screen edges.
 
 ### Kotlin
 
@@ -81,7 +81,8 @@ smooth transition as the WebView moves or expands to touch the screen edges.
       return windowInsets;
     });
 
-| **Caution:** Returning the original `windowInsets` object overrides WebView's default bounds-checking, but can cause double-padding if your native UI also applies padding based on window insets. To know how to avoid this, see [Implement inset handling](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets#inset-handling).
+> [!CAUTION]
+> **Caution:** Returning the original `windowInsets` object overrides WebView's default bounds-checking, but can cause double-padding if your native UI also applies padding based on window insets. To know how to avoid this, see [Implement inset handling](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets#inset-handling).
 
 ## Manage resize events
 
@@ -145,7 +146,7 @@ The following example shows a broken interaction between the app and WebView:
 Instead, use the [`WindowInsetsCompat.Builder`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.Builder) to set the handled types to
 zero before passing the object to the child views. This informs the WebView that
 those specific insets have already been accounted for while enabling the
-notification to continue down the view hierarchy.  
+notification to continue down the view hierarchy.
 
 ### Kotlin
 
@@ -198,4 +199,5 @@ following:
    disabling modern viewport resizing and forcing the WebView to retain its
    initial visual viewport size.
 
-| **Note:** If you opt out, you must manually manage layout resizing. Failure to do so can prevent the [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) JavaScript function from functioning correctly, causing the keyboard to cover active input fields.
+> [!NOTE]
+> **Note:** If you opt out, you must manually manage layout resizing. Failure to do so can prevent the [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) JavaScript function from functioning correctly, causing the keyboard to cover active input fields.

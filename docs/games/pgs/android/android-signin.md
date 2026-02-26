@@ -4,8 +4,9 @@ url: https://developer.android.com/games/pgs/android/android-signin
 source: md.txt
 ---
 
-| **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-| documentation](https://developer.android.com/games/pgs/v1/android/signin).
+> [!NOTE]
+> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
+> documentation](https://developer.android.com/games/pgs/v1/android/signin).
 
 In order to access Google Play Games Services functionality, your game needs to provide the
 authenticated player's account. This documentation describes how to
@@ -21,14 +22,17 @@ number of users authenticated into your game, and make development easier:
 - Improvements for developers:
 - Client code no longer needs to handle the authentication or sign-out flow, as login is automatically triggered when the game starts, and account management is handled in the OS settings.
 
-| **Note:** You must follow additional steps if you want to enable recall functionality. For more information, see [Integrate the PGS Recall API within
-| your game](https://developer.android.com/games/pgs/recall/recall-setup).
+> [!NOTE]
+> **Note:** You must follow additional steps if you want to enable recall functionality. For more information, see [Integrate the PGS Recall API within
+> your game](https://developer.android.com/games/pgs/recall/recall-setup).
 
 ## New client integration
 
 This section shows how to do a new client integration with Play Games Services
 Sign In v2.
-| **Note:** If you already have a client integration with v1, follow the instructions in [Migrate from v1 to v2](https://developer.android.com/games/pgs/android/migrate-to-v2) to migrate your integration.
+
+> [!NOTE]
+> **Note:** If you already have a client integration with v1, follow the instructions in [Migrate from v1 to v2](https://developer.android.com/games/pgs/android/migrate-to-v2) to migrate your integration.
 
 ### Add the dependency
 
@@ -90,8 +94,8 @@ When your game launches, it will always attempt to authenticate the user. To
 authenticate the user, you must verify that the user successfully authenticated,
 and then get their Player ID.
 
-To verify the authentication attempt, call `GamesSignInClient.isAuthenticated()` and
-use `addOnCompleteListener` to retrieve the results. For example:
+To verify the authentication attempt, call `GamesSignInClient.isAuthenticated()`
+and use `addOnCompleteListener` to retrieve the results. For example:
 
     GamesSignInClient gamesSignInClient = PlayGames.getGamesSignInClient(getActivity());
 
@@ -108,17 +112,8 @@ use `addOnCompleteListener` to retrieve the results. For example:
       }
     });
 
-If the user chooses not to get authenticated when the game launches, it is
-recommended that you continue showing a button with the Play Games icon or
-present the user with a sign-in screen that has a button with the Play Games
-icon as one of the authentication options, and attempt to authenticate the user
-again by calling `GamesSignInClient.signIn()` if the user presses the button.
-After verifying that the user is authenticated, you can retrieve the Player ID
-to identify the user. For example:
+> [!IMPORTANT]
+> **Key Point:** If the authentication fails when the game launches, Play Games Services would retry authentication automatically. Play Games Services doesn't require a manual **Sign in** button to be implemented.
 
-    PlayGames.getPlayersClient(activity).getCurrentPlayer().addOnCompleteListener(mTask -> {
-        // Get PlayerID with mTask.getResult().getPlayerId()
-      }
-    );
-
-| **Note:** You should not store the player ID returned from the Android SDK in the game's backend, as it's possible for an untrusted device to tamper with it. Instead, you should [enable server-side API access](https://developer.android.com/games/pgs/android/server-access) and retrieve the player ID or other data with a server-side call directly from the game's backend.
+> [!NOTE]
+> **Note:** You shouldn't store the player ID returned from the Android SDK in the game's backend, as it's possible for an untrusted device to tamper with it. Instead, you should [enable server-side API access](https://developer.android.com/games/pgs/android/server-access) and retrieve the player ID or other data with a server-side call directly from the game's backend.

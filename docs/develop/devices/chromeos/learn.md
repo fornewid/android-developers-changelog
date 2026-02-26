@@ -19,7 +19,7 @@ As of ChromeOS version M53, all Android apps that don't explicitly require the
 support the `android.hardware.faketouch` feature. However, to help your app work
 on all Chromebooks, update your manifest file so that the
 `android.hardware.touchscreen` feature is not required, as shown in the
-following example.  
+following example.
 
     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
               ... >
@@ -29,7 +29,8 @@ following example.
                       android:required="false" />
     </manifest>
 
-| **Note:** Removing the requirement for touch input means you need to review your app's support for [mouse and keyboard interactions](https://developer.android.com/develop/ui/compose/touch-input).
+> [!NOTE]
+> **Note:** Removing the requirement for touch input means you need to review your app's support for [mouse and keyboard interactions](https://developer.android.com/develop/ui/compose/touch-input).
 
 Different hardware devices come equipped with different sets of sensors, and
 Chromebooks might not have all the sensors found in Android handheld devices,
@@ -41,7 +42,9 @@ supports.
 
 If you want your app to run on Chromebooks regardless of sensor availability,
 update your manifest file so that no sensors are required.
-| **Note:** If you don't require a particular sensor for your app but still use measurements from the sensor when it's available, make sure you dynamically check for the sensor's availability before trying to gather information from it.
+
+> [!NOTE]
+> **Note:** If you don't require a particular sensor for your app but still use measurements from the sensor when it's available, make sure you dynamically check for the sensor's availability before trying to gather information from it.
 
 Some software features are not supported on Chromebooks. For example, apps that
 provide custom IMEs, app widgets, live wallpapers, and app launchers aren't

@@ -6,18 +6,19 @@ source: md.txt
 
 <br />
 
-<br />
 
-Applicable XR devices  
-This guidance helps you build experiences for these types of XR devices.  
-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)  
-![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg)AI Glasses[](https://developer.android.com/develop/xr/devices#ai-glasses)  
-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
-To see how your augmented experiences look and behave on AI glasses and debug your code, you need to build and run your app. The Jetpack XR SDK includes all the tools you need through Android Studio and the Android XR Emulator.
-| **Preview:** The Android XR Emulator is part of the Android XR Developer Preview and is still in early development. If you encounter issues, please[report a bug or submit feedback](https://developer.android.com/develop/xr/support#android-xr-emulator).
+To see how your augmented experiences look and behave on AI
+glasses and debug your code, you need to build and run your app. The
+Jetpack XR SDK includes all the tools you need through Android Studio and the
+Android XR Emulator.
+
+> [!WARNING]
+> **Preview:** The Android XR Emulator is part of the Android XR Developer Preview and is still in early development. If you encounter issues, please [report a
+> bug or submit feedback](https://developer.android.com/develop/xr/support#android-xr-emulator).
 
 This guide covers the following areas:
 

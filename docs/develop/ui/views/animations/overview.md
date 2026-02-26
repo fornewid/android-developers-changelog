@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/animations/overview
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose.  
-[Animations in Compose →](https://developer.android.com/jetpack/compose/animation)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose. [Animations in Compose →](https://developer.android.com/jetpack/compose/animation) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -22,7 +19,9 @@ add motion to your UI.
 
 To better understand when you should use animations, also see the [Material
 Design guide about motion](https://www.google.com/url?sa=D&q=https://m3.material.io/styles/motion/overview).
-| **Note:** For guidance on animations in Jetpack Compose, see [Animation](https://developer.android.com/jetpack/compose/animation).
+
+> [!NOTE]
+> **Note:** For guidance on animations in Jetpack Compose, see [Animation](https://developer.android.com/jetpack/compose/animation).
 
 ## Animate bitmaps
 
@@ -72,7 +71,7 @@ can also see the following pages to create common animations:
 
 ### Physics-based motion
 
-**Figure 3.** Animation built with ObjectAnimator.  
+**Figure 3.** Animation built with ObjectAnimator.
 
 **Figure 4.** Animation built with physics-based
 APIs.

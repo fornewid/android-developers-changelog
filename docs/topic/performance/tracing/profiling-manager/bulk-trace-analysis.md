@@ -26,7 +26,10 @@ Specifically, you can measure the duration from `activityStart` to the first
 frame generated (the first occurrence of the `Choreographer#doFrame` slice) to
 measure app startup latency that is within your app's control. Figure 1 shows
 the section to query.
-| **Note:** Before running a bulk trace query, we recommend testing your SQL query on a single trace in the [Perfetto UI](https://ui.perfetto.dev/) to validate results.
+
+> [!NOTE]
+> **Note:** Before running a bulk trace query, we recommend testing your SQL query on a single trace in the [Perfetto UI](https://ui.perfetto.dev/) to validate results.
+
 ![A timeline view of a trace, highlighting the duration from the activityStart event to the first Choreographer#doFrame event.](https://developer.android.com/static/topic/performance/images/tracing/bulk-trace-analysis-section-to-query.png) Figure 1. Trace section from \`activityStart\` to the first frame generated.
 
     CREATE OR REPLACE PERFETTO FUNCTION find_slices(pattern STRING) RETURNS
@@ -120,4 +123,6 @@ the regression.
 This example demonstrates one of the many ways you can use bulk trace analysis.
 Other use cases include extracting statistics from the field to gauge impact,
 detecting regressions, and more.
-| **Note:** The local [Batch Trace Processor Python API](https://perfetto.dev/docs/analysis/trace-processor-python) can analyze dozens or hundreds of traces. However, its scalability depends on your computer's memory. To analyze thousands of traces, refer to the [Perfetto Bigtrace documentation](https://perfetto.dev/docs/deployment/deploying-bigtrace-on-a-single-machine) to deploy a scalable cluster.
+
+> [!NOTE]
+> **Note:** The local [Batch Trace Processor Python API](https://perfetto.dev/docs/analysis/trace-processor-python) can analyze dozens or hundreds of traces. However, its scalability depends on your computer's memory. To analyze thousands of traces, refer to the [Perfetto Bigtrace documentation](https://perfetto.dev/docs/deployment/deploying-bigtrace-on-a-single-machine) to deploy a scalable cluster.

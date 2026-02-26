@@ -21,6 +21,17 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+### February 25, 2026
+
+- [Compose Animation Version 1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.4)
+- [Compose Foundation Version 1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.4)
+- [Compose Material Version 1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.4)
+- [Compose Runtime Version 1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.10.4)
+- [Compose UI Version 1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.4)
+- [Wear Version 1.4.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-1.4.0)
+- [Wear-remote-interactions Version 1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0)
+- [Wear Watchface Version 1.3.0](https://developer.android.com/jetpack/androidx/releases/wear-watchface#1.3.0)
+
 ### February 11, 2026
 
 - [Activity Version 1.12.4](https://developer.android.com/jetpack/androidx/releases/activity#1.12.4)

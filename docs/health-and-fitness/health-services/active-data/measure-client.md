@@ -10,7 +10,9 @@ API, your app registers callbacks to receive data for a short amount of time.
 This is meant for situations in which your app is in use and requires rapid data
 updates. If possible, create this with a foreground UI so that the user is
 aware.
-| **Note:** `MeasureClient` is not suitable for workout tracking. Instead, [record an exercise](https://developer.android.com/training/wearables/health-services/active-data/exercise-client) using `ExerciseClient`.
+
+> [!NOTE]
+> **Note:** `MeasureClient` is not suitable for workout tracking. Instead, [record an exercise](https://developer.android.com/training/wearables/health-services/active-data/exercise-client) using `ExerciseClient`.
 
 ## Add dependencies
 
@@ -24,7 +26,7 @@ Then, in your module-level `build.gradle` file, add the following dependency:
 
 ```groovy
 dependencies {
-    implementation "androidx.health:health-services-client:1.1.0-beta01"
+    implementation "androidx.health:health-services-client:1.1.0-rc01"
 }
 ```
 
@@ -32,10 +34,12 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.health:health-services-client:1.1.0-beta01")
+    implementation("androidx.health:health-services-client:1.1.0-rc01")
 }
 ```
-| **Note:** This API is asynchronous and relies on `ListenableFuture` extensively. See [Using a ListenableFuture](https://developer.android.com/guide/background/listenablefuture) for more information about this concept.
+
+> [!NOTE]
+> **Note:** This API is asynchronous and relies on `ListenableFuture` extensively. See [Using a ListenableFuture](https://developer.android.com/guide/background/listenablefuture) for more information about this concept.
 
 ## Check capabilities
 
@@ -56,7 +60,8 @@ The following example shows how to check whether a device can provide the
 
 ## Register for data
 
-| **Note:** Request necessary permissions before registering to receive data that requires a permission.
+> [!NOTE]
+> **Note:** Request necessary permissions before registering to receive data that requires a permission.
 
 Each callback you register is for a single data type. Note that some data types
 might have varying states of availability. For example, heart rate data might
@@ -93,4 +98,5 @@ The following example shows how to register and unregister a callback to receive
         }
     }
 
-| **Note:** Kotlin developers can use `callbackFlow` to take advantage of coroutines and lifecycle. See the [Measure Data sample](https://github.com/android/health-samples/tree/main/health-services/MeasureDataCompose) on GitHub for an example.
+> [!NOTE]
+> **Note:** Kotlin developers can use `callbackFlow` to take advantage of coroutines and lifecycle. See the [Measure Data sample](https://github.com/android/health-samples/tree/main/health-services/MeasureDataCompose) on GitHub for an example.

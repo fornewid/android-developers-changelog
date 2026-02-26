@@ -4,21 +4,46 @@ url: https://developer.android.com/develop/background-work/background-tasks/pers
 source: md.txt
 ---
 
-# Observe intermediate worker progress
+WorkManager has built-in support for setting and observing intermediate
+progress for workers. If the worker was running while the app was in the
+foreground, this information can also be shown to the user using APIs which
+return the [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) of
+[`WorkInfo`](https://developer.android.com/reference/androidx/work/WorkInfo).
 
-WorkManager has built-in support for setting and observing intermediate progress for workers. If the worker was running while the app was in the foreground, this information can also be shown to the user using APIs which return the[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData)of[`WorkInfo`](https://developer.android.com/reference/androidx/work/WorkInfo).
+[`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker) now supports the
+[`setProgressAsync()`](https://developer.android.com/reference/androidx/work/ListenableWorker#setProgressAsync(androidx.work.Data))
+API, which allows it to persist intermediate progress. These APIs allow
+developers to set intermediate progress that can be observed by the UI.
+Progress is represented by the [`Data`](https://developer.android.com/reference/androidx/work/Data) type,
+which is a serializable container of properties (similar to [`input` and
+`output`](https://developer.android.com/topic/libraries/architecture/workmanager/advanced#params),
+and subject to the same restrictions).
 
-[`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker)now supports the[`setProgressAsync()`](https://developer.android.com/reference/androidx/work/ListenableWorker#setProgressAsync(androidx.work.Data))API, which allows it to persist intermediate progress. These APIs allow developers to set intermediate progress that can be observed by the UI. Progress is represented by the[`Data`](https://developer.android.com/reference/androidx/work/Data)type, which is a serializable container of properties (similar to[`input`and`output`](https://developer.android.com/topic/libraries/architecture/workmanager/advanced#params), and subject to the same restrictions).
+Progress information can only be observed and updated while the
+`ListenableWorker` is running. Attempts to set progress on a `ListenableWorker`
+after it has completed its execution are ignored.
 
-Progress information can only be observed and updated while the`ListenableWorker`is running. Attempts to set progress on a`ListenableWorker`after it has completed its execution are ignored.
-
-You can also observe progress information by using the one of the[`getWorkInfoBy...()`or`getWorkInfoBy...LiveData()`](https://developer.android.com/reference/androidx/work/WorkManager#getWorkInfoById(java.util.UUID))methods. These methods return instances of[`WorkInfo`](https://developer.android.com/reference/androidx/work/WorkInfo), which has a new[`getProgress()`](https://developer.android.com/reference/androidx/work/WorkInfo#getProgress())method that returns`Data`.
+You can also observe progress
+information by using the one of the [`getWorkInfoBy...()` or
+`getWorkInfoBy...LiveData()`](https://developer.android.com/reference/androidx/work/WorkManager#getWorkInfoById(java.util.UUID))
+methods. These methods return instances of
+[`WorkInfo`](https://developer.android.com/reference/androidx/work/WorkInfo), which has a new
+[`getProgress()`](https://developer.android.com/reference/androidx/work/WorkInfo#getProgress()) method
+that returns `Data`.
 
 ## Update progress
 
-For Java developers using a[`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker)or a[`Worker`](https://developer.android.com/reference/androidx/work/Worker), the[`setProgressAsync()`](https://developer.android.com/reference/androidx/work/ListenableWorker#setProgressAsync(androidx.work.Data))API returns a`ListenableFuture<Void>`; updating progress is asynchronous, given that the update process involves storing progress information in a database. In Kotlin, you can use the[`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker)object's[`setProgress()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#setprogress)extension function to update progress information.
+For Java developers using a [`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker)
+or a [`Worker`](https://developer.android.com/reference/androidx/work/Worker), the
+[`setProgressAsync()`](https://developer.android.com/reference/androidx/work/ListenableWorker#setProgressAsync(androidx.work.Data))
+API returns a `ListenableFuture<Void>`; updating progress is asynchronous,
+given that the update process involves storing progress information in a database.
+In Kotlin, you can use the [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker)
+object's [`setProgress()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#setprogress)
+extension function to update progress information.
 
-This example shows a`ProgressWorker`. The`Worker`sets its progress to 0 when it starts, and upon completion updates the progress value to 100.  
+This example shows a `ProgressWorker`. The `Worker` sets its progress to
+0 when it starts, and upon completion updates the progress value to 100.
 
 ### Kotlin
 
@@ -84,9 +109,11 @@ This example shows a`ProgressWorker`. The`Worker`sets its progress to 0 when it 
 
 ## Observe progress
 
-To observe progress information, use the[`getWorkInfoById`](https://developer.android.com/reference/androidx/work/WorkManager#getWorkInfoById(java.util.UUID))methods, and get a reference to[`WorkInfo`](https://developer.android.com/reference/androidx/work/WorkInfo).
+To observe progress information, use the [`getWorkInfoById`](https://developer.android.com/reference/androidx/work/WorkManager#getWorkInfoById(java.util.UUID)) methods, and get a reference to
+[`WorkInfo`](https://developer.android.com/reference/androidx/work/WorkInfo).
 
-Here is an example which uses`getWorkInfoByIdFlow`for Kotlin and`getWorkInfoByIdLiveData`for Java.  
+Here is an example which uses `getWorkInfoByIdFlow` for Kotlin and
+`getWorkInfoByIdLiveData` for Java.
 
 ### Kotlin
 
@@ -119,7 +146,8 @@ Here is an example which uses`getWorkInfoByIdFlow`for Kotlin and`getWorkInfoById
 
 ## Observe stop reason state
 
-To debug why a`Worker`was stopped, you can log the stop reason by calling[`WorkInfo.getStopReason()`](https://developer.android.com/reference/androidx/work/WorkInfo#getStopReason()):  
+To debug why a `Worker` was stopped, you can log the stop reason by calling
+[`WorkInfo.getStopReason()`](https://developer.android.com/reference/androidx/work/WorkInfo#getStopReason()):
 
 ### Kotlin
 
@@ -141,4 +169,5 @@ To debug why a`Worker`was stopped, you can log the stop reason by calling[`WorkI
             }
       });
 
-For more documentation the lifecycle and states of`Worker`objects, read[Work states](https://developer.android.com/develop/background-work/background-tasks/persistent/how-to/states).
+For more documentation the lifecycle and states of `Worker` objects, read
+[Work states](https://developer.android.com/develop/background-work/background-tasks/persistent/how-to/states).

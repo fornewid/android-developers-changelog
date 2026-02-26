@@ -209,7 +209,7 @@ size. To learn more, see [our guidance on optimizing Environment assets](https:/
 
 
 ```kotlin
-val currentPassthroughOpacity = session.scene.spatialEnvironment.currentPassthroughOpacityhttps://github.com/android/snippets/blob/e6bd0ecb017905ea2b0423d974e826421caa7d2b/xr/src/main/java/com/example/xr/scenecore/Environments.kt#L77-L77
+val currentPassthroughOpacity = session.scene.spatialEnvironment.currentPassthroughOpacityhttps://github.com/android/snippets/blob/ed5bd1be020d430170fb3f14a1636696195f5733/xr/src/main/java/com/example/xr/scenecore/Environments.kt#L77-L77
 ```
 
 <br />

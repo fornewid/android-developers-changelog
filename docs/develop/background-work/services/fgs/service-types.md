@@ -11,7 +11,9 @@ service permission for that type (in addition to requesting the
 [`FOREGROUND_SERVICE`](https://developer.android.com/reference/android/Manifest.permission#FOREGROUND_SERVICE)
 permission). Furthermore, depending on the foreground service type, you might
 have to request runtime permissions before you launch the service.
-| **Note:** In many cases, there are purpose-built APIs you can use instead of creating a particular type of foreground service. When purpose-built APIs are available, they are usually a better choice than creating a foreground service. These APIs are listed in **Alternatives** sections within the appropriate foreground service types.
+
+> [!NOTE]
+> **Note:** In many cases, there are purpose-built APIs you can use instead of creating a particular type of foreground service. When purpose-built APIs are available, they are usually a better choice than creating a foreground service. These APIs are listed in **Alternatives** sections within the appropriate foreground service types.
 
 ### Camera
 
@@ -28,9 +30,10 @@ Runtime prerequisites
 
 :   Request and be granted the [`CAMERA`](https://developer.android.com/reference/android/Manifest.permission#CAMERA) runtime permission
 
-    | **Note:** The `CAMERA` runtime permission is subject to while-in-use restrictions. For this reason, you cannot create a `camera` foreground service while your app is in the background and you cannot launch a `camera` foreground service from a `BOOT_COMPLETED` receiver, [with a few
-    | exceptions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions-exemptions). For more information, see [Restrictions on starting foreground services that need while-in-use
-    | permissions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions).
+    > [!NOTE]
+    > **Note:** The `CAMERA` runtime permission is subject to while-in-use restrictions. For this reason, you cannot create a `camera` foreground service while your app is in the background and you cannot launch a `camera` foreground service from a `BOOT_COMPLETED` receiver, [with a few
+    > exceptions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions-exemptions). For more information, see [Restrictions on starting foreground services that need while-in-use
+    > permissions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions).
 
 Description
 
@@ -73,7 +76,8 @@ Description
 :   Interactions with external devices that require a Bluetooth, NFC, IR, USB, or
     network connection.
 
-    | **Note:** If your app performs a projection or remote messaging operation, use the corresponding [media projection](https://developer.android.com/develop/background-work/services/fgs/service-types#media-projection) or [remote messaging](https://developer.android.com/develop/background-work/services/fgs/service-types#remote-messaging) type instead.
+    > [!NOTE]
+    > **Note:** If your app performs a projection or remote messaging operation, use the corresponding [media projection](https://developer.android.com/develop/background-work/services/fgs/service-types#media-projection) or [remote messaging](https://developer.android.com/develop/background-work/services/fgs/service-types#remote-messaging) type instead.
 
 Alternatives
 
@@ -111,8 +115,9 @@ Description
     - Local file processing
     - Transfer data between a device and the cloud over a network
 
-    | **Note:** Apps that target Android 15 or higher are not allowed to launch a data sync foreground service from a `BOOT_COMPLETED` broadcast receiver. For more information, see [Restrictions on `BOOT_COMPLETED` broadcast receivers launching foreground
-    | services](https://developer.android.com/about/versions/15/behavior-changes-15#fgs-boot-completed).
+    > [!NOTE]
+    > **Note:** Apps that target Android 15 or higher are not allowed to launch a data sync foreground service from a `BOOT_COMPLETED` broadcast receiver. For more information, see [Restrictions on `BOOT_COMPLETED` broadcast receivers launching foreground
+    > services](https://developer.android.com/about/versions/15/behavior-changes-15#fgs-boot-completed).
 
 Alternatives
 
@@ -145,7 +150,8 @@ Runtime prerequisites
       - [`READ_OXYGEN_SATURATION`](https://developer.android.com/reference/android/health/connect/HealthPermissions#READ_OXYGEN_SATURATION)
       - [`ACTIVITY_RECOGNITION`](https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
 
-    | **Note:** The `BODY_SENSORS` and sensor-based READ runtime permissions are subject to while-in-use restrictions. For this reason, you cannot create a `health` foreground service that uses body sensors while your app is in the background, unless you've been granted the [`BODY_SENSORS_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS_BACKGROUND) (between API level 33 and API level 35) or [`READ_HEALTH_DATA_IN_BACKGROUND`](https://developer.android.com/reference/android/health/connect/HealthPermissions#READ_HEALTH_DATA_IN_BACKGROUND) (API level 36) permissions. For more information, see [Restrictions on starting foreground services that need while-in-use permissions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions).
+    > [!NOTE]
+    > **Note:** The `BODY_SENSORS` and sensor-based READ runtime permissions are subject to while-in-use restrictions. For this reason, you cannot create a `health` foreground service that uses body sensors while your app is in the background, unless you've been granted the [`BODY_SENSORS_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS_BACKGROUND) (between API level 33 and API level 35) or [`READ_HEALTH_DATA_IN_BACKGROUND`](https://developer.android.com/reference/android/health/connect/HealthPermissions#READ_HEALTH_DATA_IN_BACKGROUND) (API level 36) permissions. For more information, see [Restrictions on starting foreground services that need while-in-use permissions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions).
 
 Description
 
@@ -172,9 +178,12 @@ Runtime prerequisites
     - [`ACCESS_COARSE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
     - [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
 
-    | **Note:** In order to check that the user has enabled location services as well as granted access to the runtime permissions, use [`PermissionChecker#checkSelfPermission()`](https://developer.android.com/reference/androidx/core/content/PermissionChecker#checkSelfPermission(android.content.Context,java.lang.String))
-    | **Note:** The location runtime permissions are subject to while-in-use restrictions. For this reason, you cannot create a `location` foreground service while your app is in the background, unless you've been granted the [`ACCESS_BACKGROUND_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) runtime permission. For more information, see [Restrictions on starting foreground services that need while-in-use
-    | permissions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions).
+    > [!NOTE]
+    > **Note:** In order to check that the user has enabled location services as well as granted access to the runtime permissions, use [`PermissionChecker#checkSelfPermission()`](https://developer.android.com/reference/androidx/core/content/PermissionChecker#checkSelfPermission(android.content.Context,java.lang.String))
+
+    > [!NOTE]
+    > **Note:** The location runtime permissions are subject to while-in-use restrictions. For this reason, you cannot create a `location` foreground service while your app is in the background, unless you've been granted the [`ACCESS_BACKGROUND_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) runtime permission. For more information, see [Restrictions on starting foreground services that need while-in-use
+    > permissions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions).
 
 Description
 
@@ -206,8 +215,9 @@ Description
 :   Continue audio or video playback from the background. Support Digital Video
     Recording (DVR) functionality on [Android TV](https://developer.android.com/training/tv/tif/content-recording).
 
-    | **Note:** Apps that target Android 15 or higher are not allowed to launch a media playback foreground service from a `BOOT_COMPLETED` broadcast receiver. For more information, see [Restrictions on `BOOT_COMPLETED` broadcast receivers launching foreground
-    | services](https://developer.android.com/about/versions/15/behavior-changes-15#fgs-boot-completed).
+    > [!NOTE]
+    > **Note:** Apps that target Android 15 or higher are not allowed to launch a media playback foreground service from a `BOOT_COMPLETED` broadcast receiver. For more information, see [Restrictions on `BOOT_COMPLETED` broadcast receivers launching foreground
+    > services](https://developer.android.com/about/versions/15/behavior-changes-15#fgs-boot-completed).
 
 Alternatives
 
@@ -284,8 +294,9 @@ Description
     [`MediaProjection`](https://developer.android.com/reference/android/media/projection/MediaProjection) APIs. This content doesn't have to be exclusively media
     content.
 
-    | **Note:** Apps that target Android 15 or higher are not allowed to launch a media projection foreground service from a `BOOT_COMPLETED` broadcast receiver. For more information, see [Restrictions on `BOOT_COMPLETED` broadcast receivers launching foreground
-    | services](https://developer.android.com/about/versions/15/behavior-changes-15#fgs-boot-completed).
+    > [!NOTE]
+    > **Note:** Apps that target Android 15 or higher are not allowed to launch a media projection foreground service from a `BOOT_COMPLETED` broadcast receiver. For more information, see [Restrictions on `BOOT_COMPLETED` broadcast receivers launching foreground
+    > services](https://developer.android.com/about/versions/15/behavior-changes-15#fgs-boot-completed).
 
 Alternatives
 
@@ -307,9 +318,10 @@ Runtime prerequisites
 
 :   Request and be granted the [`RECORD_AUDIO`](https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO) runtime permission.
 
-    | **Note:** The `RECORD_AUDIO` runtime permission is subject to while-in-use restrictions. For this reason, you cannot create a `microphone` foreground service while your app is in the background and you cannot launch a `microphone` foreground service from a `BOOT_COMPLETED` receiver, [with a few
-    | exceptions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions-exemptions). For more information, see [Restrictions on starting foreground services that need while-in-use
-    | permissions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions).
+    > [!NOTE]
+    > **Note:** The `RECORD_AUDIO` runtime permission is subject to while-in-use restrictions. For this reason, you cannot create a `microphone` foreground service while your app is in the background and you cannot launch a `microphone` foreground service from a `BOOT_COMPLETED` receiver, [with a few
+    > exceptions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions-exemptions). For more information, see [Restrictions on starting foreground services that need while-in-use
+    > permissions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions).
 
 Description
 
@@ -338,8 +350,9 @@ Runtime prerequisites
     - App is the default dialer app through the [`ROLE_DIALER`](https://developer.android.com/reference/android/app/role/RoleManager#ROLE_DIALER) role.
 
 
-    | **Note:** Apps that target Android 15 or higher are not allowed to launch a phone call foreground service from a `BOOT_COMPLETED` broadcast receiver. For more information, see [Restrictions on `BOOT_COMPLETED` broadcast receivers launching foreground
-    | services](https://developer.android.com/about/versions/15/behavior-changes-15#fgs-boot-completed).
+    > [!NOTE]
+    > **Note:** Apps that target Android 15 or higher are not allowed to launch a phone call foreground service from a `BOOT_COMPLETED` broadcast receiver. For more information, see [Restrictions on `BOOT_COMPLETED` broadcast receivers launching foreground
+    > services](https://developer.android.com/about/versions/15/behavior-changes-15#fgs-boot-completed).
 
 Description
 
@@ -469,7 +482,7 @@ Description
     reviewed when you submit your app in the Google Play Console. The use
     cases you provide are free-form, and you should make sure to provide enough
     information to let the reviewer see why you need to use the `specialUse`
-    type.  
+    type.
 
         <service android:name="fooService" android:foregroundServiceType="specialUse">
           <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"

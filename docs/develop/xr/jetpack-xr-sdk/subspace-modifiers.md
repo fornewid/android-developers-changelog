@@ -7,12 +7,7 @@ source: md.txt
 <br />
 
 
-Applicable XR devices  
-This guidance helps you build experiences for these types of XR devices.  
-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)  
-![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets)  
-![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses)  
-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
@@ -76,7 +71,9 @@ granted to your app](https://developer.android.com/training/permissions/requesti
 
 The [`alpha`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).alpha(kotlin.Float)) modifier sets the opacity of the element and its children,
 where `0f` represents fully transparent and `1.0f` represents completely opaque.
-| **Preview:** Currently, the `alpha` modifier only works on `SpatialPanel`.
+
+> [!WARNING]
+> **Preview:** Currently, the `alpha` modifier only works on `SpatialPanel`.
 
 ### `scale`
 

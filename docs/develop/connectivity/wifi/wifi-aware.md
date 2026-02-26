@@ -47,7 +47,9 @@ discovery session. Instant communication mode speeds up message exchange,
 service discovery, and any data-path set up as part of a publisher or subscriber
 discovery session. To determine whether a device supports instant communication
 mode, use the [`isInstantCommunicationModeSupported()`](https://developer.android.com/reference/android/net/wifi/aware/Characteristics#isInstantCommunicationModeSupported()) method.
-| **Note:** Because instant communication mode uses additional power, this mode only remains enabled for 30 seconds from the time a publisher or subscriber discovery session is started.
+
+> [!NOTE]
+> **Note:** Because instant communication mode uses additional power, this mode only remains enabled for 30 seconds from the time a publisher or subscriber discovery session is started.
 
 ## Android 12 (API level 31) enhancements
 
@@ -83,7 +85,7 @@ following steps:
                     android:maxSdkVersion="32" />
    ```
 2. Check whether the device supports Wi-Fi Aware with the
-   [PackageManager](https://developer.android.com/reference/android/content/pm/PackageManager)
+   `https://developer.android.com/reference/android/content/pm/PackageManager`
    API, as shown below:
 
    ### Kotlin
@@ -102,16 +104,16 @@ following steps:
    Wi-Fi or Location. Depending on their hardware and firmware capabilities, some devices
    may not support Wi-Fi Aware if Wi-Fi Direct, SoftAP, or tethering is in
    use. To check whether Wi-Fi Aware is currently available, call
-   [isAvailable()](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager#isAvailable()).
+   `https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager#isAvailable()`.
 
    The availability of Wi-Fi Aware can change at any time. Your app should
-   register a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) to receive
-   [ACTION_WIFI_AWARE_STATE_CHANGED](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager#ACTION_WIFI_AWARE_STATE_CHANGED),
+   register a `https://developer.android.com/reference/android/content/BroadcastReceiver` to receive
+   `https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager#ACTION_WIFI_AWARE_STATE_CHANGED`,
    which is sent whenever availability changes. When your app receives the
    broadcast intent, it should discard all existing sessions (assume that
    Wi-Fi Aware service was disrupted), then check the
    current state of availability and adjust its behavior accordingly.
-   For example:  
+   For example:
 
    ### Kotlin
 
@@ -154,13 +156,15 @@ following steps:
    ```
 
 For more information, see [Broadcasts](https://developer.android.com/guide/components/broadcasts).
-| **Note:** Make sure that you register the broadcast receiver *before* checking availability. Otherwise, there could be a period of time when the app thinks that Wi-Fi Aware is available but isn't notified if availability changes.
+
+> [!NOTE]
+> **Note:** Make sure that you register the broadcast receiver *before* checking availability. Otherwise, there could be a period of time when the app thinks that Wi-Fi Aware is available but isn't notified if availability changes.
 
 ## Obtain a session
 
 To start using Wi-Fi Aware, your app must obtain a
-[WifiAwareSession](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession) by calling
-[attach()](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager#attach(android.net.wifi.aware.AttachCallback, android.net.wifi.aware.IdentityChangedListener, android.os.Handler)). This method
+`https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession` by calling
+`https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager#attach(android.net.wifi.aware.AttachCallback, android.net.wifi.aware.IdentityChangedListener, android.os.Handler)`. This method
 does the following:
 
 - Turns on the Wi-Fi Aware hardware.
@@ -168,30 +172,32 @@ does the following:
 - Creates a Wi-Fi Aware session with a unique namespace that acts as a container for all discovery sessions created within it.
 
 If the app attaches successfully, the system executes the
-[onAttached()](https://developer.android.com/reference/android/net/wifi/aware/AttachCallback#onAttached(android.net.wifi.aware.WifiAwareSession)) callback.
-This callback provides a [WifiAwareSession](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession) object
+`https://developer.android.com/reference/android/net/wifi/aware/AttachCallback#onAttached(android.net.wifi.aware.WifiAwareSession)` callback.
+This callback provides a `https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession` object
 that your app should use for all further session operations. An app can use the
 session to [publish a service](https://developer.android.com/develop/connectivity/wifi/wifi-aware#publish_a_service) or
 [subscribe to a service](https://developer.android.com/develop/connectivity/wifi/wifi-aware#subscribe_to_a_service).
 
 Your app should call
-[attach()](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager#attach(android.net.wifi.aware.AttachCallback, android.net.wifi.aware.IdentityChangedListener, android.os.Handler)) only once. If
-your app calls [attach()](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager#attach(android.net.wifi.aware.AttachCallback, android.net.wifi.aware.IdentityChangedListener, android.os.Handler))
+`https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager#attach(android.net.wifi.aware.AttachCallback, android.net.wifi.aware.IdentityChangedListener, android.os.Handler)` only once. If
+your app calls `https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager#attach(android.net.wifi.aware.AttachCallback, android.net.wifi.aware.IdentityChangedListener, android.os.Handler)`
 multiple times, the app receives a different session for each call, each with
 its own namespace. This could be useful in complex scenarios, but should
 generally be avoided.
-| **Note:** As long as there are active sessions, the system maintains synchronization with a Wi-Fi Aware cluster. This clustering consumes resources and battery. To conserve resources, call [WifiAwareSession.close()](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession#close()) when the session is no longer needed.
+
+> [!NOTE]
+> **Note:** As long as there are active sessions, the system maintains synchronization with a Wi-Fi Aware cluster. This clustering consumes resources and battery. To conserve resources, call `https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession#close()` when the session is no longer needed.
 
 ## Publish a service
 
 To make a service discoverable, call the
-[publish()](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession#publish(android.net.wifi.aware.PublishConfig, android.net.wifi.aware.DiscoverySessionCallback, android.os.Handler)) method, which
+`https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession#publish(android.net.wifi.aware.PublishConfig, android.net.wifi.aware.DiscoverySessionCallback, android.os.Handler)` method, which
 takes the following parameters:
 
-- [PublishConfig](https://developer.android.com/reference/android/net/wifi/aware/PublishConfig) specifies the name of the service and other configuration properties, such as match filter.
-- [DiscoverySessionCallback](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback) specifies the actions to execute when events occur, such as when the subscriber receives a message.
+- `https://developer.android.com/reference/android/net/wifi/aware/PublishConfig` specifies the name of the service and other configuration properties, such as match filter.
+- `https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback` specifies the actions to execute when events occur, such as when the subscriber receives a message.
 
-Here's an example:  
+Here's an example:
 
 ### Kotlin
 
@@ -231,7 +237,7 @@ awareSession.publish(config, new DiscoverySessionCallback() {
 ```
 
 If publication succeeds, then the
-[onPublishStarted()](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onPublishStarted(android.net.wifi.aware.PublishDiscoverySession))
+`https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onPublishStarted(android.net.wifi.aware.PublishDiscoverySession)`
 callback method is called.
 
 After publication, when devices running matching subscriber apps move into the
@@ -239,16 +245,16 @@ Wi-Fi range of the publishing device, the subscribers discover the service. When
 a subscriber discovers a publisher, the publisher does not receive a
 notification; if the subscriber sends a message to the publisher, however, then
 the publisher receives a notification. When that happens, the
-[onMessageReceived()](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onMessageReceived(android.net.wifi.aware.PeerHandle, byte[]))
+`https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onMessageReceived(android.net.wifi.aware.PeerHandle, byte[])`
 callback method is called. You can use the
-[PeerHandle](https://developer.android.com/reference/android/net/wifi/aware/PeerHandle) argument from this method to
+`https://developer.android.com/reference/android/net/wifi/aware/PeerHandle` argument from this method to
 [send a message](https://developer.android.com/develop/connectivity/wifi/wifi-aware#send_a_message) back to the subscriber or
 [create a connection](https://developer.android.com/develop/connectivity/wifi/wifi-aware#create_a_connection) to it.
 
 To stop publishing the service, call
-[DiscoverySession.close()](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession#close()).
+`https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession#close()`.
 Discovery sessions are associated with their parent
-[WifiAwareSession](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession). If the parent session is
+`https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession`. If the parent session is
 closed, its associated discovery sessions are also closed. While discarded
 objects are closed as well, the system doesn't guarantee when out-of-scope
 sessions are closed, so we recommend that you explicitly call the `close()`
@@ -257,13 +263,13 @@ methods.
 ## Subscribe to a service
 
 To subscribe to a service, call the
-[subscribe()](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession#subscribe(android.net.wifi.aware.SubscribeConfig, android.net.wifi.aware.DiscoverySessionCallback, android.os.Handler)) method,
+`https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession#subscribe(android.net.wifi.aware.SubscribeConfig, android.net.wifi.aware.DiscoverySessionCallback, android.os.Handler)` method,
 which takes the following parameters:
 
-- [SubscribeConfig](https://developer.android.com/reference/android/net/wifi/aware/SubscribeConfig) specifies the name of the service to subscribe to and other configuration properties, such as match filter.
-- [DiscoverySessionCallback](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback) specifies the actions to execute when events occur, such as when a publisher is discovered.
+- `https://developer.android.com/reference/android/net/wifi/aware/SubscribeConfig` specifies the name of the service to subscribe to and other configuration properties, such as match filter.
+- `https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback` specifies the actions to execute when events occur, such as when a publisher is discovered.
 
-Here's an example:  
+Here's an example:
 
 ### Kotlin
 
@@ -309,26 +315,26 @@ awareSession.subscribe(config, new DiscoverySessionCallback() {
 ```
 
 If the subscribe operation succeeds, the system calls the
-[onSubscribeStarted()](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onSubscribeStarted(android.net.wifi.aware.SubscribeDiscoverySession))
+`https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onSubscribeStarted(android.net.wifi.aware.SubscribeDiscoverySession)`
 callback in your app. Because you can use the
-[SubscribeDiscoverySession](https://developer.android.com/reference/android/net/wifi/aware/SubscribeDiscoverySession) argument in the
+`https://developer.android.com/reference/android/net/wifi/aware/SubscribeDiscoverySession` argument in the
 callback to communicate with a publisher after your app has discovered one, you
 should save this reference. You can update the subscribe session at any time by
 calling
-[updateSubscribe()](https://developer.android.com/reference/android/net/wifi/aware/SubscribeDiscoverySession#updateSubscribe(android.net.wifi.aware.SubscribeConfig))
+`https://developer.android.com/reference/android/net/wifi/aware/SubscribeDiscoverySession#updateSubscribe(android.net.wifi.aware.SubscribeConfig)`
 on the discovery session.
 
 At this point, your subscription waits for matching publishers to come into
 Wi-Fi range. When this happens, the system executes the
 [`onServiceDiscovered()`](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onServiceDiscovered(android.net.wifi.aware.PeerHandle,%20byte%5B%5D,%20java.util.List%3Cbyte%5B%5D%3E))
-callback method. You can use the [PeerHandle](https://developer.android.com/reference/android/net/wifi/aware/PeerHandle)
+callback method. You can use the `https://developer.android.com/reference/android/net/wifi/aware/PeerHandle`
 argument from this callback to [send a message](https://developer.android.com/develop/connectivity/wifi/wifi-aware#send_a_message) or
 [create a connection](https://developer.android.com/develop/connectivity/wifi/wifi-aware#create_a_connection) to that publisher.
 
 To stop subscribing to a service, call
-[DiscoverySession.close()](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession#close()).
+`https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession#close()`.
 Discovery sessions are associated with their parent
-[WifiAwareSession](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession). If the parent session is
+`https://developer.android.com/reference/android/net/wifi/aware/WifiAwareSession`. If the parent session is
 closed, its associated discovery sessions are also closed. While discarded
 objects are closed as well, the system doesn't guarantee when out-of-scope
 sessions are closed, so we recommend that you explicitly call the `close()`
@@ -338,28 +344,29 @@ methods.
 
 To send a message to another device, you need the following objects:
 
-- A [DiscoverySession](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession). This object allows you
+- A `https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession`. This object allows you
   to call
-  [sendMessage()](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession#sendMessage(android.net.wifi.aware.PeerHandle, int, byte[])).
-  Your app gets a [DiscoverySession](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession) by either
+  `https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession#sendMessage(android.net.wifi.aware.PeerHandle, int, byte[])`.
+  Your app gets a `https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession` by either
   [publishing a service](https://developer.android.com/develop/connectivity/wifi/wifi-aware#publish_a_service) or [subscribing to a
   service](https://developer.android.com/develop/connectivity/wifi/wifi-aware#subscribe_to_a_service).
 
-- The other device's [PeerHandle](https://developer.android.com/reference/android/net/wifi/aware/PeerHandle), to route the
+- The other device's `https://developer.android.com/reference/android/net/wifi/aware/PeerHandle`, to route the
   message. Your app gets another device's
-  [PeerHandle](https://developer.android.com/reference/android/net/wifi/aware/PeerHandle) in one of two ways:
+  `https://developer.android.com/reference/android/net/wifi/aware/PeerHandle` in one of two ways:
 
-  - Your app publishes a service and receives a message from a subscriber. Your app gets the subscriber's [PeerHandle](https://developer.android.com/reference/android/net/wifi/aware/PeerHandle) from the [onMessageReceived()](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onMessageReceived(android.net.wifi.aware.PeerHandle, byte[])) callback.
-  - Your app subscribes to a service. Then, when it discovers a matching publisher, your app gets the publisher's [PeerHandle](https://developer.android.com/reference/android/net/wifi/aware/PeerHandle) from the [`onServiceDiscovered()`](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onServiceDiscovered(android.net.wifi.aware.PeerHandle,%20byte%5B%5D,%20java.util.List%3Cbyte%5B%5D%3E)) callback.
+  - Your app publishes a service and receives a message from a subscriber. Your app gets the subscriber's `https://developer.android.com/reference/android/net/wifi/aware/PeerHandle` from the `https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onMessageReceived(android.net.wifi.aware.PeerHandle, byte[])` callback.
+  - Your app subscribes to a service. Then, when it discovers a matching publisher, your app gets the publisher's `https://developer.android.com/reference/android/net/wifi/aware/PeerHandle` from the [`onServiceDiscovered()`](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onServiceDiscovered(android.net.wifi.aware.PeerHandle,%20byte%5B%5D,%20java.util.List%3Cbyte%5B%5D%3E)) callback.
 
 To send a message, call
-[sendMessage()](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession#sendMessage(android.net.wifi.aware.PeerHandle, int, byte[])). The
+`https://developer.android.com/reference/android/net/wifi/aware/DiscoverySession#sendMessage(android.net.wifi.aware.PeerHandle, int, byte[])`. The
 following callbacks might then occur:
 
-- When the message is successfully received by the peer, the system calls the [onMessageSendSucceeded()](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onMessageSendSucceeded(int)) callback in the *sending* app.
-- When the peer receives a message, the system calls the [onMessageReceived()](https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onMessageReceived(android.net.wifi.aware.PeerHandle, byte[])) callback in the *receiving* app.
+- When the message is successfully received by the peer, the system calls the `https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onMessageSendSucceeded(int)` callback in the *sending* app.
+- When the peer receives a message, the system calls the `https://developer.android.com/reference/android/net/wifi/aware/DiscoverySessionCallback#onMessageReceived(android.net.wifi.aware.PeerHandle, byte[])` callback in the *receiving* app.
 
-| **Note:** Messages are generally used for lightweight messaging, as they might not be delivered (or be delivered out-of-order or more than once) and are limited to about 255 bytes in length. To determine the exact length limit, call [getMaxServiceSpecificInfoLength()](https://developer.android.com/reference/android/net/wifi/aware/Characteristics#getMaxServiceSpecificInfoLength()). For high speed, bi-directional communication, your app should [create a connection](https://developer.android.com/develop/connectivity/wifi/wifi-aware#create_a_connection) instead.
+> [!NOTE]
+> **Note:** Messages are generally used for lightweight messaging, as they might not be delivered (or be delivered out-of-order or more than once) and are limited to about 255 bytes in length. To determine the exact length limit, call `https://developer.android.com/reference/android/net/wifi/aware/Characteristics#getMaxServiceSpecificInfoLength()`. For high speed, bi-directional communication, your app should [create a connection](https://developer.android.com/develop/connectivity/wifi/wifi-aware#create_a_connection) instead.
 
 Though the `PeerHandle` is required to communicate with peers, you should not
 rely on it as a permanent identifier of peers. Higher-level identifiers can be
@@ -511,7 +518,8 @@ To set up the client-server connection:
 8. When you're finished with the network connection, call
    [`unregisterNetworkCallback()`](https://developer.android.com/reference/android/net/ConnectivityManager#unregisterNetworkCallback(android.app.PendingIntent)).
 
-   | **Note:** Building a network request and specifying the required network capabilities aren't specific to the Wi-Fi Aware API. For more information on working with network requests, see [`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager).
+   > [!NOTE]
+   > **Note:** Building a network request and specifying the required network capabilities aren't specific to the Wi-Fi Aware API. For more information on working with network requests, see [`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager).
 
 ## Ranging peers and location-aware discovery
 

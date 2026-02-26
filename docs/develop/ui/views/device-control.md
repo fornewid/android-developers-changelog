@@ -11,7 +11,10 @@ default launcher. The device OEM chooses what launcher they use. Device
 aggregators---for example, Google Home---and third-party vendor apps can
 provide devices for display in this space. This page shows you how to surface
 device controls in this space and link them to your control app.
-| **Note:** To leverage these features, your project's `minSdk` must be `30` or higher.
+
+> [!NOTE]
+> **Note:** To leverage these features, your project's `minSdk` must be `30` or higher.
+
 **Figure 1.** Device control space in the Android UI.
 
 To add this support, create and declare a `ControlsProviderService`. Create the

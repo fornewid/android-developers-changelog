@@ -4,17 +4,29 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/game-control
 source: md.txt
 ---
 
-# Overview
-
-Game controllers are equipped with additional features that significantly enhance player interaction and immersion. The haptics, motion sensors, and light functionalities of Android game controllers are particularly instrumental in deepening and enriching the gaming experience. Each feature uniquely stimulates the player's senses, fostering more meaningful and intuitive interactions within the game.
+Game controllers are equipped with additional features that significantly
+enhance player interaction and immersion. The haptics, motion sensors, and light
+functionalities of Android game controllers are particularly instrumental in
+deepening and enriching the gaming experience. Each feature uniquely stimulates
+the player's senses, fostering more meaningful and intuitive interactions within
+the game.
 
 ## Haptics
 
-The haptics feature in Android game controllers is a crucial technology that provides realistic tactile feedback during gameplay.
+The haptics feature in Android game controllers is a crucial technology that
+provides realistic tactile feedback during gameplay.
 
-Haptics technology delivers physical sensations to the user through vibrations or movements. For example, when an explosion occurs in the game, the controller vibrates, allowing the player to feel the impact realistically. Additionally, subtle vibrations can be synchronized with the sound of a character walking or running, offering a more lifelike experience. This type of haptic feedback enables players to physically feel various events happening within the game.
+Haptics technology delivers physical sensations to the user through vibrations
+or movements. For example, when an explosion occurs in the game, the controller
+vibrates, allowing the player to feel the impact realistically. Additionally,
+subtle vibrations can be synchronized with the sound of a character walking or
+running, offering a more lifelike experience. This type of haptic feedback
+enables players to physically feel various events happening within the game.
 
-This technology maximizes player immersion, amplifies emotional responses, and enriches the dynamics of the game. Haptics settings in Android game controllers not only widen the creative possibilities for game developers but also provide players with a gaming experience more realistic than ever before.  
+This technology maximizes player immersion, amplifies emotional responses, and
+enriches the dynamics of the game. Haptics settings in Android game controllers
+not only widen the creative possibilities for game developers but also provide
+players with a gaming experience more realistic than ever before.
 
     fun triggerVibrationMultiChannel(
       deviceId: Int, leftIntensity: Int, leftDuration: Int,
@@ -46,7 +58,7 @@ This technology maximizes player immersion, amplifies emotional responses, and e
       }
     }
 
-To use vibrate, it sets a feature and permission.  
+To use vibrate, it sets a feature and permission.
 
     <application ...>
       ...
@@ -55,17 +67,27 @@ To use vibrate, it sets a feature and permission.
       ...
     </application>
 
-| **Note:** When specifying`android:hardware:gamepad`support, don't set the`android:required`attribute to`true`. If you do this, users won't be able to install your app on the device.
+> [!NOTE]
+> **Note:** When specifying `android:hardware:gamepad` support, don't set the `android:required` attribute to `true`. If you do this, users won't be able to install your app on the device.
 
-For more information about[`VibratorManager`](https://developer.android.com/reference/android/os/VibratorManager)and[App manifest](https://developer.android.com/guide/topics/manifest/manifest-intro).
+For more information about
+[`VibratorManager`](https://developer.android.com/reference/android/os/VibratorManager) and
+[App manifest](https://developer.android.com/guide/topics/manifest/manifest-intro).
 
 ## Motion sensors
 
-One of the most innovative technologies enhancing gameplay experiences is the motion sensor-equipped Android game controller. This technology precisely detects the physical movements of users and translates that data into actions within the game, providing a more intuitive and immersive gaming experience. In this introduction, we will explore how the motion sensor features in Android game controllers works.
+One of the most innovative technologies enhancing gameplay experiences is the
+motion sensor-equipped Android game controller. This technology precisely
+detects the physical movements of users and translates that data into actions
+within the game, providing a more intuitive and immersive gaming experience.
+In this introduction, we will explore how the motion sensor features in
+Android game controllers works.
 
-Motion sensors typically incorporate gyroscopes and accelerometers to detect the movements and orientations of users.
+Motion sensors typically incorporate gyroscopes and accelerometers to detect the
+movements and orientations of users.
 
-It needs to implement acceleration and gyroscope listener classes and register these listeners with the controller's sensor manager.  
+It needs to implement acceleration and gyroscope listener classes and register
+these listeners with the controller's sensor manager.
 
     fun setIntegratedAccelerometerActive(deviceId: Int) {
       val device = InputDevice.getDevice(deviceId)
@@ -130,15 +152,26 @@ It needs to implement acceleration and gyroscope listener classes and register t
       }
     }
 
-For more information about[Motion sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_motion)and[`SensorEventListener`](https://developer.android.com/reference/android/hardware/SensorEventListener).
+For more information about
+[Motion sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_motion) and
+[`SensorEventListener`](https://developer.android.com/reference/android/hardware/SensorEventListener).
 
 ## Lights
 
-The light color settings on Android game controllers add a new dimension of immersion to gameplay through visual elements.
+The light color settings on Android game controllers add a new dimension of
+immersion to gameplay through visual elements.
 
-The light color feature utilizes built-in LED lights in the controller to display various colors, which respond dynamically to different gaming scenarios. For example, the lights might flash red when the player's health is critical or glow green upon the completion of a specific mission, providing visual feedback based on in-game events. These light color settings deepen user engagement, heighten the suspense and enjoyment of the game, and help players immerse more fully into the game world.
+The light color feature utilizes built-in LED lights in the controller to
+display various colors, which respond dynamically to different gaming scenarios.
+For example, the lights might flash red when the player's health is critical or
+glow green upon the completion of a specific mission, providing visual feedback
+based on in-game events. These light color settings deepen user engagement,
+heighten the suspense and enjoyment of the game, and help players immerse more
+fully into the game world.
 
-The light color features in Android game controllers serves more than a mere decorative purpose---it plays a significant role in setting the mood of the game and improving the user experience.  
+The light color features in Android game controllers serves more than a
+mere decorative purpose---it plays a significant role in setting the mood of the
+game and improving the user experience.
 
     fun changeControllerLightColor(deviceId: Int, color: Int) {
       val device = InputDevice.getDevice(deviceId)
@@ -159,7 +192,7 @@ The light color features in Android game controllers serves more than a mere dec
       }
     }
 
-To use vibrate, it sets a feature and permission.  
+To use vibrate, it sets a feature and permission.
 
     <application ...>
       ...
@@ -168,13 +201,20 @@ To use vibrate, it sets a feature and permission.
       ...
     </application>
 
-| **Note:** When specifying`android:hardware:gamepad`support, don't set the`android:required`attribute to`"true"`. If you do this, users won't be able to install your app on the device.
+> [!NOTE]
+> **Note:** When specifying `android:hardware:gamepad` support, don't set the `android:required` attribute to `"true"`. If you do this, users won't be able to install your app on the device.
 
-For more information about[`LightsManager`](https://developer.android.com/reference/android/hardware/lights/LightsManager)and[App manifest](https://developer.android.com/guide/topics/manifest/manifest-intro).
+For more information about
+[`LightsManager`](https://developer.android.com/reference/android/hardware/lights/LightsManager) and
+[App manifest](https://developer.android.com/guide/topics/manifest/manifest-intro).
 
 ## Controller touchpad
 
-Some game controllers include a touchpad which can be used for a variety of in-game actions, such as navigating menus or controlling game characters in a more intuitive way.
-![Touchpad on the game controller.](https://developer.android.com/static/images/training/game-controller-touchpad.png)**Figure 1.**Touchpad on the game controller.
+Some game controllers include a touchpad which can be used for a variety of
+in-game actions, such as navigating menus or controlling game characters in a
+more intuitive way.
+![Touchpad on the game controller.](https://developer.android.com/static/images/training/game-controller-touchpad.png) **Figure 1.** Touchpad on the game controller.
 
-Game controllers with integrated touchpads offer direct device control on Android. Touching the touchpad generates an on-screen mouse pointer, allowing for intuitive mouse-like navigation.
+Game controllers with integrated touchpads offer direct device control on
+Android. Touching the touchpad generates an on-screen mouse pointer, allowing
+for intuitive mouse-like navigation.

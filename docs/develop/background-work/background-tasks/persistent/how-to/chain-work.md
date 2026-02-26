@@ -33,7 +33,7 @@ Let's look at an example. In this example, 3 different Worker jobs are
 configured to run (potentially in parallel). The results of these Workers are
 then joined and passed on to a caching Worker job. Finally, the output of that
 job is passed into an upload Worker, which uploads the results to a remote
-server.  
+server.
 
 ### Kotlin
 
@@ -109,7 +109,7 @@ data in a merger, then `ArrayCreatingInputMerger` may be a better option.
 ### ArrayCreatingInputMerger
 
 For the above example, given that we want to preserve the outputs from all plant
-name Workers, we should use an `ArrayCreatingInputMerger`.  
+name Workers, we should use an `ArrayCreatingInputMerger`.
 
 ### Kotlin
 

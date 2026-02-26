@@ -63,7 +63,9 @@ if (appWidgetManager.isRequestPinAppWidgetSupported()) {
     appWidgetManager.requestPinAppWidget(myProvider, null, successCallback);
 }
 ```
-| **Note:** If your app doesn't need to be notified of whether the system successfully pins a widget onto a supported launcher, you can pass in `null` as the third argument to `requestPinAppWidget()`.
+
+> [!NOTE]
+> **Note:** If your app doesn't need to be notified of whether the system successfully pins a widget onto a supported launcher, you can pass in `null` as the third argument to `requestPinAppWidget()`.
 
 ## Related design guidance
 

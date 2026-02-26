@@ -12,7 +12,7 @@ game might track readings from a device's gravity sensor to infer complex user g
 and motions, such as tilt, shake, rotation, or swing. Likewise, a weather application might use a
 device's temperature sensor and humidity sensor to calculate and report the dewpoint, or a travel
 application might use the geomagnetic field sensor and accelerometer to report a compass
-bearing.  
+bearing.
 
 Refer to the following related resources:
 
@@ -71,43 +71,43 @@ example, a device can have two gravity sensors, each one having a different rang
 
 | Sensor | Type | Description | Common Uses |
 |---|---|---|---|
-| [TYPE_ACCELEROMETER](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER) | Hardware | Measures the acceleration force in m/s^2^ that is applied to a device on all three physical axes (x, y, and z), including the force of gravity. | Motion detection (shake, tilt, etc.). |
-| [TYPE_AMBIENT_TEMPERATURE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_AMBIENT_TEMPERATURE) | Hardware | Measures the ambient room temperature in degrees Celsius (°C). See note below. | Monitoring air temperatures. |
-| [TYPE_GRAVITY](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY) | Software or Hardware | Measures the force of gravity in m/s^2^ that is applied to a device on all three physical axes (x, y, z). | Motion detection (shake, tilt, etc.). |
-| [TYPE_GYROSCOPE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE) | Hardware | Measures a device's rate of rotation in rad/s around each of the three physical axes (x, y, and z). | Rotation detection (spin, turn, etc.). |
-| [TYPE_LIGHT](https://developer.android.com/reference/android/hardware/Sensor#TYPE_LIGHT) | Hardware | Measures the ambient light level (illumination) in lx. | Controlling screen brightness. |
-| [TYPE_LINEAR_ACCELERATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION) | Software or Hardware | Measures the acceleration force in m/s^2^ that is applied to a device on all three physical axes (x, y, and z), excluding the force of gravity. | Monitoring acceleration along a single axis. |
-| [TYPE_MAGNETIC_FIELD](https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD) | Hardware | Measures the ambient geomagnetic field for all three physical axes (x, y, z) in μT. | Creating a compass. |
-| [TYPE_ORIENTATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION) | Software | Measures degrees of rotation that a device makes around all three physical axes (x, y, z). As of API level 3 you can obtain the inclination matrix and rotation matrix for a device by using the gravity sensor and the geomagnetic field sensor in conjunction with the [getRotationMatrix()](https://developer.android.com/reference/android/hardware/SensorManager#getRotationMatrix(float[], float[], float[], float[])) method. | Determining device position. |
-| [TYPE_PRESSURE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_PRESSURE) | Hardware | Measures the ambient air pressure in hPa or mbar. | Monitoring air pressure changes. |
-| [TYPE_PROXIMITY](https://developer.android.com/reference/android/hardware/Sensor#TYPE_PROXIMITY) | Hardware | Measures the proximity of an object in cm relative to the view screen of a device. This sensor is typically used to determine whether a handset is being held up to a person's ear. | Phone position during a call. |
-| [TYPE_RELATIVE_HUMIDITY](https://developer.android.com/reference/android/hardware/Sensor#TYPE_RELATIVE_HUMIDITY) | Hardware | Measures the relative ambient humidity in percent (%). | Monitoring dewpoint, absolute, and relative humidity. |
-| [TYPE_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR) | Software or Hardware | Measures the orientation of a device by providing the three elements of the device's rotation vector. | Motion detection and rotation detection. |
-| [TYPE_TEMPERATURE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_TEMPERATURE) | Hardware | Measures the temperature of the device in degrees Celsius (°C). This sensor implementation varies across devices and this sensor was replaced with the [TYPE_AMBIENT_TEMPERATURE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_AMBIENT_TEMPERATURE) sensor in API Level 14 | Monitoring temperatures. |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER` | Hardware | Measures the acceleration force in m/s^2^ that is applied to a device on all three physical axes (x, y, and z), including the force of gravity. | Motion detection (shake, tilt, etc.). |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_AMBIENT_TEMPERATURE` | Hardware | Measures the ambient room temperature in degrees Celsius (°C). See note below. | Monitoring air temperatures. |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY` | Software or Hardware | Measures the force of gravity in m/s^2^ that is applied to a device on all three physical axes (x, y, z). | Motion detection (shake, tilt, etc.). |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE` | Hardware | Measures a device's rate of rotation in rad/s around each of the three physical axes (x, y, and z). | Rotation detection (spin, turn, etc.). |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_LIGHT` | Hardware | Measures the ambient light level (illumination) in lx. | Controlling screen brightness. |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION` | Software or Hardware | Measures the acceleration force in m/s^2^ that is applied to a device on all three physical axes (x, y, and z), excluding the force of gravity. | Monitoring acceleration along a single axis. |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD` | Hardware | Measures the ambient geomagnetic field for all three physical axes (x, y, z) in μT. | Creating a compass. |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION` | Software | Measures degrees of rotation that a device makes around all three physical axes (x, y, z). As of API level 3 you can obtain the inclination matrix and rotation matrix for a device by using the gravity sensor and the geomagnetic field sensor in conjunction with the `https://developer.android.com/reference/android/hardware/SensorManager#getRotationMatrix(float[], float[], float[], float[])` method. | Determining device position. |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_PRESSURE` | Hardware | Measures the ambient air pressure in hPa or mbar. | Monitoring air pressure changes. |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_PROXIMITY` | Hardware | Measures the proximity of an object in cm relative to the view screen of a device. This sensor is typically used to determine whether a handset is being held up to a person's ear. | Phone position during a call. |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_RELATIVE_HUMIDITY` | Hardware | Measures the relative ambient humidity in percent (%). | Monitoring dewpoint, absolute, and relative humidity. |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR` | Software or Hardware | Measures the orientation of a device by providing the three elements of the device's rotation vector. | Motion detection and rotation detection. |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_TEMPERATURE` | Hardware | Measures the temperature of the device in degrees Celsius (°C). This sensor implementation varies across devices and this sensor was replaced with the `https://developer.android.com/reference/android/hardware/Sensor#TYPE_AMBIENT_TEMPERATURE` sensor in API Level 14 | Monitoring temperatures. |
 
 ### Sensor Framework
 
 You can access these sensors and acquire raw sensor data by using the Android sensor framework.
-The sensor framework is part of the [android.hardware](https://developer.android.com/reference/android/hardware/package-summary) package and includes the following
+The sensor framework is part of the `https://developer.android.com/reference/android/hardware/package-summary` package and includes the following
 classes and interfaces:
 
-[SensorManager](https://developer.android.com/reference/android/hardware/SensorManager)
+`https://developer.android.com/reference/android/hardware/SensorManager`
 :   You can use this class to create an instance of the sensor service. This class provides
     various methods for accessing and listing sensors, registering and unregistering sensor event
     listeners, and acquiring orientation information. This class also provides several sensor constants
     that are used to report sensor accuracy, set data acquisition rates, and calibrate sensors.
 
-[Sensor](https://developer.android.com/reference/android/hardware/Sensor)
+`https://developer.android.com/reference/android/hardware/Sensor`
 :   You can use this class to create an instance of a specific sensor. This class provides various
     methods that let you determine a sensor's capabilities.
 
-[SensorEvent](https://developer.android.com/reference/android/hardware/SensorEvent)
+`https://developer.android.com/reference/android/hardware/SensorEvent`
 :   The system uses this class to create a sensor event object, which provides information about a
     sensor event. A sensor event object includes the following information: the raw sensor data, the
     type of sensor that generated the event, the accuracy of the data, and the timestamp for the
     event.
 
-[SensorEventListener](https://developer.android.com/reference/android/hardware/SensorEventListener)
+`https://developer.android.com/reference/android/hardware/SensorEventListener`
 :   You can use this interface to create two callback methods that receive notifications (sensor
     events) when sensor values change or when sensor accuracy changes.
 
@@ -148,19 +148,19 @@ sensor is present on a device), which is in line with Android's forward compatib
 
 | Sensor | Android 4.0 (API Level 14) | Android 2.3 (API Level 9) | Android 2.2 (API Level 8) | Android 1.5 (API Level 3) |
 |---|---|---|---|---|
-| [TYPE_ACCELEROMETER](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER) | **Yes** | **Yes** | **Yes** | **Yes** |
-| [TYPE_AMBIENT_TEMPERATURE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_AMBIENT_TEMPERATURE) | **Yes** | n/a | n/a | n/a |
-| [TYPE_GRAVITY](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY) | **Yes** | **Yes** | n/a | n/a |
-| [TYPE_GYROSCOPE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE) | **Yes** | **Yes** | n/a^1^ | n/a^1^ |
-| [TYPE_LIGHT](https://developer.android.com/reference/android/hardware/Sensor#TYPE_LIGHT) | **Yes** | **Yes** | **Yes** | **Yes** |
-| [TYPE_LINEAR_ACCELERATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION) | **Yes** | **Yes** | n/a | n/a |
-| [TYPE_MAGNETIC_FIELD](https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD) | **Yes** | **Yes** | **Yes** | **Yes** |
-| [TYPE_ORIENTATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION) | **Yes** ^2^ | **Yes** ^2^ | **Yes** ^2^ | **Yes** |
-| [TYPE_PRESSURE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_PRESSURE) | **Yes** | **Yes** | n/a^1^ | n/a^1^ |
-| [TYPE_PROXIMITY](https://developer.android.com/reference/android/hardware/Sensor#TYPE_PROXIMITY) | **Yes** | **Yes** | **Yes** | **Yes** |
-| [TYPE_RELATIVE_HUMIDITY](https://developer.android.com/reference/android/hardware/Sensor#TYPE_RELATIVE_HUMIDITY) | **Yes** | n/a | n/a | n/a |
-| [TYPE_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR) | **Yes** | **Yes** | n/a | n/a |
-| [TYPE_TEMPERATURE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_TEMPERATURE) | **Yes** ^2^ | **Yes** | **Yes** | **Yes** |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER` | **Yes** | **Yes** | **Yes** | **Yes** |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_AMBIENT_TEMPERATURE` | **Yes** | n/a | n/a | n/a |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY` | **Yes** | **Yes** | n/a | n/a |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE` | **Yes** | **Yes** | n/a^1^ | n/a^1^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_LIGHT` | **Yes** | **Yes** | **Yes** | **Yes** |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION` | **Yes** | **Yes** | n/a | n/a |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD` | **Yes** | **Yes** | **Yes** | **Yes** |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION` | **Yes** ^2^ | **Yes** ^2^ | **Yes** ^2^ | **Yes** |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_PRESSURE` | **Yes** | **Yes** | n/a^1^ | n/a^1^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_PROXIMITY` | **Yes** | **Yes** | **Yes** | **Yes** |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_RELATIVE_HUMIDITY` | **Yes** | n/a | n/a | n/a |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR` | **Yes** | **Yes** | n/a | n/a |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_TEMPERATURE` | **Yes** ^2^ | **Yes** | **Yes** | **Yes** |
 
 **^1^** This sensor type was added in Android 1.5 (API Level
 3),
@@ -177,9 +177,9 @@ capabilities of each sensor, such as its maximum range, its resolution, and its 
 requirements.
 
 To identify the sensors that are on a device you first need to get a reference to the sensor
-service. To do this, you create an instance of the [SensorManager](https://developer.android.com/reference/android/hardware/SensorManager) class by
-calling the [getSystemService()](https://developer.android.com/reference/android/content/Context#getSystemService(java.lang.Class<T>)) method and passing
-in the [SENSOR_SERVICE](https://developer.android.com/reference/android/content/Context#SENSOR_SERVICE) argument. For example:  
+service. To do this, you create an instance of the `https://developer.android.com/reference/android/hardware/SensorManager` class by
+calling the `https://developer.android.com/reference/android/content/Context#getSystemService(java.lang.Class<T>)` method and passing
+in the `https://developer.android.com/reference/android/content/Context#SENSOR_SERVICE` argument. For example:
 
 ### Kotlin
 
@@ -198,7 +198,7 @@ sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 ```
 
 Next, you can get a listing of every sensor on a device by calling the
-[getSensorList()](https://developer.android.com/reference/android/hardware/SensorManager#getSensorList(int)) method and using the [TYPE_ALL](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ALL) constant. For example:  
+`https://developer.android.com/reference/android/hardware/SensorManager#getSensorList(int)` method and using the `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ALL` constant. For example:
 
 ### Kotlin
 
@@ -213,15 +213,15 @@ List<Sensor> deviceSensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
 ```
 
 If you want to list all of the sensors of a given type, you could use another constant instead of
-[TYPE_ALL](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ALL) such as [TYPE_GYROSCOPE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE),
-[TYPE_LINEAR_ACCELERATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION), or
-[TYPE_GRAVITY](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY).
+`https://developer.android.com/reference/android/hardware/Sensor#TYPE_ALL` such as `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE`,
+`https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION`, or
+`https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY`.
 
-You can also determine whether a specific type of sensor exists on a device by using the [getDefaultSensor()](https://developer.android.com/reference/android/hardware/SensorManager#getDefaultSensor(int)) method and passing in the type
+You can also determine whether a specific type of sensor exists on a device by using the `https://developer.android.com/reference/android/hardware/SensorManager#getDefaultSensor(int)` method and passing in the type
 constant for a specific sensor. If a device has more than one sensor of a given type, one of the
 sensors must be designated as the default sensor. If a default sensor does not exist for a given
 type of sensor, the method call returns null, which means the device does not have that type of
-sensor. For example, the following code checks whether there's a magnetometer on a device:  
+sensor. For example, the following code checks whether there's a magnetometer on a device:
 
 ### Kotlin
 
@@ -254,21 +254,21 @@ particular types of sensors into their Android-powered devices, so devices can h
 sensor configurations.
 
 In addition to listing the sensors that are on a device, you can use the public methods of the
-[Sensor](https://developer.android.com/reference/android/hardware/Sensor) class to determine the capabilities and attributes of individual
+`https://developer.android.com/reference/android/hardware/Sensor` class to determine the capabilities and attributes of individual
 sensors. This is useful if you want your application to behave differently based on which sensors or
-sensor capabilities are available on a device. For example, you can use the [getResolution()](https://developer.android.com/reference/android/hardware/Sensor#getResolution()) and [getMaximumRange()](https://developer.android.com/reference/android/hardware/Sensor#getMaximumRange())
+sensor capabilities are available on a device. For example, you can use the `https://developer.android.com/reference/android/hardware/Sensor#getResolution()` and `https://developer.android.com/reference/android/hardware/Sensor#getMaximumRange()`
 methods to obtain a sensor's resolution and maximum range of measurement. You can also use the
-[getPower()](https://developer.android.com/reference/android/hardware/Sensor#getPower()) method to obtain a sensor's power requirements.
+`https://developer.android.com/reference/android/hardware/Sensor#getPower()` method to obtain a sensor's power requirements.
 
 Two of the public methods are particularly useful if you want to optimize your application for
 different manufacturer's sensors or different versions of a sensor. For example, if your application
 needs to monitor user gestures such as tilt and shake, you could create one set of data filtering
 rules and optimizations for newer devices that have a specific vendor's gravity sensor, and another
 set of data filtering rules and optimizations for devices that do not have a gravity sensor and have
-only an accelerometer. The following code sample shows you how you can use the [getVendor()](https://developer.android.com/reference/android/hardware/Sensor#getVendor()) and [getVersion()](https://developer.android.com/reference/android/hardware/Sensor#getVersion()) methods to do
+only an accelerometer. The following code sample shows you how you can use the `https://developer.android.com/reference/android/hardware/Sensor#getVendor()` and `https://developer.android.com/reference/android/hardware/Sensor#getVersion()` methods to do
 this. In this sample, we're looking for a gravity sensor that lists Google LLC as the vendor and
 has a version number of 3. If that particular sensor is not present on the device, we try to use the
-accelerometer.  
+accelerometer.
 
 ### Kotlin
 
@@ -329,16 +329,16 @@ if (mSensor == null){
 }
 ```
 
-Another useful method is the [getMinDelay()](https://developer.android.com/reference/android/hardware/Sensor#getMinDelay()) method,
+Another useful method is the `https://developer.android.com/reference/android/hardware/Sensor#getMinDelay()` method,
 which returns the minimum time interval (in microseconds) a sensor can use to sense data. Any sensor
-that returns a non-zero value for the [getMinDelay()](https://developer.android.com/reference/android/hardware/Sensor#getMinDelay())
+that returns a non-zero value for the `https://developer.android.com/reference/android/hardware/Sensor#getMinDelay()`
 method is a streaming
 sensor. Streaming sensors sense data at regular intervals and were introduced in Android 2.3 (API
-Level 9). If a sensor returns zero when you call the [getMinDelay()](https://developer.android.com/reference/android/hardware/Sensor#getMinDelay()) method, it means the
+Level 9). If a sensor returns zero when you call the `https://developer.android.com/reference/android/hardware/Sensor#getMinDelay()` method, it means the
 sensor is not a streaming sensor because it reports data only when there is a change in the
 parameters it is sensing.
 
-The [getMinDelay()](https://developer.android.com/reference/android/hardware/Sensor#getMinDelay()) method is useful because it lets
+The `https://developer.android.com/reference/android/hardware/Sensor#getMinDelay()` method is useful because it lets
 you determine the maximum rate
 at which a sensor can acquire data. If certain features in your application require high data
 acquisition rates or a streaming sensor, you can use this method to determine whether a sensor
@@ -353,30 +353,30 @@ your application receives sensor events. For more information, see [Monitoring S
 ## Monitoring Sensor Events
 
 To monitor raw sensor data you need to implement two callback methods that are exposed through
-the [SensorEventListener](https://developer.android.com/reference/android/hardware/SensorEventListener) interface: [onAccuracyChanged()](https://developer.android.com/reference/android/hardware/SensorEventListener#onAccuracyChanged(android.hardware.Sensor, int)) and [onSensorChanged()](https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)). The Android system calls
+the `https://developer.android.com/reference/android/hardware/SensorEventListener` interface: `https://developer.android.com/reference/android/hardware/SensorEventListener#onAccuracyChanged(android.hardware.Sensor, int)` and `https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)`. The Android system calls
 these methods whenever the following occurs:
 
 - **A sensor's accuracy changes.**
 
-  In this case the system invokes the [onAccuracyChanged()](https://developer.android.com/reference/android/hardware/SensorEventListener#onAccuracyChanged(android.hardware.Sensor, int)) method, providing
-  you with a reference to the [Sensor](https://developer.android.com/reference/android/hardware/Sensor) object that changed and the
+  In this case the system invokes the `https://developer.android.com/reference/android/hardware/SensorEventListener#onAccuracyChanged(android.hardware.Sensor, int)` method, providing
+  you with a reference to the `https://developer.android.com/reference/android/hardware/Sensor` object that changed and the
   new accuracy of the sensor. Accuracy is represented by one of four status constants:
-  [SENSOR_STATUS_ACCURACY_LOW](https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_STATUS_ACCURACY_LOW),
-  [SENSOR_STATUS_ACCURACY_MEDIUM](https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_STATUS_ACCURACY_MEDIUM),
-  [SENSOR_STATUS_ACCURACY_HIGH](https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_STATUS_ACCURACY_HIGH),
-  or [SENSOR_STATUS_UNRELIABLE](https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_STATUS_UNRELIABLE).
+  `https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_STATUS_ACCURACY_LOW`,
+  `https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_STATUS_ACCURACY_MEDIUM`,
+  `https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_STATUS_ACCURACY_HIGH`,
+  or `https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_STATUS_UNRELIABLE`.
 - **A sensor reports a new value.**
 
-  In this case the system invokes the [onSensorChanged()](https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)) method, providing you with
-  a [SensorEvent](https://developer.android.com/reference/android/hardware/SensorEvent) object. A [SensorEvent](https://developer.android.com/reference/android/hardware/SensorEvent) object
+  In this case the system invokes the `https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)` method, providing you with
+  a `https://developer.android.com/reference/android/hardware/SensorEvent` object. A `https://developer.android.com/reference/android/hardware/SensorEvent` object
   contains information about the new sensor data, including: the accuracy of the data, the
   sensor that generated the data, the timestamp at which the data was generated, and the new
   data that the sensor recorded.
 
-The following code shows how to use the [onSensorChanged()](https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)) method to monitor data from
-the light sensor. This example displays the raw sensor data in a [TextView](https://developer.android.com/reference/android/widget/TextView)
+The following code shows how to use the `https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)` method to monitor data from
+the light sensor. This example displays the raw sensor data in a `https://developer.android.com/reference/android/widget/TextView`
 that is
-defined in the main.xml file as `sensor_data`.  
+defined in the main.xml file as `sensor_data`.
 
 ### Kotlin
 
@@ -461,13 +461,13 @@ public class SensorActivity extends Activity implements SensorEventListener {
 }
 ```
 
-In this example, the default data delay ([SENSOR_DELAY_NORMAL](https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_DELAY_NORMAL)) is specified when the [registerListener()](https://developer.android.com/reference/android/hardware/SensorManager#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)) method is invoked. The data
+In this example, the default data delay (`https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_DELAY_NORMAL`) is specified when the `https://developer.android.com/reference/android/hardware/SensorManager#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)` method is invoked. The data
 delay (or sampling rate) controls the interval at which sensor events are sent to your application
-via the [onSensorChanged()](https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)) callback method. The default
+via the `https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)` callback method. The default
 data delay is suitable for monitoring
 typical screen orientation changes and uses a delay of 200,000 microseconds. You can specify other
-data delays, such as [SENSOR_DELAY_GAME](https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_DELAY_GAME) (20,000 microsecond
-delay), [SENSOR_DELAY_UI](https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_DELAY_UI) (60,000 microsecond delay), or [SENSOR_DELAY_FASTEST](https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_DELAY_FASTEST) (0 microsecond delay). As of Android 3.0 (API
+data delays, such as `https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_DELAY_GAME` (20,000 microsecond
+delay), `https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_DELAY_UI` (60,000 microsecond delay), or `https://developer.android.com/reference/android/hardware/SensorManager#SENSOR_DELAY_FASTEST` (0 microsecond delay). As of Android 3.0 (API
 Level 11) you can also specify the delay as an absolute value (in microseconds).
 
 The delay that you specify is only a suggested delay. The Android system and other applications
@@ -482,8 +482,8 @@ sensor event to calculate the sampling rate over several events. You should not 
 sampling rate (delay) once you set it. If for some reason you do need to change the delay, you will
 have to unregister and reregister the sensor listener.
 
-It's also important to note that this example uses the [onResume()](https://developer.android.com/reference/android/app/Activity#onResume()) and
-[onPause()](https://developer.android.com/reference/android/app/Activity#onPause()) callback methods to register and unregister the sensor event
+It's also important to note that this example uses the `https://developer.android.com/reference/android/app/Activity#onResume()` and
+`https://developer.android.com/reference/android/app/Activity#onPause()` callback methods to register and unregister the sensor event
 listener. As a best practice you should always disable sensors you don't need, especially when your
 activity is paused. Failing to do so can drain the battery in just a few hours because some sensors
 have substantial power requirements and can use up battery power quickly. The system
@@ -514,7 +514,7 @@ pressure sensor, GPS sensor, and geomagnetic field sensor to display the tempera
 pressure, location, and compass bearing. If a device doesn't have a pressure sensor, you can use the
 sensor framework to detect the absence of the pressure sensor at runtime and then disable the
 portion of your application's UI that displays pressure. For example, the following code checks
-whether there's a pressure sensor on a device:  
+whether there's a pressure sensor on a device:
 
 ### Kotlin
 
@@ -552,7 +552,7 @@ have the appropriate sensor configuration for your application. The
 `<uses-feature>` element has several hardware descriptors that let you filter
 applications based on the presence of specific sensors. The sensors you can list include:
 accelerometer, barometer, compass (geomagnetic field), gyroscope, light, and proximity. The
-following is an example manifest entry that filters apps that do not have an accelerometer:  
+following is an example manifest entry that filters apps that do not have an accelerometer:
 
 ```xml
 <uses-feature android:name="android.hardware.sensor.accelerometer"
@@ -579,7 +579,7 @@ For most sensors, the coordinate system is defined relative to the device's scre
 is held in its default orientation (see figure 1). When a device is held in its default orientation,
 the X axis is horizontal and points to the right, the Y axis is vertical and points up, and the Z
 axis points toward the outside of the screen face. In this system, coordinates behind the screen
-have negative Z values. This coordinate system is used by the following sensors:  
+have negative Z values. This coordinate system is used by the following sensors:
 ![](https://developer.android.com/static/images/axis_device.png)
 
 
@@ -606,15 +606,15 @@ Another point to understand is that your application must not assume that a devi
 the sensor coordinate system is always based on the natural orientation of a device.
 
 Finally, if your application matches sensor data to the on-screen display, you need to use the
-[getRotation()](https://developer.android.com/reference/android/view/Display#getRotation()) method to determine screen rotation, and then use the
-[remapCoordinateSystem()](https://developer.android.com/reference/android/hardware/SensorManager#remapCoordinateSystem(float[], int, int, float[])) method to map
+`https://developer.android.com/reference/android/view/Display#getRotation()` method to determine screen rotation, and then use the
+`https://developer.android.com/reference/android/hardware/SensorManager#remapCoordinateSystem(float[], int, int, float[])` method to map
 sensor coordinates to screen coordinates. You need to do this even if your manifest specifies
 portrait-only display.
 
 **Note:** Some sensors and methods use a coordinate system that is
 relative to the world's frame of reference (as opposed to the device's frame of reference). These
 sensors and methods return data that represent device motion or device position relative to the
-earth. For more information, see the [getOrientation()](https://developer.android.com/reference/android/hardware/SensorManager#getOrientation(float[], float[])) method, the [getRotationMatrix()](https://developer.android.com/reference/android/hardware/SensorManager#getRotationMatrix(float[], float[], float[], float[])) method, [Orientation
+earth. For more information, see the `https://developer.android.com/reference/android/hardware/SensorManager#getOrientation(float[], float[])` method, the `https://developer.android.com/reference/android/hardware/SensorManager#getRotationMatrix(float[], float[], float[], float[])` method, [Orientation
 Sensor](https://developer.android.com/guide/topics/sensors/sensors_position#sensors-pos-orient), and [Rotation Vector
 Sensor](https://developer.android.com/guide/topics/sensors/sensors_motion#sensors-motion-rotate).
 
@@ -641,7 +641,7 @@ permission, as shown in the following code snippet. Otherwise, if your app tries
 to gather motion sensor data at a higher rate without declaring this permission,
 a [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException) occurs.
 
-AndroidManifest.xml  
+AndroidManifest.xml
 
 ```xml
 <manifest ...>
@@ -651,8 +651,10 @@ AndroidManifest.xml
     </application>
 </manifest>
 ```
-| **Note:** If the user turns off microphone access using the [device
-| toggles](https://developer.android.com/training/permissions/explaining-access#toggles), the motion sensors and position sensors are always rate-limited, regardless of whether you declare the `HIGH_SAMPLING_RATE_SENSORS` permission.
+
+> [!NOTE]
+> **Note:** If the user turns off microphone access using the [device
+> toggles](https://developer.android.com/training/permissions/explaining-access#toggles), the motion sensors and position sensors are always rate-limited, regardless of whether you declare the `HIGH_SAMPLING_RATE_SENSORS` permission.
 
 ## Best Practices for Accessing and Using Sensors
 
@@ -677,7 +679,7 @@ app is in the foreground or as part of a
 Be sure to unregister a sensor's listener when you are done using the sensor or when the sensor
 activity pauses. If a sensor listener is registered and its activity is paused, the sensor will
 continue to acquire data and use battery resources unless you unregister the sensor. The following
-code shows how to use the [onPause()](https://developer.android.com/reference/android/app/Activity#onPause()) method to unregister a listener:  
+code shows how to use the `https://developer.android.com/reference/android/app/Activity#onPause()` method to unregister a listener:
 
 ### Kotlin
 
@@ -702,7 +704,7 @@ protected void onPause() {
 }
 ```
 
-For more information, see [unregisterListener(SensorEventListener)](https://developer.android.com/reference/android/hardware/SensorManager#unregisterListener(android.hardware.SensorEventListener)).
+For more information, see `https://developer.android.com/reference/android/hardware/SensorManager#unregisterListener(android.hardware.SensorEventListener)`.
 
 #### Test with the Android Emulator
 
@@ -722,7 +724,7 @@ then transformed based on the new values that it receives from the sensors on
 your device.
 
 You can view the source code for the *SdkControllerSensor* app in the
-following location:  
+following location:
 
 ```
 $ your-android-sdk-directory/tools/apps/SdkController
@@ -752,18 +754,18 @@ Emulator guide](https://developer.android.com/studio/run/emulator).
 
 #### Don't block the onSensorChanged() method
 
-Sensor data can change at a high rate, which means the system may call the [onSensorChanged(SensorEvent)](https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)) method quite often. As a best practice, you
-should do as little as possible within the [onSensorChanged(SensorEvent)](https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)) method so you don't block it. If your
+Sensor data can change at a high rate, which means the system may call the `https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)` method quite often. As a best practice, you
+should do as little as possible within the `https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)` method so you don't block it. If your
 application requires you to do any data filtering or reduction of sensor data, you should perform
-that work outside of the [onSensorChanged(SensorEvent)](https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)) method.
+that work outside of the `https://developer.android.com/reference/android/hardware/SensorEventListener#onSensorChanged(android.hardware.SensorEvent)` method.
 
 #### Avoid using deprecated methods or sensor types
 
 Several methods and constants have been deprecated.
-In particular, the [TYPE_ORIENTATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION)
-sensor type has been deprecated. To get orientation data you should use the [getOrientation()](https://developer.android.com/reference/android/hardware/SensorManager#getOrientation(float[], float[])) method instead. Likewise, the
-[TYPE_TEMPERATURE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_TEMPERATURE) sensor type has been deprecated. You should use
-the [TYPE_AMBIENT_TEMPERATURE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_AMBIENT_TEMPERATURE) sensor type instead on devices
+In particular, the `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION`
+sensor type has been deprecated. To get orientation data you should use the `https://developer.android.com/reference/android/hardware/SensorManager#getOrientation(float[], float[])` method instead. Likewise, the
+`https://developer.android.com/reference/android/hardware/Sensor#TYPE_TEMPERATURE` sensor type has been deprecated. You should use
+the `https://developer.android.com/reference/android/hardware/Sensor#TYPE_AMBIENT_TEMPERATURE` sensor type instead on devices
 that are running Android 4.0.
 
 #### Verify sensors before you use them
@@ -774,6 +776,6 @@ not required to provide any particular sensors in their devices.
 
 #### Choose sensor delays carefully
 
-When you register a sensor with the [registerListener()](https://developer.android.com/reference/android/hardware/SensorManager#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)) method, be sure you choose a delivery rate that is suitable for your
+When you register a sensor with the `https://developer.android.com/reference/android/hardware/SensorManager#registerListener(android.hardware.SensorEventListener, android.hardware.Sensor, int)` method, be sure you choose a delivery rate that is suitable for your
 application or use-case. Sensors can provide data at very high rates. Allowing the system to send
 extra data that you don't need wastes system resources and uses battery power.

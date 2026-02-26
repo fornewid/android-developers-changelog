@@ -4,19 +4,28 @@ url: https://developer.android.com/develop/ui/views/quicksettings-tiles/qr-code
 source: md.txt
 ---
 
-# Create a QR Code Payment Quick Settings tile
+Quick Settings are tiles displayed in the [Quick Settings panel](https://support.google.com/android/answer/9083864).
+Users can tap these tiles to quickly complete recurring tasks.
+This document shows you how to create a custom Quick Settings tile for QR Code
+payments.
 
-Quick Settings are tiles displayed in the[Quick Settings panel](https://support.google.com/android/answer/9083864). Users can tap these tiles to quickly complete recurring tasks. This document shows you how to create a custom Quick Settings tile for QR Code payments.
+Before continuing, be sure you're familiar with general instructions and best
+practices for [creating custom Quick Settings tiles for your app](https://developer.android.com/develop/ui/views/quicksettings-tiles).
 
-Before continuing, be sure you're familiar with general instructions and best practices for[creating custom Quick Settings tiles for your app](https://developer.android.com/develop/ui/views/quicksettings-tiles).
-
-To[create your tile](https://developer.android.com/develop/ui/views/quicksettings-tiles#create-tile), follow these steps:
+To [create your tile](https://developer.android.com/develop/ui/views/quicksettings-tiles#create-tile), follow these steps:
 
 1. [Create your custom icon](https://developer.android.com/develop/ui/views/quicksettings-tiles#create-custom).
-2. [Create and declare your`TileService`](https://developer.android.com/develop/ui/views/quicksettings-tiles#create-declare-tileservice).
+2. [Create and declare your `TileService`](https://developer.android.com/develop/ui/views/quicksettings-tiles#create-declare-tileservice).
 
-   | **Note:** At this point, your custom tile service will appear in the Quick Settings menu. In order to see your custom tile upon pull down,[edit and rearrange your tiles](https://support.google.com/android/answer/9083864).
-3. To launch the QR Code payment, fill in the`onClick()`method. Long-tapping a tile prompts the App Info screen for the user. To override this behavior and instead launch an activity for setting preferences, add an`<intent-filter>`to one of your activities with[`ACTION_QS_TILE_PREFERENCES`](https://developer.android.com/reference/android/service/quicksettings/TileService.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#ACTION_QS_TILE_PREFERENCES).
+   > [!NOTE]
+   > **Note:** At this point, your custom tile service will appear in the Quick Settings menu. In order to see your custom tile upon pull down, [edit and
+   > rearrange your tiles](https://support.google.com/android/answer/9083864).
+
+3. To launch the QR Code payment, fill in the `onClick()` method. Long-tapping
+   a tile prompts the App Info screen for the user. To override this behavior
+   and instead launch an activity for setting preferences, add an
+   `<intent-filter>` to one of your activities with
+   [`ACTION_QS_TILE_PREFERENCES`](https://developer.android.com/reference/android/service/quicksettings/TileService.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#ACTION_QS_TILE_PREFERENCES).
 
    ### Kotlin
 
@@ -58,7 +67,8 @@ To[create your tile](https://developer.android.com/develop/ui/views/quicksetting
     }
    }
    ```
-4. To protect users' sensitive payment information,[perform only safe actions on securely-locked devices](https://developer.android.com/develop/ui/views/quicksettings-tiles#perform-only).
+4. To protect users' sensitive payment information, [perform only safe actions
+   on securely-locked devices](https://developer.android.com/develop/ui/views/quicksettings-tiles#perform-only).
 
    ### Kotlin
 
@@ -105,4 +115,5 @@ To[create your tile](https://developer.android.com/develop/ui/views/quicksetting
     ...
    }
    ```
-5. When first introducing this feature,[prompt the user to add your tile](https://developer.android.com/develop/ui/views/quicksettings-tiles#prompt-user).
+5. When first introducing this feature, [prompt the user to add your
+   tile](https://developer.android.com/develop/ui/views/quicksettings-tiles#prompt-user).

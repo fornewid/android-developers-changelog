@@ -307,7 +307,9 @@ String encodedHtml = Base64.encodeToString(html.getBytes(), Base64.NO_PADDING);
 
 mWebView.loadData(encodedHtml, mimeType, "base64");
 ```
-| **Caution:** By default, `loadData()` expects the HTML data to be percent-encoded. Percent-encoding by hand is error prone, and there are no Android APIs to do this programmatically. We strongly recommend switching to `loadDataWithBaseURL()` to avoid this requirement or using Base64 APIs to encode the content, as shown in the preceding code sample.
+
+> [!CAUTION]
+> **Caution:** By default, `loadData()` expects the HTML data to be percent-encoded. Percent-encoding by hand is error prone, and there are no Android APIs to do this programmatically. We strongly recommend switching to `loadDataWithBaseURL()` to avoid this requirement or using Base64 APIs to encode the content, as shown in the preceding code sample.
 
 ## Things to avoid
 

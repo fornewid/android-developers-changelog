@@ -25,7 +25,7 @@ CDM system provides a pairing UI on behalf of your app and doesn't require
 location permissions.
 
 If you want more control over the pairing and connecting experience, use
-the permissions described in this section.  
+the permissions described in this section.
 ![Bluetooth permissions dialog](https://developer.android.com/static/images/develop/connectivity/bluetooth/nearby-devices.svg) System permissions dialog, asking the user to grant an app permission to discover, advertise, and connect to nearby devices.
 
 If your app targets Android 12 (API level 31) or higher, declare the following
@@ -51,7 +51,7 @@ these permissions, the system prompts the user to allow your app to access
 **Nearby devices**, as shown in figure 1.
 
 The following code snippet demonstrates how to declare Bluetooth-related
-permissions in your app if it targets Android 12 or higher:  
+permissions in your app if it targets Android 12 or higher:
 
     <manifest>
         <!-- Request legacy Bluetooth permissions on older devices. -->
@@ -90,11 +90,13 @@ to derive physical location. To do so, complete the following steps:
 1. Add the `android:usesPermissionFlags` attribute to your `BLUETOOTH_SCAN`
    permission declaration, and set this attribute's value to `neverForLocation`.
 
-   | **Note:** If you include `neverForLocation` in your `android:usesPermissionFlags`, some BLE beacons are filtered from the scan results.
+   > [!NOTE]
+   > **Note:** If you include `neverForLocation` in your `android:usesPermissionFlags`, some BLE beacons are filtered from the scan results.
+
 2. If location isn't otherwise needed for your app, remove the
    `ACCESS_FINE_LOCATION` permission from your app's manifest.
 
-The following code snippet shows how to update your app's manifest file:  
+The following code snippet shows how to update your app's manifest file:
 
     <manifest>
         <!-- Include "neverForLocation" only if you can strongly assert that
@@ -119,8 +121,9 @@ permissions in your app's manifest file:
 - [`BLUETOOTH`](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH) is necessary to perform any Bluetooth classic or BLE communication, such as requesting a connection, accepting a connection, and transferring data.
 - [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) is necessary because, on Android 11 and lower, a Bluetooth scan could potentially be used to gather information about the location of the user.
 
-| **Note:** On devices that run Android 8.0 or higher, you can use the [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager) to perform a scan of nearby companion devices on behalf of your app without requiring the location permission. For more on this option, see [Companion
-| device pairing](https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing).
+> [!NOTE]
+> **Note:** On devices that run Android 8.0 or higher, you can use the [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager) to perform a scan of nearby companion devices on behalf of your app without requiring the location permission. For more on this option, see [Companion
+> device pairing](https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing).
 
 Because location permissions are [runtime permissions](https://developer.android.com/guide/topics/permissions/overview#runtime),
 you must [request these permissions at runtime](https://developer.android.com/training/permissions/requesting)
@@ -135,7 +138,7 @@ permission. Most apps need this permission solely for the ability to discover
 local Bluetooth devices. Don't use the other abilities granted by this
 permission unless the app is a "power manager" that modifies Bluetooth settings
 upon user request. Declare the permission in your app manifest file. For
-example:  
+example:
 
     <manifest>
     ...
@@ -151,7 +154,7 @@ requirement, see [Access location in the
 background](https://developer.android.com/training/location/background).
 
 The following code snippet shows how to declare the `ACCESS_BACKGROUND_LOCATION`
-permission:  
+permission:
 
     <manifest>
     ...
@@ -171,11 +174,11 @@ you to specify the type of hardware your app uses and whether or not it is
 required.
 
 This example shows how to indicate that Bluetooth classic is required for your
-app.  
+app.
 
     <uses-feature android:name="android.hardware.bluetooth" android:required="true"/>
 
-If your app relies on Bluetooth Low Energy, you can use the following:  
+If your app relies on Bluetooth Low Energy, you can use the following:
 
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
 
@@ -190,7 +193,7 @@ To make your app available to devices that don't support Bluetooth classic or
 BLE, you should still include the `<uses-feature>` element in your app's
 manifest, but set `required="false"`. Then, at run-time, you can determine
 feature availability by using
-[`PackageManager.hasSystemFeature()`](https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)):  
+[`PackageManager.hasSystemFeature()`](https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)):
 
 ### Kotlin
 

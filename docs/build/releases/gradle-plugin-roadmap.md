@@ -17,7 +17,9 @@ major AGP release.
 
 For a more detailed log of AGP API deprecations or removals, see the [AGP API
 updates](https://developer.android.com/studio/releases/gradle-plugin-api-updates).
-| **Note:** The timeframes mentioned below are estimates and are subject to change.
+
+> [!NOTE]
+> **Note:** The timeframes mentioned below are estimates and are subject to change.
 
 ## AGP 9.0 (January 2026)
 
@@ -56,4 +58,6 @@ plugin compilation.
 
 It isn't possible to manually add a dependency to get access to the internal
 classes.
-| **Important:** We would like your feedback on the removal of internal AGP classes. Please let us know about your use case, including specific examples of what you need access to, by submitting your feedback on this [tracking issue](https://issuetracker.google.com/219002669).
+
+> [!IMPORTANT]
+> **Important:** We would like your feedback on the removal of internal AGP classes. Please let us know about your use case, including specific examples of what you need access to, by submitting your feedback on this [tracking issue](https://issuetracker.google.com/219002669).

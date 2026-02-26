@@ -4,8 +4,6 @@ url: https://developer.android.com/agi/sys-trace/memory-efficiency
 source: md.txt
 ---
 
-# Analyze memory efficiency
-
 An app's memory usage characteristics are a fundamental aspect of its
 performance. You can use the **System Profiler** to analyze these
 characteristics by looking at the available GPU counter information.

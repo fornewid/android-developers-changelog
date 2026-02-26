@@ -18,6 +18,17 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+### February 25, 2026
+
+- [Activity Version 1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0-rc01)
+- [Camera Version 1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01)
+- [Camera Featurecombinationquery Version 1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.0-rc01)
+- [Camera Viewfinder Version 1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.0-rc01)
+- [Credentials Version 1.6.0-rc02](https://developer.android.com/jetpack/androidx/releases/credentials#1.6.0-rc02)
+- [Health-services-client Health-services-client-external-protobuf Health-services-client-proto Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/health#1.1.0-rc01)
+- [Wear Protolayout Version 1.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.0-rc01)
+- [Wear Tiles Version 1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.0-rc01)
+
 ### February 11, 2026
 
 - [Annotation-experimental Version 1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/annotation#annotation-experimental-1.6.0-rc01)

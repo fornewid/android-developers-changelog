@@ -18,4 +18,6 @@ with the `ACTION_PROCESS_WIFI_EASY_CONNECT_URI` intent. This allows the
 user to select a Wi-Fi network to share and securely transfer the credentials.
 
 Easy Connect does not require Location or Wi-Fi permissions.
-| **Note:** Before using this intent, the app *must* verify that Easy Connect is supported on the device by calling [`WifiManager.isEasyConnectSupported()`](https://developer.android.com/reference/android/net/wifi/WifiManager#isEasyConnectSupported()).
+
+> [!NOTE]
+> **Note:** Before using this intent, the app *must* verify that Easy Connect is supported on the device by calling [`WifiManager.isEasyConnectSupported()`](https://developer.android.com/reference/android/net/wifi/WifiManager#isEasyConnectSupported()).

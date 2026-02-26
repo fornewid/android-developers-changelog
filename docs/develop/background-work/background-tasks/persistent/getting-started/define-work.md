@@ -21,7 +21,7 @@ to handle common use cases, such as how to:
 
 Work is defined in WorkManager using a [`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest). In order to
 schedule any work with WorkManager you must first create a
-`WorkRequest` object and then enqueue it.  
+`WorkRequest` object and then enqueue it.
 
 ### Kotlin
 
@@ -48,7 +48,7 @@ scheduling work that repeats on some interval.
 ## Schedule one-time work
 
 For basic work, which requires no additional configuration, use the static
-method `from`:  
+method `from`:
 
 ### Kotlin
 
@@ -58,7 +58,7 @@ method `from`:
 
     WorkRequest myWorkRequest = OneTimeWorkRequest.from(MyWork.class);
 
-For more complex work, you can use a builder:  
+For more complex work, you can use a builder:
 
 ### Kotlin
 
@@ -109,13 +109,15 @@ The amount of execution time available to an app is based on the
 
 You can determine what occurs when the execution quota does not allow for an
 expedited job to run immediately. See the following snippets for detail.
-| **Note:** While your app is in the foreground, quotas won't limit the execution of expedited work. An execution time quota applies only when your app is in the background, or when your app moves to the background. As such, you should expedite work that you want to continue in the background. You can continue to use `setForeground()` while your app is in the foreground. Consult [Power management resource limits](https://developer.android.com/topic/performance/power/power-details) for more details.
+
+> [!NOTE]
+> **Note:** While your app is in the foreground, quotas won't limit the execution of expedited work. An execution time quota applies only when your app is in the background, or when your app moves to the background. As such, you should expedite work that you want to continue in the background. You can continue to use `setForeground()` while your app is in the foreground. Consult [Power management resource limits](https://developer.android.com/topic/performance/power/power-details) for more details.
 
 ## Execute expedited work
 
 Starting in WorkManager 2.7, your app can call `setExpedited()` to declare that
 a `WorkRequest` should run as quickly as possible using an expedited job. The
-following code snippet provides an example of how to use `setExpedited()`:  
+following code snippet provides an example of how to use `setExpedited()`:
 
 ### Kotlin
 
@@ -151,11 +153,15 @@ prior to Android 12.
 
 Any `ListenableWorker` must implement the `getForegroundInfo` method if you
 would like to request that the task run as an expedited job.
-| **Caution:** Failing to implement the corresponding `getForegroundInfo` method can lead to runtime crashes when calling `setExpedited` on older platform versions.
+
+> [!CAUTION]
+> **Caution:** Failing to implement the corresponding `getForegroundInfo` method can lead to runtime crashes when calling `setExpedited` on older platform versions.
 
 When targeting Android 12 or higher, foreground services remain available to
 you through the corresponding `setForeground` method.
-| **Caution:** `setForeground()` can throw runtime exceptions on Android 12, and might throw an exception if the [launch was restricted](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start).
+
+> [!CAUTION]
+> **Caution:** `setForeground()` can throw runtime exceptions on Android 12, and might throw an exception if the [launch was restricted](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start).
 
 ### Worker
 
@@ -173,7 +179,7 @@ If you use a `CoroutineWorker`, you must implement `getForegroundInfo()`. You
 then pass it to `setForeground()` within `doWork()`. Doing so will create the
 notification in versions of Android prior to 12.
 
-Consider the following example:  
+Consider the following example:
 
       class ExpeditedWorker(appContext: Context, workerParams: WorkerParameters):
        CoroutineWorker(appContext, workerParams) {
@@ -194,7 +200,8 @@ Consider the following example:
 
     }
 
-| **Note:** You should wrap `setForeground()` in a `try/catch` block to catch a potential `IllegalStateException`. These might occur when your app is not able to run in the foreground at this point. In Android 12 and higher you can use the more detailed `ForegroundServiceStartNotAllowedException`.
+> [!NOTE]
+> **Note:** You should wrap `setForeground()` in a `try/catch` block to catch a potential `IllegalStateException`. These might occur when your app is not able to run in the foreground at this point. In Android 12 and higher you can use the more detailed `ForegroundServiceStartNotAllowedException`.
 
 #### Quota policies
 
@@ -220,7 +227,7 @@ you may want to periodically backup your data, download fresh content in your
 app, or upload logs to a server.
 
 Here is how you use the [`PeriodicWorkRequest`](https://developer.android.com/reference/androidx/work/PeriodicWorkRequest) to create a
-`WorkRequest` object which executes periodically:  
+`WorkRequest` object which executes periodically:
 
 ### Kotlin
 
@@ -242,7 +249,9 @@ The interval period is defined as the minimum time between repetitions. The
 exact time that the worker is going to be executed depends on the constraints
 that you are using in your WorkRequest object and on the optimizations performed
 by the system.
-| **Note:** The minimum repeat interval that can be defined is 15 minutes (same as the [JobScheduler API](https://developer.android.com/reference/android/app/job/JobScheduler)).
+
+> [!NOTE]
+> **Note:** The minimum repeat interval that can be defined is 15 minutes (same as the [JobScheduler API](https://developer.android.com/reference/android/app/job/JobScheduler)).
 
 ### Flexible run intervals
 
@@ -263,7 +272,7 @@ the `repeatInterval` when creating the `PeriodicWorkRequest`. The flex period
 begins at `repeatInterval - flexInterval`, and goes to the end of the interval.
 
 The following is an example of periodic work that can run during the last 15
-minutes of every one hour period.  
+minutes of every one hour period.
 
 ### Kotlin
 
@@ -300,7 +309,7 @@ conditions are not met within the run interval.
 met. The following constraints are available to WorkManager:
 
 |---|---|
-| **NetworkType** | Constrains the [type of network](https://developer.android.com/reference/androidx/work/NetworkType) required for your work to run. For example, Wi-Fi ([UNMETERED](https://developer.android.com/reference/androidx/work/NetworkType#UNMETERED)). |
+| **NetworkType** | Constrains the [type of network](https://developer.android.com/reference/androidx/work/NetworkType) required for your work to run. For example, Wi-Fi (`https://developer.android.com/reference/androidx/work/NetworkType#UNMETERED`). |
 | **BatteryNotLow** | When set to true, your work will not run if the device is in low battery mode. |
 | **RequiresCharging** | When set to true, your work will only run when the device is charging. |
 | **DeviceIdle** | When set to true, this requires the user's device to be idle before the work will run. This can be useful for running batched operations that might otherwise have a negative performance impact on other apps running actively on the user's device. |
@@ -311,7 +320,7 @@ To create a set of constraints and associate it with some work, create a
 `WorkRequest.Builder()`.
 
 For example, the following code builds a work request which only runs when the
-user's device is both charging and on Wi-Fi:  
+user's device is both charging and on Wi-Fi:
 
 ### Kotlin
 
@@ -352,7 +361,7 @@ immediately. If you do not want the work to be run immediately, you can specify
 your work to start after a minimum initial delay.
 
 Here is an example of how to set your work to run at least 10 minutes after it
-has been enqueued.  
+has been enqueued.
 
 ### Kotlin
 
@@ -371,7 +380,9 @@ While the example illustrates how to set an initial delay for a
 `OneTimeWorkRequest`, you can also set an initial delay for a
 `PeriodicWorkRequest`. In that case, only the first run of your periodic work
 would be delayed.
-| **Note:** The exact time that the worker is going to be executed also depends on the constraints that are used in your work request and on system optimizations. WorkManager is designed to give the best possible behavior under these restrictions.
+
+> [!NOTE]
+> **Note:** The exact time that the worker is going to be executed also depends on the constraints that are used in your work request and on system optimizations. WorkManager is designed to give the best possible behavior under these restrictions.
 
 ## Retry and backoff policy
 
@@ -392,7 +403,7 @@ Every work request has a backoff policy and backoff delay. The default policy
 is `EXPONENTIAL` with a delay of 30 seconds, but you can override this in your
 work request configuration.
 
-Here is an example of customizing the backoff delay and policy.  
+Here is an example of customizing the backoff delay and policy.
 
 ### Kotlin
 
@@ -420,7 +431,9 @@ finishing with `Result.retry()` will be attempted again after 10 seconds,
 followed by 20, 30, 40, and so on, if the work continues to return
 `Result.retry()` after subsequent attempts. If the backoff policy were set to
 `EXPONENTIAL`, the retry duration sequence would be closer to 20, 40, and 80.
-| **Note:** Backoff delays are inexact and could vary by several seconds between retries but will never be less than the initial backoff delay specified in your configuration.
+
+> [!NOTE]
+> **Note:** Backoff delays are inexact and could vary by several seconds between retries but will never be less than the initial backoff delay specified in your configuration.
 
 ## Tag work
 
@@ -436,7 +449,7 @@ all work requests with a particular tag, and
 [`WorkManager.getWorkInfosByTag(String)`](https://developer.android.com/reference/androidx/work/WorkManager#getWorkInfosByTagLiveData(java.lang.String)) returns a list of the
 WorkInfo objects which can be used to determine the current work state.
 
-The following code shows how you can add a "cleanup" tag to your work:  
+The following code shows how you can add a "cleanup" tag to your work:
 
 ### Kotlin
 
@@ -469,7 +482,7 @@ and can be set on the work request. WorkManager will deliver the input `Data` to
 your work when it executes the work. The `Worker` class can access
 the input arguments by calling [`Worker.getInputData()`](https://developer.android.com/reference/androidx/work/ListenableWorker#getInputData()). The
 following code shows how you can create a `Worker` instance which
-requires input data and how to send it in your work request.  
+requires input data and how to send it in your work request.
 
 ### Kotlin
 

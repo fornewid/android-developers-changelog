@@ -4,8 +4,6 @@ url: https://developer.android.com/agi/start
 source: md.txt
 ---
 
-# Android GPU Inspector quickstart
-
 This topic describes how to perform
 [system profiling](https://developer.android.com/agi/sys-trace/system-profiler) and
 [frame profiling](https://developer.android.com/agi/frame-trace/frame-profiler)
@@ -64,7 +62,7 @@ If your app uses Vulkan natively, AGI also requires the following:
       adb shell settings put global gpu_debug_layers VK_LAYER_KHRONOS_validation
 
   When you're done profiling can disable these validation layers with the
-  following commands:  
+  following commands:
 
       adb shell settings delete global enable_gpu_debug_layers
       adb shell settings delete global gpu_debug_app

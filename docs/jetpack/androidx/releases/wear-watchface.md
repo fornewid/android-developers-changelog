@@ -17,7 +17,7 @@ article](https://support.google.com/wearos/thread/284572445).
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| December 17, 2025 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/wear-watchface#1.2.1) | - | [1.3.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear-watchface#1.3.0-beta01) | - |
+| February 25, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/wear-watchface#1.3.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -33,20 +33,20 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement wear watchfaces
-    implementation "androidx.wear.watchface:watchface:1.2.1"
+    implementation "androidx.wear.watchface:watchface:1.3.0"
 
     // Use to implement wear watchface complications
-    implementation "androidx.wear.watchface:watchface-complications-data-source:1.2.1"
+    implementation "androidx.wear.watchface:watchface-complications-data-source:1.3.0"
     // (Kotlin-specific extensions)
-    implementation "androidx.wear.watchface:watchface-complications-data-source-ktx:1.2.1"
+    implementation "androidx.wear.watchface:watchface-complications-data-source-ktx:1.3.0"
 
     // Use to implement a watchface style and complication editor
-    implementation "androidx.wear.watchface:watchface-editor:1.2.1"
+    implementation "androidx.wear.watchface:watchface-editor:1.3.0"
 
     // Can use to render complications.
     // This library is optional and watchfaces may have custom implementation for rendering
     // complications.
-    implementation "androidx.wear.watchface:watchface-complications-rendering:1.2.1"
+    implementation "androidx.wear.watchface:watchface-complications-rendering:1.3.0"
 }
 ```
 
@@ -55,20 +55,20 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement wear watchfaces
-    implementation("androidx.wear.watchface:watchface:1.2.1")
+    implementation("androidx.wear.watchface:watchface:1.3.0")
 
     // Use to implement wear watchface complications
-    implementation "androidx.wear.watchface:watchface-complications-data-source:1.2.1"
+    implementation "androidx.wear.watchface:watchface-complications-data-source:1.3.0"
     // (Kotlin-specific extensions)
-    implementation "androidx.wear.watchface:watchface-complications-data-source-ktx:1.2.1"
+    implementation "androidx.wear.watchface:watchface-complications-data-source-ktx:1.3.0"
 
     // Use to implement a watchface style and complication editor
-    implementation("androidx.wear.watchface:watchface-editor:1.2.1")
+    implementation("androidx.wear.watchface:watchface-editor:1.3.0")
 
     // Can use to render complications.
     // This library is optional and watchfaces may have custom implementation for rendering
     // complications.
-    implementation "androidx.wear.watchface:watchface-complications-rendering:1.2.1"
+    implementation "androidx.wear.watchface:watchface-complications-rendering:1.3.0"
 }
 ```
 
@@ -88,6 +88,18 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.3
+
+### Version 1.3.0
+
+February 25, 2026
+
+`androidx.wear.watchface:watchface-*:1.3.0` is released. Version 1.3.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/264b14bca26ab6294c17da770ce57440099d1e4a..c23098949847d0672c4b37c6ccd58d14c6426402/wear/watchface).
+
+**Important changes since 1.2.0:**
+
+- The wear watchface APIs (watchface, watchface-client, watchface-client-guava, watchface-complications-rendering, watchface-data, watchface-editor, watchface-editor-guava, and watchface-style) have been deprecated in favor of the [Wear Watchface Format](https://developer.android.com/training/wearables/wff), and will eventually be removed from AndroidX. The complication APIs are not deprecated and will remain. ([Ice960](https://android-review.googlesource.com/#/q/Ice960baec89d1ff8ace8faf6425daeb4907bd548))
+- Added support for static complication previews ([8b2bed3](https://android-review.googlesource.com/#/q/Ic9f861ad0bdb6778c43843eea107a047ec6f68f8))
+- The utility class `ComplicationTextFormatting` has been added with support for formatting data and time as tersely as possible, which is useful for complications where space is very much at a premium.
 
 ### Version 1.3.0-rc01
 

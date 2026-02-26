@@ -370,7 +370,9 @@ Boolean isBackCameraLevel3Device(ProcessCameraProvider cameraProvider) {
     return false;
 }
 ```
-| **Note:** If an incompatible combination of use cases is created, a runtime error is thrown the first time [`createCaptureSession()`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice#createCaptureSession(android.hardware.camera2.params.SessionConfiguration)) is called. If additional use cases are added to the running session, a reconfiguration may be required, potentially causing a visible glitch.
+
+> [!NOTE]
+> **Note:** If an incompatible combination of use cases is created, a runtime error is thrown the first time [`createCaptureSession()`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice#createCaptureSession(android.hardware.camera2.params.SessionConfiguration)) is called. If additional use cases are added to the running session, a reconfiguration may be required, potentially causing a visible glitch.
 
 ## Permissions
 
@@ -465,7 +467,7 @@ Add the following to each module's `build.gradle` file for an app:
 ```groovy
 dependencies {
   // CameraX core library using the camera2 implementation
-  def camerax_version = "1.6.0-beta02"
+  def camerax_version = "1.6.0-rc01"
   // The following line is optional, as the core library is included indirectly by camera-camera2
   implementation "androidx.camera:camera-core:${camerax_version}"
   implementation "androidx.camera:camera-camera2:${camerax_version}"
@@ -487,7 +489,7 @@ dependencies {
 ```kotlin
 dependencies {
     // CameraX core library using the camera2 implementation
-    val camerax_version = "1.6.0-beta02"
+    val camerax_version = "1.6.0-rc01"
     // The following line is optional, as the core library is included indirectly by camera-camera2
     implementation("androidx.camera:camera-core:${camerax_version}")
     implementation("androidx.camera:camera-camera2:${camerax_version}")
@@ -532,7 +534,8 @@ properties in one of the following two pathways:
   optimize the camera for your usage scenario. For information, see [Use Stream Use Cases for better
   performance](https://developer.android.com/training/camera2/capture-sessions-requests#use-stream-use-case-for-better-performance).
 
-| **Note:** Setting the underlying Camera2 properties is marked "Experimental" in CameraX because Google expects developers to understand its use. The values you set override any values that CameraX sets. We only recommend doing this when absolutely necessary, and we recommend additional testing on your end.
+> [!NOTE]
+> **Note:** Setting the underlying Camera2 properties is marked "Experimental" in CameraX because Google expects developers to understand its use. The values you set override any values that CameraX sets. We only recommend doing this when absolutely necessary, and we recommend additional testing on your end.
 
 The following code sample uses stream use cases to optimize for a video call.
 Use [`Camera2CameraInfo`](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2CameraInfo)

@@ -27,7 +27,7 @@ Since WorkManager 2.6, [App Startup](https://developer.android.com/topic/librari
 internally within WorkManager. To provide a custom initializer you need to
 remove the `androidx.startup` node.
 
-If you don't use App Startup in your app, you can remove it completely.  
+If you don't use App Startup in your app, you can remove it completely.
 
      <!-- If you want to disable android.startup completely. -->
      <provider
@@ -36,7 +36,7 @@ If you don't use App Startup in your app, you can remove it completely.
         tools:node="remove">
      </provider>
 
-Otherwise, remove only the `WorkManagerInitializer` node.  
+Otherwise, remove only the `WorkManagerInitializer` node.
 
      <provider
         android:name="androidx.startup.InitializationProvider"
@@ -51,7 +51,7 @@ Otherwise, remove only the `WorkManagerInitializer` node.
      </provider>
 
 While using a version of WorkManager older than 2.6, remove
-`workmanager-init` instead:  
+`workmanager-init` instead:
 
     <provider
         android:name="androidx.work.impl.WorkManagerInitializer"
@@ -72,9 +72,11 @@ When you need to use WorkManager, make sure to call the method
 WorkManager calls your app's custom `getWorkManagerConfiguration()` method to
 discover its `Configuration`. (You do not need to call
 `WorkManager.initialize` yourself.)
-| **Note:** If you call the deprecated no-parameter `WorkManager.getInstance()` method before WorkManager has been initialized, the method throws an exception. You should always use the `WorkManager.getInstance(Context)` method, even if you're not customizing WorkManager.
 
-Here's an example of a custom `getWorkManagerConfiguration()` implementation:  
+> [!NOTE]
+> **Note:** If you call the deprecated no-parameter `WorkManager.getInstance()` method before WorkManager has been initialized, the method throws an exception. You should always use the `WorkManager.getInstance(Context)` method, even if you're not customizing WorkManager.
+
+Here's an example of a custom `getWorkManagerConfiguration()` implementation:
 
 ### Kotlin
 
@@ -99,8 +101,10 @@ class MyApplication extends Application implements Configuration.Provider {
     }
 }
 ```
-| **Note:** You must [remove the default
-| initializer](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration#remove-default) for a custom `getWorkManagerConfiguration()` implementation to take effect.
+
+> [!NOTE]
+> **Note:** You must [remove the default
+> initializer](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration#remove-default) for a custom `getWorkManagerConfiguration()` implementation to take effect.
 
 ## Custom initialization before WorkManager 2.1.0
 
@@ -127,7 +131,7 @@ If you want to control the initialization process, you must
 then define your own custom configuration.
 
 Once the default initializer is removed, you can manually initialize
-WorkManager:  
+WorkManager:
 
 ### Kotlin
 

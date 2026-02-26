@@ -6,7 +6,9 @@ source: md.txt
 
 There are a number of tools you can use to debug a locally-running app that uses
 wake locks. These tools can help you identify and fix performance issues.
-| **Note:** [Some APIs acquire wake locks that are attributed to your app](https://developer.android.com/develop/background-work/background-tasks/awake#actions-keep). This means your app might be using wake locks even though you aren't writing that code explicitly. If your app has mysterious performance issues, it can be helpful to check if there are misbehaving wake locks. If your app is holding wake locks and you don't recognize the names, [Identify wake locks created by other APIs](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls) can help you identify the API that might have created them.
+
+> [!NOTE]
+> **Note:** [Some APIs acquire wake locks that are attributed to your app](https://developer.android.com/develop/background-work/background-tasks/awake#actions-keep). This means your app might be using wake locks even though you aren't writing that code explicitly. If your app has mysterious performance issues, it can be helpful to check if there are misbehaving wake locks. If your app is holding wake locks and you don't recognize the names, [Identify wake locks created by other APIs](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls) can help you identify the API that might have created them.
 
 The following tools can help you debug or optimize your wake locks:
 

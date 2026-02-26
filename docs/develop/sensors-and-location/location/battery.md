@@ -4,63 +4,81 @@ url: https://developer.android.com/develop/sensors-and-location/location/battery
 source: md.txt
 ---
 
-# About background location and battery life
+Background location usage can significantly impact battery life. Android
+supports limits to background location gathering, prompting developers to
+optimize their applications for better battery efficiency. These optimizations
+are beneficial for all devices, regardless of the Android version they are
+running.
 
-Background location usage can significantly impact battery life. Android supports limits to background location gathering, prompting developers to optimize their applications for better battery efficiency. These optimizations are beneficial for all devices, regardless of the Android version they are running.
-
-With[Background Location Limits](https://developer.android.com/about/versions/oreo/background-location-limits):
+With [Background Location Limits](https://developer.android.com/about/versions/oreo/background-location-limits):
 
 - Background location gathering is throttled and location is computed, and delivered only a few times an hour.
 - Wi-Fi scans are more conservative, and location updates aren't computed when the device stays connected to the same static access point.
 - Geofencing responsiveness changes from tens of seconds to approximately two minutes. This change improves battery performance---up to 10 times better on some devices.
 
-| **Note:** These features were first introduced with Android 8.0 (API level 26).
+> [!NOTE]
+> **Note:** These features were first introduced with Android 8.0 (API level 26).
 
 ## Required knowledge
 
 This document assumes familiarity with the following APIs:
 
-- [Google Location Services.](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary.html)These APIs offer higher accuracy and impose a lighter battery burden than the[framework location APIs](https://developer.android.com/reference/android/location/package-summary).
-- [Fused Location Provider.](https://developers.google.com/location-context/fused-location-provider/)This API combines signals from GPS, Wi-Fi, and cell networks, as well as accelerometer, gyroscope, magnetometer and other sensors.
+- [Google Location Services.](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary.html) These APIs offer higher accuracy and impose a lighter battery burden than the [framework location APIs](https://developer.android.com/reference/android/location/package-summary).
+- [Fused Location Provider.](https://developers.google.com/location-context/fused-location-provider/) This API combines signals from GPS, Wi-Fi, and cell networks, as well as accelerometer, gyroscope, magnetometer and other sensors.
 - [Geofencing](https://developers.google.com/location-context/geofencing/), This API is built on top of the Fused Location Provider API, and is optimized for battery performance.
 
 ## Understand battery drain
 
 Location gathering and battery drain are related as follows:
 
-- **Accuracy:**The precision of the location data. In general, the higher the accuracy, the higher the battery drain.
-- **Frequency:**How often location is computed. The more frequent location is computed, the more battery is used.
-- **Latency:**How quickly location data is delivered. Less latency usually requires more battery.
+- **Accuracy:** The precision of the location data. In general, the higher the accuracy, the higher the battery drain.
+- **Frequency:** How often location is computed. The more frequent location is computed, the more battery is used.
+- **Latency:** How quickly location data is delivered. Less latency usually requires more battery.
 
 ### Accuracy
 
-You can specify location accuracy using the[`setPriority()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setpriority-int-priority)method, passing one of the following values as the argument:
+You can specify location accuracy using the [`setPriority()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setpriority-int-priority) method, passing
+one of the following values as the argument:
 
-- [`PRIORITY_HIGH_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#public-static-final-int-priority_high_accuracy)provides the most accurate location possible, which is computed using as many inputs as necessary (it enables GPS, Wi-Fi, and cell, and uses a variety of[Sensors](https://developer.android.com/guide/topics/sensors/sensors_overview)), and may cause significant battery drain.
-- [`PRIORITY_BALANCED_POWER_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#public-static-final-int-priority_balanced_power_accuracy)provides accurate location while optimizing for power. Very rarely uses GPS. Typically uses a combination of Wi-Fi and cell information to compute device location.
-- [`PRIORITY_LOW_POWER`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#public-static-final-int-priority_low_power)largely relies on cell towers and avoids GPS and Wi-Fi inputs, providing coarse (city-level) accuracy with minimal battery drain.
-- [`PRIORITY_NO_POWER`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_NO_POWER)receives locations passively from other apps for which location has already been computed.
+- [`PRIORITY_HIGH_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#public-static-final-int-priority_high_accuracy) provides the most accurate location possible, which is computed using as many inputs as necessary (it enables GPS, Wi-Fi, and cell, and uses a variety of [Sensors](https://developer.android.com/guide/topics/sensors/sensors_overview)), and may cause significant battery drain.
+- [`PRIORITY_BALANCED_POWER_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#public-static-final-int-priority_balanced_power_accuracy) provides accurate location while optimizing for power. Very rarely uses GPS. Typically uses a combination of Wi-Fi and cell information to compute device location.
+- [`PRIORITY_LOW_POWER`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#public-static-final-int-priority_low_power) largely relies on cell towers and avoids GPS and Wi-Fi inputs, providing coarse (city-level) accuracy with minimal battery drain.
+- [`PRIORITY_NO_POWER`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_NO_POWER) receives locations passively from other apps for which location has already been computed.
 
-Use the balanced power or low power options to satisfy the location needs of most apps. Reserve high accuracy for apps that run in the foreground and require*real time*location updates (for example, a mapping app).
+Use the balanced power or low power options to satisfy the location needs of
+most apps. Reserve high accuracy for apps that run in the foreground and require
+*real time* location updates (for example, a mapping app).
 
 ### Frequency
 
 You can specify location frequency using two methods:
 
-- Use the[`setIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setintervalmillis-long-intervalmillis)method to specify the interval for computing your app's location.
-- Use the[`setMinUpdateIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setminupdateintervalmillis-long-minupdateintervalmillis)method to specify the interval for receiving other apps' locations.
+- Use the [`setIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setintervalmillis-long-intervalmillis) method to specify the interval for computing your app's location.
+- Use the [`setMinUpdateIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setminupdateintervalmillis-long-minupdateintervalmillis) method to specify the interval for receiving other apps' locations.
 
-Pass the largest possible value when using`setIntervalMillis()`. This is especially true for background location gathering, which often drains the battery. Reserve intervals of a few seconds for foreground use cases.
+Pass the largest possible value when using `setIntervalMillis()`. This is
+especially true for background location gathering, which often drains the
+battery. Reserve intervals of a few seconds for foreground use cases.
 
-The background location limits introduced in Android 8.0 (API level 26) enforce these strategies, but your app should strive to enforce them on devices running Android 7.0 (API level 24) and lower.
+The background location limits introduced in Android 8.0 (API level 26) enforce
+these strategies, but your app should strive to enforce them on devices running
+Android 7.0 (API level 24) and lower.
 
 ### Latency
 
-You can specify latency using the[`setMaxUpdateDelayMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setmaxupdatedelaymillis-long-maxupdatedelaymillis)method, typically passing a value that is several times larger than the interval specified in the[`setIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setintervalmillis-long-intervalmillis)method. This setting delays location delivery, and multiple location updates may be delivered in batches. These two changes help minimize battery consumption.
+You can specify latency using the [`setMaxUpdateDelayMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setmaxupdatedelaymillis-long-maxupdatedelaymillis) method,
+typically passing a value that is several times larger than the interval
+specified in the [`setIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setintervalmillis-long-intervalmillis) method. This setting delays
+location delivery, and multiple location updates may be delivered in batches.
+These two changes help minimize battery consumption.
 
-If your app doesn't immediately need a location update, you should pass the largest possible value to the`setMaxUpdateDelayMillis()`method, effectively trading latency for more data and battery efficiency.
+If your app doesn't immediately need a location update, you should pass the
+largest possible value to the `setMaxUpdateDelayMillis()` method, effectively
+trading latency for more data and battery efficiency.
 
-When using geofences, apps should pass a large value into the[`setNotificationResponsiveness()`](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder.html#setNotificationResponsiveness(int))method to preserve power. A value of five minutes or larger is recommended.
+When using geofences, apps should pass a large value into the
+[`setNotificationResponsiveness()`](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder.html#setNotificationResponsiveness(int)) method to preserve power. A value of
+five minutes or larger is recommended.
 
 ## Further reading
 

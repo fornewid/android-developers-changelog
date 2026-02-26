@@ -11,7 +11,8 @@ and decide which notification channels from your app can be intrusive or
 visible.
 
 Check out the following video for an overview of channels and other notification
-features in Android 8.0.  
+features in Android 8.0.
+[Video](https://www.youtube.com/watch?v=zGIw4MIJn5o)
 
 The user settings for notification channels are available for each app in the
 system settings, as shown in figure 1.
@@ -23,7 +24,8 @@ and one of its channels.
 
 <br />
 
-| **Note:** The user interface refers to notification channels as "categories."
+> [!NOTE]
+> **Note:** The user interface refers to notification channels as "categories."
 
 After you create a notification channel, you can't change the notification
 behaviors. The user has complete control at that point. However, you can still
@@ -33,13 +35,17 @@ Create a channel for each type of notification you need to send. You can also
 create notification channels to reflect choices made by users. For example, you
 can set up separate notification channels for each conversation group created by
 a user in a messaging app.
-| **Caution:** If you target Android 8.0 (API level 26) or higher and post a notification without specifying a notification channel, the notification doesn't appear and the system logs an error.
+
+> [!CAUTION]
+> **Caution:** If you target Android 8.0 (API level 26) or higher and post a notification without specifying a notification channel, the notification doesn't appear and the system logs an error.
 
 When you target Android 8.0 (API level 26) or higher, you must implement one or
 more notification channels. If your `targetSdkVersion` is set to 25 or lower,
 when your app runs on Android 8.0 (API level 26) or higher, it behaves the same
 as on devices running Android 7.1 (API level 25) or lower.
-| **Note:** As of Android 8.0 (API level 26), you can turn on a setting on your development device to display an on-screen warning that appears as a [toast](https://developer.android.com/guide/topics/ui/notifiers/toasts) when an app targeting Android 8.0 (API level 26) or higher attempts to post without a notification channel. To turn on the setting for a development device running Android 8.0 (API level 26) or higher, navigate to **Settings** \> **Developer options** and enable **Show notification channel warnings**.
+
+> [!NOTE]
+> **Note:** As of Android 8.0 (API level 26), you can turn on a setting on your development device to display an on-screen warning that appears as a [toast](https://developer.android.com/guide/topics/ui/notifiers/toasts) when an app targeting Android 8.0 (API level 26) or higher attempts to post without a notification channel. To turn on the setting for a development device running Android 8.0 (API level 26) or higher, navigate to **Settings** \> **Developer options** and enable **Show notification channel warnings**.
 
 ## Create a notification channel
 
@@ -56,9 +62,10 @@ To create a notification channel, follow these steps:
 3. Register the notification channel by passing it to
    [`createNotificationChannel()`](https://developer.android.com/reference/android/app/NotificationManager#createNotificationChannel(android.app.NotificationChannel)).
 
-| **Caution:** Guard this code with a condition on the [`SDK_INT`](https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT) version to run only on Android 8.0 (API level 26) and higher, because the notification channels APIs aren't available in the Support Library.
+> [!CAUTION]
+> **Caution:** Guard this code with a condition on the [`SDK_INT`](https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT) version to run only on Android 8.0 (API level 26) and higher, because the notification channels APIs aren't available in the Support Library.
 
-The following example shows how to create and register a notification channel:  
+The following example shows how to create and register a notification channel:
 
 ### Kotlin
 
@@ -123,7 +130,9 @@ behaviors are active.
 You can also create multiple notification channels in a single operation by
 calling
 [`createNotificationChannels()`](https://developer.android.com/reference/android/app/NotificationManager#createNotificationChannels(java.util.List%3Candroid.app.NotificationChannel%3E)).
-| **Note:** In addition to adding each notification to your app-specific channels, consider adding each notification to one of the system-wide categories, such as [`CATEGORY_ALARM`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#CATEGORY_ALARM()) or [`CATEGORY_REMINDER`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#CATEGORY_REMINDER()).
+
+> [!NOTE]
+> **Note:** In addition to adding each notification to your app-specific channels, consider adding each notification to one of the system-wide categories, such as [`CATEGORY_ALARM`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#CATEGORY_ALARM()) or [`CATEGORY_REMINDER`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#CATEGORY_REMINDER()).
 
 ### Set the importance level
 
@@ -202,7 +211,7 @@ You can open the system settings for notification channels with an
 action.
 
 For example, the following sample code shows how you can redirect a user to the
-settings for a notification channel:  
+settings for a notification channel:
 
 ### Kotlin
 
@@ -230,7 +239,7 @@ Notice that the intent requires two extras that specify your app's package name
 
 You can delete notification channels by calling
 [`deleteNotificationChannel()`](https://developer.android.com/reference/android/app/NotificationManager#deleteNotificationChannel(java.lang.String)).
-The following sample code demonstrates how to complete this process:  
+The following sample code demonstrates how to complete this process:
 
 ### Kotlin
 
@@ -250,7 +259,9 @@ NotificationManager notificationManager =
 String id = "my_channel_01";
 notificationManager.deleteNotificationChannel(id);
 ```
-| **Note:** The notification settings screen displays the number of deleted channels, as a spam prevention mechanism. You can clear test channels on development devices by reinstalling the app or clearing the data associated with your copy of the app.
+
+> [!NOTE]
+> **Note:** The notification settings screen displays the number of deleted channels, as a spam prevention mechanism. You can clear test channels on development devices by reinstalling the app or clearing the data associated with your copy of the app.
 
 ## Create a notification channel group
 
@@ -288,7 +299,7 @@ distinguish between them.
 
 Each notification channel group requires an ID, which must be unique within your
 package, as well as a user-visible name. The following snippet demonstrates how
-to create a notification channel group.  
+to create a notification channel group.
 
 ### Kotlin
 

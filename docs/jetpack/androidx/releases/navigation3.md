@@ -13,7 +13,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.1) | - | - | [1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-alpha04) |
+| February 25, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.1) | - | - | [1.1.0-alpha05](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -28,8 +28,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation3:navigation3-runtime:1.1.0-alpha04"
-    implementation "androidx.navigation3:navigation3-ui:1.1.0-alpha04"
+    implementation "androidx.navigation3:navigation3-runtime:1.1.0-alpha05"
+    implementation "androidx.navigation3:navigation3-ui:1.1.0-alpha05"
 }
 ```
 
@@ -37,8 +37,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation3:navigation3-runtime:1.1.0-alpha04")
-    implementation("androidx.navigation3:navigation3-ui:1.1.0-alpha04")
+    implementation("androidx.navigation3:navigation3-runtime:1.1.0-alpha05")
+    implementation("androidx.navigation3:navigation3-ui:1.1.0-alpha05")
 }
 ```
 
@@ -60,6 +60,18 @@ for more information.
 There are no release notes for this artifact.
 
 ## Version 1.1
+
+### Version 1.1.0-alpha05
+
+February 25, 2026
+
+`androidx.navigation3:navigation3-*:1.1.0-alpha05` is released. Version 1.1.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..c640b9aa8e30b5db9ee258561ad1fc4bc947e69d/navigation3).
+
+**API Changes**
+
+- `NavDisplay` and `rememberSceneState` now take a `List<SceneStrategy>` instead of the previous single `SceneStrategy` parameter that was chained by the `then` infix. This more closely aligns with the `List<SceneDecoratorStrategy<T>>` that both of these APIs already take. The previous APIs have been deprecated. ([I78b2c](https://android-review.googlesource.com/#/q/I78b2c1c393a72b3f9fea3b615a0f23559e66809b), [b/482108465](https://issuetracker.google.com/issues/482108465))
+- Added a metadata #contains operator to check if the metadata map contains the given `NavMetadataKey`. ([Ic30db](https://android-review.googlesource.com/#/q/Ic30dbb34dba4d45f54868e40bd57edeb9f44668d), [b/485311895](https://issuetracker.google.com/issues/485311895))
+- Added `NavMetadataKey` `DialogKey` for `DialogSceneStrategy` to use with Metadata DSL. ([Ic7a26](https://android-review.googlesource.com/#/q/Ic7a2685dd0882e1e66e8416de3fc8063de301ba6), [b/483388817](https://issuetracker.google.com/issues/483388817))
 
 ### Version 1.1.0-alpha04
 

@@ -20,7 +20,7 @@ classes from the library and its `R` class.
 
 Starting with AGP 7.0, you can set the
 [namespace](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/dsl/CommonExtension#namespace:kotlin.String)
-in the app's `build.gradle` file, as shown in the following code example:  
+in the app's `build.gradle` file, as shown in the following code example:
 
 ### Groovy
 
@@ -47,7 +47,9 @@ In previous versions of AGP, both the `applicationId` property (for an
 app) and the `namespace` property (for a library) could be set using the
 manifest's [`package`](https://developer.android.com/guide/topics/manifest/manifest-element#package)
 attribute, which led to confusion.
-| **Note:** A library project does not have an `applicationId`; that is a property of applications only.
+
+> [!NOTE]
+> **Note:** A library project does not have an `applicationId`; that is a property of applications only.
 
 ## Choose a `minSdkVersion` value
 
@@ -103,7 +105,9 @@ of an Android Archive (AAR) file. AAR metadata consists of properties that help
 AGP consume libraries. If your library is consumed by an incompatible
 configuration, and AAR metadata is set up, users are presented with an error
 message to help them resolve the issue.
-| **Note:** AAR metadata does not contain properties that are important at runtime and therefore is not typically found in compiled Android apps.
+
+> [!NOTE]
+> **Note:** AAR metadata does not contain properties that are important at runtime and therefore is not typically found in compiled Android apps.
 
 ### Choose a minCompileSdk value
 
@@ -117,7 +121,7 @@ set this value.
 
 The `minCompileSdk` value can be set in the `defaultConfig{}`,
 `productFlavors{}`, and `buildTypes{}` blocks in the module-level `build.gradle`
-file:  
+file:
 
 ### Groovy
 
@@ -185,7 +189,7 @@ projects in addition to application and dynamic-feature projects.
 
 When publishing a library for others to consume, consider creating test
 fixtures for your API. Test fixtures can be turned on in the module-level
-`build.gradle` file:  
+`build.gradle` file:
 
 ### Groovy
 

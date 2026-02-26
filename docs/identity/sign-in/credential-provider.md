@@ -28,7 +28,7 @@ Add the following dependencies to your app module's build script, to use the
 
 ```kotlin
 dependencies {
-    implementation("androidx.credentials:credentials:1.6.0-rc01")
+    implementation("androidx.credentials:credentials:1.6.0-rc02")
 }
 ```
 
@@ -36,7 +36,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.credentials:credentials:1.6.0-rc01"
+    implementation "androidx.credentials:credentials:1.6.0-rc02"
 }
 ```
 

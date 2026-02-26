@@ -19,7 +19,9 @@ notification.
 [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker) supports a suspending [`setForeground()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#setforeground) API. These
 APIs allow developers to specify that this `WorkRequest` is *important* (from a
 user perspective) or *long-running*.
-| **Note:** WorkManager relies on [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler) to schedule its work, even in situations where WorkManager creates a foreground service to run its tasks. Starting with Android 16, long running workers (which use foreground services) can exhaust your app's job quota. If this happens, you can try launching the foreground service directly instead of using WorkManager. If you need to download data in response to a user action, consider using a [user-initiated data transfer job](https://developer.android.com/develop/background-work/background-tasks/uidt). These jobs are exempt from the ordinary job quotas.
+
+> [!NOTE]
+> **Note:** WorkManager relies on [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler) to schedule its work, even in situations where WorkManager creates a foreground service to run its tasks. Starting with Android 16, long running workers (which use foreground services) can exhaust your app's job quota. If this happens, you can try launching the foreground service directly instead of using WorkManager. If you need to download data in response to a user action, consider using a [user-initiated data transfer job](https://developer.android.com/develop/background-work/background-tasks/uidt). These jobs are exempt from the ordinary job quotas.
 
 Starting with `2.3.0-alpha03`, WorkManager also allows you to create a
 [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent), which can be used to cancel workers without having to
@@ -37,7 +39,7 @@ Kotlin or Java.
 
 Kotlin developers should use [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker). Instead of using
 `setForegroundAsync()`, you can use the suspending version of that method,
-[`setForeground()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#setforeground).  
+[`setForeground()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#setforeground).
 
     class DownloadWorker(context: Context, parameters: WorkerParameters) :
        CoroutineWorker(context, parameters) {
@@ -111,7 +113,7 @@ can also call `setForegroundAsync()` to update an ongoing `Notification`.
 
 Here is a simple example of a long running worker that downloads a file. This
 Worker keeps track of progress to update an ongoing `Notification` which shows
-the download progress.  
+the download progress.
 
     public class DownloadWorker extends Worker {
        private static final String KEY_INPUT_URL = "KEY_INPUT_URL";
@@ -183,7 +185,8 @@ the download progress.
 
 ## Add a foreground service type to a long-running worker
 
-| **Note:** Depending on which API level your app is targeting and what kind of work the service is doing, you may be *required* to declare a foreground service type. Declaring a foreground service type is a best practice no matter what version of Android you're targeting. For more details, see [Declare foreground services and request permissions](https://developer.android.com/develop/background-work/services/fgs/declare).
+> [!NOTE]
+> **Note:** Depending on which API level your app is targeting and what kind of work the service is doing, you may be *required* to declare a foreground service type. Declaring a foreground service type is a best practice no matter what version of Android you're targeting. For more details, see [Declare foreground services and request permissions](https://developer.android.com/develop/background-work/services/fgs/declare).
 
 If your app targets Android 14 (API level 34) or higher you must specify a
 [foreground service type](https://developer.android.com/develop/background-work/services/fgs/service-types) for all long-running workers.
@@ -204,7 +207,7 @@ following sections.
 Declare the worker's foreground service type in your app's manifest. In the
 following example, the worker requires access to location and microphone:
 
-AndroidManifest.xml  
+AndroidManifest.xml
 
 ```xml
 <service
@@ -212,16 +215,20 @@ AndroidManifest.xml
    android:foregroundServiceType="location|microphone"
    tools:node="merge" />
 ```
-| **Note:** The [manifest merger tool](https://developer.android.com/studio/build/manage-manifests#merge-manifests) combines the `<service>` element declaration from the preceding code snippet and the declaration that WorkManager's `SystemForegroundService` defines in its own manifest.
+
+> [!NOTE]
+> **Note:** The [manifest merger tool](https://developer.android.com/studio/build/manage-manifests#merge-manifests) combines the `<service>` element declaration from the preceding code snippet and the declaration that WorkManager's `SystemForegroundService` defines in its own manifest.
 
 ### Specify foreground service types at runtime
 
 When you call `setForeground()` or `setForegroundAsync()`, ensure you specify a
 [foreground service type](https://developer.android.com/develop/background-work/services/fgs/service-types).
-| **Note:** Beginning with Android 14 (API level 34), when you call `setForeground()` or `setForegroundAsync()`, the system checks for specific prerequisites based on service type. For more information, see [Declare foreground services and request
-| permissions](https://developer.android.com/develop/background-work/services/fgs/declare).
 
-MyLocationAndMicrophoneWorker  
+> [!NOTE]
+> **Note:** Beginning with Android 14 (API level 34), when you call `setForeground()` or `setForegroundAsync()`, the system checks for specific prerequisites based on service type. For more information, see [Declare foreground services and request
+> permissions](https://developer.android.com/develop/background-work/services/fgs/declare).
+
+MyLocationAndMicrophoneWorker
 
 ### Kotlin
 

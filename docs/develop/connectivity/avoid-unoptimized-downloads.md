@@ -41,7 +41,7 @@ such as the
 and
 [`Last-Modified`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.3.1)
 headers. This allows you to determine when the associated content should be
-refreshed. For example:  
+refreshed. For example:
 
 ### Kotlin
 
@@ -81,7 +81,7 @@ You can configure some networking libraries to respect these status codes and
 headers automatically. When using
 [OkHttp](https://square.github.io/okhttp/), for example, configuring
 a cache directory and cache size for the client will enable the library to use
-HTTP caching, as shown in the following code sample:  
+HTTP caching, as shown in the following code sample:
 
 ### Kotlin
 
@@ -117,7 +117,9 @@ using
 [`Context.getCacheDir()`](https://developer.android.com/reference/android/content/Context#getCacheDir()).
 Note that this internal cache may be flushed when the system is running low on
 available storage.
-| **Note:** Files stored in either cache location are erased when the app is uninstalled.
+
+> [!NOTE]
+> **Note:** Files stored in either cache location are erased when the app is uninstalled.
 
 ## Use a repository
 

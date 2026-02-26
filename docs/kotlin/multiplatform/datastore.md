@@ -9,14 +9,17 @@ transactionally, overcoming some of the drawbacks of SharedPreferences. This
 page focuses on creating DataStore in Kotlin Multiplatform (KMP) projects. For
 more information on DataStore, see the [primary documentation for DataStore](https://developer.android.com/topic/libraries/architecture/datastore)
 and [official samples](https://github.com/android/kotlin-multiplatform-samples).
-| **Note:** Only [DataStore Preferences](https://developer.android.com/topic/libraries/architecture/datastore#preferences-datastore) is supported in KMP projects.
+
+> [!NOTE]
+> **Note:** Only [DataStore Preferences](https://developer.android.com/topic/libraries/architecture/datastore#preferences-datastore) is supported in KMP projects.
 
 ## Set up dependencies
 
-| **Note:** DataStore supports KMP in versions 1.1.0 and higher.
+> [!NOTE]
+> **Note:** DataStore supports KMP in versions 1.1.0 and higher.
 
 To set up DataStore in your KMP project, add the dependencies for the artifacts
-in the `build.gradle.kts` file for your module:  
+in the `build.gradle.kts` file for your module:
 
     commonMain.dependencies {
       // DataStore library
@@ -56,7 +59,7 @@ source sets due to the differences in file system APIs.
 ### Android
 
 To create the `DataStore` instance on Android, you need a [`Context`](https://developer.android.com/reference/android/content/Context) along
-with the path.  
+with the path.
 
     // shared/src/androidMain/kotlin/createDataStore.android.kt
 
@@ -66,7 +69,7 @@ with the path.
 
 ### iOS
 
-On iOS, you can retrieve the path from the `NSDocumentDirectory`:  
+On iOS, you can retrieve the path from the `NSDocumentDirectory`:
 
     // shared/src/iosMain/kotlin/createDataStore.ios.kt
 
@@ -86,7 +89,7 @@ On iOS, you can retrieve the path from the `NSDocumentDirectory`:
 ### JVM (Desktop)
 
 To create the `DataStore` instance on JVM (Desktop), provide a path using Java
-or Kotlin APIs:  
+or Kotlin APIs:
 
     // shared/src/jvmMain/kotlin/createDataStore.desktop.kt
 
@@ -97,4 +100,5 @@ or Kotlin APIs:
         }
     )
 
-| **Note:** `System.getProperty("java.io.tmpdir")` points to the temporary folder on the system, which might be cleaned upon reboot. On macOS, you can instead use the `~/Library/Application Support/[your-app]` folder.
+> [!NOTE]
+> **Note:** `System.getProperty("java.io.tmpdir")` points to the temporary folder on the system, which might be cleaned upon reboot. On macOS, you can instead use the `~/Library/Application Support/[your-app]` folder.

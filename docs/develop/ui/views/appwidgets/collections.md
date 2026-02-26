@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/appwidgets/collections
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs.  
-[Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance/build-ui#use-scrollable)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance/build-ui#use-scrollable) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -65,7 +62,7 @@ between a collection view---such as `ListView`, `GridView`, and
 `StackView`---and the underlying data for that view. From the [`StackWidget`
 sample](https://android.googlesource.com/platform/development/+/master/samples/StackWidget/src/com/example/android/stackwidget/StackWidgetService.java),
 here is an example of the boilerplate code to implement this service and
-interface:  
+interface:
 
 ### Kotlin
 
@@ -147,7 +144,7 @@ service in your manifest file with the permission
 This prevents other applications from freely accessing your widget's data.
 
 For example, when creating a widget that uses `RemoteViewsService` to populate a
-collection view, the manifest entry might look like this:  
+collection view, the manifest entry might look like this:
 
     <service android:name="MyWidgetService"
         android:permission="android.permission.BIND_REMOTEVIEWS" />
@@ -161,7 +158,7 @@ The main requirement for your widget layout XML file is that it include one of
 the collection views: `ListView`, `GridView`, `StackView`, or
 `AdapterViewFlipper`. Here is the `widget_layout.xml` file for the
 [`StackWidget`
-sample](https://android.googlesource.com/platform/development/+/master/samples/StackWidget/res/layout):  
+sample](https://android.googlesource.com/platform/development/+/master/samples/StackWidget/res/layout):
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -209,7 +206,7 @@ call this method, pass an intent that points to your implementation of
 
 For example, here's how the `StackWidget` sample implements the `onUpdate()`
 callback method to set the `RemoteViewsService` as the remote adapter for the
-widget collection:  
+widget collection:
 
 ### Kotlin
 
@@ -309,7 +306,9 @@ you want your widget's data to persist, the best approach is to use a
 persists beyond the process lifecycle. For example, a grocery store widget can
 store the state of each grocery list item in a persistent location, such as a
 SQL database.
-| **Note:** See [`WeatherDataProvider.java`](https://android.googlesource.com/platform/development/+/master/samples/WeatherListWidget/src/com/example/android/weatherlistwidget/WeatherDataProvider.java) for a code sample demonstrating how to persist a widget's underlying data using `ContentProvider`.
+
+> [!NOTE]
+> **Note:** See [`WeatherDataProvider.java`](https://android.googlesource.com/platform/development/+/master/samples/WeatherListWidget/src/com/example/android/weatherlistwidget/WeatherDataProvider.java) for a code sample demonstrating how to persist a widget's underlying data using `ContentProvider`.
 
 The primary contents of the `RemoteViewsService` implementation is its
 `RemoteViewsFactory`, described in the following section.
@@ -336,7 +335,7 @@ objects using their index position in the array and displays the text they
 contain.
 
 Here is an excerpt from the `StackWidget` sample's `RemoteViewsFactory`
-implementation that shows portions of the `onCreate()` method:  
+implementation that shows portions of the `onCreate()` method:
 
 ### Kotlin
 
@@ -383,7 +382,7 @@ class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
 The `RemoteViewsFactory` method `getViewAt()` returns a `RemoteViews` object
 corresponding to the data at the specified `position` in the data set. Here is
-an excerpt from the `StackWidget` sample's `RemoteViewsFactory` implementation:  
+an excerpt from the `StackWidget` sample's `RemoteViewsFactory` implementation:
 
 ### Kotlin
 
@@ -446,7 +445,8 @@ index (position) of the touched view. This is how it works:
   for the touched view. The data for the collection items is provided by the
   `RemoteViewsFactory` through the `RemoteViewsService`.
 
-| **Note:** The `StackWidget` sample uses a broadcast, but typically a widget launches an activity in a scenario like this.
+> [!NOTE]
+> **Note:** The `StackWidget` sample uses a broadcast, but typically a widget launches an activity in a scenario like this.
 
 #### Set up the pending intent template
 
@@ -460,7 +460,7 @@ behavior on an item-by-item basis.
 This class also receives the broadcast that is sent when the user touches a
 view. It processes this event in its `onReceive()` method. If the intent's
 action is `TOAST_ACTION`, the widget displays a `Toast` message for the current
-view.  
+view.
 
 ### Kotlin
 
@@ -622,7 +622,7 @@ Your `RemoteViewsFactory` must set a fill-in intent on each item in the
 collection. This makes it possible to distinguish the individual on-click action
 of a given item. The fill-in intent is then combined with the
 [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) template to determine
-the final intent that is executed when the item is tapped.  
+the final intent that is executed when the item is tapped.
 
 ### Kotlin
 
@@ -788,7 +788,7 @@ items are only sometimes present---use `setViewTypeCount` to specify the
 maximum number of unique layouts that the collection can contain. This lets the
 adapter be reused across updates to your app widget.
 
-Here's an example of how to implement simplified `RemoteViews` collections.  
+Here's an example of how to implement simplified `RemoteViews` collections.
 
 ### Kotlin
 
@@ -829,4 +829,6 @@ remoteView.setRemoteAdapter(
         .build()
 );
 ```
-| **Note:** When calling [`setViewTypeCount()`](https://developer.android.com/reference/android/widget/RemoteViews.RemoteCollectionItems.Builder#setViewTypeCount(int)), pass in the maximum number of different layout IDs that are used by `RemoteViews` in this collection. Otherwise, the view type count is inferred from the provided items, and the adapter is recreated when sending an update that uses additional layouts.
+
+> [!NOTE]
+> **Note:** When calling [`setViewTypeCount()`](https://developer.android.com/reference/android/widget/RemoteViews.RemoteCollectionItems.Builder#setViewTypeCount(int)), pass in the maximum number of different layout IDs that are used by `RemoteViews` in this collection. Otherwise, the view type count is inferred from the provided items, and the adapter is recreated when sending an update that uses additional layouts.

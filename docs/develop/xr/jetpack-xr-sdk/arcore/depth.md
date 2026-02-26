@@ -68,7 +68,7 @@ To obtain depth data for a given camera, use [`DepthMap`](https://developer.andr
 
 
 ```kotlin
-val depthMap = DepthMap.left(session) ?: returnhttps://github.com/android/snippets/blob/bf60b1e59478ef481b1a2936dd14e2c41b9a26e2/xr/src/main/java/com/example/xr/arcore/DepthMaps.kt#L40-L40
+val depthMap = DepthMap.left(session) ?: returnhttps://github.com/android/snippets/blob/ed5bd1be020d430170fb3f14a1636696195f5733/xr/src/main/java/com/example/xr/arcore/DepthMaps.kt#L40-L40
 ```
 
 <br />
@@ -84,7 +84,7 @@ You can obtain depth and confidence values from the resulting depth map:
 
 
 ```kotlin
-val depthMap = DepthMap.left(session) ?: returnhttps://github.com/android/snippets/blob/bf60b1e59478ef481b1a2936dd14e2c41b9a26e2/xr/src/main/java/com/example/xr/arcore/DepthMaps.kt#L40-L40
+val depthMap = DepthMap.left(session) ?: returnhttps://github.com/android/snippets/blob/ed5bd1be020d430170fb3f14a1636696195f5733/xr/src/main/java/com/example/xr/arcore/DepthMaps.kt#L40-L40
 ```
 
 <br />

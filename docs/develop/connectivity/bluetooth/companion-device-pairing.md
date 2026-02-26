@@ -41,7 +41,7 @@ app with companion devices over Bluetooth, BLE, and Wi-Fi.
 The following code sample shows how to add the
 [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) flag to a
 manifest file. This tells the system that your app intends to set up companion
-devices.  
+devices.
 
     <uses-feature android:name="android.software.companion_device_setup"/>
 
@@ -66,7 +66,7 @@ can be specified in [`AssociationRequest`](https://developer.android.com/referen
 
 All three subclasses have builders that streamline the configuration of filters.
 In the following example, a device scans for a Bluetooth device with a
-[`BluetoothDeviceFilter`](https://developer.android.com/reference/android/companion/BluetoothDeviceFilter).  
+[`BluetoothDeviceFilter`](https://developer.android.com/reference/android/companion/BluetoothDeviceFilter).
 
 ### Kotlin
 
@@ -91,7 +91,7 @@ BluetoothDeviceFilter deviceFilter = new BluetoothDeviceFilter.Builder()
 ```
 
 Set a [`DeviceFilter`](https://developer.android.com/reference/android/companion/DeviceFilter) to an [`AssociationRequest`](https://developer.android.com/reference/android/companion/AssociationRequest) so
-[`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager) can determine what type of devices to seek.  
+[`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager) can determine what type of devices to seek.
 
 ### Kotlin
 
@@ -129,7 +129,7 @@ of the device is returned in [`onAssociationCreated`](https://developer.android.
 If your app doesn't find any devices, the callback returns [`onFailure`](https://developer.android.com/reference/android/companion/CompanionDeviceManager.Callback#onFailure(java.lang.CharSequence))
 with an error message.
 
-On devices running Android 13 (API level 33) and higher:  
+On devices running Android 13 (API level 33) and higher:
 
 ### Kotlin
 
@@ -198,7 +198,7 @@ deviceManager.associate(pairingRequest, new CompanionDeviceManager.Callback() {
     });
 ```
 
-On devices running Android 12L (API level 32) or lower (deprecated):  
+On devices running Android 12L (API level 32) or lower (deprecated):
 
 ### Kotlin
 
@@ -256,7 +256,7 @@ When the user selects a Bluetooth device, expect a
 When the user selects a Bluetooth LE device, expect a
 [`android.bluetooth.le.ScanResult`](https://developer.android.com/reference/android/bluetooth/le/ScanResult).
 When the user selects a Wi-Fi device, expect a
-[`android.net.wifi.ScanResult`](https://developer.android.com/reference/android/net/wifi/ScanResult).  
+[`android.net.wifi.ScanResult`](https://developer.android.com/reference/android/net/wifi/ScanResult).
 
 ### Kotlin
 
@@ -302,7 +302,7 @@ data.getParcelableExtra(CompanionDeviceManager.EXTRA_DEVICE);
 
 See the complete example:
 
-On devices running Android 13 (API level 33) and higher:  
+On devices running Android 13 (API level 33) and higher:
 
 ### Kotlin
 
@@ -477,7 +477,7 @@ class MainActivityJava extends AppCompatActivity {
 }
 ```
 
-On devices running Android 12L (API level 32) or lower (deprecated):  
+On devices running Android 12L (API level 32) or lower (deprecated):
 
 ### Kotlin
 

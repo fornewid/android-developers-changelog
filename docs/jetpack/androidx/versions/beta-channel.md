@@ -20,6 +20,10 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 
 ### February 25, 2026
 
+- [Wear Compose Version 1.6.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.0-beta01)
+
+### February 25, 2026
+
 - [Media3 Version 1.10.0-beta01](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-beta01)
 
 ### February 11, 2026

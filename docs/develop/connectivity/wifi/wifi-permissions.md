@@ -12,7 +12,9 @@ permission makes it easier to justify an app's access of nearby Wi-Fi devices;
 on previous versions of Android, these apps needed to declare the
 [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
 permission instead.
-| **Caution:** If your app tries to call a Wi-Fi API without the proper permission, a [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException) occurs.
+
+> [!CAUTION]
+> **Caution:** If your app tries to call a Wi-Fi API without the proper permission, a [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException) occurs.
 
 ## Permission is part of the nearby devices group
 
@@ -32,7 +34,7 @@ ever derives location information from Wi-Fi APIs; if not, you should strongly
 assert that. To make this assertion, set the `usesPermissionFlags` attribute to
 `neverForLocation` in your app's manifest file, as shown in the following code
 snippet. This process is similar to the one you do when you
-[assert that Bluetooth device information is never used for location](https://developer.android.com/guide/topics/connectivity/bluetooth/permissions#assert-never-for-location):  
+[assert that Bluetooth device information is never used for location](https://developer.android.com/guide/topics/connectivity/bluetooth/permissions#assert-never-for-location):
 
 ```xml
 <manifest ...>
@@ -60,7 +62,7 @@ to provide backward compatibility in your app. However, as long as your app
 doesn't otherwise rely on
 [precise location information](https://developer.android.com/training/location/permissions#accuracy), you can
 set the maximum SDK version of this permission to `32`, as shown in the
-following code snippet:  
+following code snippet:
 
 ```xml
 <manifest ...>

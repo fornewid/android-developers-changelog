@@ -58,7 +58,9 @@ For the most consistent results, make sure you set your `JAVA_HOME`
 environment variable, and
 [Gradle JDK configuration in Android Studio](https://developer.android.com/build/jdks#jdk-config-in-studio) to that same
 JDK.
-| **Note:** If you run a Gradle command in the Android Studio Terminal by right-clicking and selecting **Run highlighted command** using the IDE then it uses the JDK in the Android Studio settings, not JAVA_HOME.
+
+> [!NOTE]
+> **Note:** If you run a Gradle command in the Android Studio Terminal by right-clicking and selecting **Run highlighted command** using the IDE then it uses the JDK in the Android Studio settings, not JAVA_HOME.
 
 When running your build, Gradle creates a process called a *daemon* to
 perform the actual build. This process can be reused,
@@ -67,12 +69,15 @@ a daemon reduces the time to start a new JVM and initialize the build system.
 
 If you start builds with different JDKs or Gradle versions, additional
 daemons are created, consuming more CPU and memory.
-| **Tip:** When working with multiple projects simultaneously, if possible, specify the same Gradle version in their [`gradle-wrapper.properties` file](https://developer.android.com/build#wrapper-file) to reduce the number of Gradle daemons created.
+
+> [!TIP]
+> **Tip:** When working with multiple projects simultaneously, if possible, specify the same Gradle version in their [`gradle-wrapper.properties` file](https://developer.android.com/build#wrapper-file) to reduce the number of Gradle daemons created.
 
 ### Gradle JDK configuration in Android Studio
 
-| **Note:** Android Studio Panda 1 and higher uses [Gradle Daemon JVM
-| criteria](https://docs.gradle.org/current/userguide/gradle_daemon.html#sec:configuring_daemon_jvm) by default for new projects. For existing projects that use a compatible Gradle version, Android Studio shows a notification offering an option to automatically migrate your project's defined Gradle JDK configuration to Daemon JVM criteria while maintaining the same specifications.
+> [!NOTE]
+> **Note:** Android Studio Panda 1 and higher uses [Gradle Daemon JVM
+> criteria](https://docs.gradle.org/current/userguide/gradle_daemon.html#sec:configuring_daemon_jvm) by default for new projects. For existing projects that use a compatible Gradle version, Android Studio shows a notification offering an option to automatically migrate your project's defined Gradle JDK configuration to Daemon JVM criteria while maintaining the same specifications.
 
 To modify the existing project's Gradle JDK configuration, open the Gradle
 settings from **File** (or **Android Studio** on macOS) **\> Settings \>
@@ -99,7 +104,9 @@ The selected JDK is used to run your Gradle build and resolve JDK API
 references when editing your build scripts and source code. Note that the
 specified `compileSdk` will further restrict which Java symbols will be
 available when editing and building your source code.
-| **Note:** In most cases, we recommend using `GRADLE_LOCAL_JAVA_HOME`, which is the default for newly created projects. This lets you define a project-specific JDK without opening the project first.
+
+> [!NOTE]
+> **Note:** In most cases, we recommend using `GRADLE_LOCAL_JAVA_HOME`, which is the default for newly created projects. This lets you define a project-specific JDK without opening the project first.
 
 Make sure to choose a JDK version that is higher than or equal to the JDK
 versions used by plugins that you use in your Gradle build. To determine the
@@ -108,7 +115,7 @@ compatibility table in the [release notes](https://developer.android.com/build/r
 
 For example, the Android Gradle Plugin version 8.x requires JDK 17.
 If you try to run a Gradle build that uses it with an earlier version of
-the JDK, it reports a message like:  
+the JDK, it reports a message like:
 
     An exception occurred applying plugin request [id: 'com.android.application']
     > Failed to apply plugin 'com.android.internal.application'.
@@ -274,7 +281,9 @@ follows:
 If not specified, this property defaults to the [Java toolchain](https://developer.android.com/build/jdks#toolchain)
 version. If you're not using a Java toolchain, then it defaults to a version
 chosen by the Android Gradle plugin (for example, Java 8 or higher).
-| **Note:** As of Android Studio Giraffe, when projects are imported, the `sourceCompatibility` option is also used as a default for IDE code assist and linting when writing Java source. Some Java language features require library support and are not available on Android. The [`compileSdk`](https://developer.android.com/build/jdks#compileSdk) option determines which libraries are available. Other features, such as switch expressions, only require the Java compiler and work on Android.
+
+> [!NOTE]
+> **Note:** As of Android Studio Giraffe, when projects are imported, the `sourceCompatibility` option is also used as a default for IDE code assist and linting when writing Java source. Some Java language features require library support and are not available on Android. The [`compileSdk`](https://developer.android.com/build/jdks#compileSdk) option determines which libraries are available. Other features, such as switch expressions, only require the Java compiler and work on Android.
 
 ## Which Java binary features can be used when I compile my Kotlin or Java source?
 

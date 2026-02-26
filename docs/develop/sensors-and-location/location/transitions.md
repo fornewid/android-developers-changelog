@@ -229,7 +229,9 @@ public void onReceive(Context context, Intent intent) {
     }
 }
 ```
-| **Note:** The latency of event detection might vary by device.
+
+> [!NOTE]
+> **Note:** The latency of event detection might vary by device.
 
 ## Deregister for activity transition updates
 

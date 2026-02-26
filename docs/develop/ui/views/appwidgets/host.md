@@ -10,7 +10,8 @@ quick access to content. If you're building a home screen replacement or a
 similar app, you can also let the user embed widgets by implementing
 [`AppWidgetHost`](https://developer.android.com/reference/android/appwidget/AppWidgetHost). This isn't
 something that most apps need to do, but if you are creating your own host, it's
-important to understand the contractual obligations a host implicitly agrees to.  
+important to understand the contractual obligations a host implicitly agrees to.
+[Video](https://www.youtube.com/watch?v=15Q7xqxBGG0)
 
 This page focuses on the responsibilities involved in implementing a custom
 `AppWidgetHost`. For a specific example of how to implement an `AppWidgetHost`,
@@ -69,7 +70,7 @@ specific `AppWidgetProvider`.
 Binding APIs also make it possible for a host to provide a custom UI for
 binding. To use this process, your app must declare the
 [`BIND_APPWIDGET`](https://developer.android.com/reference/android/Manifest.permission#BIND_APPWIDGET)
-permission in the host's manifest:  
+permission in the host's manifest:
 
     <uses-permission android:name="android.permission.BIND_APPWIDGET" />
 
@@ -81,7 +82,7 @@ method. If `bindAppWidgetIdIfAllowed()` returns `false`, your app must display a
 dialog prompting the user to grant permission: "allow" for the current widget
 addition, or "always allow" to cover all future widget additions.
 
-This snippet gives an example of how to display the dialog:  
+This snippet gives an example of how to display the dialog:
 
 ### Kotlin
 
@@ -134,7 +135,9 @@ following responsibilities:
   [Update the widget from the configuration activity](https://developer.android.com/guide/topics/appwidgets/configuration#update)
   for details. This is a necessary step for many widgets before they can display.
 
-  | **Note:** Handle irregular cases where the configuration activity doesn't return or finishes with errors.
+  > [!NOTE]
+  > **Note:** Handle irregular cases where the configuration activity doesn't return or finishes with errors.
+
 - Widgets specify a default width and height in the `AppWidgetProviderInfo`
   metadata. These values are defined in cells---starting in
   Android 12, if `targetCellWidth` and `targetCellHeight` are

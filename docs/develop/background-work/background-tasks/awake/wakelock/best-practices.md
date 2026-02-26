@@ -7,7 +7,9 @@ source: md.txt
 Using a wake lock can impair device performance. If you need to use a wake
 lock, it's important to do it properly. This document covers some best practices
 that can help you avoid common wake lock pitfalls.
-| **Note:** Creating and holding wake locks can have a dramatic impact on the device's battery life. You shouldn't use wake locks if there are any suitable alternatives. For other options, see the [Keep the device awake](https://developer.android.com/develop/background-work/background-tasks/awake) documentation. If you do need to use a wake lock, make sure to hold it for as short a time as possible.
+
+> [!NOTE]
+> **Note:** Creating and holding wake locks can have a dramatic impact on the device's battery life. You shouldn't use wake locks if there are any suitable alternatives. For other options, see the [Keep the device awake](https://developer.android.com/develop/background-work/background-tasks/awake) documentation. If you do need to use a wake lock, make sure to hold it for as short a time as possible.
 
 ## Name the wake lock properly
 
@@ -45,7 +47,7 @@ and debug.
 
 If you use a wake lock, you must make sure that every wake lock you acquire
 is properly released. This isn't always as easy as it sounds. For example,
-the following code has a problem:  
+the following code has a problem:
 
 ### Kotlin
 
@@ -72,7 +74,7 @@ the exception outward, and it never reaches the `release()` call. The result
 is that the wake lock is acquired but not released, which is very bad.
 
 In the corrected code, `doSomethingAndRelease()` makes sure to release the
-wake lock even if an exception is thrown:  
+wake lock even if an exception is thrown:
 
 ### Kotlin
 

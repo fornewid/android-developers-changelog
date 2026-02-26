@@ -4,6 +4,9 @@ url: https://developer.android.com/develop/devices/chromeos/learn/window-managem
 source: md.txt
 ---
 
+Project: /develop/devices/chromeos/merged/_project.yaml
+Book: /develop/devices/chromeos/merged/_book.yaml
+
 ChromeOS supports Android apps in multiple windows. The system renders apps
 into window containers whose size is determined by the form factor of the
 device, as shown in figure 1.
@@ -18,7 +21,9 @@ when running on ChromeOS.
 
 This page shows how to help your app's window launch correctly, resizes
 smoothly, and displays all of its contents when its size changes.
-| **Note:** In addition to window management, Android apps that run on ChromeOS pose lifecycle management challenges. There are also other issues to consider, such as multiple apps competing for exclusive resources like the camera or microphone and the possibility that a visible app is not necessarily the active app. Read [Multi-window support](https://developer.android.com/guide/topics/ui/multi-window) for information on how to handle these issues.
+
+> [!NOTE]
+> **Note:** In addition to window management, Android apps that run on ChromeOS pose lifecycle management challenges. There are also other issues to consider, such as multiple apps competing for exclusive resources like the camera or microphone and the possibility that a visible app is not necessarily the active app. Read [Multi-window support](https://developer.android.com/guide/topics/ui/multi-window) for information on how to handle these issues.
 
 ## Initial launch size
 
@@ -48,7 +53,8 @@ Apps can request their initial launch size in the following ways:
   `ActivityOptions.setLaunchBounds(Rect)` when creating a new activity. By
   specifying an empty rectangle, your app can be maximized.
 
-| **Note:** These options work only if the activity started is a root activity. You can also do this using a springboard activity to clear the activity stack in the task with a new start.
+> [!NOTE]
+> **Note:** These options work only if the activity started is a root activity. You can also do this using a springboard activity to clear the activity stack in the task with a new start.
 
 ## Resize windows
 
@@ -71,7 +77,9 @@ recomposition is triggered when the window size changes. If the activity is
 restarted by the system, an initial composition occurs after the restart. Either
 way, it's important to create Compose layouts that adapt to changing window
 sizes. Don't assume fixed sizes.
-| **Note:** To learn more about configuration changes, how to restrict Activity recreation if needed, and how to react to those configuration changes from the View system and Jetpack Compose, check out the [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes) page.
+
+> [!NOTE]
+> **Note:** To learn more about configuration changes, how to restrict Activity recreation if needed, and how to react to those configuration changes from the View system and Jetpack Compose, check out the [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes) page.
 
 ## Window dimensions
 

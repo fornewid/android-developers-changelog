@@ -181,7 +181,7 @@ private fun ScrollableAreaSample() {
         }
     }
 }
-// ...https://github.com/android/snippets/blob/bf60b1e59478ef481b1a2936dd14e2c41b9a26e2/compose/snippets/src/main/java/com/example/compose/snippets/touchinput/gestures/GesturesSnippets.kt#L194-L360
+// ...https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/compose/snippets/src/main/java/com/example/compose/snippets/touchinput/gestures/GesturesSnippets.kt#L194-L360
 ```
 
 <br />

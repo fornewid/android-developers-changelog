@@ -21,7 +21,7 @@ you can follow these steps:
 
 Use [`WindowCompat.setDecorFitsSystemWindows(window, false)`](https://developer.android.com/reference/androidx/core/view/WindowCompat#setDecorFitsSystemWindows(android.view.Window,%20boolean))
 to lay out your app behind the system bars, as shown in the following code
-example:  
+example:
 
 ### Kotlin
 
@@ -48,7 +48,7 @@ When manually creating an edge-to-edge layout for Android 14 and older, your app
 must also make the system bars transparent.
 
 You can edit the `themes.xml` file to set the color of the status and navigation
-bar as transparent and change the status bar icon color.  
+bar as transparent and change the status bar icon color.
 
     <!-- values-v29/themes.xml -->
     <style name="Theme.MyApp">
@@ -67,13 +67,14 @@ bar as transparent and change the status bar icon color.
       </item>
     </style>
 
-| **Note:** If you prefer to disable automatic content protection on Android 10 (API level 29) or later, set [`android:enforceNavigationBarContrast`](https://developer.android.com/reference/android/view/Window#isNavigationBarContrastEnforced()), [`android:enforceStatusBarContrast`](https://developer.android.com/reference/android/view/Window#isStatusBarContrastEnforced()), or both to `false` in your theme.
+> [!NOTE]
+> **Note:** If you prefer to disable automatic content protection on Android 10 (API level 29) or later, set [`android:enforceNavigationBarContrast`](https://developer.android.com/reference/android/view/Window#isNavigationBarContrastEnforced()), [`android:enforceStatusBarContrast`](https://developer.android.com/reference/android/view/Window#isStatusBarContrastEnforced()), or both to `false` in your theme.
 
 You can use the `WindowInsetsControllerCompat` API instead of
 `theme.xml` to control the status bar's content color. To do so, use the
 [`setAppearanceLightNavigationBars()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#setAppearanceLightNavigationBars(boolean))
 function, passing in `true` to change the foreground color of the navigation to
-a light color or `false` to revert to the default color.  
+a light color or `false` to revert to the default color.
 
 ### Kotlin
 

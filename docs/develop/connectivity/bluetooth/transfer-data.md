@@ -4,19 +4,40 @@ url: https://developer.android.com/develop/connectivity/bluetooth/transfer-data
 source: md.txt
 ---
 
-# Transfer Bluetooth data
+After you have successfully [connected to a Bluetooth
+device](https://developer.android.com/develop/connectivity/bluetooth/connect-bluetooth-devices), each
+one has a connected
+[`BluetoothSocket`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket). You can now
+share information between devices. Using the `BluetoothSocket`, the general
+procedure to transfer data is as follows:
 
-After you have successfully[connected to a Bluetooth device](https://developer.android.com/develop/connectivity/bluetooth/connect-bluetooth-devices), each one has a connected[`BluetoothSocket`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket). You can now share information between devices. Using the`BluetoothSocket`, the general procedure to transfer data is as follows:
+1. Get the [`InputStream`](https://developer.android.com/reference/java/io/InputStream) and
+   [`OutputStream`](https://developer.android.com/reference/java/io/OutputStream) that handle transmissions
+   through the socket using
+   [`getInputStream()`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket#getInputStream())
+   and
+   [`getOutputStream()`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket#getOutputStream()),
+   respectively.
 
-1. Get the[`InputStream`](https://developer.android.com/reference/java/io/InputStream)and[`OutputStream`](https://developer.android.com/reference/java/io/OutputStream)that handle transmissions through the socket using[`getInputStream()`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket#getInputStream())and[`getOutputStream()`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket#getOutputStream()), respectively.
+2. Read and write data to the streams using
+   [`read(byte[])`](https://developer.android.com/reference/java/io/InputStream#read(byte%5B%5D)) and
+   [`write(byte[])`](https://developer.android.com/reference/java/io/OutputStream#write(byte%5B%5D)).
 
-2. Read and write data to the streams using[`read(byte[])`](https://developer.android.com/reference/java/io/InputStream#read(byte%5B%5D))and[`write(byte[])`](https://developer.android.com/reference/java/io/OutputStream#write(byte%5B%5D)).
-
-There are, of course, implementation details to consider. In particular, you should use a dedicated thread for reading from the stream and writing to it. This is important because both the`read(byte[])`and`write(byte[])`methods are blocking calls. The`read(byte[])`method blocks until there is something to read from the stream. The`write(byte[])`method doesn't usually block, but it can block for flow control if the remote device isn't calling`read(byte[])`quickly enough and the intermediate buffers become full as a result. So, you should dedicate your main loop in the thread to reading from the`InputStream`. You can use a separate public method in the thread to initiate writes to the`OutputStream`.
+There are, of course, implementation details to consider. In particular, you
+should use a dedicated thread for reading from the stream and writing to it.
+This is important because both the `read(byte[])` and `write(byte[])` methods
+are blocking calls. The `read(byte[])` method blocks until there is something to
+read from the stream. The `write(byte[])` method doesn't usually block, but it
+can block for flow control if the remote device isn't calling `read(byte[])`
+quickly enough and the intermediate buffers become full as a result. So, you
+should dedicate your main loop in the thread to reading from the `InputStream`.
+You can use a separate public method in the thread to initiate writes to the
+`OutputStream`.
 
 ## Example
 
-The following is an example of how you can transfer data between two devices connected over Bluetooth:  
+The following is an example of how you can transfer data between two devices
+connected over Bluetooth:
 
 ### Kotlin
 
@@ -197,10 +218,24 @@ public class MyBluetoothService {
 }
 ```
 
-After the constructor acquires the necessary streams, the thread waits for data to come through the`InputStream`. When`read(byte[])`returns with data from the stream, the data is sent to the main activity using a member[`Handler`](https://developer.android.com/reference/android/os/Handler)from the parent class. The thread then waits for more bytes to be read from the`InputStream`.
+After the constructor acquires the necessary streams, the thread waits for data
+to come through the `InputStream`. When `read(byte[])` returns with data from
+the stream, the data is sent to the main activity using a member
+[`Handler`](https://developer.android.com/reference/android/os/Handler) from the parent class. The thread
+then waits for more bytes to be read from the `InputStream`.
 
-To send outgoing data, you call the thread's`write()`method from the main activity and pass in the bytes to be sent. This method calls`write(byte[])`to send the data to the remote device. If an[`IOException`](https://developer.android.com/reference/java/io/IOException)is thrown when calling`write(byte[])`, the thread sends a toast to the main activity, explaining to the user that the device couldn't send the given bytes to the other (connected) device.
+To send outgoing data, you call the thread's `write()` method from the main
+activity and pass in the bytes to be sent. This method calls `write(byte[])` to
+send the data to the remote device. If an
+[`IOException`](https://developer.android.com/reference/java/io/IOException) is thrown when calling
+`write(byte[])`, the thread sends a toast to the main activity, explaining to
+the user that the device couldn't send the given bytes to the other
+(connected) device.
 
-The thread's`cancel()`method allows you to terminate the connection at any time by closing the`BluetoothSocket`. Always call this method when you're done using the Bluetooth connection.
+The thread's `cancel()` method allows you to terminate the connection at any
+time by closing the `BluetoothSocket`. Always call this method when you're done
+using the Bluetooth connection.
 
-For a demonstration of using the Bluetooth APIs, see the[Bluetooth Chat sample app](https://github.com/android/connectivity-samples/tree/master/BluetoothChat)on GitHub.
+For a demonstration of using the Bluetooth APIs, see the [Bluetooth Chat sample
+app](https://github.com/android/connectivity-samples/tree/master/BluetoothChat)
+on GitHub.

@@ -6,17 +6,14 @@ source: md.txt
 
 <br />
 
-<br />
 
-Applicable XR devices  
-This guidance helps you build experiences for these types of XR devices.  
-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)  
-![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg)AI Glasses[](https://developer.android.com/develop/xr/devices#ai-glasses)  
-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
-After you've[installed and configured Android Studio](https://developer.android.com/develop/xr/jetpack-xr-sdk/get-studio),[created a project](https://developer.android.com/develop/xr/jetpack-xr-sdk/create-project), and[set up the Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk), you're ready to start building your first activity for AI glasses.
+After you've [installed and configured Android Studio](https://developer.android.com/develop/xr/jetpack-xr-sdk/get-studio), [created a
+project](https://developer.android.com/develop/xr/jetpack-xr-sdk/create-project), and [set up the Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk), you're ready to start building
+your first activity for AI glasses.
 
 This guide explains the following areas:
 

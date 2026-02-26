@@ -37,7 +37,8 @@ notification:
 - `NotificationManager.canPostPromotedNotifications()` checks whether your app can post a promoted notification, for example, if the user enabled or disabled it in settings.
 - `Settings.ACTION_MANAGE_APP_PROMOTED_NOTIFICATIONS` is the intent action that allows apps to send users to Settings to enable this feature.
 
-| **Note:** Original Equipment Manufacturers (OEMs) can enforce additional criteria for Live update eligibility. Check their respective documentation for details.
+> [!NOTE]
+> **Note:** Original Equipment Manufacturers (OEMs) can enforce additional criteria for Live update eligibility. Check their respective documentation for details.
 
 ## Usage criteria
 

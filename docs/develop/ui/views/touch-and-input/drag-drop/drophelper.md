@@ -14,7 +14,8 @@ and define how dropped data is handled.
 
 ## Set drag source
 
-| **Note:** See [Drag and Drop Demo](https://github.com/android/platform-samples/tree/main/samples/user-interface/draganddrop) for a complete implementation sample.
+> [!NOTE]
+> **Note:** See [Drag and Drop Demo](https://github.com/android/platform-samples/tree/main/samples/user-interface/draganddrop) for a complete implementation sample.
 
 To get started, create [`DragStartHelper`](https://developer.android.com/reference/androidx/core/view/DragStartHelper)
 with drag source view and
@@ -25,7 +26,7 @@ override method [`onDragStart()`](https://developer.android.com/reference/androi
 and `ClipData.Item` object for the data being moved. As part of the `ClipData`,
 supply metadata that is stored in a `ClipDescription` object within the
 `ClipData`. For a drag-and-drop operation that doesn't represent data movement,
-you might want to use `null` instead of an actual object.  
+you might want to use `null` instead of an actual object.
 
 ### Kotlin
 
@@ -80,7 +81,7 @@ parameters include the following:
 - An [`OnReceiveContentListener`](https://developer.android.com/reference/androidx/core/view/OnReceiveContentListener) to handle dropped data.
 
 For example, to create a drop target that accepts images, use either of the
-following method calls:  
+following method calls:
 
 ### Kotlin
 
@@ -143,7 +144,7 @@ corner radius of the highlight's rectangle.
 Use the
 [`DropHelper.Options.Builder`](https://developer.android.com/reference/androidx/draganddrop/DropHelper.Options.Builder)
 class to create a `DropHelper.Options` instance and set configuration options,
-as shown in the following example:  
+as shown in the following example:
 
 ### Kotlin
 
@@ -190,7 +191,7 @@ To set an `EditText` as the default text data handler, pass the `EditText` as
 the first argument of the call to
 `DropHelper.Options.Builder.addInnerEditTexts(EditText...)`. For example, if
 your drop target handles images but contains editable text fields `T1`, `T2`,
-and `T3`, make `T2` the default as follows:  
+and `T3`, make `T2` the default as follows:
 
 ### Kotlin
 
@@ -216,7 +217,9 @@ is provided to the listener in a
 [`ContentInfoCompat`](https://developer.android.com/reference/androidx/core/view/ContentInfoCompat) object.
 Text data is present in the object. Media, such as images, is represented by
 URIs.
-| **Warning:** `DropHelper` configures the drop target to listen for drag-and-drop events and to handle the dropped data. Don't attach a [`View.OnDragListener`](https://developer.android.com/reference/android/view/View.OnDragListener) or `OnReceiveContentListener` to drop targets when using `DropHelper`.
+
+> [!WARNING]
+> **Warning:** `DropHelper` configures the drop target to listen for drag-and-drop events and to handle the dropped data. Don't attach a [`View.OnDragListener`](https://developer.android.com/reference/android/view/View.OnDragListener) or `OnReceiveContentListener` to drop targets when using `DropHelper`.
 
 The `OnReceiveContentListener` also handles data provided to the drop target by
 user interactions other than drag and drop---such as copy and
@@ -226,7 +229,8 @@ types of views:
 - All views, if the user is running Android 12 or higher.
 - [`AppCompatEditText`](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatEditText), if the user is running a version of Android down to Android 7.0.
 
-| **Note:** `DropHelper` supports the Jetpack [`OnReceiveContentListener`](https://developer.android.com/reference/androidx/core/view/OnReceiveContentListener) interface, which is backward compatible down to API level 24. `DropHelper` doesn't support the platform [`OnReceiveContentListener`](https://developer.android.com/reference/android/view/OnReceiveContentListener) interface introduced in API level 31.
+> [!NOTE]
+> **Note:** `DropHelper` supports the Jetpack [`OnReceiveContentListener`](https://developer.android.com/reference/androidx/core/view/OnReceiveContentListener) interface, which is backward compatible down to API level 24. `DropHelper` doesn't support the platform [`OnReceiveContentListener`](https://developer.android.com/reference/android/view/OnReceiveContentListener) interface introduced in API level 31.
 
 ### MIME types, permissions, and content validation
 

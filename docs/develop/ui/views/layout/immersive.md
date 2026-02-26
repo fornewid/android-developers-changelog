@@ -8,7 +8,7 @@ Some content is best experienced in fullscreen without any indicators on the
 status bar or the navigation bar. Some examples are videos, games, image
 galleries, books, and presentation slides. This is referred to as
 *immersive mode*. This page shows how you can engage users more deeply with
-content in fullscreen.  
+content in fullscreen.
 ![](https://developer.android.com/static/design/media/fullscreen_landing.png) **Figure 1.** Example of immersive mode.
 
 Immersive mode helps users avoid accidental exits during a game and
@@ -24,7 +24,7 @@ to hide the system bars and [`WindowInsetsControllerCompat.show()`](https://deve
 to bring them back.
 
 The following snippet shows an example of configuring a button to hide and show
-the system bars.  
+the system bars.
 
 ### Kotlin
 

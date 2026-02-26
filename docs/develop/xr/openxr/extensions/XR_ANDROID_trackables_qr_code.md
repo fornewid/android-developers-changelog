@@ -53,16 +53,18 @@ Daniel Guttenberg, Qualcomm
 ## Overview
 
 This extension enables physical QR Code tracking and QR Code data decoding.
-| **Permissions**   
-|
-| Android applications**must** have the \`android.permission.SCENE_UNDERSTANDING\` permission listed in their manifest as this extension depends on \`XR_ANDROID_trackables\` and exposes the geometry of the environment. The \`android.permission.SCENE_UNDERSTANDING\` permission is considered a dangerous permission.  
-| (protection level: dangerous)
+
+> [!CAUTION]
+> **Permissions**   
+>
+> Android applications **must** have the \`android.permission.SCENE_UNDERSTANDING\` permission listed in their manifest as this extension depends on \`XR_ANDROID_trackables\` and exposes the geometry of the environment. The \`android.permission.SCENE_UNDERSTANDING\` permission is considered a dangerous permission.   
+> (protection level: dangerous)
 
 ## Inspect system capability
 
 ### XrSystemQrCodeTrackingPropertiesANDROID
 
-The`XrSystemQrCodeTrackingPropertiesANDROID`structure is defined as:  
+The `XrSystemQrCodeTrackingPropertiesANDROID` structure is defined as:
 
     typedef struct XrSystemQrCodeTrackingPropertiesANDROID {
         XrStructureType    type;
@@ -74,35 +76,56 @@ The`XrSystemQrCodeTrackingPropertiesANDROID`structure is defined as:
 
 #### Member Descriptions
 
-- `type`is the[`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType)of this structure.
-- `next`is`NULL`or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
-- `supportsQrCodeTracking`is an[`XrBool32`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrBool32)indicating if current system provides QR Code tracking capability.
-- `supportsQrCodeSizeEstimation`is an[`XrBool32`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrBool32)indicating if current system provides QR Code size estimation.
-- `maxQrCodeCount`is the total maximum number of QR Codes that can be tracked at the same time.
+- `type` is the [`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `supportsQrCodeTracking` is an [`XrBool32`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrBool32) indicating if current system provides QR Code tracking capability.
+- `supportsQrCodeSizeEstimation` is an [`XrBool32`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrBool32) indicating if current system provides QR Code size estimation.
+- `maxQrCodeCount` is the total maximum number of QR Codes that can be tracked at the same time.
 
-An application can inspect whether the system is capable of QR Code tracking by extending the[`XrSystemProperties`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSystemProperties)with`XrSystemQrCodeTrackingPropertiesANDROID`structure when calling[`xrGetSystemProperties`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrGetSystemProperties). The runtime**must** return`XR_ERROR_FEATURE_UNSUPPORTED`for QR Code tracker creation if and only if`supportsQrCodeTracking`is`XR_FALSE`.
+An application can inspect whether the system is capable of QR Code
+tracking by extending the [`XrSystemProperties`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSystemProperties) with
+`XrSystemQrCodeTrackingPropertiesANDROID` structure when calling
+[`xrGetSystemProperties`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrGetSystemProperties).
+The runtime **must** return `XR_ERROR_FEATURE_UNSUPPORTED` for QR Code
+tracker creation if and only if `supportsQrCodeTracking` is
+`XR_FALSE`.
 
-If a runtime supports QR Code tracking, it**must** support`maxQrCodeCount`tracked QR Codes at any given time.
+If a runtime supports QR Code tracking, it **must** support
+`maxQrCodeCount` tracked QR Codes at any given time.
 
-If a runtime supports QR Code size estimation, the application can set`XrTrackableQrCodeConfigurationANDROID::qrCodeEdgeSize``0`to indicate the usage of size estimation. Otherwise, the application**must** set`XrTrackableQrCodeConfigurationANDROID::qrCodeEdgeSize`to a positive value or`XR_ERROR_VALIDATION_FAILURE`will be returned.
+If a runtime supports QR Code size estimation, the application can set
+`XrTrackableQrCodeConfigurationANDROID::qrCodeEdgeSize` `0` to
+indicate the usage of size estimation.
+Otherwise, the application **must** set
+`XrTrackableQrCodeConfigurationANDROID::qrCodeEdgeSize` to a
+positive value or `XR_ERROR_VALIDATION_FAILURE` will be returned.
 
 #### Valid Usage (Implicit)
 
-- The`XR_ANDROID_trackables_qr_code`extension**must** be enabled prior to using`XrSystemQrCodeTrackingPropertiesANDROID`
-- `type`**must** be`XR_TYPE_SYSTEM_QR_CODE_TRACKING_PROPERTIES_ANDROID`
-- `next`**must** be`NULL`or a valid pointer to the next structure in a structure chain
+- The `XR_ANDROID_trackables_qr_code` extension **must** be enabled prior to using `XrSystemQrCodeTrackingPropertiesANDROID`
+- `type` **must** be `XR_TYPE_SYSTEM_QR_CODE_TRACKING_PROPERTIES_ANDROID`
+- `next` **must** be `NULL` or a valid pointer to the next structure in a structure chain
 
 ## Tracking QR Codes
 
-This extension adds`XR_TRACKABLE_TYPE_QR_CODE_ANDROID`to[`XrTrackableTypeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackableTypeANDROID).
+This extension adds `XR_TRACKABLE_TYPE_QR_CODE_ANDROID` to
+[`XrTrackableTypeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackableTypeANDROID).
 
-The application**may** create an[`XrTrackableTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackableTrackerANDROID)by calling[`xrCreateTrackableTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#xrCreateTrackableTrackerANDROID)and specifying`XR_TRACKABLE_TYPE_QR_CODE_ANDROID`as the trackable type in`XrTrackableTrackerCreateInfoANDROID::trackableType`to track QR codes.
+The application **may** create an [`XrTrackableTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackableTrackerANDROID) by calling
+[`xrCreateTrackableTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#xrCreateTrackableTrackerANDROID) and specifying
+`XR_TRACKABLE_TYPE_QR_CODE_ANDROID` as the trackable type in
+`XrTrackableTrackerCreateInfoANDROID::trackableType` to track QR
+codes.
 
-The runtime**must** return`XR_ERROR_FEATURE_UNSUPPORTED`if`XrTrackableTrackerCreateInfoANDROID::trackableType`is`XR_TRACKABLE_TYPE_QR_CODE_ANDROID`and`XrSystemQrCodeTrackingPropertiesANDROID::supportsQrCodeTracking`returns`XR_FALSE`via`xrGetSystemProperties`.
+The runtime **must** return `XR_ERROR_FEATURE_UNSUPPORTED` if
+`XrTrackableTrackerCreateInfoANDROID::trackableType` is
+`XR_TRACKABLE_TYPE_QR_CODE_ANDROID` and
+`XrSystemQrCodeTrackingPropertiesANDROID::supportsQrCodeTracking`
+returns `XR_FALSE` via `xrGetSystemProperties`.
 
 ### XrTrackableQrCodeConfigurationANDROID
 
-The`XrTrackableQrCodeConfigurationANDROID`structure is defined as:  
+The `XrTrackableQrCodeConfigurationANDROID` structure is defined as:
 
     typedef struct XrTrackableQrCodeConfigurationANDROID {
         XrStructureType               type;
@@ -113,27 +136,37 @@ The`XrTrackableQrCodeConfigurationANDROID`structure is defined as:
 
 #### Member Descriptions
 
-- `type`is the[`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType)of this structure.
-- `next`is`NULL`or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
-- `trackingMode`is an`XrQrCodeTrackingModeANDROID`indicating the desired mode for tracking.
-- `qrCodeEdgeSize`indicates the size of the QR Code edge in meters. If zero, the QR Code size will be estimated online.
+- `type` is the [`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `trackingMode` is an `XrQrCodeTrackingModeANDROID` indicating the desired mode for tracking.
+- `qrCodeEdgeSize` indicates the size of the QR Code edge in meters. If zero, the QR Code size will be estimated online.
 
-The application**must** set a valid configuration by adding a`XrTrackableQrCodeConfigurationANDROID`to the next chain of`XrTrackableTrackerCreateInfoANDROID`. Otherwise, the runtime**must** return`XR_ERROR_VALIDATION_FAILURE`.
+The application **must** set a valid configuration by adding a
+`XrTrackableQrCodeConfigurationANDROID` to the next chain of
+`XrTrackableTrackerCreateInfoANDROID`.
+Otherwise, the runtime **must** return `XR_ERROR_VALIDATION_FAILURE`.
 
-If the runtime supports QR Code size estimation, the application**may** set`XrTrackableQrCodeConfigurationANDROID::qrCodeEdgeSize`to`0`to indicate the usage of size estimation. Otherwise, the application**must** set`XrTrackableQrCodeConfigurationANDROID::qrCodeEdgeSize`to a positive value or`XR_ERROR_VALIDATION_FAILURE`will be returned.
+If the runtime supports QR Code size estimation, the application **may** set
+`XrTrackableQrCodeConfigurationANDROID::qrCodeEdgeSize` to `0` to
+indicate the usage of size estimation.
+Otherwise, the application **must** set
+`XrTrackableQrCodeConfigurationANDROID::qrCodeEdgeSize` to a
+positive value or `XR_ERROR_VALIDATION_FAILURE` will be returned.
 
-The runtime**must** filter the output from`xrGetAllTrackablesANDROID`to match the`trackingMode`and`qrCodeEdgeSize`.
+The runtime **must** filter the output from `xrGetAllTrackablesANDROID` to
+match the `trackingMode` and `qrCodeEdgeSize`.
 
 #### Valid Usage (Implicit)
 
-- The`XR_ANDROID_trackables_qr_code`extension**must** be enabled prior to using`XrTrackableQrCodeConfigurationANDROID`
-- `type`**must** be`XR_TYPE_TRACKABLE_QR_CODE_CONFIGURATION_ANDROID`
-- `next`**must** be`NULL`or a valid pointer to the next structure in a structure chain
-- `trackingMode`**must** be a valid`XrQrCodeTrackingModeANDROID`value
+- The `XR_ANDROID_trackables_qr_code` extension **must** be enabled prior to using `XrTrackableQrCodeConfigurationANDROID`
+- `type` **must** be `XR_TYPE_TRACKABLE_QR_CODE_CONFIGURATION_ANDROID`
+- `next` **must** be `NULL` or a valid pointer to the next structure in a structure chain
+- `trackingMode` **must** be a valid `XrQrCodeTrackingModeANDROID` value
 
 ### XrQrCodeTrackingModeANDROID
 
-The`XrQrCodeTrackingModeANDROID`enum describes the supported tracking modes of QR Codes.  
+The `XrQrCodeTrackingModeANDROID` enum describes the supported tracking
+modes of QR Codes.
 
     typedef enum XrQrCodeTrackingModeANDROID {
         XR_QR_CODE_TRACKING_MODE_STATIC_ANDROID = 0,
@@ -141,13 +174,15 @@ The`XrQrCodeTrackingModeANDROID`enum describes the supported tracking modes of Q
         XR_QR_CODE_TRACKING_MODE_MAX_ENUM_ANDROID = 0x7FFFFFFF
     } XrQrCodeTrackingModeANDROID;
 
-\| Enum \| Description - \|`XR_QR_CODE_TRACKING_MODE_STATIC_ANDROID`\| The QR Code is static and does not move. ' \|`XR_QR_CODE_TRACKING_MODE_DYNAMIC_ANDROID`\| The QR Code is dynamic and may move. \|
+\| Enum \| Description -
+\| `XR_QR_CODE_TRACKING_MODE_STATIC_ANDROID` \| The QR Code is static and does not move. '
+\| `XR_QR_CODE_TRACKING_MODE_DYNAMIC_ANDROID` \| The QR Code is dynamic and may move. \|
 
 ## Get QR Codes
 
 ### xrGetTrackableQrCodeANDROID
 
-The`xrGetTrackableQrCodeANDROID`function is defined as:  
+The `xrGetTrackableQrCodeANDROID` function is defined as:
 
     XrResult xrGetTrackableQrCodeANDROID(
         XrTrackableTrackerANDROID                   tracker,
@@ -156,22 +191,26 @@ The`xrGetTrackableQrCodeANDROID`function is defined as:
 
 #### Parameter Descriptions
 
-- `tracker`is the[`XrTrackableTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackableTrackerANDROID)to query.
-- `getInfo`is the[`XrTrackableGetInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackableGetInfoANDROID)with the information used to get the trackable QR Code.
-- `qrCodeOutput`is a pointer to the`XrTrackableQrCodeANDROID`structure in which the trackable QR Code is returned.
+- `tracker` is the [`XrTrackableTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackableTrackerANDROID) to query.
+- `getInfo` is the [`XrTrackableGetInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackableGetInfoANDROID) with the information used to get the trackable QR Code.
+- `qrCodeOutput` is a pointer to the `XrTrackableQrCodeANDROID` structure in which the trackable QR Code is returned.
 
-The runtime**must** return`XR_ERROR_MISMATCHING_TRACKABLE_TYPE_ANDROID`if the trackable type of the`XrTrackableANDROID`is not`XR_TRACKABLE_TYPE_QR_CODE_ANDROID`, or if the trackable type of the`XrTrackableTrackerANDROID`is not`XR_TRACKABLE_TYPE_QR_CODE_ANDROID`.
+The runtime **must** return `XR_ERROR_MISMATCHING_TRACKABLE_TYPE_ANDROID`
+if the trackable type of the `XrTrackableANDROID` is not
+`XR_TRACKABLE_TYPE_QR_CODE_ANDROID`, or if the trackable type of the
+`XrTrackableTrackerANDROID` is not
+`XR_TRACKABLE_TYPE_QR_CODE_ANDROID`.
 
 #### Valid Usage (Implicit)
 
-- The`XR_ANDROID_trackables_qr_code`extension**must** be enabled prior to calling`xrGetTrackableQrCodeANDROID`
-- `tracker`**must** be a valid`XrTrackableTrackerANDROID`handle
-- `getInfo`**must** be a pointer to a valid`XrTrackableGetInfoANDROID`structure
-- `qrCodeOutput`**must** be a pointer to an`XrTrackableQrCodeANDROID`structure
+- The `XR_ANDROID_trackables_qr_code` extension **must** be enabled prior to calling `xrGetTrackableQrCodeANDROID`
+- `tracker` **must** be a valid `XrTrackableTrackerANDROID` handle
+- `getInfo` **must** be a pointer to a valid `XrTrackableGetInfoANDROID` structure
+- `qrCodeOutput` **must** be a pointer to an `XrTrackableQrCodeANDROID` structure
 
 ### XrTrackableQrCodeANDROID
 
-The`XrTrackableQrCodeANDROID`structure is defined as:  
+The `XrTrackableQrCodeANDROID` structure is defined as:
 
     typedef struct XrTrackableQrCodeANDROID {
         XrStructureType           type;
@@ -187,28 +226,28 @@ The`XrTrackableQrCodeANDROID`structure is defined as:
 
 #### Member Descriptions
 
-- `type`is the[`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType)of this structure.
-- `next`is`NULL`or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
-- `trackingState`is the[`XrTrackingStateANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackingStateANDROID)of the QR Code.
-- `lastUpdatedTime`is the[`XrTime`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrTime)of the last update of the QR code.
-- `centerPose`is the[`XrPosef`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrPosef)of the QR Code located in`XrTrackableGetInfoANDROID::baseSpace`. The QR Code lies in the XZ plane with X pointing to the right of the QR code and Z pointing to its bottom.
-- `extents`is the[`XrExtent2Df`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrExtent2Df)dimensions of the QR Code. The boundary of the bounding box is at points:`centerPose`+/- (`extents`/ 2).
-- `bufferCapacityInput`is the capability of the`buffer`, or`0`to retrieve the required capability.
-- `bufferCountOutput`If the`bufferCapacityInput`is`0`, the runtime will write the required buffer size into`bufferCountOutput`. Otherwise, it contains the total elements written in`buffer`.
-- `buffer`is a pointer to an array of`char`to write the decoded QR code data. The application can pass a`nullptr`to determine the required buffer size or if not requesting the decode QR Code data. The QR Code data is returned as null-terminated UTF-8 string.
-- See the[Buffer Size Parameters](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-buffer-size-parameters)section for a detailed description of retrieving the required`buffer`size.
+- `type` is the [`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+- `trackingState` is the [`XrTrackingStateANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackingStateANDROID) of the QR Code.
+- `lastUpdatedTime` is the [`XrTime`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrTime) of the last update of the QR code.
+- `centerPose` is the [`XrPosef`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrPosef) of the QR Code located in `XrTrackableGetInfoANDROID::baseSpace`. The QR Code lies in the XZ plane with X pointing to the right of the QR code and Z pointing to its bottom.
+- `extents` is the [`XrExtent2Df`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrExtent2Df) dimensions of the QR Code. The boundary of the bounding box is at points: `centerPose` +/- (`extents` / 2).
+- `bufferCapacityInput` is the capability of the `buffer`, or `0` to retrieve the required capability.
+- `bufferCountOutput` If the `bufferCapacityInput` is `0`, the runtime will write the required buffer size into `bufferCountOutput`. Otherwise, it contains the total elements written in `buffer`.
+- `buffer` is a pointer to an array of `char` to write the decoded QR code data. The application can pass a `nullptr` to determine the required buffer size or if not requesting the decode QR Code data. The QR Code data is returned as null-terminated UTF-8 string.
+- See the [Buffer Size Parameters](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-buffer-size-parameters) section for a detailed description of retrieving the required `buffer` size.
 
 #### Valid Usage (Implicit)
 
-- The`XR_ANDROID_trackables_qr_code`extension**must** be enabled prior to using`XrTrackableQrCodeANDROID`
-- `type`**must** be`XR_TYPE_TRACKABLE_QR_CODE_ANDROID`
-- `next`**must** be`NULL`or a valid pointer to the next structure in a structure chain
-- `trackingState`**must** be a valid`XrTrackingStateANDROID`value
-- If`bufferCapacityInput`is not`0`,`buffer`**must** be a pointer to an array of`bufferCapacityInput`char values
+- The `XR_ANDROID_trackables_qr_code` extension **must** be enabled prior to using `XrTrackableQrCodeANDROID`
+- `type` **must** be `XR_TYPE_TRACKABLE_QR_CODE_ANDROID`
+- `next` **must** be `NULL` or a valid pointer to the next structure in a structure chain
+- `trackingState` **must** be a valid `XrTrackingStateANDROID` value
+- If `bufferCapacityInput` is not `0`, `buffer` **must** be a pointer to an array of `bufferCapacityInput` char values
 
 ## Example code for getting trackable QR Codes
 
-The following example code demonstrates how to get trackable QR Codes.  
+The following example code demonstrates how to get trackable QR Codes.
 
     XrInstance instance; // previously initialized
     XrSystemId systemId; // previously initialized
@@ -284,13 +323,13 @@ The following example code demonstrates how to get trackable QR Codes.
 
 **New Enum Constants**
 
-[`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType)enumeration is extended with:
+[`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) enumeration is extended with:
 
 - `XR_TYPE_SYSTEM_QR_CODE_TRACKING_PROPERTIES_ANDROID`
 - `XR_TYPE_TRACKABLE_QR_CODE_CONFIGURATION_ANDROID`
 - `XR_TYPE_TRACKABLE_QR_CODE_ANDROID`
 
-[`XrTrackableTypeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackableTypeANDROID)enumeration is extended with:
+[`XrTrackableTypeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_trackables#XrTrackableTypeANDROID) enumeration is extended with:
 
 - `XR_TRACKABLE_TYPE_QR_CODE_ANDROID`
 
@@ -317,4 +356,6 @@ The following example code demonstrates how to get trackable QR Codes.
 
 *** ** * ** ***
 
-OpenXR™ and the OpenXR logo are trademarks owned by The Khronos Group Inc. and are registered as a trademark in China, the European Union, Japan and the United Kingdom.
+OpenXR™ and the OpenXR logo are trademarks owned
+by The Khronos Group Inc. and are registered as a trademark in China,
+the European Union, Japan and the United Kingdom.

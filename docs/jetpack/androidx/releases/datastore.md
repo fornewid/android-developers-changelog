@@ -6,14 +6,13 @@ source: md.txt
 
 # DataStore
 
-[User Guide](https://developer.android.com/datastore) [Codelab](https://codelabs.developers.google.com/codelabs/android-preferences-datastore)  
-API Reference  
+[User Guide](https://developer.android.com/datastore) [Codelab](https://codelabs.developers.google.com/codelabs/android-preferences-datastore) API Reference  
 [androidx.datastore](https://developer.android.com/reference/kotlin/androidx/datastore/package-summary)   
-Store data asynchronously, consistently, and transactionally, overcoming some of the drawbacks of SharedPreferences  
+Store data asynchronously, consistently, and transactionally, overcoming some of the drawbacks of SharedPreferences
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| January 28, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.0) | - | - | [1.3.0-alpha05](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha05) |
+| February 25, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.0) | - | - | [1.3.0-alpha06](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha06) |
 
 ## Declare dependencies
 
@@ -30,7 +29,7 @@ for your app or module:
 
 ### Preferences DataStore
 
-Add the following lines to the dependencies part of your gradle file:  
+Add the following lines to the dependencies part of your gradle file:
 
 ### Groovy
 
@@ -58,7 +57,7 @@ Add the following lines to the dependencies part of your gradle file:
     
 ```
 
-To add optional RxJava support, add the following dependencies:  
+To add optional RxJava support, add the following dependencies:
 
 ### Groovy
 
@@ -88,7 +87,7 @@ To add optional RxJava support, add the following dependencies:
 
 ### DataStore
 
-Add the following lines to the dependencies part of your gradle file:  
+Add the following lines to the dependencies part of your gradle file:
 
 ### Groovy
 
@@ -116,7 +115,7 @@ Add the following lines to the dependencies part of your gradle file:
     
 ```
 
-Add the following optional dependencies for RxJava support:  
+Add the following optional dependencies for RxJava support:
 
 ### Groovy
 
@@ -148,7 +147,7 @@ To serialize content, add dependencies for either Protocol Buffers or JSON seria
 
 #### JSON serialization
 
-To use JSON serialization, add the following to your Gradle file:  
+To use JSON serialization, add the following to your Gradle file:
 
 ### Groovy
 
@@ -178,7 +177,7 @@ To use JSON serialization, add the following to your Gradle file:
 
 #### Protobuf serialization
 
-To use Protobuf serialization, add the following to your Gradle file:  
+To use Protobuf serialization, add the following to your Gradle file:
 
 ### Groovy
 
@@ -251,6 +250,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.3
+
+### Version 1.3.0-alpha06
+
+February 25, 2026
+
+`androidx.datastore:datastore-*:1.3.0-alpha06` is released. Version 1.3.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c26c6f088b95903b7b9cd5e6f2092988f1e64dc3..c640b9aa8e30b5db9ee258561ad1fc4bc947e69d/datastore).
+
+**New Features**
+
+- `DataStore` now supports `androidx.tracing` on the Android target platform. You can create a `DataStore` with tracing by providing a `androidx.tracing.Tracer` instance to the `DataStoreFactory.createWithTracing()` function. ([I71bc2](https://android-review.googlesource.com/#/q/I71bc206a0b272b5a21d6695d62de0d2c916a5067), [b/427722902](https://issuetracker.google.com/issues/427722902))
 
 ### Version 1.3.0-alpha05
 
@@ -762,7 +771,9 @@ November 17, 2020
 November 11, 2020
 
 `androidx.datastore:datastore-*:1.0.0-alpha03` is released. [Version 1.0.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/2d49f9fa892a0d067580a871f3aa0cd6764f4c3b/datastore)
-| **Caution:** Please use version `1.0.0-alpha04` instead. A critical issue was found in `1.0.0-alpha03` that causes Preference Datastore to crash with `java.lang.NoClassDefFoundError`. ([b/173036843](https://issuetracker.google.com/issues/173036843))
+
+> [!CAUTION]
+> **Caution:** Please use version `1.0.0-alpha04` instead. A critical issue was found in `1.0.0-alpha03` that causes Preference Datastore to crash with `java.lang.NoClassDefFoundError`. ([b/173036843](https://issuetracker.google.com/issues/173036843))
 
 **New Features**
 

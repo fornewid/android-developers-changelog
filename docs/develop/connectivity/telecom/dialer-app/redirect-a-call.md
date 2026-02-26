@@ -11,7 +11,7 @@ broadcast is deprecated and replaced with the
 [`CallRedirectionService`](https://developer.android.com/reference/android/telecom/CallRedirectionService)
 API. The `CallRedirectionService` provides interfaces for you to use to
 modify outgoing calls made by the Android platform. For example, third-party
-apps might cancel calls and reroute them over VoIP.  
+apps might cancel calls and reroute them over VoIP.
 
 ### Kotlin
 
@@ -70,7 +70,7 @@ class RedirectionService extends CallRedirectionService {
 ```
 
 You must register this service in the manifest so the system can start it
-correctly.  
+correctly.
 
     <service
         android:name=".RedirectionService"
@@ -89,7 +89,7 @@ You should check if your app has this role when the user launches your app so
 you can request it as needed. You launch an intent created by the `RoleManager`,
 so ensure you override the
 [`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent))
-function to handle the user's selection.  
+function to handle the user's selection.
 
 ### Kotlin
 

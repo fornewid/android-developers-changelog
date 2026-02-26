@@ -10,7 +10,9 @@ cases](https://developer.android.com/develop/background-work/services/fgs/restri
 foreground service while the app runs in the background, and the foreground
 service doesn't satisfy one of the exceptional cases, the system throws a
 [`ForegroundServiceStartNotAllowedException`](https://developer.android.com/reference/android/app/ForegroundServiceStartNotAllowedException).
-| **Note:** If one app calls `Context.startForegroundService()` to start a foreground service that another app owns, these restrictions apply only if **both** apps target Android 12 or higher.
+
+> [!NOTE]
+> **Note:** If one app calls `Context.startForegroundService()` to start a foreground service that another app owns, these restrictions apply only if **both** apps target Android 12 or higher.
 
 In addition, if an app wants to launch a foreground service that needs
 *while-in-use* permissions (for example, body sensor, camera, microphone, or
@@ -32,21 +34,23 @@ your app runs in the background:
 - Your app receives a high priority message using [Firebase Cloud
   Messaging](https://firebase.google.com/docs/cloud-messaging).
 
-  | **Note:** The system can downgrade the high priority
-  | messages to normal priority if the app is not using the high priority messages
-  | for surfacing time sensitive content to the user. If the message's priority is
-  | downgraded, your app cannot start a foreground service and attempting to start
-  | one results in a
-  | [`ForegroundServiceStartNotAllowedException`](https://developer.android.com/reference/android/app/ForegroundServiceStartNotAllowedException).
-  |
-  | So, it's recommended to check the result of
-  | [`RemoteMessage.getPriority()`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage#getPriority())
-  | and confirm it's
-  | [`PRIORITY_HIGH()`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage#PRIORITY_HIGH())
-  | before attempting to start a foreground service. For guidance on high priority
-  | messages and when to use them, refer to
-  | [`FCM's
-  | documentation`](https://firebase.google.com/docs/cloud-messaging/android/message-priority).
+  > [!NOTE]
+  > **Note:** The system can downgrade the high priority
+  > messages to normal priority if the app is not using the high priority messages
+  > for surfacing time sensitive content to the user. If the message's priority is
+  > downgraded, your app cannot start a foreground service and attempting to start
+  > one results in a
+  > [`ForegroundServiceStartNotAllowedException`](https://developer.android.com/reference/android/app/ForegroundServiceStartNotAllowedException).
+  >
+  > So, it's recommended to check the result of
+  > [`RemoteMessage.getPriority()`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage#getPriority())
+  > and confirm it's
+  > [`PRIORITY_HIGH()`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage#PRIORITY_HIGH())
+  > before attempting to start a foreground service. For guidance on high priority
+  > messages and when to use them, refer to
+  > [`FCM's
+  > documentation`](https://firebase.google.com/docs/cloud-messaging/android/message-priority).
+
 - The user performs an action on a UI element related to your app. For example,
   they might interact with a [bubble](https://developer.android.com/guide/topics/ui/bubbles),
   [notification](https://developer.android.com/develop/ui/views/notifications),
@@ -68,9 +72,11 @@ your app runs in the background:
   or [`ACTION_MY_PACKAGE_REPLACED`](https://developer.android.com/reference/android/content/Intent#ACTION_MY_PACKAGE_REPLACED)
   intent action in a [broadcast receiver](https://developer.android.com/guide/components/broadcasts).
 
-  | **Note:** If your app targets Android 14 or higher, there are restrictions on launching certain foreground service types from a `BOOT_COMPLETED` receiver. For more information, see [Restrictions on
-  | `BOOT_COMPLETED` broadcast receivers launching foreground
-  | services](https://developer.android.com/about/versions/15/behavior-changes-15#fgs-boot-completed).
+  > [!NOTE]
+  > **Note:** If your app targets Android 14 or higher, there are restrictions on launching certain foreground service types from a `BOOT_COMPLETED` receiver. For more information, see [Restrictions on
+  > `BOOT_COMPLETED` broadcast receivers launching foreground
+  > services](https://developer.android.com/about/versions/15/behavior-changes-15#fgs-boot-completed).
+
 - Your app receives the
   [`ACTION_TIMEZONE_CHANGED`](https://developer.android.com/reference/android/content/Intent#ACTION_TIMEZONE_CHANGED),
   [`ACTION_TIME_CHANGED`](https://developer.android.com/reference/android/content/Intent#ACTION_TIME_CHANGED),
@@ -135,7 +141,9 @@ it calls `checkSelfPermission()` to check if it has that permission, the method
 returns `PERMISSION_GRANTED` even if the app is in the background. When the
 method returns `PERMISSION_GRANTED`, it's saying "your app has this permission
 *while the app is in use*."
-| **Note:** On versions of Android lower than Android 14, if you tried to create a foreground service that needed while-in-use permissions while your app was in the background, the system would let you create the service, but the service wouldn't have access to the needed resources, and if it tried to use them, you'd get an exception. On Android 14 or higher, your app gets the exception as soon as it tries to create the foreground service.
+
+> [!NOTE]
+> **Note:** On versions of Android lower than Android 14, if you tried to create a foreground service that needed while-in-use permissions while your app was in the background, the system would let you create the service, but the service wouldn't have access to the needed resources, and if it tried to use them, you'd get an exception. On Android 14 or higher, your app gets the exception as soon as it tries to create the foreground service.
 
 For this reason, if your foreground service needs a while-in-use permission, you
 must call `Context.startForegroundService()` or `Context.bindService()` while
@@ -173,7 +181,7 @@ The following list contains these situations:
 
 When testing your app, start its foreground services. If a started service has
 restricted access to location, microphone, and camera, the following message
-appears in Logcat:  
+appears in Logcat:
 
 ```
 Foreground service started from background can not have \

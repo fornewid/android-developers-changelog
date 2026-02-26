@@ -46,7 +46,7 @@ situations:
 
   Additionally, you should declare a [foreground service type](https://developer.android.com/guide/topics/manifest/service-element#foregroundservicetype) of
   `location`, as shown in the following code snippet. On Android
-  10 (API level 29) and higher, you must declare this foreground service type.  
+  10 (API level 29) and higher, you must declare this foreground service type.
 
       <!-- Recommended for Android 9 (API level 28) and lower. -->
       <!-- Required for Android 10 (API level 29) and higher. -->
@@ -58,7 +58,7 @@ situations:
 
 You declare a need for foreground location when your app requests either the
 [`ACCESS_COARSE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION) permission or the [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
-permission, as shown in the following snippet:  
+permission, as shown in the following snippet:
 
     <manifest ... >
       <!-- Always include this permission -->
@@ -68,7 +68,8 @@ permission, as shown in the following snippet:
       <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     </manifest>
 
-| **Note:** Beginning with Android 12, your app can call [`getLocationPowerSaverMode()`](https://developer.android.com/reference/android/os/PowerManager#getLocationPowerSaveMode()) to check how the device's location features behave when Battery Saver is active. If this returns [`LOCATION_MODE_FOREGROUND_ONLY`](https://developer.android.com/reference/android/os/PowerManager#LOCATION_MODE_FOREGROUND_ONLY), your app will continue to receive location updates while in the foreground or running a foreground service when Battery Saver is on, even if the screen is off.
+> [!NOTE]
+> **Note:** Beginning with Android 12, your app can call [`getLocationPowerSaverMode()`](https://developer.android.com/reference/android/os/PowerManager#getLocationPowerSaveMode()) to check how the device's location features behave when Battery Saver is active. If this returns [`LOCATION_MODE_FOREGROUND_ONLY`](https://developer.android.com/reference/android/os/PowerManager#LOCATION_MODE_FOREGROUND_ONLY), your app will continue to receive location updates while in the foreground or running a foreground service when Battery Saver is on, even if the screen is off.
 
 ### Background location
 
@@ -89,7 +90,7 @@ On Android 10 (API level 29) and higher, you must declare the
 [`ACCESS_BACKGROUND_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) permission in your app's manifest in order to
 [request background location access](https://developer.android.com/develop/sensors-and-location/location/permissions/background) at runtime. On earlier versions of
 Android, when your app receives foreground location access, it automatically
-receives background location access as well.  
+receives background location access as well.
 
     <manifest ... >
       <!-- Required only when requesting background location access on
@@ -97,7 +98,8 @@ receives background location access as well.
       <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     </manifest>
 
-| **Note:** The Google Play Store has a [location policy](https://support.google.com/googleplay/android-developer/answer/9799150) concerning device location, restricting background location access to apps that need it for their core features and meet related policy requirements.
+> [!NOTE]
+> **Note:** The Google Play Store has a [location policy](https://support.google.com/googleplay/android-developer/answer/9799150) concerning device location, restricting background location access to apps that need it for their core features and meet related policy requirements.
 
 ### Accuracy
 

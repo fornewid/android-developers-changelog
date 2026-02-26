@@ -29,7 +29,7 @@ Then, in your module-level `build.gradle` file, add the following dependency:
 
 ```groovy
 dependencies {
-    implementation "androidx.health:health-services-client:1.1.0-beta01"
+    implementation "androidx.health:health-services-client:1.1.0-rc01"
 }
 ```
 
@@ -37,10 +37,12 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.health:health-services-client:1.1.0-beta01")
+    implementation("androidx.health:health-services-client:1.1.0-rc01")
 }
 ```
-| **Note:** This API is asynchronous and relies on `ListenableFuture` extensively. See [Using a ListenableFuture](https://developer.android.com/guide/background/listenablefuture) for more information about this concept.
+
+> [!NOTE]
+> **Note:** This API is asynchronous and relies on `ListenableFuture` extensively. See [Using a ListenableFuture](https://developer.android.com/guide/background/listenablefuture) for more information about this concept.
 
 ## App structure
 
@@ -84,7 +86,9 @@ types](https://developer.android.com/guide/topics/manifest/service-element#foreg
     </application>
 </manifest>
 ```
-| **Note:** If your exercise is prematurely ended with an `ExerciseEndReason` of `AUTO_ENDED_PERMISSION_LOST` errors, this is likely caused by a missing `ForegroundService` with appropriate location permissions.
+
+> [!NOTE]
+> **Note:** If your exercise is prematurely ended with an `ExerciseEndReason` of `AUTO_ENDED_PERMISSION_LOST` errors, this is likely caused by a missing `ForegroundService` with appropriate location permissions.
 
 Use
 [`AmbientLifecycleObserver`](https://developer.android.com/reference/kotlin/androidx/wear/ambient/AmbientLifecycleObserver)
@@ -260,7 +264,8 @@ Before making the call to `prepareExerciseAsync()`, check the following:
   to starting an exercise. The app can still get step-based distance, pace, speed,
   and other metrics that don't require those permissions.
 
-| **Note:** A synchronous version of `prepareExercise` is also available.
+> [!NOTE]
+> **Note:** A synchronous version of `prepareExercise` is also available.
 
 Do the following to verify that your call to `prepareExerciseAsync()` can
 succeed:
@@ -460,8 +465,10 @@ receives certain data types while the screen is off. A
 [`BatchingMode`](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/BatchingMode)
 object allows your app to override the default batching behavior to get data
 deliveries more frequently.
-| **Caution:** Health Services's default batching behavior is appropriate for most exercise cases. Because of the impact to battery performance, use `BatchingMode` only in scenarios where it is absolutely necessary. A blog post includes some possible [scenarios for which `BatchingMode` is
-| appropriate](https://medium.com/androiddevelopers/wear-os-home-workouts-with-health-services-b9951fa9e0dc), including continuously streaming heart rate from the watch to display on the mobile device.
+
+> [!CAUTION]
+> **Caution:** Health Services's default batching behavior is appropriate for most exercise cases. Because of the impact to battery performance, use `BatchingMode` only in scenarios where it is absolutely necessary. A blog post includes some possible [scenarios for which `BatchingMode` is
+> appropriate](https://medium.com/androiddevelopers/wear-os-home-workouts-with-health-services-b9951fa9e0dc), including continuously streaming heart rate from the watch to display on the mobile device.
 
 To configure the batching rate, complete the following steps:
 
@@ -477,7 +484,8 @@ To configure the batching rate, complete the following steps:
 2. Specify that the `ExerciseConfig` object should use a particular
    `BatchingMode`, as shown in the following code snippet.
 
-   | **Note:** Although you can include additional `DataType` objects as usual, they're only delivered as frequently as the default batching behavior.
+   > [!NOTE]
+   > **Note:** Although you can include additional `DataType` objects as usual, they're only delivered as frequently as the default batching behavior.
 
        val config = ExerciseConfig(
            exerciseType = ExerciseType.WORKOUT,

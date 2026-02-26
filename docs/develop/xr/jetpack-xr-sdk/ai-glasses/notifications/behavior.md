@@ -56,7 +56,9 @@ Other notification styles (such as [`InboxStyle`](https://developer.android.com/
 rendered. For these styles, style-specific fields aren't rendered (such as the
 [summary text](https://developer.android.com/reference/kotlin/androidx/core/app/NotificationCompat.InboxStyle#setSummaryText(java.lang.CharSequence)) for `InboxStyle`). Instead, the system reverts to the
 standard style and renders only common fields such as the [content title](https://developer.android.com/reference/kotlin/androidx/core/app/NotificationCompat.Builder#setContentTitle(java.lang.CharSequence)).
-| **Note:** Custom notifications with `RemoteViews` aren't bridged to AI glasses.
+
+> [!NOTE]
+> **Note:** Custom notifications with `RemoteViews` aren't bridged to AI glasses.
 
 ### Other required criteria for bridging
 

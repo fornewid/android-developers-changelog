@@ -12,7 +12,7 @@ Access composable APIs built on top of Activity.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | [1.12.4](https://developer.android.com/jetpack/androidx/releases/activity#1.12.4) | - | - | [1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0-alpha01) |
+| February 25, 2026 | [1.12.4](https://developer.android.com/jetpack/androidx/releases/activity#1.12.4) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -65,6 +65,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.13
+
+### Version 1.13.0-rc01
+
+February 25, 2026
+
+`androidx.activity:activity:1.13.0-rc01`, `androidx.activity:activity-compose:1.13.0-rc01`, and `androidx.activity:activity-ktx:1.13.0-rc01` are released. Version 1.13.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/adeb519268e4eeff7d0a5a9d024dbe26d88bb6ad..6360e6fe078d931d2fcdd7076c6952c41b455f5d/activity).
+
+**Bug Fixes**
+
+- From [Activity 1.12.4](https://developer.android.com/jetpack/androidx/releases/jetpack/androidx/releases/activity#1.12.4): The Photo and Video `ActivityResultContracts` now will correctly launch when being used on devices with the latest URI security fixes. ([I61201](https://android-review.googlesource.com/#/q/I612010ef247badc4cd926afa2130ef553ecd2f3e), [b/433708587](https://issuetracker.google.com/issues/433708587))
 
 ### Version 1.13.0-alpha01
 
@@ -629,7 +639,9 @@ June 21, 2023
 June 7, 2023
 
 `androidx.activity:activity:1.8.0-alpha05`, `androidx.activity:activity-compose:1.8.0-alpha05`, and `androidx.activity:activity-ktx:1.8.0-alpha05` are released. This version is developed in an internal branch.
-| **Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher.
+
+> [!NOTE]
+> **Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher.
 
 **API Changes**
 
@@ -646,7 +658,9 @@ June 7, 2023
 May 10, 2023
 
 `androidx.activity:activity:1.8.0-alpha04`, `androidx.activity:activity-compose:1.8.0-alpha04`, and `androidx.activity:activity-ktx:1.8.0-alpha04` are released. This was released from an internal branch.
-| **Note:** This version will only compile against the [Android 14 (Upside Down Cake) Beta 2 SDK](https://developer.android.com/about/versions/14#beta-2).
+
+> [!NOTE]
+> **Note:** This version will only compile against the [Android 14 (Upside Down Cake) Beta 2 SDK](https://developer.android.com/about/versions/14#beta-2).
 
 **Bug Fixes**
 
@@ -657,7 +671,9 @@ May 10, 2023
 April 12, 2023
 
 `androidx.activity:activity:1.8.0-alpha03`, `androidx.activity:activity-compose:1.8.0-alpha03`, and `androidx.activity:activity-ktx:1.8.0-alpha03` are released. This was released from an internal branch.
-| **Note:** This version will only compile against the [Android 14 (Upside Down Cake) Beta 1 SDK](https://developer.android.com/about/versions/14#beta-1).
+
+> [!NOTE]
+> **Note:** This version will only compile against the [Android 14 (Upside Down Cake) Beta 1 SDK](https://developer.android.com/about/versions/14#beta-1).
 
 **New Features**
 
@@ -681,7 +697,9 @@ April 12, 2023
 March 8, 2023
 
 `androidx.activity:activity:1.8.0-alpha02`, `androidx.activity:activity-compose:1.8.0-alpha02`, and `androidx.activity:activity-ktx:1.8.0-alpha02` are released. Developed from an internal branch.
-| **Note:** This version will only compile against the [Android 14 (Upside Down Cake) Developer Preview 2 SDK](https://developer.android.com/about/versions/14#developer-preview-2).
+
+> [!NOTE]
+> **Note:** This version will only compile against the [Android 14 (Upside Down Cake) Developer Preview 2 SDK](https://developer.android.com/about/versions/14#developer-preview-2).
 
 **Dependency update**
 
@@ -692,7 +710,9 @@ March 8, 2023
 February 8, 2023
 
 `androidx.activity:activity:1.8.0-alpha01`, `androidx.activity:activity-compose:1.8.0-alpha01`, and `androidx.activity:activity-ktx:1.8.0-alpha01` are released. This was built from an internal branch.
-| **Note:** This version will only compile against the Android 14 (Upside Down Cake) Developer Preview 1 SDK.
+
+> [!NOTE]
+> **Note:** This version will only compile against the Android 14 (Upside Down Cake) Developer Preview 1 SDK.
 
 **New Features**
 
@@ -1375,7 +1395,8 @@ February 24, 2021
 
 - `LocalOnBackPressedDispatcherOwner` now has a `provides` functions that can be used with `CompositionLocalProvider`, replacing the `asProvidableCompositionLocal()` API. ([I45d24](https://android-review.googlesource.com/#/q/I45d244bea668db72a536c1f9bbdb7b24073aba0c))
 
-| **Note:** Activity Compose 1.3.0-alpha03 is only compatible with Compose 1.0.0-beta01.
+> [!NOTE]
+> **Note:** Activity Compose 1.3.0-alpha03 is only compatible with Compose 1.0.0-beta01.
 
 ### Version 1.3.0-alpha02
 
@@ -1391,21 +1412,25 @@ February 10, 2021
 
 - The `BackHandler` API can be used to allow a Composable to intercept the system back button. ([I58ed5](https://android-review.googlesource.com/#/q/I58ed5891125e093f3425a514c82266e25a684384), [b/172154006](https://issuetracker.google.com/issues/172154006))
 
-| **Note:** Activity Compose 1.3.0-alpha02 is only compatible with Compose 1.0.0-alpha12.
+> [!NOTE]
+> **Note:** Activity Compose 1.3.0-alpha02 is only compatible with Compose 1.0.0-alpha12.
 
 ### Version 1.3.0-alpha01
 
 February 10, 2021
 
 `androidx.activity:activity:1.3.0-alpha01`, `androidx.activity:activity-compose:1.3.0-alpha01`, and `androidx.activity:activity-ktx:1.3.0-alpha01` are released. [Version 1.3.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/0c05672ea464c9788ec7c07e723361f2a23b3439..3c96bbfa4cd323a18c5db328a5234ec27377906c/activity)
-| **Caution:** Please use version `1.3.0-alpha02` instead. A critical issue was found in `1.3.0-alpha01` that causes Activity Compose and libraries that depend on it to crash with a `NoSuchMethodError: No static method setContent` exception. ([b/179911234](https://issuetracker.google.com/issues/179911234))
+
+> [!CAUTION]
+> **Caution:** Please use version `1.3.0-alpha02` instead. A critical issue was found in `1.3.0-alpha01` that causes Activity Compose and libraries that depend on it to crash with a `NoSuchMethodError: No static method setContent` exception. ([b/179911234](https://issuetracker.google.com/issues/179911234))
 
 **New Features**
 
 - The new `activity-compose` artifact provides Jetpack Compose specific helpers for `androidx.activity` specific APIs.
   - `ComponentActivity.setContent` has moved from `androidx.compose.ui.platform.setContent` to `androidx.activity.compose.setContent`. ([Icf416](https://android-review.googlesource.com/#/q/Icf4168e6078b87ce746569a946b2a90274197c72))
 
-| **Note:** Activity Compose 1.0.0-alpha01 is only compatible with Compose 1.0.0-alpha12.
+> [!NOTE]
+> **Note:** Activity Compose 1.0.0-alpha01 is only compatible with Compose 1.0.0-alpha12.
 
 **Known Issues**
 
@@ -1468,7 +1493,8 @@ March 10, 2021
 
 ## Version 1.2.0
 
-| **Note:** The Kotlin dependant libraries of this version (`activity-ktx`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** The Kotlin dependant libraries of this version (`activity-ktx`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 1.2.0
 
@@ -1480,7 +1506,8 @@ February 10, 2021
 
 - **Activity Result APIs** : `ComponentActivity` now provides an `ActivityResultRegistry` that lets you handle `startActivityForResult()`+`onActivityResult()` as well as `requestPermissions()`+`onRequestPermissionsResult()` flows without overriding methods in your Activity or Fragment, brings increased type safety via `ActivityResultContract`, and provides hooks for testing these flows. See the updated [Getting a Result from an Activity](https://developer.android.com/training/basics/intents/result).
 
-| **Note:** when upgrading to Activity `1.2.0`, you **must** upgrade to [Fragment `1.3.0`](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.0) to fix issues with invalid request codes and ensure that permission requests are delivered correctly. The `InvalidFragmentVersionForActivityResult` Lint check will warn you if you do not upgrade to an appropriate Fragment version.
+> [!NOTE]
+> **Note:** when upgrading to Activity `1.2.0`, you **must** upgrade to [Fragment `1.3.0`](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.0) to fix issues with invalid request codes and ensure that permission requests are delivered correctly. The `InvalidFragmentVersionForActivityResult` Lint check will warn you if you do not upgrade to an appropriate Fragment version.
 
 - **`ContextAware`** : `ComponentActivity` now implements `ContextAware`, allowing you to add one or more `OnContextAvailableListener` instances which will receive a callback *before* the base `Activity.onCreate()`.
 
@@ -1489,7 +1516,8 @@ February 10, 2021
   - This API is used by `AppCompatActivity` in [AppCompat 1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appcompat#1.3.0-alpha02) or higher. Any listeners added to subclasses of `AppCompatActivity` will run after that listener.
 - **`ViewTree` Support** : `ComponentActivity` now supports the `ViewTreeLifecycleOwner.get(View)`, `ViewTreeViewModelStoreOwner.get(View)`, and `ViewTreeSavedStateRegistryOwner` APIs added in [Lifecycle `2.3.0`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.0) and [SavedState `1.1.0`](https://developer.android.com/jetpack/androidx/releases/savedstate#1.1.0) such that it will return the Activity as the `LifecycleOwner`, `ViewModelStoreOwner`, and `SavedStateRegistryOwner` for any Views directly added to the `ComponentActivity`.
 
-| **Note:** When using `AppCompatActivity`, you must use [AppCompat `1.3.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/appcompat#1.3.0-alpha01) or higher to gain `ViewTree` support.
+> [!NOTE]
+> **Note:** When using `AppCompatActivity`, you must use [AppCompat `1.3.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/appcompat#1.3.0-alpha01) or higher to gain `ViewTree` support.
 
 - **reportFullyDrawn() backport** - The `Activity` method of `reportFullyDrawn()` has been backported in `ComponentActivity` to work on all API levels, fixing a crash on API 19 and adding tracing for this method for all API levels.
 
@@ -1659,7 +1687,8 @@ April 1, 2020
 
 - Fixed a `NullPointerException` in `ActivityResultRegistry` when attempting to deliver results to a callback that has not yet been re-registered after a configuration change; `ActivityResultRegistry` now holds onto these pending results and delivers them when the callback is re-registered. ([b/152137004](https://issuetracker.google.com/issues/152137004))
 
-| **Note:** when upgrading to Activity `1.2.0-alpha03`, you **must** upgrade to [Fragment `1.3.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.0-alpha03) if you were previously using Fragment `1.3.0-alpha02` or if you want to use the `RequestPermission` or `RequestPermissions` contracts.
+> [!NOTE]
+> **Note:** when upgrading to Activity `1.2.0-alpha03`, you **must** upgrade to [Fragment `1.3.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.0-alpha03) if you were previously using Fragment `1.3.0-alpha02` or if you want to use the `RequestPermission` or `RequestPermissions` contracts.
 
 ### Version 1.2.0-alpha02
 
@@ -1671,7 +1700,8 @@ March 18, 2020
 
 - **ActivityResultRegistry** : `ComponentActivity` now provides an `ActivityResultRegistry` that lets you handle the `startActivityForResult()`+`onActivityResult()` as well as `requestPermissions()`+`onRequestPermissionsResult()` flows without overriding methods in your Activity or Fragment, brings increased type safety via `ActivityResultContract`, and provides hooks for testing these flows. See the updated [Getting a Result from an Activity](https://developer.android.com/training/basics/intents/result). ([b/125158199](https://developer.android.com/issuetracker.google.com/issues/125158199))
 
-| **Note:** when upgrading to Activity `1.2.0-alpha02`, you **must** upgrade to [Fragment `1.3.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.0-alpha02) or higher to use the `RequestPermission` or `RequestPermissions` Activity Result contracts.
+> [!NOTE]
+> **Note:** when upgrading to Activity `1.2.0-alpha02`, you **must** upgrade to [Fragment `1.3.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.0-alpha02) or higher to use the `RequestPermission` or `RequestPermissions` Activity Result contracts.
 
 ### Version 1.2.0-alpha01
 
@@ -1689,7 +1719,8 @@ March 4, 2020
 
 ## Version 1.1.0
 
-| **Note:** The Kotlin dependant libraries of this version (`activity-ktx`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** The Kotlin dependant libraries of this version (`activity-ktx`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 1.1.0
 

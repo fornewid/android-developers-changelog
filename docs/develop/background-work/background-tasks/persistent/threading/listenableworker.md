@@ -31,7 +31,7 @@ will set with the `Result` of the operation once it's completed. You can create
 2. Otherwise, include [`councurrent-futures`](https://developer.android.com/jetpack/androidx/releases/concurrent#declaring_dependencies) in your gradle file and use [`CallbackToFutureAdapter`](https://developer.android.com/reference/androidx/concurrent/futures/CallbackToFutureAdapter).
 
 If you wanted to execute some work based on an asynchronous callback, you would
-do something like this:  
+do something like this:
 
 ### Kotlin
 
@@ -110,7 +110,7 @@ What happens if your work is
 [stopped](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/managing-work#cancelling)?
 A `ListenableWorker`'s `ListenableFuture` is always cancelled when the work is
 expected to stop. Using a `CallbackToFutureAdapter`, you simply have to add a
-cancellation listener, as follows:  
+cancellation listener, as follows:
 
 ### Kotlin
 
@@ -200,7 +200,7 @@ that you provide as part of the input data when building the work request:
 `ARGUMENT_CLASS_NAME` and `ARGUMENT_PACKAGE_NAME`.
 
 The following example demonstrates building a work request that is bound to a
-specific process:  
+specific process:
 
 ### Kotlin
 
@@ -239,7 +239,7 @@ return new OneTimeWorkRequest.Builder(ExampleRemoteListenableWorker.class)
 ```
 
 For each `RemoteWorkerService`, you also need to add a service definition in
-your `AndroidManifest.xml` file:  
+your `AndroidManifest.xml` file:
 
 ```xml
 <manifest ... >

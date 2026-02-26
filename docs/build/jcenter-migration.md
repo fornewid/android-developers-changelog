@@ -15,4 +15,6 @@ packages to a new host, such as
 
 Developers who use dependencies from JCenter must find the new location of
 updated versions of those dependencies.
-| **Warning:** Don't include the `jcenter()` repository in your build config to avoid getting outdated dependencies.
+
+> [!WARNING]
+> **Warning:** Don't include the `jcenter()` repository in your build config to avoid getting outdated dependencies.

@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/text-and-emoji/spans
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use text in Compose.  
-[Multiple styles in text →](https://developer.android.com/jetpack/compose/text/style-text#multiple-styles)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use text in Compose. [Multiple styles in text →](https://developer.android.com/jetpack/compose/text/style-text#multiple-styles) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -20,8 +17,10 @@ change [`TextPaint`](https://developer.android.com/reference/android/text/TextPa
 
 Android provides several types of spans that cover a variety of common text
 styling patterns. You can also create your own spans to apply custom styling.
-| **Note:** To help you create a modern and maintainable codebase, Android KTX contains extension functions that make working with spans easier. To learn more, see the [androidx.core.text](https://developer.android.com/reference/kotlin/androidx/core/text/package-summary) package documentation and the [Spantastic text styling with
-| Spans](https://medium.com/androiddevelopers/spantastic-text-styling-with-spans-17b0c16b4568) blog post.
+
+> [!NOTE]
+> **Note:** To help you create a modern and maintainable codebase, Android KTX contains extension functions that make working with spans easier. To learn more, see the [androidx.core.text](https://developer.android.com/reference/kotlin/androidx/core/text/package-summary) package documentation and the [Spantastic text styling with
+> Spans](https://medium.com/androiddevelopers/spantastic-text-styling-with-spans-17b0c16b4568) blog post.
 
 ## Create and apply a span
 
@@ -31,9 +30,9 @@ markup is mutable, and what underlying data structure contains the span data.
 
 | Class | Mutable text | Mutable markup | Data structure |
 |---|---|---|---|
-| [SpannedString](https://developer.android.com/reference/android/text/SpannedString) | No | No | Linear array |
-| [SpannableString](https://developer.android.com/reference/android/text/SpannableString) | No | Yes | Linear array |
-| [SpannableStringBuilder](https://developer.android.com/reference/android/text/SpannableStringBuilder) | Yes | Yes | Interval tree |
+| `https://developer.android.com/reference/android/text/SpannedString` | No | No | Linear array |
+| `https://developer.android.com/reference/android/text/SpannableString` | No | Yes | Linear array |
+| `https://developer.android.com/reference/android/text/SpannableStringBuilder` | Yes | Yes | Interval tree |
 
 All three classes extend the [`Spanned`](https://developer.android.com/reference/android/text/Spanned)
 interface. `SpannableString` and `SpannableStringBuilder` also extend the
@@ -64,7 +63,7 @@ to exclude the inserted text.
 
 The following example shows how to attach a
 [`ForegroundColorSpan`](https://developer.android.com/reference/android/text/style/ForegroundColorSpan) to a
-string:  
+string:
 
 ### Kotlin
 
@@ -93,7 +92,7 @@ spannable.setSpan(
 
 Because the span is set using `Spannable.SPAN_EXCLUSIVE_INCLUSIVE`, the span
 expands to include inserted text at the span boundaries, as shown in the
-following example:  
+following example:
 
 ### Kotlin
 
@@ -123,7 +122,7 @@ spannable.insert(12, "(& fon)");
 ![An image showing how the span include more text when SPAN_EXCLUSIVE_INCLUSIVE is used.](https://developer.android.com/static/develop/ui/views/text-and-emoji/images/spans-fg-color-2.png) **Figure 2.** The span expands to include additional text when using `Spannable.SPAN_EXCLUSIVE_INCLUSIVE`.
 
 You can attach multiple spans to the same text. The following example shows how
-to create text that is bold and red:  
+to create text that is bold and red:
 
 ### Kotlin
 
@@ -176,7 +175,7 @@ spans extend the
 [`CharacterStyle`](https://developer.android.com/reference/android/text/style/CharacterStyle) class.
 
 The following code example shows how to apply an `UnderlineSpan` to underline
-the text:  
+the text:
 
 ### Kotlin
 
@@ -209,7 +208,7 @@ class.
 
 The following code example creates a
 [`RelativeSizeSpan`](https://developer.android.com/reference/android/text/style/RelativeSizeSpan) that
-increases text size by 50%:  
+increases text size by 50%:
 
 ### Kotlin
 
@@ -253,7 +252,7 @@ Figure 8 shows how Android separates paragraphs in text.
 The following code example applies a
 [`QuoteSpan`](https://developer.android.com/reference/android/text/style/QuoteSpan) to a paragraph. Note that
 if you attach the span to any position other than the beginning or end of a
-paragraph, Android doesn't apply the style at all.  
+paragraph, Android doesn't apply the style at all.
 
 ### Kotlin
 
@@ -290,7 +289,7 @@ extends `CharacterStyle` and implements the two `Update` interfaces. Since this
 class already provides callbacks for `updateDrawState` and `updateMeasureState`,
 you can override these callbacks to implement your custom behavior. The
 following code creates a custom span that extends `RelativeSizeSpan` and
-overrides the `updateDrawState` callback to set the color of the `TextPaint`:  
+overrides the `updateDrawState` callback to set the color of the `TextPaint`:
 
 ### Kotlin
 
@@ -334,7 +333,7 @@ test](https://developer.android.com/training/testing/fundamentals) to verify tha
 at the correct locations. The [Text Styling sample app](https://github.com/android/platform-samples/tree/main/samples/user-interface/text)
 contains a span that applies markup to bullet points by attaching
 `BulletPointSpan` to the text. The following code example shows how to test
-whether the bullet points appear as expected:  
+whether the bullet points appear as expected:
 
 ### Kotlin
 
@@ -393,7 +392,9 @@ public void textWithBulletPoints() {
 
 For more test examples, see
 [MarkdownBuilderTest](https://github.com/android/user-interface-samples/blob/master/TextStyling/app/src/androidTest/java/com/android/example/text/styling/renderer/MarkdownBuilderTest.kt) on GitHub.
-| **Note:** If you need to iterate through spans outside of testing, use [nextSpanTransition()](https://developer.android.com/reference/android/text/Spanned#nextSpanTransition(int,%20int,%20java.lang.Class)) instead of [getSpans()](https://developer.android.com/reference/android/text/Spanned#getSpans(int,%20int,%20java.lang.Class%3CT%3E)), as `nextSpanTransition()` is more performant.
+
+> [!NOTE]
+> **Note:** If you need to iterate through spans outside of testing, use [nextSpanTransition()](https://developer.android.com/reference/android/text/Spanned#nextSpanTransition(int,%20int,%20java.lang.Class)) instead of [getSpans()](https://developer.android.com/reference/android/text/Spanned#getSpans(int,%20int,%20java.lang.Class%3CT%3E)), as `nextSpanTransition()` is more performant.
 
 ## Test custom spans
 
@@ -430,7 +431,7 @@ on your needs.
 
 [`TextView.setText()`](https://developer.android.com/reference/android/widget/TextView#setText(int))
 contains multiple overloads that handle spans differently. For example, you can
-set a `Spannable` text object with the following code:  
+set a `Spannable` text object with the following code:
 
 ### Kotlin
 
@@ -454,7 +455,7 @@ layout.
 To indicate that the spans must be mutable, you can instead use
 [`setText(CharSequence text, TextView.BufferType
 type)`](https://developer.android.com/reference/android/widget/TextView#setText(java.lang.CharSequence,%20android.widget.TextView.BufferType)),
-as shown in the following example:  
+as shown in the following example:
 
 ### Kotlin
 
@@ -507,7 +508,7 @@ creation, you can implement your own
 [`Spannable.Factory`](https://developer.android.com/reference/android/text/Spannable.Factory) and override
 [`newSpannable()`](https://developer.android.com/reference/android/text/Spannable.Factory#newSpannable(java.lang.CharSequence)).
 Instead of creating a new text object, you can cast and return the existing
-`CharSequence` as a `Spannable`, as demonstrated in the following example:  
+`CharSequence` as a `Spannable`, as demonstrated in the following example:
 
 ### Kotlin
 
@@ -535,7 +536,7 @@ setting the text. Otherwise, the source `CharSequence` is created as a `Spanned`
 instance and can't be cast to `Spannable`, causing `newSpannable()` to throw a
 `ClassCastException`.
 
-After overriding `newSpannable()`, tell the `TextView` to use the new `Factory`:  
+After overriding `newSpannable()`, tell the `TextView` to use the new `Factory`:
 
 ### Kotlin
 
@@ -564,7 +565,7 @@ When you need to modify the span, you can modify the reference and then call
 attribute you changed.
 
 In the following code example, a custom bullet point implementation has a
-default color of red that changes to gray when a button is tapped:  
+default color of red that changes to gray when a button is tapped:
 
 ### Kotlin
 

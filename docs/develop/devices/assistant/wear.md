@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/devices/assistant/wear
 source: md.txt
 ---
 
+Project: /develop/devices/assistant/_project.yaml
+Book: /develop/devices/assistant/_book.yaml
 [Video](https://www.youtube.com/watch?v=gVIEbeqQQW8)
 
 Watch voice assistants enable quick and efficient on-the-go scenarios. Voice
@@ -66,7 +68,8 @@ the Android-powered device ecosystem.
   Actions capabilities must be built into the wearable app for these requests to
   fulfill properly.
 
-| **Note:** This only applies to App Actions functionality on wearables. [General queries to the Assistant](https://assistant.google.com/platforms/wearables/) such as getting things done, home control, and helpful info for the day are handled automatically through the Google Assistant app.
+> [!NOTE]
+> **Note:** This only applies to App Actions functionality on wearables. [General queries to the Assistant](https://assistant.google.com/platforms/wearables/) such as getting things done, home control, and helpful info for the day are handled automatically through the Google Assistant app.
 
 ## Add voice capabilities to Wear
 
@@ -159,7 +162,9 @@ information, see [Google Assistant plugin for Android Studio](https://developer.
 tested your app and created a test release, you can request an
 [App Actions review](https://developer.android.com/guide/app-actions/get-started#request-review) and deploy. Review the following best practices for
 guidance on handling common errors.
-| **Note:** The App Actions review is separate from the [Google Play review](https://play.google.com/console/about/guides/releasewithconfidence/#review-guidance-for-your-first-app-launch) and does not affect your status in Google Play. While your app may pass the Google Play review and be published, App Actions will not function for your app's users until the App Actions review is completed.
+
+> [!NOTE]
+> **Note:** The App Actions review is separate from the [Google Play review](https://play.google.com/console/about/guides/releasewithconfidence/#review-guidance-for-your-first-app-launch) and does not affect your status in Google Play. While your app may pass the Google Play review and be published, App Actions will not function for your app's users until the App Actions review is completed.
 
 **Best practices**
 
@@ -174,7 +179,8 @@ fulfilling a request, or to alert to an error.
 |---|---|---|
 | - Create an intent to start `ConfirmationActivity` from an activity. | - Create an intent to start `ConfirmationActivity` from an activity. - Play a chime AND haptic feedback to indicate current state. | - Create an intent to start `ConfirmationActivity` from an activity. - Text-To-Speech (TTS) and haptic feedback to indicate error or success. |
 
-| **Note:** Custom TTS prompts are not available through App Actions.
+> [!NOTE]
+> **Note:** Custom TTS prompts are not available through App Actions.
 
 **Common errors and resolutions**
 

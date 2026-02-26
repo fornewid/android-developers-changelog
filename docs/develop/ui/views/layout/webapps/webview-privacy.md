@@ -34,21 +34,23 @@ are in a list of allowed popular apps. Other apps upload blank package names.
 ### Opt out usage statistics
 
 Apps can opt out of usage statistics collection by including the following in
-the `<application>` section of their manifest:  
+the `<application>` section of their manifest:
 
     <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true" />
 
 This disables usage statistics collection for all users of the app, regardless
 of whether they have the corresponding setting enabled. It doesn't disable crash
 reporting.
-| **Note:** Opting out of usage statistics collection decreases Google's ability to preemptively detect and address problems in `WebView` updates.
+
+> [!NOTE]
+> **Note:** Opting out of usage statistics collection decreases Google's ability to preemptively detect and address problems in `WebView` updates.
 
 ### Opt out of metrics collection
 
 `WebView` has the ability to upload anonymous diagnostic data to Google when the
 user gives their consent. Data is collected on a per-app basis for each app that
 instantiates a `WebView`. You can opt out of this feature by creating the
-following tag in the manifest's `<application>` element:  
+following tag in the manifest's `<application>` element:
 
 ```xml
 <manifest>

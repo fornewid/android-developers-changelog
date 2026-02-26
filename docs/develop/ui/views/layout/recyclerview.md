@@ -8,10 +8,7 @@ source: md.txt
 Part of [Android Jetpack](https://developer.android.com/jetpack).
 
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose.  
-[Lazy Lists and Grids →](https://developer.android.com/jetpack/compose/lists#lazy)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose. [Lazy Lists and Grids →](https://developer.android.com/jetpack/compose/lists#lazy) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -24,7 +21,9 @@ item scrolls off the screen, RecyclerView doesn't destroy its view. Instead,
 RecyclerView reuses the view for new items that have scrolled onscreen.
 RecyclerView improves performance and your app's responsiveness, and it
 reduces power consumption.
-| **Note:** RecyclerView is the name of both the class and the library that contains it. On this page, `RecyclerView` in `code font` always means the class in the RecyclerView library.
+
+> [!NOTE]
+> **Note:** RecyclerView is the name of both the class and the library that contains it. On this page, `RecyclerView` in `code font` always means the class in the RecyclerView library.
 
 ## Key classes
 
@@ -124,7 +123,7 @@ When you define your adapter, you override three key methods:
 Here's a typical example of a simple adapter with a nested `ViewHolder` that
 displays a list of data. In this case, the RecyclerView displays a simple list
 of text elements. The adapter is passed an array of strings containing the text
-for the `ViewHolder` elements.  
+for the `ViewHolder` elements.
 
 ### Kotlin
 
@@ -232,7 +231,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 ```
 
 The layout for the each view item is defined in an XML layout file, as usual.
-In this case, the app has a `text_row_item.xml` file like this:  
+In this case, the app has a `text_row_item.xml` file like this:
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -250,7 +249,7 @@ In this case, the app has a `text_row_item.xml` file like this:
 
 ## Next steps
 
-The following code snippet shows how you can use the `RecyclerView`.  
+The following code snippet shows how you can use the `RecyclerView`.
 
 ### Kotlin
 
@@ -297,7 +296,7 @@ The following video shows a `RecyclerView` with edge-to-edge display disabled
 (left) and enabled (right):
 Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/develop/ui/views/images/edge-to-edge/recycler-view-e2e.mp4) and watch it with a video player.
 
-Example inset code:  
+Example inset code:
 
 ### Kotlin
 
@@ -347,7 +346,7 @@ ViewCompat.setOnApplyWindowInsetsListener(
   
 ```
 
-The `RecyclerView` XML:  
+The `RecyclerView` XML:
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view"

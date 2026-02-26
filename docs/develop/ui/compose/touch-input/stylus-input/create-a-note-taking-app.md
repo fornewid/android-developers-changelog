@@ -34,7 +34,9 @@ The app opens in response to an implicit
 [`ACTION_CREATE_NOTE`](https://developer.android.com/reference/kotlin/android/content/Intent#action_create_note)
 intent action. If invoked from the device lock screen, the app opens full
 screen; if invoked while the screen is unlocked, in a floating window.
-| **Note:** In system settings, users can opt out of having a default note‑taking app, in which case no app responds to the `ACTION_CREATE_NOTE` intent action.
+
+> [!NOTE]
+> **Note:** In system settings, users can opt out of having a default note‑taking app, in which case no app responds to the `ACTION_CREATE_NOTE` intent action.
 
 ## App manifest
 
@@ -104,7 +106,8 @@ To ask the user to authenticate and unlock the device, call
     {  // Unlock failed. User cancelled operation or request otherwise cancelled.  }
      } )
 
-| **Warning:** When launched from the device lock screen, your app must ensure user privacy.
+> [!WARNING]
+> **Warning:** When launched from the device lock screen, your app must ensure user privacy.
 
 ### Floating windows
 
@@ -187,7 +190,8 @@ following methods:
 - [`isLaunchedFromBubble()`](https://developer.android.com/reference/kotlin/android/app/Activity#islaunchedfrombubble) to check that your note‑taking app was not launched full screen from the device lock screen
 - [`isRoleHeld(RoleManager.ROLE_NOTES)`](https://developer.android.com/reference/kotlin/android/app/role/RoleManager#isroleheld) to verify that your app is the default note‑taking app (your app can run in a conversation or other type of bubble if the app does not hold the notes role)
 
-| **Note:** Your app should check whether content capture is permitted by device administrative policies. Call [`getScreenCaptureDisabled()`](https://developer.android.com/reference/kotlin/android/app/admin/DevicePolicyManager#getscreencapturedisabled) with `null` as the argument.
+> [!NOTE]
+> **Note:** Your app should check whether content capture is permitted by device administrative policies. Call [`getScreenCaptureDisabled()`](https://developer.android.com/reference/kotlin/android/app/admin/DevicePolicyManager#getscreencapturedisabled) with `null` as the argument.
 
 ## Additional resources
 

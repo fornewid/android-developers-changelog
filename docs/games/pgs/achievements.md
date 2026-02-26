@@ -14,8 +14,7 @@ across Google Play, encouraging users to start playing. They also make your
 game eligible for [quests](https://support.google.com/googleplay/answer/11534416), which reward users for reaching milestones.
 
 To meet the Google Play Games Level Up [user experience guidelines](https://developer.android.com/games/guidelines), your
-game needs to implement [platform authentication](https://developer.android.com/games/pgs/integrate-achievements#publish-achievements) with
-Play Games Services v2 SDK and be compliant with the [baseline](https://developer.android.com/games/pgs/achievements#design-achievements) level of
+game needs be compliant with the [baseline](https://developer.android.com/games/pgs/achievements#design-achievements) level of
 achievements.
 
 To bring achievements to your game:
@@ -33,9 +32,10 @@ To bring achievements to your game:
 **Baseline**
 
 - A minimum of ten achievements spread across the lifetime of the game.
-- At least 4 achievements should be reasonably and reliably achievable within an hour of gameplay by everyone who plays. You can create a maximum of 400 achievements across the lifetime of the game.
 - All achievements should have unique names and descriptions. These should make clear to users what they need to do to get the achievement.
-- All achievements should have unique icons.
+- New achievements should have unique icons.
+- Required for Quests eligibility only:
+  - At least four achievements are reasonably and reliably achievable within an hour of gameplay by everyone who plays. You can create a maximum of 400 achievements across the lifetime of the game.
 
 **Recommended**
 

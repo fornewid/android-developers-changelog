@@ -12,7 +12,7 @@ Create performant health applications in a platform agnostic way.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/health#1.0.0) | - | [1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/health#1.1.0-beta01) | - |
+| February 25, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/health#1.0.0) | [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/health#1.1.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.health:health-services-client:1.1.0-beta01"
+    implementation "androidx.health:health-services-client:1.1.0-rc01"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.health:health-services-client:1.1.0-beta01")
+    implementation("androidx.health:health-services-client:1.1.0-rc01")
 }
 ```
 
@@ -150,6 +150,12 @@ May 11, 2022
 - API to check for permissions or revoke granted health permissions.
 
 ## Health Services Client Version 1.1
+
+### Version 1.1.0-rc01
+
+February 25, 2026
+
+`androidx.health:health-services-client:1.1.0-rc01`, `androidx.health:health-services-client-external-protobuf:1.1.0-rc01`, and `androidx.health:health-services-client-proto:1.1.0-rc01` are released. Version 1.1.0-rc01 contains no changes since the prior beta release.
 
 ### Version 1.1.0-beta01
 

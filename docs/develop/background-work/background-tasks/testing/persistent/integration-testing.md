@@ -4,13 +4,13 @@ url: https://developer.android.com/develop/background-work/background-tasks/test
 source: md.txt
 ---
 
-# Integration tests with WorkManager
-
-[WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager)provides a`work-testing`artifact which helps with testing of your workers.
+[WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) provides a
+`work-testing` artifact which helps with testing of your workers.
 
 ## Setup
 
-To use the`work-testing`artifact, add it as an`androidTestImplementation`dependency in`build.gradle`.  
+To use the `work-testing` artifact, add it as an `androidTestImplementation`
+dependency in `build.gradle`.
 
 ### Groovy
 
@@ -38,17 +38,28 @@ dependencies {
 }
 ```
 
-For more information on adding dependencies, look at the Declaring dependencies section in the[WorkManager release notes](https://developer.android.com/jetpack/androidx/releases/work#declaring_dependencies).
-| **Note:** Beginning with 2.1.0, WorkManager provides the[`TestWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestWorkerBuilder)and[`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder)classes, which let you test the business logic in your workers without having to initialize`WorkManager`with`WorkManagerTestInitHelper`.[Testing Worker implementation](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/testing-worker-impl)covers these classes. The material in this page is still useful for when you need to perform integration tests.
-| **Note:** It is highly recommended to use[`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder)to test[`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker)implementations, as the`work-testing`artifact uses[Dispatchers.Default](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-default.html)rather than your worker implementation's[CoroutineDispatcher](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/). More information about this API can be found at[Testing Worker implementation](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/testing-worker-impl#testing_listenableworker_and_its_variants).
+For more information on adding dependencies, look at the Declaring dependencies
+section in the
+[WorkManager release notes](https://developer.android.com/jetpack/androidx/releases/work#declaring_dependencies).
+
+> [!NOTE]
+> **Note:** Beginning with 2.1.0, WorkManager provides the [`TestWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestWorkerBuilder) and [`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder) classes, which let you test the business logic in your workers without having to initialize `WorkManager` with `WorkManagerTestInitHelper`. [Testing Worker implementation](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/testing-worker-impl) covers these classes. The material in this page is still useful for when you need to perform integration tests.
+
+> [!NOTE]
+> **Note:** It is highly recommended to use [`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder) to test [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker) implementations, as the `work-testing` artifact uses [Dispatchers.Default](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-default.html) rather than your worker implementation's [CoroutineDispatcher](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/). More information about this API can be found at [Testing Worker implementation](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/testing-worker-impl#testing_listenableworker_and_its_variants).
 
 ## Concepts
 
-`work-testing`provides a special implementation of WorkManager for test mode, which is initialized using[`WorkManagerTestInitHelper`](https://developer.android.com/reference/androidx/work/testing/WorkManagerTestInitHelper).
+`work-testing` provides a special implementation of WorkManager for test mode,
+which is initialized using
+[`WorkManagerTestInitHelper`](https://developer.android.com/reference/androidx/work/testing/WorkManagerTestInitHelper).
 
-The`work-testing`artifact also provides a[`SynchronousExecutor`](https://developer.android.com/reference/androidx/work/testing/SynchronousExecutor)which makes it easier to write tests in a synchronous manner, without having to deal with multiple threads, locks, or latches.
+The `work-testing` artifact also provides a
+[`SynchronousExecutor`](https://developer.android.com/reference/androidx/work/testing/SynchronousExecutor)
+which makes it easier to write tests in a synchronous manner, without having to
+deal with multiple threads, locks, or latches.
 
-Here is an example on how to use all these classes together.  
+Here is an example on how to use all these classes together.
 
 ### Kotlin
 
@@ -91,9 +102,11 @@ public class BasicInstrumentationTest {
 
 ## Structuring Tests
 
-Now that WorkManager has been initialized in test mode, you are ready to test your workers.
+Now that WorkManager has been initialized in test mode, you are ready to test
+your workers.
 
-Let's say you have an`EchoWorker`which expects some`inputData`, and simply copies (echoes) its input to`outputData`.  
+Let's say you have an `EchoWorker` which expects some `inputData`, and simply
+copies (echoes) its input to `outputData`.
 
 ### Kotlin
 
@@ -132,7 +145,9 @@ public class EchoWorker extends Worker {
 
 ### Basic Tests
 
-Below is an Android Instrumentation test that tests`EchoWorker`. The main takeaway here is that testing`EchoWorker`in test mode is very similar to how you would use`EchoWorker`in a real application.  
+Below is an Android Instrumentation test that tests `EchoWorker`. The main
+takeaway here is that testing `EchoWorker` in test mode is very similar to how
+you would use `EchoWorker` in a real application.
 
 ### Kotlin
 
@@ -193,7 +208,8 @@ public void testSimpleEchoWorker() throws Exception {
 }
 ```
 
-Let's write another test which makes sure that when`EchoWorker`gets no input data, the expected`Result`is a`Result.failure()`.  
+Let's write another test which makes sure that when `EchoWorker` gets no input
+data, the expected `Result` is a `Result.failure()`.
 
 ### Kotlin
 
@@ -241,11 +257,18 @@ public void testEchoWorkerNoInput() throws Exception {
 
 ## Simulate constraints, delays, and periodic work
 
-`WorkManagerTestInitHelper`provides you with an instance of[`TestDriver`](https://developer.android.com/reference/androidx/work/testing/TestDriver)which can be used to simulate initial delay, conditions where constraints are met for`ListenableWorker`instances, and, intervals for`PeriodicWorkRequest`instances.
+`WorkManagerTestInitHelper` provides you with an instance of
+[`TestDriver`](https://developer.android.com/reference/androidx/work/testing/TestDriver) which can be used
+to simulate initial delay, conditions where constraints are met for
+`ListenableWorker` instances, and, intervals for `PeriodicWorkRequest`
+instances.
 
 ### Test Initial Delays
 
-Workers can have initial delays. To test`EchoWorker`with an`initialDelay`, rather than having to wait for the`initialDelay`in your test, you can use the`TestDriver`to mark the work request's initial delay as met using`setInitialDelayMet`.  
+Workers can have initial delays. To test `EchoWorker` with an `initialDelay`,
+rather than having to wait for the `initialDelay` in your test, you can use
+the `TestDriver` to mark the work request's initial delay as met using
+`setInitialDelayMet`.
 
 ### Kotlin
 
@@ -315,7 +338,9 @@ public void testWithInitialDelay() throws Exception {
 
 ### Testing Constraints
 
-`TestDriver`can also be used to mark constraints as met using`setAllConstraintsMet`. Here is an example on how you can test a`Worker`with constraints.  
+`TestDriver` can also be used to mark constraints as met using
+`setAllConstraintsMet`. Here is an example on how you can test a `Worker`
+with constraints.
 
 ### Kotlin
 
@@ -392,7 +417,9 @@ public void testWithConstraints() throws Exception {
 
 ### Testing Periodic Work
 
-The`TestDriver`also exposes a`setPeriodDelayMet`which can be used to indicate that an interval is complete. Here is an example of`setPeriodDelayMet`being used.  
+The `TestDriver` also exposes a `setPeriodDelayMet` which can be used to
+indicate that an interval is complete. Here is an example of
+`setPeriodDelayMet` being used.
 
 ### Kotlin
 

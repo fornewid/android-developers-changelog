@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/layout/sw-keyboard
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with the keyboard in Compose.  
-[Software keyboard in Compose →](https://developer.android.com/develop/ui/compose/system/keyboard-animations)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with the keyboard in Compose. [Software keyboard in Compose →](https://developer.android.com/develop/ui/compose/system/keyboard-animations) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -29,7 +26,7 @@ system bars and the on-screen keyboard.
 ## Check keyboard software visibility
 
 Use [`WindowInsets`](https://developer.android.com/reference/android/view/WindowInsets) to check the software
-keyboard visibility.  
+keyboard visibility.
 
 ### Kotlin
 
@@ -49,7 +46,7 @@ int imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
 
 Alternatively, you can use
 [`ViewCompat.setOnApplyWindowInsetsListener`](https://developer.android.com/reference/androidx/core/view/ViewCompat#setOnApplyWindowInsetsListener(android.view.View,%20androidx.core.view.OnApplyWindowInsetsListener))
-to observe changes to software keyboard visibility.  
+to observe changes to software keyboard visibility.
 
 ### Kotlin
 
@@ -70,7 +67,9 @@ ViewCompat.setOnApplyWindowInsetsListener(view, (v, insets) -> {
   return insets;
 });
 ```
-| **Note:** To achieve the best backward compatibility with this AndroidX implementation, set `android:windowSoftInputMode="adjustResize"` to the activity in your `AndroidManifest.xml` file.
+
+> [!NOTE]
+> **Note:** To achieve the best backward compatibility with this AndroidX implementation, set `android:windowSoftInputMode="adjustResize"` to the activity in your `AndroidManifest.xml` file.
 
 ## Synchronize animation with the software keyboard
 
@@ -88,11 +87,12 @@ the bottom of the screen, as shown in the following example:
   the keyboard sliding up and down from the bottom of the screen. This looks
   smoother, as shown in the example labeled "Synchronized" in figure 2.
 
-| **Note:** Don't consume `WindowInsets` in `setWindowInsetsApplyListener` for any parent [`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup) objects. Instead, let `WindowInsetsAnimatorCompat` handle them on Android 10 and lower.
+> [!NOTE]
+> **Note:** Don't consume `WindowInsets` in `setWindowInsetsApplyListener` for any parent [`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup) objects. Instead, let `WindowInsetsAnimatorCompat` handle them on Android 10 and lower.
 
 Configure
 [`WindowInsetsAnimationCompat.Callback`](https://developer.android.com/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback)
-with the view to be synchronized with the keyboard animation.  
+with the view to be synchronized with the keyboard animation.
 
 ### Kotlin
 
@@ -131,7 +131,7 @@ are re-laid out due to an animation. You can use it to save the start state,
 which in this case is the bottom coordinate of the view.
 ![An image showing the start state bottom coordinate of the root view.](https://developer.android.com/static/images/guide/navigation/software-keyboard-3.png) **Figure 3.** Using `onPrepare()` to record the start state.
 
-The following snippet shows a sample call to `onPrepare`:  
+The following snippet shows a sample call to `onPrepare`:
 
 ### Kotlin
 
@@ -165,7 +165,7 @@ called at this point. This is a good time to save the end state of the view
 properties.
 ![An image showing the end state bottom coordinate of the view](https://developer.android.com/static/images/guide/navigation/software-keyboard-4.png) **Figure 4.** Using `onStart()` to record the end state.
 
-The following snippet shows a sample call to `onStart`:  
+The following snippet shows a sample call to `onStart`:
 
 ### Kotlin
 
@@ -209,7 +209,7 @@ All the layout changes are complete at this point. For example, if you use
 call of this method and eventually reaches `0` to the original layout position.
 **Figure 5.** Using `onProgress()` to synchronize the animations.
 
-The following snippet shows a sample call to `onProgress`:  
+The following snippet shows a sample call to `onProgress`:
 
 ### Kotlin
 

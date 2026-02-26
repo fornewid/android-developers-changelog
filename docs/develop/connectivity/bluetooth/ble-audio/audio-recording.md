@@ -145,6 +145,8 @@ recorder.preferredDevice = audioDevice
 ```java
 recorder.setPreferredDevice(bleInputDevice);
 ```
-| **Note:** The user can manually override this preference in device settings.
+
+> [!NOTE]
+> **Note:** The user can manually override this preference in device settings.
 
 Now, you can record audio as outlined in [the MediaRecorder guide](https://developer.android.com/guide/topics/media/mediarecorder).

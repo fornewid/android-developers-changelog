@@ -4,12 +4,12 @@ url: https://developer.android.com/build/gradle-dependency-resolution
 source: md.txt
 ---
 
-# Gradle dependency resolution
-
 Your build files specify your *direct* dependencies, but each of those
 dependencies can require others. These *transitive* dependencies quickly grow
 your overall dependency graph, often with conflicting versions.
-| **Note:** This page uses [semantic versioning](https://semver.org/) throughout and follows a `major.minor.patch` format. For example, in the version number 4.8.3, 4 is the `major` version, 8 is the `minor` version and 3 is the `patch` number. When the `major` part changes, the library might have breaking changes in API or behavior. This can impact your build or application behavior, so you should test your build and app thoroughly to ensure compatibility.
+
+> [!NOTE]
+> **Note:** This page uses [semantic versioning](https://semver.org/) throughout and follows a `major.minor.patch` format. For example, in the version number 4.8.3, 4 is the `major` version, 8 is the `minor` version and 3 is the `patch` number. When the `major` part changes, the library might have breaking changes in API or behavior. This can impact your build or application behavior, so you should test your build and app thoroughly to ensure compatibility.
 
 When the `minor` (new features) or `patch` (bug fixes) parts change, the library
 is still likely to be compatible and less likely to impact your application.
@@ -39,7 +39,7 @@ is key to understanding and mitigating the risks of your upgrade.
 For example, you can use the Gradle `dependencies` task by running `./gradlew
 app:dependencies` to display a tree of all dependencies used by your app
 module. Running this against an application that uses the libraries as shown in
-figure 2, we see  
+figure 2, we see
 
     1: releaseRuntimeClasspath - Runtime classpath of /release.
     2: +--- org.jetbrains.kotlin:kotlin-stdlib:2.0.0
@@ -62,7 +62,9 @@ with your application's behavior are coming from.
 
 More details on using Gradle's dependency reporting can be found at [View and
 Debug Dependencies](https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html).
-| **Note:** You can [customize dependency resolution](https://docs.gradle.org/current/userguide/resolution_rules.html) in Gradle if needed, but most often the "newest version wins" strategy works well.
+
+> [!NOTE]
+> **Note:** You can [customize dependency resolution](https://docs.gradle.org/current/userguide/resolution_rules.html) in Gradle if needed, but most often the "newest version wins" strategy works well.
 
 You can specify requested versions directly, in a version catalog, or in a Bill
 of Materials (BOM).
@@ -73,7 +75,7 @@ The versions of dependencies you specify become candidates for version
 resolution.
 
 For example, to request version 1.7.3 of the `androidx.compose.ui:ui` library as
-a dependency in your `app/build.gradle.kts`:  
+a dependency in your `app/build.gradle.kts`:
 
     dependencies {
         implementation("androidx.compose.ui:ui:1.7.3")
@@ -91,7 +93,7 @@ then that variable's specified dependencies are added to the candidates for
 version resolution. Unused variables in the version catalog are ignored.
 
 For example, to specify version 1.7.3 of the `androidx.compose.ui:ui` as a
-dependency in your `gradle/libs.versions.toml` file:  
+dependency in your `gradle/libs.versions.toml` file:
 
     [versions]
     ui = "1.7.3"
@@ -103,7 +105,7 @@ This defines a variable named `libs.androidx.compose.ui` to represent the
 library. This version is *not* considered a candidate unless you use that
 variable to specify a dependency.
 
-To request the library and its version in your `app/build.gradle.kts`:  
+To request the library and its version in your `app/build.gradle.kts`:
 
     dependencies {
         implementation(libs.androidx.compose.ui)
@@ -121,7 +123,7 @@ BOM versions affect your direct dependencies as well as all transitive
 dependencies that appear in the BOM.
 
 For example, specify a BOM as a *platform* dependency in your
-`app/build.gradle.kts`:  
+`app/build.gradle.kts`:
 
     dependencies {
         implementation(platform("androidx.compose:compose-bom:2024.10.00"))
@@ -136,7 +138,7 @@ libraries. Omit the version numbers in the version catalog for libraries that
 appear in a BOM dependency.
 
 For example, your version catalog contains the BOM and its version number, but
-doesn't specify a version for the libraries that you reference from the BOM:  
+doesn't specify a version for the libraries that you reference from the BOM:
 
     [versions]
     composeBom = "2024.10.00"
@@ -146,7 +148,7 @@ doesn't specify a version for the libraries that you reference from the BOM:
     androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
 
 Your `app/build.gradle.kts` references the BOM and libraries using the variables
-defined in the version catalog:  
+defined in the version catalog:
 
     dependencies {
         implementation(platform(libs.androidx.compose.bom))

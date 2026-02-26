@@ -10,14 +10,17 @@ suggestions for which network to connect to using
 [`WifiNetworkSuggestion`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSuggestion).
 The platform ultimately chooses which access point to accept based on the
 input from your app and others.
-| **Note:** Wi-Fi suggestions are not saved networks and will not appear in the saved network page. To add a new Wi-Fi network with user completion, see the [`ACTION_WIFI_ADD_NETWORKS`](https://developer.android.com/reference/android/provider/Settings#ACTION_WIFI_ADD_NETWORKS) activity action API. This API will prompt the user to approve the network addition.
+
+> [!NOTE]
+> **Note:** Wi-Fi suggestions are not saved networks and will not appear in the saved network page. To add a new Wi-Fi network with user completion, see the [`ACTION_WIFI_ADD_NETWORKS`](https://developer.android.com/reference/android/provider/Settings#ACTION_WIFI_ADD_NETWORKS) activity action API. This API will prompt the user to approve the network addition.
 
 On Android 11 (API level 30) and higher:
 
 - Provisioning a [`PasspointConfiguration`](https://developer.android.com/reference/android/net/wifi/hotspot2/PasspointConfiguration) is supported by the suggestion API. Before Android 11, provisioning a `PasspointConfiguration` requires the use of the [`addOrUpdatePasspointConfiguration()`](https://developer.android.com/reference/android/net/wifi/WifiManager#addOrUpdatePasspointConfiguration(android.net.wifi.hotspot2.PasspointConfiguration)) API.
 - The framework enforces security requirements on TLS-based Enterprise suggestions (EAP-TLS, EAP-TTLS, and EAP-PEAP); suggestions to such networks must set a [`Root CA certificate`](https://developer.android.com/reference/android/net/wifi/WifiEnterpriseConfig#setCaCertificates(java.security.cert.X509Certificate%5B%5D)) and a [`server domain name`](https://developer.android.com/reference/android/net/wifi/WifiEnterpriseConfig#setAltSubjectMatch(java.lang.String)).
 
-| **Note:** Insecure suggestions retained from an earlier version of Android are ignored in Android 11 and higher. The suggesting app must replace its old suggestions with new and secure suggestions.
+> [!NOTE]
+> **Note:** Insecure suggestions retained from an earlier version of Android are ignored in Android 11 and higher. The suggesting app must replace its old suggestions with new and secure suggestions.
 
 - The framework enforces ownership requirements for EAP-SIM based Enterprise suggestions (EAP-SIM, EAP-AKA, EAP-AKA-PRIME); such suggestions are allowed only by apps that are carrier-signed.
 - For suggestions provided by a carrier-signed app, the framework automatically assigns them a carrier ID corresponding to the app's [carrier signing](https://source.android.com/devices/tech/config/uicc). Such suggestions are automatically disabled if the corresponding SIM is removed from the device.
@@ -64,7 +67,7 @@ Passpoint
 specification](https://www.wi-fi.org/downloads-registered-guest/Passpoint_Specification_Package_v3.2.zip/35974).
 
 The following code sample shows how to provide credentials for one open, one
-WPA2, one WPA3 network and one Passpoint network:  
+WPA2, one WPA3 network and one Passpoint network:
 
 ### Kotlin
 

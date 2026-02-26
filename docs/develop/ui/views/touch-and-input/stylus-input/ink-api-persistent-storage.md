@@ -4,35 +4,43 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input
 source: md.txt
 ---
 
-State preservation and persistent storage are non-trivial aspects of inking apps. This requires a deliberate strategy for saving state during scenarios like configuration changes and permanently saving a user's drawings to a database.
+State preservation and persistent storage are non-trivial aspects of inking
+apps. This requires a deliberate strategy for saving state during scenarios like
+configuration changes and permanently saving a user's drawings to a database.
 
 ## State preservation
 
 In view-based apps, UI state is managed using a combination of the following:
 
-- [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel)objects
+- [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) objects
 - Saved instance state using:
-  - Activity[`onSaveInstanceState()`](https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle))
-  - ViewModel[SavedStateHandle](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate)
+  - Activity [`onSaveInstanceState()`](https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle))
+  - ViewModel [SavedStateHandle](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate)
   - Local storage to persist the UI state during app and activity transitions
 
-See[Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
+See [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
 
 ## Persistent storage
 
-To enable features such as document saving, loading, and potential real-time collaboration, store strokes and associated data in a serialized format. For the Ink API, manual serialization and deserialization are necessary.
+To enable features such as document saving, loading, and potential real-time
+collaboration, store strokes and associated data in a serialized format. For the
+Ink API, manual serialization and deserialization are necessary.
 
-To accurately restore a stroke, save its`Brush`and`StrokeInputBatch`.
+To accurately restore a stroke, save its `Brush` and `StrokeInputBatch`.
 
-- [`Brush`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush): Includes numeric fields (size, epsilon), color, and[`BrushFamily`](https://developer.android.com/reference/kotlin/androidx/ink/brush/BrushFamily).
+- [`Brush`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush): Includes numeric fields (size, epsilon), color, and [`BrushFamily`](https://developer.android.com/reference/kotlin/androidx/ink/brush/BrushFamily).
 - [`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch): A list of input points with numeric fields.
 
-The Storage module simplifies compactly serializing the most complex part: the[`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).
-| **Note:** See data transfer objects such as`SerializedBrush`and`SerializedStroke`as well as the`Converters`helper class in the[*Data object and converter helpers*section](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-state-preservation#data_object_and_converter_helpers).
+The Storage module simplifies compactly serializing the most complex part: the
+[`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).
+
+> [!NOTE]
+> **Note:** See data transfer objects such as `SerializedBrush` and `SerializedStroke` as well as the `Converters` helper class in the [*Data object and converter
+> helpers* section](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-state-preservation#data_object_and_converter_helpers).
 
 To save a stroke:
 
-- Serialize the`StrokeInputBatch`using the storage module's encode function. Store the resulting binary data.
+- Serialize the `StrokeInputBatch` using the storage module's encode function. Store the resulting binary data.
 - Separately save the essential properties of the stroke's Brush:
   - The enum that represents the brush family \&mdash Although the instance can be serialized, this is not efficient for apps that use a limited selection of brush families
   - `colorLong`
@@ -55,9 +63,10 @@ To save a stroke:
 
 To load a stroke object:
 
-- Retrieve the saved binary data for the`StrokeInputBatch`and deserialize it using the storage module's[decode()](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch.Companion#(androidx.ink.strokes.StrokeInputBatch.Companion).decode(java.io.InputStream))function.
-- Retrieve the saved`Brush`properties and create the brush.
-- Create the final stroke using the recreated brush and the deserialized[`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).
+- Retrieve the saved binary data for the `StrokeInputBatch` and deserialize it using the storage module's [decode()](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch.Companion#(androidx.ink.strokes.StrokeInputBatch.Companion).decode(java.io.InputStream)) function.
+- Retrieve the saved `Brush` properties and create the brush.
+- Create the final stroke using the recreated brush and the deserialized
+  [`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).
 
       fun deserializeStroke(serializedStroke: SerializedStroke): Stroke {
         val inputs = ByteArrayInputStream(serializedStroke.inputs).use {
@@ -69,9 +78,13 @@ To load a stroke object:
 
 #### Handle zoom, pan, and rotation
 
-If your app supports zooming, panning, or rotation, you must provide the current transformation to`InProgressStrokes`. This helps newly drawn strokes match the position and scale of your existing strokes.
+If your app supports zooming, panning, or rotation, you must provide the current
+transformation to `InProgressStrokes`. This helps newly drawn strokes match the
+position and scale of your existing strokes.
 
-You do this by passing a`Matrix`to the`pointerEventToWorldTransform`parameter. The matrix should represent the inverse of the transformation you apply to your finished strokes canvas.  
+You do this by passing a `Matrix` to the `pointerEventToWorldTransform`
+parameter. The matrix should represent the inverse of the transformation you
+apply to your finished strokes canvas.
 
     @Composable
     fun ZoomableDrawingScreen(...) {
@@ -102,15 +115,25 @@ You do this by passing a`Matrix`to the`pointerEventToWorldTransform`parameter. T
         }
     }
 
-| **Note:** For details on implementing the gestures themselves, refer to the Jetpack Compose documentation for[detectTransformGestures](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.input.pointer.PointerInputScope).detectTransformGestures(kotlin.Boolean,kotlin.Function4)).
+> [!NOTE]
+> **Note:** For details on implementing the gestures themselves, refer to the Jetpack Compose documentation for [detectTransformGestures](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.input.pointer.PointerInputScope).detectTransformGestures(kotlin.Boolean,kotlin.Function4)).
 
 #### Export strokes
 
-You might need to export your stroke scene as a static image file. This is useful for sharing the drawing with other applications, generating thumbnails, or saving a final, uneditable version of the content.
+You might need to export your stroke scene as a static image file. This is
+useful for sharing the drawing with other applications, generating thumbnails,
+or saving a final, uneditable version of the content.
 
-To export a scene, you can render your strokes to an offscreen bitmap instead of directly to the screen. Use[`Android's Picture API`](https://developer.android.com/reference/android/graphics/Picture), which lets you record drawings on a canvas without needing a visible UI component.
+To export a scene, you can render your strokes to an offscreen bitmap instead of
+directly to the screen. Use
+[`Android's Picture API`](https://developer.android.com/reference/android/graphics/Picture), which lets you record drawings on a canvas without
+needing a visible UI component.
 
-The process involves creating a`Picture`instance, calling`beginRecording()`to get a`Canvas`, and then using your existing`CanvasStrokeRenderer`to draw each stroke onto that`Canvas`. After you record all the drawing commands, you can use the`Picture`to create a[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap), which you can then compress and save to a file.  
+The process involves creating a `Picture` instance, calling `beginRecording()`
+to get a `Canvas`, and then using your existing `CanvasStrokeRenderer` to draw
+each stroke onto that `Canvas`. After you record all the drawing commands, you
+can use the `Picture` to create a [`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap),
+which you can then compress and save to a file.
 
     fun exportDocumentAsImage() {
       val picture = Picture()
@@ -136,7 +159,7 @@ The process involves creating a`Picture`instance, calling`beginRecording()`to ge
 
 Define a serialization object structure that mirrors needed Ink API objects.
 
-Use the Ink API's storage module to encode and decode`StrokeInputBatch`.
+Use the Ink API's storage module to encode and decode `StrokeInputBatch`.
 
 ##### Data transfer objects
 

@@ -4,18 +4,17 @@ url: https://developer.android.com/develop/ui/views/layout/display-cutout
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with display cutouts in Compose.  
-[Display cutouts in Compose →](https://developer.android.com/jetpack/compose/system/cutouts)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with display cutouts in Compose. [Display cutouts in Compose →](https://developer.android.com/jetpack/compose/system/cutouts) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
 A [*display cutout*](https://developer.android.com/guide/topics/display-cutout) is an area on some devices
 that extends into the display surface. It allows for an edge-to-edge experience
 while providing space for important sensors on the front of the device.
-| **Note:** Before attempting to render your app into the cutout area, ensure your app is configured to [display content edge to
-| edge](https://developer.android.com/develop/ui/views/layout/edge-to-edge).
+
+> [!NOTE]
+> **Note:** Before attempting to render your app into the cutout area, ensure your app is configured to [display content edge to
+> edge](https://developer.android.com/develop/ui/views/layout/edge-to-edge).
 
 Android supports display cutouts on devices running Android 9 (API level 28) and
 higher. However, device manufacturers can also support display cutouts on
@@ -50,7 +49,7 @@ You can set `layoutInDisplayCutoutMode` to one of the following values:
 You can set the cutout mode either programmatically or by setting a
 [style](https://developer.android.com/guide/topics/ui/look-and-feel/themes) in your activity. The following
 example defines a style to apply the `LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES`
-attribute to the activity.  
+attribute to the activity.
 
 ```xml
 <style name="ActivityTheme">
@@ -82,7 +81,9 @@ content extends into the cutout area on the short edge of the display in both
 portrait and landscape, regardless of whether the system bars are hidden or
 visible. When using this mode, be sure that no important content overlaps with
 the cutout area.
-| **Note:** The window can never extend into a cutout area on the long edges of the screen.
+
+> [!NOTE]
+> **Note:** The window can never extend into a cutout area on the long edges of the screen.
 
 The following image is an example of `LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES`
 for a device in portrait:

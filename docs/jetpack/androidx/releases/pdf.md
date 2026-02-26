@@ -12,7 +12,7 @@ A library to add pdf viewing capabilities inside apps.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha13) |
+| February 25, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha14) |
 
 ## Declaring dependencies
 
@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.pdf:pdf-viewer-fragment:1.0.0-alpha13"
+    implementation "androidx.pdf:pdf-viewer-fragment:1.0.0-alpha14"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.pdf:pdf-viewer-fragment:1.0.0-alpha13")
+    implementation("androidx.pdf:pdf-viewer-fragment:1.0.0-alpha14")
 }
 ```
 
@@ -57,6 +57,42 @@ for more information.
 There are no release notes for this artifact.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha14
+
+February 25, 2026
+
+`androidx.pdf:pdf-*:1.0.0-alpha14` is released. Version 1.0.0-alpha14 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7a88bc76ceeb1bab5f6dc6f0c8a314230e5dde3b..c2de33678eded3b9c19c57db09706e737f17929d/pdf).
+
+**New Features**
+
+- External Hardware Interaction: Full support for keyboard shortcuts and mouse events is now available in the `PdfViewer` library .
+  - Keyboard Navigation \& Controls:
+  - Zooming: Use Ctrl + + or Ctrl + = to zoom in, Ctrl + - to zoom out, and Ctrl + 0 to snap the document to "fit to width".
+  - Scrolling: Standard arrow keys (D-pad) allow for scrolling up, down, left, and right, including jumping to the next or previous page when at boundaries.
+  - Selection: Use Ctrl + C to quickly copy currently selected content.
+  - Enhanced Mouse Support:
+  - Scroll Wheel: Support for vertical and horizontal scrolling. Use Ctrl + Scroll Wheel to zoom the document relative to the mouse cursor position.
+  - Selection: Click and drag with the primary mouse button to select text.
+  - Form \& Widget Improvements:
+  - Added a Custom choice option for Comboboxes.
+  - The form widget edit callback now triggers for all edit text updates
+
+**API Changes**
+
+- Expose `PdfDocument` from `PdfViewerFragment` via `onDocumentLoadSuccess(pdfDocument)`. ([I4b47d](https://android-review.googlesource.com/#/q/I4b47d0634e2b16aaff6f1d39cfa3b0eb7a13f2c7), [b/481616017](https://issuetracker.google.com/issues/481616017))
+
+**Bug Fixes**
+
+- Avoid parceling Bitmap in `ImageSelection` to prevent `RuntimeException` when saving instance state ([I07bab](https://android.googlesource.com/platform/frameworks/support/+/02faffa3a8d9b0e701c5c03d6ac65b17e2c3de5c)).
+- Disable annotation features while PDF search is active to improve focus [Ia9866](https://android.googlesource.com/platform/frameworks/support/+/2435c8283887ff3b5fe818c44d03f7fc079e2c87).
+- Ensure highlight start/finish requests are always processed ([I9a863](https://android.googlesource.com/platform/frameworks/support/+/0b1f2838ec565e955f00ca98b53dbc303e2582a1)).
+- Focus the selected color palette item or brush slider when opened ([Ie7a75](https://android.googlesource.com/platform/frameworks/support/+/bb255a13875695bad1ded80cdb5a8393c09b79da)).
+- Update form widget edit callback to trigger for all edit text updates ([Icebe6](https://android.googlesource.com/platform/frameworks/support/+/c3702092399de65254ec42688e3fb2a904975948)).
+- Fix discard dialog disappearing after configuration changes ([I71a39](https://android.googlesource.com/platform/frameworks/support/+/19546683a3a273447300e20d023d815a7815bf89)).
+- Fix drawing extending outside of page boundaries ([I88bd5](https://android.googlesource.com/platform/frameworks/support/+/e5349f14a0bc2876c075dd8af7b40ac7dccff769)).
+- Clear text selection when entering edit mode ([I26fb9](https://android.googlesource.com/platform/frameworks/support/+/5c6e35bb38d943f16262cfff924c099ab5d3be7d)).
+- Fix text widget not updated after tap on another widget ([I5dffc](https://android.googlesource.com/platform/frameworks/support/+/d597a5ab2231c7278e11087a555559a001f30761)).
 
 ### Version 1.0.0-alpha13
 

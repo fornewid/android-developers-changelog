@@ -4,13 +4,14 @@ url: https://developer.android.com/develop/ui/views/graphics/agsl/using-agsl
 source: md.txt
 ---
 
-# Using AGSL in your Android app
-
-This page covers AGSL basics, and different ways to use AGSL in your Android app.
+This page covers AGSL basics, and different ways to use AGSL in your Android
+app.
 
 ## A simple AGSL shader
 
-Your shader code is called for each drawn pixel, and returns the color the pixel should be painted with. An extremely simple shader is one that always returns a single color; this example uses red. The shader is defined inside of a`String`.  
+Your shader code is called for each drawn pixel, and returns the color the pixel
+should be painted with. An extremely simple shader is one that always returns
+a single color; this example uses red. The shader is defined inside of a `String`.
 
 ### Kotlin
 
@@ -30,7 +31,8 @@ private static final String COLOR_SHADER_SRC =
    "}";
 ```
 
-The next step is to create a[`RuntimeShader`](https://developer.android.com/reference/android/graphics/RuntimeShader)object initialized with your shader string. This also compiles the shader.  
+The next step is to create a [`RuntimeShader`](https://developer.android.com/reference/android/graphics/RuntimeShader)
+object initialized with your shader string. This also compiles the shader.
 
 ### Kotlin
 
@@ -44,7 +46,9 @@ val fixedColorShader = RuntimeShader(COLOR_SHADER_SRC)
 RuntimeShader fixedColorShader = new RuntimeShader(COLOR_SHADER_SRC);
 ```
 
-Your`RuntimeShader`can be used anywhere a standard Android shader can. As an example, you can use it to draw into a custom`View`using a[`Canvas`](https://developer.android.com/reference/android/graphics/Canvas).  
+Your `RuntimeShader` can be used anywhere a standard Android shader can. As an
+example, you can use it to draw into a custom `View` using a
+[`Canvas`](https://developer.android.com/reference/android/graphics/Canvas).
 
 ### Kotlin
 
@@ -70,7 +74,8 @@ public void onDrawForeground(@Nullable Canvas canvas) {
 }
 ```
 
-This draws a red`View`. You can use a`uniform`to pass a color parameter into the shader to be drawn. First, add the color`uniform`to the shader:  
+This draws a red `View`. You can use a `uniform` to pass a color parameter into
+the shader to be drawn. First, add the color `uniform` to the shader:
 
 ### Kotlin
 
@@ -92,7 +97,8 @@ private static final String COLOR_SHADER_SRC =
    "}";
 ```
 
-Then, call`setColorUniform`from your custom`View`to pass the desired color into the AGSL shader.  
+Then, call `setColorUniform` from your custom `View` to pass the desired color
+into the AGSL shader.
 
 ### Kotlin
 
@@ -106,9 +112,12 @@ fixedColorShader.setColorUniform("iColor", Color.GREEN )
 fixedColorShader.setColorUniform("iColor", Color.GREEN );
 ```
 
-Now, you get a green`View`; the`View`color is controlled using a parameter from code in your custom`View`instead of being embedded in the shader.
+Now, you get a green `View`; the `View` color is controlled using a
+parameter from code in your custom `View` instead of being embedded in the
+shader.
 
-You can create a color gradient effect instead. You'll first need to change the shader to accept the`View`resolution as input:  
+You can create a color gradient effect instead. You'll first need to change
+the shader to accept the `View` resolution as input:
 
 ### Kotlin
 
@@ -134,9 +143,13 @@ private static final String COLOR_SHADER_SRC =
 
 ## Drawing the gradient
 
-This shader does something slightly fancy. For each pixel, it creates a`float2`vector that contains the x and y coordinates divided by the resolution, which will create a value between zero and one. It then uses that scaled vector to construct the red and green components of the return color.
+This shader does something slightly fancy. For each pixel, it creates a `float2`
+vector that contains the x and y coordinates divided by the resolution, which
+will create a value between zero and one. It then uses that scaled vector to
+construct the red and green components of the return color.
 
-You pass the resolution of the`View`into an AGSL shader`uniform`by calling`setFloatUniform`.  
+You pass the resolution of the `View` into an AGSL shader `uniform` by calling
+`setFloatUniform`.
 
 ### Kotlin
 
@@ -163,11 +176,12 @@ public void onDrawForeground(@Nullable Canvas canvas) {
    }
 }
 ```
-![Red and Green gradient](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-gradient.png)Red and green gradient
+![Red and Green gradient](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-gradient.png) Red and green gradient
 
 ## Animating the shader
 
-You can use a similar technique to animate the shader by modifying it to receive`iTime`and`iDuration`uniforms. The shader will use these values to create a triangular wave for the colors, causing them to cycle back and forth across their gradient values.  
+You can use a similar technique to animate the shader by modifying it to receive `iTime` and `iDuration` uniforms. The shader will use these values to create a
+triangular wave for the colors, causing them to cycle back and forth across their gradient values.
 
 ### Kotlin
 
@@ -198,7 +212,9 @@ private static final String COLOR_SHADER_SRC =
    "}";
 ```
 
-From the custom view source code, a[`ValueAnimator`](https://developer.android.com/reference/android/animation/ValueAnimator)updates the`iTime`uniform.  
+From the custom view source code, a
+[`ValueAnimator`](https://developer.android.com/reference/android/animation/ValueAnimator) updates the
+`iTime` uniform.
 
 ### Kotlin
 
@@ -238,11 +254,14 @@ shaderAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
    }
 });
 ```
-![Red and Green animated gradient](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-animated-gradient.gif)Red and Green animated gradient
+![Red and Green animated gradient](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-animated-gradient.gif) Red and Green animated gradient
 
 ## Painting complex objects
 
-You don't have to draw the shader to fill the background; it can be used in any place that accepts a[`Paint`](https://developer.android.com/reference/android/graphics/Paint)object, such as[`drawText`](https://developer.android.com/reference/android/graphics/Canvas#drawText(java.lang.String,%20float,%20float,%20android.graphics.Paint)).  
+You don't have to draw the shader to fill the background; it can be
+used in any place that accepts a
+[`Paint`](https://developer.android.com/reference/android/graphics/Paint) object, such as
+[`drawText`](https://developer.android.com/reference/android/graphics/Canvas#drawText(java.lang.String,%20float,%20float,%20android.graphics.Paint)).
 
 ### Kotlin
 
@@ -257,11 +276,14 @@ canvas.drawText(ANIMATED_TEXT, TEXT_MARGIN_DP, TEXT_MARGIN_DP + bounds.height(),
 canvas.drawText(ANIMATED_TEXT, TEXT_MARGIN_DP, TEXT_MARGIN_DP + bounds.height(),
    paint);
 ```
-![Red and Green animated gradient text](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-animated-gradient-text.gif)Red and Green animated gradient text
+![Red and Green animated gradient text](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-animated-gradient-text.gif) Red and Green animated gradient text
 
 ## Shading and Canvas transformations
 
-You can apply additional`Canvas`transformations on your shaded text, such as rotation. In the`ValueAnimator`, you can update a matrix for 3D rotations using the built-in[`android.graphics.Camera`](https://developer.android.com/reference/android/graphics/Camera)class.  
+You can apply additional `Canvas` transformations on your shaded text, such as
+rotation. In the `ValueAnimator`, you can update a matrix for 3D rotations
+using the built-in
+[`android.graphics.Camera`](https://developer.android.com/reference/android/graphics/Camera) class.
 
 ### Kotlin
 
@@ -277,7 +299,10 @@ camera.rotate(0.0f, animation.animatedValue as Float / DURATION * 360f, 0.0f)
 camera.rotate(0.0f, (Float)animation.getAnimatedValue() / DURATION * 360f, 0.0f);
 ```
 
-Since you want to rotate the text from the center axis rather than from the corner, get the text bounds and then use`preTranslate`and`postTranslate`to alter the matrix to translate the text so that 0,0 is the center of the rotation without changing the position the text is drawn on the screen.  
+Since you want to rotate the text from the center axis rather than from the corner,
+get the text bounds and then use `preTranslate` and `postTranslate` to alter the
+matrix to translate the text so that 0,0 is the center of the rotation without
+changing the position the text is drawn on the screen.
 
 ### Kotlin
 
@@ -308,11 +333,13 @@ canvas.concat(rotationMatrix);
 canvas.drawText(ANIMATED_TEXT, 0f, 0f + bounds.height(), paint);
 canvas.restore();
 ```
-![Red and Green rotating animated gradient text](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-rotating-animated-gradient-text.gif)Red and Green rotating animated gradient text
+![Red and Green rotating animated gradient text](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-rotating-animated-gradient-text.gif) Red and Green rotating animated gradient text
 
 ## Using RuntimeShader with Jetpack Compose
 
-It's even easier to use`RuntimeShader`if you're rendering your UI using[Jetpack Compose](https://developer.android.com/jetpack/compose). Starting with the same gradient shader from before:  
+It's even easier to use `RuntimeShader` if you're rendering your UI using
+[Jetpack Compose](https://developer.android.com/jetpack/compose). Starting with the same gradient shader from
+before:
 
     private const val COLOR_SHADER_SRC =
         """uniform float2 iResolution;
@@ -321,7 +348,10 @@ It's even easier to use`RuntimeShader`if you're rendering your UI using[Jetpack 
        return half4(scaled, 0, 1);
     }"""
 
-You can apply that shader to a[`ShaderBrush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ShaderBrush). You then use the`ShaderBrush`as a parameter to the drawing commands within your`Canvas`'s draw scope.  
+You can apply that shader to a
+[`ShaderBrush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ShaderBrush). You
+then use the `ShaderBrush` as a parameter to the drawing commands within your
+`Canvas`'s draw scope.
 
     // created as top level constants
     val colorShader = RuntimeShader(COLOR_SHADER_SRC)
@@ -335,11 +365,17 @@ You can apply that shader to a[`ShaderBrush`](https://developer.android.com/refe
        drawCircle(brush = shaderBrush)
     }
 
-![AGSL Compose gradient circle](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-compose-gradient-circle.png)Red and green gradient circle
+![AGSL Compose gradient circle](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-compose-gradient-circle.png) Red and green gradient circle
 
 ## Using RuntimeShader with RenderEffect
 
-You can use[`RenderEffect`](https://developer.android.com/reference/android/graphics/RenderEffect)to apply a[`RuntimeShader`](https://developer.android.com/reference/android/graphics/RuntimeShader)to a parent`View`*and* all child views. This is more expensive than drawing a custom`View`. but it allows you to easily create an effect that incorporates what would have originally been drawn using[`createRuntimeShaderEffect`](https://developer.android.com/reference/android/graphics/RenderEffect#createRuntimeShaderEffect(android.graphics.RuntimeShader,%20java.lang.String)).  
+You can use
+[`RenderEffect`](https://developer.android.com/reference/android/graphics/RenderEffect) to apply a
+[`RuntimeShader`](https://developer.android.com/reference/android/graphics/RuntimeShader) to a parent `View`
+*and* all child views. This is more expensive than drawing a custom `View`. but
+it allows you to easily create an effect that incorporates what would have
+originally been drawn using
+[`createRuntimeShaderEffect`](https://developer.android.com/reference/android/graphics/RenderEffect#createRuntimeShaderEffect(android.graphics.RuntimeShader,%20java.lang.String)).
 
 ### Kotlin
 
@@ -353,11 +389,16 @@ view.setRenderEffect(RenderEffect.createRuntimeShaderEffect(myShader, "backgroun
 view.setRenderEffect(RenderEffect.createRuntimeShaderEffect(myShader, "background"));
 ```
 
-The second parameter is the name of a shader uniform that you can`eval`with a coordinate parameter (such as the passed in fragCoord) to get the original color of the[`RenderNode`](https://developer.android.com/reference/android/graphics/RenderNode)(the View and its child views), allowing you to perform all sorts of effects.  
+The second parameter is the name of a shader uniform that you can `eval` with a
+coordinate parameter (such as the passed in fragCoord) to get the original color
+of the
+[`RenderNode`](https://developer.android.com/reference/android/graphics/RenderNode) (the View and its child
+views), allowing you to perform all sorts of effects.
 
     uniform shader background;       // Root node of View tree to be altered
     return mix(returnColor, background.eval(fragCoord), 0.5);
 
-![Grid blended over button](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-grid-blend.png)AGSL grid blended over button
+![Grid blended over button](https://developer.android.com/static/images/guide/topics/graphics/agsl/agsl-grid-blend.png) AGSL grid blended over button
 
-A grid effect mixed over a button, but underneath a floating action button (since it's in a different`View`hierarchy).
+A grid effect mixed over a button, but underneath a floating action button
+(since it's in a different `View` hierarchy).

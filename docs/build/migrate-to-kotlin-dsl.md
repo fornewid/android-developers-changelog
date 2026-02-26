@@ -23,7 +23,8 @@ guide, see Gradle's
 
 ## Timeline
 
-| **Note:** Kotlin is the default language for build configuration starting with Android Studio Giraffe. If you're using AGP 8.1 and the Kotlin DSL for build configuration, you should use Gradle 8.1 for the best experience.
+> [!NOTE]
+> **Note:** Kotlin is the default language for build configuration starting with Android Studio Giraffe. If you're using AGP 8.1 and the Kotlin DSL for build configuration, you should use Gradle 8.1 for the best experience.
 
 Starting with Android Studio Giraffe, new projects use the Kotlin DSL
 (`build.gradle.kts`) by default for build configuration. This offers a better
@@ -56,32 +57,34 @@ so you need to apply these changes throughout your build scripts.
 
 ### Add parentheses to method calls
 
-| **Tip:** As a first step, even before changing the file extensions, add parentheses to your Groovy code. This makes the conversion to Kotlin easier.
+> [!TIP]
+> **Tip:** As a first step, even before changing the file extensions, add parentheses to your Groovy code. This makes the conversion to Kotlin easier.
 
 Groovy lets you to omit parentheses in method calls, while Kotlin requires
 them. To migrate your configuration, add parentheses to these sorts of
-method calls. This code shows how to configure a setting in Groovy:  
+method calls. This code shows how to configure a setting in Groovy:
 
     compileSdkVersion 30
 
-This is the same code written in Kotlin:  
+This is the same code written in Kotlin:
 
     compileSdkVersion(30)
 
 ### Add `=` to assignment calls
 
-| **Tip:** Before changing file extensions, add `=` to your Groovy code. This makes the conversion to Kotlin easier.
+> [!TIP]
+> **Tip:** Before changing file extensions, add `=` to your Groovy code. This makes the conversion to Kotlin easier.
 
 The Groovy DSL lets you to omit the assignment operator `=` when
 assigning properties, whereas Kotlin requires it. This code shows how to
-assign properties in Groovy:  
+assign properties in Groovy:
 
     java {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
 
-This code shows how to assign properties in Kotlin:  
+This code shows how to assign properties in Kotlin:
 
     java {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -107,7 +110,7 @@ Here are the string differences between Groovy and Kotlin:
   In Kotlin, however, the preceding code calls `toString()` on
   `project`, not on `project.rootDir`. To get the value
   of the root directory, wrap the `${project.rootDir}` expression
-  with curly braces:  
+  with curly braces:
 
   ```kotlin
       myRootDirectory = "${project.rootDir}/tools/proguard-rules-debug.pro"
@@ -133,11 +136,11 @@ carefully make the move.
 
 Replace `def` with `val` or `var`, which is
 [how you define variables in Kotlin](https://kotlinlang.org/docs/basic-syntax.html#variables).
-This is a variable declaration in Groovy:  
+This is a variable declaration in Groovy:
 
     def building64Bit = false
 
-This is the same code written in Kotlin:  
+This is the same code written in Kotlin:
 
     val building64Bit = false
 
@@ -149,7 +152,7 @@ can be `getFoo`, `setFoo`, or `isFoo`. Thus once converted to Kotlin,
 you need to change the property names to the deduced methods
 that are not supported by Kotlin. For example, for
 `buildTypes` DSL boolean elements, you need to prefix them with `is`. This code
-shows how to set boolean properties in Groovy:  
+shows how to set boolean properties in Groovy:
 
     android {
         buildTypes {
@@ -165,7 +168,7 @@ shows how to set boolean properties in Groovy:
         ...
 
 The following is the same code in Kotlin. Note that the properties are prefixed
-by `is`.  
+by `is`.
 
     android {
         buildTypes {
@@ -187,19 +190,19 @@ uses `[]`, while Kotlin calls collection creation methods explicitly using
 `listOf` or `mapOf`. Make sure to replace `[]` with `listOf` or `mapOf` when
 migrating.
 
-Here's how to define a list in Groovy versus Kotlin:  
+Here's how to define a list in Groovy versus Kotlin:
 
     jvmOptions += ["-Xms4000m", "-Xmx4000m", "-XX:+HeapDumpOnOutOfMemoryError</code>"]
 
-This is the same code written in Kotlin:  
+This is the same code written in Kotlin:
 
     jvmOptions += listOf("-Xms4000m", "-Xmx4000m", "-XX:+HeapDumpOnOutOfMemoryError")
 
-Here's how to define a map in Groovy versus Kotlin:  
+Here's how to define a map in Groovy versus Kotlin:
 
     def myMap = [key1: 'value1', key2: 'value2']
 
-This is the same code written in Kotlin:  
+This is the same code written in Kotlin:
 
     val myMap = mapOf("key1" to "value1", "key2" to "value2")
 
@@ -212,7 +215,7 @@ In Groovy you can use the debug, release, and certain other build types without
 creating them first. The following code snippet shows a configuration with the
 `debug`, `release`, and
 [`benchmark`](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview) build
-types in Groovy.  
+types in Groovy.
 
     buildTypes {
      debug {
@@ -227,7 +230,7 @@ types in Groovy.
     }
 
 To create the equivalent configuration in Kotlin, you must explicitly create the
-`benchmark` build type.  
+`benchmark` build type.
 
     buildTypes {
      debug {
@@ -319,7 +322,7 @@ Once you know the IDs of the plugins you use, perform the following steps:
 5. Remove the `apply plugin` call for the plugin from the module-level
    `build.gradle` file.
 
-For example, this setup uses the `buildscript {}` block:  
+For example, this setup uses the `buildscript {}` block:
 
     // Top-level build.gradle file
     buildscript {
@@ -339,7 +342,7 @@ For example, this setup uses the `buildscript {}` block:
     apply(plugin: "com.android.application")
     apply(plugin: "kotlin-android")
 
-This is an equivalent setup using the `plugins {}` block:  
+This is an equivalent setup using the `plugins {}` block:
 
     // Top-level build.gradle file
     plugins {
@@ -368,7 +371,7 @@ This is an equivalent setup using the `plugins {}` block:
 
 Applying plugins from the `plugins {}` block is similar in Groovy and Kotlin.
 The following code shows how to apply plugins in Groovy when you're using
-[version catalogs](https://developer.android.com/studio/build/migrate-to-catalogs):  
+[version catalogs](https://developer.android.com/studio/build/migrate-to-catalogs):
 
     // Top-level build.gradle file
     plugins {
@@ -382,7 +385,7 @@ The following code shows how to apply plugins in Groovy when you're using
        ...
     }
 
-The following code shows how to do the same in Kotlin:  
+The following code shows how to do the same in Kotlin:
 
     // Top-level build.gradle.kts file
     plugins {
@@ -397,7 +400,7 @@ The following code shows how to do the same in Kotlin:
     }
 
 The following code shows how to apply plugins in Groovy when you're *not*
-using version catalogs:  
+using version catalogs:
 
     // Top-level build.gradle file
     plugins {
@@ -411,7 +414,7 @@ using version catalogs:
        ...
     }
 
-The following code shows how to do the same in Kotlin:  
+The following code shows how to do the same in Kotlin:
 
     // Top-level build.gradle.kts file
     plugins {
@@ -440,7 +443,8 @@ documentation pages:
 - If you use project-wide properties, refer to [Configure project-wide
   properties](https://developer.android.com/studio/build#project_wide_properties).
 
-| **Caution:** Although Gradle lets you define project-wide properties at the module level, avoid doing so, because it causes the modules that share those properties to be coupled. Module coupling makes it more difficult to later export a module as a standalone project and prevents Gradle from using parallel project execution to speed up multi-module builds.
+> [!CAUTION]
+> **Caution:** Although Gradle lets you define project-wide properties at the module level, avoid doing so, because it causes the modules that share those properties to be coupled. Module coupling makes it more difficult to later export a module as a standalone project and prevents Gradle from using parallel project execution to speed up multi-module builds.
 
 ## Known issues
 

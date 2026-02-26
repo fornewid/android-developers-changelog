@@ -4,12 +4,11 @@ url: https://developer.android.com/develop/ui/views/animations/motionlayout
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use animations in Compose.  
-[Animations in Compose →](https://developer.android.com/develop/ui/compose/animation/introduction)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use animations in Compose. [Animations in Compose →](https://developer.android.com/develop/ui/compose/animation/introduction) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
+
+[Video](https://www.youtube.com/watch?v=M1jE3W3_NTQ)
 
 [`MotionLayout`](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout)
 is a layout type that helps you manage motion and widget animation in your app.
@@ -33,7 +32,9 @@ keyframes, enabling fully customized transitions to suit your needs.
 
 `MotionLayout` is fully declarative, meaning you can describe any transitions in
 XML, no matter how complex.
-| **Note:** `MotionLayout` works only with its direct children. It doesn't support nested layout hierarchies or activity transitions.
+
+> [!NOTE]
+> **Note:** `MotionLayout` works only with its direct children. It doesn't support nested layout hierarchies or activity transitions.
 
 ## Design considerations
 
@@ -100,7 +101,7 @@ Follow these steps to start using `MotionLayout` in your project.
    ```
 
    Here's a full example of a `MotionLayout` file, which
-   defines the layout shown in figure 1:  
+   defines the layout shown in figure 1:
 
    ### AndroidX
 
@@ -164,7 +165,7 @@ Follow these steps to start using `MotionLayout` in your project.
    definitions in the `MotionLayout`.
 
    Here's an example motion scene file that describes the basic horizontal
-   motion in figure 1:  
+   motion in figure 1:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
@@ -233,7 +234,7 @@ Follow these steps to start using `MotionLayout` in your project.
        `motion:dragDirection="dragRight"` means progress
        increases as the view is dragged to the right.
 
-   - [<ConstraintSet>](https://developer.android.com/training/constraint-layout/motionlayout/ref/constraintset)
+   - `https://developer.android.com/training/constraint-layout/motionlayout/ref/constraintset`
      is where you define the various constraints that describe your motion.
      In this example, one `<ConstraintSet>` is defined for
      each endpoint of your motion. These endpoints are centered vertically
@@ -263,7 +264,7 @@ bounds, the following attributes are interpolated by `MotionLayout`:
 
 Within a `<Constraint>`, you can use the `<CustomAttribute>` element to specify
 a transition for attributes that aren't simply related to position or `View`
-attributes.  
+attributes.
 
 ```xml
 <Constraint
@@ -295,7 +296,7 @@ as part of its motion, as shown in figure 2.
 **Figure 2.** The view changes its background color as it moves.
 
 Add a `<CustomAttribute>` element to each `ConstraintSet` elements, as shown in
-the following code snippet:  
+the following code snippet:
 
 ```xml
 <ConstraintSet android:id="@+id/start">

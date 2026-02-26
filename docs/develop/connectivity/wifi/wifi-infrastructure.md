@@ -41,7 +41,8 @@ constraints:
   - User approval is required for every request to add saved networks.
   - Intended for apps that configure a home Access Point and need to add the configuration to the user's saved network list. Apps that provision a user-account Passpoint configuration, such as Enterprise, federated networks, and educational institutions.
 
-| **Note:** These APIs are a replacement for the deprecated `WifiManager.addNetwork(WifiConfiguration config)` and related APIs. The other deprecated APIs allowed apps to directly add and manage a Wi-Fi configuration in the saved network list. The replacement APIs provide use-case-targeted alternatives.
+> [!NOTE]
+> **Note:** These APIs are a replacement for the deprecated `WifiManager.addNetwork(WifiConfiguration config)` and related APIs. The other deprecated APIs allowed apps to directly add and manage a Wi-Fi configuration in the saved network list. The replacement APIs provide use-case-targeted alternatives.
 
 ## Secure Wi-Fi Enterprise configuration
 

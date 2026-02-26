@@ -14,9 +14,10 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | [1.5.6](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.5.6) | - | - | [1.6.0-alpha10](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.0-alpha10) |
+| February 25, 2026 | [1.5.6](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.5.6) | - | [1.6.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.0-beta01) | - |
 
-| **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
+> [!NOTE]
+> **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
 
 ## Declaring dependencies
 
@@ -91,6 +92,36 @@ for more information.
 <br />
 
 ## Wear Compose Version 1.6
+
+### Version 1.6.0-beta01
+
+February 25, 2026
+
+`androidx.wear.compose:compose-*:1.6.0-beta01` is released. Version 1.6.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..6e23fc0c137022098ae2d043778ffdc56402ba5e/wear/compose).
+
+The 1.6.0-beta01 release of Compose for Wear OS indicates that this release of the library is feature complete and the API is locked (except where marked as experimental). Wear Compose 1.6.0-beta01 includes the following new functionality:
+
+- Wear Compose Navigation3 library, which integrates with the Navigation 3 library's `NavDisplay` and `SceneStrategy` components, adding Wear-specific swipe-to-dismiss logic using our new `SwipeDismissableSceneStrategy`.
+- Added `TransformingLazyColumn` support for `reverseLayout`, snapping using `TransformingLazyColumnDefaults.snapFlingBehavior` and `Modifier.minimumVerticalContentPadding`, which allows defining a preferred content padding for items in the list when they are at the top or bottom edges.
+- Added new overloads for `AlertDialog` which use a `TransformingLazyColumn` for consistency with scrolling in other Material3 screens.
+- Improved curved text rendering, particularly for cursive fonts, with the introduction of text-warping via the new `CurvedTextStyle` parameter `warpOffset`, which is turned on by default for API 34 onwards.
+- Added `LocalAmbientModeManager`, a new `CompositionLocal` that supports defining different UI and behavior for interactive and ambient modes.
+- Updated `TimePicker` to support a new `MinutesSeconds` type and include a new `initialSelection` parameter to specify the initially selected time component.
+- New overloads on Cards to provide non-clickable variants where the cards are presentational only and are not intended to respond to user clicks.
+- Added `LocalRippleConfiguration` to provide control over ripple appearance.
+- Introduced `snapSensitivity` parameter for `RotaryScrollableDefaults.snapBehavior` and `PagerScaffoldDefaults` now includes the recommended default values for `SnapPositionalThreshold` and `HighSnapPositionalThreshold` for use with `PagerDefaults.snapFlingBehavior`.
+
+**API Changes**
+
+- Renamed recommended default values for `Modifier.minimumVerticalContentPadding` from `minimumListVerticalContentPadding` to `minimumVerticalListContentPadding` to emphasize that this content padding refers to the list, and updated associated documentation. ([I496ca](https://android-review.googlesource.com/#/q/I496cabbf46edeed0f448988f58f83c1beb52db00), [b/426154225](https://issuetracker.google.com/issues/426154225))
+- Curved text now does warping by default, improving curved text rendering, especially for cursive fonts. ([I6979d](https://android-review.googlesource.com/#/q/I6979d3f250fb7c3aa46173fd8d65d46189cbce3d), [b/450526792](https://issuetracker.google.com/issues/450526792), [b/481617443](https://issuetracker.google.com/issues/481617443))
+
+**Bug Fixes**
+
+- Fix interaction between TLCs `animateItem` and `minimumVerticalContentPadding`. ([Ia865c](https://android-review.googlesource.com/#/q/Ia865c567bb306703810edd7d7c77c4aeda806a34), [b/483663045](https://issuetracker.google.com/issues/483663045))
+- Warped offset for curved text is now only on by default for API 34 onwards, due to dependency on `PathIterator` from the `androidx.graphics.path` library which is unavailable for developer testing under Robolectric before API 34 (hence breaking existing developer tests). ([Ie5bae](https://android-review.googlesource.com/#/q/Ie5bae9f6e721379e374f6aa59421998271db9f66), [b/484319336](https://issuetracker.google.com/issues/484319336))
+- Make warped curved text more robust. ([If2b34](https://android-review.googlesource.com/#/q/If2b349ca76d299d3a28b234ea37d2790bdc8b663), [b/483390353](https://issuetracker.google.com/issues/483390353))
+- Updated `ConfirmationDialogDefaults.SuccessIcon` to ignore RTL layout direction so that the check mark is not reversed. ([Ic6add](https://android-review.googlesource.com/#/q/Ic6add6188923840823635367fdf6361010aac66e), [b/481966029](https://issuetracker.google.com/issues/481966029))
 
 ### Version 1.6.0-alpha10
 

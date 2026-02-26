@@ -70,12 +70,12 @@ February 11, 2026
 - **Expanded Test Suite**: Added more tests, including for the new color conversion extensions, to improve library stability.
 - **Documentation**: Substantially improved KDoc and Javadoc throughout the library, providing clearer definitions for API types and flags.
 
-\*\* API Changes \*\*
+**API Changes**
 
 - **Constructor Updates**: Public constructors for descriptor classes have been updated to support the Builder pattern; many overloaded constructors were removed to streamline the API.
 - **Dawn Update**: Updated the internal Dawn source commit to dc741dd to stay synchronized with the upstream WebGPU implementation.
 
-- Important Note: The documentation provided in this library release has been generated utilizing Google Gemini and may contain errors.
+- **Important Note**: The documentation provided in this library release has been generated utilizing Google Gemini and may contain errors.
 
 **Bug Fixes**
 

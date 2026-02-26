@@ -4,7 +4,8 @@ url: https://developer.android.com/ai/gemini-nano/experimental
 source: md.txt
 ---
 
-| **Caution:** The experimental Google AI Edge SDK is deprecated. We recommend using the [ML Kit Prompt API](https://developers.google.com/ml-kit/genai/prompt/android) to send custom prompts to Gemini Nano.
+> [!CAUTION]
+> **Caution:** The experimental Google AI Edge SDK is deprecated. We recommend using the [ML Kit Prompt API](https://developers.google.com/ml-kit/genai/prompt/android) to send custom prompts to Gemini Nano.
 
 Gemini Nano experimental access is designed for developers seeking to test
 enhancement of their apps with cutting-edge on-device AI capabilities. This

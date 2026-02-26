@@ -14,7 +14,7 @@ Use the Material 3 adaptive library to create adaptive UIs that will adapt thems
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.2.0) | - | - | [1.3.0-alpha08](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-alpha08) |
+| February 25, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.2.0) | - | - | [1.3.0-alpha09](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-alpha09) |
 
 ## Declaring dependencies
 
@@ -29,9 +29,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.material3.adaptive:adaptive:1.3.0-alpha08"
-    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.3.0-alpha08"
-    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-alpha08"
+    implementation "androidx.compose.material3.adaptive:adaptive:1.3.0-alpha09"
+    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.3.0-alpha09"
+    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-alpha09"
 }
 ```
 
@@ -39,9 +39,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.material3.adaptive:adaptive:1.3.0-alpha08")
-    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.3.0-alpha08")
-    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-alpha08")
+    implementation("androidx.compose.material3.adaptive:adaptive:1.3.0-alpha09")
+    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.3.0-alpha09")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-alpha09")
 }
 ```
 
@@ -94,6 +94,20 @@ We are excited to announce the first alpha release of the `adaptive-navigation3`
 Use scene strategies to implement a canonical list-detail pane scaffold (`ListDetailSceneStrategy`, `rememberListDetailSceneStrategy`) or a supporting pane scaffold (`SupportingPaneSceneStrategy`, `rememberSupportingPaneSceneStrategy`). For more information about scenes, scene strategies, and other new concepts introduced in Navigation 3, refer to the [Navigation3 guide](https://developer.android.com/guide/navigation/navigation-3).
 
 ## Compose Material3 Adaptive Version 1.3
+
+### Version 1.3.0-alpha09
+
+February 25, 2026
+
+`androidx.compose.material3.adaptive:adaptive-*:1.3.0-alpha09` is released. Version 1.3.0-alpha09 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..1464ecac7af617c248a0ec886fa88609de1a10b0/compose/material3/adaptive).
+
+**API Changes**
+
+- Deprecated `NavDisplays` that takes a `SceneStrategy` chained by `then` infix and replaced with `NavDisplay` that takes a `List<SceneStrategy>` ([I78b2c](https://android-review.googlesource.com/#/q/I78b2c1c393a72b3f9fea3b615a0f23559e66809b), [b/482108465](https://issuetracker.google.com/issues/482108465))
+
+**Bug Fixes**
+
+- Fixes the issue shadows are not showing for levitated panes. ([Ie6108](https://android-review.googlesource.com/#/q/Ie61088ab5a283291a0f16060ff935e421afbf6c3), [b/470517507](https://issuetracker.google.com/issues/470517507))
 
 ### Version 1.3.0-alpha08
 
@@ -728,4 +742,6 @@ March 6, 2024
 ### Version 1.0.0-alpha07
 
 February 21, 2024
-| **Note:** This page contains the Jetpack Compose Material3 Adaptive libraries starting from alpha07.
+
+> [!NOTE]
+> **Note:** This page contains the Jetpack Compose Material3 Adaptive libraries starting from alpha07.

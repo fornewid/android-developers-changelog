@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/theming/dynamic-colors
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with dynamic color in Compose.  
-[Dynamic colors - Material Design 3 →](https://developer.android.com/develop/ui/compose/designsystems/material3#dynamic_color_schemes)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with dynamic color in Compose. [Dynamic colors - Material Design 3 →](https://developer.android.com/develop/ui/compose/designsystems/material3#dynamic_color_schemes) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -24,7 +21,9 @@ This page includes instructions for implementing Dynamic Colors in your app.
 This feature is also available separately for
 [widgets and adaptive icons](https://developer.android.com/develop/ui/views/theming/dynamic-colors#apply-widgets), as described later on this page.
 You can also try out the [codelab](https://codelabs.developers.google.com/codelabs/apply-dynamic-color#0).
-| **Note:** The information on this page is dependent on understanding styles, colors, attributes, and themes on Android. See [Styles and themes](https://developer.android.com/guide/topics/ui/look-and-feel/themes) for details.
+
+> [!NOTE]
+> **Note:** The information on this page is dependent on understanding styles, colors, attributes, and themes on Android. See [Styles and themes](https://developer.android.com/guide/topics/ui/look-and-feel/themes) for details.
 
 ## How Android creates color schemes
 
@@ -67,7 +66,7 @@ about tokens, see [Create your theme with tokens](https://developer.android.com/
 
 You can apply Dynamic Color at the app or activity level. To do so, call
 [`applyToActivitiesIfAvailable()`](https://developer.android.com/reference/com/google/android/material/color/DynamicColors#applyToActivitiesIfAvailable(android.app.Application,%20com.google.android.material.color.DynamicColorsOptions)) to register an
-[`ActivityLifeCycleCallbacks`](https://developer.android.com/reference/android/app/Application.ActivityLifecycleCallbacks#onActivityPreCreated(android.app.Activity,%20android.os.Bundle)) to your app.  
+[`ActivityLifeCycleCallbacks`](https://developer.android.com/reference/android/app/Application.ActivityLifecycleCallbacks#onActivityPreCreated(android.app.Activity,%20android.os.Bundle)) to your app.
 
 ### Kotlin
 
@@ -91,7 +90,7 @@ public class MyApplication extends Application {
 }
 ```
 
-Next, add the theme to your app.  
+Next, add the theme to your app.
 
     <style
         name="AppTheme"
@@ -111,7 +110,7 @@ designing for light and dark themes and dynamic color.
 The following snippets show examples of light and dark themes, and
 a corresponding color xml, after applying dynamic color tokens.
 
-**Light theme**  
+**Light theme**
 
     Themes.xml
 
@@ -132,7 +131,7 @@ a corresponding color xml, after applying dynamic color tokens.
       </style>
     </resources>
 
-**Dark theme**  
+**Dark theme**
 
     Themes.xml
 
@@ -153,7 +152,7 @@ a corresponding color xml, after applying dynamic color tokens.
       </style>
     </resources>
 
-**Colors xml**  
+**Colors xml**
 
     Colors.xml
 
@@ -197,7 +196,7 @@ For more information:
 
 If your app has custom or brand colors that you don't want to change with the
 user's preferences, you can add them individually as you build out your color
-scheme. For example:  
+scheme. For example:
 
     Themes.xml
 

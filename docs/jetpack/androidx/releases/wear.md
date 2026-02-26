@@ -6,30 +6,28 @@ source: md.txt
 
 # Wear
 
-[User Guide](https://developer.android.com/training/wearables) [Code Sample](https://github.com/android/wear-os-samples)  
-API Reference  
+[User Guide](https://developer.android.com/training/wearables) [Code Sample](https://github.com/android/wear-os-samples) API Reference  
 [androidx.wear.activity](https://developer.android.com/reference/kotlin/androidx/wear/activity/package-summary)  
 [androidx.wear.ambient](https://developer.android.com/reference/kotlin/androidx/wear/ambient/package-summary)  
 [androidx.wear.input](https://developer.android.com/reference/kotlin/androidx/wear/input/package-summary)  
 [androidx.wear.utils](https://developer.android.com/reference/kotlin/androidx/wear/utils/package-summary)  
 [androidx.wear.widget](https://developer.android.com/reference/kotlin/androidx/wear/widget/package-summary)  
 [androidx.wear.widget.drawer](https://developer.android.com/reference/kotlin/androidx/wear/widget/drawer/package-summary)  
-(*See the refdocs for all wear packages*)  
-Create applications for Wear OS by Google smartwatches.  
+(*See the refdocs for all wear packages*) Create applications for Wear OS by Google smartwatches.
 
 
 This table lists all the artifacts in the `androidx.wear` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| wear | [1.3.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-1.3.0) | [1.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear#wear-1.4.0-rc01) | - | - |
+| wear | [1.4.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-1.4.0) | - | - | - |
 | wear-input | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-input-1.2.0) | - | - | - |
 | wear-input-testing | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-input-testing-1.2.0) | - | - | - |
 | wear-ongoing | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-ongoing-1.1.0) | - | - | - |
 | wear-phone-interactions | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-phone-interactions-1.1.0) | - | - | - |
-| wear-remote-interactions | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.1.0) | [1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0-rc01) | - | - |
+| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0) | - | - | - |
 
-This library was last updated on: January 28, 2026
+This library was last updated on: February 25, 2026
 
 ## Declaring dependencies
 
@@ -38,13 +36,13 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
-your app or module:  
+your app or module:
 
 ### Groovy
 
 ```groovy
 dependencies {
-    implementation "androidx.wear:wear:1.3.0"
+    implementation "androidx.wear:wear:1.4.0"
 
     // Add support for wearable specific inputs
     implementation "androidx.wear:wear-input:1.2.0"
@@ -56,7 +54,7 @@ dependencies {
     // Use to implement support for interactions from the Wearables to Phones
     implementation "androidx.wear:wear-phone-interactions:1.1.0"
     // Use to implement support for interactions between the Wearables and Phones
-    implementation "androidx.wear:wear-remote-interactions:1.1.0"
+    implementation "androidx.wear:wear-remote-interactions:1.2.0"
 }
 ```
 
@@ -64,7 +62,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear:wear:1.3.0")
+    implementation("androidx.wear:wear:1.4.0")
 
     // Add support for wearable specific inputs
     implementation("androidx.wear:wear-input:1.2.0")
@@ -76,7 +74,7 @@ dependencies {
     // Use to implement support for interactions from the Wearables to Phones
     implementation("androidx.wear:wear-phone-interactions:1.1.0")
     // Use to implement support for interactions between the Wearables and Phones
-    implementation("androidx.wear:wear-remote-interactions:1.1.0")
+    implementation("androidx.wear:wear-remote-interactions:1.2.0")
 }
 ```
 
@@ -188,6 +186,16 @@ August 23, 2023
 - Add `WearDevices` to list valid wear devices that can be used for UI previews ([Ib036e](https://android-review.googlesource.com/#/q/Ib036edb1823884c5f9e312d6733e7c3db22f9a0a))
 
 ## Wear Version 1.4
+
+### Version 1.4.0
+
+February 25, 2026
+
+`androidx.wear:wear:1.4.0` is released. Version 1.4.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ea52d659916d0fe20e20ad2ed5574bf39e7e69a4..03bb121e9d4df29b8df0088d71c9091a9b55d1f2/wear/wear).
+
+**Important changes since 1.3.0:**
+
+- Bugfix to vertically center `ConfirmationOverlay` icon when there's no message. [I496d8](https://android-review.googlesource.com/#/q/I496d8db2998206e45b88117665057d9c5e67e7bd)
 
 ### Version 1.4.0-rc01
 
@@ -335,6 +343,17 @@ September 29, 2021
 - `ConfirmationOverlay` now pushes the icon up to accommodate longer messages, without the message entering the device's bezel (or off-screen). ([I54bff](https://android-review.googlesource.com/#/q/I54bff6521d0fc8b942056d02351ca48390d04101))
 
 ## Wear-Remote-Interactions Version 1.2.0
+
+### Version 1.2.0
+
+February 25, 2026
+
+`androidx.wear:wear-remote-interactions:1.2.0` is released. Version 1.2.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ea52d659916d0fe20e20ad2ed5574bf39e7e69a4..55bf42f5cd58f4b0527ed1fccdf579f7e86c9b9e/wear/wear-remote-interactions).
+
+**Important changes since 1.1.0:**
+
+- Updated `RemoteActivityHelper.startRemoteActivity` to use a new public Wear SDK API (`startRemoteActivity`) if it's available (from Wear 6 onwards). [Id1e77](https://android-review.googlesource.com/#/q/Id1e77f5fc838470748137a612176f9bee76f6c46)
+- Updated dependency on Play Basement version which contained CVE-2022-2390 vulnerability.
 
 ### Version 1.2.0-rc01
 
@@ -809,7 +828,8 @@ January 27, 2021
 
 ## Wear Complications and Watchface 1.0.0
 
-| **Note:** As of `1.0.0-alpha23`, the `watchface` and `complications` libraries have been moved to a unified `androidx.wear.watchface` group. Please see the [Wear Watchface](https://developer.android.com/jetpack/androidx/releases/wear-watchface) release note page for more details.
+> [!NOTE]
+> **Note:** As of `1.0.0-alpha23`, the `watchface` and `complications` libraries have been moved to a unified `androidx.wear.watchface` group. Please see the [Wear Watchface](https://developer.android.com/jetpack/androidx/releases/wear-watchface) release note page for more details.
 
 ### Version 1.0.0-alpha22
 

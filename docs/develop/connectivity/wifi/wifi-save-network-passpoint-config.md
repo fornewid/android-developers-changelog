@@ -9,7 +9,9 @@ On Android 11 (SDK level 30) and higher, apps can use the
 intent to guide the user through adding one or more new saved networks or
 Passpoint configurations. The API also works as-is to modify existing saved
 configurations.
-| **Note:** This API is the closest in functionality to the deprecated `WifiManager.addNetwork(WifiConfiguration config)` API, in that the resulting configuration is added to the user-facing and managed saved network and subscription list.
+
+> [!NOTE]
+> **Note:** This API is the closest in functionality to the deprecated `WifiManager.addNetwork(WifiConfiguration config)` API, in that the resulting configuration is added to the user-facing and managed saved network and subscription list.
 
 To save a network or Passpoint configuration, do the following:
 
@@ -50,7 +52,7 @@ To save a network or Passpoint configuration, do the following:
 ## Code sample
 
 The following code sample shows how to save a network or Passpoint
-configuration.  
+configuration.
 
     class MainActivity : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {

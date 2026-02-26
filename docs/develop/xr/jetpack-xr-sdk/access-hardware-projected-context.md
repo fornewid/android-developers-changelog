@@ -4,11 +4,7 @@ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-pro
 source: md.txt
 ---
 
-Applicable XR devices  
-This guidance helps you build experiences for these types of XR devices.  
-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)  
-![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses)  
-[Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
@@ -30,7 +26,7 @@ within that activity can already access the glasses' hardware.
 If a part of your app outside of your AI glasses activity (such as a phone
 activity or a service) needs to access the glasses' hardware, it must explicitly
 obtain a projected context. To do this, use the
-[`createProjectedDeviceContext()`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#createProjectedDeviceContext(android.content.Context)) method:  
+[`createProjectedDeviceContext()`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#createProjectedDeviceContext(android.content.Context)) method:
 
     // From a phone Activity, get a context for the AI glasses
     try {
@@ -80,7 +76,7 @@ As with any standard Bluetooth audio device, the permission to grant the
 
 To capture an image with the AI glasses' camera, set up and bind the CameraX's
 [`ImageCapture`](https://developer.android.com/reference/kotlin/androidx/camera/core/ImageCapture) [use case](https://developer.android.com/media/camera/camerax#ease-of-use) to the glasses' camera using the correct
-context for your app:  
+context for your app:
 
     private fun startCamera() {
         // Get the CameraProvider using the projected context.
@@ -168,7 +164,9 @@ The main changes involve using a different use case, creating a different output
 file, and initiating the capture using the appropriate video recording method.
 For more information about the `VideoCapture` API and how to use it, see the
 [CameraX's video capture documentation](https://developer.android.com/media/camera/camerax/video-capture#using-videocapture-api).
-| **Important:** Battery power and thermal dissipation on AI glasses devices is often limited. When developing for glasses, pay close attention to the requested **output format** and **resolution**, as these can severely impact system power and temperature.
+
+> [!IMPORTANT]
+> **Important:** Battery power and thermal dissipation on AI glasses devices is often limited. When developing for glasses, pay close attention to the requested **output format** and **resolution**, as these can severely impact system power and temperature.
 
 The following table shows the recommended resolution and frame rate depending on
 your app's use case:
@@ -183,7 +181,7 @@ your app's use case:
 
 An AI glasses activity can also access the phone's hardware (such as the camera
 or microphone) by using [`createHostDeviceContext(context)`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#createHostDeviceContext(android.content.Context)) to get the host
-device's (phone) context:  
+device's (phone) context:
 
     // From an AI glasses Activity, get a context for the phone
     val phoneContext = ProjectedContext.createHostDeviceContext(this)

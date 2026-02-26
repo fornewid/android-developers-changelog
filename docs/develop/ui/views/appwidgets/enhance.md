@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/appwidgets/enhance
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs.  
-[Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -44,7 +41,7 @@ Some examples of color attributes you can use are the following:
 
 In the following example using the Material 3 theme, the device's theme color is
 "purplish." The accent color and widget background adapt for light and dark
-modes, as shown in figures 1 and 2.  
+modes, as shown in figures 1 and 2.
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -66,7 +63,8 @@ modes, as shown in figures 1 and 2.
 
 <br />
 
-| **Tip:** We recommend using the [Material 3](https://m3.material.io) theme to follow Material Design guidelines for consistency between devices and for backward compatibility.
+> [!TIP]
+> **Tip:** We recommend using the [Material 3](https://m3.material.io) theme to follow Material Design guidelines for consistency between devices and for backward compatibility.
 
 ### Backward compatibility for dynamic colors
 
@@ -75,7 +73,7 @@ or higher. To provide a custom theme for lower versions, create a default theme
 with your custom colors and a new qualifier (`values-v31`) using the default
 theme attributes.
 
-Here is an example using the Material 3 theme:  
+Here is an example using the Material 3 theme:
 
 ### `/values/styles.xml`
 
@@ -105,7 +103,8 @@ Here is an example using the Material 3 theme:
         android:theme="@style/MyWidgetTheme" />
     </resources>
 
-| **Note:** See [Styles and Themes](https://developer.android.com/guide/topics/ui/look-and-feel/themes) for an in-depth guide to handling different styles, colors, attributes, and themes.
+> [!NOTE]
+> **Note:** See [Styles and Themes](https://developer.android.com/guide/topics/ui/look-and-feel/themes) for an in-depth guide to handling different styles, colors, attributes, and themes.
 
 ## Enable voice support
 
@@ -133,7 +132,7 @@ see [Integrate App Actions with Android widgets](https://developer.android.com/g
 Widgets need to have a unique name when they are displayed in the widget picker.
 
 Widgets' names are loaded from the `label` attribute of the widget's `receiver`
-element in the AndroidManifest.xml file.  
+element in the AndroidManifest.xml file.
 
     <receiver
         ....
@@ -148,13 +147,14 @@ picker to display for your widget.
 ![An image showing a widget picker showing a widget and its description](https://developer.android.com/static/images/appwidgets/description.png) **Figure 3.** Sample widget picker showing a widget and its description.
 
 Provide a description for your widget using the `description` attribute of the
-`&lt;appwidget-provider&gt;` element:  
+`&lt;appwidget-provider&gt;` element:
 
     <appwidget-provider
         android:description="@string/my_widget_description">
     </appwidget-provider>
 
-| **Note:** Be concise. There is no character limit, but the representation and available space for the description might differ depending on the device.
+> [!NOTE]
+> **Note:** Be concise. There is no character limit, but the representation and available space for the description might differ depending on the device.
 
 You can use the
 [`descriptionRes`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#descriptionRes)
@@ -167,15 +167,16 @@ Starting in Android 12, launchers provide a smoother transition
 when a user launches your app from a widget.
 
 To enable this improved transition, use `@android:id/background` or
-`android.R.id.background` to identify your background element:  
+`android.R.id.background` to identify your background element:
 
     // Top-level layout of the widget.
     <LinearLayout
         android:id="@android:id/background">
     </LinearLayout>
 
-| **Warning:** Avoid using [broadcast
-| trampolines](https://developer.android.com/about/versions/12/behavior-changes-12#notification-trampolines). Starting in Android 12, an app can still launch an activity from a broadcast receiver or service if it's initiated from a widget click's [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent). However, the new app animation isn't used for apps launched from a broadcast receiver or service, which leads to a poor user experience.
+> [!WARNING]
+> **Warning:** Avoid using [broadcast
+> trampolines](https://developer.android.com/about/versions/12/behavior-changes-12#notification-trampolines). Starting in Android 12, an app can still launch an activity from a broadcast receiver or service if it's initiated from a widget click's [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent). However, the new app animation isn't used for apps launched from a broadcast receiver or service, which leads to a poor user experience.
 
 Your app can use `@android:id/background` on previous versions of Android
 without breaking, but it is ignored.
@@ -187,7 +188,7 @@ Starting in Android 12, you can take advantage of several
 attributes. See the [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews) API
 reference for the full list of added methods.
 
-The following code example shows how to use a few of these methods.  
+The following code example shows how to use a few of these methods.
 
 ### Kotlin
 

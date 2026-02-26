@@ -22,7 +22,7 @@ Then, in your module-level `build.gradle` file, add the following dependency:
 
 ```groovy
 dependencies {
-    implementation "androidx.health:health-services-client:1.1.0-beta01"
+    implementation "androidx.health:health-services-client:1.1.0-rc01"
 }
 ```
 
@@ -30,7 +30,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.health:health-services-client:1.1.0-beta01")
+    implementation("androidx.health:health-services-client:1.1.0-rc01")
 }
 ```
 

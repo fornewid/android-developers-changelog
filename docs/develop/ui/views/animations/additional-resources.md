@@ -4,14 +4,7 @@ url: https://developer.android.com/develop/ui/views/animations/additional-resour
 source: md.txt
 ---
 
-# Additional resources for animation
-
-<br />
-
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose.  
-[Animations in Compose →](https://developer.android.com/jetpack/compose/animation)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose. [Animations in Compose →](https://developer.android.com/jetpack/compose/animation) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -28,18 +21,21 @@ For more information about animation, consult the following resources.
 
 ## Samples
 
-There are many code samples available in the[Android Animation samples GitHub repository](https://github.com/android/animation-samples)that demonstrate specific animation techniques. There are a number of separate sample projects within this repository:
+There are many code samples available in the [Android Animation samples GitHub
+repository](https://github.com/android/animation-samples)
+that demonstrate specific animation techniques. There are
+a number of separate sample projects within this repository:
 
-|                                                       Project                                                       |                                                      Description                                                       |
-|---------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| [ActivitySceneTransitionBasic](https://github.com/android/animation-samples/tree/main/ActivitySceneTransitionBasic) | Shows how to use shared element transitions from one`Activity`to another.                                              |
-| [BasicTransition](https://github.com/android/animation-samples/tree/main/BasicTransition)                           | Shows how to use the Transitions library to create smooth transitions between UI states.                               |
-| [CustomTransition](https://github.com/android/animation-samples/tree/main/CustomTransition)                         | Shows how to create custom transitions using the Transitions library.                                                  |
-| [DrawableAnimations](https://github.com/android/animation-samples/tree/main/DrawableAnimations)                     | Shows how to create animated vector drawables.                                                                         |
-| [GridToPager](https://github.com/android/animation-samples/tree/main/GridToPager)                                   | Shows how to create shared element transitions from a`RecyclerView`to a`ViewPager`and back again.                      |
-| [Interpolator](https://github.com/android/animation-samples/tree/main/Interpolator)                                 | Shows how different interpolators affect the dynamics of your animations.                                              |
-| [Motion](https://github.com/android/animation-samples/tree/main/Motion)                                             | Shows how to implement various types of Material Design Motion for layouts, lists, and navigation.                     |
-| [MotionCompose](https://github.com/android/animation-samples/tree/main/MotionCompose)                               | Shows how to implement various different types of Material Design Motion for Jetpack Compose.                          |
-| [OurStreets](https://github.com/android/animation-samples/tree/main/OurStreets)                                     | Showcases shared element transitions throughout the app.                                                               |
-| [RevealEffectBasic](https://github.com/android/animation-samples/tree/main/RevealEffectBasic)                       | Shows how to implement the circular reveal effect.                                                                     |
-| [Unsplash](https://github.com/android/animation-samples/tree/main/Unsplash)                                         | The example code from the Google I/O '16 talk[A window into transitions](https://www.youtube.com/watch?v=4L4fLrWDvAU). |
+| Project | Description |
+|---|---|
+| [ActivitySceneTransitionBasic](https://github.com/android/animation-samples/tree/main/ActivitySceneTransitionBasic) | Shows how to use shared element transitions from one `Activity` to another. |
+| [BasicTransition](https://github.com/android/animation-samples/tree/main/BasicTransition) | Shows how to use the Transitions library to create smooth transitions between UI states. |
+| [CustomTransition](https://github.com/android/animation-samples/tree/main/CustomTransition) | Shows how to create custom transitions using the Transitions library. |
+| [DrawableAnimations](https://github.com/android/animation-samples/tree/main/DrawableAnimations) | Shows how to create animated vector drawables. |
+| [GridToPager](https://github.com/android/animation-samples/tree/main/GridToPager) | Shows how to create shared element transitions from a `RecyclerView` to a `ViewPager` and back again. |
+| [Interpolator](https://github.com/android/animation-samples/tree/main/Interpolator) | Shows how different interpolators affect the dynamics of your animations. |
+| [Motion](https://github.com/android/animation-samples/tree/main/Motion) | Shows how to implement various types of Material Design Motion for layouts, lists, and navigation. |
+| [MotionCompose](https://github.com/android/animation-samples/tree/main/MotionCompose) | Shows how to implement various different types of Material Design Motion for Jetpack Compose. |
+| [OurStreets](https://github.com/android/animation-samples/tree/main/OurStreets) | Showcases shared element transitions throughout the app. |
+| [RevealEffectBasic](https://github.com/android/animation-samples/tree/main/RevealEffectBasic) | Shows how to implement the circular reveal effect. |
+| [Unsplash](https://github.com/android/animation-samples/tree/main/Unsplash) | The example code from the Google I/O '16 talk [A window into transitions](https://www.youtube.com/watch?v=4L4fLrWDvAU). |

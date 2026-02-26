@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/layout/insets
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with WindowInsets in Compose.  
-[WindowInsets in Compose →](https://developer.android.com/develop/ui/compose/system/insets)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with WindowInsets in Compose. [WindowInsets in Compose →](https://developer.android.com/develop/ui/compose/system/insets) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 

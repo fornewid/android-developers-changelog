@@ -6,8 +6,12 @@ source: md.txt
 
 The Android Framework provides access to [raw GNSS measurements](https://developer.android.com/reference/android/location/GnssMeasurement)
 on several Android devices.
-| **Note:** Google launched version 3.1 of the [GnssLogger](https://play.google.com/store/apps/details?id=com.google.android.apps.location.gps.gnsslogger) in the Play Store with several new features.
-| **Note:** Google has released version 4.6.0.1 of the GNSS Analysis App. For more information, see the [GNSS Analysis app v4.6.0.1 release notes](https://developer.android.com/develop/sensors-and-location/sensors/gnss#release).
+
+> [!NOTE]
+> **Note:** Google launched version 3.1 of the [GnssLogger](https://play.google.com/store/apps/details?id=com.google.android.apps.location.gps.gnsslogger) in the Play Store with several new features.
+
+> [!NOTE]
+> **Note:** Google has released version 4.6.0.1 of the GNSS Analysis App. For more information, see the [GNSS Analysis app v4.6.0.1 release notes](https://developer.android.com/develop/sensors-and-location/sensors/gnss#release).
 
 You can find the tools in
 the GPS Measurement Tools
@@ -15,7 +19,9 @@ repo on GitHub, which includes the source code of a preliminary version of GnssL
 [Linux](https://github.com/google/gps-measurement-tools/releases/download/V4.6.0.1/GnssAnalysisLinuxV4.6.0.1.zip),
 [Windows](https://github.com/google/gps-measurement-tools/releases/download/V4.6.0.1/GnssAnalysisWindowsV4.6.0.1.zip),
 and [macOS](https://github.com/google/gps-measurement-tools/releases/download/V4.6.0.1/GnssAnalysisMacV4.6.0.1.zip). [Installation and User Manual](https://github.com/google/gps-measurement-tools/releases/download/V4.6.0.1/Installation.and.User.Manual.GNSS.Analysis.App.3.pdf).
-| **Note:** Some versions of Linux have issues with MATLAB (throughout) 2018. If you experience an issue when starting the app on your Linux machine, see [this MATLAB article](https://www.mathworks.com/matlabcentral/answers/364551-why-is-matlab-unable-to-run-the-matlabwindow-application-on-linux) for info on how to resolve it.
+
+> [!NOTE]
+> **Note:** Some versions of Linux have issues with MATLAB (throughout) 2018. If you experience an issue when starting the app on your Linux machine, see [this MATLAB article](https://www.mathworks.com/matlabcentral/answers/364551-why-is-matlab-unable-to-run-the-matlabwindow-application-on-linux) for info on how to resolve it.
 
 ## Google Smartphone Decimeter Challenge
 
@@ -52,7 +58,8 @@ Original equipment manufacturers (OEMs), developers, and researchers can make us
 
 ## SUPL Client Sample Code
 
-| **Note:** Google has open-sourced SUPL client sample code that can be used to obtain ephemeris in real time.
+> [!NOTE]
+> **Note:** Google has open-sourced SUPL client sample code that can be used to obtain ephemeris in real time.
 
 [Suplclient](https://github.com/google/supl-client) is sample code that accesses supl.google.com to obtain real time ephemeris. The `SuplTester` class provides an example on how to use the SUPL Client Project. The `SuplTester` sets up the SUPL TCP connection specifications, then at a given latitude and longitude sends an LPP SUPL request and prints the SUPL server response.
 
@@ -146,7 +153,9 @@ The clock column shows the following data:
   - Latitude, longitude, and altitude entered by the user.
   - National Marine Electronics Association (NMEA) file with truth reference PVT.
 
-  > | **Note:** One of the major benefits of using raw measurements is that you can observe the receiver clock behavior with a precision of at least 1 part per billion (ppb). This is important to watch when building a device, because any heat source near the reference oscillator might cause the clock error rate to increase rapidly.
+  > > [!NOTE]
+  > > **Note:** One of the major benefits of using raw measurements is that you can observe the receiver clock behavior with a precision of at least 1 part per billion (ppb). This is important to watch when building a device, because any heat source near the reference oscillator might cause the clock error rate to increase rapidly.
+  >
 - The offset of the standby clock that keeps time when the receiver resets the
   duty cycle of the primary oscillator.
 
@@ -156,8 +165,9 @@ The measurements column shows the following data:
 - The errors of each pseudorange for each measurement.
 - The errors of each pseudorange rate for each measurement.
 
-  > | **Note:** A major benefit of raw measurements is that you can analyze the errors of each measurement, which provides great insight into the signal environment and receiver behavior.
-
+  > > [!NOTE]
+  > > **Note:** A major benefit of raw measurements is that you can analyze the errors of each measurement, which provides great insight into the signal environment and receiver behavior.
+  >
 ### GNSS Analysis test report
 
 GNSS Analysis can generate a test report, as shown in figure 4, that evaluates

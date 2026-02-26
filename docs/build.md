@@ -151,7 +151,9 @@ distribution, and launches Gradle to build your application.
 The `gradle/wrapper/gradle-wrapper.properties` file
 contains a property, `distributionUrl`, that describes which version of
 Gradle is used to run your build.
-| **Tip:** If simultaneously working on multiple projects, if possible, ensure that all of the projects use the same Gradle version. Otherwise, Gradle creates copies of the Gradle daemon for each Gradle version, in addition to separate copies for each [JDK used to run Gradle](https://developer.android.com/build/jdks#jdk-gradle). This increases memory and CPU usage, potentially slowing your builds or impacting other work on the machine.
+
+> [!TIP]
+> **Tip:** If simultaneously working on multiple projects, if possible, ensure that all of the projects use the same Gradle version. Otherwise, Gradle creates copies of the Gradle daemon for each Gradle version, in addition to separate copies for each [JDK used to run Gradle](https://developer.android.com/build/jdks#jdk-gradle). This increases memory and CPU usage, potentially slowing your builds or impacting other work on the machine.
 
     distributionBase=GRADLE_USER_HOME
     distributionPath=wrapper/dists
@@ -739,7 +741,8 @@ itself:
     - `cmake.dir` - Path to CMake.
     - `ndk.symlinkdir` - In Android Studio 3.5 and higher, creates a symlink to the NDK that can be shorter than the installed NDK path.
 
-| **Caution:** The `local.properties` file is reserved for properties specific to the Android Gradle plugin. Putting your own values in this file can cause problems. If you need to define your own local properties, [create a separate properties file and manually load it](https://developer.android.com/studio/build/gradle-tips#remove-private-signing-information-from-your-project).
+> [!CAUTION]
+> **Caution:** The `local.properties` file is reserved for properties specific to the Android Gradle plugin. Putting your own values in this file can cause problems. If you need to define your own local properties, [create a separate properties file and manually load it](https://developer.android.com/studio/build/gradle-tips#remove-private-signing-information-from-your-project).
 
 ### Remap the NDK to a shorter path (Windows only)
 
@@ -768,7 +771,10 @@ from the menu bar. If Android Studio finds any errors with your
 configuration --- for example, your source code uses API features that are only
 available in an API level higher than your `compileSdkVersion`
 --- the **Messages** window describes the issue.
-![](https://developer.android.com/static/images/tools/as-gradlesync-updated.png) **Figure 2.** Sync the project with build configuration files in Android Studio. **Note:** When Android Studio detects build configuration changes that haven't been synced yet it disables run configurations to avoid confusing failures. If you want to run or debug anyway without syncing, select **Ignore these changes** to re-enable those actions.
+![](https://developer.android.com/static/images/tools/as-gradlesync-updated.png) **Figure 2.** Sync the project with build configuration files in Android Studio.
+
+> [!NOTE]
+> **Note:** When Android Studio detects build configuration changes that haven't been synced yet it disables run configurations to avoid confusing failures. If you want to run or debug anyway without syncing, select **Ignore these changes** to re-enable those actions.
 
 ### Source sets
 

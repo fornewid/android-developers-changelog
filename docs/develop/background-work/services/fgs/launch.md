@@ -35,7 +35,7 @@ when an app can launch a foreground service.
 ## Launch a service
 
 In order to launch a foreground service, you must first launch it as an
-ordinary (non-foreground) service:  
+ordinary (non-foreground) service:
 
 ### Kotlin
 
@@ -70,7 +70,8 @@ run in the foreground. Ordinarily you would call this method in the service's
 - The [`Notification`](https://developer.android.com/reference/android/app/Notification) object itself.
 - The [foreground service type or types](https://developer.android.com/develop/background-work/services/fgs/service-types) identifying the work done by the service
 
-| **Note:** If you pass a foreground service type to `startForeground` that you did not declare in the manifest, the system throws `IllegalArgumentException`.
+> [!NOTE]
+> **Note:** If you pass a foreground service type to `startForeground` that you did not declare in the manifest, the system throws `IllegalArgumentException`.
 
 The foreground service types you pass to `startForeground()`
 [types declared in the manifest](https://developer.android.com/develop/background-work/services/fgs/service-types#declare-fgs), depending on the specific
@@ -85,10 +86,12 @@ user starts a run and just wants their location tracked, your app should call
 if the user wants to start playing audio, call `startForeground()` again and
 pass the bitwise combination of all the foreground service types (in this case,
 `ACCESS_FINE_LOCATION|FOREGROUND_SERVICE_MEDIA_PLAYBACK`).
-| **Note:** The status bar notification must use a priority of [`PRIORITY_LOW`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#PRIORITY_LOW) or higher. If your app attempts to use a notification that has a lower priority than `PRIORITY_LOW`, the system adds a message to the notification drawer, alerting the user to the app's use of a foreground service.
+
+> [!NOTE]
+> **Note:** The status bar notification must use a priority of [`PRIORITY_LOW`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#PRIORITY_LOW) or higher. If your app attempts to use a notification that has a lower priority than `PRIORITY_LOW`, the system adds a message to the notification drawer, alerting the user to the app's use of a foreground service.
 
 The following example shows the code a camera service would use to promote
-itself to a foreground service:  
+itself to a foreground service:
 
 ### Kotlin
 

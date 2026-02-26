@@ -7,7 +7,7 @@ source: md.txt
 To get started using WorkManager, first import the library into your Android
 project.
 
-Add the following dependencies to your app's `build.gradle` file:  
+Add the following dependencies to your app's `build.gradle` file:
 
 ### Groovy
 
@@ -63,18 +63,20 @@ dependencies {
 
 Once you've added the dependencies and synchronized your Gradle project, the
 next step is to define some work to run.
-| **Note:** You can always find the latest version of WorkManager, including beta, alpha, and release candidate versions on the [WorkManager releases
-| page](https://developer.android.com/jetpack/androidx/releases/work).
+
+> [!NOTE]
+> **Note:** You can always find the latest version of WorkManager, including beta, alpha, and release candidate versions on the [WorkManager releases
+> page](https://developer.android.com/jetpack/androidx/releases/work).
 
 ## Define the work
 
-Work is defined using the [Worker](https://developer.android.com/reference/androidx/work/Worker)
+Work is defined using the `https://developer.android.com/reference/androidx/work/Worker`
 class. The `doWork()` method runs asynchronously on a background
 thread provided by WorkManager.
 
 To create some work for WorkManager to run, extend the `Worker` class and
 override the `doWork()` method. For example, to create a `Worker` that uploads
-images, you can do the following:  
+images, you can do the following:
 
 ### Kotlin
 
@@ -114,7 +116,7 @@ public class UploadWorker extends Worker {
 }
 ```
 
-The [Result](https://developer.android.com/reference/androidx/work/ListenableWorker.Result)
+The `https://developer.android.com/reference/androidx/work/ListenableWorker.Result`
 returned from `doWork()` informs the WorkManager service whether the
 work succeeded and, in the case of failure, whether or not the work should be
 retried.
@@ -133,13 +135,13 @@ over an interval of time, or you can schedule it to run only [one
 time](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#constraints).
 
 However you choose to schedule the work, you will always use a
-[WorkRequest](https://developer.android.com/reference/androidx/work/WorkRequest). While a
+`https://developer.android.com/reference/androidx/work/WorkRequest`. While a
 `Worker` defines the unit of work, a
-[WorkRequest](https://developer.android.com/reference/androidx/work/WorkRequest) (and its
+`https://developer.android.com/reference/androidx/work/WorkRequest` (and its
 subclasses) define how and when it should be run. In the simplest case, you can
 use a
-[OneTimeWorkRequest](https://developer.android.com/reference/androidx/work/OneTimeWorkRequest),
-as shown in the following example.  
+`https://developer.android.com/reference/androidx/work/OneTimeWorkRequest`,
+as shown in the following example.
 
 ### Kotlin
 
@@ -160,8 +162,8 @@ WorkRequest uploadWorkRequest =
 ## Submit the WorkRequest to the system
 
 Finally, you need to submit your `WorkRequest` to `WorkManager` using the
-[enqueue()](https://developer.android.com/reference/androidx/work/WorkManager#enqueue(androidx.work.WorkRequest))
-method.  
+`https://developer.android.com/reference/androidx/work/WorkManager#enqueue(androidx.work.WorkRequest)`
+method.
 
 ### Kotlin
 

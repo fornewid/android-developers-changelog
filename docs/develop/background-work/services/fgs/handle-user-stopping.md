@@ -9,7 +9,7 @@ Starting in Android 13 (API level 33), users can complete a workflow from the
 to stop an app that has an ongoing foreground services, regardless of that app's
 target SDK version. This affordance, called the
 *Task Manager*, shows a list of apps that are
-currently running a foreground service.  
+currently running a foreground service.
 ![At the bottom of the notification drawer is a button that indicates the
 number of apps that are currently running in the background. When you press
 this button, a dialog appears, which lists the names of different apps. The
@@ -31,10 +31,11 @@ Task Manager, then the following actions occur:
 - Scheduled jobs execute at their scheduled time.
 - Alarms go off at their scheduled time or time window.
 
-| **Note:** The system doesn't send your app any callbacks when the user taps the **Stop** button. When your app starts back up, it's helpful to check for the [`REASON_USER_REQUESTED`](https://developer.android.com/reference/android/app/ApplicationExitInfo#REASON_USER_REQUESTED) reason that's part of the `ApplicationExitInfo` API.
+> [!NOTE]
+> **Note:** The system doesn't send your app any callbacks when the user taps the **Stop** button. When your app starts back up, it's helpful to check for the [`REASON_USER_REQUESTED`](https://developer.android.com/reference/android/app/ApplicationExitInfo#REASON_USER_REQUESTED) reason that's part of the `ApplicationExitInfo` API.
 
 To test that your app behaves as expected while and after a user stops your
-app, run the following ADB command in a terminal window:  
+app, run the following ADB command in a terminal window:
 
 ```bash
 adb shell cmd activity stop-app PACKAGE_NAME

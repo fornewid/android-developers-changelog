@@ -18,7 +18,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | [1.10.3](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.3) | - | - | [1.11.0-alpha05](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0-alpha05) |
+| February 25, 2026 | [1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.4) | - | - | [1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0-alpha06) |
 
 ## Structure
 
@@ -51,7 +51,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.foundation:foundation:1.10.3"
+    implementation "androidx.compose.foundation:foundation:1.10.4"
 }
 
 android {
@@ -73,7 +73,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.10.3")
+    implementation("androidx.compose.foundation:foundation:1.10.4")
 }
 
 android {
@@ -107,6 +107,24 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.11
+
+### Version 1.11.0-alpha06
+
+February 25, 2026
+
+`androidx.compose.foundation:foundation-*:1.11.0-alpha06` is released. Version 1.11.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..6e23fc0c137022098ae2d043778ffdc56402ba5e/compose/foundation).
+
+**API Changes**
+
+- Introduces an experimental style API that allows a consistent way to enable customization of composable functions. This API is under active development and may undergo significant changes before becoming stable. See included documentation for details of how to use this API. ([I7fed2](https://android-review.googlesource.com/#/q/I7fed2e5cfceadffce739d5d522171c70aaf678d9), [b/455788242](https://issuetracker.google.com/issues/455788242))
+
+**Bug Fixes**
+
+- `Modifier.combinedClickable` is rewritten to not use suspend pointer input as an optimization. This feature is enabled by the flag you can disable if encounter a bug in the new implementation - `ComposeFoundationFlags.isNonSuspendingPointerInputInCombinedClickableEnabled`.([Iea684](https://android-review.googlesource.com/#/q/Iea684f0973b8407920f452b94795ae913ec05f28))
+
+**Known Issues**
+
+- The `Modifier.combinedClickable` rewrite introduces a regression for long click behavior that can cause deep presses to trigger repeated long clicks on some devices. This will be fixed in the next release, until then you can set `ComposeFoundationFlags.isNonSuspendingPointerInputInCombinedClickableEnabled=false` to avoid this problem.
 
 ### Version 1.11.0-alpha05
 
@@ -180,6 +198,16 @@ December 03, 2025
 - Introduces a `visible` Modifier which can be used to skip drawing the content of a Composable without affecting the space it occupies. ([Ia6871](https://android-review.googlesource.com/#/q/Ia687178fc4299c10a19bd5fad63394c45f81b170), [b/158837937](https://issuetracker.google.com/issues/158837937))
 
 ## Version 1.10
+
+### Version 1.10.4
+
+February 25, 2026
+
+`androidx.compose.foundation:foundation-*:1.10.4` is released. Version 1.10.4 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0d23f956849b578e041ea4245127d4007eae43be..6b6d8d062bfb0daa907101a196d1ea43d60ecfe2/compose/foundation).
+
+**Bug Fixes**
+
+- Fixed a regression bug where using an alignment modifier from a different scope (e.g., `ColumnScope.align` inside a `Row`) resulted in incorrect positioning. ([6888f2b](https://android-review.googlesource.com/q/commit:3479c6b12d81762b0b262a949ffe2b8c5410642f), [b/477639546](https://issuetracker.google.com/issues/477639546))
 
 ### Version 1.10.3
 
@@ -2786,8 +2814,10 @@ June 2, 2021
 May 18, 2021
 
 `androidx.compose.foundation:foundation:1.0.0-beta07` and `androidx.compose.foundation:foundation-layout:1.0.0-beta07` are released. [Version 1.0.0-beta07 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/4c1927601bfcaaaf049d0fc7a4e5801ff5cf9729..b648147c5fdfc5ecbad57e40e2dc0c69aa23bf12/compose/compiler/compiler)
-| **Note:** Libraries dependent on Compose will need to recompile with version `1.0.0`‑`beta07`. Otherwise, libraries may encounter a `NoSuchMethodError`, such as:  
-| `java.lang.NoSuchMethodError: No interface method startReplaceableGroup(ILjava/lang/String;)V in class Landroidx/compose/runtime/Composer; or its super classes`. ([Ia34e6](https://android-review.googlesource.com/#/q/Ia34e699fdbeaeb86b74e9da27d79d186e6e71757))
+
+> [!NOTE]
+> **Note:** Libraries dependent on Compose will need to recompile with version `1.0.0`‑`beta07`. Otherwise, libraries may encounter a `NoSuchMethodError`, such as:  
+> `java.lang.NoSuchMethodError: No interface method startReplaceableGroup(ILjava/lang/String;)V in class Landroidx/compose/runtime/Composer; or its super classes`. ([Ia34e6](https://android-review.googlesource.com/#/q/Ia34e699fdbeaeb86b74e9da27d79d186e6e71757))
 
 **API Changes**
 
@@ -3446,7 +3476,9 @@ December 16, 2020
 December 2, 2020
 
 `androidx.compose.foundation:foundation:1.0.0-alpha08` and `androidx.compose.foundation:foundation-layout:1.0.0-alpha08` are released. [Version 1.0.0-alpha08 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/358bdaf3c3c4a917883408e9f747da521fdf9e65..10b5e9fd366c1c413d5576aed50a305d300938e1/compose/foundation)
-| **Note:** This release is only compatible with Kotlin `1.4.20`, so you will need to update your Kotlin version.
+
+> [!NOTE]
+> **Note:** This release is only compatible with Kotlin `1.4.20`, so you will need to update your Kotlin version.
 
 **API Changes**
 
@@ -3618,7 +3650,9 @@ October 14, 2020
 October 1, 2020
 
 `androidx.compose.foundation:foundation:1.0.0-alpha04`, `androidx.compose.foundation:foundation-layout:1.0.0-alpha04`, and `androidx.compose.foundation:foundation-text:1.0.0-alpha04` are released. [Version 1.0.0-alpha04 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/18a5639262f8504db530176550e338a5d0e2e044..f5a2c7477391539d8bc9f65a8f0db1e8a7bf2cf5/compose/foundation)
-| **Note:** Compose Version 1.0.0-alpha04 is only compatible with Android Studio 4.2 Canary 13 and later.
+
+> [!NOTE]
+> **Note:** Compose Version 1.0.0-alpha04 is only compatible with Android Studio 4.2 Canary 13 and later.
 
 **API Changes**
 
@@ -4238,7 +4272,10 @@ To use the `0.1.0-dev15` version of Compose, you will need to:
 - Rename Painter.toModifier to Painter.asModifier as the newly created Modifier has a reference to the original Painter that can be shared across multiple Modifier instances ([I7195b](https://android-review.googlesource.com/#/q/I7195b03410cc351a2f62d89e7c01653221594571))
 
 -
-  | **Deprecated:** Draw composable is a common source of bugs as it's ([I78392](https://android-review.googlesource.com/#/q/I78392f01c2d37c2419812478d96417a1b8a1293d), [b/149827027](https://issuetracker.google.com/issues/149827027))
+
+  > [!WARNING]
+  > **Deprecated:** Draw composable is a common source of bugs as it's ([I78392](https://android-review.googlesource.com/#/q/I78392f01c2d37c2419812478d96417a1b8a1293d), [b/149827027](https://issuetracker.google.com/issues/149827027))
+
 - Support right-to-left direction in LayoutPadding modifier ([I9e8da](https://android-review.googlesource.com/#/q/I9e8da0bfbb135ff7f34b0dc49b905f634ad7d18c))
 
 - Density and DensityScope were merged into one interface. Instead of ambientDensity() you can now use DensityAmbient.current. Instead of withDensity(density) just with(density) ([I11cb1](https://android-review.googlesource.com/#/q/I11cb1f069a95f32f4ecab631f49d38dc1c071a42))

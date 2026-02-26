@@ -4,8 +4,9 @@ url: https://developer.android.com/develop/ui/views/animations/adaptive-refresh-
 source: md.txt
 ---
 
-| **Caution:** Adaptive refresh rate is supported on devices that implement [specific
-| HAL APIs](https://source.android.com/docs/core/graphics/arr#implementation) and run on Android 15-QPR1 and above. To check device support, use the [`hasArrSupport()`](https://developer.android.com/reference/android/view/Display#hasArrSupport()) API.
+> [!CAUTION]
+> **Caution:** Adaptive refresh rate is supported on devices that implement [specific
+> HAL APIs](https://source.android.com/docs/core/graphics/arr#implementation) and run on Android 15-QPR1 and above. To check device support, use the [`hasArrSupport()`](https://developer.android.com/reference/android/view/Display#hasArrSupport()) API.
 
 When an animation is initiated in Android, the display often boosts to the
 maximum refresh rate to ensure a smooth experience. For small animations such as
@@ -80,7 +81,9 @@ to the lower-level layer from different components within the same frame. Many
 of these can originate from System UI components, such as the notification
 shade, status bar, navigation bar, and others. The final frame rate values are
 determined based on the votes from multiple components.
-| **Note:** The actual implementation is subject to change.
+
+> [!NOTE]
+> **Note:** The actual implementation is subject to change.
 
 ### Set the frame rate or category
 
@@ -93,7 +96,7 @@ consumption.
 
 You can use the [`setRequestedFrameRate()`](https://developer.android.com/reference/android/view/View#setRequestedFrameRate(float)) and
 [`getRequestedFrameRate()`](https://developer.android.com/reference/android/view/View#getRequestedFrameRate()) APIs to designate the preferred frame rate or
-category of a given View.  
+category of a given View.
 
 ### Kotlin
 
@@ -140,7 +143,9 @@ view.setRequestedFrameRate(120);
 ```
 
 For example usage, see [`TextureView`](https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/core/java/android/view/TextureView.java#488).
-| **Note:** When `setRequestedFrameRate` is called on a `ViewGroup`, the specified value does not automatically propagate to its child Views.
+
+> [!NOTE]
+> **Note:** When `setRequestedFrameRate` is called on a `ViewGroup`, the specified value does not automatically propagate to its child Views.
 
 ## General ARR policy
 
@@ -164,7 +169,9 @@ when a user touches and lifts their finger from the screen, the render rate
 increases for some time. The [`setFrameRateBoostOnTouchEnabled()`](https://developer.android.com/reference/kotlin/android/view/Window#setframerateboostontouchenabled) and
 [`getFrameRateBoostOnTouchEnabled()`](https://developer.android.com/reference/kotlin/android/view/Window#getframerateboostontouchenabled) APIs allow you to prevent the render
 rate from increasing when a specific [`Window`](https://developer.android.com/reference/android/view/Window) is touched.
-**Note:** Disabling touch boost behavior is not recommended, as it could significantly impact user experience.  
+
+> [!NOTE]
+> **Note:** Disabling touch boost behavior is not recommended, as it could significantly impact user experience.
 
 ### Kotlin
 
@@ -196,7 +203,9 @@ to view new content. The ARR scrolling enhancement dynamically
 adjusts the refresh rate as the fling gesture slows down, gradually reducing the
 frame rate. This provides a more efficient rendering while maintaining smooth
 scrolling.
-| **Note:** For the scrolling improvement feature, the frame rate is dynamically adjusted only after you lift your finger. While touching the screen, touch boost is still triggered to maintain a higher frame rate.
+
+> [!NOTE]
+> **Note:** For the scrolling improvement feature, the frame rate is dynamically adjusted only after you lift your finger. While touching the screen, touch boost is still triggered to maintain a higher frame rate.
 
 This improvement applies specifically to scrollable UI components, including
 [`ScrollView`](https://developer.android.com/reference/android/widget/ScrollView), [`ListView`](https://developer.android.com/reference/android/widget/ListView), and [`GridView`](https://developer.android.com/reference/android/widget/GridView), and may not be
@@ -216,7 +225,7 @@ for details.
 
 If you have a custom scrollable component and want to take advantage of the
 scrolling feature, call [`setFrameContentVelocity()`](https://developer.android.com/reference/android/view/View#setFrameContentVelocity(float)) on every frame while
-smooth scrolling or flinging. See the following code snippet for an example:  
+smooth scrolling or flinging. See the following code snippet for an example:
 
 ### Kotlin
 
@@ -247,7 +256,9 @@ Note that, if [`setFrameContentVelocity()`](https://developer.android.com/refere
 [`getFrameContentVelocity()`](https://developer.android.com/reference/android/view/View#getFrameContentVelocity()) are called on Views that are not scrollable
 components, they won't have any effect, as movement automatically triggers an
 increased frame rate based on the current policy.
-| **Caution:** The velocity information is reset each time a View is redrawn. To ensure proper functionality, update the velocity every frame during a fling gesture.
+
+> [!CAUTION]
+> **Caution:** The velocity information is reset each time a View is redrawn. To ensure proper functionality, update the velocity every frame during a fling gesture.
 
 The velocity information is crucial for adjusting the render rate. For example,
 consider the fling gesture. In the beginning, the velocity of a fling can be
@@ -265,7 +276,7 @@ To enable or disable ARR, use the
 [`setFrameRatePowerSavingsBalanced()`](https://developer.android.com/reference/kotlin/android/view/Window#setframeratepowersavingsbalanced) API on a `Window`, or use the
 [`isFrameRatePowerSavingsBalanced()`](https://developer.android.com/reference/kotlin/android/view/Window#isFrameRatePowerSavingsBalanced()) API through your `styles.xml` file.
 
-The following snippet shows how to enable or disable ARR on a `Window`:  
+The following snippet shows how to enable or disable ARR on a `Window`:
 
 ### Kotlin
 
@@ -290,7 +301,7 @@ window.isFrameRatePowerSavingsBalanced()
 ```
 
 To disable ARR through the `styles.xml` file, add the
-following item to your style in `res/values/styles.xml`:  
+following item to your style in `res/values/styles.xml`:
 
     <style name="frameRatePowerSavingsBalancedDisabled">
         <item name="android:windowIsFrameRatePowerSavingsBalanced">false</item>
@@ -311,7 +322,7 @@ The signatures for the APIs are as follows:
 - [`Modifier.preferredFrameRate(frameRate: Float)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).preferredFrameRate(kotlin.Float))
 - [`Modifier.preferredFrameRate(frameRateCategory: FrameRateCategory)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).preferredFrameRate(androidx.compose.ui.FrameRateCategory))
 
-In the snippet below, the new frame rate modifier `(Modifier.requestedFrameRate(120f))` is applied to a `Text` composable. This modifier causes the `Text` composable to request a preferred frame rate of 120 when drawn or animating (for example, with opacity changes):  
+In the snippet below, the new frame rate modifier `(Modifier.requestedFrameRate(120f))` is applied to a `Text` composable. This modifier causes the `Text` composable to request a preferred frame rate of 120 when drawn or animating (for example, with opacity changes):
 
     var targetAlpha by remember { mutableFloatStateOf(1f) }
     val alpha by

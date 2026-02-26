@@ -88,7 +88,7 @@ a listener for the default network, and the
 [`TelephonyManager`](https://developer.android.com/reference/android/telephony/TelephonyManager) to register
 a [`PhoneStateListener`](https://developer.android.com/reference/android/telephony/PhoneStateListener) to
 determine the current device connection type. Once the connection type is known,
-you can modify your prefetching routines accordingly:  
+you can modify your prefetching routines accordingly:
 
 ### Kotlin
 
@@ -293,7 +293,7 @@ and power status. For example, suppose you have a
 `DownloadHeadlinesWorker` that retrieves the latest news headlines. This worker
 can be scheduled to run every hour, provided the device is connected to an
 unmetered network and device's battery isn't low, with a custom retry strategy
-if there are any problems retrieving the data, as shown below:  
+if there are any problems retrieving the data, as shown below:
 
 ### Kotlin
 

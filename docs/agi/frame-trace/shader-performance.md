@@ -4,8 +4,6 @@ url: https://developer.android.com/agi/frame-trace/shader-performance
 source: md.txt
 ---
 
-# Analyze shader performance
-
 AGI Frame Profiler allows you to investigate your shaders by
 selecting a draw call from one of our render passes, and going through either
 the **Vertex Shader** section or **Fragment Shader** section of the **Pipeline**

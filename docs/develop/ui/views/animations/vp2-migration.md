@@ -30,7 +30,7 @@ paging. You can enable vertical paging for a `ViewPager2` element by setting its
     <androidx.viewpager2.widget.ViewPager2
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
-        android:orie>ntation="vertical" /
+        android:orientation="vertical" />
 
 You can also set this attribute programmatically using the
 [setOrientation()](https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2#setorientation)
@@ -46,7 +46,7 @@ enable RTL paging for a `ViewPager2` element by setting its
     <androidx.viewpager2.widget.ViewPager2
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
-        android:lay>outDirection="rtl" /
+        android:layoutDirection="rtl" />
 
 You can also set this attribute programmatically using the
 [setLayoutDirection()](https://developer.android.com/reference/kotlin/android/view/View#setlayoutdirection)
@@ -85,14 +85,14 @@ First, replace the `ViewPager` elements in your XML layout files with
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:>la<yout_height="match_par>e<nt" /
+        android:layout_height="match_parent" />
 
-    !-- A ViewPager2 element --
-    androidx.viewpager2.widget.ViewPager2
+    <!-- A ViewPager2 element -->
+    <androidx.viewpager2.widget.ViewPager2
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
-        android:layout_wid>th="match_parent"
-        android:layout_height="match_parent" /
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 ### Update adapter classes
 
@@ -129,8 +129,9 @@ than they did for `ViewPager`:
 - Instead of `getCount()`, override [`getItemCount()`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.Adapter#getitemcount). Other than the name, this method is unchanged.
 - Instead of `getItem()`, override [`createFragment()`](https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter#createfragment) in fragment-based adapter classes. Make sure that your new `createFragment()` method always supplies a new fragment instance each time the function is called instead of reusing instances.
 
-| **Note:** The [`DiffUtil`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/DiffUtil) utility class relies on identifying items by ID. If you are using `ViewPager2` to page through a mutable collection, you must also override [`getItemId()`](https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter#getitemid) and [`containsItem()`](https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter#containsitem).   
-| Additionally, The [`getPageWidth()`](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/PagerAdapter#getpagewidth) method is not supported for use with `ViewPager2`. If you currently use `getPageWidth()` with `ViewPager` to enable peeking on adjacent pages, you must instead use the [`clipToPadding`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView#getcliptopadding) attribute of `RecyclerView` as demonstrated in the [sample app](https://github.com/android/views-widgets-samples/blob/87e58d1c6d0c832c5b362d33390148679182d314/ViewPager2/app/src/main/java/androidx/viewpager2/integration/testapp/PreviewPagesActivity.kt).
+> [!NOTE]
+> **Note:** The [`DiffUtil`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/DiffUtil) utility class relies on identifying items by ID. If you are using `ViewPager2` to page through a mutable collection, you must also override [`getItemId()`](https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter#getitemid) and [`containsItem()`](https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter#containsitem).   
+> Additionally, The [`getPageWidth()`](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/PagerAdapter#getpagewidth) method is not supported for use with `ViewPager2`. If you currently use `getPageWidth()` with `ViewPager` to enable peeking on adjacent pages, you must instead use the [`clipToPadding`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView#getcliptopadding) attribute of `RecyclerView` as demonstrated in the [sample app](https://github.com/android/views-widgets-samples/blob/87e58d1c6d0c832c5b362d33390148679182d314/ViewPager2/app/src/main/java/androidx/viewpager2/integration/testapp/PreviewPagesActivity.kt).
 
 #### Summary
 
@@ -231,33 +232,33 @@ is declared directly above the `ViewPager2` element, on the same level:
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        androi>d:layo<ut_height="match_parent"
+        android:layout_height="match_parent">
 
-        com.google.android.material.tabs.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
-            android:layout_width="match>_p<arent"
-            android:layout_h>ei<ght="wrap_content" /
-
-    /androidx.vi>e<wpager.widget.ViewPager
-
-    !-- A ViewPager2 element with a TabLayout --
-    LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="matc>h_pare<nt"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-
-        com.google.android.material.tabs.TabLayout
-            android:i>d=&quo<t;@+id/tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" /
+            android:layout_height="wrap_content" />
 
-        androidx.viewpager2.widget.ViewPager2
-           > a<ndroid:id=&qu>ot;@+id/pager"
+    </androidx.viewpager.widget.ViewPager>
+
+    <!-- A ViewPager2 element with a TabLayout -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" /
+            android:layout_weight="1" />
 
-    /LinearLayout
+    </LinearLayout>
 
 Finally, you must update the code that attaches the `TabLayout` object to the
 `ViewPager` object. While `TabLayout` uses its own [`setupWithViewPager()`](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout#setupwithviewpager)

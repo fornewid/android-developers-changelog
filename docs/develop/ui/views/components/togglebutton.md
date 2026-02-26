@@ -4,18 +4,15 @@ url: https://developer.android.com/develop/ui/views/components/togglebutton
 source: md.txt
 ---
 
-# Add toggle buttons
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose. [Switch →](https://developer.android.com/develop/ui/compose/components/switch) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose.  
-[Switch →](https://developer.android.com/develop/ui/compose/components/switch)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
-
-<br />
-
-If you're using a`View`-based layout, there are three main choices for implementing toggles. We recommend using the[`SwitchMaterial`](https://m3.material.io/components/switch/overview)component from the[Material Components](https://m3.material.io/develop/android/mdc-android)library:  
+If you're using a `View`-based layout, there are three main choices for
+implementing toggles. We recommend using the
+[`SwitchMaterial`](https://m3.material.io/components/switch/overview) component
+from the [Material
+Components](https://m3.material.io/develop/android/mdc-android) library:
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -34,7 +31,9 @@ If you're using a`View`-based layout, there are three main choices for implement
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-Legacy apps might still use the older[`SwitchCompat`](https://developer.android.com/reference/androidx/appcompat/widget/SwitchCompat)AppCompat component, as shown in the following example:  
+Legacy apps might still use the older
+[`SwitchCompat`](https://developer.android.com/reference/androidx/appcompat/widget/SwitchCompat) AppCompat
+component, as shown in the following example:
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -53,7 +52,9 @@ Legacy apps might still use the older[`SwitchCompat`](https://developer.android.
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-The following example shows[`AppCompatToggleButton`](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatToggleButton), which is another legacy component that has a noticeably different UI:  
+The following example shows
+[`AppCompatToggleButton`](https://developer.android.com/reference/androidx/appcompat/widget/AppCompatToggleButton),
+which is another legacy component that has a noticeably different UI:
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -82,16 +83,24 @@ The following example shows[`AppCompatToggleButton`](https://developer.android.c
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-These three components offer the same behavior but look different. The differences between the`SwitchMaterial`and`SwitchCompat`are subtle, but`AppCompatToggleButton`is noticeably different:
+These three components offer the same behavior but look different. The
+differences between the `SwitchMaterial` and `SwitchCompat` are subtle, but
+`AppCompatToggleButton` is noticeably different:
 
-![The SwitchMaterial, SwitchCompat, and AppCompatToggleButton Controls](https://developer.android.com/static/images/ui/toggles.png)
-**Figure 1.**Three toggle button types.
+![The SwitchMaterial, SwitchCompat, and AppCompatToggleButton
+Controls](https://developer.android.com/static/images/ui/toggles.png)
+**Figure 1.** Three toggle button types.
 
 <br />
 
 ### Handle state changes
 
-`SwitchMaterial`,`SwitchCompat`, and`AppCompatToggleButton`are all subclasses of[`CompoundButton`](https://developer.android.com/reference/android/widget/CompoundButton), which gives them a common mechanism for handling checked state changes. You implement an instance of[`CompoundButton.OnCheckedChangeListener`](https://developer.android.com/reference/android/widget/CompoundButton.OnCheckedChangeListener)and add it to the button, as shown in the following example:  
+`SwitchMaterial`, `SwitchCompat`, and `AppCompatToggleButton` are all subclasses
+of [`CompoundButton`](https://developer.android.com/reference/android/widget/CompoundButton), which
+gives them a common mechanism for handling checked state changes. You implement
+an instance of
+[`CompoundButton.OnCheckedChangeListener`](https://developer.android.com/reference/android/widget/CompoundButton.OnCheckedChangeListener)
+and add it to the button, as shown in the following example:
 
 ### Kotlin
 
@@ -137,4 +146,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-`CompoundButton.OnCheckedChangeListener`is a single abstract method interface (or*SAM interface* ), so you can implement it as a lambda. The lambda is called whenever the checked state changes, and the value of the`isChecked`boolean that is passed to the lambda indicates the new checked state.
+`CompoundButton.OnCheckedChangeListener` is a single abstract method interface
+(or *SAM interface* ), so you can implement it as a lambda. The lambda is called
+whenever the checked state changes, and the value of the `isChecked` boolean
+that is passed to the lambda indicates the new checked state.

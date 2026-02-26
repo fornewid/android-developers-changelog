@@ -24,52 +24,52 @@ This lesson shows you how to find and connect to nearby devices using Wi-Fi P2P.
 ## Set up application permissions
 
 To use Wi-Fi Direct, add the
-[ACCESS_FINE_LOCATION](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION),
-[CHANGE_WIFI_STATE](https://developer.android.com/reference/android/Manifest.permission#CHANGE_WIFI_STATE),
-[ACCESS_WIFI_STATE](https://developer.android.com/reference/android/Manifest.permission#ACCESS_WIFI_STATE), and
-[INTERNET](https://developer.android.com/reference/android/Manifest.permission#INTERNET) permissions to your manifest.
+`https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION`,
+`https://developer.android.com/reference/android/Manifest.permission#CHANGE_WIFI_STATE`,
+`https://developer.android.com/reference/android/Manifest.permission#ACCESS_WIFI_STATE`, and
+`https://developer.android.com/reference/android/Manifest.permission#INTERNET` permissions to your manifest.
 If your app targets Android 13 (API level 33) or higher, also add the
-[NEARBY_WIFI_DEVICES](https://developer.android.com/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES)
+`https://developer.android.com/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES`
 permission to your manifest. Wi-Fi
 Direct doesn't require an internet connection, but it does use standard Java
-sockets, which requires the [INTERNET](https://developer.android.com/reference/android/Manifest.permission#INTERNET)
-permission. So you need the following permissions to use Wi-Fi Direct:  
+sockets, which requires the `https://developer.android.com/reference/android/Manifest.permission#INTERNET`
+permission. So you need the following permissions to use Wi-Fi Direct:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.nsdchat"
+    package="com.example.android.nsdcha<t"
     ...
-    <!-- If your app targets Android 13 (API level 33)
-         or higher, you must declare the NEARBY_WIFI_DEVICES permission. -->
-        <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"
-        <!-- If your app derives location information from Wi-Fi APIs,
-             don't include the "usesPermissionFlags" attribute. -->
-        android:usesPermissionFlags="neverForLocation" />
+    !-- If your  app targets  Android13 (API level33)
+         or higher, you must declare the NEARBY_WIFI_DE>VICES per<mission. --
+        uses-permission android:name="android.permission.NEAR<BY_WIFI_DEVICES"
+        !-- If your app derives location information from Wi-Fi APIs,
+             don't include the &>quot;usesPermissionFlags" attribute. --
+        andr>oid:usesPermis<sionFlags="neverForLocation" /
         
-    <uses-permission
+    uses-permission
         android:required="true"
-        android:name="android.permission.ACCESS_FINE_LOCATION"
-        <!-- If any feature in your app relies on precise location information,
-             don't include the "maxSdkVersion" attribute. -->
-        android:maxSdkVersion="32" />
-    <uses-permission
+       < android:name="android.permission.ACCESS_FINE_LOCATION"
+        !-- If any feature in your app relies on precise location> information,
+             don't >inclu<de the "maxSdkVersion" attribute. --
+        android:maxSdkVersion="32" /
+    uses-permi>ssion<
         android:required="true"
-        android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE&q>uot;/<
+    uses-permission
         android:required="true"
-        android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission
+        android:name="android.p>ermission.CHANGE_WIFI_STATE"/
+    uses-permission
         android:required="true"
-        android:name="android.permission.INTERNET"/>
+        android:name="android.permission.INTERNET"/
     ...
 ```
 
 
 Besides the preceding permissions, the following APIs also require Location Mode to be enabled:
 
-- [discoverPeers](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.ActionListener))
-- [discoverServices](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverServices(android.net.wifi.p2p.WifiP2pManager.Channel,%2520android.net.wifi.p2p.WifiP2pManager.ActionListener))
-- [requestPeers](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%2520android.net.wifi.p2p.WifiP2pManager.PeerListListener))
+- `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.ActionListener)`
+- `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverServices(android.net.wifi.p2p.WifiP2pManager.Channel,%2520android.net.wifi.p2p.WifiP2pManager.ActionListener)`
+- `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%2520android.net.wifi.p2p.WifiP2pManager.PeerListListener)`
 
 <br />
 
@@ -77,27 +77,27 @@ Besides the preceding permissions, the following APIs also require Location Mode
 
 To use Wi-Fi Direct, you need to listen for broadcast intents that tell your
 application when certain events have occurred. In your application, instantiate
-an [IntentFilter](https://developer.android.com/reference/android/content/IntentFilter) and set it to listen for the following:
+an `https://developer.android.com/reference/android/content/IntentFilter` and set it to listen for the following:
 
-[WIFI_P2P_STATE_CHANGED_ACTION](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_STATE_CHANGED_ACTION)
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_STATE_CHANGED_ACTION`
 :   Indicates whether Wi-Fi Direct is enabled
 
-[WIFI_P2P_PEERS_CHANGED_ACTION](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_PEERS_CHANGED_ACTION)
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_PEERS_CHANGED_ACTION`
 :   Indicates that the available peer list has changed.
 
-[WIFI_P2P_CONNECTION_CHANGED_ACTION](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_CONNECTION_CHANGED_ACTION)
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_CONNECTION_CHANGED_ACTION`
 :
     Indicates the state of Wi-Fi Direct connectivity has changed. Starting with
     Android 10, this is not sticky. If your app has relied on receiving these
     broadcasts at registration because they had been sticky, use the appropriate `get`
     method at initialization to obtain the information instead.
 
-[WIFI_P2P_THIS_DEVICE_CHANGED_ACTION](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_THIS_DEVICE_CHANGED_ACTION)
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_THIS_DEVICE_CHANGED_ACTION`
 :
     Indicates this device's configuration details have changed. Starting with
     Android 10, this is not sticky. If your app has relied on receiving these
     broadcasts at registration because they had been sticky, use the appropriate `get`
-method at initialization to obtain the information instead.  
+    method at initialization to obtain the information instead.
 
 ### Kotlin
 
@@ -148,9 +148,9 @@ public void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-At the end of the [onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method, get an instance of the [WifiP2pManager](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager), and call its [initialize()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#initialize(android.content.Context, android.os.Looper, android.net.wifi.p2p.WifiP2pManager.ChannelListener))
-method. This method returns a [WifiP2pManager.Channel](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.Channel) object, which you'll use later to
-connect your app to the Wi-Fi Direct framework.  
+At the end of the `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method, get an instance of the `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager`, and call its `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#initialize(android.content.Context, android.os.Looper, android.net.wifi.p2p.WifiP2pManager.ChannelListener)`
+method. This method returns a `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.Channel` object, which you'll use later to
+connect your app to the Wi-Fi Direct framework.
 
 ### Kotlin
 
@@ -179,9 +179,9 @@ public void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-Now create a new [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) class that you'll use to listen for changes
-to the system's Wi-Fi state. In the [onReceive()](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context, android.content.Intent))
-method, add a condition to handle each state change listed above.  
+Now create a new `https://developer.android.com/reference/android/content/BroadcastReceiver` class that you'll use to listen for changes
+to the system's Wi-Fi state. In the `https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context, android.content.Intent)`
+method, add a condition to handle each state change listed above.
 
 ### Kotlin
 
@@ -256,8 +256,8 @@ public void onReceive(Context context, Intent intent) {
 
 Finally, add code to register the intent filter and broadcast receiver when
 your main activity is active, and unregister them when the activity is paused.
-The best place to do this is the [onResume()](https://developer.android.com/reference/android/app/Activity#onResume()) and
-[onPause()](https://developer.android.com/reference/android/app/Activity#onPause()) methods.  
+The best place to do this is the `https://developer.android.com/reference/android/app/Activity#onResume()` and
+`https://developer.android.com/reference/android/app/Activity#onPause()` methods.
 
 ### Kotlin
 
@@ -295,11 +295,11 @@ public void onPause() {
 
 ## Initiate peer discovery
 
-To start searching for nearby devices with Wi-Fi P2P, call [discoverPeers()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverPeers(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.ActionListener)). This method takes the
+To start searching for nearby devices with Wi-Fi P2P, call `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverPeers(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.ActionListener)`. This method takes the
 following arguments:
 
-- The [WifiP2pManager.Channel](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.Channel) you received back when you initialized the peer-to-peer mManager
-- An implementation of [WifiP2pManager.ActionListener](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener) with methods the system invokes for successful and unsuccessful discovery.
+- The `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.Channel` you received back when you initialized the peer-to-peer mManager
+- An implementation of `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener` with methods the system invokes for successful and unsuccessful discovery.
 
 ### Kotlin
 
@@ -342,7 +342,7 @@ manager.discoverPeers(channel, new WifiP2pManager.ActionListener() {
 ```
 
 Keep in mind that this only *initiates* peer discovery. The
-[discoverPeers()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverPeers(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.ActionListener)) method starts the discovery process and then
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverPeers(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.ActionListener)` method starts the discovery process and then
 immediately returns. The system notifies you if the peer discovery process is
 successfully initiated by calling methods in the provided action listener.
 Also, discovery remains active until a connection is initiated or a P2P group is
@@ -351,11 +351,11 @@ formed.
 ## Fetch the list of peers
 
 Now write the code that fetches and processes the list of peers. First
-implement the [WifiP2pManager.PeerListListener](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.PeerListListener)
+implement the `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.PeerListListener`
 interface, which provides information about the peers that Wi-Fi Direct has
 detected. This information also allows your app to determine when peers join or
 leave the network. The following code snippet illustrates these operations
-related to peers:  
+related to peers:
 
 ### Kotlin
 
@@ -417,10 +417,10 @@ private PeerListListener peerListListener = new PeerListListener() {
 }
 ```
 
-Now modify your broadcast receiver's [onReceive()](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context, android.content.Intent))
-method to call [requestPeers()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestPeers(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.PeerListListener)) when an intent with the action [WIFI_P2P_PEERS_CHANGED_ACTION](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_PEERS_CHANGED_ACTION) is received. You
+Now modify your broadcast receiver's `https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context, android.content.Intent)`
+method to call `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestPeers(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.PeerListListener)` when an intent with the action `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_PEERS_CHANGED_ACTION` is received. You
 need to pass this listener into the receiver somehow. One way is to send it
-as an argument to the broadcast receiver's constructor.  
+as an argument to the broadcast receiver's constructor.
 
 ### Kotlin
 
@@ -461,15 +461,15 @@ public void onReceive(Context context, Intent intent) {
 }
 ```
 
-Now, an intent with the action [WIFI_P2P_PEERS_CHANGED_ACTION](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_PEERS_CHANGED_ACTION) intent
+Now, an intent with the action `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_PEERS_CHANGED_ACTION` intent
 triggers a request for an updated peer list.
 
 ## Connect to a peer
 
-In order to connect to a peer, create a new [WifiP2pConfig](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pConfig) object, and copy data into it from the
-[WifiP2pDevice](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pDevice) representing the device you want to
-connect to. Then call the [connect()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#connect(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pConfig, android.net.wifi.p2p.WifiP2pManager.ActionListener))
-method.  
+In order to connect to a peer, create a new `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pConfig` object, and copy data into it from the
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pDevice` representing the device you want to
+connect to. Then call the `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#connect(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pConfig, android.net.wifi.p2p.WifiP2pManager.ActionListener)`
+method.
 
 ### Kotlin
 
@@ -532,8 +532,8 @@ If each of the devices in your group supports Wi-Fi direct, you don't need
 to explicitly ask for the group's password when connecting. To allow a device
 that doesn't support Wi-Fi Direct to join a group, however, you need to
 retrieve this password by calling
-[requestGroupInfo()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestGroupInfo(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.GroupInfoListener)), as
-shown in the following code snippet:  
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestGroupInfo(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.GroupInfoListener)`, as
+shown in the following code snippet:
 
 ### Kotlin
 
@@ -554,16 +554,16 @@ manager.requestGroupInfo(channel, new GroupInfoListener() {
 });
 ```
 
-Note that the [WifiP2pManager.ActionListener](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener) implemented in
-the [connect()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#connect(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pConfig, android.net.wifi.p2p.WifiP2pManager.ActionListener)) method only notifies you when the *initiation*
+Note that the `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener` implemented in
+the `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#connect(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pConfig, android.net.wifi.p2p.WifiP2pManager.ActionListener)` method only notifies you when the *initiation*
 succeeds or fails. To listen for *changes* in connection state, implement the
-[WifiP2pManager.ConnectionInfoListener](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ConnectionInfoListener) interface.
-Its [onConnectionInfoAvailable()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ConnectionInfoListener#onConnectionInfoAvailable(android.net.wifi.p2p.WifiP2pInfo)) callback notifies you when the state of the
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ConnectionInfoListener` interface.
+Its `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ConnectionInfoListener#onConnectionInfoAvailable(android.net.wifi.p2p.WifiP2pInfo)` callback notifies you when the state of the
 connection changes. In cases where multiple devices are going to be connected to
 a single device (like a game with three or more players, or a chat app), one device
 is designated the "group owner". You can designate a particular device as
 the network's group owner by following the steps in the
-[Create a Group](https://developer.android.com/develop/connectivity/wifi/wifi-direct#create-group) section.  
+[Create a Group](https://developer.android.com/develop/connectivity/wifi/wifi-direct#create-group) section.
 
 ### Kotlin
 
@@ -610,9 +610,9 @@ public void onConnectionInfoAvailable(final WifiP2pInfo info) {
 }
 ```
 
-Now go back to the [onReceive()](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context, android.content.Intent)) method of the broadcast receiver, and modify the section
-that listens for a [WIFI_P2P_CONNECTION_CHANGED_ACTION](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_CONNECTION_CHANGED_ACTION) intent.
-When this intent is received, call [requestConnectionInfo()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestConnectionInfo(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.ConnectionInfoListener)). This is an asynchronous call,
+Now go back to the `https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context, android.content.Intent)` method of the broadcast receiver, and modify the section
+that listens for a `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_CONNECTION_CHANGED_ACTION` intent.
+When this intent is received, call `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestConnectionInfo(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.ConnectionInfoListener)`. This is an asynchronous call,
 so results are received by the connection info listener you provide as a
 parameter.
 
@@ -673,10 +673,10 @@ If you want the device running your app to serve as the group owner for a
 network that includes legacy devices---that is, devices that don't support
 Wi-Fi Direct---you follow the same sequence of steps as in the
 [Connect to a Peer](https://developer.android.com/develop/connectivity/wifi/wifi-direct#connect) section, except you create a new
-[WifiP2pManager.ActionListener](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener)
-using [createGroup()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#createGroup(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.ActionListener)) instead of [connect()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#connect(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pConfig, android.net.wifi.p2p.WifiP2pManager.ActionListener)). The callback handling within the
-[WifiP2pManager.ActionListener](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener)
-is the same, as shown in the following code snippet:  
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener`
+using `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#createGroup(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.ActionListener)` instead of `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#connect(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pConfig, android.net.wifi.p2p.WifiP2pManager.ActionListener)`. The callback handling within the
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener`
+is the same, as shown in the following code snippet:
 
 ### Kotlin
 
@@ -714,9 +714,9 @@ manager.createGroup(channel, new WifiP2pManager.ActionListener() {
 ```
 
 **Note:** If all the devices in a network support Wi-Fi
-Direct, you can use the [connect()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#connect(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pConfig, android.net.wifi.p2p.WifiP2pManager.ActionListener)) method on each device because the
+Direct, you can use the `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#connect(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pConfig, android.net.wifi.p2p.WifiP2pManager.ActionListener)` method on each device because the
 method then creates the group and selects a group owner automatically.
 
 After you create a group, you can call
-[requestGroupInfo()](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestGroupInfo(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.GroupInfoListener)) to retrieve details about the peers on
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestGroupInfo(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.GroupInfoListener)` to retrieve details about the peers on
 the network, including device names and connection statuses.

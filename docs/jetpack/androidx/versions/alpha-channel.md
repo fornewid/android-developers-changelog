@@ -18,6 +18,32 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+### February 25, 2026
+
+- [Browser Version 1.10.0-alpha04](https://developer.android.com/jetpack/androidx/releases/browser#1.10.0-alpha04)
+- [Compose Animation Version 1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0-alpha06)
+- [Compose Foundation Version 1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0-alpha06)
+- [Compose Material Version 1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.0-alpha06)
+- [Compose Material 3 Version 1.5.0-alpha15](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha15)
+- [Compose Material3 Adaptive Version 1.3.0-alpha09](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-alpha09)
+- [Compose Remote Version 1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha05)
+- [Compose Runtime Version 1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.0-alpha06)
+- [Compose UI Version 1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.0-alpha06)
+- [Datastore Version 1.3.0-alpha06](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha06)
+- [Glance Wear Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha04)
+- [Lifecycle Version 2.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha01)
+- [Navigation3 Version 1.1.0-alpha05](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-alpha05)
+- [Navigationevent Version 1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.0-alpha01)
+- [Pdf Version 1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha14)
+- [Tracing Version 2.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha02)
+- [Xr Arcore Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha11)
+- [Xr Compose Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha11)
+- [Xr Compose Material3 Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha15)
+- [Xr Glimmer Version 1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha07)
+- [Xr Projected Version 1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha05)
+- [Xr Runtime Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha11)
+- [Xr Scenecore Version 1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha12)
+
 ### February 11, 2026
 
 - [Benchmark Version 1.5.0-alpha03](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha03)

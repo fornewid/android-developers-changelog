@@ -8,10 +8,7 @@ source: md.txt
 Part of [Android Jetpack](https://developer.android.com/jetpack).
 
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose.  
-[ConstraintLayout in Compose →](https://developer.android.com/develop/ui/compose/layouts/constraintlayout)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose. [ConstraintLayout in Compose →](https://developer.android.com/develop/ui/compose/layouts/constraintlayout) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -27,7 +24,8 @@ All the power of `ConstraintLayout` is available directly from the
 Layout Editor's visual tools, because the layout API and the Layout Editor are
 specially built for each other. You can build your layout with
 `ConstraintLayout` entirely by dragging instead of editing the
-XML.  
+XML.
+[Video](https://www.youtube.com/watch?v=XamMbnzI5vE)
 
 This page shows how to build a layout with `ConstraintLayout` in
 Android Studio 3.0 or higher. For more information about the Layout Editor,
@@ -55,11 +53,11 @@ constraints when you run your layout on a device, it is drawn at position \[0,0\
 In figure 1, the layout looks good in the editor, but there's no vertical
 constraint on view C. When this layout draws on a device, view C horizontally
 aligns with the left and right edges of view A, but it appears at the top of the
-screen because it has no vertical constraint.  
+screen because it has no vertical constraint.
 ![](https://developer.android.com/static/training/constraint-layout/images/constraint-fail_2x.png)
 
 **Figure 1.** The editor shows view C below A, but it
-has no vertical constraint.  
+has no vertical constraint.
 ![](https://developer.android.com/static/training/constraint-layout/images/constraint-fail-fixed_2x.png)
 
 **Figure 2.** View C is now vertically constrained
@@ -78,7 +76,7 @@ features.
 
 To use `ConstraintLayout` in your project, proceed as follows:
 
-1. Ensure you have the `maven.google.com` repository declared in your `settings.gradle` file:  
+1. Ensure you have the `maven.google.com` repository declared in your `settings.gradle` file:
 
    ### Groovy
 
@@ -103,7 +101,7 @@ To use `ConstraintLayout` in your project, proceed as follows:
        }
        
    ```
-2. Add the library as a dependency in the module-level `build.gradle` file, as shown in the following example. The latest version might be different than what is shown in the example.  
+2. Add the library as a dependency in the module-level `build.gradle` file, as shown in the following example. The latest version might be different than what is shown in the example.
 
    ### Groovy
 
@@ -153,7 +151,7 @@ To start a new constraint layout file, follow these steps:
 
 ## Add or remove a constraint
 
-To add a constraint, do the following:  
+To add a constraint, do the following:
 
 
 **Video 1.**The left side of a view is constrained to the left
@@ -226,7 +224,7 @@ described in the following sections.
 Constrain the side of a view to the corresponding edge of the layout.
 
 In figure 7, the left side of the view is connected to the left edge of the
-parent layout. You can define the distance from the edge with margin.  
+parent layout. You can define the distance from the edge with margin.
 ![](https://developer.android.com/static/training/constraint-layout/images/parent-constraint_2x.png)
 
 **Figure 7.**A horizontal constraint to
@@ -239,7 +237,7 @@ horizontally.
 
 In figure 8, B is constrained to always be to the right of A, and C is
 constrained below A. However, these constraints don't imply alignment, so B can
-still move up and down.  
+still move up and down.
 ![](https://developer.android.com/static/training/constraint-layout/images/position-constraint_2x.png)
 
 **Figure 8.** A horizontal and vertical
@@ -259,11 +257,11 @@ defined by the constrained view's margin.
 You can also select all the views you want to align, and then click
 **Align**
 ![](https://developer.android.com/static/studio/images/buttons/layout-editor-align.png)
-in the toolbar to select the alignment type.  
+in the toolbar to select the alignment type.
 ![](https://developer.android.com/static/training/constraint-layout/images/alignment-constraint_2x.png)
 
 **Figure 9.** A horizontal alignment
-constraint.  
+constraint.
 ![](https://developer.android.com/static/training/constraint-layout/images/alignment-constraint-offset_2x.png)
 
 **Figure 10.** An offset horizontal
@@ -277,7 +275,7 @@ In figure 11, the first line of B is aligned with the text in A.
 
 To create a baseline constraint, right-click the text view you want to
 constrain and then click **Show Baseline**. Then click on the text
-baseline and drag the line to another baseline.  
+baseline and drag the line to another baseline.
 ![](https://developer.android.com/static/training/constraint-layout/images/baseline-constraint_2x.png)
 
 **Figure 11.** A baseline alignment
@@ -296,7 +294,7 @@ in the toolbar, and then click either **Add Vertical Guideline** or **Add
 Horizontal Guideline**.
 
 Drag the dotted line to reposition it, and click the circle at the edge of
-the guideline to toggle the measurement mode.  
+the guideline to toggle the measurement mode.
 ![](https://developer.android.com/static/training/constraint-layout/images/guideline-constraint_2x.png)
 
 **Figure 12.** A view constrained to a
@@ -328,7 +326,7 @@ barrier. This way, you can align all the views in the barrier to each other,
 even if you don't know which view is the longest or tallest.
 
 You can also include a guideline inside a barrier to ensure a "minimum"
-position for the barrier.  
+position for the barrier.
 ![](https://developer.android.com/static/training/constraint-layout/images/barrier-constraint_2x.png)
 
 **Figure 13.** View C is constrained to a barrier,
@@ -343,7 +341,7 @@ bias by dragging the bias slider in the **Attributes** window or by dragging
 the view, as shown in video 3.
 
 If you instead want the view to stretch its size to meet the constraints,
-[switch the size](https://developer.android.com/develop/ui/views/layout/constraint-layout#adjust-the-view-size) to "match constraints."  
+[switch the size](https://developer.android.com/develop/ui/views/layout/constraint-layout#adjust-the-view-size) to "match constraints."
 
 **Video 3.** Adjusting the constraint bias.
 
@@ -394,10 +392,11 @@ between these settings:
   expands to fit its contents. Using this mode on either the height or width also
   lets you [set a size ratio](https://developer.android.com/develop/ui/views/layout/constraint-layout#set-size-as-a-ratio).
 
-| **Note** : You can't use `match_parent` for any view in a `ConstraintLayout`. Instead, use "match constraints" (`0dp`).
-|
-| <br />
-|
+> [!NOTE]
+> **Note** : You can't use `match_parent` for any view in a `ConstraintLayout`. Instead, use "match constraints" (`0dp`).
+>
+> <br />
+>
 ### Set size as a ratio
 
 ![](https://developer.android.com/static/images/training/constraint-layout/constraint-layout-ratio-2x.png)
@@ -453,7 +452,7 @@ two views.
 
 A chain is a group of views that are linked to each other with bi-directional
 position constraints. The views within a chain can be distributed either
-vertically or horizontally.  
+vertically or horizontally.
 ![](https://developer.android.com/static/training/constraint-layout/images/constraint-chain-styles_2x.png)
 
 **Figure 18.** Examples of each chain
@@ -515,11 +514,13 @@ in the Layout Editor toolbar.
 
 ## Keyframe animations
 
+[Video](https://www.youtube.com/watch?v=OHcfs6rStRo)
+
 Within a `ConstraintLayout`, you can animate changes to the size
 and position of elements by using
-[ConstraintSet](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintSet)
+`https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintSet`
 and
-[TransitionManager](https://developer.android.com/reference/android/transition/TransitionManager).
+`https://developer.android.com/reference/android/transition/TransitionManager`.
 
 A `ConstraintSet` is a lightweight object that represents the
 constraints, margins, and padding of all child elements within a
@@ -531,10 +532,12 @@ To build an animation using `ConstraintSet`, specify two layout
 files that act as start and end keyframes for the animation. You can then load
 a `ConstraintSet` from the second keyframe file and apply it to the
 displayed `ConstraintLayout`.
-| **Note:** `ConstraintSet` animations animate only the size and position of child elements. They don't animate other attributes, such as color.
+
+> [!NOTE]
+> **Note:** `ConstraintSet` animations animate only the size and position of child elements. They don't animate other attributes, such as color.
 
 The following code example shows how to animate moving a single button to the
-bottom of the screen.  
+bottom of the screen.
 
     // MainActivity.kt
 
@@ -571,7 +574,7 @@ bottom of the screen.
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-```  
+```
 
 ```xml
 // layout/keyframe2.xml
@@ -593,7 +596,9 @@ bottom of the screen.
         app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-| **Note:** With Android Studio 3.6 and higher, the [view binding](https://developer.android.com/topic/libraries/view-binding) feature can replace `findViewById()` calls. It also provides compile-time type safety for code that interacts with views. Consider using view binding instead of `findViewById()`.
+
+> [!NOTE]
+> **Note:** With Android Studio 3.6 and higher, the [view binding](https://developer.android.com/topic/libraries/view-binding) feature can replace `findViewById()` calls. It also provides compile-time type safety for code that interacts with views. Consider using view binding instead of `findViewById()`.
 
 ## Additional resources
 

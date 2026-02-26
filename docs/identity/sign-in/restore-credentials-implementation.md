@@ -17,7 +17,9 @@ higher, Google Play services (GMS) core version 24220000 or higher, and version
 Set up a [relying party server](https://developer.android.com/identity/credential-manager#authentication-terminology) similar to the server for [passkeys](https://developer.android.com/identity/passkeys).
 If you already have a [server](https://developers.google.com/identity/passkeys/developer-guides/server-introduction) set up to handle authentication with passkeys,
 use the same server-side implementation for restore keys.
-| **Note:** While the server-side implementation is the same for passkeys and restore keys, your client-side app can support restore keys without supporting passkeys. Because restore keys work independently of the authentication method in your app (for example, passwords or Sign in with Google), you don't need to make any additional changes to the existing authentication methods in your app's code.
+
+> [!NOTE]
+> **Note:** While the server-side implementation is the same for passkeys and restore keys, your client-side app can support restore keys without supporting passkeys. Because restore keys work independently of the authentication method in your app (for example, passwords or Sign in with Google), you don't need to make any additional changes to the existing authentication methods in your app's code.
 
 ## Dependencies
 
@@ -27,8 +29,8 @@ Add the following dependencies to your app module's `build.gradle` file:
 
 ```kotlin
 dependencies {
-    implementation("androidx.credentials:credentials:1.6.0-rc01")
-    implementation("androidx.credentials:credentials-play-services-auth:1.6.0-rc01")
+    implementation("androidx.credentials:credentials:1.6.0-rc02")
+    implementation("androidx.credentials:credentials-play-services-auth:1.6.0-rc02")
 }
 ```
 
@@ -36,15 +38,17 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.credentials:credentials:1.6.0-rc01"
-    implementation "androidx.credentials:credentials-play-services-auth:1.6.0-rc01"
+    implementation "androidx.credentials:credentials:1.6.0-rc02"
+    implementation "androidx.credentials:credentials-play-services-auth:1.6.0-rc02"
 }
 ```
 
 Restore Credentials is available from version 1.5.0 and higher of the
 androidx.credentials library. However, it's recommended to use the latest stable
 versions of the dependencies where possible.
-| **Note:** The Restore Credentials feature works regardless of whether [`allowBackup`](https://developer.android.com/guide/topics/manifest/application-element#allowbackup) is set in the `manifest`.
+
+> [!NOTE]
+> **Note:** The Restore Credentials feature works regardless of whether [`allowBackup`](https://developer.android.com/guide/topics/manifest/application-element#allowbackup) is set in the `manifest`.
 
 ## Overview
 
@@ -63,7 +67,9 @@ versions of the dependencies where possible.
 
 Create the restore key after the user authenticates to your app---immediately
 after sign-in, or during a subsequent app launch if they are already signed in.
-| **Note:** A restore key is tied to an application's unique package name. If your organization's main app and sub-apps have different package names, create a separate restore key for each app.
+
+> [!NOTE]
+> **Note:** A restore key is tied to an application's unique package name. If your organization's main app and sub-apps have different package names, create a separate restore key for each app.
 
 ### Instantiate Credential Manager
 
@@ -103,7 +109,8 @@ restore key by wrapping these options in a
     - `true`: (**Recommended**) This value enables the backup of restore keys to the cloud if the user has Google Backup and end-to-end encryption, such as a screen lock, enabled.
     - `false`: This value saves the key locally and not in the cloud. The key is not available on the new device if the user chooses to restore from the cloud.
 
-  | **Caution:** It is recommended to set `isCloudBackupEnabled` to `true`. If cloud backup is disabled and the user restores from a cloud backup, the call to retrieve the restore key fails. Users who restore your app with a cloud backup don't receive the restore key and are not automatically signed in.
+  > [!CAUTION]
+  > **Caution:** It is recommended to set `isCloudBackupEnabled` to `true`. If cloud backup is disabled and the user restores from a cloud backup, the call to retrieve the restore key fails. Users who restore your app with a cloud backup don't receive the restore key and are not automatically signed in.
 
 ### Handle the credential creation response
 
@@ -168,7 +175,9 @@ used to sign in the user. On the server side, this action is similar to signing
 in using a passkey. The same code that handles sign-in with passkeys on the
 server can also handle sign-ins with restore keys. For more information about
 the server-side implementation for passkeys, see [Sign in with a passkey](https://developer.android.com/identity/passkeys/sign-in-with-passkeys).
-| **Note:** Even though restore keys and passkeys use the same underlying server implementation, differentiate between them when saving them in your app server's database. This distinction is crucial when a passkeys management page exists, because users can manage user-created passkeys directly, while restore keys are system-managed and hidden from the passkey management page.
+
+> [!NOTE]
+> **Note:** Even though restore keys and passkeys use the same underlying server implementation, differentiate between them when saving them in your app server's database. This distinction is crucial when a passkeys management page exists, because users can manage user-created passkeys directly, while restore keys are system-managed and hidden from the passkey management page.
 
 ## Delete the restore key
 

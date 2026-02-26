@@ -67,7 +67,7 @@ get these specific dimensions as needed. See the following example:
 
 ```kotlin
 val session = LocalSession.current
-session?.scene?.activitySpace?.recommendedContentBoxInFullSpacehttps://github.com/android/snippets/blob/fbed24d5695413cfd86b4b2c6b6faf0a3a2eadb8/xr/src/main/java/com/example/xr/compose/Subspace.kt#L73-L74
+session?.scene?.activitySpace?.recommendedContentBoxInFullSpacehttps://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/xr/src/main/java/com/example/xr/compose/Subspace.kt#L73-L74
 ```
 
 <br />

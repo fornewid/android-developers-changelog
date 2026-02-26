@@ -11,8 +11,10 @@ element. For each service, use an
 to declare what kind of work the service does.
 
 In addition, request any permissions needed by your foreground services.
-| **Important:** All foreground service declarations must comply with the requirements in the [Google Play Device and Network Abuse policy](https://support.google.com/googleplay/android-developer/answer/9888379) and the Google Play [Understanding foreground service requirements
-| documentation](https://support.google.com/googleplay/android-developer/answer/13392821).
+
+> [!IMPORTANT]
+> **Important:** All foreground service declarations must comply with the requirements in the [Google Play Device and Network Abuse policy](https://support.google.com/googleplay/android-developer/answer/9888379) and the Google Play [Understanding foreground service requirements
+> documentation](https://support.google.com/googleplay/android-developer/answer/13392821).
 
 ## Version compatibility
 
@@ -25,7 +27,7 @@ see [Changes to foreground services](https://developer.android.com/develop/backg
 ## Declare foreground services in the app manifest
 
 The following code shows how to declare a media playback foreground service.
-You might use a service like this to play music.  
+You might use a service like this to play music.
 
     <manifest xmlns:android="http://schemas.android.com/apk/res/android" ...>
       <application ...>
@@ -63,7 +65,7 @@ You might use a service like this to play music.
 ## Request the foreground service permissions
 
 The following code shows how to request permissions for a foreground
-service that uses the camera.  
+service that uses the camera.
 
     <manifest xmlns:android="http://schemas.android.com/apk/res/android" ...>
 

@@ -183,24 +183,29 @@ override fun onDataChanged(dataEvents: DataEventBuffer) {
     dataEvents
         .filter { it.type == DataEvent.TYPE_CHANGED && it.dataItem.uri.path == "/image" }
         .forEach { event ->
-            val bitmap: Bitmap? = DataMapItem.fromDataItem(event.dataItem)
+            val asset = DataMapItem.fromDataItem(event.dataItem)
                 .dataMap.getAsset("profileImage")
-                ?.let { asset -> loadBitmapFromAsset(asset) }
-            // Do something with the bitmap
+
+            asset?.let { safeAsset ->
+                lifecycleScope.launch {
+                    val bitmap = loadBitmapFromAsset(safeAsset)
+                    // Do something with the bitmap
+                }
+            }
         }
 }
 
-fun loadBitmapFromAsset(asset: Asset): Bitmap? {
-    // Convert asset into a file descriptor and block until it's ready
-    val assetInputStream: InputStream? =
-        Tasks.await(Wearable.getDataClient(this).getFdForAsset(asset))
-            ?.inputStream
+private suspend fun loadBitmapFromAsset(asset: Asset): Bitmap? = withContext(Dispatchers.IO) {
+    try {
+        val assetResult = Wearable.getDataClient(this@DataLayerActivity2)
+            .getFdForAsset(asset)
+            .await()
 
-    return assetInputStream?.let { inputStream ->
-        // Decode the stream into a bitmap
-        BitmapFactory.decodeStream(inputStream)
-    } ?: run {
-        // Requested an unknown asset
+        assetResult?.inputStream?.use { inputStream ->
+            BitmapFactory.decodeStream(inputStream)
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
         null
     }
 }
