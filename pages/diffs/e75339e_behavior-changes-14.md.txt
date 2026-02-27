@@ -1,0 +1,112 @@
+diff --git a/docs/about/versions/14/behavior-changes-14.md b/docs/about/versions/14/behavior-changes-14.md
+index 3e7aeaa..824eed6 100644
+--- a/docs/about/versions/14/behavior-changes-14.md
++++ b/docs/about/versions/14/behavior-changes-14.md
+@@ -23,9 +23,11 @@ least one foreground service type](https://developer.android.com/about/versions/
+ your app. You should choose a foreground service type that represents your app's
+ use case. The system expects foreground services that have a particular type to
+ satisfy a particular use case.
+-| **Note:** Android 14 introduces foreground service types for [health](https://developer.android.com/about/versions/14/changes/fgs-types-required#health) and [remote
+-| messaging](https://developer.android.com/about/versions/14/changes/fgs-types-required#remote-messaging) use cases. The system also reserves new types for [short
+-| services](https://developer.android.com/about/versions/14/changes/fgs-types-required#short-service), [special use cases](https://developer.android.com/about/versions/14/changes/fgs-types-required#special-use), and [system exemptions](https://developer.android.com/about/versions/14/changes/fgs-types-required#system-exempted).
++
++> [!NOTE]
++> **Note:** Android 14 introduces foreground service types for [health](https://developer.android.com/about/versions/14/changes/fgs-types-required#health) and [remote
++> messaging](https://developer.android.com/about/versions/14/changes/fgs-types-required#remote-messaging) use cases. The system also reserves new types for [short
++> services](https://developer.android.com/about/versions/14/changes/fgs-types-required#short-service), [special use cases](https://developer.android.com/about/versions/14/changes/fgs-types-required#special-use), and [system exemptions](https://developer.android.com/about/versions/14/changes/fgs-types-required#system-exempted).
+ 
+ If a use case in your app isn't associated with any of these types, it's
+ strongly recommended that you migrate your logic to use [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) or
+@@ -41,7 +43,7 @@ This method already required the `BLUETOOTH_CONNECT` permission, but it was not
+ enforced. Make sure your app declares `BLUETOOTH_CONNECT` in your app's
+ `AndroidManifest.xml` file as shown in the following snippet and [check that
+ a user has granted the permission](https://developer.android.com/training/permissions/requesting#already-granted) before calling
+-`getProfileConnectionState`.  
++`getProfileConnectionState`.
+ 
+     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+ 
+@@ -163,43 +165,43 @@ These changes prevent malicious apps from intercepting implicit intents that are
+ intended for use by an app's internal components.
+ 
+ For example, here is an [intent filter](https://developer.android.com/guide/components/intents-filters#Receiving) that could be
+-declared in your app's manifest file:  
++declared in your app's manifest file:
+ 
+     <activity
+         android:name=".AppActivity"
+         android:exported="false">
+         <intent-filter>
+-            <action android:name="com.example.action.<var translate="no">APP_ACTION</var>" />
++            <action android:name="com.example.action.APP_ACTION" />
+             <category android:name="android.intent.category.DEFAULT" />
+         </intent-filter>
+     </activity>
+ 
+ If your app tried to launch this activity using an implicit intent, an
+-[`ActivityNotFoundException`](https://developer.android.com/reference/android/content/ActivityNotFoundException) exception would be thrown:  
++[`ActivityNotFoundException`](https://developer.android.com/reference/android/content/ActivityNotFoundException) exception would be thrown:
+ 
+ ### Kotlin
+ 
+ ```kotlin
+ // Throws an https://developer.android.com/reference/android/content/ActivityNotFoundException exception when targeting Android 14.
+-context.startActivity(Intent("com.example.action.<var translate="no">APP_ACTION</var>"))
++context.startActivity(Intent("com.example.action.APP_ACTION"))
+ ```
+ 
+ ### Java
+ 
+ ```java
+ // Throws an https://developer.android.com/reference/android/content/ActivityNotFoundException exception when targeting Android 14.
+-context.startActivity(new Intent("com.example.action.<var translate="no">APP_ACTION</var>"));
++context.startActivity(new Intent("com.example.action.APP_ACTION"));
+ ```
+ 
+ To launch the non-exported activity, your app should use an explicit intent
+-instead:  
++instead:
+ 
+ ### Kotlin
+ 
+ ```kotlin
+ // This makes the intent explicit.
+ val explicitIntent =
+-        Intent("com.example.action.<var translate="no">APP_ACTION</var>")
++        Intent("com.example.action.APP_ACTION")
+ explicitIntent.apply {
+     package = context.packageName
+ }
+@@ -211,7 +213,7 @@ context.startActivity(explicitIntent)
+ ```java
+ // This makes the intent explicit.
+ Intent explicitIntent =
+-        new Intent("com.example.action.<var translate="no">APP_ACTION</var>")
++        new Intent("com.example.action.APP_ACTION")
+ explicitIntent.setPackage(context.getPackageName());
+ context.startActivity(explicitIntent);
+ ```
+@@ -243,12 +245,12 @@ compromised by code injection or code tampering.
+ 
+ If you must dynamically load code, use the following approach to set the
+ dynamically-loaded file (such as a DEX, JAR, or APK file) as read-only as soon
+-as the file is opened and before any content is written:  
++as the file is opened and before any content is written:
+ 
+ ### Kotlin
+ 
+ ```kotlin
+-val jar = File("<var translate="no">DYNAMICALLY_LOADED_FILE</var>.jar")
++val jar = File("DYNAMICALLY_LOADED_FILE.jar")
+ val os = FileOutputStream(jar)
+ os.use {
+     // Set the file to read-only first to prevent race conditions
+@@ -261,7 +263,7 @@ val cl = PathClassLoader(jar, parentClassLoader)
+ ### Java
+ 
+ ```java
+-File jar = new File("<var translate="no">DYNAMICALLY_LOADED_FILE</var>.jar");
++File jar = new File("DYNAMICALLY_LOADED_FILE.jar");
+ try (FileOutputStream os = new FileOutputStream(jar)) {
+     // Set the file to read-only first to prevent race conditions
+     jar.setReadOnly();

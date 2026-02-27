@@ -1,0 +1,40 @@
+diff --git a/docs/develop/ui/compose/testing/interoperability.md b/docs/develop/ui/compose/testing/interoperability.md
+index f06b8a2..2b86ea3 100644
+--- a/docs/develop/ui/compose/testing/interoperability.md
++++ b/docs/develop/ui/compose/testing/interoperability.md
+@@ -12,7 +12,7 @@ In a hybrid app, you can find Compose components inside view hierarchies and
+ views inside Compose composables (via the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/package-summary#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) composable).
+ 
+ There are no special steps needed to match either type. You match views with
+-Espresso's [`onView`](https://developer.android.com/reference/androidx/test/espresso/Espresso#onView(org.hamcrest.Matcher%3Candroid.view.View%3E)), and Compose elements with the [`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule).  
++Espresso's [`onView`](https://developer.android.com/reference/androidx/test/espresso/Espresso#onView(org.hamcrest.Matcher%3Candroid.view.View%3E)), and Compose elements with the [`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule).
+ 
+     @Test
+     fun androidViewInteropTest() {
+@@ -32,11 +32,13 @@ to access any composable that uses [`Modifier.testTag`](https://developer.androi
+ the semantic property `testTagsAsResourceId` for the particular composable's
+ subtree. Enabling this behavior is useful for composables that don't have any
+ other unique handle, such as scrollable composables (for example, `LazyColumn`).
+-| **Note:** This feature is available in Jetpack Compose version 1.2.0-alpha08 and higher.
++
++> [!NOTE]
++> **Note:** This feature is available in Jetpack Compose version 1.2.0-alpha08 and higher.
+ 
+ Enable the semantic property only once high in your composables hierarchy to
+ ensure all nested composables with `Modifier.testTag` are accessible from
+-UiAutomator.  
++UiAutomator.
+ 
+     Scaffold(
+         // Enables for all composables in the hierarchy.
+@@ -54,7 +56,9 @@ UiAutomator.
+ 
+ Any composable with the `Modifier.testTag(tag)` can be accessible with the use
+ of [`By.res(resourceName)`](https://developer.android.com/reference/androidx/test/uiautomator/BySelector#res) using the same `tag` as the `resourceName`.
+-**Caution:** Make sure you don't use [`By.res(resourcePackage, resourceId)`](https://developer.android.com/reference/androidx/test/uiautomator/BySelector#res_1) as this formats the argument as `$resourcePackage:id/$resourceId`, which is different from `Modifier.testTag`.  
++
++> [!CAUTION]
++> **Caution:** Make sure you don't use [`By.res(resourcePackage, resourceId)`](https://developer.android.com/reference/androidx/test/uiautomator/BySelector#res_1) as this formats the argument as `$resourcePackage:id/$resourceId`, which is different from `Modifier.testTag`.
+ 
+     val device = UiDevice.getInstance(getInstrumentation())
+ 

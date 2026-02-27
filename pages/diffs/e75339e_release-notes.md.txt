@@ -1,0 +1,71 @@
+diff --git a/docs/about/versions/16/release-notes.md b/docs/about/versions/16/release-notes.md
+index 945f016..4a57183 100644
+--- a/docs/about/versions/16/release-notes.md
++++ b/docs/about/versions/16/release-notes.md
+@@ -101,7 +101,9 @@ This minor update to Android 16 Beta 4 includes the following fixes:
+ All eligible devices enrolled in the
+ [Android Beta for Pixel program](https://g.co/androidbeta)
+ will be offered an over-the-air (OTA) update to Beta 4.1.
+-| **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
++
++> [!NOTE]
++> **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
+ 
+ ## About Android 16 Beta 4
+ 
+@@ -228,7 +230,7 @@ what to expect.
+ 
+ #### Minor updates
+ 
+-The following minor updates were released for Beta 3 before the Beta 4 release:  
++The following minor updates were released for Beta 3 before the Beta 4 release:
+ **Android 16 Beta 3.2 (April 2025)**
+ 
+ 
+@@ -242,8 +244,11 @@ This minor update to Android 16 Beta 3 includes the following fixes:
+ All eligible devices enrolled in the
+ [Android Beta for Pixel program](https://g.co/androidbeta)
+ will be offered an over-the-air (OTA) update to Beta 3.2.
+-| **Note:** Other known issues [listed for the Beta 3
+-release](https://developer.android.com/about/versions/16/release-notes#ki-beta3) still apply to Beta 3.2. In addition, see [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.  
++
++> [!NOTE]
++> **Note:** Other known issues [listed for the Beta 3
++> release](https://developer.android.com/about/versions/16/release-notes#ki-beta3) still apply to Beta 3.2. In addition, see [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
++
+ **Android 16 Beta 3.1 (March 2025)**
+ 
+ 
+@@ -257,8 +262,10 @@ This minor update to Android 16 Beta 3 includes the following fixes:
+ All eligible devices enrolled in the
+ [Android Beta for Pixel program](https://g.co/androidbeta)
+ will be offered an over-the-air (OTA) update to Beta 3.1.
+-| **Note:** Other known issues [listed for the Beta 3
+-| release](https://developer.android.com/about/versions/16/release-notes#ki-beta3) still apply to Beta 3.1. In addition, see [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
++
++> [!NOTE]
++> **Note:** Other known issues [listed for the Beta 3
++> release](https://developer.android.com/about/versions/16/release-notes#ki-beta3) still apply to Beta 3.1. In addition, see [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
+ 
+ ## What's new in Beta 3
+ 
+@@ -398,7 +405,7 @@ what to expect.
+ 
+ #### Minor updates
+ 
+-The following minor updates were released for Beta 2 before the Beta 3 release:  
++The following minor updates were released for Beta 2 before the Beta 3 release:
+ **Android 16 Beta 2.1 (February 2025)**
+ 
+ 
+@@ -412,7 +419,9 @@ This minor update to Android 16 Beta 2 includes the following fixes:
+ All eligible devices enrolled in the
+ [Android Beta for Pixel program](https://g.co/androidbeta)
+ will be offered an over-the-air (OTA) update to Beta 2.1.
+-| **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
++
++> [!NOTE]
++> **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
+ 
+ #### What's new in Beta 2
+ 

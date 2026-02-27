@@ -1,0 +1,31 @@
+diff --git a/docs/develop/ui/compose/kotlin.md b/docs/develop/ui/compose/kotlin.md
+index 688df23..aebbd87 100644
+--- a/docs/develop/ui/compose/kotlin.md
++++ b/docs/develop/ui/compose/kotlin.md
+@@ -122,7 +122,7 @@ Button(
+     // ...
+     onClick = myClickFunction
+ )
+-// ...https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L99-L105
++// ...https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L99-L105
+ ```
+ 
+ <br />
+@@ -311,7 +311,7 @@ state-backed properties:
+ var showDialog by remember { mutableStateOf(false) }
+ 
+ // Updating the var automatically triggers a state change
+-showDialog = truehttps://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L201-L204
++showDialog = truehttps://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L201-L204
+ ```
+ 
+ <br />
+@@ -343,7 +343,7 @@ val mary = Person(name = "Mary", age = 35)
+ 
+ // ...
+ 
+-val (name, age) = maryhttps://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L214-L218
++val (name, age) = maryhttps://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L214-L218
+ ```
+ 
+ <br />

@@ -1,0 +1,19 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/arcore/face.md b/docs/develop/xr/jetpack-xr-sdk/arcore/face.md
+index 95f0cb7..ad368d0 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/arcore/face.md
++++ b/docs/develop/xr/jetpack-xr-sdk/arcore/face.md
+@@ -25,12 +25,12 @@ which your [app can create](https://developer.android.com/develop/xr/jetpack-xr-
+ 
+ Face tracking is not enabled by default on XR sessions. To enable face tracking,
+ configure the session and set the
+-[`FaceTrackingMode.USER`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config.FaceTrackingMode#USER()) mode:
++[`FaceTrackingMode.USER`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/FaceTrackingMode#USER()) mode:
+ 
+ 
+ ```kotlin
+ val newConfig = session.config.copy(
+-    faceTracking = Config.FaceTrackingMode.USER,
++    faceTracking = FaceTrackingMode.BLEND_SHAPES,
+ )
+ when (val result = session.configure(newConfig)) {
+     is SessionConfigureSuccess -> TODO(/* Success! */)

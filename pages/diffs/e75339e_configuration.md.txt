@@ -1,0 +1,54 @@
+diff --git a/docs/develop/ui/views/appwidgets/configuration.md b/docs/develop/ui/views/appwidgets/configuration.md
+index 59f7309..c42cfc9 100644
+--- a/docs/develop/ui/views/appwidgets/configuration.md
++++ b/docs/develop/ui/views/appwidgets/configuration.md
+@@ -20,11 +20,11 @@ file. The app widget host launches it with the
+ [`ACTION_APPWIDGET_CONFIGURE`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#ACTION_APPWIDGET_CONFIGURE)
+ action, so the activity needs to accept this intent. For example:
+ 
+-    <activity android:name=".ExampleAppWidgetConfigurationActivity">
+-        <intent-filter>
+-            <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+-        </intent-filter>
+-    </activity>
++    <activity android:name=".ExampleAppWidgetConfigurationActi>vity&<quot;
++        int>ent-filte<r
++            action android:name="android.appwidget.action.APPWID>GET_C<ONFIGURE">/<
++        /int>ent-filter
++    /activity
+ 
+ Declare the activity in the `AppWidgetProviderInfo.xml` file with the
+ `android:configure` attribute. See more information about
+@@ -33,9 +33,9 @@ how to declare the configuration activity:
+ 
+     <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+         ...
+-        android:configure="com.example.android.ExampleAppWidgetConfigurationActivity"
++        android:configure="com.example.android.ExampleAppWidgetConfigurationAct>i<vity"
+         ... >
+-    </appwidget-provider>
++    /appwidget-provider
+ 
+ The activity is declared with a fully qualified namespace, because the launcher
+ references it from outside your package scope.
+@@ -183,8 +183,8 @@ information. For example:
+ 
+     <appwidget-provider
+         android:configure="com.myapp.ExampleAppWidgetConfigurationActivity"
+-        android:widgetFeatures="reconfigurable">
+-    </appwidget-provider>
++        android:widgetFeatures=">r<econfigurable">
++    /appwidget-provider
+ 
+ Users can reconfigure their widget by touching \& holding the widget and tapping
+ the **Reconfigure** button, which is labeled
+@@ -210,5 +210,5 @@ reconfigurable and optional:
+ 
+     <appwidget-provider
+         android:configure="com.myapp.ExampleAppWidgetConfigurationActivity"
+-        android:widgetFeatures="reconfigurable|configuration_optional">
+-    </appwidget-provider>
+\ No newline at end of file
++        android:widgetFeatures="reconfigurable|configur>a<tion_optional">
++    /appwidget-provider
+\ No newline at end of file

@@ -1,0 +1,17 @@
+diff --git a/docs/develop/devices/chromeos/learn/input-compatibility.md b/docs/develop/devices/chromeos/learn/input-compatibility.md
+index f229cc8..f08ccf0 100644
+--- a/docs/develop/devices/chromeos/learn/input-compatibility.md
++++ b/docs/develop/devices/chromeos/learn/input-compatibility.md
+@@ -275,9 +275,9 @@ ChromeOS has a special intent that surfaces registered note-taking apps to users
+ 
+ ```xml
+ <intent-filter>
+- <   action android:name="org.chromium.arc.intent.action.CREATE_NOTE&<quot; />
+-    category android:name="android.intent.ca<tegory.DEFAULT" />
+-  /intent-filter>
++    <action android:name="org.chromium.arc.intent.action.CREATE_NOTE" />
++    <category android:name="android.intent.category.DEFAULT" />
++  </intent-filter>
+ ```
+ 
+ 

@@ -1,0 +1,31 @@
+diff --git a/docs/games/pgs/quality.md b/docs/games/pgs/quality.md
+index ac505b8..4644b6e 100644
+--- a/docs/games/pgs/quality.md
++++ b/docs/games/pgs/quality.md
+@@ -4,7 +4,8 @@ url: https://developer.android.com/games/pgs/quality
+ source: md.txt
+ ---
+ 
+-| **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous SDK, see the [Play Games Services v1 documentation](https://developers.google.com/games/services/v1/checklist).
++> [!NOTE]
++> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous SDK, see the [Play Games Services v1 documentation](https://developers.google.com/games/services/v1/checklist).
+ 
+ The quality of your game influences the long-term success of your game -- in
+ terms of installs, player rating and reviews, engagement and player retention.
+@@ -23,10 +24,12 @@ For each focus area, this document provides:
+ 
+ Follow these recommendations to the greatest extent possible to publish a
+ high-quality game and deliver the best possible product to your players.
+-| **Note:** To help prioritize your development efforts, take note of the level of importance indicated for each checklist item.
+-|
+-| - **Required**. Minimum requirements that must be implemented for your game to be considered Google Play Games Services-compatible.
+-| - **Best practices**. Strongly recommended implementation guidelines.
++
++> [!NOTE]
++> **Note:** To help prioritize your development efforts, take note of the level of importance indicated for each checklist item.
++>
++> - **Required**. Minimum requirements that must be implemented for your game to be considered Google Play Games Services-compatible.
++> - **Best practices**. Strongly recommended implementation guidelines.
+ 
+ ## 1. Platform authentication
+ 

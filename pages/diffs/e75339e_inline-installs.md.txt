@@ -1,0 +1,61 @@
+diff --git a/docs/distribute/marketing-tools/inline-installs.md b/docs/distribute/marketing-tools/inline-installs.md
+index efe413b..d1466db 100644
+--- a/docs/distribute/marketing-tools/inline-installs.md
++++ b/docs/distribute/marketing-tools/inline-installs.md
+@@ -4,20 +4,25 @@ url: https://developer.android.com/distribute/marketing-tools/inline-installs
+ source: md.txt
+ ---
+ 
+-# Google Play Inline Installs (Apps)
+-
+-This page describes how app developers can integrate*inline install*, a new test feature for Google Play that presents Google Play app product details in a half sheet interface. Inline install enables users to experience a seamless app install flow without leaving the context of the app. App developers can integrate and test the inline install feature for Play distributed or updated apps.
++This page describes how app developers can integrate *inline install*, a new
++test feature for Google Play that presents Google Play app product details in a
++half sheet interface. Inline install enables users to experience a seamless app
++install flow without leaving the context of the app. App developers can
++integrate and test the inline install feature for Play distributed or updated
++apps.
+ 
+ ## Requirements
+ 
+ For the half sheet interface to appear in an app:
+ 
+-- The minimum Google Play version must be**40.4**.
+-- The Android API level must be**23 or higher**.
++- The minimum Google Play version must be **40.4**.
++- The Android API level must be **23 or higher**.
+ 
+ ## Invoke inline installs from an app
+ 
+-To invoke inline install half sheet from an app, create an instance of the[`Intent`](https://developer.android.com/reference/android/content/Intent)class, which opens a deep link URL. Use the following sample code (Kotlin or Java) as a guideline.  
++To invoke inline install half sheet from an app, create an instance of the
++[`Intent`](https://developer.android.com/reference/android/content/Intent) class, which opens a deep link
++URL. Use the following sample code (Kotlin or Java) as a guideline.
+ 
+ ### Kotlin
+ 
+@@ -62,12 +67,14 @@ if (intent.resolveActivity(packageManager) != null) {
+ 
+ ## Inline install API parameters
+ 
+-|   Field    |                                           Description                                           | Required |
+-|------------|-------------------------------------------------------------------------------------------------|----------|
+-| `referrer` | An optional[referrer](https://developer.android.com/google/play/installreferrer)tracking string | No       |
+-| `id`       | The[package name](https://support.google.com/admob/answer/9972781)of the app to be installed    | Yes      |
+-| `overlay`  | Set to`true`if inline half sheet is requested; if`false`, the intent deep links to Google Play  | Yes      |
+-| `callerId` | The[package name](https://support.google.com/admob/answer/9972781)of the caller app             | Yes      |
+-| `listing`  | An optional parameter to specify the target for a custom store listing                          | No       |
++| Field | Description | Required |
++|---|---|---|
++| `referrer` | An optional [referrer](https://developer.android.com/google/play/installreferrer) tracking string | No |
++| `id` | The [package name](https://support.google.com/admob/answer/9972781) of the app to be installed | Yes |
++| `overlay` | Set to `true` if inline half sheet is requested; if `false`, the intent deep links to Google Play | Yes |
++| `callerId` | The [package name](https://support.google.com/admob/answer/9972781) of the caller app | Yes |
++| `listing` | An optional parameter to specify the target for a custom store listing | No |
+ 
+-If the app install flow doesn't display the Google Play inline install half sheet interface, a direct (deep link) to the Google Play listing is shown instead.
+\ No newline at end of file
++If the app install flow doesn't display the Google Play inline install half
++sheet interface, a direct (deep link) to the Google Play listing is shown
++instead.
+\ No newline at end of file

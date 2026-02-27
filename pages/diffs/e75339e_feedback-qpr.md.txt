@@ -1,0 +1,35 @@
+diff --git a/docs/about/versions/16/feedback-qpr.md b/docs/about/versions/16/feedback-qpr.md
+index 72fb5bf..0235b9f 100644
+--- a/docs/about/versions/16/feedback-qpr.md
++++ b/docs/about/versions/16/feedback-qpr.md
+@@ -4,7 +4,7 @@ url: https://developer.android.com/about/versions/16/feedback-qpr
+ source: md.txt
+ ---
+ 
+-![](http://developer.android.com/static/images/shared/preview-feedback-header.svg)  
++![](http://developer.android.com/static/images/shared/preview-feedback-header.svg)
+ 
+ ### Feedback and issues
+ 
+@@ -12,18 +12,15 @@ As you test your apps with Android 16 QPR2, please let us know of any issues you
+ 
+ ## Ways to give feedback
+ 
+-[![](http://developer.android.com/static/images/picto-icons/chat-bubbles-3.svg)](http://developer.android.com/about/versions/16/feedback-qpr#issue_tracker)  
++[![](http://developer.android.com/static/images/picto-icons/chat-bubbles-3.svg)](http://developer.android.com/about/versions/16/feedback-qpr#issue_tracker)
+ 
+ ### [Issue tracker](http://developer.android.com/about/versions/16/feedback-qpr#issue_tracker)
+ 
+-Report issues and submit feature requests. View, track, and vote for issues that you and other developers have reported.  
+-[Learn more](http://developer.android.com/about/versions/16/feedback-qpr#issue_tracker)  
+-[![](http://developer.android.com/static/images/picto-icons/chat-bubbles-3.svg)](http://developer.android.com/about/versions/16/feedback-qpr#feedback-app)  
++Report issues and submit feature requests. View, track, and vote for issues that you and other developers have reported. [Learn more](http://developer.android.com/about/versions/16/feedback-qpr#issue_tracker) [![](http://developer.android.com/static/images/picto-icons/chat-bubbles-3.svg)](http://developer.android.com/about/versions/16/feedback-qpr#feedback-app)
+ 
+ ### [Android Beta Feedback app](http://developer.android.com/about/versions/16/feedback-qpr#feedback-app)
+ 
+-Report issues using the Android Beta Feedback app that's included in preview builds on Pixel devices.  
+-[Learn more](http://developer.android.com/about/versions/16/feedback-qpr#feedback-app)
++Report issues using the Android Beta Feedback app that's included in preview builds on Pixel devices. [Learn more](http://developer.android.com/about/versions/16/feedback-qpr#feedback-app)
+ 
+ ## Issue tracker
+ 

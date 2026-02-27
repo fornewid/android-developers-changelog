@@ -1,0 +1,120 @@
+diff --git a/docs/courses/quizzes/android-development-with-kotlin-1/android-development-with-kotlin-1.md b/docs/courses/quizzes/android-development-with-kotlin-1/android-development-with-kotlin-1.md
+index 7038944..4811683 100644
+--- a/docs/courses/quizzes/android-development-with-kotlin-1/android-development-with-kotlin-1.md
++++ b/docs/courses/quizzes/android-development-with-kotlin-1/android-development-with-kotlin-1.md
+@@ -1,63 +1,73 @@
+ ---
+-title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-1/android-development-with-kotlin-1
++title: Lesson 1: Kotlin basics  |  Android Developers
+ url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-1/android-development-with-kotlin-1
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Lesson 1: Kotlin basics
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
+ 
+ # Lesson 1: Kotlin basics
+ 
+-<br />
++Return to pathway
++
++
++
++1. ## Which file extension is used to save Kotlin files?
++
++   .java
++
++   .kot
++
++   .kt or .kts
++
++   .android
++2. ## Which keyword is used to define an immutable variable?
++
++   `var`
++
++   `val`
++
++   `immulvar`
++
++   `immutableVar`
++3. ## Is Kotlin interoperable with Java programming language?
++
++   Yes, it is interoperable
+ 
+-Return to pathway  
+-1.
++   No, it is not interoperable
++4. ## Which command will return the length of a String in Kotlin?
+ 
+-   ## Which file extension is used to save Kotlin files?
++   `str.length`
+ 
+-   .java  
+-   .kot  
+-   .kt or .kts  
+-   .android  
+-2.
++   `length(str)`
+ 
+-   ## Which keyword is used to define an immutable variable?
++   `str.lengthOf`
+ 
+-   `var`  
+-   `val`  
+-   `immulvar`  
+-   `immutableVar`  
+-3.
++   `str.getLength()`
++5. ## Which of the following options is used to write null-safe code in Kotlin?
+ 
+-   ## Is Kotlin interoperable with Java programming language?
++   Range
+ 
+-   Yes, it is interoperable  
+-   No, it is not interoperable  
+-4.
++   Sealed Class
+ 
+-   ## Which command will return the length of a String in Kotlin?
++   Elvis Operator
+ 
+-   `str.length`  
+-   `length(str)`  
+-   `str.lengthOf`  
+-   `str.getLength()`  
+-5.
++   Lambda Function
++6. ## What is the correct way to create an Arraylist in Kotlin?
+ 
+-   ## Which of the following options is used to write null-safe code in Kotlin?
++   `val map = hashMapOf(1 to "one", 2 to "two", 3 to "three")`
+ 
+-   Range  
+-   Sealed Class  
+-   Elvis Operator  
+-   Lambda Function  
+-6.
++   `enum class Color {RED, GREEN, BLUE}`
+ 
+-   ## What is the correct way to create an Arraylist in Kotlin?
++   `val set = hashSetOf(1, 2, 3)`
+ 
+-   `val map = hashMapOf(1 to "one", 2 to "two", 3 to "three")`  
+-   `enum class Color {RED, GREEN, BLUE}`  
+-   `val set = hashSetOf(1, 2, 3)`  
+-   `val list = arrayListOf(1, 2, 3)`  
++   `val list = arrayListOf(1, 2, 3)`
+ 
+ Submit answers
+ 
+-*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error\_outline*
++An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

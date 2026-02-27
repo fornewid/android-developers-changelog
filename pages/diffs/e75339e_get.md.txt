@@ -1,0 +1,14 @@
+diff --git a/docs/about/versions/14/get.md b/docs/about/versions/14/get.md
+index b4ac7a0..2ba9262 100644
+--- a/docs/about/versions/14/get.md
++++ b/docs/about/versions/14/get.md
+@@ -33,7 +33,8 @@ Android 14 OTAs and downloads are available for the following Pixel devices:
+ - Pixel 8 and 8 Pro
+ - Pixel 8a
+ 
+-| **Note:** [Pixel devices have different timelines](https://support.google.com/pixelphone/answer/4457705) that determine which Android 14 releases they are eligible for.
++> [!NOTE]
++> **Note:** [Pixel devices have different timelines](https://support.google.com/pixelphone/answer/4457705) that determine which Android 14 releases they are eligible for.
+ 
+ ### Flash or manually install a system image
+ 

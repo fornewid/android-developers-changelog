@@ -1,5 +1,816 @@
 [
   {
+    "date": "2026-02-27T17:01:03Z",
+    "commit_hash": "e75339e",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/10/behavior-changes-10\" target=\"_blank\">behavior-changes-10.md</a>",
+        "summary": "behavior-changes-10.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_behavior-changes-10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/11/features/5g\" target=\"_blank\">5g.md</a>",
+        "summary": "5g.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_5g.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/11/setup-sdk\" target=\"_blank\">setup-sdk.md</a>",
+        "summary": "setup-sdk.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_setup-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/12/dev-support-images\" target=\"_blank\">dev-support-images.md</a>",
+        "summary": "dev-support-images.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_dev-support-images.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/12/features\" target=\"_blank\">features.md</a>",
+        "summary": "features.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/13/changes/non-sdk-13\" target=\"_blank\">non-sdk-13.md</a>",
+        "summary": "non-sdk-13.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_non-sdk-13.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/13/migration\" target=\"_blank\">migration.md</a>",
+        "summary": "migration.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/14/behavior-changes-14\" target=\"_blank\">behavior-changes-14.md</a>",
+        "summary": "behavior-changes-14.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_behavior-changes-14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/14/features/user-per-app-overrides\" target=\"_blank\">user-per-app-overrides.md</a>",
+        "summary": "user-per-app-overrides.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_user-per-app-overrides.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/14/get\" target=\"_blank\">get.md</a>",
+        "summary": "get.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_get.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/15/behavior-changes-all\" target=\"_blank\">behavior-changes-all.md</a>",
+        "summary": "behavior-changes-all.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_behavior-changes-all.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/15/get-qpr\" target=\"_blank\">get-qpr.md</a>",
+        "summary": "get-qpr.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_get-qpr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/15/migration\" target=\"_blank\">migration.md</a>",
+        "summary": "migration.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/15/release-notes\" target=\"_blank\">release-notes.md</a>",
+        "summary": "release-notes.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/16/feedback-qpr\" target=\"_blank\">feedback-qpr.md</a>",
+        "summary": "feedback-qpr.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_feedback-qpr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/16/get-qpr\" target=\"_blank\">get-qpr.md</a>",
+        "summary": "get-qpr.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_get-qpr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/16/migration\" target=\"_blank\">migration.md</a>",
+        "summary": "migration.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/16/qpr2/download\" target=\"_blank\">download.md</a>",
+        "summary": "download.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_download.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/16/qpr2/setup-sdk\" target=\"_blank\">setup-sdk.md</a>",
+        "summary": "setup-sdk.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_setup-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/16/release-notes\" target=\"_blank\">release-notes.md</a>",
+        "summary": "release-notes.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/overview\" target=\"_blank\">overview.md</a>",
+        "summary": "overview.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini\" target=\"_blank\">gemini.md</a>",
+        "summary": "gemini.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_gemini.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/courses/quizzes/android-development-with-kotlin-1/android-development-with-kotlin-1\" target=\"_blank\">android-development-with-kotlin-1.md</a>",
+        "summary": "android-development-with-kotlin-1.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_android-development-with-kotlin-1.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery\" target=\"_blank\">gallery.md</a>",
+        "summary": "gallery.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/media/spotify\" target=\"_blank\">spotify.md</a>",
+        "summary": "spotify.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/productivity/file-browsing\" target=\"_blank\">file-browsing.md</a>",
+        "summary": "file-browsing.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/productivity/wps\" target=\"_blank\">wps.md</a>",
+        "summary": "wps.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/reading/formatting\" target=\"_blank\">formatting.md</a>",
+        "summary": "formatting.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/reading/full-screen\" target=\"_blank\">full-screen.md</a>",
+        "summary": "full-screen.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/reading/multi-task\" target=\"_blank\">multi-task.md</a>",
+        "summary": "multi-task.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/shopping/ebay\" target=\"_blank\">ebay.md</a>",
+        "summary": "ebay.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/shopping/multi-task\" target=\"_blank\">multi-task.md</a>",
+        "summary": "multi-task.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/social/comments\" target=\"_blank\">comments.md</a>",
+        "summary": "comments.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/social/posts\" target=\"_blank\">posts.md</a>",
+        "summary": "posts.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/gallery/social/video-browsing\" target=\"_blank\">video-browsing.md</a>",
+        "summary": "video-browsing.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/asynchronous/listenablefuture\" target=\"_blank\">listenablefuture.md</a>",
+        "summary": "listenablefuture.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_listenablefuture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/persistent/threading/listenableworker\" target=\"_blank\">listenableworker.md</a>",
+        "summary": "listenableworker.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_listenableworker.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/wifi/nsd-wifi-direct\" target=\"_blank\">nsd-wifi-direct.md</a>",
+        "summary": "nsd-wifi-direct.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_nsd-wifi-direct.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/assistant/custom-intents\" target=\"_blank\">custom-intents.md</a>",
+        "summary": "custom-intents.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_custom-intents.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/assistant/dynamic-shortcuts\" target=\"_blank\">dynamic-shortcuts.md</a>",
+        "summary": "dynamic-shortcuts.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_dynamic-shortcuts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/assistant/get-started\" target=\"_blank\">get-started.md</a>",
+        "summary": "get-started.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/assistant/in-app-promo-sdk\" target=\"_blank\">in-app-promo-sdk.md</a>",
+        "summary": "in-app-promo-sdk.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_in-app-promo-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/assistant/overview\" target=\"_blank\">overview.md</a>",
+        "summary": "overview.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/assistant/read-it\" target=\"_blank\">read-it.md</a>",
+        "summary": "read-it.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_read-it.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/chromeos/learn/animation\" target=\"_blank\">animation.md</a>",
+        "summary": "animation.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_animation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/chromeos/learn/input-compatibility\" target=\"_blank\">input-compatibility.md</a>",
+        "summary": "input-compatibility.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_input-compatibility.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/chromeos/learn/window-management\" target=\"_blank\">window-management.md</a>",
+        "summary": "window-management.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_window-management.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/sensors-and-location/location/change-location-settings\" target=\"_blank\">change-location-settings.md</a>",
+        "summary": "change-location-settings.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_change-location-settings.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/bom/bom-mapping\" target=\"_blank\">bom-mapping.md</a>",
+        "summary": "bom-mapping.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_bom-mapping.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/designsystems/material2-material3\" target=\"_blank\">material2-material3.md</a>",
+        "summary": "material2-material3.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_material2-material3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/designsystems/migrate-xml-theme-to-compose\" target=\"_blank\">migrate-xml-theme-to-compose.md</a>",
+        "summary": "migrate-xml-theme-to-compose.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_migrate-xml-theme-to-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/glance/generated-previews\" target=\"_blank\">generated-previews.md</a>",
+        "summary": "generated-previews.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_generated-previews.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/graphics/images/optimization\" target=\"_blank\">optimization.md</a>",
+        "summary": "optimization.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_optimization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/kotlin\" target=\"_blank\">kotlin.md</a>",
+        "summary": "kotlin.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_kotlin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/navigation\" target=\"_blank\">navigation.md</a>",
+        "summary": "navigation.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/performance/tooling\" target=\"_blank\">tooling.md</a>",
+        "summary": "tooling.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_tooling.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/add-toggle-switch\" target=\"_blank\">add-toggle-switch.md</a>",
+        "summary": "add-toggle-switch.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_add-toggle-switch.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/animate-text\" target=\"_blank\">animate-text.md</a>",
+        "summary": "animate-text.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_animate-text.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number\" target=\"_blank\">auto-format-phone-number.md</a>",
+        "summary": "auto-format-phone-number.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_auto-format-phone-number.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/create-bottom-sheet\" target=\"_blank\">create-bottom-sheet.md</a>",
+        "summary": "create-bottom-sheet.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_create-bottom-sheet.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/create-card-as-container\" target=\"_blank\">create-card-as-container.md</a>",
+        "summary": "create-card-as-container.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_create-card-as-container.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/create-chip\" target=\"_blank\">create-chip.md</a>",
+        "summary": "create-chip.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_create-chip.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/display-paging-list\" target=\"_blank\">display-paging-list.md</a>",
+        "summary": "display-paging-list.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_display-paging-list.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/lazily-load-list\" target=\"_blank\">lazily-load-list.md</a>",
+        "summary": "lazily-load-list.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_lazily-load-list.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/load-images\" target=\"_blank\">load-images.md</a>",
+        "summary": "load-images.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_load-images.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/support-multiple-links\" target=\"_blank\">support-multiple-links.md</a>",
+        "summary": "support-multiple-links.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_support-multiple-links.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/validate-input\" target=\"_blank\">validate-input.md</a>",
+        "summary": "validate-input.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_validate-input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/setup\" target=\"_blank\">setup.md</a>",
+        "summary": "setup.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/testing\" target=\"_blank\">testing.md</a>",
+        "summary": "testing.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_testing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/testing/apis\" target=\"_blank\">apis.md</a>",
+        "summary": "apis.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_apis.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/testing/debug\" target=\"_blank\">debug.md</a>",
+        "summary": "debug.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_debug.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/testing/interoperability\" target=\"_blank\">interoperability.md</a>",
+        "summary": "interoperability.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_interoperability.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/tooling/tracing\" target=\"_blank\">tracing.md</a>",
+        "summary": "tracing.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_tracing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/animations/drawable-animation\" target=\"_blank\">drawable-animation.md</a>",
+        "summary": "drawable-animation.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_drawable-animation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/appwidgets/configuration\" target=\"_blank\">configuration.md</a>",
+        "summary": "configuration.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_configuration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/graphics/palette-colors\" target=\"_blank\">palette-colors.md</a>",
+        "summary": "palette-colors.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_palette-colors.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/recyclerview-custom\" target=\"_blank\">recyclerview-custom.md</a>",
+        "summary": "recyclerview-custom.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_recyclerview-custom.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/webapps/embed-web-content-in-app\" target=\"_blank\">embed-web-content-in-app.md</a>",
+        "summary": "embed-web-content-in-app.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_embed-web-content-in-app.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/notifications/badges\" target=\"_blank\">badges.md</a>",
+        "summary": "badges.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_badges.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/copy-paste\" target=\"_blank\">copy-paste.md</a>",
+        "summary": "copy-paste.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_copy-paste.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method\" target=\"_blank\">creating-input-method.md</a>",
+        "summary": "creating-input-method.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_creating-input-method.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/image-keyboard\" target=\"_blank\">image-keyboard.md</a>",
+        "summary": "image-keyboard.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_image-keyboard.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing\" target=\"_blank\">add-xr-to-existing.md</a>",
+        "summary": "add-xr-to-existing.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_add-xr-to-existing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose\" target=\"_blank\">device-pose.md</a>",
+        "summary": "device-pose.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_device-pose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/face\" target=\"_blank\">face.md</a>",
+        "summary": "face.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_face.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/developer-verification/guides/early-access\" target=\"_blank\">early-access.md</a>",
+        "summary": "early-access.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_early-access.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/distribute/marketing-tools/device-art-generator\" target=\"_blank\">device-art-generator.md</a>",
+        "summary": "device-art-generator.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_device-art-generator.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/distribute/marketing-tools/inline-installs\" target=\"_blank\">inline-installs.md</a>",
+        "summary": "inline-installs.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_inline-installs.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/build-for-billions/ui\" target=\"_blank\">ui.md</a>",
+        "summary": "ui.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_ui.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/car-app-quality\" target=\"_blank\">car-app-quality.md</a>",
+        "summary": "car-app-quality.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_car-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/core-app-quality\" target=\"_blank\">core-app-quality.md</a>",
+        "summary": "core-app-quality.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_core-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/widget-quality\" target=\"_blank\">widget-quality.md</a>",
+        "summary": "widget-quality.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_widget-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/agde/debugger\" target=\"_blank\">debugger.md</a>",
+        "summary": "debugger.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_debugger.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/agde/measure\" target=\"_blank\">measure.md</a>",
+        "summary": "measure.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_measure.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/engines/unity/unity-lmks\" target=\"_blank\">unity-lmks.md</a>",
+        "summary": "unity-lmks.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_unity-lmks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/adpf/game-engine-support\" target=\"_blank\">game-engine-support.md</a>",
+        "summary": "game-engine-support.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_game-engine-support.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/memory-allocation\" target=\"_blank\">memory-allocation.md</a>",
+        "summary": "memory-allocation.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_memory-allocation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/overview\" target=\"_blank\">overview.md</a>",
+        "summary": "overview.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/vertex-data-management\" target=\"_blank\">vertex-data-management.md</a>",
+        "summary": "vertex-data-management.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_vertex-data-management.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/vitals/anr\" target=\"_blank\">anr.md</a>",
+        "summary": "anr.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_anr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/optimize/vulkan-reduced-precision\" target=\"_blank\">vulkan-reduced-precision.md</a>",
+        "summary": "vulkan-reduced-precision.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_vulkan-reduced-precision.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/android/events\" target=\"_blank\">events.md</a>",
+        "summary": "events.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_events.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/android/saved-games\" target=\"_blank\">saved-games.md</a>",
+        "summary": "saved-games.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_saved-games.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/android/server-access\" target=\"_blank\">server-access.md</a>",
+        "summary": "server-access.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_server-access.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/android/stats\" target=\"_blank\">stats.md</a>",
+        "summary": "stats.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_stats.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/console/setup\" target=\"_blank\">setup.md</a>",
+        "summary": "setup.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/downloads\" target=\"_blank\">downloads.md</a>",
+        "summary": "downloads.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_downloads.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/events\" target=\"_blank\">events.md</a>",
+        "summary": "events.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_events.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/quality\" target=\"_blank\">quality.md</a>",
+        "summary": "quality.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/unity/overview\" target=\"_blank\">overview.md</a>",
+        "summary": "overview.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/pg-chromeos\" target=\"_blank\">pg-chromeos.md</a>",
+        "summary": "pg-chromeos.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_pg-chromeos.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/migration-guide\" target=\"_blank\">migration-guide.md</a>",
+        "summary": "migration-guide.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_migration-guide.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/manifest/grant-uri-permission-element\" target=\"_blank\">grant-uri-permission-element.md</a>",
+        "summary": "grant-uri-permission-element.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_grant-uri-permission-element.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/large-screens/archive/gallery/media\" target=\"_blank\">media.md</a>",
+        "summary": "media.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/large-screens/archive/gallery/social\" target=\"_blank\">social.md</a>",
+        "summary": "social.md documentation has been updated.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.3\" target=\"_blank\">2025.3.3.md</a>",
+        "summary": "2025.3.3.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_2025.3.3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/google-play-instant/guides/advertising\" target=\"_blank\">advertising.md</a>",
+        "summary": "advertising.md documentation has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e75339e_advertising.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-02-26T15:20:34Z",
     "commit_hash": "47d7275",
     "entries": [

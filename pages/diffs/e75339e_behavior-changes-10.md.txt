@@ -1,0 +1,22 @@
+diff --git a/docs/about/versions/10/behavior-changes-10.md b/docs/about/versions/10/behavior-changes-10.md
+index 079ab5a..8e6d1c6 100644
+--- a/docs/about/versions/10/behavior-changes-10.md
++++ b/docs/about/versions/10/behavior-changes-10.md
+@@ -11,7 +11,7 @@ higher, you should modify your app to support these behaviors properly,
+ where applicable.
+ 
+ Make sure to also review the list of [behavior changes that affect all apps
+-running on Android 10](https://developer.android.com/about/versions/10/behavior-changes-all).  
++running on Android 10](https://developer.android.com/about/versions/10/behavior-changes-all).
+ **Note:**In addition to the changes listed on this page, Android 10
+ introduces a large number of privacy-based changes and restrictions, including
+ the following:
+@@ -115,7 +115,7 @@ automatically grants it to the requesting app.
+ If an app that targets Android 10 or higher attempts to create a
+ notification with a fullscreen intent without requesting the necessary
+ permission, the system ignores the fullscreen intent and outputs the following
+-log message:  
++log message:
+ 
+ ```
+ Package your-package-name: Use of fullScreenIntent requires the USE_FULL_SCREEN_INTENT permission

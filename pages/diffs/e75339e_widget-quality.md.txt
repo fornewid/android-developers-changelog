@@ -1,0 +1,125 @@
+diff --git a/docs/docs/quality-guidelines/widget-quality.md b/docs/docs/quality-guidelines/widget-quality.md
+index da87456..fd51623 100644
+--- a/docs/docs/quality-guidelines/widget-quality.md
++++ b/docs/docs/quality-guidelines/widget-quality.md
+@@ -13,21 +13,21 @@ customize widgets to tailor them to individual preferences.
+ 
+ Widget quality affects user engagement with your app content and features. The
+ compatibility checklists define criteria to help you assess the quality of
+-your widget. Tiers include the following:  
++your widget. Tiers include the following:
+ ![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-3/tier_3_icon.svg)
+ 
+ **Tier 3 - Low quality**
+ 
+ These widgets fail to meet the minimum quality bar and offer a poor user
+ experience. A widget is deemed low quality if it doesn't meet standard layout,
+-color, discovery, and content criteria.  
++color, discovery, and content criteria.
+ ![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-2/tier_2_icon.svg)
+ 
+ **Tier 2 - Standard**
+ 
+ These widgets are helpful, usable, and provide a quality experience.To be
+ considered standard, the widget meets all of the following layout,
+-color, discovery, and content criteria.  
++color, discovery, and content criteria.
+ ![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/tier_1_icon.svg)
+ 
+ **Tier 1 - Differentiated**
+@@ -78,31 +78,23 @@ considered showcase widgets that will be featured or recommended.
+ | Content | WT-1 | Zero and empty states are intentional and show the value of the widget and/or provide a call to action when the widget is installed but the user isn't yet logged in. |
+ | Content | WT-2 | Widget allows users to manually refresh content if there is an expectation that the data refreshes more frequently than the UI. |
+ 
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_target_do.png)  
+-check_circle
++![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_target_do.png)
+ 
+ ### Do
+ 
+-Provide touch targets at 48x48 dp.  
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_target_dont.png)  
+-cancel
++Provide touch targets at 48x48 dp. ![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_target_dont.png)
+ 
+ ### Don't
+ 
+-Make touch targets too small.  
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_contrast_do.png)  
+-check_circle
++Make touch targets too small. ![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_contrast_do.png)
+ 
+ ### Do
+ 
+-Ensure sufficient color contrast.  
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_contrast_dont.png)  
+-cancel
++Ensure sufficient color contrast. ![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_contrast_dont.png)
+ 
+ ### Don't
+ 
+-Use colors with insufficient color contrast.  
+-Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/design/ui/mobile/layout-basics-video-1.mp4) and watch it with a video player. **Video 1:**Don't create a widget with inaccurate preview.
++Use colors with insufficient color contrast. Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/design/ui/mobile/layout-basics-video-1.mp4) and watch it with a video player. **Video 1:**Don't create a widget with inaccurate preview.
+ 
+ ![Tier 1 icon](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/tier_1_icon.svg)
+ 
+@@ -132,50 +124,35 @@ content criteria.
+ | System Coherence | WS-4 | Widget uses system configuration instead of a custom widget settings entry point. |
+ | System Coherence | WS-5 | Widget uses system launch transition when entering/exiting app from widget. |
+ 
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_edges_do.png)  
+-check_circle
++![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_edges_do.png)
+ 
+ ### Do
+ 
+-Have widget expand to all 4 edges of the grid bounds.  
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_edges_dont.png)  
+-cancel
++Have widget expand to all 4 edges of the grid bounds. ![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_edges_dont.png)
+ 
+ ### Don't
+ 
+-Make a custom size that doesn't fill the grid bounds.  
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_header_do.png)  
+-check_circle
++Make a custom size that doesn't fill the grid bounds. ![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_header_do.png)
+ 
+ ### Do
+ 
+-Provide a header that meets widget specs.  
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_header_dont.png)  
+-cancel
++Provide a header that meets widget specs. ![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_header_dont.png)
+ 
+ ### Don't
+ 
+-Use custom specs for size and titles.  
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_genericdescription_do.png)  
+-check_circle
++Use custom specs for size and titles. ![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_genericdescription_do.png)
+ 
+ ### Do
+ 
+-Include a unique succinct description.  
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_genericdescription_dont.png)  
+-cancel
++Include a unique succinct description. ![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_genericdescription_dont.png)
+ 
+ ### Don't
+ 
+-Provide a generic description.  
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_radius_do.png)  
+-check_circle
++Provide a generic description. ![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_radius_do.png)
+ 
+ ### Do
+ 
+-Use system corner radius.  
+-![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_radius_dont.png)  
+-cancel
++Use system corner radius. ![](https://developer.android.com/static/images/guide/topics/widgets/quality-guidelines/widgets_quality_radius_dont.png)
+ 
+ ### Don't
+ 

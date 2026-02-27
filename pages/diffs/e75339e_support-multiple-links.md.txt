@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/support-multiple-links.md b/docs/develop/ui/compose/quick-guides/content/support-multiple-links.md
+index 51a6c43..0f80bb4 100644
+--- a/docs/develop/ui/compose/quick-guides/content/support-multiple-links.md
++++ b/docs/develop/ui/compose/quick-guides/content/support-multiple-links.md
+@@ -20,7 +20,7 @@ higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/support-multiple-links_4f7e31a439c9cc9f72d357797fb8d5ca9a12ef24f6f470510958c451c1f45542.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/support-multiple-links_36533594c991309af129575c6432116d235a7b05b70534b2d1b89cdbe1ded244.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Display multiple links in a single string
+ 

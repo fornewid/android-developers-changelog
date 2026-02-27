@@ -1,0 +1,14 @@
+diff --git a/docs/games/agde/debugger.md b/docs/games/agde/debugger.md
+index 1a53675..1b7056a 100644
+--- a/docs/games/agde/debugger.md
++++ b/docs/games/agde/debugger.md
+@@ -63,7 +63,8 @@ Example:
+     Output Message:
+     (int) $2 = 9
+ 
+-| **Caution:** Some shell commands may cause Visual Studio to fall out of sync with LLDB and behave unexpectedly.
++> [!CAUTION]
++> **Caution:** Some shell commands may cause Visual Studio to fall out of sync with LLDB and behave unexpectedly.
+ 
+ ## Data visualization
+ 

@@ -1,0 +1,123 @@
+diff --git a/docs/games/optimize/vulkan-reduced-precision.md b/docs/games/optimize/vulkan-reduced-precision.md
+index 66f9391..5c5edfd 100644
+--- a/docs/games/optimize/vulkan-reduced-precision.md
++++ b/docs/games/optimize/vulkan-reduced-precision.md
+@@ -14,7 +14,8 @@ Optimal formats do the following:
+ - Maximize computational throughput in shader programs
+ - Minimize CPU RAM usage of your game
+ 
+-| **Note:** Guidance on this page is for Vulkan 1.1 or higher.
++> [!NOTE]
++> **Note:** Guidance on this page is for Vulkan 1.1 or higher.
+ 
+ ## Floating point formats
+ 
+@@ -83,7 +84,9 @@ retrieve the device's features by calling the
+ [vkGetPhysicalDeviceFeatures2()](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGetPhysicalDeviceFeatures2.html) function and checking whether
+ the `shaderInt16` field in the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html)
+ result structure is true.
+-| **Note:** Support for `shaderInt16` and for version 1.1 of the Vulkan API is required by the 2022 [Android Baseline profile](https://developer.android.com/ndk/guides/graphics/android-baseline-profile) for Vulkan.
++
++> [!NOTE]
++> **Note:** Support for `shaderInt16` and for version 1.1 of the Vulkan API is required by the 2022 [Android Baseline profile](https://developer.android.com/ndk/guides/graphics/android-baseline-profile) for Vulkan.
+ 
+ To determine whether a Vulkan device supports 16-bit floats or 8-bit integers,
+ perform the following steps:
+@@ -92,7 +95,8 @@ perform the following steps:
+ 2. If `VK_KHR_shader_float16_int8` is supported, append a [VkPhysicalDeviceShaderFloat16Int8Features](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceShaderFloat16Int8Features.html) structure pointer to a `VkPhysicalDeviceFeatures2.pNext` chain.
+ 3. Check the `shaderFloat16` and `shaderInt8` fields of the `VkPhysicalDeviceShaderFloat16Int8Features` result structure after calling `vkGetPhysicalDeviceFeatures2()`. If the field value is `true`, the format is supported for shader program arithmetic.
+ 
+-| **Note:** To use 16-bit floats or 8-bit integers in your shaders, you *must* include `VK_KHR_shader_float16_int8` in a list of required extensions when you call the [vkCreateDevice()](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateDevice.html) function.
++> [!NOTE]
++> **Note:** To use 16-bit floats or 8-bit integers in your shaders, you *must* include `VK_KHR_shader_float16_int8` in a list of required extensions when you call the [vkCreateDevice()](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateDevice.html) function.
+ 
+ While not a requirement in Vulkan 1.1 or the 2022
+ [Android Baseline profile](https://developer.android.com/ndk/guides/graphics/android-baseline-profile), support for the `VK_KHR_shader_float16_int8`
+@@ -113,7 +117,8 @@ The storage types are:
+ - Push constant blocks
+ - Shader input and output interfaces
+ 
+-| **Note:** Although `VK_KHR_16bit_storage` is included in core Vulkan 1.1, actual 16-bit format support for storage is optional. Check whether a device supports 16-bit formats for a given storage type before use.
++> [!NOTE]
++> **Note:** Although `VK_KHR_16bit_storage` is included in core Vulkan 1.1, actual 16-bit format support for storage is optional. Check whether a device supports 16-bit formats for a given storage type before use.
+ 
+ Most, but not all, Vulkan 1.1 devices on Android support 16-bit formats in
+ storage buffer objects. Don't assume support based on the GPU model. Devices
+@@ -125,7 +130,7 @@ input/output interfaces is generally dependent on the GPU manufacturer. On
+ Android, a GPU typically either supports all three of these types or none of
+ them.
+ 
+-An example function that tests for Vulkan arithmetic and storage format support:  
++An example function that tests for Vulkan arithmetic and storage format support:
+ 
+     struct ReducedPrecisionSupportInfo {
+       // Arithmetic support
+@@ -244,7 +249,7 @@ for 16-bit formats, may ignore relaxed precision and still use 32-bit formats.
+ 
+ The appropriate GLSL extensions must be defined to enable support for 16-bit or
+ 8-bit numeric formats in storage and uniform buffer structures. The relevant
+-extension declarations are:  
++extension declarations are:
+ 
+     // Enable 16-bit formats in storage and uniform buffers.
+     #extension GL_EXT_shader_16bit_storage : require
+@@ -258,7 +263,7 @@ These extensions are specific to GLSL and don't have an equivalent in HLSL.
+ Use the `highp` qualifier before a floating point type to suggest a
+ single-precision float and the `mediump` qualifier for a half-precision float.
+ GLSL compilers for Vulkan interpret the legacy `lowp` qualifier as `mediump`.
+-Some examples of relaxed precision:  
++Some examples of relaxed precision:
+ 
+     mediump vec4 my_vector; // Suggest 16-bit half precision
+     highp mat4 my_matrix;   // Suggest 32-bit single precision
+@@ -266,12 +271,12 @@ Some examples of relaxed precision:
+ ### Explicit precision in GLSL
+ 
+ Include the `GL_EXT_shader_explicit_arithmetic_types_float16` extension in your
+-GLSL code to enable use of 16-bit floating point types:  
++GLSL code to enable use of 16-bit floating point types:
+ 
+     #extension GL_EXT_shader_explicit_arithmetic_types_float16 : require
+ 
+ Declare 16-bit floating point scalar, vector, and matrix types in GLSL using the
+-following keywords:  
++following keywords:
+ 
+     float16_t   f16vec2     f16vec3    f16vec4
+     f16mat2     f16mat3     f16mat4
+@@ -280,7 +285,7 @@ following keywords:
+     f16mat4x2   f16mat4x3   f16mat4x4
+ 
+ Declare 16-bit integer scalar and vector types in GLSL using the following
+-keywords:  
++keywords:
+ 
+     int16_t     i16vec2     i16vec3    i16vec4
+     uint16_t    u16vec2     u16vec3    u16vec4
+@@ -293,7 +298,7 @@ substitute a higher precision if higher precision is a better choice for the
+ target hardware. A minimal precision 16-bit float is specified by the
+ `min16float` keyword. Minimal precision signed and unsigned 16-bit integers are
+ specified by the `min16int` and `min16uint` keywords respectively. Additional
+-examples of minimal precision declarations include the following:  
++examples of minimal precision declarations include the following:
+ 
+     // Four element vector and four-by-four matrix types
+     min16float4 my_vector4;
+@@ -304,11 +309,12 @@ examples of minimal precision declarations include the following:
+ Half-precision floating-point is specified by the `half` or `float16_t`
+ keywords. Signed and unsigned 16-bit integers are specified by the `int16_t`
+ and `uint16_t` keywords respectively. Additional examples of explicit precision
+-declarations include the following:  
++declarations include the following:
+ 
+     // Four element vector and four-by-four matrix types
+     half4 my_vector4;
+     half4x4 my_matrix4x4;
+ 
+-| **Note:** When using the open source [DirectXShaderCompiler](https://github.com/microsoft/DirectXShaderCompiler) to compile HLSL code for Vulkan using 16-bit types, the  
+-| `-enable-16bit-types` command line option *must* be used to enable support for 16-bit numeric formats.
+\ No newline at end of file
++> [!NOTE]
++> **Note:** When using the open source [DirectXShaderCompiler](https://github.com/microsoft/DirectXShaderCompiler) to compile HLSL code for Vulkan using 16-bit types, the  
++> `-enable-16bit-types` command line option *must* be used to enable support for 16-bit numeric formats.
+\ No newline at end of file

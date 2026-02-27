@@ -1,0 +1,22 @@
+diff --git a/docs/docs/quality-guidelines/core-app-quality.md b/docs/docs/quality-guidelines/core-app-quality.md
+index 378ecd7..a5f847b 100644
+--- a/docs/docs/quality-guidelines/core-app-quality.md
++++ b/docs/docs/quality-guidelines/core-app-quality.md
+@@ -10,7 +10,7 @@ engagement, and retention.
+ To provide a solid foundation for a quality app, follow the core app quality
+ guidelines.
+ 
+-The guidelines define the minimum quality that all apps should meet.  
++The guidelines define the minimum quality that all apps should meet.
+ Adaptive app quality
+ 
+ Android apps run on a wide variety of devices---everything from compact phones to tablets, foldables, desktops, connected displays, car infotainment systems, TV, and XR. Windowing modes like split‑screen and desktop windowing enable apps to run in resizable portions of a screen.
+@@ -98,7 +98,7 @@ Your app should provide optimal performance, stability, compatibility, and respo
+ | SDK:Platform | [T-SDK:Platform](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-SDK:Platform) | App runs on the latest public version of the Android platform without crashing or severely impacting core functionality. |
+ | SDK:Target | [T-SDK:Latest](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-SDK:Latest) | App targets the [latest Android SDK](https://developer.android.com/distribute/best-practices/develop/target-sdk) needed to align with Google Play requirements by setting the `targetSdk` value in the app's module `build.gradle` file. |
+ | SDK:Compile | [T-SDK:Latest](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-SDK:Latest) | App is built with the latest Android SDK by setting the `compileSdk` value in the app's module `build.gradle` file. |
+-| SDK:3P | <t-sdk:3P>, [T-SDK:Non](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-SDK:Non) | Any Google or third-party SDKs used are up to date. Any improvements to these SDKs related to stability, compatibility, or security should be available to users in a timely manner. For Google SDKs, use SDKs powered by [Google Play services](https://developers.google.com/android) when available. These SDKs are backward compatible, receive automatic updates, reduce your app package size, and make efficient use of on-device resources. | You are accountable for the entire app codebase, inclusive of any third-party SDKs used. |
++| SDK:3P | <t-sdk:3P>, [T-SDK:Non](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-SDK:Non) | Any Google or third-party SDKs used are up to date. Any improvements to these SDKs related to stability, compatibility, or security should be available to users in a timely manner. For Google SDKs, use SDKs powered by [Google Play services](https://developers.google.com/android) when available. These SDKs are backward compatible, receive automatic updates, reduce your app package size, and make efficient use of on-device resources. > [!NOTE] > You are accountable for the entire app codebase, inclusive of any third-party SDKs used. |
+ | SDK:Non | [T-SDK:Non](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-SDK:Non) | App does not use [non-SDK interfaces](https://developer.android.com/distribute/best-practices/develop/restrictions-non-sdk-interfaces). |
+ | SDK:Debug | [T-SDK:Debug](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-SDK:Debug) | No debug libraries are included in the production app. Debug libraries included in the app can cause performance as well as security issues. |
+ | Battery |||

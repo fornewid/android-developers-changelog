@@ -1,0 +1,17 @@
+diff --git a/docs/games/pgs/unity/overview.md b/docs/games/pgs/unity/overview.md
+index 5a46e52..e08e5f8 100644
+--- a/docs/games/pgs/unity/overview.md
++++ b/docs/games/pgs/unity/overview.md
+@@ -35,4 +35,9 @@ For information on setting up and using the plugin, see the get started guide:
+ 
+   - Android SDK
+   - Android v4.0 or higher
+-  - Google Play Services library version 11.6 or higher
+\ No newline at end of file
++  - Google Play Services library version 11.6 or higher
++
++## Resources
++
++- Unity Tutorial
++  - [Google Play Games Login](https://www.youtube.com/watch?v=hsJsGuDtAD8)
+\ No newline at end of file

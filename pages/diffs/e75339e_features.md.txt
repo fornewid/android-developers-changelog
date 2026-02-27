@@ -1,0 +1,27 @@
+diff --git a/docs/about/versions/12/features.md b/docs/about/versions/12/features.md
+index 244ba1d..b770eb1 100644
+--- a/docs/about/versions/12/features.md
++++ b/docs/about/versions/12/features.md
+@@ -346,8 +346,10 @@ permissions. These permissions make it easier for apps that target
+ Android 12 to [interact with Bluetooth
+ devices](https://developer.android.com/guide/topics/connectivity/bluetooth), especially for apps that don't
+ require access to device location.
+-| **Note:** The [Companion Device
+-| Manager](https://developer.android.com/guide/topics/connectivity/companion-device-pairing) provides a more streamlined method of connecting to companion devices. The system provides the pairing UI on behalf of your app. If you want more control over the pairing and connecting experience, use the Bluetooth permissions introduced in Android 12.
++
++> [!NOTE]
++> **Note:** The [Companion Device
++> Manager](https://developer.android.com/guide/topics/connectivity/companion-device-pairing) provides a more streamlined method of connecting to companion devices. The system provides the pairing UI on behalf of your app. If you want more control over the pairing and connecting experience, use the Bluetooth permissions introduced in Android 12.
+ 
+ #### Update your app's Bluetooth permission declarations
+ 
+@@ -366,7 +368,8 @@ permission groups:
+ - To determine the permission group into which the system has placed a platform-defined permission, call [`getGroupOfPlatformPermission()`](https://developer.android.com/reference/android/content/pm/PackageManager#getGroupOfPlatformPermission(java.lang.String,%20java.util.concurrent.Executor,%20java.util.function.Consumer%3Cjava.lang.String%3E)).
+ - To determine the platform-defined permissions that the system has placed into a particular permission group, call [`getPlatformPermissionsForGroup()`](https://developer.android.com/reference/android/content/pm/PackageManager#getPlatformPermissionsForGroup(java.lang.String,%20java.util.concurrent.Executor,%20java.util.function.Consumer%3Cjava.util.List%3Cjava.lang.String%3E%3E)).
+ 
+-| **Note:** One of the [basic principles](https://developer.android.com/training/permissions/requesting#principles) of using Android permissions is to not assume system behavior. Don't assume that a particular permission is in a particular group. Instead, use the APIs described in this section.
++> [!NOTE]
++> **Note:** One of the [basic principles](https://developer.android.com/training/permissions/requesting#principles) of using Android permissions is to not assume system behavior. Don't assume that a particular permission is in a particular group. Instead, use the APIs described in this section.
+ 
+ ### Hide application overlay windows
+ 

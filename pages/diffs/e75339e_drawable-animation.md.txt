@@ -1,0 +1,107 @@
+diff --git a/docs/develop/ui/views/animations/drawable-animation.md b/docs/develop/ui/views/animations/drawable-animation.md
+index 544cc3d..4dfc592 100644
+--- a/docs/develop/ui/views/animations/drawable-animation.md
++++ b/docs/develop/ui/views/animations/drawable-animation.md
+@@ -38,11 +38,11 @@ and its duration. Here's an example XML file for a `Drawable` animation:
+ 
+ ```xml
+ <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:ones>hot=&<quot;true"
+-    item android:drawable="@drawable/rocket_thrust1&>quot;< android:duration="200" /
+-    item android:drawable="@draw>able/<rocket_thrust2" android:duration="200" /
+-    item android:>d<rawable="@>drawable/rocket_thrust3" android:duration="200" /
+-/animation-list
++    android:oneshot="true">
++    <item android:drawable="@drawable/rocket_thrust1" android:duration="200" />
++    <item android:drawable="@drawable/rocket_thrust2" android:duration="200" />
++    <item android:drawable="@drawable/rocket_thrust3" android:duration="200" />
++</animation-list>
+ ```
+ 
+ This animation runs for three frames. Setting the `android:oneshot`
+@@ -139,19 +139,19 @@ res/drawable/vectordrawable.xml
+ <vector xmlns:android="http://schemas.android.com/apk/res/android"
+     android:height="64dp"
+     android:width="64dp"
+-    android:viewportHeight="600&quo<t;
+-    android:viewportWidth="600&quot;>
+-    group
++    android:viewportHeight="600"
++    android:viewportWidth="600">
++    <group
+         android:name="rotationGroup"
+         android:pivotX="300.0"
+-<        android:pivotY="300.0"
++        android:pivotY="300.0"
+         android:rotation="45.0" >
+-        path
++        <path
+             android:name="v"
+-      <      an<droid:fillColor="#000000"
++            android:fillColor="#000000"
+             android:pathData="M300,70 l 0,-70 70,70 0,0 -70,70z" />
+-    /group>
+-/vector>
++    </group>
++</vector>
+ ```
+ 
+ 
+@@ -162,14 +162,14 @@ res/drawable/animatorvectordrawable.xml
+ 
+ ```xml
+ <animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+-  android:drawable="@drawable/vectord<rawable" >
+-    target
++  android:drawable="@drawable/vectordrawable" >
++    <target
+         android:name="rotationGroup"
+-        android:anima<tion="@animator/rotation" />
+-    target
+-        android:name="v&qu<ot;
++        android:animation="@animator/rotation" />
++    <target
++        android:name="v"
+         android:animation="@animator/path_morph" />
+-/animated-vector>
++</animated-vector>
+ ```
+ 
+ 
+@@ -181,13 +181,13 @@ first animator in this example rotates the target group 360 degrees:
+ res/animator/rotation.xml
+ 
+ ```xml
+-<set xmlns:android="http://schemas.android.com/apk/res/android<">
+-  objectAnimator
++<set xmlns:android="http://schemas.android.com/apk/res/android">
++  <objectAnimator
+       android:duration="6000"
+       android:propertyName="rotation"
+-      android:valueFrom=&q<uot;0"
++      android:valueFrom="0"
+       android:valueTo="360" />
+-/set>
++</set>
+ ```
+ 
+ 
+@@ -198,14 +198,14 @@ and the same number of parameters for each command.
+ res/animator/path_morph.xml
+ 
+ ```xml
+-<set xmlns:android="http://schemas.android.com/apk/res/android&q<uot;>
+-    objectAnimator
++<set xmlns:android="http://schemas.android.com/apk/res/android">
++    <objectAnimator
+         android:duration="3000"
+         android:propertyName="pathData"
+         android:valueFrom="M300,70 l 0,-70 70,70 0,0   -70,70z"
+-        android:valueTo="M300,70 l 0,-70 70,0  0,140 -<70,0 z"
++        android:valueTo="M300,70 l 0,-70 70,0  0,140 -70,0 z"
+         android:valueType="pathType" />
+-/set>
++</set>
+ ```
+ 
+ 

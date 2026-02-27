@@ -1,0 +1,32 @@
+diff --git a/docs/games/pgs/android/stats.md b/docs/games/pgs/android/stats.md
+index 04b94aa..7ff734c 100644
+--- a/docs/games/pgs/android/stats.md
++++ b/docs/games/pgs/android/stats.md
+@@ -4,12 +4,15 @@ url: https://developer.android.com/games/pgs/android/stats
+ source: md.txt
+ ---
+ 
+-| **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
+-| documentation](https://developer.android.com/games/pgs/v1/android/stats).
++> [!NOTE]
++> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
++> documentation](https://developer.android.com/games/pgs/v1/android/stats).
+ 
+ This guide shows you how to use the player stats API for Google Play Games Services. You can
+ use the player stats API to retrieve data about a player's in-game activity.
+-| **Important:** Based on results from experiments with this API, we've stopped populating the following endpoints: Churn probability, Spend probability, Total spend next 28 days, and High spender probability. Each of these endpoints now always returns an unset value constant. This value is the same as the one that the Player Stats system uses to indicate when it doesn't have sufficient data to compute a given endpoint.
++
++> [!CAUTION]
++> **Important:** Based on results from experiments with this API, we've stopped populating the following endpoints: Churn probability, Spend probability, Total spend next 28 days, and High spender probability. Each of these endpoints now always returns an unset value constant. This value is the same as the one that the Player Stats system uses to indicate when it doesn't have sufficient data to compute a given endpoint.
+ 
+ The player stats API let you tailor game experiences to specific segments of
+ players and different stages of the player lifecycle. You can build tailored
+@@ -98,7 +101,7 @@ steps:
+ 
+ Here's an example:
+ 
+-```gdscript
++```
+ public void checkPlayerStats() {
+   PlayGames.getPlayerStatsClient(this)
+       .loadPlayerStats(true)
