@@ -6,7 +6,7 @@ source: md.txt
 
 The main way to solve problems in your tests is to look at the semantics tree.
 Print the tree by calling `composeTestRule.onRoot().printToLog()` at
-any point in your test. This function prints a log like this:  
+any point in your test. This function prints a log like this:
 
     Node #1 at (...)px
      |-Node #2 at (...)px

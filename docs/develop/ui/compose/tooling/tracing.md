@@ -40,13 +40,13 @@ least the following versions:
 The device or emulator you run your trace on must also be at minimum API level
 30.
 
-Additionally, you need to add a new dependency on Compose Runtime Tracing:  
+Additionally, you need to add a new dependency on Compose Runtime Tracing:
 
-    implementation("androidx.compose.runtime:runtime-tracing:1.10.2")
+    implementation("androidx.compose.runtime:runtime-tracing:1.10.4")
 
-If you are using the [Compose BOM](https://developer.android.com/develop/ui/compose/bom), you don't have to specify the version:  
+If you are using the [Compose BOM](https://developer.android.com/develop/ui/compose/bom), you don't have to specify the version:
 
-    val composeBom = platform("androidx.compose:compose-bom:2026.01.01")
+    val composeBom = platform("androidx.compose:compose-bom:2026.02.01")
     implementation(composeBom)
     // ...
 
@@ -98,7 +98,7 @@ tracing tools, as shown earlier. The Compose compiler injects them into all
 apps, starting with version 1.3.0.
 
 The tracing strings can be removed in your production build by adding the
-following Proguard rule:  
+following Proguard rule:
 
     -assumenosideeffects public class androidx.compose.runtime.ComposerKt {
 
@@ -130,12 +130,13 @@ to perform the steps that Android Studio normally does for you automatically.
 
 ### Add dependencies
 
-First, add the additional dependencies to your app.  
+First, add the additional dependencies to your app.
 
     implementation("androidx.tracing:tracing-perfetto:1.0.0")
     implementation("androidx.tracing:tracing-perfetto-binary:1.0.0")
 
-| **Warning:** Don't ship `androidx.tracing:tracing-perfetto-binary` with your production app as it has a large effect on your app size.
+> [!WARNING]
+> **Warning:** Don't ship `androidx.tracing:tracing-perfetto-binary` with your production app as it has a large effect on your app size.
 
 ### Generate a record command
 

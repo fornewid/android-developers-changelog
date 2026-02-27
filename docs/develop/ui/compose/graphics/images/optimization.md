@@ -24,7 +24,8 @@ To manage image sizes:
 - Supply smaller images for different screen resolutions (see [Tip #3](https://developer.android.com/develop/ui/compose/graphics/images/optimization#screen-sizes)),
 - Use an [image loading library](https://developer.android.com/develop/ui/compose/graphics/images/loading#load_an_image_from_the_internet), which scales down your image to fit the size of your view on screen. This can help improve the loading performance of your screen.
 
-| **Caution:** Using `painterResource` will **not** scale your image to the size of the Composable that is visible on screen. If you have a large image in a small Composable, be sure to use an image loading library which scales the image down for you to fit the bounds.
+> [!CAUTION]
+> **Caution:** Using `painterResource` will **not** scale your image to the size of the Composable that is visible on screen. If you have a large image in a small Composable, be sure to use an image loading library which scales the image down for you to fit the bounds.
 
 #### Use vectors over bitmaps where possible
 
@@ -61,7 +62,7 @@ lead to unnecessary recompositions because the compiler cannot easily infer if
 the data has changed.
 
 Therefore, it is preferable to pass a URL or drawable resource ID as parameters
-to your composable, instead of passing a `Painter` as a parameter.  
+to your composable, instead of passing a `Painter` as a parameter.
 
     // Prefer this:
     @Composable

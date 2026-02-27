@@ -36,3 +36,8 @@ For information on setting up and using the plugin, see the get started guide:
   - Android SDK
   - Android v4.0 or higher
   - Google Play Services library version 11.6 or higher
+
+## Resources
+
+- Unity Tutorial
+  - [Google Play Games Login](https://www.youtube.com/watch?v=hsJsGuDtAD8)

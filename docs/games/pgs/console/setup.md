@@ -208,7 +208,9 @@ In the **Google Cloud Platform**, follow these steps:
 
 For more information about OAuth 2.0 on Android, see [Authenticating to
 OAuth2 Services](https://developer.android.com/training/id-auth/authenticate).
-| **Warning:** Make sure to record the package name and signing certificate that you configured in this step. Using a different certificate or package name in your application will cause authentication failures.
+
+> [!WARNING]
+> **Warning:** Make sure to record the package name and signing certificate that you configured in this step. Using a different certificate or package name in your application will cause authentication failures.
 
 After you click **Done** in the dialog, the available Client IDs will
 refresh. Choose the credential you created from the drop-down menu and then
@@ -266,7 +268,9 @@ such as the [platform authentication](https://developer.android.com/games/pgs/si
 Users with authorized test accounts will have access to your unpublished Play
 Games Services game project and can test that your configured Play Games Services
 are working correctly.
-| **Important:** Remember to add **yourself** as a tester, or the Play Games SDK will not work for your user account.
+
+> [!IMPORTANT]
+> **Important:** Remember to add **yourself** as a tester, or the Play Games SDK will not work for your user account.
 
 There are two ways to enable testers to use Play Games Services APIs for your
 game:

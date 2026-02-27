@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/chromeos/learn/window-managem
 source: md.txt
 ---
 
-Project: /develop/devices/chromeos/merged/_project.yaml
-Book: /develop/devices/chromeos/merged/_book.yaml
-
 ChromeOS supports Android apps in multiple windows. The system renders apps
 into window containers whose size is determined by the form factor of the
 device, as shown in figure 1.

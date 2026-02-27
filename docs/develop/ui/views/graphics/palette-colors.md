@@ -15,9 +15,9 @@ You can use the Palette library to design layout
 visual elements in your app. For example, you can use a palette to create a
 color-coordinated title card for a song based on its album cover or to adjust an
 app's toolbar color when its background image changes. The
-[Palette](https://developer.android.com/reference/androidx/palette/graphics/Palette)
+`https://developer.android.com/reference/androidx/palette/graphics/Palette`
 object gives you access to the colors in a
-[Bitmap](https://developer.android.com/reference/android/graphics/Bitmap) image
+`https://developer.android.com/reference/android/graphics/Bitmap` image
 while also providing six main color profiles from the bitmap to inform your
 [design choices](http://material.google.com).
 
@@ -62,7 +62,7 @@ design your app's style and to dynamically change your app's color scheme based
 on a given source image.
 
 To create a palette, first instantiate a
-[Palette.Builder](https://developer.android.com/reference/androidx/palette/graphics/Palette.Builder)
+`https://developer.android.com/reference/androidx/palette/graphics/Palette.Builder`
 from a `Bitmap`. You can then use the `Palette.Builder` to
 customize the palette before generating it. This section describes palette
 generation and customization from a bitmap image.
@@ -70,7 +70,7 @@ generation and customization from a bitmap image.
 ### Generate a Palette instance
 
 Generate a `Palette` instance using its
-[from(Bitmap bitmap)](https://developer.android.com/reference/androidx/palette/graphics/Palette#from(android.graphics.Bitmap))
+`https://developer.android.com/reference/androidx/palette/graphics/Palette#from(android.graphics.Bitmap)`
 method to first create a `Palette.Builder` from a
 `Bitmap`.
 
@@ -78,11 +78,11 @@ The builder can generate the palette synchronously or asynchronously. Use
 synchronous palette generation if you want to create the palette on the same
 thread as the method being called. If you generate the palette asynchronously,
 on a different thread, use the
-[onGenerated()](https://developer.android.com/reference/androidx/palette/graphics/Palette.PaletteAsyncListener#onGenerated(androidx.palette.graphics.Palette))
+`https://developer.android.com/reference/androidx/palette/graphics/Palette.PaletteAsyncListener#onGenerated(androidx.palette.graphics.Palette)`
 method to access the palette immediately after it is created.
 
 The following code snippet provides example methods for both types of palette
-generation:  
+generation:
 
 ### Kotlin
 
@@ -135,32 +135,32 @@ only uses the top half of an image to generate your palette.
 Fine-tune your palette's size and colors with the following methods from the
 `Palette.Builder` class:
 
-[addFilter()](https://developer.android.com/reference/androidx/palette/graphics/Palette.Builder#addFilter(androidx.palette.graphics.Palette.Filter))
+`https://developer.android.com/reference/androidx/palette/graphics/Palette.Builder#addFilter(androidx.palette.graphics.Palette.Filter)`
 :   This method adds a filter that indicates what colors are allowed in the
     resulting palette. Pass in your own
-    [Palette.Filter](https://developer.android.com/reference/androidx/palette/graphics/Palette.Filter)
+    `https://developer.android.com/reference/androidx/palette/graphics/Palette.Filter`
     and modify its `isAllowed()` method to determine which colors are
     filtered from the palette.
 
-[maximumColorCount()](https://developer.android.com/reference/androidx/palette/graphics/Palette.Builder#maximumColorCount(int))
+`https://developer.android.com/reference/androidx/palette/graphics/Palette.Builder#maximumColorCount(int)`
 :   This method sets the maximum number of colors in your palette. The default
     value is 16, and the optimal value depends on the source image. For
     landscapes, optimal values range from 8-16, while pictures with faces usually
     have values from 24-32. The `Palette.Builder` takes longer to
     generate palettes with more colors.
 
-[setRegion()](https://developer.android.com/reference/androidx/palette/graphics/Palette.Builder#setRegion(int,%20int,%20int,%20int))
+`https://developer.android.com/reference/androidx/palette/graphics/Palette.Builder#setRegion(int,%20int,%20int,%20int)`
 :   This method indicates what area of the bitmap the builder uses when
     creating the palette. You can only use this method when generating the palette
     from a bitmap, and it doesn't affect the original image.
 
-[addTarget()](https://developer.android.com/reference/androidx/palette/graphics/Palette.Builder#addTarget(androidx.palette.graphics.Target))
+`https://developer.android.com/reference/androidx/palette/graphics/Palette.Builder#addTarget(androidx.palette.graphics.Target)`
 :   This method lets you perform your own color matching by adding a
-    [Target](https://developer.android.com/reference/androidx/palette/graphics/Target)
+    `https://developer.android.com/reference/androidx/palette/graphics/Target`
     color profile to the builder. If the default `Target` is
     insufficient, advanced developers can create their own `Target`
     using a
-    [Target.Builder](https://developer.android.com/reference/androidx/palette/graphics/Target.Builder).
+    `https://developer.android.com/reference/androidx/palette/graphics/Target.Builder`.
 
 ## Extract color profiles
 
@@ -189,23 +189,23 @@ The Palette library attempts to extract the following six color profiles:
 - Muted
 - Dark Muted
 
-Each of the `get<`*Profile*`>Color()` methods in
+Each of the `get<Profile>Color()` methods in
 `Palette` returns the color in the palette associated with that
-particular profile, where `<`*Profile*`>` is replaced by
+particular profile, where `<Profile>` is replaced by
 the name of one of the six color profiles. For example, the method to get the
 Dark Vibrant color profile is
-[getDarkVibrantColor()](https://developer.android.com/reference/androidx/palette/graphics/Palette#getDarkVibrantColor(int)).
+`https://developer.android.com/reference/androidx/palette/graphics/Palette#getDarkVibrantColor(int)`.
 Since not all images contain all color profiles, provide a default color to
 return.
 
 Figure 1 displays a photo and its corresponding color profiles from the
-`get<`*Profile*`>Color()` methods.
+`get<Profile>Color()` methods.
 ![An image showing a sunset on the left and the extracted color palette on the right.](https://developer.android.com/static/training/material/images/palette-library-color-profiles_2-1_2x.png) **Figure 1.** An example image and its extracted color profiles given the default maximum color count (16) for the palette.
 
 ### Use swatches to create color schemes
 
 The `Palette` class also generates
-[Palette.Swatch](https://developer.android.com/reference/androidx/palette/graphics/Palette.Swatch)
+`https://developer.android.com/reference/androidx/palette/graphics/Palette.Swatch`
 objects for each color profile. `Palette.Swatch` objects contain the
 associated color for that profile as well as the color's population in
 pixels.
@@ -213,21 +213,21 @@ pixels.
 Swatches have additional methods for accessing more information about the
 color profile, such as HSL values and pixel population. You can use swatches to
 help create more comprehensive color schemes and app themes using the
-[getBodyTextColor()](https://developer.android.com/reference/androidx/palette/graphics/Palette.Swatch#getBodyTextColor())
+`https://developer.android.com/reference/androidx/palette/graphics/Palette.Swatch#getBodyTextColor()`
 and
-[getTitleTextColor()](https://developer.android.com/reference/androidx/palette/graphics/Palette.Swatch#getTitleTextColor())
+`https://developer.android.com/reference/androidx/palette/graphics/Palette.Swatch#getTitleTextColor()`
 methods. These methods return colors appropriate for use over the swatch's
 color.
 
-Each `get<`*Profile*`>Swatch()` methods from
+Each `get<Profile>Swatch()` methods from
 `Palette` returns the swatch associated with that particular profile,
-where `<`*Profile*`>` is replaced by the name of one of
+where `<Profile>` is replaced by the name of one of
 the six color profiles. Although the palette's
-`get<`*Profile*`>Swatch()` methods don't require default
+`get<Profile>Swatch()` methods don't require default
 value parameters, they return `null` if that particular profile
 doesn't exist in the image. Therefore, check that a swatch isn't null before
 using it. For example, the following code gets the title text color from a
-palette if the Vibrant swatch isn't null:  
+palette if the Vibrant swatch isn't null:
 
 ### Kotlin
 
@@ -248,14 +248,14 @@ if(vibrant != null){
 ```
 
 To access all colors in a palette, the
-[getSwatches()](https://developer.android.com/reference/androidx/palette/graphics/Palette#getSwatches())
+`https://developer.android.com/reference/androidx/palette/graphics/Palette#getSwatches()`
 method returns a list of all swatches generated from an image, including the
 standard six color profiles.
 
 The following snippet of code uses the methods from the preceding code
 snippets to synchronously generate a palette, get its vibrant swatch, and change
 the colors of a toolbar to match the bitmap image. Figure 2 displays the
-resulting image and toolbar.  
+resulting image and toolbar.
 
 ### Kotlin
 

@@ -27,7 +27,9 @@ these plugins or extensions to integrate Play Games Services features.
 
 The Google Play Games for *Unity* extension is maintained by Google, while the
 remaining extensions are maintained by third parties.
-| **Note:** Some of these products may use Play Games Services v1, while others may use v2. Make sure to verify the supported version in the product documentation below.
+
+> [!NOTE]
+> **Note:** Some of these products may use Play Games Services v1, while others may use v2. Make sure to verify the supported version in the product documentation below.
 
 | Name | Platform | Language | Features Supported |
 |---|---|---|---|

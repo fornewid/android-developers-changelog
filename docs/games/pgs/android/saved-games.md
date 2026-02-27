@@ -4,8 +4,9 @@ url: https://developer.android.com/games/pgs/android/saved-games
 source: md.txt
 ---
 
-| **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-| documentation](https://developer.android.com/games/pgs/v1/android/saved-games).
+> [!NOTE]
+> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
+> documentation](https://developer.android.com/games/pgs/v1/android/saved-games).
 
 This guide shows you how to implement saved games using the snapshots API
 provided by Google Play Games Services. The APIs can be found in the
@@ -32,8 +33,10 @@ To start using the snapshots API, your game must first obtain a
 object. You can do this by calling the
 [`Games.getSnapshotsContents()`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/Snapshot#public-abstract-snapshotcontents-getsnapshotcontents)
 method and passing in the activity.
-| **Note:** The [`SnapshotsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient) class uses the Google Play services [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) class to return results asynchronously. To learn more about using tasks to manage threaded work, see the [Tasks API developer
-| guide](https://developers.google.com/android/guides/tasks).
+
+> [!NOTE]
+> **Note:** The [`SnapshotsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient) class uses the Google Play services [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) class to return results asynchronously. To learn more about using tasks to manage threaded work, see the [Tasks API developer
+> guide](https://developers.google.com/android/guides/tasks).
 
 ## Display saved games
 
@@ -58,7 +61,7 @@ To launch the default Saved Games UI:
 
 Here's an example of how to launch the default saved games selection UI:
 
-```transact-sql
+```
 private static final int RC_SAVED_GAMES = 9009;
 
 private void showSavedGamesUI() {
@@ -88,7 +91,7 @@ check if any errors occurred during request.
 The following code snippet shows a sample implementation of
 [`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent)):
 
-```transact-sql
+```
 private String mCurrentSaveName = "snapshotTemp";
 
 /**
@@ -150,7 +153,7 @@ To store content to a saved game:
 
 The following snippet shows how your game might commit changes to a saved game:
 
-```gdscript
+```
 private Task<SnapshotMetadata> writeSnapshot(Snapshot snapshot,
                                              byte[] data, Bitmap coverImage, String desc) {
 
@@ -201,7 +204,7 @@ To retrieve saved games for the authenticated player:
 
 The following snippet shows how you might load a specific saved game:
 
-```gdscript
+```
 Task<byte[]> loadSnapshot() {
   // Display a progress dialog
   // ...
@@ -310,7 +313,7 @@ The following snippet shows and example of how your game might handle a saved
 game conflict by selecting the most recently modified saved game as the final
 version to save:
 
-```carbon
+```
 private static final int MAX_SNAPSHOT_RESOLVE_RETRIES = 10;
 
 Task<Snapshot> processSnapshotOpenResult(SnapshotsClient.DataOrConflict<Snapshot> result,

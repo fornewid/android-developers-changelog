@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/custom-intents
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 Every app is different, and not all app functionality matches an available
 [App Actions built-in intent](https://developer.android.com/reference/app-actions/built-in-intents) (BII). For cases where there isn't
 a BII for your app functionality, you can instead use a custom

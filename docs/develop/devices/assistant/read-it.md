@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/read-it
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 Read It is a Google Assistant feature available on Android devices that offers
 another way for users to read long-form web content like news articles and
 blog posts. Users can say something like *"Hey Google, read it"* to have an app

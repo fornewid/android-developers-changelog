@@ -90,7 +90,7 @@ a method in this snippet.
         ),
         AppWidgetProviderInfo.WIDGET_CATEGORY_HOME_SCREEN,
         RemoteViews("com.example", R.layout.widget_preview)
-    )https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/views/src/main/java/com/example/example/snippet/views/appwidget/AppWidgetSnippets.kt#L42-L49
+    )https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/views/src/main/java/com/example/example/snippet/views/appwidget/AppWidgetSnippets.kt#L42-L49
 
 ## Add scalable widget previews to the widget picker
 

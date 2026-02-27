@@ -41,22 +41,17 @@ app is built and the platform functionality it's using.
 
 Before you start testing, be sure to familiarize yourself with the [behavior
 changes for all apps](https://developer.android.com/about/versions/15/behavior-changes-all). These changes might affect your app, even if you don't
-change its `targetSdkVersion`.  
-Get Android 15  
-Flash an Android 15 system image to your device, or download
-a system image for the Android emulator.  
-Review changes  
-Review system behavior changes to identify areas where your app
-might be affected.  
-Test  
-Install your app on your device or emulator, and run tests. Focus
-on system behavior changes, and work through all app flows.  
-Update  
-Make only the code changes required to adapt to behavior
+change its `targetSdkVersion`.
+Get Android 15 Flash an Android 15 system image to your device, or download
+a system image for the Android emulator.
+Review changes Review system behavior changes to identify areas where your app
+might be affected.
+Test Install your app on your device or emulator, and run tests. Focus
+on system behavior changes, and work through all app flows.
+Update Make only the code changes required to adapt to behavior
 changes or resolve issues. Recompile with the same API level
-that your app originally targeted - no need to target Android 15.  
-Publish  
-Sign, upload, and publish your updated Android App Bundle
+that your app originally targeted - no need to target Android 15.
+Publish Sign, upload, and publish your updated Android App Bundle
 or APK.
 
 ### Perform compatibility testing
@@ -105,35 +100,28 @@ recommend learning about and addressing them as early as possible. To help
 identify specific behavior changes that affect your app, use the [compatibility
 toggles](https://developer.android.com/about/versions/15/migration#using_app_compatibility_toggles) to test your app with selected changes enabled.
 
-The following steps describe how to fully support Android 15.  
-Get Android 15 SDK  
-Install the latest version of Android Studio preview to build
+The following steps describe how to fully support Android 15.
+Get Android 15 SDK Install the latest version of Android Studio preview to build
 with Android 15. Make sure you have an Android 15 device or
 emulator.  
 
 Update your `targetSdkVersion` and other build
-configurations.  
-Review behavior changes  
-Review the behavior changes that apply to apps targeting
+configurations.
+Review behavior changes Review the behavior changes that apply to apps targeting
 Android 15. Identify areas where your app might be affected,
-and plan how to support them.  
-Check against new privacy changes  
-Make code and architecture changes needed to support Android 15's
-user privacy changes.  
-Adopt Android 15 features  
-Take advantage of Android 15 APIs to bring new features and
-capabilities to your apps. Recompile for Android 15.  
-Test  
-Test on an Android 15 device or emulator. Focus on areas
+and plan how to support them.
+Check against new privacy changes Make code and architecture changes needed to support Android 15's
+user privacy changes.
+Adopt Android 15 features Take advantage of Android 15 APIs to bring new features and
+capabilities to your apps. Recompile for Android 15.
+Test Test on an Android 15 device or emulator. Focus on areas
 where behavior changes might affect your app. Try out
 functionality that uses new APIs. Provide platform and API
-feedback. Report any platform, API, or third-party SDK issues.  
-Final update  
-Once Android 15 APIs are final, update your
+feedback. Report any platform, API, or third-party SDK issues.
+Final update Once Android 15 APIs are final, update your
 `targetSdkVersion` and other build configurations
-again, make any additional updates, and test your app.  
-Publish  
-Sign, upload, and publish your updated Android App Bundle
+again, make any additional updates, and test your app.
+Publish Sign, upload, and publish your updated Android App Bundle
 or APK.
 
 ### Get the SDK, change targeting, build with new APIs

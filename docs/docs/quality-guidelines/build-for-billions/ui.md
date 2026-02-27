@@ -4,54 +4,70 @@ url: https://developer.android.com/docs/quality-guidelines/build-for-billions/ui
 source: md.txt
 ---
 
-# UI and content for billions
-
-Make sure that your app offers an interactive UI that responds quickly to user input and, if necessary, compensates for a slow launch. Ensure that your app is designed to be easily localized by accommodating the variations between languages: allow for spacing, density, order, emphasis, and wording variations. Also make sure that date, time, and other units are internationalized and displayed according to the phone's settings.
+Make sure that your app offers an interactive UI that responds quickly to user input and, if necessary, compensates for a slow launch.
+Ensure that your app is designed to be easily localized by
+accommodating the variations between languages: allow for spacing, density,
+order, emphasis, and wording variations. Also make sure that date, time, and
+other units are internationalized and displayed according to the phone's
+settings.
 
 ## Fast and responsive user interface
 
 <br />
 
-The user's perception of app performance is formed in large part by the app's responsiveness. For example, interaction with the user and a crisp display are two important characteristics of a performant app. Here you can find tips on how to optimize these and other aspects of an app's speed and responsiveness.
+
+The user's perception of app performance is formed in large part by the app's
+responsiveness. For example, interaction with the user and a crisp display are two important
+characteristics of a performant app. Here you can find tips on how to optimize these and
+other aspects of an app's speed and responsiveness.
 
 ### Touch feedback on all touchable items
 
 - Touch feedback adds a tactile feeling to the user interface. You should ensure your app provides touch feedback on all touchable elements to reduce the perceived app latency as much as possible.
-- [Responsive interaction](https://material.io/guidelines/motion/material-motion.html)encourages deeper exploration of an app by creating timely, logical, and delightful screen reactions to user input. Responsive interaction elevates an app from an information-delivery service to an experience that communicates using multiple visual and tactile responses.
-- For more information, see the Android training on[Customizing Touch Feedback](https://developer.android.com/training/material/animations#Touch).
+- [Responsive interaction](https://material.io/guidelines/motion/material-motion.html) encourages deeper exploration of an app by creating timely, logical, and delightful screen reactions to user input. Responsive interaction elevates an app from an information-delivery service to an experience that communicates using multiple visual and tactile responses.
+- For more information, see the Android training on [Customizing Touch
+  Feedback](https://developer.android.com/training/material/animations#Touch).
 
 ### UI should always be interactive
 
 - Apps that are unresponsive when performing background activity feel slow and reduce user satisfaction. Ensure your app always has a responsive UI regardless of any background activity. Achieve this by performing network operations or any heavy-duty operations in a background thread---keep the UI thread as idle as you can.
-- Material Design apps use minimal visual changes when loading content by representing each operation with a single activity indicator. Avoid blocking dialogs with[loading indicators](https://material.io/guidelines/components/progress-activity.html).
-- [Empty states](https://material.io/guidelines/patterns/empty-states.html)occur when a view has no content to show. It might be a list that has no items or a search that returns no results. Avoid empty states using starter, educational, or best match content. When these options aren't applicable display a non-interactive image and a text tagline that tell the user what they'll see when there is something to display.
-- For more information, see the Android training on[Keeping Your App Responsive](https://developer.android.com/training/articles/perf-anr).
+- Material Design apps use minimal visual changes when loading content by representing each operation with a single activity indicator. Avoid blocking dialogs with [loading indicators](https://material.io/guidelines/components/progress-activity.html).
+- [Empty
+  states](https://material.io/guidelines/patterns/empty-states.html) occur when a view has no content to show. It might be a list that has no items or a search that returns no results. Avoid empty states using starter, educational, or best match content. When these options aren't applicable display a non-interactive image and a text tagline that tell the user what they'll see when there is something to display.
+- For more information, see the Android training on [Keeping Your App
+  Responsive](https://developer.android.com/training/articles/perf-anr).
 
 ### Target 60 frames per second on low-cost devices
 
 - Ensure that your app always runs fast and smoothly, even on low-cost devices.
-- Overdraw can significantly slow down your app---it occurs when the pixels are being drawn more than once per pass. An example of this is when you have an image with a button placed on top of it. While some overdraw is unavoidable, it should be minimized to ensure a smooth frame rate. Perform[Debug GPU overdraw](https://developer.android.com/tools/performance/debug-gpu-overdraw)on your app to ensure it's minimized.
-- Android devices refresh the screen at 60 frames per second (fps), meaning your app has to update the screen within roughly 16 milliseconds.[Profile your app](https://developer.android.com/studio/profile/dev-options-rendering)using on-device tools to see if and when your app is not meeting this 16 ms average.
-- Reduce or remove animations on low-cost devices to lessen the burden on the device's CPU and GPU. For more information, see[Improve layout performance](https://developer.android.com/develop/ui/views/layout/improving-layouts).
-- An efficient view hierarchy can speed up your app without increasing the app's memory footprint. For more information, see[Performance and View Hierarchies.](https://developer.android.com/topic/performance/optimizing-view-hierarchies)
+- Overdraw can significantly slow down your app---it occurs when the pixels are being drawn more than once per pass. An example of this is when you have an image with a button placed on top of it. While some overdraw is unavoidable, it should be minimized to ensure a smooth frame rate. Perform [Debug
+  GPU overdraw](https://developer.android.com/tools/performance/debug-gpu-overdraw) on your app to ensure it's minimized.
+- Android devices refresh the screen at 60 frames per second (fps), meaning your app has to update the screen within roughly 16 milliseconds. [Profile
+  your app](https://developer.android.com/studio/profile/dev-options-rendering) using on-device tools to see if and when your app is not meeting this 16 ms average.
+- Reduce or remove animations on low-cost devices to lessen the burden on the device's CPU and GPU. For more information, see [Improve
+  layout performance](https://developer.android.com/develop/ui/views/layout/improving-layouts).
+- An efficient view hierarchy can speed up your app without increasing the app's memory footprint. For more information, see [Performance
+  and View Hierarchies.](https://developer.android.com/topic/performance/optimizing-view-hierarchies)
 
 ### Use a launch screen on slow to start apps
 
 - The launch screen is a user's first experience of your application. Displaying a blank canvas while launching your app increases the perception of its loading time, so consider using a placeholder UI or a branded launch screen to reduce the perceived loading time.
-- A[placeholder UI](https://material.io/design/communication/launch-screen.html#placeholder-ui)is the most seamless launch transition, appropriate for both app launches and in-app activity transitions.
-- [Branded launch screens](https://developer.android.com/guide/topics/ui/splash-screen)provide momentary brand exposure, freeing the UI to focus on content.
-- The best way to deal with slow start speeds is not to have them.[Launch-Time Performance](https://developer.android.com/topic/performance/launch-time)provides information that may help you speed up your app's launch time.
+- A[placeholder UI](https://material.io/design/communication/launch-screen.html#placeholder-ui) is the most seamless launch transition, appropriate for both app launches and in-app activity transitions.
+- [Branded launch screens](https://developer.android.com/guide/topics/ui/splash-screen) provide momentary brand exposure, freeing the UI to focus on content.
+- The best way to deal with slow start speeds is not to have them. [Launch-Time Performance](https://developer.android.com/topic/performance/launch-time) provides information that may help you speed up your app's launch time.
 
 ## User interface best practices
 
-- [Material Design](https://material.io/guidelines/material-design/introduction.html)is a visual language that synthesizes the classic principles of good design with the innovation and possibility of technology and science. Material Design provides a single underlying system that allows for a unified experience across platforms and device sizes. Consider using key Material Design components so that users intuitively know how to use your app.
-- Ready-to-use Material Design components are available in the[Material Design Support library](https://developer.android.com/topic/libraries/support-library/features#material-design). These components are supported in Android 2.1 (API level 7) and above.
+- [Material Design](https://material.io/guidelines/material-design/introduction.html) is a visual language that synthesizes the classic principles of good design with the innovation and possibility of technology and science. Material Design provides a single underlying system that allows for a unified experience across platforms and device sizes. Consider using key Material Design components so that users intuitively know how to use your app.
+- Ready-to-use Material Design components are available in the [Material Design Support
+  library](https://developer.android.com/topic/libraries/support-library/features#material-design). These components are supported in Android 2.1 (API level 7) and above.
 
 ## Localization
 
 - Your users could be from any part of the world and their first language may not be yours. If you don't present your app in a language that your users can read, it is a missed opportunity. You should therefore localize your app for key regional languages.
-- To learn more, visit the Android training on[Supporting Different Languages](https://developer.android.com/training/basics/supporting-devices/languages)and see the[localization checklist](https://developer.android.com/distribute/tools/localization-checklist).
-- Starting from Android 7.0 (API level 24), the Android framework makes available a subset of the[ICU4J APIs](http://userguide.icu-project.org/), which can help you localize your app into multiple languages. For more information, see[ICU4J Android Framework APIs.](https://developer.android.com/guide/topics/resources/icu4j-framework)
+- To learn more, visit the Android training on [Supporting
+  Different Languages](https://developer.android.com/training/basics/supporting-devices/languages) and see the [localization checklist](https://developer.android.com/distribute/tools/localization-checklist).
+- Starting from Android 7.0 (API level 24), the Android framework makes available a subset of the [ICU4J APIs](http://userguide.icu-project.org/), which can help you localize your app into multiple languages. For more information, see [ICU4J Android Framework APIs.](https://developer.android.com/guide/topics/resources/icu4j-framework)
 
 <br />
 

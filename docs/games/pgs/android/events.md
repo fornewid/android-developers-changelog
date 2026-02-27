@@ -4,8 +4,9 @@ url: https://developer.android.com/games/pgs/android/events
 source: md.txt
 ---
 
-| **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-| documentation](https://developer.android.com/games/pgs/v1/android/events).
+> [!NOTE]
+> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
+> documentation](https://developer.android.com/games/pgs/v1/android/events).
 
 This guide shows you how to collect player gameplay data for game analytics
 using the events APIs provided by Google Play Games Services. The APIs can be found in the
@@ -31,8 +32,10 @@ To start using the events APIs, your game must first obtain an
 [`EventsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/EventsClient)
 object. You can do this by calling the [`PlayGames.getEventsClient()`](https://developers.google.com/android/reference/com/google/android/gms/games/PlayGames#public-static-eventsclient-geteventsclient-activity-activity)
 method and passing in the activity.
-| **Note:** The [`EventsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/EventsClient) class makes use of the Google Play services [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) class to return results asynchronously. To learn more about using tasks to manage threaded work, see the [Tasks API developer
-| guide](https://developers.google.com/android/guides/tasks).
+
+> [!NOTE]
+> **Note:** The [`EventsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/EventsClient) class makes use of the Google Play services [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) class to return results asynchronously. To learn more about using tasks to manage threaded work, see the [Tasks API developer
+> guide](https://developers.google.com/android/guides/tasks).
 
 ## Submit events
 
@@ -56,7 +59,7 @@ greater than 0.
 
 Here's an example of how to submit an event with an increment amount of 1:
 
-```text
+```
 public void submitEvent(String eventId) {
   PlayGames.getEventsClient(this)
       .increment(eventId, 1);
@@ -79,7 +82,7 @@ and pass in an array of event IDs in the input parameters.
 The following snippet shows how you can query Play Games Services for the list of
 all events for your game:
 
-```gdscript
+```
 public void loadEvents() {
   PlayGames.getEventsClient(this)
       .load(true)

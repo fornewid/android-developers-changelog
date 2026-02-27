@@ -4,8 +4,9 @@ url: https://developer.android.com/games/pgs/android/server-access
 source: md.txt
 ---
 
-| **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-| documentation](https://developer.android.com/games/pgs/v1/android/server-access).
+> [!NOTE]
+> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
+> documentation](https://developer.android.com/games/pgs/v1/android/server-access).
 
 We recommend that you use [GamesSignInClient](https://developers.google.com/android/reference/com/google/android/gms/games/GamesSignInClient)
 to authenticate players and securely pass the player's identity to the backend

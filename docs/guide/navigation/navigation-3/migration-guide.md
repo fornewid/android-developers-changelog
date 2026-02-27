@@ -80,7 +80,7 @@ cases, including:
 
 - [Bottom sheets](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/bottomsheet) (instructions are provided in this guide)
 - [Modularized navigation code and injected destinations](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/modular/hilt)
-- [Using and passing arguments to ViewModels](https://github.com/android/nav3-recipes?tab=readme-ov-file#passing-navigation-arguments-to-viewmodels)
+- [Using and passing arguments to `ViewModel`](https://github.com/android/nav3-recipes?tab=readme-ov-file#passing-navigation-arguments-to-viewmodels)
 - [Returning results from a screen](https://github.com/android/nav3-recipes?tab=readme-ov-file#returning-results)
 
 If your project has any of these features, check the relevant recipe to
@@ -154,7 +154,8 @@ After:
 
     @Serializable data object RouteA : NavKey
 
-| **Note:** The `@Serializable` annotation is provided by the KotlinX Serialization plugin. You can add this by following [these project setup steps](https://developer.android.com/guide/navigation/navigation-3/get-started#project-setup).
+> [!NOTE]
+> **Note:** The `@Serializable` annotation is provided by the KotlinX Serialization plugin. You can add this by following [these project setup steps](https://developer.android.com/guide/navigation/navigation-3/get-started#project-setup).
 
 ## Step 3: Create classes to hold and modify your navigation state
 
@@ -306,10 +307,12 @@ The `Navigator` class provides two navigation event methods:
 - `goBack` from the current route.
 
 Both methods modify the `NavigationState`.
-| **Architecture principles:** These classes follow the principles of [Unidirectional Data Flow](https://developer.android.com/topic/architecture):
-|
-| - The `Navigator` handles navigation events and uses them to update `NavigationState`.
-| - The UI (provided by `NavDisplay`) observes `NavigationState` and reacts to any changes in that state by updating its UI.
+
+> [!IMPORTANT]
+> **Architecture principles:** These classes follow the principles of [Unidirectional Data Flow](https://developer.android.com/topic/architecture):
+>
+> - The `Navigator` handles navigation events and uses them to update `NavigationState`.
+> - The UI (provided by `NavDisplay`) observes `NavigationState` and reacts to any changes in that state by updating its UI.
 
 ### Step 3.3: Create the `NavigationState` and `Navigator`
 
@@ -376,7 +379,8 @@ as follows:
 - `NavigationState` has a set of top-level routes (the parent routes) and a stack for each one. It keeps track of the current top-level route and its associated stack.
 - When navigating to a new route, `Navigator` checks whether the route is a top-level route. If it is, the current top-level route and stack are updated. If it's not, it's a child route and is added to the current stack.
 
-| **Note:** If your app needs to navigate from an entry in one stack to another, you need to define the parent-child relationships for the routes and update the navigation logic in `Navigator` to support this.
+> [!NOTE]
+> **Note:** If your app needs to navigate from an entry in one stack to another, you need to define the parent-child relationships for the routes and update the navigation logic in `Navigator` to support this.
 
 ## Step 5.1: Create an `entryProvider`
 

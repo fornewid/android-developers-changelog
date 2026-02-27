@@ -72,7 +72,7 @@ Priority
     - [`PRIORITY_PASSIVE`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#PRIORITY_PASSIVE) - Use this setting if you need negligible impact on power consumption, but want to receive location updates when available. With this setting, your app does not trigger any location updates, but receives locations triggered by other apps.
 
 Create the location request and set the parameters as shown in this
-code sample:  
+code sample:
 
 ### Kotlin
 
@@ -97,7 +97,7 @@ code sample:
 The priority of
 [`PRIORITY_HIGH_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_HIGH_ACCURACY),
 combined with the
-[ACCESS_FINE_LOCATION](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
+`https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION`
 permission setting that you've defined in the app manifest, and a fast update
 interval of 5000 milliseconds (5 seconds), causes the fused location
 provider to return location updates that are accurate to within a few feet.
@@ -117,7 +117,7 @@ API, you can get the current location settings of a user's device. To do
 this, create a
 [`LocationSettingsRequest.Builder`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsRequest.Builder),
 and add one or more location requests. The following code snippet shows how
-to add the location request that was created in the previous step:  
+to add the location request that was created in the previous step:
 
 ### Kotlin
 
@@ -133,7 +133,7 @@ LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
      .addLocationRequest(locationRequest);
 ```
 
-Next check whether the current location settings are satisfied:  
+Next check whether the current location settings are satisfied:
 
 ### Kotlin
 
@@ -177,7 +177,7 @@ modify the location settings by calling [`startResolutionForResult()`](https://d
 
 The following code snippet shows how to determine whether the user's location
 settings allow location services to create a [`LocationRequest`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest), as well as how to ask the user for
-permission to change the location settings if necessary:  
+permission to change the location settings if necessary:
 
 ### Kotlin
 

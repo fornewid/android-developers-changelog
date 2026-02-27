@@ -10,7 +10,9 @@ component's infrastructure and features.
 
 For the latest prerelease navigation library built specifically for Compose, see
 the [Navigation 3 documentation](https://developer.android.com/guide/navigation/navigation-3).
-| **Note:** If you are not familiar with Compose, review the [Jetpack Compose](https://developer.android.com/jetpack/compose) resources before continuing.
+
+> [!NOTE]
+> **Note:** If you are not familiar with Compose, review the [Jetpack Compose](https://developer.android.com/jetpack/compose) resources before continuing.
 
 ## Setup
 
@@ -51,7 +53,9 @@ section of [Create a navigation controller](https://developer.android.com/guide/
 
 For information on how to create a `NavHost` in Compose, see the Compose section
 of [Design your navigation graph](https://developer.android.com/guide/navigation/design#compose).
-| **Note:** When designing your navigation graph, consider how navigation flows will adapt to different display sizes and form factors.
+
+> [!NOTE]
+> **Note:** When designing your navigation graph, consider how navigation flows will adapt to different display sizes and form factors.
 
 ## Navigate to a composable
 

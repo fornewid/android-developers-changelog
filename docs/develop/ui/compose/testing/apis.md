@@ -12,7 +12,9 @@ There are three main ways to interact with UI elements:
 
 Some of these APIs accept a [`SemanticsMatcher`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsMatcher) to refer to one or more
 *nodes* in the semantics tree.
-| **Note:** Testing a Compose UI is different from testing a view-based UI. The view-based UI toolkit clearly defines what a view is. A view occupies a rectangular space and has properties, like identifiers, position, margin, and padding. In Compose, because only some composables *emit* UI into the UI hierarchy, you need a different approach to matching UI elements.
+
+> [!NOTE]
+> **Note:** Testing a Compose UI is different from testing a view-based UI. The view-based UI toolkit clearly defines what a view is. A view occupies a rectangular space and has properties, like identifiers, position, margin, and padding. In Compose, because only some composables *emit* UI into the UI hierarchy, you need a different approach to matching UI elements.
 
 ### Finders
 
@@ -42,18 +44,18 @@ searches, such as [`onNodeWithText`](https://developer.android.com/reference/kot
 #### Unmerged tree
 
 Some nodes merge the semantics information of their children. For example, a
-button with two text elements merges the text element labels:  
+button with two text elements merges the text element labels:
 
     MyButton {
         Text("Hello")
         Text("World")
     }
 
-From a test, use [`printToLog()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary#(androidx.compose.ui.test.SemanticsNodeInteraction).printToLog(kotlin.String,kotlin.Int)) to show the semantics tree:  
+From a test, use [`printToLog()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary#(androidx.compose.ui.test.SemanticsNodeInteraction).printToLog(kotlin.String,kotlin.Int)) to show the semantics tree:
 
     composeTestRule.onRoot().printToLog("TAG")
 
-This code prints the following output:  
+This code prints the following output:
 
     Node #1 at (...)px
      |-Node #2 at (...)px
@@ -63,11 +65,11 @@ This code prints the following output:
        MergeDescendants = 'true'
 
 If you need to match a node of what would be the *unmerged* tree, you can set
-`useUnmergedTree` to `true`:  
+`useUnmergedTree` to `true`:
 
     composeTestRule.onRoot(useUnmergedTree = true).printToLog("TAG")
 
-This code prints the following output:  
+This code prints the following output:
 
     Node #1 at (...)px
      |-Node #2 at (...)px
@@ -79,7 +81,7 @@ This code prints the following output:
           Text = '[World]'
 
 The `useUnmergedTree` parameter is available in all finders. For example, here
-it's used in an `onNodeWithText` finder.  
+it's used in an `onNodeWithText` finder.
 
     composeTestRule
         .onNodeWithText("World", useUnmergedTree = true).assertIsDisplayed()
@@ -87,7 +89,7 @@ it's used in an `onNodeWithText` finder.
 ### Assertions
 
 Check assertions by calling `assert()` on the [`SemanticsNodeInteraction`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction)
-returned by a finder with one or multiple matchers:  
+returned by a finder with one or multiple matchers:
 
     // Single matcher:
     composeTestRule
@@ -102,7 +104,7 @@ You can also use convenience functions for the most common assertions, such as
 [`assertExists`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction#assertExists(kotlin.String)), [`assertIsDisplayed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction#(androidx.compose.ui.test.SemanticsNodeInteraction).assertIsDisplayed()), and [`assertTextEquals`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction#(androidx.compose.ui.test.SemanticsNodeInteraction).assertTextEquals(kotlin.Array,kotlin.Boolean)).
 You can browse the complete list in the [Compose Testing cheat sheet](https://developer.android.com/develop/ui/compose/testing-cheatsheet).
 
-There are also functions to check assertions on a collection of nodes:  
+There are also functions to check assertions on a collection of nodes:
 
     // Check number of matched nodes
     composeTestRule
@@ -116,13 +118,14 @@ There are also functions to check assertions on a collection of nodes:
 
 ### Actions
 
-To inject an action on a node, call a `perform...()` function:  
+To inject an action on a node, call a `perform...()` function:
 
     composeTestRule.onNode(...).performClick()
 
-| **Note:** You cannot chain actions inside a perform function. Instead, make multiple `perform...()` calls.
+> [!NOTE]
+> **Note:** You cannot chain actions inside a perform function. Instead, make multiple `perform...()` calls.
 
-Here are some examples of actions:  
+Here are some examples of actions:
 
     performClick(),
     performSemanticsAction(key),
@@ -140,14 +143,14 @@ code.
 #### Hierarchical matchers
 
 Hierarchical matchers let you go up or down the semantics tree and perform
-matching.  
+matching.
 
     fun hasParent(matcher: SemanticsMatcher): SemanticsMatcher
     fun hasAnySibling(matcher: SemanticsMatcher): SemanticsMatcher
     fun hasAnyAncestor(matcher: SemanticsMatcher): SemanticsMatcher
     fun hasAnyDescendant(matcher: SemanticsMatcher):  SemanticsMatcher
 
-Here are some examples of these matchers being used:  
+Here are some examples of these matchers being used:
 
     composeTestRule.onNode(hasParent(hasText("Button")))
         .assertIsDisplayed()
@@ -155,7 +158,7 @@ Here are some examples of these matchers being used:
 #### Selectors
 
 An alternative way to create tests is to use *selectors* which can make some
-tests more readable.  
+tests more readable.
 
     composeTestRule.onNode(hasTestTag("Players"))
         .onChildren()

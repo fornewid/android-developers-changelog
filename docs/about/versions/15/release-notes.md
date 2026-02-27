@@ -76,7 +76,9 @@ devices:
 - Pixel 9, 9 Pro, 9 Pro XL, and 9 Pro Fold
 
 See [Get Android 15 QPR beta builds](https://developer.android.com/about/versions/15/get-qpr) for details on how to get started.
-| **Note:** All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 3.
+
+> [!NOTE]
+> **Note:** All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 3.
 
 ### General advisories
 
@@ -257,7 +259,7 @@ bug fixes and improvements to stability and performance.
 
 #### Minor updates
 
-The following minor updates were released for Beta 2 before the Beta 3 release:  
+The following minor updates were released for Beta 2 before the Beta 3 release:
 **Android 15 QPR2 Beta 2.1 (January 2025)**
 
 
@@ -270,7 +272,9 @@ This minor update to Android 15 QPR2 Beta 2 includes the following fixes:
 All eligible devices enrolled in the
 [Android Beta for Pixel program](https://g.co/androidbeta)
 will be offered an over-the-air (OTA) update to Beta 2.1.
-| **Note:** See [top open issues](https://developer.android.com/about/versions/15/top-issues) for the latest list of issues that have been reported by developers and users.
+
+> [!NOTE]
+> **Note:** See [top open issues](https://developer.android.com/about/versions/15/top-issues) for the latest list of issues that have been reported by developers and users.
 
 #### Top resolved issues
 

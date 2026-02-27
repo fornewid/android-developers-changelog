@@ -49,7 +49,7 @@ restrict non-SDK interfaces, and we understand that your app might have a valid
 use case for using these interfaces. If an interface that your app uses in a
 prior version is now blocked in Android 13, you should [request a new public
 API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
-for that interface.  
+for that interface.
 
 ```
 Landroid/app/Activity;->setDisablePreviewScreenshots(Z)V # Use https://developer.android.com/reference/android/app/Activity#setRecentsScreenshotEnabled(boolean) instead.

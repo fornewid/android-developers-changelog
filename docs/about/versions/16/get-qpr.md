@@ -53,7 +53,9 @@ device on the [Factory images for Google Pixel](https://developer.android.com/ab
 instructions there for how to flash a system image to your device. This approach
 can be useful when you need more control over testing, such as for automated
 testing or regression testing.
-| **Note:** After you've flashed a beta build to a supported Pixel device, your device is automatically enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) and offered continuous over-the-air (OTA) updates to the latest beta builds (including QPRs) until you choose to unenroll that device from the program.
+
+> [!NOTE]
+> **Note:** After you've flashed a beta build to a supported Pixel device, your device is automatically enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) and offered continuous over-the-air (OTA) updates to the latest beta builds (including QPRs) until you choose to unenroll that device from the program.
 
 ## Get a generic system image (GSI)
 

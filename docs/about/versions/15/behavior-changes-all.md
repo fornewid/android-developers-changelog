@@ -33,7 +33,9 @@ stopped state on a device running Android 15. When the user's actions remove the
 app from the stopped state, the [`ACTION_BOOT_COMPLETED`](https://developer.android.com/reference/android/content/Intent#ACTION_BOOT_COMPLETED)
 broadcast is delivered to the app providing an opportunity to re-register any
 pending intents.
-| **Note:** Apps use pending intents to update [app widgets](https://developer.android.com/develop/ui/views/appwidgets/overview). If an app enters the stopped state, all these pending intents are canceled, and the system disables the app's widgets. (The widgets are grayed out, and the device user cannot interact with them.) The system re-enables the widgets the next time the user launches the app.
+
+> [!NOTE]
+> **Note:** Apps use pending intents to update [app widgets](https://developer.android.com/develop/ui/views/appwidgets/overview). If an app enters the stopped state, all these pending intents are canceled, and the system disables the app's widgets. (The widgets are grayed out, and the device user cannot interact with them.) The system re-enables the widgets the next time the user launches the app.
 
 You can call the new
 [`ApplicationStartInfo.wasForceStopped()`](https://developer.android.com/reference/android/app/ApplicationStartInfo#wasForceStopped())
@@ -200,7 +202,7 @@ runtime permission model introduced in 2015 by Android 6.0 Marshmallow (API
 level 23). This Android 15 change makes it harder for malware to avoid security
 and privacy improvements. Attempting to install an app targeting a lower API
 level results in an installation failure, with a message like the following one
-appearing in Logcat:  
+appearing in Logcat:
 
     INSTALL_FAILED_DEPRECATED_SDK_VERSION: App package must target at least SDK version 24, but found 7
 
@@ -208,7 +210,7 @@ On devices upgrading to Android 15, any apps with a `targetSdkVersion` lower
 than 24 remain installed.
 
 If you need to test an app targeting an older API level, use the following ADB
-command:  
+command:
 
 ```
 adb install --bypass-low-target-sdk-block FILENAME.apk
@@ -296,8 +298,9 @@ For more information, see
 
 ### Media projection status bar chip alerts users to screen sharing, casting, and recording
 
-| **Note:** This change is included on devices running [Android 15
-| QPR1](https://developer.android.com/about/versions/15/release-notes) or higher.
+> [!NOTE]
+> **Note:** This change is included on devices running [Android 15
+> QPR1](https://developer.android.com/about/versions/15/release-notes) or higher.
 
 Screen projection exploits expose private user data such as financial
 information because users don't realize their device screen is being shared.

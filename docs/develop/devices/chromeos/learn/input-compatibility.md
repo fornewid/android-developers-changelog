@@ -275,9 +275,9 @@ ChromeOS has a special intent that surfaces registered note-taking apps to users
 
 ```xml
 <intent-filter>
- <   action android:name="org.chromium.arc.intent.action.CREATE_NOTE&<quot; />
-    category android:name="android.intent.ca<tegory.DEFAULT" />
-  /intent-filter>
+    <action android:name="org.chromium.arc.intent.action.CREATE_NOTE" />
+    <category android:name="android.intent.category.DEFAULT" />
+  </intent-filter>
 ```
 
 

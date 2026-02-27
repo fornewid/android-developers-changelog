@@ -21,7 +21,9 @@ an Android 12 Developer Support image but can't be rolled back to any other
 Android 12 images. A device that is running a Developer Support image can be
 flashed to the [latest public build](https://developer.android.com/about/versions/12/dev-support-images#public) but can't be flashed back to any
 previous Android 12 images.
-| **Warning:** Flashing to a Developer Support build from a public build---or going back to a public build from a Developer Support build---requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).
+
+> [!WARNING]
+> **Warning:** Flashing to a Developer Support build from a public build---or going back to a public build from a Developer Support build---requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).
 
 ## General advisories
 
@@ -109,10 +111,10 @@ You can choose to [return to the latest public build](https://developer.android.
 
 | Device | Version | Download Link | SHA-256 Checksum |
 |---|---|---|---|
-| **Pixel 6** | Android 12 (API level 31) | oriole-sq1d.220205.004.x2-factory-1b9d8fc0.zip | `1b9d8fc0de380af1a9041f0267c4e31dd5e98de4c8a4d419f28e2c66e89cb68c` |
-| **Pixel 6** | 12L feature drop (API level 32) | oriole-sq3a.220705.004.x2-factory-c5a02422.zip | `c5a024229cf49055559c5d2c4088754f36402222a050be30844ff5d821ed06c3` |
-| **Pixel 6 Pro** | Android 12 (API level 31) | raven-sq1d.220205.004.x2-factory-ca630efc.zip | `ca630efcbbf56f41300e21e70054f66820bdfdc61aa64cf89d4fac2a9e7623b8` |
-| **Pixel 6 Pro** | 12L feature drop (API level 32) | raven-sq3a.220705.004.x2-factory-56c65af2.zip | `56c65af280d45e21b53c12ef27d2d5a1155d2169c55f4d0586eb125560346219` |
+| **Pixel 6** | Android 12 (API level 31) | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Developer Support" data-action="download" data-label="oriole-12-0-0" data-modal-dialog-id="oriole_12_0_0_developer_support_zip">oriole-sq1d.220205.004.x2-factory-1b9d8fc0.zip</button> | `1b9d8fc0de380af1a9041f0267c4e31dd5e98de4c8a4d419f28e2c66e89cb68c` |
+| **Pixel 6** | 12L feature drop (API level 32) | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Developer Support" data-action="download" data-label="oriole-12-1-0" data-modal-dialog-id="oriole_12_1_0_developer_support_zip">oriole-sq3a.220705.004.x2-factory-c5a02422.zip</button> | `c5a024229cf49055559c5d2c4088754f36402222a050be30844ff5d821ed06c3` |
+| **Pixel 6 Pro** | Android 12 (API level 31) | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Developer Support" data-action="download" data-label="raven-12-0-0" data-modal-dialog-id="raven_12_0_0_developer_support_zip">raven-sq1d.220205.004.x2-factory-ca630efc.zip</button> | `ca630efcbbf56f41300e21e70054f66820bdfdc61aa64cf89d4fac2a9e7623b8` |
+| **Pixel 6 Pro** | 12L feature drop (API level 32) | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Developer Support" data-action="download" data-label="raven-12-1-0" data-modal-dialog-id="raven_12_1_0_developer_support_zip">raven-sq3a.220705.004.x2-factory-56c65af2.zip</button> | `56c65af280d45e21b53c12ef27d2d5a1155d2169c55f4d0586eb125560346219` |
 
 ## Return to a public build
 
@@ -121,52 +123,46 @@ You can use the Android Flash Tool to
 factory spec system image from the
 [Factory Images for Nexus and Pixel Devices](https://developers.google.com/android/images)
 page and then manually flash it to the device.
-**Warning:** Going back to a public build from a Developer Support build requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).  
+
+> [!WARNING]
+> **Warning:** Going back to a public build from a Developer Support build requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).
 
 ## Download Android 12 Developer Support system image
 
-Before downloading, you must agree to the following terms and conditions.  
+Before downloading, you must agree to the following terms and conditions.
 
 ## Terms and Conditions
 
-Developer Support version warning: You are about to download, install, and use a Developer Support version of Android on your Pixel device. Developer Support versions may not be stable, and may contain errors and defects that can result in serious damage to computer systems, devices, applications and data. Data or metrics may be collected from the devices in the Developer Support build at the sole discretion of Google. Google makes no warranties, express or implied, with respect to the Developer Support versions. Your use is at your own risk, and not Google's. Certain functionality (including core functionality, such as your ability to place and receive calls) or applications may not work properly. You are solely responsible for any error, defect, damage or destruction due to such use, including damage to any device or loss of data. The Developer Support version of Android contains a bootloader update with the latest anti-rollback version. After installing the Developer Support version, you will no longer be able to revert to a public release Android version with a lower bootloader anti-rollback version. Switching between Developer Support and public release Android versions on your device may require you to wipe all data from your device.  
-I have read and agree with the above terms and conditions  
-Download Android 12 Developer Support system image [Download Android 12 Developer Support system image](https://dl.google.com/developers/android/sc/images/factory/oriole-sq1d.220205.004.x2-factory-1b9d8fc0.zip)
+Developer Support version warning: You are about to download, install, and use a Developer Support version of Android on your Pixel device. Developer Support versions may not be stable, and may contain errors and defects that can result in serious damage to computer systems, devices, applications and data. Data or metrics may be collected from the devices in the Developer Support build at the sole discretion of Google. Google makes no warranties, express or implied, with respect to the Developer Support versions. Your use is at your own risk, and not Google's. Certain functionality (including core functionality, such as your ability to place and receive calls) or applications may not work properly. You are solely responsible for any error, defect, damage or destruction due to such use, including damage to any device or loss of data. The Developer Support version of Android contains a bootloader update with the latest anti-rollback version. After installing the Developer Support version, you will no longer be able to revert to a public release Android version with a lower bootloader anti-rollback version. Switching between Developer Support and public release Android versions on your device may require you to wipe all data from your device. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 12 Developer Support system image </button> [Download Android 12 Developer Support system image](https://dl.google.com/developers/android/sc/images/factory/oriole-sq1d.220205.004.x2-factory-1b9d8fc0.zip)
 
-*oriole-sq1d.220205.004.x2-factory-1b9d8fc0.zip*  
+*oriole-sq1d.220205.004.x2-factory-1b9d8fc0.zip*
 
 ## Download Android 12 Developer Support system image
 
-Before downloading, you must agree to the following terms and conditions.  
+Before downloading, you must agree to the following terms and conditions.
 
 ## Terms and Conditions
 
-Developer Support version warning: You are about to download, install, and use a Developer Support version of Android on your Pixel device. Developer Support versions may not be stable, and may contain errors and defects that can result in serious damage to computer systems, devices, applications and data. Data or metrics may be collected from the devices in the Developer Support build at the sole discretion of Google. Google makes no warranties, express or implied, with respect to the Developer Support versions. Your use is at your own risk, and not Google's. Certain functionality (including core functionality, such as your ability to place and receive calls) or applications may not work properly. You are solely responsible for any error, defect, damage or destruction due to such use, including damage to any device or loss of data. The Developer Support version of Android contains a bootloader update with the latest anti-rollback version. After installing the Developer Support version, you will no longer be able to revert to a public release Android version with a lower bootloader anti-rollback version. Switching between Developer Support and public release Android versions on your device may require you to wipe all data from your device.  
-I have read and agree with the above terms and conditions  
-Download Android 12 Developer Support system image [Download Android 12 Developer Support system image](https://dl.google.com/developers/android/sc/images/factory/raven-sq1d.220205.004.x2-factory-ca630efc.zip)
+Developer Support version warning: You are about to download, install, and use a Developer Support version of Android on your Pixel device. Developer Support versions may not be stable, and may contain errors and defects that can result in serious damage to computer systems, devices, applications and data. Data or metrics may be collected from the devices in the Developer Support build at the sole discretion of Google. Google makes no warranties, express or implied, with respect to the Developer Support versions. Your use is at your own risk, and not Google's. Certain functionality (including core functionality, such as your ability to place and receive calls) or applications may not work properly. You are solely responsible for any error, defect, damage or destruction due to such use, including damage to any device or loss of data. The Developer Support version of Android contains a bootloader update with the latest anti-rollback version. After installing the Developer Support version, you will no longer be able to revert to a public release Android version with a lower bootloader anti-rollback version. Switching between Developer Support and public release Android versions on your device may require you to wipe all data from your device. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 12 Developer Support system image </button> [Download Android 12 Developer Support system image](https://dl.google.com/developers/android/sc/images/factory/raven-sq1d.220205.004.x2-factory-ca630efc.zip)
 
-*raven-sq1d.220205.004.x2-factory-ca630efc.zip*  
+*raven-sq1d.220205.004.x2-factory-ca630efc.zip*
 
 ## Download Android 12 Developer Support system image
 
-Before downloading, you must agree to the following terms and conditions.  
+Before downloading, you must agree to the following terms and conditions.
 
 ## Terms and Conditions
 
-Developer Support version warning: You are about to download, install, and use a Developer Support version of Android on your Pixel device. Developer Support versions may not be stable, and may contain errors and defects that can result in serious damage to computer systems, devices, applications and data. Data or metrics may be collected from the devices in the Developer Support build at the sole discretion of Google. Google makes no warranties, express or implied, with respect to the Developer Support versions. Your use is at your own risk, and not Google's. Certain functionality (including core functionality, such as your ability to place and receive calls) or applications may not work properly. You are solely responsible for any error, defect, damage or destruction due to such use, including damage to any device or loss of data. The Developer Support version of Android contains a bootloader update with the latest anti-rollback version. After installing the Developer Support version, you will no longer be able to revert to a public release Android version with a lower bootloader anti-rollback version. Switching between Developer Support and public release Android versions on your device may require you to wipe all data from your device.  
-I have read and agree with the above terms and conditions  
-Download Android 12 Developer Support system image [Download Android 12 Developer Support system image](https://dl.google.com/developers/android/sc/images/factory/oriole-sq3a.220705.004.x2-factory-c5a02422.zip)
+Developer Support version warning: You are about to download, install, and use a Developer Support version of Android on your Pixel device. Developer Support versions may not be stable, and may contain errors and defects that can result in serious damage to computer systems, devices, applications and data. Data or metrics may be collected from the devices in the Developer Support build at the sole discretion of Google. Google makes no warranties, express or implied, with respect to the Developer Support versions. Your use is at your own risk, and not Google's. Certain functionality (including core functionality, such as your ability to place and receive calls) or applications may not work properly. You are solely responsible for any error, defect, damage or destruction due to such use, including damage to any device or loss of data. The Developer Support version of Android contains a bootloader update with the latest anti-rollback version. After installing the Developer Support version, you will no longer be able to revert to a public release Android version with a lower bootloader anti-rollback version. Switching between Developer Support and public release Android versions on your device may require you to wipe all data from your device. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 12 Developer Support system image </button> [Download Android 12 Developer Support system image](https://dl.google.com/developers/android/sc/images/factory/oriole-sq3a.220705.004.x2-factory-c5a02422.zip)
 
-*oriole-sq3a.220705.004.x2-factory-c5a02422.zip*  
+*oriole-sq3a.220705.004.x2-factory-c5a02422.zip*
 
 ## Download Android 12 Developer Support system image
 
-Before downloading, you must agree to the following terms and conditions.  
+Before downloading, you must agree to the following terms and conditions.
 
 ## Terms and Conditions
 
-Developer Support version warning: You are about to download, install, and use a Developer Support version of Android on your Pixel device. Developer Support versions may not be stable, and may contain errors and defects that can result in serious damage to computer systems, devices, applications and data. Data or metrics may be collected from the devices in the Developer Support build at the sole discretion of Google. Google makes no warranties, express or implied, with respect to the Developer Support versions. Your use is at your own risk, and not Google's. Certain functionality (including core functionality, such as your ability to place and receive calls) or applications may not work properly. You are solely responsible for any error, defect, damage or destruction due to such use, including damage to any device or loss of data. The Developer Support version of Android contains a bootloader update with the latest anti-rollback version. After installing the Developer Support version, you will no longer be able to revert to a public release Android version with a lower bootloader anti-rollback version. Switching between Developer Support and public release Android versions on your device may require you to wipe all data from your device.  
-I have read and agree with the above terms and conditions  
-Download Android 12 Developer Support system image [Download Android 12 Developer Support system image](https://dl.google.com/developers/android/sc/images/factory/raven-sq3a.220705.004.x2-factory-56c65af2.zip)
+Developer Support version warning: You are about to download, install, and use a Developer Support version of Android on your Pixel device. Developer Support versions may not be stable, and may contain errors and defects that can result in serious damage to computer systems, devices, applications and data. Data or metrics may be collected from the devices in the Developer Support build at the sole discretion of Google. Google makes no warranties, express or implied, with respect to the Developer Support versions. Your use is at your own risk, and not Google's. Certain functionality (including core functionality, such as your ability to place and receive calls) or applications may not work properly. You are solely responsible for any error, defect, damage or destruction due to such use, including damage to any device or loss of data. The Developer Support version of Android contains a bootloader update with the latest anti-rollback version. After installing the Developer Support version, you will no longer be able to revert to a public release Android version with a lower bootloader anti-rollback version. Switching between Developer Support and public release Android versions on your device may require you to wipe all data from your device. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 12 Developer Support system image </button> [Download Android 12 Developer Support system image](https://dl.google.com/developers/android/sc/images/factory/raven-sq3a.220705.004.x2-factory-56c65af2.zip)
 
 *raven-sq3a.220705.004.x2-factory-56c65af2.zip*

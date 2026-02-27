@@ -24,11 +24,12 @@ side-by-side](https://developer.android.com/studio/preview/install-preview).
 
 ## Update your app's build configuration
 
-| **Warning:** If your project does not use Android Gradle plugin 8.13.0 or higher, first run the [Android Gradle plugin Upgrade Assistant](https://developer.android.com/r/tools/upgrade-assistant/agp-upgrade-assistant) to upgrade to at least AGP 8.13.0.
+> [!WARNING]
+> **Warning:** If your project does not use Android Gradle plugin 8.13.0 or higher, first run the [Android Gradle plugin Upgrade Assistant](https://developer.android.com/r/tools/upgrade-assistant/agp-upgrade-assistant) to upgrade to at least AGP 8.13.0.
 
 To access Android 16 QPR2 APIs, open your app's `build.gradle` or
 `build.gradle.kts` file and update the `compileSdk` for Android 16 QPR2 as
-follows:  
+follows:
 
 ### Groovy
 

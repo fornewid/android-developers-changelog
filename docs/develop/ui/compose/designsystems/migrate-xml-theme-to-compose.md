@@ -1,19 +1,8 @@
 ---
-title: Migrate XML themes to Material 3 in Compose  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/designsystems/migrate-xml-theme-to-compose
 url: https://developer.android.com/develop/ui/compose/designsystems/migrate-xml-theme-to-compose
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Migrate XML themes to Material 3 in Compose Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 When you introduce Compose in an existing app, you need to migrate your Material
 XML themes to use `MaterialTheme` for Compose components. This means your app's
@@ -30,7 +19,7 @@ Material 3 Compose theming.
 ## Glossary
 
 | Term | Definition |
-| --- | --- |
+|---|---|
 | `MaterialTheme` | The composable function that provides theming (colors, typography, shapes) to Compose UI components. |
 | `Shape` | A Compose object used to define custom component shapes for a `MaterialTheme`. |
 | `Typography` | A Compose object used to define custom text styles (font families, sizes, weights) for a `MaterialTheme`. |
@@ -41,12 +30,8 @@ Material 3 Compose theming.
 
 Before migrating, be aware of the following limitations:
 
-* This guide focuses on migrating to Material 3 only. For migrating from
-  alternative design systems, see [Material 2](/develop/ui/compose/designsystems/material) or
-  [Custom design systems in Compose](/develop/ui/compose/designsystems/custom).
-* The ultimate goal is a complete migration to Compose, which allows for the
-  removal of XML theming. This guide explains how to migrate, but it doesn't
-  explain how to finally remove XML theming.
+- This guide focuses on migrating to Material 3 only. For migrating from alternative design systems, see [Material 2](https://developer.android.com/develop/ui/compose/designsystems/material) or [Custom design systems in Compose](https://developer.android.com/develop/ui/compose/designsystems/custom).
+- The ultimate goal is a complete migration to Compose, which allows for the removal of XML theming. This guide explains how to migrate, but it doesn't explain how to finally remove XML theming.
 
 ## Step 1: Evaluate the design system
 
@@ -67,24 +52,23 @@ Resources such as strings can be reused as is and don't need to be migrated.
 Migrate the dark and light color schemes from XML to their equivalents in
 Material 3 Compose.
 
-**Note:** Material 3 naming differs from Material 2 color naming.
+> [!NOTE]
+> **Note:** Material 3 naming differs from Material 2 color naming.
 
 ## Step 4: Migrate custom shapes and typography
 
-* If your app uses custom shapes:
+- If your app uses custom shapes:
 
-  1. In your Compose code, define a `Shape` object to replicate your XML shape
-     definitions.
+  1. In your Compose code, define a `Shape` object to replicate your XML shape definitions.
   2. Provide this `Shape` object to your `MaterialTheme`.
 
-     For more details, see [shapes](/develop/ui/compose/designsystems/material3#shapes).
-* If your app uses custom typography:
+     For more details, see [shapes](https://developer.android.com/develop/ui/compose/designsystems/material3#shapes).
+- If your app uses custom typography:
 
-  1. In your Compose code, define a `Typography` object in your Compose code to
-     replicate your XML text styles and font definitions.
+  1. In your Compose code, define a `Typography` object in your Compose code to replicate your XML text styles and font definitions.
   2. Provide this `Typography` object to your `MaterialTheme`.
 
-     For more details, see [typography](/develop/ui/compose/designsystems/material3#typography).
+     For more details, see [typography](https://developer.android.com/develop/ui/compose/designsystems/material3#typography).
 
 ## Step 5: Validate the theme migration
 

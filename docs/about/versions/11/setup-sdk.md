@@ -46,7 +46,7 @@ Changing your app's build configuration to target Android 11 gives your app
 access to the Android 11 APIs and lets you fully test your app's compatibility
 as you [prepare to add full support for Android 11](https://developer.android.com/about/versions/11/migration#setup_sdk). To do this, open your
 module-level `build.gradle` file and update the `compileSdkVersion` and
-`targetSdkVersion`:  
+`targetSdkVersion`:
 
 ### Groovy
 
@@ -73,7 +73,9 @@ android {
     ...
 }
 ```
-| **Note:** If you're not ready yet to fully support Android 11, you can still perform app compatibility testing using a debuggable app, an Android 11 device, and the [compatibility framework](https://developer.android.com/guide/app-compatibility/test-debug), without changing either your app's `compileSdkVersion` or `targetSdkVersion`.
+
+> [!NOTE]
+> **Note:** If you're not ready yet to fully support Android 11, you can still perform app compatibility testing using a debuggable app, an Android 11 device, and the [compatibility framework](https://developer.android.com/guide/app-compatibility/test-debug), without changing either your app's `compileSdkVersion` or `targetSdkVersion`.
 
 To learn about the changes in Android 11 that might affect your
 app so you can begin testing for them, read the following pages:

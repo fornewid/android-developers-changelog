@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/in-app-promo-sdk
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 To promote features of your app and make it easier to use, you can suggest
 Assistant shortcuts to your users. Assistant shortcuts are concise phrases that
 a user can utter to trigger functionality within your app.

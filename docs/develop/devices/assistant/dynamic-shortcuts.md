@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/dynamic-shortcuts
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 [Android shortcuts](https://developer.android.com/guide/topics/ui/shortcuts) provide users with quick
 methods to perform an action or access content in an app.
 Assistant can proactively suggest your Android dynamic shortcuts to users at

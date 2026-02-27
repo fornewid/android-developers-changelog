@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/copy-paste
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use copy and paste in Compose.  
-[Copy and paste →](https://developer.android.com/develop/ui/compose/touch-input/copy-and-paste)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use copy and paste in Compose. [Copy and paste →](https://developer.android.com/develop/ui/compose/touch-input/copy-and-paste) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 Android provides a powerful clipboard-based framework for copying and pasting. It supports simple
 and complex data types, including text strings, complex data structures, text and binary stream
@@ -44,7 +41,7 @@ Text
 
 URI
 :
-    A [Uri](https://developer.android.com/reference/android/net/Uri) object representing any
+    A `https://developer.android.com/reference/android/net/Uri` object representing any
     form of URI. This is primarily for copying complex data from a content provider. To copy
     data, put a `Uri` object into a clip object and put the clip object onto the
     clipboard. To paste the data, get the clip object, get the `Uri` object,
@@ -53,7 +50,7 @@ URI
 
 Intent
 :
-    An [Intent](https://developer.android.com/reference/android/content/Intent). This
+    An `https://developer.android.com/reference/android/content/Intent`. This
     supports copying application shortcuts. To copy data, create an `Intent`, put
     it in a clip object, and put the clip object on the clipboard. To paste the data, get
     the clip object and then copy the `Intent` object into your application's
@@ -80,19 +77,19 @@ This section describes the classes used by the clipboard framework.
 ### ClipboardManager
 
 The Android system clipboard is represented by the global
-[ClipboardManager](https://developer.android.com/reference/android/content/ClipboardManager) class.
+`https://developer.android.com/reference/android/content/ClipboardManager` class.
 Don't instantiate this class directly. Instead, get a reference to it by invoking
-[getSystemService(CLIPBOARD_SERVICE)](https://developer.android.com/reference/android/content/Context#getSystemService(java.lang.String)).
+`https://developer.android.com/reference/android/content/Context#getSystemService(java.lang.String)`.
 
 ### ClipData, ClipData.Item, and ClipDescription
 
 To add data to the clipboard, create a
-[ClipData](https://developer.android.com/reference/android/content/ClipData) object that contains
+`https://developer.android.com/reference/android/content/ClipData` object that contains
 a description of the data and the data itself. The clipboard holds one `ClipData` at a
 time. A `ClipData` contains a
-[ClipDescription](https://developer.android.com/reference/android/content/ClipDescription) object
+`https://developer.android.com/reference/android/content/ClipDescription` object
 and one or more
-[ClipData.Item](https://developer.android.com/reference/android/content/ClipData.Item) objects.
+`https://developer.android.com/reference/android/content/ClipData.Item` objects.
 
 A `ClipDescription` object contains metadata about the clip. In particular, it
 contains an array of available MIME types for the clip's data. Additionally, on
@@ -107,7 +104,7 @@ A `ClipData.Item` object contains the text, URI, or intent data:
 
 Text
 :
-    A [CharSequence](https://developer.android.com/reference/java/lang/CharSequence).
+    A `https://developer.android.com/reference/java/lang/CharSequence`.
 
 URI
 :
@@ -134,36 +131,36 @@ The `ClipData` class provides static convenience methods for creating a
 `ClipDescription` object:
 
 
-[newPlainText(label, text)](https://developer.android.com/reference/android/content/ClipData#newPlainText(java.lang.CharSequence, java.lang.CharSequence))
+`https://developer.android.com/reference/android/content/ClipData#newPlainText(java.lang.CharSequence, java.lang.CharSequence)`
 :   Returns a `ClipData` object whose single `ClipData.Item` object
     contains a text string. The `ClipDescription` object's label is set to
     `label`. The single MIME type in `ClipDescription` is
-    [MIMETYPE_TEXT_PLAIN](https://developer.android.com/reference/android/content/ClipDescription#MIMETYPE_TEXT_PLAIN).
+    `https://developer.android.com/reference/android/content/ClipDescription#MIMETYPE_TEXT_PLAIN`.
 
     Use `newPlainText()` to create a clip from a text string.
 
 
-[newUri(resolver, label, URI)](https://developer.android.com/reference/android/content/ClipData#newUri(android.content.ContentResolver, java.lang.CharSequence, android.net.Uri))
+`https://developer.android.com/reference/android/content/ClipData#newUri(android.content.ContentResolver, java.lang.CharSequence, android.net.Uri)`
 :   Returns a `ClipData` object whose single `ClipData.Item` object
     contains a URI. The `ClipDescription` object's label is set to
     `label`. If the URI is a content URI---that is, if
-    [Uri.getScheme()](https://developer.android.com/reference/android/net/Uri#getScheme())
+    `https://developer.android.com/reference/android/net/Uri#getScheme()`
     returns `content:`---the method uses the
-    [ContentResolver](https://developer.android.com/reference/android/content/ContentResolver)
+    `https://developer.android.com/reference/android/content/ContentResolver`
     object provided in `resolver` to retrieve the available MIME types from the
     content provider. It then stores them in `ClipDescription`. For a URI that isn't
     a `content:` URI, the method sets the MIME type to
-    [MIMETYPE_TEXT_URILIST](https://developer.android.com/reference/android/content/ClipDescription#MIMETYPE_TEXT_URILIST).
+    `https://developer.android.com/reference/android/content/ClipDescription#MIMETYPE_TEXT_URILIST`.
 
     Use `newUri()` to create a clip from a URI---particularly a
     `content:` URI.
 
 
-[newIntent(label, intent)](https://developer.android.com/reference/android/content/ClipData#newIntent(java.lang.CharSequence, android.content.Intent))
+`https://developer.android.com/reference/android/content/ClipData#newIntent(java.lang.CharSequence, android.content.Intent)`
 :   Returns a `ClipData` object whose single `ClipData.Item` object
     contains an `Intent`. The `ClipDescription` object's label is set to
     `label`. The MIME type is set to
-    [MIMETYPE_TEXT_INTENT](https://developer.android.com/reference/android/content/ClipDescription#MIMETYPE_TEXT_INTENT).
+    `https://developer.android.com/reference/android/content/ClipDescription#MIMETYPE_TEXT_INTENT`.
 
     Use `newIntent()` to create a clip from an `Intent` object.
 
@@ -171,7 +168,7 @@ The `ClipData` class provides static convenience methods for creating a
 
 Even if your application only handles text, you can copy non-text data from the clipboard by
 converting it with the
-[ClipData.Item.coerceToText()](https://developer.android.com/reference/android/content/ClipData.Item#coerceToText(android.content.Context))
+`https://developer.android.com/reference/android/content/ClipData.Item#coerceToText(android.content.Context)`
 method.
 
 This method converts the data in `ClipData.Item` to text and returns a
@@ -181,25 +178,25 @@ on the form of data in `ClipData.Item`:
 Text
 :
     If `ClipData.Item` is text---that is, if
-    [getText()](https://developer.android.com/reference/android/content/ClipData.Item#getText())
+    `https://developer.android.com/reference/android/content/ClipData.Item#getText()`
     isn't null---coerceToText() returns the text.
 
 URI
 :
     If `ClipData.Item` is a URI---that is, if
-    [getUri()](https://developer.android.com/reference/android/content/ClipData.Item#getUri())
+    `https://developer.android.com/reference/android/content/ClipData.Item#getUri()`
     isn't null---`coerceToText()` tries to use it as a content URI.
 
     - If the URI is a content URI and the provider can return a text stream, `coerceToText()` returns a text stream.
-    - If the URI is a content URI but the provider doesn't offer a text stream, `coerceToText()` returns a representation of the URI. The representation is the same as that returned by [Uri.toString()](https://developer.android.com/reference/android/net/Uri#toString()).
+    - If the URI is a content URI but the provider doesn't offer a text stream, `coerceToText()` returns a representation of the URI. The representation is the same as that returned by `https://developer.android.com/reference/android/net/Uri#toString()`.
     - If the URI isn't a content URI, `coerceToText()` returns a representation of the URI. The representation is the same as that returned by `Uri.toString()`.
 
 Intent
 :   If `ClipData.Item` is an `Intent`---that is, if
-    [getIntent()](https://developer.android.com/reference/android/content/ClipData.Item#getIntent())
+    `https://developer.android.com/reference/android/content/ClipData.Item#getIntent()`
     isn't null---`coerceToText()` converts it to an Intent URI and returns it.
     The representation is the same as that returned by
-    [Intent.toUri(URI_INTENT_SCHEME)](https://developer.android.com/reference/android/content/Intent#toUri(int)).
+    `https://developer.android.com/reference/android/content/Intent#toUri(int)`.
 
 The clipboard framework is summarized in figure 2. To copy data, an application puts a
 `ClipData` object on the `ClipboardManager` global clipboard. The
@@ -218,7 +215,7 @@ create a `ClipData` object, and add a `ClipDescription` and one or more
 `ClipboardManager` object. This is described further in the following procedure:
 
 1. If you are copying data using a content URI, set up a content provider.
-2. Get the system clipboard:  
+2. Get the system clipboard:
 
    ### Kotlin
 
@@ -246,7 +243,7 @@ create a `ClipData` object, and add a `ClipDescription` and one or more
 3.
    Copy the data to a new `ClipData` object:
 
-   - **For text**  
+   - **For text**
 
      ### Kotlin
 
@@ -265,7 +262,7 @@ create a `ClipData` object, and add a `ClipDescription` and one or more
 
      This snippet constructs a URI by encoding a record ID onto the content URI for
      the provider. This technique is covered in more detail in the
-     [Encoding an identifier on the URI](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#Encoding) section.  
+     [Encoding an identifier on the URI](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#Encoding) section.
 
      ### Kotlin
 
@@ -307,7 +304,7 @@ create a `ClipData` object, and add a `ClipDescription` and one or more
    - **For an intent**
 
      This snippet constructs an `Intent` for an application and then puts
-     it in the clip object:  
+     it in the clip object:
 
      ### Kotlin
 
@@ -330,7 +327,7 @@ create a `ClipData` object, and add a `ClipDescription` and one or more
      // and its data is the Intent object created previously.
      ClipData clip = ClipData.newIntent("Intent", appIntent);
      ```
-4. Put the new clip object on the clipboard:  
+4. Put the new clip object on the clipboard:
 
    ### Kotlin
 
@@ -377,7 +374,7 @@ or snackbars shown after an in-app copy for Android 13 and higher.
 ![Post snackbar after an in-app copy.](https://developer.android.com/static/images/about/versions/13/snackbar-overlap.png) **Figure 4.** If you show a copy confirmation snackbar in Android 13, the user sees duplicate messages. ![Post toast after an in-app copy.](https://developer.android.com/static/images/about/versions/13/toast-overlap.png) **Figure 5.** If you show a copy confirmation toast in Android 13, the user sees duplicate messages.
 
 
-Here's an example of how to implement this:  
+Here's an example of how to implement this:
 
 ```kotlin
 fun textCopyThenPost(textCopied:String) {
@@ -400,7 +397,7 @@ content from appearing in the visual confirmation of copied content in Android 1
 
 
 To flag sensitive content, add a boolean extra to the `ClipDescription`. All apps must do
-this, regardless of the targeted API level.  
+this, regardless of the targeted API level.
 
 ```kotlin
 // If your app is compiled with the API level 33 SDK or higher.
@@ -424,7 +421,7 @@ As described previously, paste data from the clipboard by getting the global cli
 getting the clip object, looking at its data, and if possible copying the data from the clip object
 to your own storage. This section explains in detail how to paste the three forms of clipboard
 data.
-| **Important:** For editable `TextView` objects, follow the [Receive rich content](https://developer.android.com/guide/topics/input/receive-rich-content) document to add support for pasting any type of content. The following section describes how to develop a custom UI for pasting content.
+**Important:** For editable `TextView` objects, follow the [Receive rich content](https://developer.android.com/guide/topics/input/receive-rich-content) document to add support for pasting any type of content. The following section describes how to develop a custom UI for pasting content.
 
 ### Paste plain text
 
@@ -432,7 +429,7 @@ To paste plain text, get the global clipboard and verify that it can return plai
 the clip object and copy its text to your own storage using `getText()`, as described in
 the following procedure:
 
-1. Get the global `ClipboardManager` object using `getSystemService(CLIPBOARD_SERVICE)`. Also, declare a global variable to contain the pasted text:  
+1. Get the global `ClipboardManager` object using `getSystemService(CLIPBOARD_SERVICE)`. Also, declare a global variable to contain the pasted text:
 
    ### Kotlin
 
@@ -447,7 +444,7 @@ the following procedure:
    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
    String pasteData = "";
    ```
-2. Determine whether you need to enable or disable the "paste" option in the current activity. Verify that the clipboard contains a clip and that you can handle the type of data represented by the clip:  
+2. Determine whether you need to enable or disable the "paste" option in the current activity. Verify that the clipboard contains a clip and that you can handle the type of data represented by the clip:
 
    ### Kotlin
 
@@ -496,7 +493,7 @@ the following procedure:
        pasteItem.setEnabled(true);
    }
    ```
-3. Copy the data from the clipboard. This point in the code is only reachable if the "paste" menu item is enabled, so you can assume that the clipboard contains plain text. You don't yet know if it contains a text string or a URI that points to plain text. The following code snippet tests this, but it only shows the code for handling plain text:  
+3. Copy the data from the clipboard. This point in the code is only reachable if the "paste" menu item is enabled, so you can assume that the clipboard contains plain text. You don't yet know if it contains a text string or a URI that points to plain text. The following code snippet tests this, but it only shows the code for handling plain text:
 
    ### Kotlin
 
@@ -589,7 +586,7 @@ The following procedure describes how to get data from a content provider based 
 on the clipboard. It checks whether a MIME type that the application can use is available from the
 provider.
 
-1. Declare a global variable to contain the MIME type:  
+1. Declare a global variable to contain the MIME type:
 
    ### Kotlin
 
@@ -606,7 +603,7 @@ provider.
    // the provider.
    public static final String MIME_TYPE_CONTACT = "vnd.android.cursor.item/vnd.example.contact";
    ```
-2. Get the global clipboard. Also get a content resolver so you can access the content provider:  
+2. Get the global clipboard. Also get a content resolver so you can access the content provider:
 
    ### Kotlin
 
@@ -627,7 +624,7 @@ provider.
    // Gets a content resolver instance.
    ContentResolver cr = getContentResolver();
    ```
-3. Get the primary clip from the clipboard and get its contents as a URI:  
+3. Get the primary clip from the clipboard and get its contents as a URI:
 
    ### Kotlin
 
@@ -658,7 +655,7 @@ provider.
        // Tries to get the item's contents as a URI.
        Uri pasteUri = item.getUri();
    ```
-4. Test whether the URI is a content URI by calling [getType(Uri)](https://developer.android.com/reference/android/content/ContentResolver#getType(android.net.Uri)). This method returns null if `Uri` doesn't point to a valid content provider.  
+4. Test whether the URI is a content URI by calling `https://developer.android.com/reference/android/content/ContentResolver#getType(android.net.Uri)`. This method returns null if `Uri` doesn't point to a valid content provider.
 
    ### Kotlin
 
@@ -679,7 +676,7 @@ provider.
            // ...is this a content URI?
            String uriMimeType = cr.getType(pasteUri);
    ```
-5. Test whether the content provider supports a MIME type that the application understands. If it does, call [ContentResolver.query()](https://developer.android.com/reference/android/content/ContentResolver#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)) to get the data. The return value is a [Cursor](https://developer.android.com/reference/android/database/Cursor).  
+5. Test whether the content provider supports a MIME type that the application understands. If it does, call `https://developer.android.com/reference/android/content/ContentResolver#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)` to get the data. The return value is a `https://developer.android.com/reference/android/database/Cursor`.
 
    ### Kotlin
 
@@ -743,7 +740,7 @@ provider.
 
 To paste an intent, first get the global clipboard. Examine the `ClipData.Item` object
 to see whether it contains an `Intent`. Then call `getIntent()` to copy the
-intent to your own storage. The following snippet demonstrates this:  
+intent to your own storage. The following snippet demonstrates this:
 
 ### Kotlin
 
@@ -792,7 +789,7 @@ if (pasteIntent != null) {
 On Android 12 (API level 31) and higher, the system usually shows a toast message when your app
 calls
 [`getPrimaryClip()`](https://developer.android.com/reference/android/content/ClipboardManager#getPrimaryClip()).
-The text inside the message contains the following format:  
+The text inside the message contains the following format:
 
 ```
 APP pasted from your clipboard
@@ -828,13 +825,13 @@ just has to get your "reference"---the URI plus the identifier---from the
 clipboard, give it your content provider, and get back the data.
 
 You usually encode an identifier onto a content URI by concatenating it to the end of the URI.
-For example, suppose you define your provider URI as the following string:  
+For example, suppose you define your provider URI as the following string:
 
 ```
 "content://com.example.contacts"
 ```
 
-If you want to encode a name onto this URI, use the following code snippet:  
+If you want to encode a name onto this URI, use the following code snippet:
 
 ### Kotlin
 
@@ -859,7 +856,7 @@ Uri copyUri = Uri.parse(uriString);
 ```
 
 If you are already using a content provider, you might want to add a new URI path that indicates
-the URI is for copying. For example, suppose you already have the following URI paths:  
+the URI is for copying. For example, suppose you already have the following URI paths:
 
 ```
 "content://com.example.contacts/people"
@@ -867,7 +864,7 @@ the URI is for copying. For example, suppose you already have the following URI 
 "content://com.example.contacts/people/images"
 ```
 
-You can add another path that for copying URIs:  
+You can add another path that for copying URIs:
 
 ```
 "content://com.example.contacts/copying"
@@ -888,7 +885,7 @@ data it currently contains.
 ### Copy data structures
 
 Set up a content provider for copying and pasting complex data as a subclass of the
-[ContentProvider](https://developer.android.com/reference/android/content/ContentProvider)
+`https://developer.android.com/reference/android/content/ContentProvider`
 component. Encode the URI you put on the clipboard so that it points to the exact record you want to
 provide. In addition, consider the existing state of your application:
 
@@ -899,16 +896,16 @@ provide. In addition, consider the existing state of your application:
 In the content provider, override at least the following methods:
 
 
-[query()](https://developer.android.com/reference/android/content/ContentResolver#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String))
+`https://developer.android.com/reference/android/content/ContentResolver#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)`
 :   Pasting applications assume they can get your data by using this method with the URI you
     put on the clipboard. To support copying, have this method detect URIs containing a special
     "copy" path. Your application can then create a "copy" URI to put on the
     clipboard, containing the copy path and a pointer to the exact record you want to copy.
 
 
-[getType()](https://developer.android.com/reference/android/content/ContentProvider#getType(android.net.Uri))
+`https://developer.android.com/reference/android/content/ContentProvider#getType(android.net.Uri)`
 :   This method must return the MIME types for the data you intend to copy. The method
-    [newUri()](https://developer.android.com/reference/android/content/ClipData#newUri(android.content.ContentResolver, java.lang.CharSequence, android.net.Uri))
+    `https://developer.android.com/reference/android/content/ClipData#newUri(android.content.ContentResolver, java.lang.CharSequence, android.net.Uri)`
     calls `getType()` to put the MIME types into the new `ClipData`
     object.
 
@@ -916,9 +913,9 @@ In the content provider, override at least the following methods:
     [Content providers](https://developer.android.com/guide/topics/providers/content-providers).
 
 You don't need to have any of the other content provider methods, such as
-[insert()](https://developer.android.com/reference/android/content/ContentProvider#insert(android.net.Uri, android.content.ContentValues))
+`https://developer.android.com/reference/android/content/ContentProvider#insert(android.net.Uri, android.content.ContentValues)`
 or
-[update()](https://developer.android.com/reference/android/content/ContentProvider#update(android.net.Uri, android.content.ContentValues, java.lang.String, java.lang.String[])).
+`https://developer.android.com/reference/android/content/ContentProvider#update(android.net.Uri, android.content.ContentValues, java.lang.String, java.lang.String[])`.
 A pasting application only needs to get your supported MIME types and copy data from your provider.
 If you already have these methods, they won't interfere with copy operations.
 
@@ -953,7 +950,7 @@ The following snippets demonstrate how to set up your application to copy comple
    // Declares a MIME type for the copied data.
    public static final String MIME_TYPE_CONTACT = "vnd.android.cursor.item/vnd.example.contact";
    ```
-2. In the activity users copy data from, set up the code to copy data to the clipboard. In response to a copy request, put the URI on the clipboard.  
+2. In the activity users copy data from, set up the code to copy data to the clipboard. In response to a copy request, put the URI on the clipboard.
 
    ### Kotlin
 
@@ -1042,7 +1039,7 @@ The following snippets demonstrate how to set up your application to copy comple
    sUriMatcher.addURI(CONTACTS, "names/*", GET_SINGLE_CONTACT);
    ```
 4. Set up the
-   [query()](https://developer.android.com/reference/android/content/ContentProvider#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String))
+   `https://developer.android.com/reference/android/content/ContentProvider#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)`
    method. This method can handle different URI patterns, depending on how you code it, but only
    the pattern for the clipboard copying operation shows.
 
@@ -1134,7 +1131,7 @@ such as the following:
 
 A content provider for data streams provides access to its data with a file descriptor object,
 such as
-[AssetFileDescriptor](https://developer.android.com/reference/android/content/res/AssetFileDescriptor),
+`https://developer.android.com/reference/android/content/res/AssetFileDescriptor`,
 instead of a `Cursor` object. The pasting application reads the data stream using this
 file descriptor.
 
@@ -1159,12 +1156,12 @@ The following list shows the most important file descriptor methods for a conten
 of these has a corresponding `ContentResolver` method with the string
 "Descriptor" appended to the method name. For example, the `ContentResolver`
 analog of
-[openAssetFile()](https://developer.android.com/reference/android/content/ContentProvider#openAssetFile(android.net.Uri, java.lang.String))
+`https://developer.android.com/reference/android/content/ContentProvider#openAssetFile(android.net.Uri, java.lang.String)`
 is
-[openAssetFileDescriptor()](https://developer.android.com/reference/android/content/ContentResolver#openAssetFileDescriptor(android.net.Uri, java.lang.String)).
+`https://developer.android.com/reference/android/content/ContentResolver#openAssetFileDescriptor(android.net.Uri, java.lang.String)`.
 
 
-[openTypedAssetFile()](https://developer.android.com/reference/android/content/ContentProvider#openTypedAssetFile(android.net.Uri, java.lang.String, android.os.Bundle))
+`https://developer.android.com/reference/android/content/ContentProvider#openTypedAssetFile(android.net.Uri, java.lang.String, android.os.Bundle)`
 
 :   This method returns an asset file descriptor, but only if the provided MIME type is
     supported by the provider. The caller---the application doing the pasting---provides
@@ -1176,22 +1173,22 @@ is
     content provider has copied to the clipboard.
 
 
-[openAssetFile()](https://developer.android.com/reference/android/content/ContentProvider#openAssetFile(android.net.Uri, java.lang.String))
+`https://developer.android.com/reference/android/content/ContentProvider#openAssetFile(android.net.Uri, java.lang.String)`
 :
     This method is a more general form of `openTypedAssetFile()`. It doesn't filter
     for allowed MIME types, but it can read subsections of files.
 
 
-[openFile()](https://developer.android.com/reference/android/content/ContentProvider#openFile(android.net.Uri, java.lang.String))
+`https://developer.android.com/reference/android/content/ContentProvider#openFile(android.net.Uri, java.lang.String)`
 :
     This is a more general form of `openAssetFile()`. It can't read subsections of
     files.
 
 You can optionally use the
-[openPipeHelper()](https://developer.android.com/reference/android/content/ContentProvider#openPipeHelper(android.net.Uri, java.lang.String, android.os.Bundle, T, android.content.ContentProvider.PipeDataWriter<T>))
+`https://developer.android.com/reference/android/content/ContentProvider#openPipeHelper(android.net.Uri, java.lang.String, android.os.Bundle, T, android.content.ContentProvider.PipeDataWriter<T>)`
 method with your file descriptor method. This lets the pasting application read the stream data in a
 background thread using a pipe. To use this method, implement the
-[ContentProvider.PipeDataWriter](https://developer.android.com/reference/android/content/ContentProvider.PipeDataWriter)
+`https://developer.android.com/reference/android/content/ContentProvider.PipeDataWriter`
 interface.
 
 ## Design effective copy and paste functionality

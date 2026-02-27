@@ -63,7 +63,8 @@ Example:
     Output Message:
     (int) $2 = 9
 
-| **Caution:** Some shell commands may cause Visual Studio to fall out of sync with LLDB and behave unexpectedly.
+> [!CAUTION]
+> **Caution:** Some shell commands may cause Visual Studio to fall out of sync with LLDB and behave unexpectedly.
 
 ## Data visualization
 

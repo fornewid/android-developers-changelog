@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/overview
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 Google Assistant enables voice-forward control of Android apps. Using
 Assistant, users can launch apps, perform tasks, access content, and more by
 using their voice to say things like, *"Hey Google, start a run on
