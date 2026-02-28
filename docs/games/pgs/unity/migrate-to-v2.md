@@ -24,7 +24,7 @@ repository](https://github.com/playgameservices/play-games-plugin-for-unity/tree
 
 In the Unity Editor, remove the following folders or files.
 
-```text
+```
 Assets/GooglePlayGames
 
 Assets/GeneratedLocalRepo/GooglePlayGames

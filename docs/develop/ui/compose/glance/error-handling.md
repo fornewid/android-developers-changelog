@@ -11,7 +11,7 @@ Android 15. This page provides best practices regarding these APIs.
 
 Compose doesn't allow try-catch blocks around composables, but lets you wrap
 your app's other logic in these blocks. This lets you use Compose for your
-error view, as shown in the following example:  
+error view, as shown in the following example:
 
     provideContent {
            var isError = false;
@@ -40,7 +40,7 @@ to look for it](https://developer.android.com/static/develop/ui/compose/images/d
 
 Glance lets developers provide an XML layout as a fallback if composition
 fails. This means that there was an error in the Compose code. This error UI
-also appears if you have an uncaught error in your app's code.  
+also appears if you have an uncaught error in your app's code.
 
     class UpgradeWidget : GlanceAppWidget(errorUiLayout = R.layout.error_layout)
 
@@ -54,7 +54,7 @@ As of Glance 1.1.0, Glance lets you override the default error handling code.
 This way, you can add action callbacks in the event of an uncaught exception or
 error in composition.
 
-To use this feature, override the `onCompositionError()` function:  
+To use this feature, override the `onCompositionError()` function:
 
     GlanceAppWidget.onCompositionError(
         context: Context,

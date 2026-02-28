@@ -32,7 +32,8 @@ Google Play Console:
 
 <br />
 
-| **Note:** Use APIs to [unlock achievements](https://developer.android.com/games/pgs/android/achievements#unlock_achievements) for the signed in player. This will reveal any hidden achievements to the player.
+> [!NOTE]
+> **Note:** Use APIs to [unlock achievements](https://developer.android.com/games/pgs/android/achievements#unlock_achievements) for the signed in player. This will reveal any hidden achievements to the player.
 
 ##### Create an achievement
 
@@ -258,7 +259,8 @@ If you already have existing achievements and want to edit:
 
    This republishes your game, along with all your updated achievement.
 
-| **Note:** Once an achievement is published, its initial state (hidden or revealed) and its type (incremental or standard) is fixed and can't be changed.
+> [!NOTE]
+> **Note:** Once an achievement is published, its initial state (hidden or revealed) and its type (incremental or standard) is fixed and can't be changed.
 
 ##### Delete an achievement
 
@@ -309,7 +311,8 @@ resources:
 
 ## Testing achievements
 
-| **Note:** During testing, it is normal that the "achievement unlock" popup shows 0 XP gained. This is to prevent interfering with live scoring systems.
+> [!NOTE]
+> **Note:** During testing, it is normal that the "achievement unlock" popup shows 0 XP gained. This is to prevent interfering with live scoring systems.
 
 To verify that the achievements work as intended, follow the steps to test them:
 

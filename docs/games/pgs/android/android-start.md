@@ -4,8 +4,9 @@ url: https://developer.android.com/games/pgs/android/android-start
 source: md.txt
 ---
 
-| **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-| documentation](https://developer.android.com/games/pgs/v1/android).
+> [!NOTE]
+> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
+> documentation](https://developer.android.com/games/pgs/v1/android).
 
 This guide describes how to set up an Android Studio project to use the
 Play Games Services SDK. You must complete these steps before you

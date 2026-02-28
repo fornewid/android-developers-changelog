@@ -4,15 +4,18 @@ url: https://developer.android.com/develop/ui/views/text-and-emoji/emoji-compat
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to support emoji in Compose. [Support emoji →](https://developer.android.com/develop/ui/compose/text/emoji) ![](https://developer.android.com/static/images/android-compose-ui-logo.png) **Caution:** As of late 2021, the `androidx.emoji:emoji`
-| library is deprecated in favor of `androidx.emoji2:emoji2`, which
-| provides integration into `androidx.appcompat`.
-|
-| To support modern emoji and simplify backward-compatibility with lower
-| versions of Android, it's recommended that you migrate to the
-| [`androidx.emoji2:emoji2`](https://developer.android.com/jetpack/androidx/releases/emoji2)
-| library. For details on how to implement, see
-| [Support modern emoji](https://developer.android.com/guide/topics/ui/look-and-feel/emoji2).
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to support emoji in Compose. [Support emoji →](https://developer.android.com/develop/ui/compose/text/emoji) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+
+> [!CAUTION]
+> **Caution:** As of late 2021, the `androidx.emoji:emoji`
+> library is deprecated in favor of `androidx.emoji2:emoji2`, which
+> provides integration into `androidx.appcompat`.
+>
+> To support modern emoji and simplify backward-compatibility with lower
+> versions of Android, it's recommended that you migrate to the
+> [`androidx.emoji2:emoji2`](https://developer.android.com/jetpack/androidx/releases/emoji2)
+> library. For details on how to implement, see
+> [Support modern emoji](https://developer.android.com/guide/topics/ui/look-and-feel/emoji2).
 
 
 The `https://developer.android.com/reference/androidx/emoji/text/EmojiCompat` support library aims to

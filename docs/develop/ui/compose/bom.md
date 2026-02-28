@@ -10,14 +10,14 @@ stable versions of the different Compose libraries, in such a way that they work
 well together. When using the BOM in your app, you don't need to add any
 version to the Compose library dependencies themselves. When you update the BOM
 version, all the libraries that you're using are automatically updated to their
-new versions.  
+new versions.
 
 ### Kotlin
 
 ```kotlin
 dependencies {
     // Specify the Compose BOM with a version definition
-    val composeBom = platform("androidx.compose:compose-bom:2026.01.01")
+    val composeBom = platform("androidx.compose:compose-bom:2026.02.01")
     implementation(composeBom)
     testImplementation(composeBom)
     androidTestImplementation(composeBom)
@@ -36,7 +36,7 @@ dependencies {
 ```groovy
 dependencies {
     // Specify the Compose BOM with a version definition
-    Dependency composeBom = platform('androidx.compose:compose-bom:2026.01.01')
+    Dependency composeBom = platform('androidx.compose:compose-bom:2026.02.01')
     implementation composeBom
     testImplementation composeBom
     androidTestImplementation composeBom
@@ -74,18 +74,18 @@ guidance on configuring it.
 In the `build.gradle` dependencies section, keep the import of the BOM
 platform. On the library dependency import, specify the overriding version. For
 example, here's how to declare dependencies if you want to use a newer version
-of the animation library, no matter what version is designated in the BOM:  
+of the animation library, no matter what version is designated in the BOM:
 
 ### Kotlin
 
 ```kotlin
 dependencies {
     // Specify the Compose BOM with a version definition
-    val composeBom = platform("androidx.compose:compose-bom:2026.01.01")
+    val composeBom = platform("androidx.compose:compose-bom:2026.02.01")
     implementation(composeBom)
 
     // Override the BOM version when needed
-    implementation("androidx.compose.animation:animation:1.11.0-alpha01")
+    implementation("androidx.compose.animation:animation:1.11.0-alpha06")
 
     // ..
 }
@@ -96,16 +96,18 @@ dependencies {
 ```groovy
 dependencies {
     // Specify the Compose BOM with a version definition
-    Dependency composeBom = platform("androidx.compose:compose-bom:2026.01.01")
+    Dependency composeBom = platform("androidx.compose:compose-bom:2026.02.01")
     implementation composeBom
 
     // Override the BOM version when needed
-    implementation 'androidx.compose.animation:animation:1.11.0-alpha01'
+    implementation 'androidx.compose.animation:animation:1.11.0-alpha06'
 
     // ..
 }
 ```
-| **Note:** Overriding the BOM to use an alpha version of a Compose library will update your build to use the required dependencies of that alpha library (which in turn, could be alpha).
+
+> [!NOTE]
+> **Note:** Overriding the BOM to use an alpha version of a Compose library will update your build to use the required dependencies of that alpha library (which in turn, could be alpha).
 
 ## Does the BOM automatically add all the Compose libraries to my app?
 
@@ -134,13 +136,13 @@ stable versions at the same time.
 ## Does the BOM work with version catalogs?
 
 Yes. You can include the BOM itself in the version catalog, and omit the other
-Compose library versions:  
+Compose library versions:
 
     [libraries]
     androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
     androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
 
-Don't forget to import the BOM in your module's `build.gradle`:  
+Don't forget to import the BOM in your module's `build.gradle`:
 
 ### Kotlin
 
@@ -177,15 +179,17 @@ of the latest-available versions of Compose libraries.
 
 The Alpha and Beta versions of the BOM are specified by adding `-alpha` and
 `-beta` to the BOM artifact name. The stable version has no suffix.
-**Note:** The alpha and beta BOMs are provided for testing of upcoming features and bug fixes. They are not intended for production use. These BOMs do not *only* contain alpha and beta versions. If the latest stable version of a library is higher than the latest alpha, beta, or RC versions, that stable version will appear in the alpha and beta BOMs. If the latest version is a Beta or RC, that version will appear in the alpha and beta BOMs.  
+
+> [!NOTE]
+> **Note:** The alpha and beta BOMs are provided for testing of upcoming features and bug fixes. They are not intended for production use. These BOMs do not *only* contain alpha and beta versions. If the latest stable version of a library is higher than the latest alpha, beta, or RC versions, that stable version will appear in the alpha and beta BOMs. If the latest version is a Beta or RC, that version will appear in the alpha and beta BOMs.
 
 ### Kotlin
 
 ```kotlin
 dependencies {
     // Specify the Compose BOM with a version definition
-    val composeBom = platform("androidx.compose:compose-bom-alpha:2026.01.01")
-    //            or platform("androidx.compose:compose-bom-beta:2026.01.01")
+    val composeBom = platform("androidx.compose:compose-bom-alpha:2026.02.01")
+    //            or platform("androidx.compose:compose-bom-beta:2026.02.01")
     implementation(composeBom)
     // ..
 }
@@ -196,8 +200,8 @@ dependencies {
 ```groovy
 dependencies {
     // Specify the Compose BOM with a version definition
-    Dependency composeBom = platform('androidx.compose:compose-bom-alpha:2026.01.01')
-    //                   or platform('androidx.compose:compose-bom-beta:2026.01.01')
+    Dependency composeBom = platform('androidx.compose:compose-bom-alpha:2026.02.01')
+    //                   or platform('androidx.compose:compose-bom-beta:2026.02.01')
     implementation composeBom
     // ..
 }

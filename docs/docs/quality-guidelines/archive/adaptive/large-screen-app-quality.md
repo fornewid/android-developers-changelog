@@ -98,7 +98,9 @@ TIER 1
 ### Large screen differentiated
 
 Large screen differentiated apps use the large screen form factor to its full potential. Differentiated apps offer a premium user experience that's productive and enjoyable.
-| **Note:** Because Tier 1 apps are highly differentiated, some of the listed capabilities are applicable only to specific types of apps. Choose the capabilities that are appropriate for your application.
+
+> [!NOTE]
+> **Note:** Because Tier 1 apps are highly differentiated, some of the listed capabilities are applicable only to specific types of apps. Choose the capabilities that are appropriate for your application.
 
 | Category | ID | Test | Description |
 |---|---|---|---|

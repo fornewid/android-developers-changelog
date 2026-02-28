@@ -4,8 +4,9 @@ url: https://developer.android.com/games/pgs/android/friends
 source: md.txt
 ---
 
-| **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-| documentation](https://developer.android.com/games/pgs/v1/android/friends).
+> [!NOTE]
+> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
+> documentation](https://developer.android.com/games/pgs/v1/android/friends).
 
 This guide describes how to use the [Friends](https://developer.android.com/games/pgs/friends) APIs in
 Android Studio projects.
@@ -33,7 +34,8 @@ task. To load the friends list, follow these steps:
       not consent and `loadFriends()` will continue to return
       `FriendsResolutionRequiredException`.
 
-      | **Note:** If you call `loadFriends()` from your server and determine that you need to request consent, you need to call `loadFriends()` again from your game client. This second call won't succeed, but it will provide you the `Intent` required to show the consent dialog.
+      > [!NOTE]
+      > **Note:** If you call `loadFriends()` from your server and determine that you need to request consent, you need to call `loadFriends()` again from your game client. This second call won't succeed, but it will provide you the `Intent` required to show the consent dialog.
 
 The following code shows how to load the friends list:
 

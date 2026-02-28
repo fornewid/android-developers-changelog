@@ -44,7 +44,7 @@ configures app signing with a generic debug keystore.
 
 You can add the debug build type to your configuration if you want to add
 or change certain settings. The following sample specifies an [`applicationIdSuffix`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/dsl/ApplicationVariantDimension#applicationIdSuffix()) for the debug build type and configures
-a "staging" build type that is initialized using settings from the debug build type:  
+a "staging" build type that is initialized using settings from the debug build type:
 
 ### Kotlin
 
@@ -151,7 +151,7 @@ packaging and distribution without having to change your source code.
 
 All flavors must belong to a named flavor dimension, which is a group of
 product flavors. You must assign all flavors to a flavor dimension;
-otherwise, you will get the following build error.  
+otherwise, you will get the following build error.
 
 ```
   Error: All flavors must now belong to a named flavor dimension.
@@ -161,14 +161,16 @@ otherwise, you will get the following build error.
 If a given module
 specifies only one flavor dimension, the Android Gradle plugin automatically
 assigns all of the module's flavors to that dimension.
-| **Tip:** The plugin tries to match variants of your app with those of local library dependencies. Because [variant-aware dependency
-| matching](https://developer.android.com/studio/build/build-variants#variant_aware) relies on how you name a flavor dimension, name your flavor dimensions carefully. Doing so gives you more control over which code and resources from your local dependencies are matched with each version of the app.
+
+> [!NOTE]
+> **Tip:** The plugin tries to match variants of your app with those of local library dependencies. Because [variant-aware dependency
+> matching](https://developer.android.com/studio/build/build-variants#variant_aware) relies on how you name a flavor dimension, name your flavor dimensions carefully. Doing so gives you more control over which code and resources from your local dependencies are matched with each version of the app.
 
 
 The following code sample creates a flavor dimension named "version" and adds
 "demo" and "full" product flavors. These flavors provide their own
 [`applicationIdSuffix`](https://developer.android.com/studio/build/build-variants#change-app-id) and
-`versionNameSuffix`:  
+`versionNameSuffix`:
 
 ### Kotlin
 
@@ -277,7 +279,7 @@ In this case, define each build variant as a separate
 [product flavor](https://developer.android.com/studio/build/build-variants#product-flavors). For each flavor
 inside the `productFlavors` block, you can redefine the `applicationId`
 property, or you can instead append a segment to the default application ID
-using `applicationIdSuffix`, as shown here:  
+using `applicationIdSuffix`, as shown here:
 
 ### Kotlin
 
@@ -319,7 +321,7 @@ This way, the application ID for the "free" product flavor is
 "com.example.myapp.free".
 
 You can also use `applicationIdSuffix` to append a segment based on
-your [build type](https://developer.android.com/studio/build/build-variants#build-types), as shown here:  
+your [build type](https://developer.android.com/studio/build/build-variants#build-types), as shown here:
 
 ### Kotlin
 
@@ -380,7 +382,7 @@ combine product flavors that belong to the same flavor dimension.
 The following code sample uses the
 [`flavorDimensions`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/ProductFlavor#dimension) property to create a "mode" flavor
 dimension to group the "full" and "demo" product flavors and an "api" flavor
-dimension to group product flavor configurations based on API level:  
+dimension to group product flavor configurations based on API level:
 
 ### Kotlin
 
@@ -555,7 +557,7 @@ Using the build configuration from the previous section as an example,
 suppose you plan to support only API levels 23 and higher for the demo
 version of the app. You can use the
 [`variantFilter`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/variant/VariantFilter) block to filter out all build variant
-configurations that combine the "minApi21" and "demo" product flavors:  
+configurations that combine the "minApi21" and "demo" product flavors:
 
 ### Kotlin
 
@@ -576,7 +578,7 @@ android {
 
 androidComponents {
     beforeVariants { variantBuilder ->
-        // To check for a certain build type, use variantBuilder.buildType == "<var translate="no">&lt;buildType&gt;</var>"
+        // To check for a certain build type, use variantBuilder.buildType == "<buildType>"
         if (variantBuilder.productFlavors.containsAll(listOf("api" to "minApi21", "mode" to "demo"))) {
             // Gradle ignores any variants that satisfy the conditions above.
             variantBuilder.enable = false
@@ -604,7 +606,7 @@ android {
 
   variantFilter { variant ->
       def names = variant.flavors*.name
-      // To check for a certain build type, use variant.buildType.name == "<var translate="no">&lt;buildType&gt;</var>"
+      // To check for a certain build type, use variant.buildType.name == "<buildType>"
       if (names.contains("minApi21") && names.contains("demo")) {
           // Gradle ignores any variants that satisfy the conditions above.
           setIgnore(true)
@@ -650,7 +652,7 @@ The Android Gradle plugin provides a useful Gradle task that shows
 you how to organize your files for each of your build types, product
 flavors, and build variants. For example, the following sample from the task output
 describes where Gradle expects to find certain files for the "debug" build
-type:  
+type:
 
 ```
 ---
@@ -764,7 +766,7 @@ see the [Android Gradle plugin API reference](https://developer.android.com/refe
 
 The following code sample maps sources from the `app/other/` directory
 to certain components of the `main` source set and changes the
-root directory of the `androidTest` source set:  
+root directory of the `androidTest` source set:
 
 ### Kotlin
 
@@ -978,7 +980,7 @@ the following section, for instances where a direct match is not possible.
 For example, suppose your app configures a build type called "staging", but one of
 its library dependencies doesn't. When the plugin tries to build the "staging" version of your
 app, it won't know which version of the library to use, and you'll see an error message similar
-to the following:  
+to the following:
 
 ```
 Error:Failed to resolve: Could not resolve project :mylibrary.
@@ -1008,7 +1010,7 @@ The following is a list of issues related to variant-aware dependency matching a
 
 
   Use `matchingFallbacks` to specify alternative matches for a given build type,
-  as shown here:  
+  as shown here:
 
   ### Kotlin
 
@@ -1064,7 +1066,7 @@ The following is a list of issues related to variant-aware dependency matching a
 
 
   Use `matchingFallbacks` to specify alternative matches for the app's "free"
-  product flavor, as shown here:  
+  product flavor, as shown here:
 
   ### Kotlin
 
@@ -1146,7 +1148,7 @@ The following is a list of issues related to variant-aware dependency matching a
   Use `missingDimensionStrategy` in the `defaultConfig` block to specify
   the default flavor for the plugin to select from each missing dimension, as shown in the
   following sample. You can also override your selections in the `productFlavors`
-  block, so each flavor can specify a different matching strategy for a missing dimension.  
+  block, so each flavor can specify a different matching strategy for a missing dimension.
 
   ### Kotlin
 
@@ -1287,7 +1289,7 @@ from environment variables or have the build process prompt you for these
 passwords.
 
 
-To obtain these passwords from environment variables:  
+To obtain these passwords from environment variables:
 
 ### Kotlin
 

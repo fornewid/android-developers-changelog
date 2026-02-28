@@ -14,7 +14,9 @@ If your game is in an unpublished state, you must allowlist the user accounts
 that you want to grant access for testing. Otherwise, your testers will
 encounter OAuth and 404 errors when attempting to access the Play Games Services
 endpoints such as [platform authentication](https://developer.android.com/games/pgs/signin).
-| **Warning:** Remember to add **yourself** as a tester, or the Play Games SDK won't work for your user account.
+
+> [!WARNING]
+> **Warning:** Remember to add **yourself** as a tester, or the Play Games SDK won't work for your user account.
 
 There are two ways to enable testers to use PGS APIs for your game:
 
@@ -51,7 +53,9 @@ tester list individually. To do this, follow these steps:
 
 The selected release tracks now appears on the list of tracks enabled for
 PGS testing.
-| **Note:** This feature is only available if you have an Android app linked to your game in Google Play Console.
+
+> [!NOTE]
+> **Note:** This feature is only available if you have an Android app linked to your game in Google Play Console.
 
 ## Publish game changes
 
@@ -83,4 +87,6 @@ To publish your Play Games Services changes:
 The data for listed testers for the game is not automatically deleted when you
 publish the game changes. To delete data for testers, use the
 [Play Games Services Management APIs](https://developer.android.com/games/pgs/management).
-| **Note:** If you are using leaderboards and achievements in your game, these game features may not be immediately reflected under your game's listing in the Google Play Store until your users start earning achievements and posting scores.
+
+> [!NOTE]
+> **Note:** If you are using leaderboards and achievements in your game, these game features may not be immediately reflected under your game's listing in the Google Play Store until your users start earning achievements and posting scores.

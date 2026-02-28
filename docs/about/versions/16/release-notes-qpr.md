@@ -90,7 +90,9 @@ It includes fixes for:
 All eligible devices enrolled in the
 [Android Beta for Pixel program](https://g.co/androidbeta)
 will be offered an over-the-air (OTA) update to Beta 3.1.
-| **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues-qpr) for the latest list of issues that have been reported by developers and users.
+
+> [!NOTE]
+> **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues-qpr) for the latest list of issues that have been reported by developers and users.
 
 ## About Android 16 QPR1 Beta 3 (July 2025)
 
@@ -217,7 +219,9 @@ This minor update to Android 16 QPR1 Beta 2 includes the following fixes:
 All eligible devices enrolled in the
 [Android Beta for Pixel program](https://g.co/androidbeta)
 will be offered an over-the-air (OTA) update to QPR Beta 2.1.
-| **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
+
+> [!NOTE]
+> **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
 
 ## About Android 16 QPR1 Beta 1 (May 2025)
 
@@ -237,7 +241,7 @@ these builds are suitable for general use.
 
 Android 16 QPR1 includes some of the [Material 3 Expressive changes](https://blog.google/products/android/material-3-expressive-android-wearos-launch/), with
 visual refreshes to notifications, quick settings, the lock screen, and the
-launcher.  
+launcher.
 **Android 16 QPR1 Beta 1.1 (June 2025)**
 
 
@@ -257,4 +261,6 @@ This minor update to Android 16 QPR1 Beta 1 includes the following fixes:
 All eligible devices enrolled in the
 [Android Beta for Pixel program](https://g.co/androidbeta)
 will be offered an over-the-air (OTA) update to QPR Beta 1.1.
-| **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
+
+> [!NOTE]
+> **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.

@@ -4,58 +4,80 @@ url: https://developer.android.com/distribute/marketing-tools/inline-installs-sd
 source: md.txt
 ---
 
-# Google Play Inline Installs (SDKs)
+This page describes how third-party SDKs can integrate *inline install*, a new
+test feature for Google Play that presents Google Play app product details in a
+half sheet interface. Inline install enables users to experience a seamless app
+install flow without leaving the context of the app.
 
-This page describes how third-party SDKs can integrate*inline install*, a new test feature for Google Play that presents Google Play app product details in a half sheet interface. Inline install enables users to experience a seamless app install flow without leaving the context of the app.
-
-Third-party SDK developers can integrate the inline install feature into their SDKs to enable app developers that use those SDKs to access inline installs for their apps.
+Third-party SDK developers can integrate the inline install feature into their
+SDKs to enable app developers that use those SDKs to access inline installs for
+their apps.
 
 ## Requirements
 
 For the inline install half sheet interface to appear in an app:
 
-- The minimum Google Play version must be**40.4**.
-- The Android API level must be**23 or higher**.
+- The minimum Google Play version must be **40.4**.
+- The Android API level must be **23 or higher**.
 
 ## Process architecture
 
 The inline install process architecture is shown in the following figure:
-![](https://developer.android.com/static/distribute/images/ii-sdk-architecture.png)**Figure 1:**Overview of the inline install process architecture.
+![](https://developer.android.com/static/distribute/images/ii-sdk-architecture.png) **Figure 1:** Overview of the inline install process architecture.
 
 1. Google Play servers generate Authenticated Encryption with Associated Data (AEAD) encryption keys and ingest the keys into a Google Cloud Platform (GCP) Secret Manager instance.
 2. The third-party integrator retrieves the AEAD key from GCP Secret Manager.
-3. The third-party integrator encrypts the inline install[`Intent`](https://developer.android.com/reference/android/content/Intent)data, generates the ciphertext passed in the deep link used to invoke the inline install intent, and sends deep links to the client in responses.
+3. The third-party integrator encrypts the inline install [`Intent`](https://developer.android.com/reference/android/content/Intent) data, generates the ciphertext passed in the deep link used to invoke the inline install intent, and sends deep links to the client in responses.
 4. When the deep link is followed, the Google Play app handles the intent.
 
-To configure a third-party SDK to use the inline install process, complete the following steps.
+To configure a third-party SDK to use the inline install process, complete the
+following steps.
 
 ## Create service accounts in Google Cloud Project
 
-In this step, you set up a service account using the[Google Cloud Console](https://console.cloud.google.com/).
+In this step, you set up a service account using the [Google Cloud
+Console](https://console.cloud.google.com/).
 
 1. Set up a Google Cloud Project:
-   - Create a Google Cloud organization. When you create a Google Workspace or Cloud Identity account and associate it with your domain name, the organization resource is automatically created. For details, refer to[Creating and managing organization resources](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
-   - Log in to the GCP Console using the Google Cloud account created in the previous step, then create a Google Cloud project. For details, refer to[Create a Google Cloud project](https://developers.google.com/workspace/guides/create-project).
-2. Create a service account in the created Google Cloud project. The service account is used as a Google Cloud Identity to access the symmetric key on behalf of your servers. For details, refer to[Create a service account](https://cloud.google.com/iam/docs/service-accounts-create#creating).
-3. Use the same Google Workspace Customer ID (GWCID) / Dasher ID that was inputted on the[interest form](https://docs.google.com/forms/d/e/1FAIpQLSdq7OVNxAA8NDtMyVWXN5189uwiFi9b_aOJKMeXzOFGTkao1w/viewform).
+   - Create a Google Cloud organization. When you create a Google Workspace or Cloud Identity account and associate it with your domain name, the organization resource is automatically created. For details, refer to [Creating and managing organization resources](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
+   - Log in to the GCP Console using the Google Cloud account created in the previous step, then create a Google Cloud project. For details, refer to [Create a Google Cloud project](https://developers.google.com/workspace/guides/create-project).
+2. Create a service account in the created Google Cloud project. The service account is used as a Google Cloud Identity to access the symmetric key on behalf of your servers. For details, refer to [Create a service
+   account](https://cloud.google.com/iam/docs/service-accounts-create#creating).
+3. Use the same Google Workspace Customer ID (GWCID) / Dasher ID that was inputted on the [interest form](https://docs.google.com/forms/d/e/1FAIpQLSdq7OVNxAA8NDtMyVWXN5189uwiFi9b_aOJKMeXzOFGTkao1w/viewform).
 4. Create and download the private key of that service account.
-5. Create a key for that service account. For details, see[Create a service account key](https://cloud.google.com/iam/docs/keys-create-delete#creating).
-6. Download the service account key and keep it accessible on your server, as it's used for authentication to access Google Cloud resources for the symmetric keys. For details, see[Get a service account key](https://cloud.google.com/iam/docs/keys-list-get#get-key).
+5. Create a key for that service account. For details, see [Create a service
+   account key](https://cloud.google.com/iam/docs/keys-create-delete#creating).
+6. Download the service account key and keep it accessible on your server, as it's used for authentication to access Google Cloud resources for the symmetric keys. For details, see [Get a service account key](https://cloud.google.com/iam/docs/keys-list-get#get-key).
 
 ## Retrieve credentials
 
-In this step, you retrieve the symmetric key from Secret Manager and store it securely (for example, in a JSON file) on your own server storage. This key is used to generate the inline install data ciphertext.
-| **Important:** The keyset rotates roughly every month. You must fetch the latest key at least once a month, otherwise the inline install data ciphertext generated by stale keys cannot be validated on Google Play servers.
+In this step, you retrieve the symmetric key from Secret Manager and store it
+securely (for example, in a JSON file) on your own server storage. This key is
+used to generate the inline install data ciphertext.
 
-The`secret_id/secretId`values refer to the secret name inside the Secret Manager; this name is generated by prepending*hsdp-3p-key-* to the Play-provided value`sdk_id`. For example, if the`sdk_id`is*abc* , the secret name is*hsdp-3p-key-abc*.
+> [!IMPORTANT]
+> **Important:** The keyset rotates roughly every month. You must fetch the latest key at least once a month, otherwise the inline install data ciphertext generated by stale keys cannot be validated on Google Play servers.
 
-Secret versions are updated weekly on Tuesday at 2 PM UTC. The second-newest keys continue to work until the next rotation, and key material should be freshly fetched and stored on a weekly basis.
-| **Note:** The following examples are adapted from Google Cloud's[Access a secret version](https://cloud.google.com/secret-manager/docs/access-secret-version)docs. Examples for a number of other languages can be found there.
+The `secret_id/secretId` values refer to the secret name inside the Secret
+Manager; this name is generated by prepending *hsdp-3p-key-* to the
+Play-provided value `sdk_id`. For example, if the `sdk_id` is *abc* , the secret
+name is *hsdp-3p-key-abc*.
+
+Secret versions are updated weekly on Tuesday at 2 PM UTC. The second-newest
+keys continue to work until the next rotation, and key material should be
+freshly fetched and stored on a weekly basis.
+
+> [!NOTE]
+> **Note:** The following examples are adapted from Google Cloud's [Access a secret
+> version](https://cloud.google.com/secret-manager/docs/access-secret-version) docs. Examples for a number of other languages can be found there.
 
 ### Python example
 
-The following code example uses an access token stored in a JSON file to access key material in GCP Secret Manager and print it to the console.
-**Note:** Ensure your workstation is correctly set up for Python. For details, see[Prepare the Python environment](https://developer.android.com/distribute/marketing-tools/inline-installs-sdk#prep-python).  
+The following code example uses an access token stored in a JSON file to access
+key material in GCP Secret Manager and print it to the console.
+
+> [!NOTE]
+> **Note:** Ensure your workstation is correctly set up for Python. For details, see [Prepare the Python environment](https://developer.android.com/distribute/marketing-tools/inline-installs-sdk#prep-python).
 
     #!/usr/bin/env python3
     # Import the Secret Manager client library.
@@ -95,8 +117,12 @@ The following code example uses an access token stored in a JSON file to access 
 
 ### Java example
 
-The following code example uses an access token stored in a JSON file to access key material in GCP Secret Manager and write it to a JSON file.
-**Note:** If you don't want to use`CredentialsProvider`to pass the private key to a JSON file, use the instructions in[Set up Application Default Credentials](https://cloud.google.com/docs/authentication/provide-credentials-adc)instead.  
+The following code example uses an access token stored in a JSON file to access
+key material in GCP Secret Manager and write it to a JSON file.
+
+> [!NOTE]
+> **Note:** If you don't want to use `CredentialsProvider` to pass the private key to a JSON file, use the instructions in [Set up Application Default
+> Credentials](https://cloud.google.com/docs/authentication/provide-credentials-adc) instead.
 
     import static java.nio.charset.StandardCharsets.UTF_8;
     import com.google.api.gax.core.CredentialsProvider;
@@ -198,20 +224,24 @@ The following code example uses an access token stored in a JSON file to access 
 
 #### Set Application Default Credentials
 
-If you don't want to use`CredentialsProvider`to pass the private key to a JSON file in the Java implementation, you can modify the implementation by setting Application Default Credentials (ADC):
+If you don't want to use `CredentialsProvider` to pass the private key to a JSON
+file in the Java implementation, you can modify the implementation by setting
+Application Default Credentials (ADC):
 
-1. [Tell the client libraries](https://cloud.google.com/docs/authentication/provide-credentials-adc)where to find the service account key.
-2. [Add Maven dependencies](https://cloud.google.com/secret-manager/docs/reference/libraries#client-libraries-install-java)to the Java project.
-3. [Call`SecretManagerServiceClient.create()`](https://cloud.google.com/secret-manager/docs/reference/libraries#use), which picks up the authentication automatically (because of step 1).
+1. [Tell the client libraries](https://cloud.google.com/docs/authentication/provide-credentials-adc) where to find the service account key.
+2. [Add Maven dependencies](https://cloud.google.com/secret-manager/docs/reference/libraries#client-libraries-install-java) to the Java project.
+3. [Call `SecretManagerServiceClient.create()`](https://cloud.google.com/secret-manager/docs/reference/libraries#use), which picks up the authentication automatically (because of step 1).
 
 These steps modify the Java implementation by:
 
-- Eliminating the need to create the`CredentialsProvider`and`SecretManagerServiceSettings`objects.
-- Changing the call to`SecretManagerServiceClient.create()`to include no arguments.
+- Eliminating the need to create the `CredentialsProvider` and `SecretManagerServiceSettings` objects.
+- Changing the call to `SecretManagerServiceClient.create()` to include no arguments.
 
 ## Create ciphertext and generate deep link
 
-In this step, you use the Tink cryptography library to create the`enifd`(`InlineInstallData`ciphertext) from the`InlineInstallData`protobuf object. The`InlineInstallData`proto is defined as follows:  
+In this step, you use the Tink cryptography library to create the `enifd`
+(`InlineInstallData` ciphertext) from the `InlineInstallData` protobuf object.
+The `InlineInstallData` proto is defined as follows:
 
     syntax = "proto2";
     package hsdpexperiments;
@@ -249,25 +279,27 @@ In this step, you use the Tink cryptography library to create the`enifd`(`Inline
 
 In this step you also construct the deep link URL using these parameters:
 
-|     Fields     |                                                                   Description                                                                    | Required |
-|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| id             | The[package name](https://support.google.com/admob/answer/9972781)of the app to be installed.                                                    | Yes      |
-| inline         | Set to`true`if inline install half sheet is requested; if`false`, the intent deep links to Google Play.                                          | Yes      |
-| enifd          | The encrypted identifier for 3P SDKs.                                                                                                            | Yes      |
-| lft            | An internal identifier.                                                                                                                          | Yes      |
-| 3pAuthCallerId | The SDK identifier.                                                                                                                              | Yes      |
-| listing        | An optional parameter to specify the target for a[custom store listing](https://support.google.com/googleplay/android-developer/answer/9867158). | No       |
-| referrer       | An optional[referrer](https://developer.android.com/google/play/installreferrer)tracking string.                                                 | No       |
+| Fields | Description | Required |
+|---|---|---|
+| id | The [package name](https://support.google.com/admob/answer/9972781) of the app to be installed. | Yes |
+| inline | Set to `true` if inline install half sheet is requested; if `false`, the intent deep links to Google Play. | Yes |
+| enifd | The encrypted identifier for 3P SDKs. | Yes |
+| lft | An internal identifier. | Yes |
+| 3pAuthCallerId | The SDK identifier. | Yes |
+| listing | An optional parameter to specify the target for a [custom store listing](https://support.google.com/googleplay/android-developer/answer/9867158). | No |
+| referrer | An optional [referrer](https://developer.android.com/google/play/installreferrer) tracking string. | No |
 
 ### Python example
 
-| **Note:** Ensure your workstation is correctly set up for Python. For details, see[Prepare the Python environment](https://developer.android.com/distribute/marketing-tools/inline-installs-sdk#prep-python).
+> [!NOTE]
+> **Note:** Ensure your workstation is correctly set up for Python. For details, see [Prepare the Python environment](https://developer.android.com/distribute/marketing-tools/inline-installs-sdk#prep-python).
 
-The following command generates Python code from`InlineInstallData.proto`:  
+The following command generates Python code from `InlineInstallData.proto`:
 
     protoc InlineInstallData.proto --python_out=.
 
-The following Python sample code constructs`InlineInstallData`and encrypts it with the symmetric key to create the ciphertext:  
+The following Python sample code constructs `InlineInstallData` and encrypts it
+with the symmetric key to create the ciphertext:
 
     #!/usr/bin/env python3
 
@@ -315,17 +347,18 @@ The following Python sample code constructs`InlineInstallData`and encrypts it wi
     # Deeplink
     print(f"https://play.google.com/d?id={inlineInstallData.target_package_name}\&inline=true\&enifd={enifd}\&lft=1\&3pAuthCallerId={inlineInstallData.ad_network_id}")
 
-Execute the Python script by running the following command:  
+Execute the Python script by running the following command:
 
     python <file_name>.py
 
 ### Java example
 
-The following command generates Java code from`InlineInstallData.proto`:  
+The following command generates Java code from `InlineInstallData.proto`:
 
     protoc InlineInstallData.proto --java_out=.
 
-The following Java sample code constructs`InlineInstallData`and encrypts it with the symmetric key to create the ciphertext:  
+The following Java sample code constructs `InlineInstallData` and encrypts it
+with the symmetric key to create the ciphertext:
 
     package com.google.hsdpexperiments;
 
@@ -415,23 +448,28 @@ The following Java sample code constructs`InlineInstallData`and encrypts it with
       }
     }
 
-Finally, build the Java program to a binary and invoke it using the following code:  
+Finally, build the Java program to a binary and invoke it using the following
+code:
 
     path/to/binary/ThirdPartyEnifdGuide --secret_filename=path/to/jsonfile/example3psecret.json --package_name=<package_name_of_target_app> --third_party_id=<3p_caller_auth_id>
 
-- The`secret_filename`flag specifies the path to the JSON file containing the secret material.
-- The`package_name`flag is the doc ID of the target app.
-- The`third_party_id`flag is used to specify the third-party caller auth ID (that is, the`<sdk_id>`).
+- The `secret_filename` flag specifies the path to the JSON file containing the secret material.
+- The `package_name` flag is the doc ID of the target app.
+- The `third_party_id` flag is used to specify the third-party caller auth ID (that is, the `<sdk_id>`).
 
 ## Launch the Inline Install intent
 
-To test the deep link that's generated during the previous step, connect an Android device (ensure USB debugging is enabled) to a workstation that has ADB installed and run the following command:  
+To test the deep link that's generated during the previous step, connect an
+Android device (ensure USB debugging is enabled) to a workstation that has ADB
+installed and run the following command:
 
     adb shell am start "<output_from_the_previous_python_or_java_code>"
 
-| **Note:** To ensure`enifd`freshness (and to prevent attackers from compromising it), generate the`enifd`no earlier than four hours prior to invoking the inline install flow.
+> [!NOTE]
+> **Note:** To ensure `enifd` freshness (and to prevent attackers from compromising it), generate the `enifd` no earlier than four hours prior to invoking the inline install flow.
 
-In the client code, send the intent using one of the following methods (Kotlin or Java).  
+In the client code, send the intent using one of the following methods (Kotlin
+or Java).
 
 ### Kotlin
 
@@ -466,7 +504,8 @@ The following sections provide additional guidance on certain use cases.
 
 ### Prepare the Python environment
 
-To run the Python sample code, set up the Python environment on your workstation and install the required dependencies.
+To run the Python sample code, set up the Python environment on your workstation
+and install the required dependencies.
 
 1. Set up the Python environment:
 
@@ -478,7 +517,7 @@ To run the Python sample code, set up the Python environment on your workstation
 
           sudo apt-get install pip
 
-   3. Install`virtualenv`:
+   3. Install `virtualenv`:
 
           sudo apt install python3-virtualenv
 
@@ -514,10 +553,13 @@ To run the Python sample code, set up the Python environment on your workstation
 
 ### C++ enifd generation
 
-The following is a C++ example that we have written and validated internally to generate the`enifd`.
-| **Note:** Some of the necessary`#include`directives may vary depending on how you organize your dependencies.
+The following is a C++ example that we have written and validated internally to
+generate the `enifd`.
 
-Generation of the`enifd`can be carried out using C++ code as follows:  
+> [!NOTE]
+> **Note:** Some of the necessary `#include` directives may vary depending on how you organize your dependencies.
+
+Generation of the `enifd` can be carried out using C++ code as follows:
 
     // A command-line example for using Tink AEAD w/ key template aes128gcmsiv to
     // encrypt an InlineInstallData proto.
@@ -625,4 +667,5 @@ Generation of the`enifd`can be carried out using C++ code as follows:
       return 0;
     }
 
-This code has been adapted from a[sample](https://developers.google.com/tink/encrypt-data)which can be found in the Tink docs.
+This code has been adapted from a [sample](https://developers.google.com/tink/encrypt-data) which can be found in the
+Tink docs.

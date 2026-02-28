@@ -26,8 +26,10 @@ the property group called **PGO**.
 highlighted](https://developer.android.com/games/agde/images/project-properties-pgo-settings.png)
 
 **Figure 2:** The Project Properties dialog.
-| **Note:** If these options (or the Android- platform types) are missing, you should [configure your project for use with
-| AGDE](https://developer.android.com/games/agde/adapt-existing-project).
+
+> [!NOTE]
+> **Note:** If these options (or the Android- platform types) are missing, you should [configure your project for use with
+> AGDE](https://developer.android.com/games/agde/adapt-existing-project).
 
 ## Enable PGO-Instrumented Builds in the Project
 

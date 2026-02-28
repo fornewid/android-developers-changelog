@@ -29,8 +29,10 @@ on the following Pixel devices:
 
 See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions,
 and more information on choosing the right image type for your device.
-| **Note:** [**File GSI bugs**](https://issuetracker.google.com/issues/new?component=1109161&template=1620756) for any system-related issues you encounter. Make sure to attach a full bug report and **clearly indicate that you are using a GSI
-| build** in your bug description to help the Android team find your issues and address them more quickly. For app-related issues found when using a GSI, we recommend reproducing the issue on a Pixel device before contacting the app developer directly.
+
+> [!NOTE]
+> **Note:** [**File GSI bugs**](https://issuetracker.google.com/issues/new?component=1109161&template=1620756) for any system-related issues you encounter. Make sure to attach a full bug report and **clearly indicate that you are using a GSI
+> build** in your bug description to help the Android team find your issues and address them more quickly. For app-related issues found when using a GSI, we recommend reproducing the issue on a Pixel device before contacting the app developer directly.
 
 ## General advisories
 

@@ -49,25 +49,25 @@ To test your app's behavior, you can enable override of certain job quota
 optimizations as long as the app is running on an Android 16 device.
 
 To disable enforcement of "top state will adhere to job runtime quota", run the
-following [`adb`](https://developer.android.com/tools/adb) command:  
+following [`adb`](https://developer.android.com/tools/adb) command:
 
-    adb shell am compat enable OVERRIDE_QUOTA_ENFORCEMENT_TO_TOP_STARTED_JOBS <var label="package-name" translate="no">APP_PACKAGE_NAME</var>
+    adb shell am compat enable OVERRIDE_QUOTA_ENFORCEMENT_TO_TOP_STARTED_JOBS APP_PACKAGE_NAME
 
 To disable enforcement of "jobs that are executing while concurrently with a
 foreground service will adhere to the job runtime quota", run the following
-`adb` command:  
+`adb` command:
 
-    adb shell am compat enable OVERRIDE_QUOTA_ENFORCEMENT_TO_FGS_JOBS <var label="package-name" translate="no">APP_PACKAGE_NAME</var>
+    adb shell am compat enable OVERRIDE_QUOTA_ENFORCEMENT_TO_FGS_JOBS APP_PACKAGE_NAME
 
 To test certain app standby bucket behavior, you can set the app standby bucket
-of your app using the following `adb` command:  
+of your app using the following `adb` command:
 
-    adb shell am set-standby-bucket <var label="package-name" translate="no">APP_PACKAGE_NAME</var> active|working_set|frequent|rare|restricted
+    adb shell am set-standby-bucket APP_PACKAGE_NAME active|working_set|frequent|rare|restricted
 
 To understand the app standby bucket your app is in, you can get the app standby
-bucket of your app using the following `adb` command:  
+bucket of your app using the following `adb` command:
 
-    adb shell am get-standby-bucket <var label="package-name" translate="no">APP_PACKAGE_NAME</var>
+    adb shell am get-standby-bucket APP_PACKAGE_NAME
 
 ### Abandoned empty jobs stop reason
 
@@ -289,12 +289,14 @@ potentially leading to data theft and arbitrary code execution.
 Android 16 introduces a new API that allows apps to opt out of launch
 security protections. This might be necessary in specific cases where the default
 security behavior interferes with legitimate app use cases.
-| **Important:** Opting out of security protections should be done with caution and only when absolutely necessary, as it can increase the risk of security vulnerabilities. Carefully assess the potential impact on your app's security before using this API.
+
+> [!IMPORTANT]
+> **Important:** Opting out of security protections should be done with caution and only when absolutely necessary, as it can increase the risk of security vulnerabilities. Carefully assess the potential impact on your app's security before using this API.
 
 ##### For applications compiling against Android 16 (API level 36) SDK or higher
 
 You can directly use the `removeLaunchSecurityProtection()` method on the Intent
-object.  
+object.
 
     val i = intent
     val iSublevel: Intent? = i.getParcelableExtra("sub_intent")
@@ -305,7 +307,9 @@ object.
 
 While not recommended, you can use reflection to access the
 `removeLaunchSecurityProtection()` method.
-**Caution:** Using reflection can make your code more fragile and prone to errors, especially if the underlying API changes in future Android versions. Whenever possible, update your compile SDK to target Android 16 (API level 36) or higher to use the API directly.  
+
+> [!CAUTION]
+> **Caution:** Using reflection can make your code more fragile and prone to errors, especially if the underlying API changes in future Android versions. Whenever possible, update your compile SDK to target Android 16 (API level 36) or higher to use the API directly.
 
     val i = intent
     val iSublevel: Intent? = i.getParcelableExtra("sub_intent", Intent::class.java)

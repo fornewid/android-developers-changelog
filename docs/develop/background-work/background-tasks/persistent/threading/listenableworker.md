@@ -1,37 +1,26 @@
 ---
-title: Threading in ListenableWorker  |  Background work  |  Android Developers
+title: https://developer.android.com/develop/background-work/background-tasks/persistent/threading/listenableworker
 url: https://developer.android.com/develop/background-work/background-tasks/persistent/threading/listenableworker
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Background work](https://developer.android.com/develop/background-work)
-* [Guides](https://developer.android.com/develop/background-work/background-tasks)
-
-# Threading in ListenableWorker Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 In certain situations, you may need to provide a custom threading strategy. For
 example, you may need to handle a callback-based asynchronous operation.
 WorkManager supports this use case with
-[`ListenableWorker`](/reference/androidx/work/ListenableWorker).
+[`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker).
 `ListenableWorker` is the most basic worker API;
-[`Worker`](/reference/androidx/work/Worker),
-[`CoroutineWorker`](/reference/kotlin/androidx/work/CoroutineWorker), and
-[`RxWorker`](/reference/androidx/work/RxWorker) all derive from this class. A
+[`Worker`](https://developer.android.com/reference/androidx/work/Worker),
+[`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker), and
+[`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker) all derive from this class. A
 `ListenableWorker` only signals when the work should start and stop and leaves
 the threading entirely up to you. The start work signal is invoked on the main
 thread, so it is very important that you go to a background thread of your
 choice manually.
 
 The abstract method
-[`ListenableWorker.startWork()`](/reference/androidx/work/ListenableWorker#startWork())
+[`ListenableWorker.startWork()`](https://developer.android.com/reference/androidx/work/ListenableWorker#startWork())
 returns a `ListenableFuture` of the
-[`Result`](/reference/androidx/work/ListenableWorker.Result). A
+[`Result`](https://developer.android.com/reference/androidx/work/ListenableWorker.Result). A
 `ListenableFuture` is a lightweight interface: it is a `Future` that provides
 functionality for attaching listeners and propagating exceptions. In the
 `startWork` method, you are expected to return a `ListenableFuture`, which you
@@ -39,17 +28,14 @@ will set with the `Result` of the operation once it's completed. You can create
 `ListenableFuture` instances in one of two ways:
 
 1. If you use Guava, use `ListeningExecutorService`.
-2. Otherwise, include
-   [`councurrent-futures`](/jetpack/androidx/releases/concurrent#declaring_dependencies)
-   in your gradle file and use
-   [`CallbackToFutureAdapter`](/reference/androidx/concurrent/futures/CallbackToFutureAdapter).
+2. Otherwise, include [`councurrent-futures`](https://developer.android.com/jetpack/androidx/releases/concurrent#declaring_dependencies) in your gradle file and use [`CallbackToFutureAdapter`](https://developer.android.com/reference/androidx/concurrent/futures/CallbackToFutureAdapter).
 
 If you wanted to execute some work based on an asynchronous callback, you would
 do something like this:
 
 ### Kotlin
 
-```
+```kotlin
 class CallbackWorker(
         context: Context,
         params: WorkerParameters
@@ -83,7 +69,7 @@ class CallbackWorker(
 
 ### Java
 
-```
+```java
 public class CallbackWorker extends ListenableWorker {
 
     public CallbackWorker(Context context, WorkerParameters params) {
@@ -121,14 +107,14 @@ public class CallbackWorker extends ListenableWorker {
 ```
 
 What happens if your work is
-[stopped](/topic/libraries/architecture/workmanager/how-to/managing-work#cancelling)?
+[stopped](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/managing-work#cancelling)?
 A `ListenableWorker`'s `ListenableFuture` is always cancelled when the work is
 expected to stop. Using a `CallbackToFutureAdapter`, you simply have to add a
 cancellation listener, as follows:
 
 ### Kotlin
 
-```
+```kotlin
 class CallbackWorker(
         context: Context,
         params: WorkerParameters
@@ -164,7 +150,7 @@ class CallbackWorker(
 
 ### Java
 
-```
+```java
 public class CallbackWorker extends ListenableWorker {
 
     public CallbackWorker(Context context, WorkerParameters params) {
@@ -206,7 +192,7 @@ public class CallbackWorker extends ListenableWorker {
 ## Running a ListenableWorker in a different process
 
 You can also bind a worker to a specific process by using
-[`RemoteListenableWorker`](/reference/kotlin/androidx/work/multiprocess/RemoteListenableWorker),
+[`RemoteListenableWorker`](https://developer.android.com/reference/kotlin/androidx/work/multiprocess/RemoteListenableWorker),
 an implementation of `ListenableWorker`.
 
 `RemoteListenableWorker` binds to a specific process with two extra arguments
@@ -218,7 +204,7 @@ specific process:
 
 ### Kotlin
 
-```
+```kotlin
 val PACKAGE_NAME = "com.example.background.multiprocess"
 
 val serviceName = RemoteWorkerService::class.java.name
@@ -236,7 +222,7 @@ return OneTimeWorkRequest.Builder(ExampleRemoteListenableWorker::class.java)
 
 ### Java
 
-```
+```java
 String PACKAGE_NAME = "com.example.background.multiprocess";
 
 String serviceName = RemoteWorkerService.class.getName();
@@ -255,7 +241,7 @@ return new OneTimeWorkRequest.Builder(ExampleRemoteListenableWorker.class)
 For each `RemoteWorkerService`, you also need to add a service definition in
 your `AndroidManifest.xml` file:
 
-```
+```xml
 <manifest ... >
     <service
             android:name="androidx.work.multiprocess.RemoteWorkerService"
@@ -272,4 +258,4 @@ your `AndroidManifest.xml` file:
 
 ## Samples
 
-* [WorkManagerMultiProcessSample](https://github.com/android/architecture-components-samples/tree/main/WorkManagerMultiprocessSample)
+- [WorkManagerMultiProcessSample](https://github.com/android/architecture-components-samples/tree/main/WorkManagerMultiprocessSample)

@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/app-actions-support
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 Resources for development questions, reporting issues, and staying connected to
 the community can be found below.
 

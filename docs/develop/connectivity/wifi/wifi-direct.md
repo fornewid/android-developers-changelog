@@ -37,30 +37,30 @@ permission. So you need the following permissions to use Wi-Fi Direct:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.nsdcha<t"
+    package="com.example.android.nsdchat"
     ...
-    !-- If your  app targets  Android13 (API level33)
-         or higher, you must declare the NEARBY_WIFI_DE>VICES per<mission. --
-        uses-permission android:name="android.permission.NEAR<BY_WIFI_DEVICES"
-        !-- If your app derives location information from Wi-Fi APIs,
-             don't include the &>quot;usesPermissionFlags" attribute. --
-        andr>oid:usesPermis<sionFlags="neverForLocation" /
+    <!-- If your app targets Android 13 (API level 33)
+         or higher, you must declare the NEARBY_WIFI_DEVICES permission. -->
+        <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"
+        <!-- If your app derives location information from Wi-Fi APIs,
+             don't include the "usesPermissionFlags" attribute. -->
+        android:usesPermissionFlags="neverForLocation" />
         
-    uses-permission
+    <uses-permission
         android:required="true"
-       < android:name="android.permission.ACCESS_FINE_LOCATION"
-        !-- If any feature in your app relies on precise location> information,
-             don't >inclu<de the "maxSdkVersion" attribute. --
-        android:maxSdkVersion="32" /
-    uses-permi>ssion<
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        <!-- If any feature in your app relies on precise location information,
+             don't include the "maxSdkVersion" attribute. -->
+        android:maxSdkVersion="32" />
+    <uses-permission
         android:required="true"
-        android:name="android.permission.ACCESS_WIFI_STATE&q>uot;/<
-    uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission
         android:required="true"
-        android:name="android.p>ermission.CHANGE_WIFI_STATE"/
-    uses-permission
+        android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission
         android:required="true"
-        android:name="android.permission.INTERNET"/
+        android:name="android.permission.INTERNET"/>
     ...
 ```
 

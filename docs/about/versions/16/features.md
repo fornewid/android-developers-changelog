@@ -38,12 +38,14 @@ in-between the API releases will provide incremental updates to help ensure
 continuous quality. We're actively working with our device partners to bring the
 Q2 release to as many devices as possible.
 
+[Video](https://www.youtube.com/watch?v=tU9-p4jME_w)
+
 #### Using new APIs with major and minor releases
 
 Guarding a code block with a check for API level is done today using
 the [`SDK_INT`](https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT) constant with
 [`VERSION_CODES`](https://developer.android.com/reference/android/os/Build.VERSION_CODES). This will continue
-to be supported for major Android releases.  
+to be supported for major Android releases.
 
     if (SDK_INT >= VERSION_CODES.BAKLAVA) {
       // Use APIs introduced in Android 16
@@ -52,7 +54,7 @@ to be supported for major Android releases.
 The new [`SDK_INT_FULL`](https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT_FULL)
 constant can be used for API checks against both major and minor versions with
 the new [`VERSION_CODES_FULL`](https://developer.android.com/reference/android/os/Build.VERSION_CODES_FULL)
-enumeration.  
+enumeration.
 
     if (SDK_INT_FULL >= VERSION_CODES_FULL.[MAJOR or MINOR RELEASE]) {
       // Use APIs introduced in a major or minor release
@@ -60,14 +62,16 @@ enumeration.
 
 You can also use the
 [`Build.getMinorSdkVersion()`](https://developer.android.com/reference/android/os/Build#getMinorSdkVersion%28int%29)
-method to get just the minor SDK version.  
+method to get just the minor SDK version.
 
     val minorSdkVersion = Build.getMinorSdkVersion(VERSION_CODES_FULL.BAKLAVA)
 
 These APIs have not yet been finalized and are subject to change, so please send
 us [feedback](https://developer.android.com/about/versions/16/feedback) if you have any concerns.
-| **Note:** There's no change to the [target API level
-| requirements](https://developer.android.com/google/play/requirements/target-sdk) and the associated dates for apps in Google Play; our plans are for one annual requirement each year, and that will be tied to the major API level.
+
+> [!NOTE]
+> **Note:** There's no change to the [target API level
+> requirements](https://developer.android.com/google/play/requirements/target-sdk) and the associated dates for apps in Google Play; our plans are for one annual requirement each year, and that will be tied to the major API level.
 
 ## User experience and system UI
 
@@ -87,11 +91,8 @@ class, you can denote states and milestones in a user journey using
 
 To learn more, see the
 [Progress-centric notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications)
-documentation page.  
-![](https://developer.android.com/static/about/versions/16/images/progress-style-lockscreen.png)  
-A progress-centric notification displayed on the lockscreen.  
-![](https://developer.android.com/static/about/versions/16/images/progress-style-notification-shade.png)  
-A progress-centric notification displayed in the notification shade.
+documentation page.
+![](https://developer.android.com/static/about/versions/16/images/progress-style-lockscreen.png) A progress-centric notification displayed on the lockscreen. ![](https://developer.android.com/static/about/versions/16/images/progress-style-notification-shade.png) A progress-centric notification displayed in the notification shade.
 
 <br />
 
@@ -356,7 +357,7 @@ you to manually control specific aspects of exposure while letting the
 auto-exposure (AE) algorithm handle the rest. You can control
 [ISO + AE](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#CONTROL_AE_PRIORITY_MODE_SENSOR_SENSITIVITY_PRIORITY), and [exposure time + AE](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#CONTROL_AE_PRIORITY_MODE_SENSOR_EXPOSURE_TIME_PRIORITY), providing greater
 flexibility compared to the current approach where you either have full manual
-control or rely entirely on auto-exposure.  
+control or rely entirely on auto-exposure.
 
     fun setISOPriority() {
         // ... (Your existing code before the snippet) ...
@@ -396,7 +397,7 @@ preset list, such as [Incandescent](https://developer.android.com/reference/andr
 [`COLOR_CORRECTION_MODE_CCT`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#COLOR_CORRECTION_MODE_CCT) enables the use of
 [`COLOR_CORRECTION_COLOR_TEMPERATURE`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#COLOR_CORRECTION_COLOR_TEMPERATURE) and
 [`COLOR_CORRECTION_COLOR_TINT`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#COLOR_CORRECTION_COLOR_TINT) for precise adjustments of
-white balance based on the correlated color temperature.  
+white balance based on the correlated color temperature.
 
     fun setCCT() {
         // ... (Your existing code before this point) ...
@@ -416,15 +417,12 @@ white balance based on the correlated color temperature.
     }
 
 The following examples show how a photo would look after applying different
-color temperature and tint adjustments:  
-![](https://developer.android.com/static/about/versions/16/images/color-temperature-tint.jpg) The original image with no color temperature or tint adjustments applied.  
-![](https://developer.android.com/static/about/versions/16/images/color-temperature-3000.jpg) The image with color temperature adjusted to 3000.  
-![](https://developer.android.com/static/about/versions/16/images/color-temperature-7000.jpg) The image with color temperature adjusted to 7000.
+color temperature and tint adjustments:
+![](https://developer.android.com/static/about/versions/16/images/color-temperature-tint.jpg) The original image with no color temperature or tint adjustments applied. ![](https://developer.android.com/static/about/versions/16/images/color-temperature-3000.jpg) The image with color temperature adjusted to 3000. ![](https://developer.android.com/static/about/versions/16/images/color-temperature-7000.jpg) The image with color temperature adjusted to 7000.
 
 <br />
 
-![](https://developer.android.com/static/about/versions/16/images/color-tint-minus-50.jpg) The image with tint levels lowered by 50.  
-![](https://developer.android.com/static/about/versions/16/images/color-tint-plus-50.jpg) The image with tint levels raised by 50.  
+![](https://developer.android.com/static/about/versions/16/images/color-tint-minus-50.jpg) The image with tint levels lowered by 50. ![](https://developer.android.com/static/about/versions/16/images/color-tint-plus-50.jpg) The image with tint levels raised by 50.
 
 ### Camera night mode scene detection
 
@@ -486,7 +484,7 @@ Threshold, Sepia, and Hue Saturation and apply them to draw calls. Since Android
 mirrors this, adding an AGSL-powered [`RuntimeColorFilter`](https://developer.android.com/reference/android/graphics/RuntimeColorFilter) that
 extends [`ColorFilter`](https://developer.android.com/reference/android/graphics/ColorFilter), and a [`Xfermode`](https://developer.android.com/reference/android/graphics/Xfermode) effect that
 lets you implement AGSL-based custom compositing and blending between source and
-destination pixels.  
+destination pixels.
 
     private val thresholdEffectString = """
         uniform half threshold;
@@ -663,7 +661,9 @@ this flag is set using
 text measurement APIs will report vertical advances instead of horizontal
 advances, and [`Canvas`](https://developer.android.com/reference/android/graphics/Canvas) will draw text
 vertically.
-**Note:** Current high-level text APIs, such as Text in Jetpack Compose, TextView, Layout classes and their subclasses don't support vertical writing systems, and don't support using the `VERTICAL_TEXT_FLAG`.  
+
+> [!NOTE]
+> **Note:** Current high-level text APIs, such as Text in Jetpack Compose, TextView, Layout classes and their subclasses don't support vertical writing systems, and don't support using the `VERTICAL_TEXT_FLAG`.
 
     val text = "「春は、曙。」"
     Box(

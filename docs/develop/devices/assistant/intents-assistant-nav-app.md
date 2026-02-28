@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/intents-assistant-n
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 Google Assistant uses three different formats of intents that your
 navigation app can support.
 You can achieve interoperability and integrate your app and Google Assistant by

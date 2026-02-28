@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/api-guidelines
 source: md.txt
 ---
 
+[Video](https://www.youtube.com/watch?v=JvbyGcqdWBA)
+
 If you're writing Compose code for your app or building Compose libraries and
 APIs, follow best practices to make your code scalable, more performant, and
 consistent with the rest of the ecosystem.

@@ -48,10 +48,8 @@ If your app intercepts the back event and you haven't migrated to predictive
 back yet, [update your app to use supported back navigation APIs](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#update-custom), or
 temporarily opt out by setting the
 [`android:enableOnBackInvokedCallback`](https://developer.android.com/guide/topics/manifest/activity-element#enableOnBackInvokedCallback) attribute to `false` in the
-`<application>` or `<activity>` tag of your app's `AndroidManifest.xml` file.  
-The predictive back-to-home animation.  
-The predictive cross-activity animation.  
-The predictive cross-task animation.
+`<application>` or `<activity>` tag of your app's `AndroidManifest.xml` file.
+The predictive back-to-home animation. The predictive cross-activity animation. The predictive cross-task animation.
 
 ### Elegant font APIs deprecated and disabled
 
@@ -178,7 +176,7 @@ apply in the following situations:
 #### Opt out temporarily
 
 To opt out a specific activity, declare the
-`PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY` manifest property:  
+`PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY` manifest property:
 
     <activity ...>
       <property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" />
@@ -186,13 +184,14 @@ To opt out a specific activity, declare the
     </activity>
 
 If too many parts of your app aren't ready for Android 16, you can opt out
-completely by applying the same property at the application level:  
+completely by applying the same property at the application level:
 
     <application ...>
       <property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" />
     </application>
 
-| **Important:** The opt-out is temporary and won't apply when targeting API level 37 in a future Android release. That is, for apps targeting API level 37, orientation, resizability, and aspect ratio restrictions are ignored on displays that are at least `sw600dp`.
+> [!IMPORTANT]
+> **Important:** The opt-out is temporary and won't apply when targeting API level 37 in a future Android release. That is, for apps targeting API level 37, orientation, resizability, and aspect ratio restrictions are ignored on displays that are at least `sw600dp`.
 
 ## Health and fitness
 
@@ -229,7 +228,9 @@ fitness, and wellness data.
 Mobile apps migrating to use the `READ_HEART_RATE` and other granular
 permissions must also [declare an activity](https://developer.android.com/health-and-fitness/guides/health-connect/develop/get-started#show-privacy-policy) to display
 the app's privacy policy. This is the same requirement as Health Connect.
-| **Important:** Failure to provide the rationale for mobile apps will result in the permission being revoked.
+
+> [!IMPORTANT]
+> **Important:** Failure to provide the rationale for mobile apps will result in the permission being revoked.
 
 ## Connectivity
 
@@ -354,7 +355,7 @@ carefully managed to address potential compatibility issues with existing apps.
 Developers need to explicitly enable stricter intent matching using the
 `intentMatchingFlags` attribute in their app manifest.
 Here is an example where the feature is opt-in for the entire app,
-but disabled/opt-out on a receiver:  
+but disabled/opt-out on a receiver:
 
     <application android:intentMatchingFlags="enforceIntentFilter">
         <receiver android:name=".MyBroadcastReceiver" android:exported="true" android:intentMatchingFlags="none">
@@ -367,7 +368,8 @@ but disabled/opt-out on a receiver:
         </receiver>
     </application>
 
-| **Note:** The attribute can be specified on the `<application>` tag as well as at the component tags such as `<activity>`, `<activity-alias>`, `<receiver>`, `<service>`, `<provider>` and the attribute on the component can be used to override what's on the `<application>` tag
+> [!NOTE]
+> **Note:** The attribute can be specified on the `<application>` tag as well as at the component tags such as `<activity>`, `<activity-alias>`, `<receiver>`, `<service>`, `<provider>` and the attribute on the component can be used to override what's on the `<application>` tag
 
 More on the supported flags:
 
@@ -387,7 +389,7 @@ with the tag `"PackageManager."`
 This indicates a potential issue that could impact the app and requires
 attention.
 
-Logcat filter:  
+Logcat filter:
 
     tag=:PackageManager & (message:"Intent does not match component's intent filter:" | message: "Access blocked:")
 
@@ -412,7 +414,7 @@ GPU Inspector won't be affected.
 #### Testing
 
 If you see a SELinux denial similar to the following, it is likely your
-application has been impacted by this change:  
+application has been impacted by this change:
 
     06-30 10:47:18.617 20360 20360 W roidJUnitRunner: type=1400 audit(0.0:85): avc:  denied  { ioctl }
     for  path="/dev/mali0" dev="tmpfs" ino=1188 ioctlcmd=0x8023
@@ -510,14 +512,17 @@ in native or managed code, networking libraries like Cronet and OkHttp,
 and any APIs implemented on top of those. Trying to resolve services on the
 local network (i.e. those with a .local suffix) will require local network
 permission.
-| **Note:** Traffic originating from Android Webviews that require local network access will inherit permission state from the host app
+
+> [!NOTE]
+> **Note:** Traffic originating from Android Webviews that require local network access will inherit permission state from the host app
 
 Exceptions to the rules above:
 
 - If a device's DNS server is on a local network, traffic to or from it (at port 53) doesn't require local network access permission.
 - Applications using Output Switcher as their in-app picker won't need local network permissions (more guidance to come in 2025Q4).
 
-| **Note:** Many media casting scenarios depend on access to the local network and will be impacted by this change. However, not all apps which offer casting will need to request the new permission. Future APIs and guidance for dealing with casting scenarios will be provided in 25Q4.
+> [!NOTE]
+> **Note:** Many media casting scenarios depend on access to the local network and will be impacted by this change. However, not all apps which offer casting will need to request the new permission. Future APIs and guidance for dealing with casting scenarios will be provided in 25Q4.
 
 #### Developer Guidance (Opt-in)
 
@@ -542,7 +547,8 @@ To restore access, you must grant your app permission to `NEARBY_WIFI_DEVICES`.
 2. Go to **Settings \> Apps \> \[Application Name\] \> Permissions \> Nearby devices \>
    Allow**.
 
-| **Note:** In a future Android release, this feature will be guarded by a *new* permission in the Nearby devices permission group
+> [!NOTE]
+> **Note:** In a future Android release, this feature will be guarded by a *new* permission in the Nearby devices permission group
 
 Now your app's access to the local network should be restored and all your
 scenarios should work as they did prior to opting the app in.
@@ -555,7 +561,7 @@ network traffic will be impacted.
 | Granted | Works | Works | Works |
 | Not Granted | Fails | Works | Fails |
 
-Use the following command to toggle-off the App-Compat flag  
+Use the following command to toggle-off the App-Compat flag
 
     adb shell am compat disable RESTRICT_LOCAL_NETWORK <package_name>
 
@@ -564,7 +570,7 @@ Use the following command to toggle-off the App-Compat flag
 Errors arising from these restrictions will be returned to the calling socket
 whenever it invokes send or a send variant to a local network address.
 
-Example errors:  
+Example errors:
 
     sendto failed: EPERM (Operation not permitted)
 

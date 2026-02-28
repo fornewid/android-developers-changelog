@@ -24,7 +24,7 @@ your apps to Android 8.0 across two key phases:
 The objective here is to make sure that your existing app works as-is on Android 8.0
 (API level 26). Because some platform changes might affect the way your app behaves,
 some adjustments might be necessary, but you do not need to use new APIs or
-change your `targetSdkVersion`.  
+change your `targetSdkVersion`.
 ![Ensure compatibility with Android 8.0 step-by-step](https://developer.android.com/static/images/about/versions/oreo/o-compat-flow-mobile.svg)
 
 ### Prepare a device running Android 8.0
@@ -54,9 +54,9 @@ running on Android 8.0 devices.
 |---|---|---|
 | Less frequent background location updates | If your app receives location updates from a background service, it receives less frequent updates on Android 8.0 (API level 26) compared to older versions of Android. Specifically, a background service cannot receive location updates more than a few times per hour. However, while your app is in the foreground, the rate of location updates is unchanged. | [Background Location Limits](https://developer.android.com/about/versions/oreo/background-location-limits) |
 | `net.hostname` no longer supported | Querying the `net.hostname` system property produces a null result. | None |
-| New exception from [send(DatagramPacket)](https://developer.android.com/reference/java/net/DatagramSocket#send(java.net.DatagramPacket)) | The [send(DatagramPacket)](https://developer.android.com/reference/java/net/DatagramSocket#send(java.net.DatagramPacket)) method throws a [SocketException](https://developer.android.com/reference/java/net/SocketException) if the previously executed [connect(InetAddress, int)](https://developer.android.com/reference/java/net/DatagramSocket#connect(java.net.InetAddress, int)) method failed. | [Behavior Changes: Network and HTTP(S) connectivity](https://developer.android.com/about/versions/oreo/android-8.0-changes#networking-all) |
-| Proper [NullPointerException](https://developer.android.com/reference/java/lang/NullPointerException) from [AbstractCollection](https://developer.android.com/reference/java/util/AbstractCollection) methods | [AbstractCollection.removeAll(null)](https://developer.android.com/reference/java/util/AbstractCollection#removeAll(java.util.Collection<?>)) and [AbstractCollection.retainAll(null)](https://developer.android.com/reference/java/util/AbstractCollection#retainAll(java.util.Collection<?>)) now always throw a [NullPointerException](https://developer.android.com/reference/java/lang/NullPointerException); previously, the [NullPointerException](https://developer.android.com/reference/java/lang/NullPointerException) was not thrown when the collection was empty. This change makes the behavior consistent with the documentation. | [Behavior Changes: Collection handling](https://developer.android.com/about/versions/oreo/android-8.0-changes#ch-all) |
-| Proper [NullPointerException](https://developer.android.com/reference/java/lang/NullPointerException) from [Currency.getDisplayName(null)](https://developer.android.com/reference/android/icu/util/Currency#getDisplayName()) | Calling [Currency.getDisplayName(null)](https://developer.android.com/reference/android/icu/util/Currency#getDisplayName()) throws a [NullPointerException](https://developer.android.com/reference/java/lang/NullPointerException). | [Behavior Changes: Locales and internationalization](https://developer.android.com/about/versions/oreo/android-8.0-changes#lai) |
+| New exception from `https://developer.android.com/reference/java/net/DatagramSocket#send(java.net.DatagramPacket)` | The `https://developer.android.com/reference/java/net/DatagramSocket#send(java.net.DatagramPacket)` method throws a `https://developer.android.com/reference/java/net/SocketException` if the previously executed `https://developer.android.com/reference/java/net/DatagramSocket#connect(java.net.InetAddress, int)` method failed. | [Behavior Changes: Network and HTTP(S) connectivity](https://developer.android.com/about/versions/oreo/android-8.0-changes#networking-all) |
+| Proper `https://developer.android.com/reference/java/lang/NullPointerException` from `https://developer.android.com/reference/java/util/AbstractCollection` methods | `https://developer.android.com/reference/java/util/AbstractCollection#removeAll(java.util.Collection<?>)` and `https://developer.android.com/reference/java/util/AbstractCollection#retainAll(java.util.Collection<?>)` now always throw a `https://developer.android.com/reference/java/lang/NullPointerException`; previously, the `https://developer.android.com/reference/java/lang/NullPointerException` was not thrown when the collection was empty. This change makes the behavior consistent with the documentation. | [Behavior Changes: Collection handling](https://developer.android.com/about/versions/oreo/android-8.0-changes#ch-all) |
+| Proper `https://developer.android.com/reference/java/lang/NullPointerException` from `https://developer.android.com/reference/android/icu/util/Currency#getDisplayName()` | Calling `https://developer.android.com/reference/android/icu/util/Currency#getDisplayName()` throws a `https://developer.android.com/reference/java/lang/NullPointerException`. | [Behavior Changes: Locales and internationalization](https://developer.android.com/about/versions/oreo/android-8.0-changes#lai) |
 
 
 For a more extensive list of behavior changes in Android 8.0
@@ -76,7 +76,7 @@ affected when you change the `targetSdkVersion` by reviewing all [behavior chang
 
 **Note:** The steps described above to
 [ensure platform compatibility](https://developer.android.com/about/versions/oreo/android-8.0-migration#ec) are prerequisite
-to targeting your app to Android 8.0, so be sure you complete those steps first.  
+to targeting your app to Android 8.0, so be sure you complete those steps first.
 ![Update target version and use Android 8.0 features step-by-step](https://developer.android.com/static/images/about/versions/oreo/o-building-flow-mobile.svg)
 
 ### Get the Android 8.0 SDK
@@ -109,7 +109,7 @@ Now you're ready to start building with Android 8.0.
 
 Update `compileSdkVersion`,
 `targetSdkVersion`, and the Support Library version to the latest
-available revisions, for example:  
+available revisions, for example:
 
 ```
 android {
@@ -180,8 +180,8 @@ when `targetSdkVersion` is set to 26.
 | Writable and Executable Segments Enforced | For native libraries, Android 8.0 (API level 26) enforces the rule that data shouldn't be executable, and code shouldn't be writable. | [Behavior Changes: Native Libraries](https://developer.android.com/about/versions/oreo/android-8.0-changes#ndk) |
 | ELF header and section validation | The dynamic linker checks more values in the ELF header and section headers, and fails if they are invalid. | [Behavior Changes: Native Libraries](https://developer.android.com/about/versions/oreo/android-8.0-changes#ndk) |
 | Notifications | Apps targeting the Android 8.0 (API level 26) version of the SDK must implement one or more notification channels to post notifications to users. | [API Overview: Notifications](https://developer.android.com/about/versions/oreo/android-8.0#notifications) |
-| The [List.sort()](https://developer.android.com/reference/java/util/List#sort(java.util.Comparator<? super E>)) method | Implementations of this method may no longer call [Collections.sort()](https://developer.android.com/reference/java/util/Collections#sort(java.util.List<T>)), or your app will throw an exception due to stack overflow. | [Behavior Changes: Collection handling](https://developer.android.com/about/versions/oreo/android-8.0-changes#o-ch) |
-| The [Collections.sort()](https://developer.android.com/reference/java/util/Collections#sort(java.util.List<T>)) method | In List implementations, [Collections.sort()](https://developer.android.com/reference/java/util/Collections#sort(java.util.List<T>)) now throws a [ConcurrentModificationException](https://developer.android.com/reference/java/util/ConcurrentModificationException). | [Behavior Changes: Collection handling](https://developer.android.com/about/versions/oreo/android-8.0-changes#o-ch) |
+| The `https://developer.android.com/reference/java/util/List#sort(java.util.Comparator<? super E>)` method | Implementations of this method may no longer call `https://developer.android.com/reference/java/util/Collections#sort(java.util.List<T>)`, or your app will throw an exception due to stack overflow. | [Behavior Changes: Collection handling](https://developer.android.com/about/versions/oreo/android-8.0-changes#o-ch) |
+| The `https://developer.android.com/reference/java/util/Collections#sort(java.util.List<T>)` method | In List implementations, `https://developer.android.com/reference/java/util/Collections#sort(java.util.List<T>)` now throws a `https://developer.android.com/reference/java/util/ConcurrentModificationException`. | [Behavior Changes: Collection handling](https://developer.android.com/about/versions/oreo/android-8.0-changes#o-ch) |
 
 
 For a more extensive list of behavior changes in Android 8.0 (API level 26),

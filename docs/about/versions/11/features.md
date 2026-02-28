@@ -62,7 +62,8 @@ To render your app content in the waterfall area, do the following:
   of the screen. You must make sure that no essential content is in the cutout
   or waterfall areas.
 
-| **Note:** If you do not set the window to `LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS`, Android displays the window in letterboxed mode, avoiding the notch and waterfall areas.
+> [!NOTE]
+> **Note:** If you do not set the window to `LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS`, Android displays the window in letterboxed mode, avoiding the notch and waterfall areas.
 
 #### Hinge angle sensor and foldables
 
@@ -184,8 +185,10 @@ available for [File-Based
 Encryption (FBE)](https://source.android.com/security/encryption/file-based)
 operations. This means that, after an OTA update, your app can resume operations
 that require the CE keys before the user enters their PIN, pattern, or password.
-| **Note:** This change only affects device restarts that occur because of an OTA update. If your app always needs access to CE keys before the user enters their PIN, pattern, or password following a device restart, continue to [support
-| Direct Boot](https://developer.android.com/training/articles/direct-boot).
+
+> [!NOTE]
+> **Note:** This change only affects device restarts that occur because of an OTA update. If your app always needs access to CE keys before the user enters their PIN, pattern, or password following a device restart, continue to [support
+> Direct Boot](https://developer.android.com/training/articles/direct-boot).
 
 ## Performance and quality
 
@@ -319,13 +322,13 @@ app's content in synchronization with the IME's appearance and disappearance,
 and with other elements like the status and navigation bars.
 
 To show an IME while any `EditText` has the focus, call
-`view.getInsetsController().`[show(Type.ime())](https://developer.android.com/reference/android/view/WindowInsetsController#show(int)).
+`view.getInsetsController().https://developer.android.com/reference/android/view/WindowInsetsController#show(int)`.
 (You can call this method on any view in
 the same hierarchy as the focused `EditText`, you don't have to call
 it on the `EditText` specifically.) To hide the IME, call
-`view.getInsetsController().`[hide(Type.ime())](https://developer.android.com/reference/android/view/WindowInsetsController#hide(int)).
+`view.getInsetsController().https://developer.android.com/reference/android/view/WindowInsetsController#hide(int)`.
 You can check whether an IME is currently visible by calling
-`view.getRootWindowInsets().`[isVisible(Type.ime())](https://developer.android.com/reference/android/view/WindowInsets#isVisible(int)).
+`view.getRootWindowInsets().https://developer.android.com/reference/android/view/WindowInsets#isVisible(int)`.
 
 To synchronize your app's views with the appearance and disappearance of the IME, set a listener on a view by providing a
 [`WindowInsetsAnimation.Callback`](https://developer.android.com/reference/android/view/View#setWindowInsetsAnimationCallback(android.view.WindowInsetsAnimation.Callback))
@@ -351,7 +354,7 @@ code sample.
 You can also take control of the IME animation, or the animation of another
 system bar like the navigation bar. To do this, first call
 [`setOnApplyWindowInsetsListener()`](https://developer.android.com/reference/android/view/View#setOnApplyWindowInsetsListener(android.view.View.OnApplyWindowInsetsListener))
-to set a new listener for window inset changes:  
+to set a new listener for window inset changes:
 
 ### Kotlin
 
@@ -391,7 +394,7 @@ mRoot.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
 
 To move the IME or other system bar, call the controller's
 [`controlWindowInsetsAnimation()`](https://developer.android.com/reference/android/view/WindowInsetsController#controlWindowInsetsAnimation(int,%20long,%20android.view.animation.Interpolator,%20android.view.WindowInsetsAnimationControlListener))
-method:  
+method:
 
 ### Kotlin
 
@@ -495,7 +498,8 @@ To turn low-latency decoding on or off, do either of the following:
 - Set the new key [`KEY_LOW_LATENCY`](https://developer.android.com/reference/kotlin/android/media/MediaFormat#key_low_latency) to 0 or 1 using [`MediaCodec.configure()`](https://developer.android.com/reference/kotlin/android/media/MediaCodec#configure).
 - Set the new parameter key [`PARAMETER_KEY_LOW_LATENCY`](https://developer.android.com/reference/kotlin/android/media/MediaCodec#parameter_key_low_latency) to 0 or 1 using [`MediaCodec.setParameters()`](https://developer.android.com/reference/kotlin/android/media/MediaCodec#setparameters).
 
-| **Note:** Supporting low-latency decoding can require additional resources, such as higher power consumption. Use low-latency decoding only when necessary.
+> [!NOTE]
+> **Note:** Supporting low-latency decoding can require additional resources, such as higher power consumption. Use low-latency decoding only when necessary.
 
 #### New AAudio function AAudioStream_release()
 
@@ -527,7 +531,9 @@ use" option, so the user must acknowledge the warning and grant permission every
 time an app requests access.
 
 To avoid this behavior, your app should request the `RECORD_AUDIO` permission.
-| **Note:** This behavior only applies to apps that connect directly to USB peripherals using the [`UsbManager` API](https://developer.android.com/reference/android/hardware/usb/UsbManager#openDevice(android.hardware.usb.UsbDevice)). The vast majority of media players, games, and communication apps use the Audio APIs and aren't affected by this change.
+
+> [!NOTE]
+> **Note:** This behavior only applies to apps that connect directly to USB peripherals using the [`UsbManager` API](https://developer.android.com/reference/android/hardware/usb/UsbManager#openDevice(android.hardware.usb.UsbDevice)). The vast majority of media players, games, and communication apps use the Audio APIs and aren't affected by this change.
 
 #### Concurrent mic access
 
@@ -613,7 +619,9 @@ of Mobile Country Code (MCC) and Mobile Network Code (MNC) on their network, but
 has only a single FQDN. On Android 11 and higher, it is possible
 to install more than one profile with the same FQDN that will match the network
 as the Home provider when the user installs a SIM with either MCC or MNC.
-| **Note:** Each configuration is identified by a unique key that depends on the content of the configuration. In order to update an existing profile, you must remove it using [`WifiManager.removePasspointConfiguration()`](https://developer.android.com/reference/android/net/wifi/WifiManager#removePasspointConfiguration(java.lang.String)). Not removing the existing configuration will cause a new profile to be added with both configurations.
+
+> [!NOTE]
+> **Note:** Each configuration is identified by a unique key that depends on the content of the configuration. In order to update an existing profile, you must remove it using [`WifiManager.removePasspointConfiguration()`](https://developer.android.com/reference/android/net/wifi/WifiManager#removePasspointConfiguration(java.lang.String)). Not removing the existing configuration will cause a new profile to be added with both configurations.
 
 #### GNSS antenna support
 
@@ -663,7 +671,9 @@ attribute to `true`. Not all displays support minimal
 post-processing; to find out if a particular display does support it, call the
 new method
 [`Display.isMinimalPostProcessingSupported()`](https://developer.android.com/reference/android/view/Display#isMinimalPostProcessingSupported()).
-| **Note:** If the user disables minimal post-processing, or if the display does not support low latency mode, calling `Window.setPreferMinimalPostProcessing()` has no effect.
+
+> [!NOTE]
+> **Note:** If the user disables minimal post-processing, or if the display does not support low latency mode, calling `Window.setPreferMinimalPostProcessing()` has no effect.
 
 #### Performant graphics debug layer injection
 
@@ -675,7 +685,7 @@ performance overhead. This feature is especially important when profiling your
 application with tools like [GAPID](https://gapid.dev/). To profile
 your app, include the following
 [meta-data element](https://developer.android.com/guide/topics/manifest/meta-data-element) in your app
-manifest file instead of making the application debuggable:  
+manifest file instead of making the application debuggable:
 
 ```xml
 <application ... >
@@ -749,9 +759,11 @@ uniqueness for exit events, it can maintain an app-specific identifier, such as
 a hash value based on the timestamp from the
 [`getTimestamp()`](https://developer.android.com/reference/kotlin/android/app/ApplicationExitInfo#gettimestamp)
 method.
-| **Note:** Some devices cannot report low-memory kills. On these devices, the `getHistoricalProcessExitReasons()` method returns `REASON_SIGNALED` instead of `REASON_LOW_MEMORY`, and the return value of [`getStatus()`](https://developer.android.com/reference/kotlin/android/app/ApplicationExitInfo#getstatus) is `SIGKILL`.  
-|
-| To check whether a device can report low-memory kills, call [`ActivityManager.isLowMemoryKillReportSupported()`](https://developer.android.com/reference/kotlin/android/app/ActivityManager#islowmemorykillreportsupported).
+
+> [!NOTE]
+> **Note:** Some devices cannot report low-memory kills. On these devices, the `getHistoricalProcessExitReasons()` method returns `REASON_SIGNALED` instead of `REASON_LOW_MEMORY`, and the return value of [`getStatus()`](https://developer.android.com/reference/kotlin/android/app/ApplicationExitInfo#getstatus) is `SIGKILL`.  
+>
+> To check whether a device can report low-memory kills, call [`ActivityManager.isLowMemoryKillReportSupported()`](https://developer.android.com/reference/kotlin/android/app/ActivityManager#islowmemorykillreportsupported).
 
 #### Additional resources
 
@@ -787,7 +799,7 @@ API class, just like with assets bundled in the APK.
 ### APK signature scheme v4
 
 Android 11 adds support for [APK Signature Scheme v4](https://developer.android.com/studio/command-line/apksigner#v4-signing-enabled). This scheme
-produces a new kind of signature in a separate file (<var translate="no">apk-name</var>`.apk.idsig`) but
+produces a new kind of signature in a separate file (`apk-name.apk.idsig`) but
 is otherwise similar to v2 and v3. No changes are made to the APK. This scheme supports
 [ADB incremental APK installation](https://developer.android.com/about/versions/11/features#incremental), which speeds up APK install.
 
@@ -804,7 +816,7 @@ software the user will install inside them.
 Android 11 introduces MIME groups, a new manifest element which allows an app to
 declare a dynamic set of MIME types in an intent filter and modify it
 programmatically at runtime. To use a MIME group, include a data element in your
-app manifest with the new `android:mimeGroup` attribute:  
+app manifest with the new `android:mimeGroup` attribute:
 
 ```xml
 <intent-filter>
@@ -825,7 +837,9 @@ class:
 
 When you add a MIME type to a MIME group programmatically, it functions exactly
 the same as a static MIME type explicitly declared in the manifest.
-| **Note:** `mimeGroup` strings are defined on a per-package basis. Within the same package, you can use the same `mimeGroup` string in multiple intent filters or components to declare a MIME group that is shared between them. Different packages cannot share a MIME group, but they can use the same `mimeGroup` string without interfering with each other.
+
+> [!NOTE]
+> **Note:** `mimeGroup` strings are defined on a per-package basis. Within the same package, you can use the same `mimeGroup` string in multiple intent filters or components to declare a MIME group that is shared between them. Different packages cannot share a MIME group, but they can use the same `mimeGroup` string without interfering with each other.
 
 ### Autofill enhancements
 

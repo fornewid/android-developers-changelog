@@ -70,7 +70,7 @@ any UI-related work, particularly
 
 If your app creates a `MediaProjection`, the bounds must be correctly sized
 since the projection captures the display. If the app is fully resizable, the
-activity context returns the correct bounds.  
+activity context returns the correct bounds.
 
 ### Kotlin
 
@@ -89,7 +89,7 @@ WindowMetrics projectionMetrics = activityContext
 If the app is not fully resizable, it must query the bounds from a
 `WindowContext` instance, and retrieve the WindowMetrics of the maximum display
 area available to the application using
-[`WindowManager.getMaximumWindowMetrics()`](https://developer.android.com/reference/android/view/WindowManager#getMaximumWindowMetrics())  
+[`WindowManager.getMaximumWindowMetrics()`](https://developer.android.com/reference/android/view/WindowManager#getMaximumWindowMetrics())
 
 ### Kotlin
 
@@ -108,4 +108,6 @@ Context windowContext = mContext.createWindowContext(mContext.getDisplay(),
 WindowMetrics projectionMetrics = windowContext.getWindowManager()
       .getMaximumWindowMetrics();
 ```
-| **Note:** Any library that uses `MediaProjection` should follow this advice as well and query the appropriate `WindowMetrics` for the app window.
+
+> [!NOTE]
+> **Note:** Any library that uses `MediaProjection` should follow this advice as well and query the appropriate `WindowMetrics` for the app window.

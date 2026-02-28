@@ -4,11 +4,23 @@ url: https://developer.android.com/games/optimize/adpf
 source: md.txt
 ---
 
-This guide describes how to use the Android Dynamic Performance Framework (ADPF) to optimize games based on the dynamic thermal and CPU management features on Android. The focus is on games, but you can also use the features for other performance-intensive apps.
+This guide describes how to use the Android Dynamic Performance Framework (ADPF)
+to optimize games based on the dynamic thermal and CPU management features on
+Android. The focus is on games, but you can also use the features for other
+performance-intensive apps.
 
-ADPF is a set of APIs that allow games and performance-intensive apps to interact more directly with power and thermal systems of Android devices. With these APIs, you can monitor the dynamic behavior on Android systems and optimize game performance at a sustainable level that doesn't overheat devices.
+ADPF is a set of APIs that allow games and performance-intensive apps to
+interact more directly with power and thermal systems of Android devices. With
+these APIs, you can monitor the dynamic behavior on Android systems and optimize
+game performance at a sustainable level that doesn't overheat devices.
 
-Mobile SoCs and Android have more dynamic performance behaviors than desktops and consoles. These behaviors include thermal state management, varying CPU clocks, and varying CPU core types. This combined with the increasingly diverse core topology of SoCs creates challenges when trying to ensure that your game can take advantage of this behavior without negatively impacting device performance. ADPF provides some of this information in order to make performance more predictable.
+Mobile SoCs and Android have more dynamic performance behaviors than desktops
+and consoles. These behaviors include thermal state management, varying CPU
+clocks, and varying CPU core types. This combined with the increasingly diverse
+core topology of SoCs creates challenges when trying to ensure that your game
+can take advantage of this behavior without negatively impacting device
+performance. ADPF provides some of this information in order to make performance
+more predictable.
 
 Here are the main ADPF features:
 

@@ -18,7 +18,9 @@ will continue to get the same Player ID.**
 Next generation Player IDs will be rolled out gradually and will eventually be a
 requirement for all PGS projects starting August 2025. For a detailed timeline
 of the rollout plan, review this [blog post](https://android-developers.googleblog.com/2023/02/enable-next-generation-ids-for-better-play-games-services-support-for-all-google-accounts.html).
-| **Note:** Next generation Player IDs enable better Play Games Services support for all accounts, including those [under supervision](https://support.google.com/families/answer/9499456).
+
+> [!NOTE]
+> **Note:** Next generation Player IDs enable better Play Games Services support for all accounts, including those [under supervision](https://support.google.com/families/answer/9499456).
 
 ## Use next generation Player IDs
 
@@ -38,14 +40,18 @@ To do this, set the radio button to "On" but don't publish the change. Once the
 radio button is set to "On", the tester accounts will return next generation
 Player IDs for you to test with. **This setting will apply to all the games
 linked to this PGS project.**
-| **Note:** Existing tester accounts will need to recreate their PGS profile in order to receive next generation Player IDs.
+
+> [!NOTE]
+> **Note:** Existing tester accounts will need to recreate their PGS profile in order to receive next generation Player IDs.
 
 Once you have completed testing, [publish the change with your PGS project in
 the Play Console](https://developer.android.com/games/pgs/console/publish)
 (under **Play Games Services \> Setup and
 management \> Publishing**) so the change goes into effect and all new users
 start receiving next generation IDs.
-| **Note:** If issues arise in production, you can choose to temporarily disable next generation IDs by selecting "Off" and [publishing the new change](https://developer.android.com/games/pgs/console/publish).
+
+> [!NOTE]
+> **Note:** If issues arise in production, you can choose to temporarily disable next generation IDs by selecting "Off" and [publishing the new change](https://developer.android.com/games/pgs/console/publish).
 
 ## Test next generation Player IDs
 
@@ -59,7 +65,8 @@ A few tests we would recommend running:
 - Ensuring tester accounts (receiving next generation Player IDs) are able to authenticate and link their PGS profile with game progresses.
 - (If applicable) Tester accounts are able to authenticate to the same identity system with the same PGS profile across separate games, and have their progress tracked.
 
-| **Note:** Next generation Player IDs are supported on devices running GMS Core versions 22.30.12 or higher. More info on how to check the GMS Core version can be found [here](https://developer.android.com/games/playgames/faq#q_why_does_v2_auto_sign-in_fail_on_a_mobile_device). For all devices running versions older than this, next generation IDs won't be supported.
+> [!NOTE]
+> **Note:** Next generation Player IDs are supported on devices running GMS Core versions 22.30.12 or higher. More info on how to check the GMS Core version can be found [here](https://developer.android.com/games/playgames/faq#q_why_does_v2_auto_sign-in_fail_on_a_mobile_device). For all devices running versions older than this, next generation IDs won't be supported.
 
 ## Use the developer player key
 
@@ -76,8 +83,10 @@ The response will have one field:
 
 `developer_player_key (string)` - The user's ID which will be the same
 across a developer's applications in their Google Play Console.
-| **Warning:** If a game transfers developer accounts, then the *developer player key* will change. **Therefore, you should not consider this as a stable
-| identifier, nor as a primary key to access progress.** This also should not be considered a Player ID when interacting with the PGS API. The developer player key should only be user to enable cross-game capabilities, as needed.
+
+> [!WARNING]
+> **Warning:** If a game transfers developer accounts, then the *developer player key* will change. **Therefore, you should not consider this as a stable
+> identifier, nor as a primary key to access progress.** This also should not be considered a Player ID when interacting with the PGS API. The developer player key should only be user to enable cross-game capabilities, as needed.
 
 ## Retrieve a list of Player IDs across your applications
 

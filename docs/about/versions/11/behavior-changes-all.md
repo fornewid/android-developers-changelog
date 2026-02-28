@@ -152,8 +152,10 @@ on this shared library for devices running Android 9 (API level 28) or lower
 should use the [Maps SDK for
 Android](https://developers.google.com/maps/documentation/android-sdk/intro)
 instead.
-| **Important:** After migrating to the Maps SDK for Android, remember to remove the reference to v1 of the Maps shared library from the [`<uses-library>`](https://developer.android.com/guide/topics/manifest/uses-library-element) element in your app's manifest file. Apps can no longer use [Google Play
-| filtering](https://developer.android.com/google/play/filters) with the Maps v1 shared library and the `<uses-library>` element.
+
+> [!IMPORTANT]
+> **Important:** After migrating to the Maps SDK for Android, remember to remove the reference to v1 of the Maps shared library from the [`<uses-library>`](https://developer.android.com/guide/topics/manifest/uses-library-element) element in your app's manifest file. Apps can no longer use [Google Play
+> filtering](https://developer.android.com/google/play/filters) with the Maps v1 shared library and the `<uses-library>` element.
 
 ## Interaction with other apps
 

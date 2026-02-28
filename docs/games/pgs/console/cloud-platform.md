@@ -98,7 +98,8 @@ you must have also configured your OAuth audience setting in Google Cloud as
 
 ### Modify client ID related attributes
 
-| **Important:** If you change the launch URL of your web app, you must follow the instructions below to make the corresponding change in Play Console to avoid getting `origin_mismatch` errors. If you change the package name of your Android app, you must create a new linked app entry and remove the existing linked app entry that has the old package name.
+> [!IMPORTANT]
+> **Important:** If you change the launch URL of your web app, you must follow the instructions below to make the corresponding change in Play Console to avoid getting `origin_mismatch` errors. If you change the package name of your Android app, you must create a new linked app entry and remove the existing linked app entry that has the old package name.
 
 To modify attributes related to your OAuth 2.0 client ID (web
 origins and redirect urls for a web app, etc.):

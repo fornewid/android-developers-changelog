@@ -25,7 +25,7 @@ This guide explains the following areas:
 - [Release a wake lock](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/release)
 - [Follow wake lock best practices](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/best-practices)
 - [Debug wake locks locally](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/debug-locally)
-- [Identify wake locks created by other APIs](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls)
+- [Identify and optimize wake lock use cases](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls)
 
 This guide assumes you're familiar with the following topics:
 

@@ -33,11 +33,11 @@ functionality.
     <manifest ...>
         <!-- Only declare permissions that your app actually needs. In this example,
         we declare permissions for the microphone. -->
-        <uses-permission android:name="android.permission.RECORD_AU>DIO&q<uot;/
-        appli>cation ...
-          <  ...
-        /ap<plication>
-    /manifest
+        <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+        <application ...>
+            ...
+        </application>
+    </manifest>
 
 ## Request permissions
 

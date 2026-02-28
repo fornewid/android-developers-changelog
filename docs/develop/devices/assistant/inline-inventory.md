@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/inline-inventory
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 When you implement App Actions for your Android app, you might find yourself
 having to handle requests that are variations on a theme. For example, say your
 fitness app implements the [`START_EXERCISE`](https://developer.android.com/reference/app-actions/built-in-intents/health-and-fitness/start-exercise) built-in intent (BII) to let

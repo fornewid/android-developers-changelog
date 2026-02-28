@@ -4,7 +4,7 @@ url: https://developer.android.com/about/versions/15/feedback
 source: md.txt
 ---
 
-![](http://developer.android.com/static/images/shared/preview-feedback-header.svg)  
+![](http://developer.android.com/static/images/shared/preview-feedback-header.svg)
 
 ### Feedback and issues
 
@@ -12,18 +12,15 @@ As you test your apps with Android 15 QPR2, let us know of any issues you find o
 
 ## Ways to give feedback
 
-[![](http://developer.android.com/static/images/picto-icons/chat-bubbles-3.svg)](http://developer.android.com/about/versions/15/feedback#issue_tracker)  
+[![](http://developer.android.com/static/images/picto-icons/chat-bubbles-3.svg)](http://developer.android.com/about/versions/15/feedback#issue_tracker)
 
 ### [Issue tracker](http://developer.android.com/about/versions/15/feedback#issue_tracker)
 
-Report issues and submit feature requests. View, track, and vote for issues that you and other developers have reported.  
-[Learn more](http://developer.android.com/about/versions/15/feedback#issue_tracker)  
-[![](http://developer.android.com/static/images/picto-icons/chat-bubbles-3.svg)](http://developer.android.com/about/versions/15/feedback#feedback-app)  
+Report issues and submit feature requests. View, track, and vote for issues that you and other developers have reported. [Learn more](http://developer.android.com/about/versions/15/feedback#issue_tracker) [![](http://developer.android.com/static/images/picto-icons/chat-bubbles-3.svg)](http://developer.android.com/about/versions/15/feedback#feedback-app)
 
 ### [Android Beta Feedback app](http://developer.android.com/about/versions/15/feedback#feedback-app)
 
-Report issues using the Android Beta Feedback app that's included in preview builds on Pixel devices.  
-[Learn more](http://developer.android.com/about/versions/15/feedback#feedback-app)
+Report issues using the Android Beta Feedback app that's included in preview builds on Pixel devices. [Learn more](http://developer.android.com/about/versions/15/feedback#feedback-app)
 
 ## Issue tracker
 

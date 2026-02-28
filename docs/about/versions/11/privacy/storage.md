@@ -66,7 +66,8 @@ space](https://developer.android.com/training/data-storage/app-specific#query-fr
    app consent to clear all caches. To do so, invoke the
    [`ACTION_CLEAR_APP_CACHE`](https://developer.android.com/reference/kotlin/android/os/storage/StorageManager#action_clear_app_cache) intent action.
 
-   | **Caution:** The `ACTION_CLEAR_APP_CACHE` intent action can substantially affect device battery life and might remove a large number of files from the device.
+   > [!CAUTION]
+   > **Caution:** The `ACTION_CLEAR_APP_CACHE` intent action can substantially affect device battery life and might remove a large number of files from the device.
 
 ## App-specific directory on external storage
 
@@ -218,7 +219,9 @@ cannot do so efficiently using the privacy-friendly storage best practices.
 Android provides a special app access called *All files access* for these
 situations. To learn more, see the guide on how to [manage all
 files](https://developer.android.com/training/data-storage/manage-all-files) on a storage device.
-| **Note:** If you publish your app to Google Play, carefully read the [notice](https://developer.android.com/training/data-storage/manage-all-files#all-files-access-google-play). If you target Android 11 and declare *All files access*, it can affect your ability to publish and update your app on Google Play.
+
+> [!NOTE]
+> **Note:** If you publish your app to Google Play, carefully read the [notice](https://developer.android.com/training/data-storage/manage-all-files#all-files-access-google-play). If you target Android 11 and declare *All files access*, it can affect your ability to publish and update your app on Google Play.
 
 ## Additional resources
 

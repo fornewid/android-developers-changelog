@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/assistant-sharing
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 Users on Android phones can ask Google Assistant to share app content with
 another user using a voice command like *"Hey Google, send this to Jane."* Based
 on the first user's system options, Assistant can then incorporate text from

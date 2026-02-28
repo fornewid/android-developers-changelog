@@ -25,7 +25,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-nested-list_d7f56e813ae273a474e3b0cc70d876c83c80af5be2179fb3cca30e39105a8182.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-nested-list_c9c3b748cf0edfb9b436d2832b6939b51fdc66d3610de8a451b5bde62df02bea.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Implement nested horizontal scrolling in vertical list
 

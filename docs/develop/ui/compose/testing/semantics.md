@@ -28,7 +28,7 @@ For example, given a button like this that consists of an icon and a text
 element, the default semantics tree only contains the text label "Like". This is
 because some composables, such as `Text`, already expose some properties to the
 semantics tree. You can add properties to the semantics tree by using a
-`Modifier`.  
+`Modifier`.
 
     MyButton(
         modifier = Modifier.semantics { contentDescription = "Add to favorites" }

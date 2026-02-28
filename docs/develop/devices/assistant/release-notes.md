@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/release-notes
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 This page provides a changelog that lists new plugin and SDK releases, and
 describes updates to App Actions features. To learn about specific releases,
 click the links in the changelog below.

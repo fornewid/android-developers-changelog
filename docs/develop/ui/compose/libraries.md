@@ -130,7 +130,7 @@ function. Add the following dependency to your Gradle file:
 
 ```groovy
 dependencies {
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0'
 }
 ```
 
@@ -138,7 +138,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
 }
 ```
 

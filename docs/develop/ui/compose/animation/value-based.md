@@ -145,7 +145,7 @@ enters composition.
 var currentState = remember { MutableTransitionState(BoxState.Collapsed) }
 currentState.targetState = BoxState.Expanded
 val transition = rememberTransition(currentState, label = "box state")
-// ......https://github.com/android/snippets/blob/006926b35636839270918bbc9d77cd548dd90aad/compose/snippets/src/main/java/com/example/compose/snippets/animations/AnimationSnippets.kt#L467-L471
+// ......https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/compose/snippets/src/main/java/com/example/compose/snippets/animations/AnimationSnippets.kt#L467-L471
 ```
 
 <br />

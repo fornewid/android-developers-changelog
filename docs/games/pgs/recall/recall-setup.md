@@ -16,14 +16,18 @@ Set up your game server to make Recall API calls to Google servers.
 
 If you haven't already done so, follow the instructions in [Set up Google Play
 Games Services](https://developer.android.com/games/pgs/console/setup).
-| **Note:** Recall tokens and personas are available on a per-PGS project basis. For separate PGS projects, there are separate collections of links between PGS profiles and personas. For more information, see the documentation on [setting
-| up your PGS projects](https://developer.android.com/games/pgs/console/setup#add_your_game_to_the).
+
+> [!NOTE]
+> **Note:** Recall tokens and personas are available on a per-PGS project basis. For separate PGS projects, there are separate collections of links between PGS profiles and personas. For more information, see the documentation on [setting
+> up your PGS projects](https://developer.android.com/games/pgs/console/setup#add_your_game_to_the).
 
 ### 2. Set up a service account for the game
 
 Follow the instructions on [creating a service account](https://developers.google.com/identity/protocols/oauth2/service-account#creatinganaccount). At the end you
 should have a JSON file with service account credentials.
-| **Note:** The Recall API is a server-to-server API. Because of this, the Recall API uses service accounts to authenticate the game server, not regular 3-legged OAuth, which is used by other Games APIs to authenticate both game servers and end users.
+
+> [!NOTE]
+> **Note:** The Recall API is a server-to-server API. Because of this, the Recall API uses service accounts to authenticate the game server, not regular 3-legged OAuth, which is used by other Games APIs to authenticate both game servers and end users.
 
 ### 3. Download server-side Java library for PlayGamesServices
 
@@ -172,8 +176,12 @@ time with [`setExpireTime()`](https://googleapis.dev/java/google-api-services-ga
 You must encrypt the persona and game token, and they cannot contain personally
 identifiable information. Persona and token strings can be at most 256
 characters long.
-| **Note:** The encryption key used for encrypting tokens should be unique for each application. If the game is transferred to another developer, the encryption key must be passed to the new owner. The recall tokens can't be decrypted without the original encryption key.
-| **Note:** Tokens created for [profileless users](https://developer.android.com/games/pgs/recall#profileless) have a default TTL of 30 days. Otherwise, for users with PGS profiles, tokens don't have a default TTL.
+
+> [!NOTE]
+> **Note:** The encryption key used for encrypting tokens should be unique for each application. If the game is transferred to another developer, the encryption key must be passed to the new owner. The recall tokens can't be decrypted without the original encryption key.
+
+> [!NOTE]
+> **Note:** Tokens created for [profileless users](https://developer.android.com/games/pgs/recall#profileless) have a default TTL of 30 days. Otherwise, for users with PGS profiles, tokens don't have a default TTL.
 
     import com.google.api.services.games.Games.Recall.LinkPersona;
     import com.google.api.services.games.model.LinkPersonaRequest;
@@ -215,7 +223,8 @@ request the following:
 - The last token stored across all games owned by the developer account.
 - Given a list of games owned by the developer account, all the recall tokens associated with each game.
 
-| **Note:** When you request recall tokens, the API doesn't return strings that represent the persona.
+> [!NOTE]
+> **Note:** When you request recall tokens, the API doesn't return strings that represent the persona.
 
 #### Game-scoped recall tokens
 

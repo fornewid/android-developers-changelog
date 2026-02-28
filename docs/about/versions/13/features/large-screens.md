@@ -101,7 +101,9 @@ may change while the app is in the resumed state. In these cases, your app needs
 to call [`setOnApplyWindowInsetsListener`](https://developer.android.com/reference/androidx/core/view/ViewCompat#setOnApplyWindowInsetsListener(android.view.View,androidx.core.view.OnApplyWindowInsetsListener))
 and handle changes in the inset's dimensions as described in
 [System bars insets](https://developer.android.com/training/gestures/edge-to-edge#system-bars-insets).
-| **Note:** Although the Taskbar doesn't have its own inset type, its dimension can be retrieved using [`WindowInsetsCompat.Type.navigationBars()`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsCompat.Type#navigationBars()) or [`WindowInsetsCompat.Type.systemBars()`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsCompat.Type#systemBars()).
+
+> [!NOTE]
+> **Note:** Although the Taskbar doesn't have its own inset type, its dimension can be retrieved using [`WindowInsetsCompat.Type.navigationBars()`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsCompat.Type#navigationBars()) or [`WindowInsetsCompat.Type.systemBars()`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsCompat.Type#systemBars()).
 
 ## Improved compatibility experience
 

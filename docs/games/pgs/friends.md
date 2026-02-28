@@ -37,7 +37,9 @@ New users will have a starting list of friends to play with, and existing users
 can import their Play Games friends into any in-game lists of friends.
 As a result, your users will have the largest possible set of players to play
 with or compete against.
-| **Note:** If you store any relationships from Play Games, you must regularly check the friends list to ensure that the relationships, and consent to use them, are still valid.
+
+> [!NOTE]
+> **Note:** If you store any relationships from Play Games, you must regularly check the friends list to ensure that the relationships, and consent to use them, are still valid.
 
 ### Add Play Games friends to your game
 

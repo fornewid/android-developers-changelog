@@ -4,11 +4,13 @@ url: https://developer.android.com/games/engines/unity/unity-symbolicate
 source: md.txt
 ---
 
-# Symbolicate Android crashes and ANR for Unity games
+Crashes and ANRs on Android produce a stack trace, which is a snapshot of the
+sequence of nested functions called in your game up to the moment it crashed.
+These snapshots can help you identify and fix any problems in the source.
 
-Crashes and ANRs on Android produce a stack trace, which is a snapshot of the sequence of nested functions called in your game up to the moment it crashed. These snapshots can help you identify and fix any problems in the source.
-
-However, when you build your game with Unity in release mode, the symbols are not packed with the APK. If your game crashes or has ANRs, the call stack only shows the memory address.
+However, when you build your game with Unity in release mode, the symbols are
+not packed with the APK. If your game crashes or has ANRs, the call stack only
+shows the memory address.
 
 For example:
 >
@@ -31,8 +33,16 @@ For example:
 >      I/DEBUG(242):     #09  pc 0000d248  /system/lib/libc.so (__thread_entry+72)
 >      I/DEBUG(242):     #10  pc 0000d3e0  /system/lib/libc.so (pthread_create+240)
 
-Google Play supports uploading a debug symbols file for each version of your app in Play Console. This makes it easier to analyze and fix your crashes and ANRs.
+Google Play supports uploading a debug symbols file for each version of your app
+in Play Console. This makes it easier to analyze and fix your crashes and ANRs.
 
-From Unity 2020.3 and higher, you can follow Unity's guidance to generate[Android symbols](https://docs.unity3d.com/2020.3/Documentation/Manual/android-symbols.html)and then[upload the symbolication file](https://support.google.com/googleplay/android-developer/answer/9848633#zippy=%2Cupload-files-using-play-console)to Google Play Console to see a human-readable stack trace on the Android Vitals dashboard.
+From Unity 2020.3 and higher, you can follow Unity's guidance to generate
+[Android symbols](https://docs.unity3d.com/2020.3/Documentation/Manual/android-symbols.html)
+and then [upload the symbolication file](https://support.google.com/googleplay/android-developer/answer/9848633#zippy=%2Cupload-files-using-play-console) to Google
+Play Console to see a human-readable stack trace on the Android Vitals
+dashboard.
 
-Otherwise, you can follow the[Symbolicate Android crash](https://support.unity.com/hc/en-us/articles/115000292166-Symbolicate-Android-crash)article from Unity to manually resolve the stack trace or generate symbol files for lower versions of Unity.
+Otherwise, you can follow the
+[Symbolicate Android crash](https://support.unity.com/hc/en-us/articles/115000292166-Symbolicate-Android-crash) article from
+Unity to manually resolve the stack trace or generate symbol files for lower
+versions of Unity.

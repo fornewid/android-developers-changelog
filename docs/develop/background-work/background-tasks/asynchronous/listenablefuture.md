@@ -1,23 +1,12 @@
 ---
-title: Using a ListenableFuture  |  Background work  |  Android Developers
+title: https://developer.android.com/develop/background-work/background-tasks/asynchronous/listenablefuture
 url: https://developer.android.com/develop/background-work/background-tasks/asynchronous/listenablefuture
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Background work](https://developer.android.com/develop/background-work)
-* [Guides](https://developer.android.com/develop/background-work/background-tasks)
-
-# Using a ListenableFuture Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 A `ListenableFuture` represents the result of an asynchronous computation: a
 computation that may or may not have finished producing a result yet. It's a
-type of `Future`
+type of `https://developer.android.com/reference/java/util/concurrent/Future`
 that allows you to register callbacks to be executed once the computation is
 complete, or if the computation is already complete, immediately.
 
@@ -25,23 +14,20 @@ complete, or if the computation is already complete, immediately.
 by [Guava](https://github.com/google/guava). For more information about the
 implementation of this class, see [ListenableFuture explained](https://github.com/google/guava/wiki/ListenableFutureExplained).
 
-Many existing Jetpack libraries such as [CameraX](/jetpack/androidx/releases/camera)
-or [Health Services](/training/wearables/health-services) have asynchronous methods
+Many existing Jetpack libraries such as [CameraX](https://developer.android.com/jetpack/androidx/releases/camera)
+or [Health Services](https://developer.android.com/training/wearables/health-services) have asynchronous methods
 where the return type is a `ListenableFuture` which represents the status of
 the execution. In some cases you may need to implement a method that returns a
-`ListenableFuture`, such as to satisfy the requirements of [`TileService`](/reference/androidx/wear/tiles/TileService).
+`ListenableFuture`, such as to satisfy the requirements of [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService).
 
-**Tip:** Check if the Jetpack library you're using has a `-ktx`
-artifact, as these often contain built-in wrappers for
-`ListenableFuture`-based methods. For example,
-`androidx.work:work-runtime-ktx` provides wrappers for WorkManager
-APIs as suspend functions.
+> [!NOTE]
+> **Tip:** Check if the Jetpack library you're using has a `-ktx` artifact, as these often contain built-in wrappers for `ListenableFuture`-based methods. For example, `androidx.work:work-runtime-ktx` provides wrappers for WorkManager APIs as suspend functions.
 
 ## Required libraries
 
 ### Groovy
 
-```
+```groovy
 dependencies {
     implementation "com.google.guava:guava:31.0.1-android"
 
@@ -55,7 +41,7 @@ dependencies {
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     implementation("com.google.guava:guava:31.0.1-android")
 
@@ -76,7 +62,7 @@ helper method to attach success and failure callbacks onto a `ListenableFuture`.
 
 ### Kotlin
 
-```
+```kotlin
 val future: ListenableFuture<QueryResult> = ...
 Futures.addCallback(
     future,
@@ -96,7 +82,7 @@ Futures.addCallback(
 
 ### Java
 
-```
+```java
 ListenableFuture<QueryResult> future = ...
 Futures.addCallback(
     future,
@@ -119,7 +105,7 @@ Futures.addCallback(
 When using Kotlin, the easiest way to wait for the result of a ListenableFuture
 is to use [`await()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-guava/kotlinx.coroutines.guava/await.html).
 
-```
+```kotlin
 import kotlinx.coroutines.guava.await
 
 ...
@@ -136,7 +122,7 @@ can be created from a `ListenableFuture` by registering callbacks inside a
 
 ### Kotlin
 
-```
+```kotlin
 val future: ListenableFuture<QueryResult> = ...
 val single = Single.create<QueryResult> {
     Futures.addCallback(future, object : FutureCallback<QueryResult> {
@@ -153,7 +139,7 @@ val single = Single.create<QueryResult> {
 
 ### Java
 
-```
+```java
 ListenableFuture<QueryResult> future = ...
 Single<QueryResult> single = Single.create(
         e -> Futures.addCallback(future, new FutureCallback<QueryResult>() {
@@ -178,13 +164,12 @@ operation into a `ListenableFuture`, you can create an `ImmediateFuture`. This
 can be done using the [`Futures.immediateFuture(...)`](https://guava.dev/releases/snapshot/api/docs/com/google/common/util/concurrent/Futures.html#immediateFuture(V))
 factory method.
 
-**Warning:** This sample code is only recommended when the result is available
-*immediately*. `ImmediateFuture` shouldn't be used in synchronous APIs, such as
-when `getQueryResult()` is a long-running blocking call.
+> [!WARNING]
+> **Warning:** This sample code is only recommended when the result is available *immediately* . `ImmediateFuture` shouldn't be used in synchronous APIs, such as when `getQueryResult()` is a long-running blocking call.
 
 ### Kotlin
 
-```
+```kotlin
 fun getResult(): ListenableFuture<QueryResult> {
     try {
         val queryResult = getQueryResult()
@@ -197,7 +182,7 @@ fun getResult(): ListenableFuture<QueryResult> {
 
 ### Java
 
-```
+```java
 public ListenableFuture<QueryResult> getResult() {
     try {
         QueryResult queryResult = getQueryResult();
@@ -213,7 +198,7 @@ public ListenableFuture<QueryResult> getResult() {
 In Kotlin, a [`future{ ... }`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-guava/kotlinx.coroutines.guava/future.html)
 can be used to convert the result of a suspend function into a `ListenableFuture`.
 
-```
+```kotlin
 import kotlinx.coroutines.guava.future
 
 suspend fun getResultAsync(): QueryResult { ... }
@@ -228,10 +213,10 @@ fun getResultFuture(): ListenableFuture<QueryResult> {
 ### Converting a callback
 
 To convert a callback-based API into one that uses `ListenableFuture`, use
-[`CallbackToFutureAdapter`](/reference/androidx/concurrent/futures/CallbackToFutureAdapter).
+[`CallbackToFutureAdapter`](https://developer.android.com/reference/androidx/concurrent/futures/CallbackToFutureAdapter).
 This API is provided by the `androidx.concurrent:concurrent-futures` artifact.
 
-See [androidx.concurrent](/jetpack/androidx/releases/concurrent) for more information.
+See [androidx.concurrent](https://developer.android.com/jetpack/androidx/releases/concurrent) for more information.
 
 ### Converting from RxJava `Single`
 
@@ -241,7 +226,7 @@ which implements `ListenableFuture`.
 
 ### Kotlin
 
-```
+```kotlin
 fun getResult(): ListenableFuture<QueryResult> {
     val single: Single<QueryResult> = ...
 
@@ -253,7 +238,7 @@ fun getResult(): ListenableFuture<QueryResult> {
 
 ### Java
 
-```
+```java
 public ListenableFuture<QueryResult> getResult() {
     Single<QueryResult> single = ...
 

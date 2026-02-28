@@ -19,8 +19,10 @@ the dialog, your app is granted a temporary *one-time permission*.
 
 Learn more about how the system handles [one-time
 permissions](https://developer.android.com/training/permissions/requesting#one-time).
-| **Note:** If your app already follows best practices when it [requests runtime
-| permissions](https://developer.android.com/training/permissions/requesting), you don't need to change your app to support one-time permissions.
+
+> [!NOTE]
+> **Note:** If your app already follows best practices when it [requests runtime
+> permissions](https://developer.android.com/training/permissions/requesting), you don't need to change your app to support one-time permissions.
 
 ## Auto-reset permissions from unused apps
 
@@ -33,8 +35,10 @@ app's access level to **Deny** . If your app follows best practices for
 shouldn't need to make any changes to your app. That's because, as the user
 interacts with features in your app, you should verify that the features have
 the permissions that they need.
-| **Note:** The system resets only [runtime
-| permissions](https://developer.android.com/guide/topics/permissions/overview#runtime_requests_android_60_and_higher), which are the permissions that display a runtime prompt to the user when requested.
+
+> [!NOTE]
+> **Note:** The system resets only [runtime
+> permissions](https://developer.android.com/guide/topics/permissions/overview#runtime_requests_android_60_and_higher), which are the permissions that display a runtime prompt to the user when requested.
 
 Learn more about how the system [auto-resets permissions of unused
 apps](https://developer.android.com/training/permissions/requesting#auto-reset-permissions-unused-apps).
@@ -51,7 +55,7 @@ again" checkbox or option. This behavior change in Android 11 discourages
 repeated requests for permissions that users have chosen to deny.
 
 To identify whether an app has been permanently denied permissions (for debugging
-and testing purposes), use the following command:  
+and testing purposes), use the following command:
 
 ```
 adb shell dumpsys package PACKAGE_NAME
@@ -59,7 +63,7 @@ adb shell dumpsys package PACKAGE_NAME
 
 Where <var translate="no">PACKAGE_NAME</var> is the name of the package to inspect.
 
-The output of the command contains sections that look like this:  
+The output of the command contains sections that look like this:
 
 ```
 ...
@@ -88,8 +92,10 @@ adb shell pm clear-permission-flags PACKAGE_NAME PERMISSION_NAME user-set user-f
 <var translate="no">PERMISSION_NAME</var> is the name of the permission you want to
 reset. To view a complete list of Android app permissions, visit the [permissions API
 reference page](https://developer.android.com/reference/android/Manifest.permission#constants_1).
-| **Note:** If your app already follows [best practices related to
-| permissions](https://developer.android.com/privacy/best-practices#permissions), you don't need to change your app to support this behavior change.
+
+> [!NOTE]
+> **Note:** If your app already follows [best practices related to
+> permissions](https://developer.android.com/privacy/best-practices#permissions), you don't need to change your app to support this behavior change.
 
 Learn more about how to [handle permission
 denial](https://developer.android.com/training/permissions/requesting#handle-denial) in your app.
@@ -160,7 +166,7 @@ methods in the previous list, however, update your manifest file as follows:
 1. Change your declaration of `READ_PHONE_STATE` so that your app uses the permission only on Android 10 (API level 29) and lower.
 2. Add the `READ_PHONE_NUMBERS` permission.
 
-The following manifest declaration snippet demonstrates this process:  
+The following manifest declaration snippet demonstrates this process:
 
 ```xml
 <manifest>

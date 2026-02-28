@@ -11,7 +11,7 @@ across multiple modules.
 ### Apply the settings plugin
 
 Apply the settings plugin in the `settings.gradle` file. The version must be
-the same as the AGP version declared in the `libs.versions.toml` file:  
+the same as the AGP version declared in the `libs.versions.toml` file:
 
 ### Kotlin
 
@@ -47,7 +47,7 @@ plugins {
 
 Apply the `android` block in the `settings.gradle` file. Unlike in module-level
 `build.gradle` files, apply the `minSdk` and `targetSdk` to the top-level
-`android` block:  
+`android` block:
 
 ### Kotlin
 

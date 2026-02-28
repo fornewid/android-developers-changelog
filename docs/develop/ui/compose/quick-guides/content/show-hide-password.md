@@ -24,7 +24,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/show-hide-password_086a70bf3bebe8ff6f380b154aadaaba5a75285be61c2f960b6109d212d88946.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/show-hide-password_199fce1cf843ea3721f0f0f028137b0d60d4f71fa63b09730be7ae764b094fa8.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Show or hide a password based on user toggle
 
@@ -72,9 +72,7 @@ fun PasswordTextField() {
                         .clickable { showPassword = !showPassword }
                 )
             }
-        }
-    )
-}
+       https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/compose/snippets/src/main/java/com/example/compose/snippets/text/TextSnippets.kt#L868-L909nippets.kt
 ```
 
 <br />

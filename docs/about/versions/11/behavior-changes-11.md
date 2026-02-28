@@ -39,10 +39,10 @@ To learn more, see the [Privacy](https://developer.android.com/about/versions/11
 ### How to toggle
 
 As you test your app's compatibility with Android 11, you can toggle this change on or off
-using the following ADB commands:  
+using the following ADB commands:
 
-    adb shell am compat enable (<var translate="no">135754954</var>|<var translate="no">NATIVE_HEAP_POINTER_TAGGING</var>) <var translate="no">PACKAGE_NAME</var>
-    adb shell am compat disable (<var translate="no">135754954</var>|<var translate="no">NATIVE_HEAP_POINTER_TAGGING</var>) <var translate="no">PACKAGE_NAME</var>
+    adb shell am compat enable (135754954|NATIVE_HEAP_POINTER_TAGGING) PACKAGE_NAME
+    adb shell am compat disable (135754954|NATIVE_HEAP_POINTER_TAGGING) PACKAGE_NAME
 
 For more information about the compatibility framework and toggling changes, see
 [Test and debug platform behavior changes in
@@ -70,7 +70,7 @@ don't call [`setView()`](https://developer.android.com/reference/kotlin/android/
 
 If your app tries to post a toast containing a custom view from the background
 anyway, the system doesn't show the message to the user. Instead, the system
-logs the following message in logcat:  
+logs the following message in logcat:
 
 ```
 W/NotificationService: Blocking custom toast from package \
@@ -113,10 +113,10 @@ effects for text toasts:
 ### How to toggle
 
 As you test your app's compatibility with Android 11, you can toggle this change on or off
-using the following ADB commands:  
+using the following ADB commands:
 
-    adb shell am compat enable (<var translate="no">124107808</var>|<var translate="no">APN_READING_PERMISSION_CHANGE_ID</var>) <var translate="no">PACKAGE_NAME</var>
-    adb shell am compat disable (<var translate="no">124107808</var>|<var translate="no">APN_READING_PERMISSION_CHANGE_ID</var>) <var translate="no">PACKAGE_NAME</var>
+    adb shell am compat enable (124107808|APN_READING_PERMISSION_CHANGE_ID) PACKAGE_NAME
+    adb shell am compat disable (124107808|APN_READING_PERMISSION_CHANGE_ID) PACKAGE_NAME
 
 For more information about the compatibility framework and toggling changes, see
 [Test and debug platform behavior changes in
@@ -135,7 +135,7 @@ permission generates a security exception.
 Because of changes to [package
 visibility](https://developer.android.com/about/versions/11/privacy/package-visibility), apps that target
 Android 11 and interact with a text-to-speech (TTS) engine need
-to add the following `<queries>` element to their manifest files:  
+to add the following `<queries>` element to their manifest files:
 
 ```xml
 <queries>
@@ -157,10 +157,10 @@ to add the following `<queries>` element to their manifest files:
 ### How to toggle
 
 As you test your app's compatibility with Android 11, you can toggle this change on or off
-using the following ADB commands:  
+using the following ADB commands:
 
-    adb shell am compat enable (<var translate="no">136293963</var>|<var translate="no">REQUEST_ACCESSIBILITY_BUTTON_CHANGE</var>) <var translate="no">PACKAGE_NAME</var>
-    adb shell am compat disable (<var translate="no">136293963</var>|<var translate="no">REQUEST_ACCESSIBILITY_BUTTON_CHANGE</var>) <var translate="no">PACKAGE_NAME</var>
+    adb shell am compat enable (136293963|REQUEST_ACCESSIBILITY_BUTTON_CHANGE) PACKAGE_NAME
+    adb shell am compat disable (136293963|REQUEST_ACCESSIBILITY_BUTTON_CHANGE) PACKAGE_NAME
 
 For more information about the compatibility framework and toggling changes, see
 [Test and debug platform behavior changes in
@@ -211,10 +211,10 @@ intent.
 ### How to toggle
 
 As you test your app's compatibility with Android 11, you can toggle this change on or off
-using the following ADB commands:  
+using the following ADB commands:
 
-    adb shell am compat enable (<var translate="no">132742131</var>|<var translate="no">RESOURCES_ARSC_COMPRESSED</var>) <var translate="no">PACKAGE_NAME</var>
-    adb shell am compat disable (<var translate="no">132742131</var>|<var translate="no">RESOURCES_ARSC_COMPRESSED</var>) <var translate="no">PACKAGE_NAME</var>
+    adb shell am compat enable (132742131|RESOURCES_ARSC_COMPRESSED) PACKAGE_NAME
+    adb shell am compat disable (132742131|RESOURCES_ARSC_COMPRESSED) PACKAGE_NAME
 
 For more information about the compatibility framework and toggling changes, see
 [Test and debug platform behavior changes in
@@ -243,7 +243,9 @@ Signature Scheme v1 on devices that run Android 11.
 To verify that your app is being signed with APK Signature Scheme v2 or higher,
 you can use either [Android Studio](https://developer.android.com/studio/publish/app-signing#sign_release),
 or the [`apksigner`](https://developer.android.com/studio/command-line/apksigner) tool on the command line.
-| **Caution:** To support devices that run older versions of Android, you should continue to sign your APKs using APK Signature Scheme v1, in addition to signing your APK with APK Signature Scheme v2 or higher.
+
+> [!CAUTION]
+> **Caution:** To support devices that run older versions of Android, you should continue to sign your APKs using APK Signature Scheme v1, in addition to signing your APK with APK Signature Scheme v2 or higher.
 
 ## Firebase
 
@@ -262,7 +264,7 @@ WorkManager](https://developer.android.com/topic/libraries/architecture/workmana
 Because of changes to [package
 visibility](https://developer.android.com/about/versions/11/privacy/package-visibility), apps that target
 Android 11 and interact with a speech recognition service need
-to add the following `<queries>` element to their manifest files:  
+to add the following `<queries>` element to their manifest files:
 
 ```xml
 <queries>
@@ -284,10 +286,10 @@ to add the following `<queries>` element to their manifest files:
 ### How to toggle
 
 As you test your app's compatibility with Android 11, you can toggle this change on or off
-using the following ADB commands:  
+using the following ADB commands:
 
-    adb shell am compat enable (<var translate="no">119147584</var>|<var translate="no">CALLBACK_ON_CLEAR_CHANGE</var>) <var translate="no">PACKAGE_NAME</var>
-    adb shell am compat disable (<var translate="no">119147584</var>|<var translate="no">CALLBACK_ON_CLEAR_CHANGE</var>) <var translate="no">PACKAGE_NAME</var>
+    adb shell am compat enable (119147584|CALLBACK_ON_CLEAR_CHANGE) PACKAGE_NAME
+    adb shell am compat disable (119147584|CALLBACK_ON_CLEAR_CHANGE) PACKAGE_NAME
 
 For more information about the compatibility framework and toggling changes, see
 [Test and debug platform behavior changes in

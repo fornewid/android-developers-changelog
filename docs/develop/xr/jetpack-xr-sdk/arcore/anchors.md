@@ -28,12 +28,12 @@ Runtime](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#acc
 Creating and loading anchors does not require the session to be configured.
 However, anchor persistence is not enabled by default on XR sessions. To persist
 and load anchors from local storage, configure the session and set the
-[`AnchorPersistenceMode.LOCAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config.AnchorPersistenceMode#LOCAL()) mode:
+[`AnchorPersistenceMode.LOCAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/AnchorPersistenceMode#LOCAL()) mode:
 
 
 ```kotlin
 val newConfig = session.config.copy(
-    anchorPersistence = Config.AnchorPersistenceMode.LOCAL,
+    anchorPersistence = AnchorPersistenceMode.LOCAL,
 )
 when (val result = session.configure(newConfig)) {
     is SessionConfigureSuccess -> TODO(/* Success! */)

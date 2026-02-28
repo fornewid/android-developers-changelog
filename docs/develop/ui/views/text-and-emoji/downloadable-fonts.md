@@ -37,7 +37,9 @@ in later sections:
 You can set your application to download fonts by using Android Studio 3.0 or higher. To help you
 get started with Downloadable Fonts features, you can use the font provider from Google Play
 services.
-| **Note:** A device must have Google Play services version 11 or higher to use the Google Fonts provider.
+
+> [!NOTE]
+> **Note:** A device must have Google Play services version 11 or higher to use the Google Fonts provider.
 
 1. In the **Layout Editor** , select a `TextView`. Then, under **Attributes** , select **fontFamily \> More Fonts** . ![An image showing Android Studio Layout Editor](https://developer.android.com/static/guide/topics/ui/images/look-and-feel/downloadable-fonts/layout-editor.png) **Figure 2.** Using the **Layout Editor**. The **Resources** window appears.
 2. In the **Source** menu, select **Google Fonts**.
@@ -68,10 +70,13 @@ To download a font, complete the following steps:
    - The font provider authority.
    - The font provider package to verify the identity of the provider.
    - The string query of the font. For more information about query formats, see your font provider's documentation, such as [Google Fonts](https://developers.google.com/fonts/docs/android).
-   - A list of sets of hashes for the certificates to verify the identity of the provider. **Note** : It's unnecessary to add a certificate if you request fonts from preinstalled providers. However, always provide a certificate if you request fonts through AndroidX Core library.
-     |
-     | <br />
-     |
+   - A list of sets of hashes for the certificates to verify the identity of the provider.
+
+     > [!NOTE]
+     > **Note** : It's unnecessary to add a certificate if you request fonts from preinstalled providers. However, always provide a certificate if you request fonts through AndroidX Core library.
+     >
+     > <br />
+     >
    ### Kotlin
 
    ```kotlin
@@ -89,7 +94,10 @@ To download a font, complete the following steps:
    FontRequest request = new FontRequest("com.example.fontprovider",
                       "com.example.fontprovider", "my font", certs);
    ```
-   | **Note**: You can receive the parameter values from your font provider. Android Studio automatically populates these values for the providers it supports in its UI.
+
+   > [!NOTE]
+   > **Note**: You can receive the parameter values from your font provider. Android Studio automatically populates these values for the providers it supports in its UI.
+
 2. Create an instance of the `https://developer.android.com/reference/android/provider/FontsContract.FontRequestCallback` class.
 3. Override the `https://developer.android.com/reference/android/provider/FontsContract.FontRequestCallback#onTypefaceRetrieved(android.graphics.Typeface)` method to indicate the font request is complete. Provide the retrieved font as the parameter. You can use this method to set the font as needed. For example, you can set the font on a `https://developer.android.com/reference/android/widget/TextView`.
 4. Override the `https://developer.android.com/reference/android/provider/FontsContract.FontRequestCallback#onTypefaceRequestFailed(int)` method to receive information about errors in the font request process. For more information about error codes, refer to the [error code constants](https://developer.android.com/reference/android/provider/FontsContract.FontRequestCallback#FAIL_REASON_FONT_LOAD_ERROR).
@@ -98,7 +106,9 @@ To download a font, complete the following steps:
    - An instance of the `android.graphics.fonts.FontRequest` class
    - A callback to receive the results of the font request
    - A handler to fetch fonts on a thread
-   | **Note**: Ensure that this handler isn't the user interface thread handler.
+
+   > [!NOTE]
+   > **Note**: Ensure that this handler isn't the user interface thread handler.
 
 The following sample code illustrates the overall Downloadable Fonts process:
 
@@ -168,7 +178,9 @@ To download fonts using AndroidX, import the `FontsContractCompat` and
 instances of these classes instead of
 `https://developer.android.com/reference/android/provider/FontsContract` and
 `android.graphics.fonts.FontRequest` framework classes.
-| **Note:** You *must* provide a certificate when you request fonts through the AndroidX Core library. This is applicable even for the preinstalled font providers.
+
+> [!NOTE]
+> **Note:** You *must* provide a certificate when you request fonts through the AndroidX Core library. This is applicable even for the preinstalled font providers.
 
 #### Add AndroidX Core dependency
 
@@ -251,7 +263,9 @@ res/values/arrays.xml
 When a font provider isn't preinstalled, or if you are using the AndroidX Core library, declare
 the certificates the font provider is signed with. The system uses the certificates to verify the
 font provider's identity.
-| **Note** : Android Studio can automatically populate the values for the Google Play services provider if you use the font selector tool in Android Studio. For more information about using Android Studio for downloading fonts, see the [Use Downloadable Fonts with Android Studio and Google Play services](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#via-android-studio) section on this page.
+
+> [!NOTE]
+> **Note** : Android Studio can automatically populate the values for the Google Play services provider if you use the font selector tool in Android Studio. For more information about using Android Studio for downloading fonts, see the [Use Downloadable Fonts with Android Studio and Google Play services](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#via-android-studio) section on this page.
 
 Perform the following steps to add certificates:
 
@@ -270,6 +284,8 @@ Perform the following steps to add certificates:
 ```xml
 android:fontProviderCerts="@array/certs"
 ```
-| **Note**: If the provider has more than one set of certificates, you can define an array of string arrays.
+
+> [!NOTE]
+> **Note**: If the provider has more than one set of certificates, you can define an array of string arrays.
 
 ## Downloadable Fonts in Compose

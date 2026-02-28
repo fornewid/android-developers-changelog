@@ -13,8 +13,10 @@ The impacts on your app should be minimal if your app is following current best
 practices for handling user data.
 
 This page lists a summary of each change.
-| **Note:** In addition to the changes listed on this page, Android 10 introduces other features and changes that affect aspects of the platform other than privacy. To learn more, see the [Features \& APIs](https://developer.android.com/about/versions/10/features) page, the [changes for all apps](https://developer.android.com/about/versions/10/behavior-changes-all) page, and the [changes for apps targeting API
-| level 29](https://developer.android.com/about/versions/10/behavior-changes-10) page.
+
+> [!NOTE]
+> **Note:** In addition to the changes listed on this page, Android 10 introduces other features and changes that affect aspects of the platform other than privacy. To learn more, see the [Features \& APIs](https://developer.android.com/about/versions/10/features) page, the [changes for all apps](https://developer.android.com/about/versions/10/behavior-changes-all) page, and the [changes for apps targeting API
+> level 29](https://developer.android.com/about/versions/10/behavior-changes-10) page.
 
 ## Top changes
 
@@ -173,7 +175,9 @@ that need access to this information, such as VPNs, should use the
 Starting in Android 10, apps must have the
 `READ_PRIVILEGED_PHONE_STATE` privileged permission in order to access the
 device's non-resettable identifiers, which include both IMEI and serial number.
-| **Caution:** Third-party apps installed from the Google Play Store cannot declare privileged permissions.
+
+> [!CAUTION]
+> **Caution:** Third-party apps installed from the Google Play Store cannot declare privileged permissions.
 
 Affected methods include the following:
 
@@ -193,9 +197,10 @@ target SDK version:
 - If your app targets Android 10 or higher, a [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException) occurs.
 - If your app targets Android 9 (API level 28) or lower, the method returns `null` or placeholder data if the app has the [`READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE) permission. Otherwise, a `SecurityException` occurs.
 
-| **Note:** If your app is the [device or profile owner
-| app](https://developers.google.com/android/work/overview#android_devices_enterprise_use_cases), you need only the [`READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE) permission to access non-resettable device identifiers, even if your app targets Android 10 or higher. Also, if your app has [special carrier
-| permissions](https://source.android.com/devices/tech/config/uicc), you don't need any permissions to access the identifiers.
+> [!NOTE]
+> **Note:** If your app is the [device or profile owner
+> app](https://developers.google.com/android/work/overview#android_devices_enterprise_use_cases), you need only the [`READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE) permission to access non-resettable device identifiers, even if your app targets Android 10 or higher. Also, if your app has [special carrier
+> permissions](https://source.android.com/devices/tech/config/uicc), you don't need any permissions to access the identifiers.
 
 Many use cases don't need non-resettable device identifiers. For example, if
 your app uses non-resettable device identifiers for ad-tracking or user
@@ -260,7 +265,9 @@ app or a DPC, then the following methods don't return useful data:
   [`getConfiguredNetworks()`](https://developer.android.com/reference/android/net/wifi/WifiManager#getConfiguredNetworks())
   method always returns an empty list.
 
-  | **Note:** If a carrier app calls `getConfiguredNetworks()`, the system returns a list containing only the networks that the carrier configured.
+  > [!NOTE]
+  > **Note:** If a carrier app calls `getConfiguredNetworks()`, the system returns a list containing only the networks that the carrier configured.
+
 - Each network operation method that returns an integer
   value---[`addNetwork()`](https://developer.android.com/reference/android/net/wifi/WifiManager#addNetwork(android.net.wifi.WifiConfiguration))
   and
@@ -289,7 +296,9 @@ If your app targets Android 10 or higher, it must have the
 [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
 permission in order to use several methods within the Wi-Fi, Wi-Fi Aware,
 or Bluetooth APIs. The following sections list the affected classes and methods.
-| **Note:** If your app runs on Android 10 or higher but targets Android 9 (API level 28) or lower, you can use the affected APIs (except for [`WifiP2pManager`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager) APIs) as long as your app has declared either the [`ACCESS_COARSE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION) or the [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permission.
+
+> [!NOTE]
+> **Note:** If your app runs on Android 10 or higher but targets Android 9 (API level 28) or lower, you can use the affected APIs (except for [`WifiP2pManager`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager) APIs) as long as your app has declared either the [`ACCESS_COARSE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION) or the [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permission.
 
 #### Telephony
 
@@ -332,7 +341,9 @@ or Bluetooth APIs. The following sections list the affected classes and methods.
 ## Permissions
 
 This section describes updates to the Android permissions model.
-| **Note:** Each change described in this section affects **all** apps on devices that run Android 10 or higher, even apps that target Android 9 (API level 28) or lower.
+
+> [!NOTE]
+> **Note:** Each change described in this section affects **all** apps on devices that run Android 10 or higher, even apps that target Android 9 (API level 28) or lower.
 
 ### Restricted access to screen contents
 
@@ -354,9 +365,12 @@ screen when using your app on a device that runs Android 10 or
 higher for the first time, as shown in Figure 1. This screen gives users the
 opportunity to revoke access to permissions that the system previously granted
 to your app at install time.
-| **Caution:** If you want to publish your app on Google Play, you must target Android 9 (API level 28) or higher. To learn more, see the guide on how to [meet
-| Google Play's target API level
-| requirement](https://developer.android.com/distribute/best-practices/develop/target-sdk).
+
+> [!CAUTION]
+> **Caution:** If you want to publish your app on Google Play, you must target Android 9 (API level 28) or higher. To learn more, see the guide on how to [meet
+> Google Play's target API level
+> requirement](https://developer.android.com/distribute/best-practices/develop/target-sdk).
+
 ![Screen capture of dialog](https://developer.android.com/static/images/about/versions/10/legacy-app-permissions.svg) **Figure 1.**User-facing dialog that allows review of legacy permissions
 
 ### Physical activity recognition

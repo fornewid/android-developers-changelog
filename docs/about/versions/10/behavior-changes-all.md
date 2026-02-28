@@ -11,7 +11,7 @@ your app and modify it as needed to support these changes properly.
 
 If your app's targetSdkVersion is `29` or higher, you'll also need to
 support additional changes. Make sure to read [behavior changes for apps
-targeting 29](https://developer.android.com/about/versions/10/behavior-changes-10) for details.  
+targeting 29](https://developer.android.com/about/versions/10/behavior-changes-10) for details.
 **Note:**In addition to the changes listed on this page, Android 10
 introduces a large number of privacy-based changes and restrictions, including
 the following:
@@ -114,7 +114,7 @@ intentional memory inspection -- the system sends a `SIGSEGV` signal to your app
 
 You can identify whether this behavior caused a crash by examining the related
 tombstone file in `/data/tombstones/`. An execute-only related crash
-contains the following abort message:  
+contains the following abort message:
 
 ```
 Cause: execute-only (no-read) memory access error; likely due to data in .text.
@@ -125,7 +125,9 @@ possible to mark execute-only segments as read+execute by calling
 `mprotect()`. However, we strongly recommend setting it back to
 execute-only afterwards, as this access permission setting provides better
 protection for your app and users.
-| **Note:** Calls to `ptrace` are unaffected by this behavior, allowing you to debug `ptrace`.
+
+> [!NOTE]
+> **Note:** Calls to `ptrace` are unaffected by this behavior, allowing you to debug `ptrace`.
 
 ## Security
 
@@ -213,7 +215,7 @@ The server can do either of the following:
 - Specify the port information as part of the Wi-Fi Aware network request.
 
 The following code sample shows how to specify port information as part of the
-network request:  
+network request:
 
 ### Kotlin
 
@@ -247,7 +249,7 @@ NetworkRequest myNetworkRequest = new NetworkRequest.Builder()
 ```
 
 The client then performs a Wi-Fi Aware network request to obtain the IPv6 and
-the port supplied by the server:  
+the port supplied by the server:
 
 ### Kotlin
 
@@ -365,7 +367,9 @@ The following SHA-2 CBC cipher suites have been removed from the platform:
 These cipher suites are less secure than the similar cipher suites that use GCM,
 and most servers either support both the GCM and CBC variants of these cipher
 suites or support neither of them.
-| **Note:** Apps and libraries should intersect their desired set of cipher suites with the return value from [`getSupportedCipherSuites()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket#getSupportedCipherSuites()) to future-proof cipher suite selection against future removals.
+
+> [!NOTE]
+> **Note:** Apps and libraries should intersect their desired set of cipher suites with the return value from [`getSupportedCipherSuites()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket#getSupportedCipherSuites()) to future-proof cipher suite selection against future removals.
 
 ## App usage
 

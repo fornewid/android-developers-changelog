@@ -33,7 +33,9 @@ following conditions:
 If your widget will be affected by this change, we recommend refreshing it with
 rounded corners (as described in the following section) to ensure it displays
 properly.
-| **Caution:** The dimensions of rounded corners may vary across devices because the size of the corner radius is controllable by both device manufacturers (up to 16dp) and third-party launchers. We recommend refreshing the widget to help avoid unsatisfactory results.
+
+> [!CAUTION]
+> **Caution:** The dimensions of rounded corners may vary across devices because the size of the corner radius is controllable by both device manufacturers (up to 16dp) and third-party launchers. We recommend refreshing the widget to help avoid unsatisfactory results.
 
 ### Use the sample
 
@@ -41,8 +43,9 @@ To see all these APIs in action, check out our [sample list widget](https://gith
 
 ## Implement rounded corners
 
-| **Note:** This guidance may be outdated. Refer to [Implement
-| rounded corners](https://developer.android.com/guide/topics/appwidgets#rounded-corner) for the latest guidance.
+> [!NOTE]
+> **Note:** This guidance may be outdated. Refer to [Implement
+> rounded corners](https://developer.android.com/guide/topics/appwidgets#rounded-corner) for the latest guidance.
 
 Android 12 introduces the [`system_app_widget_background_radius`](https://developer.android.com/reference/android/R.dimen#system_app_widget_background_radius)
 and [`system_app_widget_inner_radius`](https://developer.android.com/reference/android/R.dimen#system_app_widget_inner_radius)

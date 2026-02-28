@@ -35,7 +35,7 @@ higher.
 
 
 ```kotlin
-  implementation(platform("androidx.compose:compose-bom:2026.01.01"))
+  implementation(platform("androidx.compose:compose-bom:2026.02.01"))
 ```
 
 <br />
@@ -44,7 +44,7 @@ higher.
 
 
 ```groovy
-  implementation platform('androidx.compose:compose-bom:2026.01.01')
+  implementation platform('androidx.compose:compose-bom:2026.02.01')
 ```
 
 <br />

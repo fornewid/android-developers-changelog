@@ -51,7 +51,8 @@ The error message looks similar to the following:
 
 ## Prerequisites
 
-| **Note:** Use HWASan rather than ASan, as HWASan is faster and has lower memory overhead. However, HWASan has some additional requirements.
+> [!NOTE]
+> **Note:** Use HWASan rather than ASan, as HWASan is faster and has lower memory overhead. However, HWASan has some additional requirements.
 
 ### HWASan requirements
 
@@ -69,11 +70,15 @@ using `libc++_static`. This issue is not seen when using `libc++_shared`.
 
 HWASan has its own implementation of operators `new` and `delete`, which can't
 be used if the standard library is statically linked into the project.
-| **Caution:** You must use the shared version of the Standard Library in your project when using these features.
+
+> [!CAUTION]
+> **Caution:** You must use the shared version of the Standard Library in your project when using these features.
 
 To change this setting, see the [Linking the C++ Standard Library](https://developer.android.com/games/agde/address-sanitizer#linking-c++)
 section of this document.
-| **Note:** If you've enabled ASan and haven't enabled the shared C++ library, you'll encounter a build error.
+
+> [!NOTE]
+> **Note:** If you've enabled ASan and haven't enabled the shared C++ library, you'll encounter a build error.
 
 ### Enable Frame Pointer generation
 
@@ -84,7 +89,9 @@ features. That is, you need to disable frame pointer omission optimization.
 
 To change this setting, see the [Enabling Frame Pointer
 generation](https://developer.android.com/games/agde/address-sanitizer#enabling-frame) section of this document.
-| **Note:** If you've enabled ASan and haven't enabled Frame Pointer generation, you'll encounter a build error.
+
+> [!NOTE]
+> **Note:** If you've enabled ASan and haven't enabled Frame Pointer generation, you'll encounter a build error.
 
 ## Configuring your Visual Studio project to use HWASan or ASan
 
@@ -111,7 +118,9 @@ setting to
 
 To enable ASan for your project, change the **Address Sanitizer (ASan)** setting
 to **ASan Enabled (fsanitize=address)**.
-| **Caution:** To avoid unnecessary overhead, remember to set the property value back to **Disabled** when you no longer need to use these tools.
+
+> [!CAUTION]
+> **Caution:** To avoid unnecessary overhead, remember to set the property value back to **Disabled** when you no longer need to use these tools.
 
 ### Enabling Frame Pointer generation
 
@@ -127,7 +136,9 @@ highlighted.](https://developer.android.com/games/agde/images/project-properties
 
 When using HWASan or ASan, set the **Omit Frame Pointer** setting to
 **No (-fno-omit-frame-pointer)**.
-| **Caution:** Be sure to reset this property value back to your original setting when not using HWASan or ASan.
+
+> [!CAUTION]
+> **Caution:** Be sure to reset this property value back to your original setting when not using HWASan or ASan.
 
 ### Linking the C++ Standard Library in shared library mode
 
@@ -145,8 +156,12 @@ While using HWASan or ASan, set
 **Use of STL** to **Use C++ Standard Libraries (.so)** . This value links the C++
 standard library into your project as a *shared library*, which is required for
 HWASan and ASan to function correctly.
-| **Caution:** Don't use **GNU STL** libraries here, as they are unsupported by versions 25 or higher of the NDK. For more information, see the NDK documentation on [C++ Support](https://developer.android.com/ndk/guides/cpp-support).
-| **Note:** Remember to restore these settings back to their original values once you're done using HWASan or ASan.
+
+> [!CAUTION]
+> **Caution:** Don't use **GNU STL** libraries here, as they are unsupported by versions 25 or higher of the NDK. For more information, see the NDK documentation on [C++ Support](https://developer.android.com/ndk/guides/cpp-support).
+
+> [!NOTE]
+> **Note:** Remember to restore these settings back to their original values once you're done using HWASan or ASan.
 
 ### Creating a Build Configuration for Address Sanitizer use
 
@@ -184,7 +199,9 @@ automatically intercept your custom memory allocation methods. Therefore, if you
 want to use HWASan with your custom memory allocator,
 instrument your memory allocator to call HWASan explicitly. This can be
 done with only a few lines of code.
-| **Note:** See the [PoolAllocator sample](https://developer.android.com/games/agde/samples#poolallocator) that shows how to integrate HWASan into a custom memory allocator.
+
+> [!NOTE]
+> **Note:** See the [PoolAllocator sample](https://developer.android.com/games/agde/samples#poolallocator) that shows how to integrate HWASan into a custom memory allocator.
 
 #### Prerequisites
 

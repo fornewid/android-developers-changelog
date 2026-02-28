@@ -192,7 +192,7 @@ content is added to the clipboard. The new confirmation does the following:
 This feature standardizes the various notifications shown by apps after copying
 and offers users more control over their clipboard. For additional information,
 visit the [Copy and Paste](https://developer.android.com/guide/topics/text/copy-paste#Feedback) feature
-page.  
+page.
 ![Copy/Paste widget](https://developer.android.com/static/images/about/versions/13/new-copy-paste-UI.gif) New UI shown when content enters the clipboard.
 
 <br />
@@ -315,7 +315,8 @@ criteria:
 - Your app is an alarm clock app or a timer app.
 - Your app is a calendar app that shows notifications for upcoming events.
 
-| **Note:** An upcoming [Google Play policy](https://support.google.com/googleplay/android-developer/answer/12253906#exact_alarm_preview) will prevent apps from using the `USE_EXACT_ALARM` permission unless they satisfy one of the cases shown in the previous list.
+> [!NOTE]
+> **Note:** An upcoming [Google Play policy](https://support.google.com/googleplay/android-developer/answer/12253906#exact_alarm_preview) will prevent apps from using the `USE_EXACT_ALARM` permission unless they satisfy one of the cases shown in the previous list.
 
 If your app sets exact alarms but doesn't satisfy either case shown in the
 previous list, continue to declare the
@@ -357,12 +358,12 @@ signature scheme by default.
 Apps that have already rotated and want to continue using their rotated signing
 key in the v3.0 signing block need to update their
 [`apksigner`](https://developer.android.com/studio/command-line/apksigner)
-invocation:  
+invocation:
 
 ```
 apksigner sign --ks keystore.jks |
   --key key.pk8 --cert cert.x509.pem
-  --rotation-min-sdk-version <var translate="no">API_LEVEL</var>
+  --rotation-min-sdk-version API_LEVEL
   [signer_options] app-name.apk
 ```
 
@@ -478,7 +479,7 @@ through the presentation, describing what is happening on the screen during
 natural pauses in the audio.
 Apps can follow the user's preference for audio description tracks by
 querying it with [`isAudioDescriptionRequested()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager#isAudioDescriptionRequested()),
-as shown in the following code snippet:  
+as shown in the following code snippet:
 
 ### Kotlin
 
@@ -509,7 +510,7 @@ if(accessibilityManager.isAudioDescriptionRequested()) {
 ```
 
 Apps can monitor user's preference change by adding a listener to
-[`AccessbilityManager`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager):  
+[`AccessbilityManager`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager):
 
 ### Kotlin
 

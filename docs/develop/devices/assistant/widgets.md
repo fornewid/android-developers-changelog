@@ -4,8 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/widgets
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
 ![](https://developer.android.com/static/guide/app-actions/images/Fitness4-widget.png) **Figure 1.** Launching a widget for `GET_EXERCISE_OBSERVATION`.
 
 For many intents, the best response is to deliver a simple answer, brief

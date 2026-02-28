@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/chromeos/learn/development-en
 source: md.txt
 ---
 
-Project: /develop/devices/chromeos/merged/_project.yaml
-Book: /develop/devices/chromeos/merged/_book.yaml
-
 Running Android apps on a Chromebook gives users access to the vast Android
 ecosystem and gives Android developers the opportunity to reach ChromeOS users.
 

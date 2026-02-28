@@ -21,10 +21,11 @@ versions of Android Studio. For the best development experience with the Android
 
 ## Update your app's build configuration
 
-| **Warning:** If your project does not use Android Gradle plugin 8.9.0-rc01 or higher, first run the [Android Gradle plugin Upgrade Assistant](https://developer.android.com/r/tools/upgrade-assistant/agp-upgrade-assistant) to upgrade to at least AGP 8.9.0-rc01.
+> [!WARNING]
+> **Warning:** If your project does not use Android Gradle plugin 8.9.0-rc01 or higher, first run the [Android Gradle plugin Upgrade Assistant](https://developer.android.com/r/tools/upgrade-assistant/agp-upgrade-assistant) to upgrade to at least AGP 8.9.0-rc01.
 
 To access Android 16 APIs, open your app's `build.gradle` or `build.gradle.kts`
-file and update the `compileSdk` for Android 16 as follows:  
+file and update the `compileSdk` for Android 16 as follows:
 
 ### Groovy
 
@@ -46,7 +47,7 @@ Android Studio can provide contextual information about the
 behavior changes through the
 [Android SDK Upgrade Assistant](https://developer.android.com/r/studio-ui/ide/android-sdk-upgrade-assistant).
 Once you're ready to opt in to the new runtime behaviours for Android 16,
-update your app's `targetSdk` as follows:  
+update your app's `targetSdk` as follows:
 
 ### Groovy
 

@@ -244,14 +244,14 @@ To register a receiver with a context, perform the following steps:
            ContextCompat.RECEIVER_EXPORTED
        } else {
            ContextCompat.RECEIVER_NOT_EXPORTED
-       }https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L98-L103
+       }https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L98-L103
 
    ### Java
 
        boolean listenToBroadcastsFromOtherApps = false;
        int receiverFlags = listenToBroadcastsFromOtherApps
                ? ContextCompat.RECEIVER_EXPORTED
-               : ContextCompat.RECEIVER_NOT_EXPORTED;https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/java/com/example/snippets/BroadcastReceiverJavaSnippets.java#L57-L60
+               : ContextCompat.RECEIVER_NOT_EXPORTED;https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/BroadcastReceiverJavaSnippets.java#L57-L60
 
    > [!CAUTION]
    > **Caution:** If you export the broadcast receiver, other apps could send unprotected broadcasts to your app.
@@ -297,7 +297,7 @@ unregister your broadcast receiver.
             // When you forget to unregister your receiver here, you're causing a leak!
             this.unregisterReceiver(myBroadcastReceiver)
         }
-    }https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L216-L240
+    }https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L216-L240
 
 ### Java
 
@@ -311,7 +311,7 @@ unregister your broadcast receiver.
             ContextCompat.registerReceiver(this, myBroadcastReceiver, filter, receiverFlags);
             // Set content
         }
-    }https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/java/com/example/snippets/BroadcastReceiverJavaSnippets.java#L102-L118
+    }https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/BroadcastReceiverJavaSnippets.java#L102-L118
 
 #### Register receivers in the smallest scope
 
@@ -351,7 +351,7 @@ creation of the broadcast receiver out of a Composable to make it stateless:
     @Composable
     fun MyStatelessScreen() {
         // Implement your screen
-    }https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L248-L271
+    }https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L248-L271
 
 ### Manifest-declared receivers
 
@@ -372,7 +372,7 @@ To declare a broadcast receiver in the manifest, perform the following steps:
            <intent-filter>
                <action android:name="com.example.snippets.ACTION_UPDATE_DATA" />
            </intent-filter>
-       </receiver>https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/AndroidManifest.xml#L34-L40
+       </receiver>https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/AndroidManifest.xml#L34-L40
 
    The intent filters specify the broadcast actions your receiver subscribes
    to.
@@ -394,7 +394,7 @@ To declare a broadcast receiver in the manifest, perform the following steps:
                    dataRepository.updateData(data)
                }
            }
-       }https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L66-L78
+       }https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L66-L78
 
    ### Java
 
@@ -411,7 +411,7 @@ To declare a broadcast receiver in the manifest, perform the following steps:
                    if (data != null) { dataRepository.updateData(data); }
                }
            }
-       }https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/java/com/example/snippets/BroadcastReceiverJavaSnippets.java#L24-L37
+       }https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/BroadcastReceiverJavaSnippets.java#L24-L37
 
 The system package manager registers the receiver when the app is installed. The
 receiver then becomes a separate entry point into your app which means that the
@@ -459,14 +459,14 @@ Intent and calling [`sendBroadcast(Intent)`](https://developer.android.com/refer
         putExtra("com.example.snippets.DATA", newData)
         setPackage("com.example.snippets")
     }
-    context.sendBroadcast(intent)https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L127-L131
+    context.sendBroadcast(intent)https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L127-L131
 
 ### Java
 
     Intent intent = new Intent("com.example.snippets.ACTION_UPDATE_DATA");
     intent.putExtra("com.example.snippets.DATA", newData);
     intent.setPackage("com.example.snippets");
-    context.sendBroadcast(intent);https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/java/com/example/snippets/BroadcastReceiverJavaSnippets.java#L84-L87
+    context.sendBroadcast(intent);https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/BroadcastReceiverJavaSnippets.java#L84-L87
 
 The broadcast message is wrapped in an [`Intent`](https://developer.android.com/reference/android/content/Intent) object. The intent's
 `action` string must provide the app's Java package name syntax and uniquely
@@ -538,7 +538,7 @@ follows:
         <intent-filter>
             <action android:name="com.example.snippets.ACTION_UPDATE_DATA" />
         </intent-filter>
-    </receiver>https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/AndroidManifest.xml#L43-L52
+    </receiver>https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/AndroidManifest.xml#L43-L52
 
 Or your receiving app has a context-registered receiver as follows:
 
@@ -549,7 +549,7 @@ Or your receiving app has a context-registered receiver as follows:
         android.Manifest.permission.ACCESS_COARSE_LOCATION,
         null, // scheduler that defines thread, null means run on main thread
         receiverFlags
-    )https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L111-L116
+    )https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/BroadcastReceiverSnippets.kt#L111-L116
 
 ### Java
 
@@ -558,7 +558,7 @@ Or your receiving app has a context-registered receiver as follows:
             android.Manifest.permission.ACCESS_COARSE_LOCATION,
             null, // scheduler that defines thread, null means run on main thread
             receiverFlags
-    );https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/misc/src/main/java/com/example/snippets/BroadcastReceiverJavaSnippets.java#L68-L73
+    );https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/BroadcastReceiverJavaSnippets.java#L68-L73
 
 Then, to be able to send broadcasts to those receivers, the sending app must
 request the permission as follows:

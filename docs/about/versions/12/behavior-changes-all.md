@@ -136,7 +136,7 @@ since the projection captures the display partition in which the projector app
 is running.
 
 If the app is fully resizable, the activity context returns the correct bounds
-like so:  
+like so:
 
 ### Kotlin
 
@@ -156,7 +156,7 @@ If the app is not fully resizable, it must query from a `WindowContext`
 instance and retrieve the `WindowMetrics` of the activity bounds using
 [`WindowManager.getMaximumWindowMetrics()`](https://developer.android.com/reference/android/view/WindowManager#getMaximumWindowMetrics())
 or the Jetpack method
-[`WindowMetricsCalculator.computeMaximumWindowMetrics()`](https://developer.android.com/reference/androidx/window/layout/WindowMetricsCalculator#computeMaximumWindowMetrics(android.app.Activity)).  
+[`WindowMetricsCalculator.computeMaximumWindowMetrics()`](https://developer.android.com/reference/androidx/window/layout/WindowMetricsCalculator#computeMaximumWindowMetrics(android.app.Activity)).
 
 ### Kotlin
 
@@ -175,7 +175,9 @@ Context windowContext = context.createWindowContext(mContext.getDisplay(),
 WindowMetrics projectionMetrics = windowContext.getSystemService(WindowManager.class)
       .getMaximumWindowMetrics();
 ```
-| **Note:** Any library that uses `MediaProjection` should also follow this advice and query the appropriate `WindowMetrics`.
+
+> [!NOTE]
+> **Note:** Any library that uses `MediaProjection` should also follow this advice and query the appropriate `WindowMetrics`.
 
 ### All apps in multi-window mode
 
@@ -260,7 +262,7 @@ is in the restricted bucket.
 
 To test how your app behaves when the system places your app into the restricted
 bucket, you can manually move your app to that bucket. To do so, run the
-following command in a terminal window:  
+following command in a terminal window:
 
 ```
 adb shell am set-standby-bucket PACKAGE_NAME restricted
@@ -294,7 +296,9 @@ On devices that run Android 12 or higher, [users can
 request](https://developer.android.com/training/location/permissions#approximate-request) that your app have
 access to only [approximate location](https://developer.android.com/training/location/permissions#accuracy)
 information.
-| **Note:** If your app requests `ACCESS_COARSE_LOCATION` but not `ACCESS_FINE_LOCATION`, then this change doesn't affect your app.
+
+> [!NOTE]
+> **Note:** If your app requests `ACCESS_COARSE_LOCATION` but not `ACCESS_FINE_LOCATION`, then this change doesn't affect your app.
 
 If your app requests the
 [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
@@ -303,7 +307,9 @@ runtime permission, you should also request the
 permission to handle the case where the user grants approximate location access
 to your app. You should include both permissions in a single [runtime
 request](https://developer.android.com/training/permissions/requesting#allow-system-manage-request-code).
-| **Caution:** On some releases of Android 12, this change only affects apps that target Android 12 or higher. In those releases, if your app requests `ACCESS_FINE_LOCATION`, it must also request `ACCESS_COARSE_LOCATION` to show the system permissions dialog.
+
+> [!CAUTION]
+> **Caution:** On some releases of Android 12, this change only affects apps that target Android 12 or higher. In those releases, if your app requests `ACCESS_FINE_LOCATION`, it must also request `ACCESS_COARSE_LOCATION` to show the system permissions dialog.
 
 The system permissions dialog includes the following options for the user,
 as shown in figure 1:
@@ -336,10 +342,9 @@ Learn more about these
 check that your app follows best practices regarding the
 [`CAMERA`](https://developer.android.com/reference/android/Manifest.permission#CAMERA) and
 [`RECORD_AUDIO`](https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
-permissions.  
+permissions.
 ![Quick settings tiles are labeled 'Camera access' and
-'Mic access'](https://developer.android.com/static/images/about/versions/12/mic-camera-toggles.svg) **Figure 2.** Microphone and camera toggles in Quick Settings.  
-![A rounded rectangle in the upper-right corner, which
+'Mic access'](https://developer.android.com/static/images/about/versions/12/mic-camera-toggles.svg) **Figure 2.** Microphone and camera toggles in Quick Settings. ![A rounded rectangle in the upper-right corner, which
 includes a camera icon and a microphone icon](https://developer.android.com/static/images/about/versions/12/mic-camera-indicators.svg) **Figure 3.** Microphone and camera indicators, which show recent data access.
 
 <br />
@@ -392,9 +397,11 @@ app](https://developer.android.com/guide/topics/text/copy-paste#Pasting) for the
 notifies the user of this clipboard access.
 
 The text inside the toast message contains the following format:
-<var translate="no">APP</var>` pasted from your clipboard.`
-| **Note:** Your app might call [`getPrimaryClipDescription()`](https://developer.android.com/reference/android/content/ClipboardManager#getPrimaryClipDescription()) to receive information about the [current data that's on the
-| clipboard](https://developer.android.com/guide/topics/text/copy-paste#ClipClasses). When your app calls this method, the system doesn't show a toast message.
+`APP pasted from your clipboard.`
+
+> [!NOTE]
+> **Note:** Your app might call [`getPrimaryClipDescription()`](https://developer.android.com/reference/android/content/ClipboardManager#getPrimaryClipDescription()) to receive information about the [current data that's on the
+> clipboard](https://developer.android.com/guide/topics/text/copy-paste#ClipClasses). When your app calls this method, the system doesn't show a toast message.
 
 #### Information about text in clip description
 
@@ -436,7 +443,9 @@ Android 12 or higher:
   that is on top of the [notification
   drawer](https://material.io/design/platform-guidance/android-notifications#behavior).
 
-  | **Note:** If your app targets Android 12, you don't need to use `ACTION_CLOSE_SYSTEM_DIALOGS` in this situation. That's because, if your app calls [`startActivity()`](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)) while a window is on top of the notification drawer, the system closes the notification drawer automatically.
+  > [!NOTE]
+  > **Note:** If your app targets Android 12, you don't need to use `ACTION_CLOSE_SYSTEM_DIALOGS` in this situation. That's because, if your app calls [`startActivity()`](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)) while a window is on top of the notification drawer, the system closes the notification drawer automatically.
+
 - Your app targets Android 11 or lower. In addition, the user has
   interacted with a notification, possibly using the notification's [action
   buttons](https://developer.android.com/training/notify-user/build-notification#Actions), and your app is
@@ -480,7 +489,9 @@ In the following cases, "pass-through" touches are allowed:
   - [Input method editor (IME) windows](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#TYPE_INPUT_METHOD)
   - [Assistant windows](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_NOT_TOUCHABLE)
 
-  | **Note:** Windows of type [`TYPE_APPLICATION_OVERLAY`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#TYPE_APPLICATION_OVERLAY) **aren't** trusted.
+  > [!NOTE]
+  > **Note:** Windows of type [`TYPE_APPLICATION_OVERLAY`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#TYPE_APPLICATION_OVERLAY) **aren't** trusted.
+
 - **Invisible windows.** The window's root view is
   [`GONE`](https://developer.android.com/reference/android/view/View#GONE) or
   [`INVISIBLE`](https://developer.android.com/reference/android/view/View#INVISIBLE).
@@ -497,7 +508,7 @@ In the following cases, "pass-through" touches are allowed:
 #### Detect when an untrusted touch is blocked
 
 If a touch action is blocked by the system,
-[Logcat](https://developer.android.com/studio/command-line/logcat) logs the following message:  
+[Logcat](https://developer.android.com/studio/command-line/logcat) logs the following message:
 
     Untrusted touch due to occlusion by PACKAGE_NAME
 
@@ -505,7 +516,7 @@ If a touch action is blocked by the system,
 
 Untrusted touches are blocked by default on devices that run
 Android 12 or higher. To allow untrusted touches, run
-the following [ADB command](https://developer.android.com/studio/command-line/adb) in a terminal window:  
+the following [ADB command](https://developer.android.com/studio/command-line/adb) in a terminal window:
 
 ```bash
 # A specific app
@@ -518,7 +529,7 @@ adb shell settings put global block_untrusted_touches 0
 ```
 
 To revert the behavior to the default (untrusted touches are blocked), run the
-following command:  
+following command:
 
 ```bash
 # A specific app
@@ -538,8 +549,10 @@ would finish these activities on Back press. In Android 12, the system now moves
 the activity and its task to the background instead of finishing the activity.
 The new behavior matches the current behavior when navigating out of an app
 using the Home button or gesture.
-| **Note:** The system applies the new behavior only to launcher activities that are the root of their tasks---that is, to activities that declare an [Intent
-| filter](https://developer.android.com/reference/android/content/IntentFilter) with both [`ACTION_MAIN`](https://developer.android.com/reference/android/content/Intent#ACTION_MAIN) and [`CATEGORY_LAUNCHER`](https://developer.android.com/reference/android/content/Intent#CATEGORY_LAUNCHER). For other activities, the system handles Back press as it did before, by finishing the activity.
+
+> [!NOTE]
+> **Note:** The system applies the new behavior only to launcher activities that are the root of their tasks---that is, to activities that declare an [Intent
+> filter](https://developer.android.com/reference/android/content/IntentFilter) with both [`ACTION_MAIN`](https://developer.android.com/reference/android/content/Intent#ACTION_MAIN) and [`CATEGORY_LAUNCHER`](https://developer.android.com/reference/android/content/Intent#CATEGORY_LAUNCHER). For other activities, the system handles Back press as it did before, by finishing the activity.
 
 For most apps, this change means that users who use Back to navigate out of your
 app are able to more quickly resume your app from a [warm state](https://developer.android.com/topic/performance/vitals/launch-time#warm),
@@ -577,7 +590,7 @@ Generally, the callback [`onDisplayChanged()`](https://developer.android.com/ref
 is called after the refresh rate switch completes, but for some
 externally-connected displays, it is called during a non-seamless transition.
 
-Here's an example of how you might implement this:  
+Here's an example of how you might implement this:
 
 ### Kotlin
 

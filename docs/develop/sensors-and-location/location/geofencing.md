@@ -20,7 +20,7 @@ After the geofence expires, Location Services automatically removes it.
 
 
 This lesson shows you how to add and remove geofences, and then listen for geofence transitions
-using a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver).
+using a `https://developer.android.com/reference/android/content/BroadcastReceiver`.
 
 **Note:** On Wear devices, the Geofencing APIs don't make efficient use of
 power. We don't recommend these APIs on Wear. Read
@@ -32,17 +32,17 @@ power. We don't recommend these APIs on Wear. Read
 The first step in requesting geofence monitoring is to request the necessary
 permissions. To use geofencing, your app must request the following:
 
-- [ACCESS_FINE_LOCATION](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
-- [ACCESS_BACKGROUND_LOCATION](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) if your app targets Android 10 (API level 29) or higher
+- `https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION`
+- `https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION` if your app targets Android 10 (API level 29) or higher
 
 
 To learn more, see the guide on how to
 [request location permissions](https://developer.android.com/training/location/permissions).
 
 
-If you want to use a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) to listen for geofence transitions,
+If you want to use a `https://developer.android.com/reference/android/content/BroadcastReceiver` to listen for geofence transitions,
 add an element specifying the service name. This element must be
-a child of the [<application>](https://developer.android.com/guide/topics/manifest/application-element) element:  
+a child of the `https://developer.android.com/guide/topics/manifest/application-element` element:
 
 ```xml
 <application
@@ -53,7 +53,7 @@ a child of the [<application>](https://developer.android.com/guide/topics/manife
 ```
 
 To access the location APIs, you need to create an instance of the
-Geofencing client. To learn how to connect your client:  
+Geofencing client. To learn how to connect your client:
 
 ### Kotlin
 
@@ -83,15 +83,15 @@ public void onCreate(Bundle savedInstanceState) {
 Your app needs to create and add geofences using the location API's builder class for
 creating Geofence objects, and the convenience class for adding them. Also, to handle the
 intents sent from Location Services when geofence transitions occur, you can define a
-[PendingIntent](https://developer.android.com/reference/android/app/PendingIntent) as shown in this section.
+`https://developer.android.com/reference/android/app/PendingIntent` as shown in this section.
 
 **Note:** On single-user devices, there is a limit of 100 geofences per app. For multi-user devices, the limit is 100 geofences per app per device user.
 
 ### Create geofence objects
 
 
-First, use [Geofence.Builder](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder.html) to create a geofence, setting the desired radius, duration, and
-transition types for the geofence. For example, to populate a list object:  
+First, use `https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder.html` to create a geofence, setting the desired radius, duration, and
+transition types for the geofence. For example, to populate a list object:
 
 ### Kotlin
 
@@ -145,9 +145,9 @@ dynamically create geofences based on the user's location.
 ### Specify geofences and initial triggers
 
 
-The following snippet uses the [GeofencingRequest](https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.html) class
-and its nested [GeofencingRequestBuilder](https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.Builder.html) class to
-specify the geofences to monitor and to set how related geofence events are triggered:  
+The following snippet uses the `https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.html` class
+and its nested `https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.Builder.html` class to
+specify the geofences to monitor and to set how related geofence events are triggered:
 
 ### Kotlin
 
@@ -173,20 +173,20 @@ private GeofencingRequest getGeofencingRequest() {
 
 
 This example shows the use of two geofence triggers. The `
-`[GEOFENCE_TRANSITION_ENTER](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER)
+https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER`
 transition triggers when a device enters a geofence, and the `
-`[GEOFENCE_TRANSITION_EXIT](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_EXIT)
+https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_EXIT`
 transition triggers when a device exits a geofence. Specifying
 `
-`[INITIAL_TRIGGER_ENTER](https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.html#INITIAL_TRIGGER_ENTER) tells Location services that
+https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.html#INITIAL_TRIGGER_ENTER` tells Location services that
 `
-`[GEOFENCE_TRANSITION_ENTER](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER)
+https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER`
 should be triggered if the device is already inside the geofence.
 
 <br />
 
 In many cases, it may be preferable to use instead `
-`[INITIAL_TRIGGER_DWELL](https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.html#INITIAL_TRIGGER_DWELL),
+https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.html#INITIAL_TRIGGER_DWELL`,
 which triggers events only when the user stops for a defined duration within a geofence.
 This approach can help reduce "alert spam" resulting from large numbers notifications when a
 device briefly enters and exits geofences. Another strategy for getting best results from your
@@ -196,15 +196,15 @@ of typical Wi-Fi networks, and also helps reduce device power consumption.
 ### Define a broadcast receiver for geofence transitions
 
 
-An [Intent](https://developer.android.com/reference/android/content/Intent) sent from Location Services can trigger various actions in
+An `https://developer.android.com/reference/android/content/Intent` sent from Location Services can trigger various actions in
 your app, but you should *not* have it start an activity or fragment, because components
-should only become visible in response to a user action. In many cases, a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) is a good way to handle a geofence transition. A
+should only become visible in response to a user action. In many cases, a `https://developer.android.com/reference/android/content/BroadcastReceiver` is a good way to handle a geofence transition. A
 `BroadcastReceiver` gets updates when an event occurs, such as a
 transition into or out of a geofence, and can start long-running background
 work.
 
 The following snippet shows how
-to define a [PendingIntent](https://developer.android.com/reference/android/app/PendingIntent) that starts a `BroadcastReceiver`:  
+to define a `https://developer.android.com/reference/android/app/PendingIntent` that starts a `BroadcastReceiver`:
 
 ### Kotlin
 
@@ -259,9 +259,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 To add geofences, use the `
-`[`GeofencingClient.addGeofences()`](https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingClient.html#addGeofences(com.google.android.gms.location.GeofencingRequest, android.app.PendingIntent)) method.
-Provide the [GeofencingRequest](https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest) object, and the [PendingIntent](https://developer.android.com/reference/android/app/PendingIntent).
-The following snippet demonstrates processing the results:  
+https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingClient.html#addGeofences(com.google.android.gms.location.GeofencingRequest, android.app.PendingIntent)` method.
+Provide the `https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest` object, and the `https://developer.android.com/reference/android/app/PendingIntent`.
+The following snippet demonstrates processing the results:
 
 ### Kotlin
 
@@ -302,9 +302,9 @@ geofencingClient.addGeofences(getGeofencingRequest(), getGeofencePendingIntent()
 
 
 When Location Services detects that the user has entered or exited a geofence, it
-sends out the [Intent](https://developer.android.com/reference/android/content/Intent) contained in the [PendingIntent](https://developer.android.com/reference/android/app/PendingIntent)
+sends out the `https://developer.android.com/reference/android/content/Intent` contained in the `https://developer.android.com/reference/android/app/PendingIntent`
 you included in the request to add geofences. A broadcast receiver like
-`GeofenceBroadcastReceiver` notices that the [Intent](https://developer.android.com/reference/android/content/Intent) was invoked and
+`GeofenceBroadcastReceiver` notices that the `https://developer.android.com/reference/android/content/Intent` was invoked and
 can then obtain the geofencing event from the intent, determine the type of Geofence transition(s),
 and determine which of the defined geofences was triggered. The broadcast
 receiver can direct an app to start performing background work or, if
@@ -320,9 +320,9 @@ Location Limits](https://developer.android.com/about/versions/oreo/background-lo
 
 
 The following snippet shows how to define a
-[BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver)
+`https://developer.android.com/reference/android/content/BroadcastReceiver`
 that posts a notification when a geofence transition occurs. When the user
-clicks the notification, the app's main activity appears:  
+clicks the notification, the app's main activity appears:
 
 ### Kotlin
 
@@ -412,12 +412,12 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
 }
 ```
 
-After detecting the transition event via the [PendingIntent](https://developer.android.com/reference/android/app/PendingIntent),
+After detecting the transition event via the `https://developer.android.com/reference/android/app/PendingIntent`,
 the `BroadcastReceiver` gets the geofence transition type and
 tests whether it is one of the events the app uses to trigger
 notifications -- either
-[GEOFENCE_TRANSITION_ENTER](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER)
-or [GEOFENCE_TRANSITION_EXIT](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_EXIT)
+`https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER`
+or `https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_EXIT`
 in this case. The service then sends a notification and logs the transition details.
 
 ## Stop geofence monitoring
@@ -427,11 +427,11 @@ power and CPU cycles on the device. You can stop geofence monitoring
 in the main activity used to add and remove geofences; removing a geofence stops it
 immediately. The API provides methods to
 remove geofences either by request IDs, or by removing geofences associated with a given
-[PendingIntent](https://developer.android.com/reference/android/app/PendingIntent).
+`https://developer.android.com/reference/android/app/PendingIntent`.
 
 
-The following snippet removes geofences by [PendingIntent](https://developer.android.com/reference/android/app/PendingIntent), stopping all
-further notification when the device enters or exits previously added geofences:  
+The following snippet removes geofences by `https://developer.android.com/reference/android/app/PendingIntent`, stopping all
+further notification when the device enters or exits previously added geofences:
 
 ### Kotlin
 
@@ -519,8 +519,8 @@ practices](https://developer.android.com/privacy/best-practices) page.
 
 If you receive a large number of alerts when driving briefly past a geofence, the best way to
 reduce the alerts is to use a transition type of `
-`[GEOFENCE_TRANSITION_DWELL](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_DWELL) instead of `
-`[GEOFENCE_TRANSITION_ENTER](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER). This way, the dwelling alert is sent only when the user stops
+https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_DWELL` instead of `
+https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER`. This way, the dwelling alert is sent only when the user stops
 inside a geofence for a given period of time. You can choose the duration by setting a
 [loitering delay](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder.html#setLoiteringDelay(int)).
 
@@ -542,12 +542,12 @@ the system cannot recover the geofences in the following cases:
 - The app is uninstalled and re-installed.
 - The app's data is cleared.
 - Google Play services data is cleared.
-- The app has received a [GEOFENCE_NOT_AVAILABLE](https://developers.google.com/android/reference/com/google/android/gms/location/LocationStatusCodes.html#GEOFENCE_NOT_AVAILABLE) alert. This typically happens after NLP (Android's Network Location Provider) is disabled.
+- The app has received a `https://developers.google.com/android/reference/com/google/android/gms/location/LocationStatusCodes.html#GEOFENCE_NOT_AVAILABLE` alert. This typically happens after NLP (Android's Network Location Provider) is disabled.
 
 ## Troubleshoot the geofence entrance event
 
 If geofences aren't being triggered when the device enters a geofence
-(the [GEOFENCE_TRANSITION_ENTER](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER) alert isn't triggered), first ensure that your geofences are
+(the `https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER` alert isn't triggered), first ensure that your geofences are
 registered properly as described in this guide.
 
 Here are some possible reasons for alerts not working as expected:

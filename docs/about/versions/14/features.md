@@ -88,11 +88,8 @@ displays information. You can also register a
 to handle locale configuration changes when regional preferences change.
 
 To find these settings, open the Settings app and navigate to **System \>
-Languages \& input \> Regional preferences**.  
-![](https://developer.android.com/static/about/versions/14/images/regional-preferences.png)  
-Regional preferences screen in Android system settings.  
-![](https://developer.android.com/static/about/versions/14/images/regional-preferences-temperature.png)  
-Temperature options for regional preferences in Android system settings.
+Languages \& input \> Regional preferences**.
+![](https://developer.android.com/static/about/versions/14/images/regional-preferences.png) Regional preferences screen in Android system settings. ![](https://developer.android.com/static/about/versions/14/images/regional-preferences-temperature.png) Temperature options for regional preferences in Android system settings.
 
 ## Accessibility
 
@@ -266,11 +263,8 @@ Play system updates without requiring a separate download. With this, Health
 Connect can be updated frequently, and your apps can rely on Health Connect
 being available on devices running Android 14 or higher. Users can access Health
 Connect from the Settings in their device, with privacy controls integrated into
-the system settings.  
-![](https://developer.android.com/static/images/about/versions/14/health-connect-screen.png)  
-Users can get started using Health Connect without a separate app download on devices running Android 14 or higher.  
-![](https://developer.android.com/static/images/about/versions/14/health-connect-permissions.png)  
-Users can control which apps have access to their health and fitness data through system settings.
+the system settings.
+![](https://developer.android.com/static/images/about/versions/14/health-connect-screen.png) Users can get started using Health Connect without a separate app download on devices running Android 14 or higher. ![](https://developer.android.com/static/images/about/versions/14/health-connect-permissions.png) Users can control which apps have access to their health and fitness data through system settings.
 
 Health Connect includes several new features in Android 14, such as exercise
 routes, allowing users to share a route of their workout which can be visualized
@@ -309,8 +303,10 @@ affiliates.*
 
 Android 14 introduces several [`PackageInstaller`](https://developer.android.com/reference/android/content/pm/PackageInstaller) APIs that
 allow app stores to improve their user experience.
-| **Note:** If you develop a third-party app store, we would love to [hear your
-| feedback](https://issuetracker.google.com/issues/new?component=192705), so give these APIs a try and let us know what you think!
+
+> [!NOTE]
+> **Note:** If you develop a third-party app store, we would love to [hear your
+> feedback](https://issuetracker.google.com/issues/new?component=192705), so give these APIs a try and let us know what you think!
 
 #### Request install approval before downloading
 
@@ -368,8 +364,10 @@ In Android 14, the [`setDontKillApp()`](https://developer.android.com/reference/
 installer to indicate that the app's running processes shouldn't be killed when
 new splits are installed. App stores can use this feature to seamlessly install
 new features of an app while the user is using the app.
-| **Note:** If you distribute your app on Google Play, consider using [Play Feature
-| Delivery](https://developer.android.com/guide/playcore/feature-delivery) to allow certain features of your app to be delivered conditionally or downloaded on demand.
+
+> [!NOTE]
+> **Note:** If you distribute your app on Google Play, consider using [Play Feature
+> Delivery](https://developer.android.com/guide/playcore/feature-delivery) to allow certain features of your app to be delivered conditionally or downloaded on demand.
 
 ### App metadata bundles
 
@@ -384,7 +382,9 @@ Android 14 introduces a privacy-preserving [screenshot detection
 API](https://developer.android.com/about/versions/14/features/screenshot-detection). This API lets apps register callbacks on a per-activity basis. These
 callbacks are invoked, and the user is notified, when the user takes a
 screenshot while that activity is visible.
-| **Note:** The callback doesn't provide an image of the actual screenshot. It's up to your app to determine what appeared on the screen when the user took a screenshot.
+
+> [!NOTE]
+> **Note:** The callback doesn't provide an image of the actual screenshot. It's up to your app to determine what appeared on the screen when the user took a screenshot.
 
 ## User experience
 
@@ -445,7 +445,8 @@ Overrides are intended to improve the user experience on large screens.
 
 ### Large screen user per-app overrides
 
-| **Note:** This feature is included on devices running Android 14 QPR1 or higher.
+> [!NOTE]
+> **Note:** This feature is included on devices running Android 14 QPR1 or higher.
 
 Per-app overrides change the behavior of apps on large screen devices. For example, the [`OVERRIDE_MIN_ASPECT_RATIO_LARGE`](https://developer.android.com/guide/topics/large-screens/large-screen-compatibility-mode#override_min_aspect_ratio_large) device manufacturer override sets the app aspect ratio to 16:9 regardless of the app's configuration.
 
@@ -453,7 +454,8 @@ Android 14 QPR1 enables users to apply per‑app overrides by means of a [new se
 
 ### App screen sharing
 
-| **Note:** This feature is included on devices running Android 14 QPR2 or higher.
+> [!NOTE]
+> **Note:** This feature is included on devices running Android 14 QPR2 or higher.
 
 App screen sharing enables users to share an app window instead of the entire device screen during screen content recording.
 
@@ -476,7 +478,10 @@ AiCore Settings \> Enable Aicore Persistent**.
 
 Next, open a conversation in a supported app to see LLM-powered Smart Reply in
 Gboard's suggestion strip in response to incoming messages.
-Gboard utilizes on-device LLMs to provide higher-quality smart replies. **Note:** This feature preview will begin rolling out to devices following the December Feature Drop. If you're not seeing the new Smart Reply behavior yet, please wait a couple days and try again. Model downloads might also take some time, so charging your device on Wi-Fi overnight can help speed this up.
+Gboard utilizes on-device LLMs to provide higher-quality smart replies.
+
+> [!NOTE]
+> **Note:** This feature preview will begin rolling out to devices following the December Feature Drop. If you're not seeing the new Smart Reply behavior yet, please wait a couple days and try again. Model downloads might also take some time, so charging your device on Wi-Fi overnight can help speed this up.
 
 ## Graphics
 
@@ -497,7 +502,7 @@ creation time.
 
 Starting in Android 14, you can query paths to find out what's inside of them.
 First, you need to get a [`PathIterator`](https://developer.android.com/reference/android/graphics/PathIterator) object using the
-[`Path.getPathIterator`](https://developer.android.com/reference/android/graphics/Path#getPathIterator()) API:  
+[`Path.getPathIterator`](https://developer.android.com/reference/android/graphics/Path#getPathIterator()) API:
 
 ### Kotlin
 
@@ -523,7 +528,7 @@ PathIterator pathIterator = path.getPathIterator();
 Next, you can call [`PathIterator`](https://developer.android.com/reference/android/graphics/PathIterator) to iterate through the segments
 one by one, retrieving all of the necessary data for each segment. This example
 uses [`PathIterator.Segment`](https://developer.android.com/reference/android/graphics/PathIterator.Segment) objects, which packages up the data
-for you:  
+for you:
 
 ### Kotlin
 
@@ -551,7 +556,7 @@ further simplify that use case, Android 14 also includes the
 [`interpolate()`](https://developer.android.com/reference/android/graphics/Path#interpolate(android.graphics.Path,%20float,%20android.graphics.Path)) method on `Path`. Assuming the two paths have
 the same internal structure, the `interpolate()` method creates a new `Path`
 with that interpolated result. This example returns a path whose shape is
-halfway (a linear interpolation of .5) between `path` and `otherPath`:  
+halfway (a linear interpolation of .5) between `path` and `otherPath`:
 
 ### Kotlin
 

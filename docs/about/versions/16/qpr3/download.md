@@ -34,8 +34,10 @@ works best for your test environment.
 Use the following links and instructions to update your supported device to the
 latest build. See [Get Android 16 QPR3](https://developer.android.com/about/versions/16/qpr3/get) for
 other ways to get Android 16 QPR3 for testing and development.
-| **Warning:** Flashing to a beta build from a production build---or going back to a production build from a beta build---requires a full device reset that removes all user data on the device. Make sure to [back up the data from
-| your Pixel](https://support.google.com/pixelphone/answer/7179901) first.
+
+> [!WARNING]
+> **Warning:** Flashing to a beta build from a production build---or going back to a production build from a beta build---requires a full device reset that removes all user data on the device. Make sure to [back up the data from
+> your Pixel](https://support.google.com/pixelphone/answer/7179901) first.
 
 ## Flash your device using Android Flash Tool
 
@@ -108,7 +110,9 @@ You can either use the Android Flash Tool to
 [flash the factory image](https://flash.android.com/back-to-public), or obtain a factory spec system
 image from the [Factory Images for Nexus and Pixel Devices](https://developers.google.com/android/images)
 page and then manually flash it to the device.
-| **Warning:** Going back to a public build from a preview build (Developer Preview or Beta) requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).
+
+> [!WARNING]
+> **Warning:** Going back to a public build from a preview build (Developer Preview or Beta) requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).
 
 ## Download Android 16 factory system image
 

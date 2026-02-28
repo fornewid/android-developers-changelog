@@ -4,7 +4,8 @@ url: https://developer.android.com/games/pgs/publishing/upload-images
 source: md.txt
 ---
 
-| **Deprecated:** This API is deprecated and is being removed, so you shouldn't use it. Attempting to use this API causes errors.
+> [!WARNING]
+> **Deprecated:** This API is deprecated and is being removed, so you shouldn't use it. Attempting to use this API causes errors.
 
 The Play Games Services Publishing API allows you to upload an image for a game
 resource.
@@ -134,7 +135,9 @@ Each part of the multipart request needs an additional Content-Type header:
 
 See
 Publishing API [reference](https://developers.google.com/games/services/publishing/api) for each method's list of accepted media MIME types and size limits for uploaded files.
-| **Note:** To create or update the metadata portion only, without uploading the associated data, send a `POST` or `PUT` request to the standard resource endpoint: `https://www.googleapis.com/games/v1configuration/images/resourceId/imageType/imageType`
+
+> [!NOTE]
+> **Note:** To create or update the metadata portion only, without uploading the associated data, send a `POST` or `PUT` request to the standard resource endpoint: `https://www.googleapis.com/games/v1configuration/images/resourceId/imageType/imageType`
 
 **Example: Multipart upload**
 
@@ -199,7 +202,9 @@ The steps for using resumable upload include:
 In addition, apps that use resumable upload need to have code to resume an
 interrupted upload. If an upload is interrupted, find out how much data was
 successfully received, and then resume the upload starting from that point.
-| **Note:** An upload URI expires after one week.
+
+> [!NOTE]
+> **Note:** An upload URI expires after one week.
 
 #### Start a resumable session
 
@@ -252,7 +257,8 @@ Games Services Publishing API.
       "imageType": string
     }
 
-| **Note:** For an initial resumable update request without metadata, leave the body of the request empty, and set the `Content-Length` header to `0`.
+> [!NOTE]
+> **Note:** For an initial resumable update request without metadata, leave the body of the request empty, and set the `Content-Length` header to `0`.
 
 The next section describes how to handle the response.
 
@@ -331,7 +337,8 @@ required, along with the Content-Length header required for full file uploads:
   example, `Content-Range: bytes 0-524287/2000000` shows that you are providing
   the first 524,288 bytes (256 x 1024 x 2) in a 2,000,000 byte file.
 
-| **Note:** All chunks must be a multiple of 256 KB (256 x 1024 bytes) in size, except for the final chunk that completes the upload. If you use chunking, it is important to keep the chunk size as large as possible to keep the upload efficient.
+> [!NOTE]
+> **Note:** All chunks must be a multiple of 256 KB (256 x 1024 bytes) in size, except for the final chunk that completes the upload. If you use chunking, it is important to keep the chunk size as large as possible to keep the upload efficient.
 
 ###### Expand for more info
 
@@ -401,7 +408,9 @@ following:
    total file length is 2,000,000. If you don't know the full size of the file, set
    the Content-Range to `*/*`.
 
-   | **Note:** You can request the status between chunks, not just if the upload is interrupted. This is useful, for example, if you want to show upload progress indications for legacy browsers.
+   > [!NOTE]
+   > **Note:** You can request the status between chunks, not just if the upload is interrupted. This is useful, for example, if you want to show upload progress indications for legacy browsers.
+
 2. **Get number of bytes uploaded** . Process the response from the status query.
    The server uses the `Range` header in its response to specify which bytes it has
    received so far. For example, a `Range` header of `0-299999` indicates that the
@@ -431,7 +440,9 @@ following:
        Content-Length: 0
        Range: 0-42
 
-   | **Note:** It is possible that the status response could be `201`Created or `200 OK` if the upload is complete. This could happen if the connection broke after all bytes were uploaded but before the client received a response from the server.
+   > [!NOTE]
+   > **Note:** It is possible that the status response could be `201`Created or `200 OK` if the upload is complete. This could happen if the connection broke after all bytes were uploaded but before the client received a response from the server.
+
 3. Resume the upload from the point where it left off. The following request
    resumes the upload by sending the remaining bytes of the file, starting at
    byte 43.
@@ -502,7 +513,9 @@ less than or equal to 1000. This is necessary, since introducing a small random
 delay helps distribute the load more evenly and avoid the possibility of
 stampeding the server. The value of random_number_milliseconds must be redefined
 after each wait.
-| **Note:** The wait is always (2 \^ n) + random_number_milliseconds, where n is a monotonically increasing integer initially defined as 0. The integer n is incremented by 1 for each iteration (each request).
+
+> [!NOTE]
+> **Note:** The wait is always (2 \^ n) + random_number_milliseconds, where n is a monotonically increasing integer initially defined as 0. The integer n is incremented by 1 for each iteration (each request).
 
 The algorithm is set to terminate when n is 5. This ceiling prevents clients
 from retrying infinitely, and results in a total delay of around 32 seconds

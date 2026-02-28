@@ -64,9 +64,11 @@ methods to access functionality that isn't available from the generic
 of the corresponding `javax.net.ssl` class. For example, code that operates on
 instances of `javax.net.ssl.SSLSocket` can instead use methods from
 [`SSLSockets`](https://developer.android.com/reference/android/net/ssl/SSLSockets).
-| **Caution:** If you're still accessing TLS functionality using reflection, change to using the public API. This is because of planned further [restrictions on
-| non-SDK
-| interfaces](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces).
+
+> [!CAUTION]
+> **Caution:** If you're still accessing TLS functionality using reflection, change to using the public API. This is because of planned further [restrictions on
+> non-SDK
+> interfaces](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces).
 
 ## Connectivity features
 
@@ -142,7 +144,7 @@ predetermined information. This information is shared via a side channel, such
 as Bluetooth or NFC.
 
 The following code sample shows how to create a group using predetermined
-information:  
+information:
 
 ### Kotlin
 
@@ -181,7 +183,7 @@ manager.createGroup(channel, config, null);
 ```
 
 To join a group using credentials, replace `manager.createGroup()` with the
-following:  
+following:
 
 ### Kotlin
 
@@ -543,7 +545,7 @@ such as airplane mode, Wi-Fi (including nearby networks), and mobile data. With
 this panel, users can restore connectivity without leaving the app.
 
 To display a settings panel, fire an intent with the one of the following
-[`Settings.Panel`](https://developer.android.com/reference/android/provider/Settings.Panel) actions:  
+[`Settings.Panel`](https://developer.android.com/reference/android/provider/Settings.Panel) actions:
 
 ### Kotlin
 
@@ -559,7 +561,7 @@ Intent panelIntent = new Intent(Settings.Panel.settings_panel_type);
 startActivityForResult(panelIntent);
 ```
 
-<var translate="no"><code translate="no" dir="ltr">settings_panel_type</code></var> can be one of:
+<var translate="no">`settings_panel_type`</var> can be one of:
 
 [`ACTION_INTERNET_CONNECTIVITY`](https://developer.android.com/reference/android/provider/Settings.Panel#ACTION_INTERNET_CONNECTIVITY)
 :   Shows settings related to internet connectivity, such as Airplane mode, Wi-Fi,

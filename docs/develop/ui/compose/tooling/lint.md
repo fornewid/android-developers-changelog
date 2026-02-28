@@ -17,7 +17,7 @@ To simplify compatibility and improve stability for lint check support, Compose
 1.9 requires Android Gradle Plugin (AGP) / Lint version 8.8.2 or higher.
 
 If you're using an AGP version lower than 8.8.2 and are unable to upgrade, you
-can specify the lint version to use in your `gradle.properties` file:  
+can specify the lint version to use in your `gradle.properties` file:
 
     android.experimental.lint.version = 8.8.2
 

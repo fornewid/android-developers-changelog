@@ -79,7 +79,9 @@ You can either use the Android Flash Tool to
 [flash the factory image](https://flash.android.com/back-to-public), or obtain a factory spec system
 image from the [Factory Images for Nexus and Pixel Devices](https://developers.google.com/android/images)
 page and then manually flash it to the device.
-| **Warning:** Going back to a public build from a preview build (Developer Preview or Beta) requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).
+
+> [!WARNING]
+> **Warning:** Going back to a public build from a preview build (Developer Preview or Beta) requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).
 
 ## Download Android 16 QPR2
 

@@ -1,36 +1,29 @@
 ---
-title: Multi task while reading  |  Gallery  |  Android Developers
+title: https://developer.android.com/design/ui/gallery/reading/multi-task
 url: https://developer.android.com/design/ui/gallery/reading/multi-task
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [UI Design](https://developer.android.com/design/ui)
-* [Gallery](https://developer.android.com/design/ui/gallery)
-
-# Multi task while reading Stay organized with collections Save and categorize content based on your preferences.
-
-
-
+<br />
 
 Distinctive features and capabilities not possible on small screen devices.
 
-![](/static/images/large-screens/gallery/samples/reading/gallery_reading_multiwindow.png)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/reading/gallery_reading_multiwindow.png)
 
 With multi-window mode on expansive displays, readers can pore over weighty
 tomes in one window while taking notes, checking facts, or sharing observations
 in another window, in another app, instantly.
 
-![](/static/images/large-screens/gallery/samples/reading/gallery_reading_dragdrop.png)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/reading/gallery_reading_dragdrop.png)
 
 Foldables have the angle on e-books. Capture the experience of reading a real
 book with a two-page layout on a large screen foldable open like a bound book.
 It's an e-book in fact, form, and function.
 
-![](/static/images/large-screens/gallery/samples/reading/gallery_reading_book.png)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/reading/gallery_reading_book.png)
 
----
+*** ** * ** ***
+
 
 ## Android AdaptiveUI Samples
 
@@ -40,8 +33,10 @@ more.
 
 [View Figma
 Kit](https://www.figma.com/community/file/1539759053650269019/android-adaptive-ui-samples)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/android-adaptive-samples.png)
 
-![](/static/images/large-screens/gallery/callouts/android-adaptive-samples.png)
+<br />
+
 
 ## Implement a supporting pane
 
@@ -49,8 +44,9 @@ A mobile view may require supporting content or controls, typically in the form
 of sheets or dialogs, to help the primary view stay focused and uncluttered.
 
 [Learn
-more](/develop/ui/compose/layouts/adaptive/canonical-layouts#supporting-pane)
+more](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#supporting-pane)
 [Material Design
 website](https://material.io/foundations/layout/canonical-layouts/supporting-pane)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/supporting-pane.png)
 
-![](/static/images/large-screens/gallery/samples/callouts/supporting-pane.png)
+<br />

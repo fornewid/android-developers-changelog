@@ -50,7 +50,7 @@ restrict non-SDK interfaces, and we understand that your app might have a valid
 use case for using these interfaces. If an interface that your app uses in a
 prior version is now blocked in Android 12, you should [request a new public
 API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
-for that interface.  
+for that interface.
 
 ```
 Landroid/app/Activity;->attach(Landroid/content/Context;Landroid/app/ActivityThread;Landroid/app/Instrumentation;Landroid/os/IBinder;ILandroid/app/Application;Landroid/content/Intent;Landroid/content/pm/ActivityInfo;Ljava/lang/CharSequence;Landroid/app/Activity;Ljava/lang/String;Landroid/app/Activity$NonConfigurationInstances;Landroid/content/res/Configuration;Ljava/lang/String;Lcom/android/internal/app/IVoiceInteractor;Landroid/view/Window;Landroid/view/ViewRootImpl$ActivityConfigCallback;Landroid/os/IBinder;Landroid/os/IBinder;)V
@@ -3198,7 +3198,7 @@ Lsun/util/calendar/LocalGregorianCalendar;->validate(Lsun/util/calendar/Calendar
 
 The following code box lists all of the non-SDK interfaces that were restricted
 in Android 11 (API level 30) that were added to the Android SDK in
-Android 12. Each interface takes up one line.  
+Android 12. Each interface takes up one line.
 
 ```
 Landroid/accessibilityservice/AccessibilityService;->GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS:I

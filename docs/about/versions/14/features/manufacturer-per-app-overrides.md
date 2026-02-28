@@ -11,7 +11,9 @@ Device manufacturers apply overrides to apps on select large screen devices.
 Per-app overrides are intended to improve the user experience on large screen devices. Apps can disable some overrides.
 
 For more information about per-app overrides, see [Device compatibility mode](https://developer.android.com/guide/practices/device-compatibility-mode).
-| **Note:** To enable your app to provide the best user experience without relying on overrides, follow the [Large screen app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) guidelines.
+
+> [!NOTE]
+> **Note:** To enable your app to provide the best user experience without relying on overrides, follow the [Large screen app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) guidelines.
 
 ## Device manufacturer overrides
 
@@ -25,7 +27,7 @@ Device manufacturers apply overrides to apps to improve the user experience on t
 
 - **PROPERTY_COMPAT_ALLOW_RESIZEABLE_ACTIVITY_OVERRIDES**
 
-  To disable the [`FORCE_RESIZE_APP`](https://developer.android.com/guide/topics/large-screens/large-screen-compatibility-mode#force_resize_app) and [`FORCE_NON_RESIZE_APP`](https://developer.android.com/guide/topics/large-screens/large-screen-compatibility-mode#force_non_resize_app) overrides, set the property to false in your app manifest:  
+  To disable the [`FORCE_RESIZE_APP`](https://developer.android.com/guide/topics/large-screens/large-screen-compatibility-mode#force_resize_app) and [`FORCE_NON_RESIZE_APP`](https://developer.android.com/guide/topics/large-screens/large-screen-compatibility-mode#force_non_resize_app) overrides, set the property to false in your app manifest:
 
       <application>
           <property
@@ -39,7 +41,7 @@ Device manufacturers apply overrides to apps to improve the user experience on t
 
 - **PROPERTY_COMPAT_ALLOW_MIN_ASPECT_RATIO_OVERRIDE**
 
-  To disable [`OVERRIDE_MIN_ASPECT_RATIO`](https://developer.android.com/guide/topics/large-screens/large-screen-compatibility-mode#override_min_aspect_ratio), set the property to false in your app manifest:  
+  To disable [`OVERRIDE_MIN_ASPECT_RATIO`](https://developer.android.com/guide/topics/large-screens/large-screen-compatibility-mode#override_min_aspect_ratio), set the property to false in your app manifest:
 
       <application>
           <property

@@ -63,7 +63,9 @@ You access the Publishing API through an OAuth client or a service account.
 You can allow users to perform actions via the Publishing API under their
 own credentials using an
 [OAuth](https://developers.google.com/accounts/docs/OAuth2) client.
-| **Note:** Your Oauth client must share the same project as your [service account](https://developer.android.com/games/pgs/publishing/publishing-start#using_a_service_account).
+
+> [!NOTE]
+> **Note:** Your Oauth client must share the same project as your [service account](https://developer.android.com/games/pgs/publishing/publishing-start#using_a_service_account).
 
 A user's actions are limited to those permitted via the
 [User Accounts \& Rights](https://play.google.com/apps/publish/#AdminPlace)

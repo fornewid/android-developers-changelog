@@ -11,7 +11,9 @@ If your game is in an unpublished state, you must allowlist the user accounts
 that you want to grant access for testing. Otherwise, your testers
 encounter OAuth and 404 errors when attempting to access the Google Play Games Services
 endpoints such as [sign-in](https://developer.android.com/games/pgs/android/android-signin).
-| **Warning:** Remember to add **yourself** as a tester so that the Play Games SDK works for your user account, too.
+
+> [!WARNING]
+> **Warning:** Remember to add **yourself** as a tester so that the Play Games SDK works for your user account, too.
 
 There are two ways to enable testers to use PGS APIs for your game:
 
@@ -48,7 +50,9 @@ the tester list individually. To do this, follow these steps:
 
 The selected release tracks appear in the list of tracks enabled for PGS
 testing.
-| **Note:** This feature is only available if you have an Android app linked to your game in Google Play Console.
+
+> [!NOTE]
+> **Note:** This feature is only available if you have an Android app linked to your game in Google Play Console.
 
 ## Configure the production testing track
 

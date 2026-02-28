@@ -67,7 +67,9 @@ behavior changes](https://developer.android.com/about/versions/10/behavior-chang
 Some behavior changes might cause regressions or crashes, so make sure to review
 the changes and test thoroughly before publishing an app update that changes
 your `targetSdkVersion`.
-| **Note:** The previously described steps to [ensure platform compatibility](https://developer.android.com/about/versions/10/migration#compat) are prerequisite to targeting your app to Android 10, so be sure to complete those steps first.
+
+> [!NOTE]
+> **Note:** The previously described steps to [ensure platform compatibility](https://developer.android.com/about/versions/10/migration#compat) are prerequisite to targeting your app to Android 10, so be sure to complete those steps first.
 
 ![](https://developer.android.com/static/images/about/versions/10/q-building-flow.png)
 

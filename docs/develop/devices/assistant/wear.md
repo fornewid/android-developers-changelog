@@ -4,8 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/wear
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
 [Video](https://www.youtube.com/watch?v=gVIEbeqQQW8)
 
 Watch voice assistants enable quick and efficient on-the-go scenarios. Voice

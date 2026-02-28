@@ -14,7 +14,9 @@ build, and runtime performance.
 This section goes over the impact to APK size and build time by looking at the
 [Sunflower](https://github.com/android/sunflower/tree/compose_recyclerview) sample app---an app that demonstrates best practices
 with migrating a View-based app to Compose.
-| **Note:** The results here are specific to the Sunflower sample app. Your metrics may vary as APK size and build time depend on several factors, such as number of modules, dependencies and versions you use, etc.
+
+> [!NOTE]
+> **Note:** The results here are specific to the Sunflower sample app. Your metrics may vary as APK size and build time depend on several factors, such as number of modules, dependencies and versions you use, etc.
 
 ### APK size
 
@@ -163,8 +165,10 @@ UI Toolkit classes and drawables. Jetpack Compose 1.0 utilizes profile
 installation for *release* builds. [Profile installers](https://developer.android.com/jetpack/androidx/releases/profileinstaller) let apps specify critical code to
 be ahead-of-time (AOT) compiled at installation time. Compose ships profile
 installation rules which reduce startup time and jank in Compose apps.
-| **Note:** Compose profiles aren't available on Android L or M, since the app is compiled AOT by Android Framework on devices running these versions. The [Making apps blazing fast with Baseline Profiles
-| video](https://www.youtube.com/watch?v=yJm5On5Gp4c) explains this further.
+
+> [!NOTE]
+> **Note:** Compose profiles aren't available on Android L or M, since the app is compiled AOT by Android Framework on devices running these versions. The [Making apps blazing fast with Baseline Profiles
+> video](https://www.youtube.com/watch?v=yJm5On5Gp4c) explains this further.
 
 ## Recommended for you
 

@@ -29,10 +29,10 @@ device position, but they can be used with other sensors, such as the geomagneti
 determine a device's position relative to the world's frame of reference (see [Position Sensors](https://developer.android.com/guide/topics/sensors/sensors_position) for more
 information).
 
-All of the motion sensors return multi-dimensional arrays of sensor values for each [SensorEvent](https://developer.android.com/reference/android/hardware/SensorEvent). For example, during a single sensor event the accelerometer returns
+All of the motion sensors return multi-dimensional arrays of sensor values for each `https://developer.android.com/reference/android/hardware/SensorEvent`. For example, during a single sensor event the accelerometer returns
 acceleration force data for the three coordinate axes, and the gyroscope returns rate of rotation
 data for the three coordinate axes. These data values are returned in a `float` array
-([values](https://developer.android.com/reference/android/hardware/SensorEvent#values)) along with other [SensorEvent](https://developer.android.com/reference/android/hardware/SensorEvent)
+(`https://developer.android.com/reference/android/hardware/SensorEvent#values`) along with other `https://developer.android.com/reference/android/hardware/SensorEvent`
 parameters. Table 1 summarizes the motion sensors that are available on the Android platform.
 
 
@@ -40,37 +40,37 @@ parameters. Table 1 summarizes the motion sensors that are available on the Andr
 
 | Sensor | Sensor event data | Description | Units of measure |
 |---|---|---|---|
-| [TYPE_ACCELEROMETER](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER) | `SensorEvent.values[0]` | Acceleration force along the x axis (including gravity). | m/s^2^ |
-| [TYPE_ACCELEROMETER](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER) | `SensorEvent.values[1]` | Acceleration force along the y axis (including gravity). | m/s^2^ |
-| [TYPE_ACCELEROMETER](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER) | `SensorEvent.values[2]` | Acceleration force along the z axis (including gravity). | m/s^2^ |
-| [TYPE_ACCELEROMETER_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED) | `SensorEvent.values[0]` | Measured acceleration along the X axis without any bias compensation. | m/s^2^ |
-| [TYPE_ACCELEROMETER_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED) | `SensorEvent.values[1]` | Measured acceleration along the Y axis without any bias compensation. | m/s^2^ |
-| [TYPE_ACCELEROMETER_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED) | `SensorEvent.values[2]` | Measured acceleration along the Z axis without any bias compensation. | m/s^2^ |
-| [TYPE_ACCELEROMETER_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED) | `SensorEvent.values[3]` | Measured acceleration along the X axis with estimated bias compensation. | m/s^2^ |
-| [TYPE_ACCELEROMETER_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED) | `SensorEvent.values[4]` | Measured acceleration along the Y axis with estimated bias compensation. | m/s^2^ |
-| [TYPE_ACCELEROMETER_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED) | `SensorEvent.values[5]` | Measured acceleration along the Z axis with estimated bias compensation. | m/s^2^ |
-| [TYPE_GRAVITY](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY) | `SensorEvent.values[0]` | Force of gravity along the x axis. | m/s^2^ |
-| [TYPE_GRAVITY](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY) | `SensorEvent.values[1]` | Force of gravity along the y axis. | m/s^2^ |
-| [TYPE_GRAVITY](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY) | `SensorEvent.values[2]` | Force of gravity along the z axis. | m/s^2^ |
-| [TYPE_GYROSCOPE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE) | `SensorEvent.values[0]` | Rate of rotation around the x axis. | rad/s |
-| [TYPE_GYROSCOPE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE) | `SensorEvent.values[1]` | Rate of rotation around the y axis. | rad/s |
-| [TYPE_GYROSCOPE](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE) | `SensorEvent.values[2]` | Rate of rotation around the z axis. | rad/s |
-| [TYPE_GYROSCOPE_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED) | `SensorEvent.values[0]` | Rate of rotation (without drift compensation) around the x axis. | rad/s |
-| [TYPE_GYROSCOPE_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED) | `SensorEvent.values[1]` | Rate of rotation (without drift compensation) around the y axis. | rad/s |
-| [TYPE_GYROSCOPE_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED) | `SensorEvent.values[2]` | Rate of rotation (without drift compensation) around the z axis. | rad/s |
-| [TYPE_GYROSCOPE_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED) | `SensorEvent.values[3]` | Estimated drift around the x axis. | rad/s |
-| [TYPE_GYROSCOPE_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED) | `SensorEvent.values[4]` | Estimated drift around the y axis. | rad/s |
-| [TYPE_GYROSCOPE_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED) | `SensorEvent.values[5]` | Estimated drift around the z axis. | rad/s |
-| [TYPE_LINEAR_ACCELERATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION) | `SensorEvent.values[0]` | Acceleration force along the x axis (excluding gravity). | m/s^2^ |
-| [TYPE_LINEAR_ACCELERATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION) | `SensorEvent.values[1]` | Acceleration force along the y axis (excluding gravity). | m/s^2^ |
-| [TYPE_LINEAR_ACCELERATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION) | `SensorEvent.values[2]` | Acceleration force along the z axis (excluding gravity). | m/s^2^ |
-| [TYPE_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR) | `SensorEvent.values[0]` | Rotation vector component along the x axis (x \* sin(θ/2)). | Unitless |
-| [TYPE_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR) | `SensorEvent.values[1]` | Rotation vector component along the y axis (y \* sin(θ/2)). | Unitless |
-| [TYPE_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR) | `SensorEvent.values[2]` | Rotation vector component along the z axis (z \* sin(θ/2)). | Unitless |
-| [TYPE_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR) | `SensorEvent.values[3]` | Scalar component of the rotation vector ((cos(θ/2)).^1^ | Unitless |
-| [TYPE_SIGNIFICANT_MOTION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_SIGNIFICANT_MOTION) | N/A | N/A | N/A |
-| [TYPE_STEP_COUNTER](https://developer.android.com/reference/android/hardware/Sensor#TYPE_STEP_COUNTER) | `SensorEvent.values[0]` | Number of steps taken by the user since the last reboot while the sensor was activated. | Steps |
-| [TYPE_STEP_DETECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_STEP_DETECTOR) | N/A | N/A | N/A |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER` | `SensorEvent.values[0]` | Acceleration force along the x axis (including gravity). | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER` | `SensorEvent.values[1]` | Acceleration force along the y axis (including gravity). | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER` | `SensorEvent.values[2]` | Acceleration force along the z axis (including gravity). | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[0]` | Measured acceleration along the X axis without any bias compensation. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[1]` | Measured acceleration along the Y axis without any bias compensation. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[2]` | Measured acceleration along the Z axis without any bias compensation. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[3]` | Measured acceleration along the X axis with estimated bias compensation. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[4]` | Measured acceleration along the Y axis with estimated bias compensation. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER_UNCALIBRATED` | `SensorEvent.values[5]` | Measured acceleration along the Z axis with estimated bias compensation. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY` | `SensorEvent.values[0]` | Force of gravity along the x axis. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY` | `SensorEvent.values[1]` | Force of gravity along the y axis. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GRAVITY` | `SensorEvent.values[2]` | Force of gravity along the z axis. | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE` | `SensorEvent.values[0]` | Rate of rotation around the x axis. | rad/s |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE` | `SensorEvent.values[1]` | Rate of rotation around the y axis. | rad/s |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE` | `SensorEvent.values[2]` | Rate of rotation around the z axis. | rad/s |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED` | `SensorEvent.values[0]` | Rate of rotation (without drift compensation) around the x axis. | rad/s |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED` | `SensorEvent.values[1]` | Rate of rotation (without drift compensation) around the y axis. | rad/s |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED` | `SensorEvent.values[2]` | Rate of rotation (without drift compensation) around the z axis. | rad/s |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED` | `SensorEvent.values[3]` | Estimated drift around the x axis. | rad/s |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED` | `SensorEvent.values[4]` | Estimated drift around the y axis. | rad/s |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GYROSCOPE_UNCALIBRATED` | `SensorEvent.values[5]` | Estimated drift around the z axis. | rad/s |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION` | `SensorEvent.values[0]` | Acceleration force along the x axis (excluding gravity). | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION` | `SensorEvent.values[1]` | Acceleration force along the y axis (excluding gravity). | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_LINEAR_ACCELERATION` | `SensorEvent.values[2]` | Acceleration force along the z axis (excluding gravity). | m/s^2^ |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR` | `SensorEvent.values[0]` | Rotation vector component along the x axis (x \* sin(θ/2)). | Unitless |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR` | `SensorEvent.values[1]` | Rotation vector component along the y axis (y \* sin(θ/2)). | Unitless |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR` | `SensorEvent.values[2]` | Rotation vector component along the z axis (z \* sin(θ/2)). | Unitless |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ROTATION_VECTOR` | `SensorEvent.values[3]` | Scalar component of the rotation vector ((cos(θ/2)).^1^ | Unitless |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_SIGNIFICANT_MOTION` | N/A | N/A | N/A |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_STEP_COUNTER` | `SensorEvent.values[0]` | Number of steps taken by the user since the last reboot while the sensor was activated. | Steps |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_STEP_DETECTOR` | N/A | N/A | N/A |
 
 **^1^** The scalar component is an optional value.
 
@@ -87,7 +87,7 @@ the accelerometer and geomagnetic field sensor or the orientation sensor.
 The Android Open Source Project (AOSP) provides three software-based motion sensors: a gravity
 sensor, a linear acceleration sensor, and a rotation vector sensor. These sensors were updated in
 Android 4.0 and now use a device's gyroscope (in addition to other sensors) to improve stability and
-performance. If you want to try these sensors, you can identify them by using the [getVendor()](https://developer.android.com/reference/android/hardware/Sensor#getVendor()) method and the [getVersion()](https://developer.android.com/reference/android/hardware/Sensor#getVersion()) method
+performance. If you want to try these sensors, you can identify them by using the `https://developer.android.com/reference/android/hardware/Sensor#getVendor()` method and the `https://developer.android.com/reference/android/hardware/Sensor#getVersion()` method
 (the vendor is Google LLC; the version number is 3). Identifying these sensors by vendor and
 version number is necessary because the Android system considers these three sensors to be secondary
 sensors. For example, if a device manufacturer provides their own gravity sensor, then the AOSP
@@ -100,7 +100,7 @@ available for use.
 The gravity sensor provides a three dimensional vector indicating the
 direction and magnitude of gravity. Typically, this sensor is used to determine
 the device's relative orientation in space. The following code shows you how to
-get an instance of the default gravity sensor:  
+get an instance of the default gravity sensor:
 
 ### Kotlin
 
@@ -132,7 +132,7 @@ The linear acceleration sensor provides you with a three-dimensional vector
 representing acceleration along each device axis, excluding gravity. You can use
 this value to perform gesture detection. The value can also serve as input to an
 inertial navigation system, which uses dead reckoning. The following code shows
-you how to get an instance of the default linear acceleration sensor:  
+you how to get an instance of the default linear acceleration sensor:
 
 ### Kotlin
 
@@ -152,7 +152,7 @@ sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 ```
 
 Conceptually, this sensor provides you with acceleration data according to the following
-relationship:  
+relationship:
 
 ```
 linear acceleration = acceleration - acceleration due to gravity
@@ -174,7 +174,7 @@ system](https://developer.android.com/guide/topics/sensors/sensors_overview#sens
 
 The rotation vector represents the orientation of the device as a combination of an angle and an
 axis, in which the device has rotated through an angle θ around an axis (x, y, or z). The following
-code shows you how to get an instance of the default rotation vector sensor:  
+code shows you how to get an instance of the default rotation vector sensor:
 
 ### Kotlin
 
@@ -197,7 +197,7 @@ The three elements of the rotation vector are expressed as follows:
 ![x*sin(θ/2), y*sin(θ/2), z*sin(θ/2)](https://developer.android.com/static/images/guide/topics/sensors/rotational_vec.png)
 
 Where the magnitude of the rotation vector is equal to sin(θ/2), and the direction of the
-rotation vector is equal to the direction of the axis of rotation.  
+rotation vector is equal to the direction of the axis of rotation.
 ![](https://developer.android.com/static/images/axis_globe.png)
 
 
@@ -221,7 +221,7 @@ The significant motion sensor triggers an event each time significant motion is 
 then it disables itself. A significant motion is a motion that might lead to a change in the
 user's location; for example walking, biking, or sitting in a moving car. The following code shows you
 how to get an instance of the default significant motion sensor and how to register an event
-listener:  
+listener:
 
 ### Kotlin
 
@@ -258,7 +258,7 @@ triggerEventListener = new TriggerEventListener() {
 sensorManager.requestTriggerSensor(triggerEventListener, mSensor);
 ```
 
-For more information, see [TriggerEventListener](https://developer.android.com/reference/android/hardware/TriggerEventListener).
+For more information, see `https://developer.android.com/reference/android/hardware/TriggerEventListener`.
 
 ## Use the step counter sensor
 
@@ -272,7 +272,7 @@ permission in order for your app to use this sensor on devices running
 Android 10 (API level 29) or higher.
 
 The following code shows you how to get an instance of the default step
-counter sensor:  
+counter sensor:
 
 ### Kotlin
 
@@ -292,7 +292,7 @@ sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 ```
 
 To preserve the battery on devices running your app, you should use the
-[JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler) class to retrieve the current value from
+`https://developer.android.com/reference/android/app/job/JobScheduler` class to retrieve the current value from
 the step counter sensor at a specific interval. Although different types of apps
 require different sensor-reading intervals, you should make this interval as
 long as possible unless your app requires real-time data from the sensor.
@@ -308,7 +308,7 @@ permission in order for your app to use this sensor on devices running
 Android 10 (API level 29) or higher.
 
 The following code shows you how to get an instance of the default step
-detector sensor:  
+detector sensor:
 
 ### Kotlin
 
@@ -338,7 +338,7 @@ of values to reduce noise.
 ### Use the accelerometer
 
 An acceleration sensor measures the acceleration applied to the device, including the force of
-gravity. The following code shows you how to get an instance of the default acceleration sensor:  
+gravity. The following code shows you how to get an instance of the default acceleration sensor:
 
 ### Kotlin
 
@@ -377,7 +377,7 @@ accelerometer reads a magnitude of g = 0 m/s^2^. Therefore, to measure
 the real acceleration of the device, the contribution of the force of gravity must be removed from
 the accelerometer data. This can be achieved by applying a high-pass filter. Conversely, a low-pass
 filter can be used to isolate the force of gravity. The following example shows how you can do
-this:  
+this:
 
 ### Kotlin
 
@@ -447,7 +447,7 @@ low-pass and high-pass filters to eliminate gravitational forces and reduce nois
 ### Use the gyroscope
 
 The gyroscope measures the rate of rotation in rad/s around a device's x, y,
-and z axis. The following code shows you how to get an instance of the default gyroscope:  
+and z axis. The following code shows you how to get an instance of the default gyroscope:
 
 ### Kotlin
 
@@ -479,7 +479,7 @@ standard mathematical definition of positive rotation and is not the same as the
 roll that is used by the orientation sensor.
 
 Usually, the output of the gyroscope is integrated over time to calculate a rotation describing
-the change of angles over the timestep. For example:  
+the change of angles over the timestep. For example:
 
 ### Kotlin
 
@@ -606,7 +606,7 @@ introducing calibrations can actually distort results.
 
 In addition to the rates of rotation, the uncalibrated gyroscope also provides the estimated
 drift around each axis. The following code shows you how to get an instance of the default
-uncalibrated gyroscope:  
+uncalibrated gyroscope:
 
 ### Kotlin
 

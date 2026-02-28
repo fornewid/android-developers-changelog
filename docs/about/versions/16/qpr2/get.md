@@ -57,7 +57,10 @@ devices:
 ### Flash or manually install a system image
 
 Alternatively, if you'd rather flash your device, we recommend using the [Android Flash
-Tool](https://flash.android.com/preview/baklava-qpr2-beta3.3). If you need to flash your device manually for some other reason, you can get an Android 16 QPR2 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/16/download). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 16 QPR2 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/16/qpr2/get#google-pixel-devices). **Note:** After you've flashed a Developer Preview or Beta build to a supported Pixel device, you're automatically enrolled in over-the-air updates of all subsequent Developer Preview and Beta builds through the final release.
+Tool](https://flash.android.com/preview/baklava-qpr2-beta3.3). If you need to flash your device manually for some other reason, you can get an Android 16 QPR2 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/16/download). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 16 QPR2 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/16/qpr2/get#google-pixel-devices).
+
+> [!NOTE]
+> **Note:** After you've flashed a Developer Preview or Beta build to a supported Pixel device, you're automatically enrolled in over-the-air updates of all subsequent Developer Preview and Beta builds through the final release.
 
 ## Set up the Android Emulator
 

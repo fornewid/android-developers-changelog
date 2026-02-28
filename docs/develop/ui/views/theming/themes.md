@@ -4,16 +4,13 @@ url: https://developer.android.com/develop/ui/views/theming/themes
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with theming in Compose.  
-[Design Systems in Compose →](https://developer.android.com/jetpack/compose/designsystems)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with theming in Compose. [Design Systems in Compose →](https://developer.android.com/jetpack/compose/designsystems) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 Styles and themes on Android let you separate the details of your app design from the UI
 structure and behavior, similar to stylesheets in web design.
 
 A *style* is a collection of attributes that specifies the appearance for a single
-[View](https://developer.android.com/reference/android/view/View). A style can specify attributes
+`https://developer.android.com/reference/android/view/View`. A style can specify attributes
 such as font color, font size, background color, and much more.
 
 A *theme* is a collection of attributes that's applied to an entire app, activity, or view
@@ -62,7 +59,7 @@ each style you want to create, follow these steps:
 1. Add a `<style>` element with a name that uniquely identifies the style.
 2. Add an `<item>` element for each style attribute you want to define. The `name` in each item specifies an attribute you otherwise use as an XML attribute in your layout. The value in the `<item>` element is the value for that attribute.
 
-For example, suppose you define the following style:  
+For example, suppose you define the following style:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -73,7 +70,7 @@ For example, suppose you define the following style:
 </resources>
 ```
 
-You can apply the style to a view as follows:  
+You can apply the style to a view as follows:
 
 ```xml
 <TextView
@@ -83,7 +80,9 @@ You can apply the style to a view as follows:
 
 Each attribute specified in the style is applied to that view if the view accepts it. The view
 ignores any attributes that it doesn't accept.
-| **Note:** Only the element to which you add the `style` attribute receives those style attributes. Child views don't apply the styles. If you want child views to inherit styles, instead apply the style with the `android:theme` attribute.
+
+> [!NOTE]
+> **Note:** Only the element to which you add the `style` attribute receives those style attributes. Child views don't apply the styles. If you want child views to inherit styles, instead apply the style with the `android:theme` attribute.
 
 However, instead of applying a style to individual views, you typically
 [apply styles as a theme](https://developer.android.com/develop/ui/views/theming/themes#Theme) for your entire app, activity, or collection of
@@ -97,7 +96,7 @@ style you want to extend with the `parent` attribute. You can then override the 
 style attributes and add new ones.
 
 For example, you can inherit the Android platform's default text appearance and modify it as
-follows:  
+follows:
 
 ```xml
 <style name="GreenText" parent="@android:style/TextAppearance">
@@ -112,7 +111,7 @@ but with `AppCompat` included.
 
 To inherit styles from a library or your own project, declare the parent style name
 *without* the `@android:style/` part shown in the preceding example. For example,
-the following example inherits text appearance styles from the Support Library:  
+the following example inherits text appearance styles from the Support Library:
 
 ```xml
 <style name="GreenText" parent="TextAppearance.AppCompat">
@@ -125,7 +124,7 @@ name with a dot notation, instead of using the `parent` attribute. That is, pref
 name of your style with the name of the style you want to inherit, separated by a period. You
 typically only do this when extending your own styles, not styles from other libraries. For example,
 the following style inherits all styles from the `GreenText` in the preceding example
-and then increases the text size:  
+and then increases the text size:
 
 ```xml
 <style name="GreenText.Large">
@@ -135,7 +134,9 @@ and then increases the text size:
 
 You can continue inheriting styles like this as many times as you want by chaining on more
 names.
-| **Note:** If you use the dot notation to extend a style and you also include the `parent` attribute, then the parent styles override any styles inherited through the dot notation.
+
+> [!NOTE]
+> **Note:** If you use the dot notation to extend a style and you also include the `parent` attribute, then the parent styles override any styles inherited through the dot notation.
 
 To find which attributes you can declare with an `<item>` tag, refer to the "XML
 attributes" table in the various class references. All views support
@@ -145,7 +146,7 @@ attributes" table in the various class references. All views support
 include the
 [`android:inputType`](https://developer.android.com/reference/android/widget/TextView#attr_android:inputType)
 attribute that you can apply to a text view that receives input, such as an
-[EditText](https://developer.android.com/reference/android/widget/EditText) widget.
+`https://developer.android.com/reference/android/widget/EditText` widget.
 
 ## Apply a style as a theme
 
@@ -155,7 +156,7 @@ the `android:theme` attribute on either the `<application>` tag or an
 `<activity>` tag in the `AndroidManifest.xml` file.
 
 For example, here's how to apply the Android Support Library's Material Design "dark" theme to
-the whole app:  
+the whole app:
 
 ```xml
 <manifest ... >
@@ -164,7 +165,7 @@ the whole app:
 </manifest>
 ```
 
-And here's how to apply the "light" theme to just one activity:  
+And here's how to apply the "light" theme to just one activity:
 
 ```xml
 <manifest ... >
@@ -206,21 +207,22 @@ ordered from highest precedence to lowest.
 4. Applying a style to a view.
 5. Default styling.
 6. Applying a theme to a collection of views, an activity, or your entire app.
-7. Applying certain view-specific styling, such as setting a [TextAppearance](https://developer.android.com/reference/android/R.styleable#TextAppearance) on a `TextView`.
+7. Applying certain view-specific styling, such as setting a `https://developer.android.com/reference/android/R.styleable#TextAppearance` on a `TextView`.
 
 ![](https://developer.android.com/static/guide/topics/ui/images/text-multiple-styles.png)
 
 **Figure 2.** Styling from a `span` overrides styling from a
 `textAppearance`.
 
-| **Caution:** If you're styling your app and not seeing the results you expect, it's likely that other styling is overriding your changes. For example, if you apply a theme to your app along with a style to an individual `View`, the style attributes override any matching theme attributes for that `View`. Note, however, that any theme attributes that aren't overridden by the style are still used.
+> [!CAUTION]
+> **Caution:** If you're styling your app and not seeing the results you expect, it's likely that other styling is overriding your changes. For example, if you apply a theme to your app along with a style to an individual `View`, the style attributes override any matching theme attributes for that `View`. Note, however, that any theme attributes that aren't overridden by the style are still used.
 
 ### TextAppearance
 
 One limitation with styles is that you can apply only one style to a `View`. In a
 `TextView`, however, you can also specify a
-[TextAppearance](https://developer.android.com/reference/android/R.styleable#TextAppearance) attribute
-that functions similarly to a style, as shown in the following example:  
+`https://developer.android.com/reference/android/R.styleable#TextAppearance` attribute
+that functions similarly to a style, as shown in the following example:
 
 ```xml
 <TextView
@@ -236,7 +238,7 @@ directly on the `View` or in a style, those values override the
 
 `TextAppearance` supports a subset of styling attributes that `TextView`
 offers. For the full attribute list, see
-[TextAppearance](https://developer.android.com/reference/android/R.styleable#TextAppearance).
+`https://developer.android.com/reference/android/R.styleable#TextAppearance`.
 
 Some common `TextView` attributes not included are
 [`lineHeight[Multiplier|Extra]`](https://developer.android.com/reference/android/widget/TextView#attr_android:lineHeight),
@@ -255,7 +257,7 @@ by key UI elements, such as the [app bar](https://developer.android.com/training
 [floating action button](https://developer.android.com/guide/topics/ui/floating-action-button), if used. So, you
 can quickly customize your app's color design by updating the provided colors.
 
-For example, your `styles.xml` file looks similar to this:  
+For example, your `styles.xml` file looks similar to this:
 
 ```xml
 <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -273,7 +275,7 @@ See the
 [Material Design Color Overview](https://m3.material.io/styles/color/overview)
 to improve the user experience with dynamic color and additional custom colors.
 
-Once you know your colors, update the values in `res/values/colors.xml`:  
+Once you know your colors, update the values in `res/values/colors.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -291,7 +293,7 @@ Once you know your colors, update the values in `res/values/colors.xml`:
 ```
 
 You can then override whatever other styles you want. For example, you can change the activity
-background color as follows:  
+background color as follows:
 
 ```xml
 <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -301,7 +303,7 @@ background color as follows:
 ```
 
 For a list of attributes you can use in your theme, see the table of attributes at
-[R.styleable.Theme](https://developer.android.com/reference/android/R.styleable#Theme). When adding
+`https://developer.android.com/reference/android/R.styleable#Theme`. When adding
 styles for the views in your layout, you can also find attributes by looking at the "XML attributes"
 table in the view class references. For example, all views support
 [XML attributes from the base `View`
@@ -309,7 +311,7 @@ class](https://developer.android.com/reference/android/view/View#lattrs).
 
 Most attributes are applied to specific types of views, and some apply to all views. However,
 some theme attributes listed at
-[R.styleable.Theme](https://developer.android.com/reference/android/R.styleable#Theme) apply to the
+`https://developer.android.com/reference/android/R.styleable#Theme` apply to the
 activity window, not the views in the layout. For example, `windowBackground` changes the
 window background and `windowEnterTransition` defines a transition animation to use when
 the activity starts. For more details, see [Start
@@ -320,7 +322,8 @@ extended from `Theme.AppCompat`, such as the `colorPrimary` attribute shown in
 the preceding example. These are best viewed in the
 [library's `attrs.xml` file](https://chromium.googlesource.com/android_tools/+/HEAD/sdk/extras/android/support/v7/appcompat/res/values/attrs.xml).
 
-| **Note:** Attribute names from the Support Library don't use the `android:` prefix. That's used only for attributes from the Android framework.
+> [!NOTE]
+> **Note:** Attribute names from the Support Library don't use the `android:` prefix. That's used only for attributes from the Android framework.
 
 There are also different themes available from the Support Library that you might want to extend
 instead of the ones shown in the preceding example. The best place to see the available themes is
@@ -333,7 +336,7 @@ If a new version of Android adds theme attributes you want to use, you can add t
 while still being compatible with old versions. All you need is another `styles.xml` file
 saved in a `values` directory that includes the
 [resource version
-qualifier](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources):  
+qualifier](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources):
 
 ```
 res/values/styles.xml        # themes for all versions
@@ -347,7 +350,7 @@ styles.
 
 For example, to declare window transitions for Android 5.0 (API level 21) and higher, you need
 to use new attributes. So, your base theme in `res/values/styles.xml` can look like
-this:  
+this:
 
 ```xml
 <resources>
@@ -363,7 +366,7 @@ this:
 </resources>
 ```
 
-Then, add the version-specific styles in `res/values-v21/styles.xml`, as follows:  
+Then, add the version-specific styles in `res/values-v21/styles.xml`, as follows:
 
 ```xml
 <resources>
@@ -386,10 +389,10 @@ For more information about using alternative resources for different devices, se
 
 Every widget in the framework and Support Library has a default style. For example, when you
 style your app using a theme from the Support Library, an instance of
-[Button](https://developer.android.com/reference/android/widget/Button) is styled using the
+`https://developer.android.com/reference/android/widget/Button` is styled using the
 `Widget.AppCompat.Button` style. If you want to apply a different widget style to a
 button, you can do so with the `style` attribute in your layout file. For example, the
-following applies the library's borderless button style:  
+following applies the library's borderless button style:
 
 ```xml
 <Button
@@ -398,7 +401,7 @@ following applies the library's borderless button style:
 ```
 
 If you want to apply this style to all buttons, you can declare it in your theme's
-[buttonStyle](https://developer.android.com/reference/android/R.attr#buttonStyle) as follows:  
+`https://developer.android.com/reference/android/R.attr#buttonStyle` as follows:
 
 ```xml
 <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">

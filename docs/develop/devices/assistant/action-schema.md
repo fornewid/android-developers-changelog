@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/action-schema
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 Once you identify your in-app functionality and corresponding built-in intent
 (BII) to implement, declare the BIIs your functionality supports by defining
 a `capability` element in a `shortcuts.xml` resource file. Declaring a BII

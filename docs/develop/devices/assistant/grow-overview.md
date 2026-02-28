@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/grow-overview
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 Extending your app to Assistant with App Actions lets users quickly engage
 with the key features of your app by talking to Google Assistant. Once you
 implement App Actions, you can use it to drive user retention and engagement

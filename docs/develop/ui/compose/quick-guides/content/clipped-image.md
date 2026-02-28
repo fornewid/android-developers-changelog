@@ -27,7 +27,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/clipped-image_dcdd7d7f060c3a25f6f4dddfb9d0cd8223642371057d6fe18cd35511f28f3116.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/clipped-image_201a9dc4c116b860f0294c88ac283a401638d77d1b39af7803f4523076004ee8.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a shape
 

@@ -48,7 +48,10 @@ maintain the current performance level without overheating. If the time is less
 than the amount needed to run the workload, then your game should decrease the
 workload to a sustainable level. For example, the game can shift to smaller
 cores, reduce the frame rate, or lower fidelity.
-| **Note:** If your game collects performance telemetry from players, the device's thermal state is a good metric to include because it gives more context to any related issues.
+
+> [!NOTE]
+> **Note:** If your game collects performance telemetry from players, the device's thermal state is a good metric to include because it gives more context to any related issues.
+
 ![ADPF Thermal API Pre-Integration](https://developer.android.com/static/games/optimize/adpf/images/adpf_thermal_pre-integration.png) **Figure 1.** Thermal Headroom without actively monitoring getThermalHeadroom ![ADPF Thermal API Post-Integration](https://developer.android.com/static/games/optimize/adpf/images/adpf_thermal_post-integration.png) **Figure 2.**Thermal Headroom with active monitoring of \`getThermalHeadroom\`
 
 ## Acquire Thermal Manager
@@ -89,7 +92,8 @@ If you have different graphics quality levels in your games, you can follow our
     float thermalHeadroom = powerManager.getThermalHeadroom(0);
     Log.d("ADPF", "ThermalHeadroom: " + thermalHeadroom);
 
-| **Note:** If [`getThermalHeadroom`](https://developer.android.com/ndk/reference/group/thermal#athermal_getthermalheadroom) returns NaN, make sure that you are not calling it more than once every 10 seconds. If it is still returning NaN, the device model may not have the thermal hardware and Thermal API is not supported.
+> [!NOTE]
+> **Note:** If [`getThermalHeadroom`](https://developer.android.com/ndk/reference/group/thermal#athermal_getthermalheadroom) returns NaN, make sure that you are not calling it more than once every 10 seconds. If it is still returning NaN, the device model may not have the thermal hardware and Thermal API is not supported.
 
 ## Alternatively, rely on thermal status for clarification
 
@@ -109,8 +113,11 @@ thermal headroom value on the current device.
     int thermalStatus = powerManager.getCurrentThermalStatus();
     Log.d("ADPF", "ThermalStatus is: " + thermalStatus);
 
-| **Note:** The same `thermalHeadroom` value may be mapped to a certain `thermalStatus` on one device model but a different `thermalStatus` on another device. This is expected due to differences in device design, thermal characteristics, and performance profile.
-| **Note:** Some devices might not fully support this technology yet and return `THERMAL_STATUS_NONE` regardless of the actual value of the thermal headroom and throttling state. For this reason we recommend using `getThermalHeadroom` instead. Check out [Device limitations of the Thermal API](https://developer.android.com/games/optimize/adpf/thermal#device-limitations) for a solution to this situation.
+> [!NOTE]
+> **Note:** The same `thermalHeadroom` value may be mapped to a certain `thermalStatus` on one device model but a different `thermalStatus` on another device. This is expected due to differences in device design, thermal characteristics, and performance profile.
+
+> [!NOTE]
+> **Note:** Some devices might not fully support this technology yet and return `THERMAL_STATUS_NONE` regardless of the actual value of the thermal headroom and throttling state. For this reason we recommend using `getThermalHeadroom` instead. Check out [Device limitations of the Thermal API](https://developer.android.com/games/optimize/adpf/thermal#device-limitations) for a solution to this situation.
 
 ## Get notified when thermal status changes
 
@@ -119,7 +126,9 @@ a certain level (for example:
 [`THERMAL_STATUS_LIGHT`](https://developer.android.com/reference/android/os/PowerManager#THERMAL_STATUS_LIGHT)).
 To do so, you can register a callback to let the system notify you whenever the
 status has changed.
-| **Note:** Check out the [Device limitations of the Thermal API](https://developer.android.com/games/optimize/adpf/thermal#device-limitations) and don't rely only on `GetCurrentThermalStatus()` without validating with `GetThermalHeadroom()`
+
+> [!NOTE]
+> **Note:** Check out the [Device limitations of the Thermal API](https://developer.android.com/games/optimize/adpf/thermal#device-limitations) and don't rely only on `GetCurrentThermalStatus()` without validating with `GetThermalHeadroom()`
 
 ### C++
 

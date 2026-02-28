@@ -107,7 +107,8 @@ devices:
 - Pixel 5 and Pixel 5a
 - Pixel 6 and 6 Pro
 
-| **Note:** Future Android 12 platform updates might not be available for some of these devices if the device's support window has passed.
+> [!NOTE]
+> **Note:** Future Android 12 platform updates might not be available for some of these devices if the device's support window has passed.
 
 ### Flash or manually install a system image
 

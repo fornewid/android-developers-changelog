@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/cars
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 <br />
 
 [Video](https://www.youtube.com/watch?v=MI40lmJmp7w)

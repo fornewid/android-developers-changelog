@@ -54,8 +54,10 @@ to the user.
 The **public** leaderboard is a leaderboard made up of players who have chosen
 to share their gameplay activity publicly. If your player has not chosen to
 share their gameplay activity publicly, they won't appear in this leaderboard.
-| **Note:** Social leaderboards will initially be empty until you publish the corresponding leaderboard by using Google Play Console. To learn how to publish your leaderboard, see [Publishing your game
-| changes](https://developer.android.com/games/pgs/console/publish#publish_game_changes).
+
+> [!NOTE]
+> **Note:** Social leaderboards will initially be empty until you publish the corresponding leaderboard by using Google Play Console. To learn how to publish your leaderboard, see [Publishing your game
+> changes](https://developer.android.com/games/pgs/console/publish#publish_game_changes).
 
 ### Display leaderboards
 
@@ -66,7 +68,9 @@ choose from.
 
 You can also implement your own versions of the leaderboards by accessing the
 data directly from the client libraries.
-| **Warning:** Player names that you retrieve directly using the client libraries may contain Unicode characters (for example, if the name has non-English characters). If you are implementing your own version of a leaderboard UI that uses decorative fonts, make sure that your UI can display these names correctly.
+
+> [!WARNING]
+> **Warning:** Player names that you retrieve directly using the client libraries may contain Unicode characters (for example, if the name has non-English characters). If you are implementing your own version of a leaderboard UI that uses decorative fonts, make sure that your UI can display these names correctly.
 
 ## Attributes
 
@@ -91,7 +95,8 @@ Leaderboards can have one of two ordering types:
 - **Larger is better** leaderboards are the default. This is typically what you would see in most games where players earn points.
 - **Smaller is better** leaderboards are occasionally used in cases where a smaller score would be better. The most common examples of this type of leaderboard are in racing games, where the score represents the player's time to finish the race.
 
-| **Note:** Once a leaderboard is published, its ordering type ('Larger is better' or 'Smaller is better') is fixed and cannot be changed. You can still change a leaderboard's list order after it is published.
+> [!NOTE]
+> **Note:** Once a leaderboard is published, its ordering type ('Larger is better' or 'Smaller is better') is fixed and cannot be changed. You can still change a leaderboard's list order after it is published.
 
 ## Score formatting
 

@@ -97,15 +97,15 @@ which your [app must create](https://developer.android.com/develop/xr/jetpack-xr
 
 Device pose information is not enabled by default on XR sessions. To enable your
 app to retrieve device pose information, configure the session and set both the
-[`GeospatialMode.VPS_AND_GPS`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config.GeospatialMode#VPS_AND_GPS()) and [`DeviceTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config.DeviceTrackingMode#LAST_KNOWN())
+[`GeospatialMode.VPS_AND_GPS`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#VPS_AND_GPS()) and [`DeviceTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#LAST_KNOWN())
 modes:
 
     // Define the configuration object to enable Geospatial features.
     val newConfig = session.config.copy(
       // Set the GeospatialMode to VPS_AND_GPS.
-      geospatial = Config.GeospatialMode.VPS_AND_GPS
+      geospatial = GeospatialMode.VPS_AND_GPS
       // Set the DeviceTrackingMode to LAST_KNOWN.
-      deviceTracking = Config.DeviceTrackingMode.LAST_KNOWN
+      deviceTracking = DeviceTrackingMode.LAST_KNOWN
     )
 
     // Apply the configuration to the session.
@@ -165,7 +165,7 @@ approximately 5 meters, and rotational accuracy of 5 degrees. You can check if a
 location has VPS coverage using the suspend function
 [`Geospatial.checkVpsAvailability(latitude, longitude)`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#checkVpsAvailability(kotlin.Double,kotlin.Double)). This call is an
 asynchronous operation and does not require the session to be configured with
-the [`GeospatialMode.VPS_AND_GPS`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config.GeospatialMode#VPS_AND_GPS()) mode.
+the [`GeospatialMode.VPS_AND_GPS`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#VPS_AND_GPS()) mode.
 
 The following code demonstrates how to check the VPS availability from a
 specified latitude and longitude:

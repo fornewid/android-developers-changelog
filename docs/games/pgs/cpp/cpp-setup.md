@@ -90,7 +90,9 @@ In your `CMakeLists.txt` file, add the following code:
 Your game can access player information for an authenticated player by
 retrieving their player ID. You can retrieve a player ID by calling the
 `GetPlayerId` function, as demonstrated in the following example.
-| **Note:** For more information about how Player IDs work, see [Next-generation player IDs](https://developer.android.com/games/pgs/next-gen-player-ids).
+
+> [!NOTE]
+> **Note:** For more information about how Player IDs work, see [Next-generation player IDs](https://developer.android.com/games/pgs/next-gen-player-ids).
 
     #include <assert.h>
     #include "gni/gni.h"

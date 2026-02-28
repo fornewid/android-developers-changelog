@@ -55,7 +55,9 @@ derives physical location information from Wi-Fi APIs. To do so, set the
 similar to the one you do in Android 12 (API level 31) and higher when you
 [assert that Bluetooth device information is never used for
 location](https://developer.android.com/guide/topics/connectivity/bluetooth/permissions#assert-never-for-location).
-| **Note:** This change affects your app only if you call a Wi-Fi API. View the [list of affected APIs](https://developer.android.com/guide/topics/connectivity/wifi-permissions#check-for-apis-that-require-permission).
+
+> [!NOTE]
+> **Note:** This change affects your app only if you call a Wi-Fi API. View the [list of affected APIs](https://developer.android.com/guide/topics/connectivity/wifi-permissions#check-for-apis-that-require-permission).
 
 Learn more about how to
 [request permission to access nearby Wi-Fi devices](https://developer.android.com/guide/topics/connectivity/wifi-permissions).
@@ -91,7 +93,7 @@ If your app was previously granted the
 [`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)
 permission, then any requested `READ_MEDIA_*` permissions are granted
 automatically when upgrading. You can use the following ADB command to review
-upgraded permissions:  
+upgraded permissions:
 
 ```
 adb shell cmd appops get --uid PACKAGE_NAME
@@ -99,7 +101,8 @@ adb shell cmd appops get --uid PACKAGE_NAME
 
 <br />
 
-| **Note:** If your app only needs to access images, photos, and videos, consider using the [photo picker](https://developer.android.com/about/versions/13/features/photopicker) instead of declaring the `READ_MEDIA_IMAGES` and `READ_MEDIA_VIDEO` permissions.
+> [!NOTE]
+> **Note:** If your app only needs to access images, photos, and videos, consider using the [photo picker](https://developer.android.com/about/versions/13/features/photopicker) instead of declaring the `READ_MEDIA_IMAGES` and `READ_MEDIA_VIDEO` permissions.
 
 ### Use of body sensors in the background requires new permission
 
@@ -114,7 +117,9 @@ information while running in the background, you must declare the new
 permission in addition to the existing
 [`BODY_SENSORS`](https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
 permission.
-| **Note:** This is a "hard-restricted" permission that cannot be held by an app until the device's installer allowlists the permission for your app. For more details, see this guide on [restricted permissions](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/permission/Permissions.md#restricted-permissions).
+
+> [!NOTE]
+> **Note:** This is a "hard-restricted" permission that cannot be held by an app until the device's installer allowlists the permission for your app. For more details, see this guide on [restricted permissions](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/permission/Permissions.md#restricted-permissions).
 
 ## Performance and battery
 
@@ -249,7 +254,7 @@ Apps that use Google Play services [advertising
 ID](https://support.google.com/googleplay/android-developer/answer/6048248) and
 target Android 13 (API level 33) and higher must
 declare the [`AD_ID`](https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/AdvertisingIdClient.Info#public-string-getid) normal permission in their app's
-manifest file, as follows:  
+manifest file, as follows:
 
     <manifest ...>
         <!-- Required only if your app targets Android 13 or higher. -->

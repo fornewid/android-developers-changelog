@@ -4,32 +4,29 @@ url: https://developer.android.com/develop/ui/compose/layouts/constraintlayout
 source: md.txt
 ---
 
-[`ConstraintLayout`](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout) is a layout that lets you place composables relative to
+> [!WARNING]
+> **Warning:** It is recommended to use other layouts to achieve the same concepts. In each area below, there is a recommendation for the equivalent in Compose that does not use ConstraintLayout.
+
+[`ConstraintLayout`](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/package-summary#ConstraintLayout(androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.animation.core.AnimationSpec,kotlin.Function0,kotlin.Function1)) is a layout that lets you place composables relative to
 other composables on the screen. It is an alternative to using multiple nested
-`Row`, `Column`, `Box`, and [other custom layout elements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)). `ConstraintLayout`
-is useful when implementing larger layouts with more complicated alignment
-requirements.
-
-Consider using `ConstraintLayout` in the following scenarios:
-
-- To avoid nesting multiple `Column`s and `Row`s for positioning elements on screen to improve the readability of code.
-- To position composables relative to other composables or to position composables based on guidelines, barriers, or chains.
+`Row`, `Column`, `Box`, and [other custom layout elements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)).
 
 In the View system, `ConstraintLayout` was the recommended way to create large
 and complex layouts, as a flat view hierarchy was better for performance than
 nested views are. However, this is not a concern in Compose, which is able to
-efficiently handle deep layout hierarchies.
+efficiently handle deep layout hierarchies, so ConstraintLayout is not as
+beneficial.
 
 ## Get started with `ConstraintLayout`
 
 To use `ConstraintLayout` in Compose, you need to add this dependency in your
-`build.gradle` (in addition to the
-[Compose setup](https://developer.android.com/develop/ui/compose/interop/adding#setup)):
+`build.gradle` (in addition to the [Compose setup](https://developer.android.com/develop/ui/compose/interop/adding#setup)):
 
     implementation "androidx.constraintlayout:constraintlayout-compose:$constraintlayout_compose_version"
 
 > [!NOTE]
-> **Note:** The `constraintLayout-compose` artifact has a different versioning than Jetpack Compose. Check the latest version in the [ConstraintLayout release page](https://developer.android.com/jetpack/androidx/releases/constraintlayout).
+> **Note:** The `constraintLayout-compose` artifact has a different versioning than Jetpack Compose. Check the latest version in the [ConstraintLayout release
+> page](https://developer.android.com/jetpack/androidx/releases/constraintlayout).
 
 `ConstraintLayout` in Compose works in the following way using a
 [DSL](https://kotlinlang.org/docs/reference/type-safe-builders.html):
@@ -81,16 +78,15 @@ This code constrains the top of the `Button` to the parent with a margin of
 
 ## Decoupled API
 
-In the `ConstraintLayout` example,
-constraints are specified inline, with a modifier in the composable they're
-applied to. However, there are situations when it's preferable to decouple the
-constraints from the layouts they apply to. For example, you might want to
-change the constraints based on the screen configuration, or animate between two
-constraint sets.
+In the `ConstraintLayout` example, constraints are specified inline, with a
+modifier in the composable they're applied to. However, there are situations
+when it's preferable to decouple the constraints from the layouts they apply to.
+For example, you might want to change the constraints based on the screen
+configuration, or animate between two constraint sets.
 
 For cases like these, you can use `ConstraintLayout` in a different way:
 
-1. Pass in a [`ConstraintSet`](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintSet) as a parameter to `ConstraintLayout`.
+1. Pass in a [`ConstraintSet`](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/ConstraintSet) as a parameter to `ConstraintLayout`.
 2. Assign references created in the `ConstraintSet` to composables using the [`layoutId`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/package-summary#(androidx.compose.ui.Modifier).layoutId(kotlin.Any)) modifier.
 
 
@@ -146,9 +142,9 @@ that can help with positioning elements inside your composable.
 
 Guidelines are small visual helpers to design layouts with. Composables can be
 constrained to a guideline. Guidelines are useful for positioning elements at a
-certain [`dp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp) or [`percentage`](https://developer.android.com/reference/androidx/constraintlayout/widget/Guideline#setGuidelinePercent(float)) inside the parent composable.
+certain [`dp`](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/ConstraintLayoutBaseScope#createGuidelineFromTop(androidx.compose.ui.unit.Dp)) or [`percentage`](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/ConstraintLayoutBaseScope#createGuidelineFromStart(kotlin.Float)) inside the parent composable.
 
-There are two different kinds of [guidelines](https://developer.android.com/reference/androidx/constraintlayout/widget/Guideline), vertical and horizontal. The
+There are two different kinds of [guidelines](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/ConstraintSet#guidelines), vertical and horizontal. The
 two horizontal ones are `top` and `bottom`, and the two vertical are `start` and
 `end`.
 
@@ -172,12 +168,12 @@ To create a guideline, use `createGuidelineFrom*` with the type of guideline
 required. This creates a reference that can be used in the
 `Modifier.constrainAs()` block.
 
-> [!NOTE]
-> **Note:** Consider using the `Spacer` composable to achieve a similar effect with `Row`s and `Column`s.
+> [!WARNING]
+> **Warning:** Consider using the `Spacer` composable to achieve the same effect with `Row`s and `Column`s instead.
 
 ### Barriers
 
-[Barriers](https://developer.android.com/reference/androidx/constraintlayout/widget/Barrier) reference multiple composables to create a virtual guideline
+[Barriers](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/ConstraintSet#barriers) reference multiple composables to create a virtual guideline
 based on the most extreme widget on the specified side.
 
 To create a barrier, use `createTopBarrier()` (or: `createBottomBarrier()`,
@@ -200,16 +196,16 @@ ConstraintLayout {
 
 The barrier can then be used in a `Modifier.constrainAs()` block.
 
-> [!NOTE]
-> **Note:** Consider using [Intrinsic measurements](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements) to achieve a similar effect with `Row`s and `Column`s.
+> [!WARNING]
+> **Warning:** Consider using [Intrinsic measurements](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements) to achieve a similar effect with `Row`s and `Column`s.
 
 ### Chains
 
-Chains provide group-like behavior in a single axis (horizontally or
+[Chains](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/ConstraintSet#chains) provide group-like behavior in a single axis (horizontally or
 vertically). The other axis can be constrained independently.
 
-To create a chain, use either [`createVerticalChain`](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintSet#createVerticalChain(int,%20int,%20int,%20int,%20int%5B%5D,%20float%5B%5D,%20int)) or
-[`createHorizontalChain`](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintSet#createHorizontalChain(int,%20int,%20int,%20int,%20int%5B%5D,%20float%5B%5D,%20int)):
+To create a chain, use either [`createVerticalChain`](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/ConstraintLayoutBaseScope#createVerticalChain(kotlin.Array,androidx.constraintlayout.compose.ChainStyle)) or
+[`createHorizontalChain`](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/ConstraintLayoutBaseScope#createHorizontalChain(kotlin.Array,androidx.constraintlayout.compose.ChainStyle)):
 
 
 ```kotlin
@@ -235,16 +231,5 @@ to deal with the space surrounding a composable, such as:
 - `ChainStyle.SpreadInside`: Space is distributed evenly across the all composables, without any free space before the first composable or after the last composable.
 - `ChainStyle.Packed`: Space is distributed before the first and after the last composable, composables are packed together without space in between each other.
 
-> [!NOTE]
-> **Note:** Consider using `Rows` and `Columns` with different [Arrangements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement) to achieve a similar effect to chains in `ConstraintLayout`.
-
-## Learn more
-
-Learn more about `ConstraintLayout` in Compose from the APIs in action in the
-[Compose samples that use `ConstraintLayout`](https://github.com/android/compose-samples/search?q=ConstraintLayout).
-
-## Recommended for you
-
-- [Focus in Compose](https://developer.android.com/develop/ui/compose/touch-input/focus)
-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
-- [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics)
+> [!WARNING]
+> **Warning:** Consider using `Rows` and `Columns` with different[Arrangements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement) to achieve a similar effect to chains in `ConstraintLayout`.

@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/troubleshoot
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 When developing App Actions, you might encounter issues with your setup or with
 the App Actions test tool. This page describes some commonly encountered issues
 and their fixes.

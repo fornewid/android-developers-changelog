@@ -63,7 +63,7 @@ remain upright.
 These modifiers require the `android.permission.HEAD_TRACKING` permission [to be
 granted to your app](https://developer.android.com/training/permissions/requesting). Additionally, the
 [current session](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession) must [be configured](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#configure-session) to set
-[`HeadTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config.HeadTrackingMode#LAST_KNOWN()).
+[`HeadTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/HeadTrackingMode#LAST_KNOWN()).
 
 ## Change the appearance of composables
 

@@ -74,7 +74,7 @@ backend server:
    <br />
 
 
-   ```gdscript
+   ```
     // #include "google/games/pgs_games_sign_in_client.h"
     // 1. Define the Callback
     // This function is called when the server-side access request completes.

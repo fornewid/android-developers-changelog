@@ -39,12 +39,13 @@ in a 24-hour period, after which the system calls the running service's
 [`Service.stopSelf()`](https://developer.android.com/reference/android/app/Service#stopSelf()). When `Service.onTimeout()` is called, the
 service is no longer considered a foreground service. If the service does not
 call `Service.stopSelf()`, the system throws an internal exception. The
-exception is logged in [Logcat](https://developer.android.com/tools/logcat) with the following message:  
+exception is logged in [Logcat](https://developer.android.com/tools/logcat) with the following message:
 
     Fatal Exception: android.app.RemoteServiceException: "A foreground service of
     type dataSync did not stop within its timeout: [component name]"
 
-| **Note:** The 6-hour time limit is shared by all of an app's `dataSync` foreground services. For example, if an app runs a `dataSync` service for four hours, then starts a different `dataSync` service, that second service will only be allowed to run for two hours. However, if the user brings the app to the foreground, the timer resets and the app has 6 hours available.
+> [!NOTE]
+> **Note:** The 6-hour time limit is shared by all of an app's `dataSync` foreground services. For example, if an app runs a `dataSync` service for four hours, then starts a different `dataSync` service, that second service will only be allowed to run for two hours. However, if the user brings the app to the foreground, the timer resets and the app has 6 hours available.
 
 To avoid problems with this behavior change, you can do one or more of the
 following:
@@ -66,15 +67,15 @@ type dataSync".
 
 To test your app's behavior, you can enable data sync timeouts even if your app
 is not targeting Android 15 (as long as the app is running on an Android 15
-device). To enable timeouts, run the following [`adb`](https://developer.android.com/tools/adb) command:  
+device). To enable timeouts, run the following [`adb`](https://developer.android.com/tools/adb) command:
 
-    adb shell am compat enable FGS_INTRODUCE_TIME_LIMITS <var label="package-name" translate="no">your-package-name</var>
+    adb shell am compat enable FGS_INTRODUCE_TIME_LIMITS your-package-name
 
 You can also adjust the timeout period, to make it easier to test how your
 app behaves when the limit is reached. To set a new timeout period, run the
-following `adb` command:  
+following `adb` command:
 
-    adb shell device_config put activity_manager data_sync_fgs_timeout_duration <var label="timeout-duration" translate="no">duration-in-milliseconds</var>
+    adb shell device_config put activity_manager data_sync_fgs_timeout_duration duration-in-milliseconds
 
 #### New media processing foreground service type
 
@@ -91,12 +92,13 @@ hours in a 24-hour period, after which the system calls the running service's
 15). At this time, the service has a few seconds to call
 [`Service.stopSelf()`](https://developer.android.com/reference/android/app/Service#stopSelf()). If the service does not
 call `Service.stopSelf()`, the system throws an internal exception. The
-exception is logged in [Logcat](https://developer.android.com/tools/logcat) with the following message:  
+exception is logged in [Logcat](https://developer.android.com/tools/logcat) with the following message:
 
     Fatal Exception: android.app.RemoteServiceException: "A foreground service of
     type mediaProcessing did not stop within its timeout: [component name]"
 
-| **Note:** The 6-hour time limit is shared by all of an app's `mediaProcessing` foreground services. For example, if an app runs a `mediaProcessing` service for four hours, then starts a different `mediaProcessing` service, that second service will only be allowed to run for two hours. However, if the user brings the app to the foreground, the timer resets and the app has 6 hours available.
+> [!NOTE]
+> **Note:** The 6-hour time limit is shared by all of an app's `mediaProcessing` foreground services. For example, if an app runs a `mediaProcessing` service for four hours, then starts a different `mediaProcessing` service, that second service will only be allowed to run for two hours. However, if the user brings the app to the foreground, the timer resets and the app has 6 hours available.
 
 To avoid having the exception, you can do one of the following:
 
@@ -121,15 +123,15 @@ foreground service types for Android 15: Media processing](https://developer.and
 
 To test your app's behavior, you can enable media processing timeouts even if
 your app is not targeting Android 15 (as long as the app is running on an
-Android 15 device). To enable timeouts, run the following [`adb`](https://developer.android.com/tools/adb) command:  
+Android 15 device). To enable timeouts, run the following [`adb`](https://developer.android.com/tools/adb) command:
 
-    adb shell am compat enable FGS_INTRODUCE_TIME_LIMITS <var label="package-name" translate="no">your-package-name</var>
+    adb shell am compat enable FGS_INTRODUCE_TIME_LIMITS your-package-name
 
 You can also adjust the timeout period, to make it easier to test how your
 app behaves when the limit is reached. To set a new timeout period, run the
-following `adb` command:  
+following `adb` command:
 
-    adb shell device_config put activity_manager media_processing_fgs_timeout_duration <var label="timeout-duration" translate="no">duration-in-milliseconds</var>
+    adb shell device_config put activity_manager media_processing_fgs_timeout_duration duration-in-milliseconds
 
 #### Restrictions on `BOOT_COMPLETED` broadcast receivers launching foreground services
 
@@ -151,14 +153,14 @@ services, the system throws [`ForegroundServiceStartNotAllowedException`](https:
 
 To test your app's behavior, you can enable these new restrictions even if your
 app is not targeting Android 15 (as long as the app is running on an Android 15
-device). Run the following [`adb`](https://developer.android.com/tools/adb) command:  
+device). Run the following [`adb`](https://developer.android.com/tools/adb) command:
 
-    adb shell am compat enable FGS_BOOT_COMPLETED_RESTRICTIONS <var label="package-name" translate="no">your-package-name</var>
+    adb shell am compat enable FGS_BOOT_COMPLETED_RESTRICTIONS your-package-name
 
 To send a `BOOT_COMPLETED` broadcast without restarting the device,
-run the following [`adb`](https://developer.android.com/tools/adb) command:  
+run the following [`adb`](https://developer.android.com/tools/adb) command:
 
-    adb shell am broadcast -a android.intent.action.BOOT_COMPLETED <var label="package-name" translate="no">your-package-name</var>
+    adb shell am broadcast -a android.intent.action.BOOT_COMPLETED your-package-name
 
 #### Restrictions on starting foreground services while an app holds the `SYSTEM_ALERT_WINDOW` permission
 
@@ -191,9 +193,9 @@ to get notified whenever the visibility changes.
 To test your app's behavior, you can enable these new restrictions even if your
 app is not targeting Android 15 (as long as the app is running on an Android 15
 device). To enable these new restrictions on starting foreground services
-from the background, run the following [`adb`](https://developer.android.com/tools/adb) command:  
+from the background, run the following [`adb`](https://developer.android.com/tools/adb) command:
 
-    adb shell am compat enable FGS_SAW_RESTRICTIONS <var label="package-name" translate="no">your-package-name</var>
+    adb shell am compat enable FGS_SAW_RESTRICTIONS your-package-name
 
 ### Changes to when apps can modify the global state of Do Not Disturb mode
 
@@ -229,7 +231,7 @@ Android 15 (API level 35):
   - [`Formatter.format(Locale, String, Object[])`](https://developer.android.com/reference/java/util/Formatter#format(java.util.Locale,%20java.lang.String,%20java.lang.Object%5B%5D))
 
   For example, the following exception is thrown when an argument index of 0
-  is used (`%0` in the format string):  
+  is used (`%0` in the format string):
 
       IllegalFormatArgumentIndexException: Illegal format argument index = 0
 
@@ -243,7 +245,7 @@ Android 15 (API level 35):
       String[] elements = (String[]) Arrays.asList("one", "two").toArray();
 
   For this case, to preserve `String` as the component type in the resulting
-  array, you could use [`Collection.toArray(Object[])`](https://developer.android.com/reference/java/util/Collection#toArray(T%5B%5D)) instead:  
+  array, you could use [`Collection.toArray(Object[])`](https://developer.android.com/reference/java/util/Collection#toArray(T%5B%5D)) instead:
 
       String[] elements = Arrays.asList("two", "one").toArray(new String[0]);
 
@@ -283,13 +285,13 @@ Android 15 (API level 35)](https://developer.android.com/about/versions/15/setup
 
   If an app is re-compiled with `compileSdk` set to `35` and `minSdk` set to
   `34` or lower, and then the app is run on Android 14 and lower, a runtime
-  error is thrown:  
+  error is thrown:
 
       java.lang.NoSuchMethodError: No virtual method
       removeFirst()Ljava/lang/Object; in class Ljava/util/ArrayList;
 
   The existing `NewApi` lint option in Android Gradle Plugin can catch these
-  new API usages.  
+  new API usages.
 
       ./gradlew lint
 
@@ -313,7 +315,7 @@ Android 15 (API level 35)](https://developer.android.com/about/versions/15/setup
   incompatibility, the `javac` compiler outputs a build-time error. For
   example:
 
-  Example error 1:  
+  Example error 1:
 
       javac MyList.java
 
@@ -324,7 +326,7 @@ Android 15 (API level 35)](https://developer.android.com/about/versions/15/setup
         where E is a type-variable:
           E extends Object declared in interface List
 
-  Example error 2:  
+  Example error 2:
 
       javac MyList.java
 
@@ -333,7 +335,7 @@ Android 15 (API level 35)](https://developer.android.com/about/versions/15/setup
         both define reversed(), but with unrelated return types
       1 error
 
-  Example error 3:  
+  Example error 3:
 
       javac MyList.java
 
@@ -346,7 +348,7 @@ Android 15 (API level 35)](https://developer.android.com/about/versions/15/setup
       1 error
 
   To fix these build errors, the class implementing these interfaces should
-  override the method with a compatible return type. For example:  
+  override the method with a compatible return type. For example:
 
       @Override
       public Object getFirst() {
@@ -390,7 +392,7 @@ Android 15 introduces [`StrictMode`](https://developer.android.com/reference/and
 intents.
 
 In order to see detailed logs about `Intent` usage violations, use following
-method:  
+method:
 
 ### Kotlin
 
@@ -428,7 +430,10 @@ default configuration of system bars.
 
 Apps are edge-to-edge by default on devices running Android 15 if the app is
 targeting Android 15 (API level 35).
-| **Important:** If your app is not already edge-to-edge, portions of your app may be obscured and you must handle insets. Depending on the app, this work may or may not be significant. The Material 3 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) component can reduce the work required to be compatible with the Android 15 edge-to-edge enforcement.
+
+> [!IMPORTANT]
+> **Important:** If your app is not already edge-to-edge, portions of your app may be obscured and you must handle insets. Depending on the app, this work may or may not be significant. The Material 3 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) component can reduce the work required to be compatible with the Android 15 edge-to-edge enforcement.
+
 ![](https://developer.android.com/static/about/versions/15/images/edge-to-edge-1.png) An app that targets Android 14 and is not edge-to-edge on an Android 15 device.
 
 <br />
@@ -592,17 +597,15 @@ However, you can add extra padding to preventing clipping by calling
 `setShiftDrawingOffsetForStartOverhang`.
 
 The following examples show how these changes can improve text layout for some
-fonts and languages.  
-![](https://developer.android.com/static/about/versions/15/images/cursive-clipped.png)  
-Standard layout for English text in a cursive font. Some of the letters are clipped. Here is the corresponding XML:  
+fonts and languages.
+![](https://developer.android.com/static/about/versions/15/images/cursive-clipped.png) Standard layout for English text in a cursive font. Some of the letters are clipped. Here is the corresponding XML:  
 
 ```xml
 <TextView
     android:fontFamily="cursive"
     android:text="java" />
-```  
-![](https://developer.android.com/static/about/versions/15/images/cursive-noclipping.png)  
-Layout for the same English text with additional width and padding. Here is the corresponding XML:  
+```
+![](https://developer.android.com/static/about/versions/15/images/cursive-noclipping.png) Layout for the same English text with additional width and padding. Here is the corresponding XML:  
 
 ```xml
 <TextView
@@ -610,16 +613,14 @@ Layout for the same English text with additional width and padding. Here is the 
     android:text="java"
     android:useBoundsForWidth="true"
     android:shiftDrawingOffsetForStartOverhang="true" />
-```  
-![](https://developer.android.com/static/about/versions/15/images/thai-clipped.png)  
-Standard layout for Thai text. Some of the letters are clipped. Here is the corresponding XML:  
+```
+![](https://developer.android.com/static/about/versions/15/images/thai-clipped.png) Standard layout for Thai text. Some of the letters are clipped. Here is the corresponding XML:  
 
 ```xml
 <TextView
     android:text="คอมพิวเตอร์" />
-```  
-![](https://developer.android.com/static/about/versions/15/images/thai-noclipping.png)  
-Layout for the same Thai text with additional width and padding. Here is the corresponding XML:  
+```
+![](https://developer.android.com/static/about/versions/15/images/thai-noclipping.png) Layout for the same Thai text with additional width and padding. Here is the corresponding XML:  
 
 ```xml
 <TextView

@@ -38,7 +38,7 @@ theme changes.
 
 While going edge-to-edge, you might need to manually update the system bar icon
 colors so they contrast with your app's background. For example, to create light
-status bar icons:  
+status bar icons:
 
 ### Kotlin
 

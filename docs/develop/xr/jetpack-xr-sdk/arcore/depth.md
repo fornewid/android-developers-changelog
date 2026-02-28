@@ -30,12 +30,12 @@ session from Jetpack XR Runtime](https://developer.android.com/develop/xr/jetpac
 
 Depth map retrieval is not enabled by default on XR sessions. To enable depth
 map retrieval, configure the session and set a
-[`DepthEstimationMode`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config.DepthEstimationMode):
+[`DepthEstimationMode`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DepthEstimationMode):
 
 
 ```kotlin
 val newConfig = session.config.copy(
-    depthEstimation = Config.DepthEstimationMode.SMOOTH_ONLY,
+    depthEstimation = DepthEstimationMode.SMOOTH_ONLY,
 )
 when (val result = session.configure(newConfig)) {
     is SessionConfigureSuccess -> TODO(/* Success! */)
@@ -68,7 +68,7 @@ To obtain depth data for a given camera, use [`DepthMap`](https://developer.andr
 
 
 ```kotlin
-val depthMap = DepthMap.left(session) ?: returnhttps://github.com/android/snippets/blob/ed5bd1be020d430170fb3f14a1636696195f5733/xr/src/main/java/com/example/xr/arcore/DepthMaps.kt#L40-L40
+val depthMap = DepthMap.left(session) ?: returnhttps://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/xr/src/main/java/com/example/xr/arcore/DepthMaps.kt#L40-L40
 ```
 
 <br />
@@ -84,7 +84,7 @@ You can obtain depth and confidence values from the resulting depth map:
 
 
 ```kotlin
-val depthMap = DepthMap.left(session) ?: returnhttps://github.com/android/snippets/blob/ed5bd1be020d430170fb3f14a1636696195f5733/xr/src/main/java/com/example/xr/arcore/DepthMaps.kt#L40-L40
+val depthMap = DepthMap.left(session) ?: returnhttps://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/xr/src/main/java/com/example/xr/arcore/DepthMaps.kt#L40-L40
 ```
 
 <br />

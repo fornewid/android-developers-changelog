@@ -28,12 +28,12 @@ which your [app can create](https://developer.android.com/develop/xr/jetpack-xr-
 ## Configure the session
 
 Hand tracking is not enabled by default on XR sessions. To receive hand data,
-configure the session and set the [`HandTrackingMode.BOTH`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config.HandTrackingMode#BOTH()) mode:
+configure the session and set the [`HandTrackingMode.BOTH`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/HandTrackingMode#BOTH()) mode:
 
 
 ```kotlin
 val newConfig = session.config.copy(
-    handTracking = Config.HandTrackingMode.BOTH
+    handTracking = HandTrackingMode.BOTH
 )
 when (val result = session.configure(newConfig)) {
     is SessionConfigureSuccess -> TODO(/* Success! */)

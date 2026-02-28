@@ -31,7 +31,7 @@ such as shake, tilt, or thrust (for more information, see [Motion sensors](https
 
 
 The geomagnetic field sensor and accelerometer return multi-dimensional arrays
-of sensor values for each [SensorEvent](https://developer.android.com/reference/android/hardware/SensorEvent). For example,
+of sensor values for each `https://developer.android.com/reference/android/hardware/SensorEvent`. For example,
 the geomagnetic field sensor provides geomagnetic field strength values for
 each of the three coordinate axes during a single sensor event. Likewise, the
 accelerometer sensor measures the acceleration applied to the device during a
@@ -45,25 +45,25 @@ supported on the Android platform.
 
 | Sensor | Sensor event data | Description | Units of measure |
 |---|---|---|---|
-| [TYPE_GAME_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GAME_ROTATION_VECTOR) | `SensorEvent.values[0]` | Rotation vector component along the x axis (x \* sin(θ/2)). | Unitless |
-| [TYPE_GAME_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GAME_ROTATION_VECTOR) | `SensorEvent.values[1]` | Rotation vector component along the y axis (y \* sin(θ/2)). | Unitless |
-| [TYPE_GAME_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GAME_ROTATION_VECTOR) | `SensorEvent.values[2]` | Rotation vector component along the z axis (z \* sin(θ/2)). | Unitless |
-| [TYPE_GEOMAGNETIC_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GEOMAGNETIC_ROTATION_VECTOR) | `SensorEvent.values[0]` | Rotation vector component along the x axis (x \* sin(θ/2)). | Unitless |
-| [TYPE_GEOMAGNETIC_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GEOMAGNETIC_ROTATION_VECTOR) | `SensorEvent.values[1]` | Rotation vector component along the y axis (y \* sin(θ/2)). | Unitless |
-| [TYPE_GEOMAGNETIC_ROTATION_VECTOR](https://developer.android.com/reference/android/hardware/Sensor#TYPE_GEOMAGNETIC_ROTATION_VECTOR) | `SensorEvent.values[2]` | Rotation vector component along the z axis (z \* sin(θ/2)). | Unitless |
-| [TYPE_MAGNETIC_FIELD](https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD) | `SensorEvent.values[0]` | Geomagnetic field strength along the x axis. | μT |
-| [TYPE_MAGNETIC_FIELD](https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD) | `SensorEvent.values[1]` | Geomagnetic field strength along the y axis. | μT |
-| [TYPE_MAGNETIC_FIELD](https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD) | `SensorEvent.values[2]` | Geomagnetic field strength along the z axis. | μT |
-| [TYPE_MAGNETIC_FIELD_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED) | `SensorEvent.values[0]` | Geomagnetic field strength (without hard iron calibration) along the x axis. | μT |
-| [TYPE_MAGNETIC_FIELD_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED) | `SensorEvent.values[1]` | Geomagnetic field strength (without hard iron calibration) along the y axis. | μT |
-| [TYPE_MAGNETIC_FIELD_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED) | `SensorEvent.values[2]` | Geomagnetic field strength (without hard iron calibration) along the z axis. | μT |
-| [TYPE_MAGNETIC_FIELD_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED) | `SensorEvent.values[3]` | Iron bias estimation along the x axis. | μT |
-| [TYPE_MAGNETIC_FIELD_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED) | `SensorEvent.values[4]` | Iron bias estimation along the y axis. | μT |
-| [TYPE_MAGNETIC_FIELD_UNCALIBRATED](https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED) | `SensorEvent.values[5]` | Iron bias estimation along the z axis. | μT |
-| [TYPE_ORIENTATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION)^1^ | `SensorEvent.values[0]` | Azimuth (angle around the z-axis). | Degrees |
-| [TYPE_ORIENTATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION)^1^ | `SensorEvent.values[1]` | Pitch (angle around the x-axis). | Degrees |
-| [TYPE_ORIENTATION](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION)^1^ | `SensorEvent.values[2]` | Roll (angle around the y-axis). | Degrees |
-| [TYPE_PROXIMITY](https://developer.android.com/reference/android/hardware/Sensor#TYPE_PROXIMITY) | `SensorEvent.values[0]` | Distance from object.^2^ | cm |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GAME_ROTATION_VECTOR` | `SensorEvent.values[0]` | Rotation vector component along the x axis (x \* sin(θ/2)). | Unitless |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GAME_ROTATION_VECTOR` | `SensorEvent.values[1]` | Rotation vector component along the y axis (y \* sin(θ/2)). | Unitless |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GAME_ROTATION_VECTOR` | `SensorEvent.values[2]` | Rotation vector component along the z axis (z \* sin(θ/2)). | Unitless |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GEOMAGNETIC_ROTATION_VECTOR` | `SensorEvent.values[0]` | Rotation vector component along the x axis (x \* sin(θ/2)). | Unitless |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GEOMAGNETIC_ROTATION_VECTOR` | `SensorEvent.values[1]` | Rotation vector component along the y axis (y \* sin(θ/2)). | Unitless |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_GEOMAGNETIC_ROTATION_VECTOR` | `SensorEvent.values[2]` | Rotation vector component along the z axis (z \* sin(θ/2)). | Unitless |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD` | `SensorEvent.values[0]` | Geomagnetic field strength along the x axis. | μT |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD` | `SensorEvent.values[1]` | Geomagnetic field strength along the y axis. | μT |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD` | `SensorEvent.values[2]` | Geomagnetic field strength along the z axis. | μT |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED` | `SensorEvent.values[0]` | Geomagnetic field strength (without hard iron calibration) along the x axis. | μT |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED` | `SensorEvent.values[1]` | Geomagnetic field strength (without hard iron calibration) along the y axis. | μT |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED` | `SensorEvent.values[2]` | Geomagnetic field strength (without hard iron calibration) along the z axis. | μT |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED` | `SensorEvent.values[3]` | Iron bias estimation along the x axis. | μT |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED` | `SensorEvent.values[4]` | Iron bias estimation along the y axis. | μT |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_MAGNETIC_FIELD_UNCALIBRATED` | `SensorEvent.values[5]` | Iron bias estimation along the z axis. | μT |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION`^1^ | `SensorEvent.values[0]` | Azimuth (angle around the z-axis). | Degrees |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION`^1^ | `SensorEvent.values[1]` | Pitch (angle around the x-axis). | Degrees |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_ORIENTATION`^1^ | `SensorEvent.values[2]` | Roll (angle around the y-axis). | Degrees |
+| `https://developer.android.com/reference/android/hardware/Sensor#TYPE_PROXIMITY` | `SensorEvent.values[0]` | Distance from object.^2^ | cm |
 
 
 ^**1**^This sensor was deprecated in Android 2.2 (API
@@ -89,7 +89,7 @@ you do not care about where north is, and the normal rotation vector does not fi
 because of its reliance on the magnetic field.
 
 The following code shows you how to get an instance of the default game rotation vector
-sensor:  
+sensor:
 
 ### Kotlin
 
@@ -121,7 +121,7 @@ information in the background without using too much battery. This sensor is mos
 in conjunction with batching.
 
 The following code shows you how to get an instance of the default geomagnetic rotation
-vector sensor:  
+vector sensor:
 
 ### Kotlin
 
@@ -148,7 +148,7 @@ sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR)
 By computing a device's orientation, you can monitor the position of the
 device relative to the earth's frame of reference (specifically, the magnetic
 north pole). The following code shows you how to compute a device's
-orientation:  
+orientation:
 
 ### Kotlin
 
@@ -207,14 +207,14 @@ angle is 0. As a result, the orientation sensor was deprecated in Android
 4.4W (API level 20).
 
 Instead of using raw data from the orientation sensor, we recommend that you
-use the [getRotationMatrix()](https://developer.android.com/reference/android/hardware/SensorManager#getRotationMatrix(float[], float[], float[], float[]))
+use the `https://developer.android.com/reference/android/hardware/SensorManager#getRotationMatrix(float[], float[], float[], float[])`
 method in conjunction with the
-[getOrientation()](https://developer.android.com/reference/android/hardware/SensorManager#getOrientation(float[], float[])) method
+`https://developer.android.com/reference/android/hardware/SensorManager#getOrientation(float[], float[])` method
 to compute orientation values, as shown in the following code sample. As part
 of this process, you can use the
-[remapCoordinateSystem()](https://developer.android.com/reference/android/hardware/SensorManager#remapCoordinateSystem(float[], int, int, float[]))
+`https://developer.android.com/reference/android/hardware/SensorManager#remapCoordinateSystem(float[], int, int, float[])`
 method to translate the orientation values to your application's frame of
-reference.  
+reference.
 
 ### Kotlin
 
@@ -397,7 +397,7 @@ coordinate system to your application's frame of reference.
 ## Use the geomagnetic field sensor
 
 The geomagnetic field sensor lets you monitor changes in the earth's magnetic field. The
-following code shows you how to get an instance of the default geomagnetic field sensor:  
+following code shows you how to get an instance of the default geomagnetic field sensor:
 
 ### Kotlin
 
@@ -426,9 +426,9 @@ higher, this sensor is
 This sensor provides raw field strength data (in μT) for each of the three coordinate axes.
 Usually, you do not need to use this sensor directly. Instead, you can use the rotation vector
 sensor to determine raw rotational movement or you can use the accelerometer and geomagnetic field
-sensor in conjunction with the [getRotationMatrix()](https://developer.android.com/reference/android/hardware/SensorManager#getRotationMatrix(float[], float[], float[], float[])) method to obtain the rotation matrix and the inclination matrix. You can then
-use these matrices with the [getOrientation()](https://developer.android.com/reference/android/hardware/SensorManager#getOrientation(float[], float[]))
-and [getInclination()](https://developer.android.com/reference/android/hardware/SensorManager#getInclination(float[])) methods to obtain azimuth
+sensor in conjunction with the `https://developer.android.com/reference/android/hardware/SensorManager#getRotationMatrix(float[], float[], float[], float[])` method to obtain the rotation matrix and the inclination matrix. You can then
+use these matrices with the `https://developer.android.com/reference/android/hardware/SensorManager#getOrientation(float[], float[])`
+and `https://developer.android.com/reference/android/hardware/SensorManager#getInclination(float[])` methods to obtain azimuth
 and geomagnetic inclination data.
 
 **Note:**When testing your app, you can improve
@@ -453,7 +453,7 @@ introducing calibrations can actually distort results.
 
 In addition to the magnetic field, the uncalibrated magnetometer also provides the
 estimated hard iron bias in each axis. The following code shows you how to get an instance of the
-default uncalibrated magnetometer:  
+default uncalibrated magnetometer:
 
 ### Kotlin
 
@@ -478,7 +478,7 @@ sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED)
 ## Use the proximity sensor
 
 The proximity sensor lets you determine how far away an object is from a device. The following
-code shows you how to get an instance of the default proximity sensor:  
+code shows you how to get an instance of the default proximity sensor:
 
 ### Kotlin
 
@@ -509,7 +509,7 @@ far values.
 underneath the screen, which can cause a blinking dot to appear on the screen if enabled while the screen is
 on.
 
-The following code shows you how to use the proximity sensor:  
+The following code shows you how to use the proximity sensor:
 
 ### Kotlin
 
@@ -603,7 +603,7 @@ public class SensorActivity extends Activity implements SensorEventListener {
 **Note:** Some proximity sensors return binary values that represent
 "near" or "far." In this case, the sensor usually reports its maximum range value in the far state
 and a lesser value in the near state. Typically, the far value is a value \> 5 cm, but this can vary
-from sensor to sensor. You can determine a sensor's maximum range by using the [getMaximumRange()](https://developer.android.com/reference/android/hardware/Sensor#getMaximumRange()) method.
+from sensor to sensor. You can determine a sensor's maximum range by using the `https://developer.android.com/reference/android/hardware/Sensor#getMaximumRange()` method.
 
 ### You should also read
 

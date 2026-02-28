@@ -27,12 +27,12 @@ from Jetpack XR Runtime](https://developer.android.com/develop/xr/jetpack-xr-sdk
 
 Plane detection is not enabled by default on XR sessions. To enable plane
 tracking, configure the session and set the
-[`PlaneTrackingMode.HORIZONTAL_AND_VERTICAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Config.PlaneTrackingMode#HORIZONTAL_AND_VERTICAL()) mode:
+[`PlaneTrackingMode.HORIZONTAL_AND_VERTICAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/PlaneTrackingMode#HORIZONTAL_AND_VERTICAL()) mode:
 
 
 ```kotlin
 val newConfig = session.config.copy(
-    planeTracking = Config.PlaneTrackingMode.HORIZONTAL_AND_VERTICAL,
+    planeTracking = PlaneTrackingMode.HORIZONTAL_AND_VERTICAL,
 )
 when (val result = session.configure(newConfig)) {
     is SessionConfigureSuccess -> TODO(/* Success! */)

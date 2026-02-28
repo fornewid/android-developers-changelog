@@ -48,7 +48,7 @@ Starting in Android 14, when your app calls [`killBackgroundProcesses()`](https:
 the API can kill only the background processes of your own app.
 
 If you pass in the package name of another app, this method has no effect on
-that app's background processes, and the following message appears in Logcat:  
+that app's background processes, and the following message appears in Logcat:
 
     Invalid packageName: com.example.anotherapp
 
@@ -59,7 +59,9 @@ automatically when the system needs memory. If your app kills other apps
 unnecessarily, it can reduce system performance and increase battery consumption
 by requiring full restarts of those apps later, which takes significantly more
 resources than resuming an existing cached app.
-| **Note:** It isn't possible for a 3rd-party application to improve the memory, power, or thermal behavior of an Android device. You should ensure that your app is compliant with [Google Play's policy regarding misleading claims](https://support.google.com/googleplay/android-developer/answer/9888077#zippy=%2Cexamples-of-common-violations).
+
+> [!NOTE]
+> **Note:** It isn't possible for a 3rd-party application to improve the memory, power, or thermal behavior of an Android device. You should ensure that your app is compliant with [Google Play's policy regarding misleading claims](https://support.google.com/googleplay/android-developer/answer/9888077#zippy=%2Cexamples-of-common-violations).
 
 ### MTU is set to 517 for the first GATT client requesting an MTU
 
@@ -68,7 +70,9 @@ Starting from Android 14, the Android Bluetooth stack more strictly adheres to
 the BLE ATT MTU to 517 bytes when the first GATT client requests an MTU using
 the [`BluetoothGatt#requestMtu(int)`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#requestMtu(int)) API, and disregards all subsequent MTU
 requests on that ACL connection.
-| **Note:** This change doesn't have an impact unless the peripheral device isn't handling the MTU negotiation properly and accepting any MTU size even if it doesn't support it. In such cases, it could cause issues when your app sends large amounts of data from Android 14 devices.
+
+> [!NOTE]
+> **Note:** This change doesn't have an impact unless the peripheral device isn't handling the MTU negotiation properly and accepting any MTU size even if it doesn't support it. In such cases, it could cause issues when your app sends large amounts of data from Android 14 devices.
 
 To address this change and make your app more robust, consider the following
 options:
@@ -87,7 +91,9 @@ The app's jobs trigger ANR errors multiple times due to [`onStartJob`](https://d
 [`onStopJob`](https://developer.android.com/reference/android/app/job/JobService#onStopJob(android.app.job.JobParameters)), or [`onBind`](https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)) method timeouts.
 (See [JobScheduler reinforces callback and network behavior](https://developer.android.com/about/versions/14/behavior-changes-14#jobscheduler-reinforces-behavior) for changes
 to `onStartJob` and `onStopJob`.)
-| **Note:** See [power management](https://developer.android.com/topic/performance/power/power-details) to see how the app is impacted if it is placed into the restricted bucket. The app is moved back to the [active](https://developer.android.com/topic/performance/appstandby#active-bucket) bucket when the user launches the app to the foreground, just as in previous Android versions.
+
+> [!NOTE]
+> **Note:** See [power management](https://developer.android.com/topic/performance/power/power-details) to see how the app is impacted if it is placed into the restricted bucket. The app is moved back to the [active](https://developer.android.com/topic/performance/appstandby#active-bucket) bucket when the user launches the app to the foreground, just as in previous Android versions.
 
 To track whether or not the app has entered the restricted standby bucket,
 we recommend logging with the API [`UsageStatsManager.getAppStandbyBucket()`](https://developer.android.com/reference/android/app/usage/UsageStatsManager#getAppStandbyBucket())
@@ -190,7 +196,7 @@ runtime permission model introduced in 2015 by Android 6.0 Marshmallow (API
 level 23). This Android 14 change makes it harder for malware to avoid security
 and privacy improvements.
 Attempting to install an app targeting a lower API level will result in an
-installation failure, with the following message appearing in Logcat:  
+installation failure, with the following message appearing in Logcat:
 
     INSTALL_FAILED_DEPRECATED_SDK_VERSION: App package must target at least SDK version 23, but found 7
 
@@ -198,7 +204,7 @@ On devices upgrading to Android 14, any apps with a `targetSdkVersion` lower
 than 23 will remain installed.
 
 If you need to test an app targeting an older API level, use the following ADB
-command:  
+command:
 
 ```
 adb install --bypass-low-target-sdk-block FILENAME.apk
@@ -215,8 +221,9 @@ true:
 - The app that queries the media store requests the [`QUERY_ALL_PACKAGES`](https://developer.android.com/reference/android/Manifest.permission#QUERY_ALL_PACKAGES)
   permission.
 
-  | **Caution:** Use of the `QUERY_ALL_PACKAGES` permission is [subject to Google
-  | Play Policy](https://support.google.com/googleplay/android-developer/answer/10158779).
+  > [!CAUTION]
+  > **Caution:** Use of the `QUERY_ALL_PACKAGES` permission is [subject to Google
+  > Play Policy](https://support.google.com/googleplay/android-developer/answer/10158779).
 
 Learn more about how [Android filters package visibility](https://developer.android.com/training/package-visibility) for privacy
 purposes.

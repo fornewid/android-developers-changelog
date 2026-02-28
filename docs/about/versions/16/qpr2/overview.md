@@ -67,7 +67,9 @@ From Platform Stability, you'll also be able to **publish apps to devices**
 running the Android platform at the official API level. We recommend publishing
 into the Google Play [alpha and beta tracks](https://support.google.com/googleplay/android-developer/answer/9845334) first so that you can
 test your apps before distributing broadly through the store.
-| **Important:** **All SDK, library, tools, and game engine developers** should start testing at Platform Stability and release your compatible updates as soon as possible. Your downstream app and game developers may be blocked until they receive your updates. When you've released a compatible update, be vocal and let your developers know!
+
+> [!IMPORTANT]
+> **Important:** **All SDK, library, tools, and game engine developers** should start testing at Platform Stability and release your compatible updates as soon as possible. Your downstream app and game developers may be blocked until they receive your updates. When you've released a compatible update, be vocal and let your developers know!
 
 ### Final release
 

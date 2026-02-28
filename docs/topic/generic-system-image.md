@@ -42,7 +42,8 @@ GSIs can only function on devices with the following characteristics:
 - Fully Treble-compliant.
 - Launched with Android 9 (API level 28) or higher. Devices upgraded to Android 9 from an earlier version might or might not support GSIs.
 
-| **Warning:** Attempting to flash a GSI to a non-compliant device could result in your device becoming non-bootable. Always confirm that your device is compliant before flashing, and follow the installation steps provided by your device's manufacturer. GSIs don't support rollback, so you will need a recovery method and original system ROM to revert to the original system.
+> [!WARNING]
+> **Warning:** Attempting to flash a GSI to a non-compliant device could result in your device becoming non-bootable. Always confirm that your device is compliant before flashing, and follow the installation steps provided by your device's manufacturer. GSIs don't support rollback, so you will need a recovery method and original system ROM to revert to the original system.
 
 To determine whether your device can use a GSI and which GSI OS version you
 should install, do the following:
@@ -61,7 +62,9 @@ should install, do the following:
    adb shell cat /system/etc/ld.config.version_identifier.txt \
    | grep -A 20 "\[vendor\]"
    ```
-   | **Note:** Depending on your platform, the configuration file in the preceding command may or may not have a version identifier in it.
+
+   > [!NOTE]
+   > **Note:** Depending on your platform, the configuration file in the preceding command may or may not have a version identifier in it.
 
    In the output, look in the `[vendor]` section for
    `namespace.default.isolated`.
@@ -108,12 +111,14 @@ There are a few ways to get GSIs, depending on your development needs:
   [AOSP](https://source.android.com/setup/build/gsi#building-gsis) and build
   your GSIs.
 
-| **Important:** Device manufacturers shouldn't use these versions of GSIs to run and submit compliance tests. Instead, device manufacturers should continue to refer to their existing communication channels, such as their Technical Account Managers for compliance-test-related activities.
+> [!IMPORTANT]
+> **Important:** Device manufacturers shouldn't use these versions of GSIs to run and submit compliance tests. Instead, device manufacturers should continue to refer to their existing communication channels, such as their Technical Account Managers for compliance-test-related activities.
 
 ## Install a GSI
 
-| **Note:** If your device has adopted [Android Verified
-| Boot](https://source.android.com/security/verifiedboot/avb) (AVB), download and flash the following image to disable AVB before flashing a GSI: [vbmeta.img](https://dl.google.com/developers/android/qt/images/gsi/vbmeta.img)
+> [!NOTE]
+> **Note:** If your device has adopted [Android Verified
+> Boot](https://source.android.com/security/verifiedboot/avb) (AVB), download and flash the following image to disable AVB before flashing a GSI: [vbmeta.img](https://dl.google.com/developers/android/qt/images/gsi/vbmeta.img)
 
 Installing a GSI is device-dependent. Refer to your device's manufacturer for
 the exact tools and procedures. For Google Pixel devices such as the Pixel 3 and

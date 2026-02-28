@@ -11,7 +11,9 @@ Android 14 introduces a privacy-preserving screenshot detection
 API. This API lets apps register callbacks on a per-activity basis. These
 callbacks are invoked, and the user is notified, when the user takes a
 screenshot while that activity is visible.
-| **Note:** The callback doesn't provide an image of the actual screenshot. It's up to your app to determine what appeared on the screen when the user took a screenshot.
+
+> [!NOTE]
+> **Note:** The callback doesn't provide an image of the actual screenshot. It's up to your app to determine what appeared on the screen when the user took a screenshot.
 
 ## Supported use cases
 
@@ -24,7 +26,7 @@ current screen contents](https://developer.android.com/reference/androidx/test/c
 ## Implementation steps
 
 To add screenshot detection, declare the new [`DETECT_SCREEN_CAPTURE`](https://developer.android.com/reference/android/Manifest.permission#DETECT_SCREEN_CAPTURE)
-install-time permission:  
+install-time permission:
 
     <uses-permission android:name="android.permission.DETECT_SCREEN_CAPTURE" />
 
@@ -56,7 +58,8 @@ capture screenshots:
    ```
 2. In the activity's `onStart()` method, register the screenshot callback.
 
-   **Note:** Given that a notice is shown with every screenshot detection signal, developers should provide in-context notices to the user when they are starting an activity that uses screenshot detection APIs so the system notice does not come as a surprise to users.  
+   > [!NOTE]
+   > **Note:** Given that a notice is shown with every screenshot detection signal, developers should provide in-context notices to the user when they are starting an activity that uses screenshot detection APIs so the system notice does not come as a surprise to users.
 
    ### Kotlin
 
@@ -105,7 +108,9 @@ capture screenshots:
 
 If you don't want the contents of an app's activity to appear in screenshots, or
 on non-secure displays, set the [`FLAG_SECURE`](https://developer.android.com/reference/android/view/Display#FLAG_SECURE) display flag.
-**Note:** To provide transparency and user control, consider adding a setting in your app that allows users to toggle this flag.  
+
+> [!NOTE]
+> **Note:** To provide transparency and user control, consider adding a setting in your app that allows users to toggle this flag.
 
 ### Kotlin
 

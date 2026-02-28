@@ -20,7 +20,7 @@ today.
 ## Innovation and new experiences
 
 With Android 10 you can take advantage of the latest hardware and software
-innovations to build amazing app experiences for users.  
+innovations to build amazing app experiences for users.
 ![](https://developer.android.com/static/images/about/versions/10/overview/image2.png)
 
 *With Android 10 you can optimize your
@@ -62,7 +62,7 @@ replies and actions if you want. Just opt out of Smart Reply
 on a per-notification basis using
 [setAllowGeneratedReplies()](https://developer.android.com/reference/android/app/Notification.Action.Builder#setAllowGeneratedReplies(boolean))
 and
-[setAllowSystemGeneratedContextualActions()](https://developer.android.com/reference/android/app/Notification.Builder#setAllowSystemGeneatedContextualActions(boolean)).  
+[setAllowSystemGeneratedContextualActions()](https://developer.android.com/reference/android/app/Notification.Builder#setAllowSystemGeneatedContextualActions(boolean)).
 ![](https://developer.android.com/static/images/about/versions/10/overview/image10.png)
 
 *Smart Reply can suggest
@@ -80,7 +80,7 @@ take advantage of [AppCompat's DayNight
 feature](https://developer.android.com/preview/features/darktheme) to offer a
 dark theme for users on earlier versions of Android. See the [developer
 guide](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme)
-for more information.  
+for more information.
 ![](https://developer.android.com/static/images/about/versions/10/overview/image12.png)
 
 *Android 10 can create a dark theme
@@ -130,7 +130,7 @@ UI loads instantly when launched. Sharing Shortcuts is similar to App Shortcuts
 and uses the same [ShortcutInfo
 API](https://developer.android.com/reference/android/content/pm/ShortcutInfo).
 The API is also supported in the ShareTarget AndroidX library. See the [sample
-app](https://github.com/android/storage-samples/tree/main/SharingShortcuts) for details.  
+app](https://github.com/android/storage-samples/tree/main/SharingShortcuts) for details.
 ![](https://developer.android.com/static/images/about/versions/10/overview/image11.png)
 
 *Sharing shortcuts let users jump
@@ -144,7 +144,7 @@ platform to new features designed with privacy in mind. Building on previous
 releases, Android 10 includes extensive changes to protect privacy and give
 users more control, with improved system UI, stricter permissions, and
 restrictions on what data apps can use. See the [privacy changes](https://developer.android.com/about/versions/10/privacy/changes) for details on
-how to support these in your apps.  
+how to support these in your apps.
 ![](https://developer.android.com/static/images/about/versions/10/overview/location.png)
 
 *Users can now choose to grant access
@@ -226,11 +226,8 @@ embedded in the same file. These let you offer specialized blurs and bokeh
 options in your app. Dynamic Depth is an [open
 format](https://developer.android.com/training/camerax/Dynamic-depth-v1.0.pdf)
 for the ecosystem and we're working with our partners to bring it to devices
-running Android 10 and later.  
-![](https://developer.android.com/static/images/about/versions/10/overview/depthtrue.jpg)  
-![](https://developer.android.com/static/images/about/versions/10/overview/depthblur.jpg)  
-![](https://developer.android.com/static/images/about/versions/10/overview/depthmap.jpg)  
-*With Dynamic Depth image you
+running Android 10 and later.
+![](https://developer.android.com/static/images/about/versions/10/overview/depthtrue.jpg) ![](https://developer.android.com/static/images/about/versions/10/overview/depthblur.jpg) ![](https://developer.android.com/static/images/about/versions/10/overview/depthmap.jpg) *With Dynamic Depth image you
 can offer specialized blurs and bokeh options in your app.*
 
 ### Audio playback capture
@@ -336,7 +333,7 @@ delivered by Google Play let ART pre-compile parts of
 your app even before it's run. At runtime, Android 10 adds Generational Garbage
 Collection to ART's Concurrent Copying (CC) Garbage Collector to make garbage
 collection more efficient in terms of time and CPU, reduces jank, and helps apps
-run better on lower-end devices.  
+run better on lower-end devices.
 ![](https://developer.android.com/static/images/about/versions/10/overview/art-profiles.png)
 
 *This chart shows the percentage

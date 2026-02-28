@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/system/insets
 source: md.txt
 ---
 
+[Video](https://www.youtube.com/watch?v=mlL6H-s0nF0)
+
 The Android platform is responsible for drawing the system UI, such as the
 status bar and navigation bar. This system UI is displayed regardless of which
 app the user is using.
@@ -25,9 +27,13 @@ Displaying content behind the system UI is called *going edge-to-edge*. On this
 page, you learn about the different types of insets, how to go edge-to-edge,
 and how to use the inset APIs to animate your UI and ensure your app's content
 isn't obscured by system UI elements.
-| **Important:** [Edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge) on Android 15 and higher once your app targets SDK 35. If your app is not already edge-to-edge, portions of your app may be hidden and you must handle insets. Depending on the app, this work may or may not be significant. The Material 3 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) component can reduce the work required to be compatible with the Android 15 edge-to-edge enforcement. See [Create a scaffold component to hold the UI together](https://developer.android.com/quick-guides/content/create-scaffold).
+
+> [!IMPORTANT]
+> **Important:** [Edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge) on Android 15 and higher once your app targets SDK 35. If your app is not already edge-to-edge, portions of your app may be hidden and you must handle insets. Depending on the app, this work may or may not be significant. The Material 3 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) component can reduce the work required to be compatible with the Android 15 edge-to-edge enforcement. See [Create a scaffold component to hold the UI together](https://developer.android.com/quick-guides/content/create-scaffold).
 
 ## Inset fundamentals
+
+[Video](https://www.youtube.com/watch?v=QRzepC9gHj4)
 
 When an app goes edge-to-edge, you need to ensure that important content and
 interactions are not obscured by the system UI. For example, if a button is

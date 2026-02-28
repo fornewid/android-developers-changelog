@@ -29,8 +29,10 @@ and more information on choosing the right image type for your device.
 
 To find GSI binaries for already-released, stable versions of the platform, see
 the [Generic System Image releases](https://developer.android.com/topic/generic-system-image/releases#15-stable) page.
-| **Note:** [**File GSI bugs**](https://issuetracker.google.com/issues/new?component=470386&template=1147338) for any system-related issues you encounter. Make sure to attach a full bug report and **clearly indicate that you are using a GSI
-| build** in your bug description to help the Android team find your issues and address them more quickly. For app-related issues found when using a GSI, we recommend reproducing the issue on a Pixel device before contacting the app developer directly.
+
+> [!NOTE]
+> **Note:** [**File GSI bugs**](https://issuetracker.google.com/issues/new?component=470386&template=1147338) for any system-related issues you encounter. Make sure to attach a full bug report and **clearly indicate that you are using a GSI
+> build** in your bug description to help the Android team find your issues and address them more quickly. For app-related issues found when using a GSI, we recommend reproducing the issue on a Pixel device before contacting the app developer directly.
 
 ## General advisories
 

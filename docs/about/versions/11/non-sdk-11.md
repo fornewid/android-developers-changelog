@@ -53,10 +53,10 @@ download the following file: [`hiddenapi-flags.csv`](https://dl.google.com/devel
 ### How to toggle
 
 As you test your app's compatibility with Android 11, you can toggle this change on or off
-using the following ADB commands:  
+using the following ADB commands:
 
-    adb shell am compat enable (<var translate="no">149994052</var>|<var translate="no">HIDE_MAXTARGETSDK_Q_HIDDEN_APIS</var>) <var translate="no">PACKAGE_NAME</var>
-    adb shell am compat disable (<var translate="no">149994052</var>|<var translate="no">HIDE_MAXTARGETSDK_Q_HIDDEN_APIS</var>) <var translate="no">PACKAGE_NAME</var>
+    adb shell am compat enable (149994052|HIDE_MAXTARGETSDK_Q_HIDDEN_APIS) PACKAGE_NAME
+    adb shell am compat disable (149994052|HIDE_MAXTARGETSDK_Q_HIDDEN_APIS) PACKAGE_NAME
 
 For more information about the compatibility framework and toggling changes, see
 [Test and debug platform behavior changes in
@@ -73,7 +73,7 @@ restrict non-SDK interfaces, and we understand that your app might have a valid
 use case for using these interfaces. If an interface that your app uses in a
 prior version is blocked in Android 11, you should [request a new public
 API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
-for that interface.  
+for that interface.
 
 ```
 Landroid/app/Activity;->mParent:Landroid/app/Activity;   # Use androidx.fragment.app.Fragment and androidx.fragment.app.FragmentManager instead.
@@ -920,7 +920,7 @@ Lcom/android/internal/R$xml;->power_profile:I
 
 The following code box lists all of the non-SDK interfaces that were unsupported
 (greylisted) in Android 10 (API level 29) that were added to the Android SDK in
-Android 11 (API level 30). Each interface takes up one line.  
+Android 11 (API level 30). Each interface takes up one line.
 
 ```
 Landroid/provider/Settings$Global;->WIFI_P2P_PENDING_FACTORY_RESET:Ljava/lang/String;

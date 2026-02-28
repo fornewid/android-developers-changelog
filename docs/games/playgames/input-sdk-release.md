@@ -4,8 +4,6 @@ url: https://developer.android.com/games/playgames/input-sdk-release
 source: md.txt
 ---
 
-# Input SDK Release Notes
-
 Google Play Games for PC - Input SDK
 
 ## 2024-09-16

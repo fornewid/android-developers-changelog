@@ -232,8 +232,10 @@ You cannot make any Google Play Games Services API calls until you get a success
 return value from `Authenticate`. As a result, we recommend that games display a
 standby screen until the callback is called to ensure users can't start playing
 the game until authentication completes.
-| **Note:** For more information about how Player IDs work, visit the topic [here on
-| next generation Player IDs](https://developer.android.com/games/pgs/next-gen-player-ids)
+
+> [!NOTE]
+> **Note:** For more information about how Player IDs work, visit the topic [here on
+> next generation Player IDs](https://developer.android.com/games/pgs/next-gen-player-ids)
 
 ## Use Play App Signing
 

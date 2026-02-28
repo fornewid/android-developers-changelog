@@ -4,8 +4,6 @@ url: https://developer.android.com/games/engines/unity/unity-vkquality
 source: md.txt
 ---
 
-# VkQuality Unity engine plugin
-
 The VkQuality plugin for the Unity engine provides launch-time recommendations
 of the graphics API---Vulkan or OpenGL ES---to use for your game on specific
 devices.
@@ -18,7 +16,9 @@ makes quality recommendations, not guarantees, as it's still possible to
 encounter driver issues on recommended devices. VkQuality supports custom lists,
 which gives you the ability to add or remove device recommendations for your
 game.
-| **Note:** VkQuality always recommends OpenGL ES on older devices that run Android 9.0 (API level 28) or lower or don't support at least version 1.1 of the Vulkan API. VkQuality returns the `RECOMMENDATION_GLES_BECAUSE_OLD_DEVICE` enum value on these devices.
+
+> [!NOTE]
+> **Note:** VkQuality always recommends OpenGL ES on older devices that run Android 9.0 (API level 28) or lower or don't support at least version 1.1 of the Vulkan API. VkQuality returns the `RECOMMENDATION_GLES_BECAUSE_OLD_DEVICE` enum value on these devices.
 
 ## Enable Vulkan in your Unity engine game
 
@@ -145,7 +145,7 @@ If your game already has a custom activity overriding the default
 following code:
 
 First, add the VkQuality import statement to the list of imports at the top of
-the custom activity file:  
+the custom activity file:
 
 ### Kotlin
 
@@ -160,7 +160,7 @@ import com.google.android.games.vkquality.VKQuality;
 ```
 
 Next, create some constants in the body of your `Activity` class for the
-graphics API choices:  
+graphics API choices:
 
 ### Kotlin
 
@@ -179,7 +179,7 @@ private static final int OVERRIDE_GLES = 1;
 private static final int OVERRIDE_VULKAN = 2;
 ```
 
-Create a variable to track the API selection:  
+Create a variable to track the API selection:
 
 ### Kotlin
 
@@ -193,7 +193,7 @@ private var apiOverride = OVERRIDE_NONE
 private int apiOverride = OVERRIDE_NONE;
 ```
 
-Add the following function to your `Activity` class:  
+Add the following function to your `Activity` class:
 
 ### Kotlin
 
@@ -259,7 +259,7 @@ private void CheckVkQuality() {
 ```
 
 Call the `CheckVkQuality` function from the top of an `onCreate()` override
-function before calling the base class implementation:  
+function before calling the base class implementation:
 
 ### Kotlin
 
@@ -282,7 +282,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Finally, add an override of the `updateUnityCommandLineArguments()` function
 that uses the value of `apiOverride` to pass a command-line argument to the
-Unity engine specifying which graphics API to use:  
+Unity engine specifying which graphics API to use:
 
 ### Kotlin
 
@@ -340,18 +340,18 @@ ES based on the VkQuality recommendation.
 ## Use a custom recommendation list
 
 Specify a custom recommendation list file by passing the name of the file
-containing the list to `StartVkQuality()` instead of passing an empty string:  
+containing the list to `StartVkQuality()` instead of passing an empty string:
 
 ### Kotlin
 
 ```kotlin
-val startResult = vkQuality.StartVkQuality("<var translate="no">CUSTOM_FILE_NAME</var>.vkq")
+val startResult = vkQuality.StartVkQuality("CUSTOM_FILE_NAME.vkq")
 ```
 
 ### Java
 
 ```java
-int startResult = vkQuality.StartVkQuality("<var translate="no">CUSTOM_FILE_NAME</var>.vkq");
+int startResult = vkQuality.StartVkQuality("CUSTOM_FILE_NAME.vkq");
 ```
 
 VkQuality first looks for the file in your application's internal storage
@@ -362,4 +362,6 @@ VkQuality returns the `ERROR_MISSING_DATA_FILE` enum value.
 To create a custom recommendation list file, use the **VkQuality List Editor**
 tool located in the [GitHub repository](https://github.com/android/vkquality/tree/main/list_editor). Documentation for the
 tool is located in its [README](https://github.com/android/vkquality/tree/main/list_editor/README.md).
-| **Note:** To include a custom recommendation list file in your app bundle assets, export the list from the **VkQuality List Editor** using the **.aar library** option and place the exported `.aar` file in the `Assets/Android/Plugins` directory. Unity does not include the `.vkq` file if you put it directly in the `Assets/Android/Plugins` directory, it *must* be bundled in an `.aar` library container. The `.vkq` filetype extension is still used when specifying the filename for `StartVkQuality()`.
+
+> [!NOTE]
+> **Note:** To include a custom recommendation list file in your app bundle assets, export the list from the **VkQuality List Editor** using the **.aar library** option and place the exported `.aar` file in the `Assets/Android/Plugins` directory. Unity does not include the `.vkq` file if you put it directly in the `Assets/Android/Plugins` directory, it *must* be bundled in an `.aar` library container. The `.vkq` filetype extension is still used when specifying the filename for `StartVkQuality()`.

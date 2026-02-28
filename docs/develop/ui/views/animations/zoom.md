@@ -29,39 +29,39 @@ enlarged view of the image:
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/container"
         android:layout_width="match_parent"
-        androi>d:layo<ut_height="match_parent"
+        android:layout_height="match_parent">
 
-        LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            a>ndroid:ori<entation="vertical"
-            android:padding="16dp"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            ImageButton
+            <ImageButton
                 android:id="@+id/thumb_button_1"
                 android:layout_width="100dp"
                 android:layout_height="75dp"
                 android:layout_marginRight="1dp"
-                android:src="@drawa>ble/th<umb1"
-      >      <    android:scaleType=&quot;centerCrop"
-                android:contentDescription="@string/description_image_1" /
+                android:src="@drawable/thumb1"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/description_image_1" />
 
-        /LinearLayout
+        </LinearLayout>
 
-        !-- This initially hidden ImageView holds the zoomed version of
+        <!-- This initially hidden ImageView holds the zoomed version of
              the preceding images. Without transformations applied, it fills the entire
-             screen. To achieve the zoom an>imatio<n, this view's bounds are animated
+             screen. To achieve the zoom animation, this view's bounds are animated
              from the bounds of the preceding thumbnail button to its final laid-out
              bounds.
-             --
+             -->
 
-        ImageView
+        <ImageView
             android:id="@+id/expanded_image"
-            android:layout_width="matc>h_<parent">
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="invisible"
-            android:contentDescription="@string/description_zoom_touch_close" /
+            android:contentDescription="@string/description_zoom_touch_close" />
 
-    /FrameLayout
+    </FrameLayout>
 
 ## Set up the zoom animation
 
@@ -181,7 +181,7 @@ ending bounds for the `ImageView`.
         // stretching during the animation. Calculate the start scaling factor.
         // The end scaling factor is always 1.0.
         val startScale: Float
-        if ((finalBounds>.width() / finalBounds.height()  startBounds.width() / startBounds.height())) {
+        if ((finalBounds.width() / finalBounds.height() > startBounds.width() / startBounds.height())) {
             // Extend start bounds horizontally.
             startScale = startBounds.height() / finalBounds.height()
             val startWidth: Float = startScale * finalBounds.width()
@@ -242,8 +242,8 @@ ending bounds for the `ImageView`.
         // stretching during the animation. Calculate the start scaling factor.
         // The end scaling factor is always 1.0.
         float startScale;
-        if ((float) finalBounds.width() / final>Bounds.height()
-                 (float) startBounds.width() / startBounds.height()) {
+        if ((float) finalBounds.width() / finalBounds.height()
+                > (float) startBounds.width() / startBounds.height()) {
             // Extend start bounds horizontally.
             startScale = (float) startBounds.height() / finalBounds.height();
             float startWidth = startScale * finalBounds.width();

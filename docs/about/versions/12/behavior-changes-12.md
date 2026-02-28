@@ -39,9 +39,8 @@ The following illustration shows a custom notification in the standard template:
 ![](https://developer.android.com/static/images/about/versions/12/customizable-area.png)
 
 The following examples show how custom notifications would render in a collapsed
-and an expanded state:  
-![](https://developer.android.com/static/images/about/versions/12/custom-collapsed-view.png)  
-![](https://developer.android.com/static/images/about/versions/12/custom-expanded-view.png)
+and an expanded state:
+![](https://developer.android.com/static/images/about/versions/12/custom-collapsed-view.png) ![](https://developer.android.com/static/images/about/versions/12/custom-expanded-view.png)
 
 The change in Android 12 affects apps that define custom subclasses of
 [`Notification.Style`](https://developer.android.com/reference/android/app/Notification.Style), or which use
@@ -121,8 +120,10 @@ See [Toasts overview](https://developer.android.com/guide/topics/ui/notifiers/to
 On devices that run Android 12 or higher, [users can request
 approximate location
 accuracy](https://developer.android.com/training/location/permissions#approximate-request) for your app.
-| **Note:** On some releases of Android 12, [this change always affects
-| your app](https://developer.android.com/about/versions/12/behavior-changes-all#approximate-location), regardless of target SDK version.
+
+> [!NOTE]
+> **Note:** On some releases of Android 12, [this change always affects
+> your app](https://developer.android.com/about/versions/12/behavior-changes-all#approximate-location), regardless of target SDK version.
 
 ### Modern SameSite cookies in WebView
 
@@ -233,7 +234,9 @@ If your testing or development workflows rely on app data using `adb backup`,
 you can now opt in to exporting your app's data by setting
 [`android:debuggable`](https://developer.android.com/guide/topics/manifest/application-element#debug)
 to `true` in your app's manifest file.
-| **Caution:** To help protect your app's data, remember to set `android:debuggable` to `false` before releasing your app.
+
+> [!CAUTION]
+> **Caution:** To help protect your app's data, remember to set `android:debuggable` to `false` before releasing your app.
 
 ### Safer component exporting
 
@@ -245,7 +248,9 @@ filters](https://developer.android.com/guide/components/intents-filters#Receivin
 declare the
 [`android:exported`](https://developer.android.com/guide/topics/manifest/activity-element#exported) attribute
 for these app components.
-| **Warning:** If an activity, service, or broadcast receiver uses intent filters and doesn't have an explicitly-declared value for `android:exported`, your app can't be installed on a device that runs Android 12 or higher.
+
+> [!WARNING]
+> **Warning:** If an activity, service, or broadcast receiver uses intent filters and doesn't have an explicitly-declared value for `android:exported`, your app can't be installed on a device that runs Android 12 or higher.
 
 If the app component includes the
 [`LAUNCHER`](https://developer.android.com/reference/android/content/Intent#CATEGORY_LAUNCHER) category, set
@@ -253,7 +258,7 @@ If the app component includes the
 `false`.
 
 The following code snippet shows an example of a service that contains an intent
-filter whose `android:exported` attribute is set to `false`:  
+filter whose `android:exported` attribute is set to `false`:
 
 ```xml
 <service android:name="com.example.app.backgroundService"
@@ -288,7 +293,7 @@ The following messages appear:
 ##### Older versions of Android Studio
 
 If you attempt to install the app, [Logcat](https://developer.android.com/studio/command-line/logcat)
-displays the following error message:  
+displays the following error message:
 
     Installation did not succeed.
     The application could not be installed: INSTALL_FAILED_VERIFICATION_FAILURE
@@ -306,7 +311,7 @@ app creates. This additional requirement improves your app's security.
 #### Test the pending intent mutability change
 
 To determine whether your app is missing mutability declarations, look for the
-following [lint warning](https://developer.android.com/studio/write/lint) in Android Studio:  
+following [lint warning](https://developer.android.com/studio/write/lint) in Android Studio:
 
     Warning: Missing PendingIntent mutability flag [UnspecifiedImmutableFlag]
 
@@ -388,19 +393,20 @@ inside of a service or broadcast receiver.
 When your app tries to start an activity from a service or broadcast receiver
 that acts as a notification trampoline, the system prevents the activity from
 starting, and the following message appears in
-[Logcat](https://developer.android.com/studio/command-line/logcat):  
+[Logcat](https://developer.android.com/studio/command-line/logcat):
 
     Indirect notification activity start (trampoline) from PACKAGE_NAME, \
     this should be avoided for performance reasons.
 
-| **Note:** While it's still possible for apps with the [`SYSTEM_ALERT_WINDOW`](https://developer.android.com/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW) permission to start activities using a notification trampoline, you should avoid this UX pattern and [use a `PendingIntent`
-| instead](https://developer.android.com/about/versions/12/behavior-changes-12#notification-trampoline-update-app).
+> [!NOTE]
+> **Note:** While it's still possible for apps with the [`SYSTEM_ALERT_WINDOW`](https://developer.android.com/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW) permission to start activities using a notification trampoline, you should avoid this UX pattern and [use a `PendingIntent`
+> instead](https://developer.android.com/about/versions/12/behavior-changes-12#notification-trampoline-update-app).
 
 #### Identify which app components act as notification trampolines
 
 When testing your app, after you tap on a notification, you can identify which
 service or broadcast receiver acted as the notification trampoline in your app.
-To do so, look at output of the following terminal command:  
+To do so, look at output of the following terminal command:
 
 ```
 adb shell dumpsys activity service \
@@ -468,12 +474,14 @@ Optionally, you can also use it to specify rules for backup, in which case the
 previously-used configuration is ignored on devices running Android 12 or
 higher. The older configuration is still required for devices running Android 11
 or lower.
-| **Note:** If you use the new configuration format, your app will use the new behavior when running on a device with Android 12 or higher, even if you don't yet target Android 12.
+
+> [!NOTE]
+> **Note:** If you use the new configuration format, your app will use the new behavior when running on a device with Android 12 or higher, even if you don't yet target Android 12.
 
 #### XML format changes
 
 The following is the format used for backup and restore configuration in Android
-11 and lower:  
+11 and lower:
 
 ```xml
 <full-backup-content>
@@ -485,7 +493,7 @@ The following is the format used for backup and restore configuration in Android
 </full-backup-content>
 ```
 
-The following shows the changes in the format in bold.  
+The following shows the changes in the format in bold.
 
 ```xml
 <data-extraction-rules>
@@ -520,7 +528,7 @@ Point your apps to the new XML configuration by using the
 file. When you point to the new XML configuration, the
 `android:fullBackupContent` attribute that points to the old config is ignored
 on devices running Android 12 or higher. The following code sample shows the new
-manifest file entries:  
+manifest file entries:
 
 ```xml
 <application
@@ -585,7 +593,7 @@ the `NetworkCallback`. `getConnectionInfo()` is deprecated as of
 Android 12.
 
 The following code sample shows how to get the `WifiInfo` in a
-`NetworkCallback`:  
+`NetworkCallback`:
 
 ### Kotlin
 

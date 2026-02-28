@@ -69,7 +69,7 @@ things:
   - Alarms aren't triggered
   - Jobs aren't executed
 
-  Use the following ADB command to place your app in this "restricted" state:  
+  Use the following ADB command to place your app in this "restricted" state:
 
   ```
   adb shell cmd appops set PACKAGE_NAME RUN_ANY_IN_BACKGROUND ignore
@@ -95,7 +95,9 @@ Android 13 (API level 33) introduces a runtime
 [`POST_NOTIFICATIONS`](https://developer.android.com/reference/android/Manifest.permission#POST_NOTIFICATIONS).
 This change helps users focus on the notifications that are most important to
 them.
-| **Note:** Notifications related to [media sessions](https://developer.android.com/guide/topics/media-apps/working-with-a-media-session) and apps that self-manage phone calls are exempt from this behavior change.
+
+> [!NOTE]
+> **Note:** Notifications related to [media sessions](https://developer.android.com/guide/topics/media-apps/working-with-a-media-session) and apps that self-manage phone calls are exempt from this behavior change.
 
 We highly recommend that you target Android 13 or higher as soon
 as possible to gain the effects of the additional control and flexibility of
@@ -109,14 +111,13 @@ Learn more about
 If your app allows users to copy sensitive content, such as passwords or credit
 card information, to the clipboard, you must add a flag to ClipData's
 `ClipDescription` before calling `ClipboardManager#setPrimaryClip()`. Adding
-this flag prevents sensitive content from appearing in the content preview.  
-![Copied text preview without flagging sensitive content](https://developer.android.com/static/images/about/versions/13/sensitive-content-before.png) Copied text preview without flagging sensitive content.  
-![Copied text preview flagging sensitive content.](https://developer.android.com/static/images/about/versions/13/sensitive-content-after.png) Copied text preview flagging sensitive content.
+this flag prevents sensitive content from appearing in the content preview.
+![Copied text preview without flagging sensitive content](https://developer.android.com/static/images/about/versions/13/sensitive-content-before.png) Copied text preview without flagging sensitive content. ![Copied text preview flagging sensitive content.](https://developer.android.com/static/images/about/versions/13/sensitive-content-after.png) Copied text preview flagging sensitive content.
 
 <br />
 
 To flag sensitive content, add a boolean extra to the `ClipDescription`. All
-apps should do this, regardless of the targeted API level.  
+apps should do this, regardless of the targeted API level.
 
 
     // When your app is compiled with the API level 33 SDK or higher
@@ -144,13 +145,13 @@ If your app uses the deprecated
 [`android:sharedUserId`](https://developer.android.com/guide/topics/manifest/manifest-element#uid) attribute
 and no longer depends on the attribute's functionality, you can set the
 [`android:sharedUserMaxSdkVersion`](https://developer.android.com/guide/topics/manifest/manifest-element#uidmaxsdk)
-attribute to `32`, as shown in the following code snippet:  
+attribute to `32`, as shown in the following code snippet:
 
 ```xml
 <manifest ...>
     <!-- To maintain backward compatibility, continue to use
          "android:sharedUserId" if you already added it to your manifest. -->
-    android:sharedUserId="<var translate="no">SHARED_PACKAGE_NAME</var>"
+    android:sharedUserId="SHARED_PACKAGE_NAME"
     android:sharedUserMaxSdkVersion="32"
     ...
 </manifest>
@@ -161,7 +162,9 @@ user ID. If your app declares `android:sharedUserMaxSdkVersion` and is newly
 installed on devices running Android 13 or higher, your app
 behaves as if you never defined `android:sharedUserId`. Updated apps still use
 the existing shared user ID.
-| **Caution:** If you already define the `android:sharedUserId` attribute in your manifest, don't remove it. Doing so causes app updates to fail.
+
+> [!CAUTION]
+> **Caution:** If you already define the `android:sharedUserId` attribute in your manifest, don't remove it. Doing so causes app updates to fail.
 
 Shared user IDs cause non-deterministic behavior within the package manager.
 Your app should instead use proper communication mechanisms, such as services

@@ -17,7 +17,10 @@ your game needs to implement a cloud save solution which has two parts:
    Save your player's game state to the cloud. Retrieve it when they start the
    game. Play Games Services [Saved Games](https://developer.android.com/games/pgs/savedgames#saved-games) provides a service for
    this, but you can use any cloud save solution of your choice.
-   | **Note:** If your game supports guest mode, player progress is not saved or restored. This limitation occurs because guest mode is tied to a single device.
+
+   > [!NOTE]
+   > **Note:** If your game supports guest mode, player progress is not saved or restored. This limitation occurs because guest mode is tied to a single device.
+
 2. **Conflict resolution for multiple game states**
 
    If a user has multiple accounts or if there's a conflict between saved game
@@ -42,7 +45,8 @@ This service offers several key advantages for both players and developers:
 - **Synchronize game data across multiple devices.** For example, a player can start a game on an Android phone and seamlessly continue playing on a tablet without losing progress.
 - **Ensure data persistence.** Players can resume their game even if their device is lost, destroyed, or traded in for a newer model.
 
-| **Note:** Before using the Saved Games service, you must first [enable it in Google Play Console](https://developer.android.com/games/pgs/console/enable-features#enabling-saved-games).
+> [!NOTE]
+> **Note:** Before using the Saved Games service, you must first [enable it in Google Play Console](https://developer.android.com/games/pgs/console/enable-features#enabling-saved-games).
 
 To learn how to implement saved games for your platform, see
 [Client implementations](https://developer.android.com/games/pgs/savedgames#client-implementations).

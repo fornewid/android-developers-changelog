@@ -39,7 +39,7 @@ The scaffold adapts based on window size:
 library](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/package-summary).
 
 Add the following three related dependencies to the `build.gradle` file of your
-app or module:  
+app or module:
 
 ### Kotlin
 
@@ -166,7 +166,9 @@ is crucial for the user experience.
 
 This option removes only the most recent destination from the backstack. Use
 this option for back navigation without skipping intermediate states.
-| **Note:** Multi-pane layouts may create navigation backstacks that are not possible in single-pane layouts, such as navigating directly from one detail item to another. If the device size changes mid-navigation, this behavior may produce unintuitive results.
+
+> [!NOTE]
+> **Note:** Multi-pane layouts may create navigation backstacks that are not possible in single-pane layouts, such as navigating directly from one detail item to another. If the device size changes mid-navigation, this behavior may produce unintuitive results.
 
 After you implement these steps, your code should look similar to the following:
 

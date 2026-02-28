@@ -53,10 +53,10 @@ your app either permission.
 ### How to toggle
 
 As you test your app's compatibility with Android 11, you can toggle this change on or off
-using the following ADB commands:  
+using the following ADB commands:
 
-    adb shell am compat enable (<var translate="no">147316723</var>|<var translate="no">BACKGROUND_RATIONALE_CHANGE_ID</var>) <var translate="no">PACKAGE_NAME</var>
-    adb shell am compat disable (<var translate="no">147316723</var>|<var translate="no">BACKGROUND_RATIONALE_CHANGE_ID</var>) <var translate="no">PACKAGE_NAME</var>
+    adb shell am compat enable (147316723|BACKGROUND_RATIONALE_CHANGE_ID) PACKAGE_NAME
+    adb shell am compat disable (147316723|BACKGROUND_RATIONALE_CHANGE_ID) PACKAGE_NAME
 
 For more information about the compatibility framework and toggling changes, see
 [Test and debug platform behavior changes in

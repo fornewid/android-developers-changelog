@@ -6,7 +6,7 @@ source: md.txt
 
 If your app has a [`minSdk` of API 20 or lower](https://developer.android.com/build/multidex#mdex-pre-l) and your app and the
 libraries it references exceed 65,536 methods, you encounter the following build error that
-indicates your app has reached the limit of the Android build architecture:  
+indicates your app has reached the limit of the Android build architecture:
 
 ```
 trouble writing output:
@@ -15,7 +15,7 @@ You may try using --multi-dex option.
 ```
 
 Older versions of the build system report a different error, which is an indication of the same
-problem:  
+problem:
 
 ```
 Conversion to Dalvik format failed:
@@ -48,7 +48,7 @@ runtime for executing app code. By default, Dalvik limits apps to a single
 `classes.dex` bytecode file per APK. To get around this
 limitation, add the multidex library to the module-level `build.gradle` or
 `build.gradle.kts`
-file:  
+file:
 
 ### Groovy
 
@@ -80,7 +80,7 @@ For more details, see the section about how to [configure your app for multidex]
 Android 5.0 (API level 21) and higher uses a runtime called ART that
 natively supports loading multiple DEX files from APK files. ART
 performs pre-compilation at app install time, scanning for
-`classes`<var translate="no">N</var>`.dex` files and compiling them into a single
+`classesN.dex` files and compiling them into a single
 OAT file for
 execution by the Android device. Therefore, if your `minSdkVersion`
 is 21 or higher, multidex is enabled by default and you don't need the multidex library.
@@ -293,7 +293,7 @@ entire ProGuard grammar. For more information about how to customize what is kep
 The file you specify in `multiDexKeepProguard` should contain `-keep`
 options in any valid ProGuard syntax. For example,
 `-keep com.example.MyClass.class`. You can create a file called
-`multidex-config.pro` that looks like this:  
+`multidex-config.pro` that looks like this:
 
 ```
 -keep class com.example.MyClass
@@ -301,14 +301,14 @@ options in any valid ProGuard syntax. For example,
 ```
 
 
-If you want to specify all classes in a package, the file looks like this:  
+If you want to specify all classes in a package, the file looks like this:
 
 ```
 -keep class com.example.** { *; } // All classes in the com.example package
 ```
 
 
-Then you can declare that file for a build type, as follows:  
+Then you can declare that file for a build type, as follows:
 
 ### Groovy
 
@@ -480,4 +480,6 @@ public void onCreate(Bundle arguments) {
   ...
 }
 ```
-| **Notes:** Don't use `MultiDexTestRunner`, which is deprecated; use [`AndroidJUnitRunner`](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner) instead.
+
+> [!NOTE]
+> **Notes:** Don't use `MultiDexTestRunner`, which is deprecated; use [`AndroidJUnitRunner`](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner) instead.

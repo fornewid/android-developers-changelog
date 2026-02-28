@@ -68,7 +68,7 @@ the Android [`Activity`](https://developer.android.com/reference/android/app/Act
 existing window surface when an orientation change occurs. This is done by
 adding the `orientation` (to support API level \<13) and `screenSize` attributes
 to the activity's
-[`configChanges`](https://developer.android.com/guide/topics/manifest/activity-element#config) section:  
+[`configChanges`](https://developer.android.com/guide/topics/manifest/activity-element#config) section:
 
     <activity android:name="android.app.NativeActivity"
               android:configChanges="orientation|screenSize">
@@ -77,7 +77,9 @@ If your application fixes its screen orientation using the [`screenOrientation`]
 attribute, you don't need to do this. Also, if your application uses a fixed
 orientation then it will only need to set up the swapchain once on
 application startup/resume.
-| **Note:** To learn more about configuration changes, how to restrict Activity recreation if needed, and how to react to those configuration changes from the View system and Jetpack Compose, check out the [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes) page.
+
+> [!NOTE]
+> **Note:** To learn more about configuration changes, how to restrict Activity recreation if needed, and how to react to those configuration changes from the View system and Jetpack Compose, check out the [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes) page.
 
 ## Get the Identity Screen Resolution and Camera Parameters
 
@@ -89,7 +91,7 @@ reliable way to get this is to make a call to
 `vkGetPhysicalDeviceSurfaceCapabilitiesKHR()` at application startup, and
 store the returned extent. Swap the width and height based on the
 `currentTransform` that's also returned in order to ensure that you are storing
-the identity screen resolution:  
+the identity screen resolution:
 
     VkSurfaceCapabilitiesKHR capabilities;
     vkGetPhysicalDeviceSurfaceCapabilitiesKHR(physDevice, surface, &capabilities);
@@ -112,7 +114,7 @@ resolution of the app's window surface in the display's natural orientation.
 
 The most reliable way to detect an orientation change in your application is
 to verify whether the `vkQueuePresentKHR()` function returns
-`VK_SUBOPTIMAL_KHR`. For example:  
+`VK_SUBOPTIMAL_KHR`. For example:
 
     auto res = vkQueuePresentKHR(queue_, &present_info);
     if (res == VK_SUBOPTIMAL_KHR){
@@ -137,7 +139,7 @@ On pre-Android 10 devices you can poll the current device transform every
 by the programmer. The way you do this is by calling
 `vkGetPhysicalDeviceSurfaceCapabilitiesKHR()` and then comparing the returned
 `currentTransform` field with that of the currently stored surface
-transformation (in this code example stored in `pretransformFlag`).  
+transformation (in this code example stored in `pretransformFlag`).
 
     currFrameCount++;
     if (currFrameCount >= pollInterval){
@@ -159,14 +161,14 @@ Pixel 1XL running Android 8, polling took .110-.350ms.
 A second option for devices running below Android 10 is to register an
 [`onNativeWindowResized()`](https://developer.android.com/ndk/reference/struct/a-native-activity-callbacks#struct_a_native_activity_callbacks_1a21b6cb2746c27f1874a3b6b5d6a1d6fb) callback to call a function that sets the
 `orientationChanged` flag, signaling to the application an orientation change
-has occurred:  
+has occurred:
 
     void android_main(struct android_app *app) {
       ...
       app->activity->callbacks->onNativeWindowResized = ResizeCallback;
     }
 
-Where ResizeCallback is defined as:  
+Where ResizeCallback is defined as:
 
     void ResizeCallback(ANativeActivity *activity, ANativeWindow *window){
       orientationChanged = true;
@@ -183,7 +185,7 @@ application.
 
 To handle the orientation change, call the orientation change routine at the
 top of the main rendering loop when the `orientationChanged`
-variable is set to true. For example:  
+variable is set to true. For example:
 
     bool VulkanDrawFrame() {
      if (orientationChanged) {
@@ -223,7 +225,7 @@ to show that you have handled the orientation change.
 
 In the previous section we mention having to recreate the swapchain.
 The first steps to doing so involves getting the new characteristics of the
-rendering surface:  
+rendering surface:
 
     void createSwapChain(VkSwapchainKHR oldSwapchain) {
        VkSurfaceCapabilitiesKHR capabilities;
@@ -237,7 +239,7 @@ field as you will be needing it for later when you make adjustments to the
 MVP matrix.
 
 To do so, specify the following attributes
-in the `VkSwapchainCreateInfo` struct:  
+in the `VkSwapchainCreateInfo` struct:
 
     VkSwapchainCreateInfoKHR swapchainCreateInfo{
       ...
@@ -258,7 +260,9 @@ you stored at application startup. The `preTransform` field will be populated
 with the `pretransformFlag` variable (which is set to the currentTransform field
 of the `surfaceCapabilities`). You also set the `oldSwapchain` field to the
 swapchain that will be destroyed.
-| **Note:** It is **important** that the `surfaceCapabilities.currentTransform` field and the `swapchainCreateInfo.preTransform` field **match** because this lets Android know that we are handling the orientation change ourselves, thus avoiding the Android Compositor.
+
+> [!NOTE]
+> **Note:** It is **important** that the `surfaceCapabilities.currentTransform` field and the `swapchainCreateInfo.preTransform` field **match** because this lets Android know that we are handling the orientation change ourselves, thus avoiding the Android Compositor.
 
 ### MVP Matrix Adjustment
 
@@ -267,7 +271,7 @@ by applying a rotation matrix to your MVP matrix. What this essentially does is
 apply the rotation in clip space so that the resulting image is rotated to
 the current device orientation. You can then simply pass this updated MVP matrix
 into your vertex shader and use it as normal without the need to modify your
-shaders.  
+shaders.
 
     glm::mat4 pre_rotate_mat = glm::mat4(1.0f);
     glm::vec3 rotation_axis = glm::vec3(0.0f, 0.0f, 1.0f);
@@ -291,7 +295,7 @@ shaders.
 If your application is using a non-full screen viewport/scissor region, they
 will need to be updated according to the orientation of the device. This
 requires that you enable the dynamic Viewport and Scissor options during Vulkan's
-pipeline creation:  
+pipeline creation:
 
     VkDynamicState dynamicStates[2] = {
       VK_DYNAMIC_STATE_VIEWPORT,
@@ -315,7 +319,7 @@ pipeline creation:
 
     VkCreateGraphicsPipelines(device, VK_NULL_HANDLE, 1, &pipelineCreateInfo, nullptr, &mPipeline);
 
-The actual computation of the viewport extent during command buffer recording looks like this:  
+The actual computation of the viewport extent during command buffer recording looks like this:
 
     int x = 0, y = 0, w = 500, h = 400;
 
@@ -350,7 +354,7 @@ The actual computation of the viewport extent during command buffer recording lo
 The `x` and `y` variables define the coordinates of the top left corner of the
 viewport, while `w` and `h` define the width and height of the viewport respectively.
 The same computation can also be used to set the scissor test, and is included
-here for completeness:  
+here for completeness:
 
     int x = 0, y = 0, w = 500, h = 400;
     glm::vec4 scissorData;

@@ -70,7 +70,8 @@ your metadata tags are correctly set up:
 
        <string name="app_id">123456789012</string>
 
-| **Warning:** Do not use the full client ID (`1233456789012.apps.googleusercontent.com`) as your app ID. This will result in errors.
+> [!WARNING]
+> **Warning:** Do not use the full client ID (`1233456789012.apps.googleusercontent.com`) as your app ID. This will result in errors.
 
 ### Check your package name
 
@@ -102,7 +103,8 @@ check your certificate's SHA1 fingerprint as follows:
 2. Take note of the sequence of hexadecimal digits labeled `SHA1:` in the
    output. That is your certificate's fingerprint.
 
-| **Note:** If you are using a debug certificate, replace `your-key-name` with `androiddebugkey` in the command above. If using a release certificate, use the name you chose for your key when creating the certificate.
+> [!NOTE]
+> **Note:** If you are using a debug certificate, replace `your-key-name` with `androiddebugkey` in the command above. If using a release certificate, use the name you chose for your key when creating the certificate.
 
 Next, check that your build tool is using this certificate:
 
@@ -141,7 +143,9 @@ If this fingerprint does not match your certificate's fingerprint from the
 previous steps, you must create a new client ID with the correct certificate
 fingerprint. You must create the new client ID in the
 Play Console, not in the Google Cloud Platform project.
-| **Note:** If you are debugging your game using your debug certificate but have configured games services using your release certificate, you should add a second linked app using the same package name and your debug certificate's SHA-1 fingerprint. This will allow you to authenticate to the application whether it's signed with the debug or release certificates.
+
+> [!NOTE]
+> **Note:** If you are debugging your game using your debug certificate but have configured games services using your release certificate, you should add a second linked app using the same package name and your debug certificate's SHA-1 fingerprint. This will allow you to authenticate to the application whether it's signed with the debug or release certificates.
 
 ### Check that test accounts are enabled
 
@@ -155,7 +159,9 @@ this is correctly configured:
 
 If the account you are trying to authenticate with is not listed, add it to the list, wait a few minutes
 and try to authenticate again.
-| **Warning:** The account that created the game in the Play Console does not automatically become a tester. If you wish to authenticate to the game with that account, you must add it as a tester explicitly.
+
+> [!WARNING]
+> **Warning:** The account that created the game in the Play Console does not automatically become a tester. If you wish to authenticate to the game with that account, you must add it as a tester explicitly.
 
 ## Proguard issues
 

@@ -4,8 +4,9 @@ url: https://developer.android.com/games/pgs/android/leaderboards
 source: md.txt
 ---
 
-| **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-| documentation](https://developer.android.com/games/pgs/v1/android/leaderboards).
+> [!NOTE]
+> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
+> documentation](https://developer.android.com/games/pgs/v1/android/leaderboards).
 
 This guide shows you how to use leaderboards APIs in an Android app
 to create visual leaderboards, record a player's score, and compare the score
@@ -40,7 +41,9 @@ To start using the leaderboards API, your game must first obtain a
 [`LeaderboardsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/LeaderboardsClient) object.
 You can do this by calling the [`PlayGames.getLeadeboardsClient()`](https://developers.google.com/android/reference/com/google/android/gms/games/PlayGames#public-static-leaderboardsclient-getleaderboardsclient-activity-activity)
 method and passing in the activity.
-| **Note:** The [`LeaderboardsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/LeaderboardsClient) class makes use of the Google Play services Task class to return results asynchronously. To learn more about using tasks to manage threaded work, see the [Tasks API developer guide](https://developers.google.com/android/guides/tasks).
+
+> [!NOTE]
+> **Note:** The [`LeaderboardsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/LeaderboardsClient) class makes use of the Google Play services Task class to return results asynchronously. To learn more about using tasks to manage threaded work, see the [Tasks API developer guide](https://developers.google.com/android/guides/tasks).
 
 ## Update the player's score
 
@@ -51,7 +54,7 @@ and passing in the leaderboard ID and the raw score value.
 
 The following code snippet shows how your app can update the player's score:
 
-```scdoc
+```
 PlayGames.getLeaderboardsClient(this)
     .submitScore(getString(R.string.leaderboard_id), 1337);
 ```
@@ -73,7 +76,7 @@ UI by calling
 The following code snippet shows how your app can update the player's score. In the
 code snippet, `RC_LEADERBOARD_UI` is an arbitrary integer for the request code.
 
-```transact-sql
+```
 private static final int RC_LEADERBOARD_UI = 9004;
 
 private void showLeaderboard() {

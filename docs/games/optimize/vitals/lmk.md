@@ -4,8 +4,6 @@ url: https://developer.android.com/games/optimize/vitals/lmk
 source: md.txt
 ---
 
-# Low memory killers
-
 The Android platform runs on the premise that free memory is wasted memory. Android
 tries to use all available memory at all times. For example, the system keeps
 apps in memory after they've been closed so the user can quickly switch back to

@@ -56,8 +56,9 @@ frame with `advanceTimeByFrame()` or by a specific duration with
     composeTestRule.mainClock.advanceTimeByFrame()
     composeTestRule.mainClock.advanceTimeBy(milliseconds)
 
-| **Note:** [`MainTestClock`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/MainTestClock) is responsible for driving all the recompositions, animations, and gestures. The API doesn't control [Android's measure and draw
-| passes](https://developer.android.com/guide/topics/ui/how-android-draws).
+> [!NOTE]
+> **Note:** [`MainTestClock`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/MainTestClock) is responsible for driving all the recompositions, animations, and gestures. The API doesn't control [Android's measure and draw
+> passes](https://developer.android.com/guide/topics/ui/how-android-draws).
 
 ### Idle resources
 
@@ -123,7 +124,8 @@ You can also use any of the
 
     composeTestRule.waitUntilNodeCount(matcher, count, timeoutMs)
 
-| **Warning:** In some cases, using mechanisms in a test like an external `CountDownLatch` instead of the `waitUntil` APIs could behave unexpectedly, since the test clock won't be advanced.
+> [!WARNING]
+> **Warning:** In some cases, using mechanisms in a test like an external `CountDownLatch` instead of the `waitUntil` APIs could behave unexpectedly, since the test clock won't be advanced.
 
 ## Additional Resources
 

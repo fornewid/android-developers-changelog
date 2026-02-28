@@ -43,7 +43,9 @@ light level, and turns off when there's more light.
 
 Apps can record off the Preview stream in low-light conditions to save a
 brightened video.
-| **Note:** Because Low Light Boost uses a different mechanism than night mode still capture, the two images won't look identical. Night mode still capture provides a better result when you just want to capture a single image, but Low Light Boost is able to show you enhanced images in real time.
+
+> [!NOTE]
+> **Note:** Because Low Light Boost uses a different mechanism than night mode still capture, the two images won't look identical. Night mode still capture provides a better result when you just want to capture a single image, but Low Light Boost is able to show you enhanced images in real time.
 
 For more information, see [Low Light Boost](https://developer.android.com/media/camera/lowlight/hw-low-light-boost).
 
@@ -85,7 +87,7 @@ session ID from the associated [`AudioTrack`](https://developer.android.com/refe
 automatically starts applying audio updates. You can pass an
 [`OnLoudnessCodecUpdateListener`](https://developer.android.com/reference/android/media/LoudnessCodecController.OnLoudnessCodecUpdateListener) to modify or filter
 loudness parameters before they are applied on the
-[`MediaCodec`](https://developer.android.com/reference/android/media/MediaCodec).  
+[`MediaCodec`](https://developer.android.com/reference/android/media/MediaCodec).
 
     // Media contains metadata of type MPEG_4 OR MPEG_D
     val mediaCodec = ...
@@ -187,7 +189,7 @@ a [`FontFamily`](https://developer.android.com/reference/android/graphics/fonts/
 with the [`buildVariableFamily`](https://developer.android.com/reference/android/graphics/fonts/FontFamily.Builder#buildVariableFamily()) API. The text renderer overrides the value
 of `wght` axis to match the displaying text.
 
-Using the API simplifies the code for creating a [`Typeface`](https://developer.android.com/reference/android/graphics/Typeface) considerably:  
+Using the API simplifies the code for creating a [`Typeface`](https://developer.android.com/reference/android/graphics/Typeface) considerably:
 
 ### Kotlin
 
@@ -209,7 +211,7 @@ Typeface newTypeface = Typeface.CustomFallbackBuilder(
     .build();
 ```
 
-Previously, to create the same `Typeface`, you would need much more code:  
+Previously, to create the same `Typeface`, you would need much more code:
 
 ### Kotlin
 
@@ -358,25 +360,22 @@ hyphenation by using the `<nohyphen>` tag or
 [`createNoHyphenationSpan`](https://developer.android.com/reference/android/text/style/LineBreakConfigSpan#createNoHyphenationSpan()).
 
 For example, the following string resource doesn't include a line break, and
-renders with the text "Pixel 8 Pro." breaking in an undesirable place:  
+renders with the text "Pixel 8 Pro." breaking in an undesirable place:
 
     <resources>
         <string name="pixel8pro">The power and brains behind Pixel 8 Pro.</string>
     </resources>
 
 In contrast, this string resource includes the `<nobreak>` tag, which wraps the
-phrase "Pixel 8 Pro." and prevents line breaks:  
+phrase "Pixel 8 Pro." and prevents line breaks:
 
     <resources>
         <string name="pixel8pro">The power and brains behind <nobreak>Pixel 8 Pro.</nobreak></string>
     </resources>
 
 The difference in how these strings are rendered is shown in the following
-images:  
-![](https://developer.android.com/static/about/versions/15/images/line-breaks-none.png)  
-Layout for a line of text where the phrase "Pixel 8 Pro." isn't wrapped using a `<nobreak>` tag.  
-![](https://developer.android.com/static/about/versions/15/images/line-breaks-included.png)  
-Layout for the same line of text where the phrase "Pixel 8 Pro." is wrapped using a `<nobreak>` tag.
+images:
+![](https://developer.android.com/static/about/versions/15/images/line-breaks-none.png) Layout for a line of text where the phrase "Pixel 8 Pro." isn't wrapped using a `<nobreak>` tag. ![](https://developer.android.com/static/about/versions/15/images/line-breaks-included.png) Layout for the same line of text where the phrase "Pixel 8 Pro." is wrapped using a `<nobreak>` tag.
 
 ### App archiving
 
@@ -569,7 +568,7 @@ they are being recorded. A callback is invoked whenever the app transitions
 between being visible or invisible within a screen recording. An app is
 considered visible if activities owned by the registering process's UID are
 being recorded. This way, if your app is performing a sensitive operation, you
-can inform the user that they're being recorded.  
+can inform the user that they're being recorded.
 
     val mCallback = Consumer<Int> { state ->
       if (state == SCREEN_RECORDING_STATE_VISIBLE) {
@@ -605,7 +604,7 @@ These rules can be defined in the `AndroidManifest` XML file with the
 tag attributes as well as the `android:query` and `android:fragment`
 attributes.
 
-Here's an example of the `AndroidManifest` syntax:  
+Here's an example of the `AndroidManifest` syntax:
 
     <intent-filter android:autoVerify="true">
       <action android:name="android.intent.action.VIEW" />
@@ -670,7 +669,7 @@ Apps can now highlight only the most-recently-selected photos and videos when
 the user experience for apps that frequently request access to photos and
 videos. To use this feature in your app, enable the
 [`QUERY_ARG_LATEST_SELECTION_ONLY`](https://developer.android.com/reference/android/provider/MediaStore#QUERY_ARG_LATEST_SELECTION_ONLY) argument when querying [`MediaStore`](https://developer.android.com/reference/android/provider/MediaStore)
-through [`ContentResolver`](https://developer.android.com/reference/android/content/ContentResolver).  
+through [`ContentResolver`](https://developer.android.com/reference/android/content/ContentResolver).
 
 ### Kotlin
 
@@ -790,7 +789,7 @@ Apps can provide generated previews through a push API. Apps can provide
 previews at any point in their lifecycle, and don't receive an explicit request
 from the host to provide previews. Previews are persisted in `AppWidgetService`,
 and hosts can request them on-demand. The following example loads an XML widget
-layout resource and sets it as the preview:  
+layout resource and sets it as the preview:
 
     AppWidgetManager.getInstance(appContext).setWidgetPreview(
        ComponentName(
@@ -842,7 +841,7 @@ video, ratings, and titles. When the app goes to PiP mode, use the
 `onPictureInPictureUiStateChanged` callback to hide these UI elements. When the
 app goes to full screen mode from the PiP window, use
 `onPictureInPictureModeChanged` callback to unhide these elements, as shown in
-the following examples:  
+the following examples:
 
     override fun onPictureInPictureUiStateChanged(pipState: PictureInPictureUiState) {
             if (pipState.isTransitioningToPip()) {
@@ -880,8 +879,9 @@ having to look at their device.
 
 ### Media projection status bar chip and auto stop
 
-| **Note:** This feature is included on devices running [Android 15
-| QPR1](https://developer.android.com/about/versions/15/release-notes) or higher.
+> [!NOTE]
+> **Note:** This feature is included on devices running [Android 15
+> QPR1](https://developer.android.com/about/versions/15/release-notes) or higher.
 
 Media projection can expose private user information. A new, prominent status
 bar chip makes users aware of any ongoing screen projection. Users can tap the
@@ -1048,25 +1048,16 @@ Starting with Android 15, text can be justified utilizing letter spacing by
 using [`JUSTIFICATION_MODE_INTER_CHARACTER`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_INTER_CHARACTER). Inter-word justification was
 first introduced in Android 8.0 (API level 26), and inter-character
 justification provides similar capabilities for languages that use the
-whitespace character for segmentation, such as Chinese, Japanese, and others.  
-![](https://developer.android.com/static/about/versions/15/images/none-japanese.png)  
-Layout for Japanese text using [`JUSTIFICATION_MODE_NONE`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_NONE).  
-![](https://developer.android.com/static/about/versions/15/images/none-english.png)  
-Layout for English text using [`JUSTIFICATION_MODE_NONE`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_NONE).
+whitespace character for segmentation, such as Chinese, Japanese, and others.
+![](https://developer.android.com/static/about/versions/15/images/none-japanese.png) Layout for Japanese text using [`JUSTIFICATION_MODE_NONE`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_NONE). ![](https://developer.android.com/static/about/versions/15/images/none-english.png) Layout for English text using [`JUSTIFICATION_MODE_NONE`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_NONE).
 
 <br />
 
-![](https://developer.android.com/static/about/versions/15/images/inter-word-japanese.png)  
-Layout for Japanese text using [`JUSTIFICATION_MODE_INTER_WORD`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_INTER_WORD).  
-![](https://developer.android.com/static/about/versions/15/images/inter-word-english.png)  
-Layout for English text using [`JUSTIFICATION_MODE_INTER_WORD`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_INTER_WORD).
+![](https://developer.android.com/static/about/versions/15/images/inter-word-japanese.png) Layout for Japanese text using [`JUSTIFICATION_MODE_INTER_WORD`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_INTER_WORD). ![](https://developer.android.com/static/about/versions/15/images/inter-word-english.png) Layout for English text using [`JUSTIFICATION_MODE_INTER_WORD`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_INTER_WORD).
 
 <br />
 
-![](https://developer.android.com/static/about/versions/15/images/inter-character-japanese.png)  
-Layout for Japanese text using the [`JUSTIFICATION_MODE_INTER_CHARACTER`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_INTER_CHARACTER).  
-![](https://developer.android.com/static/about/versions/15/images/inter-character-english.png)  
-Layout for English text using the [`JUSTIFICATION_MODE_INTER_CHARACTER`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_INTER_CHARACTER).
+![](https://developer.android.com/static/about/versions/15/images/inter-character-japanese.png) Layout for Japanese text using the [`JUSTIFICATION_MODE_INTER_CHARACTER`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_INTER_CHARACTER). ![](https://developer.android.com/static/about/versions/15/images/inter-character-english.png) Layout for English text using the [`JUSTIFICATION_MODE_INTER_CHARACTER`](https://developer.android.com/reference/android/text/Layout#JUSTIFICATION_MODE_INTER_CHARACTER).
 
 ### Automatic line break configuration
 

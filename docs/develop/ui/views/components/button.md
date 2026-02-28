@@ -16,36 +16,36 @@ You can create a button in your layout in one of three ways, depending on
 whether you want a button with text, an icon, or both:
 
 ```xml
-  <?xml version="1.0" encoding<="utf-8"?>
-  LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:paddingLeft="16dp"
-      <android:paddingRight="16dp"
+      android:paddingRight="16dp"
       android:orientation="vertical" >
   
-      Button
+      <Button
           android:id="@+id/supabutton"
-          android:layout_width=&qu<ot;wrap_content"
+          android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="I'm a button" />
   
-      ImageButton
+      <ImageButton
           android:layout_width="wrap_content"
-          android:layout_height="wrap_co<ntent"
+          android:layout_height="wrap_content"
           android:contentDescription="A tiny Android icon"
           android:src="@drawable/baseline_android_24"
           app:tint="#ff0000" />
   
-      Button
+      <Button
           android:layout_width="wrap_content"
-          android:layout_height="w<rap_content"
+          android:layout_height="wrap_content"
           android:drawableStart="@drawable/baseline_android_24"
           android:drawablePadding="4dp"
           android:drawableTint="#ff0000"
           android:text="I'm a button with an icon" />
-  /LinearLayout>
+  </LinearLayout>
 ```
 
 The previous code generates something like this:
@@ -131,14 +131,14 @@ To create a state list drawable for your button background, do the following:
 3. Create a new XML file in the `res/drawable/` directory. Name it something like `button_custom.xml`. Insert XML like the following:
 
    ```xml
-   <?xml version="1.0" encoding=<"utf-8"?>
-   selector xmlns:android="http://schemas.androi<d.com/apk/res/android">
-       item android:drawable="@drawable/button_pressed"
-   <          android:state_pressed="true" />
-       item android:drawable="@drawabl<e/button_focused"
-             android:state_focus<ed="true" />
-       item android:drawable="@drawable/button_default" />
-   /selector>
+   <?xml version="1.0" encoding="utf-8"?>
+   <selector xmlns:android="http://schemas.android.com/apk/res/android">
+       <item android:drawable="@drawable/button_pressed"
+             android:state_pressed="true" />
+       <item android:drawable="@drawable/button_focused"
+             android:state_focused="true" />
+       <item android:drawable="@drawable/button_default" />
+   </selector>
    ```
 
    This defines a single drawable resource that changes its image based on the current state of

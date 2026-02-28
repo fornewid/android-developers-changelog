@@ -4,7 +4,7 @@ url: https://developer.android.com/developer-verification/guides
 source: md.txt
 ---
 
-# Android developer verification is a new requirement designed to link real-world
+Android developer verification is a new requirement designed to link real-world
 entities (individuals and organizations) with their Android applications.
 Starting in 2026, Android will require all apps to be registered by verified
 developers in order to be installed by users on certified
@@ -38,13 +38,13 @@ The Android developer verification rollout happens in phases. This approach
 allows us to incorporate your feedback and gives you time to prepare. Here's
 what to focus on at each stage:
 
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| Date            | Milestone                                                                                                                                      | Developer focus                                                                                                                 |
-| August 2025     | New Android developer verification requirements [announced](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) | Learn about the new requirements and sign up for early access.                                                                  |
-| October 2025    | Early access begins                                                                                                                            | If invited, start your identity verification and app registration.                                                              |
-| March 2026      | Registration opens for all developers                                                                                                          | Begin your identity verification and app registration for all apps you want to remain installable on certified Android devices. |
-| September 2026  | Regional enforcement begins                                                                                                                    | Verify compliance to avoid installation blocks on your apps in Brazil, Indonesia, Singapore, and Thailand.                      |
-| 2027 and beyond | Global enforcement                                                                                                                             | The rollout continues worldwide.                                                                                                |
+|---|---|---|
+| Date | Milestone | Developer focus |
+| August 2025 | New Android developer verification requirements [announced](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) | Learn about the new requirements and sign up for early access. |
+| November 2025 | Early access begins | If invited, start your identity verification and app registration. |
+| March 2026 | Registration opens for all developers | Begin your identity verification and app registration for all apps you want to remain installable on certified Android devices. |
+| September 2026 | Regional enforcement begins | Verify compliance to avoid installation blocks on your apps in Brazil, Indonesia, Singapore, and Thailand. |
+| 2027 and beyond | Global enforcement | The rollout continues worldwide. |
 
 ## Key concepts
 
@@ -62,11 +62,11 @@ Before you start, review these key terms:
 Use the following table to find the correct console and instructions for your
 situation.
 
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|---|
 | [Sign up for early access](https://goo.gle/android-verification-early-access) to the Android developer verification experience. You might receive an invitation to our invite-only early access. |
 
-|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **If you distribute apps**...   | **Next Steps**                                                                                                                                                                         |
-| **Only on Google Play**         | Use your existing [Play Console account](https://developer.android.com/developer-verification/guides/google-play-console).                                                             |
+|---|---|
+| **If you distribute apps**... | **Next Steps** |
+| **Only on Google Play** | Use your existing [Play Console account](https://developer.android.com/developer-verification/guides/google-play-console). |
 | **Both on and off Google Play** | Use your existing [Play Console account](https://developer.android.com/developer-verification/guides/google-play-console). A new option lets you register your non-Play apps and keys. |
-| **Only outside of Google Play** | Create an account in the [Android Developer Console](https://developer.android.com/developer-verification/guides/android-developer-console).                                           |
+| **Only outside of Google Play** | Create an account in the [Android Developer Console](https://developer.android.com/developer-verification/guides/android-developer-console). |

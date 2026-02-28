@@ -6,8 +6,8 @@ source: md.txt
 
 ## For developers on the new Android Developer Console
 
-Play developers can also manage their off-Play package names through the Android
-Developer Console if they choose.
+Play developers can also manage their off-Play package names through the
+Android developer console if they choose.
 
 ### Choose your account type
 
@@ -16,9 +16,9 @@ your needs. This choice affects the verification requirements and any applicable
 fees.
 
 |---|---|---|---|
-| Distribution Type | Best for | Cost | Key Features |
-| Full Distribution | Organizations and professional developers with wide distribution. | $25 | Unlimited apps and installs; requires full identity verification. |
-| Limited Distribution | Students, hobbyists, and other personal use. | Free | Capped number of apps and installs. |
+| Distribution type | Best for | Cost | Key features |
+| Full distribution | Organizations and professional developers with wide distribution. | $25 | Unlimited apps and installs; requires full identity verification. |
+| Limited distribution | Students, hobbyists, and other personal use. | Free | Capped number of apps and installs. |
 
 ### Complete identity verification
 
@@ -34,7 +34,8 @@ You'll need:
 - Organizations need to provide their organization's website. This will need to be verified using Google Search Console.
 - Organizations also need to provide their D-U-N-S number. This is a unique 9-digit identifier for organizations. The D-U-N-S number is associated with the organization's name and address.
 
-| **Note:** If you are registering as an organization, you must provide a D-U-N-S number. This is a unique nine-digit identifier for businesses provided by Dun \& Bradstreet that is used globally to establish your business's legal identity. If your organization does not have one, you can get one at no cost from the Dun \& Bradstreet website.
+> [!NOTE]
+> **Note:** If you are registering as an organization, you must provide a D-U-N-S number. This is a unique nine-digit identifier for businesses provided by Dun \& Bradstreet that is used globally to establish your business's legal identity. If your organization does not have one, you can get one at no cost from the Dun \& Bradstreet website.
 
 #### Acceptable documents
 

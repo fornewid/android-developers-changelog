@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/test-tool
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 The Google Assistant plugin tests App Actions within Android Studio.
 During development and testing, you use the plugin to create a preview of your
 App Actions in Assistant for your Google Account. You can then test how your

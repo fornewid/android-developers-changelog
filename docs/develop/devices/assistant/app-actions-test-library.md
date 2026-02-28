@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/devices/assistant/app-actions-test-li
 source: md.txt
 ---
 
-Project: /develop/devices/assistant/_project.yaml
-Book: /develop/devices/assistant/_book.yaml
-
 The App Actions test library (AATL) provides capabilities to enable developers
 to test App Action fulfillment programmatically, automating testing that would
 normally be done using actual voice queries or the App Actions test tool.
