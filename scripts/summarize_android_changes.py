@@ -73,6 +73,43 @@ def slugify(text):
     text = re.sub(r'[\s_-]+', '-', text)
     return text
 
+def extract_title_from_content(content, filename, url=None):
+    """Extract actual document title from markdown frontmatter, H1 or live URL."""
+    if content:
+        # Check for title in yaml frontmatter
+        # e.g., title: Some Title Here
+        title_match = re.search(r'^title:\s*(.+)$', content, re.MULTILINE | re.IGNORECASE)
+        if title_match:
+            title = title_match.group(1).strip()
+            # If the frontmatter title is just the URL, fall back to heading
+            if not title.startswith('http'):
+                return title
+                
+        # Check for first H1 heading
+        # e.g., # Some Title
+        h1_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+        if h1_match:
+            return h1_match.group(1).strip()
+            
+    # Try fetching from live URL if provided
+    if url:
+        try:
+            import urllib.request
+            import html
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=5) as response:
+                html_text = response.read().decode('utf-8', errors='ignore')
+                title_match = re.search(r'<title>(.*?)</title>', html_text, re.IGNORECASE)
+                if title_match:
+                    title = html.unescape(title_match.group(1)).strip()
+                    title = title.split('|')[0].strip()
+                    title = title.split('&')[0].strip()
+                    return title if title else filename
+        except Exception:
+            pass
+            
+    return filename
+
 def generate_summary(client, filename, content, is_new=False):
     """Generate a summary using Gemini."""
     
@@ -214,6 +251,14 @@ def main():
             tag_text = "DELETE"
             tag_class = "delete"
             
+        # Reconstruct URL first so we can use it for title extraction if needed
+        rel_path = file_path
+        if 'docs/' in rel_path:
+             rel_path = rel_path.split('docs/', 1)[1]
+             
+        url_path = rel_path.replace('.md', '')
+        url = f"{base_url}/{url_path}"
+            
         if status == 'D':
             updates.append({
                 'title': filename,
@@ -222,6 +267,13 @@ def main():
                 'tag_class': tag_class
             })
             continue
+
+        doc_title = filename
+        try:
+            full_content = Path(file_path).read_text(encoding='utf-8')
+            doc_title = extract_title_from_content(full_content, filename, url)
+        except Exception as e:
+            logger.warning(f"Failed to read full content for title extraction of {file_path}: {e}")
             
         content = get_git_diff(file_path, args.commit_hash)
         if status == 'A' and not content:
@@ -235,23 +287,11 @@ def main():
 
         summaries = generate_summary(client, filename, content, status == 'A')
         
-        # Reconstruct URL
-        # filename: guide/components/activities.md -> guide/components/activities
-        # The file_arg is the full relative path (e.g. docs/guide/components/activities.md)
-        # We need the path relative to docs/
-        
-        rel_path = file_path # This is usually passed as "docs/..." or just "..." depending on git diff
-        if 'docs/' in rel_path:
-             rel_path = rel_path.split('docs/', 1)[1]
-             
-        url_path = rel_path.replace('.md', '')
-        url = f"{base_url}/{url_path}"
-        
         for item in summaries:
             summary_text = item.get('summary', '')
             
             entry = {
-                'title': f'<a href="{url}" target="_blank">{filename}</a>',
+                'title': f'<a href="{url}" target="_blank">{doc_title}</a>',
                 'summary': summary_text,
                 'tag_text': tag_text,
                 'tag_class': tag_class
