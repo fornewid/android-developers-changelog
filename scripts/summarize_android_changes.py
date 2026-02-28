@@ -110,6 +110,15 @@ def extract_title_from_content(content, filename, url=None):
             
     return filename
 
+def extract_yaml_summary(content):
+    """Extract 'summary' from the YAML frontmatter if it exists."""
+    if not content:
+        return None
+    match = re.search(r'^summary:\s*["\']?([^"\'\n]+)["\']?.*$', content, re.MULTILINE | re.IGNORECASE)
+    if match:
+         return match.group(1).strip()
+    return None
+
 def generate_summary(client, filename, content, is_new=False):
     """Generate a summary using Gemini."""
     
@@ -127,7 +136,9 @@ def generate_summary(client, filename, content, is_new=False):
     if is_new:
         task_instructions = """
     1. **NEW FILE ADDED.**
-       - Summarize the purpose of this new Android documentation page.
+       - Thoroughly summarize the full content of this new documentation page in detail.
+       - Focus on the core concepts, main topics, and the exact purpose of the document.
+       - Provide a detailed, highly informative, and comprehensive overview.
        - **Return ONE summary** with header "Overview".
     """
 
@@ -138,14 +149,14 @@ def generate_summary(client, filename, content, is_new=False):
     Task:
     {task_instructions}
     
-    3. **Write informative properties.** The summary should explain "what changed" and "why it matters" in English. (Max 150 characters).
+    3. **Write informative properties.** The summary should explain "what changed" and "why it matters" in English. For a new file, provide a comprehensive and detailed overview.
     4. Return the result in JSON format.
     
     Format example:
     [
         {{
             "header": "Overview", 
-            "summary": "New Activity Lifecycle callbacks have been added, enabling more precise state management."
+            "summary": "Detailed summary text goes here."
         }}
     ]
     
@@ -269,6 +280,7 @@ def main():
             continue
 
         doc_title = filename
+        full_content = ""
         try:
             full_content = Path(file_path).read_text(encoding='utf-8')
             doc_title = extract_title_from_content(full_content, filename, url)
@@ -277,15 +289,23 @@ def main():
             
         content = get_git_diff(file_path, args.commit_hash)
         if status == 'A' and not content:
-            try:
-                content = Path(file_path).read_text(encoding='utf-8')
-            except:
-                content = ""
+            content = full_content
                 
-        if not content:
+        if not content and not full_content:
             continue
 
-        summaries = generate_summary(client, filename, content, status == 'A')
+        if status == 'M':
+            yaml_summary = extract_yaml_summary(full_content)
+            if not yaml_summary:
+                logger.info(f"Skipping {filename} (UPDATE) because no YAML summary found.")
+                continue
+            summaries = [{'header': 'Overview', 'summary': yaml_summary}]
+        elif status == 'A':
+            if not content:
+                continue
+            summaries = generate_summary(client, filename, content, True)
+        else:
+            summaries = []
         
         for item in summaries:
             summary_text = item.get('summary', '')
