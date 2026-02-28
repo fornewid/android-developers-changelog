@@ -312,6 +312,7 @@ def main():
             
             entry = {
                 'title': f'<a href="{url}" target="_blank">{doc_title}</a>',
+                'path': rel_path,
                 'summary': summary_text,
                 'tag_text': tag_text,
                 'tag_class': tag_class
@@ -335,7 +336,8 @@ def main():
         release_body_path = ROOT_DIR / 'release_body.md'
         release_content = "## Android Docs Updates\n\n"
         for update in updates:
-            release_content += f"### {update['tag_text']} {update['title']}\n{update['summary']}\n\n"
+            path_str = f"`{update['path']}`\n" if 'path' in update else ""
+            release_content += f"### {update['tag_text']} {update['title']}\n{path_str}{update['summary']}\n\n"
         release_body_path.write_text(release_content, encoding='utf-8')
 
 if __name__ == '__main__':
