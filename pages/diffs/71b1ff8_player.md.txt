@@ -1,0 +1,55 @@
+diff --git a/docs/media/media3/session/player.md b/docs/media/media3/session/player.md
+index 9c975cc..a4887a1 100644
+--- a/docs/media/media3/session/player.md
++++ b/docs/media/media3/session/player.md
+@@ -17,7 +17,9 @@ includes:
+ 
+ Media3 also provides an implementation of the `Player` interface, called
+ [`ExoPlayer`](https://developer.android.com/guide/topics/media/exoplayer).
+-| **Tip:** If you're looking to implement a media player app using ExoPlayer, check out the [Create a basic media player app using Media3 ExoPlayer](https://developer.android.com/media/implement/playback-app) guide.
++
++> [!TIP]
++> **Tip:** If you're looking to implement a media player app using ExoPlayer, check out the [Create a basic media player app using Media3 ExoPlayer](https://developer.android.com/media/implement/playback-app) guide.
+ 
+ ## A common interface between components
+ 
+@@ -30,7 +32,8 @@ Several components in Media3 implement the Player interface, for example:
+ | [`MediaBrowser`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaBrowser) | In addition to the functionality offered by a `MediaController`, interacts with a `MediaLibrarySession` to browse available media content. |
+ | [`SimpleBasePlayer`](https://developer.android.com/reference/androidx/media3/common/SimpleBasePlayer) | A `Player` implementation that reduces the number of methods to implement to a minimum. Helpful when using a custom player that you want to connect to a `MediaSession`. |
+ | [`ForwardingSimpleBasePlayer`](https://developer.android.com/reference/androidx/media3/common/ForwardingSimpleBasePlayer) | A `SimpleBasePlayer` subclass designed to forward playback operations to another `Player` while allowing the same consistent behavior customizations as `SimpleBasePlayer`. Use this class to suppress or modify specific playback operations. |
+-| [`CastPlayer`](https://developer.android.com/reference/kotlin/androidx/media3/cast/CastPlayer) | A `Player` implementation that communicates with a Cast receiver app. Behavior depends on the underlying Cast session. |
++| [`RemoteCastPlayer`](https://developer.android.com/reference/kotlin/androidx/media3/cast/RemoteCastPlayer) | A `Player` implementation for controlling playback on a remote Cast receiver app. |
++| [`CastPlayer`](https://developer.android.com/reference/kotlin/androidx/media3/cast/CastPlayer) | A `Player` implementation for controlling both local and remote Cast playback. |
+ 
+ Although a `MediaSession` doesn't implement the `Player` interface, it requires
+ a `Player` when creating one. Its purpose is to provide access to the `Player`
+@@ -78,7 +81,9 @@ In addition, the `Player` interface allows access to the
+ [playback speed](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getPlaybackParameters()),
+ [volume](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getVolume()) and other
+ auxiliary properties of the playback.
+-| **Note:** `Player` instances don't have to support all features of the interface. You can check the [available commands](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#isCommandAvailable(int)) to see which feature is supported and which method is allowed to be called.
++
++> [!NOTE]
++> **Note:** `Player` instances don't have to support all features of the interface. You can check the [available commands](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#isCommandAvailable(int)) to see which feature is supported and which method is allowed to be called.
+ 
+ ### Listen for changes
+ 
+@@ -89,7 +94,7 @@ details on how to create and use a listener.
+ 
+ Note that the listener interface doesn't include any callbacks to track normal
+ playback progression. To continuously monitor playback progress, such as to set
+-up a progress bar UI, you should query the current position at proper intervals.  
++up a progress bar UI, you should query the current position at proper intervals.
+ 
+ ### Kotlin
+ 
+@@ -132,7 +137,8 @@ playback:
+ - Update [track selection preferences](https://developer.android.com/guide/topics/media/exoplayer/track-selection#modifying-track).
+ - Set the [playback speed](https://developer.android.com/reference/androidx/media3/common/Player#setPlaybackSpeed(float)).
+ 
+-| **Note:** `Player` instances don't have to support all features of the interface. You can check the [available commands](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#isCommandAvailable(int)) to see which feature is supported and which method is allowed to be called.
++> [!NOTE]
++> **Note:** `Player` instances don't have to support all features of the interface. You can check the [available commands](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#isCommandAvailable(int)) to see which feature is supported and which method is allowed to be called.
+ 
+ ## Custom `Player` implementations
+ 

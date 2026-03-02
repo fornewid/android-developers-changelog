@@ -1,5 +1,339 @@
 [
   {
+    "date": "2026-03-02T15:18:25Z",
+    "commit_hash": "71b1ff8",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini\" target=\"_blank\">Gemini AI models</a>",
+        "path": "ai/gemini.md",
+        "summary": "The documentation has been updated with a new link to a code snippet example related to the Gemini model. This update provides users with a direct link to example code within the Android snippets repository, making it easier for them to understand and implement the Gemini model in their applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_gemini.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini/developer-api\" target=\"_blank\">Gemini Developer API</a>",
+        "path": "ai/gemini/developer-api.md",
+        "summary": "The Firebase BoM version in the developer-api.md file was updated from 34.9.0 to 34.10.0. This update is important to ensure developers are using the latest version of the Firebase platform, which can include bug fixes, performance improvements, and security updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_developer-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini/live\" target=\"_blank\">Gemini Live API</a>",
+        "path": "ai/gemini/live.md",
+        "summary": "The Firebase Bill of Materials (BoM) version was updated from 34.9.0 to 34.10.0. This update ensures that the project uses the latest compatible versions of Firebase libraries, potentially including bug fixes, performance improvements, and new features related to Firebase AI functionality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_live.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/imagen\" target=\"_blank\">Generate images with Imagen</a>",
+        "path": "ai/imagen.md",
+        "summary": "The Firebase BoM version for the Firebase AI Logic library was updated from 34.9.0 to 34.10.0. This update is important for incorporating the latest features, bug fixes, and security enhancements provided by Firebase.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_imagen.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/vertex-ai-firebase\" target=\"_blank\">Vertex AI Gemini API</a>",
+        "path": "ai/vertex-ai-firebase.md",
+        "summary": "The Firebase Bill of Materials (BoM) dependency version was updated from 34.9.0 to 34.10.0 in the Gradle configuration. This update ensures that the project uses the latest compatible versions of Firebase libraries, potentially including bug fixes, performance improvements, and new features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_vertex-ai-firebase.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/value-based\" target=\"_blank\">Value-based animations</a>",
+        "path": "develop/ui/compose/animation/value-based.md",
+        "summary": "The documentation for value-based animation in Compose was updated to reflect a change in the code snippet's reference URL. The URL was updated to point to a new commit hash for the relevant code example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_value-based.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/datepickers\" target=\"_blank\">Date pickers</a>",
+        "path": "develop/ui/compose/components/datepickers.md",
+        "summary": "The provided diff shows a change in the URL pointing to a code snippet for DatePickers.kt in the Android snippets repository. The change updates the commit hash used in the URL, indicating an update to the linked code. This ensures the documentation reflects the latest version of the code snippet, maintaining accuracy and relevance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_datepickers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/designsystems/material3\" target=\"_blank\">Material Design 3 in Compose</a>",
+        "path": "develop/ui/compose/designsystems/material3.md",
+        "summary": "The provided diff shows changes to the URLs pointing to the Material3Snippets.kt file within the Android snippets repository. The commit hash in the URL has been updated, indicating a change in the code snippets used in the documentation. This is important to ensure that the examples and code snippets are up-to-date and reflect the current state of the Material 3 design system.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_material3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability\" target=\"_blank\">App orientation, aspect ratio, and resizability</a>",
+        "path": "develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability.md",
+        "summary": "This document introduces changes related to app resizability, orientation, and aspect ratio on Android 16. It details common problems that may arise with apps that restrict these features and provides a guide for ensuring optimal user experience on various devices, including foldables and tablets. The guide includes a readiness checklist with key considerations such as avoiding stretched UI components, enabling scrolling layouts, and preserving app state during window size changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_app-orientation-aspect-ratio-resizability.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/add-toggle-switch\" target=\"_blank\">Add a switch that users can toggle</a>",
+        "path": "develop/ui/compose/quick-guides/content/add-toggle-switch.md",
+        "summary": "The documentation updates the iframe sources in the guide for adding a toggle switch in Compose. This ensures the examples in the guide continue to function and reflect the latest best practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_add-toggle-switch.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/create-button\" target=\"_blank\">Create a button</a>",
+        "path": "develop/ui/compose/quick-guides/content/create-button.md",
+        "summary": "The only change in this document is updating the `src` attribute of the iframe tags.  These changes seem to be related to the deployed content, likely for keeping the content up-to-date. This does not change the core content of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_create-button.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/create-chip\" target=\"_blank\">create-chip.md</a>",
+        "path": "develop/ui/compose/quick-guides/content/create-chip.md",
+        "summary": "The changes in this document primarily involve updating the iframe sources, likely to reflect changes in the underlying code or examples. These updates ensure the examples are up-to-date and function as intended.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_create-chip.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/create-navigation-drawer\" target=\"_blank\">Create a slide-in menu with the navigation drawer component</a>",
+        "path": "develop/ui/compose/quick-guides/content/create-navigation-drawer.md",
+        "summary": "The change involves updating the iframe source URLs in the documentation. This likely reflects updates to the embedded examples or the underlying framework used to render them.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_create-navigation-drawer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/display-app-bar\" target=\"_blank\">Display an app bar</a>",
+        "path": "develop/ui/compose/quick-guides/content/display-app-bar.md",
+        "summary": "The content of the `display-app-bar.md` file has been updated. The primary change involves updating the source URLs within the iframe elements. These changes are likely due to updates to the interactive code examples hosted on the Android developers website, ensuring that the examples remain current and functional.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_display-app-bar.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/display-top-app-bar\" target=\"_blank\">Display a top app bar</a>",
+        "path": "develop/ui/compose/quick-guides/content/display-top-app-bar.md",
+        "summary": "The change involves updating the iframe source URL within the documentation. This update likely reflects a change in the hosted example, such as an updated version or a fix. This matters because it ensures the example code displayed within the documentation is up-to-date and functions correctly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_display-top-app-bar.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/display-user-input\" target=\"_blank\">Display pop-up messages or requests for user input</a>",
+        "path": "develop/ui/compose/quick-guides/content/display-user-input.md",
+        "summary": "The changes in this document involve updating the embedded iframes with new source links. These updates reflect changes to the underlying code examples or their presentation within the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_display-user-input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/show-hide-password\" target=\"_blank\">Show or hide password based on a user toggle</a>",
+        "path": "develop/ui/compose/quick-guides/content/show-hide-password.md",
+        "summary": "The example code for the `PasswordTextField` composable function was updated by adding a closing parenthesis and a bracket in the end. This change fixes a potential syntax issue and ensures the code block is correctly formatted.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_show-hide-password.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/side-effects\" target=\"_blank\">Side-effects in Compose</a>",
+        "path": "develop/ui/compose/side-effects.md",
+        "summary": "The example code snippet's link to the source code was updated to reflect a new commit hash. This ensures the link points to the latest relevant source code, maintaining the accuracy of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_side-effects.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/text/user-input\" target=\"_blank\">Configure text fields</a>",
+        "path": "develop/ui/compose/text/user-input.md",
+        "summary": "The provided diff updates the links to the code snippets used in the examples of the documentation. It changes the commit hash in the URLs to the snippets, but the content being linked to remains relevant. This update ensures that the examples point to the correct, up-to-date versions of the code snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_user-input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/pointer-input/scroll\" target=\"_blank\">Scroll</a>",
+        "path": "develop/ui/compose/touch-input/pointer-input/scroll.md",
+        "summary": "The documentation's code snippet URL has been updated, pointing to a different commit hash in the Android snippets repository. This change ensures the example code aligns with the current version of the snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_scroll.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/appwidgets/configuration\" target=\"_blank\">Enable users to configure app widgets</a>",
+        "path": "develop/ui/views/appwidgets/configuration.md",
+        "summary": "The changes update the example code snippets within the Android app widget configuration documentation. Specifically, it corrects syntax errors in the XML and clarifies the declaration of the configuration activity and the use of the `android:widgetFeatures` attribute. These changes ensure the code examples are accurate and reflect best practices for creating reconfigurable app widgets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_configuration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-video\" target=\"_blank\">Add spatial video to your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-spatial-video.md",
+        "summary": "The provided code snippets, demonstrating the creation of Hemisphere and Sphere surfaces for spatial video playback, have been updated. The changes involve modifying the URL to point to the correct commit hash for the relevant code example, ensuring the link is current and directs users to the most recent version of the code.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_add-spatial-video.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-subspace\" target=\"_blank\">Add a subspace to your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-subspace.md",
+        "summary": "The provided diff updates the URL in the code example to point to the correct GitHub commit hash for the relevant snippet. This ensures the code example remains accurate and points to the latest version of the code.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_add-subspace.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/depth\" target=\"_blank\">Retrieve depth information in your app with ARCore for Jetpack XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore/depth.md",
+        "summary": "The provided code snippets, demonstrating the use of `DepthMap.left(session)`, have been updated to reflect changes in the source code repository. These changes involve modifications to the URL linked to the source code, pointing to a different commit hash. This ensures that the documentation accurately reflects the current state of the example code and provides users with the correct reference for the `DepthMaps.kt` example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_depth.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/licensing/client-side-verification\" target=\"_blank\">Adding Client-Side License Verification to Your App</a>",
+        "path": "google/play/licensing/client-side-verification.md",
+        "summary": "This document introduces warnings about the security of client-side license verification. It recommends server-side verification and updates the explanations of Policy implementations, and clarifies the use of ServerManagedPolicy and StrictPolicy.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_client-side-verification.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform/kmp-integration\" target=\"_blank\">Build custom Gradle plugins for Android KMP</a>",
+        "path": "kotlin/multiplatform/kmp-integration.md",
+        "summary": "The document provides guidance for plugin authors on integrating with Kotlin Multiplatform (KMP) Android targets. Changes include clarification on the document's scope, emphasizing its relevance to both convention and community plugins. It also updates formatting to include an important note about using `targets.configureEach { }` for lazy configuration and highlights the distinction between Android Gradle plugin types.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_kmp-integration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform/plugin\" target=\"_blank\">Set up the Android Gradle Library Plugin for KMP</a>",
+        "path": "kotlin/multiplatform/plugin.md",
+        "summary": "The documentation has been updated to reflect the change from `androidLibrary{}` to `android{}` block for configuring the Android target in Kotlin Multiplatform projects, starting with AGP 8.12.0.  This includes updating all relevant code examples and explanations to use the new `android{}` block and address its impact on Java compilation, testing, resource handling, dependency selection, and JVM target configuration. The changes also clarify that the use of `androidLibrary{}` is deprecated and will be removed in a future release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_plugin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/cast\" target=\"_blank\">Media3 Cast overview</a>",
+        "path": "media/media3/cast.md",
+        "summary": "The documentation for the Media3 Cast module has been updated to provide a clearer explanation of its functionality. It details how the module extends media playback to Cast devices, clarifies the role of the sender and receiver apps, and highlights the use of the `CastPlayer` for managing both local and remote playback. Additionally, the documentation now includes links to relevant resources, such as creating a `CastPlayer` and the Cast SDK overview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_cast.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/cast/create-castplayer\" target=\"_blank\">Getting started with CastPlayer</a>",
+        "path": "media/media3/cast/create-castplayer.md",
+        "summary": "This document provides updated information on integrating CastPlayer into an Android app, including clearer instructions on setting up Cast-enabled devices, adding dependencies, and implementing UI elements for media playback. The changes refine the guidance on creating a CastPlayer instance, specifically mentioning the use of the Output Switcher for seamless transitions between local and remote playback and providing updated code snippets and UI implementation methods.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_create-castplayer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/cast/customize-castoptions\" target=\"_blank\">CastOptions</a>",
+        "path": "media/media3/cast/customize-castoptions.md",
+        "summary": "The documentation was updated to reflect the use of Markdown links for class references, such as `OptionsProvider` and `CastOptions`.  Additionally, comments were updated to mention adding the receiver app ID in `<APP_ID>`",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_customize-castoptions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/hello-world\" target=\"_blank\">Getting started</a>",
+        "path": "media/media3/exoplayer/hello-world.md",
+        "summary": "The documentation for the ExoPlayer Hello World example has been updated. The changes involve modifying a link to the Kotlin sample code, likely to reflect code changes or updates within the sample project. This matters because it ensures that users are directed to the correct and up-to-date source code for the example, facilitating a better learning experience.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_hello-world.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/playlists\" target=\"_blank\">Playlists</a>",
+        "path": "media/media3/exoplayer/playlists.md",
+        "summary": "The documentation for playlists.md has been updated with a modified link to a Kotlin sample code, reflecting a change in the git commit hash. This update ensures that the provided code example accurately reflects the current state of the sample and avoids broken links or outdated information.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_playlists.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/background-playback\" target=\"_blank\">Background playback with a MediaSessionService</a>",
+        "path": "media/media3/session/background-playback.md",
+        "summary": "This document introduces changes related to background playback in Media3. The updates primarily involve formatting improvements, clarifying notes with the use of callout boxes for better readability, and adding a tip on implementing casting functionality. Additionally, some important notes and warnings have been updated to use callout boxes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_background-playback.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/control-playback\" target=\"_blank\">Control and advertise playback using a MediaSession</a>",
+        "path": "media/media3/session/control-playback.md",
+        "summary": "This document introduces changes related to handling media playback control with Media3. Key modifications include the addition of a tip about casting implementation, updates to the formatting of notes, and adjustments to code examples.  The changes aim to improve clarity and provide additional guidance for developers using the Media3 library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_control-playback.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/player\" target=\"_blank\">The Player Interface</a>",
+        "path": "media/media3/session/player.md",
+        "summary": "The documentation for the `player.md` file has been updated to reflect the `RemoteCastPlayer` class as an implementation of the Player interface. The `CastPlayer` description was also modified for clarity. Additionally, the documentation now uses the \"TIP\" and \"NOTE\" callout blocks consistently.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_player.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated to reflect the new nightly build date, changing all instances of \"2026-02-27\" to \"2026-03-02\" and updating the download links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/secure-file-sharing/request-file\" target=\"_blank\">Requesting a shared file</a>",
+        "path": "training/secure-file-sharing/request-file.md",
+        "summary": "The documentation has been updated to include complete URLs for Android framework classes and methods, providing more explicit references. It also includes minor text adjustments for clarity, enhancing the overall readability and precision of the instructions. The changes improve the clarity and accuracy of the code examples and explanations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_request-file.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/system-ui/status\" target=\"_blank\">Hide the status bar</a>",
+        "path": "training/system-ui/status.md",
+        "summary": "This document describes how to hide the status bar on different Android versions to provide a more immersive user experience. It explains the methods for hiding the status bar using WindowManager flags (for Android 4.0 and lower) and setSystemUiVisibility() (for Android 4.1 and higher). Additionally, it covers how to make content appear behind the status bar and handle potential UI issues.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_status.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/tif/tvinput\" target=\"_blank\">Develop a TV input service</a>",
+        "path": "training/tv/tif/tvinput.md",
+        "summary": "This document has been updated to consistently use HTTPS URLs for developer.android.com references.  This change improves the document by using secure links to relevant documentation and resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_tvinput.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/migrate-to-material3\" target=\"_blank\">Migrate from Material 2.5 to Material 3 in Compose for Wear OS</a>",
+        "path": "training/wearables/compose/migrate-to-material3.md",
+        "summary": "The provided diff updates the link to a code snippet in a Kotlin file. Specifically, it changes the commit hash in the URL for a Wear OS Compose example. This is important to ensure the documentation references the most up-to-date code and maintains consistency with the current version of the library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_migrate-to-material3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/data/client-types\" target=\"_blank\">Choose a client type</a>",
+        "path": "training/wearables/data/client-types.md",
+        "summary": "This document introduces the Data Layer API and when to use it, emphasizing its use for interactions between a local watch and phone. It also includes links to additional resources for common use cases, syncing data, and power considerations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/71b1ff8_client-types.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-02-28T15:08:10Z",
     "commit_hash": "f1c60ef",
     "entries": [

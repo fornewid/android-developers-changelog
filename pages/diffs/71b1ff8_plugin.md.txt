@@ -1,0 +1,166 @@
+diff --git a/docs/kotlin/multiplatform/plugin.md b/docs/kotlin/multiplatform/plugin.md
+index 55ed76d..4fef2b1 100644
+--- a/docs/kotlin/multiplatform/plugin.md
++++ b/docs/kotlin/multiplatform/plugin.md
+@@ -43,11 +43,11 @@ from the standard `com.android.library` plugin in several key aspects:
+   required.
+ 
+ - **No top-Level Android extension:** Configuration is handled with an
+-  `androidLibrary` block within the Gradle KMP DSL, maintaining a consistent
++  `android` block within the Gradle KMP DSL, maintaining a consistent
+   KMP project structure. There's no top-level `android` extension block.
+ 
+ - **Opt-in Java compilation:** Java compilation is disabled by default. Use
+-  `withJava()` in the `androidLibrary` block to enable it. This improves build
++  `withJava()` in the `android` block to enable it. This improves build
+   times when Java compilation is not needed.
+ 
+ ## Benefits of the Android-KMP library plugin
+@@ -212,13 +212,13 @@ steps:
+    ```
+ 4. **Configure Android KMP target.** Configure the Kotlin Multiplatform block
+    (`kotlin`) to define the Android target. Within the `kotlin` block, specify
+-   the Android target using `androidLibrary`:
++   the Android target using `android`:
+ 
+    ### Kotlin
+ 
+    ```kotlin
+    kotlin {
+-      androidLibrary {
++      android {
+           namespace = "com.example.kmpfirstlib"
+           compileSdk = 33
+           minSdk = 24
+@@ -260,7 +260,7 @@ steps:
+ 
+    ```groovy
+    kotlin {
+-      androidLibrary {
++      android {
+           namespace = "com.example.kmpfirstlib"
+           compileSdk = 33
+           minSdk = 24
+@@ -302,7 +302,7 @@ This guide helps you migrate from the legacy `com.android.library` plugin to the
+ `com.android.kotlin.multiplatform.library` plugin.
+ 
+ > [!NOTE]
+-> **Note:** Since Kotlin Gradle Plugin version 2.2.0-Beta2 and Android Gradle Plugin version 8.12.0-alpha04, a new configuring block exists called `android{}` alongside the `androidLibrary{}` one. The `androidLibrary{}` block is deprecated and will be removed in a future release of AGP, so migrate to the `android{}` block.
++> **Note:** For Android Gradle Plugin versions below 8.12.0, the configuration block for the Android target is `androidLibrary{}`. Starting with AGP 8.12.0, a new `android{}` block was introduced to replace `androidLibrary{}`. `androidLibrary{}` is deprecated since AGP 9.1.0-alpha09 and will be removed in a future release. If you are using AGP 8.12.0 or higher, use `android{}`, otherwise use `androidLibrary{}`.
+ 
+ ### 1. Moving Sources
+ 
+@@ -332,7 +332,7 @@ device tests](https://developer.android.com/kotlin/multiplatform/plugin#configur
+     // build.gradle.kts
+ 
+     kotlin {
+-        androidLibrary {}
++        android {}
+         //... other targets
+ 
+         sourceSets {
+@@ -356,7 +356,7 @@ build script like so:
+     // build.gradle.kts
+ 
+     kotlin {
+-        androidLibrary {
++        android {
+             compilations.getByName("deviceTest") {
+                 kotlinOptions.languageVersion = "2.0"
+             }
+@@ -401,7 +401,7 @@ be placed in `src/androidMain/res`.
+     // build.gradle.kts
+ 
+     kotlin {
+-      androidLibrary {
++      android {
+         // ...
+         // Enable Android resource processing
+         androidResources {
+@@ -454,7 +454,7 @@ the build logic and source sets that you actively use.
+ ### Android-KMP
+ 
+ In the new plugin, you enable and configure tests inside the
+-`kotlin.androidLibrary` block. This makes the setup more explicit and avoids
++`kotlin.android` block. This makes the setup more explicit and avoids
+ creating unused test components. The `androidUnitTest` source set becomes
+ `androidHostTest` (the test directory changes from `src/androidUnitTest` to
+ `src/androidHostTest`), and `androidInstrumentedTest` becomes
+@@ -464,7 +464,7 @@ creating unused test components. The `androidUnitTest` source set becomes
+     // build.gradle.kts
+ 
+     kotlin {
+-      androidLibrary {
++      android {
+         // ...
+ 
+         // Opt-in to enable and configure host-side (unit) tests
+@@ -525,14 +525,14 @@ target version also changes.
+ ### Android-KMP
+ 
+ You must opt-in to Java compilation by calling `withJava()`. The JVM target
+-is now configured directly inside the `kotlin { androidLibrary {} }` block
++is now configured directly inside the `kotlin { android {} }` block
+ for a more unified setup. Setting `jvmTarget` here applies to both Kotlin
+ and Java compilation for the Android target.
+ 
+     // build.gradle.kts
+ 
+     kotlin {
+-      androidLibrary {
++      android {
+         //  Opt-in to enable Java source compilation
+         withJava()
+         // Configure the JVM target for both Kotlin and Java sources
+@@ -621,13 +621,13 @@ selects a variant from that dependency is a common requirement.
+ ### Android-KMP
+ 
+ The new plugin centralizes and clarifies this logic within the
+-`kotlin.androidLibrary.localDependencySelection` block. This makes it much
++`kotlin.android.localDependencySelection` block. This makes it much
+ clearer which variants of external dependencies will be selected for your
+ single-variant KMP library.
+ 
+     // build.gradle.kts
+     kotlin {
+-      androidLibrary {
++      android {
+         localDependencySelection {
+           // For dependencies with multiple build types, select 'debug' first, and 'release' in case 'debug' is missing
+           selectBuildTypeFrom.set(listOf("debug", "release"))
+@@ -691,7 +691,7 @@ from being included in the library's release variant used by the consumers.
+ ### 9. Configure the JVM target for the KMP Android target
+ 
+ The KMP Android plugin sets the JVM target using
+-`androidLibrary.compilerOptions.jvmTarget`, which applies to both Java and
++`android.compilerOptions.jvmTarget`, which applies to both Java and
+ Kotlin, simplifying the configuration compared to the separate
+ `compileOptions` and `kotlinOptions` blocks in pure Android projects.
+ 
+@@ -732,7 +732,7 @@ within the `android` block. This setting overrides the project-wide
+ 
+     // build.gradle.kts
+     kotlin {
+-        androidLibrary {
++        android {
+             compilerOptions {
+                 jvmTarget.set(JvmTarget.JVM_11)
+             }
+@@ -752,7 +752,7 @@ Android target-level options.
+ 
+     // build.gradle.kts
+     kotlin {
+-        androidLibrary {
++        android {
+             compilations.all {
+                 compileTaskProvider.configure {
+                     compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
+@@ -812,7 +812,7 @@ within the `consumerKeepRules` block to publish consumer keep rules.
+ 
+     // build.gradle.kts
+     kotlin {
+-      androidLibrary {
++      android {
+         optimization {
+           consumerKeepRules.apply {
+             publish = true

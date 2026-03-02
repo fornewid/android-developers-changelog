@@ -1,0 +1,44 @@
+diff --git a/docs/kotlin/multiplatform/kmp-integration.md b/docs/kotlin/multiplatform/kmp-integration.md
+index f585fb8..7546047 100644
+--- a/docs/kotlin/multiplatform/kmp-integration.md
++++ b/docs/kotlin/multiplatform/kmp-integration.md
+@@ -4,7 +4,16 @@ url: https://developer.android.com/kotlin/multiplatform/kmp-integration
+ source: md.txt
+ ---
+ 
+-This document provides a guide for plugin authors on how to correctly detect, interact with, and configure the Kotlin Multiplatform (KMP) setup, with a specific focus on integrating with the Android targets within a KMP project. As KMP continues to evolve, understanding the proper hooks and APIs---such as `KotlinMultiplatformExtension`, `KotlinTarget` types, and the Android-specific integration interfaces---is essential for building robust and future-proof tooling that works seamlessly across all platforms defined in a multiplatform project.
++This document provides a guide for plugin authors on how to correctly detect,
++interact with, and configure the Kotlin Multiplatform (KMP) setup, with a
++specific focus on integrating with the Android targets within a KMP project.
++These recommendations apply whether you're building convention plugins to
++standardize configurations across your project's modules or developing plugins
++for broader community use. As KMP continues to evolve, understanding the proper
++hooks and APIs---such as `KotlinMultiplatformExtension`, `KotlinTarget` types,
++and the Android-specific integration interfaces---is essential for building
++robust and future-proof tooling that works seamlessly across all platforms
++defined in a multiplatform project.
+ 
+ ## Check if a project uses the Kotlin Multiplatform plugin
+ 
+@@ -47,7 +56,9 @@ The entry point for all Kotlin Multiplatform configurations is the
+ 
+ Use the `targets` container to reactively configure your plugin for each target
+ the user adds.
+-| **Important:** Use `targets.configureEach { }` to apply configuration lazily. Iterating with `forEach` might cause errors if the targets are not yet fully registered or configured by Gradle.
++
++> [!IMPORTANT]
++> **Important:** Use `targets.configureEach { }` to apply configuration lazily. Iterating with `forEach` might cause errors if the targets are not yet fully registered or configured by Gradle.
+ 
+     import org.gradle.api.Plugin
+     import org.gradle.api.Project
+@@ -105,7 +116,9 @@ two distinct integration points depending on the Android Gradle plugin used:
+ `KotlinAndroidTarget` for projects using `com.android.library` or
+ `com.android.application`, and `KotlinMultiplatformAndroidLibraryTarget` for
+ projects using `com.android.kotlin.multiplatform.library`.
+-| **Note:** The new KMP Android plugin, `com.android.kotlin.multiplatform.library`, is not part of the `com.android.base` plugin, which other Android plugins (like `com.android.application` and `com.android.library`) are part of. This is an important distinction if your plugin logic relies on detecting `com.android.base`.
++
++> [!NOTE]
++> **Note:** The new KMP Android plugin, `com.android.kotlin.multiplatform.library`, is not part of the `com.android.base` plugin, which other Android plugins (like `com.android.application` and `com.android.library`) are part of. This is an important distinction if your plugin logic relies on detecting `com.android.base`.
+ 
+ The `KotlinMultiplatformAndroidLibraryTarget` API was added in AGP 8.8.0 so if
+ the consumers of your plugin are running on lower version of AGP, checking
