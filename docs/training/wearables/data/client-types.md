@@ -12,6 +12,12 @@ This page introduces each client type, and it includes a table that compares the
 capabilities of the different clients. Using this information, you can select
 the set of client types that works best for your app.
 
+## When to use the Data Layer API
+
+Use the Data Layer API when the interaction is strictly between the local watch
+and the local phone. For detailed examples, see the
+[Data Layer common use cases](https://developer.android.com/training/wearables/data/overview#common-use-cases).
+
 ## Data client
 
 A [`DataClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient) object lets you read or write to a [`DataItem`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataItem) or
@@ -68,3 +74,7 @@ The following table compares the capabilities of the different clients:
 | **Data client** | Data is persisted indefinitely | Yes (use [`Asset`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Asset) objects) | Bluetooth preferred. Data is backed up to the cloud; if Bluetooth is available, this backup is done asynchronously | Yes, for both read and write |
 | **Message client** | No persistence and no retry | No | Bluetooth preferred, but can use Wi-Fi if it's the only type of connection available | No |
 | **Channel client** | No persistence (connection-oriented) | Yes | Bluetooth preferred, but can use Wi-Fi if it's the only type of connection available | No |
+
+For further information on working with the Data Layer APIs, see the
+[Sync data](https://developer.android.com/training/wearables/data/sync) guide. For power considerations when using the Data Layer APIs,
+see the [Conserve power](https://developer.android.com/training/wearables/apps/power#data_layer) guide.

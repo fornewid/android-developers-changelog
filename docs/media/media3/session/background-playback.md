@@ -8,7 +8,9 @@ It is often desirable to play media while an app is not in the foreground. For
 example, a music player generally keeps playing music when the user has locked
 their device or is using another app. The Media3 library provides a series of
 interfaces that allow you to support background playback.
-| **Note:** The following instructions for `MediaSessionService` equally apply to `MediaLibraryService`, which should be used instead of `MediaSessionService` when [serving a content library](https://developer.android.com/media/media3/session/serve-content).
+
+> [!NOTE]
+> **Note:** The following instructions for `MediaSessionService` equally apply to `MediaLibraryService`, which should be used instead of `MediaSessionService` when [serving a content library](https://developer.android.com/media/media3/session/serve-content).
 
 ## Use a MediaSessionService
 
@@ -40,7 +42,12 @@ You need to implement two lifecycle methods of your service:
 You can optionally override `onTaskRemoved(Intent)` to customize what happens
 when the user dismisses the app from the recent tasks. By default, the service
 is left running if playback is ongoing and is stopped otherwise.
-**Note:** You can [implement playback resumption](https://developer.android.com/media/media3/session/background-playback#resumption) to allow a user to restart the service lifecycle and resume playback from where it was left off.  
+
+> [!NOTE]
+> **Note:** You can [implement playback resumption](https://developer.android.com/media/media3/session/background-playback#resumption) to allow a user to restart the service lifecycle and resume playback from where it was left off.
+
+> [!TIP]
+> **Tip:** You can [implement casting](https://developer.android.com/media/media3/cast/create-castplayer#add-castplayer) capability in your media app by setting the `ExoPlayer` as the local player instance for `CastPlayer` inside a `MediaSessionService`.
 
 ### Kotlin
 
@@ -95,7 +102,7 @@ public class PlaybackService extends MediaSessionService {
 <br />
 
 As an alternative of keeping playback ongoing in the background, you can
-stop the service in any case when the user dismisses the app:  
+stop the service in any case when the user dismisses the app:
 
 ### Kotlin
 
@@ -123,7 +130,7 @@ foreground service is started.
 ### Provide access to the media session
 
 Override the `onGetSession()` method to give other clients access to your media
-session that was built when the service was created.  
+session that was built when the service was created.
 
 ### Kotlin
 
@@ -156,14 +163,14 @@ public class PlaybackService extends MediaSessionService {
 ### Declare the service in the manifest
 
 An app requires the `FOREGROUND_SERVICE` and `FOREGROUND_SERVICE_MEDIA_PLAYBACK`
-permissions to run a playback foreground service:  
+permissions to run a playback foreground service:
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 
 You must also declare your `Service` class in the manifest with an intent filter
 of `MediaSessionService` and a [`foregroundServiceType`](https://developer.android.com/guide/topics/manifest/service-element#foregroundservicetype) that includes
-`mediaPlayback`.  
+`mediaPlayback`.
 
     <service
         android:name=".PlaybackService"
@@ -175,7 +182,8 @@ of `MediaSessionService` and a [`foregroundServiceType`](https://developer.andro
         </intent-filter>
     </service>
 
-| **Note:** If you would like your `MediaLibraryService` to be compatible with client apps using the platform `MediaBrowserService`, you need to include `<action android:name="android.media.browse.MediaBrowserService"/>` in the `intent-filter` element.
+> [!NOTE]
+> **Note:** If you would like your `MediaLibraryService` to be compatible with client apps using the platform `MediaBrowserService`, you need to include `<action android:name="android.media.browse.MediaBrowserService"/>` in the `intent-filter` element.
 
 ## Control playback using a `MediaController`
 
@@ -192,7 +200,9 @@ The `MediaSession` receives commands from the controller through its
 `MediaSession.Callback`. Initializing a `MediaSession` creates a default
 implementation of `MediaSession.Callback` that automatically handles all
 commands a `MediaController` sends to your player.
-| **Note:** A `MediaSession.ControllerInfo` is passed as an argument to the functions within the `MediaSession.Callback` interface. This allows you to see the caller package with `controllerInfo.packageName` and tailor how your app reacts accordingly. For example, you may wish to handle a command differently if it came from Android Auto or a Bluetooth headset (`com.android.bluetooth`). Also refer to the [control playback](https://developer.android.com/media/media3/session/control-playback#controller-for-current-request) page for more details on how to identify the caller for `Player` methods.
+
+> [!NOTE]
+> **Note:** A `MediaSession.ControllerInfo` is passed as an argument to the functions within the `MediaSession.Callback` interface. This allows you to see the caller package with `controllerInfo.packageName` and tailor how your app reacts accordingly. For example, you may wish to handle a command differently if it came from Android Auto or a Bluetooth headset (`com.android.bluetooth`). Also refer to the [control playback](https://developer.android.com/media/media3/session/control-playback#controller-for-current-request) page for more details on how to identify the caller for `Player` methods.
 
 ## Notification
 
@@ -209,7 +219,7 @@ current media item being played alongside playback controls based on your
 `MediaSession` configuration.
 
 The required metadata can be provided in the media or declared as part of the
-media item as in the following snippet:  
+media item as in the following snippet:
 
 ### Kotlin
 
@@ -289,7 +299,9 @@ with [`DefaultMediaNotificationProvider.Builder`](https://developer.android.com/
 or by creating a custom implementation of the provider interface. Add your
 provider to your `MediaSessionService` with
 [`setMediaNotificationProvider`](https://developer.android.com/reference/androidx/media3/session/MediaSessionService#setMediaNotificationProvider(androidx.media3.session.MediaNotification.Provider)).
-| **Warning:** Starting with API 33, the System UI media notification is populated from the data in the media session. We advise against modifications using `MediaNotification.Provider` as these only take effect before API 33. Instead, change the state of the `MediaItem.MediaMetadata` and the session's media button preferences.
+
+> [!WARNING]
+> **Warning:** Starting with API 33, the System UI media notification is populated from the data in the media session. We advise against modifications using `MediaNotification.Provider` as these only take effect before API 33. Instead, change the state of the `MediaItem.MediaMetadata` and the session's media button preferences.
 
 ## Playback resumption
 
@@ -302,7 +314,7 @@ a media button receiver and implement the `onPlaybackResumption` method.
 
 ### Declare the Media3 media button receiver
 
-Start by declaring the `MediaButtonReceiver` in your manifest:  
+Start by declaring the `MediaButtonReceiver` in your manifest:
 
     <receiver android:name="androidx.media3.session.MediaButtonReceiver"
       android:exported="true">
@@ -311,7 +323,8 @@ Start by declaring the `MediaButtonReceiver` in your manifest:
       </intent-filter>
     </receiver>
 
-| **Important:** If you add the `MediaButtonReceiver`, you **must** implement `MediaSession.Callback.onPlaybackResumption()` as a second step.
+> [!IMPORTANT]
+> **Important:** If you add the `MediaButtonReceiver`, you **must** implement `MediaSession.Callback.onPlaybackResumption()` as a second step.
 
 ### Implement playback resumption callback
 
@@ -319,7 +332,9 @@ When playback resumption is requested by either a Bluetooth device or the
 Android System UI [resumption feature](https://developer.android.com/media/implement/surfaces/mobile#supporting-media),
 the [`onPlaybackResumption()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaSession.Callback#onPlaybackResumption(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,boolean)) callback method is
 called.
-**Note:** The Android System UI resumption notification is only available if you implement a `MediaLibraryService` to [serve a content library](https://developer.android.com/media/media3/session/serve-content).  
+
+> [!NOTE]
+> **Note:** The Android System UI resumption notification is only available if you implement a `MediaLibraryService` to [serve a content library](https://developer.android.com/media/media3/session/serve-content).
 
 ### Kotlin
 
@@ -362,7 +377,8 @@ public ListenableFuture<MediaItemsWithStartPosition> onPlaybackResumption(
 
 <br />
 
-| **Important:** You should aim to complete the `ListenableFuture` as quickly as possible to keep startup latency low.
+> [!IMPORTANT]
+> **Important:** You should aim to complete the `ListenableFuture` as quickly as possible to keep startup latency low.
 
 If you've stored other parameters such as playback speed, repeat mode, or
 shuffle mode, `onPlaybackResumption()` is a good place to configure the player
@@ -411,7 +427,7 @@ legacy and platform controllers.
 
 For example, an app can provide an implementation of
 `MediaSession.Callback.onConnect()` to set available commands and
-media button preferences specifically for the platform session as follows:  
+media button preferences specifically for the platform session as follows:
 
 ### Kotlin
 
@@ -470,14 +486,15 @@ public ConnectionResult onConnect(
 
 <br />
 
-| **Caution:** Rejecting an attempt of the media notification controller to connect, causes your app to not work properly.
+> [!CAUTION]
+> **Caution:** Rejecting an attempt of the media notification controller to connect, causes your app to not work properly.
 
 ### Authorize Android Auto to send custom commands
 
 When using a [`MediaLibraryService`](https://developer.android.com/guide/topics/media/session/medialibraryservice)
 and to support Android Auto with the mobile app, the Android Auto controller
 requires appropriate available commands, otherwise Media3 would deny
-incoming custom commands from that controller:  
+incoming custom commands from that controller:
 
 ### Kotlin
 

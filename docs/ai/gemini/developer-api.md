@@ -58,7 +58,7 @@ dependencies {
   // ... other androidx dependencies
 
   // Import the BoM for the Firebase platform
-  implementation(platform("com.google.firebase:firebase-bom:34.9.0"))
+  implementation(platform("com.google.firebase:firebase-bom:34.10.0"))
 
   // Add the dependency for the Firebase AI Logic library When using the BoM,
   // you don't specify versions in Firebase library dependencies
@@ -72,7 +72,7 @@ dependencies {
 ```java
 dependencies {
   // Import the BoM for the Firebase platform
-  implementation(platform("com.google.firebase:34.9.0"))
+  implementation(platform("com.google.firebase:34.10.0"))
 
   // Add the dependency for the Firebase AI Logic library When using the BoM,
   // you don't specify versions in Firebase library dependencies

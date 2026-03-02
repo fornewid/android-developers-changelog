@@ -58,7 +58,7 @@ initialize a media session when it is needed, such as the `onStart()` or
 method of the `Service` that owns the media session and its associated player.
 
 To create a media session, initialize a `Player` and supply it to
-`MediaSession.Builder` like this:  
+`MediaSession.Builder` like this:
 
 ### Kotlin
 
@@ -75,6 +75,9 @@ MediaSession mediaSession = new MediaSession.Builder(context, player).build();
 ```
 
 <br />
+
+> [!TIP]
+> **Tip:** You can [implement casting](https://developer.android.com/media/media3/cast/create-castplayer#add-castplayer) capability in your media app by setting the `ExoPlayer` as the local player instance for `CastPlayer` before creating a `MediaSession` with it.
 
 ### Automatic state handling
 
@@ -115,8 +118,11 @@ watch so that you can control playback from the watchface. External clients can
 use a media controller to issue playback commands to your media app. These are
 received by your media session, which ultimately delegates commands to the
 media player.
-![A diagram demonstrating the interaction between a MediaSession and MediaController.](https://developer.android.com/static/guide/topics/media/images/backgroundcontrols.png) **Figure 1**: The media controller facilitates passing commands from external sources to the media session. **Note:** When playing media in the background, your MediaSession and the player need to be housed within a `MediaSessionService` or `MediaLibraryService` that runs as a foreground service. For more information, see [Background
-| playback with a `MediaSessionService`](https://developer.android.com/guide/topics/media/session/mediasessionservice).
+![A diagram demonstrating the interaction between a MediaSession and MediaController.](https://developer.android.com/static/guide/topics/media/images/backgroundcontrols.png) **Figure 1**: The media controller facilitates passing commands from external sources to the media session.
+
+> [!NOTE]
+> **Note:** When playing media in the background, your MediaSession and the player need to be housed within a `MediaSessionService` or `MediaLibraryService` that runs as a foreground service. For more information, see [Background
+> playback with a `MediaSessionService`](https://developer.android.com/guide/topics/media/session/mediasessionservice).
 
 When a controller is about to connect to your media session, the
 [`onConnect()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onConnect(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo))
@@ -212,7 +218,8 @@ CommandButton button =
 
 <br />
 
-| **Note:** Some commands like `COMMAND_SET_REPEAT_MODE` need additional parameters to be fully functional. You can specify these parameters as a second argument in `setPlayerCommand`. Refer to the documentation of [`CommandButton.executeAction`](https://developer.android.com/reference/androidx/media3/session/CommandButton#executeAction(androidx.media3.session.MediaController)) for a complete list of supported commands.
+> [!NOTE]
+> **Note:** Some commands like `COMMAND_SET_REPEAT_MODE` need additional parameters to be fully functional. You can specify these parameters as a second argument in `setPlayerCommand`. Refer to the documentation of [`CommandButton.executeAction`](https://developer.android.com/reference/androidx/media3/session/CommandButton#executeAction(androidx.media3.session.MediaController)) for a complete list of supported commands.
 
 When media button preferences are resolved, the following algorithm is applied:
 
@@ -228,7 +235,7 @@ constraints.
 The easiest way to set the media button preferences is to define the list when
 building the `MediaSession`. Alternatively, you can override
 `MediaSession.Callback.onConnect` to customize the media button preferences for
-each connected controller.  
+each connected controller.
 
 ### Kotlin
 
@@ -257,7 +264,7 @@ buttons displayed in the controller UI. A typical example is a toggle button
 that changes its icon and action after triggering the action associated with
 this button. To update the media button preferences, you can use
 `MediaSession.setMediaButtonPreferences` to either update the preferences for
-all controllers or a specific controller:  
+all controllers or a specific controller:
 
 ### Kotlin
 
@@ -290,11 +297,13 @@ the [media button preferences](https://developer.android.com/media/media3/sessio
 want to implement buttons that allow the user to save a media item to a list of
 favorite items. The `MediaController` sends custom commands and the
 `MediaSession.Callback` receives them.
-| **Caution:** You must implement custom commands as a completely new behavior. Don't use a custom command to replace one of the standard controls defined in the `Player` interface.
+
+> [!CAUTION]
+> **Caution:** You must implement custom commands as a completely new behavior. Don't use a custom command to replace one of the standard controls defined in the `Player` interface.
 
 To define custom commands, you need to override
 `MediaSession.Callback.onConnect()` to set the available custom commands for
-each connected controller.  
+each connected controller.
 
 ### Kotlin
 
@@ -338,7 +347,7 @@ class CustomMediaSessionCallback implements MediaSession.Callback {
 <br />
 
 To receive custom command requests from a `MediaController`, override the
-`onCustomCommand()` method in the `Callback`.  
+`onCustomCommand()` method in the `Callback`.
 
 ### Kotlin
 
@@ -400,7 +409,7 @@ own app, or other client apps.
 All default commands and state handling is delegated to the `Player` that is on
 the `MediaSession`. To customize the behavior of a command defined in the
 `Player` interface, such as `play()` or `seekToNext()`, wrap your `Player` in a
-`ForwardingSimpleBasePlayer` before passing it to `MediaSession`:  
+`ForwardingSimpleBasePlayer` before passing it to `MediaSession`:
 
 ### Kotlin
 
@@ -438,7 +447,7 @@ on
 
 When a call to a `Player` method is originated by a `MediaController`, you can
 identify the source of origin with `MediaSession.controllerForCurrentRequest`
-and acquire the `ControllerInfo` for the current request:  
+and acquire the `ControllerInfo` for the current request:
 
 ### Kotlin
 
@@ -513,7 +522,9 @@ In such a case, the playback state is transitioned to `STATE_IDLE` and
 `MediaController.getPlaybackError()` returns the `PlaybackException` that caused
 the transition. A controller can inspect the `PlayerException.errorCode` to get
 information about the reason for the error.
-| **Note:** For interoperability, a fatal error is replicated to the platform session by transitioning its state to `STATE_ERROR` and setting error code and message according to the `PlaybackException`.
+
+> [!NOTE]
+> **Note:** For interoperability, a fatal error is replicated to the platform session by transitioning its state to `STATE_ERROR` and setting error code and message according to the `PlaybackException`.
 
 #### Setting a custom player error
 
@@ -543,7 +554,8 @@ When an app sets a `PlaybackException` using this API:
   player, like `COMMAND_PLAY`, are removed until the playback exception for the
   given controller is removed by the app.
 
-| **Note:** If a controller connects while the session has a `PlaybackException` set, the controller's initial state will be `Player.STATE_IDLE` and `getPlayerError()` will return the session-level exception.
+> [!NOTE]
+> **Note:** If a controller connects while the session has a `PlaybackException` set, the controller's initial state will be `Player.STATE_IDLE` and `getPlayerError()` will return the session-level exception.
 
 To clear a previously set custom `PlaybackException` and restore the normal
 player state reporting, an app can call
@@ -556,7 +568,7 @@ player state reporting, an app can call
 To provide localized and meaningful information to the user, you can customize
 the error code, the error message, and error extras of a fatal playback error
 coming from the actual player. It can be achieved by using a `ForwardingPlayer`
-when building the session:  
+when building the session:
 
 ### Kotlin
 
@@ -577,7 +589,7 @@ MediaSession session =
 
 The forwarding player can use `ForwardingSimpleBasePlayer` to intercept the
 error and customize the error code, message or extras. In the same way, you can
-also generate new errors that don't exist in the original player:  
+also generate new errors that don't exist in the original player:
 
 ### Kotlin
 
@@ -665,7 +677,7 @@ class ErrorForwardingPlayer extends ForwardingSimpleBasePlayer {
 ### Nonfatal errors
 
 Nonfatal errors that do *not* originate from a technical exception can be sent
-by an app to all or to a specific controller:  
+by an app to all or to a specific controller:
 
 ### Kotlin
 
@@ -713,7 +725,7 @@ code and error message is replicated to the platform media session, while
 #### Receive nonfatal errors
 
 A `MediaController` receives a nonfatal error by implementing
-`MediaController.Listener.onError`:  
+`MediaController.Listener.onError`:
 
 ### Kotlin
 

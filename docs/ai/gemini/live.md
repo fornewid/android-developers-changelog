@@ -29,7 +29,7 @@ BoM](https://firebase.google.com/docs/android/learn-more#bom) to manage library 
 
     dependencies {
       // Import the Firebase BoM
-      implementation(platform("com.google.firebase:firebase-bom:34.9.0"))
+      implementation(platform("com.google.firebase:firebase-bom:34.10.0"))
       // Add the dependency for the Firebase AI Logic library
       // When using the BoM, you don't specify versions in Firebase library dependencies
       implementation("com.google.firebase:firebase-ai")
