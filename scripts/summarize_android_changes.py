@@ -136,9 +136,8 @@ def generate_summary(client, filename, content, is_new=False):
     if is_new:
         task_instructions = """
     1. **NEW FILE ADDED.**
-       - Thoroughly summarize the full content of this new documentation page in detail.
-       - Focus on the core concepts, main topics, and the exact purpose of the document.
-       - Provide a detailed, highly informative, and comprehensive overview.
+       - Briefly summarize the core concepts and the exact purpose of this new documentation page.
+       - Keep the summary very concise, about 1 to 2 sentences maximum.
        - **Return ONE summary** with header "Overview".
     """
 
@@ -149,7 +148,7 @@ def generate_summary(client, filename, content, is_new=False):
     Task:
     {task_instructions}
     
-    3. **Write informative properties.** The summary should explain "what changed" and "why it matters" in English. For a new file, provide a comprehensive and detailed overview.
+    3. **Write informative properties.** The summary should explain "what changed" and "why it matters" in English. For a new file, provide a concise 1-2 sentence overview.
     4. Return the result in JSON format.
     
     Format example:
@@ -295,11 +294,9 @@ def main():
             continue
 
         if status == 'M':
-            yaml_summary = extract_yaml_summary(full_content)
-            if not yaml_summary:
-                logger.info(f"Skipping {filename} (UPDATE) because no YAML summary found.")
+            if not content:
                 continue
-            summaries = [{'header': 'Overview', 'summary': yaml_summary}]
+            summaries = generate_summary(client, filename, content, False)
         elif status == 'A':
             if not content:
                 continue
