@@ -1,0 +1,118 @@
+diff --git a/docs/develop/ui/views/search/training/search.md b/docs/develop/ui/views/search/training/search.md
+index 50c8d4f..f0236bd 100644
+--- a/docs/develop/ui/views/search/training/search.md
++++ b/docs/develop/ui/views/search/training/search.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/search/training/search
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose.  
+-[Filter a list →](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Filter a list →](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ There are many ways to store your data, such as in an online database, in a local SQLite
+ database, or even in a text file. It is up to you to decide what is the best solution for your
+@@ -19,7 +16,7 @@ definition pair on each line in the file.
+ 
+ A virtual table behaves similarly to a SQLite table, but reads and writes to an object in
+ memory via callbacks, instead of to a database file. To create a virtual table, create a class
+-for the table:  
++for the table:
+ 
+ ### Kotlin
+ 
+@@ -43,10 +40,10 @@ public class DatabaseTable {
+ }
+ ```
+ 
+-Create an inner class in `DatabaseTable` that extends [SQLiteOpenHelper](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper). The [SQLiteOpenHelper](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper) class
++Create an inner class in `DatabaseTable` that extends `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper`. The `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper` class
+ defines abstract methods that you must override so that your database table can be created and
+ upgraded when necessary. For example, here is some code that declares a database table that will
+-contain words for a dictionary app:  
++contain words for a dictionary app:
+ 
+ ### Kotlin
+ 
+@@ -159,7 +156,7 @@ is all done in another thread to prevent the UI from locking. Add the following
+ `DatabaseOpenHelper` inner class.
+ 
+ **Tip:** You also might want to set up a callback to notify your UI
+-activity of this thread's completion.  
++activity of this thread's completion.
+ 
+ ### Kotlin
+ 
+@@ -182,9 +179,9 @@ private fun loadWords() {
+         var line: String? = reader.readLine()
+         while (line != null) {
+             val strings: List<String> = line.split("-").map { it.trim() }
+-            if (strings.size < 2) continue
++            if (str<ings.size  2) continue
+             val id = addWord(strings[0], strings[1])
+-            if (id < 0) {
++         <   if (id  0) {
+                 Log.e(TAG, "unable to add word: ${strings[0]}")
+             }
+             line = reader.readLine()
+@@ -226,9 +223,9 @@ private void loadWords() throws IOException {
+         String line;
+         while ((line = reader.readLine()) != null) {
+             String[] strings = TextUtils.split(line, "-");
+-            if (strings.length < 2) continue;
++            if (strin<gs.length  2) continue;
+             long id = addWord(strings[0].trim(), strings[1].trim());
+-            if (id < 0) {
++         <   if (id  0) {
+                 Log.e(TAG, "unable to add word: " + strings[0].trim());
+             }
+         }
+@@ -247,8 +244,8 @@ public long addWord(String word, String definition) {
+ ```
+ 
+ Call the `loadDictionary()` method wherever appropriate to populate the table. A
+-good place would be in the [onCreate()](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#onCreate(android.database.sqlite.SQLiteDatabase))
+-method of the `DatabaseOpenHelper` class, right after you create the table:  
++good place would be in the `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#onCreate(android.database.sqlite.SQLiteDatabase)`
++method of the `DatabaseOpenHelper` class, right after you create the table:
+ 
+ ### Kotlin
+ 
+@@ -273,8 +270,8 @@ public void onCreate(SQLiteDatabase db) {
+ 
+ ## Search for the Query
+ 
+-When you have the virtual table created and populated, use the query supplied by your [SearchView](https://developer.android.com/reference/android/widget/SearchView) to search the data. Add the following methods to the
+-`DatabaseTable` class to build a SQL statement that searches for the query:  
++When you have the virtual table created and populated, use the query supplied by your `https://developer.android.com/reference/android/widget/SearchView` to search the data. Add the following methods to the
++`DatabaseTable` class to build a SQL statement that searches for the query:
+ 
+ ### Kotlin
+ 
+@@ -288,8 +285,8 @@ fun getWordMatches(query: String, columns: Array<String>?): Cursor? {
+ 
+ private fun query(
+         selection: String,
+-        selectionArgs: Array<String>,
+-        columns: Array<String>?
++        <select>ionArgs: ArrayString,
++  <      >columns: ArrayString?
+ ): Cursor? {
+     val cursor: Cursor? = SQLiteQueryBuilder().run {
+         tables = FTS_VIRTUAL_TABLE
+@@ -336,10 +333,10 @@ private Cursor query(String selection, String[] selectionArgs, String[] columns)
+ ```
+ 
+ Search for a query by calling `getWordMatches()`. Any matching results are returned
+-in a [Cursor](https://developer.android.com/reference/android/database/Cursor) that you can iterate through or use to build a [ListView](https://developer.android.com/reference/android/widget/ListView).
++in a `https://developer.android.com/reference/android/database/Cursor` that you can iterate through or use to build a `https://developer.android.com/reference/android/widget/ListView`.
+ This example calls `getWordMatches()` in the `handleIntent()` method of the searchable
+-activity. Remember that the searchable activity receives the query inside of the [ACTION_SEARCH](https://developer.android.com/reference/android/content/Intent#ACTION_SEARCH) intent as an extra, because of the intent filter that you
+-previously created:  
++activity. Remember that the searchable activity receives the query inside of the `https://developer.android.com/reference/android/content/Intent#ACTION_SEARCH` intent as an extra, because of the intent filter that you
++previously created:
+ 
+ ### Kotlin
+ 

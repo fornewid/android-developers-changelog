@@ -1,0 +1,28 @@
+diff --git a/docs/develop/ui/views/notifications/time-sensitive.md b/docs/develop/ui/views/notifications/time-sensitive.md
+index e7c88c1..acbf73a 100644
+--- a/docs/develop/ui/views/notifications/time-sensitive.md
++++ b/docs/develop/ui/views/notifications/time-sensitive.md
+@@ -120,7 +120,7 @@ private fun showNotification() {
+             .setPriority(NotificationCompat.PRIORITY_HIGH)
+             .setCategory(NotificationCompat.CATEGORY_RECOMMENDATION)
+ 
+-    notificationManager.notify(666, notificationBuilder.build())
++    notificationManager.notify(0, notificationBuilder.build())
+ }
+ ```
+ 
+@@ -165,4 +165,11 @@ startForeground(notificationId, notification)
+ ```java
+ // Provide a unique integer for the "notificationId" of each notification.
+ startForeground(notificationId, notification);
+-```
+\ No newline at end of file
++```
++
++## Consider using Live Updates
++
++Time-sensitive ongoing notifications can benefit from higher visibility.
++Consider promoting time-sensitive ongoing notifications as
++[Live Updates](https://developer.android.com/develop/ui/views/notifications/live-updates) to display them in various system UI
++surfaces.
+\ No newline at end of file

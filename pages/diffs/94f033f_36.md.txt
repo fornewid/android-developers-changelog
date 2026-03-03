@@ -1,0 +1,17 @@
+diff --git a/docs/studio/releases/fixed-bugs/emulator/36.md b/docs/studio/releases/fixed-bugs/emulator/36.md
+index ad7ed19..ddf744a 100644
+--- a/docs/studio/releases/fixed-bugs/emulator/36.md
++++ b/docs/studio/releases/fixed-bugs/emulator/36.md
+@@ -4,6 +4,12 @@ url: https://developer.android.com/studio/releases/fixed-bugs/emulator/36
+ source: md.txt
+ ---
+ 
++### Android Emulator 36.5.6 Canary
++
++| Fixed Issues ||
++|---|---|
++| **Emulator** | |---| | [Issue #333628462](https://issuetracker.google.com/issues/333628462) crashpad_handler \>90% CPU usage | |
++
+ ### Android Emulator 36.5.4 Canary
+ 
+ *This release includes minor fixes and improvements.*

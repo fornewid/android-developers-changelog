@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/glance/generated-previews.md b/docs/develop/ui/compose/glance/generated-previews.md
+index 368d8db..62b8e50 100644
+--- a/docs/develop/ui/compose/glance/generated-previews.md
++++ b/docs/develop/ui/compose/glance/generated-previews.md
+@@ -90,7 +90,7 @@ a method in this snippet.
+         ),
+         AppWidgetProviderInfo.WIDGET_CATEGORY_HOME_SCREEN,
+         RemoteViews("com.example", R.layout.widget_preview)
+-    )https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/views/src/main/java/com/example/example/snippet/views/appwidget/AppWidgetSnippets.kt#L42-L49
++    )https://github.com/android/snippets/blob/48adb119f98d1fef9d761ab2415e317ce0bb6a9a/views/src/main/java/com/example/example/snippet/views/appwidget/AppWidgetSnippets.kt#L42-L49
+ 
+ ## Add scalable widget previews to the widget picker
+ 

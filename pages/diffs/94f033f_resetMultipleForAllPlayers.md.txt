@@ -1,0 +1,20 @@
+diff --git a/docs/games/services/management/api/events/resetMultipleForAllPlayers.md b/docs/games/services/management/api/events/resetMultipleForAllPlayers.md
+index a125ba4..b311220 100644
+--- a/docs/games/services/management/api/events/resetMultipleForAllPlayers.md
++++ b/docs/games/services/management/api/events/resetMultipleForAllPlayers.md
+@@ -28,13 +28,12 @@ This request requires authorization with the following scope ([read more about a
+ 
+ In the request body, supply data with the following structure:
+ 
+-```scdoc
++```
+ {
+   "kind": "gamesManagement#eventsResetMultipleForAllRequest",
+-  "event_ids": [
++  ";even}t_ids": [
+     string
+   ]
+-}
+ ```
+ 
+ | Property name | Value | Description | Notes |

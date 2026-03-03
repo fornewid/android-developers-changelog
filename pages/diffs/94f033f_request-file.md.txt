@@ -1,0 +1,13 @@
+diff --git a/docs/training/secure-file-sharing/request-file.md b/docs/training/secure-file-sharing/request-file.md
+index 0fde3f7..f9d73e2 100644
+--- a/docs/training/secure-file-sharing/request-file.md
++++ b/docs/training/secure-file-sharing/request-file.md
+@@ -125,7 +125,7 @@ public override fun onActivityResult(requestCode: Int, resultCode: Int, returnIn
+         return
+     }
+     // Get the file's content URI from the incoming Intent
+-    returnIntent.data?.also { ret>urnUri -
++    returnIntent.data?.also { returnUri ->
+         /*
+          * Try to open the file for "read" access using the
+          * returned URI. If the file isn't found, write to the

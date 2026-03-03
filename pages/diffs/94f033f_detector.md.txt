@@ -1,0 +1,238 @@
+diff --git a/docs/develop/ui/views/touch-and-input/gestures/detector.md b/docs/develop/ui/views/touch-and-input/gestures/detector.md
+index 26ed45a..1667685 100644
+--- a/docs/develop/ui/views/touch-and-input/gestures/detector.md
++++ b/docs/develop/ui/views/touch-and-input/gestures/detector.md
+@@ -4,35 +4,61 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/gestures/det
+ source: md.txt
+ ---
+ 
+-# Detect common gestures
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose. [Gestures →](https://developer.android.com/jetpack/compose/touch-input/pointer-input) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.  
+-[Gestures →](https://developer.android.com/jetpack/compose/touch-input/pointer-input)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+-
+-A*touch gesture*occurs when a user places one or more fingers on the touchscreen and your app interprets this pattern of touches as a gesture. There are two phases to gesture detection:
++A *touch gesture* occurs when a user places one or more fingers on the
++touchscreen and your app interprets this pattern of touches as a gesture. There
++are two phases to gesture detection:
+ 
+ 1. Gathering touch event data.
+ 2. Interpreting the data to determine whether it meets the criteria for the gestures your app supports.
+ 
+ #### AndroidX classes
+ 
+-The examples in this document use the[GestureDetectorCompat](https://developer.android.com/reference/androidx/core/view/GestureDetectorCompat)and[MotionEventCompat](https://developer.android.com/reference/androidx/core/view/MotionEventCompat)classes. These classes are in the[AndroidX Library](https://developer.android.com/jetpack/androidx). Use AndroidX classes where possible to provide compatibility with earlier devices.`MotionEventCompat`is*not* a replacement for the[MotionEvent](https://developer.android.com/reference/android/view/MotionEvent)class. Rather, it provides static utility methods to which you pass your`MotionEvent`object to receive the action associated with that event.
++The examples in this document use the
++`https://developer.android.com/reference/androidx/core/view/GestureDetectorCompat`
++and
++`https://developer.android.com/reference/androidx/core/view/MotionEventCompat`
++classes. These classes are in the [AndroidX
++Library](https://developer.android.com/jetpack/androidx). Use AndroidX classes where possible to provide compatibility with
++earlier devices.
+ 
+-## Gather data
++`MotionEventCompat` is *not* a replacement for the
++`https://developer.android.com/reference/android/view/MotionEvent`
++class. Rather, it provides static utility methods to which you pass your
++`MotionEvent` object to receive the action associated with that
++event.
+ 
+-When a user places one or more fingers on the screen, this triggers the callback[onTouchEvent()](https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent))on the view that receives the touch events. For each sequence of touch events---such as position, pressure, size, and addition of another finger---that is identified as a gesture,`onTouchEvent()`is fired several times.
++## Gather data
+ 
+-The gesture starts when the user first touches the screen, continues as the system tracks the position of the user's finger or fingers, and ends by capturing the final event of the user's last finger leaving the screen. Throughout this interaction, the`MotionEvent`delivered to`onTouchEvent()`provides the details of every interaction. Your app can use the data provided by the`MotionEvent`to determine whether a gesture it cares about happens.
++When a user places one or more fingers on the screen, this triggers the
++callback
++`https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent)`
++on the view that receives the touch events. For each sequence of touch
++events---such as position, pressure, size, and addition of another
++finger---that is identified as a gesture, `onTouchEvent()` is
++fired several times.
++
++The gesture starts when the user first touches the screen, continues as the
++system tracks the position of the user's finger or fingers, and ends by
++capturing the final event of the user's last finger leaving the screen.
++Throughout this interaction, the `MotionEvent` delivered to
++`onTouchEvent()` provides the details of every interaction. Your app
++can use the data provided by the `MotionEvent` to determine whether a
++gesture it cares about happens.
+ 
+ ### Capture touch events for an Activity or View
+ 
+ <br />
+ 
+-To intercept touch events in an`Activity`or`View`, override the`onTouchEvent()`callback.
++To intercept touch events in an `Activity` or
++`View`, override the `onTouchEvent()` callback.
+ 
+-The following code snippet uses[getAction()](https://developer.android.com/reference/android/view/MotionEvent#getAction())to extract the action the user performs from the`event`parameter. This gives you the raw data you need to determine whether a gesture you care about occurs.  
++The following code snippet uses
++`https://developer.android.com/reference/android/view/MotionEvent#getAction()`
++to extract the action the user performs from the `event` parameter.
++This gives you the raw data you need to determine whether a gesture you care
++about occurs.
+ 
+ ### Kotlin
+ 
+@@ -47,23 +73,23 @@ class MainActivity : Activity() {
+                 Log.d(DEBUG_TAG, "Action was DOWN")
+                 true
+             }
+-            MotionEvent.ACTION_MOVE -> {
++            MotionEvent.ACT>ION_MOVE - {
+                 Log.d(DEBUG_TAG, "Action was MOVE")
+                 true
+             }
+-            MotionEvent.ACTION_UP -> {
++            Mot>ionEvent.ACTION_UP - {
+                 Log.d(DEBUG_TAG, "Action was UP")
+                 true
+             }
+-            MotionEvent.ACTION_CANCEL -> {
++         >   MotionEvent.ACTION_CANCEL - {
+                 Log.d(DEBUG_TAG, "Action was CANCEL")
+                 true
+             }
+-            MotionEvent.ACTION_OUTSIDE -> {
++>            MotionEvent.ACTION_OUTSIDE - {
+                 Log.d(DEBUG_TAG, "Movement occurred outside bounds of current screen element")
+-                true
++   >             true
+             }
+-            else -> super.onTouchEvent(event)
++            else - super.onTouchEvent(event)
+         }
+     }
+ }
+@@ -100,7 +126,8 @@ public boolean onTouchEvent(MotionEvent event){
+ }
+ ```
+ 
+-This code produces messages like the following in Logcat as the user taps, touches \& holds, and drags:  
++This code produces messages like the following in Logcat as the user taps,
++touches \& holds, and drags:
+ 
+ ```bash
+ GESTURES D   Action was DOWN
+@@ -108,11 +135,24 @@ GESTURES D   Action was UP
+ GESTURES D   Action was MOVE
+ ```
+ 
+-For custom gestures, you can then do your own processing on these events to determine whether they represent a gesture you need to handle. However, if your app uses common gestures, such as double-tap, touch \& hold, fling, and so on, you can take advantage of the[GestureDetector](https://developer.android.com/reference/android/view/GestureDetector)class.`GestureDetector`makes it easier for you to detect common gestures without processing the individual touch events yourself. This is discussed further in[Detect gestures](https://developer.android.com/develop/ui/views/touch-and-input/gestures/detector#detect).
++For custom gestures, you can then do your own processing on these events to
++determine whether they represent a gesture you need to handle. However, if your
++app uses common gestures, such as double-tap, touch \& hold, fling, and so on,
++you can take advantage of the
++`https://developer.android.com/reference/android/view/GestureDetector`
++class. `GestureDetector` makes it easier for you to detect common
++gestures without processing the individual touch events yourself. This is
++discussed further in [Detect gestures](https://developer.android.com/develop/ui/views/touch-and-input/gestures/detector#detect).
+ 
+ ### Capture touch events for a single view
+ 
+-As an alternative to`onTouchEvent()`, you can attach a[View.OnTouchListener](https://developer.android.com/reference/android/view/View.OnTouchListener)object to any[View](https://developer.android.com/reference/android/view/View)object using the[setOnTouchListener()](https://developer.android.com/reference/android/view/View#setOnTouchListener(android.view.View.OnTouchListener))method. This makes it possible to listen for touch events without subclassing an existing`View`, as shown in the following example:  
++As an alternative to `onTouchEvent()`, you can attach a
++`https://developer.android.com/reference/android/view/View.OnTouchListener`
++object to any `https://developer.android.com/reference/android/view/View`
++object using the
++`https://developer.android.com/reference/android/view/View#setOnTouchListener(android.view.View.OnTouchListener)`
++method. This makes it possible to listen for touch events without subclassing an
++existing `View`, as shown in the following example:
+ 
+ ### Kotlin
+ 
+@@ -135,21 +175,48 @@ myView.setOnTouchListener(new OnTouchListener() {
+ });
+ ```
+ 
+-Beware of creating a listener that returns`false`for the[ACTION_DOWN](https://developer.android.com/reference/android/view/MotionEvent#ACTION_DOWN)event. If you do this, the listener isn't called for the subsequent[ACTION_MOVE](https://developer.android.com/reference/android/view/MotionEvent#ACTION_MOVE)and[ACTION_UP](https://developer.android.com/reference/android/view/MotionEvent#ACTION_UP)sequence of events. This is because`ACTION_DOWN`is the starting point for all touch events.
++Beware of creating a listener that returns `false` for the
++`https://developer.android.com/reference/android/view/MotionEvent#ACTION_DOWN` event.
++If you do this, the listener isn't called for the subsequent
++`https://developer.android.com/reference/android/view/MotionEvent#ACTION_MOVE` and
++`https://developer.android.com/reference/android/view/MotionEvent#ACTION_UP` sequence of
++events. This is because `ACTION_DOWN` is the starting point for all
++touch events.
+ 
+-If you are creating a custom view, you can override`onTouchEvent()`, as described earlier.
++If you are creating a custom view, you can override
++`onTouchEvent()`, as described earlier.
+ 
+ ## Detect gestures
+ 
+-Android provides the`GestureDetector`class for detecting common gestures. Some of the gestures it supports include[onDown()](https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onDown(android.view.MotionEvent)),[onLongPress()](https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onLongPress(android.view.MotionEvent)), and[onFling()](https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onFling(android.view.MotionEvent, android.view.MotionEvent, float, float)). You can use`GestureDetector`in conjunction with the`onTouchEvent()`method described earlier.
++Android provides the `GestureDetector` class for detecting common
++gestures. Some of the gestures it supports include
++`https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onDown(android.view.MotionEvent)`,
++`https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onLongPress(android.view.MotionEvent)`,
++and
++`https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onFling(android.view.MotionEvent, android.view.MotionEvent, float, float)`.
++You can use `GestureDetector` in conjunction with the
++`onTouchEvent()` method described earlier.
+ 
+ ### Detect all supported gestures
+ 
+-When you instantiate a`GestureDetectorCompat`object, one of the parameters it takes is a class that implements the[GestureDetector.OnGestureListener](https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener)interface.`GestureDetector.OnGestureListener`notifies users when a particular touch event occurs. To make it possible for your`GestureDetector`object to receive events, override the view or activity's`onTouchEvent()`method and pass along all observed events to the detector instance.
+-
+-In the following snippet, a return value of`true`from the individual`on`*<TouchEvent>*methods indicates that the touch event is handled. A return value of`false`passes events down through the view stack until the touch is successfully handled.
+-
+-If you run the following snippet in a test app, you can get a feel for how actions are triggered when you interact with the touch screen and what the contents of the`MotionEvent`are for each touch event. You then see how much data is being generated for simple interactions.  
++When you instantiate a `GestureDetectorCompat` object, one of the
++parameters it takes is a class that implements the
++`https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener`
++interface. `GestureDetector.OnGestureListener` notifies users when a
++particular touch event occurs. To make it possible for your
++`GestureDetector` object to receive events, override the view or
++activity's `onTouchEvent()` method and pass along all observed events
++to the detector instance.
++
++In the following snippet, a return value of `true` from the
++individual `on\<TouchEvent\>` methods indicates that the
++touch event is handled. A return value of `false` passes events down
++through the view stack until the touch is successfully handled.
++
++If you run the following snippet in a test app, you can get a feel for how
++actions are triggered when you interact with the touch screen and what the
++contents of the `MotionEvent` are for each touch event. You then see
++how much data is being generated for simple interactions.
+ 
+ ### Kotlin
+ 
+@@ -330,11 +397,29 @@ public class MainActivity extends Activity implements
+ 
+ ### Detect a subset of supported gestures
+ 
+-If you only want to process a few gestures, you can extend[GestureDetector.SimpleOnGestureListener](https://developer.android.com/reference/android/view/GestureDetector.SimpleOnGestureListener)instead of implementing the`GestureDetector.OnGestureListener`interface.
+-
+-`GestureDetector.SimpleOnGestureListener`provides an implementation for all of the`on`*<TouchEvent>*methods by returning`false`for all of them. This lets you override only the methods you care about. For example, the following code snippet creates a class that extends`GestureDetector.SimpleOnGestureListener`and overrides`onFling()`and`onDown()`.
+-
+-Whether you use`GestureDetector.OnGestureListener`or`GestureDetector.SimpleOnGestureListener`, it's a best practice to implement an`onDown()`method that returns`true`. This is because all gestures begin with an`onDown()`message. If you return`false`from`onDown()`, as`GestureDetector.SimpleOnGestureListener`does by default, the system assumes you want to ignore the rest of the gesture, and the other methods of`GestureDetector.OnGestureListener`aren't called. This might cause unexpected problems in your app. Only return`false`from`onDown()`if you truly want to ignore an entire gesture.  
++If you only want to process a few gestures, you can extend
++`https://developer.android.com/reference/android/view/GestureDetector.SimpleOnGestureListener`
++instead of implementing the `GestureDetector.OnGestureListener`
++interface.
++
++`GestureDetector.SimpleOnGestureListener` provides an
++implementation for all of the
++`on\<TouchEvent\>` methods by returning
++`false` for all of them. This lets you override only the methods you
++care about. For example, the following code snippet creates a class that extends
++`GestureDetector.SimpleOnGestureListener` and overrides
++`onFling()` and `onDown()`.
++
++Whether you use `GestureDetector.OnGestureListener` or
++`GestureDetector.SimpleOnGestureListener`, it's a best practice to
++implement an `onDown()` method that returns `true`. This
++is because all gestures begin with an `onDown()` message. If you
++return `false` from `onDown()`, as
++`GestureDetector.SimpleOnGestureListener` does by default, the system
++assumes you want to ignore the rest of the gesture, and the other methods of
++`GestureDetector.OnGestureListener` aren't called. This might cause
++unexpected problems in your app. Only return `false` from
++`onDown()` if you truly want to ignore an entire gesture.
+ 
+ ### Kotlin
+ 

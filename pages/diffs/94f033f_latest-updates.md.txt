@@ -1,0 +1,183 @@
+diff --git a/docs/latest-updates.md b/docs/latest-updates.md
+index e23248e..cf84346 100644
+--- a/docs/latest-updates.md
++++ b/docs/latest-updates.md
+@@ -19,102 +19,132 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
+ 
+   ### camera
+ 
+-  January 28, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="camera-updates-dialog"> Maven group versions → </button>
++  February 25, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="camera-updates-dialog"> Maven group versions → </button>
+ - stable
+ 
+   ### compose
+ 
+-  January 28, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="compose-updates-dialog"> Maven group versions → </button>
+-- stable
++  February 25, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="compose-updates-dialog"> Maven group versions → </button>
++- rc
+ 
+-  ### [activity](https://developer.android.com/jetpack/androidx/releases/activity#1.12.3)
++  ### [activity](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0-rc01)
+ 
+-  January 28, 2026  
+-  1.12.3
++  February 25, 2026  
++  1.13.0
+ - alpha
+ 
+-  ### [benchmark](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha02)
++  ### [lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha01)
+ 
+-  January 28, 2026  
+-  1.5.0
+-- stable
++  February 25, 2026  
++  2.11.0
++- alpha
+ 
+-  ### [navigation](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.7)
++  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-alpha05)
+ 
+-  January 28, 2026  
+-  2.9.7
++  February 25, 2026  
++  1.1.0
+ - alpha
+ 
+-  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-alpha03)
++  ### [navigationevent](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.0-alpha01)
+ 
+-  January 28, 2026  
++  February 25, 2026  
+   1.1.0
+-- stable
++- alpha
+ 
+-  ### [navigationevent](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.2)
++  ### [xr arcore](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha11)
+ 
+-  January 28, 2026  
+-  1.0.2
+-- stable
++  February 25, 2026  
++  1.0.0
++- alpha
+ 
+-  ### [paging](https://developer.android.com/jetpack/androidx/releases/paging#3.4.0)
++  ### [xr compose](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha11)
+ 
+-  January 28, 2026  
+-  3.4.0
+-- stable
++  February 25, 2026  
++  1.0.0
++- alpha
+ 
+-  ### [work](https://developer.android.com/jetpack/androidx/releases/work#2.11.1)
++  ### [xr compose material3](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha15)
+ 
+-  January 28, 2026  
+-  2.11.1
++  February 25, 2026  
++  1.0.0
+ - alpha
+ 
+-  ### [xr arcore](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha10)
++  ### [xr glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha07)
+ 
+-  January 28, 2026  
++  February 25, 2026  
+   1.0.0
+ - alpha
+ 
+-  ### [xr compose](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha10)
++  ### [xr projected](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha05)
+ 
+-  January 28, 2026  
++  February 25, 2026  
+   1.0.0
+ - alpha
+ 
+-  ### [xr projected](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha04)
++  ### [xr runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha11)
+ 
+-  January 28, 2026  
++  February 25, 2026  
+   1.0.0
+ - alpha
+ 
+-  ### [xr runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha10)
++  ### [xr scenecore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha12)
+ 
+-  January 28, 2026  
++  February 25, 2026  
+   1.0.0
+-- alpha
++- beta
+ 
+-  ### [xr scenecore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha11)
++  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-beta01)
++
++  February 25, 2026  
++  1.10.0
++- stable
++
++  ### [activity](https://developer.android.com/jetpack/androidx/releases/activity#1.12.4)
++
++  February 11, 2026  
++  1.12.4
++- stable
++
++  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.1)
++
++  February 11, 2026  
++  1.0.1
++- stable
++
++  ### [paging](https://developer.android.com/jetpack/androidx/releases/paging#3.4.1)
++
++  February 11, 2026  
++  3.4.1
++- stable
++
++  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.9.2)
++
++  February 6, 2026  
++  1.9.2
++- stable
++
++  ### [navigation](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.7)
+ 
+   January 28, 2026  
+-  1.0.0
++  2.9.7
+ - stable
+ 
+-  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.9.1)
++  ### [navigationevent](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.2)
+ 
+-  January 26, 2026  
+-  1.9.1
++  January 28, 2026  
++  1.0.2
+ - stable
+ 
+-  ### [lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0)
++  ### [work](https://developer.android.com/jetpack/androidx/releases/work#2.11.1)
+ 
+-  November 19, 2025  
+-  2.10.0
++  January 28, 2026  
++  2.11.1
+ - stable
+ 
+-  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.0)
++  ### [lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0)
+ 
+   November 19, 2025  
+-  1.0.0
++  2.10.0
+ - stable
+ 
+   ### [room](https://developer.android.com/jetpack/androidx/releases/room#2.8.4)
