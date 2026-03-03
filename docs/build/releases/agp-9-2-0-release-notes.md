@@ -1,0 +1,44 @@
+---
+title: https://developer.android.com/build/releases/agp-9-2-0-release-notes
+url: https://developer.android.com/build/releases/agp-9-2-0-release-notes
+source: md.txt
+---
+
+<br />
+
+Android Gradle plugin 9.2 is a minor release that includes a variety of new
+features and improvements.
+
+## Compatibility
+
+The maximum API level that Android Gradle plugin 9.2 supports is API level 36.1.
+Here is other compatibility info:
+
+
+|   | Minimum version | Default version | Notes |
+|---:|:---:|:---:|:---:|
+| Gradle | 9.4.0-rc-1 | 9.4.0-rc-1 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
+| SDK Build Tools | 36.0.0 | 36.0.0 | [Install](https://developer.android.com/studio/intro/update#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools) SDK Build Tools. |
+| NDK | N/A | 28.2.13676358 | [Install](https://developer.android.com/studio/projects/install-ndk#specific-version) or [configure](https://developer.android.com/studio/projects/install-ndk#apply-specific-version) a different version of the NDK. |
+| JDK | 17 | 17 | To learn more, see [setting the JDK version](https://developer.android.com/studio/intro/studio-config#jdk). |
+
+<br />
+
+## Fixed issues
+
+
+### Android Gradle plugin 9.2.0-alpha02
+
+| Fixed Issues ||
+|---|---|
+| **Android Gradle Plugin** | |---| | [Issue #477562205](https://issuetracker.google.com/issues/477562205) AGP 9.0 No androidComponents.onVariant equivalent for applicationVariants.all.mergeAssetsProvider | | [Issue #398173037](https://issuetracker.google.com/issues/398173037) \`\*.xml.flat\` files contain absolute file paths | | [Issue #437828055](https://issuetracker.google.com/issues/437828055) R8D8ThreadPoolBuildService not registered | |
+| **Lint Integration** | |---| | [Issue #314101896](https://issuetracker.google.com/issues/314101896) Android Lint fails with custom lint checks compiled to Java 21 bytecode | |
+
+### Android Gradle plugin 9.2.0-alpha01
+
+| Fixed Issues ||
+|---|---|
+| **Android Gradle Plugin** | |---| | [Issue #459878951](https://issuetracker.google.com/issues/459878951) Warn users if they have commonTest but forget withHostTestBuilder | | [Issue #482839660](https://issuetracker.google.com/issues/482839660) \[fused lib - public\] OkHttp includes sources | | [Issue #482293927](https://issuetracker.google.com/issues/482293927) Cannot run androidDeviceTest with manifest placeholders in library (AGP 9.0.0 with com.android.kotlin.multiplatform.library plugin) | | [Issue #460469730](https://issuetracker.google.com/issues/460469730) AGP should warn if user has src/androidDeviceTest/java with java disabled | |
+| **Lint** | |---| | [Issue #483413438](https://issuetracker.google.com/issues/483413438) Lint typo in message | |
+
+<br />

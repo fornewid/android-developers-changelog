@@ -78,60 +78,71 @@ this is automatically handled within the Jetpack library. For example,
 Here's an example of AppFunctions for a note-taking app with
 capabilities to create, edit, and list notes.
 
-    class NoteFunctions(
-      private val noteRepository: NoteRepository
-    ) {
-        /**
-         * A note.
-         *
-         * @param id The note's ID.
-         * @param title The note's title.
-         * @param content The note's content.
-         */
-        @AppFunctionSerializable(isDescribedByKDoc = true)
-        data class Note(val id: Int, val title: String, val content: String)
 
-        /**
-         * Lists all available notes.
-         *
-         * @param appFunctionContext The context in which the AppFunction is executed.
-         */
-        @AppFunction(isDescribedByKDoc = true)
-        suspend fun listNotes(appFunctionContext: AppFunctionContext): List<Note>? {
-            return if (noteRepository.appNotes.isEmpty()) null else viewModel.appNotes
-        }
-
-        /**
-         * Adds a new note to the app.
-         *
-         * @param appFunctionContext The context in which the AppFunction is executed.
-         * @param title The title of the note.
-         * @param content The note's content.
-         */
-        @AppFunction(isDescribedByKDoc = true)
-        suspend fun createNote(
-          appFunctionContext: AppFunctionContext,
-          title: String,
-          content: String
-        ): Note {
-            return noteRepository.createNote(title, content)
-        }
-
-        /**
-         * Edits a single note.
-         *
-         * @param appFunctionContext The context in which the AppFunction is executed.
-         * @param noteId The target note's ID.
-         * @param title The new title if it should be updated.
-         * @param content The new content if it should be updated.
-         */
-        @AppFunction(isDescribedByKDoc = true)
-        suspend fun editNote(
-          appFunctionContext: AppFunctionContext,
-          noteId: String,
-          title: String?,
-          content: String,
-        ): Note? {
-            return noteRepository.updateNote(noteId, title, content)
-        }
+```kotlin
+/**
+ * A note app's [AppFunction]s.
+ */
+class NoteFunctions(
+    private val noteRepository: NoteRepository
+) {
+    /**
+     * Lists all available notes.
+     *
+     * @param appFunctionContext The context in which the AppFunction is executed.
+     */
+    @AppFunction(isDescribedByKdoc = true)
+    suspend fun listNotes(appFunctionContext: AppFunctionContext): List<Note>? {
+        return noteRepository.appNotes.ifEmpty { null }?.toList()
     }
+
+    /**
+     * Adds a new note to the app.
+     *
+     * @param appFunctionContext The context in which the AppFunction is executed.
+     * @param title The title of the note.
+     * @param content The note's content.
+     */
+    @AppFunction(isDescribedByKdoc = true)
+    suspend fun createNote(
+        appFunctionContext: AppFunctionContext,
+        title: String,
+        content: String
+    ): Note {
+        return noteRepository.createNote(title, content)
+    }
+
+    /**
+     * Edits a single note.
+     *
+     * @param appFunctionContext The context in which the AppFunction is executed.
+     * @param noteId The target note's ID.
+     * @param title The note's title if it should be updated.
+     * @param content The new content if it should be updated.
+     */
+    @AppFunction(isDescribedByKdoc = true)
+    suspend fun editNote(
+        appFunctionContext: AppFunctionContext,
+        noteId: Int,
+        title: String?,
+        content: String?,
+    ): Note? {
+        return noteRepository.updateNote(noteId, title, content)
+    }
+}
+
+/**
+ * A note.
+ */
+@AppFunctionSerializable(isDescribedByKdoc = true)
+data class Note(
+    /** The note's identifier */
+    val id: Int,
+    /** The note's title */
+    val title: String,
+    /** The note's content */
+    val content: String
+)
+```
+
+<br />

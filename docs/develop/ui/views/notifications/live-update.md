@@ -4,9 +4,13 @@ url: https://developer.android.com/develop/ui/views/notifications/live-update
 source: md.txt
 ---
 
-The system promotes Live Update notifications. Promoted notifications appear
-more prominently on system surfaces, including at the top of the notification
-drawer and the lock screen, and as a chip in the status bar.
+Live updates provide a summary of important updates so users can track progress
+without opening the app. The system promotes Live Update notifications although
+users can temporarily dismiss or demote a live update notification, to a
+standard notification. Promoted notifications appear more prominently on system
+surfaces, including at the top of the notification drawer and the lock screen,
+and as a chip in the status bar. Live update notifications should follow
+notification principles for delivering brief, timely, and relevant information.
 ![](https://developer.android.com/static/images/design/ui/mobile/notifications-live-update.png) **Figure 1.** An example of a Live Update notification.
 
 Promoted notification cards have the following appearance characteristics:
@@ -17,9 +21,9 @@ Promoted notification cards have the following appearance characteristics:
 Your notification must meet the following requirements to qualify as a live
 update:
 
-- Must be Standard Style, [`BigTextStyle`](https://developer.android.com/reference/android/app/Notification.BigTextStyle), [`CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle), or [`ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle).
-- Must request the following non-runtime permission in the android manifest `android.permission.POST_PROMOTED_NOTIFICATIONS`.
-- Must request promotion using `EXTRA_REQUEST_PROMOTED_ONGOING` or `NotificationCompat.Builder#setRequestPromotedOngoing`.
+- Must be Standard Style, [`BigTextStyle`](https://developer.android.com/reference/android/app/Notification.BigTextStyle), [`CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle), [`ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle), or [`MetricStyle`](https://developer.android.com/reference/android/app/Notification.MetricStyle).
+- Must request the following non-runtime permission in the android manifest [`android.permission.POST_PROMOTED_NOTIFICATIONS`](https://developer.android.com/reference/android/Manifest.permission#POST_PROMOTED_NOTIFICATIONS).
+- Must request promotion using [`EXTRA_REQUEST_PROMOTED_ONGOING`](https://developer.android.com/reference/android/app/Notification#EXTRA_REQUEST_PROMOTED_ONGOING) or [`NotificationCompat.Builder#setRequestPromotedOngoing`](https://developer.android.com/reference/android/app/Notification.Builder#setRequestPromotedOngoing(boolean)).
 - Must be [`ongoing`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)) (set [`FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)))).
 - Must have a `contentTitle` set.
 - Must **NOT** have any [`customContentView`](https://developer.android.com/reference/android/app/Notification.Builder#setCustomContentView(android.widget.RemoteViews)) set (no `RemoteViews`).
@@ -42,8 +46,9 @@ notification:
 
 ## Usage criteria
 
-Use Live Updates for activities that are ongoing, user-initiated and time
-sensitive.
+Use Live Updates for activities that are ongoing, user-initiated, and
+[time-sensitive](https://developer.android.com/develop/ui/views/notifications/time-sensitive).
+**Figure 2.** A live update on your home and lock screen, and as a chip.
 
 ### Ongoing
 
@@ -94,12 +99,22 @@ such as when they have arrived at the airport or venue or once boarding has
 begun. In contrast, a Live Update isn't appropriate for tracking a package as
 the user doesn't need to constantly monitor this.
 
+## UX practices
+
+Use the tracker icon to visualize the state. This can be updated dynamically.
+![custom tracker on a progress bar](https://developer.android.com/static/images/ui/notifications/notifications-live-progress-tracker.webp) **Figure 3.** A custom tracker icon.
+
+When an ETA is calculating or not yet available, don't show an empty state.
+Provide active placeholder text such as "Thinking..." or "Rerouting..." to
+indicate the system is working, as shown in the example.
+![nonempty state to show thinking](https://developer.android.com/static/images/ui/notifications/notifications-live-progress-ambiguous.webp) **Figure 4.** A nonempty state for your live update.
+
 ## Status Chips
 
 Status chips allow users to keep track of Live Updates when the notification is
 not in view. Use [`setShortCriticalText`](https://developer.android.com/reference/android/app/Notification.Builder#setShortCriticalText(java.lang.String)) or [`setWhen`](https://developer.android.com/reference/android/app/Notification.Builder#setWhen(long)) to convey
 important state information regarding your progress centric notification.
-![status chip with icon](https://developer.android.com/static/images/ui/notifications/status-chip-1.png) **Figure 2.** Indeterminate state displays the small icon, `Notification.Builder#setSmallIcon`. ![status chip with time](https://developer.android.com/static/images/ui/notifications/status-chip-2.png) **Figure 3.** Use `Notification.Builder#setShortCriticalText` to show absolute time. ![status chip with info](https://developer.android.com/static/images/ui/notifications/status-chip-3.png) **Figure 4.** Use `Notification.Builder#setShortCriticalText` to convey critical information.
+![status chip with icon](https://developer.android.com/static/images/ui/notifications/status-chip-1.png) **Figure 5.** Indeterminate state displays the small icon, `Notification.Builder#setSmallIcon`. ![status chip with time](https://developer.android.com/static/images/ui/notifications/status-chip-2.png) **Figure 6.** Use `Notification.Builder#setShortCriticalText` to show absolute time. ![status chip with info](https://developer.android.com/static/images/ui/notifications/status-chip-3.png) **Figure 7.** Use `Notification.Builder#setShortCriticalText` to convey critical information.
 
 ### When time
 
@@ -136,7 +151,7 @@ See the [sample app](https://github.com/android/platform-samples/tree/main/sampl
 ## FAQ
 
 **Question:** What is the white dot at the end of the progress bar?
-![end of progress accessibility visualization indicator](https://developer.android.com/static/images/ui/notifications/end-of-progress.png) **Figure 5.** End of journey accessibility visualization
+![end of progress accessibility visualization indicator](https://developer.android.com/static/images/ui/notifications/end-of-progress.png) **Figure 8.** End of journey accessibility visualization
 
 **Answer:** The white dot at the end of the progress bar
 visually flags the end of the progress bar.

@@ -47,7 +47,7 @@ the controller returns the following codes:
 - For all other media items, return `null`
 
 ```kotlin
-class MyTargetPreloadStatusControl(currentPlayingIndex: Int = C.INDEX_UNSET) :
+class MyTargetPreloadStatusControl(var currentPlayingIndex: Int = 0) :
   TargetPreloadStatusControl<Int, DefaultPreloadManager.PreloadStatus> {
 
   override fun getTargetPreloadStatus(index: Int): DefaultPreloadManager.PreloadStatus {
@@ -86,8 +86,10 @@ set the preload manager's custom components.
 
 Besides using the builder to create the preload manager, you'll also use it to
 create the [`ExoPlayer`](https://developer.android.com/media/media3/exoplayer) objects your app uses to play the content.
-| **Note:** You can only use a `DefaultPreloadManager.Builder` to create a single `DefaultPreloadManager`. If you try to create a second preload manager with the same builder, it throws an exception, even if you've [released the first preload
-manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#release).  
+
+> [!NOTE]
+> **Note:** You can only use a `DefaultPreloadManager.Builder` to create a single `DefaultPreloadManager`. If you try to create a second preload manager with the same builder, it throws an exception, even if you've [released the first preload
+> manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#release).
 
 ```kotlin
 val targetPreloadStatusControl = MyTargetPreloadStatusControl()

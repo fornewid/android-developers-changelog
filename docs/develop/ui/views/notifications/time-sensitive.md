@@ -120,7 +120,7 @@ private fun showNotification() {
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setCategory(NotificationCompat.CATEGORY_RECOMMENDATION)
 
-    notificationManager.notify(666, notificationBuilder.build())
+    notificationManager.notify(0, notificationBuilder.build())
 }
 ```
 
@@ -166,3 +166,10 @@ startForeground(notificationId, notification)
 // Provide a unique integer for the "notificationId" of each notification.
 startForeground(notificationId, notification);
 ```
+
+## Consider using Live Updates
+
+Time-sensitive ongoing notifications can benefit from higher visibility.
+Consider promoting time-sensitive ongoing notifications as
+[Live Updates](https://developer.android.com/develop/ui/views/notifications/live-updates) to display them in various system UI
+surfaces.

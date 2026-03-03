@@ -9,6 +9,36 @@ To get the latest product updates delivered to you, add the URL of this page to 
 [feed
 reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the feed URL directly: `https://developer.android.com/feeds/androidgames-release-notes.xml`.
 
+## January 16, 2026
+
+Feature Play Games Services v2 Native SDK (beta) is available for you to test.
+
+The v2 Native SDK (beta) supports the following features:
+
+- [Platform authentication](https://developer.android.com/games/pgs/platform-authentication)
+
+- [Achievements](https://developer.android.com/games/pgs/cpp/achievements)
+
+- [Recall](https://developer.android.com/games/pgs/recall/recall-setup#play-games-services-v2-native-sdk)
+
+Learn more:
+
+- [Get started with Play Games Services for C and C++](https://developer.android.com/games/pgs/cpp/cpp-start)
+
+- [Play Games Services C++ (v2) (beta) API reference](https://developer.android.com/games/services/cpp/v2/api)
+
+## January 13, 2026
+
+Announcement The updated game controllers documentation is now available.
+
+Learn more: [Support game controllers](https://developer.android.com/games/sdk/game-controller/overview)
+
+## November 24, 2025
+
+Feature Play Games Sidekick (beta) is ready for you to test.
+
+Learn more: [Play Games Sidekick (beta)](https://developer.android.com/games/pgs/play-games-sidekick)
+
 ## September 23, 2025
 
 Announcement Google Play Games Level Up is a program to recognize and reward great gaming experiences across Google Play, providing you with powerful tools and promotional opportunities to drive business growth for your game.

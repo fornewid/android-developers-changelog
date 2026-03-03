@@ -138,7 +138,7 @@ fun isLargeDisplay() =
     } else {
         // Show content only for smaller displays.
     }
-    // ...https://github.com/android/snippets/blob/bbf4e1ff2570641546d50270b121493ef1965774/wear/src/main/java/com/example/wear/snippets/m3/list/List.kt#L140-L158
+    // ...https://github.com/android/snippets/blob/48adb119f98d1fef9d761ab2415e317ce0bb6a9a/wear/src/main/java/com/example/wear/snippets/m3/list/List.kt#L140-L158
 ```
 
 The [design guidance](https://developer.android.com/design/ui/wear/guides/foundations/larger-screens-differentiated) illustrates more of these opportunities.

@@ -469,7 +469,7 @@ fun MessageDetail(id: String) {
         contentPadding = padding
     ) { scaffoldPaddingValues ->
         // Screen content goes here
-        // ...https://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/wear/src/main/java/com/example/wear/snippets/m3/navigation/Navigation.kt#L64-L110
+        // ...https://github.com/android/snippets/blob/3b5e1470dcdad9e12ea72bddf9bfcb254a5f15c5/wear/src/main/java/com/example/wear/snippets/m3/navigation/Navigation.kt#L64-L110
 ```
 
 <br />

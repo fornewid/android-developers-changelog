@@ -128,9 +128,9 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 ```groovy
 dependencies {
     implementation "androidx.xr.runtime:runtime:1.0.0-alpha11"
-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha07"
-    implementation "androidx.xr.projected:projected:1.0.0-alpha05"
-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha11"
+    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha06"
+    implementation "androidx.xr.projected:projected:1.0.0-alpha04"
+    implementation "androidx.xr.arcore:arcore:1.0.0-alpha10"
 }
 ```
 
@@ -139,8 +139,11 @@ dependencies {
 ```kotlin
 dependencies {
     implementation("androidx.xr.runtime:runtime:1.0.0-alpha11")
-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha07")
-    implementation("androidx.xr.projected:projected:1.0.0-alpha05")
-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha11")
+    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha06")
+    implementation("androidx.xr.projected:projected:1.0.0-alpha04")
+    implementation("androidx.xr.arcore:arcore:1.0.0-alpha10")
 }
 ```
+
+> [!NOTE]
+> **Note:** While developing for AI glasses, use these stated library versions even if newer versions of these Jetpack libraries have already been released.

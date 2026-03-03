@@ -125,7 +125,7 @@ public override fun onActivityResult(requestCode: Int, resultCode: Int, returnIn
         return
     }
     // Get the file's content URI from the incoming Intent
-    returnIntent.data?.also { ret>urnUri -
+    returnIntent.data?.also { returnUri ->
         /*
          * Try to open the file for "read" access using the
          * returned URI. If the file isn't found, write to the

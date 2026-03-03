@@ -18,7 +18,7 @@ project whenever appropriate, allowing you to upgrade your project to use AGP
 
 ## Compatibility
 
-The maximum API level that Android Gradle plugin 9.0 supports is API level 36.
+The maximum API level that Android Gradle plugin 9.0 supports is API level 36.1.
 Here is other compatibility info:
 
 

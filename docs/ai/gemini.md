@@ -61,7 +61,7 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI())
     .generativeModel("gemini-2.5-flash")
 
 val response = model.generateContent("Write a story about a magic backpack")
-val output = response.texthttps://github.com/android/snippets/blob/df2de96bc6313883ec381bd33c9df6b614bd9325/misc/src/main/java/com/example/snippets/ai/GeminiOverview.kt#L27-L32
+val output = response.texthttps://github.com/android/snippets/blob/48adb119f98d1fef9d761ab2415e317ce0bb6a9a/misc/src/main/java/com/example/snippets/ai/GeminiOverview.kt#L27-L32
 ```
 
 ### Java

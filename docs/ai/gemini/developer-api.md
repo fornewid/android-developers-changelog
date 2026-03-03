@@ -411,7 +411,7 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
 ### Generate images on Android with Nano Banana
 
 > [!NOTE]
-> **Note:** Gemini 3 Pro Image (Nano Banana Pro) is now available in preview as `gemini-3-pro-image-preview`. [Learn more about the capabilities of Gemini 3 Pro Image](https://deepmind.google/models/gemini-image/pro/).
+> **Note:** Gemini 3.1 Flash Image (Nano Banana 2) `gemini-3.1-flash-image-preview` and Gemini 3 Pro Image (Nano Banana Pro) `gemini-3-pro-image-preview` are now available in preview. Learn more about the capabilities of [Gemini 3.1 Flash Image](https://deepmind.google/models/gemini-image/flash/) and [Gemini 3 Pro Image](https://deepmind.google/models/gemini-image/pro/).
 
 The Gemini 2.5 Flash Image model (a.k.a Nano Banana) can generate and edit
 images leveraging world knowledge and reasoning. It generates contextually

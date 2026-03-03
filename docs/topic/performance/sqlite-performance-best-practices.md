@@ -4,38 +4,58 @@ url: https://developer.android.com/topic/performance/sqlite-performance-best-pra
 source: md.txt
 ---
 
-# Best practices for SQLite performance
-
-Android offers[built-in support for SQLite](https://developer.android.com/training/data-storage/sqlite), an efficient SQL database. Follow these best practices to optimize your app's performance, ensuring it remains fast and predictably fast as your data grows. By using these best practices, you also reduce the possibility of encountering performance issues that are difficult to reproduce and troubleshoot.
+Android offers [built-in support for SQLite](https://developer.android.com/training/data-storage/sqlite), an
+efficient SQL database. Follow these best practices to optimize your app's
+performance, ensuring it remains fast and predictably fast as your data grows.
+By using these best practices, you also reduce the possibility of
+encountering performance issues that are difficult to reproduce and
+troubleshoot.
 
 To achieve faster performance, follow these performance principles:
 
-- **Read fewer rows and columns**: Optimize your queries to retrieve only the necessary data. Minimize the amount of data read from the database, because excess data retrieval can impact performance.
+- **Read fewer rows and columns**: Optimize your queries to retrieve only the
+  necessary data. Minimize the amount of data read from the database, because
+  excess data retrieval can impact performance.
 
-- **Push work to SQLite engine**: Perform computations, filtering, and sorting operations within the SQL queries. Using SQLite's query engine can significantly improve performance.
+- **Push work to SQLite engine**: Perform computations, filtering, and sorting
+  operations within the SQL queries. Using SQLite's query engine can significantly
+  improve performance.
 
-- **Modify the database schema**: Design your database schema to help SQLite construct efficient query plans and data representations. Properly index tables and optimize table structures to enhance performance.
+- **Modify the database schema**: Design your database schema to help SQLite
+  construct efficient query plans and data representations. Properly index tables
+  and optimize table structures to enhance performance.
 
-Additionally, you can use the available troubleshooting tools to measure the performance of your SQLite database to help identify areas that require optimization.
+Additionally, you can use the available troubleshooting tools to measure the
+performance of your SQLite database to help identify areas that require
+optimization.
 
-We recommend using the[Jetpack Room library](https://developer.android.com/training/data-storage/room).
+We recommend using the [Jetpack Room library](https://developer.android.com/training/data-storage/room).
 
 ## Configure the database for performance
 
-Follow the steps in this section to configure your database for optimal performance in SQLite.
+Follow the steps in this section to configure your database for optimal
+performance in SQLite.
 
 ### Enable Write-Ahead Logging
 
-SQLite implements mutations by appending them to a log, which it occasionally compacts into the database. This is called[Write-Ahead Logging (WAL)](https://www.sqlite.org/wal.html).
+SQLite implements mutations by appending them to a log, which it occasionally
+compacts into the database. This is called [Write-Ahead Logging
+(WAL)](https://www.sqlite.org/wal.html).
 
-[Enable WAL](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#enableWriteAheadLogging())unless you are using[`ATTACH
+[Enable
+WAL](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#enableWriteAheadLogging())
+unless you are using [`ATTACH
 DATABASE`](https://www.sqlite.org/lang_attach.html).
 
 ### Relax the synchronization mode
 
-When using WAL, by default every commit issues an`fsync`to help ensure that the data reaches the disk. This improves data durability but slows down your commits.
+When using WAL, by default every commit issues an `fsync` to help ensure that
+the data reaches the disk. This improves data durability but slows down your
+commits.
 
-SQLite has an option to[control synchronous mode](https://sqlite.org/pragma.html#pragma_synchronous). If you enable WAL, set synchronous mode to`NORMAL`:  
+SQLite has an option to [control synchronous
+mode](https://sqlite.org/pragma.html#pragma_synchronous). If you
+enable WAL, set synchronous mode to `NORMAL`:
 
 ### Kotlin
 
@@ -59,18 +79,27 @@ paramsBuilder.setJournalMode(SQLiteDatabase.SYNC_MODE_NORMAL);
 db.execSQL("PRAGMA synchronous = NORMAL");
 ```
 
-In this setting, a commit can return before the data is stored in a disk. If a device shutdown occurs, such as on loss of power or a kernel panic, the committed data might be lost. However, because of logging, your database isn't corrupted.
+In this setting, a commit can return before the data is stored in a disk. If a
+device shutdown occurs, such as on loss of power or a kernel panic, the
+committed data might be lost. However, because of logging, your database isn't
+corrupted.
 
-If only your app crashes, your data still reaches the disk. For most apps, this setting yields performance improvements at no material cost.
-| **Note:** If your app has multiple databases, use the same synchronous setting everywhere in case there are data dependencies between different databases.
+If only your app crashes, your data still reaches the disk. For most apps, this
+setting yields performance improvements at no material cost.
+
+> [!NOTE]
+> **Note:** If your app has multiple databases, use the same synchronous setting everywhere in case there are data dependencies between different databases.
 
 ## Define efficient table schemas
 
-To optimize performance and minimize data consumption, define an efficient table schema. SQLite constructs efficient query plans and data, leading to faster data retrieval. This section provides best practices for creating table schemas.
+To optimize performance and minimize data consumption, define an efficient
+table schema. SQLite constructs efficient query plans and data, leading to
+faster data retrieval. This section provides best practices for creating table
+schemas.
 
-### Consider`INTEGER PRIMARY KEY`
+### Consider `INTEGER PRIMARY KEY`
 
-For this example, define and populate a table as follows:  
+For this example, define and populate a table as follows:
 
     CREATE TABLE Customers(
       id INTEGER,
@@ -83,15 +112,20 @@ For this example, define and populate a table as follows:
 
 The table output is as follows:
 
-| rowid | id  |      name       |        city        |
-|-------|-----|-----------------|--------------------|
-| 1     | 456 | John Lennon     | Liverpool, England |
-| 2     | 123 | Michael Jackson | Gary, IN           |
-| 3     | 789 | Dolly Parton    | Sevier County, TN  |
+| rowid | id | name | city |
+|---|---|---|---|
+| 1 | 456 | John Lennon | Liverpool, England |
+| 2 | 123 | Michael Jackson | Gary, IN |
+| 3 | 789 | Dolly Parton | Sevier County, TN |
 
-The column[`rowid`](https://www.sqlite.org/rowidtable.html)is an index that preserves insertion order. Queries that filter by`rowid`are implemented as a fast B-tree search, but queries that filter by`id`are a slow table scan.
+The column [`rowid`](https://www.sqlite.org/rowidtable.html) is
+an index that preserves insertion order. Queries that
+filter by `rowid` are implemented as a fast B-tree search, but queries that
+filter by `id` are a slow table scan.
 
-If you plan on doing lookups by`id`, you can avoid storing the`rowid`column for less data in storage and an overall faster database:  
+If you plan on doing lookups by `id`, you can avoid storing the
+`rowid` column for less data in storage and an overall
+faster database:
 
     CREATE TABLE Customers(
       id INTEGER PRIMARY KEY,
@@ -101,78 +135,116 @@ If you plan on doing lookups by`id`, you can avoid storing the`rowid`column for 
 
 Your table now looks as follows:
 
-| id  |      name       |        city        |
-|-----|-----------------|--------------------|
-| 123 | Michael Jackson | Gary, IN           |
-| 456 | John Lennon     | Liverpool, England |
-| 789 | Dolly Parton    | Sevier County, TN  |
+| id | name | city |
+|---|---|---|
+| 123 | Michael Jackson | Gary, IN |
+| 456 | John Lennon | Liverpool, England |
+| 789 | Dolly Parton | Sevier County, TN |
 
-Since you don't need to store the`rowid`column,`id`queries are fast. Note that the table is now sorted based on`id`instead of insertion order.
+Since you don't need to store the `rowid` column, `id` queries are fast. Note
+that the table is now sorted based on `id` instead of insertion order.
 
 ### Accelerate queries with indexes
 
-SQLite uses[indexes](https://www.sqlite.org/queryplanner.html#_lookup_by_index)to accelerate queries. When filtering (`WHERE`), sorting (`ORDER BY`), or aggregating (`GROUP BY`) a column, if the table has an index for the column, the query is accelerated.
+SQLite uses
+[indexes](https://www.sqlite.org/queryplanner.html#_lookup_by_index)
+to accelerate queries. When filtering (`WHERE`), sorting (`ORDER BY`), or
+aggregating (`GROUP BY`) a column, if the table has an index for the column, the
+query is accelerated.
 
-In the previous example, filtering by`city`requires scanning the entire table:  
+In the previous example, filtering by `city` requires scanning the entire table:
 
     SELECT id, name
     WHERE city = 'London, England';
 
-For an app with a lot of city queries, you can accelerate those queries with an index:  
+For an app with a lot of city queries, you can accelerate those queries with an
+index:
 
     CREATE INDEX city_index ON Customers(city);
 
-An index is implemented as an additional table, sorted by the index column and mapped to`rowid`:
+An index is implemented as an additional table, sorted by the index column and
+mapped to `rowid`:
 
-|        city        | rowid |
-|--------------------|-------|
-| Gary, IN           | 2     |
-| Liverpool, England | 1     |
-| Sevier County, TN  | 3     |
+| city | rowid |
+|---|---|
+| Gary, IN | 2 |
+| Liverpool, England | 1 |
+| Sevier County, TN | 3 |
 
-Note that the storage cost of the`city`column is now double, because it's now present in both the original table and the index. Since you are using the index, the cost of added storage is worth the benefit of faster queries. However, don't maintain an index that you're not using to avoid paying the storage cost for no query performance gain.
+Note that the storage cost of the `city` column is now double, because it's
+now present in both the original table and the index. Since you are using the
+index, the cost of added storage is worth the benefit of faster queries.
+However, don't maintain an index that you're not using to avoid paying the
+storage cost for no query performance gain.
 
 ### Create multi-column indexes
 
-If your queries combine multiple columns, you can create[multi-column indexes](https://www.sqlite.org/queryplanner.html#_multi_column_indices)to fully accelerate the query. You can also use an index on an outside column and let the inside search be done as a linear scan.
+If your queries combine multiple columns, you can create [multi-column
+indexes](https://www.sqlite.org/queryplanner.html#_multi_column_indices)
+to fully accelerate the query. You can also use an index on an outside column
+and let the inside search be done as a linear scan.
 
-For instance, given the following query:  
+For instance, given the following query:
 
     SELECT id, name
     WHERE city = 'London, England'
     ORDER BY city, name
 
-You can accelerate the query with a multi-column index in the same order as specified in the query:  
+You can accelerate the query with a multi-column index in the same order as
+specified in the query:
 
     CREATE INDEX city_name_index ON Customers(city, name);
 
-However, if you only have an index on`city`, the outside ordering is still accelerated, while the inside ordering requires a linear scan.
+However, if you only have an index on `city`, the outside ordering is still
+accelerated, while the inside ordering requires a linear scan.
 
-This also works with prefix inquiries. For example, an index`ON Customers (city, name)`also accelerates filtering, ordering, and grouping by`city`, since the index table for a multi-column index is ordered by the given indexes in the given order.
+This also works with prefix inquiries. For example, an index
+`ON Customers (city, name)` also accelerates filtering, ordering, and grouping
+by `city`, since the index table for a multi-column index is ordered by the
+given indexes in the given order.
 
-### Consider`WITHOUT ROWID`
+### Consider `WITHOUT ROWID`
 
-By default, SQLite creates a`rowid`column for your table, where`rowid`is an implicit`INTEGER PRIMARY KEY AUTOINCREMENT`. If you already have a column that is`INTEGER PRIMARY KEY`, then this column becomes an alias of`rowid`.
+By default, SQLite creates a `rowid` column for your table, where `rowid` is an
+implicit `INTEGER PRIMARY KEY AUTOINCREMENT`. If you already have a column that
+is `INTEGER PRIMARY KEY`, then this column becomes an alias of `rowid`.
 
-For tables that have a primary key other than`INTEGER`or a composite of columns, consider[`WITHOUT
+For tables that have a primary key other than `INTEGER` or a composite of
+columns, consider [`WITHOUT
 ROWID`](https://www.sqlite.org/withoutrowid.html).
-| **Warning:** Tables using`WITHOUT ROWID`can incur performance penalties if their primary keys are large. For more information, see the[use cases](https://www.sqlite.org/withoutrowid.html#when_to_use_without_rowid).
 
-### Store small data as a`BLOB`and large data as a file
+> [!WARNING]
+> **Warning:** Tables using `WITHOUT ROWID` can incur performance penalties if their primary keys are large. For more information, see the [use
+> cases](https://www.sqlite.org/withoutrowid.html#when_to_use_without_rowid).
 
-If you want to associate large data with a row, such as a thumbnail of an image or a photo for a contact, you can store the data either in a`BLOB`column or in a file, and then store the file path in the column.
+### Store small data as a `BLOB` and large data as a file
 
-Files are generally rounded up to 4 KB increments. For very small files, where the rounding error is significant, it's more efficient to store them in the database as a`BLOB`. SQLite minimizes filesystem calls and is[faster than the underlying filesystem](https://www.sqlite.org/fasterthanfs.html)in some cases.
-| **Note:** On Android, consider using a file for any data that is several multiples of 4 KB.
+If you want to associate large data with a row, such as a thumbnail of an image
+or a photo for a contact, you can store the data either in a `BLOB` column or in
+a file, and then store the file path in the column.
+
+Files are generally rounded up to 4 KB increments. For very small files, where
+the rounding error is significant, it's more efficient to store them in the
+database as a `BLOB`. SQLite minimizes filesystem calls and is [faster than the
+underlying filesystem](https://www.sqlite.org/fasterthanfs.html)
+in some cases.
+
+> [!NOTE]
+> **Note:** On Android, consider using a file for any data that is several multiples of 4 KB.
 
 ## Improve query performance
 
-Follow these best practices to improve query performance in SQLite by minimizing response times and maximizing processing efficiency.
-| **Note:** Many of the examples on this page include a`LIMIT`clause. This is good practice because queries that could return many rows have performance implications when returning large data sets. The exception to this is for queries that implicitly return a size constrained dataset. For example, searching on a field defined as`UNIQUE`can only return zero or one row.
+Follow these best practices to improve query performance in SQLite by minimizing
+response times and maximizing processing efficiency.
+
+> [!NOTE]
+> **Note:** Many of the examples on this page include a `LIMIT` clause. This is good practice because queries that could return many rows have performance implications when returning large data sets. The exception to this is for queries that implicitly return a size constrained dataset. For example, searching on a field defined as `UNIQUE` can only return zero or one row.
 
 ### Read only the rows you need
 
-Filters let you narrow down your results by specifying certain criteria, such as date range, location, or name. Limits let you control the number of results you see:  
+Filters let you narrow down your results by specifying certain criteria,
+such as date range, location, or name. Limits let you control the number
+of results you see:
 
 ### Kotlin
 
@@ -206,9 +278,11 @@ try (Cursor cursor = db.rawQuery("""
 
 ### Read only the columns you need
 
-Avoid selecting unneeded columns, which can slow down your queries and waste resources. Instead, only select columns that are used.
+Avoid selecting unneeded columns, which can
+slow down your queries and waste resources. Instead, only select columns
+that are used.
 
-In the following example, you select`id`,`name`, and`phone`:  
+In the following example, you select `id`, `name`, and `phone`:
 
 ### Kotlin
 
@@ -247,7 +321,7 @@ try (Cursor cursor = db.rawQuery("""
 }
 ```
 
-However, you only need the`name`column:  
+However, you only need the `name` column:
 
 ### Kotlin
 
@@ -281,7 +355,8 @@ try (Cursor cursor = db.rawQuery("""
 
 ### Parameterize queries
 
-Your query string might include a parameter that is only known at runtime, such as the following:  
+Your query string might include a parameter that is only known at runtime, such
+as the following:
 
 ### Kotlin
 
@@ -315,7 +390,11 @@ public String getNameById(long id) {
 }
 ```
 
-In the preceding code, every query constructs a different string, and thus doesn't benefit from the statement cache. Each call requires SQLite to compile it before it can execute. Instead, you can replace the`id`argument with a[parameter](https://www.sqlite.org/lang_expr.html#varparam)and bind the value with`selectionArgs`:  
+In the preceding code, every query constructs a different string, and thus
+doesn't benefit from the statement cache. Each call requires SQLite to compile
+it before it can execute. Instead, you can replace the `id` argument with a
+[parameter](https://www.sqlite.org/lang_expr.html#varparam) and
+bind the value with `selectionArgs`:
 
 ### Kotlin
 
@@ -356,16 +435,23 @@ public String getNameById(long id) {
 }
 ```
 
-Now the query can be compiled once and cached. The compiled query is reused between different invocations of`getNameById(long)`.
-| **Caution:** If the input argument is some other object less constrained than just a number, string concatenation might lead to a SQL injection security vulnerability. Always use parameters for variables or untrusted data.
+Now the query can be compiled once and cached. The compiled query is reused
+between different invocations of `getNameById(long)`.
+
+> [!CAUTION]
+> **Caution:** If the input argument is some other object less constrained than just a number, string concatenation might lead to a SQL injection security vulnerability. Always use parameters for variables or untrusted data.
 
 ### Iterate in SQL, not in code
 
-Use a single query that returns all targeted results, instead of a programmatic loop iterating on SQL queries to return individual results. The programmatic loop is about 1000 times slower than a single SQL query.
+Use a single query that returns all targeted results, instead of a programmatic
+loop iterating on SQL queries to return individual results. The programmatic
+loop is about 1000 times slower than a single SQL query.
 
-### Use`DISTINCT`for unique values
+### Use `DISTINCT` for unique values
 
-Using the`DISTINCT`keyword can improve the performance of your queries by reducing the amount of data that needs to be processed. For example, if you want to return only the unique values from a column, use`DISTINCT`:  
+Using the `DISTINCT` keyword can improve the performance of your queries by
+reducing the amount of data that needs to be processed. For example, if you want
+to return only the unique values from a column, use `DISTINCT`:
 
 ### Kotlin
 
@@ -399,7 +485,8 @@ try (Cursor cursor = db.rawQuery("""
 
 ### Use aggregate functions whenever possible
 
-Use aggregate functions for aggregate results without row data. For example, the following code checks whether there is at least one matching row:  
+Use aggregate functions for aggregate results without row data. For example, the
+following code checks whether there is at least one matching row:
 
 ### Kotlin
 
@@ -444,7 +531,8 @@ try (Cursor cursor = db.rawQuery("""
 }
 ```
 
-To only fetch the first row, you can use`EXISTS()`to return`0`if a matching row does not exist and`1`if one or more rows match:  
+To only fetch the first row, you can use `EXISTS()` to return `0` if a matching
+row does not exist and `1` if one or more rows match:
 
 ### Kotlin
 
@@ -488,17 +576,22 @@ try (Cursor cursor = db.rawQuery("""
 }
 ```
 
-Use[SQLite aggregate functions](https://www.sqlite.org/lang_aggfunc.html)in your app code:
+Use [SQLite aggregate
+functions](https://www.sqlite.org/lang_aggfunc.html) in your app
+code:
 
 - `COUNT`: counts how many rows are in a column.
 - `SUM`: adds all numerical values in a column.
-- `MIN`or`MAX`: determines the lowest or highest value. Works for numeric columns,`DATE`types, and text types.
+- `MIN` or `MAX`: determines the lowest or highest value. Works for numeric columns, `DATE` types, and text types.
 - `AVG`: finds the average numerical value.
 - `GROUP_CONCAT`: concatenates strings with an optional separator.
 
-### Use`COUNT()`instead of`Cursor.getCount()`
+### Use `COUNT()` instead of `Cursor.getCount()`
 
-In the following example, the[`Cursor.getCount()`](https://developer.android.com/reference/android/database/Cursor#getCount())function reads all the rows from the database and returns all the row values:  
+In the
+following example, the
+[`Cursor.getCount()`](https://developer.android.com/reference/android/database/Cursor#getCount()) function
+reads all the rows from the database and returns all the row values:
 
 ### Kotlin
 
@@ -532,7 +625,8 @@ try (Cursor cursor = db.rawQuery("""
 }
 ```
 
-However, by using`COUNT()`, the database returns only the count:  
+However, by using `COUNT()`, the database returns only the
+count:
 
 ### Kotlin
 
@@ -564,9 +658,14 @@ try (Cursor cursor = db.rawQuery("""
 
 ### Nest queries instead of code
 
-SQL is composable and supports subqueries, joins, and foreign key constraints. You can use the result of one query in another query without going through app code. This reduces the need to copy data from SQLite and lets the database engine optimize your query.
+SQL is composable and supports subqueries, joins, and foreign key constraints.
+You can use the result of one query in another query without going through app
+code. This reduces the need to copy data from SQLite and lets the database
+engine optimize your query.
 
-In the following example, you can run a query to find which city has the most customers, then use the result in another query to find all the customers from that city:  
+In the following example, you can run a query to find which city has the most
+customers, then use the result in another query to find all the customers from
+that city:
 
 ### Kotlin
 
@@ -627,7 +726,8 @@ try (Cursor cursor = db.rawQuery("""
 }
 ```
 
-To get the result in half the time of the previous example, use a single SQL query with nested statements:  
+To get the result in half the time of the previous example, use a single SQL
+query with nested statements:
 
 ### Kotlin
 
@@ -673,9 +773,12 @@ try (Cursor cursor = db.rawQuery("""
 
 ### Check uniqueness in SQL
 
-If a row must not be inserted unless a particular column value is unique in the table, then it might be more efficient to enforce that uniqueness as a column constraint.
+If a row must not be inserted unless a particular column value is unique in the
+table, then it might be more efficient to enforce that uniqueness as a column
+constraint.
 
-In the following example, one query is run to validate the row to be inserted and another to actually insert:  
+In the following example, one query is run to validate the row to be
+inserted and another to actually insert:
 
 ### Kotlin
 
@@ -733,7 +836,8 @@ db.execSQL(
     });
 ```
 
-Instead of checking the unique constraint in Kotlin or Java, you can check it in SQL when you define the table:  
+Instead of checking the unique constraint in Kotlin or Java, you can check it in
+SQL when you define the table:
 
     CREATE TABLE Customers(
       id INTEGER PRIMARY KEY,
@@ -741,14 +845,15 @@ Instead of checking the unique constraint in Kotlin or Java, you can check it in
       username TEXT UNIQUE
     );
 
-SQLite does the same as the following:  
+SQLite does the same as the following:
 
     CREATE TABLE Customers(...);
     CREATE UNIQUE INDEX CustomersUsername ON Customers(username);
 
-| **Note:** An index table is created for`username`, which uses extra storage. For more information about querying an index table, see[Accelerate queries with indexes](https://developer.android.com/topic/performance/sqlite-performance-best-practices#accelerate-queries).
+> [!NOTE]
+> **Note:** An index table is created for `username`, which uses extra storage. For more information about querying an index table, see [Accelerate queries with indexes](https://developer.android.com/topic/performance/sqlite-performance-best-practices#accelerate-queries).
 
-Now you can insert a row and let SQLite check the constraint:  
+Now you can insert a row and let SQLite check the constraint:
 
 ### Kotlin
 
@@ -778,18 +883,23 @@ try {
   throw new AddCustomerException(customer, e);
 }
 ```
-| **Note:** If you define[`INTEGER PRIMARY KEY`](https://developer.android.com/topic/performance/sqlite-performance-best-practices#consider-integer), then a unique constraint applies to that column and doesn't use an extra index table.
 
-SQLite supports unique indexes with multiple columns:  
+> [!NOTE]
+> **Note:** If you define [`INTEGER PRIMARY KEY`](https://developer.android.com/topic/performance/sqlite-performance-best-practices#consider-integer), then a unique constraint applies to that column and doesn't use an extra index table.
+
+SQLite supports unique indexes with multiple columns:
 
     CREATE TABLE table(...);
     CREATE UNIQUE INDEX unique_table ON table(column1, column2, ...);
 
-SQLite validates constraints faster and with less overhead than Kotlin or Java code. It is a best practice to use SQLite rather than app code.
+SQLite validates constraints faster and with less overhead than Kotlin or Java
+code. It is a best practice to use SQLite rather than app code.
 
 ### Batch multiple insertions in a single transaction
 
-A transaction commits multiple operations, which improves not only efficiency but also correctness. To improve data consistency and accelerate performance, you can batch insertions:  
+A transaction commits multiple operations, which improves not
+only efficiency but also correctness. To improve data consistency and
+accelerate performance, you can batch insertions:
 
 ### Kotlin
 
@@ -825,7 +935,9 @@ try {
   db.endTransaction()
 }
 ```
-| **Note:** Only one write transaction can occur at a time. Use`MoreExecutors.newSequentialExecutor(Executor)`to serialize writes.
+
+> [!NOTE]
+> **Note:** Only one write transaction can occur at a time. Use `MoreExecutors.newSequentialExecutor(Executor)` to serialize writes.
 
 ## Use troubleshooting tools
 
@@ -833,9 +945,12 @@ SQLite provides the following troubleshooting tools to help measure performance.
 
 ### Use SQLite's interactive prompt
 
-Run SQLite on your machine to run queries and learn. Different Android platform versions use different revisions of SQLite. To use the same engine that's on an Android-powered device, use`adb shell`and run`sqlite3`on your target device.
+Run SQLite on your machine to run queries and learn.
+Different Android platform versions use different revisions of SQLite. To use
+the same engine that's on an Android-powered device, use `adb shell` and
+run `sqlite3` on your target device.
 
-You can ask SQLite to time queries:  
+You can ask SQLite to time queries:
 
     sqlite> .timer on
     sqlite> SELECT ...
@@ -843,7 +958,8 @@ You can ask SQLite to time queries:
 
 ### `EXPLAIN QUERY PLAN`
 
-You can ask SQLite to explain how it intends to answer a query by using[`EXPLAIN QUERY PLAN`](https://www.sqlite.org/eqp.html):  
+You can ask SQLite to explain how it intends to answer a query by using
+[`EXPLAIN QUERY PLAN`](https://www.sqlite.org/eqp.html):
 
     sqlite> EXPLAIN QUERY PLAN
     SELECT id, name
@@ -852,7 +968,10 @@ You can ask SQLite to explain how it intends to answer a query by using[`EXPLAIN
     QUERY PLAN
     `--SCAN Customers
 
-The previous example requires a full table scan without an index to find all customers from Paris. This is called*linear complexity*. SQLite needs to read all the rows and only keep the rows that match customers from Paris. To fix this, you can add an index:  
+The previous example requires a full table scan without an index to find all
+customers from Paris. This is called *linear complexity*. SQLite needs to read
+all the rows and only keep the rows that match customers from Paris. To fix
+this, you can add an index:
 
     sqlite> CREATE INDEX Idx1 ON Customers(city);
     sqlite> EXPLAIN QUERY PLAN
@@ -862,27 +981,36 @@ The previous example requires a full table scan without an index to find all cus
     QUERY PLAN
     `--SEARCH test USING INDEX Idx1 (city=?
 
-If you're using the interactive shell, you can ask SQLite to always explain query plans:  
+If you're using the interactive shell, you can ask SQLite to always explain
+query plans:
 
     sqlite> .eqp on
 
-For more information, see[Query Planning](https://www.sqlite.org/queryplanner.html).
+For more information, see
+[Query Planning](https://www.sqlite.org/queryplanner.html).
 
 ### SQLite Analyzer
 
-SQLite offers the[`sqlite3_analyzer`](https://www.sqlite.org/sqlanalyze.html)command-line interface (CLI) to dump additional information that can be used to troubleshoot performance. To install, visit the[SQLite Download Page](https://sqlite.org/download.html).
+SQLite offers the
+[`sqlite3_analyzer`](https://www.sqlite.org/sqlanalyze.html)
+command-line interface (CLI) to dump additional information that can be used to
+troubleshoot performance. To install, visit the
+[SQLite Download Page](https://sqlite.org/download.html).
 
-You can use`adb pull`to download a database file from a target device to your workstation for analysis:  
+You can use `adb pull` to download a database file from a target device to your
+workstation for analysis:
 
     adb pull /data/data/<app_package_name>/databases/<db_name>.db
 
 ### SQLite Browser
 
-You can also install the GUI tool[SQLite Browser](https://sqlitebrowser.org/)on the SQLite[Downloads page](https://sqlitebrowser.org/dl/).
+You can also install the GUI tool
+[SQLite Browser](https://sqlitebrowser.org/) on the SQLite
+[Downloads page](https://sqlitebrowser.org/dl/).
 
 ### Android logging
 
-Android times SQLite queries and logs them for you:  
+Android times SQLite queries and logs them for you:
 
     # Enable query time logging
     $ adb shell setprop log.tag.SQLiteTime VERBOSE
@@ -891,7 +1019,8 @@ Android times SQLite queries and logs them for you:
 
 ### Perfetto tracing
 
-When[configuring Perfetto](https://perfetto.dev/docs/concepts/config), you may add the following to include tracks for individual queries:  
+When [configuring Perfetto](https://perfetto.dev/docs/concepts/config), you may
+add the following to include tracks for individual queries:
 
     data_sources {
       config {
@@ -904,7 +1033,11 @@ When[configuring Perfetto](https://perfetto.dev/docs/concepts/config), you may a
 
 ### `dumpsys meminfo`
 
-`adb shell dumpsys meminfo <package-name>`will print stats related to the app's memory usage, including some details about SQLite memory. For example, this was taken from the output of`adb shell dumpsys meminfo com.google.android.gms.persistent`on a developer's device:  
+`adb shell dumpsys meminfo <package-name>` will print stats related to the app's
+memory usage, including some details about SQLite memory. For example, this was
+taken from the output of
+`adb shell dumpsys meminfo com.google.android.gms.persistent` on a developer's
+device:
 
     DATABASES
           pgsz     dbsz   Lookaside(b) cache hits cache misses cache size  Dbname
@@ -945,17 +1078,17 @@ When[configuring Perfetto](https://perfetto.dev/docs/concepts/config), you may a
                 229           197           426  /data/user/10/com.google.android.gms/databases/android_pay
                   4            18            22  /data/user/10/com.google.android.gms/databases/googlesettings.db
 
-Under`DATABASES`you'll find:
+Under `DATABASES` you'll find:
 
 - `pgsz`: the size of one database page, in KB.
-- `dbsz`: the size of the entire database, in pages. To get the size in KB, multiply`pgsz`by`dbsz`.
+- `dbsz`: the size of the entire database, in pages. To get the size in KB, multiply `pgsz` by `dbsz`.
 - `Lookaside(b)`: memory allocated to the SQLite lookaside buffer per connection, in bytes. These are typically very small.
 - `cache hits`: SQLite maintains a cache of database pages. This is the number of page cache hits (count).
 - `cache misses`: number of page cache misses (count).
-- `cache size`: number of pages in the cache (count). To get the size in KB, multiply this number by`pgsz`.
-- `Dbname`: path to DB file. In our example some DBs have`(1)`or another number appended to their name, to indicate that there is more than one connection to the same underlying database. Stats are tracked per connection.
+- `cache size`: number of pages in the cache (count). To get the size in KB, multiply this number by `pgsz`.
+- `Dbname`: path to DB file. In our example some DBs have `(1)` or another number appended to their name, to indicate that there is more than one connection to the same underlying database. Stats are tracked per connection.
 
-Under`POOL STATS`you'll find:
+Under `POOL STATS` you'll find:
 
 - `cache hits`: SQLite caches prepared statements and attempts to reuse them when running queries, to save some effort and memory in compiling SQL statements. This is the number of statement cache hits (count).
 - `cache misses`: number of statement cache misses (count).

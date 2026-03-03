@@ -6,12 +6,12 @@ source: md.txt
 
 <br />
 
-Android Gradle plugin 9.1 is a major release that includes a variety of new
+Android Gradle plugin 9.1 is a minor release that includes a variety of new
 features and improvements.
 
 ## Compatibility
 
-The maximum API level that Android Gradle plugin 9.1 supports is API level 36.
+The maximum API level that Android Gradle plugin 9.1 supports is API level 36.1.
 Here is other compatibility info:
 
 
@@ -26,6 +26,37 @@ Here is other compatibility info:
 
 ## Fixed issues
 
+
+### Android Gradle plugin 9.1.0-rc01
+
+| Fixed Issues ||
+|---|---|
+| No public issues were marked as fixed in AGP 9.1.0-rc01 ||
+
+### Android Gradle plugin 9.1.0-alpha09
+
+| Fixed Issues ||
+|---|---|
+| **Lint** | |---| | [Issue #454429194](https://issuetracker.google.com/issues/454429194) Lint in Otter.2 does not recognize the new compileSdk and targetSdk DSL from AGP 9.0 | |
+
+### Android Gradle plugin 9.1.0-alpha08
+
+| Fixed Issues ||
+|---|---|
+| **Android Gradle Plugin** | |---| | [Issue #473854532](https://issuetracker.google.com/issues/473854532) Clean Project menu runs a sub-project target instead of just "clean" | | [Issue #460470375](https://issuetracker.google.com/issues/460470375) Incremental dex desugaring bug in AGP | | [Issue #272344409](https://issuetracker.google.com/issues/272344409) Config cache: avoid accessing task extensions and conventions at execution time | | [Issue #448452488](https://issuetracker.google.com/issues/448452488) AGP does not know about canary platforms and complains | |
+| **Lint Integration** | |---| | [Issue #478976180](https://issuetracker.google.com/issues/478976180) Android Lint using K1 when applied to a java-library project | | [Issue #197146610](https://issuetracker.google.com/issues/197146610) "Lint check for lint checks" not running | |
+
+### Android Gradle plugin 9.1.0-alpha07
+
+| Fixed Issues ||
+|---|---|
+| **Android Gradle Plugin** | |---| | [Issue #474099556](https://issuetracker.google.com/issues/474099556) beforeVariants for KMP needs to be implemented. | |
+
+### Android Gradle plugin 9.1.0-alpha06
+
+| Fixed Issues ||
+|---|---|
+| No public issues were marked as fixed in AGP 9.1.0-alpha06 ||
 
 ### Android Gradle plugin 9.1.0-alpha05
 

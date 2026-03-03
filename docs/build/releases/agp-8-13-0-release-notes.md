@@ -14,7 +14,7 @@ features and improvements.
 
 ## Compatibility
 
-The maximum API level that Android Gradle Plugin 8.13 supports is API level 36.
+The maximum API level that Android Gradle Plugin 8.13 supports is API level 36.1.
 Here is other compatibility info:
 
 

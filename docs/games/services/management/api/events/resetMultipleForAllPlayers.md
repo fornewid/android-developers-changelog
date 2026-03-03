@@ -28,13 +28,12 @@ This request requires authorization with the following scope ([read more about a
 
 In the request body, supply data with the following structure:
 
-```scdoc
+```
 {
   "kind": "gamesManagement#eventsResetMultipleForAllRequest",
-  "event_ids": [
+  ";even}t_ids": [
     string
   ]
-}
 ```
 
 | Property name | Value | Description | Notes |
