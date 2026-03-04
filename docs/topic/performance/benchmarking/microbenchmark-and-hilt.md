@@ -7,7 +7,7 @@ source: md.txt
 Many apps use Hilt to inject different behaviors to different build variants.
 This can be particularly useful when Microbenchmarking your app because it lets
 you switch out a component that can skew the results. For example, the following
-code snippet shows a repository that fetches and sorts a list of names:  
+code snippet shows a repository that fetches and sorts a list of names:
 
 ### Kotlin
 
@@ -84,7 +84,7 @@ duration of network calls can take longer than the sorting.
 The call to `dataSource.getPeople()`, as shown in the preceding example,
 contains a network call. However, the `NetworkDataSource` instance is injected
 by Hilt, and you can replace it with the following fake implementation for
-benchmarking:  
+benchmarking:
 
 ### Kotlin
 
@@ -117,7 +117,7 @@ public class FakeNetworkDataSource implements NetworkDataSource{
 
 This fake network call is designed to run as quickly as possible when you call
 the `getPeople()` method. For Hilt to be able to inject this, the following
-provider is used:  
+provider is used:
 
 ### Kotlin
 
@@ -199,7 +199,7 @@ source set of the same module. The asset file containing the data returned by
 the fake implementation is in the `debug` source set to avoid any APK bloat in
 the `release` build. The `benchmark` variant needs to be based on `release` and
 use the `debug` source set. The build configuration for the `benchmark` variant
-of the `benchmarkable` module containing the fake implementation is as follows:  
+of the `benchmarkable` module containing the fake implementation is as follows:
 
 ### Kotlin
 
@@ -255,7 +255,7 @@ android {
 ```
 
 In the `benchmark` module add a custom test runner that creates an `Application`
-for the tests to run in that supports Hilt as follows:  
+for the tests to run in that supports Hilt as follows:
 
 ### Kotlin
 
@@ -290,7 +290,7 @@ public class JavaHiltBenchmarkRunner extends AndroidBenchmarkRunner {
 
 This makes the `Application` object in which the tests are run extend the
 [`HiltTestApplication`](https://dagger.dev/api/latest/dagger/hilt/android/testing/HiltTestApplication.html) class. Make the following changes to the build
-configuration:  
+configuration:
 
 ### Kotlin
 
@@ -407,7 +407,7 @@ You need to change the `testBuildType` to ensure that Gradle creates the
 
 ## Create the microbenchmark
 
-The benchmark is implemented as follows:  
+The benchmark is implemented as follows:
 
 ### Kotlin
 
@@ -528,7 +528,7 @@ the duration of the sorting is included in the benchmark timing.
 
 Run the benchmark with `./gradlew :benchmark:connectedBenchmarkAndroidTest`
 to perform the benchmark over many iterations and to print the timing data to
-[Logcat](https://developer.android.com/studio/debug/logcat):  
+[Logcat](https://developer.android.com/studio/debug/logcat):
 
     PeopleRepositoryBenchmark.log[Metric (timeNs) results: median 613408.3952380952, min 451949.30476190476, max 1412143.5142857144, standardDeviation: 273221.2328680522...
 

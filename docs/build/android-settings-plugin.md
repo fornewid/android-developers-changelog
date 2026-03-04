@@ -19,7 +19,7 @@ the same as the AGP version declared in the `libs.versions.toml` file:
 pluginManagement {
     // Add the following.
     plugins {
-       id("com.android.settings") version "9.0.0" apply false
+       id("com.android.settings") version "9.1.0" apply false
     }
 }
 
@@ -34,7 +34,7 @@ plugins {
 pluginManagement {
     // Add the following.
     plugins {
-       id("com.android.settings") version "9.0.0" apply false
+       id("com.android.settings") version "9.1.0" apply false
     }
 }
 

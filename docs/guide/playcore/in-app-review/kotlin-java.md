@@ -12,7 +12,7 @@ code](https://developer.android.com/guide/playcore/in-app-review/native), [Unity
 
 The Play In-App Review Library is a part of the [Google Play Core libraries](https://developer.android.com/guide/playcore).
 Include the following Gradle dependency to integrate the Play In-App Review
-Library.  
+Library.
 
 ### Groovy
 
@@ -50,7 +50,7 @@ dependencies {
 
 The [`ReviewManager`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManager) is the interface that lets your app start an in-app
 review flow. Obtain it by creating an instance using the
-[`ReviewManagerFactory`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManagerFactory).  
+[`ReviewManagerFactory`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManagerFactory).
 
 ### Kotlin
 
@@ -71,7 +71,7 @@ points in your app's user flow to prompt the user for a review (for example,
 when the user completes a level in a game). When your app reaches one of these
 points, use the [`ReviewManager`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManager) instance to create a request task. If
 successful, the API returns the [`ReviewInfo`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewInfo) object needed to start the
-in-app review flow.  
+in-app review flow.
 
 ### Kotlin
 
@@ -103,13 +103,15 @@ request.addOnCompleteListener(task -> {
     }
 });
 ```
-| **Note:** The [`ReviewInfo`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewInfo) object is only valid for a limited amount of time. Your app should request a `ReviewInfo` object ahead of time (pre-cache) but only once you are certain that your app will launch the in-app review flow.
+
+> [!NOTE]
+> **Note:** The [`ReviewInfo`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewInfo) object is only valid for a limited amount of time. Your app should request a `ReviewInfo` object ahead of time (pre-cache) but only once you are certain that your app will launch the in-app review flow.
 
 ## Launch the in-app review flow
 
 Use the [`ReviewInfo`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewInfo) instance to launch the in-app review flow. Wait until
 the user has completed the in-app review flow before your app continues its
-normal user flow (such as advancing to the next level).  
+normal user flow (such as advancing to the next level).
 
 ### Kotlin
 
@@ -132,7 +134,9 @@ flow.addOnCompleteListener(task -> {
     // matter the result, we continue our app flow.
 });
 ```
-| **Important:** If an error occurs during the in-app review flow, do not inform the user or change your app's normal user flow. Continue your app's normal user flow after `onComplete` is called.
+
+> [!IMPORTANT]
+> **Important:** If an error occurs during the in-app review flow, do not inform the user or change your app's normal user flow. Continue your app's normal user flow after `onComplete` is called.
 
 ## Next steps
 

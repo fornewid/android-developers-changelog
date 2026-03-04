@@ -6,8 +6,8 @@ source: md.txt
 
 This page tracks known issues with
 Android Studio
-Panda 1 and Android Gradle plugin
-9.0.0. If you experience an issue not already included
+Panda 2 and Android Gradle plugin
+9.1.0. If you experience an issue not already included
 here, please [report a bug](https://developer.android.com/studio/report-bugs).
 
 

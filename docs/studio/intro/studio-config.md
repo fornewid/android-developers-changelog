@@ -30,7 +30,9 @@ following topics:
 Both configuration files are stored in the configuration directory for Android
 Studio. To find the configuration directory, see
 [Directories](https://developer.android.com/studio/troubleshoot#directories).
-| **Note:** To quickly locate your configuration directory, navigate to **Help \> Edit Custom VM Options** or **Help \> Edit Custom Properties** in Android Studio. This opens a configuration file. Inspect the path of the configuration file to find your configuration directory.
+
+> [!NOTE]
+> **Note:** To quickly locate your configuration directory, navigate to **Help \> Edit Custom VM Options** or **Help \> Edit Custom Properties** in Android Studio. This opens a configuration file. Inspect the path of the configuration file to find your configuration directory.
 
 You can use the following environment variables to point to specific
 override files elsewhere:
@@ -106,7 +108,8 @@ the heap sizes for your project manually. To do so, follow these steps:
    If you change the heap size for the IDE, you must restart Android Studio
    before the new memory settings are applied.
 
-| **Note:** Allocating too much memory can degrade performance.
+> [!NOTE]
+> **Note:** Allocating too much memory can degrade performance.
 
 ## Export and import IDE settings
 
@@ -151,7 +154,7 @@ these steps:
 
 The following `idea.properties` file includes commonly customized IDE
 properties. For a complete list of properties, read about the
-[`idea.properties` file for IntelliJ IDEA](https://www.jetbrains.com/help/idea/2025.3/file-idea-properties.html).  
+[`idea.properties` file for IntelliJ IDEA](https://www.jetbrains.com/help/idea/2025.3/file-idea-properties.html).
 
     #---
     # Uncomment this option if you want to customize path to user installed plugins folder. Make sure
@@ -275,7 +278,9 @@ IDE HTTP Proxy settings page to set the HTTP proxy settings.
 When running the Android Gradle plugin from the command line or on machines
 where Android Studio is not installed, such as continuous integration servers,
 set the proxy settings in the Gradle build file.
-| **Note:** After the initial installation of the Android Studio bundle, Android Studio can run with internet access or offline. However, Android Studio requires an internet connection for Setup Wizard synchronization, third-party library access, access to remote repositories, Gradle initialization and synchronization, and Android Studio version updates.
+
+> [!NOTE]
+> **Note:** After the initial installation of the Android Studio bundle, Android Studio can run with internet access or offline. However, Android Studio requires an internet connection for Setup Wizard synchronization, third-party library access, access to remote repositories, Gradle initialization and synchronization, and Android Studio version updates.
 
 ### Set up the Android Studio proxy
 
@@ -295,7 +300,7 @@ Android Studio is not installed, set the Android Gradle plugin proxy
 settings in the Gradle build file.
 
 For application-specific HTTP proxy settings, set the proxy settings in the
-`build.gradle` file as required for each application module:  
+`build.gradle` file as required for each application module:
 
     plugins {
       id 'com.android.application'
@@ -316,7 +321,7 @@ For application-specific HTTP proxy settings, set the proxy settings in the
     }
 
 For project-wide HTTP proxy settings, set the proxy settings in the
-`gradle/gradle.properties` file:  
+`gradle/gradle.properties` file:
 
     # Project-wide Gradle settings.
     ...
@@ -337,7 +342,9 @@ For project-wide HTTP proxy settings, set the proxy settings in the
 
 For information about using Gradle properties for proxy settings, see the
 [Gradle User Guide](http://www.gradle.org/docs/current/userguide/build_environment.html).
-| **Note:** When using Android Studio, the settings in the Android Studio IDE HTTP proxy settings page override the HTTP proxy settings in the `gradle.properties` file.
+
+> [!NOTE]
+> **Note:** When using Android Studio, the settings in the Android Studio IDE HTTP proxy settings page override the HTTP proxy settings in the `gradle.properties` file.
 
 ## Optimize Android Studio performance on Windows
 
@@ -359,7 +366,9 @@ To avoid this issue, you can exclude certain directories from real-time
 scanning in your antivirus software. For Windows,
 [Build Analyzer](https://developer.android.com/build/build-analyzer#antivirus-impact) can help you identify
 the directories that should be excluded from active scanning and exclude them.
-| **Caution:** To ensure that your computer is safe from malicious software, don't completely disable real-time scanning or your antivirus software.
+
+> [!CAUTION]
+> **Caution:** To ensure that your computer is safe from malicious software, don't completely disable real-time scanning or your antivirus software.
 
 The following list shows the default location of each Android Studio directory
 that you can exclude from real-time scanning:
@@ -375,7 +384,7 @@ Android SDK
 
 **Android Studio system files**
 
-Syntax: `%LOCALAPPDATA%\Google\`<var translate="no">&lt;product&gt;&lt;version&gt;</var>
+Syntax: `%LOCALAPPDATA%\Google\<product><version>`
 
 Example: `C:\Users\YourUserName\AppData\Local\Google\AndroidStudio4.1`
 
@@ -386,17 +395,17 @@ scanning on your computer, you can move your Android Studio directories to
 one of the locations that the centralized Group Policy already excludes.
 
 The following list shows how to customize the location of each Android Studio
-directory, where <var translate="no">C:\WorkFolder</var> is the directory that
+directory, where `C:\WorkFolder` is the directory that
 your Group Policy already excludes:
 
 Gradle cache
 :   Define the `GRADLE_USER_HOME` environment variable to point to
-    <var translate="no">C:\WorkFolder</var>`\.gradle`.
+    `C:\WorkFolder\.gradle`.
 
 Android Studio projects
 :   Move or create project directories in an appropriate subdirectory of
-    <var translate="no">C:\WorkFolder</var>. For example,
-    <var translate="no">C:\WorkFolder</var>`\AndroidStudioProjects`.
+    `C:\WorkFolder`. For example,
+    `C:\WorkFolder\AndroidStudioProjects`.
 
 Android SDK
 
@@ -407,7 +416,7 @@ Android SDK
        Android SDK**.
 
     2. Change the value of **Android SDK Location** to
-       <var translate="no">C:\WorkFolder</var>`\AndroidSDK`.
+       `C:\WorkFolder\AndroidSDK`.
 
        To avoid downloading the SDK again, copy the existing SDK
        directory, located at `%USERPROFILE%\AppData\Local\Android\SDK` by default,

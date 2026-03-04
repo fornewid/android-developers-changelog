@@ -37,7 +37,7 @@ identify associated apps:
 - This field supports multiple fingerprints, which can be used to support different versions of your app, such as debug and production builds. If you're using [Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756) for your app, then the certificate fingerprint produced by running `keytool` locally will usually not match the one on users' devices. You can verify whether you're using Play App Signing for your app in your [Play Console](https://play.google.com/console/) developer account under `Release > Setup > App signing`; if you do, then you'll also find the correct Digital Asset Links JSON snippet for your app on the same page.
 
 The following example `assetlinks.json` file grants link-opening rights to a
-`com.example` Android app:  
+`com.example` Android app:
 
     [{
       "relation": ["delegate_permission/common.handle_all_urls"],
@@ -54,7 +54,7 @@ The following example `assetlinks.json` file grants link-opening rights to a
 A website can declare associations with multiple apps within the same
 `assetlinks.json` file. The following file listing shows an example of a
 statement file that declares association with two apps, separately, and resides
-at `https://www.example.com/.well-known/assetlinks.json`:  
+at `https://www.example.com/.well-known/assetlinks.json`:
 
     [{
       "relation": ["delegate_permission/common.handle_all_urls"],
@@ -79,7 +79,9 @@ Different apps may handle links for different resources under the same web host.
 For example, app1 may declare an intent filter for
 `https://example.com/articles`, and app2 may declare an intent filter for
 `https://example.com/videos`.
-| **Note:** Multiple apps associated with a domain may be signed with the same or different certificates.
+
+> [!NOTE]
+> **Note:** Multiple apps associated with a domain may be signed with the same or different certificates.
 
 ### Associate multiple websites with a single app
 
@@ -88,7 +90,7 @@ Multiple websites can declare associations with the same app in their respective
 declare the association of example.com and example.net with app1. The first
 listing shows the association of example.com with app1:
 
-https://www.example.com/.well-known/assetlinks.json  
+https://www.example.com/.well-known/assetlinks.json
 
     [{
       "relation": ["delegate_permission/common.handle_all_urls"],
@@ -103,7 +105,7 @@ https://www.example.com/.well-known/assetlinks.json
 The next listing shows the association of example.net with app1. Only the
 location where these files are hosted is different (.`com` and .`net`):
 
-https://www.example.net/.well-known/assetlinks.json  
+https://www.example.net/.well-known/assetlinks.json
 
     [{
       "relation": ["delegate_permission/common.handle_all_urls"],
@@ -126,7 +128,7 @@ Android devices running Android 15 (API level 35) or later that have Google
 services installed will periodically retrieve this file from your server and
 merge your dynamic rules configuration with the static configuration in the
 app's manifest. The following is an example of an `assetlinks.json` file with
-dynamic rules:  
+dynamic rules:
 
     [
       {
@@ -203,7 +205,7 @@ in order until it finds a match.
 The following example shows how ordering can affect handling. The first rule
 matches all paths ("\*") but excludes matches (exclude: true), meaning that it
 excludes all URLs from opening the app. In this case, the second rule that
-allows "/path1" will never be evaluated.  
+allows "/path1" will never be evaluated.
 
     dynamic_app_link_components: [
       {"/": "*", "exclude": true},
@@ -213,7 +215,7 @@ allows "/path1" will never be evaluated.
 However, in the next example, the "/path1" rule is declared first, so it will be
 evaluated first and will open the app for a URL matching "/path1". The second
 rule, that excludes all URLs from opening the app, will be evaluated second, but
-only if the first rule is not a match.  
+only if the first rule is not a match.
 
     dynamic_app_link_components: [
       {"/": "/path1"},
@@ -222,7 +224,7 @@ only if the first rule is not a match.
 
 If no matches are found in the list of declared components, the URL won't open
 the app. In the following example, none of the paths match "/path3" so the
-device will treat this path as excluded.  
+device will treat this path as excluded.
 
     dynamic_app_link_components: [
       {"/": "/path1"},
@@ -232,7 +234,7 @@ device will treat this path as excluded.
 This behavior is important if you want `dynamic_app_link_components` to only
 exclude certain URL parts but allow all others. In the following example,
 omitting the final rule to allow all remaining paths would mean that all URLs
-are excluded from the app.  
+are excluded from the app.
 
     dynamic_app_link_components: [
       {"/": "/path1", "exclude": true},

@@ -32,7 +32,9 @@ flash feature.
 3. Trigger a precapture metering sequence using [`CONTROL_AE_PRECAPTURE_TRIGGER`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#CONTROL_AE_PRECAPTURE_TRIGGER).
 4. Wait for auto-exposure (AE) and auto-white balance (AWB) to be converged.
 
-   | **Note:** Make sure a new AE precapture starts before checking AE and AWB are converged, because AE and AWB can be converged with some other set of states from before the precapture trigger.
+   > [!NOTE]
+   > **Note:** Make sure a new AE precapture starts before checking AE and AWB are converged, because AE and AWB can be converged with some other set of states from before the precapture trigger.
+
 5. Once converged, the usual photo capture flow of the app is used.
 
 6. Send capture request to framework.
@@ -54,7 +56,7 @@ flash UI changes are applied.
 
 In the following code sample, white color (`#FFFFFF`) is used as an example for
 the view. Applications can choose the color, or offer multiple colors to users,
-based on their requirements.  
+based on their requirements.
 
 ```xml
 <View
@@ -71,7 +73,7 @@ based on their requirements.
 There are multiple ways to change screen brightness in an Android app. One
 direct way is to change the
 [screenBrightness](https://developer.android.com/media/camera/camera2/(/reference/android/view/WindowManager.LayoutParams#screenBrightness)) WindowManager parameter in the
-[Activity Window](https://developer.android.com/reference/android/app/Activity#getWindow()) reference.  
+[Activity Window](https://developer.android.com/reference/android/app/Activity#getWindow()) reference.
 
 ### Kotlin
 
@@ -133,7 +135,7 @@ private void restoreScreenBrightness() {
 
 `CONTROL_AE_MODE_ON_EXTERNAL_FLASH` is available with API level 28 or higher.
 However, this AE mode isn't available in all devices, so check if the AE mode is
-available and set the value accordingly. To check the availability, use `CameraCharacteristics#CONTROL_AE_AVAILABLE_MODES`.  
+available and set the value accordingly. To check the availability, use `CameraCharacteristics#CONTROL_AE_AVAILABLE_MODES`.
 
 ### Kotlin
 
@@ -182,7 +184,7 @@ update in the result.
 
 ### Capture callback that can wait for AE mode to be updated
 
-The following code snippet shows how this can be accomplished.  
+The following code snippet shows how this can be accomplished.
 
 ### Kotlin
 
@@ -264,7 +266,7 @@ private final AwaitingCaptureCallback mRepeatingCaptureCallback = new AwaitingCa
 ### Set a repeating request to enable or disable the AE mode
 
 With the capture callback in place, the following code samples show how to set
-a repeating request.  
+a repeating request.
 
 ### Kotlin
 
@@ -364,7 +366,7 @@ waiting purposes.
 
 ### Capture callback code update to wait for convergence
 
-To update the repeating capture callback, use the following code snippet.  
+To update the repeating capture callback, use the following code snippet.
 
 ### Kotlin
 
@@ -510,7 +512,7 @@ static class AwaitingCaptureCallback extends CameraCaptureSession.CaptureCallbac
 ### Set the callback to a repeating request during camera setup
 
 The following code sample lets you set the callback to a repeating request
-during initialization.  
+during initialization.
 
 ### Kotlin
 
@@ -558,7 +560,7 @@ try {
 
 ### Precapture sequence triggering and waiting
 
-With the callback set, you can use the following code sample for a precapture sequence triggering and waiting.  
+With the callback set, you can use the following code sample for a precapture sequence triggering and waiting.
 
 ### Kotlin
 
@@ -632,7 +634,7 @@ private void runPrecaptureSequence() {
 
 With all the major components ready, whenever a picture needs to be taken, as
 when a user clicks the capture button to take a picture, all the steps can
-execute in the order noted in the preceding discussion and code samples.  
+execute in the order noted in the preceding discussion and code samples.
 
 ### Kotlin
 

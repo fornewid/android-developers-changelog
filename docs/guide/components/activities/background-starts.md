@@ -8,7 +8,9 @@ Android 10 (API level 29) and higher place restrictions on when apps can start
 [activities](https://developer.android.com/guide/components/activities/intro-activities) when the app runs in
 the background. These restrictions help minimize interruptions for the user and
 keep the user more in control of what's shown on their screen.
-| **Note:** For the purpose of starting activities, an app running a foreground service is considered to be in the background. For more information, see [foreground services](https://developer.android.com/develop/background-work/services/fgs).
+
+> [!NOTE]
+> **Note:** For the purpose of starting activities, an app running a foreground service is considered to be in the background. For more information, see [foreground services](https://developer.android.com/develop/background-work/services/fgs).
 
 This guide presents notifications as an alternative for starting activities from
 the background. It also lists the specific cases where the restriction doesn't
@@ -34,14 +36,25 @@ for users:
 
 Apps running on Android 10 or higher can start activities when
 one or more of the following conditions are met:
-> | **Note:** Starting from Android 14, an [explicit opt-in](https://developer.android.com/guide/components/activities/background-starts#opt-in-required) is required in addition to meeting these conditions.
-
+>
+> > [!NOTE]
+> > **Note:** Starting from Android 14, an [explicit opt-in](https://developer.android.com/guide/components/activities/background-starts#opt-in-required) is required in addition to meeting these conditions.
+>
 - The app has a visible window, such as an activity in the foreground.
-- The app has an activity in the [back stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack) of the foreground task.
+
+  > [!NOTE]
+  > **Note:** Special UI elements like toasts or picture-in-picture windows don't allow activity starts even though they are visible to the user. The user must bring a picture-in-picture app window to the foreground before it can start other activities.
+
+- The app has an activity in the
+  [back stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack) of the
+  foreground task.
+
 - The app has an activity in the back stack of an existing task on the
   [Recents screen](https://developer.android.com/guide/components/activities/recents).
 
-  | **Note:** When such an app attempts to start a new activity, the system places that activity on top of the app's existing task but doesn't navigate away from the currently visible task. When the user later returns to the app's task, the system starts the new activity instead of the activity that had previously been on top of the app's task.
+  > [!NOTE]
+  > **Note:** When such an app attempts to start a new activity, the system places that activity on top of the app's existing task but doesn't navigate away from the currently visible task. When the user later returns to the app's task, the system starts the new activity instead of the activity that had previously been on top of the app's task.
+
 - The app has an activity that started very recently.
 
 - The app called [`finish()`](https://developer.android.com/reference/android/app/Activity#finish()) on
@@ -64,7 +77,9 @@ one or more of the following conditions are met:
   bound to the service must remain visible for the app in the background to
   start activities successfully.
 
-  > | **Note:** Starting from Android 14, if the app bound to the service is targeting Android 14 or higher, it no longer allows the app that has the service to start a background activity by default. The app has to pass the flag `Context.BIND_ALLOW_ACTIVITY_STARTS` to allow the bound service app to start background activities.
+  > > [!NOTE]
+  > > **Note:** Starting from Android 14, if the app bound to the service is targeting Android 14 or higher, it no longer allows the app that has the service to start a background activity by default. The app has to pass the flag `Context.BIND_ALLOW_ACTIVITY_STARTS` to allow the bound service app to start background activities.
+  >
 - The app receives a notification
   [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) from the system. In
   the case of pending intents for services and broadcast receivers, the app
@@ -91,7 +106,8 @@ one or more of the following conditions are met:
 
 - The app is granted the [`SYSTEM_ALERT_WINDOW`](https://developer.android.com/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW) permission by the user.
 
-  | **Note:** Apps running on Android 10 (Go edition) [cannot receive the `SYSTEM_ALERT_WINDOW` permission](https://developer.android.com/about/versions/10/behavior-changes-all#sysalert-go).
+  > [!NOTE]
+  > **Note:** Apps running on Android 10 (Go edition) [cannot receive the `SYSTEM_ALERT_WINDOW` permission](https://developer.android.com/about/versions/10/behavior-changes-all#sysalert-go).
 
 ## Opt-In required when starting activities from PendingIntents
 
@@ -118,7 +134,9 @@ going to start an Activity.
 To opt in, the app should pass an `ActivityOptions` bundle with
 `setPendingIntentBackgroundActivityStartMode(ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOWED)`
 to the `PendingIntent.send()` or similar methods.
-| **Note:** Starting with Android 16, the app can explicitly choose to allow Activity starts only when the app is visible (`ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOW_IF_VISIBLE`) or always (`ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOW_ALWAYS`).
+
+> [!NOTE]
+> **Note:** Starting with Android 16, the app can explicitly choose to allow Activity starts only when the app is visible (`ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOW_IF_VISIBLE`) or always (`ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOW_ALWAYS`).
 
 ### By the Creator of the PendingIntent
 
@@ -132,13 +150,16 @@ However, if the creating app needs to grant these privileges:
 - The `PendingIntent` can be started at any time the creating app is visible.
 - The `PendingIntent` can be started at any time if the creating app has special privileges.
 
-| **Important:** It is a good practice to **not** pass a `PendingIntent` with these privileges to an untrusted app and to cancel the `PendingIntent` when it should no longer be used.
+> [!IMPORTANT]
+> **Important:** It is a good practice to **not** pass a `PendingIntent` with these privileges to an untrusted app and to cancel the `PendingIntent` when it should no longer be used.
 
 To opt in, the app should pass an `ActivityOptions` bundle with
 `setPendingIntentCreatorBackgroundActivityStartMode
 (ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOWED)` to the
 `PendingIntent.getActivity()` or similar methods.
-| **Note:** Starting with Android 16, the app can explicitly choose to allow Activity starts only when the app is visible (`ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOW_IF_VISIBLE`) or always (`ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOW_ALWAYS`).
+
+> [!NOTE]
+> **Note:** Starting with Android 16, the app can explicitly choose to allow Activity starts only when the app is visible (`ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOW_IF_VISIBLE`) or always (`ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOW_ALWAYS`).
 
 Read the relevant reference documentation for further details:
 

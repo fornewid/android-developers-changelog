@@ -8,7 +8,7 @@ An app playing media requires user interface components for displaying media and
 controlling playback. The Media3 library includes two UI modules that contain a
 number of UI components.
 
-To use the [Views-based UI module](https://developer.android.com/media/media3/ui/playerview), add the following dependency:  
+To use the [Views-based UI module](https://developer.android.com/media/media3/ui/playerview), add the following dependency:
 
 ### Kotlin
 
@@ -19,7 +19,7 @@ To use the [Views-based UI module](https://developer.android.com/media/media3/ui
     implementation "androidx.media3:media3-ui:1.9.2"
 
 To depend on the [Jetpack Compose-based UI module](https://developer.android.com/media/media3/ui/compose/material3), add the following
-dependency:  
+dependency:
 
 ### Kotlin
 
@@ -30,7 +30,7 @@ dependency:
     implementation "androidx.media3:media3-ui-compose:1.9.2"
 
 To depend on the [Jetpack Compose-based UI module with Material3](https://developer.android.com/media/media3/ui/compose/customization), add the
-following dependency:  
+following dependency:
 
 ### Kotlin
 

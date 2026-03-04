@@ -182,7 +182,7 @@ sets](https://developer.android.com/studio/build/build-variants#sourceset-build)
 
 ## Enable test fixtures
 
-[Test fixtures](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/dsl/TestFixtures)
+[Test fixtures](https://developer.android.com/reference/tools/gradle-api/9.1/com/android/build/api/dsl/TestFixtures)
 are commonly used to set up the code being tested or facilitate the tests of a
 component. Starting with version 7.1, AGP can create test fixtures for library
 projects in addition to application and dynamic-feature projects.

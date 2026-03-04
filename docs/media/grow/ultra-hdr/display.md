@@ -4,6 +4,8 @@ url: https://developer.android.com/media/grow/ultra-hdr/display
 source: md.txt
 ---
 
+[Video](https://www.youtube.com/watch?v=gGFHVi3NPWM)
+
 The [Ultra HDR image format](https://developer.android.com/guide/topics/media/platform/hdr-image-format) lets images store more information
 about the intensity of light, resulting in more detailed highlights and shadows,
 and more intense colors. Android provides support for Ultra HDR images beginning
@@ -28,8 +30,12 @@ mode to [`ActivityInfo.COLOR_MODE_HDR`](https://developer.android.com/reference/
 window's [`setColorMode()`](https://developer.android.com/reference/android/view/Window#setColorMode(int)) method. (These APIs are
 available from Android 8; however, images are not displayed in Ultra HDR unless
 the device is running Android 14 or higher.)
-| **Note:** You can set a window's color mode in the Android manifest, but we don't recommend doing this. For optimum device performance, you should dynamically change a window's color mode to HDR when you're displaying an Ultra HDR image.
-| **Note:** Android takes screenshots in SDR. HDR content is tonemapped to SDR in screenshots.
+
+> [!NOTE]
+> **Note:** You can set a window's color mode in the Android manifest, but we don't recommend doing this. For optimum device performance, you should dynamically change a window's color mode to HDR when you're displaying an Ultra HDR image.
+
+> [!NOTE]
+> **Note:** Android takes screenshots in SDR. HDR content is tonemapped to SDR in screenshots.
 
 ## Putting it all together
 
@@ -37,7 +43,7 @@ The following code shows how the whole process looks. This code assumes an image
 is loaded into a Bitmap, and checks if the image has a gain map. If it does, the
 code switches the window's color mode to [`COLOR_MODE_HDR`](https://developer.android.com/reference/android/content/pm/ActivityInfo#COLOR_MODE_HDR). If
 the image does not have a gain map, the code switches the window to the default
-color mode.  
+color mode.
 
 ### Kotlin
 

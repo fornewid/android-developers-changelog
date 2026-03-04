@@ -15,8 +15,8 @@ sections: Android 6.0 (API level 23) and lower, and Android 7.0 (API level 24) a
 
 The Android platform uses ICU and CLDR to implement various
 classes for handling both Latin and non-Latin orthographies, exposing classes
-like [Locale](https://developer.android.com/reference/java/util/Locale), [Character](https://developer.android.com/reference/java/lang/Character), and many subclasses of
-[java.text](https://developer.android.com/reference/java/text/package-summary). An app that requires internationalization functionalities beyond
+like `https://developer.android.com/reference/java/util/Locale`, `https://developer.android.com/reference/java/lang/Character`, and many subclasses of
+`https://developer.android.com/reference/java/text/package-summary`. An app that requires internationalization functionalities beyond
 the exposed classes, and targets versions of the platform through Android 6.0
 (API level 23), must include the ICU library.
 
@@ -86,7 +86,7 @@ Here are a few reminders:
 - The ICU4J Android framework APIs don't include all the ICU4J APIs.
 - The APIs in the Android framework don't replace Android's support for [localizing with
   resources](https://developer.android.com/guide/topics/resources/localization).
-- In some cases, the Android framework supports more characters than the ICU libraries do. This is true, for example, of the [android.text](https://developer.android.com/reference/android/text/package-summary) class's support for emoji.
+- In some cases, the Android framework supports more characters than the ICU libraries do. This is true, for example, of the `https://developer.android.com/reference/android/text/package-summary` class's support for emoji.
 
 ### Migrate to the android.icu package from com.ibm.icu
 
@@ -159,7 +159,7 @@ from Android 7.0 (API level 24) through Android 15 (API level 35).
 
 ### 24h/12h Time format setting
 
-ICU on Android doesn't observe the user's 24h/12h time format setting, obtained from [`DateFormat.is24HourFormat()`](https://developer.android.com/reference/android/text/format/DateFormat#is24HourFormat(android.content.Context)). To observe this setting, either use [`DateFormat`](https://developer.android.com/reference/android/text/format/DateFormat) or [`DateUtils`](https://developer.android.com/reference/android/text/format/DateUtils) time formatting methods or use ICU time formatting patterns with appropriate hour pattern symbols ('h' for 12h, 'H' for 24h) for different `is24HourFormat()` return values. For example, this code generates a string with the current time that observes the user's 12h/24h setting:  
+ICU on Android doesn't observe the user's 24h/12h time format setting, obtained from [`DateFormat.is24HourFormat()`](https://developer.android.com/reference/android/text/format/DateFormat#is24HourFormat(android.content.Context)). To observe this setting, either use [`DateFormat`](https://developer.android.com/reference/android/text/format/DateFormat) or [`DateUtils`](https://developer.android.com/reference/android/text/format/DateUtils) time formatting methods or use ICU time formatting patterns with appropriate hour pattern symbols ('h' for 12h, 'H' for 24h) for different `is24HourFormat()` return values. For example, this code generates a string with the current time that observes the user's 12h/24h setting:
 
 ### Kotlin
 

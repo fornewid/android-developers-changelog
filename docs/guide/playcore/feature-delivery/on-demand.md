@@ -67,7 +67,9 @@ proceed as follows:
               dist:title="@string/feature_title">
           </dist:module>
 
-      | **Note:** If you enable resource shrinking, such as for your release builds, the shrinker may remove the module title string resource if code in your base module does not reference it. To make sure the string resource remains in the build output, include the resource in a [custom resource keep file](https://developer.android.com/studio/build/shrink-code#keep-resources).
+      > [!NOTE]
+      > **Note:** If you enable resource shrinking, such as for your release builds, the shrinker may remove the module title string resource if code in your base module does not reference it. To make sure the string resource remains in the build output, include the resource in a [custom resource keep file](https://developer.android.com/studio/build/shrink-code#keep-resources).
+
    2. In the dropdown menu under **Install-time inclusion** , select **Do not
       include module at install-time**. Android Studio injects the
       following in the module's manifest to reflect your choice:
@@ -121,7 +123,7 @@ For example, consider an app that has an on demand module to capture and send
 picture messages using the device's camera, and this on demand module
 specifies `split="pictureMessages"` in its manifest. The
 following sample uses `SplitInstallManager` to request the `pictureMessages`
-module (along with an additional module for some promotional filters):  
+module (along with an additional module for some promotional filters):
 
 ### Kotlin
 
@@ -214,7 +216,7 @@ You can specify a module to be download later using the
 method, as shown below. And, unlike
 [`SplitInstallManager.startInstall()`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#startinstall),
 your app does not need to be in the foreground to initiate a request for a
-deferred installation.  
+deferred installation.
 
 ### Kotlin
 
@@ -246,7 +248,7 @@ To be able to update a progress bar, fire an intent after
 installation, or gracefully handle a request error, you need to listen for
 state updates from the asynchronous `SplitInstallManager.startInstall()` task.
 Before you can start receiving updates for your install request, register a
-listener and get the session ID for the request, as shown below.  
+listener and get the session ID for the request, as shown below.
 
 ### Kotlin
 
@@ -326,7 +328,7 @@ gracefully from the user's perspective, check out our
 [UX guidelines for on demand delivery](https://developer.android.com/guide/playcore/feature-delivery/ux-guidelines).
 
 Code-wise, you should handle failures downloading or installing a module
-using `addOnFailureListener()`, as shown below:  
+using `addOnFailureListener()`, as shown below:
 
 ### Kotlin
 
@@ -419,13 +421,15 @@ again** (which attempts the request again) and **Cancel** (which abandons the
 request). For additional support, you should also provide **Help** link that
 directs users to the
 [Google Play Help center](https://support.google.com/googleplay/answer/7513003).
-| **Note:** When testing your app, if you see `onError(-2)`, it might be because you have not yet uploaded your app to Google Play. To test on demand functionality of your app, you must either [share your app with a URL](https://support.google.com/googleplay/android-developer/answer/9303479) or [set up an open, closed, or internal test](https://support.google.com/googleplay/android-developer/answer/3131213).
+
+> [!NOTE]
+> **Note:** When testing your app, if you see `onError(-2)`, it might be because you have not yet uploaded your app to Google Play. To test on demand functionality of your app, you must either [share your app with a URL](https://support.google.com/googleplay/android-developer/answer/9303479) or [set up an open, closed, or internal test](https://support.google.com/googleplay/android-developer/answer/3131213).
 
 ### Handle state updates
 
 After you register a listener and record the session ID for your request,
 use [`StateUpdatedListener.onStateUpdate()`](https://developer.android.com/reference/com/google/android/play/core/listener/StateUpdatedListener#onStateUpdate(StateT))
-to handle state changes, as shown below.  
+to handle state changes, as shown below.
 
 ### Kotlin
 
@@ -512,7 +516,7 @@ Play or if you are attempting a large download over mobile data. In such cases,
 the status for the request reports `REQUIRES_USER_CONFIRMATION`, and your app
 needs to obtain user confirmation before the device is able to download and
 install the modules in the request. To obtain confirmation, your app should
-prompt the user as follows:  
+prompt the user as follows:
 
 ### Kotlin
 
@@ -555,7 +559,7 @@ The status for the request is updated depending on the user response:
 - If the user does not make a selection before the dialog is destroyed, the request status remains as `REQUIRES_USER_CONFIRMATION`. Your app can prompt the user again to complete the request.
 
 To receive a callback with the user's response, you can override the
-ActivityResultCallback as shown below.  
+ActivityResultCallback as shown below.
 
 ### Kotlin
 
@@ -584,7 +588,7 @@ registerForActivityResult(
 ### Cancel an install request
 
 If your app needs to cancel a request before it is installed, it can invoke
-the `cancelInstall()` method using the request's session ID, as shown below.  
+the `cancelInstall()` method using the request's session ID, as shown below.
 
 ### Kotlin
 
@@ -631,7 +635,7 @@ want your app to have access to.
 
 The simplest way to enable SplitCompat is to declare `SplitCompatApplication`
 as the [`Application`](https://developer.android.com/reference/android/app/Application) subclass in
-your app's manifest, as shown below:  
+your app's manifest, as shown below:
 
     <application
         ...
@@ -650,7 +654,7 @@ feature modules. To do this, override `attachBaseContext` as seen below.
 If you have a custom [Application](https://developer.android.com/reference/android/app/Application) class,
 have it instead extend
 [`SplitCompatApplication`](https://developer.android.com/reference/com/google/android/play/core/splitcompat/SplitCompatApplication)
-in order to enable SplitCompat for your app, as shown below:  
+in order to enable SplitCompat for your app, as shown below:
 
 ### Kotlin
 
@@ -672,7 +676,7 @@ public class MyApplication extends SplitCompatApplication {
 to include `SplitCompat.install(Context applicationContext)`. If you don't
 want your `Application` class to
 extend `SplitCompatApplication`, you can override the `attachBaseContext()`
-method manually, as follows:  
+method manually, as follows:
 
 ### Kotlin
 
@@ -697,7 +701,7 @@ protected void attachBaseContext(Context base) {
 
 If your on demand module is compatible
 with both instant apps and installed apps, you can invoke SplitCompat
-conditionally, as follows:  
+conditionally, as follows:
 
 ### Kotlin
 
@@ -726,7 +730,7 @@ protected void attachBaseContext(Context base) {
 
 After you enable SplitCompat for your base app, you need to enable SplitCompat
 for each activity that your app downloads in a feature module. To do so,
-use the `SplitCompat.installActivity()` method, as follows:  
+use the `SplitCompat.installActivity()` method, as follows:
 
 ### Kotlin
 
@@ -755,7 +759,7 @@ protected void attachBaseContext(Context base) {
 
 You can launch activities defined in feature modules using
 [`startActivity()`](https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent))
-after enabling SplitCompat.  
+after enabling SplitCompat.
 
 ### Kotlin
 
@@ -783,7 +787,7 @@ When you have an activity in a feature module you downloaded on-demand, you must
 
 You can launch services defined in feature modules using
 [`startService()`](https://developer.android.com/reference/android/content/Context#startService(android.content.Intent))
-after enabling SplitCompat.  
+after enabling SplitCompat.
 
 ### Kotlin
 
@@ -851,7 +855,7 @@ application lifetime.
 
 To simplify the interactions with the object after instantiation, it is
 recommended to define an interface in the base module and its implementation in
-the feature module. For instance:  
+the feature module. For instance:
 
 ### Kotlin
 
@@ -936,7 +940,7 @@ code and resources using a refreshed app
 context that your app creates *before* installing a module (for example, one
 that's already stored in a variable) does not contain the content of the new
 module. But a fresh context does---this can be obtained, for example, using
-[`createPackageContext`](https://developer.android.com/reference/android/content/Context#createPackageContext(java.lang.String,%20int)).  
+[`createPackageContext`](https://developer.android.com/reference/android/content/Context#createPackageContext(java.lang.String,%20int)).
 
 ### Kotlin
 
@@ -987,7 +991,7 @@ need to update the app with the context of the new module through a call to
 Otherwise, the app is not yet aware of the module's code
 and resources. After updating the app's metadata, you should load the module's
 contents during the next main thread event by invoking a new
-[`Handler`](https://developer.android.com/reference/android/os/Handler), as shown below:  
+[`Handler`](https://developer.android.com/reference/android/os/Handler), as shown below:
 
 ### Kotlin
 
@@ -1048,7 +1052,7 @@ public void onStateUpdate(SplitInstallSessionState state) {
 If you want to load C/C++ libraries from a module that the device has already
 downloaded in an Instant App, use
 [`SplitInstallHelper.loadLibrary(Context context, String libName)`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallHelper#loadLibrary(android.content.Context,%20java.lang.String)),
-as shown below:  
+as shown below:
 
 ### Kotlin
 
@@ -1099,7 +1103,9 @@ you can call
 [`SplitInstallManager.getInstalledModules()`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#getInstalledModules()),
 which returns a `Set<String>` of the names of the installed modules, as shown
 below.
-**Note:** If you're developing an Android Instant App, this section does not apply to you.  
+
+> [!NOTE]
+> **Note:** If you're developing an Android Instant App, this section does not apply to you.
 
 ### Kotlin
 
@@ -1117,7 +1123,7 @@ Set<String> installedModules = splitInstallManager.getInstalledModules();
 
 You can request the device to uninstall modules by invoking
 [`SplitInstallManager.deferredUninstall(List<String> moduleNames)`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#deferreduninstall),
-as shown below.  
+as shown below.
 
 ### Kotlin
 
@@ -1150,7 +1156,7 @@ selected in the device's settings.
 If you want your app to have access to additional language resources---for
 example, to implement an in-app language picker, you can use the Play Feature Delivery
 Library to download them on demand. The process is similar to that of
-downloading a feature module, as shown below.  
+downloading a feature module, as shown below.
 
 ### Kotlin
 
@@ -1200,7 +1206,7 @@ you can [monitor the request state](https://developer.android.com/guide/playcore
 
 If your app doesn't require the additional language resources immediately, you
 can defer the installation for when the app is in the background, as shown
-below.  
+below.
 
 ### Kotlin
 
@@ -1220,7 +1226,7 @@ splitInstallManager.deferredLanguageInstall(
 
 To gain access to downloaded language resources, your app needs to run the
 `SplitCompat.installActivity()` method within the `attachBaseContext()` method
-of each activity that requires access to those resources, as shown below.  
+of each activity that requires access to those resources, as shown below.
 
 ### Kotlin
 
@@ -1243,7 +1249,7 @@ protected void attachBaseContext(Context base) {
 
 For each activity you want to use language resources your app has downloaded,
 update the base context and set a new locale through its
-[`Configuration`](https://developer.android.com/reference/android/content/res/Configuration):  
+[`Configuration`](https://developer.android.com/reference/android/content/res/Configuration):
 
 ### Kotlin
 
@@ -1272,7 +1278,7 @@ protected void attachBaseContext(Context base) {
 
 In order for these changes to take effect, you have to recreate your activity
 after the new language is installed and ready to use. You can use the
-`Activity#recreate()` method.  
+`Activity#recreate()` method.
 
 ### Kotlin
 
@@ -1303,7 +1309,7 @@ switch (state.status()) {
 
 Similar to feature modules, you can uninstall additional resources at
 any time. Before requesting an uninstall, you may want to first determine which
-languages are currently installed, as follows.  
+languages are currently installed, as follows.
 
 ### Kotlin
 
@@ -1318,7 +1324,7 @@ Set<String> installedLanguages = splitInstallManager.getInstalledLanguages();
 ```
 
 You can then decide which languages to uninstall using the
-`deferredLanguageUninstall()` method, as shown below.  
+`deferredLanguageUninstall()` method, as shown below.
 
 ### Kotlin
 
@@ -1352,7 +1358,8 @@ meet the following requirements:
 
 - Download and install the [latest version of `bundletool`](https://github.com/google/bundletool/releases). You need `bundletool` to build a new set of installable APKs from your app's bundle.
 
-| **Note:** Play Feature Delivery Library currently doesn't support module uninstalls or deferred installs. To test this functionality, consider using [internal app sharing](https://support.google.com/googleplay/android-developer/answer/9303479).
+> [!NOTE]
+> **Note:** Play Feature Delivery Library currently doesn't support module uninstalls or deferred installs. To test this functionality, consider using [internal app sharing](https://support.google.com/googleplay/android-developer/answer/9303479).
 
 ### Build a set of APKs
 
@@ -1381,7 +1388,7 @@ installing feature modules, without connecting to the Play Store.
 After you [build a set of APKs](https://developer.android.com/guide/playcore/feature-delivery/on-demand#build-apks) using the `--local-testing` flag,
 use `bundletool` to install the base version of your app and transfer additional
 APKs to your device's local storage. You can perform both actions with the
-following command:  
+following command:
 
 ```
 bundletool install-apks --apks my_app.apks
@@ -1407,7 +1414,7 @@ simulate a network error the next time your app requests to install a module. To
 access `FakeSplitInstallManager` in your tests, you can get an instance of it
 using the
 [`FakeSplitInstallManagerFactory`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/testing/FakeSplitInstallManagerFactory),
-as shown below:  
+as shown below:
 
 ### Kotlin
 

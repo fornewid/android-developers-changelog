@@ -50,7 +50,9 @@ optimization. To learn more about how startup profiles differ from Baseline
 Profiles, see [Compare Baseline Profiles and Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview#compare-baseline-startup).
 For more on DEX layout optimization, see [DEX layout optimizations and startup
 profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations).
-| **Note:** We recommend using both Baseline Profiles and startup profiles to fully optimize app startup.
+
+> [!NOTE]
+> **Note:** We recommend using both Baseline Profiles and startup profiles to fully optimize app startup.
 
 ## Get started
 
@@ -160,7 +162,9 @@ journeys, see [Write automated tests with UI Automator](https://developer.androi
 
 You can see this code in full context and more detail as part of our
 [performance samples on GitHub](https://github.com/android/performance-samples).
-| **Note:** To learn how to use `testTag()` for accessing UI elements in Jetpack Compose, see [Interoperability with UiAutomator](https://developer.android.com/jetpack/compose/testing#uiautomator-interop).
+
+> [!NOTE]
+> **Note:** To learn how to use `testTag()` for accessing UI elements in Jetpack Compose, see [Interoperability with UiAutomator](https://developer.android.com/jetpack/compose/testing#uiautomator-interop).
 
 ### What to include
 

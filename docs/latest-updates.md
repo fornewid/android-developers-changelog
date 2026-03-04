@@ -166,13 +166,13 @@ Recent updates to Android Studio and tools [See more about Android Studio](https
 
 February 26, 2026 Stable
 
-### [Panda 1 \| 2025.3.1 Patch 1](https://developer.android.com/studio/releases)
+### [Panda 2 \| 2025.3.2](https://developer.android.com/studio/releases)
 
-February 13, 2026 Stable
+March 3, 2026 Stable
 
-### [Android Gradle Plugin 9.0.0](https://developer.android.com/build/releases/gradle-plugin)
+### [Android Gradle Plugin 9.1.0](https://developer.android.com/build/releases/gradle-plugin)
 
-February 13, 2026
+March 3, 2026
 
 ## ![](https://developer.android.com/static/images/picto-icons/platform.svg) Platform
 

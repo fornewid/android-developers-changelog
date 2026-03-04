@@ -20,7 +20,7 @@ Bluetooth connectivity.
 In Android 13 (API level 33) and higher, internet connectivity is required by
 default to provision company-owned devices. If a device is expected to be
 provisioned offline or in a closed-network environment, EMMs must include the
-following flag in the provisioning extras:  
+following flag in the provisioning extras:
 
     DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE = "android.app.extra.PROVISIONING_ALLOW_OFFLINE"
 

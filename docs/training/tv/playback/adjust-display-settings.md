@@ -32,7 +32,8 @@ Some example scenarios include:
 - Live sporting events, which are often mastered with a narrow dynamic range and watched in the daylight, can benefit from a profile that gives preference to brightness over color accuracy.
 - Game developers can request a low latency profile with minimal image processing so players can get the best performance from their display.
 
-| **Note:** OEMs may add additional presets and provide mechanisms for users to define their own picture profiles. This implementation uses the [`createPictureProfile()`](https://developer.android.com/reference/android/media/quality/MediaQualityManager#createPictureProfile(android.media.quality.PictureProfile)) method that requires a system permission.
+> [!NOTE]
+> **Note:** OEMs may add additional presets and provide mechanisms for users to define their own picture profiles. This implementation uses the [`createPictureProfile()`](https://developer.android.com/reference/android/media/quality/MediaQualityManager#createPictureProfile(android.media.quality.PictureProfile)) method that requires a system permission.
 
 ### Selecting a system picture profile
 
@@ -41,7 +42,7 @@ device supports it.
 
 The following snippet shows how to use
 [`getAvailablePictureProfiles()`](https://developer.android.com/reference/android/media/quality/MediaQualityManager#getAvailablePictureProfiles(android.media.quality.MediaQualityManager.ProfileQueryParams)) to query all
-supported picture profiles and apply a sports profile:  
+supported picture profiles and apply a sports profile:
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
         val mediaQualityManager: MediaQualityManager =
@@ -60,7 +61,7 @@ supported picture profiles and apply a sports profile:
         }
     }
 
-To obtain a specific profile by name, use [`getPictureProfile()`](https://developer.android.com/reference/android/media/quality/MediaQualityManager#getPictureProfile(int,%20java.lang.String,%20android.media.quality.MediaQualityManager.ProfileQueryParams)):  
+To obtain a specific profile by name, use [`getPictureProfile()`](https://developer.android.com/reference/android/media/quality/MediaQualityManager#getPictureProfile(int,%20java.lang.String,%20android.media.quality.MediaQualityManager.ProfileQueryParams)):
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
         val profile = mediaQualityManager.getPictureProfile(
@@ -72,7 +73,7 @@ provided directly by their ID to a MediaCodec by using
 `MediaFormat.KEY_PICTURE_PROFILE_INSTANCE`.
 
 While supported profiles may differ by device, you may consider matching against
-the following known system profile IDs:  
+the following known system profile IDs:
 
     const val NAME_STANDARD: String = "standard"
     const val NAME_VIVID: String = "vivid"
@@ -82,4 +83,5 @@ the following known system profile IDs:
     const val NAME_ENERGY_SAVING: String = "energy_saving"
     const val NAME_USER: String = "user"
 
-| **Note:** These strings are provided as recommendations to OEMs and are subject to change in future API levels.
+> [!NOTE]
+> **Note:** These strings are provided as recommendations to OEMs and are subject to change in future API levels.

@@ -58,7 +58,7 @@ Take special care to:
       val scale = resources.configuration.fontScale
       Log.d(TAG, "Text scale is: " + scale)
 
-The text scale can be changed with the following command:  
+The text scale can be changed with the following command:
 
     adb shell settings put system font_scale 1.2f
 
@@ -80,7 +80,7 @@ are using a keyboard that does not have a typical layout.
 In Android 13 (API level 33) and higher, a new system-wide accessibility preference
 lets users enable audio descriptions across all apps. Android TV apps can
 check the user's preference by querying it with
-[`isAudioDescriptionRequested()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager#isAudioDescriptionRequested()).  
+[`isAudioDescriptionRequested()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager#isAudioDescriptionRequested()).
 
 ### Kotlin
 
@@ -112,7 +112,7 @@ if(accessibilityManager.isAudioDescriptionRequested()) {
 
 Android TV apps can monitor when a user's preference changes by
 adding a listener to
-[`AccessibilityManager`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager):  
+[`AccessibilityManager`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager):
 
 ### Kotlin
 

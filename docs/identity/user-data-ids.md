@@ -83,7 +83,9 @@ following:
 > advertising purposes or for targeting users with personalized advertising.
 > Allowed activities include contextual advertising, frequency capping, conversion
 > tracking, reporting and security and fraud detection."*
-| **Note:** As part of Google Play services update in late 2021, the advertising ID will be removed when a user opts out of personalization using advertising ID in Android Settings. Any attempts to access the identifier will receive a string of zeros instead of the identifier. See [Play Console Help to learn more](https://support.google.com/googleplay/android-developer/answer/6048248?ref_topic=2364761).
+
+> [!NOTE]
+> **Note:** As part of Google Play services update in late 2021, the advertising ID will be removed when a user opts out of personalization using advertising ID in Android Settings. Any attempts to access the identifier will receive a string of zeros instead of the identifier. See [Play Console Help to learn more](https://support.google.com/googleplay/android-developer/answer/6048248?ref_topic=2364761).
 
 ***Be aware of any privacy or security policies associated with SDKs you use that are related to Advertising ID use.***
 For example, if you pass `true` into the
@@ -103,9 +105,9 @@ tables with the following columns:
 
 |---|---|---|---|
 | TABLE-01 ||||
-| `timestamp` | `ad_id` | **account_id** | `clickid` |
+| `timestamp` | `ad_id` | `account_id` | `clickid` |
 | TABLE-02 ||||
-| **account_id** | `name` | `dob` | `country` |
+| `account_id` | `name` | `dob` | `country` |
 
 In this example, the `ad_id` column could be joined to PII via the `account_id`
 column in both tables, which would be a violation of the [Google Play Developer
@@ -119,9 +121,9 @@ TABLE-01 and TABLE-02 as follows:
 
 |---|---|---|---|---|
 | TABLE-01 |||||
-| **timestamp** | `ad_id` | `clickid` | **dev_model** ||
+| `timestamp` | `ad_id` | `clickid` | `dev_model` ||
 | TABLE-02 |||||
-| **timestamp** | `demo` | `account_id` | **dev_model** | `name` |
+| `timestamp` | `demo` | `account_id` | `dev_model` | `name` |
 
 In this case, with sufficiently rare click events, it's still possible to join
 between the Advertiser ID TABLE-01 and the PII contained in TABLE-02 using the
@@ -166,7 +168,7 @@ API reference.
 
 In cases where an FID isn't practical, you can also use custom
 globally-unique IDs (GUIDs) to uniquely identify an app instance. The simplest
-way to do so is by generating your own GUID using the following code:  
+way to do so is by generating your own GUID using the following code:
 
 ### Kotlin
 
@@ -347,7 +349,9 @@ subscription information for a given SIM. This value is stable for a given SIM
 unless the device is factory reset. However, there may be cases where the same
 SIM has a different Subscription ID on different devices or different SIMs have
 the same ID on different devices.
-| **Note:** Access to this ID requires the [`READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE) permission.
+
+> [!NOTE]
+> **Note:** Access to this ID requires the [`READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE) permission.
 
 **Why this recommendation?**
 

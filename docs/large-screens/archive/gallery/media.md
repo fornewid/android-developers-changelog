@@ -4,11 +4,9 @@ url: https://developer.android.com/large-screens/archive/gallery/media
 source: html-scrape
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [UI Design](https://developer.android.com/design/ui)
-* [Large Screens](https://developer.android.com/design/ui/large-screens)
+* [Home](https://developer.android.com/)
 * [Gallery](https://developer.android.com/large-screens/archive/gallery)
+* [Design & Plan](https://developer.android.com/design)
 * [Media](https://developer.android.com/large-screens/archive/gallery/media)
 
 Stay organized with collections

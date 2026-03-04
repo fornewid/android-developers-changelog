@@ -40,7 +40,7 @@ on a given device by calling
 ### Select a single media item
 
 To select a single media item, use the `PickVisualMedia` activity result
-contract, as shown in the following code snippet:  
+contract, as shown in the following code snippet:
 
 ### Views
 
@@ -146,12 +146,14 @@ pickMedia.launch(PickVisualMediaRequest(PickVisualMedia.VideoOnly))
 val mimeType = "image/gif"
 pickMedia.launch(PickVisualMediaRequest(PickVisualMedia.SingleMimeType(mimeType)))
 ```
-| **Note:** When using `PickVisualMedia`, the photo picker opens in half-screen mode.
+
+> [!NOTE]
+> **Note:** When using `PickVisualMedia`, the photo picker opens in half-screen mode.
 
 ### Select multiple media items
 
 To select multiple media items, set a maximum number of selectable media files,
-as shown in the following code snippet.  
+as shown in the following code snippet.
 
 ### Views
 
@@ -228,7 +230,9 @@ The platform limits the maximum number of files that you can ask the user to
 select in the photo picker. To access this limit, call
 [`getPickImagesMaxLimit()`](https://developer.android.com/reference/android/provider/MediaStore#getPickImagesMaxLimit()).
 On devices where the photo picker isn't supported, this limit is ignored.
-| **Note:** If the photo picker isn't available and the support library invokes the `ACTION_OPEN_DOCUMENT` intent action, the system ignores the specified maximum number of selectable media files.
+
+> [!NOTE]
+> **Note:** If the photo picker isn't available and the support library invokes the `ACTION_OPEN_DOCUMENT` intent action, the system ignores the specified maximum number of selectable media files.
 
 ## Device availability
 
@@ -242,7 +246,7 @@ and Android Go devices running Android 11 or 12 that support
 Google Play services can install a backported version of the photo picker. To
 enable the automatic installation of the backported photo picker module through
 Google Play services, add the following entry to the `<application>` tag in your
-app's manifest file:  
+app's manifest file:
 
     <!-- Trigger Google Play services to install the backported photo picker module. -->
     <service android:name="com.google.android.gms.metadata.ModuleDependencies"
@@ -262,7 +266,7 @@ restarted or until your app stops. If your app performs long-running work, such
 as uploading a large file in the background, you might need this access to be
 persisted for a longer period of time. To do so, call the
 [`takePersistableUriPermission()`](https://developer.android.com/reference/android/content/ContentResolver#takePersistableUriPermission(android.net.Uri,%20int))
-method:  
+method:
 
 ### Kotlin
 
@@ -277,7 +281,9 @@ context.contentResolver.takePersistableUriPermission(uri, flag)
 int flag = Intent.FLAG_GRANT_READ_URI_PERMISSION;
 context.contentResolver.takePersistableUriPermission(uri, flag);
 ```
-| **Note:** An app can only have up to 5,000 media grants at any one time. For every additional photo or video access granted after 5,000 have been selected, the system removes the first grant on the list to accommodate this request.
+
+> [!NOTE]
+> **Note:** An app can only have up to 5,000 media grants at any one time. For every additional photo or video access granted after 5,000 have been selected, the system removes the first grant on the list to accommodate this request.
 
 ## Handle HDR video with transcoding
 
@@ -316,7 +322,7 @@ To disable transcoding entirely, pass `null` for
 `MediaCapabilities`. Any HDR type *not* explicitly listed in your provided
 capabilities will be considered unsupported. This API is supported on **Android
 13 (API level 33) and higher** and is annotated with
-`@RequiresApi(Build.VERSION_CODES.TIRAMISU)`.  
+`@RequiresApi(Build.VERSION_CODES.TIRAMISU)`.
 
     import androidx.activity.result.PickVisualMediaRequest
     import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia

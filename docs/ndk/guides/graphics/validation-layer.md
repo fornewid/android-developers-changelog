@@ -18,15 +18,19 @@ only has to enable a [single validation
 layer](https://vulkan.lunarg.com/doc/view/latest/windows/validation_layers.html),
 `VK_LAYER_KHRONOS_validation`, to get all features from the previous
 validation layers.
-| **Note:** The unified `VK_LAYER_KHRONOS_validation` layer is also supported on non-mobile devices so you can share the same validation code across all platforms.
+
+> [!NOTE]
+> **Note:** The unified `VK_LAYER_KHRONOS_validation` layer is also supported on non-mobile devices so you can share the same validation code across all platforms.
 
 ## Use validation layers packaged in your APK
 
 Packaging validation layers within your APK ensures optimal compatibility.
 The validation layers are available as prebuilt binaries or are buildable from
 source code.
-| **Note:** Android 9 (API level 28) and higher allows Vulkan to load layers that are located separately from your app's APK. See [Use external validation
-| layers](https://developer.android.com/ndk/guides/graphics/validation-layer#vl-external) for more information.
+
+> [!NOTE]
+> **Note:** Android 9 (API level 28) and higher allows Vulkan to load layers that are located separately from your app's APK. See [Use external validation
+> layers](https://developer.android.com/ndk/guides/graphics/validation-layer#vl-external) for more information.
 
 ### Use prebuilt binaries
 
@@ -35,7 +39,7 @@ release page](https://github.com/KhronosGroup/Vulkan-ValidationLayers/releases).
 
 The easiest way to add the layers to your APK is to extract the prebuilt layer
 binaries to the `src/main/jniLibs/` directory of your module, with ABI
-directories (such as `arm64-v8a` or `x86-64`) intact, like this:  
+directories (such as `arm64-v8a` or `x86-64`) intact, like this:
 
 ```
 src/main/jniLibs/
@@ -60,7 +64,7 @@ the build instructions there.
 
 Regardless of whether you build with the Khronos prebuilt layers or layers built
 from source, the build process produces a final file structure in your APK like
-the following:  
+the following:
 
 ```
 lib/
@@ -75,7 +79,7 @@ lib/
 ```
 
 The following command shows how to verify that your APK contains the validation
-layer as expected:  
+layer as expected:
 
 ```
 $ jar -tf project.apk | grep libVkLayer
@@ -103,7 +107,7 @@ to list the available layers and their properties. Vulkan enables layers when
 executes.
 
 The following code snippet shows how an app can use the Vulkan API to
-programmatically query and enable layers:  
+programmatically query and enable layers:
 
 ```c++
 // Enable just the Khronos validation layer.
@@ -140,7 +144,7 @@ VkInstanceCreateInfo instanceCreateInfo{
 
 The validation layer emits warning and error messages in logcat labeled with a
 `VALIDATION` tag. A validation layer message looks like the following (with
-line breaks added here for easier scrolling):  
+line breaks added here for easier scrolling):
 
 ```
 Validation -- Validation Error:
@@ -166,7 +170,7 @@ the most recent validation layers. There's also a deprecated extension called
 Before using the Debug Utils extension, you should make sure that your device
 or a loaded validation layer supports it. The following example shows how to
 check whether the debug utils extension is supported and register a callback if
-the extension is supported by either the device or validation layer.  
+the extension is supported by either the device or validation layer.
 
 ```c++
 // Get the instance extension count.
@@ -268,7 +272,7 @@ if (pfnDestroyDebugUtilsMessengerEXT) {
 ```
 
 After your app registers and enables the callback, the system routes debugging
-messages to it.  
+messages to it.
 
 ```c++
 #include <android/log.h>
@@ -384,7 +388,7 @@ Bridge (adb)](https://developer.android.com/studio/command-line/adb), as follows
 #### Load a validation layer binary from another APK
 
 You can use `adb` to [install an APK](https://developer.android.com/studio/command-line/adb#move) that
-contains the layer and then [enable the layer](https://developer.android.com/ndk/guides/graphics/validation-layer#enable-layers-outside-app).  
+contains the layer and then [enable the layer](https://developer.android.com/ndk/guides/graphics/validation-layer#enable-layers-outside-app).
 
 ```
 adb install --abi abi path_to_apk
@@ -417,7 +421,7 @@ The following steps describe how to enable layers on a per-app basis:
    ```
 
    Since we have a single Khronos validation layer, the command will likely
-   look like:  
+   look like:
 
        $ adb shell settings put global gpu_debug_layers VK_LAYER_KHRONOS_validation
 
@@ -428,10 +432,11 @@ The following steps describe how to enable layers on a per-app basis:
      gpu_debug_layer_app <package1:package2:packageN>
    ```
 
-| **Note:** You can also enable the `enable_gpu_debug_layers` setting through the on-device developer options. After you enable developer options, open the **Settings** app on your test device, navigate to **Developer options \>
-| Debugging** and make sure the option to **Enable GPU debug layers** is turned on.
+> [!NOTE]
+> **Note:** You can also enable the `enable_gpu_debug_layers` setting through the on-device developer options. After you enable developer options, open the **Settings** app on your test device, navigate to **Developer options \>
+> Debugging** and make sure the option to **Enable GPU debug layers** is turned on.
 
-You can check whether the settings are enabled using the following commands:  
+You can check whether the settings are enabled using the following commands:
 
 ```
 $ adb shell settings list global | grep gpu
@@ -441,7 +446,7 @@ gpu_debug_layers=VK_LAYER_KHRONOS_validation
 ```
 
 Because the settings you apply persist across device reboots, you may want to
-clear the settings after the layers are loaded:  
+clear the settings after the layers are loaded:
 
 ```
 $ adb shell settings delete global enable_gpu_debug_layers
@@ -454,7 +459,7 @@ $ adb shell settings delete global gpu_debug_layer_app
 
 You can enable one or more layers globally until the next reboot.
 This attempts to load the layers for all applications, including native
-executables.  
+executables.
 
 ```
 $ adb shell setprop debug.vulkan.layers <layer1:layer2:layerN>

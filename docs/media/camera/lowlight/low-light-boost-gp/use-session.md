@@ -4,7 +4,7 @@ url: https://developer.android.com/media/camera/lowlight/low-light-boost-gp/use-
 source: md.txt
 ---
 
-Use a low light boost session to turn Google Low Light Boost on and off.  
+Use a low light boost session to turn Google Low Light Boost on and off.
 
 ### Kotlin
 
@@ -36,7 +36,7 @@ APIs](https://developers.google.com/android/guides/api-client).
 When you [create the low light boost session](https://developer.android.com/media/camera/lowlight/low-light-boost-gp/use-session#create-session), you'll need to pass it an
 object that implements the [`LowLightBoostCallback`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostCallback) interface.
 This object's functions are called when the session is disconnected or
-destroyed. The following code shows how to create a callback:  
+destroyed. The following code shows how to create a callback:
 
 ### Kotlin
 
@@ -80,7 +80,7 @@ destroyed. The following code shows how to create a callback:
 ## Create a session
 
 To create a low light session, call the method
-[`LowLightBoostClient.createSession`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostClient#createSession(com.google.android.gms.cameralowlight.LowLightBoostOptions,com.google.android.gms.cameralowlight.LowLightBoostCallback)).  
+[`LowLightBoostClient.createSession`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostClient#createSession(com.google.android.gms.cameralowlight.LowLightBoostOptions,com.google.android.gms.cameralowlight.LowLightBoostCallback)).
 
 ### Kotlin
 
@@ -165,7 +165,7 @@ To create a low light session, call the method
 Google Low Light Boost needs certain camera metadata to know the correct amount
 of brightening to apply. You must pass in the [`TotalCaptureResult`](https://developer.android.com/reference/android/hardware/camera2/TotalCaptureResult) to the
 [`processCaptureResult()`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostSession#processCaptureResult(android.hardware.camera2.TotalCaptureResult)) method. You can get the `TotalCaptureResult` in
-the [`onCaptureCompleted()`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.CaptureCallback#onCaptureCompleted(android.hardware.camera2.CameraCaptureSession,%20android.hardware.camera2.CaptureRequest,%20android.hardware.camera2.TotalCaptureResult)) callback method.  
+the [`onCaptureCompleted()`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.CaptureCallback#onCaptureCompleted(android.hardware.camera2.CameraCaptureSession,%20android.hardware.camera2.CaptureRequest,%20android.hardware.camera2.TotalCaptureResult)) callback method.
 
 ### Kotlin
 
@@ -202,7 +202,8 @@ the [`onCaptureCompleted()`](https://developer.android.com/reference/android/har
 - Passing in the `TotalCaptureResult` allows Google LLB to analyze the auto exposure data and other metadata which is necessary for low light boost to process scene detection and determine how much boost to apply to the frame.
 - You should pass the `captureCallback` object when creating the camera session, for example with \`[setSingleRepeatingRequest()](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession#setSingleRepeatingRequest(android.hardware.camera2.CaptureRequest,%20java.util.concurrent.Executor,%20android.hardware.camera2.CameraCaptureSession.CaptureCallback)).
 
-| **Note:** For CameraX apps, you'll need to use the [`Camera2Interop.Extender.setSessionCaptureCallback()`](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2Interop.Extender#setSessionCaptureCallback(android.hardware.camera2.CameraCaptureSession.CaptureCallback)) method to set the `captureCallback` object defined in the previous code snippet. See the [CameraX interoperability with Camera2](https://developer.android.com/media/camera/camerax/architecture#camerax-interoperability) guide for information on this approach.
+> [!NOTE]
+> **Note:** For CameraX apps, you'll need to use the [`Camera2Interop.Extender.setSessionCaptureCallback()`](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2Interop.Extender#setSessionCaptureCallback(android.hardware.camera2.CameraCaptureSession.CaptureCallback)) method to set the `captureCallback` object defined in the previous code snippet. See the [CameraX interoperability with Camera2](https://developer.android.com/media/camera/camerax/architecture#camerax-interoperability) guide for information on this approach.
 
 ## Start camera preview
 
@@ -210,7 +211,7 @@ Once you have created a low light session, you can start the camera preview
 stream. You should do
 this inside the `onSuccess()` callback you pass to the low light session, as
 described in [Create a session](https://developer.android.com/media/camera/lowlight/low-light-boost-gp/use-session#create-session). The following code shows how to capture
-video:  
+video:
 
 ### Kotlin
 
@@ -267,14 +268,15 @@ video:
 - You can specify an [`Executor`](https://developer.android.com/reference/java/util/concurrent/Executor) to run the callback. If you don't specify an `Executor`, the callback runs on the main thread. In this code, we assume `lowLightBoostExecutor` is a suitable `Executor`.
 - [`lowLightBoostSession.getCameraSurface()`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostSession#getCameraSurface()) returns the [`Surface`](https://developer.android.com/reference/android/view/Surface) with the captured video.
 
-| **Note:** For CameraX apps, you can provide the Google LLB camera surface to CameraX by setting it with [`SurfaceRequest.provideSurface()`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest#provideSurface(android.view.Surface,java.util.concurrent.Executor,androidx.core.util.Consumer%3Candroidx.camera.core.SurfaceRequest.Result%3E)).
+> [!NOTE]
+> **Note:** For CameraX apps, you can provide the Google LLB camera surface to CameraX by setting it with [`SurfaceRequest.provideSurface()`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest#provideSurface(android.view.Surface,java.util.concurrent.Executor,androidx.core.util.Consumer%3Candroidx.camera.core.SurfaceRequest.Result%3E)).
 
 ## Release the session
 
 When the camera is no longer active, release the low light boost session by
 calling `LowLightBoostSession.release()`. In particular, you should make sure to
 release the session when your activity is destroyed. You can do this by calling
-the method in your activity's `onDestroy()` method:  
+the method in your activity's `onDestroy()` method:
 
 ### Kotlin
 

@@ -13,9 +13,9 @@ into a shared experience that delights and inspires multiple users.
 
 The Android media router APIs are designed to enable media display and playback on
 remote receiver devices using a common user interface. App developers that
-implement a [MediaRouter](https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter) interface can then connect to the
+implement a `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter` interface can then connect to the
 framework and play content to devices that participate in the media router framework. Media
-playback device manufacturers can participate in the framework by publishing a [MediaRouteProvider](https://developer.android.com/reference/androidx/mediarouter/media/MediaRouteProvider) that allows other applications to connect to and
+playback device manufacturers can participate in the framework by publishing a `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouteProvider` that allows other applications to connect to and
 play media on the receiver devices. Figure 1 illustrates how an app connects to a receiver
 device through the media router framework.
 
@@ -43,7 +43,7 @@ The mediarouter APIs are defined in the
 [AndroidX MediaRouter library](https://developer.android.com/guide/topics/media/mediarouter).
 This library is compatible with devices running Android 2.3 (API level 9) and higher and ensures a consistent
 experience across all of them.
-For detailed information about the mediarouter APIs, see the [androidx.mediarouter.media](https://developer.android.com/reference/androidx/mediarouter/media/package-summary)
+For detailed information about the mediarouter APIs, see the `https://developer.android.com/reference/androidx/mediarouter/media/package-summary`
 package in the API reference.
 
 **[MediaRouter API](https://developer.android.com/guide/topics/media/mediarouter)**

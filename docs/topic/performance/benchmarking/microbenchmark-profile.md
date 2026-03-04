@@ -18,7 +18,7 @@ following snippet.
 
 For more information about the options, see [Record Java/Kotlin methods](https://developer.android.com/studio/profile/record-java-kotlin-methods).
 `MethodTracing` is the equivalent of tracing, and `StackSampling` is the
-equivalent of sampling as defined in that document.  
+equivalent of sampling as defined in that document.
 
 ### Groovy
 
@@ -46,7 +46,9 @@ When you profile a benchmark, an output `.trace` file is copied to the host in
 the directory [alongside JSON results](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#benchmark-results). To inspect profiling results in
 Android Studio, select the **Method Trace** or **Stack Sampling Trace** link
 in the microbenchmark results.
-| **Note:** The Microbenchmark library automatically captures system tracing, but with custom tracing sections disabled---it ignores calls to `Trace.beginSection and endSection`---to prevent interference from tracing overhead.
+
+> [!NOTE]
+> **Note:** The Microbenchmark library automatically captures system tracing, but with custom tracing sections disabled---it ignores calls to `Trace.beginSection and endSection`---to prevent interference from tracing overhead.
 
 ## MethodTracing
 
@@ -57,7 +59,7 @@ then focus on optimizing the methods that have the most impact on performance.
 Profiling occurs in sequence after code measurement, so your test outputs both
 accurate timing and profiling results.
 
-Method tracing is on by default.  
+Method tracing is on by default.
 **Note:** On some Android OS and ART versions, method tracing is off by default. In these cases, Android Studio outputs a warning.
 
 ## StackSampling

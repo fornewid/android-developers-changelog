@@ -38,7 +38,9 @@ The `MANAGE_EXTERNAL_STORAGE` permission grants the following:
 - Read and write access to all files within [shared
   storage](https://developer.android.com/training/data-storage/shared).
 
-  | **Note:** The `/sdcard/Android/media`⁠ directory is part of shared storage.
+  > [!NOTE]
+  > **Note:** The `/sdcard/Android/media`⁠ directory is part of shared storage.
+
 - Access to the contents of the
   [`MediaStore.Files`](https://developer.android.com/reference/android/provider/MediaStore.Files) table.
 
@@ -84,7 +86,7 @@ request code, and it returns one of the following:
 
 To explore how the `MANAGE_EXTERNAL_STORAGE` permission affects your app, you
 can enable the permission for testing. To do so, run the following
-command on the machine that's connected to your test device:  
+command on the machine that's connected to your test device:
 
 ```
 adb shell appops set --uid PACKAGE_NAME MANAGE_EXTERNAL_STORAGE allow

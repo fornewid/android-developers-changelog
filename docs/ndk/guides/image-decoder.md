@@ -62,7 +62,7 @@ Decoding starts with some form of input representing the encoded image.
 The following code shows how to open an image `Asset` from a file, decode it,
 and then properly dispose of the decoder and asset. To see an example of
 rendering the decoded image, see the
-[teapot sample](https://github.com/android/ndk-samples/tree/develop/teapots/image-decoder/src/main/cpp/Texture.cpp#30).  
+[teapot sample](https://github.com/android/ndk-samples/tree/develop/teapots/image-decoder/src/main/cpp/Texture.cpp#30).
 
     AAssetManager* nativeManager = AAssetManager_fromJava(env, jAssets);
     const char* file = // Filename

@@ -9,7 +9,9 @@ restore their app accounts and be signed in upon first opening an app after
 setting up a new device. A restore credential, also known as a restore key, is a
 type of credential that can be saved locally or backed up to a cloud provider,
 and then used to provision access on the user's new device.
-| **Note:** It is a particularly recommended feature for apps that already support passkeys because of the common underlying server-side implementation.
+
+> [!NOTE]
+> **Note:** It is a particularly recommended feature for apps that already support passkeys because of the common underlying server-side implementation.
 
 This guide assumes you're familiar with the following concepts:
 
@@ -47,7 +49,9 @@ requirements:
 - Have a screen unlock mechanism set up, such as pattern, PIN, password, or biometrics.
 
 If these conditions aren't met, an [`E2eeUnavailableException`](https://developer.android.com/reference/androidx/credentials/exceptions/restorecredential/E2eeUnavailableException) is thrown.
-| **Note:** The process of generating the restore key is silent and does not require user interaction after their initial authentication.
+
+> [!NOTE]
+> **Note:** The process of generating the restore key is silent and does not require user interaction after their initial authentication.
 
 ### On the new device
 

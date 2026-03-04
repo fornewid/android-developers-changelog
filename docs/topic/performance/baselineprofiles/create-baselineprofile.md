@@ -9,7 +9,9 @@ Macrobenchmark library](https://developer.android.com/macrobenchmark) and
 [`BaselineProfileRule`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/junit4/BaselineProfileRule). We recommend that you
 use `com.android.tools.build:gradle:8.0.0` or higher, which comes with build
 improvements when using Baseline Profiles.
-| **Important:** To keep installation turnaround during development low, Baseline Profiles are only installed for release builds.
+
+> [!IMPORTANT]
+> **Important:** To keep installation turnaround during development low, Baseline Profiles are only installed for release builds.
 
 These are the general steps to create a new Baseline Profile:
 
@@ -72,7 +74,10 @@ The Baseline Profile module template adds a new run configuration to generate
 the Baseline Profile. If you use product flavors, Android Studio creates
 multiple run configurations so that you can generate separate Baseline Profiles
 for each flavor.
-| **Note:** To generate and install the Baseline Profile from the command-line interface, run the `:app:generateBaselineProfile` or `:app:generateVariantBaselineProfile` Gradle tasks.
+
+> [!NOTE]
+> **Note:** To generate and install the Baseline Profile from the command-line interface, run the `:app:generateBaselineProfile` or `:app:generateVariantBaselineProfile` Gradle tasks.
+
 ![The Generate Baseline Profile run configuration.](https://developer.android.com/static/topic/performance/images/studio/generate-baseline-profile.png) **Figure 2.** Running this configuration generates the Baseline Profile.
 
 When the **Generate Baseline Profile** run configuration completes, it copies
@@ -97,7 +102,9 @@ If you aren't able to use the
 Macrobenchmark module template and the Baseline Profile Gradle plugin to create
 a new Baseline Profile. We recommend you use these tools starting with Android
 Studio Giraffe and AGP 8.1.
-| **Note:** Automatic Baseline Profile generation with the Baseline Profile Gradle plugin is available starting with AGP 8.0, but we recommend using AGP 8.1 for a better experience.
+
+> [!NOTE]
+> **Note:** Automatic Baseline Profile generation with the Baseline Profile Gradle plugin is available starting with AGP 8.0, but we recommend using AGP 8.1 for a better experience.
 
 Here are the steps to create a new Baseline Profile using the Macrobenchmark
 module template and Baseline Profile Gradle plugin:
@@ -142,7 +149,9 @@ module template and Baseline Profile Gradle plugin:
    [Gradle Managed Device](https://developer.android.com/studio/test/gradle-managed-devices).
    If you use a Gradle Managed Device, set `aosp` as the `systemImageSource`, because you need root
    access for the Baseline Profile generator.
-   | **Note:** When using Jetpack Macrobenchmark 1.2.0-alpha06 and higher, you can generate the Baseline Profile on devices running Android 13 (API 33) and higher without root access.
+
+   > [!NOTE]
+   > **Note:** When using Jetpack Macrobenchmark 1.2.0-alpha06 and higher, you can generate the Baseline Profile on devices running Android 13 (API 33) and higher without root access.
 
    At the end of the generation task, the Baseline Profile is copied to
    `app/src/variant/generated/baselineProfiles`.
@@ -155,7 +164,9 @@ We recommend creating a Baseline Profile using the Android Studio
 also use the Baseline Profile Gradle plugin by itself. To read more about the
 Baseline Profile Gradle plugin, see
 [Configure your Baseline Profile generation](https://developer.android.com/topic/performance/baselineprofiles/use-baselineprofile-gradle-plugin).
-| **Note:** The Baseline Profile Gradle plugin is already applied if you use the [Baseline Profile module template](https://developer.android.com/topic/performance/create-baselineprofile#create-new-profile).
+
+> [!NOTE]
+> **Note:** The Baseline Profile Gradle plugin is already applied if you use the [Baseline Profile module template](https://developer.android.com/topic/performance/create-baselineprofile#create-new-profile).
 
 Here's how to create a Baseline Profile using the Baseline Profile Gradle plugin
 directly:
@@ -367,7 +378,9 @@ to your code, follow these steps:
 2. Copy the generated profile to `src/main/` and rename the file to
    `baseline-prof.txt`.
 
-   | **Note:** If you're using a version of the Android Gradle plugin earlier than 8.0, the `baseline-prof.txt` file isn't shown in the **Android** view in Android Studio.
+   > [!NOTE]
+   > **Note:** If you're using a version of the Android Gradle plugin earlier than 8.0, the `baseline-prof.txt` file isn't shown in the **Android** view in Android Studio.
+
 3. Add a dependency to the [ProfileInstaller library](https://developer.android.com/jetpack/androidx/releases/profileinstaller)
    in your app's `build.gradle.kts` file to enable local Baseline Profile
    compilation where [Cloud Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview#cloud-profiles) aren't available. This is
@@ -395,7 +408,7 @@ library](https://developer.android.com/topic/performance/baselineprofiles/measur
 When you run this within Android Studio, the build output contains details of
 the speed improvements that the Baseline Profile provides:
 
-```scdoc
+```
 StartupBenchmarks_startupCompilationBaselineProfiles
 timeToInitialDisplayMs   min 161.8,   median 178.9,   max 194.6
 StartupBenchmarks_startupCompilationNone

@@ -30,7 +30,9 @@ existing Cloud project that you want to use with the Play Integrity API.
 
 You can now integrate the Play Integrity API into your app. To access
 advanced features and quota increases, you must proceed to the linking step.
-| **Note:** Projects that are enabled in the Google Cloud Console but not linked in the Play Console or Play SDK Console are not eligible for additional configuration options or quota increases.
+
+> [!NOTE]
+> **Note:** Projects that are enabled in the Google Cloud Console but not linked in the Play Console or Play SDK Console are not eligible for additional configuration options or quota increases.
 
 ## Link to Google Play (recommended)
 
@@ -82,7 +84,9 @@ avoid interruptions to your service.
 Even with higher quota, continue to limit
 [classic requests](https://developer.android.com/google/play/integrity/classic) to infrequent, high-value actions to preserve
 user battery and data usage.
-| **Caution:** Very high volume changes should be rolled out gradually. Sudden traffic spikes may cause throttling.
+
+> [!CAUTION]
+> **Caution:** Very high volume changes should be rolled out gradually. Sudden traffic spikes may cause throttling.
 
 #### For apps and games on Google Play
 
@@ -121,7 +125,7 @@ following depending on your development environment:
 
 The latest Android library for the Play Integrity API is available from
 [Google's Maven Repository](https://maven.google.com/web/index.html#com.google.android.play:integrity). Add the following dependency to your app's
-`build.gradle` file:  
+`build.gradle` file:
 
 ```groovy
 implementation 'com.google.android.play:integrity:1.6.0'
@@ -144,7 +148,7 @@ installation methods, and environment setup.
 ### OpenUPM-CLI
 
 If you have the [OpenUPM CLI](https://github.com/openupm/openupm-cli#installation)
-installed you can install the OpenUPM registry with the following command:  
+installed you can install the OpenUPM registry with the following command:
 
     openupm add com.google.play.integrity
 
@@ -179,7 +183,8 @@ installed you can install the OpenUPM registry with the following command:
 2. Import the `.unitypackage` file by selecting the Unity menu option
    **Assets \> Import package \> Custom Package** and importing all items.
 
-| **Note:** By downloading and using Google Play Unity Plugins, you agree to the [Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore#license).
+> [!NOTE]
+> **Note:** By downloading and using Google Play Unity Plugins, you agree to the [Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore#license).
 
 ### Unreal Engine
 
@@ -192,7 +197,8 @@ The plugin supports **Unreal Engine 5.0** and all subsequent versions.
 
 #### Set up your development environment
 
-| **Note:** If you have already used the In-app Reviews or In-app Updates plugins in Unreal Engine, you can skip to the final step.
+> [!NOTE]
+> **Note:** If you have already used the In-app Reviews or In-app Updates plugins in Unreal Engine, you can skip to the final step.
 
 1. Download the [Play Unreal Engine Plugin](https://github.com/google/play-unreal-engine-plugin) from the GitHub
    repository.
@@ -268,7 +274,9 @@ To make changes, visit the Play Console and navigate to
 **Test and release** \> **App integrity** . Next to **Play Integrity API** click
 **[Settings](https://play.google.com/console/developers/app/app-integrity/integrity-api-settings)** . Click **Change responses**, edit and save your
 changes.
-| **Caution:** Changes to integrity responses take effect immediately, including for apps and SDKs in production. Make sure your server is prepared to accept new responses before saving changes.
+
+> [!CAUTION]
+> **Caution:** Changes to integrity responses take effect immediately, including for apps and SDKs in production. Make sure your server is prepared to accept new responses before saving changes.
 
 #### Device information
 
@@ -293,7 +301,9 @@ distribution to untrusted devices.
 **Device recall** lets you store some custom, per-device data with specific
 devices that you can reliably retrieve when your app is installed again later
 on the same device.
-| **Note:** [Device recall](https://developer.android.com/google/play/integrity/device-recall) is available in beta to apps and subject to change. Pricing for high-scale usage may apply after general release. SDKs cannot use device recall.
+
+> [!NOTE]
+> **Note:** [Device recall](https://developer.android.com/google/play/integrity/device-recall) is available in beta to apps and subject to change. Pricing for high-scale usage may apply after general release. SDKs cannot use device recall.
 
 After you opt in to optional information, your API response will include new
 fields and responses in the verdict:
@@ -344,7 +354,8 @@ fields and responses in the verdict:
 |   | `HIGH_RISK` | Play Protect is turned on and has found dangerous apps installed on the device. |
 |   | `UNEVALUATED` | The Play Protect verdict was not evaluated. A necessary requirement was missed, such as the device not being trustworthy enough. |
 
-| **Note:** The app access risk verdict automatically exempts verified accessibility services known to Google Play. These services will not trigger a capturing, controlling, or overlay response, meaning legitimate accessibility tools are not flagged as risks.
+> [!NOTE]
+> **Note:** The app access risk verdict automatically exempts verified accessibility services known to Google Play. These services will not trigger a capturing, controlling, or overlay response, meaning legitimate accessibility tools are not flagged as risks.
 
 ## Configure classic request settings (optional)
 
@@ -369,8 +380,12 @@ available on Google Play to use this feature.
 Before you change your response encryption management strategy in the Play
 Console, make sure your server is correctly configured to decrypt and verify
 integrity tokens on Google Play's servers to avoid disruption.
-| **Caution:** Never decrypt tokens or expose keys within your client app.
-| **Tip:** Even when self-managing keys, your app can still fall back to Google Play's server for decryption.
+
+> [!CAUTION]
+> **Caution:** Never decrypt tokens or expose keys within your client app.
+
+> [!TIP]
+> **Tip:** Even when self-managing keys, your app can still fall back to Google Play's server for decryption.
 
 ### Switch between Google-managed and self-managed encryption keys
 
@@ -390,4 +405,5 @@ To switch to Google-managed keys:
 1. Select **Let Google manage my response encryption (recommended)**.
 2. Click **Save changes**.
 
-| **Caution:** Switching to Google-managed encryption immediately invalidates previously downloaded keys, even in production. Before switching, make sure your server is configured to handle the change to avoid disruption.
+> [!CAUTION]
+> **Caution:** Switching to Google-managed encryption immediately invalidates previously downloaded keys, even in production. Before switching, make sure your server is configured to handle the change to avoid disruption.

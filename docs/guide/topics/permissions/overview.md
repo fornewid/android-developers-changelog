@@ -9,6 +9,8 @@ App permissions help support user privacy by protecting access to the following:
 - **Restricted data**, such as system state and users' contact information
 - **Restricted actions**, such as connecting to a paired device and recording audio
 
+[Video](https://www.youtube.com/watch?v=zCAx4WZ98rs)
+
 This page provides an overview to how Android permissions work, including a
 high-level workflow for using permissions, descriptions of different types of
 permissions, and some best practices for using permissions in your app. Other
@@ -89,7 +91,9 @@ Applications that implement privileged services, such as autofill or VPN
 services, also make use of signature permissions. These apps require
 service-binding signature permissions so that only the system can bind
 to the services.
-| **Note:** Some signature permissions aren't for use by third-party apps.
+
+> [!NOTE]
+> **Note:** Some signature permissions aren't for use by third-party apps.
 
 The system assigns the `signature` protection level to signature permissions.
 

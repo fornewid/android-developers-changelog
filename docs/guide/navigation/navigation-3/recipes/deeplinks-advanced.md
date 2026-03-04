@@ -31,8 +31,9 @@ found [here](https://developer.android.com/static/advanceddeeplinkapp/src/main/j
 
 Check out the [deep link guide](https://developer.android.com/docs/deeplink-guide) for a
 comprehensive guide on Deep linking principles and how to apply them in Navigation 3.
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/deeplink/advanced)
 
-```python
+```
 package com.example.nav3recipes.deeplink.advanced
 
 import android.content.Intent

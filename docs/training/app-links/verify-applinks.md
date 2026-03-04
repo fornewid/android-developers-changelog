@@ -21,13 +21,14 @@ The system's auto-verification involves the following:
    - Data scheme: `http` or `https`
 2. For each unique host name found in the above intent filters, Android queries the corresponding websites for the Digital Asset Links file at `https:///.well-known/assetlinks.json`.
 
-| **Note:** On Android 11 (API level 30) and lower, the system establishes your app as the default handler for the specified URL patterns only if it finds a matching Digital Asset Links file for *all* hosts in the manifest.
+> [!NOTE]
+> **Note:** On Android 11 (API level 30) and lower, the system establishes your app as the default handler for the specified URL patterns only if it finds a matching Digital Asset Links file for *all* hosts in the manifest.
 
 After you have confirmed the list of websites to associate with your app, and
 you have confirmed that the hosted JSON file is valid, install the app on your
 device. Wait at least 20 seconds for the asynchronous verification process to
 complete. Use the following command to check whether the system verified your
-app and set the correct link handling policies:  
+app and set the correct link handling policies:
 
 ```
 adb shell am start -a android.intent.action.VIEW \
@@ -52,7 +53,7 @@ If your app targets Android 12 or higher, the system uses the
 updated domain verification process automatically.
 
 Otherwise, you can manually enable the updated verification process. To do so,
-run the following command in a terminal window:  
+run the following command in a terminal window:
 
 ```
 adb shell am compat enable 175408749 PACKAGE_NAME
@@ -62,7 +63,7 @@ adb shell am compat enable 175408749 PACKAGE_NAME
 
 Before you manually invoke domain verification on a device, you must reset the
 state of Android App Links on the test device. To do so, run the following
-command in a terminal window:  
+command in a terminal window:
 
 ```
 adb shell pm set-app-links --package PACKAGE_NAME 0 all
@@ -74,23 +75,25 @@ chooses default apps for any domains.
 #### Invoke the domain verification process
 
 After you reset the state of Android App Links on a device, you can perform the
-verification itself. To do so, run the following command in a terminal window:  
+verification itself. To do so, run the following command in a terminal window:
 
 ```
 adb shell pm verify-app-links --re-verify PACKAGE_NAME
 ```
-| **Note:** Before you review the results of this command, wait a few minutes for the verification agent to finish the requests related to domain verification.
+
+> [!NOTE]
+> **Note:** Before you review the results of this command, wait a few minutes for the verification agent to finish the requests related to domain verification.
 
 #### Review the verification results
 
 After allowing some time for the verification agent to finish its requests,
-review the verification results. To do so, run the following command:  
+review the verification results. To do so, run the following command:
 
 ```
 adb shell pm get-app-links PACKAGE_NAME
 ```
 
-The output of this command is similar to the following:  
+The output of this command is similar to the following:
 
 ```
 com.example.pkg:
@@ -152,7 +155,9 @@ Error code of `1024` or greater
 
 Another way for your app to get approved for a domain is to ask the user to
 associate your app with that domain.
-| **Note:** On a given device, only one app at a time can be associated with a particular domain. If another app is already verified for the domain, the user must first disassociate that other app with the domain before they can associate your app with the domain.
+
+> [!NOTE]
+> **Note:** On a given device, only one app at a time can be associated with a particular domain. If another app is already verified for the domain, the user must first disassociate that other app with the domain before they can associate your app with the domain.
 
 ### Check whether your app is already approved for the domain
 
@@ -166,7 +171,7 @@ the approval state using one of the following methods:
 #### DomainVerificationManager
 
 The following code snippet demonstrates how to use the
-`DomainVerificationManager` API:  
+`DomainVerificationManager` API:
 
 ### Kotlin
 
@@ -221,7 +226,7 @@ for (String key : hostToStateMap.keySet()) {
 #### Command-line program
 
 When testing your app during development, you can run the following command to
-query the verification state of the domains that your organization owns:  
+query the verification state of the domains that your organization owns:
 
 ```
 adb shell pm get-app-links --user cur PACKAGE_NAME
@@ -229,7 +234,7 @@ adb shell pm get-app-links --user cur PACKAGE_NAME
 
 In the following example output, even though the app failed verification for the
 "example.org" domain, user 0 has manually approved the app in system settings,
-and no other package is verified for that domain.  
+and no other package is verified for that domain.
 
 ```
 com.example.pkg:
@@ -252,8 +257,10 @@ User 0:
 You can also use shell commands to simulate the process where the user selects
 which app is associated with a given domain. A full explanation of these
 commands is available from the output of `adb shell pm`.
-| **Note:** The system can only associate one app at a time with a domain, even when you use shell commands. Some special cases, such as [installing two app variants
-| simultaneously](https://developer.android.com/training/app-links/verify-applinks#multi-app-same-domain), require special handling to open a given web link in the intended app.
+
+> [!NOTE]
+> **Note:** The system can only associate one app at a time with a domain, even when you use shell commands. Some special cases, such as [installing two app variants
+> simultaneously](https://developer.android.com/training/app-links/verify-applinks#multi-app-same-domain), require special handling to open a given web link in the intended app.
 
 ### Provide context for the request
 
@@ -268,8 +275,8 @@ After the user understands what your app is asking them to do, make the request.
 To do so, invoke an intent that includes the
 [`ACTION_APP_OPEN_BY_DEFAULT_SETTINGS`](https://developer.android.com/reference/android/provider/Settings#ACTION_APP_OPEN_BY_DEFAULT_SETTINGS)
 intent action, and a data string matching
-`package:`<var translate="no">com.example.pkg</var> for the target app, as shown in
-the following code snippet:  
+`package:com.example.pkg` for the target app, as shown in
+the following code snippet:
 
 ### Kotlin
 
@@ -298,10 +305,9 @@ under a section called **Links to open in this app** . From here, users can
 select the domains that they want to associate with your app. They can also
 select **Add link** to add domains, as shown in figure 2. When users later
 select any link within the domains that they add, the link opens in your app
-automatically.  
+automatically.
 ![When the radio button is enabled, a section near the bottom
-includes checkboxes as well as a button called 'Add link'](https://developer.android.com/static/images/training/app-links/choose-domains.svg) **Figure 1.** System settings screen where users can choose which links open in your app by default.  
-![Each checkbox represents a domain that you can add. The
+includes checkboxes as well as a button called 'Add link'](https://developer.android.com/static/images/training/app-links/choose-domains.svg) **Figure 1.** System settings screen where users can choose which links open in your app by default. ![Each checkbox represents a domain that you can add. The
 dialog's buttons are 'Cancel' and 'Add.'](https://developer.android.com/static/images/training/app-links/add-domains.svg) **Figure 2.** Dialog where users can choose additional domains to associate with your app.
 
 <br />

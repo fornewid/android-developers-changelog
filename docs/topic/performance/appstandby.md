@@ -24,7 +24,9 @@ available to the app. In particular, the bucket determines how frequently the
 app's jobs run and how often the app can trigger alarms. These restrictions
 apply only while the device is on battery power. While the device is charging,
 the system doesn't impose these restrictions.
-| **Note:** Every manufacturer can set their own criteria for how non-active apps are assigned to buckets. Don't try to influence which bucket your app is assigned to. Instead, focus on making sure your app behaves well in whichever bucket it might be in. To find out which bucket your app is in, call [`UsageStatsManager.getAppStandbyBucket()`](https://developer.android.com/reference/android/app/usage/UsageStatsManager#getAppStandbyBucket()).
+
+> [!NOTE]
+> **Note:** Every manufacturer can set their own criteria for how non-active apps are assigned to buckets. Don't try to influence which bucket your app is assigned to. Instead, focus on making sure your app behaves well in whichever bucket it might be in. To find out which bucket your app is in, call [`UsageStatsManager.getAppStandbyBucket()`](https://developer.android.com/reference/android/app/usage/UsageStatsManager#getAppStandbyBucket()).
 
 The priority buckets are the following:
 
@@ -37,7 +39,9 @@ The priority buckets are the following:
 In addition to these priority buckets, there's a special **never** bucket for
 apps that are installed but never ran. The system imposes severe restrictions on
 these apps.
-| **Note:** Apps that are on the [Doze exemption list](https://developer.android.com/training/monitoring-device-state/doze-standby#exemption-cases) are exempted from the App Standby Bucket-based restrictions.
+
+> [!NOTE]
+> **Note:** Apps that are on the [Doze exemption list](https://developer.android.com/training/monitoring-device-state/doze-standby#exemption-cases) are exempted from the App Standby Bucket-based restrictions.
 
 The following descriptions are for the non-predictive case. By contrast, when
 the prediction uses machine learning to predict behavior, buckets are chosen in
@@ -70,7 +74,9 @@ The following are examples of interactions that trigger this system behavior:
 
 - The user taps on a notification that your app sends.
 
-  | **Note:** If the user swipes away the notification without tapping on it, the system doesn't consider that action to be an interaction with your app.
+  > [!NOTE]
+  > **Note:** If the user swipes away the notification without tapping on it, the system doesn't consider that action to be an interaction with your app.
+
 - The user interacts with a foreground service in your app by tapping a [media
   button](https://developer.android.com/guide/topics/media-apps/mediabuttons).
 
@@ -125,7 +131,9 @@ following situations:
   Android 12 (API level 31) and 12L (API level 32), the number of days
   is 45. Android 13 reduces the number of days to 8.
 
-  | **Note:** Any duration that the device is off doesn't count towards the interactivity limit.
+  > [!NOTE]
+  > **Note:** Any duration that the device is off doesn't count towards the interactivity limit.
+
 - Your app invokes an excessive number of [broadcasts](https://developer.android.com/guide/components/broadcasts) or [bindings](https://developer.android.com/guide/components/bound-services)
   during a 24-hour period.
 
@@ -138,7 +146,8 @@ restrictions apply:
 - Your app can invoke one alarm per day. This alarm can be either an [exact
   alarm](https://developer.android.com/training/scheduling/alarms#exact) or an [inexact alarm](https://developer.android.com/training/scheduling/alarms#inexact).
 
-| **Note:** Unlike other buckets, these power management restrictions apply to the restricted bucket even when the device is charging. However, restrictions are loosened when the device is charging, idle, and on an unmetered network.
+> [!NOTE]
+> **Note:** Unlike other buckets, these power management restrictions apply to the restricted bucket even when the device is charging. However, restrictions are loosened when the device is charging, idle, and on an unmetered network.
 
 #### Exemptions from the restricted bucket
 
@@ -196,7 +205,9 @@ which previously worked well might cause problems.
   you inappropriately mark an FCM message as high priority when it doesn't
   trigger user interaction, it can cause future messages to be deprioritized.
 
-  | **Note:** If the user repeatedly dismisses a notification, the system gives the user the option to block that notification in the future. Don't spam the user with notifications to try to keep your app in the active bucket.
+  > [!NOTE]
+  > **Note:** If the user repeatedly dismisses a notification, the system gives the user the option to block that notification in the future. Don't spam the user with notifications to try to keep your app in the active bucket.
+
 - If apps are split across multiple packages, those packages might be in
   different buckets and have different access levels. Test these apps with the
   packages assigned to various buckets to make sure the app behaves properly.

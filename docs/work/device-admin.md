@@ -51,7 +51,9 @@ runs in the background), only device policies that are global in scope
 or users. See
 [`addUserRestriction`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#addUserRestriction(android.content.ComponentName,%20java.lang.String))
 for details.
-| **Note:** In Android 14 (API level 34), a DPC application can be set as device owner on a device configured as a [Headless System User Mode device](https://developer.android.com/reference/android/os/UserManager#isHeadlessSystemUserMode()) only if it supports affiliated mode. See [`HEADLESS_DEVICE_OWNER_MODE_AFFILIATED`](https://developer.android.com/reference/android/app/admin/DeviceAdminInfo#HEADLESS_DEVICE_OWNER_MODE_AFFILIATED) for details.
+
+> [!NOTE]
+> **Note:** In Android 14 (API level 34), a DPC application can be set as device owner on a device configured as a [Headless System User Mode device](https://developer.android.com/reference/android/os/UserManager#isHeadlessSystemUserMode()) only if it supports affiliated mode. See [`HEADLESS_DEVICE_OWNER_MODE_AFFILIATED`](https://developer.android.com/reference/android/app/admin/DeviceAdminInfo#HEADLESS_DEVICE_OWNER_MODE_AFFILIATED) for details.
 
 Android device manufacturers may refer to the
 [guidance](https://source.android.com/docs/devices/admin/implement)
@@ -123,7 +125,7 @@ lock:
 | Minimum symbols required in password | The minimum number of symbols required in the password for all admins or a particular one. Introduced in Android 3.0. |
 | Minimum uppercase letters required in password | The minimum number of uppercase letters required in the password for all admins or a particular one. Introduced in Android 3.0. |
 | Password expiration timeout | When the password will expire, expressed as a delta in milliseconds from when a device admin sets the expiration timeout. Introduced in Android 3.0. |
-| Password history restriction | This policy prevents users from reusing the last *n* unique passwords. This policy is typically used in conjunction with [setPasswordExpirationTimeout()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordExpirationTimeout(android.content.ComponentName, long)), which forces users to update their passwords after a specified amount of time has elapsed. Introduced in Android 3.0. |
+| Password history restriction | This policy prevents users from reusing the last *n* unique passwords. This policy is typically used in conjunction with `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordExpirationTimeout(android.content.ComponentName, long)`, which forces users to update their passwords after a specified amount of time has elapsed. Introduced in Android 3.0. |
 | Maximum failed password attempts | Specifies how many times a user can enter the wrong password before the device wipes its data. The Device Administration API also allows administrators to remotely reset the device to factory defaults. This secures data in case the device is lost or stolen. |
 | Maximum inactivity time lock | Sets the length of time since the user last touched the screen or pressed a button before the device locks the screen. When this happens, users need to enter their PIN or passwords again before they can use their devices and access data. The value can be between 1 and 60 minutes. |
 | Require storage encryption | Specifies that the storage area should be encrypted, if the device supports it. Introduced in Android 3.0. |
@@ -178,12 +180,12 @@ app.
 To use the Device Administration API, the app's
 manifest must include the following:
 
-- A subclass of [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) that includes the following:
-  - The [BIND_DEVICE_ADMIN](https://developer.android.com/reference/android/Manifest.permission#BIND_DEVICE_ADMIN) permission.
-  - The ability to respond to the [ACTION_DEVICE_ADMIN_ENABLED](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#ACTION_DEVICE_ADMIN_ENABLED) intent, expressed in the manifest as an intent filter.
+- A subclass of `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver` that includes the following:
+  - The `https://developer.android.com/reference/android/Manifest.permission#BIND_DEVICE_ADMIN` permission.
+  - The ability to respond to the `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#ACTION_DEVICE_ADMIN_ENABLED` intent, expressed in the manifest as an intent filter.
 - A declaration of security policies used in metadata.
 
-Here is an excerpt from the Device Administration sample manifest:  
+Here is an excerpt from the Device Administration sample manifest:
 
 ```xml
 <activity android:name=".app.DeviceAdminSample"
@@ -212,11 +214,11 @@ Note that:
   - `android:label="@string/sample_device_admin"` refers to the user-readable label for the permission.
   - `android:description="@string/sample_device_admin_description"` refers to the user-readable description of the permission. A descripton is typically longer and more informative than a label.
 - `android:permission="android.permission.BIND_DEVICE_ADMIN"
-  ` is a permission that a [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) subclass must have, to ensure that only the system can interact with the receiver (no app can be granted this permission). This prevents other apps from abusing your device admin app.
-- `android.app.action.DEVICE_ADMIN_ENABLED` is the primary action that a [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) subclass must handle to be allowed to manage a device. This is set to the receiver when the user enables the device admin app. Your code typically handles this in [onEnabled()](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onEnabled(android.content.Context, android.content.Intent)). To be supported, the receiver must also require the [BIND_DEVICE_ADMIN](https://developer.android.com/reference/android/Manifest.permission#BIND_DEVICE_ADMIN) permission so that other apps cannot abuse it.
+  ` is a permission that a `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver` subclass must have, to ensure that only the system can interact with the receiver (no app can be granted this permission). This prevents other apps from abusing your device admin app.
+- `android.app.action.DEVICE_ADMIN_ENABLED` is the primary action that a `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver` subclass must handle to be allowed to manage a device. This is set to the receiver when the user enables the device admin app. Your code typically handles this in `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onEnabled(android.content.Context, android.content.Intent)`. To be supported, the receiver must also require the `https://developer.android.com/reference/android/Manifest.permission#BIND_DEVICE_ADMIN` permission so that other apps cannot abuse it.
 - When a user enables the device admin app, that gives the receiver permission to perform actions in response to the broadcast of particular system events. When suitable event arises, the app can impose a policy. For example, if the user attempts to set a new password that doesn't meet the policy requirements, the app can prompt the user to pick a different password that does meet the requirements.
 - Avoid changing the receiver name after publishing your app. If the name in the manifest changes, device admin is disabled when users update the app. To learn more, see [`<receiver>`](https://developer.android.com/guide/topics/manifest/receiver-element#nm).
-- `android:resource="@xml/device_admin_sample"` declares the security policies used in metadata. The metadata provides additional information specific to the device administrator, as parsed by the [DeviceAdminInfo](https://developer.android.com/reference/android/app/admin/DeviceAdminInfo) class. Here are the contents of `device_admin_sample.xml`:
+- `android:resource="@xml/device_admin_sample"` declares the security policies used in metadata. The metadata provides additional information specific to the device administrator, as parsed by the `https://developer.android.com/reference/android/app/admin/DeviceAdminInfo` class. Here are the contents of `device_admin_sample.xml`:
 
 ```xml
 <device-admin xmlns:android="http://schemas.android.com/apk/res/android">
@@ -241,36 +243,36 @@ For more discussion of the manifest file, see the [Android Developers Guide](htt
 
 The Device Administration API includes the following classes:
 
-[DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver)
+`https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver`
 :   Base class for implementing a device administration component. This class provides
     a convenience for interpreting the raw intent actions that are sent by the
     system. Your Device Administration app must include a
-    [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) subclass.
+    `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver` subclass.
 
-[DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager)
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager`
 :   A class for managing policies enforced on a device. Most clients of
-    this class must have published a [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) that the user
-    has currently enabled. The [DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) manages policies for
-    one or more [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) instances
+    this class must have published a `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver` that the user
+    has currently enabled. The `https://developer.android.com/reference/android/app/admin/DevicePolicyManager` manages policies for
+    one or more `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver` instances
 
-[DeviceAdminInfo](https://developer.android.com/reference/android/app/admin/DeviceAdminInfo)
+`https://developer.android.com/reference/android/app/admin/DeviceAdminInfo`
 :   This class is used to specify metadata
     for a device administrator component.
 
 These classes provide the foundation for a fully functional device administration app.
-The rest of this section describes how you use the [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) and
-[DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) APIs to write a device admin app.
+The rest of this section describes how you use the `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver` and
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager` APIs to write a device admin app.
 
 #### Subclassing DeviceAdminReceiver
 
 To create a device admin app, you must subclass
-[DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver). The [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) class
+`https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver`. The `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver` class
 consists of a series of callbacks that are triggered when particular events
 occur.
 
-In its [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) subclass, the sample app
-simply displays a [Toast](https://developer.android.com/reference/android/widget/Toast) notification in response to particular
-events. For example:  
+In its `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver` subclass, the sample app
+simply displays a `https://developer.android.com/reference/android/widget/Toast` notification in response to particular
+events. For example:
 
 ### Kotlin
 
@@ -340,7 +342,7 @@ it will still be present on the device, but its policies will not be enforced, a
 get any of the app's benefits.
 
 The process of enabling the app begins when the user performs an
-action that triggers the [ACTION_ADD_DEVICE_ADMIN](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#ACTION_ADD_DEVICE_ADMIN)
+action that triggers the `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#ACTION_ADD_DEVICE_ADMIN`
 intent. In the
 sample app, this happens when the user clicks the **Enable
 Admin** checkbox.
@@ -353,10 +355,10 @@ changes to prompt the user to activate the device admin app, as shown in figure
 **Figure 2.** Sample app: activating the app
 
 Below is the code that gets executed when the user clicks the **Enable Admin** checkbox. This has the effect of triggering the
-[onPreferenceChange()](https://developer.android.com/reference/android/preference/Preference.OnPreferenceChangeListener#onPreferenceChange(android.preference.Preference, java.lang.Object))
-callback. This callback is invoked when the value of this [Preference](https://developer.android.com/reference/android/preference/Preference) has been changed by the user and is about to be set and/or persisted. If the user is enabling the app, the display
+`https://developer.android.com/reference/android/preference/Preference.OnPreferenceChangeListener#onPreferenceChange(android.preference.Preference, java.lang.Object)`
+callback. This callback is invoked when the value of this `https://developer.android.com/reference/android/preference/Preference` has been changed by the user and is about to be set and/or persisted. If the user is enabling the app, the display
 changes to prompt the user to activate the device admin app, as shown in figure
-2. Otherwise, the device admin app is disabled.  
+2. Otherwise, the device admin app is disabled.
 
 ### Kotlin
 
@@ -425,16 +427,16 @@ public boolean onPreferenceChange(Preference preference, Object newValue) {
 The line
 `intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,
 mDeviceAdminSample)` states that `mDeviceAdminSample` (which is
-a [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) component) is the target policy.
+a `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver` component) is the target policy.
 This line invokes the user interface shown in figure 2, which guides users through
 adding the device administrator to the system (or allows them to reject it).
 
 When the app needs to perform an operation that is contingent on the
 device admin app being enabled, it confirms that the app is
-active. To do this it uses the [DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) method
-[isAdminActive()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#isAdminActive(android.content.ComponentName)). Notice that the [DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager)
-method [isAdminActive()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#isAdminActive(android.content.ComponentName)) takes a [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver)
-component as its argument:  
+active. To do this it uses the `https://developer.android.com/reference/android/app/admin/DevicePolicyManager` method
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#isAdminActive(android.content.ComponentName)`. Notice that the `https://developer.android.com/reference/android/app/admin/DevicePolicyManager`
+method `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#isAdminActive(android.content.ComponentName)` takes a `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver`
+component as its argument:
 
 ### Kotlin
 
@@ -456,11 +458,11 @@ private boolean isActiveAdmin() {
 
 ### Managing policies
 
-[DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) is a public class for managing policies
-enforced on a device. [DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) manages policies for one
-or more [DeviceAdminReceiver](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) instances.
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager` is a public class for managing policies
+enforced on a device. `https://developer.android.com/reference/android/app/admin/DevicePolicyManager` manages policies for one
+or more `https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver` instances.
 
-You get a handle to the [DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) as follows:  
+You get a handle to the `https://developer.android.com/reference/android/app/admin/DevicePolicyManager` as follows:
 
 ### Kotlin
 
@@ -475,7 +477,7 @@ DevicePolicyManager dpm =
     (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
 ```
 
-This section describes how to use [DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) to perform
+This section describes how to use `https://developer.android.com/reference/android/app/admin/DevicePolicyManager` to perform
 administrative tasks:
 
 - [Set password policies](https://developer.android.com/work/device-admin#pwd)
@@ -484,13 +486,13 @@ administrative tasks:
 
 #### Set password policies
 
-[DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) includes APIs for setting and enforcing the
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager` includes APIs for setting and enforcing the
 device password policy. In the Device Administration API, the password only applies to
 screen lock. This section describes common password-related tasks.
 
 ##### Set a password for the device
 
-This code displays a user interface prompting the user to set a password:  
+This code displays a user interface prompting the user to set a password:
 
 ### Kotlin
 
@@ -509,36 +511,36 @@ startActivity(intent);
 
 ##### Set the password quality
 
-The password quality can be one of the following [DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) constants:
+The password quality can be one of the following `https://developer.android.com/reference/android/app/admin/DevicePolicyManager` constants:
 
-[PASSWORD_QUALITY_ALPHABETIC](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_ALPHABETIC)
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_ALPHABETIC`
 :   The user must enter a
     password containing at least alphabetic (or other symbol) characters.
 
-[PASSWORD_QUALITY_ALPHANUMERIC](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_ALPHANUMERIC)
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_ALPHANUMERIC`
 :   The user must enter a
     password containing at least *both* numeric *and* alphabetic (or
     other symbol) characters.
 
-[PASSWORD_QUALITY_NUMERIC](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_NUMERIC)
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_NUMERIC`
 :   The user must enter a password
     containing at least numeric characters.
 
-[PASSWORD_QUALITY_COMPLEX](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_COMPLEX)
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_COMPLEX`
 :   The user
     must have entered a password containing at least a letter, a numerical digit and
     a special symbol.
 
-[PASSWORD_QUALITY_SOMETHING](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_SOMETHING)
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_SOMETHING`
 :   The
     policy requires some kind
     of password, but doesn't care what it is.
 
-[PASSWORD_QUALITY_UNSPECIFIED](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_UNSPECIFIED)
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#PASSWORD_QUALITY_UNSPECIFIED`
 :
     The policy has no requirements for the password.
 
-For example, this is how you would set the password policy to require an alphanumeric password:  
+For example, this is how you would set the password policy to require an alphanumeric password:
 
 ### Kotlin
 
@@ -560,20 +562,20 @@ dpm.setPasswordQuality(deviceAdminSample, DevicePolicyManager.PASSWORD_QUALITY_A
 
 ##### Set password content requirements
 
-Beginning with Android 3.0, the [DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) class
+Beginning with Android 3.0, the `https://developer.android.com/reference/android/app/admin/DevicePolicyManager` class
 includes methods that let you fine-tune the contents of the password. For
 example, you could set a policy that states that passwords must contain at least
 *n* uppercase letters. Here are the methods for fine-tuning a password's
 contents:
 
-- [setPasswordMinimumLetters()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumLetters(android.content.ComponentName, int))
-- [setPasswordMinimumLowerCase()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumLowerCase(android.content.ComponentName, int))
-- [setPasswordMinimumUpperCase()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumUpperCase(android.content.ComponentName, int))
-- [setPasswordMinimumNonLetter()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumNonLetter(android.content.ComponentName, int))
-- [setPasswordMinimumNumeric()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumNumeric(android.content.ComponentName, int))
-- [setPasswordMinimumSymbols()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumSymbols(android.content.ComponentName, int))
+- `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumLetters(android.content.ComponentName, int)`
+- `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumLowerCase(android.content.ComponentName, int)`
+- `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumUpperCase(android.content.ComponentName, int)`
+- `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumNonLetter(android.content.ComponentName, int)`
+- `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumNumeric(android.content.ComponentName, int)`
+- `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumSymbols(android.content.ComponentName, int)`
 
-For example, this snippet states that the password must have at least 2 uppercase letters:  
+For example, this snippet states that the password must have at least 2 uppercase letters:
 
 ### Kotlin
 
@@ -598,7 +600,7 @@ dpm.setPasswordMinimumUpperCase(deviceAdminSample, pwMinUppercase);
 ##### Set the minimum password length
 
 You can specify that a password must be at least the specified minimum
-length. For example:  
+length. For example:
 
 ### Kotlin
 
@@ -623,7 +625,7 @@ dpm.setPasswordMinimumLength(deviceAdminSample, pwLength);
 ##### Set maximum failed password attempts
 
 You can set the maximum number of allowed failed password attempts before the
-device is wiped (that is, reset to factory settings). For example:  
+device is wiped (that is, reset to factory settings). For example:
 
 ### Kotlin
 
@@ -649,8 +651,8 @@ dpm.setMaximumFailedPasswordsForWipe(deviceAdminSample, maxFailedPw);
 ##### Set password expiration timeout
 
 Beginning with Android 3.0, you can use the
-[setPasswordExpirationTimeout()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordExpirationTimeout(android.content.ComponentName, long))
-method to set when a password will expire, expressed as a delta in milliseconds from when a device admin sets the expiration timeout. For example:  
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordExpirationTimeout(android.content.ComponentName, long)`
+method to set when a password will expire, expressed as a delta in milliseconds from when a device admin sets the expiration timeout. For example:
 
 ### Kotlin
 
@@ -675,7 +677,7 @@ dpm.setPasswordExpirationTimeout(deviceAdminSample, pwExpiration);
 ##### Restrict password based on history
 
 Beginning with Android 3.0, you can use the
-[setPasswordHistoryLength()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordHistoryLength(android.content.ComponentName, int))
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordHistoryLength(android.content.ComponentName, int)`
 method to limit users'
 ability to reuse old passwords. This method takes a *length*
 parameter, which specifies how many old
@@ -683,11 +685,11 @@ passwords are stored. When this policy is active, users cannot enter a new
 password that matches the last *n* passwords. This prevents
 users from using the same password over and over. This policy is typically used
 in conjunction with
-[setPasswordExpirationTimeout()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordExpirationTimeout(android.content.ComponentName, long)),
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordExpirationTimeout(android.content.ComponentName, long)`,
 which forces users
 to update their passwords after a specified amount of time has elapsed.
 
-For example, this snippet prohibits users from reusing any of their last 5 passwords:  
+For example, this snippet prohibits users from reusing any of their last 5 passwords:
 
 ### Kotlin
 
@@ -712,7 +714,7 @@ dpm.setPasswordHistoryLength(deviceAdminSample, pwHistoryLength);
 #### Set device lock
 
 You can set the maximum period of user inactivity that can occur before the
-device locks. For example:  
+device locks. For example:
 
 ### Kotlin
 
@@ -734,7 +736,7 @@ long timeMs = 1000L*Long.parseLong(timeout.getText().toString());
 dpm.setMaximumTimeToLock(deviceAdminSample, timeMs);
 ```
 
-You can also programmatically tell the device to lock immediately:  
+You can also programmatically tell the device to lock immediately:
 
 ### Kotlin
 
@@ -752,14 +754,14 @@ dpm.lockNow();
 
 #### Perform data wipe
 
-You can use the [DevicePolicyManager](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) method
-[wipeData()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#wipeData(int)) to reset the device to factory settings. This is useful
+You can use the `https://developer.android.com/reference/android/app/admin/DevicePolicyManager` method
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#wipeData(int)` to reset the device to factory settings. This is useful
 if the device is lost or stolen. Often the decision to wipe the device is the
 result of certain conditions being met. For example, you can use
-[setMaximumFailedPasswordsForWipe()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setMaximumFailedPasswordsForWipe(android.content.ComponentName, int)) to state that a device should be
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setMaximumFailedPasswordsForWipe(android.content.ComponentName, int)` to state that a device should be
 wiped after a specific number of failed password attempts.
 
-You wipe data as follows:  
+You wipe data as follows:
 
 ### Kotlin
 
@@ -775,7 +777,7 @@ DevicePolicyManager dpm;
 dpm.wipeData(0);
 ```
 
-The [wipeData()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#wipeData(int)) method takes as its
+The `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#wipeData(int)` method takes as its
 parameter a bit mask of additional options. Currently the value must be 0.
 
 #### Disable camera
@@ -783,7 +785,7 @@ parameter a bit mask of additional options. Currently the value must be 0.
 Beginning with Android 4.0, you can disable the camera. Note that this doesn't have to be a permanent disabling. The camera can be enabled/disabled dynamically based on context, time, and so on.
 
 You control whether the camera is disabled by using the
-[setCameraDisabled()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setCameraDisabled(android.content.ComponentName, boolean)) method. For example, this snippet sets the camera to be enabled or disabled based on a checkbox setting:  
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setCameraDisabled(android.content.ComponentName, boolean)` method. For example, this snippet sets the camera to be enabled or disabled based on a checkbox setting:
 
 ### Kotlin
 
@@ -808,10 +810,10 @@ dpm.setCameraDisabled(deviceAdminSample, mDisableCameraCheckbox.isChecked());
 #### Storage encryption
 
 Beginning with Android 3.0, you can use the
-[setStorageEncryption()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setStorageEncryption(android.content.ComponentName, boolean))
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setStorageEncryption(android.content.ComponentName, boolean)`
 method to set a policy requiring encryption of the storage area, where supported.
 
-For example:  
+For example:
 
 ### Kotlin
 

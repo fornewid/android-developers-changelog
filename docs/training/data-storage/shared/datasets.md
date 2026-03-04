@@ -37,7 +37,7 @@ The next step depends on whether data is available.
 ### Dataset available
 
 If the dataset is already available on the device, then access it from the system,
-as shown in the following code snippet:  
+as shown in the following code snippet:
 
 ### Kotlin
 
@@ -78,7 +78,7 @@ if (blobStoreManager != null) {
 ### Dataset unavailable
 
 If the dataset isn't available, then download it from the server and contribute it
-to the system, as shown in the following code snippet:  
+to the system, as shown in the following code snippet:
 
 ### Kotlin
 

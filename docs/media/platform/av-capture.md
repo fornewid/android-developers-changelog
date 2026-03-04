@@ -121,10 +121,12 @@ which allows other apps to capture playback. This can be done in a number of way
 - You can set the policy on an individual player when you build it using [`AudioAttributes.Builder.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/reference/android/media/AudioAttributes.Builder#setAllowedCapturePolicy(int)). (If you are using [`AAudio`](https://developer.android.com/ndk/guides/audio/aaudio/aaudio) call [`AAudioStreamBuilder_setAllowedCapturePolicy(AAUDIO_ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/ndk/reference/group/audio#aaudiostreambuilder_setAllowedCapturePolicy).)
 
 If these prerequisites are met, any audio produced by the player can be captured.
-| **Note:** The ability for an app's audio to be captured also depends on the app's `targetSdkVersion`.
-|
-| - By default, apps that target versions up to and including to Android 9.0 do not permit playback capture. To enable it, include `android:allowAudioPlaybackCapture="true"` in the app's `manifest.xml` file.
-| - By default, apps that target Android 10 (API level 29) or higher allow their audio to be captured. To disable playback capture, include `android:allowAudioPlaybackCapture="false"` in the app's `manifest.xml` file.
+
+> [!NOTE]
+> **Note:** The ability for an app's audio to be captured also depends on the app's `targetSdkVersion`.
+>
+> - By default, apps that target versions up to and including to Android 9.0 do not permit playback capture. To enable it, include `android:allowAudioPlaybackCapture="true"` in the app's `manifest.xml` file.
+> - By default, apps that target Android 10 (API level 29) or higher allow their audio to be captured. To disable playback capture, include `android:allowAudioPlaybackCapture="false"` in the app's `manifest.xml` file.
 
 #### Disabling system capture
 

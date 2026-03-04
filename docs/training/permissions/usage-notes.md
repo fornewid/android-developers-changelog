@@ -40,7 +40,9 @@ To increase the likelihood of a permission request being accepted, only prompt
 when a specific feature is required. For instance, only prompt for microphone
 access when a user clicks on the microphone button. Users are more likely to
 allow a permission that they are expecting.
-| **Note:** Don't overburden the user by requesting every permission at app startup. Be courteous of the user and only request permissions when they need access to a specific feature.
+
+> [!NOTE]
+> **Note:** Don't overburden the user by requesting every permission at app startup. Be courteous of the user and only request permissions when they need access to a specific feature.
 
 ### Greater flexibility in granting permissions
 
@@ -115,14 +117,14 @@ on devices running API level 23 or higher:
 
 - Identify your app's current permissions and the related code paths.
 - Test user flows across permission-protected services and data.
-- Test with various combinations of granted or revoked permissions. For example, a camera app might list [CAMERA](https://developer.android.com/reference/android/Manifest.permission#CAMERA), [READ_CONTACTS](https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS), and [ACCESS_FINE_LOCATION](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) in its manifest. You should test the app with each of these permissions turned on and off, to make sure the app can handle all permission configurations gracefully.
+- Test with various combinations of granted or revoked permissions. For example, a camera app might list `https://developer.android.com/reference/android/Manifest.permission#CAMERA`, `https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS`, and `https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION` in its manifest. You should test the app with each of these permissions turned on and off, to make sure the app can handle all permission configurations gracefully.
 - Use the [adb](https://developer.android.com/tools/help/adb) tool to manage permissions from the command line:
-  - List permissions and status by group:  
+  - List permissions and status by group:
 
     ```
     $ adb shell pm list permissions -d -g
     ```
-  - Grant or revoke one or more permissions:  
+  - Grant or revoke one or more permissions:
 
     ```
     $ adb shell pm [grant|revoke] <permission-name> ...

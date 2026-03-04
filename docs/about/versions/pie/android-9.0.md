@@ -77,7 +77,8 @@ as follows:
 2. In the **Developer options** screen, scroll down to the **Drawing** section and select **Simulate a display with a cutout**.
 3. Select the size of the cutout.
 
-| **Note:** We recommend that you test the content display around the cutout area by using a device or emulator running Android 9.
+> [!NOTE]
+> **Note:** We recommend that you test the content display around the cutout area by using a device or emulator running Android 9.
 
 ## Notifications
 
@@ -288,7 +289,9 @@ circle masks. Use
 with an instance of the
 [`PostProcessor`](https://developer.android.com/reference/android/graphics/PostProcessor)
 class to execute whatever drawing commands you want.
-| **Note:** When you post-process an [`AnimatedImageDrawable`](https://developer.android.com/reference/android/graphics/drawable/AnimatedImageDrawable), the effects appear in all frames of the animation.
+
+> [!NOTE]
+> **Note:** When you post-process an [`AnimatedImageDrawable`](https://developer.android.com/reference/android/graphics/drawable/AnimatedImageDrawable), the effects appear in all frames of the animation.
 
 ## Animation
 
@@ -310,7 +313,7 @@ code snippet shows how to use `ImageDecoder` to decode your
 
 ### Kotlin
 
-```transact-sql
+```
 @Throws(IOException::class)
 private fun decodeImage() {
     val decodedAnimation = ImageDecoder.decodeDrawable(
@@ -323,7 +326,7 @@ private fun decodeImage() {
 
 ### Java
 
-```scdoc
+```
 private void decodeImage() throws IOException {
     Drawable decodedAnimation = ImageDecoder.decodeDrawable(
         ImageDecoder.createSource(getResources(), R.drawable.my_drawable));
@@ -509,7 +512,9 @@ to display a fingerprint authentication dialog to users, switch to using
 instead. `BiometricPrompt` relies on the system to display the authentication
 dialog. It also changes its behavior to adapt to the type of biometric
 authentication that a user has chosen.
-| **Note:** Before using `BiometricPrompt` in your app, you should first use the [`hasSystemFeature()`](https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)) method to ensure that the device supports `FEATURE_FINGERPRINT`, `FEATURE_IRIS`, or `FEATURE_FACE`. If a device doesn't support biometric authentication, you can fall back to verifying the user's PIN, pattern, or password using the [`createConfirmDeviceCredentialIntent()`](https://developer.android.com/reference/android/app/KeyguardManager#createConfirmDeviceCredentialIntent(java.lang.CharSequence,%20java.lang.CharSequence)) method.
+
+> [!NOTE]
+> **Note:** Before using `BiometricPrompt` in your app, you should first use the [`hasSystemFeature()`](https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)) method to ensure that the device supports `FEATURE_FINGERPRINT`, `FEATURE_IRIS`, or `FEATURE_FACE`. If a device doesn't support biometric authentication, you can fall back to verifying the user's PIN, pattern, or password using the [`createConfirmDeviceCredentialIntent()`](https://developer.android.com/reference/android/app/KeyguardManager#createConfirmDeviceCredentialIntent(java.lang.CharSequence,%20java.lang.CharSequence)) method.
 
 ### Hardware security module
 
@@ -535,7 +540,9 @@ Android 9 provides additional key decryption security by adding
 the ability to import encrypted keys securely into the Keystore using an
 ASN.1‑encoded key format. The KeyMint then decrypts the keys in the
 Keystore, so the content of the keys never appears as plaintext in the device's host memory.
-| **Note:** This feature is supported only on devices that ship with Keymaster 4 or higher.
+
+> [!NOTE]
+> **Note:** This feature is supported only on devices that ship with Keymaster 4 or higher.
 
 Learn more about how to [Import encrypted keys more
 securely](https://developer.android.com/training/articles/keystore#ImportingEncryptedKeys).
@@ -547,7 +554,9 @@ to include a proof-of-rotation record in its signing block for each signing
 certificate. This capability enables your app to be signed with a new signing
 certificate by linking the APK file's past signing certificates to the one with
 which it is now signed.
-| **Note:** Devices running Android 8.1 (API level 27) or lower don't support changing the signing certificate. If your app's `minSdkVersion` is `27` or lower, use an old signing certificate to sign your app in addition to the new signature.
+
+> [!NOTE]
+> **Note:** Devices running Android 8.1 (API level 27) or lower don't support changing the signing certificate. If your app's `minSdkVersion` is `27` or lower, use an old signing certificate to sign your app in addition to the new signature.
 
 Learn more on how to rotate keys using
 [`apksigner`](https://developer.android.com/studio/command-line/apksigner#usage-rotate).
@@ -561,8 +570,10 @@ of keys are well suited for encrypting sensitive data to store on disk, such as
 health or enterprise data. The flag provides users a higher assurance that the
 data cannot be decrypted while the device is locked should their phone be lost
 or stolen.
-| **Note:** When the `unlockedDeviceRequired` flag is enabled, encryption and signature verification can still happen at any time. The flag prevents **only
-| decryption** of data when the device is unlocked.
+
+> [!NOTE]
+> **Note:** When the `unlockedDeviceRequired` flag is enabled, encryption and signature verification can still happen at any time. The flag prevents **only
+> decryption** of data when the device is unlocked.
 
 To keep a key safe from decryption while the device is locked, enable the flag
 by passing `true` to the [`setUnlockedDeviceRequired()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setUnlockedDeviceRequired(boolean))
@@ -729,11 +740,13 @@ event occurs, use the types returned by
 [`getContentChangeTypes()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityEvent#getContentChangeTypes())
 to determine how the window has changed. For example, the framework can
 detect when a pane has a new title, or when a pane has disappeared.
-|
-| Google is committed to improving accessibility for all Android users, providing
-| enhancements that enable you to build services, such as the [Talkback](https://support.google.com/accessibility/android/answer/6283677)
-| screen reader, for users with accessibility needs. To learn more about how to
-| make your app more accessible and to build accessibility services, see [Accessibility](https://developer.android.com/guide/topics/ui/accessibility).
+
+> [!NOTE]
+>
+> Google is committed to improving accessibility for all Android users, providing
+> enhancements that enable you to build services, such as the [Talkback](https://support.google.com/accessibility/android/answer/6283677)
+> screen reader, for users with accessibility needs. To learn more about how to
+> make your app more accessible and to build accessibility services, see [Accessibility](https://developer.android.com/guide/topics/ui/accessibility).
 
 ## Rotation
 
@@ -803,7 +816,9 @@ supports multiple formats, including HTML.
 By collecting these traces, you can capture timing data related to your app's
 processes and threads and view other types of globally-significant device
 states.
-| **Note:** You don't need to [instrument your code](https://developer.android.com/reference/android/os/Trace) to record traces, but doing so can help you see what parts of your app's code may be contributing to hanging threads or UI jank.
+
+> [!NOTE]
+> **Note:** You don't need to [instrument your code](https://developer.android.com/reference/android/os/Trace) to record traces, but doing so can help you see what parts of your app's code may be contributing to hanging threads or UI jank.
 
 To learn more about this tool, see [Perform on-device system
 tracing](https://developer.android.com/studio/profile/systrace-on-device).

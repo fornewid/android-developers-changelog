@@ -4,6 +4,8 @@ url: https://developer.android.com/training/tv/playback/compose
 source: md.txt
 ---
 
+[Video](https://www.youtube.com/watch?v=_X4tswgV67Y)
+
 Compose for TV is the modern approach for building Android TV
 user interfaces. Compose for TV unlocks all the benefits of Android's Jetpack Compose for
 your TV apps, making building beautiful and functional UIs for your app much
@@ -26,11 +28,11 @@ TV samples repository on GitHub](https://github.com/android/tv-samples/).
 <br />
 
 
-## auto_awesome AI Prompt
+## AI Prompt
 
 ### Learn how to add support for Android TV
 
-This prompt asks for guidance around adding Android TV support to your app using Jetpack Compose for TV instead of Leanback.  
+This prompt asks for guidance around adding Android TV support to your app using Jetpack Compose for TV instead of Leanback.
 
     How do I add support for Android TV to my application?
 
@@ -45,9 +47,8 @@ This prompt asks for guidance around adding Android TV support to your app using
 
 AI prompts are intended to be used within Gemini in Android Studio.
 
-Learn more about Gemini in Studio here: [https://developer.android.com/studio/gemini/overview](https://developer.android.com/studio/gemini/overview)  
-Close
-help_outline reviews Share your thoughts
+Learn more about Gemini in Studio here: [https://developer.android.com/studio/gemini/overview](https://developer.android.com/studio/gemini/overview)
+<button class="devsite-dialog-close">Close</button> <button class="button icon-button android-ai-prompt-help-button" data-modal-dialog-id="ai-prompt_help_modal__learn-how-to-add-support-for-android-tv"> </button> <button class="button google-feedback" data-p="5207477" data-b="llm-prompts" data-context="learn-how-to-add-support-for-android-tv"> Share your thoughts </button>
 
 <br />
 
@@ -72,17 +73,17 @@ and
 ## Jetpack Compose toolkit dependencies
 
 To use Compose for TV, include Jetpack Compose toolkit
-dependencies in your app's `build.gradle` file as follows:  
+dependencies in your app's `build.gradle` file as follows:
 
 ### Kotlin
 
 ```kotlin
 dependencies {
-   val composeBom = platform("androidx.compose:compose-bom:2026.01.01")
+   val composeBom = platform("androidx.compose:compose-bom:2026.02.01")
    implementation(composeBom)
 
    // General compose dependencies.
-   implementation("androidx.activity:activity-compose:1.11.0")
+   implementation("androidx.activity:activity-compose:1.12.4")
 
    implementation("androidx.compose.ui:ui-tooling-preview")
    debugImplementation("androidx.compose.ui:ui-tooling")
@@ -96,11 +97,11 @@ dependencies {
 
 ```groovy
 dependencies {
-   def composeBom = platform('androidx.compose:compose-bom:2026.01.01')
+   def composeBom = platform('androidx.compose:compose-bom:2026.02.01')
    implementation composeBom
 
    // General compose dependencies.
-   implementation 'androidx.activity:activity-compose:1.11.0'
+   implementation 'androidx.activity:activity-compose:1.12.4'
 
    implementation 'androidx.compose.ui:ui-tooling-preview'
    debugImplementation 'androidx.compose.ui:ui-tooling'

@@ -48,6 +48,24 @@ Android 18. For this reason, we recommend that apps explicitly
 grant the relevant URI permissions instead of relying on the system to grant
 them.
 
+### Per-app keystore limits
+
+Apps should avoid creating excessive numbers of keys in Android Keystore,
+because it is a shared resource for all apps on the device. Beginning with
+Android 17, the system enforces a limit on the number of keys an app can
+own. The limit is 50,000 keys for non-system apps targeting
+Android 17 or higher, and 200,000 keys for all other apps.
+System apps have a limit of 200,000 keys, regardless of which API level they
+target.
+
+If an app attempts to create keys beyond the limit, the creation fails with a
+[`KeyStoreException`](https://developer.android.com/reference/java/security/KeyStoreException). The exception's message string contains information
+about the key limit. If the app calls [`getNumericErrorCode()`](https://developer.android.com/reference/android/security/KeyStoreException#getNumericErrorCode()) on the
+exception, the return value depends on what API level the app targets:
+
+- Apps targeting Android 17 or higher: `getNumericErrorCode()` returns the new `ERROR_TOO_MANY_KEYS` value.
+- All other apps: `getNumericErrorCode()` returns `ERROR_INCORRECT_USAGE`.
+
 ## User experience and system UI
 
 Android 17 includes the following changes that are intended

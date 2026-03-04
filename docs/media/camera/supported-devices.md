@@ -5,7 +5,9 @@ source: md.txt
 ---
 
 This page lists known devices with [camera extensions](https://developer.android.com/training/camera/camera-extensions) support. Use the filter field to search for a device.
-| **Note:** This is not an exhaustive list of all supported devices.
+
+> [!NOTE]
+> **Note:** This is not an exhaustive list of all supported devices.
 
 If you don't see your device on this list, check if your device
 has extensions support using the Extensions samples on Github:

@@ -28,7 +28,7 @@ all the features required to target the N Preview.
 
 <br />
 
-- Android Studio now deploys clean builds faster than ever before. Additionally, pushing incremental code changes to the emulator or a physical device is now almost instantaneous. Review your updates without redeploying a new debug build or, in many cases, without restarting the app.  
+- Android Studio now deploys clean builds faster than ever before. Additionally, pushing incremental code changes to the emulator or a physical device is now almost instantaneous. Review your updates without redeploying a new debug build or, in many cases, without restarting the app.
 
     <li>Instant Run supports pushing the following changes to a running app:
       <ul>
@@ -63,17 +63,17 @@ all the features required to target the N Preview.
 
 **New additions to Lint:**
 
-- Inspection of `switch` statements using [@IntDef](https://developer.android.com/reference/androidx/annotation/IntDef) annotated integers to make sure all constants are handled. To quickly add any missing statements, use the intention action drop-down menu and select **Add Missing @IntDef
+- Inspection of `switch` statements using `https://developer.android.com/reference/androidx/annotation/IntDef` annotated integers to make sure all constants are handled. To quickly add any missing statements, use the intention action drop-down menu and select **Add Missing @IntDef
   Constants**.
 - Flags for incorrect attempts to use string interpolation to insert version numbers in the `build.gradle` file.
-- Flags for anonymous classes that extend the [Fragment](https://developer.android.com/reference/android/app/Fragment) class.
+- Flags for anonymous classes that extend the `https://developer.android.com/reference/android/app/Fragment` class.
 - Flags for native code in unsafe locations, such as the `res/` and `asset/` folders. This flag encourages storing native code in the `libs/` folder, which is then securely packaged into the application's `data/app-lib/` folder at install time. [AOSP: #169950](https://android-review.googlesource.com/#/c/169950/)
-- Flags for unsafe calls to [Runtime.load()](https://developer.android.com/reference/java/lang/Runtime#load(java.lang.String)) and [System.load()](https://developer.android.com/reference/java/lang/System#load(java.lang.String)) calls. [AOSP: #179980](https://android-review.googlesource.com/#/c/179980/)
+- Flags for unsafe calls to `https://developer.android.com/reference/java/lang/Runtime#load(java.lang.String)` and `https://developer.android.com/reference/java/lang/System#load(java.lang.String)` calls. [AOSP: #179980](https://android-review.googlesource.com/#/c/179980/)
 - Find and remove any unused resources by selecting **Refactor \> Remove
   Unused Resources** from the menu bar. Unused resource detection now supports resources only referenced by unused resources, references in raw files such as `.html` image references, and `tools:keep` and `tools:discard` attributes used by the Gradle resource shrinker, while considering inactive source sets (such as resources used in other build flavors) and properly handling static field imports.
 - Checks that implicit API references are supported on all platforms targeted by `minSdkVersion`.
-- Flags improper usage of [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) and [Parcelable](https://developer.android.com/reference/android/os/Parcelable).
-- [@IntDef](https://developer.android.com/reference/androidx/annotation/IntDef), [@IntRange](https://developer.android.com/reference/androidx/annotation/IntRange), and [@Size](https://developer.android.com/reference/androidx/annotation/Size) inspections are now also checked for `int` arrays and varargs.
+- Flags improper usage of `https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView` and `https://developer.android.com/reference/android/os/Parcelable`.
+- `https://developer.android.com/reference/androidx/annotation/IntDef`, `https://developer.android.com/reference/androidx/annotation/IntRange`, and `https://developer.android.com/reference/androidx/annotation/Size` inspections are now also checked for `int` arrays and varargs.
 
 <br />
 
@@ -81,7 +81,7 @@ all the features required to target the N Preview.
 
 **Additional Improvements**:
 
-- Optimized for Android Emulator 2.0, which is faster than ever before, supports a wider range of virtual devices, and features a drastically improved UI. To learn more about the new emulator, read the [SDK Tools release notes](https://developer.android.com/studio/releases/sdk-tools#notes).  
+- Optimized for Android Emulator 2.0, which is faster than ever before, supports a wider range of virtual devices, and features a drastically improved UI. To learn more about the new emulator, read the [SDK Tools release notes](https://developer.android.com/studio/releases/sdk-tools#notes).
 
     <li>Improvements to the <a href=
     "/tools/devices/managing-avds.html">Android Virtual Device

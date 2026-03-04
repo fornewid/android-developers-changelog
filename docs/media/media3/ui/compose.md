@@ -7,7 +7,7 @@ source: md.txt
 ## Add the dependency
 
 The Media3 library includes two Jetpack Compose-based UI modules. You don't have
-to add both of them because the Material3 one depends on the core one.  
+to add both of them because the Material3 one depends on the core one.
 
 ### Kotlin
 

@@ -143,7 +143,7 @@ steps:
        # https://kotlinlang.org/docs/releases.html
 
        [versions]
-       androidGradlePlugin = "9.0.0"
+       androidGradlePlugin = "9.1.0"
        kotlin = "KOTLIN_VERSION"
 
        [plugins]

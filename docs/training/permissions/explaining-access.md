@@ -84,14 +84,15 @@ next to your app's name on certain screens:
 - If you add the intent filter that contains the `VIEW_PERMISSION_USAGE` action, users see the icon on your app's permissions page in system settings. You can apply this action to all runtime permissions.
 - If you add the intent filter that contains the `VIEW_PERMISSION_USAGE_FOR_PERIOD` action, users see the icon next to your app's name whenever your app appears in the Privacy Dashboard screen.
 
-When users select that icon, your app's rationale activity is started.  
+When users select that icon, your app's rationale activity is started.
 ![A rounded rectangle in the upper-right corner, which
 includes a camera icon and a microphone icon](https://developer.android.com/static/images/training/permissions/mic-camera-indicators.svg) **Figure 2.** Microphone and camera indicators, which show recent data access.
 
 ## Indicators
 
-| **Note:** The icon mentioned in this section shouldn't require changes to your app's logic, as long as you [follow privacy best
-| practices](https://developer.android.com/privacy/best-practices).
+> [!NOTE]
+> **Note:** The icon mentioned in this section shouldn't require changes to your app's logic, as long as you [follow privacy best
+> practices](https://developer.android.com/privacy/best-practices).
 
 On devices that run Android 12 or higher, when an app accesses
 the microphone or camera, an icon appears in the status bar. If the app is in
@@ -108,7 +109,7 @@ the system introduces the
 [`getPrivacyIndicatorBounds()`](https://developer.android.com/reference/android/view/WindowInsets.Builder#setPrivacyIndicatorBounds(android.graphics.Rect))
 method, which the following code snippet demonstrates. Using this API, you can
 identify the bounds where the indicators might appear. You might then decide to
-organize your screen's UI differently.  
+organize your screen's UI differently.
 
 ### Kotlin
 
@@ -122,8 +123,10 @@ view.setOnApplyWindowInsetsListener { view, windowInsets ->
 
 ## Toggles
 
-| **Note:** The toggles mentioned in this section shouldn't require changes to your app's logic, as long as you [follow privacy best
-practices](https://developer.android.com/privacy/best-practices).  
+> [!NOTE]
+> **Note:** The toggles mentioned in this section shouldn't require changes to your app's logic, as long as you [follow privacy best
+> practices](https://developer.android.com/privacy/best-practices).
+
 ![Quick settings tiles are labeled 'Camera access' and
 'Mic access'](https://developer.android.com/static/images/training/permissions/mic-camera-toggles.svg) **Figure 3.** Microphone and camera toggles in Quick Settings.
 
@@ -144,7 +147,8 @@ The camera and microphone toggles affect all apps on the device:
   [`HIGH_SAMPLING_RATE_SENSORS`](https://developer.android.com/reference/android/Manifest.permission#HIGH_SAMPLING_RATE_SENSORS)
   permission.
 
-  | **Note:** When the user places a call to emergency services, such as 911, the system turns on microphone access. This behavior preserves user safety.
+  > [!NOTE]
+  > **Note:** When the user places a call to emergency services, such as 911, the system turns on microphone access. This behavior preserves user safety.
 
 When the user turns off access to camera or microphone, then
 launches an app that needs access to camera or microphone information, the
@@ -153,7 +157,7 @@ system reminds the user that the device-wide toggle is turned off.
 ### Check device support
 
 To check whether a device supports microphone and camera toggles, add the logic
-that appears in the following code snippet:  
+that appears in the following code snippet:
 
 ### Kotlin
 

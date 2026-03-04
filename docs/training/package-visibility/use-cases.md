@@ -54,7 +54,7 @@ element. This is true for both implicit and explicit intents that open a URL.
 In some cases, your app might want to verify that there's at least one browser
 available on the device, or that a specific browser is the default browser,
 before attempting to open a URL. In those cases, include the following
-`<intent>` element as part of the `<queries>` element in your manifest:  
+`<intent>` element as part of the `<queries>` element in your manifest:
 
 ```xml
 <!-- Place inside the <queries> element. -->
@@ -82,7 +82,7 @@ Custom Tabs](https://developers.google.com/web/android/custom-tabs/implementatio
 or select a specific browser to launch with Custom Tabs using
 [`CustomTabsClient.getPackageName()`](https://developer.android.com/reference/androidx/browser/customtabs/CustomTabsClient#getPackageName(android.content.Context,%2520java.util.List%3Cjava.lang.String%3E)).
 In those cases, include the following `<intent>` element as part of the
-`<queries>` element in your manifest:  
+`<queries>` element in your manifest:
 
 ```xml
 <!-- Place inside the <queries> element. -->
@@ -90,7 +90,9 @@ In those cases, include the following `<intent>` element as part of the
   <action android:name="android.support.customtabs.action.CustomTabsService" />
 </intent>
 ```
-| **Note:** The `<intent>` element shown in the preceding code snippet isn't necessary if your manifest already includes the `<intent>` element shown in the section about how to [check whether a browser is available](https://developer.android.com/training/package-visibility/use-cases#check-browser-available).
+
+> [!NOTE]
+> **Note:** The `<intent>` element shown in the preceding code snippet isn't necessary if your manifest already includes the `<intent>` element shown in the section about how to [check whether a browser is available](https://developer.android.com/training/package-visibility/use-cases#check-browser-available).
 
 ### Let non-browser apps handle URLs
 
@@ -110,7 +112,7 @@ conditions occurs:
 - The call would have shown the user a disambiguation dialog where the only options are browser apps.
 
 The following code snippet shows how to update your logic to use the
-`FLAG_ACTIVITY_REQUIRE_NON_BROWSER` intent flag:  
+`FLAG_ACTIVITY_REQUIRE_NON_BROWSER` intent flag:
 
 ### Kotlin
 
@@ -170,7 +172,7 @@ to be thrown when either of the following conditions occurs:
 - The call would have shown a disambiguation dialog to the user.
 
 The following code snippet shows how to use the `FLAG_ACTIVITY_REQUIRE_NON_BROWSER`
-and `FLAG_ACTIVITY_REQUIRE_DEFAULT` flags together:  
+and `FLAG_ACTIVITY_REQUIRE_DEFAULT` flags together:
 
 ### Kotlin
 
@@ -228,7 +230,7 @@ yourself.
 If your app must know in advance whether another app can open a given file,
 include the `<intent>` element in the following code snippet as part of the
 `<queries>` element in your manifest. Include the file type if you already know
-what it is at compile time.  
+what it is at compile time.
 
 ```xml
 <!-- Place inside the <queries> element. -->
@@ -266,7 +268,7 @@ following capabilities to the app that receives the intent:
 
 The following code snippet demonstrates how to add a URI permissions intent flag
 so that another app that targets Android 11 or higher can view
-the data in the content URI:  
+the data in the content URI:
 
 ### Kotlin
 
@@ -295,7 +297,7 @@ give examples using commonly accessed services.
 ### Connect to a text-to-speech engine
 
 If your app interacts with a text-to-speech (TTS) engine, include the following
-`<intent>` element as part of the `<queries>` element in your manifest:  
+`<intent>` element as part of the `<queries>` element in your manifest:
 
 ```xml
 <!-- Place inside the <queries> element. -->
@@ -307,7 +309,7 @@ If your app interacts with a text-to-speech (TTS) engine, include the following
 ### Connect to a speech recognition service
 
 If your app interacts with a speech recognition service, include the following
-`<intent>` element as part of the `<queries>` element in your manifest:  
+`<intent>` element as part of the `<queries>` element in your manifest:
 
 ```xml
 <!-- Place inside the <queries> element. -->
@@ -321,7 +323,7 @@ If your app interacts with a speech recognition service, include the following
 If your app is a [client media browser
 app](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowser-client), include
 the following `<intent>` element as part of the `<queries>` element in your
-manifest:  
+manifest:
 
 ```xml
 <!-- Place inside the <queries> element. -->
@@ -344,7 +346,7 @@ detailed guidance for several common scenarios.
 If your app needs information about the set of SMS apps that are installed on a
 device, for example to check which app is the device's default SMS handler,
 include the following `<intent>` element as part of the `<queries>` element in
-your manifest:  
+your manifest:
 
 ```xml
 <!-- Place inside the <queries> element. -->
@@ -359,7 +361,7 @@ your manifest:
 Whenever possible, use a [system-provided
 sharesheet](https://developer.android.com/training/sharing/send#why-to-use-system-sharesheet). Alternatively,
 include the following `<intent>` element as part of the `<queries>` element in
-your manifest:  
+your manifest:
 
 ```xml
 <!-- Place inside the <queries> element. -->
@@ -380,7 +382,7 @@ When users select text in your app, a [text selection
 toolbar](https://material.io/design/platform-guidance/android-text-selection-toolbar)
 shows the set of possible operations to perform on the selected text. If this
 toolbar shows custom actions from other apps, include the following
-`<intent>` element as part of the `<queries>` element in your manifest:  
+`<intent>` element as part of the `<queries>` element in your manifest:
 
 ```xml
 <!-- Place inside the <queries> element. -->
@@ -401,7 +403,7 @@ able to do the following:
 2. Load an icon corresponding to the custom MIME type.
 
 If your app is a contacts app, include the following `<intent>` elements as part
-of the `<queries>` element in your manifest:  
+of the `<queries>` element in your manifest:
 
 ```xml
 <!-- Place inside the <queries> element. -->

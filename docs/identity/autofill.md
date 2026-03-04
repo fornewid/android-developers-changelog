@@ -17,7 +17,8 @@ framework improves the user experience by providing the following benefits:
 - **Saving time spent filling in fields.** Autofill saves users from re-typing information.
 - **Minimizing user input errors.** Typing is prone to errors, especially on mobile devices. Minimizing the need to type information minimizes typos.
 
-| **Note:** Autofill works well with [Credential Manager](https://developer.android.com/identity/sign-in/credential-manager) and [passkeys](https://developers.google.com/identity/passkeys) to provide increased security and a smoother workflow.
+> [!NOTE]
+> **Note:** Autofill works well with [Credential Manager](https://developer.android.com/identity/sign-in/credential-manager) and [passkeys](https://developers.google.com/identity/passkeys) to provide increased security and a smoother workflow.
 
 ## Components
 

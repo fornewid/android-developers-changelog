@@ -133,7 +133,9 @@ On Android 12+:
 - Android Auto app, if it's preloaded.
 
 The full list of application depends on the device OEM.
-| **Note:** IT admins cannot revoke these auto-granted configurations.
+
+> [!NOTE]
+> **Note:** IT admins cannot revoke these auto-granted configurations.
 
 ## Deprecations
 

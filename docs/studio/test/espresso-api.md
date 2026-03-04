@@ -176,7 +176,7 @@ or an entire test class.
 
 For example, to specify that a test should only be run on devices that support
 unfolding to a flat configuration, add the following `@RequiresDeviceMode` code
-to your test:  
+to your test:
 
     @Test
     @RequiresDeviceMode(mode = FLAT)

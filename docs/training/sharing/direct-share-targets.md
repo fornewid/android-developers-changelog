@@ -10,7 +10,9 @@ Use Direct Share targets to make it easier and faster for users of other apps
 to share URLs, images, or other kinds of data with your app. Direct Share works
 by presenting contacts from messaging and social apps directly on the Android
 Sharesheet, without users having to select the app then search for the contact.
-| **Note:** Starting in Android 11 (API level 30), you may provide Direct Share targets only through the [Sharing Shortcuts](https://developer.android.com/training/sharing/direct-share-targets#sharing-shortcuts-api) API described later on this page.
+
+> [!NOTE]
+> **Note:** Starting in Android 11 (API level 30), you may provide Direct Share targets only through the [Sharing Shortcuts](https://developer.android.com/training/sharing/direct-share-targets#sharing-shortcuts-api) API described later on this page.
 
 [`ShortcutManagerCompat`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat)
 is an AndroidX API that provides Sharing Shortcuts, and that is backward
@@ -40,7 +42,7 @@ targets.
    A lower index indicates more importance. If you're making a communication
    app, they can be top conversations ordered by recency as they appear in
    your app. Don't publish shortcuts that are stale; a conversation with no
-   user activity in the last 30 days is considered stale.  
+   user activity in the last 30 days is considered stale.
 
    ### Kotlin
 
@@ -196,7 +198,7 @@ target definitions inside the `<shortcuts>` root element in the resource file,
 along with other static shortcut definitions. Each `<share-targets>` element
 contains information about the shared data type, matching categories, and the
 target class that will handle the share intent. The XML code looks something
-like this:  
+like this:
 
 ```xml
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
@@ -214,9 +216,9 @@ values.
 
 In case the user selects the Sharing Shortcut in the Android Sharesheet that
 matches with the example target-share above, the app will get the following
-share intent:  
+share intent:
 
-```actionscript-3
+```
 Action: Intent.ACTION_SEND
 ComponentName: {com.example.android.sharingshortcuts /
                 com.example.android.sharingshortcuts.SendMessageActivity}
@@ -247,7 +249,7 @@ clicking the "send" button after creating a message.
 
 To trigger usage reporting, specify capability bindings in the shortcut
 through [`ShortcutInfoCompat.Builder#addCapabilityBinding`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutInfoCompat.Builder#addCapabilityBinding(java.lang.String))
-with the `actions.intent.SEND_MESSAGE` capability.  
+with the `actions.intent.SEND_MESSAGE` capability.
 
 ### Kotlin
 
@@ -279,7 +281,7 @@ ShortcutManagerCompat.pushDynamicShortcut(myContext, shortcutInfo);
 
 If the outgoing message is for a group chat, you must also add the `Audience`
 parameter value as the [`recipient`](https://schema.org/recipient)
-type is associated with the capability.  
+type is associated with the capability.
 
 ### Kotlin
 
@@ -316,7 +318,7 @@ To trigger usage reporting when the user receives a message such as an SMS,
 chat message, email, or notifications, you must additionally specify capability
 bindings in the shortcut through
 [`ShortcutInfoCompat.Builder#addCapabilityBinding`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutInfoCompat.Builder#addCapabilityBinding(java.lang.String)) with
-the `actions.intent.RECEIVE_MESSAGE` capability.  
+the `actions.intent.RECEIVE_MESSAGE` capability.
 
 ### Kotlin
 
@@ -349,7 +351,7 @@ ShortcutManagerCompat.pushDynamicShortcut(myContext, shortcutInfo);
 
 If the incoming message is from a group chat, you must also add the `Audience`
 parameter value as the [`sender`](https://schema.org/sender) type
-is associated with the capability.  
+is associated with the capability.
 
 ### Kotlin
 
@@ -393,7 +395,7 @@ provider.
 
 In the following example, the implementation of `ChooserTargetService` is
 `androidx.core.content.pm.ChooserTargetServiceCompat`, which is already defined
-in AndroidX:  
+in AndroidX:
 
 ```xml
 <activity

@@ -32,7 +32,7 @@ picker or the backported version](https://developer.android.com/training/data-st
 
 ## Jetpack library dependency
 
-Include the Jetpack photo picker library as a dependency:  
+Include the Jetpack photo picker library as a dependency:
 
     // For apps using Jetpack Compose
     implementation("androidx.photopicker:photopicker-compose:1.0.0-alpha01")
@@ -50,7 +50,7 @@ the embedded photo picker UI directly within your Jetpack Compose screen. This
 composable creates a `SurfaceView` which hosts the embedded photo picker UI. It
 manages the connection to the `EmbeddedPhotoPicker` service, handles user
 interactions, and communicates selected media URIs to the calling application
-with few parameters to work:  
+with few parameters to work:
 
     val coroutineScope = rememberCoroutineScope()
     val pickerState = rememberEmbeddedPhotoPickerState()
@@ -82,7 +82,7 @@ Deselect `Uri` using the `deselectUri` or `deselectUris` method from
 `pickerState` to notify the embedded picker that the user has unselected an item
 from the app's UI. Updating your own app UI state manually is necessary, as
 calling these methods won't notify your app of any newly-revoked URIs through
-the `onUriPermissionRevoked` callback.  
+the `onUriPermissionRevoked` callback.
 
     coroutineScope.launch {
         // Signal unselected media to the picker
@@ -104,7 +104,7 @@ by the system](https://m3.material.io/styles/color/dynamic/choosing-a-source) th
 theming options. The accent color will be used for various primary elements in
 the photo picker. All other colors will be set based on Android material
 guidelines. To personalise the accent color of the picker, define the
-`EmbeddedPhotoPickerFeatureInfo` option:  
+`EmbeddedPhotoPickerFeatureInfo` option:
 
     val info = EmbeddedPhotoPickerFeatureInfo.Builder().setAccentColor(0xFF0000).build()
 
@@ -124,7 +124,7 @@ are permitted.
 ### Dimensions
 
 By default, the size of the embedded picker isn't limited but you can specify a
-modifier to limit it:  
+modifier to limit it:
 
     EmbeddedPhotoPicker(
         modifier = Modifier.height(500.dp),
@@ -137,7 +137,7 @@ modifier to limit it:
 
 ## Views integration
 
-To add the embedded photo picker using Views, add an entry to your layout file:  
+To add the embedded photo picker using Views, add an entry to your layout file:
 
     <view class="androidx.photopicker.EmbeddedPhotoPickerView"
         android:id="@+id/photopicker"
@@ -201,7 +201,7 @@ the following:
     }
 
 You can call with the different methods of `EmbeddedPhotoPickerSession` to
-interact with the embedded picker:  
+interact with the embedded picker:
 
     // Notify the embedded picker of a configuration change
     openSession.notifyConfigurationChanged(newConfig)

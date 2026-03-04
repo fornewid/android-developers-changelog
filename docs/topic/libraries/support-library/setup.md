@@ -50,7 +50,7 @@ each Support Library you want to use.
 
 To add a Support Library to your application project:
 
-1. Include Google's Maven repository in your project's `settings.gradle` file.  
+1. Include Google's Maven repository in your project's `settings.gradle` file.
 
    ```groovy
    dependencyResolutionManagement {
@@ -67,7 +67,7 @@ To add a Support Library to your application project:
        }
    }
    ```
-2. For each module in which you want to use a Support Library, add the library in the `dependencies` block of the module's `build.gradle` file. For example, to add the v4 core-utils library, add the following:  
+2. For each module in which you want to use a Support Library, add the library in the `dependencies` block of the module's `build.gradle` file. For example, to add the v4 core-utils library, add the following:
 
    ```groovy
    dependencies {
@@ -86,7 +86,7 @@ library version (for example, `palette-v7:28.0.0`).
 
 Support Library classes that provide support for existing framework APIs typically have the
 same name as framework class but are located in the `android.support` class packages,
-or have a `*Compat` suffix.  
+or have a `*Compat` suffix.
 **Caution:** When using classes from the Support Library, be certain you import
 the class from the appropriate package. For example, when applying the `ActionBar`
 class:
@@ -105,7 +105,7 @@ Further guidance for using some Support Library features is provided in the Andr
 [training classes](https://developer.android.com/training),
 [guides](https://developer.android.com/guide/components)
 and samples. For more information about the individual Support Library classes and methods, see
-the [android.support](https://developer.android.com/reference/android/support/v4/app/package-summary) packages in the API reference.
+the `https://developer.android.com/reference/android/support/v4/app/package-summary` packages in the API reference.
 
 ### Manifest Declaration Changes
 
@@ -113,7 +113,7 @@ If you are increasing the backward compatibility of your existing application to
 version of the Android API with the Support Library, make sure to update your application's
 manifest. Specifically, you should update the `android:minSdkVersion`
 element of the [`<uses-sdk>`](https://developer.android.com/guide/topics/manifest/uses-sdk-element) tag in the manifest to the new, lower version number, as
-shown below:  
+shown below:
 
 ```xml
   <uses-sdk
@@ -125,7 +125,7 @@ The manifest setting tells Google Play that your application can be installed on
 4.0 (API level 14) and higher.
 
 If you are using Gradle build files, the `minSdkVersion` setting in the build file
-overrides the manifest settings.  
+overrides the manifest settings.
 
 ```groovy
 plugins {

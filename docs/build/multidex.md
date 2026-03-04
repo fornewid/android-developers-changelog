@@ -278,7 +278,7 @@ required in the primary DEX file.
 
 If you receive `java.lang.NoClassDefFoundError`, you
 must manually specify the additional classes required in the primary DEX
-file by declaring them with the [`multiDexKeepProguard`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/dsl/VariantDimension#multiDexKeepProguard()) property in your build type. If a class is matched in
+file by declaring them with the [`multiDexKeepProguard`](https://developer.android.com/reference/tools/gradle-api/9.1/com/android/build/api/dsl/VariantDimension#multiDexKeepProguard()) property in your build type. If a class is matched in
 the `multiDexKeepProguard` file, then that class
 is added to the primary DEX file.
 

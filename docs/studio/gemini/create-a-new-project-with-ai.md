@@ -4,9 +4,6 @@ url: https://developer.android.com/studio/gemini/create-a-new-project-with-ai
 source: md.txt
 ---
 
-> [!WARNING]
-> **Preview:** The agent's project setup capability is available in Android Studio Otter 1 Canary 3. See the [preview release note](https://developer.android.com/studio/preview/features#new-project).
-
 Use the power of generative AI to accelerate your Android development workflow.
 The agent can help you go from an idea to an app prototype in minutes.
 

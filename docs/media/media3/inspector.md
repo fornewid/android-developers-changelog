@@ -17,7 +17,7 @@ This module includes the following APIs:
 
 ## Getting started
 
-Add the dependency for the `media3-inspector` module:  
+Add the dependency for the `media3-inspector` module:
 
 ### Kotlin
 

@@ -22,7 +22,7 @@ connection, you must configure a network request.
 Declare a [`NetworkRequest`](https://developer.android.com/reference/android/net/NetworkRequest) that
 describes your app's network connection needs. The following code creates a
 request for a network that is connected to the internet and uses a Wi-Fi,
-ethernet, or cellular connection for the transport type.  
+ethernet, or cellular connection for the transport type.
 
 ### Kotlin
 
@@ -121,7 +121,7 @@ After you declare the `NetworkRequest` and `NetworkCallback`, use the
 [`requestNetwork()`](https://developer.android.com/reference/android/net/ConnectivityManager#requestNetwork(android.net.NetworkRequest,%20android.net.ConnectivityManager.NetworkCallback))
 or [`registerNetworkCallback()`](https://developer.android.com/reference/android/net/ConnectivityManager#registerNetworkCallback(android.net.NetworkRequest,%20android.net.ConnectivityManager.NetworkCallback))
 functions to search for a network to connect from the device that satisfies the
-`NetworkRequest`. The status is then reported to the `NetworkCallback`.  
+`NetworkRequest`. The status is then reported to the `NetworkCallback`.
 
 ### Kotlin
 

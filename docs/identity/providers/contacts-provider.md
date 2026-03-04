@@ -42,22 +42,22 @@ The three tables are commonly referred to by the names of their contract classes
 define constants for content URIs, column names, and column values used by the tables:
 
 
-[ContactsContract.Contacts](https://developer.android.com/reference/android/provider/ContactsContract.Contacts) table
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts` table
 :
     Rows representing different people, based on aggregations of raw contact rows.
 
 
-[ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) table
+`https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` table
 :
     Rows containing a summary of a person's data, specific to a user account and type.
 
 
-[ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table
+`https://developer.android.com/reference/android/provider/ContactsContract.Data` table
 :
     Rows containing the details for raw contact, such as email addresses or phone numbers.
 
 
-The other tables represented by contract classes in [ContactsContract](https://developer.android.com/reference/android/provider/ContactsContract)
+The other tables represented by contract classes in `https://developer.android.com/reference/android/provider/ContactsContract`
 are auxiliary tables that the Contacts Provider uses to manage its operations or support
 specific functions in the device's contacts or telephony applications.
 
@@ -72,16 +72,16 @@ from the same account type.
 
 
 Most of the data for a raw contact isn't stored in the
-[ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) table. Instead, it's stored in one or more
-rows in the [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table. Each data row has a column
-[Data.RAW_CONTACT_ID](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#RAW_CONTACT_ID) that
-contains the [RawContacts._ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID) value of its
-parent [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) row.
+`https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` table. Instead, it's stored in one or more
+rows in the `https://developer.android.com/reference/android/provider/ContactsContract.Data` table. Each data row has a column
+`https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#RAW_CONTACT_ID` that
+contains the `https://developer.android.com/reference/android/provider/BaseColumns#_ID` value of its
+parent `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` row.
 
 ### Important raw contact columns
 
 
-The important columns in the [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) table are
+The important columns in the `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` table are
 listed in table 1. Please read the notes that follow after the table:
 
 
@@ -89,18 +89,18 @@ listed in table 1. Please read the notes that follow after the table:
 
 | Column name | Use | Notes |
 |---|---|---|
-| [ACCOUNT_NAME](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#ACCOUNT_NAME) | The account name for the account type that's the source of this raw contact. For example, the account name of a Google Account is one of the device owner's Gmail addresses. See the next entry for [ACCOUNT_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#ACCOUNT_TYPE) for more information. | The format of this name is specific to its account type. It is not necessarily an email address. |
-| [ACCOUNT_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#ACCOUNT_TYPE) | The account type that's the source of this raw contact. For example, the account type of a Google Account is `com.google`. Always qualify your account type with a domain identifier for a domain you own or control. This will ensure that your account type is unique. | An account type that offers contacts data usually has an associated sync adapter that synchronizes with the Contacts Provider. |
-| [DELETED](https://developer.android.com/reference/android/provider/ContactsContract.RawContactsColumns#DELETED) | The "deleted" flag for a raw contact. | This flag allows the Contacts Provider to maintain the row internally until sync adapters are able to delete the row from their servers and then finally delete the row from the repository. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#ACCOUNT_NAME` | The account name for the account type that's the source of this raw contact. For example, the account name of a Google Account is one of the device owner's Gmail addresses. See the next entry for `https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#ACCOUNT_TYPE` for more information. | The format of this name is specific to its account type. It is not necessarily an email address. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#ACCOUNT_TYPE` | The account type that's the source of this raw contact. For example, the account type of a Google Account is `com.google`. Always qualify your account type with a domain identifier for a domain you own or control. This will ensure that your account type is unique. | An account type that offers contacts data usually has an associated sync adapter that synchronizes with the Contacts Provider. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.RawContactsColumns#DELETED` | The "deleted" flag for a raw contact. | This flag allows the Contacts Provider to maintain the row internally until sync adapters are able to delete the row from their servers and then finally delete the row from the repository. |
 
 #### Notes
 
 
 The following are important notes about the
-[ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) table:
+`https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` table:
 
-- A raw contact's name is not stored in its row in [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts). Instead, it's stored in the [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table, in a [ContactsContract.CommonDataKinds.StructuredName](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredName) row. A raw contact has only one row of this type in the [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table.
-- **Caution:** To use your own account data in a raw contact row, it must first be registered with the [AccountManager](https://developer.android.com/reference/android/accounts/AccountManager). To do this, prompt users to add the account type and their account name to the list of accounts. If you don't do this, the Contacts Provider will automatically delete your raw contact row.
+- A raw contact's name is not stored in its row in `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts`. Instead, it's stored in the `https://developer.android.com/reference/android/provider/ContactsContract.Data` table, in a `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredName` row. A raw contact has only one row of this type in the `https://developer.android.com/reference/android/provider/ContactsContract.Data` table.
+- **Caution:** To use your own account data in a raw contact row, it must first be registered with the `https://developer.android.com/reference/android/accounts/AccountManager`. To do this, prompt users to add the account type and their account name to the list of accounts. If you don't do this, the Contacts Provider will automatically delete your raw contact row.
 
 
   For example, if you want your app to maintain contacts data for your web-based service
@@ -145,7 +145,7 @@ The Contacts Provider creates three raw contacts as a result of this work:
 
 
 As noted previously, the data for a raw contact is stored in a
-[ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) row that is linked to the raw contact's
+`https://developer.android.com/reference/android/provider/ContactsContract.Data` row that is linked to the raw contact's
 `_ID` value. This allows a single raw contact to have multiple instances of the same
 type of data such as email addresses or phone numbers. For example, if
 "Thomas Higginson" for `emilyd@gmail.com` (the raw contact row for Thomas Higginson
@@ -157,8 +157,8 @@ rows and links them both to the raw contact.
 
 Notice that different types of data are stored in this single table. Display name,
 phone number, email, postal address, photo, and website detail rows are all found in the
-[ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table. To help manage this, the
-[ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table has some columns with descriptive names,
+`https://developer.android.com/reference/android/provider/ContactsContract.Data` table. To help manage this, the
+`https://developer.android.com/reference/android/provider/ContactsContract.Data` table has some columns with descriptive names,
 and others with generic names. The contents of a descriptive-name column have the same meaning
 regardless of the type of data in the row, while the contents of a generic-name column have
 different meanings depending on the type of data.
@@ -169,27 +169,27 @@ different meanings depending on the type of data.
 Some examples of descriptive column names are:
 
 
-[RAW_CONTACT_ID](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#RAW_CONTACT_ID)
+`https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#RAW_CONTACT_ID`
 :
     The value of the `_ID` column of the raw contact for this data.
 
 
-[MIMETYPE](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#MIMETYPE)
+`https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#MIMETYPE`
 :
     The type of data stored in this row, expressed as a custom MIME type. The Contacts Provider
     uses the MIME types defined in the subclasses of
-    [ContactsContract.CommonDataKinds](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds). These MIME types are open source,
+    `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds`. These MIME types are open source,
     and can be used by any application or sync adapter that works with the Contacts Provider.
 
 
-[IS_PRIMARY](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#IS_PRIMARY)
+`https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#IS_PRIMARY`
 :
     If this type of data row can occur more than once for a raw contact, the
-    [IS_PRIMARY](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#IS_PRIMARY) column flags
+    `https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#IS_PRIMARY` column flags
     the data row that contains the primary data for the type. For example, if
     the user long-presses a phone number for a contact and selects **Set default** ,
-    then the [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) row containing that number
-    has its [IS_PRIMARY](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#IS_PRIMARY) column set to a
+    then the `https://developer.android.com/reference/android/provider/ContactsContract.Data` row containing that number
+    has its `https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#IS_PRIMARY` column set to a
     non-zero value.
 
 ### Generic column names
@@ -215,32 +215,32 @@ By convention, the column `DATA15` is reserved for storing Binary Large Object
 
 To facilitate working with the columns for a particular type of row, the Contacts Provider
 also provides type-specific column name constants, defined in subclasses of
-[ContactsContract.CommonDataKinds](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds). The constants simply give a
+`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds`. The constants simply give a
 different constant name to the same column name, which helps you access data in a row of a
 particular type.
 
 
-For example, the [ContactsContract.CommonDataKinds.Email](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email) class defines
-type-specific column name constants for a [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) row
+For example, the `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email` class defines
+type-specific column name constants for a `https://developer.android.com/reference/android/provider/ContactsContract.Data` row
 that has the MIME type
-[Email.CONTENT_ITEM_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#CONTENT_ITEM_TYPE). The class contains the constant
-[ADDRESS](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#ADDRESS) for the email address
+`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#CONTENT_ITEM_TYPE`. The class contains the constant
+`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#ADDRESS` for the email address
 column. The actual value of
-[ADDRESS](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#ADDRESS) is "data1", which is
+`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#ADDRESS` is "data1", which is
 the same as the column's generic name.
 
 
 **Caution:** Don't add your own custom data to the
-[ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table using a row that has one of the
+`https://developer.android.com/reference/android/provider/ContactsContract.Data` table using a row that has one of the
 provider's pre-defined MIME types. If you do, you may lose the data or cause the provider to
 malfunction. For example, you should not add a row with the MIME type
-[Email.CONTENT_ITEM_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#CONTENT_ITEM_TYPE) that contains a user name instead of an email address in the
+`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#CONTENT_ITEM_TYPE` that contains a user name instead of an email address in the
 column `DATA1`. If you use your own custom MIME type for the row, then you are free
 to define your own type-specific column names and use the columns however you wish.
 
 
 Figure 2 shows how descriptive columns and data columns appear in a
-[ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) row, and how type-specific column names "overlay"
+`https://developer.android.com/reference/android/provider/ContactsContract.Data` row, and how type-specific column names "overlay"
 the generic column names
 ![How type-specific column names map to generic column names](https://developer.android.com/static/images/providers/data_columns.png)
 
@@ -257,11 +257,11 @@ Table 2 lists the most commonly-used type-specific column name classes:
 
 | Mapping class | Type of data | Notes |
 |---|---|---|
-| [ContactsContract.CommonDataKinds.StructuredName](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredName) | The name data for the raw contact associated with this data row. | A raw contact has only one of these rows. |
-| [ContactsContract.CommonDataKinds.Photo](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Photo) | The main photo for the raw contact associated with this data row. | A raw contact has only one of these rows. |
-| [ContactsContract.CommonDataKinds.Email](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email) | An email address for the raw contact associated with this data row. | A raw contact can have multiple email addresses. |
-| [ContactsContract.CommonDataKinds.StructuredPostal](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredPostal) | A postal address for the raw contact associated with this data row. | A raw contact can have multiple postal addresses. |
-| [ContactsContract.CommonDataKinds.GroupMembership](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.GroupMembership) | An identifier that links the raw contact to one of the groups in the Contacts Provider. | Groups are an optional feature of an account type and account name. They're described in more detail in the section [Contact groups](https://developer.android.com/identity/providers/contacts-provider#Groups). |
+| `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredName` | The name data for the raw contact associated with this data row. | A raw contact has only one of these rows. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Photo` | The main photo for the raw contact associated with this data row. | A raw contact has only one of these rows. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email` | An email address for the raw contact associated with this data row. | A raw contact can have multiple email addresses. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredPostal` | A postal address for the raw contact associated with this data row. | A raw contact can have multiple postal addresses. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.GroupMembership` | An identifier that links the raw contact to one of the groups in the Contacts Provider. | Groups are an optional feature of an account type and account name. They're described in more detail in the section [Contact groups](https://developer.android.com/identity/providers/contacts-provider#Groups). |
 
 ### Contacts
 
@@ -274,8 +274,8 @@ sync adapters are allowed to add contacts, and some columns in a contact row are
 
 
 **Note:** If you try to add a contact to the Contacts Provider with an
-[insert()](https://developer.android.com/reference/android/content/ContentResolver#insert(android.net.Uri, android.content.ContentValues)), you'll get
-an [UnsupportedOperationException](https://developer.android.com/reference/java/lang/UnsupportedOperationException) exception. If you try to update a column
+`https://developer.android.com/reference/android/content/ContentResolver#insert(android.net.Uri, android.content.ContentValues)`, you'll get
+an `https://developer.android.com/reference/java/lang/UnsupportedOperationException` exception. If you try to update a column
 that's listed as "read-only," the update is ignored.
 
 
@@ -288,30 +288,30 @@ contact.
 
 
 The Contacts Provider links a contact row to its raw contact rows with the contact row's
-`_ID` column in the [Contacts](https://developer.android.com/reference/android/provider/ContactsContract.Contacts)
+`_ID` column in the `https://developer.android.com/reference/android/provider/ContactsContract.Contacts`
 table. The `CONTACT_ID` column of the raw contacts table
-[ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) contains `_ID` values for
+`https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` contains `_ID` values for
 the contacts row associated with each raw contacts row.
 
 
-The [ContactsContract.Contacts](https://developer.android.com/reference/android/provider/ContactsContract.Contacts) table also has the column
-[LOOKUP_KEY](https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY) that is a
+The `https://developer.android.com/reference/android/provider/ContactsContract.Contacts` table also has the column
+`https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY` that is a
 "permanent" link to the contact row. Because the Contacts Provider maintains contacts
-automatically, it may change a contact row's [_ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID) value
+automatically, it may change a contact row's `https://developer.android.com/reference/android/provider/BaseColumns#_ID` value
 in response to an aggregation or sync. Even If this happens, the content URI
-[CONTENT_LOOKUP_URI](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI) combined with
-contact's [LOOKUP_KEY](https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY) will still
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI` combined with
+contact's `https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY` will still
 point to the contact row, so you can use
-[LOOKUP_KEY](https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY)
+`https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY`
 to maintain links to "favorite" contacts, and so forth. This column has its own format that is
-unrelated to the format of the [_ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID) column.
+unrelated to the format of the `https://developer.android.com/reference/android/provider/BaseColumns#_ID` column.
 
 
 Figure 3 shows how the three main tables relate to each other.
 ![Contacts provider main tables](https://developer.android.com/static/images/providers/contacts_tables.png)
 
 
-**Figure 3.** Contacts, Raw Contacts, and Details table relationships.  
+**Figure 3.** Contacts, Raw Contacts, and Details table relationships.
 
 **Caution:**If you publish your app to the Google Play Store, or if your
 app is on a device running Android 10 (API level 29) or higher, keep in mind
@@ -355,7 +355,7 @@ systems.
 
 To verify that your app's functionality isn't affected by this change, you
 can manually clear these data fields. To do so, run the following ADB
-command on a device running Android 4.1 (API level 16) or higher:  
+command on a device running Android 4.1 (API level 16) or higher:
 
 ```bash
 adb shell content delete \
@@ -368,7 +368,7 @@ adb shell content delete \
 Users enter contacts data directly into the device, but data also flows into the Contacts
 Provider from web services via **sync adapters** , which automate
 the transfer of data between the device and services. Sync adapters run in the background
-under the control of the system, and they call [ContentResolver](https://developer.android.com/reference/android/content/ContentResolver) methods
+under the control of the system, and they call `https://developer.android.com/reference/android/content/ContentResolver` methods
 to manage data.
 
 
@@ -384,7 +384,7 @@ Account type
     Identifies a service in which the user has stored data. Most of the time, the user has to
     authenticate with the service. For example, Google Contacts is an account type, identified
     by the code `google.com`. This value corresponds to the account type used by
-    [AccountManager](https://developer.android.com/reference/android/accounts/AccountManager).
+    `https://developer.android.com/reference/android/accounts/AccountManager`.
 
 
 Account name
@@ -421,16 +421,16 @@ permissions:
 
 Read access to one or more tables
 :
-    [READ_CONTACTS](https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS), specified in
+    `https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS`, specified in
     `AndroidManifest.xml` with the
-    [<uses-permission>](https://developer.android.com/guide/topics/manifest/uses-permission-element) element as
+    `https://developer.android.com/guide/topics/manifest/uses-permission-element` element as
     `<uses-permission android:name="android.permission.READ_CONTACTS">`.
 
 Write access to one or more tables
 :
-    [WRITE_CONTACTS](https://developer.android.com/reference/android/Manifest.permission#WRITE_CONTACTS), specified in
+    `https://developer.android.com/reference/android/Manifest.permission#WRITE_CONTACTS`, specified in
     `AndroidManifest.xml` with the
-    [<uses-permission>](https://developer.android.com/guide/topics/manifest/uses-permission-element) element as
+    `https://developer.android.com/guide/topics/manifest/uses-permission-element` element as
     `<uses-permission android:name="android.permission.WRITE_CONTACTS">`.
 
 
@@ -447,17 +447,17 @@ your application low ratings or simply refuse to install it.
 ## The user profile
 
 
-The [ContactsContract.Contacts](https://developer.android.com/reference/android/provider/ContactsContract.Contacts) table has a single row containing
+The `https://developer.android.com/reference/android/provider/ContactsContract.Contacts` table has a single row containing
 profile data for the device's user. This data describes the device's `user` rather
 than one of the user's contacts. The profile contacts row is linked to a raw
 contacts row for each system that uses a profile.
 Each profile raw contact row can have multiple data rows. Constants for accessing the user
-profile are available in the [ContactsContract.Profile](https://developer.android.com/reference/android/provider/ContactsContract.Profile) class.
+profile are available in the `https://developer.android.com/reference/android/provider/ContactsContract.Profile` class.
 
 
 Access to the user profile requires special permissions. In addition to the
-[READ_CONTACTS](https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS) and
-[WRITE_CONTACTS](https://developer.android.com/reference/android/Manifest.permission#WRITE_CONTACTS) permissions needed to read and write, access
+`https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS` and
+`https://developer.android.com/reference/android/Manifest.permission#WRITE_CONTACTS` permissions needed to read and write, access
 to the user profile requires the android.Manifest.permission#READ_PROFILE and
 android.Manifest.permission#WRITE_PROFILE permissions for read and write access,
 respectively.
@@ -470,10 +470,10 @@ you need user profile access permissions in the description of your application.
 
 
 To retrieve the contact row that contains the user's profile,
-call [ContentResolver.query()](https://developer.android.com/reference/android/content/ContentResolver#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)). Set the content URI to
-[CONTENT_URI](https://developer.android.com/reference/android/provider/ContactsContract.Profile#CONTENT_URI) and don't provide any
+call `https://developer.android.com/reference/android/content/ContentResolver#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)`. Set the content URI to
+`https://developer.android.com/reference/android/provider/ContactsContract.Profile#CONTENT_URI` and don't provide any
 selection criteria. You can also use this content URI as the base URI for retrieving raw
-contacts or data for the profile. For example, this snippet retrieves data for the profile:  
+contacts or data for the profile. For example, this snippet retrieves data for the profile:
 
 ### Kotlin
 
@@ -521,7 +521,7 @@ profileCursor =
 
 **Note:** If you retrieve multiple contact rows, and you want to determine if one of them
 is the user profile, test the row's
-[IS_USER_PROFILE](https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#IS_USER_PROFILE) column. This column
+`https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#IS_USER_PROFILE` column. This column
 is set to "1" if the contact is the user profile.
 
 ## Contacts Provider metadata
@@ -530,8 +530,8 @@ is set to "1" if the contact is the user profile.
 The Contacts Provider manages data that keeps track of the state of contacts data in the
 repository. This metadata about the repository is stored in various places, including the
 Raw Contacts, Data, and Contacts table rows, the
-[ContactsContract.Settings](https://developer.android.com/reference/android/provider/ContactsContract.Settings) table, and the
-[ContactsContract.SyncState](https://developer.android.com/reference/android/provider/ContactsContract.SyncState) table. The following table shows the
+`https://developer.android.com/reference/android/provider/ContactsContract.Settings` table, and the
+`https://developer.android.com/reference/android/provider/ContactsContract.SyncState` table. The following table shows the
 effect of each of these pieces of metadata:
 
 
@@ -539,16 +539,16 @@ effect of each of these pieces of metadata:
 
 | Table | Column | Values | Meaning |
 |---|---|---|---|
-| [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) | [DIRTY](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#DIRTY) | "0" - not changed since the last sync. | Marks raw contacts that were changed on the device and have to be synced back to the server. The value is set automatically by the Contacts Provider when Android applications update a row. Sync adapters that modify the raw contact or data tables should always append the string [CALLER_IS_SYNCADAPTER](https://developer.android.com/reference/android/provider/ContactsContract#CALLER_IS_SYNCADAPTER) to the content URI they use. This prevents the provider from marking rows as dirty. Otherwise, sync adapter modifications appear to be local modifications and are sent to the server, even though the server was the source of the modification. |
-| [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) | [DIRTY](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#DIRTY) | "1" - changed since last sync, needs to be synced back to the server. | Marks raw contacts that were changed on the device and have to be synced back to the server. The value is set automatically by the Contacts Provider when Android applications update a row. Sync adapters that modify the raw contact or data tables should always append the string [CALLER_IS_SYNCADAPTER](https://developer.android.com/reference/android/provider/ContactsContract#CALLER_IS_SYNCADAPTER) to the content URI they use. This prevents the provider from marking rows as dirty. Otherwise, sync adapter modifications appear to be local modifications and are sent to the server, even though the server was the source of the modification. |
-| [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) | [VERSION](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#VERSION) | The version number of this row. | The Contacts Provider automatically increments this value whenever the row or its related data changes. |
-| [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) | [DATA_VERSION](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#DATA_VERSION) | The version number of this row. | The Contacts Provider automatically increments this value whenever the data row is changed. |
-| [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) | [SOURCE_ID](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#SOURCE_ID) | A string value that uniquely identifies this raw contact to the account in which it was created. | When a sync adapter creates a new raw contact, this column should be set to the server's unique ID for the raw contact. When an Android application creates a new raw contact, the application should leave this column empty. This signals the sync adapter that it should create a new raw contact on the server, and get a value for the [SOURCE_ID](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#SOURCE_ID). In particular, the source id must be **unique** for each account type and should be stable across syncs: - Unique: Each raw contact for an account must have its own source id. If you don't enforce this, you'll cause problems in the contacts application. Notice that two raw contacts for the same account *type* may have the same source id. For example, the raw contact "Thomas Higginson" for the account `emily.dickinson@gmail.com` is allowed to have the same source id as the raw contact "Thomas Higginson" for the account `emilyd@gmail.com`. - Stable: Source ids are a permanent part of the online service's data for the raw contact. For example, if the user clears Contacts Storage from the Apps settings and re-syncs, the restored raw contacts should have the same source ids as before. If you don't enforce this, shortcuts will stop working. |
-| [ContactsContract.Groups](https://developer.android.com/reference/android/provider/ContactsContract.Groups) | [GROUP_VISIBLE](https://developer.android.com/reference/android/provider/ContactsContract.GroupsColumns#GROUP_VISIBLE) | "0" - Contacts in this group should not be visible in Android application UIs. | This column is for compatibility with servers that allow a user to hide contacts in certain groups. |
-| [ContactsContract.Groups](https://developer.android.com/reference/android/provider/ContactsContract.Groups) | [GROUP_VISIBLE](https://developer.android.com/reference/android/provider/ContactsContract.GroupsColumns#GROUP_VISIBLE) | "1" - Contacts in this group are allowed to be visible in application UIs. | This column is for compatibility with servers that allow a user to hide contacts in certain groups. |
-| [ContactsContract.Settings](https://developer.android.com/reference/android/provider/ContactsContract.Settings) | [UNGROUPED_VISIBLE](https://developer.android.com/reference/android/provider/ContactsContract.SettingsColumns#UNGROUPED_VISIBLE) | "0" - For this account and account type, contacts that don't belong to a group are invisible to Android application UIs. | By default, contacts are invisible if none of their raw contacts belongs to a group (Group membership for a raw contact is indicated by one or more [ContactsContract.CommonDataKinds.GroupMembership](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.GroupMembership) rows in the [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table). By setting this flag in the [ContactsContract.Settings](https://developer.android.com/reference/android/provider/ContactsContract.Settings) table row for an account type and account, you can force contacts without groups to be visible. One use of this flag is to show contacts from servers that don't use groups. |
-| [ContactsContract.Settings](https://developer.android.com/reference/android/provider/ContactsContract.Settings) | [UNGROUPED_VISIBLE](https://developer.android.com/reference/android/provider/ContactsContract.SettingsColumns#UNGROUPED_VISIBLE) | "1" - For this account and account type, contacts that don't belong to a group are visible to application UIs. | By default, contacts are invisible if none of their raw contacts belongs to a group (Group membership for a raw contact is indicated by one or more [ContactsContract.CommonDataKinds.GroupMembership](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.GroupMembership) rows in the [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table). By setting this flag in the [ContactsContract.Settings](https://developer.android.com/reference/android/provider/ContactsContract.Settings) table row for an account type and account, you can force contacts without groups to be visible. One use of this flag is to show contacts from servers that don't use groups. |
-| [ContactsContract.SyncState](https://developer.android.com/reference/android/provider/ContactsContract.SyncState) | (all) | Use this table to store metadata for your sync adapter. | With this table you can store sync state and other sync-related data persistently on the device. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` | `https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#DIRTY` | "0" - not changed since the last sync. | Marks raw contacts that were changed on the device and have to be synced back to the server. The value is set automatically by the Contacts Provider when Android applications update a row. Sync adapters that modify the raw contact or data tables should always append the string `https://developer.android.com/reference/android/provider/ContactsContract#CALLER_IS_SYNCADAPTER` to the content URI they use. This prevents the provider from marking rows as dirty. Otherwise, sync adapter modifications appear to be local modifications and are sent to the server, even though the server was the source of the modification. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` | `https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#DIRTY` | "1" - changed since last sync, needs to be synced back to the server. | Marks raw contacts that were changed on the device and have to be synced back to the server. The value is set automatically by the Contacts Provider when Android applications update a row. Sync adapters that modify the raw contact or data tables should always append the string `https://developer.android.com/reference/android/provider/ContactsContract#CALLER_IS_SYNCADAPTER` to the content URI they use. This prevents the provider from marking rows as dirty. Otherwise, sync adapter modifications appear to be local modifications and are sent to the server, even though the server was the source of the modification. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` | `https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#VERSION` | The version number of this row. | The Contacts Provider automatically increments this value whenever the row or its related data changes. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.Data` | `https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#DATA_VERSION` | The version number of this row. | The Contacts Provider automatically increments this value whenever the data row is changed. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` | `https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#SOURCE_ID` | A string value that uniquely identifies this raw contact to the account in which it was created. | When a sync adapter creates a new raw contact, this column should be set to the server's unique ID for the raw contact. When an Android application creates a new raw contact, the application should leave this column empty. This signals the sync adapter that it should create a new raw contact on the server, and get a value for the `https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#SOURCE_ID`. In particular, the source id must be **unique** for each account type and should be stable across syncs: - Unique: Each raw contact for an account must have its own source id. If you don't enforce this, you'll cause problems in the contacts application. Notice that two raw contacts for the same account *type* may have the same source id. For example, the raw contact "Thomas Higginson" for the account `emily.dickinson@gmail.com` is allowed to have the same source id as the raw contact "Thomas Higginson" for the account `emilyd@gmail.com`. - Stable: Source ids are a permanent part of the online service's data for the raw contact. For example, if the user clears Contacts Storage from the Apps settings and re-syncs, the restored raw contacts should have the same source ids as before. If you don't enforce this, shortcuts will stop working. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.Groups` | `https://developer.android.com/reference/android/provider/ContactsContract.GroupsColumns#GROUP_VISIBLE` | "0" - Contacts in this group should not be visible in Android application UIs. | This column is for compatibility with servers that allow a user to hide contacts in certain groups. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.Groups` | `https://developer.android.com/reference/android/provider/ContactsContract.GroupsColumns#GROUP_VISIBLE` | "1" - Contacts in this group are allowed to be visible in application UIs. | This column is for compatibility with servers that allow a user to hide contacts in certain groups. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.Settings` | `https://developer.android.com/reference/android/provider/ContactsContract.SettingsColumns#UNGROUPED_VISIBLE` | "0" - For this account and account type, contacts that don't belong to a group are invisible to Android application UIs. | By default, contacts are invisible if none of their raw contacts belongs to a group (Group membership for a raw contact is indicated by one or more `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.GroupMembership` rows in the `https://developer.android.com/reference/android/provider/ContactsContract.Data` table). By setting this flag in the `https://developer.android.com/reference/android/provider/ContactsContract.Settings` table row for an account type and account, you can force contacts without groups to be visible. One use of this flag is to show contacts from servers that don't use groups. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.Settings` | `https://developer.android.com/reference/android/provider/ContactsContract.SettingsColumns#UNGROUPED_VISIBLE` | "1" - For this account and account type, contacts that don't belong to a group are visible to application UIs. | By default, contacts are invisible if none of their raw contacts belongs to a group (Group membership for a raw contact is indicated by one or more `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.GroupMembership` rows in the `https://developer.android.com/reference/android/provider/ContactsContract.Data` table). By setting this flag in the `https://developer.android.com/reference/android/provider/ContactsContract.Settings` table row for an account type and account, you can force contacts without groups to be visible. One use of this flag is to show contacts from servers that don't use groups. |
+| `https://developer.android.com/reference/android/provider/ContactsContract.SyncState` | (all) | Use this table to store metadata for your sync adapter. | With this table you can store sync state and other sync-related data persistently on the device. |
 
 ## Contacts Provider access
 
@@ -571,22 +571,22 @@ Making modifications from a sync adapter is also covered in more detail in the s
 Because the Contacts Provider tables are organized in a hierarchy, it's often useful to
 retrieve a row and all of the "child" rows that are linked to it. For example, to display
 all the information for a person, you may want to retrieve all the
-[ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) rows for a single
-[ContactsContract.Contacts](https://developer.android.com/reference/android/provider/ContactsContract.Contacts) row, or all the
-[ContactsContract.CommonDataKinds.Email](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email) rows for a single
-[ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) row. To facilitate this, the Contacts
+`https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` rows for a single
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts` row, or all the
+`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email` rows for a single
+`https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` row. To facilitate this, the Contacts
 Provider offers **entity** constructs, which act like database joins between
 tables.
 
 
 An entity is like a table composed of selected columns from a parent table and its child table.
 When you query an entity, you supply a projection and search criteria based on the columns
-available from the entity. The result is a [Cursor](https://developer.android.com/reference/android/database/Cursor) that contains
+available from the entity. The result is a `https://developer.android.com/reference/android/database/Cursor` that contains
 one row for each child table row that was retrieved. For example, if you query
-[ContactsContract.Contacts.Entity](https://developer.android.com/reference/android/provider/ContactsContract.Contacts.Entity) for a contact name
-and all the [ContactsContract.CommonDataKinds.Email](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email) rows for all the
-raw contacts for that name, you get back a [Cursor](https://developer.android.com/reference/android/database/Cursor) containing one row
-for each [ContactsContract.CommonDataKinds.Email](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email) row.
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts.Entity` for a contact name
+and all the `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email` rows for all the
+raw contacts for that name, you get back a `https://developer.android.com/reference/android/database/Cursor` containing one row
+for each `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email` row.
 
 
 Entities simplify queries. Using an entity, you can retrieve all of the contacts data for a
@@ -598,18 +598,18 @@ internally consistent.
 
 **Note:** An entity usually doesn't contain all the columns of the parent and
 child table. If you attempt to work with a column name that isn't in the list of column name
-constants for the entity, you'll get an [Exception](https://developer.android.com/reference/java/lang/Exception).
+constants for the entity, you'll get an `https://developer.android.com/reference/java/lang/Exception`.
 
 
 The following snippet shows how to retrieve all the raw contact rows for a contact. The snippet
 is part of a larger application that has two activities, "main" and "detail". The main activity
 shows a list of contact rows; when the user select one, the activity sends its ID to the detail
-activity. The detail activity uses the [ContactsContract.Contacts.Entity](https://developer.android.com/reference/android/provider/ContactsContract.Contacts.Entity)
+activity. The detail activity uses the `https://developer.android.com/reference/android/provider/ContactsContract.Contacts.Entity`
 to display all of the data rows from all of the raw contacts associated with the selected
 contact.
 
 
-This snippet is taken from the "detail" activity:  
+This snippet is taken from the "detail" activity:
 
 ### Kotlin
 
@@ -748,20 +748,20 @@ public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 ```
 
 
-When the load is finished, [LoaderManager](https://developer.android.com/reference/android/app/LoaderManager) invokes a callback to
-[onLoadFinished()](https://developer.android.com/reference/android/app/LoaderManager.LoaderCallbacks#onLoadFinished(android.content.Loader<D>, D)). One of the incoming arguments to this method is a
-[Cursor](https://developer.android.com/reference/android/database/Cursor) with the results of the query. In your own app, you can get the
-data from this [Cursor](https://developer.android.com/reference/android/database/Cursor) to display it or work with it further.
+When the load is finished, `https://developer.android.com/reference/android/app/LoaderManager` invokes a callback to
+`https://developer.android.com/reference/android/app/LoaderManager.LoaderCallbacks#onLoadFinished(android.content.Loader<D>, D)`. One of the incoming arguments to this method is a
+`https://developer.android.com/reference/android/database/Cursor` with the results of the query. In your own app, you can get the
+data from this `https://developer.android.com/reference/android/database/Cursor` to display it or work with it further.
 
 ### Batch modification
 
 
 Whenever possible, you should insert, update, and delete data in the Contacts Provider in
-"batch mode", by creating an [ArrayList](https://developer.android.com/reference/java/util/ArrayList) of
-[ContentProviderOperation](https://developer.android.com/reference/android/content/ContentProviderOperation) objects and calling
-[applyBatch()](https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)). Because
+"batch mode", by creating an `https://developer.android.com/reference/java/util/ArrayList` of
+`https://developer.android.com/reference/android/content/ContentProviderOperation` objects and calling
+`https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)`. Because
 the Contacts Provider performs all of the operations in an
-[applyBatch()](https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)) in a single
+`https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)` in a single
 transaction, your modifications will never leave the contacts repository in an inconsistent
 state. A batch modification also facilitates inserting a raw contact and its detail data at
 the same time.
@@ -779,16 +779,16 @@ A batch modification containing a large number of operations can block other pro
 resulting in a bad overall user experience. To organize all the modifications you want to
 perform in as few separate lists as possible, and at the same time prevent them from
 blocking the system, you should set **yield points** for one or more operations.
-A yield point is a [ContentProviderOperation](https://developer.android.com/reference/android/content/ContentProviderOperation) object that has its
-[isYieldAllowed()](https://developer.android.com/reference/android/content/ContentProviderOperation#isYieldAllowed()) value set to
+A yield point is a `https://developer.android.com/reference/android/content/ContentProviderOperation` object that has its
+`https://developer.android.com/reference/android/content/ContentProviderOperation#isYieldAllowed()` value set to
 `true`. When the Contacts Provider encounters a yield point, it pauses its work to
 let other processes run and closes the current transaction. When the provider starts again, it
-continues with the next operation in the [ArrayList](https://developer.android.com/reference/java/util/ArrayList) and starts a new
+continues with the next operation in the `https://developer.android.com/reference/java/util/ArrayList` and starts a new
 transaction.
 
 
 Yield points do result in more than one transaction per call to
-[applyBatch()](https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)). Because of
+`https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)`. Because of
 this, you should set a yield point for the last operation for a set of related rows.
 For example, you should set a yield point for the last operation in a set that adds a
 raw contact rows and its associated data rows, or the last operation for a set of rows related
@@ -805,20 +805,20 @@ operations is atomic.
 
 
 When you're inserting a new raw contact row and its associated data rows as a set of
-[ContentProviderOperation](https://developer.android.com/reference/android/content/ContentProviderOperation) objects, you have to link the data rows to
+`https://developer.android.com/reference/android/content/ContentProviderOperation` objects, you have to link the data rows to
 the raw contact row by inserting the raw contact's
-[_ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID) value as the
-[RAW_CONTACT_ID](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#RAW_CONTACT_ID) value. However, this
-value isn't available when you're creating the [ContentProviderOperation](https://developer.android.com/reference/android/content/ContentProviderOperation)
+`https://developer.android.com/reference/android/provider/BaseColumns#_ID` value as the
+`https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#RAW_CONTACT_ID` value. However, this
+value isn't available when you're creating the `https://developer.android.com/reference/android/content/ContentProviderOperation`
 for the data row, because you haven't yet applied the
-[ContentProviderOperation](https://developer.android.com/reference/android/content/ContentProviderOperation) for the raw contact row. To work around this,
-the [ContentProviderOperation.Builder](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder) class has the method
-[withValueBackReference()](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withValueBackReference(java.lang.String, int)).
+`https://developer.android.com/reference/android/content/ContentProviderOperation` for the raw contact row. To work around this,
+the `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder` class has the method
+`https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withValueBackReference(java.lang.String, int)`.
 This method allows you to insert or modify a column with the
 result of a previous operation.
 
 
-The [withValueBackReference()](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withValueBackReference(java.lang.String, int))
+The `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withValueBackReference(java.lang.String, int)`
 method has two arguments:
 
 
@@ -831,24 +831,24 @@ method has two arguments:
 `previousResult`
 :
     The 0-based index of a value in the array of
-    [ContentProviderResult](https://developer.android.com/reference/android/content/ContentProviderResult) objects from
-    [applyBatch()](https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)). As
+    `https://developer.android.com/reference/android/content/ContentProviderResult` objects from
+    `https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)`. As
     the batch operations are applied, the result of each operation is stored in an
     intermediate array of results. The `previousResult` value is the index
     of one of these results, which is retrieved and stored with the `key`
     value. This allows you to insert a new raw contact record and get back its
-    [_ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID) value, then make a "back reference" to the
-    value when you add a [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) row.
+    `https://developer.android.com/reference/android/provider/BaseColumns#_ID` value, then make a "back reference" to the
+    value when you add a `https://developer.android.com/reference/android/provider/ContactsContract.Data` row.
 
 
     The entire result array is created when you first call
-    [applyBatch()](https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)),
-    with a size equal to the size of the [ArrayList](https://developer.android.com/reference/java/util/ArrayList) of
-    [ContentProviderOperation](https://developer.android.com/reference/android/content/ContentProviderOperation) objects you provide. However, all
+    `https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)`,
+    with a size equal to the size of the `https://developer.android.com/reference/java/util/ArrayList` of
+    `https://developer.android.com/reference/android/content/ContentProviderOperation` objects you provide. However, all
     the elements in the result array are set to `null`, and if you try
     to do a back reference to a result for an operation that hasn't yet been applied,
-    [withValueBackReference()](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withValueBackReference(java.lang.String, int))
-    throws an [Exception](https://developer.android.com/reference/java/lang/Exception).
+    `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withValueBackReference(java.lang.String, int)`
+    throws an `https://developer.android.com/reference/java/lang/Exception`.
 
 
 The following snippets show how to insert a new raw contact and data in batch. They
@@ -856,7 +856,7 @@ include code that establishes a yield point and uses a back reference.
 
 
 The first snippet retrieves contact data from the UI. At this point, the user has already
-selected the account for which the new raw contact should be added.  
+selected the account for which the new raw contact should be added.
 
 ### Kotlin
 
@@ -896,7 +896,7 @@ protected void createContactEntry() {
 
 
 The next snippet creates an operation to insert the raw contact row into the
-[ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) table:  
+`https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` table:
 
 ### Kotlin
 
@@ -956,18 +956,18 @@ Next, the code creates data rows for the display name, phone, and email rows.
 
 
 Each operation builder object uses
-[withValueBackReference()](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withValueBackReference(java.lang.String, int))
+`https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withValueBackReference(java.lang.String, int)`
 to get the
-[RAW_CONTACT_ID](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#RAW_CONTACT_ID). The reference points
-back to the [ContentProviderResult](https://developer.android.com/reference/android/content/ContentProviderResult) object from the first operation,
-which adds the raw contact row and returns its new [_ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID)
+`https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#RAW_CONTACT_ID`. The reference points
+back to the `https://developer.android.com/reference/android/content/ContentProviderResult` object from the first operation,
+which adds the raw contact row and returns its new `https://developer.android.com/reference/android/provider/BaseColumns#_ID`
 value. As a result, each data row is automatically linked by its
-[RAW_CONTACT_ID](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#RAW_CONTACT_ID)
-to the new [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) row to which it belongs.
+`https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#RAW_CONTACT_ID`
+to the new `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` row to which it belongs.
 
 
-The [ContentProviderOperation.Builder](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder) object that adds the email row is
-flagged with [withYieldAllowed()](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withYieldAllowed(boolean)), which sets a yield point:  
+The `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder` object that adds the email row is
+flagged with `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withYieldAllowed(boolean)`, which sets a yield point:
 
 ### Kotlin
 
@@ -1114,8 +1114,8 @@ flagged with [withYieldAllowed()](https://developer.android.com/reference/androi
 
 
 The last snippet shows the call to
-[applyBatch()](https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)) that
-inserts the new raw contact and data rows.  
+`https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)` that
+inserts the new raw contact and data rows.
 
 ### Kotlin
 
@@ -1186,25 +1186,25 @@ no time is wasted on setting locks or waiting for other transactions to release 
 
 
 To use optimistic concurrency control while updating a single
-[ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) row, follow these steps:
+`https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` row, follow these steps:
 
-1. Retrieve the raw contact's [VERSION](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#VERSION) column along with the other data you retrieve.
-2. Create a [ContentProviderOperation.Builder](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder) object suitable for enforcing a constraint, using the method [newAssertQuery(Uri)](https://developer.android.com/reference/android/content/ContentProviderOperation#newAssertQuery(android.net.Uri)). For the content URI, use [RawContacts.CONTENT_URI](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts#CONTENT_URI) with the raw contact's [_ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID) appended to it.
-3. For the [ContentProviderOperation.Builder](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder) object, call [withValue()](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withValue(java.lang.String, java.lang.Object)) to compare the [VERSION](https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#VERSION) column to the version number you just retrieved.
-4. For the same [ContentProviderOperation.Builder](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder), call [withExpectedCount()](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withExpectedCount(int)) to ensure that only one row is tested by this assertion.
-5. Call [build()](https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#build()) to create the [ContentProviderOperation](https://developer.android.com/reference/android/content/ContentProviderOperation) object, then add this object as the first object in the [ArrayList](https://developer.android.com/reference/java/util/ArrayList) that you pass to [applyBatch()](https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)).
+1. Retrieve the raw contact's `https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#VERSION` column along with the other data you retrieve.
+2. Create a `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder` object suitable for enforcing a constraint, using the method `https://developer.android.com/reference/android/content/ContentProviderOperation#newAssertQuery(android.net.Uri)`. For the content URI, use `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts#CONTENT_URI` with the raw contact's `https://developer.android.com/reference/android/provider/BaseColumns#_ID` appended to it.
+3. For the `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder` object, call `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withValue(java.lang.String, java.lang.Object)` to compare the `https://developer.android.com/reference/android/provider/ContactsContract.SyncColumns#VERSION` column to the version number you just retrieved.
+4. For the same `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder`, call `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#withExpectedCount(int)` to ensure that only one row is tested by this assertion.
+5. Call `https://developer.android.com/reference/android/content/ContentProviderOperation.Builder#build()` to create the `https://developer.android.com/reference/android/content/ContentProviderOperation` object, then add this object as the first object in the `https://developer.android.com/reference/java/util/ArrayList` that you pass to `https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)`.
 6. Apply the batch transaction.
 
 
 If the raw contact row is updated by another operation between the time you read the row and
-the time you attempt to modify it, the "assert" [ContentProviderOperation](https://developer.android.com/reference/android/content/ContentProviderOperation)
+the time you attempt to modify it, the "assert" `https://developer.android.com/reference/android/content/ContentProviderOperation`
 will fail, and the entire batch of operations will be backed out. You can then choose to retry
 the batch or take some other action.
 
 
 The following snippet demonstrates how to create an "assert"
-[ContentProviderOperation](https://developer.android.com/reference/android/content/ContentProviderOperation) after querying for a single raw contact using
-a [CursorLoader](https://developer.android.com/reference/android/content/CursorLoader):  
+`https://developer.android.com/reference/android/content/ContentProviderOperation` after querying for a single raw contact using
+a `https://developer.android.com/reference/android/content/CursorLoader`:
 
 ### Kotlin
 
@@ -1329,28 +1329,28 @@ The general process of sending an intent to access a provider is described in de
 [Content Provider basics](https://developer.android.com/guide/topics/providers/content-provider-basics) guide in the section "Data access via intents." The action,
 MIME type, and data values you use for the available tasks are summarized in Table 4, while the
 extras values you can use with
-[putExtra()](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String, java.lang.String)) are listed in the
-reference documentation for [ContactsContract.Intents.Insert](https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert):
+`https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String, java.lang.String)` are listed in the
+reference documentation for `https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert`:
 
 
 **Table 4.** Contacts Provider Intents.
 
 | Task | Action | Data | MIME type | Notes |
 |---|---|---|---|---|
-| **Pick a contact from a list** | [ACTION_PICK](https://developer.android.com/reference/android/content/Intent#ACTION_PICK) | One of: - [Contacts.CONTENT_URI](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_URI), which displays a list of contacts. - [Phone.CONTENT_URI](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Phone#CONTENT_URI), which displays a list of phone numbers for a raw contact. - [StructuredPostal.CONTENT_URI](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredPostal#CONTENT_URI), which displays a list of postal addresses for a raw contact. - [Email.CONTENT_URI](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#CONTENT_URI), which displays a list of email addresses for a raw contact. | Not used | Displays a list of raw contacts or a list of data from a raw contact, depending on the content URI type you supply. Call [startActivityForResult()](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)), which returns the content URI of the selected row. The form of the URI is the table's content URI with the row's `LOOKUP_ID` appended to it. The device's contacts app delegates read and write permissions to this content URI for the life of your activity. See the [Content Provider basics](https://developer.android.com/guide/topics/providers/content-provider-basics) guide for more details. |
-| **Insert a new raw contact** | [Insert.ACTION](https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert#ACTION) | N/A | [RawContacts.CONTENT_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts#CONTENT_TYPE), MIME type for a set of raw contacts. | Displays the device's contacts application's **Add Contact** screen. The extras values you add to the intent are displayed. If sent with [startActivityForResult()](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)), the content URI of the newly-added raw contact is passed back to your activity's [onActivityResult()](https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)) callback method in the [Intent](https://developer.android.com/reference/android/content/Intent) argument, in the "data" field. To get the value, call [getData()](https://developer.android.com/reference/android/content/Intent#getData()). |
-| **Edit a contact** | [ACTION_EDIT](https://developer.android.com/reference/android/content/Intent#ACTION_EDIT) | [CONTENT_LOOKUP_URI](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI) for the contact. The editor activity will allow the user to edit any of the data associated with this contact. | [Contacts.CONTENT_ITEM_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_ITEM_TYPE), a single contact. | Displays the Edit Contact screen in the contacts application. The extras values you add to the intent are displayed. When the user clicks **Done** to save the edits, your activity returns to the foreground. |
-| **Display a picker that can also add data.** | [ACTION_INSERT_OR_EDIT](https://developer.android.com/reference/android/content/Intent#ACTION_INSERT_OR_EDIT) | N/A | [CONTENT_ITEM_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_ITEM_TYPE) | This intent always displays the contacts app's picker screen. The user can either pick a contact to edit, or add a new contact. Either the edit or the add screen appears, depending on the user's choice, and the extras data you pass in the intent is displayed. If your app displays contact data such as an email or phone number, use this intent to allow the user to add the data to an existing contact. contact, **Note:** There's no need to send a name value in this intent's extras, because the user always picks an existing name or adds a new one. Moreover, if you send a name, and the user chooses to do an edit, the contacts app will display the name you send, overwriting the previous value. If the user doesn't notice this and saves the edit, the old value is lost. |
+| **Pick a contact from a list** | `https://developer.android.com/reference/android/content/Intent#ACTION_PICK` | One of: - `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_URI`, which displays a list of contacts. - `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Phone#CONTENT_URI`, which displays a list of phone numbers for a raw contact. - `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredPostal#CONTENT_URI`, which displays a list of postal addresses for a raw contact. - `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#CONTENT_URI`, which displays a list of email addresses for a raw contact. | Not used | Displays a list of raw contacts or a list of data from a raw contact, depending on the content URI type you supply. Call `https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)`, which returns the content URI of the selected row. The form of the URI is the table's content URI with the row's `LOOKUP_ID` appended to it. The device's contacts app delegates read and write permissions to this content URI for the life of your activity. See the [Content Provider basics](https://developer.android.com/guide/topics/providers/content-provider-basics) guide for more details. |
+| **Insert a new raw contact** | `https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert#ACTION` | N/A | `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts#CONTENT_TYPE`, MIME type for a set of raw contacts. | Displays the device's contacts application's **Add Contact** screen. The extras values you add to the intent are displayed. If sent with `https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)`, the content URI of the newly-added raw contact is passed back to your activity's `https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)` callback method in the `https://developer.android.com/reference/android/content/Intent` argument, in the "data" field. To get the value, call `https://developer.android.com/reference/android/content/Intent#getData()`. |
+| **Edit a contact** | `https://developer.android.com/reference/android/content/Intent#ACTION_EDIT` | `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI` for the contact. The editor activity will allow the user to edit any of the data associated with this contact. | `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_ITEM_TYPE`, a single contact. | Displays the Edit Contact screen in the contacts application. The extras values you add to the intent are displayed. When the user clicks **Done** to save the edits, your activity returns to the foreground. |
+| **Display a picker that can also add data.** | `https://developer.android.com/reference/android/content/Intent#ACTION_INSERT_OR_EDIT` | N/A | `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_ITEM_TYPE` | This intent always displays the contacts app's picker screen. The user can either pick a contact to edit, or add a new contact. Either the edit or the add screen appears, depending on the user's choice, and the extras data you pass in the intent is displayed. If your app displays contact data such as an email or phone number, use this intent to allow the user to add the data to an existing contact. contact, **Note:** There's no need to send a name value in this intent's extras, because the user always picks an existing name or adds a new one. Moreover, if you send a name, and the user chooses to do an edit, the contacts app will display the name you send, overwriting the previous value. If the user doesn't notice this and saves the edit, the old value is lost. |
 
 
 The device's contacts app doesn't allow you to delete a raw contact or any of its data with an
 intent. Instead, to delete a raw contact, use
-[ContentResolver.delete()](https://developer.android.com/reference/android/content/ContentResolver#delete(android.net.Uri, java.lang.String, java.lang.String[]))
-or [ContentProviderOperation.newDelete()](https://developer.android.com/reference/android/content/ContentProviderOperation#newDelete(android.net.Uri)).
+`https://developer.android.com/reference/android/content/ContentResolver#delete(android.net.Uri, java.lang.String, java.lang.String[])`
+or `https://developer.android.com/reference/android/content/ContentProviderOperation#newDelete(android.net.Uri)`.
 
 
 The following snippet shows how to construct and send an intent that inserts a new raw
-contact and data:  
+contact and data:
 
 ### Kotlin
 
@@ -1544,20 +1544,20 @@ your responsibility to conform to these rules when you modify contacts data. The
 rules are listed here:
 
 
-Always add a [ContactsContract.CommonDataKinds.StructuredName](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredName) row
-for every [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) row you add.
+Always add a `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredName` row
+for every `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` row you add.
 :
-    A [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) row without a
-    [ContactsContract.CommonDataKinds.StructuredName](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredName) row in the
-    [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table may cause problems during
+    A `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` row without a
+    `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredName` row in the
+    `https://developer.android.com/reference/android/provider/ContactsContract.Data` table may cause problems during
     aggregation.
 
 
-Always link new [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) rows to their parent
-[ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) row.
+Always link new `https://developer.android.com/reference/android/provider/ContactsContract.Data` rows to their parent
+`https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` row.
 :
-    A [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) row that isn't linked to a
-    [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) won't be visible in the device's
+    A `https://developer.android.com/reference/android/provider/ContactsContract.Data` row that isn't linked to a
+    `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` won't be visible in the device's
     contacts application, and it might cause problems with sync adapters.
 
 
@@ -1569,9 +1569,9 @@ Change data only for those raw contacts that you own.
     account type and name that you control.
 
 
-Always use the constants defined in [ContactsContract](https://developer.android.com/reference/android/provider/ContactsContract) and its
+Always use the constants defined in `https://developer.android.com/reference/android/provider/ContactsContract` and its
 subclasses for authorities, content URIs, URI paths, column names, MIME types, and
-[TYPE](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.CommonColumns#TYPE) values.
+`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.CommonColumns#TYPE` values.
 :
     Using these constants helps you to avoid errors. You'll also be notified with compiler
     warnings if any of the constants is deprecated.
@@ -1580,9 +1580,9 @@ subclasses for authorities, content URIs, URI paths, column names, MIME types, a
 
 
 By creating and using your own custom MIME types, you can insert, edit, delete, and retrieve
-your own data rows in the [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table. Your rows
+your own data rows in the `https://developer.android.com/reference/android/provider/ContactsContract.Data` table. Your rows
 are limited to using the column defined in
-[ContactsContract.DataColumns](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns), although you can map your own
+`https://developer.android.com/reference/android/provider/ContactsContract.DataColumns`, although you can map your own
 type-specific column names to the default column names. In the device's contacts application,
 the data for your rows is displayed but can't be edited or deleted, and users can't add
 additional data. To allow users to modify your custom data rows, you must provide an editor
@@ -1625,7 +1625,7 @@ framework also allows multiple sync adapters for the same service and provider.
 
 
 You implement a sync adapter as a subclass of
-[AbstractThreadedSyncAdapter](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter) and install it as part of an Android
+`https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter` and install it as part of an Android
 application. The system learns about the sync adapter from elements in your application
 manifest, and from a special XML file pointed to by the manifest. The XML file defines the
 account type for the online service and the authority for the content provider, which together
@@ -1647,7 +1647,7 @@ Because most services require users to verify their identity before accessing
 data, the Android system offers an authentication framework that is similar to, and often
 used in conjunction with, the sync adapter framework. The authentication framework uses
 plug-in authenticators that are subclasses of
-[AbstractAccountAuthenticator](https://developer.android.com/reference/android/accounts/AbstractAccountAuthenticator). An authenticator verifies
+`https://developer.android.com/reference/android/accounts/AbstractAccountAuthenticator`. An authenticator verifies
 the user's identity in the following steps:
 
 1. Collects the user's name, password or similar information (the user's **credentials**).
@@ -1657,7 +1657,7 @@ the user's identity in the following steps:
 
 If the service accepts the credentials, the authenticator can
 store the credentials for later use. Because of the plug-in authenticator framework, the
-[AccountManager](https://developer.android.com/reference/android/accounts/AccountManager) can provide access to any authtokens an authenticator
+`https://developer.android.com/reference/android/accounts/AccountManager` can provide access to any authtokens an authenticator
 supports and chooses to expose, such as OAuth2 authtokens.
 
 
@@ -1671,49 +1671,49 @@ To implement a sync adapter for the Contacts Provider, you start by creating an
 Android application that contains the following:
 
 
-A [Service](https://developer.android.com/reference/android/app/Service) component that responds to requests from the system to
+A `https://developer.android.com/reference/android/app/Service` component that responds to requests from the system to
 bind to the sync adapter.
 :
     When the system wants to run a synchronization, it calls the service's
-    [onBind()](https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)) method to get an
-    [IBinder](https://developer.android.com/reference/android/os/IBinder) for the sync adapter. This allows the system to do
+    `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)` method to get an
+    `https://developer.android.com/reference/android/os/IBinder` for the sync adapter. This allows the system to do
     cross-process calls to the adapter's methods.
 
 
 The actual sync adapter, implemented as a concrete subclass of
-[AbstractThreadedSyncAdapter](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter).
+`https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter`.
 :
     This class does the work of downloading data from the server, uploading data from the
     device, and resolving conflicts. The main work of the adapter is
-    done in the method [onPerformSync()](https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)). This class must be instantiated as a singleton.
+    done in the method `https://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter#onPerformSync(android.accounts.Account, android.os.Bundle, java.lang.String, android.content.ContentProviderClient, android.content.SyncResult)`. This class must be instantiated as a singleton.
 
 
-A subclass of [Application](https://developer.android.com/reference/android/app/Application).
+A subclass of `https://developer.android.com/reference/android/app/Application`.
 :
     This class acts as a factory for the sync adapter singleton. Use the
-    [onCreate()](https://developer.android.com/reference/android/app/Application#onCreate()) method to instantiate the sync adapter, and
+    `https://developer.android.com/reference/android/app/Application#onCreate()` method to instantiate the sync adapter, and
     provide a static "getter" method to return the singleton to the
-    [onBind()](https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)) method of the sync adapter's
+    `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)` method of the sync adapter's
     service.
 
 
-**Optional:** A [Service](https://developer.android.com/reference/android/app/Service) component that responds to
+**Optional:** A `https://developer.android.com/reference/android/app/Service` component that responds to
 requests from the system for user authentication.
 :
-    [AccountManager](https://developer.android.com/reference/android/accounts/AccountManager) starts this service to begin the authentication
-    process. The service's [onCreate()](https://developer.android.com/reference/android/app/Service#onCreate()) method instantiates an
+    `https://developer.android.com/reference/android/accounts/AccountManager` starts this service to begin the authentication
+    process. The service's `https://developer.android.com/reference/android/app/Service#onCreate()` method instantiates an
     authenticator object. When the system wants to authenticate a user account for the
     application's sync adapter, it calls the service's
-    [onBind()](https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)) method to get an
-    [IBinder](https://developer.android.com/reference/android/os/IBinder) for the authenticator. This allows the system to do
+    `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)` method to get an
+    `https://developer.android.com/reference/android/os/IBinder` for the authenticator. This allows the system to do
     cross-process calls to the authenticator's methods..
 
 
 **Optional:** A concrete subclass of
-[AbstractAccountAuthenticator](https://developer.android.com/reference/android/accounts/AbstractAccountAuthenticator) that handles requests for
+`https://developer.android.com/reference/android/accounts/AbstractAccountAuthenticator` that handles requests for
 authentication.
 :
-    This class provides methods that the [AccountManager](https://developer.android.com/reference/android/accounts/AccountManager) invokes
+    This class provides methods that the `https://developer.android.com/reference/android/accounts/AccountManager` invokes
     to authenticate the user's credentials with the server. The details of the
     authentication process vary widely, based on the server technology in use. You should
     refer to the documentation for your server software to learn more about authentication.
@@ -1723,14 +1723,14 @@ XML files that define the sync adapter and authenticator to the system.
 :
     The sync adapter and authenticator service components described previously are
     defined in
-    `<`[service](https://developer.android.com/guide/topics/manifest/service-element)`>`
+    `<https://developer.android.com/guide/topics/manifest/service-element>`
     elements in the application manifest. These elements
     contain
-    `<`[meta-data](https://developer.android.com/guide/topics/manifest/meta-data-element)`>`
+    `<https://developer.android.com/guide/topics/manifest/meta-data-element>`
     child elements that provide specific data to the system:
 
-    - The `<`[meta-data](https://developer.android.com/guide/topics/manifest/meta-data-element)`>` element for the sync adapter service points to the XML file `res/xml/syncadapter.xml`. In turn, this file specifies a URI for the web service that will be synchronized with the Contacts Provider, and an account type for the web service.
-    - **Optional:** The `<`[meta-data](https://developer.android.com/guide/topics/manifest/meta-data-element)`>` element for the authenticator points to the XML file `res/xml/authenticator.xml`. In turn, this file specifies the account type that this authenticator supports, as well as UI resources that appear during the authentication process. The account type specified in this element must be the same as the account type specified for the sync adapter.
+    - The `<https://developer.android.com/guide/topics/manifest/meta-data-element>` element for the sync adapter service points to the XML file `res/xml/syncadapter.xml`. In turn, this file specifies a URI for the web service that will be synchronized with the Contacts Provider, and an account type for the web service.
+    - **Optional:** The `<https://developer.android.com/guide/topics/manifest/meta-data-element>` element for the authenticator points to the XML file `res/xml/authenticator.xml`. In turn, this file specifies the account type that this authenticator supports, as well as UI resources that appear during the authentication process. The account type specified in this element must be the same as the account type specified for the sync adapter.
 
 ## Social stream data
 
@@ -1786,7 +1786,7 @@ android.provider.ContactsContract.StreamItemsColumns#TEXT
     The text of the stream item, either the content that was posted by the source of the item,
     or a description of some action that generated the stream item. This column can contain
     any formatting and embedded resource images that can be rendered by
-    [fromHtml()](https://developer.android.com/reference/android/text/Html#fromHtml(java.lang.String)). The provider may truncate or
+    `https://developer.android.com/reference/android/text/Html#fromHtml(java.lang.String)`. The provider may truncate or
     ellipsize long content, but it will try to avoid breaking tags.
 
 
@@ -1816,7 +1816,7 @@ sync adapters.
 The android.provider.ContactsContract.StreamItemPhotos table stores photos associated
 with a stream item. The table's
 android.provider.ContactsContract.StreamItemPhotosColumns#STREAM_ITEM_ID column
-links to values in the [_ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID) column of
+links to values in the `https://developer.android.com/reference/android/provider/BaseColumns#_ID` column of
 android.provider.ContactsContract.StreamItems table. Photo references are stored in the
 table in these columns:
 
@@ -1836,15 +1836,15 @@ android.provider.ContactsContract.StreamItemPhotos#PHOTO column (a BLOB).
 android.provider.ContactsContract.StreamItemPhotosColumns#PHOTO_FILE_ID
 :
     A numeric identifier of a photo for a raw contact. Append this value to the constant
-    [DisplayPhoto.CONTENT_URI](https://developer.android.com/reference/android/provider/ContactsContract.DisplayPhoto#CONTENT_URI)
+    `https://developer.android.com/reference/android/provider/ContactsContract.DisplayPhoto#CONTENT_URI`
     to get a content URI pointing to a single photo file, and then call
-    [openAssetFileDescriptor()](https://developer.android.com/reference/android/content/ContentResolver#openAssetFileDescriptor(android.net.Uri, java.lang.String)) to get a handle to the photo file.
+    `https://developer.android.com/reference/android/content/ContentResolver#openAssetFileDescriptor(android.net.Uri, java.lang.String)` to get a handle to the photo file.
 
 
 android.provider.ContactsContract.StreamItemPhotosColumns#PHOTO_URI
 :
     A content URI pointing directly to the photo file for the photo represented by this row.
-    Call [openAssetFileDescriptor()](https://developer.android.com/reference/android/content/ContentResolver#openAssetFileDescriptor(android.net.Uri, java.lang.String)) with this URI to get a handle to the photo file.
+    Call `https://developer.android.com/reference/android/content/ContentResolver#openAssetFileDescriptor(android.net.Uri, java.lang.String)` with this URI to get a handle to the photo file.
 
 ### Using the social stream tables
 
@@ -1885,15 +1885,15 @@ managed by your sync adapter:
 
 1. Create a file named `contacts.xml` in your project's `res/xml/` directory. If you already have this file, you can skip this step.
 2. In this file, add the element `<ContactsAccountType xmlns:android="http://schemas.android.com/apk/res/android">`. If this element already exists, you can skip this step.
-3. To register a service that is notified when the user opens a contact's detail page in the device's contacts application, add the attribute `viewContactNotifyService="`*serviceclass*`"` to the element, where *serviceclass* is the fully-qualified classname of the service that should receive the intent from the device's contacts application. For the notifier service, use a class that extends [IntentService](https://developer.android.com/reference/android/app/IntentService), to allow the service to receive intents. The data in the incoming intent contains the content URI of the raw contact the user clicked. From the notifier service, you can bind to and then call your sync adapter to update the data for the raw contact.
+3. To register a service that is notified when the user opens a contact's detail page in the device's contacts application, add the attribute `viewContactNotifyService="serviceclass"` to the element, where `serviceclass` is the fully-qualified classname of the service that should receive the intent from the device's contacts application. For the notifier service, use a class that extends `https://developer.android.com/reference/android/app/IntentService`, to allow the service to receive intents. The data in the incoming intent contains the content URI of the raw contact the user clicked. From the notifier service, you can bind to and then call your sync adapter to update the data for the raw contact.
 
 
 To register an activity to be called when the user clicks on a stream item or photo or both:
 
 1. Create a file named `contacts.xml` in your project's `res/xml/` directory. If you already have this file, you can skip this step.
 2. In this file, add the element `<ContactsAccountType xmlns:android="http://schemas.android.com/apk/res/android">`. If this element already exists, you can skip this step.
-3. To register one of your activities to handle the user clicking on a stream item in the device's contacts application, add the attribute `viewStreamItemActivity="`*activityclass*`"` to the element, where *activityclass* is the fully-qualified classname of the activity that should receive the intent from the device's contacts application.
-4. To register one of your activities to handle the user clicking on a stream photo in the device's contacts application, add the attribute `viewStreamItemPhotoActivity="`*activityclass*`"` to the element, where *activityclass* is the fully-qualified classname of the activity that should receive the intent from the device's contacts application.
+3. To register one of your activities to handle the user clicking on a stream item in the device's contacts application, add the attribute `viewStreamItemActivity="activityclass"` to the element, where `activityclass` is the fully-qualified classname of the activity that should receive the intent from the device's contacts application.
+4. To register one of your activities to handle the user clicking on a stream photo in the device's contacts application, add the attribute `viewStreamItemPhotoActivity="activityclass"` to the element, where `activityclass` is the fully-qualified classname of the activity that should receive the intent from the device's contacts application.
 
 
 The `<ContactsAccountType>` element is described in more detail in the
@@ -1913,10 +1913,10 @@ contact to one of your activities. To set this up:
 1. Create a file named `contacts.xml` in your project's `res/xml/` directory. If you already have this file, you can skip this step.
 2. In this file, add the element `<ContactsAccountType xmlns:android="http://schemas.android.com/apk/res/android">`. If this element already exists, you can skip this step.
 3. Add the following attributes:
-   - `inviteContactActivity="`*activityclass*`"`
-   - `inviteContactActionLabel="@string/`*invite_action_label*`"`
+   - `inviteContactActivity="activityclass"`
+   - `inviteContactActionLabel="@string/invite_action_label"`
 
-   The *activityclass* value is the fully-qualified classname of the activity that should receive the intent. The *invite_action_label* value is a text string that's displayed in the **Add Connection** menu in the device's contacts application.
+   The `activityclass` value is the fully-qualified classname of the activity that should receive the intent. The `invite_action_label` value is a text string that's displayed in the **Add Connection** menu in the device's contacts application.
 
 
 **Note:** `ContactsSource` is a deprecated tag name for
@@ -1933,7 +1933,7 @@ elements are described in the following sections.
 
 
 The `<ContactsAccountType>` element controls the interaction of your
-application with the contacts application. It has the following syntax:  
+application with the contacts application. It has the following syntax:
 
 ```xml
 <ContactsAccountType
@@ -2023,7 +2023,7 @@ of `<ContactsAccountType>`.
 
 
 The `<ContactsDataKind>` element controls the display of your application's
-custom data rows in the contacts application's UI. It has the following syntax:  
+custom data rows in the contacts application's UI. It has the following syntax:
 
 ```xml
 <ContactsDataKind
@@ -2044,7 +2044,7 @@ custom data rows in the contacts application's UI. It has the following syntax:
 Use this element to have the contacts application display the contents of a custom data row as
 part of the details of a raw contact. Each `<ContactsDataKind>` child element
 of `<ContactsAccountType>` represents a type of custom data row that your sync
-adapter adds to the [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table. Add one
+adapter adds to the `https://developer.android.com/reference/android/provider/ContactsContract.Data` table. Add one
 `<ContactsDataKind>` element for each custom MIME type you use. You don't have
 to add the element if you have a custom data row for which you don't want to display data.
 
@@ -2054,7 +2054,7 @@ to add the element if you have a custom data row for which you don't want to dis
 `android:mimeType`
 :
     The custom MIME type you've defined for one of your custom data row types in the
-    [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table. For example, the value
+    `https://developer.android.com/reference/android/provider/ContactsContract.Data` table. For example, the value
     `vnd.android.cursor.item/vnd.example.locationstatus` could be a custom
     MIME type for a data row that records a contact's last known location.
 
@@ -2095,41 +2095,41 @@ The Contacts Provider can optionally label collections of related contacts with
 wants to maintain groups, the sync adapter for the account's account type should transfer
 groups data between the Contacts Provider and the server. When users add a new contact to the
 server and then put this contact in a new group, the sync adapter must add the new group
-to the [ContactsContract.Groups](https://developer.android.com/reference/android/provider/ContactsContract.Groups) table. The group or groups a raw
-contact belongs to are stored in the [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table, using
-the [ContactsContract.CommonDataKinds.GroupMembership](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.GroupMembership) MIME type.
+to the `https://developer.android.com/reference/android/provider/ContactsContract.Groups` table. The group or groups a raw
+contact belongs to are stored in the `https://developer.android.com/reference/android/provider/ContactsContract.Data` table, using
+the `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.GroupMembership` MIME type.
 
 
 If you're designing a sync adapter that will add raw contact data from
 server to the Contacts Provider, and you aren't using groups, then you need to tell the
 Provider to make your data visible. In the code that is executed when a user adds an account
-to the device, update the [ContactsContract.Settings](https://developer.android.com/reference/android/provider/ContactsContract.Settings)
+to the device, update the `https://developer.android.com/reference/android/provider/ContactsContract.Settings`
 row that the Contacts Provider adds for the account. In this row, set the value of the
-[Settings.UNGROUPED_VISIBLE](https://developer.android.com/reference/android/provider/ContactsContract.SettingsColumns#UNGROUPED_VISIBLE) column to 1. When you do this, the Contacts Provider will always
+`https://developer.android.com/reference/android/provider/ContactsContract.SettingsColumns#UNGROUPED_VISIBLE` column to 1. When you do this, the Contacts Provider will always
 make your contacts data visible, even if you don't use groups.
 
 ### Contact photos
 
 
-The [ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table stores photos as rows with MIME type
-[Photo.CONTENT_ITEM_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Photo#CONTENT_ITEM_TYPE). The row's
-[CONTACT_ID](https://developer.android.com/reference/android/provider/ContactsContract.RawContactsColumns#CONTACT_ID) column is linked to the
-[_ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID) column of the raw contact to which it belongs.
-The class [ContactsContract.Contacts.Photo](https://developer.android.com/reference/android/provider/ContactsContract.Contacts.Photo) defines a sub-table of
-[ContactsContract.Contacts](https://developer.android.com/reference/android/provider/ContactsContract.Contacts) containing photo information for a contact's
+The `https://developer.android.com/reference/android/provider/ContactsContract.Data` table stores photos as rows with MIME type
+`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Photo#CONTENT_ITEM_TYPE`. The row's
+`https://developer.android.com/reference/android/provider/ContactsContract.RawContactsColumns#CONTACT_ID` column is linked to the
+`https://developer.android.com/reference/android/provider/BaseColumns#_ID` column of the raw contact to which it belongs.
+The class `https://developer.android.com/reference/android/provider/ContactsContract.Contacts.Photo` defines a sub-table of
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts` containing photo information for a contact's
 primary photo, which is the primary photo of the contact's primary raw contact. Similarly,
-the class [ContactsContract.RawContacts.DisplayPhoto](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts.DisplayPhoto) defines a sub-table
-of [ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts) containing photo information for a
+the class `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts.DisplayPhoto` defines a sub-table
+of `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` containing photo information for a
 raw contact's primary photo.
 
 
-The reference documentation for [ContactsContract.Contacts.Photo](https://developer.android.com/reference/android/provider/ContactsContract.Contacts.Photo) and
-[ContactsContract.RawContacts.DisplayPhoto](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts.DisplayPhoto) contain examples of
+The reference documentation for `https://developer.android.com/reference/android/provider/ContactsContract.Contacts.Photo` and
+`https://developer.android.com/reference/android/provider/ContactsContract.RawContacts.DisplayPhoto` contain examples of
 retrieving photo information. There is no convenience class for retrieving the primary
 thumbnail for a raw contact, but you can send a query to the
-[ContactsContract.Data](https://developer.android.com/reference/android/provider/ContactsContract.Data) table, selecting on the raw contact's
-[_ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID), the
-[Photo.CONTENT_ITEM_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Photo#CONTENT_ITEM_TYPE), and the [IS_PRIMARY](https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#IS_PRIMARY)
+`https://developer.android.com/reference/android/provider/ContactsContract.Data` table, selecting on the raw contact's
+`https://developer.android.com/reference/android/provider/BaseColumns#_ID`, the
+`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Photo#CONTENT_ITEM_TYPE`, and the `https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#IS_PRIMARY`
 column to find the raw contact's primary photo row.
 
 

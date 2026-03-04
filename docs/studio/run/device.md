@@ -8,7 +8,9 @@ Always test your Android app on
 a real device before releasing it to users. This page describes how to set up
 your development environment and Android device for testing and debugging over
 an Android Debug Bridge (ADB) connection.
-| **Note:** Use the [Android Emulator](https://developer.android.com/studio/run/emulator) to test your app on different versions of the Android platform and different screen sizes. Consider using [Firebase Test Lab](https://firebase.google.com/docs/test-lab/) to run your app on a wide variety of real devices hosted in a cloud-based infrastructure.
+
+> [!NOTE]
+> **Note:** Use the [Android Emulator](https://developer.android.com/studio/run/emulator) to test your app on different versions of the Android platform and different screen sizes. Consider using [Firebase Test Lab](https://firebase.google.com/docs/test-lab/) to run your app on a wide variety of real devices hosted in a cloud-based infrastructure.
 
 ## Set up a device for development
 
@@ -18,7 +20,9 @@ to the device using a USB cable or Wi-Fi. Then do the following:
 1. On the device, open the **Settings** app, select **Developer options** , and
    then enable **USB debugging** (if applicable).
 
-   | **Note:** If you don't see **Developer options** , follow the instructions to [enable developer options](https://developer.android.com/studio/debug/dev-options).
+   > [!NOTE]
+   > **Note:** If you don't see **Developer options** , follow the instructions to [enable developer options](https://developer.android.com/studio/debug/dev-options).
+
 2. Set up your system to detect your device.
 
    - **ChromeOS**: No additional configuration required.
@@ -48,7 +52,7 @@ in Android Studio to
 You can also use [`adb`](https://developer.android.com/studio/command-line/adb) to issue commands,
 as follows:
 
-- Verify that your device is connected by running the `adb devices` command from your <var translate="no">android_sdk</var>`/platform-tools/` directory. If connected, you'll see the device listed.
+- Verify that your device is connected by running the `adb devices` command from your `android_sdk/platform-tools/` directory. If connected, you'll see the device listed.
 - Issue any [`adb` command](https://developer.android.com/studio/command-line/adb#issuingcommands) with the `-d` flag to target your device.
 
 ## Connect to your device using Wi-Fi
@@ -70,21 +74,17 @@ using a pairing code. To begin, complete the following steps:
 
 To connect to your device, follow these steps:
 
-1. Open Android Studio and select **Pair Devices Using Wi-Fi** from the run configurations menu.  
-   ![Run configurations drop-down](https://developer.android.com/static/studio/images/run/adb_wifi-pair_device.png) **Figure 1.** Run configurations menu.   
-   The **Pair devices over Wi-Fi** dialog appears, as shown in figure 2.  
-   ![Screenshot of the pair devices over Wi-Fi popup window](https://developer.android.com/static/studio/images/run/adb_wifi-qr_code_scan.png) **Figure 2.** Dialog to pair devices using QR code or pairing code.
+1. Open Android Studio and select **Pair Devices Using Wi-Fi** from the run configurations menu. ![Run configurations drop-down](https://developer.android.com/static/studio/images/run/adb_wifi-pair_device.png) **Figure 1.** Run configurations menu.   
+   The **Pair devices over Wi-Fi** dialog appears, as shown in figure 2. ![Screenshot of the pair devices over Wi-Fi popup window](https://developer.android.com/static/studio/images/run/adb_wifi-qr_code_scan.png) **Figure 2.** Dialog to pair devices using QR code or pairing code.
 2. Enable [developer
    options](https://developer.android.com/studio/debug/dev-options) on your device.
 3. Enable [debugging over
-   Wi-Fi](https://developer.android.com/studio/command-line/adb#connect-to-a-device-over-wi-fi) on your device.  
-   ![Screenshot of a pixel phone showing the Wireless debugging
+   Wi-Fi](https://developer.android.com/studio/command-line/adb#connect-to-a-device-over-wi-fi) on your device. ![Screenshot of a pixel phone showing the Wireless debugging
    systems setting.](https://developer.android.com/static/studio/images/run/adb_wifi-wireless_debugging.png) **Figure 3.** The **Wireless debugging** setting on a Google Pixel phone.
 4. Tap **Wireless debugging** and pair your device:
    1. To pair your device with a QR code, select **Pair device with QR code** and scan the QR code, shown in figure 2.
    2. To pair your device with a pairing code, select **Pair device with
-      pairing code** from the **Pair new devices over Wi-Fi** dialog. On your device, select **Pair using pairing code** . A six-digit code appears. Once your device appears on the **Pair devices over Wi-Fi** window, enter the six-digit code shown on your device and select **Pair** .  
-      ![Screenshot of example pairing code entry](https://developer.android.com/static/studio/images/run/adb_wifi-pin_code_entry.png) **Figure 4.** Example of six-digit pairing code entry.
+      pairing code** from the **Pair new devices over Wi-Fi** dialog. On your device, select **Pair using pairing code** . A six-digit code appears. Once your device appears on the **Pair devices over Wi-Fi** window, enter the six-digit code shown on your device and select **Pair** . ![Screenshot of example pairing code entry](https://developer.android.com/static/studio/images/run/adb_wifi-pin_code_entry.png) **Figure 4.** Example of six-digit pairing code entry.
 5. After pairing, you can attempt to deploy your app to your device.
 
 To pair a different device or to forget this device on your workstation:
@@ -107,7 +107,9 @@ mirroring using the **Running Devices** window or the **Device Manager**
 (**View \> Tool Windows \> Device Manager** ). You can also customize when device
 mirroring is activated in its settings
 (**Settings \> Tools \> Device Mirroring**).
-| **Note:** If you're using certain devices, for example the Xiaomi Redmi K40, Poco F3, or Mi 11X, with Android 12, you must enable both the **USB debugging** and **USB debugging (Security settings)** settings and then restart the device to enable device mirroring.
+
+> [!NOTE]
+> **Note:** If you're using certain devices, for example the Xiaomi Redmi K40, Poco F3, or Mi 11X, with Android 12, you must enable both the **USB debugging** and **USB debugging (Security settings)** settings and then restart the device to enable device mirroring.
 
 ![Running Devices UI](https://developer.android.com/static/studio/images/device-mirroring.png)
 
@@ -127,7 +129,7 @@ higher.
 
 Some devices might not be capable of encoding at a bitrate sufficient
 to support device mirroring. In these situations, you might see an error in the
-**Running Devices** window as well as logs similar to the following.  
+**Running Devices** window as well as logs similar to the following.
 
     2023-06-01 15:32:22,675 [  56094]   WARN - ScreenSharingAgent Samsung SM-A045F API 33 - Too many video encoder errors:
     2023-06-01 15:32:22,676 [  56095]   WARN - ScreenSharingAgent Samsung SM-A045F API 33 - encoder: c2.android.vp8.encoder

@@ -108,12 +108,14 @@ source: md.txt
 
 <br />
 
+[Video](https://www.youtube.com/watch?v=NbHsi3-uR8E)
+
 <br />
 
 <br />
 
 - All new **[Layout
-Editor](https://developer.android.com/studio/write/layout-editor)** with tools custom-built to support [ConstraintLayout](https://developer.android.com/training/constraint-layout).  
+  Editor](https://developer.android.com/studio/write/layout-editor)** with tools custom-built to support [ConstraintLayout](https://developer.android.com/training/constraint-layout).
 
     <li>New <strong><a href=
     "http://tools.android.com/tech-docs/layout-inspector">Layout
@@ -249,7 +251,7 @@ Editor](https://developer.android.com/studio/write/layout-editor)** with tools c
   - Instant Run session is unreliable due to mismatch security token. ([Bug: #211989](http://b.android.com/211989)
   - Cold swap fails for devices that doesn't properly support run-as. ([Bug: #210875](http://b.android.com/210875))
   - App crash after instant run restart. ([Bug: #219744](http://b.android.com/219744))
-- ClassNotFoundException observed when switching from Instant Run to Instant Debug. ([Bug: #215805](http://b.android.com/215805))  
+  - ClassNotFoundException observed when switching from Instant Run to Instant Debug. ([Bug: #215805](http://b.android.com/215805))
 
     <li>Improved performance for <strong>Gradle sync</strong> within the IDE,
     especially for large projects.

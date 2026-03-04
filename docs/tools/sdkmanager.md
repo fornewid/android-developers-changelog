@@ -24,7 +24,10 @@ follow these steps:
    ```
    android_sdk/cmdline-tools/latest/bin/sdkmanager --install "cmdline-tools;version"
    ```
-   Substitute <var translate="no">version</var> with the version you want to install, for example `5.0`. **Note:** For local usage, you can use the `latest` packages. For scripts, choose a specific version instead to ensure stability.
+   Substitute `version` with the version you want to install, for example `5.0`.
+
+   > [!NOTE]
+   > **Note:** For local usage, you can use the `latest` packages. For scripts, choose a specific version instead to ensure stability.
 
 ## Usage
 
@@ -33,7 +36,7 @@ packages, and update packages. For more details, see the following sections.
 
 ### List installed and available packages
 
-To list installed and available packages, use the following syntax:  
+To list installed and available packages, use the following syntax:
 
 ```
 sdkmanager --list [options] \
@@ -43,11 +46,13 @@ sdkmanager --list [options] \
 Use the `channel` option to include a package from a channel up to and
 including `channel_id`. For example, specify the canary channel to list
 packages from all channels.
-| **Note:** To list only stable packages, use `--channel=0` or remove the `--channel` option entirely.
+
+> [!NOTE]
+> **Note:** To list only stable packages, use `--channel=0` or remove the `--channel` option entirely.
 
 ### Install packages
 
-To install packages, use the following syntax:  
+To install packages, use the following syntax:
 
 ```
 sdkmanager packages [options]
@@ -61,11 +66,11 @@ the `--list` command, wrapped in quotes. For example,
 You can pass multiple package
 paths, separated with a space, but they must each be wrapped in their own set of
 quotes. For example, here's how to install the latest platform tools and
-the SDK tools for API level 36:  
+the SDK tools for API level 36:
 
     sdkmanager "platform-tools" "platforms;android-36"
 
-Alternatively, you can pass a text file that specifies all packages:  
+Alternatively, you can pass a text file that specifies all packages:
 
 ```
 sdkmanager --package_file=package_file [options]
@@ -74,32 +79,32 @@ sdkmanager --package_file=package_file [options]
 The <var translate="no">package_file</var> argument is the location of a text file in which
 each line is an SDK-style path of a package to install (without quotes).
 
-To uninstall, add the `--uninstall` flag:  
+To uninstall, add the `--uninstall` flag:
 
 ```
 sdkmanager --uninstall packages [options]
 sdkmanager --uninstall --package_file=package_file [options]
 ```
 
-To install CMake or the NDK, use the following syntax:  
+To install CMake or the NDK, use the following syntax:
 
-```transact-sql
+```
 sdkmanager --install
-           ["ndk;<var translate="no">major</var>.<var translate="no">minor</var>.<var translate="no">build</var>[<var translate="no">suffix</var>]" | "cmake;major.minor.micro.build"]
-           [--channel=<var translate="no">channel_id</var>] // NDK channels: 0 (stable), 1 (beta), or 3 (canary)
+           ["ndk;major.minor.build[suffix]" | "cmake;major.minor.micro.build"]
+           [--channel=channel_id] // NDK channels: 0 (stable), 1 (beta), or 3 (canary)
 ```
 
 For example, use the following command to install the specified NDK version
-regardless of which channel it is currently on:  
+regardless of which channel it is currently on:
 
-```text
+```
 sdkmanager --install "ndk;21.3.6528147" --channel=3 // Install the NDK from the canary channel (or below)
 sdkmanager --install "cmake;10.24988404" // Install a specific version of CMake
 ```
 
 ### Update all installed packages
 
-To update all installed packages, use the following syntax:  
+To update all installed packages, use the following syntax:
 
 ```
 sdkmanager --update [options]
@@ -113,9 +118,9 @@ packages from within Android Studio.
 
 If you don't have Android Studio installed, or it is for a CI server
 or other headless Linux device without a GUI installed, do the
-following from the command-line:  
+following from the command-line:
 
-```text
+```
 sdkmanager --licenses
 ```
 
@@ -127,14 +132,15 @@ The following table lists the available options for the commands listed in the p
 
 | Option | Description |
 |---|---|
-| `--sdk_root=`**<var translate="no">path</var>** | Use the specified SDK path instead of the SDK containing this tool. |
-| `--channel=`**<var translate="no">channel_id</var>** | Include packages in channels up to and including channel_id. Available channels are: `0` (Stable), `1` (Beta), `2` (Dev), and `3` (Canary). |
+| `--sdk_root=path` | Use the specified SDK path instead of the SDK containing this tool. |
+| `--channel=channel_id` | Include packages in channels up to and including channel_id. Available channels are: `0` (Stable), `1` (Beta), `2` (Dev), and `3` (Canary). |
 | `--include_obsolete` | Include obsolete packages in the package listing or package updates. For use with `--list` and `--update` only. |
 | `--no_https` | Force all connections to use HTTP rather than HTTPS. |
 | `--newer` | With `--list`, show only new or updatable packages. |
 | `--verbose` | Verbose output mode. Errors, warnings and informational messages are printed. |
 | `--proxy={http | socks}` | Connect via a proxy of the given type: either `http` for high level protocols such as HTTP or FTP, or `socks` for a SOCKS (V4 or V5) proxy. |
-| `--proxy_host={`**<var translate="no">IP_address</var>**` | `**<var translate="no">DNS_address</var>**`}` | IP or DNS address of the proxy to use. |
-| `--proxy_port=`**<var translate="no">port_number</var>** | Proxy port number to connect to. |
+| `--proxy_host={IP_address | DNS_address}` | IP or DNS address of the proxy to use. |
+| `--proxy_port=port_number` | Proxy port number to connect to. |
 
-| **Note:** If you want to install packages for an operating system different from the current machine, set the [`REPO_OS_OVERRIDE`](https://developer.android.com/studio/command-line/variables#repo_os_override) environment variable to either `"windows"`, `"macosx"`, or `"linux"`.
+> [!NOTE]
+> **Note:** If you want to install packages for an operating system different from the current machine, set the [`REPO_OS_OVERRIDE`](https://developer.android.com/studio/command-line/variables#repo_os_override) environment variable to either `"windows"`, `"macosx"`, or `"linux"`.

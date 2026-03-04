@@ -10,7 +10,7 @@ To perform basic camera actions like capturing a photo or video using the device
 
 Android delegates actions to other applications by invoking an `Intent`. This process involves three pieces: the `Intent` itself, a call to start the external `Activity`, and some code to handle the image data when focus returns to your activity.
 
-Here's a function that invokes an `Intent` to capture a photo.  
+Here's a function that invokes an `Intent` to capture a photo.
 
 ### Kotlin
 
@@ -44,7 +44,7 @@ private void dispatchTakePictureIntent() {
 
 ## Record a video with a camera app
 
-You can also invoke an `Intent` to capture a video.  
+You can also invoke an `Intent` to capture a video.
 
 ### Kotlin
 

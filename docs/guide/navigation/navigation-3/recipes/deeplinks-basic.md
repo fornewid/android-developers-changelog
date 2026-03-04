@@ -30,7 +30,9 @@ This recipe consists of three main packages:
 2. `basic.deeplink.ui` - Contains the activity UI code, i.e. global string variables, deeplink URLs etc
 3. `basic.deeplink.util` - Contains the classes and helper methods to parse and match the deeplinks
 
-```python
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/deeplink/basic)
+
+```
 package com.example.nav3recipes.deeplink.basic
 
 import androidx.navigation3.runtime.NavKey
@@ -72,7 +74,7 @@ internal data class SearchKey(
 }
 ```
 
-```python
+```
 package com.example.nav3recipes.deeplink.basic
 
 import android.net.Uri
@@ -200,7 +202,7 @@ class MainActivity : ComponentActivity() {
 }
 ```
 
-```python
+```
 package com.example.nav3recipes.deeplink.basic
 
 import android.content.Intent
@@ -396,7 +398,7 @@ private val MENU_LABELS_SEARCH = listOf(SearchKey::ageMin.name, SearchKey::ageMa
 
 ```
 
-```python
+```
 package com.example.nav3recipes.deeplink.basic.util
 
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -469,7 +471,7 @@ internal class KeyDecoder(
 }
 ```
 
-```python
+```
 package com.example.nav3recipes.deeplink.basic.util
 
 import android.net.Uri
@@ -500,7 +502,7 @@ internal class DeepLinkRequest(
 }
 ```
 
-````python
+````
 package com.example.nav3recipes.deeplink.basic.util
 
 import android.net.Uri
@@ -632,7 +634,7 @@ private fun getTypeParser(kind: SerialKind): TypeParser {
 }
 ````
 
-```python
+```
 package com.example.nav3recipes.deeplink.basic.util
 
 import android.util.Log
@@ -720,7 +722,7 @@ internal data class DeepLinkMatchResult<T : NavKey>(
 const val TAG_LOG_ERROR = "Nav3RecipesDeepLink"
 ```
 
-```python
+```
 package com.example.nav3recipes.deeplink.basic.ui
 
 import com.example.nav3recipes.deeplink.basic.SearchKey

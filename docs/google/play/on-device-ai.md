@@ -50,7 +50,9 @@ If you need to ship libraries or code to run your ML model, move it into the
 base module or a [feature module](https://developer.android.com/guide/playcore/feature-delivery). You can
 configure your feature module so that it has the same download and targeting
 settings as the AI pack.
-| **Note:** AI packs don't contain Java/Kotlin or native libraries. You can ship libraries or code to run your ML models in [feature modules](https://developer.android.com/guide/playcore/feature-delivery).
+
+> [!NOTE]
+> **Note:** AI packs don't contain Java/Kotlin or native libraries. You can ship libraries or code to run your ML models in [feature modules](https://developer.android.com/guide/playcore/feature-delivery).
 
 ### Use LiteRT and MediaPipe with AI packs
 
@@ -152,14 +154,14 @@ Android Studio is not required for the following steps.
 ### Configure install-time delivery
 
 AI packs configured as install-time are immediately available at app launch. Use
-the Java AssetManager API to access AI packs served in this mode:  
+the Java AssetManager API to access AI packs served in this mode:
 
 ```java
 import android.content.res.AssetManager;
 ...
-Context context = createPackageContext("<var translate="no">com.example.app</var>", 0);
+Context context = createPackageContext("com.example.app", 0);
 AssetManager assetManager = context.getAssets();
-InputStream is = assetManager.open("<var translate="no">model-name</var>");
+InputStream is = assetManager.open("model-name");
 ```
 
 ### Configure fast-follow and on-demand delivery
@@ -170,7 +172,7 @@ Delivery Library.
 #### Declare dependency on the Play AI Delivery Library
 
 In your app's `build.gradle` file, declare a dependency on the Play AI Delivery
-Library:  
+Library:
 
     dependencies {
       ...
@@ -190,7 +192,8 @@ following values:
 | A valid [`AiPackLocation`](https://developer.android.com/reference/com/google/android/play/core/aipacks/AiPackLocation) object | AI pack root folder is ready for immediate access at [`assetsPath()`](https://developer.android.com/reference/com/google/android/play/core/aipacks/AiPackLocation#assetsPath) |
 | `null` | Unknown AI pack or AI packs are not available |
 
-| **Note:** Don't rely on cached AI pack locations between app launches. The app should always check for the existence of AI packs at every launch. AI packs may become invalid due to app updates or if the user clears the app data.
+> [!NOTE]
+> **Note:** Don't rely on cached AI pack locations between app launches. The app should always check for the existence of AI packs at every launch. AI packs may become invalid due to app updates or if the user clears the app data.
 
 #### Get download information about AI packs
 
@@ -198,7 +201,7 @@ Use the
 
 [`getPackStates()`](https://developer.android.com/reference/com/google/android/play/core/aipacks/AiPackManager#getPackStates(java.util.List%3Cjava.lang.String%3E))
 method to determine the size of the download and whether the pack is already
-downloading.  
+downloading.
 
 ```java
 Task<AiPackStates> getPackStates(List<String> packNames)
@@ -208,16 +211,16 @@ Task<AiPackStates> getPackStates(List<String> packNames)
 The
 [`packStates()`](https://developer.android.com/reference/com/google/android/play/core/aipacks/AiPackStates#packStates())
 method of an `AiPackStates` object returns a `Map<String, AiPackState>`. This
-map contains the state of each requested AI pack, keyed by its name:  
+map contains the state of each requested AI pack, keyed by its name:
 
 ```java
 Map<String, AiPackState> AiPackStates#packStates()
 ```
 
-The final request is shown by the following:  
+The final request is shown by the following:
 
 ```java
-final String aiPackName = "<var translate="no">myAiPackName</var>";
+final String aiPackName = "myAiPackName";
 
 aiPackManager
     .getPackStates(Collections.singletonList(aiPackName))
@@ -263,7 +266,7 @@ class.
 Use the
 [`fetch()`](https://developer.android.com/reference/com/google/android/play/core/aipacks/AiPackManager#fetch(java.util.List%3Cjava.lang.String%3E))
 method to download an AI pack for the first time or call for the update of an AI
-pack to complete:  
+pack to complete:
 
 ```java
 Task<AiPackStates> fetch(List<String> packNames)
@@ -274,7 +277,9 @@ This method returns an
 object containing a list of packs and their initial download states and sizes.
 If an AI pack requested via `fetch()` is already downloading, the download
 status is returned and no additional download is started.
-| **Note:** In most cases, you implement a `listener` to track the download and installation process as covered in the next section.
+
+> [!NOTE]
+> **Note:** In most cases, you implement a `listener` to track the download and installation process as covered in the next section.
 
 #### Monitor download states
 
@@ -283,13 +288,15 @@ You should implement an
 to track the installation progress of AI packs. The status updates are broken
 down per pack to support tracking the status of individual AI packs. You can
 start using available AI packs before all other downloads for your request have
-completed.  
+completed.
 
 ```java
 void registerListener(AiPackStateUpdateListener listener)
 void unregisterListener(AiPackStateUpdateListener listener)
 ```
-| **Note:** The Play Store automatically triggers the download of any `fast-follow` packs after the user installs or updates the app. However, these packs may not be ready to use immediately. You must check the status of the `fast-follow` packs at every app launch. If the download is in progress, monitor it with a listener. If the download is cancelled or paused, you can resume it by using the `fetch()` method, as covered in the [Install](https://developer.android.com/google/play/on-device-ai#install) section.
+
+> [!NOTE]
+> **Note:** The Play Store automatically triggers the download of any `fast-follow` packs after the user installs or updates the app. However, these packs may not be ready to use immediately. You must check the status of the `fast-follow` packs at every app launch. If the download is in progress, monitor it with a listener. If the download is cancelled or paused, you can resume it by using the `fetch()` method, as covered in the [Install](https://developer.android.com/google/play/on-device-ai#install) section.
 
 ##### Large downloads
 
@@ -317,7 +324,7 @@ app was sideloaded. Note that calling
 in this case will cause the app to be updated. After the update, you will need
 to request the AI packs again.
 
-The following is an example implementation of a listener:  
+The following is an example implementation of a listener:
 
 ```java
 AiPackStateUpdateListener aiPackStateUpdateListener = new AiPackStateUpdateListener() {
@@ -405,7 +412,7 @@ method to get the root folder of the AI pack.
 AI packs are stored in the `assets` directory within the AI pack root directory.
 You can get the path to the `assets` directory by using the convenience method
 [`assetsPath()`](https://developer.android.com/reference/com/google/android/play/core/aipacks/AiPackLocation#assetsPath()).
-Use the following method to get the path to a specific asset:  
+Use the following method to get the path to a specific asset:
 
 ```java
 private String getAbsoluteAiAssetPath(String aiPack, String relativeAiAssetPath) {
@@ -485,7 +492,7 @@ Download the latest [stable version of Android Studio](https://developer.android
 
 ### Enable this feature in Android Gradle Plugin
 
-Device targeting must be enabled explicitly in your `gradle.properties` file:  
+Device targeting must be enabled explicitly in your `gradle.properties` file:
 
     android.experimental.enableDeviceTargetingConfigApi=true
 
@@ -493,7 +500,7 @@ Device targeting must be enabled explicitly in your `gradle.properties` file:
 
 The device targeting configuration file is an XML file in which you define your
 custom device groups. For example, you could define a device group called
-`qti_v79` that contains all devices with the Qualcomm SM8750 system on chip:  
+`qti_v79` that contains all devices with the Qualcomm SM8750 system on chip:
 
     <config:device-targeting-config
         xmlns:config="http://schemas.android.com/apk/config">
@@ -551,38 +558,39 @@ group is automatically generated and shouldn't be defined explicitly.
   - **manufacturer** : [System on chip manufacturer](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
   - **model** : [System on chip model](https://developer.android.com/reference/android/os/Build#SOC_MODEL)
 
-| **Tip:** Including multiple properties in a single
-| selector creates a logical AND, for example:  
-|
-| ```xml
-|     <config:device-selector ram-min-bytes="7000000000">
-|         <config:included-device-id brand="google" device="flame"/>
-|     </config:device-selector>
-|   
-| ```
-|
-| will create the condition for all devices with \> 7GB of RAM AND it
-| is a Pixel 4 - also written as follows:
-|
-| ![](https://developer.android.com/static/images/google/play/intersect.png)
-|
-| If you want an OR condition, create separate
-| selectors in a single device group, for example:  
-|
-| ```xml
-|     <config:device-selector ram-min-bytes="7000000000"/>
-|     <config:device-selector>
-|           <config:included-device-id brand="google" device="flame"/>
-|     </config:device-selector>
-|   
-| ```
-|
-| will create the condition for all devices with \> 7GB of RAM OR
-| it is a Pixel 4 - also written as follows:
-|
-| ![](https://developer.android.com/static/images/google/play/union.png)
+> [!TIP]
+> **Tip:** Including multiple properties in a single
+> selector creates a logical AND, for example:
+>
+> ```xml
+>     <config:device-selector ram-min-bytes="7000000000">
+>         <config:included-device-id brand="google" device="flame"/>
+>     </config:device-selector>
+>   
+> ```
+>
+> will create the condition for all devices with \> 7GB of RAM AND it
+> is a Pixel 4 - also written as follows:
+>
+> ![](https://developer.android.com/static/images/google/play/intersect.png)
+>
+> If you want an OR condition, create separate
+> selectors in a single device group, for example:
+>
+> ```xml
+>     <config:device-selector ram-min-bytes="7000000000"/>
+>     <config:device-selector>
+>           <config:included-device-id brand="google" device="flame"/>
+>     </config:device-selector>
+>   
+> ```
+>
+> will create the condition for all devices with \> 7GB of RAM OR
+> it is a Pixel 4 - also written as follows:
+>
+> ![](https://developer.android.com/static/images/google/play/union.png)
 
-Here is an example showing all possible device properties:  
+Here is an example showing all possible device properties:
 
     <config:device-targeting-config
         xmlns:config="http://schemas.android.com/apk/config">
@@ -629,7 +637,7 @@ by using the Device Catalog on the Google Play Console, by either:
 
 #### Include your device targeting configuration file in your app bundle
 
-Add the following to your main module's `build.gradle` file:  
+Add the following to your main module's `build.gradle` file:
 
     android {
       ...
@@ -662,7 +670,7 @@ When using the AI packs in your app, you won't need to address folders by
 postfix (in other words, the postfix is automatically stripped during the build
 process).
 
-After the previous step, this might look like:  
+After the previous step, this might look like:
 
     ...
     .../ai-pack-name/src/main/assets/image-classifier#group_myCustomGroup1/
@@ -688,7 +696,9 @@ present by using the [AssetManager](https://developer.android.com/google/play/on
 packs or the [AiPackManager](https://developer.android.com/google/play/on-device-ai#access-AI-packs) for fast-follow and on-demand
 packs. Examples for doing this are shown for all delivery modes in the
 [sample app](https://developer.android.com/google/play/on-device-ai#example-app).
-| **Important:** It's not possible to prevent **any** variant of your AI pack being delivered to certain devices. Non-targeted devices will always receive the default variant.
+
+> [!IMPORTANT]
+> **Important:** It's not possible to prevent **any** variant of your AI pack being delivered to certain devices. Non-targeted devices will always receive the default variant.
 
 ### Use device targeting for your feature modules
 
@@ -697,7 +707,7 @@ feature modules by device group, you specify whether the entire module should be
 delivered based on device group membership.
 
 To deliver a feature module to devices that belong to either `myCustomGroup1` or
-`myCustomGroup2`, modify its `AndroidManifest.xml`:  
+`myCustomGroup2`, modify its `AndroidManifest.xml`:
 
     <manifest ...>
       ...
@@ -717,7 +727,8 @@ To deliver a feature module to devices that belong to either `myCustomGroup1` or
       ...
     </manifest>
 
-| **Note:** Devices that are not targeted won't receive the feature module at all. This is different from [targeting for AI packs](https://developer.android.com/google/play/on-device-ai#targeting-for-ai-packs), where devices that are not targeted receive a default, empty variant of the AI pack.
+> [!NOTE]
+> **Note:** Devices that are not targeted won't receive the feature module at all. This is different from [targeting for AI packs](https://developer.android.com/google/play/on-device-ai#targeting-for-ai-packs), where devices that are not targeted receive a default, empty variant of the AI pack.
 
 ## Test locally
 
@@ -753,7 +764,7 @@ bundletool:
    ```
    # Example without Device Targeting Configuration
    java -jar bundletool.jar install-apks --apks=output.apks
-   ```  
+   ```
 
    ```
    # Example with Device Targeting Configuration (you must specify which groups the connected device belongs to)
@@ -772,11 +783,11 @@ The following are limitations of local testing with bundletool:
 ### Verify that the correct APKs are being installed
 
 Use the following method to ensure only the correct APKs are installed on the
-device  
+device
 
     adb shell pm path {packageName}
 
-You should see something like:  
+You should see something like:
 
     package:{...}/base.apk
     package:{...}/split_config.en.apk

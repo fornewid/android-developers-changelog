@@ -9,7 +9,8 @@ options.
 
 ## Override drawables
 
-| **Caution:** We don't guarantee that the customizations described in the following section will continue to work in future versions of the library. The resource IDs may change name, or some may be deleted entirely. This is indicated by the [resource IDs being marked 'private'](https://developer.android.com/studio/projects/android-library#PrivateResources).
+> [!CAUTION]
+> **Caution:** We don't guarantee that the customizations described in the following section will continue to work in future versions of the library. The resource IDs may change name, or some may be deleted entirely. This is indicated by the [resource IDs being marked 'private'](https://developer.android.com/studio/projects/android-library#PrivateResources).
 
 `PlayerView` uses `PlayerControlView` to display the playback controls and
 progress bar. The drawables used by `PlayerControlView` can be overridden by
@@ -35,7 +36,7 @@ even if the player isn't paused.
 
 To simplify the implementation, Media3 provides util methods to decide which
 button to show (`Util.shouldShowPlayButton`) and to handle button presses
-(`Util.handlePlayPauseButtonAction`):  
+(`Util.handlePlayPauseButtonAction`):
 
 ### Kotlin
 
@@ -63,7 +64,7 @@ events](https://developer.android.com/guide/topics/media/exoplayer/listening-to-
 
 Refreshing the UI can be costly and multiple player events often arrive
 together. To avoid refreshing the UI too often in a short period of time, it's
-generally better to listen to just `onEvents` and trigger UI updates from there:  
+generally better to listen to just `onEvents` and trigger UI updates from there:
 
 ### Kotlin
 
@@ -108,7 +109,7 @@ player.addListener(new Player.Listener() {
 
 A general purpose UI component that may need to work with different `Player`
 implementations should check the available player commands to show or hide
-buttons and to avoid calling unsupported methods:  
+buttons and to avoid calling unsupported methods:
 
 ### Kotlin
 
@@ -135,7 +136,7 @@ A common pattern to handle these updates is to listen to
 [`Player.Listener.onEvents()`](https://developer.android.com/reference/androidx/media3/exoplayer/Player.Listener#onEvents(androidx.media3.exoplayer.Player,%20androidx.media3.exoplayer.Player.Events)) for any change in selected tracks
 (`EVENT_TRACKS_CHANGED`) and for when the first video frame has been rendered
 (`EVENT_RENDERED_FIRST_FRAME`), as well as [`ImageOutput.onImageAvailable()`](https://developer.android.com/reference/androidx/media3/ui/ImageOutput#onImageAvailable(long,%20android.graphics.Bitmap))
-for when a new image is available:  
+for when a new image is available:
 
 ### Kotlin
 

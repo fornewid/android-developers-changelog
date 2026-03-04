@@ -82,7 +82,9 @@ do anything. If you *do* want to modify the gain map, the usual workflow is:
    pasted an emoji onto the primary image, you might set the corresponding
    portion of the gain map to a neutral value, like [`Color.GRAY`](https://developer.android.com/reference/android/graphics/Color#GRAY).
 
-   | **Important:** The gain map might not have the same pixel dimensions as the primary image. For this reason, you need to calculate the appropriate pixels on the gain map that correspond to the edited areas on the primary image. For example, suppose the primary image is 8,000×4,000 pixels, and the gain map is 2,000×1,000 pixels. If you edit pixel (500,600) on the primary image, the corresponding pixel on the gain map would be at location (125,150).
+   > [!IMPORTANT]
+   > **Important:** The gain map might not have the same pixel dimensions as the primary image. For this reason, you need to calculate the appropriate pixels on the gain map that correspond to the edited areas on the primary image. For example, suppose the primary image is 8,000×4,000 pixels, and the gain map is 2,000×1,000 pixels. If you edit pixel (500,600) on the primary image, the corresponding pixel on the gain map would be at location (125,150).
+
 4. **Apply the modified gain map back to the image** by calling
    [`Bitmap.setGainmap()`](https://developer.android.com/reference/android/graphics/Bitmap#setGainmap(android.graphics.Gainmap))).
 

@@ -6,13 +6,15 @@ source: md.txt
 
 This guide describes how to integrate in-app install prompts in your app using
 either Kotlin or Java.
-| **Note:** Only early access partners can display in-app install prompts. [Learn about participating in the early access program](https://developer.android.com/guide/playcore/install-prompt).
+
+> [!NOTE]
+> **Note:** Only early access partners can display in-app install prompts. [Learn about participating in the early access program](https://developer.android.com/guide/playcore/install-prompt).
 
 ## Set up your development environment
 
 The Play In-App Install Prompts Library is part of the [Google Play Core
 libraries](https://developer.android.com/guide/playcore). To use the library, include the following Gradle
-dependency:  
+dependency:
 
 ### Groovy
 
@@ -39,7 +41,7 @@ dependency:
 ## Create the CrossDevicePromptManager
 
 The `CrossDevicePromptManager` is the interface that lets your app request
-information and launch the install prompt flow. Create an instance to obtain it:  
+information and launch the install prompt flow. Create an instance to obtain it:
 
 ### Kotlin
 
@@ -76,7 +78,7 @@ TV). When your app reaches one of these points, perform the following steps:
 
 If the task is successful, the API returns the `CrossDevicePromptInfo` object in
 the success callback. Otherwise, the API returns an `Exception` in the failure
-callback.  
+callback.
 
 ### Kotlin
 
@@ -108,6 +110,7 @@ callback.
         // Failed to request a prompt flow
     });
 
-| **Important:** If an error occurs during the in-app install prompt flow, don't inform the user or change your app's normal flow. Continue your app's normal flow after `onComplete` is called.
+> [!IMPORTANT]
+> **Important:** If an error occurs during the in-app install prompt flow, don't inform the user or change your app's normal flow. Continue your app's normal flow after `onComplete` is called.
 
 To verify your implementation, see [Test in-app install prompts](https://developer.android.com/guide/playcore/install-prompt/test).

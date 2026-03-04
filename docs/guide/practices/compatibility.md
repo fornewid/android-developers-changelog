@@ -76,9 +76,9 @@ device characteristics:
 To manage your app's availability based on device features, Android defines
 *feature IDs* for any hardware or software feature that might not be
 available on all devices. For example, the feature ID for the compass sensor is
-[FEATURE_SENSOR_COMPASS](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_COMPASS),
+`https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_COMPASS`,
 and the feature ID for app widgets is
-[FEATURE_APP_WIDGETS](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_APP_WIDGETS).
+`https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_APP_WIDGETS`.
 
 If necessary, you can prevent users from installing your app when their
 devices don't provide a necessary feature by declaring the feature using a
@@ -88,7 +88,7 @@ element in your app's
 
 For example, if your app doesn't make sense on a device that lacks a compass
 sensor, you can declare the compass sensor as a requirement with the following
-manifest tag:  
+manifest tag:
 
 ```xml
 <manifest ... >
@@ -110,8 +110,8 @@ attribute to `"false"` and check for the device feature at runtime.
 If the app feature isn't available on the current device, gracefully degrade the
 corresponding app feature. For example, you can query whether a feature is
 available by calling
-[hasSystemFeature()](https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String))
-like this:  
+`https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)`
+like this:
 
 ### Kotlin
 
@@ -136,8 +136,10 @@ For information about all the filters you can use to control the availability
 of your app through Google Play Store, see the
 [Filters on Google Play](https://developer.android.com/google/play/filters)
 documentation.
-| **Note:** Some [system permissions](https://developer.android.com/guide/topics/permissions) implicitly require the availability of a device feature. For example, if your app requests permission to access [BLUETOOTH](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH), this implicitly requires the [FEATURE_BLUETOOTH](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_BLUETOOTH) device feature. You can disable filtering based on this feature and make your app available to devices without Bluetooth by setting the `required` attribute to `"false"` in the `<uses-feature>` tag. For more information about implicitly required device features, read [Permissions
-| that imply feature requirements](https://developer.android.com/guide/topics/manifest/uses-feature-element#permissions).
+
+> [!NOTE]
+> **Note:** Some [system permissions](https://developer.android.com/guide/topics/permissions) implicitly require the availability of a device feature. For example, if your app requests permission to access `https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH`, this implicitly requires the `https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_BLUETOOTH` device feature. You can disable filtering based on this feature and make your app available to devices without Bluetooth by setting the `required` attribute to `"false"` in the `<uses-feature>` tag. For more information about implicitly required device features, read [Permissions
+> that imply feature requirements](https://developer.android.com/guide/topics/manifest/uses-feature-element#permissions).
 
 ### Platform version
 
@@ -152,7 +154,7 @@ You must specify the
 [`minSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#min)
 and
 [`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target)
-values in your `build.gradle` file:  
+values in your `build.gradle` file:
 
 ### Kotlin
 
@@ -194,7 +196,9 @@ For more information about the `build.gradle` file, read
 Each successive version of Android provides compatibility for apps built
 using the APIs from previous platform versions, so your app is compatible with
 future versions of Android while using the documented Android APIs.
-| **Note:** The `targetSdkVersion` attribute doesn't prevent your app from being installed on platform versions that are higher than the specified value, but it's important because it indicates to the system whether your app inherits behavior changes in newer versions. If you don't update the `targetSdkVersion` to the latest version, the system assumes that your app requires backward compatibility when running on the latest version.
+
+> [!NOTE]
+> **Note:** The `targetSdkVersion` attribute doesn't prevent your app from being installed on platform versions that are higher than the specified value, but it's important because it indicates to the system whether your app inherits behavior changes in newer versions. If you don't update the `targetSdkVersion` to the latest version, the system assumes that your app requires backward compatibility when running on the latest version.
 
 However, if your app uses APIs added in a more recent platform version, but
 doesn't require them for its primary functionality, check the API level at
@@ -202,11 +206,11 @@ runtime and gracefully degrade the corresponding features when the API level is
 too low. In this case, set the `minSdkVersion` to the lowest value
 possible for your app's primary functionality, then compare the current system's
 version,
-[SDK_INT](https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT),
+`https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT`,
 to the codename constant in
-[Build.VERSION_CODES](https://developer.android.com/reference/android/os/Build.VERSION_CODES)
+`https://developer.android.com/reference/android/os/Build.VERSION_CODES`
 that corresponds to the API level you want to check, as shown in the following
-example:  
+example:
 
 ### Kotlin
 

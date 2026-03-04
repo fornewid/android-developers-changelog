@@ -11,7 +11,9 @@ whether Google Low Light Boost is supported by the device and camera your app is
 running on. You'll also use the client to create a [`LowLightBoostSession`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostSession).
 ([You'll use the session](https://developer.android.com/media/camera/lowlight/low-light-boost-gp/use-session) to turn low light boost on and off.) You can also
 set up a listener to receive callbacks when low light boost is active.
-| **Note:** The Google Low Light Boost APIs are provided by Google Play services. See the [Google Play services documentation](https://developers.google.com/android) for information on how to set up and call its APIs.
+
+> [!NOTE]
+> **Note:** The Google Low Light Boost APIs are provided by Google Play services. See the [Google Play services documentation](https://developers.google.com/android) for information on how to set up and call its APIs.
 
 `LowLightBoostClient` methods don't signal success or failure directly. Instead,
 they return a [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) object. You use a `Task` to set up success and failure
@@ -48,7 +50,7 @@ APIs](https://developers.google.com/android/guides/api-client).
 ## Create a client
 
 You need a low light boost client to do anything else. The following code
-creates a client:  
+creates a client:
 
 ### Kotlin
 
@@ -66,7 +68,7 @@ creates a client:
 
 Once you have a client, you can check if low light boost is supported by the
 device the app is running on. The following code checks if low light boost is
-supported:  
+supported:
 
 ### Kotlin
 
@@ -108,7 +110,7 @@ supported:
 ## Check if the low light boost module is installed
 
 Once you have a client, you can confirm whether the low light boost module is
-installed on your device. The following code checks if the module is installed:  
+installed on your device. The following code checks if the module is installed:
 
 ### Kotlin
 
@@ -171,7 +173,7 @@ installed on your device. The following code checks if the module is installed:
 
 If the low light boost module isn't already installed on the device, you'll need
 to download and install it from Google Play services. This code shows how to do
-that:  
+that:
 
 ### Kotlin
 

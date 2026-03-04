@@ -24,7 +24,9 @@ such as slow startup, slow transitions, or UI jank.
 The System Tracing app lets you record a system trace using **Quick Settings
 tile** or a menu within the app itself. The following sections describe how to
 complete the recording process using these interfaces.
-| **Note:** As part of your development workflow, you might submit an on-device bug report. It's important to file this type of bug report after you finish recording a system trace. That way, the bug report process itself isn't included in the recorded trace.
+
+> [!NOTE]
+> **Note:** As part of your development workflow, you might submit an on-device bug report. It's important to file this type of bug report after you finish recording a system trace. That way, the bug report process itself isn't included in the recorded trace.
 
 ### Record using Quick Settings tile
 
@@ -64,7 +66,9 @@ following steps:
    tracing.'](https://developer.android.com/static/topic/performance/images/tracing/on-device-systrace-start.webp) **Figure 3.** Persistent notification that appears after starting an on-device system trace.
 2. Perform the actions in your app that you want the system to inspect.
 
-   | **Note:** You can record bugs that are difficult to reproduce by leaving System Tracing running in the background and then stopping System Tracing soon after the bug occurs. System Tracing saves a device's activity to a rolling buffer, which holds 10-30 seconds of events.
+   > [!NOTE]
+   > **Note:** You can record bugs that are difficult to reproduce by leaving System Tracing running in the background and then stopping System Tracing soon after the bug occurs. System Tracing saves a device's activity to a rolling buffer, which holds 10-30 seconds of events.
+
 3. Stop tracing by tapping either the **System Tracing** tile in the **Quick
    Settings** panel or on the System Tracing notification.
 
@@ -98,7 +102,9 @@ following steps:
    to the use case that you're testing, such as the **Audio** category for
    testing Bluetooth operations or the **Memory** category for heap allocations.
 
-   | **Note:** These categories serve as app-level settings, so the system uses these categories when [using the **Quick Settings** tile](https://developer.android.com/topic/performance/tracing/on-device#quick-settings), too. In addition, these settings persist across device reboots.
+   > [!NOTE]
+   > **Note:** These categories serve as app-level settings, so the system uses these categories when [using the **Quick Settings** tile](https://developer.android.com/topic/performance/tracing/on-device#quick-settings), too. In addition, these settings persist across device reboots.
+
 5. Optionally, select **Long traces** to enable traces that are saved
    continuously to device storage. For this option, set limits for the **Maximum
    long trace size** and **Maximum long trace duration**.
@@ -110,7 +116,9 @@ following steps:
    ![](https://developer.android.com/static/topic/performance/images/tracing/system-trace-menu-record-trace.png) **Figure 5.** The **Record trace** switch in the System Tracing settings.
 7. Perform the actions in your app that you want the system to inspect.
 
-   | **Note:** You can record bugs that are difficult to reproduce by leaving System Tracing running in the background, then stopping System Tracing soon after the bug occurs. By default, System Tracing saves a device's activity to a rolling buffer, which holds 10-30 seconds of events. If **Long traces** is enabled, the device's activity is saved continuously to device storage up to the limits you set.
+   > [!NOTE]
+   > **Note:** You can record bugs that are difficult to reproduce by leaving System Tracing running in the background, then stopping System Tracing soon after the bug occurs. By default, System Tracing saves a device's activity to a rolling buffer, which holds 10-30 seconds of events. If **Long traces** is enabled, the device's activity is saved continuously to device storage up to the limits you set.
+
 8. Stop tracing by disabling the **Record trace** switch.
 
    The system displays a new notification that contains the message "Saving
@@ -149,7 +157,7 @@ Files app. You can share a trace from this app.
 
 You can also extract a system trace from a device using `adb`. Connect the
 device used to record the trace to your development machine, then run the
-following commands in a terminal window:  
+following commands in a terminal window:
 
 ```
 cd /path-to-traces-on-my-dev-machine && \
@@ -183,7 +191,7 @@ For a Perfetto file, click **Open trace file** . For a Systrace file, click
 ### Command line
 
 Run the following commands in a terminal window to generate an HTML report
-from the trace file:  
+from the trace file:
 
 ```
 cd /path-to-traces-on-my-dev-machine && \

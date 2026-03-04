@@ -20,7 +20,7 @@ Transformer. For more details you can head to our full guides on
 ## Get started
 
 To get started, add a dependency on the Transformer, Effect, and Common modules
-of Jetpack Media3:  
+of Jetpack Media3:
 
 ```groovy
 implementation "androidx.media3:media3-transformer:1.9.2"
@@ -37,9 +37,9 @@ to see the latest version.
 
 | Class | Purpose |
 |---|---|
-| [Transformer](https://developer.android.com/reference/androidx/media3/transformer/Transformer) | Start and stop transformations and check for progress updates on a running transformation. |
-| [EditedMediaItem](https://developer.android.com/reference/androidx/media3/transformer/EditedMediaItem) | Represents a media item to process and the edits to apply to it. |
-| [Effects](https://developer.android.com/reference/androidx/media3/transformer/Effects) | A collection of audio and video effects. |
+| `https://developer.android.com/reference/androidx/media3/transformer/Transformer` | Start and stop transformations and check for progress updates on a running transformation. |
+| `https://developer.android.com/reference/androidx/media3/transformer/EditedMediaItem` | Represents a media item to process and the edits to apply to it. |
+| `https://developer.android.com/reference/androidx/media3/transformer/Effects` | A collection of audio and video effects. |
 
 ## Configure the output
 
@@ -50,7 +50,7 @@ With `Transformer.Builder`, you can now specify `videoMimeType` and
 ### Transcode between formats
 
 The following code shows how to configure a `Transformer` object to
-output H.265/AVC video and AAC audio:  
+output H.265/AVC video and AAC audio:
 
 ### Kotlin
 
@@ -92,7 +92,7 @@ want to use either `HDR_MODE_KEEP_HDR` or
 On devices that support the required encoding capabilities and run Android 13
 (API level 33) or higher, `Transformer` objects let you edit HDR videos.
 `HDR_MODE_KEEP_HDR` is the default mode when building the `Composition` object,
-as shown in the following code:  
+as shown in the following code:
 
 ### Kotlin
 
@@ -121,7 +121,7 @@ with the transformations to apply to it.
 ### Trim a video
 
 To remove unwanted portions of a video, you can set custom start and end
-positions by adding a `ClippingConfiguration` to the `MediaItem`.  
+positions by adding a `ClippingConfiguration` to the `MediaItem`.
 
 ### Kotlin
 
@@ -169,7 +169,7 @@ to mix and scale audio channels.
 
 To use these effects, create an instance of the effect or audio processor, build
 an instance of `Effects` with the audio and video effects you want to apply to
-the media item, then add the `Effects` object to an `EditedMediaItem`.  
+the media item, then add the `Effects` object to an `EditedMediaItem`.
 
 ### Kotlin
 
@@ -209,7 +209,7 @@ EditedMediaItem editedMediaItem = new EditedMediaItem.Builder(mediaItem)
 By extending the effects included in Media3, you can create custom effects
 specific to your use cases. In the following example, use subclass
 `MatrixTransformation` to zoom the video into filling the frame over the first
-second of playback:  
+second of playback:
 
 ### Kotlin
 
@@ -257,7 +257,7 @@ to send each frame through a MediaPipe graph. See an example of this in the
 With [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer), you can preview the effects
 added to a media item before starting the export process. Using the same
 `Effects` object as for the `EditedMediaItem`, call `setVideoEffects()` on your
-ExoPlayer instance.  
+ExoPlayer instance.
 
 ### Kotlin
 
@@ -284,7 +284,7 @@ You can also preview audio effects with ExoPlayer. When building your
 `ExoPlayer` instance, pass in a custom `RenderersFactory` that configures the
 player's audio renderers to output audio to an `AudioSink` that uses your
 `AudioProcessor` sequence. In the example below, we do this by overriding the
-`buildAudioSink()` method of a `DefaultRenderersFactory`.  
+`buildAudioSink()` method of a `DefaultRenderersFactory`.
 
 ### Kotlin
 
@@ -338,7 +338,7 @@ ExoPlayer player = new ExoPlayer.Builder(context, new DefaultRenderersFactory(co
 ## Start a transformation
 
 Lastly, create a `Transformer` to apply your edits and start exporting the
-resulting media item.  
+resulting media item.
 
 ### Kotlin
 

@@ -16,7 +16,7 @@ syntax:
 contained in:
 :
     `
-    `[<application>](https://developer.android.com/guide/topics/manifest/application-element)`
+    https://developer.android.com/guide/topics/manifest/application-element
     `
 
 description:
@@ -45,7 +45,7 @@ description:
     This element also affects the installation of the application on a particular device. If this
     element is present and its `android:required` attribute is set to
     `true`, the
-    [PackageManager](https://developer.android.com/reference/android/content/pm/PackageManager)
+    `https://developer.android.com/reference/android/content/pm/PackageManager`
     framework won't let a user install the application unless the library is present on the
     user's device.
 
@@ -76,8 +76,8 @@ introduced in:
 
 see also:
 :
-    - [PackageManager](https://developer.android.com/reference/android/content/pm/PackageManager)
-    - [<uses-library>](https://developer.android.com/guide/topics/manifest/uses-library-element)
+    - `https://developer.android.com/reference/android/content/pm/PackageManager`
+    - `https://developer.android.com/guide/topics/manifest/uses-library-element`
     [](https://developer.android.com/guide/topics/manifest/uses-library-element)
 
     [](https://developer.android.com/guide/topics/manifest/uses-library-element)

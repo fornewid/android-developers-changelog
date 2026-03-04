@@ -37,7 +37,7 @@ Here are the key parameters you can configure in the `.asfp-project` file:
 
 *Required*
 
-An absolute path to your Android platform repository root.  
+An absolute path to your Android platform repository root.
 
     repo: /path/to/aosp
 
@@ -46,7 +46,7 @@ An absolute path to your Android platform repository root.
 *Required*
 
 The lunch target that will be coupled with your project. This is used for all
-Soong build actions, including sync and relevant run configurations.  
+Soong build actions, including sync and relevant run configurations.
 
     lunch: your-product-variant-userdebug
 
@@ -55,7 +55,7 @@ Soong build actions, including sync and relevant run configurations.
 *Optional*
 
 Directories to either include in or exclude from your project. These should be
-relative paths with respect to the `repo` root.  
+relative paths with respect to the `repo` root.
 
     directories:
       include:
@@ -71,7 +71,7 @@ relative paths with respect to the `repo` root.
 
 Modules to either include in or exclude from your project. These work in
 conjunction with the previously specified `directories`. Both full and abridged
-names are supported.  
+names are supported.
 
     modules:
       include:
@@ -87,7 +87,7 @@ names are supported.
 ASfP attempts to differentiate between production and test sources, but in some
 cases, you might need to explicitly denote test sources. Provide these as
 relative paths with respect to the `repo` root. Any source roots that are
-subdirectories of the specified path(s) will be marked as test.  
+subdirectories of the specified path(s) will be marked as test.
 
     test_sources:
       -   cts/tests/tests/example
@@ -98,7 +98,7 @@ subdirectories of the specified path(s) will be marked as test.
 *Optional*
 
 Java support is included by default. You can add support for other languages.
-ASfP also supports C/C++ (`cpp`) and Rust (`rust`).  
+ASfP also supports C/C++ (`cpp`) and Rust (`rust`).
 
     other_languages:
       -   cpp
@@ -110,7 +110,7 @@ ASfP also supports C/C++ (`cpp`) and Rust (`rust`).
 
 This parameter lets you add custom flags or environment variables to Soong build
 events. This configuration applies to all actions in the IDE that result in a
-Soong build, including sync and run configurations.  
+Soong build, including sync and run configurations.
 
     build_config:
       flags:

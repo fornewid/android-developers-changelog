@@ -88,4 +88,10 @@ Here is other compatibility info:
 |---|---|
 | **Android Gradle Plugin** | |---| | [Issue #458708710](https://issuetracker.google.com/issues/458708710) Add ability to turn ManifestProcessorTask warnings into errors | | [Issue #469745905](https://issuetracker.google.com/issues/469745905) Transforming \`OBFUSCATION_MAPPING_FILE\` artifact results in outputs of R8 task missing from the output folder | |
 
+### Android Gradle plugin 9.1.0
+
+| Fixed Issues ||
+|---|---|
+| No public issues were marked as fixed in AGP 9.1.0 ||
+
 <br />

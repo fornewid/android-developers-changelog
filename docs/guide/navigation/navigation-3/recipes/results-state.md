@@ -17,8 +17,9 @@ This example uses a `ResultStore` to manage the result as state.
 3. **Observing the result** : The screen that needs the result calls `resultStore.getResultState<Person?>()` to get a `State` object representing the result. The UI then observes this state and recomposes whenever the result changes.
 
 This approach is suitable when the result should be treated as persistent state that survives recomposition and configuration changes.
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/state)
 
-```python
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -47,7 +48,7 @@ class HomeViewModel : ViewModel() {
 }
 ```
 
-```python
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -76,7 +77,7 @@ data object Home : NavKey
 class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/720136f00b4c1bfbb3d09ae4b0f4bd16e3006536/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
 ```
 
-```scalate-server-page
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -98,7 +99,7 @@ package com.example.nav3recipes.results.common
 data class Person(val name: String, val favoriteColor: String)
 ```
 
-```python
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -183,7 +184,7 @@ fun PersonDetailsScreen(
 }
 ```
 
-```python
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -259,7 +260,7 @@ class ResultStateActivity : ComponentActivity() {
 }
 ```
 
-```python
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *

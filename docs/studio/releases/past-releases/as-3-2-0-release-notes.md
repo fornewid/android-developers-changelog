@@ -9,7 +9,7 @@ source: md.txt
 # Android Studio 3.2 (September 2018)
 
 Android Studio 3.2 is a major release that includes a variety of new features
-and improvements.  
+and improvements.
 **3.2.1 (October 2018)**
 
 This update to Android Studio 3.2 includes the following changes and fixes:
@@ -362,7 +362,7 @@ section, and select the rules that you want to enable.
 ![](https://developer.android.com/static/studio/images/releases/java-kotlin-interop.png)
 
 To enable these checks for command-line builds, add the following to your
-`build.gradle` file:  
+`build.gradle` file:
 
             android {
                 lintOptions {
@@ -440,7 +440,7 @@ desugaring with D8 is turned on by default.
 
 R8 is a new tool for code shrinking and obfuscation that replaces ProGuard. You
 can start using the preview version of R8 by including the following in your
-project's `gradle.properties` file:  
+project's `gradle.properties` file:
 
           android.enableR8 = true
         
@@ -456,7 +456,7 @@ following ABIs by default: `mips`, `mips64`, and `armeabi`.
 
 If you want to build APKs that target these ABIs, you must use
 [NDK r16b or lower](https://developer.android.com/ndk/downloads/revision_history) and specify the ABIs
-in your `build.gradle` file, as shown below:  
+in your `build.gradle` file, as shown below:
 
 ```groovy
     splits {
@@ -466,7 +466,7 @@ in your `build.gradle` file, as shown below:
         }
     }
     
-```  
+```
 
 ```kotlin
     splits {
@@ -540,7 +540,7 @@ Beginning with Android Studio 3.2, the source for
 is Google's Maven repository.
 
 To use AAPT2, make sure that you have a `google()` dependency in your
-`build.gradle` file, as shown here:  
+`build.gradle` file, as shown here:
 
 ```groovy
     buildscript {
@@ -559,7 +559,7 @@ To use AAPT2, make sure that you have a `google()` dependency in your
         }
     }
     
-```  
+```
 
 ```kotlin
     buildscript {

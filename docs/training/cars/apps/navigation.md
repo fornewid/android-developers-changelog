@@ -379,18 +379,18 @@ following snippet:
 ```xml
 <application>
     ...
-<   service
+   <service
        ...
         android:name=".MyNavigationCarAppService"
-        android:exported=&<quot;true">
-   <   intent-filter>
-        action android:name="androidx.<car.app.CarAppService" />
-        category android:name="a<ndroidx.car.app.category.NAVIGATION"/>
-        category android:na<me="androidx.ca<r.app.category.FEA<TURE_CLUSTER"/>
-      /intent-filter>
-    /service>
+        android:exported="true">
+      <intent-filter>
+        <action android:name="androidx.car.app.CarAppService" />
+        <category android:name="androidx.car.app.category.NAVIGATION"/>
+        <category android:name="androidx.car.app.category.FEATURE_CLUSTER"/>
+      </intent-filter>
+    </service>
     ...
-/application>
+</application>
 ```
 
 ### Lifecycle and State Management

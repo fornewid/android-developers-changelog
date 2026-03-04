@@ -12,7 +12,7 @@ it makes testing your code easier.
 Hilt isn't necessary for unit tests, since when testing a class that uses
 constructor injection, you don't need to use Hilt to instantiate that class.
 Instead, you can directly call a class constructor by passing in fake or mock
-dependencies, just as you would if the constructor weren't annotated:  
+dependencies, just as you would if the constructor weren't annotated:
 
 ### Kotlin
 
@@ -69,7 +69,7 @@ generates a new set of components for each test.
 ### Adding testing dependencies
 
 To use Hilt in your tests, include the `hilt-android-testing` dependency in your
-project:  
+project:
 
 ### Groovy
 
@@ -112,8 +112,10 @@ dependencies {
     androidTestAnnotationProcessor("com.google.dagger:hilt-android-compiler:2.57.1")
 }
 ```
-| **Note:** If you use [Jetpack
-| integrations](https://developer.android.com/training/dependency-injection/hilt-jetpack), you must also include the annotation processors for the integrated libraries with `kaptTest` or `kaptAndroidTest` for Kotlin, or with `testAnnotationProcessor` or `androidTestAnnotationProcessor` for Java.
+
+> [!NOTE]
+> **Note:** If you use [Jetpack
+> integrations](https://developer.android.com/training/dependency-injection/hilt-jetpack), you must also include the annotation processors for the integrated libraries with `kaptTest` or `kaptAndroidTest` for Kotlin, or with `testAnnotationProcessor` or `androidTestAnnotationProcessor` for Java.
 
 ### UI test setup
 
@@ -121,7 +123,7 @@ You must annotate any UI test that uses Hilt with `@HiltAndroidTest`. This
 annotation is responsible for generating the Hilt components for each test.
 
 Also, you need to add the `HiltAndroidRule` to the test class. It manages the
-components' state and is used to perform injection on your test:  
+components' state and is used to perform injection on your test:
 
 ### Kotlin
 
@@ -148,8 +150,10 @@ public final class SettingsActivityTest {
   // UI tests here.
 }
 ```
-| **Note:** If you have other rules in your test, see [Multiple TestRule objects in
-| your instrumented test](https://developer.android.com/training/dependency-injection/hilt-testing#multiple-testrules).
+
+> [!NOTE]
+> **Note:** If you have other rules in your test, see [Multiple TestRule objects in
+> your instrumented test](https://developer.android.com/training/dependency-injection/hilt-testing#multiple-testrules).
 
 Next, your test needs to know about the `Application` class that Hilt
 automatically generates for you.
@@ -206,7 +210,7 @@ public final class CustomTestRunner extends AndroidJUnitRunner {
 Next, configure this test runner in your Gradle file as described in the
 [instrumented unit test
 guide](https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests#setup). Make sure
-you use the full classpath:  
+you use the full classpath:
 
 ### Groovy
 
@@ -238,7 +242,7 @@ to use in the `robolectric.properties` file:
 `application = dagger.hilt.android.testing.HiltTestApplication`
 
 Alternatively, you can configure the application on each test individually by
-using Robolectric's `@Config` annotation:  
+using Robolectric's `@Config` annotation:
 
 ### Kotlin
 
@@ -269,7 +273,7 @@ class SettingsActivityTest {
 
 If you use an Android Gradle Plugin version lower than 4.2, enable
 transforming `@AndroidEntryPoint` classes in local unit tests by applying the
-following configuration in your module's `build.gradle` file:  
+following configuration in your module's `build.gradle` file:
 
 ### Groovy
 
@@ -300,7 +304,7 @@ customize the testing process.
 To inject types into a test, use `@Inject` for field injection. To tell Hilt to
 populate the `@Inject` fields, call `hiltRule.inject()`.
 
-See the following example of an instrumented test:  
+See the following example of an instrumented test:
 
 ### Kotlin
 
@@ -357,7 +361,7 @@ contains the binding with a test module that contains the bindings that you want
 to use in the test.
 
 For example, suppose your production code declares a binding for
-`AnalyticsService` as follows:  
+`AnalyticsService` as follows:
 
 ### Kotlin
 
@@ -392,7 +396,7 @@ public abstract class AnalyticsModule {
 To replace the `AnalyticsService` binding in tests, create a new Hilt module in
 the `test` or `androidTest` folder with the fake dependency and annotate it
 with `@TestInstallIn`. All the tests in that folder are injected with the fake
-dependency instead.  
+dependency instead.
 
 ### Kotlin
 
@@ -438,7 +442,7 @@ test module inside the test.
 
 Following the `AnalyticsService` example from the previous version, begin by telling
 Hilt to ignore the production module by using the `@UninstallModules` annotation
-in the test class:  
+in the test class:
 
 ### Kotlin
 
@@ -457,7 +461,7 @@ public final class SettingsActivityTest { ... }
 ```
 
 Next, you must replace the binding. Create a new module within the test class
-that defines the test binding:  
+that defines the test binding:
 
 ### Kotlin
 
@@ -507,9 +511,15 @@ the binding for all test classes, use the `@TestInstallIn` annotation from the
 section above. Alternatively, you can put the test binding in the `test` module
 for Robolectric tests, or in the `androidTest` module for instrumented tests.
 The recommendation is to use `@TestInstallIn` whenever possible.
-| **Warning:** You cannot uninstall modules that are not annotated with `@InstallIn`. Attempting to do so causes a compilation error.
-| **Warning:** `@UninstallModules` can only uninstall `@InstallIn` modules, not `@TestInstallIn` modules. Attempting to do so causes a compilation error.
-| **Note:** As Hilt creates new components for tests that use `@UninstallModules`, it can significantly impact unit test build times. Use it when necessary and prefer using `@TestInstallIn` when the bindings need to be replaced in all test classes.
+
+> [!WARNING]
+> **Warning:** You cannot uninstall modules that are not annotated with `@InstallIn`. Attempting to do so causes a compilation error.
+
+> [!WARNING]
+> **Warning:** `@UninstallModules` can only uninstall `@InstallIn` modules, not `@TestInstallIn` modules. Attempting to do so causes a compilation error.
+
+> [!NOTE]
+> **Note:** As Hilt creates new components for tests that use `@UninstallModules`, it can significantly impact unit test build times. Use it when necessary and prefer using `@TestInstallIn` when the bindings need to be replaced in all test classes.
 
 #### Binding new values
 
@@ -518,7 +528,7 @@ dependency graph. Annotate a field with `@BindValue` and it will be bound under
 the declared field type with any qualifiers that are present for that field.
 
 In the `AnalyticsService` example, you can replace `AnalyticsService` with a
-fake by using `@BindValue`:  
+fake by using `@BindValue`:
 
 ### Kotlin
 
@@ -553,7 +563,7 @@ by allowing you to do both at the same time.
 `@BindValue` works with qualifiers and other testing annotations. For example,
 if you use testing libraries such as
 [Mockito](https://site.mockito.org/), you could use it in a
-Robolectric test as follows:  
+Robolectric test as follows:
 
 ### Kotlin
 
@@ -598,7 +608,7 @@ extend another application, annotate a new class or interface with
 generated Hilt application to extend.
 
 `@CustomTestApplication` will generate an `Application` class ready for testing
-with Hilt that extends the application you passed as a parameter.  
+with Hilt that extends the application you passed as a parameter.
 
 ### Kotlin
 
@@ -621,14 +631,16 @@ class appended with `_Application`. You must set the generated Hilt test
 application to run in your [instrumented tests](https://developer.android.com/training/testing/ui-testing) or
 [Robolectric tests](http://robolectric.org/) as described in [Test
 application](https://developer.android.com/training/dependency-injection/hilt-testing#test-application).
-| **Note:** Because `HiltTestApplication_Application` is code that Hilt generates at runtime, the IDE might highlight it in red until you run your tests.
+
+> [!NOTE]
+> **Note:** Because `HiltTestApplication_Application` is code that Hilt generates at runtime, the IDE might highlight it in red until you run your tests.
 
 ### Multiple TestRule objects in your instrumented test
 
 If you have other `TestRule` objects in your test, there are multiple ways to
 ensure that all of the rules work together.
 
-You can wrap the rules together as follows:  
+You can wrap the rules together as follows:
 
 ### Kotlin
 
@@ -660,7 +672,7 @@ public final class SettingsActivityTest {
 Alternatively, you can use both rules at the same level as long as the
 `HiltAndroidRule` executes first. Specify the execution order using the
 `order` attribute in the `@Rule` annotation. This only works in JUnit version
-4.13 or higher:  
+4.13 or higher:
 
 ### Kotlin
 

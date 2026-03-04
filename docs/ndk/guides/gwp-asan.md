@@ -4,8 +4,11 @@ url: https://developer.android.com/ndk/guides/gwp-asan
 source: md.txt
 ---
 
-| **Important:** GWP-Asan is one of many tools available for memory debugging and mitigation. See [Memory error debugging and mitigation](https://developer.android.com/ndk/guides/memory-debug) for an overview of all the tools.
-| **Important:** On devices that run Android 14 (API level 34) or higher, all apps use [Recoverable GWP-ASan](https://developer.android.com/ndk/guides/gwp-asan#recoverable) by default.
+> [!IMPORTANT]
+> **Important:** GWP-Asan is one of many tools available for memory debugging and mitigation. See [Memory error debugging and mitigation](https://developer.android.com/ndk/guides/memory-debug) for an overview of all the tools.
+
+> [!IMPORTANT]
+> **Important:** On devices that run Android 14 (API level 34) or higher, all apps use [Recoverable GWP-ASan](https://developer.android.com/ndk/guides/gwp-asan#recoverable) by default.
 
 GWP-ASan is a native memory allocator feature that helps find
 [use-after-free](https://cwe.mitre.org/data/definitions/416.html)
@@ -80,7 +83,7 @@ supported:
      report.
 
 To enable GWP-ASan globally for your app, add the following to your
-`AndroidManifest.xml` file:  
+`AndroidManifest.xml` file:
 
 ```xml
 <application android:gwpAsanMode="always">
@@ -91,7 +94,7 @@ To enable GWP-ASan globally for your app, add the following to your
 Additionally, GWP-ASan can be explicitly enabled or disabled for specific
 subprocesses of your app. You can target activities and services using processes
 that are explicitly opted-in or opted-out of GWP-ASan. See the following for an
-example:  
+example:
 
 ```xml
 <application>
@@ -183,7 +186,7 @@ problems.
 
 ## Example
 
-This example native code has a heap use-after-free bug:  
+This example native code has a heap use-after-free bug:
 
     #include <jni.h>
     #include <string>
@@ -219,7 +222,7 @@ For a test run using the example code above, GWP-ASan successfully caught the
 illegal usage and triggered the crash report below. GWP-ASan has automatically
 enhanced the report by providing information about the type of crash, the
 allocation metadata, and the associated allocation and deallocation stack
-traces.  
+traces.
 
     *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
     Build fingerprint: 'google/sargo/sargo:10/RPP3.200320.009/6360804:userdebug/dev-keys'

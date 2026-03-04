@@ -4,9 +4,7 @@ url: https://developer.android.com/large-screens/archive/gallery
 source: html-scrape
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [UI Design](https://developer.android.com/design/ui)
-* [Large Screens](https://developer.android.com/design/ui/large-screens)
+* [Home](https://developer.android.com/)
 * [Gallery](https://developer.android.com/large-screens/archive/gallery)
 
 Stay organized with collections

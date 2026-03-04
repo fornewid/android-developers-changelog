@@ -23,7 +23,8 @@ and Android Gradle plugin 8.4.
 
 <br />
 
-| **Important:** This update fixes a critical vulnerability in the GitHub plugin that exists in Android Studio Iguana \| 2023.2.1 and higher.
+> [!IMPORTANT]
+> **Important:** This update fixes a critical vulnerability in the GitHub plugin that exists in Android Studio Iguana \| 2023.2.1 and higher.
 
 <br />
 

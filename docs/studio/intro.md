@@ -78,7 +78,9 @@ provided by the Android Gradle plugin. Each project has one top-level build file
 for the entire project and separate module-level build files for each module.
 When you import an existing project, Android Studio automatically generates the
 necessary build files.
-| **Note:** We might reference either the `build.gradle.kts` or `build.gradle` file alone in the documentation, but they're conceptually interchangeable. For example if you see `build.gradle.kts` but you use the Groovy DSL to configure your build, you can think of it as the `build.gradle` file (and the other way around).
+
+> [!NOTE]
+> **Note:** We might reference either the `build.gradle.kts` or `build.gradle` file alone in the documentation, but they're conceptually interchangeable. For example if you see `build.gradle.kts` but you use the Groovy DSL to configure your build, you can think of it as the `build.gradle` file (and the other way around).
 
 To learn more about the build system and how to configure your build, see
 [Configure your build](https://developer.android.com/build).

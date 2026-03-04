@@ -16,7 +16,9 @@ Just like in a mobile app, the user must grant permissions to a Wear app for
 access to certain functionality. In your Wear apps, [provide meaningful
 functionality](https://developer.android.com/training/permissions/evaluating) without requesting any
 permissions.
-| **Note:** A Wear app can't assume the permissions granted in a phone app. For example, if a user grants a phone app the permission to use location data, the user must grant the Wear app the same permission before the Wear app can access the data.
+
+> [!NOTE]
+> **Note:** A Wear app can't assume the permissions granted in a phone app. For example, if a user grants a phone app the permission to use location data, the user must grant the Wear app the same permission before the Wear app can access the data.
 
 ## Permission scenarios
 
@@ -59,7 +61,10 @@ as needed.
 
 If an app or watch face requires more than one permission at a time, permission
 requests appear one after the other.
-![Multiple permission screens, one after another.](https://developer.android.com/static/images/training/wear/multiple_permissions.png) **Figure 1.** Permission screens appearing in succession. **Note:** Wear OS automatically syncs Calendar, Contact, and Location data to the Wear device. This scenario is applicable when Wear requests this data.
+![Multiple permission screens, one after another.](https://developer.android.com/static/images/training/wear/multiple_permissions.png) **Figure 1.** Permission screens appearing in succession.
+
+> [!NOTE]
+> **Note:** Wear OS automatically syncs Calendar, Contact, and Location data to the Wear device. This scenario is applicable when Wear requests this data.
 
 ### Wear app requests phone permission
 
@@ -96,7 +101,8 @@ removing the association removes the permissions. For details, see
 [`AssociationRequest.Builder.setDeviceProfile()`](https://developer.android.com/reference/android/companion/AssociationRequest.Builder#setDeviceProfile(java.lang.String)).
 
 
-| **Note:** To use companion device profiles, your devices must be connected using [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager). If your app is not already using `CompanionDeviceManager`, see [Companion device pairing](https://developer.android.com/guide/topics/connectivity/companion-device-pairing) to get started.
+> [!NOTE]
+> **Note:** To use companion device profiles, your devices must be connected using [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager). If your app is not already using `CompanionDeviceManager`, see [Companion device pairing](https://developer.android.com/guide/topics/connectivity/companion-device-pairing) to get started.
 
 ## Permission-request patterns
 

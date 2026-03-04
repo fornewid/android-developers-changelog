@@ -25,7 +25,9 @@ Important implementation details:
 
 - Each top level route has its own `SaveableStateHolderNavEntryDecorator`. This is the object responsible for managing the state for the entries in its back stack.
 
-```python
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/multiplestacks)
+
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -74,7 +76,7 @@ class Navigator(val state: NavigationState){
 }
 ```
 
-```python
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -210,7 +212,7 @@ class NavigationState(
 }
 ```
 
-```python
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -327,7 +329,7 @@ class MultipleStacksActivity : ComponentActivity() {
 }
 ```
 
-```python
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *

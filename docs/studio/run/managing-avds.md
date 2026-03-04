@@ -103,7 +103,7 @@ images.
 The API level of the target device is important, because your app
 doesn't run on a system image with an API level that's lower than the one
 required by your app, as specified in the
-[`minSdk`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/dsl/BaseFlavor#minSdk()) attribute in the app manifest file. For more
+[`minSdk`](https://developer.android.com/reference/tools/gradle-api/9.1/com/android/build/api/dsl/BaseFlavor#minSdk()) attribute in the app manifest file. For more
 information about the relationship between system API level and
 `minSdk`, see [Version your app](https://developer.android.com/studio/publish/versioning).
 
@@ -157,7 +157,8 @@ commands to switch between normal and elevated privileges:
 
 <br />
 
-| **Note:** When running with normal privilege level, the shell prompt ends with a `$` character, but when running with elevated (root) privileges, the shell prompt ends with a `#` character.
+> [!NOTE]
+> **Note:** When running with normal privilege level, the shell prompt ends with a `$` character, but when running with elevated (root) privileges, the shell prompt ends with a `#` character.
 
 ### Storage area
 
@@ -360,7 +361,7 @@ both.
 | Memory and Storage: RAM (Advanced) | Override the amount of RAM on the device set by the hardware manufacturer. Increasing the size uses more resources on your computer but supports faster emulator operation. Enter a RAM size and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). |
 | Memory and Storage: VM Heap (Advanced) | Override the VM heap size set by the hardware manufacturer. Enter a heap size and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). |
 | Memory and Storage: Internal Storage (Advanced) | Override the amount of non-removable memory space available on the device set by the hardware manufacturer. Enter a size and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). |
-| Memory and Storage: SD Card (Advanced) | Specify the amount of removable memory space available to store data on the device. To use a virtual SD card managed by Android Studio, select **Studio-managed**, enter a size, and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). A minimum of 100 MB is recommended to use the camera. To manage the space in a file, select **External file** and click **...** to specify the file and location. For more information, see [mksdcard](https://developer.android.com/tools/help/mksdcard) and [AVD data directory](https://developer.android.com/studio/run/emulator-commandline#data-filedir). |
+| Memory and Storage: SD Card (Advanced) | Specify the amount of removable memory space available to store data on the device. To use a virtual SD card managed by Android Studio, select **Studio-managed**, enter a size, and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). A minimum of 100 MB is recommended to use the camera. To manage the space in a file, select **External file** and click **...** to specify the file and location. For more information, see `https://developer.android.com/tools/help/mksdcard` and [AVD data directory](https://developer.android.com/studio/run/emulator-commandline#data-filedir). |
 | Device Frame: Enable Device Frame | Select to enable a frame around the emulator window that mimics the look of a real device. |
 | Custom Skin Definition (Advanced) | Select a skin that controls what the device looks like when displayed in the emulator. Specifying a screen size that's too big for the skin can mean that the screen is cut off, so you can't see the whole screen. See the [Create an emulator skin](https://developer.android.com/tools/devices/managing-avds#skins) section for more information. |
 | Keyboard: Enable Keyboard Input (Advanced) | Select this option to use your hardware keyboard to interact with the emulator. This option is disabled for Wear OS and Android TV. |
