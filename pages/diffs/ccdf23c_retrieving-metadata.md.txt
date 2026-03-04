@@ -1,0 +1,94 @@
+diff --git a/docs/media/media3/exoplayer/retrieving-metadata.md b/docs/media/media3/exoplayer/retrieving-metadata.md
+index b75d14f..37cc82b 100644
+--- a/docs/media/media3/exoplayer/retrieving-metadata.md
++++ b/docs/media/media3/exoplayer/retrieving-metadata.md
+@@ -47,45 +47,57 @@ create and prepare a player.
+ ### Kotlin
+ 
+ ```kotlin
+-try {
+-  MetadataRetriever.Builder(context, mediaItem).build().use { metadataRetriever ->
+-    val trackGroups = metadataRetriever.retrieveTrackGroups().await()
+-    val timeline = metadataRetriever.retrieveTimeline().await()
+-    val durationUs = metadataRetriever.retrieveDurationUs().await()
+-    handleMetadata(trackGroups, timeline, durationUs)
++suspend fun retrieveMetadata(context: Context, mediaItem: MediaItem) {
++  try {
++    // 1. Build the retriever.
++    // `MetadataRetriever` implements `AutoCloseable`, so wrap it in
++    // a Kotlin `.use` block, which calls `close()` automatically.
++    MetadataRetriever.Builder(context, mediaItem).build().use { retriever ->
++      // 2. Retrieve metadata asynchronously.
++      val trackGroups = retriever.retrieveTrackGroups().await()
++      val timeline = retriever.retrieveTimeline().await()
++      val durationUs = retriever.retrieveDurationUs().await()
++      handleMetadata(trackGroups, timeline, durationUs)
++    }
++  } catch (e: Exception) {
++    handleFailure(e)
+   }
+-} catch (e: IOException) {
+-  handleFailure(e)
+ }
+ ```
+ 
+ ### Java
+ 
+ ```java
+-try (MetadataRetriever metadataRetriever =
+-    new MetadataRetriever.Builder(context, mediaItem).build()) {
+-  ListenableFuture<TrackGroupArray> trackGroupsFuture = metadataRetriever.retrieveTrackGroups();
+-  ListenableFuture<Timeline> timelineFuture = metadataRetriever.retrieveTimeline();
+-  ListenableFuture<Long> durationUsFuture = metadataRetriever.retrieveDurationUs();
+-  ListenableFuture<List<Object>> allFutures =
+-      Futures.allAsList(trackGroupsFuture, timelineFuture, durationUsFuture);
+-  Futures.addCallback(
+-      allFutures,
+-      new FutureCallback<List<Object>>() {
+-        @Override
+-        public void onSuccess(List<Object> result) {
+-          handleMetadata(
+-              Futures.getUnchecked(trackGroupsFuture),
+-              Futures.getUnchecked(timelineFuture),
+-              Futures.getUnchecked(durationUsFuture));
+-        }
+-
+-        @Override
+-        public void onFailure(Throwable t) {
+-          handleFailure(t);
+-        }
+-      },
+-      executor);
++public void retrieveMetadata(Context context, MediaItem mediaItem) {
++  // 1. Build the retriever.
++  // `MetadataRetriever` implements `AutoCloseable`, so use try-with-resources
++  // so that the resources are automatically released.
++  try (MetadataRetriever retriever = new MetadataRetriever.Builder(context, mediaItem).build()) {
++    // 2. Retrieve metadata asynchronously.
++    ListenableFuture<TrackGroupArray> trackGroupsFuture = retriever.retrieveTrackGroups();
++    ListenableFuture<Timeline> timelineFuture = retriever.retrieveTimeline();
++    ListenableFuture<Long> durationUsFuture = retriever.retrieveDurationUs();
++
++    ListenableFuture<List<Object>> allFutures =
++        Futures.allAsList(trackGroupsFuture, timelineFuture, durationUsFuture);
++    Futures.addCallback(
++        allFutures,
++        new FutureCallback<List<Object>>() {
++          @Override
++          public void onSuccess(List<Object> result) {
++            handleMetadata(
++                Futures.getUnchecked(trackGroupsFuture),
++                Futures.getUnchecked(timelineFuture),
++                Futures.getUnchecked(durationUsFuture));
++          }
++
++          @Override
++          public void onFailure(Throwable t) {
++            handleFailure(t);
++          }
++        },
++        directExecutor());
++  }
+ }
+ ```
+ 

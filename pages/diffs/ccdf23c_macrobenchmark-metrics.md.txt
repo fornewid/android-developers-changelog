@@ -1,0 +1,33 @@
+diff --git a/docs/topic/performance/benchmarking/macrobenchmark-metrics.md b/docs/topic/performance/benchmarking/macrobenchmark-metrics.md
+index 176a015..80908f3 100644
+--- a/docs/topic/performance/benchmarking/macrobenchmark-metrics.md
++++ b/docs/topic/performance/benchmarking/macrobenchmark-metrics.md
+@@ -11,7 +11,7 @@ multiple measured metrics at once. At least one type of metric is required for
+ the benchmark to run.
+ 
+ The following code snippet captures frame timing and custom trace section
+-metrics:  
++metrics:
+ 
+ ### Kotlin
+ 
+@@ -92,7 +92,8 @@ For more information on how to identify and improve slow frames, see
+ 
+ ## TraceSectionMetric
+ 
+-| **Experimental:** This class is experimental.
++> [!WARNING]
++> **Experimental:** This class is experimental.
+ 
+ [`TraceSectionMetric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/TraceSectionMetric)
+ captures the number of times a trace section matching the provided `sectionName`
+@@ -116,7 +117,8 @@ events](https://developer.android.com/topic/performance/tracing/custom-events).
+ 
+ ## PowerMetric
+ 
+-| **Experimental:** This class is experimental.
++> [!WARNING]
++> **Experimental:** This class is experimental.
+ 
+ [`PowerMetric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/PowerMetric) captures
+ the change in power or energy over the duration of your test for the provided

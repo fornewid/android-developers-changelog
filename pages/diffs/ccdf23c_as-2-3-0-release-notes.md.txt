@@ -1,0 +1,28 @@
+diff --git a/docs/studio/releases/past-releases/as-2-3-0-release-notes.md b/docs/studio/releases/past-releases/as-2-3-0-release-notes.md
+index 65c9f50..cfb43ec 100644
+--- a/docs/studio/releases/past-releases/as-2-3-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-2-3-0-release-notes.md
+@@ -9,12 +9,12 @@ source: md.txt
+ # Android Studio 2.3 (March 2017)
+ 
+ Android Studio 2.3.0 is primarily a bug fix and stability release, but it
+-also includes a number of new features.  
++also includes a number of new features.
+ 
+ **2.3.3 (June 2017)**
+ 
+ 
+-This is a minor update to add support for Android O (API level 26).  
++This is a minor update to add support for Android O (API level 26).
+ 
+ **2.3.2 (April 2017)**
+ 
+@@ -25,7 +25,7 @@ This is a minor update to Android Studio 2.3 for the following changes:
+ - Bug fixes for NDK builds when using R14+ of the NDK.
+ 
+ 
+-Also see corresponding updates for [Android Emulator 26.0.3](https://developer.android.com/studio/releases/emulator).  
++Also see corresponding updates for [Android Emulator 26.0.3](https://developer.android.com/studio/releases/emulator).
+ 
+ **2.3.1 (April 2017)**
+ 

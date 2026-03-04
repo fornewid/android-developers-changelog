@@ -1,5 +1,1837 @@
 [
   {
+    "date": "2026-03-04T16:28:05Z",
+    "commit_hash": "ccdf23c",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/10/get\" target=\"_blank\">get.md</a>",
+        "path": "about/versions/10/get.md",
+        "summary": "This document provides instructions on how to obtain and set up Android 10 for testing and development. The changes primarily involve formatting updates for better readability, and minor clarifications within the existing content. No significant new information or functional changes are introduced.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_get.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/10/setup-sdk\" target=\"_blank\">setup-sdk.md</a>",
+        "path": "about/versions/10/setup-sdk.md",
+        "summary": "The documentation provides instructions on how to set up the Android 10 SDK in Android Studio, including getting the latest Android Studio, installing the SDK, and updating the build configuration. The changes primarily involve formatting and minor wording adjustments for better readability, such as adding line breaks and clarifying instructions. These changes help developers easily set up their environment and test Android 10 features and behavior changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_setup-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/12/get\" target=\"_blank\">get.md</a>",
+        "path": "about/versions/12/get.md",
+        "summary": "This document provides updated instructions and links for obtaining Android 12, including flashing, emulators, GSIs, and Android TV. The changes primarily refine the wording, improve clarity, and update links related to Android 12 resources. No significant feature changes were made.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_get.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/13/features/qrscanner\" target=\"_blank\">qrscanner.md</a>",
+        "path": "about/versions/13/features/qrscanner.md",
+        "summary": "This document describes the Android 13 feature that adds a dedicated QR code scanner accessible from the Quick Settings tile to facilitate UPI payment flows. The changes include adding images, clarifying the behavior of the disambiguation dialog when multiple UPI apps are installed, and explaining how payment apps can identify the source of the QR code (live camera or static image) using intent extras.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_qrscanner.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/13/get\" target=\"_blank\">get.md</a>",
+        "path": "about/versions/13/get.md",
+        "summary": "The documentation was updated to reflect minor formatting adjustments, improved clarity, and updated links for obtaining and setting up Android 13, including Pixel devices, emulators, and GSIs. These changes provide more accurate and accessible instructions for developers to test and utilize Android 13 features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_get.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/13/setup-sdk\" target=\"_blank\">setup-sdk.md</a>",
+        "path": "about/versions/13/setup-sdk.md",
+        "summary": "The documentation for setting up the Android 13 SDK has been updated. The changes include formatting adjustments for better readability, and minor clarifications without altering the core instructions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_setup-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/14/changes/data-safety\" target=\"_blank\">data-safety.md</a>",
+        "path": "about/versions/14/changes/data-safety.md",
+        "summary": "Android 14 enhances user privacy by increasing the visibility of data safety information declared in the Play Console. This includes displaying data sharing practices in permission dialogs for location permissions if the app shares location data with third parties and providing a system notification if the app's location-sharing practices change.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_data-safety.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/14/changes/fgs-types-required\" target=\"_blank\">fgs-types-required.md</a>",
+        "path": "about/versions/14/changes/fgs-types-required.md",
+        "summary": "This document details changes related to foreground service types in Android 14.  It emphasizes the necessity of declaring appropriate foreground service types in the manifest, the use of ServiceCompat, and the runtime requirements for each type. Several sections were updated for clarity and formatting, including the addition of caution blocks and clarifying the order of operations for permission requests.  New types are also highlighted.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_fgs-types-required.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/14/changes/partial-photo-video-access\" target=\"_blank\">partial-photo-video-access.md</a>",
+        "path": "about/versions/14/changes/partial-photo-video-access.md",
+        "summary": "This document describes the changes related to Selected Photos Access in Android 14. It outlines how apps can request access to specific images and videos instead of all media, and how to adapt existing gallery pickers to utilize the new READ_MEDIA_VISUAL_USER_SELECTED permission. The changes include updates to permission handling, media re-selection, and querying the device library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_partial-photo-video-access.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/14/changes/schedule-exact-alarms\" target=\"_blank\">schedule-exact-alarms.md</a>",
+        "path": "about/versions/14/changes/schedule-exact-alarms.md",
+        "summary": "The documentation updates describe changes to the `SCHEDULE_EXACT_ALARM` permission in Android 14.  Specifically, the permission is no longer pre-granted to most new apps targeting Android 13 and higher, and apps must now explicitly request it. This change emphasizes the importance of using exact alarms only when necessary and provides guidance on checking and requesting the permission, as well as alternative approaches for scheduling tasks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_schedule-exact-alarms.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/14/features/app-metadata\" target=\"_blank\">app-metadata.md</a>",
+        "path": "about/versions/14/features/app-metadata.md",
+        "summary": "The documentation for app metadata bundles has been updated to clarify the requirements for data safety information, including how developers should declare data handling practices for apps and third-party SDKs, and the methods for adding the metadata to different app distribution methods.  Formatting and minor wording changes were also made for clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_app-metadata.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/14/features/grammatical-inflection\" target=\"_blank\">grammatical-inflection.md</a>",
+        "path": "about/versions/14/features/grammatical-inflection.md",
+        "summary": "The documentation was updated to replace the markdown formatting of the 'Note' and 'Caution' sections with the more modern 'Note' and 'Caution' syntax. This change improves the visual clarity and consistency of the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_grammatical-inflection.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/14/features/predictive-back\" target=\"_blank\">predictive-back.md</a>",
+        "path": "about/versions/14/features/predictive-back.md",
+        "summary": "This document describes the implementation of predictive back animations in Android. The changes include improvements in clarifying how to opt-in, use and customize in-app transitions and animations, along with references to the required AndroidX and Material components versions and updated API usages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_predictive-back.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/14/summary\" target=\"_blank\">Android 14 features and changes list  |  Android Developers</a>",
+        "path": "about/versions/14/summary.md",
+        "summary": "This document outlines changes for Android 14.  It covers new features and behavior changes across different areas like accessibility, camera and media, core functionality, user experience, and developer productivity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_summary.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/15/changes/foreground-service-types\" target=\"_blank\">foreground-service-types.md</a>",
+        "path": "about/versions/15/changes/foreground-service-types.md",
+        "summary": "This document outlines changes to foreground service types in Android 15. The primary focus is on restrictions for launching foreground services from `BOOT_COMPLETED` broadcast receivers, and includes clarifications on handling of timeouts for `FOREGROUND_SERVICE_MEDIA_PROCESSING` services.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_foreground-service-types.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/15/setup-sdk\" target=\"_blank\">setup-sdk.md</a>",
+        "path": "about/versions/15/setup-sdk.md",
+        "summary": "This document provides instructions for setting up the Android 15 SDK in Android Studio. The changes include improvements in formatting and wording for better clarity, such as updating the AGP upgrade warning to use a Markdown warning block, and refining the instructions for SDK installation and next steps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_setup-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/15/summary\" target=\"_blank\">summary.md</a>",
+        "path": "about/versions/15/summary.md",
+        "summary": "This document outlines changes for Android 15, categorized by functionality and type, including new features, API updates, behavior changes, and deprecations affecting app developers. The updates cover areas like accessibility, camera and media, connectivity, core functionality, and more.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_summary.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/16/download-ota-qpr\" target=\"_blank\">download-ota-qpr.md</a>",
+        "path": "about/versions/16/download-ota-qpr.md",
+        "summary": "The documentation for downloading Android 16 QPR OTA images has been updated to include a warning for internal Google employees and updated device lists that include the Pixel 6a and 8a, and correctly lists Pixel 9 family devices. The update also moves the keywords_public field and rearranges some content for better clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_download-ota-qpr.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/16/features/progress-centric-notifications\" target=\"_blank\">progress-centric-notifications.md</a>",
+        "path": "about/versions/16/features/progress-centric-notifications.md",
+        "summary": "This document introduces progress-centric notifications in Android 16. It details the use of `Notification.ProgressStyle` for creating notifications that track user-initiated journeys, emphasizing the use of points and segments to represent milestones and states within a journey, with best practices and example code provided.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_progress-centric-notifications.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/16/qpr3/download-ota\" target=\"_blank\">download-ota.md</a>",
+        "path": "about/versions/16/qpr3/download-ota.md",
+        "summary": "The documentation updates the list of supported Pixel devices for OTA images. It also adds a warning for Googlers before sideloading a new release and reorders the device list. These changes reflect the latest supported devices for Android 16 QPR3 updates and provide crucial safety advice.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_download-ota.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/16/summary\" target=\"_blank\">summary.md</a>",
+        "path": "about/versions/16/summary.md",
+        "summary": "This document outlines changes and new features in Android 16 (likely Android 15), covering core functionality, user experience, and system UI. It details behavior changes affecting all apps, apps targeting Android 16, and new APIs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_summary.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/behavior-changes-all\" target=\"_blank\">behavior-changes-all.md</a>",
+        "path": "about/versions/17/behavior-changes-all.md",
+        "summary": "Android 17 introduces a limit on the number of keys an app can create in the Android Keystore. Non-system apps targeting Android 17 or higher are limited to 50,000 keys, while all other apps, including system apps, are limited to 200,000 keys. If an app exceeds this limit, key creation will fail with a KeyStoreException, and the getNumericErrorCode() method will return different error codes depending on the target API level. This change prevents apps from creating an excessive number of keys, which could impact the performance of other apps on the device.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_behavior-changes-all.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/download-ota\" target=\"_blank\">download-ota.md</a>",
+        "path": "about/versions/17/download-ota.md",
+        "summary": "The documentation was updated to include the Pixel 6a device and its corresponding OTA download information for Android 17. Additionally, the download section for the OTA system images was duplicated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_download-ota.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/oreo/background\" target=\"_blank\">background.md</a>",
+        "path": "about/versions/oreo/background.md",
+        "summary": "This document describes the background execution limits introduced in Android 8.0 (API level 26) to improve user experience by limiting what apps can do while running in the background. It covers background service and broadcast limitations and suggests using JobScheduler for background tasks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_background.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/pie/android-9.0-changes-all\" target=\"_blank\">android-9.0-changes-all.md</a>",
+        "path": "about/versions/pie/android-9.0-changes-all.md",
+        "summary": "This document outlines behavior changes in Android 9 (API level 28) that affect all apps, regardless of their target API level. These changes primarily focus on improving power management and enhancing user privacy by restricting access to sensors, call logs, phone numbers, and Wi-Fi information. Developers should review these changes and update their apps accordingly to ensure compatibility and adhere to the new privacy guidelines.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_android-9.0-changes-all.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/pie/android-9.0\" target=\"_blank\">android-9.0.md</a>",
+        "path": "about/versions/pie/android-9.0.md",
+        "summary": "The documentation for Android 9.0 (Pie) has been updated with several changes, primarily involving the replacement of standard markdown notes with the 'NOTE' callout boxes. This change aims to improve the visual formatting of the document. Additionally, there are minor code formatting and wording adjustments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_android-9.0.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/pie/power\" target=\"_blank\">power.md</a>",
+        "path": "about/versions/pie/power.md",
+        "summary": "This document introduces updates to Android 9 (API level 28) regarding power management, focusing on App Standby Buckets and Battery Saver improvements.  The changes detail how the system categorizes apps based on usage and restricts resource access, with guidelines for developers to ensure their apps function efficiently within these new power management strategies.  Key changes include updated descriptions of app standby buckets and actionable notifications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_power.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/android-settings-plugin\" target=\"_blank\">android-settings-plugin.md</a>",
+        "path": "build/android-settings-plugin.md",
+        "summary": "The Android settings plugin version was updated from 9.0.0 to 9.1.0 in the `pluginManagement` block of the `build.gradle.kts` file. This change ensures that the project uses the latest version of the settings plugin, which may include bug fixes, performance improvements, or new features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_android-settings-plugin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/multidex\" target=\"_blank\">multidex.md</a>",
+        "path": "build/multidex.md",
+        "summary": "The documentation for multidex has been updated to reflect the latest Gradle API version (9.1). The link in the documentation for `multiDexKeepProguard` has been updated to reflect the new API version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_multidex.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/publish-library/prep-lib-release\" target=\"_blank\">prep-lib-release.md</a>",
+        "path": "build/publish-library/prep-lib-release.md",
+        "summary": "The documentation was updated to reflect the AGP version and link to the relevant test fixtures documentation. This update ensures that the documentation accurately reflects the latest Android Gradle Plugin (AGP) version and provides up-to-date information on test fixtures functionality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_prep-lib-release.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/about-agp\" target=\"_blank\">about-agp.md</a>",
+        "path": "build/releases/about-agp.md",
+        "summary": "The Android Gradle Plugin (AGP) documentation has been updated to reflect the latest version 9.1.0, including changes to the required Gradle and Android Studio versions.  These updates ensure compatibility and provide guidance for developers using the newest AGP features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_about-agp.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-1-0-release-notes\" target=\"_blank\">agp-9-1-0-release-notes.md</a>",
+        "path": "build/releases/agp-9-1-0-release-notes.md",
+        "summary": "This release notes document introduces a new section for Android Gradle plugin 9.1.0 and indicates that no public issues were fixed in this version. This information helps users understand the scope of changes and potential impact of the update.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_agp-9-1-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/desktop\" target=\"_blank\">desktop.md</a>",
+        "path": "design/ui/desktop.md",
+        "summary": "This new documentation page introduces the concepts of designing Android applications for desktop environments, focusing on maximizing productivity through features like multi-window support and pointer-based interactions. It provides links to guides and resources for developers to optimize their apps for desktop users.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/desktop/guides/foundations/across-form-factors\" target=\"_blank\">across-form-factors.md</a>",
+        "path": "design/ui/desktop/guides/foundations/across-form-factors.md",
+        "summary": "This new documentation introduces the concept of Android's desktop experience across various form factors, including phones, tablets, Chromebooks, and XR devices. It explains how users can interact with Android applications in a desktop-like environment on different devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/desktop/guides/foundations/design-principles\" target=\"_blank\">design-principles.md</a>",
+        "path": "design/ui/desktop/guides/foundations/design-principles.md",
+        "summary": "This document introduces design principles for creating Android apps that are optimized for desktop environments. It covers key aspects such as adapting layouts, utilizing screen space effectively, refining motion, supporting multitasking, balancing efficiency with simplicity, and ensuring equal importance of all input types.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/desktop/guides/foundations/get-started\" target=\"_blank\">get-started.md</a>",
+        "path": "design/ui/desktop/guides/foundations/get-started.md",
+        "summary": "This new documentation page provides guidance on designing Android apps for desktop environments. It emphasizes adaptive layouts, pane-based design, scaling, content and UI element adjustments, navigation, density considerations, and input interactions to create a seamless user experience across different screen sizes and input methods.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/desktop/guides/interaction/cursors\" target=\"_blank\">cursors.md</a>",
+        "path": "design/ui/desktop/guides/interaction/cursors.md",
+        "summary": "This document introduces cursor icons for pointer devices on Android desktop environments, detailing standard icons, their meanings, and guidelines for their use to improve user interaction and feedback. It explains the importance of cursor icons in indicating interactive elements and actions, and also covers how to implement custom cursors.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/desktop/guides/interaction/pointer-interactions\" target=\"_blank\">pointer-interactions.md</a>",
+        "path": "design/ui/desktop/guides/interaction/pointer-interactions.md",
+        "summary": "This new documentation page provides guidance on adapting Android applications for desktop environments, focusing on pointer interactions like hover, primary click, secondary click, drag-and-drop, selection, and target sizing to optimize the user experience.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/desktop/guides/system/multi-task\" target=\"_blank\">multi-task.md</a>",
+        "path": "design/ui/desktop/guides/system/multi-task.md",
+        "summary": "This new documentation introduces multi-tasking on Android desktop environments, covering multi-instance app support, drag-and-drop interactions, and media playback enhancements, including picture-in-picture mode.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/xr/guides/3d-content\" target=\"_blank\">3d-content.md</a>",
+        "path": "design/ui/xr/guides/3d-content.md",
+        "summary": "This document introduces 3D models in Android XR, explaining how they enhance user experiences. The changes involve minor text refinements, correcting a composable name, and formatting improvements, offering clearer explanations of 3D model integration and usage, and improving readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_3d-content.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/tooling/animation-preview\" target=\"_blank\">animation-preview.md</a>",
+        "path": "develop/ui/compose/tooling/animation-preview.md",
+        "summary": "The documentation was updated to reflect the minimum Android Studio version required for Animation Preview features. Specifically, it now recommends using Android Studio Panda 2 instead of Panda 1.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_animation-preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/notifications/navigation\" target=\"_blank\">Start an Activity from a Notification  |  Views  |  Android Developers</a>",
+        "path": "develop/ui/views/notifications/navigation.md",
+        "summary": "This document focuses on how to configure notifications to correctly start Activities, ensuring proper navigation behavior. It details methods for setting up PendingIntents for both regular and special activities, including code examples in Kotlin and Java, and explains how to handle the back stack when an activity is launched from a notification.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/style\" target=\"_blank\">style.md</a>",
+        "path": "develop/ui/views/touch-and-input/keyboard-input/style.md",
+        "summary": "The changes in the style.md file primarily involve correcting XML syntax errors within the provided code examples for AutoCompleteTextView. Specifically, the modifications address issues like missing or incorrect closing tags, improperly encoded characters, and other formatting issues within the XML. These changes matter because they ensure the code examples are valid and can be correctly interpreted by developers, helping them to implement the AutoCompleteTextView functionality as intended.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_style.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/behavior\" target=\"_blank\">behavior.md</a>",
+        "path": "develop/xr/jetpack-xr-sdk/ai-glasses/notifications/behavior.md",
+        "summary": "The documentation has been updated to clarify the conditions under which notifications are bridged to AI glasses. A new section highlights app-level notification toggles within the companion app, emphasizing that notifications are off by default. It provides guidance on encouraging users to enable notifications for a better experience. Additionally, the order of the notification criteria was rearranged for clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_behavior.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/services/publishing/api/achievementConfigurations\" target=\"_blank\">achievementConfigurations.md</a>",
+        "path": "games/services/publishing/api/achievementConfigurations.md",
+        "summary": "The achievementConfigurations.md file underwent formatting changes to the JSON example, including fixing syntax errors. Specifically, it corrected missing or incorrect curly braces, quotation marks, and semicolons within the JSON structure. This ensures that the provided example is valid and correctly represents the expected format for achievement configuration resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_achievementConfigurations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/integrity/native-setup\" target=\"_blank\">native-setup.md</a>",
+        "path": "google/play/integrity/native-setup.md",
+        "summary": "The documentation was updated to reflect changes in the download button styling, and removed the html tag from the file path variables in the gradle and kotlin files. These changes don't significantly impact functionality but improve the clarity and formatting of the documentation. ",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_native-setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/integrity/setup\" target=\"_blank\">setup.md</a>",
+        "path": "google/play/integrity/setup.md",
+        "summary": "The documentation was updated to replace markdown bold emphasis with admonition blocks using the `>` syntax for notes, cautions, and tips. These changes improve the visual clarity and organization of important information within the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/on-device-ai\" target=\"_blank\">on-device-ai.md</a>",
+        "path": "google/play/on-device-ai.md",
+        "summary": "The documentation was updated to improve clarity and formatting. Changes include updating code examples, fixing typos, and clarifying certain points in the documentation. Additionally, the documentation was updated to use the new markdown note syntax. The formatting was also updated to be consistent with the other android developer documentation. These changes aim to improve readability and accuracy of the content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_on-device-ai.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/requirements/64-bit\" target=\"_blank\">64-bit.md</a>",
+        "path": "google/play/requirements/64-bit.md",
+        "summary": "The documentation was updated to reflect changes in Android 14 Beta 5.2 and Android 13 QPR3 Beta 3.2, including updated download links for 64-bit-only factory system images and a switch to using button elements for download links. Minor formatting and wording improvements were also made, with the \"Note\" and \"Caution/Warning\" sections updated to use the new alert block syntax.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_64-bit.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/requirements/target-sdk\" target=\"_blank\">target-sdk.md</a>",
+        "path": "google/play/requirements/target-sdk.md",
+        "summary": "The documentation updates the formatting of the notes section using the admonition syntax. It also modifies the formatting of links. These changes improve readability and clarity for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_target-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces\" target=\"_blank\">restrictions-non-sdk-interfaces.md</a>",
+        "path": "guide/app-compatibility/restrictions-non-sdk-interfaces.md",
+        "summary": "The documentation was updated with minor changes to the commands and text descriptions. These changes include slight modifications to the ADB commands for enabling and resetting the API enforcement policy, and small adjustments to the surrounding text for clarity and consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_restrictions-non-sdk-interfaces.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/components/activities/background-starts\" target=\"_blank\">background-starts.md</a>",
+        "path": "guide/components/activities/background-starts.md",
+        "summary": "This document introduces updates to the Android documentation regarding background activity starts. The changes involve formatting updates, introduction of new notes for clarity, and added information regarding new activity start restrictions in Android 14.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_background-starts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/components/activities/state-changes\" target=\"_blank\">Activity state changes  |  App architecture  |  Android Developers</a>",
+        "path": "guide/components/activities/state-changes.md",
+        "summary": "This document describes the state transitions of an Android Activity in various scenarios, including configuration changes, foreground/background transitions, back button presses, and system-initiated process termination. The content has been updated to use the new Android developer website's link structure. No functional changes are present.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_state-changes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/components/intents-common\" target=\"_blank\">intents-common.md</a>",
+        "path": "guide/components/intents-common.md",
+        "summary": "This document introduces implicit intents, which allow an app to request actions from other apps. The changes update the documentation to use the correct markdown syntax for Android developer reference links, improving readability and accuracy. No functional changes were made.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_intents-common.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/components/intents-filters\" target=\"_blank\">intents-filters.md</a>",
+        "path": "guide/components/intents-filters.md",
+        "summary": "The documentation for intents-filters.md has been updated to use markdown links instead of the older HTML links in the Android documentation, improving readability and maintainability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_intents-filters.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/custom-back/support-animations\" target=\"_blank\">support-animations.md</a>",
+        "path": "guide/navigation/custom-back/support-animations.md",
+        "summary": "The documentation updates the formatting of notes from using a bolded text to using a callout box. It also clarifies behavior in Android 15 regarding developer options and system animations for predictive back gestures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_support-animations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/basicdsl\" target=\"_blank\">Basic DSL Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/basicdsl.md",
+        "summary": "The documentation for the basic DSL recipe was updated to include a link to the complete recipe on GitHub, allowing users to quickly access the code and explore it. This addition makes it easier for developers to learn from a practical example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_basicdsl.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/basicsaveable\" target=\"_blank\">Basic Saveable Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/basicsaveable.md",
+        "summary": "The documentation for `basicsaveable.md` has been updated to include a link to the full recipe on GitHub, allowing developers to directly explore the code implementation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_basicsaveable.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/common-ui\" target=\"_blank\">Common UI Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/common-ui.md",
+        "summary": "This document introduces a recipe for implementing a common UI pattern in Android using a bottom navigation bar with multiple back stacks. It demonstrates how to manage navigation history for each tab in the navigation bar using the TopLevelBackStack class.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-advanced\" target=\"_blank\">Deep Link Advanced Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/deeplinks-advanced.md",
+        "summary": "The documentation for advanced deep linking recipes has been updated to include a link to the full recipe on GitHub. This allows developers to easily access and explore the complete code example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_deeplinks-advanced.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-basic\" target=\"_blank\">Deep Link Basic Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/deeplinks-basic.md",
+        "summary": "The documentation for the deeplinks-basic recipe has been updated. A link to the full recipe on GitHub was added to the introductory section. Additionally, the code blocks were reformatted for consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_deeplinks-basic.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/dialog\" target=\"_blank\">Dialog Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/dialog.md",
+        "summary": "The documentation for dialogs in the navigation guide has been updated to include a link to the full recipe on GitHub, allowing developers to explore the practical implementation of dialogs within the navigation framework.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_dialog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/material-listdetail\" target=\"_blank\">Material List-Detail Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/material-listdetail.md",
+        "summary": "This document introduces a new recipe demonstrating how to create an adaptive list-detail layout using the `ListDetailSceneStrategy` from the Material 3 Adaptive library, which dynamically adjusts the layout based on screen size.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/material-supportingpane\" target=\"_blank\">Material Supporting Pane Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/material-supportingpane.md",
+        "summary": "This documentation introduces a recipe for creating adaptive layouts with a main and supporting pane using `SupportingPaneSceneStrategy` from the Material 3 Adaptive library. It demonstrates how to display supplementary content alongside the main content on larger screens by assigning pane roles and customizing back navigation.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/modular-hilt\" target=\"_blank\">Modular Navigation Recipe (Hilt)</a>",
+        "path": "guide/navigation/navigation-3/recipes/modular-hilt.md",
+        "summary": "This new documentation introduces a modular navigation approach using Hilt for dependency injection, showcasing how to structure a multi-module application with separate feature modules for improved code organization and maintainability.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/modular-koin\" target=\"_blank\">Modular Navigation Recipe (Koin)</a>",
+        "path": "guide/navigation/navigation-3/recipes/modular-koin.md",
+        "summary": "This documentation introduces a modular approach to implementing navigation in an Android application using Navigation 3 and Koin for dependency injection. It describes how to structure an application into feature modules, each responsible for its own navigation, which are then combined in the main application module.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/multiple-backstacks\" target=\"_blank\">Multiple back stacks recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/multiple-backstacks.md",
+        "summary": "The documentation for multiple backstacks has been updated with a link to the full recipe on GitHub, allowing developers to explore the complete implementation. Furthermore, the code snippets have been updated to remove the 'python' language identifier, ensuring consistent formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_multiple-backstacks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/passingarguments\" target=\"_blank\">Passing Arguments to ViewModels (Hilt)</a>",
+        "path": "guide/navigation/navigation-3/recipes/passingarguments.md",
+        "summary": "This document introduces three recipes demonstrating how to pass navigation arguments to ViewModels using different dependency injection frameworks: Hilt, basic ViewModelProvider.Factory, and Koin. Each recipe includes code examples and explains the setup and usage, highlighting the importance of the `rememberViewModelStoreNavEntryDecorator` to ensure correct ViewModel scoping within navigation entries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_passingarguments.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/results-event\" target=\"_blank\">Returning a Result (Event-Based)</a>",
+        "path": "guide/navigation/navigation-3/recipes/results-event.md",
+        "summary": "The documentation for results-event.md has been updated to include a link to the full recipe on GitHub.  This allows developers to directly access and explore the complete code example for a better understanding of the concepts discussed in the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_results-event.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/results-state\" target=\"_blank\">Returning a Result (State-Based)</a>",
+        "path": "guide/navigation/navigation-3/recipes/results-state.md",
+        "summary": "The documentation for the results-state recipe was updated. A link to the full recipe on GitHub was added, providing direct access to the source code. Additionally, there were minor formatting changes, primarily involving whitespace and code block adjustments to improve readability. These changes enhance the accessibility and clarity of the example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_results-state.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/scenes-listdetail\" target=\"_blank\">List-Detail Scene Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/scenes-listdetail.md",
+        "summary": "This documentation introduces a new recipe that demonstrates how to create a list-detail layout using the Scenes API, allowing for a list and detail view to be displayed side-by-side on larger screens.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/scenes-twopane\" target=\"_blank\">Two-Pane Scene Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/scenes-twopane.md",
+        "summary": "This document introduces a new recipe that demonstrates how to implement a two-pane layout using the Scenes API. It provides a `TwoPaneScene` implementation and a `TwoPaneSceneStrategy` that activates the two-pane layout based on window size and back stack entries' metadata.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore\" target=\"_blank\">playcore.md</a>",
+        "path": "guide/playcore.md",
+        "summary": "The documentation for the Google Play Core libraries has been updated to highlight the splitting of the Java and Kotlin libraries into separate feature-specific libraries. This change emphasizes the need to update to the new libraries to leverage new features and improve the application's functionality. The update also converts the original markdown text to use a callout for better emphasis. ",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_playcore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/feature-delivery/on-demand\" target=\"_blank\">on-demand.md</a>",
+        "path": "guide/playcore/feature-delivery/on-demand.md",
+        "summary": "The documentation was updated to reflect improvements in formatting, add more emphasis on important notes, and some minor wording adjustments. The documentation also included updating links and code samples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_on-demand.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/in-app-review/kotlin-java\" target=\"_blank\">kotlin-java.md</a>",
+        "path": "guide/playcore/in-app-review/kotlin-java.md",
+        "summary": "The documentation for integrating the Play In-App Review Library has been updated. The changes include adding a note about the validity of the ReviewInfo object and changing the formatting of the notes and important messages, along with other minor edits.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_kotlin-java.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/in-app-updates/native\" target=\"_blank\">native.md</a>",
+        "path": "guide/playcore/in-app-updates/native.md",
+        "summary": "This document introduces several changes, including updates to the download button styling, adjustments to the file paths in the Gradle build configurations, and clarifications within the code examples. Furthermore, it incorporates better formatting with `[!NOTE]` and `[!CAUTION]` blocks to improve readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_native.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/install-prompt/kotlin-java\" target=\"_blank\">kotlin-java.md</a>",
+        "path": "guide/playcore/install-prompt/kotlin-java.md",
+        "summary": "The documentation updates the formatting of notes and important notices using the `>` syntax for improved readability, and also makes minor adjustments to code comments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_kotlin-java.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/practices/compatibility\" target=\"_blank\">compatibility.md</a>",
+        "path": "guide/practices/compatibility.md",
+        "summary": "The documentation updates replace the feature ID links with direct links to the relevant Android documentation and modifies the note styling. These changes improve readability and clarity by directly linking to the relevant documentation and updating the visual presentation of important information.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_compatibility.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/manifest/manifest-intro\" target=\"_blank\">manifest-intro.md</a>",
+        "path": "guide/topics/manifest/manifest-intro.md",
+        "summary": "The documentation updates the links to the manifest element documentation, replacing them with direct links to the developer.android.com website. Also, it updates some formatting and clarifies resource and string value formats, improving clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_manifest-intro.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/manifest/uses-native-library-element\" target=\"_blank\">uses-native-library-element.md</a>",
+        "path": "guide/topics/manifest/uses-native-library-element.md",
+        "summary": "The documentation for the `uses-native-library` element was updated.  Specifically, URLs for related Android framework components such as `PackageManager` and `uses-library` were updated to the new format, including links to developer.android.com. This ensures that the documentation points to the most current and correct references, maintaining accuracy and usability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_uses-native-library-element.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/permissions/defining\" target=\"_blank\">defining.md</a>",
+        "path": "guide/topics/permissions/defining.md",
+        "summary": "The documentation updated a warning about the `shared user ID` attribute in the AndroidManifest.xml file by changing the formatting from a simple paragraph to a blockquote with a warning box. This change doesn't alter the core information but enhances its visibility within the documentation, emphasizing the critical nature of the warning.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_defining.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/permissions/overview\" target=\"_blank\">overview.md</a>",
+        "path": "guide/topics/permissions/overview.md",
+        "summary": "The documentation added a YouTube video link related to Android permissions and updated the note on signature permissions to use a callout box for better visual emphasis. These changes provide additional learning resources and improve the readability of important information about the topic.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/renderscript/compute\" target=\"_blank\">compute.md</a>",
+        "path": "guide/topics/renderscript/compute.md",
+        "summary": "The documentation was updated to reflect the deprecation of RenderScript APIs, starting with Android 12 and the Android Gradle plugin 7.2. Also, the document has been updated to use the correct URL format.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_compute.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/resources/internationalization\" target=\"_blank\">internationalization.md</a>",
+        "path": "guide/topics/resources/internationalization.md",
+        "summary": "The documentation updates the links to Android reference classes, changing them to a more standard format. It also clarifies that ICU on Android doesn't automatically respect the user's 24h/12h time format setting and provides guidance on how to handle it correctly, by using the appropriate methods or patterns.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_internationalization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/autofill\" target=\"_blank\">autofill.md</a>",
+        "path": "identity/autofill.md",
+        "summary": "The documentation for Android Autofill has been updated to use the 'Note' callout syntax. This change provides a visual emphasis to the note regarding the synergy between Autofill, Credential Manager, and passkeys, highlighting the benefits of their combined use for improved security and user experience.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_autofill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/autofill/autofill-services\" target=\"_blank\">autofill-services.md</a>",
+        "path": "identity/autofill/autofill-services.md",
+        "summary": "The documentation updates include reformatting notes with a consistent use of the \"[!NOTE]\" format. This change improves the visual clarity and consistency of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_autofill-services.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/autofill/credential-manager-autofill\" target=\"_blank\">credential-manager-autofill.md</a>",
+        "path": "identity/autofill/credential-manager-autofill.md",
+        "summary": "The documentation for credential-manager-autofill.md was updated to include a Note using the admonition syntax '> [!NOTE]' and minor text adjustments. This change aims to improve readability and highlight important information related to the feature's implementation, such as the availability of the feature for `View` objects and the usage of the extension API.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_credential-manager-autofill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/autofill/ime-autofill\" target=\"_blank\">ime-autofill.md</a>",
+        "path": "identity/autofill/ime-autofill.md",
+        "summary": "The documentation was updated to reflect minor changes in the Android development process. The primary changes include adding a note about inline suggestions and updating the existing note to use the 'NOTE' callout.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_ime-autofill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/providers/contacts-provider\" target=\"_blank\">contacts-provider.md</a>",
+        "path": "identity/providers/contacts-provider.md",
+        "summary": "The documentation was updated to replace the direct links to the Android Developer reference with Markdown-style links. This change improves readability by using more concise text for links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_contacts-provider.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/biometric-auth\" target=\"_blank\">biometric-auth.md</a>",
+        "path": "identity/sign-in/biometric-auth.md",
+        "summary": "The documentation was updated to replace markdown notes with the newer admonition syntax. There were also updates to the caution notices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_biometric-auth.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/restore-credentials\" target=\"_blank\">restore-credentials.md</a>",
+        "path": "identity/sign-in/restore-credentials.md",
+        "summary": "The documentation for restoring credentials has been updated. The changes involve replacing the markdown syntax for a note with the admonition syntax. There are two instances of this change throughout the document, improving the visual presentation and readability of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_restore-credentials.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/user-data-ids\" target=\"_blank\">user-data-ids.md</a>",
+        "path": "identity/user-data-ids.md",
+        "summary": "The documentation was updated to clarify and improve the readability of existing content. Specifically, the text related to the advertising ID, and the subscription ID, including formatting changes, and some minor wording adjustments were performed, enhancing clarity and user understanding.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_user-data-ids.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/campaign/learn\" target=\"_blank\">Learn Kotlin for Android  |  Android Developers</a>",
+        "path": "kotlin/campaign/learn.md",
+        "summary": "The document has undergone several updates, including changes to the title, the addition of introductory links to Android Developers, and the modification of image and link URLs to use HTTPS. Several image URLs were updated from HTTP to HTTPS, and additional content was added regarding organization and links to the course material.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_learn.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform/plugin\" target=\"_blank\">plugin.md</a>",
+        "path": "kotlin/multiplatform/plugin.md",
+        "summary": "The Android Gradle Plugin version was updated from 9.0.0 to 9.1.0 in the `plugin.md` documentation. This update reflects a change in the supported Android Gradle Plugin version, ensuring compatibility with the latest features and improvements in Android development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_plugin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/large-screens/archive/gallery\" target=\"_blank\">Overview  |  Gallery  |  Android Developers</a>",
+        "path": "large-screens/archive/gallery.md",
+        "summary": "The file was updated to change the navigation links. The links to the Android Developers UI Design and Large Screens sections were removed, and the link to Home was added.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_gallery.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/large-screens/archive/gallery/games\" target=\"_blank\">Games  |  Gallery  |  Android Developers</a>",
+        "path": "large-screens/archive/gallery/games.md",
+        "summary": "The navigation links in the 'games.md' file were updated. The order of some links was changed, and the 'UI Design' and 'Large Screens' links were removed, with a 'Home' link added. This reorganization potentially improves the navigation structure for users accessing game-related content on large screens.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_games.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/large-screens/archive/gallery/media\" target=\"_blank\">Media  |  Gallery  |  Android Developers</a>",
+        "path": "large-screens/archive/gallery/media.md",
+        "summary": "The navigation links in the 'media.md' documentation were updated. The link to 'Android Developers' was changed to 'Home', and the order of the links was adjusted. These changes improve the organization and clarity of the navigation within the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_media.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/large-screens/archive/gallery/shopping\" target=\"_blank\">Shopping  |  Gallery  |  Android Developers</a>",
+        "path": "large-screens/archive/gallery/shopping.md",
+        "summary": "The navigation links in the 'shopping.md' documentation were updated. The link to 'Android Developers' was changed to 'Home', and the order of the links was adjusted. These changes are likely to improve navigation and provide a clearer path to the relevant resources for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_shopping.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/large-screens/archive/gallery/social\" target=\"_blank\">Social  |  Gallery  |  Android Developers</a>",
+        "path": "large-screens/archive/gallery/social.md",
+        "summary": "The navigation links in the 'social.md' document have been updated, replacing some links and reordering others. This change reorganizes the links to improve navigation within the Android Developers documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_social.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">latest-updates.md</a>",
+        "path": "latest-updates.md",
+        "summary": "The Android Studio documentation has been updated to reflect the latest stable releases. This includes updates for Panda 2 (2025.3.2) and Android Gradle Plugin 9.1.0, along with their respective release dates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera-deprecated/camera-api\" target=\"_blank\">camera-api.md</a>",
+        "path": "media/camera/camera-deprecated/camera-api.md",
+        "summary": "This document describes changes to the deprecated Camera API documentation. The primary change involves updating URLs to use the HTTPS scheme. Additionally, there are minor text changes for clarity and formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_camera-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera-extensions\" target=\"_blank\">camera-extensions.md</a>",
+        "path": "media/camera/camera-extensions.md",
+        "summary": "The documentation for camera extensions has been updated to use the modern \"NOTE\" callout block syntax for the note regarding camera extension usage limitations. This change enhances the readability and clarity of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_camera-extensions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera-intents\" target=\"_blank\">camera-intents.md</a>",
+        "path": "media/camera/camera-intents.md",
+        "summary": "The documentation provides code examples demonstrating how to use camera intents for capturing photos and videos within Android applications. The examples have been updated to use Kotlin. This update provides developers with updated guidance on how to leverage the camera functionality in their apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_camera-intents.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camera2/screen-flash-implementation-guidelines\" target=\"_blank\">screen-flash-implementation-guidelines.md</a>",
+        "path": "media/camera/camera2/screen-flash-implementation-guidelines.md",
+        "summary": "The documentation for screen flash implementation guidelines has been updated with minor changes.  A note was converted to a more modern format using a blockquote. Several minor wording adjustments were also made throughout the document. Code examples remain consistent.  These changes provide clarity and consistency to the documentation, but do not affect implementation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_screen-flash-implementation-guidelines.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/lowlight/low-light-boost-gp/use-client\" target=\"_blank\">use-client.md</a>",
+        "path": "media/camera/lowlight/low-light-boost-gp/use-client.md",
+        "summary": "The documentation for using the Google Low Light Boost client was updated.  The changes include minor formatting adjustments and a change to the note style from a simple `Note:` to a `> [!NOTE]` callout.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_use-client.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/lowlight/low-light-boost-gp/use-session\" target=\"_blank\">use-session.md</a>",
+        "path": "media/camera/lowlight/low-light-boost-gp/use-session.md",
+        "summary": "This document provides information on integrating Google Low Light Boost (LLB). The changes include formatting updates, such as converting standard note sections to the \"NOTE\" syntax, and minor content adjustments for clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_use-session.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/supported-devices\" target=\"_blank\">supported-devices.md</a>",
+        "path": "media/camera/supported-devices.md",
+        "summary": "The documentation has been updated to use the 'NOTE' callout block format instead of plain text for highlighting important information. This change improves the readability and visual emphasis of the note regarding the list's non-exhaustive nature.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_supported-devices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/grow/hdr-playback\" target=\"_blank\">hdr-playback.md</a>",
+        "path": "media/grow/hdr-playback.md",
+        "summary": "The documentation updates the formatting of the notes section. It replaces the bold text with a callout box for enhanced readability, specifically regarding the limitations of HDR playback on TextureView and screenshot behavior for HDR content. This change matters because it clarifies important information about the expected behavior of HDR video rendering on different view types and during screen captures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_hdr-playback.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/grow/spatial-audio\" target=\"_blank\">spatial-audio.md</a>",
+        "path": "media/grow/spatial-audio.md",
+        "summary": "The documentation for spatial audio has been updated with several formatting and stylistic improvements, including the use of callout boxes for notes and important information, and minor code example adjustments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_spatial-audio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/grow/ultra-hdr/display\" target=\"_blank\">display.md</a>",
+        "path": "media/grow/ultra-hdr/display.md",
+        "summary": "The document introduces a YouTube video related to Ultra HDR display and reformats existing notes using the `NOTE` callout syntax for better readability. These changes provide additional visual information and improve the presentation of important context within the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_display.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/grow/ultra-hdr/edit\" target=\"_blank\">edit.md</a>",
+        "path": "media/grow/ultra-hdr/edit.md",
+        "summary": "The documentation for editing Ultra HDR images has been updated to use a callout block, instead of a simple bolded text, to emphasize an important note about gain map pixel dimensions. This change makes the information more visually prominent, improving its impact.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_edit.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/implement/editing-app\" target=\"_blank\">editing-app.md</a>",
+        "path": "media/implement/editing-app.md",
+        "summary": "The documentation updates include changes to the formatting of URLs in the table, minor code formatting adjustments, and clarifications to the text. These modifications improve readability and the visual presentation of the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_editing-app.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/implement/playback-app\" target=\"_blank\">playback-app.md</a>",
+        "path": "media/implement/playback-app.md",
+        "summary": "The documentation updates include minor wording adjustments and formatting changes, such as modifying the example code's appearance and adding a warning. These changes improve readability and clarity in the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_playback-app.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/implement/surfaces/android-tv\" target=\"_blank\">android-tv.md</a>",
+        "path": "media/implement/surfaces/android-tv.md",
+        "summary": "The documentation for Android TV was updated to improve clarity and formatting. The update includes changes to code examples and the addition of a note about running MediaSession and player in a foreground service for background playback, using a callout block.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_android-tv.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/implement/surfaces/mobile\" target=\"_blank\">mobile.md</a>",
+        "path": "media/implement/surfaces/mobile.md",
+        "summary": "The documentation has been updated to use the \"NOTE\" and \"CAUTION\" callout blocks. The content has been updated to use the new markdown syntax.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_mobile.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/hello-world\" target=\"_blank\">hello-world.md</a>",
+        "path": "media/media3/exoplayer/hello-world.md",
+        "summary": "The documentation for the ExoPlayer 'Hello World' example has been updated with a new link to the source code on GitHub. This change reflects updates to the source code repository.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_hello-world.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/mappings\" target=\"_blank\">mappings.md</a>",
+        "path": "media/media3/exoplayer/mappings.md",
+        "summary": "The documentation for ExoPlayer's mappings was updated. A new note block was added to the document. This change improves readability and emphasizes the versions of ExoPlayer and Media3 covered in the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_mappings.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/migration-guide\" target=\"_blank\">migration-guide.md</a>",
+        "path": "media/media3/exoplayer/migration-guide.md",
+        "summary": "The documentation has been updated to use the \"Note\" and \"Warning\" callout blocks instead of the legacy formatting. This change improves the readability and consistency of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_migration-guide.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/playlists\" target=\"_blank\">playlists.md</a>",
+        "path": "media/media3/exoplayer/playlists.md",
+        "summary": "The documentation for playlists has been updated to reflect changes in the underlying code, specifically the link to the example code was updated to point to the current version in the repository. This is important to ensure the examples remain up-to-date and users can access the most recent code.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_playlists.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/concepts\" target=\"_blank\">concepts.md</a>",
+        "path": "media/media3/exoplayer/preloading-media/preloadmanager/concepts.md",
+        "summary": "The documentation for the Preload Manager in ExoPlayer has been updated to use admonition blocks for important notes. Specifically, the text emphasizing the necessity of using an ExoPlayer created by the preload manager's builder with the returned MediaSource and the note about the app controlling preload amounts and item positions within the carousel are now presented within `[!IMPORTANT]` and `[!NOTE]` blocks, respectively. This enhances the clarity and emphasis of these key instructions, making the information more prominent to developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_concepts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/retrieving-metadata\" target=\"_blank\">retrieving-metadata.md</a>",
+        "path": "media/media3/exoplayer/retrieving-metadata.md",
+        "summary": "The Kotlin and Java code examples for retrieving media metadata have been updated to emphasize the use of `MetadataRetriever` within a `use` block (Kotlin) or try-with-resources (Java) to ensure proper resource management and closing of the retriever.  Additional comments were added to highlight the steps involved: building the retriever and retrieving metadata asynchronously. This change improves code safety and clarity by explicitly managing the lifecycle of the `MetadataRetriever` object.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_retrieving-metadata.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/inspector\" target=\"_blank\">inspector.md</a>",
+        "path": "media/media3/inspector.md",
+        "summary": "The documentation for the `media3-inspector` module has been updated. A minor change was made to the section describing how to get started by adding the dependency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_inspector.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/connect-to-media-app\" target=\"_blank\">connect-to-media-app.md</a>",
+        "path": "media/media3/session/connect-to-media-app.md",
+        "summary": "The documentation has been updated to use the markdown admonition syntax for notes and tips, improving readability and consistency. Minor changes include reformatting code examples and updating links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_connect-to-media-app.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/serve-content\" target=\"_blank\">serve-content.md</a>",
+        "path": "media/media3/session/serve-content.md",
+        "summary": "This document introduces changes related to serving media content using `MediaLibrarySession`. It includes updates to code examples and replaces `Note` sections with a more visually distinct formatting using `NOTE` blocks. These changes enhance the clarity and organization of the documentation, providing a better user experience.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_serve-content.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/androidtv\" target=\"_blank\">androidtv.md</a>",
+        "path": "media/media3/ui/androidtv.md",
+        "summary": "The documentation for Android TV was updated to include information on how to handle key events from the remote control in both the traditional view system and Compose. It also adds a note on requesting focus for the PlayerView in onCreate of the Activity. This information is important because it guides developers to correctly handle D-pad navigation and focus on Android TV, ensuring a good user experience.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_androidtv.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/compose\" target=\"_blank\">compose.md</a>",
+        "path": "media/media3/ui/compose.md",
+        "summary": "This document describes the Jetpack Compose-based UI modules within the Media3 library. The only change is a minor wording adjustment to clarify that the Material3 module depends on the core one, so both don't need to be added explicitly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/customization\" target=\"_blank\">customization.md</a>",
+        "path": "media/media3/ui/customization.md",
+        "summary": "The documentation for UI customization in Media3 has been updated.  The update changes the style of the caution message and minor wording changes throughout the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_customization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/overview\" target=\"_blank\">overview.md</a>",
+        "path": "media/media3/ui/overview.md",
+        "summary": "The documentation was updated to remove extra whitespace and formatting artifacts in the code examples. This change ensures the code snippets are correctly formatted.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/playerview\" target=\"_blank\">playerview.md</a>",
+        "path": "media/media3/ui/playerview.md",
+        "summary": "The documentation for `PlayerView` has been updated with minor formatting adjustments, including adjustments to whitespace and line breaks in the code examples. These changes do not affect the functionality or usage of `PlayerView` and are primarily for improved readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_playerview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/optimize/audio-focus\" target=\"_blank\">audio-focus.md</a>",
+        "path": "media/optimize/audio-focus.md",
+        "summary": "The documentation was updated to reflect minor changes in formatting, specifically replacing the standard markdown 'Note' with the markdown alert syntax. Additionally, the documentation now has correct URLs for the methods in the table.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_audio-focus.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/platform/av-capture\" target=\"_blank\">av-capture.md</a>",
+        "path": "media/platform/av-capture.md",
+        "summary": "The documentation was updated to reflect the ability to capture audio playback based on the app's `targetSdkVersion`.  It clarifies that apps targeting Android 9.0 and below must explicitly enable playback capture via the manifest, while apps targeting Android 10 and above allow capture by default but can disable it in the manifest.  This information is important for developers who want to control whether or not their app's audio can be captured by other applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_av-capture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/routing\" target=\"_blank\">routing.md</a>",
+        "path": "media/routing.md",
+        "summary": "The documentation updates references to the AndroidX MediaRouter API, replacing the markdown links with direct URLs. This change ensures that the links accurately point to the latest API documentation, improving usability and maintainability of the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_routing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ndk/guides/graphics/validation-layer\" target=\"_blank\">validation-layer.md</a>",
+        "path": "ndk/guides/graphics/validation-layer.md",
+        "summary": "This document provides an overview of changes made to the Vulkan validation layers documentation, focusing on clarity and consistency. Key changes include reformatting notes, improving the layout of code snippets, and minor wording adjustments for better readability. These edits aim to enhance the document's understandability for developers using Vulkan on Android.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_validation-layer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ndk/guides/gwp-asan\" target=\"_blank\">gwp-asan.md</a>",
+        "path": "ndk/guides/gwp-asan.md",
+        "summary": "The documentation was updated to use the 'IMPORTANT' callout style for the GWP-Asan notes. Minor formatting changes were also introduced throughout the document. The changes are primarily cosmetic, improving the presentation of key information, and do not introduce new functionality or significantly alter existing content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_gwp-asan.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ndk/guides/image-decoder\" target=\"_blank\">image-decoder.md</a>",
+        "path": "ndk/guides/image-decoder.md",
+        "summary": "The documentation for the Android NDK image decoder was updated to correct a link. The previous link to the teapot sample was corrected.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_image-decoder.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ndk/guides/rootless-debug-gles\" target=\"_blank\">Enable layers</a>",
+        "path": "ndk/guides/rootless-debug-gles.md",
+        "summary": "The documentation for rootless GLES debugging has been updated. The changes include formatting changes to the warning, minor wording improvements, and the use of the term \"userdebug build\".",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_rootless-debug-gles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/safetynet\" target=\"_blank\">How to add the SafetyNet API dependency  |  Security  |  Android Developers</a>",
+        "path": "privacy-and-security/safetynet.md",
+        "summary": "The documentation was updated to reflect the deprecation of the SafetyNet Attestation API and the SafetyNet reCAPTCHA API, replaced by the Play Integrity API and reCAPTCHA respectively. Additionally, minor formatting changes and link updates were applied. This update is important for developers to migrate to the newer APIs and maintain the security of their applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_safetynet.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/security-best-practices\" target=\"_blank\">security-best-practices.md</a>",
+        "path": "privacy-and-security/security-best-practices.md",
+        "summary": "This document introduces several changes, including updates to links to Android developer documentation, and formatting improvements. The changes address various security best practices, such as explicit intent choosers, signature-based permissions, and secure data sharing between apps, to enhance security and user privacy.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_security-best-practices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/security-dex\" target=\"_blank\">security-dex.md</a>",
+        "path": "privacy-and-security/security-dex.md",
+        "summary": "The documentation updates the formatting of the notes and links within the security-dex.md file. It replaces the HTML-style notes with Markdown-style notes and updates the links to be more concise. These changes do not introduce any new features or technical information.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_security-dex.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio\" target=\"_blank\">studio.md</a>",
+        "path": "studio.md",
+        "summary": "The documentation has been updated to reflect the release of Android Studio Panda 2. This includes updating download links, version numbers, and checksums for the new release, replacing \"Panda 1 Patch 1\" with \"Panda 2\" across the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/archive\" target=\"_blank\">archive.md</a>",
+        "path": "studio/archive.md",
+        "summary": "The `archive.md` documentation has been updated with a new iframe source URL. This change likely reflects an update to the Android Studio archive content, potentially for a different version or a content refresh. This is important to ensure users are directed to the correct archive information.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/create-a-new-project-with-ai\" target=\"_blank\">create-a-new-project-with-ai.md</a>",
+        "path": "studio/gemini/create-a-new-project-with-ai.md",
+        "summary": "The documentation removes a warning about the preview status of the AI-powered project setup feature. This suggests that the feature is no longer in preview or the warning is no longer relevant.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_create-a-new-project-with-ai.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/manage-dependencies\" target=\"_blank\">manage-dependencies.md</a>",
+        "path": "studio/gemini/manage-dependencies.md",
+        "summary": "The documentation for managing dependencies with AI in Android Studio has been updated. The changes include modifications to the title, source, and image paths, along with the addition of a note about using the Android Gradle plugin (AGP) Upgrade Assistant. This update provides more accurate resource locations and clarifies the workflow for dependency updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_manage-dependencies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/intro\" target=\"_blank\">intro.md</a>",
+        "path": "studio/intro.md",
+        "summary": "The documentation updated the Note style to use the admonition block syntax with the `[!NOTE]` syntax for a more modern appearance. This improves the documentation's visual consistency and readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_intro.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/intro/studio-config\" target=\"_blank\">studio-config.md</a>",
+        "path": "studio/intro/studio-config.md",
+        "summary": "The documentation was updated to replace some \"Note\" sections with the \"[!NOTE]\" admonition and the \"Caution\" section with the \"[!CAUTION]\" admonition. Also, some minor formatting changes were done.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_studio-config.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/known-issues\" target=\"_blank\">known-issues.md</a>",
+        "path": "studio/known-issues.md",
+        "summary": "The documentation for known issues in Android Studio was updated to reflect the release of Android Studio Panda 2 and Android Gradle plugin 9.1.0.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_known-issues.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">nightly.md</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated to reflect the new nightly build date, changing all instances of \"Nightly 2026-03-03\" to \"Nightly 2026-03-04\", including download links for different operating systems.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/platform/projects\" target=\"_blank\">projects.md</a>",
+        "path": "studio/platform/projects.md",
+        "summary": "The documentation for Android Studio for Platform (ASfP) projects has been updated. The changes primarily involve minor clarifications and formatting adjustments within the `.asfp-project` file configuration section, improving readability and consistency of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_projects.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/projects\" target=\"_blank\">projects.md</a>",
+        "path": "studio/projects.md",
+        "summary": "The documentation for Android Studio projects was updated to improve clarity and accuracy. Key changes include updating links to the Android Developer documentation, clarifying the file structures, and adding warnings about version catalogs and module dependencies.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_projects.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/projects/android-library\" target=\"_blank\">android-library.md</a>",
+        "path": "studio/projects/android-library.md",
+        "summary": "The documentation for Android libraries has been updated to improve clarity and formatting.  Changes include the addition of an `IMPORTANT` note regarding module package names and the conversion of several `Note` sections to use the standard documentation format.  Additionally, minor adjustments to code snippets were made to improve consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_android-library.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/projects/install-ndk\" target=\"_blank\">install-ndk.md</a>",
+        "path": "studio/projects/install-ndk.md",
+        "summary": "The documentation has been updated to remove the use of `<var translate=\"no\">` tags and improve formatting in several sections, particularly around code snippets and notes. These changes enhance readability and maintainability of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_install-ndk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases\" target=\"_blank\">releases.md</a>",
+        "path": "studio/releases.md",
+        "summary": "The documentation has been updated to reflect the latest stable version of Android Studio, Panda 2.  This includes updated download links and version numbers across various operating systems like Linux and ChromeOS. This change ensures users have access to the most recent version of Android Studio and its associated features and improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_releases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/archives\" target=\"_blank\">archives.md</a>",
+        "path": "studio/releases/archives.md",
+        "summary": "The documentation updates add YouTube video links to the release notes of Android Studio versions 3.6, 3.5, 3.4, 3.3, 3.1, 3.0, and 2.2, providing video overviews of the releases. Additionally, minor formatting and link updates are included.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_archives.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.2\" target=\"_blank\">2025.3.2.md</a>",
+        "path": "studio/releases/fixed-bugs/studio/2025.3.2.md",
+        "summary": "This document introduces Android Studio Panda 2 releases, specifically 2025.3.2, and its RC1 and Canary 4 versions.  It includes the associated Android Gradle Plugin versions and indicates that these releases contain minor fixes and improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_2025.3.2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-1-5-0-release-notes\" target=\"_blank\">Android Studio v1.5.0 (November 2015)</a>",
+        "path": "studio/releases/past-releases/as-1-5-0-release-notes.md",
+        "summary": "Android Studio 1.5.0 includes updates to the Memory Monitor for more effective analysis of HPROF files, enabling faster identification of memory leaks. It introduces new deep link and app link support within the code editor, including intent filter creation, integration code generation for the App Indexing API, and deep link testing features. Furthermore, it enhances Vector Asset Studio to support more VectorDrawable elements for backward compatibility and adds new lint checks for Android TV, Android Auto, and improved security checks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_as-1-5-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-2-0-0-release-notes\" target=\"_blank\">Android Studio 2.0 (April 2016)</a>",
+        "path": "studio/releases/past-releases/as-2-0-0-release-notes.md",
+        "summary": "This document provides release notes for Android Studio 2.0. Key improvements include faster clean builds and instantaneous incremental code changes with Instant Run.  Additionally, new Lint checks have been added for more robust code quality, and the Android Emulator 2.0 has been optimized for improved performance and UI.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_as-2-0-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-2-2-0-release-notes\" target=\"_blank\">New</a>",
+        "path": "studio/releases/past-releases/as-2-2-0-release-notes.md",
+        "summary": "This release includes improvements to the Layout Editor and fixes several bugs. A video link has been added, and Gradle sync performance has been improved.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_as-2-2-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-2-3-0-release-notes\" target=\"_blank\">Android Studio 2.3 (March 2017)</a>",
+        "path": "studio/releases/past-releases/as-2-3-0-release-notes.md",
+        "summary": "This document outlines the changes in Android Studio 2.3 and its minor updates. The primary update focuses on bug fixes and stability improvements, as well as the addition of features, including support for Android O (API level 26) and fixes for NDK builds.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_as-2-3-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-3-2-0-release-notes\" target=\"_blank\">Android Studio 3.2 (September 2018)</a>",
+        "path": "studio/releases/past-releases/as-3-2-0-release-notes.md",
+        "summary": "This update to the Android Studio 3.2 release notes includes minor revisions and formatting adjustments, such as updating code snippets, fixing links, and correcting text to maintain clarity and accuracy. These changes are primarily for improving the overall readability and correctness of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_as-3-2-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-3-3-0-release-notes\" target=\"_blank\">Android Studio 3.3 (January 2019)</a>",
+        "path": "studio/releases/past-releases/as-3-3-0-release-notes.md",
+        "summary": "This update to the Android Studio 3.3 release notes includes a video overview of the release and a correction to the file paths for deleting Android Studio directories, specifically removing the asterisks from the directory names in the examples. This change ensures the paths accurately reflect the correct directory structure and prevents potential confusion or errors when users try to locate and remove these directories. ",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_as-3-3-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-4-1-0-release-notes\" target=\"_blank\">Android Studio 4.1 (August 2020)</a>",
+        "path": "studio/releases/past-releases/as-4-1-0-release-notes.md",
+        "summary": "This release notes update includes the addition of a video link for version 4.1.3 and a formatting change using a NOTE block for Windows users experiencing missing labels in the thread activity timeline. Additionally, it corrects a minor formatting error in the theme resources section and includes more detailed guidance for themes and styles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_as-4-1-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-4-2-0-release-notes\" target=\"_blank\">Android Studio 4.2 (April 2021)</a>",
+        "path": "studio/releases/past-releases/as-4-2-0-release-notes.md",
+        "summary": "This update includes improvements to the documentation for Android Studio 4.2. Specifically, it updates the location of R8 retrace, and modifies the formatting of a note on testing across multiple devices. Additionally, it revises the description of a Gradle sync error and a signing keys issue.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_as-4-2-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-jellyfish-release-notes\" target=\"_blank\">as-jellyfish-release-notes.md</a>",
+        "path": "studio/releases/past-releases/as-jellyfish-release-notes.md",
+        "summary": "This update addresses a critical vulnerability in the GitHub plugin present in Android Studio Iguana 2023.2.1 and later versions. This fix is important for users to ensure the security of their projects.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_as-jellyfish-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-panda-1-release-notes\" target=\"_blank\">as-panda-1-release-notes.md</a>",
+        "path": "studio/releases/past-releases/as-panda-1-release-notes.md",
+        "summary": "Android Studio Panda 1 release notes have been updated to reflect improvements in JDK management. The changes streamline project setup and ensure consistent builds across different machines and environments. A new image was added, and some wording and formatting were changed to improve readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_as-panda-1-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/device\" target=\"_blank\">device.md</a>",
+        "path": "studio/run/device.md",
+        "summary": "The documentation has been updated to use the `>` [!NOTE] Markdown syntax for notes and reorganized the steps for connecting to a device over Wi-Fi. It also updated the adb command path, and updated the image captions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_device.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/managing-avds\" target=\"_blank\">managing-avds.md</a>",
+        "path": "studio/run/managing-avds.md",
+        "summary": "The documentation for managing AVDs has been updated to reflect changes in the Android Gradle Plugin API version and formatting. The update also corrects a link and uses a different formatting style for notes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_managing-avds.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/rundebugconfig\" target=\"_blank\">rundebugconfig.md</a>",
+        "path": "studio/run/rundebugconfig.md",
+        "summary": "The documentation was updated to fix broken links and improve clarity by modifying URLs, code blocks, and descriptions related to ADB and LLDB options.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_rundebugconfig.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/test/espresso-api\" target=\"_blank\">espresso-api.md</a>",
+        "path": "studio/test/espresso-api.md",
+        "summary": "The documentation for espresso-api.md has been updated to include a code example demonstrating the usage of the `@RequiresDeviceMode` annotation. This change provides developers with a clear example of how to restrict test execution based on device capabilities, specifically when the device can unfold to a flat configuration. This enhancement helps improve test coverage and accuracy by allowing tests to target specific device states.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_espresso-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/write/vector-asset-studio\" target=\"_blank\">Add multi-density vector graphics  |  Android Studio  |  Android Developers</a>",
+        "path": "studio/write/vector-asset-studio.md",
+        "summary": "This document introduces Vector Asset Studio, a tool within Android Studio that allows developers to add multi-density vector graphics, material icons, and import SVG/PSD files into their projects as vector drawable resources. The changes include updates to clarify the supported vector graphic types, backward-compatibility solutions, and referencing other documentation. The document was updated to use a consistent style, improve clarity, and incorporate updated links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_vector-asset-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/releases/build-tools\" target=\"_blank\">build-tools.md</a>",
+        "path": "tools/releases/build-tools.md",
+        "summary": "This update to the build tools includes several improvements. It adds PKCS #11 support for secure hardware key signing, enables loading additional JCA Providers, and correctly handles `android:targetSandboxVersion` during APK verification. Other fixes address file name character issues in signing, and fixes in `apksigner.bat` for spaces in parameters, and a bug in JAR signature verification.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_build-tools.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/releases/platforms\" target=\"_blank\">platforms.md</a>",
+        "path": "tools/releases/platforms.md",
+        "summary": "The documentation for Android platforms has been updated. The change involves replacing the original text with a callout that emphasizes the importance of installing the most recent Android SDK Command-Line tools to view the newest Android system components in the Android SDK Manager. This update helps users more easily find and update to the most current system components.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_platforms.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/sdkmanager\" target=\"_blank\">sdkmanager.md</a>",
+        "path": "tools/sdkmanager.md",
+        "summary": "The documentation for sdkmanager.md has been updated to use the NOTE admonition blocks. Additionally, variable names that were previously formatted with `<var translate=\"no\">` tags have been updated and are no longer present.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_sdkmanager.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/support-library/packages\" target=\"_blank\">packages.md</a>",
+        "path": "topic/libraries/support-library/packages.md",
+        "summary": "The documentation has been updated to replace the direct links to classes and methods in the v4, v7, and multidex support libraries with the backtick-quoted URLs. These changes improve readability and formatting within the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_packages.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/support-library/setup\" target=\"_blank\">setup.md</a>",
+        "path": "topic/libraries/support-library/setup.md",
+        "summary": "The documentation for setting up the Support Library has been updated. The changes include updates to the code examples in the `settings.gradle` and `build.gradle` files. Also, there's a correction to the URL in the API reference section.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/view-binding\" target=\"_blank\">View binding  |  App architecture  |  Android Developers</a>",
+        "path": "topic/libraries/view-binding.md",
+        "summary": "This document introduces View Binding, a feature in Android Jetpack that simplifies writing code interacting with views. The changes include updates to the setup instructions, examples, and the addition of a section on providing hints for different configurations using `tools:viewBindingType` to handle situations where view types vary across configurations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_view-binding.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/appstandby\" target=\"_blank\">appstandby.md</a>",
+        "path": "topic/performance/appstandby.md",
+        "summary": "The documentation was updated to use the `> [!NOTE]` syntax for all notes. This change improves the visual clarity and formatting of the notes within the document. Additionally, minor clarifications were added, such as clarifying how device-off time affects interactivity limits and how repeated notification dismissals can lead to blocking by the user. These changes refine the explanation of App Standby behavior for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_appstandby.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/background-optimization\" target=\"_blank\">background-optimization.md</a>",
+        "path": "topic/performance/background-optimization.md",
+        "summary": "This document has been updated to reflect changes in Android background optimization, mainly updating the URLs to the new documentation standard.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_background-optimization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile\" target=\"_blank\">create-baselineprofile.md</a>",
+        "path": "topic/performance/baselineprofiles/create-baselineprofile.md",
+        "summary": "The documentation has been updated to use the `>` [!IMPORTANT] and `>` [!NOTE] callout blocks instead of bold text for important notes and information. This change improves readability and consistency with other Android developer documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_create-baselineprofile.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/baselineprofiles/measure-baselineprofile\" target=\"_blank\">measure-baselineprofile.md</a>",
+        "path": "topic/performance/baselineprofiles/measure-baselineprofile.md",
+        "summary": "The documentation was updated to include a CAUTION block, replacing a direct sentence. Additionally, a TIP block was added to highlight the ability to retrieve results as a JSON file for CI pipelines, replacing a direct sentence. These changes clarify important information about running benchmarks and using the results.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_measure-baselineprofile.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/baselineprofiles/overview\" target=\"_blank\">overview.md</a>",
+        "path": "topic/performance/baselineprofiles/overview.md",
+        "summary": "The documentation was updated to include admonition syntax (using `> [!NOTE]`) for the notes on combining Baseline Profiles and startup profiles and on using `testTag()` with UI Automator in Jetpack Compose. This change improves the visual clarity and emphasis of important information within the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics\" target=\"_blank\">macrobenchmark-metrics.md</a>",
+        "path": "topic/performance/benchmarking/macrobenchmark-metrics.md",
+        "summary": "The documentation for `TraceSectionMetric` and `PowerMetric` has been updated to include a warning indicating that the classes are experimental. This change helps users understand the potential instability or limitations of these features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_macrobenchmark-metrics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview\" target=\"_blank\">macrobenchmark-overview.md</a>",
+        "path": "topic/performance/benchmarking/macrobenchmark-overview.md",
+        "summary": "The documentation updates include changes to the formatting of notes and warnings using the `> [!NOTE]` and `> [!WARNING]` syntax. These changes improve the visual presentation and readability of important information within the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_macrobenchmark-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/benchmarking/microbenchmark-and-hilt\" target=\"_blank\">microbenchmark-and-hilt.md</a>",
+        "path": "topic/performance/benchmarking/microbenchmark-and-hilt.md",
+        "summary": "The documentation provides guidance on microbenchmarking Android applications that use Hilt for dependency injection. The changes involve minor text adjustments, which include improved code formatting and updated links. These improvements enhance the clarity and readability of the documentation, making it easier for developers to understand and implement microbenchmarking techniques with Hilt.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_microbenchmark-and-hilt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/benchmarking/microbenchmark-profile\" target=\"_blank\">microbenchmark-profile.md</a>",
+        "path": "topic/performance/benchmarking/microbenchmark-profile.md",
+        "summary": "The documentation has been updated to include a Note using the admonition blockquote syntax. The note clarifies that while the Microbenchmark library captures system tracing, it disables custom tracing sections to avoid overhead interference.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_microbenchmark-profile.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/benchmarking/microbenchmark-write\" target=\"_blank\">microbenchmark-write.md</a>",
+        "path": "topic/performance/benchmarking/microbenchmark-write.md",
+        "summary": "The documentation for microbenchmarking has been updated to improve readability and provide more clarity.  Changes include formatting improvements, the addition of the NOTE callout box, and minor adjustments to code examples and command line instructions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_microbenchmark-write.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/measuring-performance\" target=\"_blank\">measuring-performance.md</a>",
+        "path": "topic/performance/measuring-performance.md",
+        "summary": "The documentation on measuring Android app performance has been updated with new information. The changes include adding a video link, replacing markdown formatting with admonition blocks (CAUTION, NOTE, TIP) for better visual clarity and emphasis, and minor wording adjustments to improve clarity and flow of the content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_measuring-performance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/power/network/analyze-data\" target=\"_blank\">Analyze network traffic data with the Network Traffic tool  |  App quality  |  Android Developers</a>",
+        "path": "topic/performance/power/network/analyze-data.md",
+        "summary": "This document provides guidance on analyzing network traffic data using the Network Traffic tool, focusing on identifying and optimizing network usage patterns to improve app performance and reduce power consumption.  It also highlights the deprecation of the tool and recommends using the Network Profiler instead.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_analyze-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/reduce-apk-size\" target=\"_blank\">reduce-apk-size.md</a>",
+        "path": "topic/performance/reduce-apk-size.md",
+        "summary": "The documentation was updated to include the use of markdown note blocks for better formatting and readability. Also, links to the Android developer documentation were updated to the full URL.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_reduce-apk-size.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing\" target=\"_blank\">tracing.md</a>",
+        "path": "topic/performance/tracing.md",
+        "summary": "The documentation for system tracing was updated to use a more modern callout syntax for the note about CPU profiling. This change improves readability and emphasizes the use of the CPU profiler for detailed method execution analysis.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_tracing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/on-device\" target=\"_blank\">on-device.md</a>",
+        "path": "topic/performance/tracing/on-device.md",
+        "summary": "The documentation was updated to replace markdown-style notes with the newer callout syntax using the `> [!NOTE]` format for improved visual clarity and consistency. This change enhances readability and aligns with modern documentation practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_on-device.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/app-links/add-applinks\" target=\"_blank\">add-applinks.md</a>",
+        "path": "training/app-links/add-applinks.md",
+        "summary": "The documentation was updated to replace markdown-style cautions and notes with the more modern callout blocks. This change improves the visual presentation and readability of the documentation by highlighting important information using a more structured format.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_add-applinks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/app-links/configure-assetlinks\" target=\"_blank\">configure-assetlinks.md</a>",
+        "path": "training/app-links/configure-assetlinks.md",
+        "summary": "The documentation was updated to reflect minor formatting changes, clarifications, and the addition of a NOTE block. These changes enhance readability and provide more concise information on associating apps and websites, including the utilization of dynamic app link components.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_configure-assetlinks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/app-links/create-deeplinks\" target=\"_blank\">create-deeplinks.md</a>",
+        "path": "training/app-links/create-deeplinks.md",
+        "summary": "This document provides instructions on how to create deep links in Android applications. The changes include minor text adjustments and formatting changes such as updating links and examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_create-deeplinks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/app-links/test-applinks\" target=\"_blank\">test-applinks.md</a>",
+        "path": "training/app-links/test-applinks.md",
+        "summary": "The documentation for testing App Links was updated to include more details on checking the Digital Asset Links files and system settings for link handling using `adb shell dumpsys package domain-preferred-apps`. Additionally, formatting changes were made to improve clarity and readability, including the use of a note block.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_test-applinks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/app-links/verify-applinks\" target=\"_blank\">verify-applinks.md</a>",
+        "path": "training/app-links/verify-applinks.md",
+        "summary": "The documentation has been updated with changes to the format of the notes, and slight wording changes throughout the document. It also includes the update of example code to use the correct package name.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_verify-applinks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/apps/navigation\" target=\"_blank\">navigation.md</a>",
+        "path": "training/cars/apps/navigation.md",
+        "summary": "The code snippet for the navigation service declaration in the AndroidManifest.xml file has been updated. The changes include correcting the XML formatting within the service declaration. This update ensures that the manifest file adheres to proper XML syntax, which is crucial for the application to function correctly on the Android platform.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/data-storage/manage-all-files\" target=\"_blank\">manage-all-files.md</a>",
+        "path": "training/data-storage/manage-all-files.md",
+        "summary": "The documentation for `manage-all-files.md` was updated to include the use of a callout block to highlight the `/sdcard/Android/media` directory as part of the shared storage. It replaced a simple note with a styled callout block. This change improves the visual clarity and emphasis on an important detail regarding file management within the Android system.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_manage-all-files.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/data-storage/shared/datasets\" target=\"_blank\">datasets.md</a>",
+        "path": "training/data-storage/shared/datasets.md",
+        "summary": "The documentation for datasets has been updated with minor formatting changes, primarily involving whitespace and HTML-to-Markdown conversions. The code snippets have been updated to reflect these formatting changes. These updates ensure better readability and consistent formatting throughout the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_datasets.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/data-storage/shared/media\" target=\"_blank\">media.md</a>",
+        "path": "training/data-storage/shared/media.md",
+        "summary": "The documentation updates include changes to the format of the notes and cautions, using the 'NOTE' and 'CAUTION' callouts. There are also minor wording adjustments and code formatting improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_media.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/data-storage/shared/photo-picker\" target=\"_blank\">photo-picker.md</a>",
+        "path": "training/data-storage/shared/photo-picker.md",
+        "summary": "The documentation updates include changes to the format of the notes, and additional clarification on the maximum number of media grants and device availability. The changes improve readability and provide more context for developers using the photo picker.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_photo-picker.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/data-storage/shared/photo-picker/embedded\" target=\"_blank\">embedded.md</a>",
+        "path": "training/data-storage/shared/photo-picker/embedded.md",
+        "summary": "The documentation for the embedded photo picker has been updated to reflect minor changes. These include adjustments to wording, such as replacing \"with few parameters to work\" with a more precise phrase and refining a sentence regarding deselecting URIs.  The accent color personalization option has been rephrased for clarity and various code snippets have been updated with minor formatting changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_embedded.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/dependency-injection/hilt-android\" target=\"_blank\">hilt-android.md</a>",
+        "path": "training/dependency-injection/hilt-android.md",
+        "summary": "This document introduces several improvements, including updates to the note sections using a different markdown syntax for better formatting. There are also adjustments to code examples and explanations throughout the document. Also, minor changes to the component hierarchy section and added details related to entry points usage.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_hilt-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/dependency-injection/hilt-testing\" target=\"_blank\">hilt-testing.md</a>",
+        "path": "training/dependency-injection/hilt-testing.md",
+        "summary": "This document introduces several changes, including updates to the documentation for testing dependencies, the addition of a warning about uninstalling modules and the modification of notes to use the `>` character for formatting. These changes provide more clarity and guidance on how to effectively test Hilt-injected Android applications, and better formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_hilt-testing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/monitoring-device-state/connectivity-status-type\" target=\"_blank\">connectivity-status-type.md</a>",
+        "path": "training/monitoring-device-state/connectivity-status-type.md",
+        "summary": "The documentation for monitoring device connectivity status was updated. Minor wording adjustments and formatting changes were made in the document to improve readability and clarity. These changes do not introduce new concepts or significantly alter the technical guidance provided.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_connectivity-status-type.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/package-visibility/automatic\" target=\"_blank\">automatic.md</a>",
+        "path": "training/package-visibility/automatic.md",
+        "summary": "The documentation for automatic package visibility was updated. The changes include reformatting the note section using the correct markdown format for the note and no longer using the deprecated markdown element. These changes improve readability and formatting consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_automatic.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/package-visibility/testing\" target=\"_blank\">testing.md</a>",
+        "path": "training/package-visibility/testing.md",
+        "summary": "The documentation for package visibility testing was updated to change the formatting of the caution message. The original Markdown formatting for the caution was replaced with a callout block to emphasize the caution about app performance impact when logging package visibility.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_testing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/package-visibility/use-cases\" target=\"_blank\">use-cases.md</a>",
+        "path": "training/package-visibility/use-cases.md",
+        "summary": "This document underwent minor revisions. The changes include updates to code snippets, adjustments to formatting, and a change from a standard note to a callout block. These changes aim to improve the clarity and readability of the documentation without changing the core concepts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_use-cases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/permissions/explaining-access\" target=\"_blank\">explaining-access.md</a>",
+        "path": "training/permissions/explaining-access.md",
+        "summary": "The documentation updates include changes to the format of notes using the `> [!NOTE]` syntax, and small wording changes. There are also adjustments to the image references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_explaining-access.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/permissions/usage-notes\" target=\"_blank\">usage-notes.md</a>",
+        "path": "training/permissions/usage-notes.md",
+        "summary": "The documentation for Android app permission usage notes has been updated. The changes include formatting updates to emphasize notes, and modifications to the example permission links. These updates improve readability and ensure the examples are consistent.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_usage-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/sharing/direct-share-targets\" target=\"_blank\">direct-share-targets.md</a>",
+        "path": "training/sharing/direct-share-targets.md",
+        "summary": "The documentation was updated to reflect the deprecation of the `ChooserTargetService`. The changes mainly focused on formatting and the addition of `Audience` parameter in group chat scenarios when using the `SEND_MESSAGE` and `RECEIVE_MESSAGE` capabilities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_direct-share-targets.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/sharing/receive\" target=\"_blank\">receive.md</a>",
+        "path": "training/sharing/receive.md",
+        "summary": "The documentation has been updated with changes to improve clarity and formatting. Specifically, it replaced markdown syntax for code blocks, updated the syntax for caution and note sections with newer versions, and corrected a minor formatting error in the table. These changes provide more readable documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_receive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/sharing/send\" target=\"_blank\">send.md</a>",
+        "path": "training/sharing/send.md",
+        "summary": "The documentation has been updated to reflect the use of HTTPS URLs for Android developer references.  Additionally, formatting and minor improvements to clarity and presentation were included.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_send.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/different-screens/tools\" target=\"_blank\">tools.md</a>",
+        "path": "training/testing/different-screens/tools.md",
+        "summary": "This document focuses on tools and techniques for testing Android applications on different screen sizes and device configurations. It covers using `ForcedSize` and Robolectric for testing different screen sizes,  instrumented tests with annotations and Gradle managed devices to filter tests, and Espresso Device features for testing foldable states and screen sizes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_tools.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/espresso/setup\" target=\"_blank\">setup.md</a>",
+        "path": "training/testing/espresso/setup.md",
+        "summary": "The documentation updates include minor wording adjustments and formatting changes, such as modifying the indentation and spacing. Additionally, the documentation includes the latest versions of dependencies and examples for JUnit4 testing. These changes aim to improve readability and ensure the content aligns with the latest versions of libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/accessibility\" target=\"_blank\">accessibility.md</a>",
+        "path": "training/tv/accessibility.md",
+        "summary": "The documentation for Android TV accessibility has been updated to include information on how to handle audio descriptions, specifically regarding the `isAudioDescriptionRequested()` method and how to listen for changes in the user's preference. This is important for ensuring that Android TV apps provide an accessible experience for users with visual impairments, allowing them to enable audio descriptions across all apps in Android 13 and higher.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_accessibility.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/playback/adjust-display-settings\" target=\"_blank\">adjust-display-settings.md</a>",
+        "path": "training/tv/playback/adjust-display-settings.md",
+        "summary": "The documentation was updated to use the new markdown note syntax and to update the note about the picture profiles strings being recommendations. The changes enhance readability and reflect the current state of the Android API.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_adjust-display-settings.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/playback/audio-capabilities\" target=\"_blank\">audio-capabilities.md</a>",
+        "path": "training/tv/playback/audio-capabilities.md",
+        "summary": "The documentation for audio capabilities was updated to reflect changes in how `isDirectPlaybackSupported()` behaves across different API levels, specifically regarding audio routing. It also provides clarifications and code examples related to checking and managing direct audio playback support, including handling potential errors when audio routing changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_audio-capabilities.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/playback/compose\" target=\"_blank\">compose.md</a>",
+        "path": "training/tv/playback/compose.md",
+        "summary": "The documentation for Compose for TV was updated to include a link to a YouTube video, updated the AI prompt section, and updated the Jetpack Compose toolkit dependencies in the build.gradle example files to reflect the latest versions. These updates ensure users have access to current resources and dependency versions for developing Android TV applications with Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/playback/compose/browse\" target=\"_blank\">browse.md</a>",
+        "path": "training/tv/playback/compose/browse.md",
+        "summary": "The documentation for the TV Compose library has been updated to reflect the latest changes in the compose library. This update includes modifications to code snippets and examples, with a focus on improving clarity and alignment with the most current library versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_browse.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/playback/compose/details\" target=\"_blank\">details.md</a>",
+        "path": "training/tv/playback/compose/details.md",
+        "summary": "The documentation for the details screen in Compose has been updated. The change replaces the Markdown syntax for a note with the block quote syntax for a note. This change improves the visual presentation of the note.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_details.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/apps/permissions\" target=\"_blank\">permissions.md</a>",
+        "path": "training/wearables/apps/permissions.md",
+        "summary": "The documentation was updated to replace the markdown style `Note:` with the new admonition style `> [!NOTE]` for better formatting consistency. This change aims to improve the visual presentation and readability of the notes within the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_permissions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose\" target=\"_blank\">compose.md</a>",
+        "path": "training/wearables/compose.md",
+        "summary": "The Compose BOM (Bill of Materials) version was updated from `2026.01.01` to `2026.02.01`. This is likely a dependency update that includes bug fixes, performance improvements, or new features for Compose on Wear OS.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/performance\" target=\"_blank\">performance.md</a>",
+        "path": "training/wearables/compose/performance.md",
+        "summary": "The documentation related to performance in Wear OS Compose has been updated to reflect the manual triggering of the profile installer process, clarifying that it typically takes around 40 seconds.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_performance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/creating-app-china\" target=\"_blank\">creating-app-china.md</a>",
+        "path": "training/wearables/creating-app-china.md",
+        "summary": "The documentation was updated to reflect improvements and provide more clarity.  Changes include formatting to improve readability, updating links, and clarifying the use of APIs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_creating-app-china.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/views/layouts\" target=\"_blank\">Handle different watch shapes  |  Wear OS  |  Android Developers</a>",
+        "path": "training/wearables/views/layouts.md",
+        "summary": "The documentation has been updated to reflect the most current best practices for Wear OS layouts. Specifically, it includes using the `BoxInsetLayout` to prevent views from being cropped near the edges of round screens and utilizing `WearableRecyclerView` for curved layouts in scrollable lists. Additionally, the example code and links have been updated for clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_layouts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/work/device-admin\" target=\"_blank\">device-admin.md</a>",
+        "path": "work/device-admin.md",
+        "summary": "This diff updates the documentation for Device Administration, mainly by changing references to classes and methods to use the full URL of the developer.android.com reference pages. It also updates the note about Headless System User Mode devices, by changing the formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_device-admin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/work/versions/android-11\" target=\"_blank\">android-11.md</a>",
+        "path": "work/versions/android-11.md",
+        "summary": "This document outlines changes in Android 11 related to enterprise features. Key changes include improvements to device attestation and CA certificate management. These changes provide enhanced security and control for IT administrators managing corporate devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_android-11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/work/versions/android-12\" target=\"_blank\">android-12.md</a>",
+        "path": "work/versions/android-12.md",
+        "summary": "The documentation for Android 12 was updated to include a callout box for the note about IT admins not being able to revoke auto-granted configurations. This change uses the standard Markdown callout syntax, improving readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_android-12.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/work/versions/android-13\" target=\"_blank\">android-13.md</a>",
+        "path": "work/versions/android-13.md",
+        "summary": "The documentation clarifies that in Android 13 (API level 33) and higher, internet connectivity is required by default for provisioning company-owned devices. It highlights the use of `DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE` flag within the provisioning extras to allow offline or closed-network provisioning.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_android-13.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/work/versions/android-14\" target=\"_blank\">android-14.md</a>",
+        "path": "work/versions/android-14.md",
+        "summary": "The documentation for Android 14 has been updated to use the \"NOTE\" syntax for callouts. This change improves the visual presentation and readability of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ccdf23c_android-14.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-03T15:19:51Z",
     "commit_hash": "94f033f",
     "entries": [

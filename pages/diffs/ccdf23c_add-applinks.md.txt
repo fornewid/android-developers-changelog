@@ -1,0 +1,78 @@
+diff --git a/docs/training/app-links/add-applinks.md b/docs/training/app-links/add-applinks.md
+index 37de1a1..04da885 100644
+--- a/docs/training/app-links/add-applinks.md
++++ b/docs/training/app-links/add-applinks.md
+@@ -13,7 +13,7 @@ these steps:
+ 3. Declare website associations.
+ 
+ The following is an example of an App Link declaration with schemes and hosts as
+-well as `autoVerify="true`":  
++well as `autoVerify="true`":
+ 
+     <activity
+         android:name=".MainActivity"
+@@ -59,7 +59,8 @@ well as `autoVerify="true`":
+   are merged together to account for all variations of their combined
+   attributes.
+ 
+-| **Caution:** If multiple activities contain intent filters that resolve to the same verified App Link, then there's no guarantee as to which Activity handles the link.
++> [!CAUTION]
++> **Caution:** If multiple activities contain intent filters that resolve to the same verified App Link, then there's no guarantee as to which Activity handles the link.
+ 
+ ## Considerations for manifest filter rules
+ 
+@@ -86,12 +87,14 @@ system then defaults to its standard behavior to resolve the intent, as
+ described in [Create Deep Links to App Content](https://developer.android.com/training/app-links/deep-linking). However, the app can still
+ be verified as a default handler for any of the URL patterns defined in the
+ app's other intent filters.
+-| **Note:** On Android 11 (API level 30) and lower, the system doesn't verify your app as a default handler unless it finds a matching Digital Asset Links file for *all* hosts that you define in the manifest.
++
++> [!NOTE]
++> **Note:** On Android 11 (API level 30) and lower, the system doesn't verify your app as a default handler unless it finds a matching Digital Asset Links file for *all* hosts that you define in the manifest.
+ 
+ For example, an app with the following intent filters would pass verification
+ only for `https://www.example.com` if an `assetlinks.json` file were found at
+ `https://www.example.com/.well-known/assetlinks.json` but not
+-`https://www.example.net/.well-known/assetlinks.json`:  
++`https://www.example.net/.well-known/assetlinks.json`:
+ 
+     <application>
+ 
+@@ -117,7 +120,8 @@ only for `https://www.example.com` if an `assetlinks.json` file were found at
+ 
+     </application>
+ 
+-| **Note:** All `<data>` elements in the same intent filter are merged together to account for all variations of their combined attributes. For example, the first intent filter includes a `<data>` element that only declares the HTTPS scheme. But it is combined with the other `<data>` element so that the intent filter supports both `http://www.example.com` and `https://www.example.com`. As such, you must create separate intent filters when you want to define specific combinations of URI schemes and domains.
++> [!NOTE]
++> **Note:** All `<data>` elements in the same intent filter are merged together to account for all variations of their combined attributes. For example, the first intent filter includes a `<data>` element that only declares the HTTPS scheme. But it is combined with the other `<data>` element so that the intent filter supports both `http://www.example.com` and `https://www.example.com`. As such, you must create separate intent filters when you want to define specific combinations of URI schemes and domains.
+ 
+ ### Support app linking for multiple subdomains
+ 
+@@ -127,7 +131,7 @@ different subdomains, you must publish a valid `assetlinks.json` on each domain.
+ For example, the following intent filter includes `www.example.com` and
+ `mobile.example.com` as accepted intent URL hosts. So a valid `assetlinks.json`
+ must be published at both `https://www.example.com/.well-known/assetlinks.json`
+-and `https://mobile.example.com/.well-known/assetlinks.json`.  
++and `https://mobile.example.com/.well-known/assetlinks.json`.
+ 
+     <application>
+       <activity android:name="MainActivity">
+@@ -148,7 +152,7 @@ Alternatively, if you declare your hostname with a wildcard (such as
+ hostname (`example.com`). For example, an app with the following intent filter
+ will pass verification for any sub-name of `example.com` (such as
+ `foo.example.com`) as long as the `assetlinks.json` file is published at
+-`https://example.com/.well-known/assetlinks.json`:  
++`https://example.com/.well-known/assetlinks.json`:
+ 
+     <application>
+       <activity android:name="MainActivity">
+@@ -175,4 +179,6 @@ provided that you have the necessary [package visibility](https://developer.andr
+ show a custom chooser dialog that contains the results from calling
+ [`queryIntentActivities`](https://developer.android.com/reference/android/content/pm/PackageManager#queryIntentActivities)(). The user can select their preferred app from the
+ list of matching apps that appear in the dialog.
+-| **Note:** Consider storing the matching path so that the user doesn't have to re-select if a similar web intent is launched later.
+\ No newline at end of file
++
++> [!NOTE]
++> **Note:** Consider storing the matching path so that the user doesn't have to re-select if a similar web intent is launched later.
+\ No newline at end of file

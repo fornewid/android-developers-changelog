@@ -1,0 +1,26 @@
+diff --git a/docs/studio/releases/past-releases/as-3-3-0-release-notes.md b/docs/studio/releases/past-releases/as-3-3-0-release-notes.md
+index 32bef9d..cb0f30e 100644
+--- a/docs/studio/releases/past-releases/as-3-3-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-3-3-0-release-notes.md
+@@ -19,6 +19,8 @@ and improvements.
+ 
+ <br />
+ 
++[Video](https://www.youtube.com/watch?v=DdWWsruUXTo)
++
+ <br />
+ 
+ <br />
+@@ -111,9 +113,9 @@ The directories Android Studio considers for deletion are listed below:
+ 
+ <br />
+ 
+-- Linux: `~/.AndroidStudio[Preview]`*X.Y*
+-- Mac: `~/Library/{Preferences, Caches, Logs, Application Support}/AndroidStudio[Preview]`*X.Y*
+-- Windows: `%USER%.AndroidStudio[Preview]`*X.Y*
++- Linux: `~/.AndroidStudio[Preview]X.Y`
++- Mac: `~/Library/{Preferences, Caches, Logs, Application Support}/AndroidStudio[Preview]X.Y`
++- Windows: `%USER%.AndroidStudio[Preview]X.Y`
+ 
+ <br />
+ 

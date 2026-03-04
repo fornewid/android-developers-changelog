@@ -1,0 +1,88 @@
+diff --git a/docs/media/media3/exoplayer/migration-guide.md b/docs/media/media3/exoplayer/migration-guide.md
+index 03fde12..c45ddec 100644
+--- a/docs/media/media3/exoplayer/migration-guide.md
++++ b/docs/media/media3/exoplayer/migration-guide.md
+@@ -93,7 +93,8 @@ resources of an Android gradle project written in Java or Kotlin.
+ 
+ ### Using the migration script
+ 
+-| **Warning:** The script may put gradle build files in an unusable state if your dependency declarations use variables or advanced techniques.
++> [!WARNING]
++> **Warning:** The script may put gradle build files in an unusable state if your dependency declarations use variables or advanced techniques.
+ 
+ 1. Download [the migration script](https://raw.githubusercontent.com/google/ExoPlayer/refs/heads/release-v2/media3-migration.sh) from the tag of the ExoPlayer project on
+    GitHub corresponding to the version that you have updated your app to:
+@@ -127,7 +128,8 @@ resources of an Android gradle project written in Java or Kotlin.
+ 
+        ./media3-migration.sh -m -f /path/to/gradle/project/root
+ 
+-| **Note:** You can use the `-x` parameter to exclude a path from being selected for change.
++> [!NOTE]
++> **Note:** You can use the `-x` parameter to exclude a path from being selected for change.
+ 
+      # list files selected for migration when excluding paths
+      ./media3-migration.sh -l -x "app/src/test/" -x "service/" /path/to/project/root
+@@ -140,7 +142,8 @@ Complete these manual steps after running the script with the `-m` option:
+ 2. **Build the project** : Either use `./gradlew clean build` or in Android Studio choose **File \> Sync Project with Gradle Files** , then **Build \>
+    Clean project** , and then **Build \> Rebuild project** (monitor your build in the ['Build - Build Output' tab of Android Studio](https://developer.android.com/studio/run#gradle-console)).
+ 
+-| **Note:** In some cases, the script is expected to leave your project in a state that doesn't build without manually migrating code. The script warns about this and requests the `-f` option to force execution. For instance, this is the case if an app is using `MediaSessionConnector` and `MediaSessionCompat`. See the next section for guidance on how you can migrate from `MediaSessionConnector` to Media3.
++> [!NOTE]
++> **Note:** In some cases, the script is expected to leave your project in a state that doesn't build without manually migrating code. The script warns about this and requests the `-f` option to force execution. For instance, this is the case if an app is using `MediaSessionConnector` and `MediaSessionCompat`. See the next section for guidance on how you can migrate from `MediaSessionConnector` to Media3.
+ 
+ Recommended follow-up steps:
+ 
+@@ -175,15 +178,18 @@ without requiring a connector.
+    `androidx.media3.session.MediaSession.Builder` to **build a
+    `MediaSession`** . **Pass the player** to construct the session builder.
+ 
+-   | **Note:** In case your app is using a different player than `ExoPlayer`, you need a custom `Player` implementation that you can pass to the `MediaSession` that is wrapping your player. We will provide more guidance around a minimal `Player` implementation that works together with the media session implementation.
++   > [!NOTE]
++   > **Note:** In case your app is using a different player than `ExoPlayer`, you need a custom `Player` implementation that you can pass to the `MediaSession` that is wrapping your player. We will provide more guidance around a minimal `Player` implementation that works together with the media session implementation.
+ 
+        val player = ExoPlayer.Builder(context).build()
+        mediaSession = MediaSession.Builder(context, player)
+            .setSessionCallback(MySessionCallback())
+            .build()
+ 
+-   | **Note:** You can intercept any playback operation on a `Player` by wrapping it in a `ForwardingSimpleBasePlayer(player)`. See [more information about
+-   | `ForwardingSimpleBasePlayer`](https://developer.android.com/media/media3/exoplayer/customization#player-operations).
++   > [!NOTE]
++   > **Note:** You can intercept any playback operation on a `Player` by wrapping it in a `ForwardingSimpleBasePlayer(player)`. See [more information about
++   > `ForwardingSimpleBasePlayer`](https://developer.android.com/media/media3/exoplayer/customization#player-operations).
++
+ 5. Implement `MySessionCallback` as required by your app. This is optional. If
+    you want to allow controllers to add media items to the player, implement
+    [`MediaSession.Callback.onAddMediaItems()`](https://github.com/androidx/media/blob/1.9.2/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184). It serves various current and
+@@ -203,7 +209,8 @@ without requiring a connector.
+          mediaSession = null
+        }
+ 
+-   | **Note:** It's important to release the media session before creating a new one with the same ID. Media3 throws an exception if an app is leaking a session instance.
++   > [!NOTE]
++   > **Note:** It's important to release the media session before creating a new one with the same ID. Media3 throws an exception if an app is leaking a session instance.
+ 
+ ### `MediaSessionConnector` functionality in Media3
+ 
+@@ -307,7 +314,9 @@ using a `MediaLibraryService` or a legacy `MediaBrowserServiceCompat`.
+ The **`MediaLibraryService` supports media notifications automatically** and the
+ `PlayerNotificationManager` can be removed when using a `MediaLibraryService` or
+ `MediaSessionService`.
+-| **Note:** Apps targeting API Level 28+ still need to request the [`FOREGROUND_SERVICE`](https://developer.android.com/reference/android/Manifest.permission#FOREGROUND_SERVICE) permission.
++
++> [!NOTE]
++> **Note:** Apps targeting API Level 28+ still need to request the [`FOREGROUND_SERVICE`](https://developer.android.com/reference/android/Manifest.permission#FOREGROUND_SERVICE) permission.
+ 
+ An app can **customize the notification** by setting a custom
+ `MediaNotification.Provider` in `onCreate()` that replaces the
+@@ -325,7 +334,9 @@ interfaces and can be used to control media playback besides browsing the media
+ library. If you had to create a `MediaBrowserCompat` and a
+ `MediaControllerCompat` in the legacy world, you can do the same by only using
+ the `MediaBrowser` in Media3.
+-| **Note:** Kotlin users can depend on [kotlin-coroutines-guava](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-guava/index.html) or [androidx.concurrent](https://developer.android.com/jetpack/androidx/releases/concurrent) in the `build.gradle` file to add the extension method `await` to the `ListenableFuture`. That makes the `MediaBrowser` API fit more naturally into a `suspend` method.
++
++> [!NOTE]
++> **Note:** Kotlin users can depend on [kotlin-coroutines-guava](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-guava/index.html) or [androidx.concurrent](https://developer.android.com/jetpack/androidx/releases/concurrent) in the `build.gradle` file to add the extension method `await` to the `ListenableFuture`. That makes the `MediaBrowser` API fit more naturally into a `suspend` method.
+ 
+ A `MediaBrowser` can be built and await for the connection to the
+ service being established:

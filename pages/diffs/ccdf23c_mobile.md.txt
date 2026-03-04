@@ -1,0 +1,79 @@
+diff --git a/docs/media/implement/surfaces/mobile.md b/docs/media/implement/surfaces/mobile.md
+index b121b59..b0fc886 100644
+--- a/docs/media/implement/surfaces/mobile.md
++++ b/docs/media/implement/surfaces/mobile.md
+@@ -45,7 +45,9 @@ Android platforms such as Auto, Assistant, and Wear OS.
+ 
+ Custom overflow button are placed in the order in which they were added to the
+ media button preferences.
+-| **Note:** When the user taps on the notification, the system triggers the session activity `PendingIntent` passed to [`MediaSession.Builder#setSessionActivity`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Builder#setSessionActivity(android.app.PendingIntent)) (which must [launch an activity](https://developer.android.com/reference/android/app/PendingIntent#isActivity())).
++
++> [!NOTE]
++> **Note:** When the user taps on the notification, the system triggers the session activity `PendingIntent` passed to [`MediaSession.Builder#setSessionActivity`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Builder#setSessionActivity(android.app.PendingIntent)) (which must [launch an activity](https://developer.android.com/reference/android/app/PendingIntent#isActivity())).
+ 
+ ## Customize command buttons
+ 
+@@ -210,7 +212,8 @@ documentation for guidance on implementing this feature.
+ 
+ ## Using the legacy media APIs
+ 
+-| **Caution:** We strongly recommend using the Jetpack Media3 APIs as described above.
++> [!CAUTION]
++> **Caution:** We strongly recommend using the Jetpack Media3 APIs as described above.
+ 
+ This section explains how to integrate with the system media controls using
+ the legacy MediaCompat APIs.
+@@ -258,7 +261,7 @@ The following code examples illustrate how to add `PlaybackState` standard and
+ custom actions.
+ 
+ For play, pause, previous, and next, set these actions in
+-the `PlaybackState` for the media session.  
++the `PlaybackState` for the media session.
+ 
+ ### Kotlin
+ 
+@@ -318,7 +321,7 @@ notificationBuilder.setStyle(style);
+ 
+ If you don't want any buttons in the previous or next slots, don't add
+ `ACTION_SKIP_TO_PREVIOUS` or `ACTION_SKIP_TO_NEXT`, and instead add extras to
+-the session:  
++the session:
+ 
+ ### Kotlin
+ 
+@@ -343,7 +346,7 @@ session.setExtras(extras);
+ For other actions you want to show on the media controls, you can create a
+ [`PlaybackStateCompat.CustomAction`](https://developer.android.com/reference/kotlin/android/support/v4/media/session/PlaybackStateCompat.CustomAction)
+ and add that to the `PlaybackState` instead. These actions are shown in the
+-order they were added.  
++order they were added.
+ 
+ ### Kotlin
+ 
+@@ -374,7 +377,7 @@ playbackStateBuilder.addCustomAction(customAction);
+ When a user taps on a button, SystemUI uses
+ [`MediaController.TransportControls`](https://developer.android.com/reference/android/media/session/MediaController.TransportControls)
+ to send a command back to the `MediaSession`. You need to register a callback
+-that can respond properly to these events.  
++that can respond properly to these events.
+ 
+ ### Kotlin
+ 
+@@ -511,7 +514,7 @@ implement these behaviors:
+   or an
+   [icon bitmap](https://developer.android.com/reference/android/media/MediaDescription#getIconBitmap()).
+ 
+-The following code examples illustrate how to implement `onGetRoot()`.  
++The following code examples illustrate how to implement `onGetRoot()`.
+ 
+ ### Kotlin
+ 
+@@ -582,7 +585,7 @@ Custom actions are placed in the order in which they were added to the
+ `PlaybackState`.
+ 
+ The following code example illustrates how to add actions to the MediaStyle
+-notification :  
++notification :
+ 
+ ### Kotlin
+ 

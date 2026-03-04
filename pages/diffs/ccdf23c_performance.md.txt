@@ -1,0 +1,22 @@
+diff --git a/docs/training/wearables/compose/performance.md b/docs/training/wearables/compose/performance.md
+index 4b399cf..3a0f48e 100644
+--- a/docs/training/wearables/compose/performance.md
++++ b/docs/training/wearables/compose/performance.md
+@@ -86,7 +86,7 @@ for details.
+ 
+ ### Validate your app's baseline profiles
+ 
+-Start by inspecting the status of your profile:  
++Start by inspecting the status of your profile:
+ 
+     adb shell dumpsys package dexopt | grep -A 1 $PACKAGE_NAME
+ 
+@@ -96,7 +96,7 @@ applied to optimize the app.
+ Rules are applied using a background job that runs when the device is charged
+ and idle. To manually trigger this, run the following command after the app
+ launches and enough time passes for the profile installer to bootstrap the
+-profile in the background. This process typically takes about 40 seconds.  
++profile in the background. This process typically takes about 40 seconds.
+ 
+     adb shell cmd package bg-dexopt-job
+ 

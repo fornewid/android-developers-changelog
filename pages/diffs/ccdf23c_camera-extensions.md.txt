@@ -1,0 +1,15 @@
+diff --git a/docs/media/camera/camera-extensions.md b/docs/media/camera/camera-extensions.md
+index 0198261..334bb56 100644
+--- a/docs/media/camera/camera-extensions.md
++++ b/docs/media/camera/camera-extensions.md
+@@ -18,7 +18,9 @@ The [Camera2](https://developer.android.com/training/camera2/extensions-api) and
+ [CameraX](https://developer.android.com/training/camerax/extensions-api) Extension APIs expose the same set
+ of extensions, which are available on many
+ [supported devices](https://developer.android.com/training/camera/supported-devices).
+-| **Note:** Camera2 and CameraX extensions are only available for the preview and image capture use cases, not video capture.
++
++> [!NOTE]
++> **Note:** Camera2 and CameraX extensions are only available for the preview and image capture use cases, not video capture.
+ 
+ ## Supported devices
+ 

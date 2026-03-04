@@ -1,0 +1,36 @@
+diff --git a/docs/google/play/requirements/target-sdk.md b/docs/google/play/requirements/target-sdk.md
+index d17d864..2c4934b 100644
+--- a/docs/google/play/requirements/target-sdk.md
++++ b/docs/google/play/requirements/target-sdk.md
+@@ -20,8 +20,9 @@ Exceptions to these requirements include:
+ 
+ - Permanently private apps that are restricted to users in a specific organization and intended for internal distribution only.
+ 
+-| **Note:** Out-of-date apps are unavailable to new users of devices that run newer versions of Android. For more information, see the "App availability requirements" section in the [Target API level requirements for Google Play
+-| apps](https://support.google.com/googleplay/android-developer/answer/11926878) article in the Play Console Help.
++> [!NOTE]
++> **Note:** Out-of-date apps are unavailable to new users of devices that run newer versions of Android. For more information, see the "App availability requirements" section in the [Target API level requirements for Google Play
++> apps](https://support.google.com/googleplay/android-developer/answer/11926878) article in the Play Console Help.
+ 
+ ## Why target newer SDKs?
+ 
+@@ -40,7 +41,9 @@ the first time if the app targets Android 5.1 (API level 22) or lower.
+ This document highlights important points you need to know in updating your
+ target API level to meet the [Google Play requirement](https://support.google.com/googleplay/android-developer/answer/11926878). See the instructions
+ in the following sections, depending on which version you are migrating to.
+-| **Note:** If your Gradle file contains manifest entries, you can confirm or change the current value of `targetSdkVersion` in your app's Gradle file, as described in [Configure your build](https://developer.android.com/studio/build#module-level). Alternatively, you can use the `android:targetSdkVersion` attribute in the manifest file, as described in the documentation for the [`<uses-sdk>`](https://developer.android.com/guide/topics/manifest/uses-sdk-element) manifest element.
++
++> [!NOTE]
++> **Note:** If your Gradle file contains manifest entries, you can confirm or change the current value of `targetSdkVersion` in your app's Gradle file, as described in [Configure your build](https://developer.android.com/studio/build#module-level). Alternatively, you can use the `android:targetSdkVersion` attribute in the manifest file, as described in the documentation for the [`<uses-sdk>`](https://developer.android.com/guide/topics/manifest/uses-sdk-element) manifest element.
+ 
+ ## Migrate from Android 12 and higher (API level 31) to a more recent version
+ 
+@@ -90,7 +93,7 @@ relevant behavior changes list:
+   `startActivity()` inside of a service or broadcast receiver.
+ 
+ View the complete set of [changes that affect apps targeting Android 12 (API
+-level 31)](https://developer.android.com/about/versions/12/behavior-changes-12).  
++level 31)](https://developer.android.com/about/versions/12/behavior-changes-12).
+ 
+ ## Migrate from lower than Android 11 (API level 30)
+ 

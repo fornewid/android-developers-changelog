@@ -1,0 +1,15 @@
+diff --git a/docs/work/versions/android-12.md b/docs/work/versions/android-12.md
+index 65025ea..8fffb7c 100644
+--- a/docs/work/versions/android-12.md
++++ b/docs/work/versions/android-12.md
+@@ -133,7 +133,9 @@ On Android 12+:
+ - Android Auto app, if it's preloaded.
+ 
+ The full list of application depends on the device OEM.
+-| **Note:** IT admins cannot revoke these auto-granted configurations.
++
++> [!NOTE]
++> **Note:** IT admins cannot revoke these auto-granted configurations.
+ 
+ ## Deprecations
+ 

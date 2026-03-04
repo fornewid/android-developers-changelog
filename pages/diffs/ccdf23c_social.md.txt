@@ -1,0 +1,18 @@
+diff --git a/docs/large-screens/archive/gallery/social.md b/docs/large-screens/archive/gallery/social.md
+index 611c33f..8153780 100644
+--- a/docs/large-screens/archive/gallery/social.md
++++ b/docs/large-screens/archive/gallery/social.md
+@@ -4,11 +4,9 @@ url: https://developer.android.com/large-screens/archive/gallery/social
+ source: html-scrape
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [Large Screens](https://developer.android.com/design/ui/large-screens)
++* [Home](https://developer.android.com/)
+ * [Gallery](https://developer.android.com/large-screens/archive/gallery)
++* [Design & Plan](https://developer.android.com/design)
+ * [Social media](https://developer.android.com/large-screens/archive/gallery/social)
+ 
+ Stay organized with collections

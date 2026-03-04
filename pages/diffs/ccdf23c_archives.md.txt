@@ -1,0 +1,887 @@
+diff --git a/docs/studio/releases/archives.md b/docs/studio/releases/archives.md
+index ba9d7da..5e1a7f8 100644
+--- a/docs/studio/releases/archives.md
++++ b/docs/studio/releases/archives.md
+@@ -14,8 +14,8 @@ Gradle plugin 3.6.0 and lower.
+ Android Studio 3.6 is a major release that includes a variety of new features
+ and improvements.
+ 
+-We'd also like to thank all of our [community contributors](https://developer.android.com/studio/releases/archives#3-6-community-contributors) who have helped with this release.  
+-**3.6.3 (April 2020)**
++We'd also like to thank all of our [community contributors](https://developer.android.com/studio/releases/archives#3-6-community-contributors) who have helped with this release.
++[Video](https://www.youtube.com/watch?v=h7dCm2lQLOg) **3.6.3 (April 2020)**
+ 
+ 
+ This minor update includes various bug fixes.
+@@ -810,7 +810,8 @@ For information about these and other Project Marble updates, read the
+ 
+ We also want to thank all of our
+ [community contributors](https://developer.android.com/studio/releases/archives#3-5-community-contributors) who have
+-helped with this release.  
++helped with this release.
++[Video](https://www.youtube.com/watch?v=OJ3K90FpQ6A)
+ 
+ <br />
+ 
+@@ -1356,7 +1357,8 @@ the following people who reported P0 and P1 bugs:
+ ### 3.4 (April 2019)
+ 
+ Android Studio 3.4 is a major release that includes a variety of new features
+-and improvements.  
++and improvements.
++[Video](https://www.youtube.com/watch?v=3lDO5uFkJoQ)
+ 
+ <br />
+ 
+@@ -1755,7 +1757,8 @@ to use.
+ ### 3.3 (January 2019)
+ 
+ Android Studio 3.3 is a major release that includes a variety of new features
+-and improvements.  
++and improvements.
++[Video](https://www.youtube.com/watch?v=DdWWsruUXTo)
+ 
+ <br />
+ 
+@@ -1847,9 +1850,9 @@ The directories Android Studio considers for deletion are listed below:
+ 
+ <br />
+ 
+-- Linux: `~/.AndroidStudio[Preview]`*X.Y*
+-- Mac: `~/Library/{Preferences, Caches, Logs, Application Support}/AndroidStudio[Preview]`*X.Y*
+-- Windows: `%USER%.AndroidStudio[Preview]`*X.Y*
++- Linux: `~/.AndroidStudio[Preview]X.Y`
++- Mac: `~/Library/{Preferences, Caches, Logs, Application Support}/AndroidStudio[Preview]X.Y`
++- Windows: `%USER%.AndroidStudio[Preview]X.Y`
+ 
+ <br />
+ 
+@@ -2326,7 +2329,7 @@ opening the **Settings** dialog **Preferences** on a Mac), navigating to
+ ### 3.2 (September 2018)
+ 
+ Android Studio 3.2 is a major release that includes a variety of new features
+-and improvements.  
++and improvements.
+ **3.2.1 (October 2018)**
+ 
+ This update to Android Studio 3.2 includes the following changes and fixes:
+@@ -2677,7 +2680,7 @@ section, and select the rules that you want to enable.
+ ![](https://developer.android.com/static/studio/images/releases/java-kotlin-interop.png)
+ 
+ To enable these checks for command-line builds, add the following to your
+-`build.gradle` file:  
++`build.gradle` file:
+ 
+             android {
+                 lintOptions {
+@@ -2755,7 +2758,7 @@ desugaring with D8 is turned on by default.
+ 
+ R8 is a new tool for code shrinking and obfuscation that replaces ProGuard. You
+ can start using the preview version of R8 by including the following in your
+-project's `gradle.properties` file:  
++project's `gradle.properties` file:
+ 
+           android.enableR8 = true
+         
+@@ -2771,7 +2774,7 @@ following ABIs by default: `mips`, `mips64`, and `armeabi`.
+ 
+ If you want to build APKs that target these ABIs, you must use
+ [NDK r16b or lower](https://developer.android.com/ndk/downloads/revision_history) and specify the ABIs
+-in your `build.gradle` file, as shown below:  
++in your `build.gradle` file, as shown below:
+ 
+ ```groovy
+     splits {
+@@ -2781,7 +2784,7 @@ in your `build.gradle` file, as shown below:
+         }
+     }
+     
+-```  
++```
+ 
+ ```kotlin
+     splits {
+@@ -2855,7 +2858,7 @@ Beginning with Android Studio 3.2, the source for
+ is Google's Maven repository.
+ 
+ To use AAPT2, make sure that you have a `google()` dependency in your
+-`build.gradle` file, as shown here:  
++`build.gradle` file, as shown here:
+ 
+ ```groovy
+     buildscript {
+@@ -2874,7 +2877,7 @@ To use AAPT2, make sure that you have a `google()` dependency in your
+         }
+     }
+     
+-```  
++```
+ 
+ ```kotlin
+     buildscript {
+@@ -2946,8 +2949,8 @@ For additional information on what's new and changed in the Emulator, see the
+ ### 3.1 (March 2018)
+ 
+ Android Studio 3.1.0 is a major release that includes a variety of new
+-features and improvements.  
+-**3.1.4 (August 2018)**
++features and improvements.
++[Video](https://www.youtube.com/watch?v=nnnW0nehPEA) **3.1.4 (August 2018)**
+ 
+ This update to Android Studio 3.1 includes the following changes and fixes:
+ 
+@@ -2982,7 +2985,7 @@ This update to Android Studio 3.1 includes fixes for the following bugs:
+ - Builds configured with [source sets](https://developer.android.com/studio/build/build-variants#sourcesets)
+   failed with the following message when Instant Run was enabled:
+ 
+-  `"The SourceSet `<var translate="no">name</var>` is not recognized by the
++  `"The SourceSet name is not recognized by the
+   Android Gradle Plugin."`
+ - When Instant Run was enabled, builds of new Kotlin projects failed when triggered by the **Run** command.
+ - During editing of the `build.gradle` file, there was sometimes a noticeable delay between typing a character and the character appearing on the screen.
+@@ -3108,7 +3111,7 @@ disabled the D8 compiler.
+ 
+ If you set `android.enableD8` to `false` in your
+ `gradle.properties`, either delete that flag or set it to
+-`true`:  
++`true`:
+ 
+             android.enableD8=true
+           
+@@ -3128,7 +3131,7 @@ Desugaring converts
+ into a form that the compiler can process more efficiently.
+ 
+ You can disable incremental desugaring by specifying the following in
+-your project's `gradle.properties` file:  
++your project's `gradle.properties` file:
+ 
+             android.enableIncrementalDesugaring=false
+           
+@@ -3390,13 +3393,14 @@ details of the tools available through the Device Monitor.
+ ### 3.0 (October 2017)
+ 
+ Android Studio 3.0.0 is a major release that includes a variety of new
+-features and improvements.  
++features and improvements.
++[Video](https://www.youtube.com/watch?v=0n9sBgds-Hs)
+ 
+ 
+ **macOS users:** If you are updating an older version of Android Studio,
+ you may encounter an update error dialog that says "Some conflicts were
+ found in the installation area". Simply ignore this error and click
+-**Cancel** to resume the installation.  
++**Cancel** to resume the installation.
+ 
+ **3.0.1 (November 2017)**
+ 
+@@ -3646,7 +3650,7 @@ Assistant can create for you](https://developer.android.com/studio/releases/arch
+ 
+ To declare a test URL
+ for an intent filter, add a `<tools:validation>` element alongside the
+-corresponding `<intent-filter>` element. For example:  
++corresponding `<intent-filter>` element. For example:
+ 
+           <activity ...>
+               <intent-filter>
+@@ -3717,7 +3721,7 @@ size, and runtime performance. And when comparing the new D8 compiler with the
+ current DX compiler, D8 compiles faster and outputs smaller `.dex` files, while
+ having the same or better app runtime performance.
+ 
+-To try it, set the following in your project's `gradle.properties` file:  
++To try it, set the following in your project's `gradle.properties` file:
+ 
+     android.enableD8=true
+         
+@@ -3733,7 +3737,7 @@ a continuous integration (CI) system.
+ 
+ All new projects now include the Google Maven repository by default. To update
+ your existing project, add `google()` in the `repositories` block of the
+-top-level `build.gradle` file:  
++top-level `build.gradle` file:
+ 
+           allprojects {
+               repositories {
+@@ -3749,17 +3753,17 @@ Learn more about [Google's Maven repository here](https://developer.android.com/
+ - Native debugging with Android Studio no longer supports 32-bit Windows. We've chosen to focus on other platforms because very few developers are using this platform. If you are using 32-bit Windows and you plan to debug native code, you should keep using [Android Studio 2.3](https://developer.android.com/studio/archive#android-studio-2-3-3).
+ - Upgraded the base IDE to [IntelliJ 2017.1.2](https://confluence.jetbrains.com/display/IDEADEV/IntelliJ+IDEA+2017.1.2+Release+Notes), which adds a number of new features from [2016.3](https://www.jetbrains.com/idea/whatsnew/#v2016-3) and [2017.1](https://blog.jetbrains.com/idea/2017/02/intellij-idea-2017-1-public-preview-java-9-debugger-vcs-search-editor-and-many-more/), such as Java 8 language refactoring, parameter hints, semantic highlighting, draggable breakpoints, instant results in search, and much more.
+ - Added many new lint checks.
+-- Also see the latest [Android Emulator updates](https://developer.android.com/studio/releases/emulator).  
++- Also see the latest [Android Emulator updates](https://developer.android.com/studio/releases/emulator).
+ 
+ ### 2.3 (March 2017)
+ 
+ Android Studio 2.3.0 is primarily a bug fix and stability release, but it
+-also includes a number of new features.  
++also includes a number of new features.
+ 
+ **2.3.3 (June 2017)**
+ 
+ 
+-This is a minor update to add support for Android O (API level 26).  
++This is a minor update to add support for Android O (API level 26).
+ 
+ **2.3.2 (April 2017)**
+ 
+@@ -3770,14 +3774,14 @@ This is a minor update to Android Studio 2.3 for the following changes:
+ - Bug fixes for NDK builds when using R14+ of the NDK.
+ 
+ 
+-Also see corresponding updates for [Android Emulator 26.0.3](https://developer.android.com/studio/releases/emulator).  
++Also see corresponding updates for [Android Emulator 26.0.3](https://developer.android.com/studio/releases/emulator).
+ 
+ **2.3.1 (April 2017)**
+ 
+ 
+ This is a minor update to Android Studio 2.3 that fixes an issue where some
+ physical Android devices did not work properly with [Instant Run](https://developer.android.com/studio/run#instant-run) (see [Issue
+-#235879](https://code.google.com/p/android/issues/detail?id=235879)).  
++#235879](https://code.google.com/p/android/issues/detail?id=235879)).
+ 
+     <h3 class="hide-from-toc">
+       New
+@@ -4119,12 +4123,14 @@ physical Android devices did not work properly with [Instant Run](https://develo
+ 
+ <br />
+ 
++[Video](https://www.youtube.com/watch?v=NbHsi3-uR8E)
++
+ <br />
+ 
+ <br />
+ 
+ - All new **[Layout
+-Editor](https://developer.android.com/studio/write/layout-editor)** with tools custom-built to support [ConstraintLayout](https://developer.android.com/training/constraint-layout).  
++  Editor](https://developer.android.com/studio/write/layout-editor)** with tools custom-built to support [ConstraintLayout](https://developer.android.com/training/constraint-layout).
+ 
+     <li>New <strong><a href=
+     "http://tools.android.com/tech-docs/layout-inspector">Layout
+@@ -4260,7 +4266,7 @@ Editor](https://developer.android.com/studio/write/layout-editor)** with tools c
+   - Instant Run session is unreliable due to mismatch security token. ([Bug: #211989](http://b.android.com/211989)
+   - Cold swap fails for devices that doesn't properly support run-as. ([Bug: #210875](http://b.android.com/210875))
+   - App crash after instant run restart. ([Bug: #219744](http://b.android.com/219744))
+-- ClassNotFoundException observed when switching from Instant Run to Instant Debug. ([Bug: #215805](http://b.android.com/215805))  
++  - ClassNotFoundException observed when switching from Instant Run to Instant Debug. ([Bug: #215805](http://b.android.com/215805))
+ 
+     <li>Improved performance for <strong>Gradle sync</strong> within the IDE,
+     especially for large projects.
+@@ -4334,7 +4340,7 @@ Editor](https://developer.android.com/studio/write/layout-editor)** with tools c
+ ### 2.1 (April 2016)
+ 
+ The primary changes in this update provide support for development with the
+-Android N Preview.  
++Android N Preview.
+ **2.1.3 (August 2016)**
+ 
+ 
+@@ -4436,17 +4442,17 @@ all the features required to target the N Preview.
+ 
+ **New additions to Lint:**
+ 
+-- Inspection of `switch` statements using [@IntDef](https://developer.android.com/reference/androidx/annotation/IntDef) annotated integers to make sure all constants are handled. To quickly add any missing statements, use the intention action drop-down menu and select **Add Missing @IntDef
++- Inspection of `switch` statements using `https://developer.android.com/reference/androidx/annotation/IntDef` annotated integers to make sure all constants are handled. To quickly add any missing statements, use the intention action drop-down menu and select **Add Missing @IntDef
+   Constants**.
+ - Flags for incorrect attempts to use string interpolation to insert version numbers in the `build.gradle` file.
+-- Flags for anonymous classes that extend the [Fragment](https://developer.android.com/reference/android/app/Fragment) class.
++- Flags for anonymous classes that extend the `https://developer.android.com/reference/android/app/Fragment` class.
+ - Flags for native code in unsafe locations, such as the `res/` and `asset/` folders. This flag encourages storing native code in the `libs/` folder, which is then securely packaged into the application's `data/app-lib/` folder at install time. [AOSP: #169950](https://android-review.googlesource.com/#/c/169950/)
+-- Flags for unsafe calls to [Runtime.load()](https://developer.android.com/reference/java/lang/Runtime#load(java.lang.String)) and [System.load()](https://developer.android.com/reference/java/lang/System#load(java.lang.String)) calls. [AOSP: #179980](https://android-review.googlesource.com/#/c/179980/)
++- Flags for unsafe calls to `https://developer.android.com/reference/java/lang/Runtime#load(java.lang.String)` and `https://developer.android.com/reference/java/lang/System#load(java.lang.String)` calls. [AOSP: #179980](https://android-review.googlesource.com/#/c/179980/)
+ - Find and remove any unused resources by selecting **Refactor \> Remove
+   Unused Resources** from the menu bar. Unused resource detection now supports resources only referenced by unused resources, references in raw files such as `.html` image references, and `tools:keep` and `tools:discard` attributes used by the Gradle resource shrinker, while considering inactive source sets (such as resources used in other build flavors) and properly handling static field imports.
+ - Checks that implicit API references are supported on all platforms targeted by `minSdkVersion`.
+-- Flags improper usage of [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) and [Parcelable](https://developer.android.com/reference/android/os/Parcelable).
+-- [@IntDef](https://developer.android.com/reference/androidx/annotation/IntDef), [@IntRange](https://developer.android.com/reference/androidx/annotation/IntRange), and [@Size](https://developer.android.com/reference/androidx/annotation/Size) inspections are now also checked for `int` arrays and varargs.
++- Flags improper usage of `https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView` and `https://developer.android.com/reference/android/os/Parcelable`.
++- `https://developer.android.com/reference/androidx/annotation/IntDef`, `https://developer.android.com/reference/androidx/annotation/IntRange`, and `https://developer.android.com/reference/androidx/annotation/Size` inspections are now also checked for `int` arrays and varargs.
+ 
+ **Additional Improvements**:
+ 
+@@ -4469,7 +4475,7 @@ all the features required to target the N Preview.
+ - XML editor auto-complete now adds quotations marks when completing attributes. To check if this option is enabled, open the **Setting** or **Preferences** dialogue, navigate to **Editor \> General \> Smart
+   Keys** , and check the box next to **Add quotes for attribute value on
+   attribute completion** . [Issue: 195113](https://b.android.com/195113)
+-- The XML editor now supports code completion for [data binding](https://developer.android.com/topic/libraries/data-binding#layout_details) expressions.  
++- The XML editor now supports code completion for [data binding](https://developer.android.com/topic/libraries/data-binding#layout_details) expressions.
+ 
+ ### Android Studio v1.5.1 (December 2015)
+ 
+@@ -4481,7 +4487,7 @@ Fixes and enhancements:
+ - Added *Help* button support to Vector Asset Studio.
+ - Added support for the `%` operator for data binding. [Issue: 194045](http://b.android.com/194045)
+ - Fixed a case where launching an app for debugging resulted in the debugger connecting to the wrong device. [Issue: 195167](http://b.android.com/195167)
+-- Fixed a null pointer exception that could occur when attempting to run an app in certain scenarios.  
++- Fixed a null pointer exception that could occur when attempting to run an app in certain scenarios.
+ 
+ ### Android Studio v1.5.0 (November 2015)
+ 
+@@ -4490,10 +4496,10 @@ Fixes and enhancements:
+ - Added new Memory Monitor analysis abilities to Android Monitor. When you view an HPROF file captured from this monitor, the display is now more helpful so you can more quickly locate problems, such as memory leaks. To use this monitor, click **Android Monitor** at the bottom of the main window. In Android Monitor, click the **Memory** tab. While the monitor is running, click the **Dump Java Heap** icon, and then click **Captures** in the main window and double-click the file to view it. Click *Capture Analysis* on the right. (The Android Device Monitor can't be running at the same time as Android Monitor.)
+ - Added new deep link and app link support. The Code Editor can automatically create an intent filter for deep linking in the `AndroidManifest.xml` file. It can also generate code to help you integrate with the [App Indexing API](http://developers.google.com/app-indexing/android/publish) in an activity in a Java file. A deep link testing feature helps you verify that a specified deep link can launch an app. In the **General** tab of the *Run/Debug Configurations* dialog, you can specify deep link launch options. You can also test App Indexing API calls in an activity by using the Android Monitor **logcat** display. The Android `lint` tool now has warnings for certain issues involving deep links and the App Indexing API.
+ - Added the ability to use short names when code-completing custom views in the Code Editor.
+-- Added support for more [VectorDrawable](https://developer.android.com/reference/android/graphics/drawable/VectorDrawable) elements to [Vector Asset Studio](https://developer.android.com/tools/help/vector-asset-studio) for backward-compatibility. Vector Asset Studio can use these elements to convert vector drawables into PNG raster images to use with Android 4.4 (API level 20) and lower.
++- Added support for more `https://developer.android.com/reference/android/graphics/drawable/VectorDrawable` elements to [Vector Asset Studio](https://developer.android.com/tools/help/vector-asset-studio) for backward-compatibility. Vector Asset Studio can use these elements to convert vector drawables into PNG raster images to use with Android 4.4 (API level 20) and lower.
+ - Added new `lint` checks for Android TV and Android Auto to give you immediate, actionable feedback in Android Studio, along with several quick fixes. For example, for Android TV, it can report and provide a quick fix for permissions, unsupported hardware, `uses-feature` element, and missing banner issues. For Android Auto, it can validate the correct usage in the descriptor file referred from your `AndroidManifest.xml` file, report if there isn't an intent filter for the `MediaBrowserService` class, and identify certain voice actions issues.
+ - Added new `lint` checks for insecure broadcast receivers, `SSLCertificateSocketFactory` and `HostnameVerifier` class uses, and `File.setReadable()` and `File.setWritable()` calls. It also detects invalid manifest resource lookups, especially for resources that vary by configuration.
+-- Fixed a number of stability issues.  
++- Fixed a number of stability issues.
+ 
+ ### Android Studio v1.4.1 (October 2015)
+ 
+@@ -4507,7 +4513,7 @@ Fixes and enhancements:
+ - Fixed a deadlock issue in the Theme Editor related to its interaction with the Layout Editor. [Issue: 188070](http://b.android.com/188070)
+ - Fixed a Theme Editor reload and edit conflict causing attributes to not properly update. [Issue: 187726](http://b.android.com/187726)
+ - Improved Theme Editor performance.
+-- Fixed an issue where the `android:required` attribute was ignored in the manifest. [Issue: 187665](http://b.android.com/187665)  
++- Fixed an issue where the `android:required` attribute was ignored in the manifest. [Issue: 187665](http://b.android.com/187665)
+ 
+ ### Android Studio v1.4.0 (September 2015)
+ 
+@@ -4516,7 +4522,7 @@ Fixes and enhancements:
+ - Added the [Vector Asset Studio](https://developer.android.com/tools/help/vector-asset-studio) tool for importing vector graphics, such as material icons and SVG files. To use this tool, in the Android view of the Project window, right-click the **res** folder and select **New** \> **Vector Asset**.
+ - Added new Android Monitor functions, GPU and Network. To use these monitors, click **Android Monitor** at the bottom of the main window. The Android Device Monitor can't be running at the same time as Android Monitor.
+ - Added an early preview of the new Theme Editor. To use this feature, select **Tools** \> **Android** \> **Theme Editor**.
+-- Updated the Android templates for the Design Support Library. Templates now include support for the Material Design specification, as well as the `appcompat` Support Library for backwards compatibility.  
++- Updated the Android templates for the Design Support Library. Templates now include support for the Material Design specification, as well as the `appcompat` Support Library for backwards compatibility.
+ 
+ ### Android Studio v1.3.2 (August 2015)
+ 
+@@ -4526,7 +4532,7 @@ Fixes and enhancements:
+ - Fixed an exception that was occurring during update checks. [Issue: 183068](http://b.android.com/183068)
+ - Fixed problem where unresolved view coordinates could cause the layout editor to crash. [Issue: 178690](http://b.android.com/178690)
+ - Fixed issue with invalid resource type warnings. [Issue: 182433](http://b.android.com/182433)
+-- Fixed lint check that was incorrectly flagging resources as private. [Issue: 183120](http://b.android.com/183120)  
++- Fixed lint check that was incorrectly flagging resources as private. [Issue: 183120](http://b.android.com/183120)
+ 
+ ### Android Studio v1.3.1 (August 2015)
+ 
+@@ -4537,7 +4543,7 @@ Fixes and enhancements:
+ - Added support to allow the Android SDK to be stored in a read-only directory.
+ - Updated Android plugin for Gradle version to 1.3.0.
+ - Fixed issues with launching a debug session from the Android Debug Bridge (adb) Unix shell.
+-- Fixed the Java package renaming message to show the correct package name.  
++- Fixed the Java package renaming message to show the correct package name.
+ 
+ ### Android Studio v1.3.0 (July 2015)
+ 
+@@ -4562,19 +4568,19 @@ Fixes and enhancements:
+ - Updated the [AVD Manager](https://developer.android.com/tools/devices/managing-avds) with HAXM optimizations and improved notifications.
+ - Added 64-bit ARM and MIPS emulator support for [QEMU](http://wiki.qemu.org/Main_Page) 2.1.
+ - Simplified the resolution of Lint warnings by adding quick fixes, such as the automatic generation of [Parcelable](https://developer.android.com/reference/android/os/Parcelable) implementation.
+-- Added live template support for quick insertion of code snippets.  
++- Added live template support for quick insertion of code snippets.
+ 
+ ### Android Studio v1.2.2(June 2015)
+ 
+ Fixes and enhancements:
+ 
+-- Fixed build issues that were blocking builds from completing.  
++- Fixed build issues that were blocking builds from completing.
+ 
+ ### Android Studio v1.2.1 (May 2015)
+ 
+ Fixes and enhancements:
+ 
+-- Fixed minor performance and feature issues.  
++- Fixed minor performance and feature issues.
+ 
+ ### Android Studio v1.2.0 (April 2015)
+ 
+@@ -4599,7 +4605,7 @@ Fixes and enhancements:
+ - Added additional [Project Views](https://developer.android.com/tools/studio#project-view) for *Scratches* , *Project Files* , *Problems* , *Production* , and *Tests* to enhance project management and access.
+ - Enhanced the **File \> Settings** menu and dialogs for improved settings access and management.
+ - Added support for high-density displays for Windows and Linux.
+-- Added support for 280 dpi resources in the `res/drawable-280dpi/` folder.  
++- Added support for 280 dpi resources in the `res/drawable-280dpi/` folder.
+ 
+ ### Android Studio v1.1.0 (February 2015)
+ 
+@@ -4609,7 +4615,7 @@ Various fixes and enhancements:
+ - Modified new project and module creation to include [`res/mipmap`](https://developer.android.com/tools/projects#mipmap) folders for density-specific launcher icons. These `res/mipmap` folders replace the [`res/drawable`](https://developer.android.com/guide/topics/resources/drawable-resource) folders for launcher icons.
+ - Updated launcher icons to have a [Material Design](https://developer.android.com/design/material) look and added an `xxxhdpi` launcher icon.
+ - Added and enhanced Lint checks for region and language combinations, launcher icons, resource names, and other common code problems.
+-- Added support for Best Current Practice (BCP) language tag 47.  
++- Added support for Best Current Practice (BCP) language tag 47.
+ 
+ ### Android Studio v1.0.1 (December 2014)
+ 
+@@ -4618,43 +4624,43 @@ Various fixes and enhancements:
+ - Fixed AVD Manager and **device.xml** file lock issue.
+ - Fixed the emulator log on Windows systems.
+ - Fixed issue with creating AVDs with Android Studio and Android SDK installed on different drives on Windows systems.
+-- Sets the default update channel for new downloads to **Stable** . If you installed the 1.0.0 version of Android Studio and would like stable, production-ready version updates, use **File \> Settings \> Updates** to change to the **Stable** update channel.  
++- Sets the default update channel for new downloads to **Stable** . If you installed the 1.0.0 version of Android Studio and would like stable, production-ready version updates, use **File \> Settings \> Updates** to change to the **Stable** update channel.
+ 
+ ### Android Studio v1.0 (December 2014)
+ 
+-Initial release of Android Studio.  
++Initial release of Android Studio.
+ 
+ ### Android Studio v0.8.14 (October 2014)
+ 
+ See
+ [tools.android.com](http://tools.android.com/recent/androidstudio0814inbetachannel)
+-for a full list of changes.  
++for a full list of changes.
+ 
+ ### Android Studio v0.8.6 (August 2014)
+ 
+-See [tools.android.com](http://tools.android.com/recent) for a full list of changes.  
++See [tools.android.com](http://tools.android.com/recent) for a full list of changes.
+ 
+ ### Android Studio v0.8.0 (June 2014)
+ 
+ Added support for Android Wear projects.
+ 
+-See [tools.android.com](http://tools.android.com/recent) for a full list of changes.  
++See [tools.android.com](http://tools.android.com/recent) for a full list of changes.
+ 
+ ### Android Studio v0.5.2 (May 2014)
+ 
+-- See [tools.android.com](http://tools.android.com/recent) for a full list of changes.  
++- See [tools.android.com](http://tools.android.com/recent) for a full list of changes.
+ 
+ ### Android Studio v0.4.6 (March 2014)
+ 
+-- See [tools.android.com](http://tools.android.com/recent) for a full list of changes.  
++- See [tools.android.com](http://tools.android.com/recent) for a full list of changes.
+ 
+ ### Android Studio v0.4.2 (Jan 2014)
+ 
+-- See [tools.android.com](http://tools.android.com/recent) for a full list of changes.  
++- See [tools.android.com](http://tools.android.com/recent) for a full list of changes.
+ 
+ ### Android Studio v0.3.2 (Oct 2013)
+ 
+-- See [tools.android.com](http://tools.android.com/recent) for a full list of changes.  
++- See [tools.android.com](http://tools.android.com/recent) for a full list of changes.
+ 
+ ### Android Studio v0.2.x (July 2013)
+ 
+@@ -4684,7 +4690,7 @@ See [tools.android.com](http://tools.android.com/recent) for a full list of chan
+ - Save screenshot support for the layout preview and layout editor windows.
+ - Template bug fixes.
+ - Lint bug fixes.
+-- Various fixes for crash reports. Thank you, and keep filing crash reports!  
++- Various fixes for crash reports. Thank you, and keep filing crash reports!
+ 
+ ### Android Studio v0.1.x (May 2013)
+ 
+@@ -4722,14 +4728,14 @@ features.
+ View binding provides compile-time safety when referencing views in
+ your code. You can now replace `findViewById()` with the
+ auto-generated binding class reference. To start using View binding,
+-include the following in each module's `build.gradle` file:  
++include the following in each module's `build.gradle` file:
+ 
+ ```groovy
+       android {
+           viewBinding.enabled = true
+       }
+       
+-```  
++```
+ 
+ ```kotlin
+       android {
+@@ -4765,7 +4771,7 @@ tool should provide build speed improvements. If the new packaging tool
+ doesn't work as you expect,
+ please [report a bug](https://developer.android.com/studio/report-bugs). You can revert to
+ using the old packaging tool by including the following in your
+-`gradle.properties` file:  
++`gradle.properties` file:
+ 
+             android.useNewApkCreator=false
+           
+@@ -4812,7 +4818,7 @@ benefit from the following:
+ - Smaller download size because Play Store compression is typically better when you include uncompressed native libraries in your APK or Android App Bundle.
+ 
+ If you want the Android Gradle plugin to instead package compressed
+-native libraries, include the following in your app's manifest:  
++native libraries, include the following in your app's manifest:
+ 
+             <application
+               android:extractNativeLibs="true"
+@@ -5015,7 +5021,7 @@ to `true`, the Android Gradle plugin generates a test config file
+ containing absolute paths, which breaks cache relocatability. You can instruct
+ the plugin to instead generate the test config using relative paths, which
+ allows the `AndroidUnitTest` task to be fully cacheable, by
+-including the following in your `gradle.properties` file:  
++including the following in your `gradle.properties` file:
+ 
+           android.testConfig.useRelativePath = true
+         
+@@ -5096,7 +5102,7 @@ To see a list of noteable bug fixes, read the related post on the
+   - `lintPublish`: Use this new configuration in library projects for lint checks you want to include in the published AAR, as shown below. This means that projects that consume your library also apply those lint checks.
+ 
+   The following code sample uses both dependency configurations in a
+-  local Android library project.  
++  local Android library project.
+ 
+   ```groovy
+   dependencies {
+@@ -5106,7 +5112,7 @@ To see a list of noteable bug fixes, read the related post on the
+     lintPublish project(':lintpublish')
+   }
+           
+-  ```  
++  ```
+ 
+   ```kotlin
+   dependencies {
+@@ -5167,7 +5173,7 @@ If you experience issues using R8, read the
+ to check if there's a solution to your issue. If a solution isn't documented,
+ please [report a bug](https://issuetracker.google.com/issues/new?component=326788&template=1025938).
+ You can disable R8 by adding one of the following lines to your project's
+-`gradle.properties` file:  
++`gradle.properties` file:
+ 
+           # Disables R8 for Android Library modules only.
+           android.enableR8.libraries = false
+@@ -5289,7 +5295,7 @@ fixes and performance improvements.
+ 
+     If, however, one or more annotation processors do not support incremental
+     builds, incremental Java compilation is not enabled. Instead, you can
+-    include the following flag in your `gradle.properties` file:  
++    include the following flag in your `gradle.properties` file:
+ 
+         android.enableSeparateAnnotationProcessing=true
+                     
+@@ -5459,7 +5465,7 @@ Tools. The Android Gradle plugin now uses version 28.0.3 by default.
+   ```groovy
+           android.enableR8 = true
+           
+-  ```  
++  ```
+ 
+   ```kotlin
+           android.enableR8 = true
+@@ -5494,7 +5500,7 @@ Tools. The Android Gradle plugin now uses version 28.0.3 by default.
+                       jcenter()
+               }
+             
+-  ```  
++  ```
+ 
+   ```kotlin
+             buildscript {
+@@ -5570,14 +5576,14 @@ D8 shouldn't change your day-to-day app development workflow. However, if
+ you experience any issues related to the new compiler, please
+ [report a bug](https://developer.android.com/studio/report-bugs). You can temporarily
+ disable D8 and use DX by including the following in your project's
+-`gradle.properties` file:  
++`gradle.properties` file:
+ 
+           android.enableD8=false
+         
+ For projects that
+ [use Java 8 language features](https://developer.android.com/studio/write/java8-support),
+ incremental desugaring is enabled by default. You can disable it by
+-specifying the following in your project's `gradle.properties` file:  
++specifying the following in your project's `gradle.properties` file:
+ 
+           android.enableIncrementalDesugaring=false.
+         
+@@ -5596,7 +5602,7 @@ tools libraries, you get a compile error.
+ 
+   If you want to build APKs that target these ABIs, you must use
+   [NDK r16b or lower](https://developer.android.com/ndk/downloads/revision_history) and
+-  specify the ABIs in your `build.gradle` file, as shown below:  
++  specify the ABIs in your `build.gradle` file, as shown below:
+ 
+   ```groovy
+             splits {
+@@ -5606,7 +5612,7 @@ tools libraries, you get a compile error.
+                 }
+             }
+           
+-  ```  
++  ```
+ 
+   ```kotlin
+             splits {
+@@ -5637,7 +5643,7 @@ tools libraries, you get a compile error.
+           WARNING: Configuration 'androidTestApi' is obsolete
+           and has been replaced with 'androidTestImplementation'
+           
+-  ```  
++  ```
+ 
+   ```kotlin
+           WARNING: Configuration 'androidTestApi' is obsolete
+@@ -5648,7 +5654,7 @@ tools libraries, you get a compile error.
+ #### Fixes
+ 
+ - Fixes an issue where Android Studio doesn't properly recognize dependencies in composite builds.
+-- Fixes an issue where you get a project sync error when loading the Android plugin multiple times in a single build--for example, when multiple subprojects each include the Android plugin in their buildscript classpath.  
++- Fixes an issue where you get a project sync error when loading the Android plugin multiple times in a single build--for example, when multiple subprojects each include the Android plugin in their buildscript classpath.
+ 
+ ### 3.0.0 (October 2017)
+ 
+@@ -5659,7 +5665,7 @@ For example, on a
+ [sample skeleton
+ project](https://github.com/jmslau/perf-android-large.git) with \~130 modules and a large number of external dependencies
+ (but no code or resources), you can experience performance improvements
+-similar to the following:  
++similar to the following:
+ 
+ | Android plugin version + Gradle version | Android plugin 2.2.0 + Gradle 2.14.1 | Android plugin 2.3.0 + Gradle 3.3 | Android plugin 3.0.0 + Gradle 4.1 |
+ | Configuration (e.g. running `./gradlew --help`) | \~2 mins | \~9 s | \~2.5 s |
+@@ -5837,7 +5843,7 @@ bug fixes and performance improvements.
+   a single JAR and includes only
+   [`compileOnly`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management)
+   dependencies. Other app and library modules can then depend on your lint
+-  project using the `lintChecks` configuration:  
++  project using the `lintChecks` configuration:
+ 
+   ### Groovy
+ 
+@@ -5870,7 +5876,7 @@ bug fixes and performance improvements.
+ - Android plugin 3.0.0 removes certain APIs, and your build will break if you use them. For example, you can no longer use the Variants API to access `outputFile()` objects or use `processManifest.manifestOutputFile()` to get the manifest file for each variant. To learn more, read [API changes](https://developer.android.com/studio/known-issues#variant_api).
+ - You no longer need to specify a version for the build tools (so, you can now remove the `android.buildToolsVersion` property). By default, the plugin automatically uses the minimum required build tools version for the version of Android plugin you're using.
+ - You now enable/disable PNG crunching in the `buildTypes` block, as shown below. PNG crunching is enabled by default for all builds except debug builds because it increases build times for projects that include many PNG files. So, to improve build times for other build types, you should either disable PNG crunching or [convert
+-  your images to WebP](https://developer.android.com/studio/write/convert-webp#convert_images_to_webp).  
++  your images to WebP](https://developer.android.com/studio/write/convert-webp#convert_images_to_webp).
+ 
+   ### Groovy
+ 
+@@ -5903,7 +5909,7 @@ bug fixes and performance improvements.
+ - You must now [add annotation
+   processors](https://developer.android.com/studio/build/dependencies#annotation_processor) to the processor classpath using the `annotationProcessor` dependency configuration.
+ - Using the deprecated `ndkCompile` is now more restricted. You should instead migrate to using either CMake or ndk-build to compile native code that you want to package into your APK. To learn more, read [Migrate from
+-ndkcompile](https://developer.android.com/studio/projects/add-native-code#ndkCompile).  
++  ndkcompile](https://developer.android.com/studio/projects/add-native-code#ndkCompile).
+ 
+ ### 3.0.0 (October 2017)
+ 
+@@ -5914,7 +5920,7 @@ For example, on a
+ [sample skeleton
+ project](https://github.com/jmslau/perf-android-large.git) with \~130 modules and a large number of external dependencies
+ (but no code or resources), you can experience performance improvements
+-similar to the following:  
++similar to the following:
+ 
+ | Android plugin version + Gradle version | Android plugin 2.2.0 + Gradle 2.14.1 | Android plugin 2.3.0 + Gradle 3.3 | Android plugin 3.0.0 + Gradle 4.1 |
+ | Configuration (e.g. running `./gradlew --help`) | \~2 mins | \~9 s | \~2.5 s |
+@@ -6092,7 +6098,7 @@ bug fixes and performance improvements.
+   a single JAR and includes only
+   [`compileOnly`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management)
+   dependencies. Other app and library modules can then depend on your lint
+-  project using the `lintChecks` configuration:  
++  project using the `lintChecks` configuration:
+ 
+   ### Groovy
+ 
+@@ -6125,7 +6131,7 @@ bug fixes and performance improvements.
+ - Android plugin 3.0.0 removes certain APIs, and your build will break if you use them. For example, you can no longer use the Variants API to access `outputFile()` objects or use `processManifest.manifestOutputFile()` to get the manifest file for each variant. To learn more, read [API changes](https://developer.android.com/studio/known-issues#variant_api).
+ - You no longer need to specify a version for the build tools (so, you can now remove the `android.buildToolsVersion` property). By default, the plugin automatically uses the minimum required build tools version for the version of Android plugin you're using.
+ - You now enable/disable PNG crunching in the `buildTypes` block, as shown below. PNG crunching is enabled by default for all builds except debug builds because it increases build times for projects that include many PNG files. So, to improve build times for other build types, you should either disable PNG crunching or [convert
+-  your images to WebP](https://developer.android.com/studio/write/convert-webp#convert_images_to_webp).  
++  your images to WebP](https://developer.android.com/studio/write/convert-webp#convert_images_to_webp).
+ 
+   ### Groovy
+ 
+@@ -6158,7 +6164,7 @@ bug fixes and performance improvements.
+ - You must now [add annotation
+   processors](https://developer.android.com/studio/build/dependencies#annotation_processor) to the processor classpath using the `annotationProcessor` dependency configuration.
+ - Using the deprecated `ndkCompile` is now more restricted. You should instead migrate to using either CMake or ndk-build to compile native code that you want to package into your APK. To learn more, read [Migrate from
+-ndkcompile](https://developer.android.com/studio/projects/add-native-code#ndkCompile).  
++  ndkcompile](https://developer.android.com/studio/projects/add-native-code#ndkCompile).
+ 
+ ### 2.3.0 (February 2017)
+ 
+@@ -6223,7 +6229,7 @@ New:
+     - Improves build performance by adopting a new default packaging pipeline which handles zipping, signing, and [zipaligning](https://developer.android.com/studio/command-line/zipalign) in one task. You can revert to using the older packaging tools by adding `android.useOldPackaging=true` to your `gradle.properties` file. While using the new packaging tool, the `zipalignDebug` task is not available. However, you can create one yourself by calling the `createZipAlignTask(String taskName, File inputFile, File
+       outputFile)` method.
+     - APK signing now uses [APK Signature Scheme
+-      v2](https://developer.android.com/about/versions/nougat/android-7.0#apk_signature_v2) in addition to traditional JAR signing. All Android platforms accept the resulting APKs. Any modification to these APKs after signing invalidates their v2 signatures and prevents installation on a device. To disable this feature, add the following to your module-level `build.gradle` file:  
++      v2](https://developer.android.com/about/versions/nougat/android-7.0#apk_signature_v2) in addition to traditional JAR signing. All Android platforms accept the resulting APKs. Any modification to these APKs after signing invalidates their v2 signatures and prevents installation on a device. To disable this feature, add the following to your module-level `build.gradle` file:
+ 
+       ### Groovy
+ 
+@@ -6254,7 +6260,7 @@ New:
+       }
+             
+       ```
+-    - For multidex builds, you can now use ProGuard rules to determine which classes Gradle should compile into your app's *main* DEX file. Because the Android system loads the main DEX file first when starting your app, you can prioritize certain classes at startup by compiling them into the main DEX file. After you create a ProGuard configuration file specifically for your main DEX file, pass the configuration file's path to Gradle using [buildTypes.multiDexKeepProguard](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.BuildType.html#com.android.build.gradle.internal.dsl.BuildType:multiDexKeepProguard). Using this DSL is different from using [`buildTypes.proguardFiles`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.BuildType.html#com.android.build.gradle.internal.dsl.BuildType:proguardFiles(java.lang.Object[])), which provides general ProGuard rules for your app and does not specify classes for the main DEX file.
++    - For multidex builds, you can now use ProGuard rules to determine which classes Gradle should compile into your app's *main* DEX file. Because the Android system loads the main DEX file first when starting your app, you can prioritize certain classes at startup by compiling them into the main DEX file. After you create a ProGuard configuration file specifically for your main DEX file, pass the configuration file's path to Gradle using `https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.BuildType.html#com.android.build.gradle.internal.dsl.BuildType:multiDexKeepProguard`. Using this DSL is different from using [`buildTypes.proguardFiles`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.BuildType.html#com.android.build.gradle.internal.dsl.BuildType:proguardFiles(java.lang.Object[])), which provides general ProGuard rules for your app and does not specify classes for the main DEX file.
+     - Adds support for the `android:extractNativeLibs` flag, which can reduce the size of your app when you install it on a device. When you set this flag to `false` in the [`<application>`](https://developer.android.com/guide/topics/manifest/application-element) element of your app manifest, Gradle packages uncompressed and aligned versions of your native libraries with your APK. This prevents [`PackageManager`](https://developer.android.com/reference/android/content/pm/PackageManager) from copying out your native libraries from the APK to the device's file system during installation and has the added benefit of making delta updates of your app smaller.
+     - You can now specify [`versionNameSuffix`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.ProductFlavor.html#com.android.build.gradle.internal.dsl.ProductFlavor:versionNameSuffix) and [`applicationIdSuffix`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.ProductFlavor.html#com.android.build.gradle.internal.dsl.ProductFlavor:applicationIdSuffix) for product flavors. ([Issue 59614](http://b.android.com/59614))
+ 
+@@ -6263,8 +6269,8 @@ Changes:
+ :
+     - `getDefaultProguardFile` now returns the default ProGuard files that Android plugin for Gradle provides and no longer uses the ones in the Android SDK.
+     - Improved Jack compiler performance and features:
+-      - Jack now supports Jacoco test coverage when setting [testCoverageEnabled](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.BuildType.html#com.android.build.gradle.internal.dsl.BuildType:testCoverageEnabled) to `true`.
+-      - Improved support for annotation processors. Annotation processors on your classpath, such as any `compile` dependencies, are automatically applied to your build. You can also specify an annotation processor in your build and pass arguments by using the [`javaCompileOptions.annotationProcessorOptions {}`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.AnnotationProcessorOptions.html) DSL in your module-level `build.gradle` file:  
++      - Jack now supports Jacoco test coverage when setting `https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.BuildType.html#com.android.build.gradle.internal.dsl.BuildType:testCoverageEnabled` to `true`.
++      - Improved support for annotation processors. Annotation processors on your classpath, such as any `compile` dependencies, are automatically applied to your build. You can also specify an annotation processor in your build and pass arguments by using the [`javaCompileOptions.annotationProcessorOptions {}`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.AnnotationProcessorOptions.html) DSL in your module-level `build.gradle` file:
+ 
+         ### Groovy
+ 
+@@ -6307,7 +6313,7 @@ Changes:
+ 
+         If you want to apply an annotation processor at compile
+         time but not include it in your APK, use the
+-        `annotationProcessor` dependency scope:  
++        `annotationProcessor` dependency scope:
+ 
+         ### Groovy
+ 
+@@ -6330,12 +6336,12 @@ Changes:
+         }
+             
+         ```
+-      - For a list of parameters you can set, run the following from the command line:  
++      - For a list of parameters you can set, run the following from the command line:
+ 
+       ```
+       java -jar /build-tools/jack.jar --help-properties
+       ```
+-      - By default, if the Gradle daemon's heap size is at least 1.5 GB, Jack now runs in the same process as Gradle. To adjust the daemon heap size, add the following to your `gradle.properties` file:  
++      - By default, if the Gradle daemon's heap size is at least 1.5 GB, Jack now runs in the same process as Gradle. To adjust the daemon heap size, add the following to your `gradle.properties` file:
+ 
+         ```
+         # This sets the daemon heap size to 1.5GB.
+@@ -6365,7 +6371,7 @@ New:
+       Run](https://developer.android.com/tools/building/building-studio#instant-run) does not currently work with Jack and will be disabled while
+       using the new toolchain. You only need to use Jack if you are developing
+       for the N Preview and want to use the supported Java 8 language features.
+-    - Added default support for incremental Java compilation to reduce compilation time during development. It does this by only recompiling portions of the source that have changed or need to be recompiled. To disable this feature, add the following code to your module-level `build.gradle` file:  
++    - Added default support for incremental Java compilation to reduce compilation time during development. It does this by only recompiling portions of the source that have changed or need to be recompiled. To disable this feature, add the following code to your module-level `build.gradle` file:
+ 
+       ### Groovy
+ 
+@@ -6407,7 +6413,7 @@ New:
+       \`\`\`none org.gradle.jvmargs = -Xmx3072m \`\`\`
+ 
+ 
+-      To disable dexing-in-process, add the following code to your module-level `build.gradle` file:  
++      To disable dexing-in-process, add the following code to your module-level `build.gradle` file:
+ 
+       ### Groovy
+ 
+@@ -6445,7 +6451,7 @@ New:
+ :
+     - Enables [Instant Run](https://developer.android.com/tools/building/building-studio#instant-run) by supporting bytecode injection, and pushing code and resource updates to a running app on the emulator or a physical device.
+     - Added support for incremental builds, even when the app isn't running. Full build times are improved by pushing incremental changes through the [Android Debug Bridge](https://developer.android.com/tools/help/adb) to the connected device.
+-    - Added [`maxProcessCount`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.DexOptions.html#com.android.build.gradle.internal.dsl.DexOptions:maxProcessCount) to control how many worker dex processes can be spawned concurrently. The following code, in the module-level `build.gradle` file, sets the maximum number of concurrent processes to 4:  
++    - Added [`maxProcessCount`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.DexOptions.html#com.android.build.gradle.internal.dsl.DexOptions:maxProcessCount) to control how many worker dex processes can be spawned concurrently. The following code, in the module-level `build.gradle` file, sets the maximum number of concurrent processes to 4:
+ 
+       ### Groovy
+ 
+@@ -6467,7 +6473,7 @@ New:
+           maxProcessCount = 4 // this is the default value
+         }
+       }
+-      ```  
++      ```
+ 
+             </li>
+ 
+@@ -6512,7 +6518,7 @@ New:
+           }
+         }
+       }
+-      ```  
++      ```
+ 
+             </li>
+ 
+@@ -6526,7 +6532,7 @@ New:
+ 
+ Changed behavior:
+ :
+-    - When `minSdkVersion` is set to 18 or higher, APK signing uses SHA256.  
++    - When `minSdkVersion` is set to 18 or higher, APK signing uses SHA256.
+ 
+           <li>DSA and ECDSA keys can now sign APK packages.
+ 
+@@ -6556,7 +6562,7 @@ Dependencies:
+ 
+ General Notes:
+ :
+-    - Integrated the Data Binding plugin into the Android plugin for Gradle. To enable it, add the following code to each per-project `build.gradle` file that uses the plugin:  
++    - Integrated the Data Binding plugin into the Android plugin for Gradle. To enable it, add the following code to each per-project `build.gradle` file that uses the plugin:
+ 
+     ```groovy
+     android {
+@@ -6565,7 +6571,7 @@ General Notes:
+         }
+     }
+             
+-    ```  
++    ```
+ 
+     ```kotlin
+     android {
+@@ -6609,7 +6615,7 @@ General Notes:
+ - Fixed [Renderscript](https://developer.android.com/guide/topics/renderscript/compute) packaging with the [NDK](https://developer.android.com/tools/sdk/ndk).
+ - Maintained support for the `createDebugCoverageReport` build task.
+ - Fixed support for customized use of the `archiveBaseName` property in the `build.gradle` build file.
+-- Fixed the `Invalid ResourceType` [lint](https://developer.android.com/tools/help/lint) warning caused by parameter method annotation lookup when running [lint](https://developer.android.com/tools/help/lint) outside of Android Studio.  
++- Fixed the `Invalid ResourceType` [lint](https://developer.android.com/tools/help/lint) warning caused by parameter method annotation lookup when running [lint](https://developer.android.com/tools/help/lint) outside of Android Studio.
+ 
+ ### Android plugin for Gradle, revision 1.3.0 (July 2015)
+ 
+@@ -6629,14 +6635,14 @@ General Notes:
+               -Pcom.android.build.threadPoolSize=4
+               
+             
+-- Set the default build behavior to exclude `LICENSE` and `LICENSE.txt` files from APKs. To include these files in an APK, remove these files from the `packagingOptions.excludes` property in the `build.gradle` file. For example:  
++- Set the default build behavior to exclude `LICENSE` and `LICENSE.txt` files from APKs. To include these files in an APK, remove these files from the `packagingOptions.excludes` property in the `build.gradle` file. For example:
+ 
+   ```groovy
+   android {
+         packagingOptions.excludes = []
+       }
+         
+-  ```  
++  ```
+ 
+   ```kotlin
+   android {
+@@ -6656,7 +6662,7 @@ General Notes:
+ - Improved unit test support to:
+   - Run `javac` on main and test sources, even if the `useJack` property is set to `true` in your build file.
+   - Correctly recognize dependencies for each build type.
+-- Added support for specifying instrumentation test-runner arguments from the command line. For example:  
++- Added support for specifying instrumentation test-runner arguments from the command line. For example:
+ 
+   ```
+   ./gradlew connectedCheck \
+@@ -6674,7 +6680,7 @@ General Notes:
+       }
+   }
+         
+-  ```  
++  ```
+ 
+   ```kotlin
+   android {
+@@ -6689,7 +6695,7 @@ General Notes:
+   **Note:** A test APK module does not support product
+   flavors and can only target a single variant. Also, Jacoco is not supported yet.
+ - Added resource name validation before merging resources.
+-- When building an AAR (Android ARchive) package for library modules, do not provide an automatic `@{applicationId}` placeholder in the [manifest merger](https://developer.android.com/tools/building/manifest-merge) settings. Instead, use a different placeholder, such as `@{libApplicationId}` and provide a value for it if you want to include application Ids in the archive library.  
++- When building an AAR (Android ARchive) package for library modules, do not provide an automatic `@{applicationId}` placeholder in the [manifest merger](https://developer.android.com/tools/building/manifest-merge) settings. Instead, use a different placeholder, such as `@{libApplicationId}` and provide a value for it if you want to include application Ids in the archive library.
+ 
+ ### Android plugin for Gradle, revision 1.2.0 (April 2015)
+ 
+@@ -6704,7 +6710,7 @@ General Notes:
+       - Added support to include Java-style resources in the classpath when running unit tests directly from Gradle.
+       - Added unit test dependency support for Android Archive (AAR) artifacts.
+       - Added support for the `unitTestVariants` property so unit test variants can be manipulated using the `build.gradle` file.
+-      - Added the `unitTest.all` code block under `testOptions` to configure customized tasks for unit test. The following sample code shows how to add unit test configuration settings using this new option:  
++      - Added the `unitTest.all` code block under `testOptions` to configure customized tasks for unit test. The following sample code shows how to add unit test configuration settings using this new option:
+ 
+         ```groovy
+         android {
+@@ -6714,7 +6720,7 @@ General Notes:
+             }
+           }
+         }
+-        ```  
++        ```
+ 
+         ```kotlin
+         android {

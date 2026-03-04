@@ -1,0 +1,14 @@
+diff --git a/docs/topic/performance/tracing.md b/docs/topic/performance/tracing.md
+index 2e6ad30..5692733 100644
+--- a/docs/topic/performance/tracing.md
++++ b/docs/topic/performance/tracing.md
+@@ -64,7 +64,8 @@ Perfetto and Systrace are interoperable:
+ - [Convert a Perfetto trace to the legacy Systrace text
+   format](https://docs.perfetto.dev/#/traceconv.md) using the `traceconv` tool.
+ 
+-| **Note:** Systrace and Perfetto don't collect detailed information about code execution within your app process. For more detailed information about which methods your app is executing and how many CPU resources it's using, use the [CPU profiler](https://developer.android.com/studio/profile/cpu-profiler) in Android Studio.
++> [!NOTE]
++> **Note:** Systrace and Perfetto don't collect detailed information about code execution within your app process. For more detailed information about which methods your app is executing and how many CPU resources it's using, use the [CPU profiler](https://developer.android.com/studio/profile/cpu-profiler) in Android Studio.
+ 
+ ## System tracing guides
+ 

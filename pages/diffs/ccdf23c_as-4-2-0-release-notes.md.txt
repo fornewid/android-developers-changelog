@@ -1,0 +1,50 @@
+diff --git a/docs/studio/releases/past-releases/as-4-2-0-release-notes.md b/docs/studio/releases/past-releases/as-4-2-0-release-notes.md
+index 5806b5b..6393764 100644
+--- a/docs/studio/releases/past-releases/as-4-2-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-4-2-0-release-notes.md
+@@ -9,7 +9,7 @@ source: md.txt
+ # Android Studio 4.2 (April 2021)
+ 
+ Android Studio 4.2 is a major release that includes a variety of new features
+-and improvements.  
++and improvements.
+ **4.2.2 (June 2021)**
+ 
+ This minor update includes various bug fixes. To see a list of notable
+@@ -194,7 +194,7 @@ is a standalone tool for obtaining the original stack trace from an obfuscated
+ stack trace.
+ 
+ You can download this package with the SDK manager, which installs
+-R8 retrace in android_sdk/cmdline-tools.
++R8 retrace in `android_sdk/cmdline-tools`.
+ Alternatively, you can
+ [download the standalone command-line tools package](https://developer.android.com/studio#command-tools).
+ 
+@@ -219,7 +219,8 @@ these steps:
+    ![Modify device set dialog](https://developer.android.com/static/studio/images/releases/instrumentation-dialog-select-multiple-devices.png)
+ 3. Run your app.
+ 
+-| **Note:** Running and viewing tests across multiple devices is an experimental feature. When running a test configuration across multiple devices, you might be prompted to enable this feature before you can proceed.
++> [!NOTE]
++> **Note:** Running and viewing tests across multiple devices is an experimental feature. When running a test configuration across multiple devices, you might be prompted to enable this feature before you can proceed.
+ 
+ <br />
+ 
+@@ -324,7 +325,7 @@ complete list, go to the [Known issues](https://developer.android.com/studio/kno
+ 
+ If you are using Android Studio 4.2.0 and have upgraded to Kotlin plugin 1.5.0,
+ then new Kotlin projects created by Studio will fail to build due to the
+-following Gradle sync error:  
++following Gradle sync error:
+ 
+     Could not find org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.0-release-764.
+ 
+@@ -341,7 +342,7 @@ causes an underlying behavior change related to signing keys.
+ When you navigate to **Build \> Generate Signed Bundle / APK**
+ and attempt to configure app signing for an app bundle or an APK,
+ entering different passwords for the key and keystore may result in the
+-following error:  
++following error:
+ 
+     Key was created with errors:
+     Warning: Different store and Key passwords not supported for PKCS12 Key stores

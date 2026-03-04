@@ -1,0 +1,86 @@
+diff --git a/docs/media/grow/spatial-audio.md b/docs/media/grow/spatial-audio.md
+index 52d774b..2212465 100644
+--- a/docs/media/grow/spatial-audio.md
++++ b/docs/media/grow/spatial-audio.md
+@@ -21,7 +21,7 @@ app starting with Android 13 (API level 33).
+ Use the [`Spatializer`](https://developer.android.com/reference/android/media/Spatializer) class to
+ query the device's spatialization capabilities and behavior. Start by retrieving
+ an instance of the `Spatializer` from the
+-[`AudioManager`](https://developer.android.com/reference/android/media/AudioManager#getSpatializer()):  
++[`AudioManager`](https://developer.android.com/reference/android/media/AudioManager#getSpatializer()):
+ 
+ ### Kotlin
+ 
+@@ -54,7 +54,9 @@ With supported headsets, the platform can adjust the audio's
+ spatialization based on the user's head position. To check if a head tracker is
+ available for the current audio output routing, call
+ [`isHeadTrackerAvailable()`](https://developer.android.com/reference/android/media/Spatializer#isHeadTrackerAvailable()).
+-| **Note:** When testing spatial audio with head tracking on Android 13 or later, make sure that the head tracking on the headset you are using is compatible with your mobile device. For example, you can use Pixel Buds Pro with Pixel phones.
++
++> [!NOTE]
++> **Note:** When testing spatial audio with head tracking on Android 13 or later, make sure that the head tracking on the headset you are using is compatible with your mobile device. For example, you can use Pixel Buds Pro with Pixel phones.
+ 
+ ## Compatible content
+ 
+@@ -76,7 +78,9 @@ When calling [`canBeSpatialized()`](https://developer.android.com/reference/andr
+ `AudioAttributes` instance as set for your `Player`. For example, if
+ you're using the Jetpack Media3 library and haven't customized the
+ `AudioAttributes`, use [`AudioAttributes.DEFAULT`](https://github.com/androidx/media/blob/50475814f700d08519c88585c9583f2aba5d702e/libraries/common/src/main/java/androidx/media3/common/AudioAttributes.java#L71).
+-| **Note:** When using the Media3 `AudioAttributes` class, make sure to call [`AudioAttributes.getAudioAttributesV21().audioAttributes`](https://github.com/androidx/media/blob/50475814f700d08519c88585c9583f2aba5d702e/libraries/common/src/main/java/androidx/media3/common/AudioAttributes.java#L48) to obtain the platform's equivalent `AudioAttributes`.
++
++> [!NOTE]
++> **Note:** When using the Media3 `AudioAttributes` class, make sure to call [`AudioAttributes.getAudioAttributesV21().audioAttributes`](https://github.com/androidx/media/blob/50475814f700d08519c88585c9583f2aba5d702e/libraries/common/src/main/java/androidx/media3/common/AudioAttributes.java#L48) to obtain the platform's equivalent `AudioAttributes`.
+ 
+ #### Disabling spatial audio
+ 
+@@ -136,10 +140,12 @@ If the `Spatializer` properties change, ExoPlayer
+ will trigger a new track selection to select an audio track that matches the
+ current properties. Note that this new track selection may cause a short
+ rebuffering period.
+-| **Important:** The audio channel count constraint behavior described in this section only applies to handheld devices running Android 12L or newer. On older devices or on other device types, such as Android TV, these constraints are disabled and ExoPlayer's track selection can be customized as specified in [Audio track selection](https://developer.android.com/media/grow/spatial-audio#track-selection).
++
++> [!IMPORTANT]
++> **Important:** The audio channel count constraint behavior described in this section only applies to handheld devices running Android 12L or newer. On older devices or on other device types, such as Android TV, these constraints are disabled and ExoPlayer's track selection can be customized as specified in [Audio track selection](https://developer.android.com/media/grow/spatial-audio#track-selection).
+ 
+ To disable audio channel count constraints, set the track selection parameters
+-on the player as shown below:  
++on the player as shown below:
+ 
+ ### Kotlin
+ 
+@@ -160,7 +166,7 @@ exoPlayer.setTrackSelectionParameters(
+ ```
+ 
+ Similarly, you can update an existing track selector's parameters to disable
+-audio channel count constraints as follows:  
++audio channel count constraints as follows:
+ 
+ ### Kotlin
+ 
+@@ -208,7 +214,7 @@ To change the ExoPlayer's track selection parameters, use
+ [`Player.setTrackSelectionParameters()`](https://github.com/androidx/media/blob/50475814f700d08519c88585c9583f2aba5d702e/libraries/common/src/main/java/androidx/media3/common/Player.java#L2146).
+ Likewise, you can get ExoPlayer's current parameters with
+ [`Player.getTrackSelectionParameters()`](https://github.com/androidx/media/blob/50475814f700d08519c88585c9583f2aba5d702e/libraries/common/src/main/java/androidx/media3/common/Player.java#L2127).
+-For example, to select a stereo audio track mid-playback:  
++For example, to select a stereo audio track mid-playback:
+ 
+ ### Kotlin
+ 
+@@ -278,7 +284,7 @@ that may be customized by OEMs:
+   to convert a channel count to a channel mask.
+ 
+   In addition, set the encoding to [`AudioFormat.ENCODING_PCM_16BIT`](https://developer.android.com/reference/android/media/AudioFormat#ENCODING_PCM_16BIT)
+-  if you have configured the decoder to output multi-channel PCM.  
++  if you have configured the decoder to output multi-channel PCM.
+ 
+   ### Kotlin
+ 
+@@ -309,7 +315,7 @@ Ensure that spatial audio is enabled on your test device:
+ 
+ To check for Spatial Audio availability for the current routing, run the
+ `adb shell dumpsys audio` command on your device. You should see the following
+-parameters in the output while playback is active:  
++parameters in the output while playback is active:
+ 
+     Spatial audio:
+     mHasSpatializerEffect:true (effect present)

@@ -1,0 +1,153 @@
+diff --git a/docs/training/testing/different-screens/tools.md b/docs/training/testing/different-screens/tools.md
+index b2ffd5b..35cfd9e 100644
+--- a/docs/training/testing/different-screens/tools.md
++++ b/docs/training/testing/different-screens/tools.md
+@@ -15,7 +15,7 @@ layouts. The [`ForcedSize`](https://developer.android.com/reference/kotlin/andro
+ which lets you to run any
+ UI test on any screen size. For example, you can use a small phone form factor
+ to run all your UI tests, including UI tests for big phones, foldables, and
+-tablets.  
++tablets.
+ 
+        DeviceConfigurationOverride(
+             DeviceConfigurationOverride.ForcedSize(DpSize(1280.dp, 800.dp))
+@@ -35,7 +35,7 @@ Use [Robolectric](https://robolectric.org/) to run Compose or view-based UI test
+ Robolectric to use specific screen sizes, among other useful properties.
+ 
+ In the following [example](https://github.com/android/nowinandroid/blob/main/app/src/testDemo/kotlin/com/google/samples/apps/nowinandroid/ui/NiaAppScreenSizesScreenshotTests.kt) from *Now in Android*, Robolectric is configured
+-to emulate a screen size of 1000x1000 dp with a resolution of 480 dpi:  
++to emulate a screen size of 1000x1000 dp with a resolution of 480 dpi:
+ 
+     @RunWith(RobolectricTestRunner::class)
+     // Configure Robolectric to use a very large screen size that can fit all of the test sizes.
+@@ -44,7 +44,7 @@ to emulate a screen size of 1000x1000 dp with a resolution of 480 dpi:
+     class NiaAppScreenSizesScreenshotTests { ... }
+ 
+ You can also set the qualifiers from the test body as done in this snippet from
+-the [*Now in Android*](https://github.com/android/nowinandroid/blob/main/core/testing/src/main/kotlin/com/google/samples/apps/nowinandroid/core/testing/util/ScreenshotHelper.kt#L61) example:  
++the [*Now in Android*](https://github.com/android/nowinandroid/blob/main/core/testing/src/main/kotlin/com/google/samples/apps/nowinandroid/core/testing/util/ScreenshotHelper.kt#L61) example:
+ 
+     val (width, height, dpi) = ...
+ 
+@@ -65,7 +65,7 @@ your [instrumented](https://developer.android.com/training/testing/instrumented-
+ different screen sizes to implement a testing strategy where certain tests must
+ be run on certain screen sizes. By using GMD with [Continuous Integration](https://developer.android.com/training/testing/continuous-integration)
+ (CI), you can make sure that the appropriate tests run when required,
+-provisioning and launching emulators and simplifying your CI setup.  
++provisioning and launching emulators and simplifying your CI setup.
+ 
+     android {
+         testOptions {
+@@ -114,12 +114,12 @@ You can annotate certain tests to be run only with certain devices and then pass
+ an argument to the [AndroidJUnitRunner](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner) using the command that runs the
+ tests.
+ 
+-For example, you can create different annotations:  
++For example, you can create different annotations:
+ 
+     annotation class TestExpandedWidth
+     annotation class TestCompactWidth
+ 
+-And use them on different tests:  
++And use them on different tests:
+ 
+     class MyTestClass {
+ 
+@@ -139,13 +139,13 @@ And use them on different tests:
+ 
+ You can then use the `android.testInstrumentationRunnerArguments.annotation`
+ property when running the tests to filter specific ones. For example, if you're
+-using Gradle-managed devices:  
++using Gradle-managed devices:
+ 
+     $ ./gradlew pixelTabletApi30DebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.annotation='com.sample.TestExpandedWidth'
+ 
+ If you don't use GMD and you manage emulators on CI, first make sure that the
+ correct emulator or device is ready and connected, and then pass the parameter
+-to one of the Gradle commands to run instrumented tests:  
++to one of the Gradle commands to run instrumented tests:
+ 
+     $ ./gradlew connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.annotation='com.sample.TestExpandedWidth'
+ 
+@@ -159,7 +159,7 @@ type of instrumented tests, including Espresso, Compose, or UI Automator tests.
+ These actions might include setting the screen size or toggling foldable states
+ or postures. For example, you can control a foldable emulator and set it to
+ tabletop mode. Espresso Device also contains JUnit rules and annotations to
+-require certain features:  
++require certain features:
+ 
+     @RunWith(AndroidJUnit4::class)
+     class OnDeviceTest {
+@@ -194,7 +194,7 @@ the tests are skipped.
+ 
+ The [`RequiresDeviceMode`](https://developer.android.com/reference/androidx/test/espresso/device/filter/RequiresDeviceMode) annotation can be used multiple times to indicate
+ a test that will run only if *all* the [`DeviceMode`](https://developer.android.com/reference/androidx/test/espresso/device/controller/DeviceMode) values are supported
+-on the device.  
++on the device.
+ 
+     class OnDeviceTest {
+         ...
+@@ -212,7 +212,7 @@ on the device.
+ 
+ The [`RequiresDisplay`](https://developer.android.com/reference/androidx/test/espresso/device/filter/RequiresDisplay) annotation lets you specify the width and height of
+ the device screen using [size classes](https://developer.android.com/reference/androidx/test/espresso/device/sizeclass/package-summary), which define dimension buckets
+-following the official [window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes).  
++following the official [window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes).
+ 
+     class OnDeviceTest {
+         ...
+@@ -228,7 +228,7 @@ following the official [window size classes](https://developer.android.com/devel
+ Use the [`setDisplaySize()`](https://developer.android.com/reference/androidx/test/espresso/device/action/DeviceActions#setDisplaySize(androidx.test.espresso.device.sizeclass.WidthSizeClass,androidx.test.espresso.device.sizeclass.HeightSizeClass)) method to resize the dimensions of the screen
+ at runtime. Use the method in conjunction with the [`DisplaySizeRule`](https://developer.android.com/reference/androidx/test/espresso/device/rules/DisplaySizeRule)
+ class, which makes sure that any changes made during tests are undone before the
+-next test.  
++next test.
+ 
+     @RunWith(AndroidJUnit4::class)
+     class ResizeDisplayTest {
+@@ -251,7 +251,7 @@ next test.
+ When you resize a display with `setDisplaySize()`, you don't affect the density
+ of the device, so if a dimension doesn't fit in the target device, the test
+ fails with an [`UnsupportedDeviceOperationException`](https://developer.android.com/reference/java/lang/UnsupportedOperationException). To prevent tests from
+-being run in this case, use the `RequiresDisplay` annotation to filter them out:  
++being run in this case, use the `RequiresDisplay` annotation to filter them out:
+ 
+     @RunWith(AndroidJUnit4::class)
+     class ResizeDisplayTest {
+@@ -284,7 +284,7 @@ being run in this case, use the `RequiresDisplay` annotation to filter them out:
+ The [`StateRestorationTester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/StateRestorationTester) class is used to test the state restoration
+ for composable components without recreating activities. This makes tests faster
+ and more reliable, as activity recreation is a complex process with multiple
+-synchronization mechanisms:  
++synchronization mechanisms:
+ 
+     @Test
+     fun compactDevice_selectedEmailEmailRetained_afterConfigChange() {
+@@ -310,7 +310,7 @@ For example, you can use the [`FoldingFeature()`](https://developer.android.com/
+ custom [`FoldingFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature), which you can use in Compose previews. In Java,
+ use the [`createFoldingFeature()`](https://developer.android.com/reference/androidx/window/testing/layout/DisplayFeatureTesting#createFoldingFeature(android.app.Activity,kotlin.Int,kotlin.Int,androidx.window.layout.FoldingFeature.State,androidx.window.layout.FoldingFeature.Orientation)) function.
+ 
+-In a Compose preview, you might implement `FoldingFeature` in the following way:  
++In a Compose preview, you might implement `FoldingFeature` in the following way:
+ 
+     @Preview(showBackground = true, widthDp = 480, heightDp = 480)
+     @Composable private fun FoldablePreview() =
+@@ -325,7 +325,7 @@ Also, you can emulate display features in UI tests using the
+ The following example simulates a `FoldingFeature` with a
+ [`HALF_OPENED`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State#HALF_OPENED())
+ vertical hinge in the screen's center, then checks whether the
+-layout is the one expected:  
++layout is the one expected:
+ 
+ ### Compose
+ 
+@@ -400,7 +400,8 @@ layout is the one expected:
+         }
+     }
+ 
+-| **Note:** This test must run on a display large enough to lay out the elements on screen as expected.
++> [!NOTE]
++> **Note:** This test must run on a display large enough to lay out the elements on screen as expected.
+ 
+ You can find more samples in the [WindowManager project](https://github.com/android/platform-samples/tree/main/samples/user-interface/windowmanager/src/main/java/com/example/platform/ui/windowmanager).
+ 

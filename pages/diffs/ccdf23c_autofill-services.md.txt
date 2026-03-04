@@ -1,0 +1,207 @@
+diff --git a/docs/identity/autofill/autofill-services.md b/docs/identity/autofill/autofill-services.md
+index ac26ff3..8e675f4 100644
+--- a/docs/identity/autofill/autofill-services.md
++++ b/docs/identity/autofill/autofill-services.md
+@@ -21,9 +21,13 @@ looking for a code sample that shows how to implement a service, see the
+ [Kotlin](https://github.com/android/input-samples/tree/main/AutofillFrameworkKotlin). For further details about how autofill services work,
+ see the reference pages for the [`AutofillService`](https://developer.android.com/reference/android/service/autofill/AutofillService) and
+ [`AutofillManager`](https://developer.android.com/reference/android/view/autofill/AutofillManager) classes.
+-| **Note:** Beginning with Android 11, the platform allows keyboards and other input-method editors (*IMEs* ) to display autofill suggestions inline, instead of using a pulldown menu. For more information on how your autofill service can support this functionality, see [Integrate autofill with
+-| keyboards](https://developer.android.com/guide/topics/text/ime-autofill).
+-| **Note:** Autofill services must not use information for purposes other than providing suggestions.
++
++> [!NOTE]
++> **Note:** Beginning with Android 11, the platform allows keyboards and other input-method editors (*IMEs* ) to display autofill suggestions inline, instead of using a pulldown menu. For more information on how your autofill service can support this functionality, see [Integrate autofill with
++> keyboards](https://developer.android.com/guide/topics/text/ime-autofill).
++
++> [!NOTE]
++> **Note:** Autofill services must not use information for purposes other than providing suggestions.
+ 
+ ## Manifest declarations and permissions
+ 
+@@ -37,7 +41,7 @@ include the following attributes and elements:
+ - [`<intent-filter>`](https://developer.android.com/guide/topics/manifest/intent-filter-element) element whose mandatory [`<action>`](https://developer.android.com/guide/topics/manifest/action-element) child specifies the `android.service.autofill.AutofillService` action.
+ - Optional [`<meta-data>`](https://developer.android.com/guide/topics/manifest/meta-data-element) element that you can use to provide additional configuration parameters for the service.
+ 
+-The following example shows an autofill service declaration:  
++The following example shows an autofill service declaration:
+ 
+     <service
+         android:name=".MyAutofillService"
+@@ -55,7 +59,7 @@ The `<meta-data>` element includes an [`android:resource`](https://developer.and
+ points to an XML resource with further details about the service. The
+ `service_configuration` resource in the previous example specifies an activity
+ that allows users to configure the service. The following example shows the
+-`service_configuration` XML resource:  
++`service_configuration` XML resource:
+ 
+     <autofill-service
+       xmlns:android="http://schemas.android.com/apk/res/android"
+@@ -75,7 +79,9 @@ change the autofill settings by using the
+ [`ACTION_REQUEST_SET_AUTOFILL_SERVICE`](https://developer.android.com/reference/android/provider/Settings#ACTION_REQUEST_SET_AUTOFILL_SERVICE) intent. The intent returns a value
+ of [`RESULT_OK`](https://developer.android.com/reference/android/app/Activity#RESULT_OK) if the user selects an autofill service that matches the
+ package of the caller.
+-| **Note:** Be mindful of the frequency of requests to change the autofill settings that your app makes. Analyze the interactions users have with your app and request that they change the settings only in the appropriate scenarios.
++
++> [!NOTE]
++> **Note:** Be mindful of the frequency of requests to change the autofill settings that your app makes. Analyze the interactions users have with your app and request that they change the settings only in the appropriate scenarios.
+ 
+ ## Fill out client views
+ 
+@@ -99,9 +105,11 @@ it passes `null` to the `onSuccess()` method. The service calls the
+ [`onFailure()`](https://developer.android.com/reference/android/service/autofill/FillCallback#onFailure(java.lang.CharSequence)) method instead if there's an error processing the request.
+ For a detailed explanation of the workflow, see [the description on the
+ `AutofillService` reference page](https://developer.android.com/reference/android/service/autofill/AutofillService#BasicUsage).
+-| **Note:** Starting with Android 10, you can use the [`FillRequest.FLAG_COMPATIBILITY_MODE_REQUEST`](https://developer.android.com/reference/android/service/autofill/FillRequest#FLAG_COMPATIBILITY_MODE_REQUEST) flag to determine whether an autofill request was generated using compatibility mode.
+ 
+-The following code shows an example of the `onFillRequest()` method:  
++> [!NOTE]
++> **Note:** Starting with Android 10, you can use the [`FillRequest.FLAG_COMPATIBILITY_MODE_REQUEST`](https://developer.android.com/reference/android/service/autofill/FillRequest#FLAG_COMPATIBILITY_MODE_REQUEST) flag to determine whether an autofill request was generated using compatibility mode.
++
++The following code shows an example of the `onFillRequest()` method:
+ 
+ ### Kotlin
+ 
+@@ -197,7 +205,7 @@ The following code shows an example of the `onFillRequest()` method:
+ A service can have more than one dataset that satisfies the request. In this
+ case, the Android system shows multiple options---one for each
+ dataset---in the autofill UI. The following code example shows how to
+-provide multiple datasets in a response:  
++provide multiple datasets in a response:
+ 
+ ### Kotlin
+ 
+@@ -253,7 +261,7 @@ information about the contents of the view. For more information, see [Provide
+ hints for autofill](https://developer.android.com/guide/topics/text/autofill-optimize#hints).
+ 
+ The following example shows how to traverse the `AssistStructure` and retrieve
+-autofill data from a `ViewNode` object:  
++autofill data from a `ViewNode` object:
+ 
+ ### Kotlin
+ 
+@@ -315,7 +323,8 @@ autofill data from a `ViewNode` object:
+         }
+     }
+ 
+-| **Note:** Most views provide `autofillHints` attributes that comply with the list of `AUTOFILL_HINT` values included in the [`View`](https://developer.android.com/reference/android/view/View) class. However, views such as [`HtmlInfo`](https://developer.android.com/reference/android/view/ViewStructure.HtmlInfo) are more likely to be compliant with the attributes listed on the [W3C autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls%3A-the-autocomplete-attribute) page.
++> [!NOTE]
++> **Note:** Most views provide `autofillHints` attributes that comply with the list of `AUTOFILL_HINT` values included in the [`View`](https://developer.android.com/reference/android/view/View) class. However, views such as [`HtmlInfo`](https://developer.android.com/reference/android/view/ViewStructure.HtmlInfo) are more likely to be compliant with the attributes listed on the [W3C autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls%3A-the-autocomplete-attribute) page.
+ 
+ ## Save user data
+ 
+@@ -335,7 +344,7 @@ includes a [`SaveInfo`](https://developer.android.com/reference/android/service/
+ - The minimum set of views that need to be changed to trigger a save request. For example, a login form typically requires the user to update the `username` and `password` views to trigger a save request.
+ 
+ A `SaveInfo` object is associated with a `FillResponse` object, as shown in the
+-following code example:  
++following code example:
+ 
+ ### Kotlin
+ 
+@@ -389,7 +398,7 @@ following code example:
+ The autofill service can implement logic to persist the user data in the
+ `onSaveRequest()` method, which is usually called after the client activity
+ finishes or when the client app calls [`commit()`](https://developer.android.com/reference/android/view/autofill/AutofillManager#commit()). The following code shows
+-an example of the `onSaveRequest()` method:  
++an example of the `onSaveRequest()` method:
+ 
+ ### Kotlin
+ 
+@@ -458,7 +467,7 @@ to the intent. Your authentication activity can then return the data to the
+ `AutofillService` class in your app.
+ 
+ The following code example shows how to specify that the request requires
+-authentication:  
++authentication:
+ 
+ ### Kotlin
+ 
+@@ -506,7 +515,7 @@ Once the activity completes the authentication flow, it must call the
+ [`setResult()`](https://developer.android.com/reference/android/app/Activity#setResult(int)) method, passing a `RESULT_OK` value, and set the
+ [`EXTRA_AUTHENTICATION_RESULT`](https://developer.android.com/reference/android/view/autofill/AutofillManager#EXTRA_AUTHENTICATION_RESULT) extra to the `FillResponse` object that
+ includes the populated dataset. The following code shows an example of how to
+-return the result once the authentication flow completes:  
++return the result once the authentication flow completes:
+ 
+ ### Kotlin
+ 
+@@ -589,7 +598,7 @@ can display a UI asking for the CVC. You can hide the data until the dataset is
+ unlocked by presenting boilerplate data, such as the name of the bank and the
+ last four digits of the credit card number. The following example shows how to
+ require authentication for a dataset and hide the data until the user provides
+-the CVC:  
++the CVC:
+ 
+ ### Kotlin
+ 
+@@ -664,7 +673,7 @@ passing a `RESULT_OK` value, and set the `EXTRA_AUTHENTICATION_RESULT` extra to
+ a `Dataset` object that contains the credit card number and expiration date. The
+ new dataset replaces the dataset that requires authentication, and the views are
+ filled out immediately. The following code shows an example of how to return the
+-dataset once the user provides the CVC:  
++dataset once the user provides the CVC:
+ 
+ ### Kotlin
+ 
+@@ -791,7 +800,8 @@ The primary steps for using this API in an autofill service are:
+ 5. Receive the SMS code result from the intent and then return the SMS code as
+    an autofill response.
+ 
+-| **Note:** You can detect that the broadcast intent is from SMS Retriever API by adding the `com.google.android.gms.auth.api.phone.permission.SEND` permission to your receiver. This permission setting is available in Google Play services version 19.8.31 or higher.
++> [!NOTE]
++> **Note:** You can detect that the broadcast intent is from SMS Retriever API by adding the `com.google.android.gms.auth.api.phone.permission.SEND` permission to your receiver. This permission setting is available in Google Play services version 19.8.31 or higher.
+ 
+ ## Enable autofill on Chrome
+ 
+@@ -816,7 +826,7 @@ To help users turn on the toggle, developers can:
+ Chrome stopped supporting the compatibility mode from version 137 in favor of
+ Android Autofill. Keeping the compatibility mode can cause stability issues.
+ Specify the maximum version of Chrome packages that support the compatibility
+-mode for stability as follows.  
++mode for stability as follows.
+ 
+     <autofill-service>
+       ...
+@@ -832,7 +842,7 @@ mode for stability as follows.
+ Any app can read whether Chrome uses the 3P autofill mode that allows it to use
+ Android Autofill. Chrome uses Android's [`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider) to communicate
+ that information. Declare in your Android manifest which channels you want to
+-read settings from:  
++read settings from:
+ 
+     <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
+     <queries>
+@@ -844,7 +854,7 @@ read settings from:
+     </queries>
+ 
+ Then, use Android's [`ContentResolver`](https://developer.android.com/reference/android/content/ContentResolver) to request that information by
+-building the content URI:  
++building the content URI:
+ 
+ ### Kotlin
+ 
+@@ -930,7 +940,7 @@ building the content URI:
+ 
+ To deep link to the Chrome settings page where users can enable third-party
+ autofill services, use an Android [`Intent`](https://developer.android.com/reference/android/content/Intent). Be sure to configure the
+-action and categories as shown in this example:  
++action and categories as shown in this example:
+ 
+ ### Kotlin
+ 
+@@ -1038,12 +1048,12 @@ the autofill APIs.
+ 
+ To test your autofill service using compatibility mode, explicitly add the
+ browser or app to the allowlist that requires compatibility mode. You can check
+-which packages are already in the allowlist by running the following command:  
++which packages are already in the allowlist by running the following command:
+ 
+     $ adb shell settings get global autofill_compat_mode_allowed_packages
+ 
+ If the package you're testing isn't listed, add it by running the following
+-command, where `pkgX` is the package of the app:  
++command, where `pkgX` is the package of the app:
+ 
+     $ adb shell settings put global autofill_compat_mode_allowed_packages pkg1[resId1]:pkg2[resId1,resId2]
+ 

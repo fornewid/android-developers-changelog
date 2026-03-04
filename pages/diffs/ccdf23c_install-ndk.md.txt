@@ -1,0 +1,111 @@
+diff --git a/docs/studio/projects/install-ndk.md b/docs/studio/projects/install-ndk.md
+index d1545b0..39b087b 100644
+--- a/docs/studio/projects/install-ndk.md
++++ b/docs/studio/projects/install-ndk.md
+@@ -18,7 +18,7 @@ Android Studio or the `sdkmanager` tool to download and install them manually.
+ Android Gradle Plugin 4.2.0+ can automatically install the required NDK and CMake
+ the first time you build your project if their licenses have been accepted in advance.
+ If you've already read and agree to the license terms, then you can pre-accept
+-the licenses in scripts with the following command:  
++the licenses in scripts with the following command:
+ 
+        yes | ${sdk}/cmdline-tools/latest/bin/sdkmanager --licenses
+ 
+@@ -30,7 +30,7 @@ If your project needs one or more specific versions of the NDK, though, you can
+ [download and configure specific versions](https://developer.android.com/studio/projects/install-ndk#specific-version). Doing so helps
+ you ensure reproducible builds across projects that each depend on a specific
+ version of the NDK. Android Studio installs all versions of the NDK in the
+-<var translate="no">android-sdk</var>`/ndk/` directory.
++`android-sdk/ndk/` directory.
+ 
+ To install CMake and the default NDK in Android Studio, do the following:
+ 
+@@ -43,7 +43,10 @@ To install CMake and the default NDK in Android Studio, do the following:
+    ![Image of SDK Manager](https://developer.android.com/static/studio/images/projects/install-NDK.png)
+    **Figure 1.** The **SDK Tools** window showing the **NDK (Side by side)**
+    option
+-   | **Note:** If you have an NDK installed in the `ndk-bundle` folder, it appears in the list with the label **NDK** . If you are using Android Gradle plugin 3.5.0 or later, you can select this checkbox or clear it. Clearing the checkbox uninstalls the NDK, freeing up disk space, and causes the checkbox to disappear from the list. If you uninstall the legacy NDK, remove the `ndk.dir` value, which is now deprecated, from your projects' `local.properties` files.
++
++   > [!NOTE]
++   > **Note:** If you have an NDK installed in the `ndk-bundle` folder, it appears in the list with the label **NDK** . If you are using Android Gradle plugin 3.5.0 or later, you can select this checkbox or clear it. Clearing the checkbox uninstalls the NDK, freeing up disk space, and causes the checkbox to disappear from the list. If you uninstall the legacy NDK, remove the `ndk.dir` value, which is now deprecated, from your projects' `local.properties` files.
++
+ 4. Click **OK**.
+ 
+    A dialog box tells you how much space the NDK package consumes on disk.
+@@ -59,7 +62,7 @@ To install CMake and the default NDK in Android Studio, do the following:
+ The SDK Manager includes the 3.6.0 forked version of
+ CMake and version 3.10.2. Projects that don't set a
+ specific CMake version are built with CMake 3.10.2. To
+-set the CMake version, add the following to your module's `build.gradle` file:  
++set the CMake version, add the following to your module's `build.gradle` file:
+ 
+ ### Groovy
+ 
+@@ -69,7 +72,7 @@ android {
+     externalNativeBuild {
+         cmake {
+             ...
+-            version "<var translate="no">cmake-version</var>"
++            version "cmake-version"
+         }
+     }
+ }
+@@ -83,7 +86,7 @@ android {
+     externalNativeBuild {
+         cmake {
+             ...
+-            version = "<var translate="no">cmake-version</var>"
++            version = "cmake-version"
+         }
+     }
+ }
+@@ -100,7 +103,7 @@ SDK Manager, follow these steps:
+    your `build.gradle` file, you get a build error.
+ 
+        # If you set this property, Gradle no longer uses PATH to find CMake.
+-       cmake.dir = "<var translate="no">path-to-cmake</var>"</pre>
++       cmake.dir = "path-to-cmake"</pre>
+ 
+ 4. If you don't already have the Ninja build system installed on your
+    workstation, go to the [official Ninja website](https://ninja-build.org/),
+@@ -120,15 +123,19 @@ To install a specific version of the NDK, do the following:
+ 
+ 4. Select the **NDK (Side by side)** checkbox and the checkboxes below it that
+    correspond to the NDK versions you want to install. Android Studio installs
+-   all versions of the NDK in the <var translate="no">android-sdk</var>`/ndk/`
++   all versions of the NDK in the `android-sdk/ndk/`
+    directory.
+ 
+-   | **Note:** Preview releases (for example, canary and beta) of the NDK do not show up in this list unless you [change the update channel](https://developer.android.com/studio/preview/install-preview#change_your_update_channel) for Android Studio. You can [install an Android Studio preview](https://developer.android.com/studio/preview/install-preview) side-by-side with the stable version.
++   > [!NOTE]
++   > **Note:** Preview releases (for example, canary and beta) of the NDK do not show up in this list unless you [change the update channel](https://developer.android.com/studio/preview/install-preview#change_your_update_channel) for Android Studio. You can [install an Android Studio preview](https://developer.android.com/studio/preview/install-preview) side-by-side with the stable version.
+ 
+    ![Image of SDK Tools window](https://developer.android.com/static/studio/images/projects/install-NDK-sxs.png)
+    **Figure 2.** The **SDK Tools** window showing the **NDK (Side by side)**
+    options
+-   | **Note:** If you have an NDK installed in the `ndk-bundle` folder, it appears in the list with the label **NDK** . If you are using Gradle version 3.5 or later, you can select this checkbox or clear it. Clearing it uninstalls the NDK installed, freeing up disk space, and cause the checkbox to disappear from the list. If you uninstall the legacy NDK, remove the `ndk.dir` value, which is now deprecated, from your projects' `local.properties` files.
++
++   > [!NOTE]
++   > **Note:** If you have an NDK installed in the `ndk-bundle` folder, it appears in the list with the label **NDK** . If you are using Gradle version 3.5 or later, you can select this checkbox or clear it. Clearing it uninstalls the NDK installed, freeing up disk space, and cause the checkbox to disappear from the list. If you uninstall the legacy NDK, remove the `ndk.dir` value, which is now deprecated, from your projects' `local.properties` files.
++
+ 5. Click **OK**.
+ 
+    A dialog box tells you how much space the NDK package(s) consumes.
+@@ -159,7 +166,7 @@ following is true:
+ 
+   ```groovy
+   android {
+-      ndkVersion "<var translate="no">major</var>.<var translate="no">minor</var>.<var translate="no">build</var>" // e.g.,  ndkVersion "21.3.6528147"
++      ndkVersion "major.minor.build" // e.g.,  ndkVersion "21.3.6528147"
+   }
+   ```
+ 
+@@ -167,7 +174,7 @@ following is true:
+ 
+   ```kotlin
+   android {
+-      ndkVersion = "<var translate="no">major</var>.<var translate="no">minor</var>.<var translate="no">build</var>" // e.g.,  ndkVersion "21.3.6528147"
++      ndkVersion = "major.minor.build" // e.g.,  ndkVersion "21.3.6528147"
+   }
+   ```
+ 

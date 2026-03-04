@@ -1,0 +1,25 @@
+diff --git a/docs/media/media3/exoplayer/preloading-media/preloadmanager/concepts.md b/docs/media/media3/exoplayer/preloading-media/preloadmanager/concepts.md
+index 453b149..96d5010 100644
+--- a/docs/media/media3/exoplayer/preloading-media/preloadmanager/concepts.md
++++ b/docs/media/media3/exoplayer/preloading-media/preloadmanager/concepts.md
+@@ -41,7 +41,9 @@ Your app has to do the following:
+ - [Fetch media from the preload manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#fetch-play) when the user starts playing an
+   item. The preload manager gives your app a `MediaSource` for that content.
+ 
+-  | **Important:** The `MediaSource` returned by the preload manager must be played on an `ExoPlayer` created by that preload manager's builder.
++  > [!IMPORTANT]
++  > **Important:** The `MediaSource` returned by the preload manager must be played on an `ExoPlayer` created by that preload manager's builder.
++
+ - [Release the preload manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#release) when you're done with it, freeing its
+   resources.
+ 
+@@ -52,7 +54,8 @@ The preload manager does the following:
+ - After it queries the app, it preloads the appropriate amount of each media item. The preload manager decides what order to load the item. It prioritizes items that are closest to the item the user's playing.
+ - When the app requests content, the preload manager provides a `MediaSource` with whatever content has already been loaded.
+ 
+-| **Note:** Your app decides *how much* of each media item should be preloaded, and tells the preload manager where each media item is in the carousel, as well as which item is currently playing. The preload manager decides what order to load the items, based on how close each item is to the item that's currently playing.
++> [!NOTE]
++> **Note:** Your app decides *how much* of each media item should be preloaded, and tells the preload manager where each media item is in the carousel, as well as which item is currently playing. The preload manager decides what order to load the items, based on how close each item is to the item that's currently playing.
+ 
+ ### Preload manager workflow
+ 

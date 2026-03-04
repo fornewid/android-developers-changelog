@@ -1,0 +1,72 @@
+diff --git a/docs/studio/projects.md b/docs/studio/projects.md
+index c6cbc07..c393599 100644
+--- a/docs/studio/projects.md
++++ b/docs/studio/projects.md
+@@ -87,7 +87,7 @@ Android Studio offers a few distinct types of modules:
+     - **Benchmark \> Microbenchmark:** Contains files needed to regularly measure code performance and output benchmarking results. Microbenchmark modules are especially helpful for measuring the performance of smaller pieces of code that get used repeatedly. For more information, see [About Microbenchmark](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview).
+ 
+     When you create a library module and want to add it as a dependency to your
+-    Android app module, you must declare it as follows:  
++    Android app module, you must declare it as follows:
+ 
+     ### Groovy
+ 
+@@ -137,7 +137,7 @@ structure on disk are that the **Android** view:
+ Within each Android app module, files are shown in the following groups:
+ 
+ **manifests**
+-:   Contains the [AndroidManifest.xml](https://developer.android.com/guide/topics/manifest/manifest-intro) file.
++:   Contains the `https://developer.android.com/guide/topics/manifest/manifest-intro` file.
+ 
+ **java**
+ :   Contains the Kotlin and Java source code files, separated by package names,
+@@ -147,7 +147,9 @@ Within each Android app module, files are shown in the following groups:
+ :   Contains all non-code resources, such as UI strings and
+     bitmap images, divided into corresponding subdirectories. For more information
+     about possible resource types, see [App resources overview](https://developer.android.com/guide/topics/resources/providing-resources).
+-| **Note:** Different module types have different group structures. For example, a native module also contains a `cpp/` folder inside the `main` group, and a Kotlin or Java library doesn't contain `manifests` or `res` groups.
++
++> [!NOTE]
++> **Note:** Different module types have different group structures. For example, a native module also contains a `cpp/` folder inside the `main` group, and a Kotlin or Java library doesn't contain `manifests` or `res` groups.
+ 
+ ### The Project view
+ 
+@@ -161,7 +163,7 @@ at the top of the **Project** window.
+ When you select the **Project** view, you can see a lot more files
+ and directories, including the following:
+ 
+-<var translate="no">module-name</var>`/`
++`module-name/`
+ :
+ 
+     `build/`
+@@ -212,7 +214,7 @@ and directories, including the following:
+                 this is a good location for textures and game data. You can
+                 navigate this directory in the same way as a typical file system, using
+                 URIs and read files as a stream of bytes using the
+-                [AssetManager](https://developer.android.com/reference/android/content/res/AssetManager).
++                `https://developer.android.com/reference/android/content/res/AssetManager`.
+ 
+         `test/`
+         :   Contains code for local tests that run on your host JVM.
+@@ -232,7 +234,8 @@ and directories, including the following:
+     For information about other build files, see
+     [Configure your build](https://developer.android.com/studio/build).
+ 
+-| **Note:** To change the default view from the **Android** view to the **Project** view, go to **File** (**Android Studio** on macOS) **\> Settings \> Advanced Settings \> Project View** and select **Set Project view as the default**.
++> [!NOTE]
++> **Note:** To change the default view from the **Android** view to the **Project** view, go to **File** (**Android Studio** on macOS) **\> Settings \> Advanced Settings \> Project View** and select **Set Project view as the default**.
+ 
+ ## Project structure settings
+ 
+@@ -254,7 +257,9 @@ following sections:
+   from this pane. For more information about module dependencies, see
+   [Configure build variants](https://developer.android.com/tools/building/configuring-gradle#declareDeps).
+ 
+-  | **Preview:** If you're using a version catalog, be aware of the issue that dependencies added through the **Project Structure** dialog are added to the module's `build.gradle` file, not the catalog. To learn more about Gradle Version Catalogs support in Android Studio, see the [preview release note](https://developer.android.com/studio/preview/features#gradle-version-catalogs).
++  > [!WARNING]
++  > **Preview:** If you're using a version catalog, be aware of the issue that dependencies added through the **Project Structure** dialog are added to the module's `build.gradle` file, not the catalog. To learn more about Gradle Version Catalogs support in Android Studio, see the [preview release note](https://developer.android.com/studio/preview/features#gradle-version-catalogs).
++
+ - **Build Variants:** Lets you configure different flavors and build types
+   for your project.
+ 

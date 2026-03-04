@@ -1,0 +1,15 @@
+diff --git a/docs/guide/playcore.md b/docs/guide/playcore.md
+index b91c62c..ae2ec80 100644
+--- a/docs/guide/playcore.md
++++ b/docs/guide/playcore.md
+@@ -6,7 +6,9 @@ source: md.txt
+ 
+ This page describes the Google Play Core libraries and how to add them to your
+ project.
+-| **Important:** The Google Play Core Java and Kotlin library have been split into multiple separate libraries, one for each feature. Update to the new libraries to benefit from new product additions. For more information, see the [migration guide](https://developer.android.com/guide/playcore#playcore-migration).
++
++> [!IMPORTANT]
++> **Important:** The Google Play Core Java and Kotlin library have been split into multiple separate libraries, one for each feature. Update to the new libraries to benefit from new product additions. For more information, see the [migration guide](https://developer.android.com/guide/playcore#playcore-migration).
+ 
+ The Google Play Core libraries are your app's runtime interface with the Google Play
+ Store. Some of the things you can do include the following:

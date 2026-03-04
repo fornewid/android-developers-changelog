@@ -1,0 +1,85 @@
+diff --git a/docs/media/optimize/audio-focus.md b/docs/media/optimize/audio-focus.md
+index c8039e0..2a6db72 100644
+--- a/docs/media/optimize/audio-focus.md
++++ b/docs/media/optimize/audio-focus.md
+@@ -4,7 +4,8 @@ url: https://developer.android.com/media/optimize/audio-focus
+ source: md.txt
+ ---
+ 
+-| **Note:** If you use ExoPlayer, consider letting ExoPlayer automatically manage audio focus by calling [`setAudioAttributes`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer#setAudioAttributes(androidx.media3.common.AudioAttributes,boolean)) with `true` for the `handleAudioFocus` parameter. With this behavior enabled, your app shouldn't include any code for requesting or responding to audio focus changes.
++> [!NOTE]
++> **Note:** If you use ExoPlayer, consider letting ExoPlayer automatically manage audio focus by calling [`setAudioAttributes`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer#setAudioAttributes(androidx.media3.common.AudioAttributes,boolean)) with `true` for the `handleAudioFocus` parameter. With this behavior enabled, your app shouldn't include any code for requesting or responding to audio focus changes.
+ 
+ Two or more Android apps can play audio to the same output stream
+ simultaneously, and the system mixes everything together. While this is
+@@ -66,8 +67,9 @@ is running:
+ 
+ ## Audio focus in Android 12 and higher
+ 
+-| **Note:** If an app targets Android 15 (API level 35) or higher, it cannot request audio focus unless it's the top app or running a foreground service. This requirement is similar to the [existing requirements for audio
+-| playback](https://developer.android.com/media/media3/session/background-playback#service-declaration). If an app requests audio focus when it does not meet these requirements, the method returns [`AUDIOFOCUS_REQUEST_FAILED`](https://developer.android.com/reference/android/media/AudioManager#AUDIOFOCUS_REQUEST_FAILED).
++> [!NOTE]
++> **Note:** If an app targets Android 15 (API level 35) or higher, it cannot request audio focus unless it's the top app or running a foreground service. This requirement is similar to the [existing requirements for audio
++> playback](https://developer.android.com/media/media3/session/background-playback#service-declaration). If an app requests audio focus when it does not meet these requirements, the method returns [`AUDIOFOCUS_REQUEST_FAILED`](https://developer.android.com/reference/android/media/AudioManager#AUDIOFOCUS_REQUEST_FAILED).
+ 
+ A media or game app that uses audio focus shouldn't play audio after it loses
+ focus. In Android 12 (API level 31) and higher, the system enforces this
+@@ -164,16 +166,16 @@ The `FocusGain` field is required; all the other fields are optional.
+ 
+ | Method | Notes |
+ |---|---|
+-| [setFocusGain()](https://developer.android.com/reference/android/media/AudioFocusRequest.Builder#setFocusGain(int)) | This field is required in every request. It takes the same values as the `durationHint` used in the pre-Android 8.0 call to `requestAudioFocus()`: `AUDIOFOCUS_GAIN`, `AUDIOFOCUS_GAIN_TRANSIENT`, `AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK`, or `AUDIOFOCUS_GAIN_TRANSIENT_EXCLUSIVE`. |
+-| [setAudioAttributes()](https://developer.android.com/reference/android/media/AudioFocusRequest.Builder#setAudioAttributes(android.media.AudioAttributes)) | [AudioAttributes](https://developer.android.com/reference/android/media/AudioAttributes) describes the use case for your app. The system looks at them when an app gains and loses audio focus. Attributes supersede the notion of stream type. In Android 8.0 (API level 26) and later, stream types for any operation other than volume controls are deprecated. Use the same attributes in the focus request that you use in your audio player (as shown in the example following this table). <br /> Use an [AudioAttributes.Builder](https://developer.android.com/reference/android/media/AudioAttributes.Builder) to specify the attributes first, then use this method to assign the attributes to the request. <br /> If not specified, `AudioAttributes` defaults to `AudioAttributes.USAGE_MEDIA`. |
+-| [setWillPauseWhenDucked()](https://developer.android.com/reference/android/media/AudioFocusRequest.Builder#setWillPauseWhenDucked(boolean)) | When another app requests focus with `AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK`, the app that has focus does not usually receive an [onAudioFocusChange()](https://developer.android.com/reference/android/media/AudioManager.OnAudioFocusChangeListener#onAudioFocusChange(int)) callback because the system can [do the ducking by itself](https://developer.android.com/media/optimize/audio-focus#automatic-ducking). When you need to pause playback rather than duck the volume, call `setWillPauseWhenDucked(true)` and create and set an `OnAudioFocusChangeListener`, as described in [automatic ducking](https://developer.android.com/media/optimize/audio-focus#automatic-ducking). |
+-| [setAcceptsDelayedFocusGain()](https://developer.android.com/reference/android/media/AudioFocusRequest.Builder#setAcceptsDelayedFocusGain(boolean)) | A request for audio focus can fail when the focus is locked by another app. This method enables [delayed focus gain](https://developer.android.com/media/optimize/audio-focus#delayed-focus-gain): the ability to asynchronously acquire focus when it becomes available. <br /> Note that delayed focus gain only works if you also specify an [AudioManager.OnAudioFocusChangeListener](https://developer.android.com/reference/android/media/AudioManager.OnAudioFocusChangeListener) in the audio request, since your app needs to receive the callback in order to know that focus was granted. <br /> |
+-| [setOnAudioFocusChangeListener()](https://developer.android.com/reference/android/media/AudioFocusRequest.Builder#setOnAudioFocusChangeListener(android.media.AudioManager.OnAudioFocusChangeListener, android.os.Handler)) | An `OnAudioFocusChangeListener` is only required if you also specify `willPauseWhenDucked(true)` or `setAcceptsDelayedFocusGain(true)` in the request. <br /> There are two methods for setting the listener: one with and one without a handler argument. The handler is the thread on which the listener runs. If you do not specify a handler, the handler associated with the main [Looper](https://developer.android.com/reference/android/os/Looper) is used. <br /> |
++| `https://developer.android.com/reference/android/media/AudioFocusRequest.Builder#setFocusGain(int)` | This field is required in every request. It takes the same values as the `durationHint` used in the pre-Android 8.0 call to `requestAudioFocus()`: `AUDIOFOCUS_GAIN`, `AUDIOFOCUS_GAIN_TRANSIENT`, `AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK`, or `AUDIOFOCUS_GAIN_TRANSIENT_EXCLUSIVE`. |
++| `https://developer.android.com/reference/android/media/AudioFocusRequest.Builder#setAudioAttributes(android.media.AudioAttributes)` | `https://developer.android.com/reference/android/media/AudioAttributes` describes the use case for your app. The system looks at them when an app gains and loses audio focus. Attributes supersede the notion of stream type. In Android 8.0 (API level 26) and later, stream types for any operation other than volume controls are deprecated. Use the same attributes in the focus request that you use in your audio player (as shown in the example following this table). <br /> Use an `https://developer.android.com/reference/android/media/AudioAttributes.Builder` to specify the attributes first, then use this method to assign the attributes to the request. <br /> If not specified, `AudioAttributes` defaults to `AudioAttributes.USAGE_MEDIA`. |
++| `https://developer.android.com/reference/android/media/AudioFocusRequest.Builder#setWillPauseWhenDucked(boolean)` | When another app requests focus with `AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK`, the app that has focus does not usually receive an `https://developer.android.com/reference/android/media/AudioManager.OnAudioFocusChangeListener#onAudioFocusChange(int)` callback because the system can [do the ducking by itself](https://developer.android.com/media/optimize/audio-focus#automatic-ducking). When you need to pause playback rather than duck the volume, call `setWillPauseWhenDucked(true)` and create and set an `OnAudioFocusChangeListener`, as described in [automatic ducking](https://developer.android.com/media/optimize/audio-focus#automatic-ducking). |
++| `https://developer.android.com/reference/android/media/AudioFocusRequest.Builder#setAcceptsDelayedFocusGain(boolean)` | A request for audio focus can fail when the focus is locked by another app. This method enables [delayed focus gain](https://developer.android.com/media/optimize/audio-focus#delayed-focus-gain): the ability to asynchronously acquire focus when it becomes available. <br /> Note that delayed focus gain only works if you also specify an `https://developer.android.com/reference/android/media/AudioManager.OnAudioFocusChangeListener` in the audio request, since your app needs to receive the callback in order to know that focus was granted. <br /> |
++| `https://developer.android.com/reference/android/media/AudioFocusRequest.Builder#setOnAudioFocusChangeListener(android.media.AudioManager.OnAudioFocusChangeListener, android.os.Handler)` | An `OnAudioFocusChangeListener` is only required if you also specify `willPauseWhenDucked(true)` or `setAcceptsDelayedFocusGain(true)` in the request. <br /> There are two methods for setting the listener: one with and one without a handler argument. The handler is the thread on which the listener runs. If you do not specify a handler, the handler associated with the main `https://developer.android.com/reference/android/os/Looper` is used. <br /> |
+ 
+ <br />
+ 
+ The following example shows how to use an `AudioFocusRequest.Builder` to build
+-an `AudioFocusRequest` and request and abandon audio focus:  
++an `AudioFocusRequest` and request and abandon audio focus:
+ 
+ ### Kotlin
+ 
+@@ -369,7 +371,7 @@ some other app acquires or abandons audio focus.
+ The following snippet requests permanent audio focus on the stream
+ `STREAM_MUSIC` and registers an `OnAudioFocusChangeListener` to handle
+ subsequent changes in audio focus. (The change listener is discussed in
+-[Responding to an audio focus change](https://developer.android.com/media/optimize/audio-focus#audio-focus-change).)  
++[Responding to an audio focus change](https://developer.android.com/media/optimize/audio-focus#audio-focus-change).)
+ 
+ ### Kotlin
+ 
+@@ -412,7 +414,7 @@ if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+ ```
+ 
+ When you finish playback, call
+-[`abandonAudioFocus()`](https://developer.android.com/reference/android/media/AudioManager#abandonAudioFocus(android.media.AudioManager.OnAudioFocusChangeListener)).  
++[`abandonAudioFocus()`](https://developer.android.com/reference/android/media/AudioManager#abandonAudioFocus(android.media.AudioManager.OnAudioFocusChangeListener)).
+ 
+ ### Kotlin
+ 
+@@ -485,7 +487,7 @@ Permanent loss of focus
+ The following code snippet demonstrates how to implement the
+ `OnAudioFocusChangeListener` and its `onAudioFocusChange()` callback. Notice the
+ use of a `Handler` to delay the stop callback on a permanent loss of audio
+-focus.  
++focus.
+ 
+ ### Kotlin
+ 
+@@ -541,7 +543,7 @@ AudioManager.OnAudioFocusChangeListener afChangeListener =
+   };
+ ```
+ 
+-The handler uses a `Runnable` that looks like this:  
++The handler uses a `Runnable` that looks like this:
+ 
+ ### Kotlin
+ 

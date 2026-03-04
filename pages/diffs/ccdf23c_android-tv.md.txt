@@ -1,0 +1,24 @@
+diff --git a/docs/media/implement/surfaces/android-tv.md b/docs/media/implement/surfaces/android-tv.md
+index 18d7c83..b525aed 100644
+--- a/docs/media/implement/surfaces/android-tv.md
++++ b/docs/media/implement/surfaces/android-tv.md
+@@ -55,7 +55,7 @@ For more information about creating a media playback app, see
+ 
+ To create the best experience for the end users of your media app, you need to
+ implement `MediaSession`. To do so, initialize a `Player` and supply it to
+-`MediaSession.Builder` like this:  
++`MediaSession.Builder` like this:
+ 
+ ### Kotlin
+ 
+@@ -91,7 +91,9 @@ commands from external sources to the player that does the work of playing your
+ media. External clients can use a media controller to issue playback commands
+ to your media app. These are received by your media session, which ultimately
+ delegates commands to the media player.
+-| **Note:** When playing media in the background, your MediaSession and the player need to be housed within a MediaSessionService or MediaLibraryService that runs as a foreground service. For more information, see [Background playback with a MediaSessionService](https://developer.android.com/guide/topics/media/session/mediasessionservice).
++
++> [!NOTE]
++> **Note:** When playing media in the background, your MediaSession and the player need to be housed within a MediaSessionService or MediaLibraryService that runs as a foreground service. For more information, see [Background playback with a MediaSessionService](https://developer.android.com/guide/topics/media/session/mediasessionservice).
+ 
+ For more information about playback, such as how to customize playback command
+ behavior, see [Control and advertise playback using MediaSession](https://developer.android.com/guide/topics/media/session/mediasession#creating-media).

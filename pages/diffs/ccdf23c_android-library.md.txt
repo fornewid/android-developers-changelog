@@ -1,0 +1,121 @@
+diff --git a/docs/studio/projects/android-library.md b/docs/studio/projects/android-library.md
+index 64b46bf..c780d6b 100644
+--- a/docs/studio/projects/android-library.md
++++ b/docs/studio/projects/android-library.md
+@@ -42,7 +42,10 @@ To create a new library module in your project, proceed as follows:
+    platforms---it doesn't let you include Android resources or manifest
+    files, which is very useful for code reuse in Android projects. This guide
+    focuses on creating Android libraries.
+-3. Give your library a name and select a minimum SDK version for the code in the library, then click **Finish** . **Important:** Module package names must be globally unique. You can't have two modules with the same package name in the same project.
++3. Give your library a name and select a minimum SDK version for the code in the library, then click **Finish** .
++
++   > [!IMPORTANT]
++   > **Important:** Module package names must be globally unique. You can't have two modules with the same package name in the same project.
+ 
+ Once the Gradle project sync completes, the library module appears in
+ the **Project** pane. If you don't see the new module
+@@ -55,7 +58,7 @@ you can turn it into a library module as follows:
+ 
+ 1. Open the module-level `build.gradle` file, if you're using Groovy, or the `build.gradle.kts` file, if you're using Kotlin script.
+ 2. Delete the line for the `applicationId`. Only an Android app module can define this.
+-3. Find the \`plugins\` block at the top of the file that looks like this:  
++3. Find the \`plugins\` block at the top of the file that looks like this:
+ 
+    ### Groovy
+ 
+@@ -75,7 +78,7 @@ you can turn it into a library module as follows:
+      
+    ```
+ 
+-   Change it to the following:  
++   Change it to the following:
+ 
+    ### Groovy
+ 
+@@ -129,7 +132,7 @@ the same project, add a project-level dependency:
+    **implementation** if it applies to all configurations, then click **OK**.
+ 
+ Android Studio edits your module's `build.gradle` or `build.gradle.kts` file to
+-add the dependency, in the following form:  
++add the dependency, in the following form:
+ 
+ ### Groovy
+ 
+@@ -156,7 +159,9 @@ When an Android library is published to a Maven repository, metadata is
+ included so that the dependencies of the library are included in the
+ consuming build. This lets the library be automatically deduplicated if
+ it is used in multiple places.
+-| **Note:** If you can't publish your library to a Maven repository, you can consume the JAR or AAR file directly using the process described in the [Add your AAR or JAR as a dependency](https://developer.android.com/studio/projects/android-library#psd-add-aar-jar-dependency) section. In this case, you must manually manage any transitive dependencies of that AAR.
++
++> [!NOTE]
++> **Note:** If you can't publish your library to a Maven repository, you can consume the JAR or AAR file directly using the process described in the [Add your AAR or JAR as a dependency](https://developer.android.com/studio/projects/android-library#psd-add-aar-jar-dependency) section. In this case, you must manually manage any transitive dependencies of that AAR.
+ 
+ To use your Android library's code in another app module in a different project,
+ proceed as follows:
+@@ -179,7 +184,7 @@ proceed as follows:
+ 
+ Check your app's `build.gradle` or `build.gradle.kts` file to confirm that a
+ declaration similar to the following appears (depending on the build configuration
+-you've selected):  
++you've selected):
+ 
+ ### Groovy
+ 
+@@ -214,7 +219,7 @@ To use your Android library's code in another app module, proceed as follows:
+ 
+    Check your app's `build.gradle` or `build.gradle.kts` file to confirm that a
+    declaration similar to the following appears (depending on the build configuration
+-   you've selected):  
++   you've selected):
+ 
+    ### Groovy
+ 
+@@ -230,7 +235,7 @@ To use your Android library's code in another app module, proceed as follows:
+ 
+ To import a dependency on the Gradle build running outside of Android Studio,
+ add a path to the dependency in
+-your app's `build.gradle` or `build.gradle.kts` file. For example:  
++your app's `build.gradle` or `build.gradle.kts` file. For example:
+ 
+ ### Groovy
+ 
+@@ -250,7 +255,9 @@ dependencies {
+ 
+ For more about adding Gradle dependencies, see
+ [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+-| **Note:** In the previous examples, the `implementation` configuration adds the library as a build dependency for the entire app module. To learn how to configure dependencies only for specific build variants, see [Configure build variants](https://developer.android.com/studio/build/build-variants).
++
++> [!NOTE]
++> **Note:** In the previous examples, the `implementation` configuration adds the library as a build dependency for the entire app module. To learn how to configure dependencies only for specific build variants, see [Configure build variants](https://developer.android.com/studio/build/build-variants).
+ 
+ ## Declare a public resource
+ 
+@@ -265,7 +272,7 @@ resources before, you need to create the `public.xml` file in the
+ `res/values/` directory of your library.
+ 
+ The following example code creates two public string resources with the
+-names `mylib_app_name` and `mylib_public_string`:  
++names `mylib_app_name` and `mylib_public_string`:
+ 
+ ```xml
+ <resources>
+@@ -385,7 +392,7 @@ following behaviors and limitations.
+ 
+   For example, the following snippet sets
+   `lib-proguard-rules.txt` as the library's ProGuard configuration
+-  file:  
++  file:
+ 
+   ### Groovy
+ 
+@@ -446,8 +453,8 @@ entries:
+ - `/R.txt`
+ - `/public.txt`
+ - `/assets/`
+-- `/libs/`<var translate="no">name</var>`.jar`
+-- `/jni/`<var translate="no">abi_name</var>`/`<var translate="no">name</var>`.so` (where <var translate="no">abi_name</var> is one of the [Android-supported ABIs](https://developer.android.com/ndk/guides/abis#sa))
++- `/libs/name.jar`
++- `/jni/abi_name/name.so` (where <var translate="no">abi_name</var> is one of the [Android-supported ABIs](https://developer.android.com/ndk/guides/abis#sa))
+ - `/proguard.txt`
+ - `/lint.jar`
+ - `/api.jar`

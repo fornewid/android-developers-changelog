@@ -1,0 +1,48 @@
+diff --git a/docs/training/app-links/create-deeplinks.md b/docs/training/app-links/create-deeplinks.md
+index ad5b192..329f7bb 100644
+--- a/docs/training/app-links/create-deeplinks.md
++++ b/docs/training/app-links/create-deeplinks.md
+@@ -100,7 +100,7 @@ specifies your app component name.
+ 
+ The following XML snippet shows how you might specify an intent filter in your
+ manifest for deep linking. The URIs `"example://gizmos"` and
+-`"http://www.example.com/gizmos"` both resolve to this activity.  
++`"http://www.example.com/gizmos"` both resolve to this activity.
+ 
+     <activity
+         android:name="com.example.android.GizmosActivity"
+@@ -131,7 +131,7 @@ important that you create separate filters when your intention is to declare
+ unique URLs (such as a specific combination of `scheme` and `host`), because
+ multiple `<data>` elements in the same intent filter are actually merged
+ together to account for all variations of their combined attributes. For
+-example, consider the following:  
++example, consider the following:
+ 
+     <intent-filter>
+       ...
+@@ -163,7 +163,7 @@ action associated with the incoming [`Intent`](https://developer.android.com/ref
+ at any time during the lifecycle of the activity, but you should generally do so
+ during early callbacks such as [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) or [`onStart`](https://developer.android.com/reference/android/app/Activity#onStart())().
+ 
+-Here's a snippet that shows how to retrieve data from an [`Intent`](https://developer.android.com/reference/android/content/Intent):  
++Here's a snippet that shows how to retrieve data from an [`Intent`](https://developer.android.com/reference/android/content/Intent):
+ 
+ ### Kotlin
+ 
+@@ -199,14 +199,14 @@ to test that the intent filter URIs you specified for deep linking resolve to
+ the correct app activity. You can run the adb command against a device or an
+ emulator.
+ 
+-The general syntax for testing an intent filter URI with adb is:  
++The general syntax for testing an intent filter URI with adb is:
+ 
+     $ adb shell am start
+             -W -a android.intent.action.VIEW
+             -d <URI> <PACKAGE>
+ 
+ For example, the following command tries to view a target app activity that is
+-associated with the specified URI.  
++associated with the specified URI.
+ 
+     $ adb shell am start
+             -W -a android.intent.action.VIEW

@@ -1,0 +1,15 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/basicdsl.md b/docs/guide/navigation/navigation-3/recipes/basicdsl.md
+index 0fcfa99..f61b6e3 100644
+--- a/docs/guide/navigation/navigation-3/recipes/basicdsl.md
++++ b/docs/guide/navigation/navigation-3/recipes/basicdsl.md
+@@ -17,8 +17,9 @@ This example is similar to the basic recipe, but with a few key differences:
+ 2. **`entryProvider` DSL** : Instead of a `when` statement, this example uses the `entryProvider` DSL to define the content for each route. The `entry<RouteType>` function is used to associate a route type with its composable content.
+ 
+ The navigation logic remains the same: to navigate from `RouteA` to `RouteB`, we add a `RouteB` instance to the back stack.
++[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/basicdsl)
+ 
+-```python
++```
+ /*
+  * Copyright 2025 The Android Open Source Project
+  *

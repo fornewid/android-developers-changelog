@@ -1,0 +1,233 @@
+diff --git a/docs/training/data-storage/shared/media.md b/docs/training/data-storage/shared/media.md
+index b13e80a..18add99 100644
+--- a/docs/training/data-storage/shared/media.md
++++ b/docs/training/data-storage/shared/media.md
+@@ -9,8 +9,10 @@ and access media that's available on an external storage volume. The framework
+ provides an optimized index into media collections, called the *media store*,
+ that lets users retrieve and update these media files more easily. Even
+ after your app is uninstalled, these files remain on the user's device.
+-| **Note:** If your app works with media files that provide value to the user only within your app, it's best to store them in [app-specific directories within
+-| external storage](https://developer.android.com/training/data-storage/app-specific#media).
++
++> [!NOTE]
++> **Note:** If your app works with media files that provide value to the user only within your app, it's best to store them in [app-specific directories within
++> external storage](https://developer.android.com/training/data-storage/app-specific#media).
+ 
+ ## Photo picker
+ 
+@@ -24,7 +26,7 @@ on supported devices. For more information, see the
+ 
+ To interact with the media store abstraction, use a
+ [`ContentResolver`](https://developer.android.com/reference/android/content/ContentResolver) object that you
+-retrieve from your app's context:  
++retrieve from your app's context:
+ 
+ ### Kotlin
+ 
+@@ -127,7 +129,7 @@ As long as a file is viewable from the `MediaStore.Images`,
+ [`MediaStore.Files`](https://developer.android.com/reference/android/provider/MediaStore.Files) query.
+ 
+ The following code snippet demonstrates how to declare the appropriate storage
+-permissions:  
++permissions:
+ 
+ ```xml
+ <!-- Required only if your app needs to access images or photos
+@@ -147,7 +149,9 @@ permissions:
+ <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+                  android:maxSdkVersion="29" />
+ ```
+-| **Note:** If you request both the `READ_MEDIA_IMAGES` permission and the `READ_MEDIA_VIDEO` permission at the same time, the system shows a single runtime permission dialog that mentions both permissions.
++
++> [!NOTE]
++> **Note:** If you request both the `READ_MEDIA_IMAGES` permission and the `READ_MEDIA_VIDEO` permission at the same time, the system shows a single runtime permission dialog that mentions both permissions.
+ 
+ #### Extra permissions needed for apps running on legacy devices
+ 
+@@ -174,7 +178,9 @@ If your app targets Android 10 (API level 29) or higher and needs
+ to retrieve unredacted EXIF metadata from photos, you need to declare the
+ [`ACCESS_MEDIA_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_MEDIA_LOCATION)
+ permission in your app's manifest, then request this permission at runtime.
+-| **Caution:** Because you request the `ACCESS_MEDIA_LOCATION` permission at runtime, there is no guarantee that your app has access to unredacted EXIF metadata from photos. Your app requires explicit user consent to gain access to this information.
++
++> [!CAUTION]
++> **Caution:** Because you request the `ACCESS_MEDIA_LOCATION` permission at runtime, there is no guarantee that your app has access to unredacted EXIF metadata from photos. Your app requires explicit user consent to gain access to this information.
+ 
+ ## Check for updates to the media store
+ 
+@@ -191,13 +197,15 @@ Complete this check at app process startup time. There's no need to check the
+ version each time you query the media store.
+ 
+ Don't assume any implementation details regarding the version number.
+-| **Note:** The media store version number doesn't change as a result of app-side changes, such as when an app [adds a media file](https://developer.android.com/training/data-storage/shared/media#add-item). There's a separate method to help you [detect updates to media files](https://developer.android.com/training/data-storage/shared/media#detect-updates-media-files).
++
++> [!NOTE]
++> **Note:** The media store version number doesn't change as a result of app-side changes, such as when an app [adds a media file](https://developer.android.com/training/data-storage/shared/media#add-item). There's a separate method to help you [detect updates to media files](https://developer.android.com/training/data-storage/shared/media#detect-updates-media-files).
+ 
+ ## Query a media collection
+ 
+ To find media that satisfies a particular set of conditions, such as a duration
+ of 5 minutes or longer, use a SQL-like selection statement similar to the one
+-shown in the following code snippet:  
++shown in the following code snippet:
+ 
+ ### Kotlin
+ 
+@@ -365,7 +373,7 @@ files instead of the files themselves.
+ To load the thumbnail for a given media file, use
+ [`loadThumbnail()`](https://developer.android.com/reference/android/content/ContentResolver#loadThumbnail(android.net.Uri,%2520android.util.Size,%2520android.os.CancellationSignal))
+ and pass in the size of the thumbnail that you want to load, as shown in the
+-following code snippet:  
++following code snippet:
+ 
+ ### Kotlin
+ 
+@@ -394,7 +402,7 @@ direct file path.
+ ### File descriptor
+ 
+ To open a media file using a file descriptor, use logic similar to that shown in
+-the following code snippet:  
++the following code snippet:
+ 
+ ### Kotlin
+ 
+@@ -431,7 +439,7 @@ try (ParcelFileDescriptor pfd =
+ ### File stream
+ 
+ To open a media file using a file stream, use logic similar to that shown in
+-the following code snippet:  
++the following code snippet:
+ 
+ ### Kotlin
+ 
+@@ -531,7 +539,7 @@ The following volumes are particularly useful to keep in mind:
+ - The [`VOLUME_EXTERNAL_PRIMARY`](https://developer.android.com/reference/android/provider/MediaStore#VOLUME_EXTERNAL_PRIMARY) volume represents the primary shared storage volume on the device. You can read and modify the contents of this volume.
+ 
+ You can discover other volumes by calling
+-[`MediaStore.getExternalVolumeNames()`](https://developer.android.com/reference/android/provider/MediaStore#getExternalVolumeNames(android.content.Context)):  
++[`MediaStore.getExternalVolumeNames()`](https://developer.android.com/reference/android/provider/MediaStore#getExternalVolumeNames(android.content.Context)):
+ 
+ ### Kotlin
+ 
+@@ -621,7 +629,7 @@ complete the following steps:
+ To access location information within a video's metadata, use the
+ [`MediaMetadataRetriever`](https://developer.android.com/reference/android/media/MediaMetadataRetriever)
+ class, as shown in the following code snippet. Your app doesn't need to request
+-any additional permissions to use this class.  
++any additional permissions to use this class.
+ 
+ ### Kotlin
+ 
+@@ -732,7 +740,7 @@ To add a media item to an existing collection, use code similar to the
+ following. This code snippet accesses the `VOLUME_EXTERNAL_PRIMARY` volume
+ on devices that run Android 10 or higher. That's because, on these devices, you
+ can only modify the contents of a volume if it's the primary volume, as
+-described in the [Storage volumes](https://developer.android.com/training/data-storage/shared/media#storage-volume) section.  
++described in the [Storage volumes](https://developer.android.com/training/data-storage/shared/media#storage-volume) section.
+ 
+ ### Kotlin
+ 
+@@ -800,7 +808,7 @@ flag to 1. Only your app can view the file until your app changes the value of
+ 
+ The following code snippet builds on the previous code snippet. This
+ snippet shows how to use the `IS_PENDING` flag when storing a long song in the
+-directory corresponding to the `MediaStore.Audio` collection:  
++directory corresponding to the `MediaStore.Audio` collection:
+ 
+ ### Kotlin
+ 
+@@ -889,11 +897,13 @@ If your app is aware of a specific location where files can be stored, such
+ as a photo album called `Pictures/MyVacationPictures`, you can set
+ [`MediaColumns.RELATIVE_PATH`](https://developer.android.com/reference/android/provider/MediaStore.MediaColumns#RELATIVE_PATH)
+ to provide the system a hint for where to store the newly written files.
+-| **Note:** Although it's possible to store general-purpose files in either the `Documents/` folder or the `Download/` folder, including non-media files, it's better to use the Storage Access Framework for these use cases.
++
++> [!NOTE]
++> **Note:** Although it's possible to store general-purpose files in either the `Documents/` folder or the `Download/` folder, including non-media files, it's better to use the Storage Access Framework for these use cases.
+ 
+ ## Update an item
+ 
+-To update a media file that your app owns, use code similar to the following:  
++To update a media file that your app owns, use code similar to the following:
+ 
+ ### Kotlin
+ 
+@@ -954,7 +964,9 @@ int numSongsUpdated = resolver.update(
+ 
+ If scoped storage is unavailable or not enabled, the process shown in the
+ preceding code snippet also works for files that your app doesn't own.
+-| **Note:** You can move files on disk during a call to [`update()`](https://developer.android.com/reference/android/content/ContentResolver#update(android.net.Uri,%2520android.content.ContentValues,%2520java.lang.String,%2520java.lang.String%5B%5D)) by changing `MediaColumns.RELATIVE_PATH` or [`MediaColumns.DISPLAY_NAME`](https://developer.android.com/reference/android/provider/MediaStore.MediaColumns#DISPLAY_NAME).
++
++> [!NOTE]
++> **Note:** You can move files on disk during a call to [`update()`](https://developer.android.com/reference/android/content/ContentResolver#update(android.net.Uri,%2520android.content.ContentValues,%2520java.lang.String,%2520java.lang.String%5B%5D)) by changing `MediaColumns.RELATIVE_PATH` or [`MediaColumns.DISPLAY_NAME`](https://developer.android.com/reference/android/provider/MediaStore.MediaColumns#DISPLAY_NAME).
+ 
+ ### Update in native code
+ 
+@@ -963,7 +975,7 @@ associated file descriptor from your Java-based or Kotlin-based code into your
+ native code.
+ 
+ The following code snippet shows how to pass a media object's file descriptor
+-into your app's native code:  
++into your app's native code:
+ 
+ ### Kotlin
+ 
+@@ -1003,7 +1015,7 @@ media store.
+ You can get user consent to modify the file, however, by catching
+ the [`RecoverableSecurityException`](https://developer.android.com/reference/android/app/RecoverableSecurityException)
+ that the platform throws. You can then request that the user grant your app
+-write access to that specific item, as shown in the following code snippet:  
++write access to that specific item, as shown in the following code snippet:
+ 
+ ### Kotlin
+ 
+@@ -1078,7 +1090,7 @@ storage](https://developer.android.com/training/data-storage/use-cases#opt-out-s
+ ## Remove an item
+ 
+ To remove an item that your app no longer needs in the media store, use logic
+-similar to what's shown in the following code snippet:  
++similar to what's shown in the following code snippet:
+ 
+ ### Kotlin
+ 
+@@ -1155,8 +1167,10 @@ and [`DATE_MODIFIED`](https://developer.android.com/reference/android/provider/M
+ That's because those media column values can change when an app calls
+ [`setLastModified()`](https://developer.android.com/reference/java/io/File#setLastModified(long)) or when
+ the user changes the system clock.
+-| **Caution:** Before you rely on the value of `getGeneration()`, [check the media
+-| store for updates](https://developer.android.com/training/data-storage/shared/media#check-for-updates). If the media store version has changed, perform a full synchronization pass.
++
++> [!CAUTION]
++> **Caution:** Before you rely on the value of `getGeneration()`, [check the media
++> store for updates](https://developer.android.com/training/data-storage/shared/media#check-for-updates). If the media store version has changed, perform a full synchronization pass.
+ 
+ ## Manage groups of media files
+ 
+@@ -1183,7 +1197,8 @@ following:
+     Items in the trash are permanently deleted after a system-defined time
+     period.
+ 
+-    | **Note:** If your app is the device OEM's preinstalled gallery app, you can place files in the trash without showing a dialog. To do so, set [`IS_TRASHED`](https://developer.android.com/reference/kotlin/android/provider/MediaStore.MediaColumns#is_trashed) to `1` directly.
++    > [!NOTE]
++    > **Note:** If your app is the device OEM's preinstalled gallery app, you can place files in the trash without showing a dialog. To do so, set [`IS_TRASHED`](https://developer.android.com/reference/kotlin/android/provider/MediaStore.MediaColumns#is_trashed) to `1` directly.
+ 
+ [`createDeleteRequest()`](https://developer.android.com/reference/android/provider/MediaStore#createDeleteRequest(android.content.ContentResolver,%20java.util.Collection%3Candroid.net.Uri%3E))
+ 
+@@ -1195,7 +1210,7 @@ After calling any of these methods, the system builds a
+ invokes this intent, users see a dialog that requests their consent for your app
+ to update or delete the specified media files.
+ 
+-For example, here is how to structure a call to `createWriteRequest()`:  
++For example, here is how to structure a call to `createWriteRequest()`:
+ 
+ ### Kotlin
+ 
+@@ -1223,7 +1238,7 @@ startIntentSenderForResult(editPendingIntent.getIntentSender(),
+ 
+ Evaluate the user's response. If the user provided consent, proceed with the
+ media operation. Otherwise, explain to the user why your app needs the
+-permission:  
++permission:
+ 
+ ### Kotlin
+ 

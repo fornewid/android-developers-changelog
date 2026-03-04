@@ -1,0 +1,17 @@
+diff --git a/docs/tools/releases/platforms.md b/docs/tools/releases/platforms.md
+index 4ec1b7a..95e3dee 100644
+--- a/docs/tools/releases/platforms.md
++++ b/docs/tools/releases/platforms.md
+@@ -29,8 +29,10 @@ The revision numbers listed in the following sections are for the **Android SDK
+ Platform** package only. The system images may receive separate updates, usually
+ to resolve bugs with the emulator. There are no release notes for the system
+ images, but you should always keep them up to date.
+-| **Important:** To see the most recent Android system components in the Android SDK Manager, you must first install the most recent [Android SDK Command-Line
+-| tools](https://developer.android.com/studio#command-line-tools-only) package.
++
++> [!IMPORTANT]
++> **Important:** To see the most recent Android system components in the Android SDK Manager, you must first install the most recent [Android SDK Command-Line
++> tools](https://developer.android.com/studio#command-line-tools-only) package.
+ 
+ ## Android 16 (API level 36)
+ 

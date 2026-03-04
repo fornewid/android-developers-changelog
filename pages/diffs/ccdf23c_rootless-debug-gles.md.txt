@@ -1,0 +1,132 @@
+diff --git a/docs/ndk/guides/rootless-debug-gles.md b/docs/ndk/guides/rootless-debug-gles.md
+index bb1472d..d4f5524 100644
+--- a/docs/ndk/guides/rootless-debug-gles.md
++++ b/docs/ndk/guides/rootless-debug-gles.md
+@@ -14,7 +14,9 @@ GLES layer usage is similar to
+ ## Requirements
+ 
+ GLES layers are supported only on GLES versions 2.0+.
+-| **Warning:** When layering is enabled, GLES 1.x exclusive functions continue to route to GLES 1.x drivers, but functions shared with GLES 2.0+, such as `glGetString()`, are routed to 2.0+ drivers.
++
++> [!WARNING]
++> **Warning:** When layering is enabled, GLES 1.x exclusive functions continue to route to GLES 1.x drivers, but functions shared with GLES 2.0+, such as `glGetString()`, are routed to 2.0+ drivers.
+ 
+ ## Layer initialization
+ 
+@@ -30,7 +32,7 @@ The `LayerLoader` traverses the layers in the order you specify, so the first
+ layer is directly below the application. For each layer, the `LayerLoader`
+ tracks the `AndroidGLESLayer_Initialize` and
+ `AndroidGLESLayer_GetProcAddress` entry points. The layers *must* provide these
+-interfaces to be loadable.  
++interfaces to be loadable.
+ 
+ ```c++
+ typedef void* (*PFNEGLGETNEXTLAYERPROCADDRESSPROC)(void*, const char*);
+@@ -39,7 +41,7 @@ void* AndroidGLESLayer_Initialize(void* layer_id, PFNEGLGETNEXTLAYERPROCADDRESSP
+ 
+ `AndroidGLESLayer_Initialize()` provides an identifier for the layer to use
+ (`layer_id`) and an entry point that can be called to look up functions below
+-the layer. The entry point can be used as shown in the following code sample:  
++the layer. The entry point can be used as shown in the following code sample:
+ 
+ ```c++
+ const char* func = "eglFoo";
+@@ -48,7 +50,7 @@ void* gpa = get_next_layer_proc_address(layer_id, func);
+ 
+ `AndroidGLESLayer_GetProcAddress` takes the address of the next call in the
+ chain that the layer should call when finished. If there is only one layer,
+-`next` points directly to the driver for most functions.  
++`next` points directly to the driver for most functions.
+ 
+ ```c++
+ typedef __eglMustCastToProperFunctionPointerType EGLFuncPointer;
+@@ -82,7 +84,7 @@ of priority:
+ 
+ **1. System location for root**
+ 
+-This requires root access  
++This requires root access
+ 
+ ```bash
+ adb root
+@@ -96,7 +98,7 @@ adb push <layer>.so /data/local/debug/gles/
+ 
+ **2. Application's base directory**
+ 
+-Target application must be debuggable, or you must have root access:  
++Target application must be debuggable, or you must have root access:
+ 
+ ```bash
+ adb push libGLTrace.so /data/local/tmp
+@@ -108,7 +110,7 @@ libGLTrace.so
+ **3. External APK**
+ 
+ Determine the ABI of your target application, then install an APK containing
+-the layers you wish to load:  
++the layers you wish to load:
+ 
+ ```bash
+ adb install --abi armeabi-v7a layers.apk
+@@ -116,7 +118,7 @@ adb install --abi armeabi-v7a layers.apk
+ 
+ **4. In the target application's APK**
+ 
+-The following example shows how to place layers in the application APK:  
++The following example shows how to place layers in the application APK:
+ 
+ ```
+ $ jar tf GLES_layers.apk
+@@ -155,7 +157,7 @@ following must be true:
+ - The target app is run on a userdebug build of the operating system which
+   grants root access.
+ 
+-To enable layers per app:  
++To enable layers per app:
+ 
+ ```
+ # Enable layers
+@@ -172,7 +174,7 @@ adb shell settings put global gpu_debug_layers_gles <layer1:layer2:layerN>
+ adb shell settings put global gpu_debug_layer_app <package1:package2:packageN>
+ ```
+ 
+-To disable layers per app:  
++To disable layers per app:
+ 
+ ```
+ # Delete the global setting that enables layers
+@@ -188,7 +190,7 @@ adb shell settings delete global gpu_debug_layers_gles
+ adb shell settings delete global gpu_debug_layer_app
+ ```
+ 
+-To enable layers globally:  
++To enable layers globally:
+ 
+ ```
+ # This attempts to load layers for all applications, including native
+@@ -199,7 +201,7 @@ adb shell setprop debug.gles.layers <layer1:layer2:layerN>
+ ## Create a layer
+ 
+ Layers must expose the following two functions described in
+-[EGL Loader initialization](https://developer.android.com/ndk/guides/rootless-debug-gles#egl-loader):  
++[EGL Loader initialization](https://developer.android.com/ndk/guides/rootless-debug-gles#egl-loader):
+ 
+ ```c++
+ AndroidGLESLayer_Initialize
+@@ -212,7 +214,7 @@ For a layer that only intercepts a handful of functions, a
+ passively initialized layer is optimal. The passively initialized layer waits
+ for GLES `LayerLoader` to initialize the function it needs.
+ 
+-The following code sample shows how to create a passive layer.  
++The following code sample shows how to create a passive layer.
+ 
+ ```c++
+ namespace {
+@@ -283,7 +285,7 @@ the `get_next_layer_proc_address` that `AndroidGLESLayer_Initialize` provides to
+ look up a function. The layer must still respond to
+ `AndroidGLESLayer_GetProcAddress` requests from the loader so the platform knows
+ where to route calls. The following code sample shows how to create an active
+-layer.  
++layer.
+ 
+ ```c++
+ namespace {

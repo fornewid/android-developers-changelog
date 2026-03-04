@@ -1,0 +1,256 @@
+diff --git a/docs/guide/topics/manifest/manifest-intro.md b/docs/guide/topics/manifest/manifest-intro.md
+index ba3a718..43acf88 100644
+--- a/docs/guide/topics/manifest/manifest-intro.md
++++ b/docs/guide/topics/manifest/manifest-intro.md
+@@ -30,17 +30,17 @@ For each [app
+ component](https://developer.android.com/guide/components/fundamentals#Components) that you create in your app,
+ declare a corresponding XML element in the manifest file:
+ 
+-- [<activity>](https://developer.android.com/guide/topics/manifest/activity-element) for each subclass of [Activity](https://developer.android.com/reference/android/app/Activity)
+-- [<service>](https://developer.android.com/guide/topics/manifest/service-element) for each subclass of [Service](https://developer.android.com/reference/android/app/Service)
+-- [<receiver>](https://developer.android.com/guide/topics/manifest/receiver-element) for each subclass of [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver)
+-- [<provider>](https://developer.android.com/guide/topics/manifest/provider-element) for each subclass of [ContentProvider](https://developer.android.com/reference/android/content/ContentProvider)
++- `https://developer.android.com/guide/topics/manifest/activity-element` for each subclass of `https://developer.android.com/reference/android/app/Activity`
++- `https://developer.android.com/guide/topics/manifest/service-element` for each subclass of `https://developer.android.com/reference/android/app/Service`
++- `https://developer.android.com/guide/topics/manifest/receiver-element` for each subclass of `https://developer.android.com/reference/android/content/BroadcastReceiver`
++- `https://developer.android.com/guide/topics/manifest/provider-element` for each subclass of `https://developer.android.com/reference/android/content/ContentProvider`
+ 
+ If you subclass any of these components without declaring it in the manifest
+ file, the system can't start it.
+ 
+ Specify the name of your subclass with the `name`
+ attribute, using the full package designation. For example, an
+-`Activity` subclass is declared as follows:  
++`Activity` subclass is declared as follows:
+ 
+ ```xml
+ <manifest ... >
+@@ -53,10 +53,10 @@ attribute, using the full package designation. For example, an
+ 
+ However, if the first character in the `name` value is a period,
+ the app's namespace, from the module-level `build.gradle` file's
+-[namespace](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/variant/Variant#namespace)
++`https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/variant/Variant#namespace`
+ property, is prefixed to the name. For example, if the namespace is
+ `"com.example.myapp"`, the following activity name resolves to
+-`com.example.myapp.MainActivity`:  
++`com.example.myapp.MainActivity`:
+ 
+ ```xml
+ <manifest ... >
+@@ -79,8 +79,8 @@ fully qualified package name.
+ 
+ 
+ App activities, services, and broadcast
+-receivers are activated by *intents* . An intent is a message defined by
+-an [Intent](https://developer.android.com/reference/android/content/Intent) object that describes an
++receivers are activated by *intents*. An intent is a message defined by
++an `https://developer.android.com/reference/android/content/Intent` object that describes an
+ action to perform, including the data to be acted on, the category of
+ component that is expected to perform the action, and other instructions.
+ 
+@@ -91,7 +91,7 @@ an instance of the matching component and passes the `Intent` object to that com
+ handle the intent, then the user can select which app to use.
+ 
+ An app component can have any number of intent filters (defined with the
+-[<intent-filter>](https://developer.android.com/guide/topics/manifest/intent-filter-element)
++`https://developer.android.com/guide/topics/manifest/intent-filter-element`
+ element), each one describing a different capability of that component.
+ 
+ 
+@@ -107,15 +107,15 @@ to users for the corresponding app component.
+ In every case, the icon and label that are set in a parent element become the default
+ `icon` and `label` value for all child elements.
+ For example, the icon and label that are set in the
+-[<application>](https://developer.android.com/guide/topics/manifest/application-element)
++`https://developer.android.com/guide/topics/manifest/application-element`
+ element are the default icon and label for each of the app's components, such as all activities.
+ 
+ The icon and label that are set in a component's
+-[<intent-filter>](https://developer.android.com/guide/topics/manifest/intent-filter-element)
++`https://developer.android.com/guide/topics/manifest/intent-filter-element`
+ are shown to the user whenever that component is presented as an option to
+ fulfill an intent. By default, this icon is inherited from whichever
+ icon is declared for the parent component, either the
+-[<activity>](https://developer.android.com/guide/topics/manifest/activity-element) or
++`https://developer.android.com/guide/topics/manifest/activity-element` or
+ `<application>` element.
+ 
+ You might want to change the icon
+@@ -128,7 +128,7 @@ Android apps must request permission to access sensitive user data,
+ such as contacts and SMS, or certain system features, such as the
+ camera and internet access. Each permission is identified by a unique label.
+ For example, an app that needs to send SMS messages must have the following
+-line in the manifest:  
++line in the manifest:
+ 
+ ```xml
+ <manifest ... >
+@@ -140,16 +140,16 @@ line in the manifest:
+ Beginning with
+ Android 6.0 (API level 23), the user can approve or reject some app permissions at runtime. But
+ no matter which Android version your app supports, you must declare all permission requests with a
+-[<uses-permission>](https://developer.android.com/guide/topics/manifest/uses-permission-element)
++`https://developer.android.com/guide/topics/manifest/uses-permission-element`
+ element in the manifest. If the permission is granted, the app is able to use the protected
+ features. If not, its attempts to access those features fail.
+ 
+ Your app can also protect its own components with permissions. It can use
+ any of the permissions that are defined by Android, as listed in
+-[android.Manifest.permission](https://developer.android.com/reference/android/Manifest.permission), or a permission
++`https://developer.android.com/reference/android/Manifest.permission`, or a permission
+ that's declared in another app. Your app can also define its own permissions.
+ A new permission is declared with the
+-[<permission>](https://developer.android.com/guide/topics/manifest/permission-element)
++`https://developer.android.com/guide/topics/manifest/permission-element`
+ element.
+ 
+ For more information, see [Permissions
+@@ -171,7 +171,7 @@ compatible with. The following are some of the most common.
+ The [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) element lets you declare hardware and
+ software features your app needs. For example, if your app can't achieve basic
+ functionality on a device without a compass sensor, you can declare the compass
+-sensor as required with the following manifest tag:  
++sensor as required with the following manifest tag:
+ 
+ ```xml
+ <manifest ... >
+@@ -200,7 +200,7 @@ However, be aware that attributes in the `<uses-sdk>` element
+ are overridden by corresponding properties
+ in the [`build.gradle`](https://developer.android.com/studio/build#build-files) file.
+ So, if you're using Android Studio, specify the `minSdkVersion` and
+-`targetSdkVersion` values there instead:  
++`targetSdkVersion` values there instead:
+ 
+ ### Groovy
+ 
+@@ -249,8 +249,8 @@ elements and attributes in the manifest file.
+ 
+ **Elements**
+ :   Only the
+-    [<manifest>](https://developer.android.com/guide/topics/manifest/manifest-element) and
+-    [<application>](https://developer.android.com/guide/topics/manifest/application-element)
++    `https://developer.android.com/guide/topics/manifest/manifest-element` and
++    `https://developer.android.com/guide/topics/manifest/application-element`
+     elements are required. They each must occur only once.
+     Most of the other elements can occur zero or more times. However, some
+     of them must be present to make the manifest file useful.
+@@ -260,13 +260,13 @@ elements and attributes in the manifest file.
+ 
+ 
+     Elements at the same level are generally not ordered. For example, the
+-    [<activity>](https://developer.android.com/guide/topics/manifest/activity-element),
+-    [<provider>](https://developer.android.com/guide/topics/manifest/provider-element), and
+-    [<service>](https://developer.android.com/guide/topics/manifest/service-element)
++    `https://developer.android.com/guide/topics/manifest/activity-element`,
++    `https://developer.android.com/guide/topics/manifest/provider-element`, and
++    `https://developer.android.com/guide/topics/manifest/service-element`
+     elements can be placed in any order. There are two key exceptions to this
+     rule:
+ 
+-    - An [<activity-alias>](https://developer.android.com/guide/topics/manifest/activity-alias-element) element must follow the `<activity>` for which it is an alias.
++    - An `https://developer.android.com/guide/topics/manifest/activity-alias-element` element must follow the `<activity>` for which it is an alias.
+     - The `<application>` element must be the last element inside the `<manifest>` element.
+ 
+ **Attributes**
+@@ -276,7 +276,7 @@ elements and attributes in the manifest file.
+     indicates the default values.
+ 
+     Except for some attributes of the root
+-    [<manifest>](https://developer.android.com/guide/topics/manifest/manifest-element)
++    `https://developer.android.com/guide/topics/manifest/manifest-element`
+     element, all attribute names begin with an `android:` prefix,
+     such as `android:alwaysRetainTaskState`. Because the prefix is
+     universal, the documentation generally omits it when referring to attributes
+@@ -308,7 +308,7 @@ elements and attributes in the manifest file.
+     Resources are expressed as values with the following format:
+ 
+ 
+-    `"@[`<var translate="no">package</var>`:]`<var translate="no">type</var>`/`<var translate="no">name</var>`"`
++    `"@[package:]type/name"`
+ 
+ 
+     You can omit the <var translate="no">package</var> name if the resource is provided by your
+@@ -336,7 +336,7 @@ elements and attributes in the manifest file.
+     must be `?` instead of `@`:
+ 
+ 
+-    `"?[`<var translate="no">package</var>`:]`<var translate="no">type</var>`/`<var translate="no">name</var>`"`
++    `"?[package:]type/name"`
+ 
+ **String values**
+ :   Where an attribute value is a string, use double backslashes
+@@ -349,35 +349,35 @@ The following table provides links to the reference documents for all valid
+ elements in the `AndroidManifest.xml` file.
+ 
+ |---|---|
+-| [<action>](https://developer.android.com/guide/topics/manifest/action-element) | Adds an action to an intent filter. |
+-| [<activity>](https://developer.android.com/guide/topics/manifest/activity-element) | Declares an activity component. |
+-| [<activity-alias>](https://developer.android.com/guide/topics/manifest/activity-alias-element) | Declares an alias for an activity. |
+-| [<application>](https://developer.android.com/guide/topics/manifest/application-element) | Declares the application. |
+-| [<category>](https://developer.android.com/guide/topics/manifest/category-element) | Adds a category name to an intent filter. |
+-| [<compatible-screens>](https://developer.android.com/guide/topics/manifest/compatible-screens-element) | Specifies each screen configuration the application is compatible with. |
+-| [<data>](https://developer.android.com/guide/topics/manifest/data-element) | Adds a data specification to an intent filter. |
+-| [<grant-uri-permission>](https://developer.android.com/guide/topics/manifest/grant-uri-permission-element) | Specifies the subsets of app data that the parent content provider has permission to access. |
+-| [<instrumentation>](https://developer.android.com/guide/topics/manifest/instrumentation-element) | Declares an `Instrumentation` class that lets you monitor an application's interaction with the system. |
+-| [<intent-filter>](https://developer.android.com/guide/topics/manifest/intent-filter-element) | Specifies the types of intents that an activity, service, or broadcast receiver can respond to. |
+-| [<manifest>](https://developer.android.com/guide/topics/manifest/manifest-element) | The root element of the `AndroidManifest.xml` file. |
+-| [<meta-data>](https://developer.android.com/guide/topics/manifest/meta-data-element) | A name-value pair for an item of additional, arbitrary data that can be supplied to the parent component. |
+-| [<path-permission>](https://developer.android.com/guide/topics/manifest/path-permission-element) | Defines the path and required permissions for a specific subset of data within a content provider. |
+-| [<permission>](https://developer.android.com/guide/topics/manifest/permission-element) | Declares a security permission that can be used to limit access to specific components or features of this or other applications. |
+-| [<permission-group>](https://developer.android.com/guide/topics/manifest/permission-group-element) | Declares a name for a logical grouping of related permissions. |
+-| [<permission-tree>](https://developer.android.com/guide/topics/manifest/permission-tree-element) | Declares the base name for a tree of permissions. |
+-| [<provider>](https://developer.android.com/guide/topics/manifest/provider-element) | Declares a content provider component. |
+-| [<queries>](https://developer.android.com/guide/topics/manifest/queries-element) | Declares the set of other apps that your app intends to access. Learn more in the guide about [package visibility filtering](https://developer.android.com/training/package-visibility). |
+-| [<receiver>](https://developer.android.com/guide/topics/manifest/receiver-element) | Declares a broadcast receiver component. |
+-| [<service>](https://developer.android.com/guide/topics/manifest/service-element) | Declares a service component. |
+-| [<supports-gl-texture>](https://developer.android.com/guide/topics/manifest/supports-gl-texture-element) | Declares a single GL texture compression format that the app supports. |
+-| [<supports-screens>](https://developer.android.com/guide/topics/manifest/supports-screens-element) | Declares the screen sizes your app supports and enables screen compatibility mode for screens larger than what your app supports. |
+-| [<uses-configuration>](https://developer.android.com/guide/topics/manifest/uses-configuration-element) | Indicates specific input features the application requires. |
+-| [<uses-feature>](https://developer.android.com/guide/topics/manifest/uses-feature-element) | Declares a single hardware or software feature that is used by the application. |
+-| [<uses-library>](https://developer.android.com/guide/topics/manifest/uses-library-element) | Specifies a shared library that the application must be linked against. |
+-| [<uses-native-library>](https://developer.android.com/guide/topics/manifest/uses-native-library-element) | Specifies a vendor-provided native shared library that the app must be linked against. |
+-| [<uses-permission>](https://developer.android.com/guide/topics/manifest/uses-permission-element) | Specifies a system permission that the user must grant in order for the app to operate correctly. |
+-| [<uses-permission-sdk-23>](https://developer.android.com/guide/topics/manifest/uses-permission-sdk-23-element) | Specifies that an app wants a particular permission, but only if the app is installed on a device running Android 6.0 (API level 23) or higher. |
+-| [<uses-sdk>](https://developer.android.com/guide/topics/manifest/uses-sdk-element) | Lets you express an application's compatibility with one or more versions of the Android platform, by means of an API level integer. |
++| `https://developer.android.com/guide/topics/manifest/action-element` | Adds an action to an intent filter. |
++| `https://developer.android.com/guide/topics/manifest/activity-element` | Declares an activity component. |
++| `https://developer.android.com/guide/topics/manifest/activity-alias-element` | Declares an alias for an activity. |
++| `https://developer.android.com/guide/topics/manifest/application-element` | Declares the application. |
++| `https://developer.android.com/guide/topics/manifest/category-element` | Adds a category name to an intent filter. |
++| `https://developer.android.com/guide/topics/manifest/compatible-screens-element` | Specifies each screen configuration the application is compatible with. |
++| `https://developer.android.com/guide/topics/manifest/data-element` | Adds a data specification to an intent filter. |
++| `https://developer.android.com/guide/topics/manifest/grant-uri-permission-element` | Specifies the subsets of app data that the parent content provider has permission to access. |
++| `https://developer.android.com/guide/topics/manifest/instrumentation-element` | Declares an `Instrumentation` class that lets you monitor an application's interaction with the system. |
++| `https://developer.android.com/guide/topics/manifest/intent-filter-element` | Specifies the types of intents that an activity, service, or broadcast receiver can respond to. |
++| `https://developer.android.com/guide/topics/manifest/manifest-element` | The root element of the `AndroidManifest.xml` file. |
++| `https://developer.android.com/guide/topics/manifest/meta-data-element` | A name-value pair for an item of additional, arbitrary data that can be supplied to the parent component. |
++| `https://developer.android.com/guide/topics/manifest/path-permission-element` | Defines the path and required permissions for a specific subset of data within a content provider. |
++| `https://developer.android.com/guide/topics/manifest/permission-element` | Declares a security permission that can be used to limit access to specific components or features of this or other applications. |
++| `https://developer.android.com/guide/topics/manifest/permission-group-element` | Declares a name for a logical grouping of related permissions. |
++| `https://developer.android.com/guide/topics/manifest/permission-tree-element` | Declares the base name for a tree of permissions. |
++| `https://developer.android.com/guide/topics/manifest/provider-element` | Declares a content provider component. |
++| `https://developer.android.com/guide/topics/manifest/queries-element` | Declares the set of other apps that your app intends to access. Learn more in the guide about [package visibility filtering](https://developer.android.com/training/package-visibility). |
++| `https://developer.android.com/guide/topics/manifest/receiver-element` | Declares a broadcast receiver component. |
++| `https://developer.android.com/guide/topics/manifest/service-element` | Declares a service component. |
++| `https://developer.android.com/guide/topics/manifest/supports-gl-texture-element` | Declares a single GL texture compression format that the app supports. |
++| `https://developer.android.com/guide/topics/manifest/supports-screens-element` | Declares the screen sizes your app supports and enables screen compatibility mode for screens larger than what your app supports. |
++| `https://developer.android.com/guide/topics/manifest/uses-configuration-element` | Indicates specific input features the application requires. |
++| `https://developer.android.com/guide/topics/manifest/uses-feature-element` | Declares a single hardware or software feature that is used by the application. |
++| `https://developer.android.com/guide/topics/manifest/uses-library-element` | Specifies a shared library that the application must be linked against. |
++| `https://developer.android.com/guide/topics/manifest/uses-native-library-element` | Specifies a vendor-provided native shared library that the app must be linked against. |
++| `https://developer.android.com/guide/topics/manifest/uses-permission-element` | Specifies a system permission that the user must grant in order for the app to operate correctly. |
++| `https://developer.android.com/guide/topics/manifest/uses-permission-sdk-23-element` | Specifies that an app wants a particular permission, but only if the app is installed on a device running Android 6.0 (API level 23) or higher. |
++| `https://developer.android.com/guide/topics/manifest/uses-sdk-element` | Lets you express an application's compatibility with one or more versions of the Android platform, by means of an API level integer. |
+ 
+ ## Limits
+ 
+@@ -401,7 +401,7 @@ The following attributes have a limit on their maximum length:
+ ## Example manifest file
+ 
+ The XML below is a simple example `AndroidManifest.xml` that declares
+-two activities for the app.  
++two activities for the app.
+ 
+     <?xml version="1.0" encoding="utf-8"?>
+     <manifest

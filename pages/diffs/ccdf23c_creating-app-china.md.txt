@@ -1,0 +1,80 @@
+diff --git a/docs/training/wearables/creating-app-china.md b/docs/training/wearables/creating-app-china.md
+index 780842d..67f75b7 100644
+--- a/docs/training/wearables/creating-app-china.md
++++ b/docs/training/wearables/creating-app-china.md
+@@ -24,7 +24,7 @@ use APIs related to `GoogleApiClient`; see
+ #### Fused Location Provider API
+ 
+ If you use the Fused Location Provider API, include the following dependency in
+-the `build.gradle` file of your Wear OS module:  
++the `build.gradle` file of your Wear OS module:
+ 
+ ### Groovy
+ 
+@@ -46,20 +46,21 @@ dependencies {
+ 
+ #### Data Layer API
+ 
+-|
+-| **Note:** The Data Layer API can send messages and synchronize data only with Android phones
+-| and Wear OS watches. If your Wear OS device is paired with an iOS device, the Data
+-| Layer API won't work.
+-|
+-|
+-| For this reason, don't use the Data Layer API as the primary way to
+-| communicate with a network. Instead, follow the same pattern in your Wear OS app
+-| as in a mobile app, with some minor differences as described in
+-| [Network access and sync on Wear OS](https://developer.android.com/training/wearables/data-layer/network-access).
++> [!NOTE]
++>
++> **Note:** The Data Layer API can send messages and synchronize data only with Android phones
++> and Wear OS watches. If your Wear OS device is paired with an iOS device, the Data
++> Layer API won't work.
++>
++>
++> For this reason, don't use the Data Layer API as the primary way to
++> communicate with a network. Instead, follow the same pattern in your Wear OS app
++> as in a mobile app, with some minor differences as described in
++> [Network access and sync on Wear OS](https://developer.android.com/training/wearables/data-layer/network-access).
+ 
+ If your app uses the Data Layer API, you need to add the following line to the
+ `build.gradle` file of your Wear OS module. The line requires use of the 10.2.0 version of
+-the client library.  
++the client library.
+ 
+ ### Groovy
+ 
+@@ -83,7 +84,7 @@ dependencies {
+ 
+ Add the following line to the `build.gradle` file of
+ your mobile module. Replace the Google Play services dependency with a reference to the
+-10.2.0 version.  
++10.2.0 version.
+ 
+ ### Groovy
+ 
+@@ -154,13 +155,13 @@ figure out the best activity to start.
+ 
+ When users speak a voice action, your app can filter for the intent that is fired to start an
+ activity. To start a service in the background, show an activity as a visual cue and start the
+-service in the activity. Make sure to call [finish()](https://developer.android.com/reference/android/app/Activity#finish()) to get rid of the visual cue.
++service in the activity. Make sure to call `https://developer.android.com/reference/android/app/Activity#finish()` to get rid of the visual cue.
+ 
+ Here is a list of the voice intents supported by the Wear OS platform:
+ 
+ |---|---|---|
+ | **Category** | **Example** | **Intent spec** |
+-| Car hailing | 打车去三里屯 | **Action** [com.google.android.gms.actions.RESERVE_TAXI_RESERVATION](https://developers.google.com/android/reference/com/google/android/gms/actions/ReserveIntents#ACTION_RESERVE_TAXI_RESERVATION) **Extra** `to`: the recognized destination The extra is optional. |
++| Car hailing | 打车去三里屯 | **Action** `https://developers.google.com/android/reference/com/google/android/gms/actions/ReserveIntents#ACTION_RESERVE_TAXI_RESERVATION` **Extra** `to`: the recognized destination The extra is optional. |
+ | Set alarm | 设置一个明早七点的闹钟 | **Action** `android.intent.action.SET_ALARM` **Extras** `android.provider.AlarmClock.EXTRA_HOUR`: an integer with the hour of the alarm `android.provider.AlarmClock.EXTRA_MINUTES`: an integer with the minute of the alarm These extras are optional. Provide either, both, or neither of these extras. |
+ | Set timer | 设置一个三分钟的倒计时 | **Action** `android.intent.action.SET_TIMER` **Extras** `android.provider.AlarmClock.EXTRA_LENGTH`: an integer in the range of 1 to 86400 (the number of seconds in 24 hours), representing the length of the timer |
+ | Start stopwatch | 开始计时 | **Action** `com.google.android.wearable.action.STOPWATCH` |
+@@ -241,7 +242,7 @@ If your app uses [Google Play services APIs](https://developers.android.google.c
+ these APIs are available to use during runtime and respond appropriately.
+ There are two ways to check the availability of Google Play service APIs:
+ 
+-1. Use a separate [GoogleApiClient](https://developers.google.cn/android/reference/com/google/android/gms/common/api/GoogleApiClient) instance for connecting to other APIs. This interface contains callbacks to alert your app to the [success](https://developers.google.cn/android/reference/com/google/android/gms/common/api/GoogleApiClient.ConnectionCallbacks) or [failure](https://developers.google.cn/android/reference/com/google/android/gms/common/api/GoogleApiClient.OnConnectionFailedListener) of the connection. In the case of failed connection, the [ConnectionResult](https://developers.google.cn/android/reference/com/google/android/gms/common/ConnectionResult) shows [API_UNAVAILABLE](https://developers.google.cn/android/reference/com/google/android/gms/common/ConnectionResult#API_UNAVAILABLE). To learn how to handle connection failures, see [Access Google APIs](https://developers.google.cn/android/guides/api-client).
++1. Use a separate `https://developers.google.cn/android/reference/com/google/android/gms/common/api/GoogleApiClient` instance for connecting to other APIs. This interface contains callbacks to alert your app to the [success](https://developers.google.cn/android/reference/com/google/android/gms/common/api/GoogleApiClient.ConnectionCallbacks) or [failure](https://developers.google.cn/android/reference/com/google/android/gms/common/api/GoogleApiClient.OnConnectionFailedListener) of the connection. In the case of failed connection, the `https://developers.google.cn/android/reference/com/google/android/gms/common/ConnectionResult` shows `https://developers.google.cn/android/reference/com/google/android/gms/common/ConnectionResult#API_UNAVAILABLE`. To learn how to handle connection failures, see [Access Google APIs](https://developers.google.cn/android/guides/api-client).
+ 2. Use the [`addApiIfAvailable()`](https://developers.google.cn/android/reference/com/google/android/gms/common/api/GoogleApiClient.Builder#public-googleapiclient.builder-addapiifavailable-apio-api,-o-options,-scope...-scopes) method of [`
+    GoogleApiClient.Builder`](https://developers.google.cn/android/reference/com/google/android/gms/common/api/GoogleApiClient.Builder) to connect to the required APIs. After the [`onConnected()`](https://developers.google.cn/android/reference/com/google/android/gms/common/api/GoogleApiClient.ConnectionCallbacks#onConnected(android.os.Bundle)) callback fires, use the [`hasConnectedApi()`](https://developers.google.cn/android/reference/com/google/android/gms/common/api/GoogleApiClient#hasConnectedApi(com.google.android.gms.common.api.Api%3C?%3E)) method to ensure that each of the requested APIs is connected correctly.
+ 

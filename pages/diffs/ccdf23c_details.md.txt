@@ -1,0 +1,22 @@
+diff --git a/docs/training/tv/playback/compose/details.md b/docs/training/tv/playback/compose/details.md
+index 3f6ff7a..391a062 100644
+--- a/docs/training/tv/playback/compose/details.md
++++ b/docs/training/tv/playback/compose/details.md
+@@ -13,7 +13,7 @@ The following code is a typical implementation of the details screen. It
+ of the given movie with its title and description. The user's able to make a
+ screen transition to the player screen, which can be triggered by clicking a
+ button to start movie playback. You can handle this action to make the screen
+-transition by setting a callback function.  
++transition by setting a callback function.
+ 
+     @Composable
+     fun DetailsScreen(
+@@ -41,4 +41,5 @@ transition by setting a callback function.
+       }
+     }
+ 
+-| **Note:** `AsyncImage` is a composable to load an image from the internet. See [Loading Images](https://developer.android.com/develop/ui/compose/graphics/images/loading#internet-loading) for details.
+\ No newline at end of file
++> [!NOTE]
++> **Note:** `AsyncImage` is a composable to load an image from the internet. See [Loading Images](https://developer.android.com/develop/ui/compose/graphics/images/loading#internet-loading) for details.
+\ No newline at end of file

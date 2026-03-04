@@ -1,0 +1,40 @@
+diff --git a/docs/training/testing/espresso/setup.md b/docs/training/testing/espresso/setup.md
+index be74cfe..fb005f3 100644
+--- a/docs/training/testing/espresso/setup.md
++++ b/docs/training/testing/espresso/setup.md
+@@ -45,7 +45,7 @@ androidTestImplementation('androidx.test:rules:1.6.1')
+ ## Set the instrumentation runner
+ 
+ Add to the same `build.gradle` file the following line in
+-`android.defaultConfig`:  
++`android.defaultConfig`:
+ 
+ ### Groovy
+ 
+@@ -124,7 +124,7 @@ measure both the count of unique packages using Espresso as well as the volume
+ of usage.
+ 
+ If you do not wish to upload this data, you can opt out by including the
+-`disableAnalytics` argument in your instrumentation command:  
++`disableAnalytics` argument in your instrumentation command:
+ 
+ ```bash
+ adb shell am instrument -e disableAnalytics true
+@@ -135,7 +135,7 @@ adb shell am instrument -e disableAnalytics true
+ Android Studio creates tests by default in
+ `src/androidTest/java/com.example.package/`.
+ 
+-Example JUnit4 test using Rules:  
++Example JUnit4 test using Rules:
+ 
+ ### Kotlin
+ 
+@@ -187,7 +187,7 @@ To create a test configuration in Android Studio, complete the following steps:
+ 
+ ### From the command line
+ 
+-Execute the following Gradle command:  
++Execute the following Gradle command:
+ 
+ ```bash
+ ./gradlew connectedAndroidTest

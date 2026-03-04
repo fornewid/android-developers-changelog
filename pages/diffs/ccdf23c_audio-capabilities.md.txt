@@ -1,0 +1,44 @@
+diff --git a/docs/training/tv/playback/audio-capabilities.md b/docs/training/tv/playback/audio-capabilities.md
+index 69c47b1..34f6545 100644
+--- a/docs/training/tv/playback/audio-capabilities.md
++++ b/docs/training/tv/playback/audio-capabilities.md
+@@ -63,7 +63,9 @@ detected through `isDirectPlaybackSupported()`. In these cases the audio data
+ is re-encoded to a format that is supported by the output audio device. Use
+ `isDirectPlaybackSupported()` to properly check support for the desired format
+ even if it is not present in the list returned by `getEncodings()`.
+-| **Note:** Before API level 33, `isDirectPlaybackSupported()` considers all available audio output paths, even those which are not currently routed. For example, consider what occurs when you have connected both HDMI that supports direct playback and Bluetooth headphones that do not. Here, the function returns true, even though audio might play only on the Bluetooth headphones and creation of a direct `AudioTrack` fails. You can create a direct AudioTrack by setting the [`FLAG_HW_AV_SYNC`](https://developer.android.com/reference/android/media/AudioAttributes#FLAG_HW_AV_SYNC). For API level 33 and higher this only considers the currently active audio routing.
++
++> [!NOTE]
++> **Note:** Before API level 33, `isDirectPlaybackSupported()` considers all available audio output paths, even those which are not currently routed. For example, consider what occurs when you have connected both HDMI that supports direct playback and Bluetooth headphones that do not. Here, the function returns true, even though audio might play only on the Bluetooth headphones and creation of a direct `AudioTrack` fails. You can create a direct AudioTrack by setting the [`FLAG_HW_AV_SYNC`](https://developer.android.com/reference/android/media/AudioAttributes#FLAG_HW_AV_SYNC). For API level 33 and higher this only considers the currently active audio routing.
+ 
+ ### Anticipatory audio route
+ 
+@@ -72,7 +74,7 @@ anticipate device audio attribute support and prepare tracks for the active
+ audio device. You can use
+ [`getDirectPlaybackSupport()`](https://developer.android.com/reference/android/media/AudioManager#getDirectPlaybackSupport(android.media.AudioFormat,%20android.media.AudioAttributes))
+ to check whether direct playback is supported on the currently routed audio
+-device for a given format and attributes:  
++device for a given format and attributes:
+ 
+ ### Kotlin
+ 
+@@ -122,7 +124,7 @@ if (AudioManager.getDirectPlaybackSupport(format, attributes) !=
+ Alternatively, you can query which profiles are supported for direct media
+ playback through the currently routed audio device. This excludes any profiles
+ that are unsupported or would be, for instance, transcoded by the Android
+-framework:  
++framework:
+ 
+ ### Kotlin
+ 
+@@ -209,7 +211,9 @@ should check the updated audio capabilities and, if needed, recreate
+ the `AudioTrack` with a different `AudioFormat`. Do this if a higher-quality
+ encoding is now supported or the previously-used encoding is
+ no-longer-supported.
+-| **Note:** Writing data to an `AudioTrack` in a no-longer-supported format can trigger errors from the framework (such as "Error -32 during AudioTrack native read"). These can happen even before the changing audio routing callback is called. Intercept them and recreate the `AudioTrack` according to the capabilities of the new routed-to device.
++
++> [!NOTE]
++> **Note:** Writing data to an `AudioTrack` in a no-longer-supported format can trigger errors from the framework (such as "Error -32 during AudioTrack native read"). These can happen even before the changing audio routing callback is called. Intercept them and recreate the `AudioTrack` according to the capabilities of the new routed-to device.
+ 
+ ## Sample code
+ 

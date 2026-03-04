@@ -1,0 +1,86 @@
+diff --git a/docs/training/app-links/test-applinks.md b/docs/training/app-links/test-applinks.md
+index 65b0483..744f64b 100644
+--- a/docs/training/app-links/test-applinks.md
++++ b/docs/training/app-links/test-applinks.md
+@@ -33,13 +33,13 @@ named host and subdomain.
+ ## Confirm the Digital Asset Links files
+ 
+ For each website, use the Digital Asset Links API to confirm that the Digital
+-Asset Links JSON file is properly hosted and defined:  
++Asset Links JSON file is properly hosted and defined:
+ 
+     https://digitalassetlinks.googleapis.com/v1/statements:list?
+        source.web.site=https://<var>domain.name</var>:<var>optional_port</var>&amp;
+        relation=delegate_permission/common.handle_all_urls
+ 
+-For Dynamic App Links, you can also check the relation extensions.  
++For Dynamic App Links, you can also check the relation extensions.
+ 
+     https://digitalassetlinks.googleapis.com/v1/statements:list?source.web.site=https://www.example.com&relation=delegate_permission/common.handle_all_urls&return_relation_extensions=true
+ 
+@@ -47,23 +47,24 @@ For Dynamic App Links, you can also check the relation extensions.
+ 
+ As part of your testing process, you can check the current system settings for
+ link handling. Use the following command to get a listing of existing
+-link-handling policies for all apps on your connected device:  
++link-handling policies for all apps on your connected device:
+ 
+     adb shell dumpsys package domain-preferred-apps
+ 
+-The following command does the same thing:  
++The following command does the same thing:
+ 
+     adb shell dumpsys package d
+ 
+-| **Note:** Make sure you wait at least 20 seconds after installation of your app to allow for the system to complete the verification process.
++> [!NOTE]
++> **Note:** Make sure you wait at least 20 seconds after installation of your app to allow for the system to complete the verification process.
+ 
+ The command returns a listing of each user or profile defined on the device,
+-preceded by a header in the following format:  
++preceded by a header in the following format:
+ 
+     App linkages for user 0:
+ 
+ Following this header, the output uses the following format to list the
+-link-handling settings for that user:  
++link-handling settings for that user:
+ 
+     Package: com.android.vending
+     Domains: play.google.com market.android.com
+@@ -76,14 +77,15 @@ user:
+ - `Domains` - Shows the full list of hosts whose web links this app handles, using blank spaces as delimiters.
+ - `Status` - Shows the current link-handling setting for this app. An app that has passed verification, and whose manifest contains `android:autoVerify="true"`, shows a status of `always`. The hexadecimal number after this status is related to the Android system's record of the user's app linkage preferences. This value does not indicate whether verification succeeded.
+ 
+-| **Note:** If a user changes the app link settings for an app before verification is complete, you may see a false positive for a successful verification, even though verification has failed. This verification failure, however, does not matter if the user explicitly enabled the app to open supported links without asking. This is because user preferences take precedence over programmatic verification (or lack of it). As a result, the link goes directly to your app, without showing a dialog, just as if verification had succeeded.
++> [!NOTE]
++> **Note:** If a user changes the app link settings for an app before verification is complete, you may see a false positive for a successful verification, even though verification has failed. This verification failure, however, does not matter if the user explicitly enabled the app to open supported links without asking. This is because user preferences take precedence over programmatic verification (or lack of it). As a result, the link goes directly to your app, without showing a dialog, just as if verification had succeeded.
+ 
+ ### Test example
+ 
+ For app link verification to succeed, the system must be able to verify your app
+ with each of the websites that you specify in a given intent filter that meets
+ the criteria for app links. The following example shows a manifest configuration
+-with several app links defined:  
++with several app links defined:
+ 
+     <activity android:name="MainActivity">
+             <intent-filter android:autoVerify="true">
+@@ -131,7 +133,7 @@ with several app links defined:
+     </application>
+ 
+ The list of hosts that the platform would attempt to verify from the preceding
+-manifest is:  
++manifest is:
+ 
+     www.example.com
+     mobile.example.com
+@@ -139,7 +141,7 @@ manifest is:
+     account.example.com
+ 
+ The list of hosts that the platform wouldn't attempt to verify from the
+-preceding manifest is:  
++preceding manifest is:
+ 
+     map.example.com (it does not have android.intent.category.BROWSABLE)
+     market://example.com (it does not have either an "http" or "https" scheme)

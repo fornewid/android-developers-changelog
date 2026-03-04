@@ -1,0 +1,71 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/passingarguments.md b/docs/guide/navigation/navigation-3/recipes/passingarguments.md
+index 64865d6..eae9a5f 100644
+--- a/docs/guide/navigation/navigation-3/recipes/passingarguments.md
++++ b/docs/guide/navigation/navigation-3/recipes/passingarguments.md
+@@ -4,7 +4,22 @@ url: https://developer.android.com/guide/navigation/navigation-3/recipes/passing
+ source: md.txt
+ ---
+ 
+-```python
++# Passing Arguments to ViewModels (Hilt)
++
++This recipe demonstrates how to pass navigation arguments (keys) to a `ViewModel` using Hilt for dependency injection.
++
++## How it works
++
++This example uses Dagger/Hilt's assisted injection feature:
++
++1. The `ViewModel` is annotated with `@HiltViewModel` and its constructor uses `@AssistedInject` to receive the navigation key (which is annotated with `@Assisted`).
++2. An `@AssistedFactory` interface is defined to create the `ViewModel`.
++3. The `hiltViewModel` composable function is used to obtain the `ViewModel` instance. A `creationCallback` is provided to pass the navigation key to the factory, making it available to the `ViewModel`.
++
++**Note** : The `rememberViewModelStoreNavEntryDecorator` is added to the `NavDisplay`'s `entryDecorators`. This ensures that `ViewModel`s are correctly scoped to their corresponding `NavEntry`, so that a new `ViewModel` instance is created for each unique navigation key.
++[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/passingarguments/viewmodels/hilt)
++
++```
+ /*
+  * Copyright 2025 The Android Open Source Project
+  *
+@@ -126,7 +141,19 @@ class RouteBViewModel @AssistedInject constructor(
+ }
+ ```
+ 
+-```python
++# Passing Arguments to ViewModels (Basic)
++
++This recipe demonstrates how to pass navigation arguments (keys) to a `ViewModel` using a custom `ViewModelProvider.Factory`.
++
++## How it works
++
++1. A custom `ViewModelProvider.Factory` is created that takes the navigation key as a constructor parameter.
++2. Inside the `entry` composable, `viewModel(factory = ...)` is used to create the `ViewModel` instance, passing the current navigation key to the factory. This makes the navigation key available to the `ViewModel`.
++
++**Note** : The `rememberViewModelStoreNavEntryDecorator` is added to the `NavDisplay`'s `entryDecorators`. This ensures that `ViewModel`s are correctly scoped to their corresponding `NavEntry`, so that a new `ViewModel` instance is created for each unique navigation key.
++[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/passingarguments/viewmodels/basic)
++
++```
+ /*
+  * Copyright 2025 The Android Open Source Project
+  *
+@@ -238,7 +265,20 @@ class RouteBViewModel(
+ }
+ ```
+ 
+-```python
++# Passing Arguments to ViewModels (Koin)
++
++This recipe demonstrates how to pass navigation arguments (keys) to a `ViewModel` using Koin for dependency injection.
++
++## How it works
++
++1. A Koin module is defined that provides the `ViewModel`.
++2. The `koinViewModel` composable function is used to get the `ViewModel` instance.
++3. The navigation key is passed to the `ViewModel`'s constructor using `parametersOf(key)`. This makes the navigation key available to the `ViewModel`.
++
++**Note** : The `rememberViewModelStoreNavEntryDecorator` is added to the `NavDisplay`'s `entryDecorators`. This ensures that `ViewModel`s are correctly scoped to their corresponding `NavEntry`, so that a new `ViewModel` instance is created for each unique navigation key.
++[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/passingarguments/viewmodels/koin)
++
++```
+ package com.example.nav3recipes.passingarguments.viewmodels.koin
+ 
+ import android.os.Bundle

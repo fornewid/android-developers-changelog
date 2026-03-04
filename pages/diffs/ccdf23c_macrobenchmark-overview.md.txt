@@ -1,0 +1,145 @@
+diff --git a/docs/topic/performance/benchmarking/macrobenchmark-overview.md b/docs/topic/performance/benchmarking/macrobenchmark-overview.md
+index 404813e..7faf617 100644
+--- a/docs/topic/performance/benchmarking/macrobenchmark-overview.md
++++ b/docs/topic/performance/benchmarking/macrobenchmark-overview.md
+@@ -70,7 +70,7 @@ Configure the benchmarked app as close to the release version or production as
+ possible. Set it up as non-debuggable and preferably with minification on, which
+ improves performance. You typically do this by creating a copy of the release
+ variant, which performs the same, but is signed locally with debug keys.
+-Alternatively, you can use `initWith` to instruct Gradle to do it for you:  
++Alternatively, you can use `initWith` to instruct Gradle to do it for you:
+ 
+ ### Kotlin
+ 
+@@ -118,14 +118,16 @@ variant of your app, as shown in figure 2, do the following:
+ variant](https://developer.android.com/static/topic/performance/images/benchmark_images/benchmark_variant.png)
+ 
+ **Figure 2.** Select the benchmark variant.
+-| **Note:** See the [sample Macrobenchmark module](https://github.com/android/performance-samples/tree/main/MacrobenchmarkSample/macrobenchmark) for reference on how to set up your project to be Macrobenchmark-ready.
++
++> [!NOTE]
++> **Note:** See the [sample Macrobenchmark module](https://github.com/android/performance-samples/tree/main/MacrobenchmarkSample/macrobenchmark) for reference on how to set up your project to be Macrobenchmark-ready.
+ 
+ ### (Optional) Set up multi-module app
+ 
+ If your app has more than one Gradle module, make sure your build scripts know
+ which build variant to compile. Add`matchingFallbacks` property into the
+ `benchmark` build type of your `:macrobenchmark` and `:app` modules. The rest of
+-your Gradle modules can have the same configuration as before.  
++your Gradle modules can have the same configuration as before.
+ 
+ ### Kotlin
+ 
+@@ -150,7 +152,7 @@ benchmark {
+ ```
+ 
+ Without this, the newly added `benchmark` build type causes the build to fail
+-and provides the following error message:  
++and provides the following error message:
+ 
+     > Could not resolve project :shared.
+          Required by:
+@@ -178,7 +180,7 @@ If you have multiple product flavors set in your app, configure the
+ build and benchmark.
+ 
+ The examples in this page are using the two product flavors in the `:app`
+-module: `demo` and `production`, as shown in the following snippet:  
++module: `demo` and `production`, as shown in the following snippet:
+ 
+ ### Kotlin
+ 
+@@ -214,7 +216,7 @@ productFlavors {
+ ```
+ 
+ Without this configuration, you might get a build error similar to with multiple
+-Gradle modules:  
++Gradle modules:
+ 
+     Could not determine the dependencies of task ':macrobenchmark:connectedBenchmarkAndroidTest'.
+     > Could not determine the dependencies of null.
+@@ -237,7 +239,7 @@ Specifying `missingDimensionStrategy` in the `defaultConfig` of the
+ `:macrobenchmark` module tells the build system to fallback to the flavor
+ dimension. Specify which dimensions to use if you don't find them in the module.
+ In the following example, the `production` flavor is used as the default
+-dimension:  
++dimension:
+ 
+ ### Kotlin
+ 
+@@ -263,7 +265,7 @@ flavor has the proper configuration to be benchmarked.
+ 
+ If you want to build and benchmark other product flavors, define them in the
+ `:macrobenchmark` module. Specify it similarly as in the `:app` module, but only
+-assign `productFlavors` to a `dimension`. No other settings are required:  
++assign `productFlavors` to a `dimension`. No other settings are required:
+ 
+ ### Kotlin
+ 
+@@ -315,7 +317,7 @@ that lets you specify various conditions on how to run and benchmark the target
+ app.
+ 
+ You need to at least specify the `packageName` of the target app, what `metrics`
+-you want to measure and how many `iterations` the benchmark must run.  
++you want to measure and how many `iterations` the benchmark must run.
+ 
+ ### Kotlin
+ 
+@@ -368,7 +370,8 @@ benchmarks](https://developer.android.com/topic/performance/benchmarking/macrobe
+ 
+ ## Run the benchmark
+ 
+-| **Note:** Use Android 14 (API level 34) or later to persist state when benchmarking. The Macrobenchmark library fully resets the compilation state for each compile, which on Android versions earlier than 14 require reinstalling the APK. As a workaround, control app compilation separately and skip compilation using [`CompilationMode.Ignore`](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview#compilationmode).
++> [!NOTE]
++> **Note:** Use Android 14 (API level 34) or later to persist state when benchmarking. The Macrobenchmark library fully resets the compilation state for each compile, which on Android versions earlier than 14 require reinstalling the APK. As a workaround, control app compilation separately and skip compilation using [`CompilationMode.Ignore`](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview#compilationmode).
+ 
+ Run the test from within Android Studio to measure the performance of your app
+ on your device. You can run the benchmarks the same way you run any other
+@@ -382,15 +385,16 @@ class](https://developer.android.com/static/topic/performance/images/benchmark_i
+ class.
+ 
+ You can also run all benchmarks in a Gradle module from the command line by
+-executing the `connectedCheck` command:  
++executing the `connectedCheck` command:
+ 
+     ./gradlew :macrobenchmark:connectedCheck
+ 
+-You can run a single test by executing the following:  
++You can run a single test by executing the following:
+ 
+     ./gradlew :macrobenchmark:connectedCheck -P android.testInstrumentationRunnerArguments.class=com.example.macrobenchmark.startup.SampleStartupBenchmark#startup
+ 
+-| **Note:** We discourage running the benchmarks on an emulator, as they don't produce performance numbers representative of the end-user experience.
++> [!NOTE]
++> **Note:** We discourage running the benchmarks on an emulator, as they don't produce performance numbers representative of the end-user experience.
+ 
+ See [Benchmark in Continuous Integration](https://developer.android.com/topic/performance/benchmarking/benchmarking-in-ci) for information on how to run and
+ monitor benchmarks in continuous integration.
+@@ -426,7 +430,7 @@ Trace](https://developer.android.com/static/topic/performance/images/benchmark_i
+ 
+ JSON reports and any profiling traces are also automatically copied from the
+ device to the host. These are written on the host machine in the following
+-location:  
++location:
+ 
+     project_root/module/build/outputs/connected_android_test_additional_output/debugAndroidTest/connected/device_id/
+ 
+@@ -439,7 +443,7 @@ Android Studio's CPU profiler limits inspection to a single process.
+ 
+ If you invoke the tests from Android Studio or from the Gradle command line, the
+ trace files are automatically copied from the device to the host. These are
+-written on the host machine in the following location:  
++written on the host machine in the following location:
+ 
+     project_root/module/build/outputs/connected_android_test_additional_output/debugAndroidTest/connected/device_id/TrivialStartupBenchmark_startup[mode=COLD]_iter002.perfetto-trace
+ 
+@@ -510,7 +514,9 @@ benchmarks.
+ To perform an activity start, you can pass a predefined startup mode:
+ [`COLD`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/StartupMode#COLD), [`WARM`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/StartupMode#WARM), or [`HOT`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/StartupMode#HOT). This parameter changes how the
+ activity launches and the process state at the start of the test.
+-| **Warning:** If `StartupMode.COLD` is used, the app process is killed between the execution of `setupBlock` and `measureBlock` to allow for app preparation without starting the process. If you need the process to remain active, use `StartupMode.WARM`, which restarts activities without restarting the process, or set `startupMode` to `null` and call `killProcess()` within the `setupBlock`.
++
++> [!WARNING]
++> **Warning:** If `StartupMode.COLD` is used, the app process is killed between the execution of `setupBlock` and `measureBlock` to allow for app preparation without starting the process. If you need the process to remain active, use `StartupMode.WARM`, which restarts activities without restarting the process, or set `startupMode` to `null` and call `killProcess()` within the `setupBlock`.
+ 
+ To learn more about the types of startup, see [App startup time](https://developer.android.com/topic/performance/vitals/launch-time).
+ 

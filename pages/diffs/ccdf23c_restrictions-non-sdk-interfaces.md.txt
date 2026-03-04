@@ -1,0 +1,55 @@
+diff --git a/docs/guide/app-compatibility/restrictions-non-sdk-interfaces.md b/docs/guide/app-compatibility/restrictions-non-sdk-interfaces.md
+index 50a7413..be44fa2 100644
+--- a/docs/guide/app-compatibility/restrictions-non-sdk-interfaces.md
++++ b/docs/guide/app-compatibility/restrictions-non-sdk-interfaces.md
+@@ -167,13 +167,13 @@ list) are derived at build time.
+ 
+ When working with AOSP, you can generate a `hiddenapi-flags.csv` file that
+ contains all of the non-SDK interfaces and their corresponding lists. To do so,
+-[download the AOSP source](https://source.android.com/setup/build/downloading) and then run the following command:  
++[download the AOSP source](https://source.android.com/setup/build/downloading) and then run the following command:
+ 
+ ```
+ m out/soong/hiddenapi/hiddenapi-flags.csv
+ ```
+ 
+-You can then find the file in the following location:  
++You can then find the file in the following location:
+ 
+     out/soong/hiddenapi/hiddenapi-flags.csv
+ 
+@@ -214,7 +214,7 @@ to find the following details:
+ - Which list the non-SDK interface belongs to.
+ 
+ You can use `adb logcat` to access these log messages, which appear under the
+-PID of the running app. For example, an entry in the log might read as follows:  
++PID of the running app. For example, an entry in the log might read as follows:
+ 
+     Accessing hidden field Landroid/os/Message;->flags:I (light greylist, JNI)
+ 
+@@ -294,14 +294,14 @@ Android 10 (API level 29) or higher
+ 
+ :   To enable access, use the following adb
+ 
+-    command:  
++    command:
+ 
+     ```
+     adb shell settings put global hidden_api_policy  1
+     ```
+ 
+     To reset the API enforcement policy to the default settings, use the
+-    following command:  
++    following command:
+ 
+     ```
+     adb shell settings delete global hidden_api_policy
+@@ -315,7 +315,7 @@ Android 9 (API level 28)
+         adb shell settings put global hidden_api_policy_p_apps 1
+ 
+     To reset the API enforcement policy to the default settings, use the
+-    following commands:  
++    following commands:
+ 
+         adb shell settings delete global hidden_api_policy_pre_p_apps
+         adb shell settings delete global hidden_api_policy_p_apps

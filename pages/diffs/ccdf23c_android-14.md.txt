@@ -1,0 +1,15 @@
+diff --git a/docs/work/versions/android-14.md b/docs/work/versions/android-14.md
+index bd2bf63..40ba538 100644
+--- a/docs/work/versions/android-14.md
++++ b/docs/work/versions/android-14.md
+@@ -6,7 +6,9 @@ source: md.txt
+ 
+ This page provides an overview of the enterprise APIs, features, and behavior
+ changes introduced in Android 14 (API level 34).
+-| **Note:** Members of our [Enterprise Mobility Management (EMM) partner community](https://www.androidenterprise.dev/) can find more information about EMM-impacting changes in Android 14 in the corresponding [knowledge article](https://emm.androidenterprise.dev/s/article/EMM-impacting-changes-in-Android-14) on the EMM community site.
++
++> [!NOTE]
++> **Note:** Members of our [Enterprise Mobility Management (EMM) partner community](https://www.androidenterprise.dev/) can find more information about EMM-impacting changes in Android 14 in the corresponding [knowledge article](https://emm.androidenterprise.dev/s/article/EMM-impacting-changes-in-Android-14) on the EMM community site.
+ 
+ ## Contacts
+ 

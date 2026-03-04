@@ -1,0 +1,32 @@
+diff --git a/docs/training/cars/apps/navigation.md b/docs/training/cars/apps/navigation.md
+index 25d0d87..9a7073d 100644
+--- a/docs/training/cars/apps/navigation.md
++++ b/docs/training/cars/apps/navigation.md
+@@ -379,18 +379,18 @@ following snippet:
+ ```xml
+ <application>
+     ...
+-<   service
++   <service
+        ...
+         android:name=".MyNavigationCarAppService"
+-        android:exported=&<quot;true">
+-   <   intent-filter>
+-        action android:name="androidx.<car.app.CarAppService" />
+-        category android:name="a<ndroidx.car.app.category.NAVIGATION"/>
+-        category android:na<me="androidx.ca<r.app.category.FEA<TURE_CLUSTER"/>
+-      /intent-filter>
+-    /service>
++        android:exported="true">
++      <intent-filter>
++        <action android:name="androidx.car.app.CarAppService" />
++        <category android:name="androidx.car.app.category.NAVIGATION"/>
++        <category android:name="androidx.car.app.category.FEATURE_CLUSTER"/>
++      </intent-filter>
++    </service>
+     ...
+-/application>
++</application>
+ ```
+ 
+ ### Lifecycle and State Management

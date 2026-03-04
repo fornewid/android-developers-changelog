@@ -1,0 +1,656 @@
+diff --git a/docs/guide/components/intents-filters.md b/docs/guide/components/intents-filters.md
+index 79ffc60..bb50cae 100644
+--- a/docs/guide/components/intents-filters.md
++++ b/docs/guide/components/intents-filters.md
+@@ -4,7 +4,7 @@ url: https://developer.android.com/guide/components/intents-filters
+ source: md.txt
+ ---
+ 
+-An [Intent](https://developer.android.com/reference/android/content/Intent) is a messaging object you can use to request an action
++An `https://developer.android.com/reference/android/content/Intent` is a messaging object you can use to request an action
+ from another [app component](https://developer.android.com/guide/components/fundamentals#Components).
+ Although intents facilitate communication between components in several ways, there are three
+ fundamental use cases:
+@@ -13,40 +13,40 @@ fundamental use cases:
+ 
+ - **Starting an activity**
+ 
+-  An [Activity](https://developer.android.com/reference/android/app/Activity) represents a single screen in an app. You can start a new
+-  instance of an [Activity](https://developer.android.com/reference/android/app/Activity) by passing an [Intent](https://developer.android.com/reference/android/content/Intent)
+-  to [startActivity()](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)).
+-  The [Intent](https://developer.android.com/reference/android/content/Intent)
++  An `https://developer.android.com/reference/android/app/Activity` represents a single screen in an app. You can start a new
++  instance of an `https://developer.android.com/reference/android/app/Activity` by passing an `https://developer.android.com/reference/android/content/Intent`
++  to `https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)`.
++  The `https://developer.android.com/reference/android/content/Intent`
+   describes the activity to start and carries any necessary data.
+ 
+   If you want to receive a result from the activity when it finishes,
+-  call [startActivityForResult()](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)). Your activity receives the result
+-  as a separate [Intent](https://developer.android.com/reference/android/content/Intent) object in your activity's [onActivityResult()](https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)) callback.
++  call `https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)`. Your activity receives the result
++  as a separate `https://developer.android.com/reference/android/content/Intent` object in your activity's `https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)` callback.
+   For more information, see the [Activities](https://developer.android.com/guide/components/activities) guide.
+ - **Starting a service**
+ 
+-  A [Service](https://developer.android.com/reference/android/app/Service) is a component that performs operations in the background
++  A `https://developer.android.com/reference/android/app/Service` is a component that performs operations in the background
+   without a user interface. With Android 5.0 (API level 21) and later, you can start a service
+-  with [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler). For more information
+-  about [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler), see its
+-  [API-reference documentation](https://developer.android.com/reference/android/app/job/JobScheduler).
++  with `https://developer.android.com/reference/android/app/job/JobScheduler`. For more information
++  about `https://developer.android.com/reference/android/app/job/JobScheduler`, see its
++  `https://developer.android.com/reference/android/app/job/JobScheduler`.
+ 
+   For versions earlier than Android 5.0 (API level 21), you can start a service by using
+-  methods of the [Service](https://developer.android.com/reference/android/app/Service) class. You can start a service
++  methods of the `https://developer.android.com/reference/android/app/Service` class. You can start a service
+   to perform a one-time operation
+-  (such as downloading a file) by passing an [Intent](https://developer.android.com/reference/android/content/Intent)
+-  to [startService()](https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)). The [Intent](https://developer.android.com/reference/android/content/Intent)
++  (such as downloading a file) by passing an `https://developer.android.com/reference/android/content/Intent`
++  to `https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)`. The `https://developer.android.com/reference/android/content/Intent`
+   describes the service to start and carries any necessary data.
+ 
+   If the service is designed with a client-server interface, you can bind to the service
+-  from another component by passing an [Intent](https://developer.android.com/reference/android/content/Intent) to [bindService()](https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)). For more information, see the [Services](https://developer.android.com/guide/components/services) guide.
++  from another component by passing an `https://developer.android.com/reference/android/content/Intent` to `https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)`. For more information, see the [Services](https://developer.android.com/guide/components/services) guide.
+ - **Delivering a broadcast**
+ 
+   A broadcast is a message that any app can receive. The system delivers various
+   broadcasts for system events, such as when the system boots up or the device starts charging.
+-  You can deliver a broadcast to other apps by passing an [Intent](https://developer.android.com/reference/android/content/Intent)
+-  to [sendBroadcast()](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent)) or
+-  [sendOrderedBroadcast()](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent, java.lang.String)).
++  You can deliver a broadcast to other apps by passing an `https://developer.android.com/reference/android/content/Intent`
++  to `https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent)` or
++  `https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent, java.lang.String)`.
+ 
+ The rest of this page explains how intents work and how to use them.
+ For related information, see
+@@ -61,20 +61,20 @@ There are two types of intents:
+ - **Implicit intents** do not name a specific component, but instead declare a general action to perform, which allows a component from another app to handle it. For example, if you want to show the user a location on a map, you can use an implicit intent to request that another capable app show a specified location on a map.
+ 
+ Figure 1 shows how an intent is used when starting an activity. When the
+-[Intent](https://developer.android.com/reference/android/content/Intent) object names a specific activity component explicitly, the system
+-immediately starts that component.  
++`https://developer.android.com/reference/android/content/Intent` object names a specific activity component explicitly, the system
++immediately starts that component.
+ ![](https://developer.android.com/static/images/components/intent-filters_2x.png)
+ 
+ **Figure 1.** How an implicit intent is
+ delivered through the system to start another activity: **\[1\]** *Activity A* creates an
+-[Intent](https://developer.android.com/reference/android/content/Intent) with an action description and passes it to [startActivity()](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)). **\[2\]** The Android System searches all
++`https://developer.android.com/reference/android/content/Intent` with an action description and passes it to `https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)`. **\[2\]** The Android System searches all
+ apps for an intent filter that matches the intent. When a match is found, **\[3\]** the system
+-starts the matching activity (*Activity B* ) by invoking its [onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method and passing it the [Intent](https://developer.android.com/reference/android/content/Intent).
++starts the matching activity (*Activity B* ) by invoking its `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method and passing it the `https://developer.android.com/reference/android/content/Intent`.
+ 
+ When you use an implicit intent, the Android system finds the appropriate component to start
+ by comparing the contents of the intent to the *intent filters* declared in the [manifest file](https://developer.android.com/guide/topics/manifest/manifest-intro) of other apps on the
+ device. If the intent matches an intent filter, the system starts that component and delivers it
+-the [Intent](https://developer.android.com/reference/android/content/Intent) object. If multiple intent filters are compatible, the system
++the `https://developer.android.com/reference/android/content/Intent` object. If multiple intent filters are compatible, the system
+ displays a dialog so the user can pick which app to use.
+ 
+ An intent filter is an expression in an app's manifest file that
+@@ -86,21 +86,21 @@ only with an explicit intent.
+ 
+ **Caution:** To ensure that your app is secure, always
+ use an explicit
+-intent when starting a [Service](https://developer.android.com/reference/android/app/Service) and do not
++intent when starting a `https://developer.android.com/reference/android/app/Service` and do not
+ declare intent filters for your services. Using an implicit intent to start a service is a
+ security hazard because you can't be certain what service will respond to the intent,
+ and the user can't see which service starts. Beginning with Android 5.0 (API level 21), the system
+-throws an exception if you call [bindService()](https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int))
++throws an exception if you call `https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)`
+ with an implicit intent.
+ 
+ ## Building an intent
+ 
+-An [Intent](https://developer.android.com/reference/android/content/Intent) object carries information that the Android system uses
++An `https://developer.android.com/reference/android/content/Intent` object carries information that the Android system uses
+ to determine which component to start (such as the exact component name or component
+ category that should receive the intent), plus information that the recipient component uses in
+ order to properly perform the action (such as the action to take and the data to act upon).
+ 
+-The primary information contained in an [Intent](https://developer.android.com/reference/android/content/Intent) is the following:
++The primary information contained in an `https://developer.android.com/reference/android/content/Intent` is the following:
+ 
+ **Component name**
+ 
+@@ -111,16 +111,16 @@ The primary information contained in an [Intent](https://developer.android.com/r
+     (such as the action, data, and category---described below). If you need to start a specific
+     component in your app, you should specify the component name.
+ 
+-    **Note:** When starting a [Service](https://developer.android.com/reference/android/app/Service),
++    **Note:** When starting a `https://developer.android.com/reference/android/app/Service`,
+     *always specify the component name*. Otherwise, you cannot be certain what service
+     will respond to the intent, and the user cannot see which service starts.
+ 
+-    This field of the [Intent](https://developer.android.com/reference/android/content/Intent) is a
+-    [ComponentName](https://developer.android.com/reference/android/content/ComponentName) object, which you can specify using a fully
++    This field of the `https://developer.android.com/reference/android/content/Intent` is a
++    `https://developer.android.com/reference/android/content/ComponentName` object, which you can specify using a fully
+     qualified class name of the target component, including the package name of the app, for example,
+-    `com.example.ExampleActivity`. You can set the component name with [setComponent()](https://developer.android.com/reference/android/content/Intent#setComponent(android.content.ComponentName)), [setClass()](https://developer.android.com/reference/android/content/Intent#setClass(android.content.Context, java.lang.Class<?>)), [setClassName()](https://developer.android.com/reference/android/content/Intent#setClassName(java.lang.String, java.lang.String)),
++    `com.example.ExampleActivity`. You can set the component name with `https://developer.android.com/reference/android/content/Intent#setComponent(android.content.ComponentName)`, `https://developer.android.com/reference/android/content/Intent#setClass(android.content.Context, java.lang.Class<?>)`, `https://developer.android.com/reference/android/content/Intent#setClassName(java.lang.String, java.lang.String)`,
+     or with the
+-    [Intent](https://developer.android.com/reference/android/content/Intent) constructor.
++    `https://developer.android.com/reference/android/content/Intent` constructor.
+ 
+ **Action**
+ :   A string that specifies the generic action to perform (such as *view* or *pick* ).
+@@ -131,27 +131,27 @@ The primary information contained in an [Intent](https://developer.android.com/r
+ 
+     You can specify your own actions for use by intents within your app (or for use by other
+     apps to invoke components in your app), but you usually specify action constants
+-    defined by the [Intent](https://developer.android.com/reference/android/content/Intent) class or other framework classes. Here are some
++    defined by the `https://developer.android.com/reference/android/content/Intent` class or other framework classes. Here are some
+     common actions for starting an activity:
+ 
+ 
+-    [ACTION_VIEW](https://developer.android.com/reference/android/content/Intent#ACTION_VIEW)
+-    :   Use this action in an intent with [startActivity()](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)) when you have some information that
++    `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW`
++    :   Use this action in an intent with `https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)` when you have some information that
+         an activity can show to the user, such as a photo to view in a gallery app, or an address to
+         view in a map app.
+ 
+-    [ACTION_SEND](https://developer.android.com/reference/android/content/Intent#ACTION_SEND)
+-    :   Also known as the *share* intent, you should use this in an intent with [startActivity()](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)) when you have some data that the user can
++    `https://developer.android.com/reference/android/content/Intent#ACTION_SEND`
++    :   Also known as the *share* intent, you should use this in an intent with `https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)` when you have some data that the user can
+         share through another app, such as an email app or social sharing app.
+ 
+ 
+-    See the [Intent](https://developer.android.com/reference/android/content/Intent) class reference for more
++    See the `https://developer.android.com/reference/android/content/Intent` class reference for more
+     constants that define generic actions. Other actions are defined
+-    elsewhere in the Android framework, such as in [Settings](https://developer.android.com/reference/android/provider/Settings) for actions
++    elsewhere in the Android framework, such as in `https://developer.android.com/reference/android/provider/Settings` for actions
+     that open specific screens in the system's Settings app.
+ 
+ 
+-    You can specify the action for an intent with [setAction()](https://developer.android.com/reference/android/content/Intent#setAction(java.lang.String)) or with an [Intent](https://developer.android.com/reference/android/content/Intent) constructor.
++    You can specify the action for an intent with `https://developer.android.com/reference/android/content/Intent#setAction(java.lang.String)` or with an `https://developer.android.com/reference/android/content/Intent` constructor.
+ 
+ 
+     If you define your own actions, be sure to include your app's package name
+@@ -171,10 +171,10 @@ The primary information contained in an [Intent](https://developer.android.com/r
+     ```
+ 
+ **Data**
+-:   The URI (a [Uri](https://developer.android.com/reference/android/net/Uri) object) that references the data to
++:   The URI (a `https://developer.android.com/reference/android/net/Uri` object) that references the data to
+     be acted on and/or the
+     MIME type of that data. The type of data supplied is generally dictated by the intent's action. For
+-    example, if the action is [ACTION_EDIT](https://developer.android.com/reference/android/content/Intent#ACTION_EDIT), the data should contain the
++    example, if the action is `https://developer.android.com/reference/android/content/Intent#ACTION_EDIT`, the data should contain the
+     URI of the document to edit.
+ 
+     When creating an intent,
+@@ -186,18 +186,18 @@ The primary information contained in an [Intent](https://developer.android.com/r
+     However, the MIME type can sometimes be inferred from the URI---particularly when the data is a
+     `content:` URI. A `content:` URI indicates the data is located on the device
+     and controlled by a
+-    [ContentProvider](https://developer.android.com/reference/android/content/ContentProvider), which makes the data MIME type visible to the system.
++    `https://developer.android.com/reference/android/content/ContentProvider`, which makes the data MIME type visible to the system.
+ 
+ 
+-    To set only the data URI, call [setData()](https://developer.android.com/reference/android/content/Intent#setData(android.net.Uri)).
+-    To set only the MIME type, call [setType()](https://developer.android.com/reference/android/content/Intent#setType(java.lang.String)). If necessary, you
+-    can set both explicitly with [setDataAndType()](https://developer.android.com/reference/android/content/Intent#setDataAndType(android.net.Uri, java.lang.String)).
++    To set only the data URI, call `https://developer.android.com/reference/android/content/Intent#setData(android.net.Uri)`.
++    To set only the MIME type, call `https://developer.android.com/reference/android/content/Intent#setType(java.lang.String)`. If necessary, you
++    can set both explicitly with `https://developer.android.com/reference/android/content/Intent#setDataAndType(android.net.Uri, java.lang.String)`.
+ 
+ 
+     **Caution:** If you want to set both the URI and MIME type,
+-    *don't* call [setData()](https://developer.android.com/reference/android/content/Intent#setData(android.net.Uri)) and
+-    [setType()](https://developer.android.com/reference/android/content/Intent#setType(java.lang.String)) because they each nullify the value of the other.
+-    Always use [setDataAndType()](https://developer.android.com/reference/android/content/Intent#setDataAndType(android.net.Uri, java.lang.String)) to set both
++    *don't* call `https://developer.android.com/reference/android/content/Intent#setData(android.net.Uri)` and
++    `https://developer.android.com/reference/android/content/Intent#setType(java.lang.String)` because they each nullify the value of the other.
++    Always use `https://developer.android.com/reference/android/content/Intent#setDataAndType(android.net.Uri, java.lang.String)` to set both
+     URI and MIME type.
+ 
+ **Category**
+@@ -206,20 +206,20 @@ The primary information contained in an [Intent](https://developer.android.com/r
+     placed in an intent, but most intents do not require a category.
+     Here are some common categories:
+ 
+-    [CATEGORY_BROWSABLE](https://developer.android.com/reference/android/content/Intent#CATEGORY_BROWSABLE)
++    `https://developer.android.com/reference/android/content/Intent#CATEGORY_BROWSABLE`
+     :   The target activity allows itself to be started by a web browser to display data
+         referenced by a link, such as an image or an e-mail message.
+ 
+-    [CATEGORY_LAUNCHER](https://developer.android.com/reference/android/content/Intent#CATEGORY_LAUNCHER)
++    `https://developer.android.com/reference/android/content/Intent#CATEGORY_LAUNCHER`
+     :   The activity is the initial activity of a task and is listed in
+         the system's application launcher.
+ 
+ 
+-    See the [Intent](https://developer.android.com/reference/android/content/Intent) class description for the full list of
++    See the `https://developer.android.com/reference/android/content/Intent` class description for the full list of
+     categories.
+ 
+ 
+-    You can specify a category with [addCategory()](https://developer.android.com/reference/android/content/Intent#addCategory(java.lang.String)).
++    You can specify a category with `https://developer.android.com/reference/android/content/Intent#addCategory(java.lang.String)`.
+ 
+ These properties listed above (component name, action, data, and category) represent the
+ defining characteristics of an intent. By reading these properties, the Android system
+@@ -229,20 +229,20 @@ how it is resolved to an app component. An intent can also supply the following
+ 
+ **Extras**
+ 
+-:   Key-value pairs that carry additional information required to accomplish the requested action. Just as some actions use particular kinds of data URIs, some actions also use particular extras. You can add extra data with various [putExtra()](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String, android.os.Bundle)) methods,
++:   Key-value pairs that carry additional information required to accomplish the requested action. Just as some actions use particular kinds of data URIs, some actions also use particular extras. You can add extra data with various `https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String, android.os.Bundle)` methods,
+     each accepting two parameters: the key name and the value.
+-    You can also create a [Bundle](https://developer.android.com/reference/android/os/Bundle) object with all the extra data, then insert
+-    the [Bundle](https://developer.android.com/reference/android/os/Bundle) in the [Intent](https://developer.android.com/reference/android/content/Intent) with [putExtras()](https://developer.android.com/reference/android/content/Intent#putExtras(android.content.Intent)).
++    You can also create a `https://developer.android.com/reference/android/os/Bundle` object with all the extra data, then insert
++    the `https://developer.android.com/reference/android/os/Bundle` in the `https://developer.android.com/reference/android/content/Intent` with `https://developer.android.com/reference/android/content/Intent#putExtras(android.content.Intent)`.
+ 
+     For example, when creating an intent to send an email with
+-    [ACTION_SEND](https://developer.android.com/reference/android/content/Intent#ACTION_SEND), you can specify the *to* recipient with the
+-    [EXTRA_EMAIL](https://developer.android.com/reference/android/content/Intent#EXTRA_EMAIL) key, and specify the *subject* with the
+-    [EXTRA_SUBJECT](https://developer.android.com/reference/android/content/Intent#EXTRA_SUBJECT) key.
++    `https://developer.android.com/reference/android/content/Intent#ACTION_SEND`, you can specify the *to* recipient with the
++    `https://developer.android.com/reference/android/content/Intent#EXTRA_EMAIL` key, and specify the *subject* with the
++    `https://developer.android.com/reference/android/content/Intent#EXTRA_SUBJECT` key.
+ 
+-    The [Intent](https://developer.android.com/reference/android/content/Intent) class specifies many `EXTRA_*` constants
++    The `https://developer.android.com/reference/android/content/Intent` class specifies many `EXTRA_*` constants
+     for standardized data types. If you need to declare your own extra keys (for intents that
+     your app receives), be sure to include your app's package name
+-    as a prefix, as shown in the following example:  
++    as a prefix, as shown in the following example:
+ 
+     ### Kotlin
+ 
+@@ -257,36 +257,36 @@ how it is resolved to an app component. An intent can also supply the following
+     ```
+ 
+ 
+-    **Caution** : Do not use [Parcelable](https://developer.android.com/reference/android/os/Parcelable) or
+-    [Serializable](https://developer.android.com/reference/java/io/Serializable) data when sending an intent that you expect
++    **Caution** : Do not use `https://developer.android.com/reference/android/os/Parcelable` or
++    `https://developer.android.com/reference/java/io/Serializable` data when sending an intent that you expect
+     another app to receive. If an app
+-    attempts to access data in a [Bundle](https://developer.android.com/reference/android/os/Bundle) object but does not
++    attempts to access data in a `https://developer.android.com/reference/android/os/Bundle` object but does not
+     have access to the parceled or serialized class, the system raises a
+-    [RuntimeException](https://developer.android.com/reference/java/lang/RuntimeException).
++    `https://developer.android.com/reference/java/lang/RuntimeException`.
+ 
+ **Flags**
+-:   Flags are defined in the [Intent](https://developer.android.com/reference/android/content/Intent) class that function as metadata for the
++:   Flags are defined in the `https://developer.android.com/reference/android/content/Intent` class that function as metadata for the
+     intent. The flags may instruct the Android system how to launch an activity (for example, which
+     [task](https://developer.android.com/guide/components/tasks-and-back-stack)
+     the activity should belong
+     to) and how to treat it after it's launched (for example, whether it belongs in the list of recent
+     activities).
+ 
+-    For more information, see the [setFlags()](https://developer.android.com/reference/android/content/Intent#setFlags(int)) method.
++    For more information, see the `https://developer.android.com/reference/android/content/Intent#setFlags(int)` method.
+ 
+ ### Example explicit intent
+ 
+ An explicit intent is one that you use to launch a specific app component, such as
+ a particular activity or service in your app. To create an explicit intent, define
+-the component name for the [Intent](https://developer.android.com/reference/android/content/Intent) object---all
++the component name for the `https://developer.android.com/reference/android/content/Intent` object---all
+ other intent properties are optional.
+ 
+ For example, if you built a service in your app, named `DownloadService`,
+-designed to download a file from the web, you can start it with the following code:  
++designed to download a file from the web, you can start it with the following code:
+ 
+ ### Kotlin
+ 
+-    // Executed in an Activity, so 'this' is the https://developer.android.com/reference/android/content/Context
++    // Executed in an Activity, so 'this' is the `https://developer.android.com/reference/android/content/Context`
+     // The fileUrl is a string URL, such as "http://www.example.com/image.png"
+     val downloadIntent = Intent(this, DownloadService::class.java).apply {
+         data = https://developer.android.com/reference/android/net/Uri#parse(java.lang.String)(fileUrl)
+@@ -295,15 +295,15 @@ designed to download a file from the web, you can start it with the following co
+ 
+ ### Java
+ 
+-    // Executed in an Activity, so 'this' is the https://developer.android.com/reference/android/content/Context
++    // Executed in an Activity, so 'this' is the `https://developer.android.com/reference/android/content/Context`
+     // The fileUrl is a string URL, such as "http://www.example.com/image.png"
+     Intent downloadIntent = new Intent(this, DownloadService.class);
+     downloadIntent.setData(https://developer.android.com/reference/android/net/Uri#parse(java.lang.String)(fileUrl));
+     startService(downloadIntent);
+ 
+-The [Intent(Context, Class)](https://developer.android.com/reference/android/content/Intent#Intent(android.content.Context, java.lang.Class<?>))
+-constructor supplies the app [Context](https://developer.android.com/reference/android/content/Context) and the
+-component a [Class](https://developer.android.com/reference/java/lang/Class) object. As such,
++The `https://developer.android.com/reference/android/content/Intent#Intent(android.content.Context, java.lang.Class<?>)`
++constructor supplies the app `https://developer.android.com/reference/android/content/Context` and the
++component a `https://developer.android.com/reference/java/lang/Class` object. As such,
+ this intent explicitly starts the `DownloadService` class in the app.
+ 
+ For more information about building and starting a service, see the
+@@ -317,10 +317,10 @@ action, but other apps probably can and you'd like the user to pick which app to
+ 
+ For example, if you have content that you want the user to share with other people,
+ create an intent
+-with the [ACTION_SEND](https://developer.android.com/reference/android/content/Intent#ACTION_SEND) action
++with the `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` action
+ and add extras that specify the content to share. When you call
+-[startActivity()](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)) with that intent, the user can
+-pick an app through which to share the content.  
++`https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)` with that intent, the user can
++pick an app through which to share the content.
+ 
+ ### Kotlin
+ 
+@@ -357,9 +357,9 @@ try {
+ }
+ ```
+ 
+-When [startActivity()](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)) is called, the system
++When `https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)` is called, the system
+ examines all of the installed apps to determine which ones can handle this kind of intent (an
+-intent with the [ACTION_SEND](https://developer.android.com/reference/android/content/Intent#ACTION_SEND) action and that carries "text/plain"
++intent with the `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` action and that carries "text/plain"
+ data). If there's only one app that can handle it, that app opens immediately and is given the
+ intent. If no other apps can handle it, your app can catch the
+ [`ActivityNotFoundException`](https://developer.android.com/reference/android/content/ActivityNotFoundException)
+@@ -368,7 +368,7 @@ displays a dialog such as the one shown in Figure 2, so the user can pick which
+ 
+ More information about launching other apps is also provided in the guide
+ about [sending the user to
+-another app](https://developer.android.com/training/basics/intents/sending).  
++another app](https://developer.android.com/training/basics/intents/sending).
+ ![](https://developer.android.com/static/images/training/basics/intent-chooser.png)
+ 
+ **Figure 2.** A chooser dialog.
+@@ -384,12 +384,12 @@ often prefer just one web browser).
+ However, if multiple apps can respond to the intent and the user might want to use a different
+ app each time, you should explicitly show a chooser dialog. The chooser dialog asks the
+ user to select which app to use for the action (the user cannot select a default app for
+-the action). For example, when your app performs "share" with the [ACTION_SEND](https://developer.android.com/reference/android/content/Intent#ACTION_SEND) action, users may want to share using a different app depending
++the action). For example, when your app performs "share" with the `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` action, users may want to share using a different app depending
+ on their current situation, so you should always use the chooser dialog, as shown in Figure 2.
+ 
+-To show the chooser, create an [Intent](https://developer.android.com/reference/android/content/Intent) using [createChooser()](https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent, java.lang.CharSequence)) and pass it to [startActivity()](https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)), as shown in the following example.
+-This example displays a dialog with a list of apps that respond to the intent passed to the [createChooser()](https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent, java.lang.CharSequence)) method and uses the supplied text as the
+-dialog title.  
++To show the chooser, create an `https://developer.android.com/reference/android/content/Intent` using `https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent, java.lang.CharSequence)` and pass it to `https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)`, as shown in the following example.
++This example displays a dialog with a list of apps that respond to the intent passed to the `https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent, java.lang.CharSequence)` method and uses the supplied text as the
++dialog title.
+ 
+ ### Kotlin
+ 
+@@ -456,7 +456,9 @@ To check for unsafe intent launches in your app, call
+ when you configure your `VmPolicy`, as shown in the following code snippet. If
+ your app detects a StrictMode violation, you might want to stop app execution to
+ protect potentially sensitive information.
+-**Note:** If your app targets Android 12 and uses the [`detectAll()`](https://developer.android.com/reference/android/os/StrictMode.VmPolicy.Builder#detectAll()) method in its `VmPolicy` definition, the `detectUnsafeIntentLaunch()` method is called automatically.  
++
++> [!NOTE]
++> **Note:** If your app targets Android 12 and uses the [`detectAll()`](https://developer.android.com/reference/android/os/StrictMode.VmPolicy.Builder#detectAll()) method in its `VmPolicy` definition, the `detectUnsafeIntentLaunch()` method is called automatically.
+ 
+ ### Kotlin
+ 
+@@ -543,8 +545,8 @@ regardless of any intent filters the component declares.
+ An app component should declare separate filters for each unique job it can do.
+ For example, one activity in an image gallery app may have two filters: one filter
+ to view an image, and another filter to edit an image. When the activity starts,
+-it inspects the [Intent](https://developer.android.com/reference/android/content/Intent) and decides how to behave based on the information
+-in the [Intent](https://developer.android.com/reference/android/content/Intent) (such as to show the editor controls or not).
++it inspects the `https://developer.android.com/reference/android/content/Intent` and decides how to behave based on the information
++in the `https://developer.android.com/reference/android/content/Intent` (such as to show the editor controls or not).
+ 
+ Each intent filter is defined by an [`<intent-filter>`](https://developer.android.com/guide/topics/manifest/intent-filter-element)
+ element in the app's manifest file, nested in the corresponding app component (such
+@@ -584,15 +586,15 @@ of these three elements:
+ 
+     **Note:** To receive implicit intents, you
+     *must include* the
+-    [CATEGORY_DEFAULT](https://developer.android.com/reference/android/content/Intent#CATEGORY_DEFAULT) category in the intent filter. The methods
+-    [startActivity()](https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)) and
+-    [startActivityForResult()](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)) treat all intents
+-    as if they declared the [CATEGORY_DEFAULT](https://developer.android.com/reference/android/content/Intent#CATEGORY_DEFAULT) category.
++    `https://developer.android.com/reference/android/content/Intent#CATEGORY_DEFAULT` category in the intent filter. The methods
++    `https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)` and
++    `https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)` treat all intents
++    as if they declared the `https://developer.android.com/reference/android/content/Intent#CATEGORY_DEFAULT` category.
+     If you do not declare this category in your intent filter, no implicit intents will resolve to
+     your activity.
+ 
+ For example, here's an activity declaration with an intent filter to receive an
+-[ACTION_SEND](https://developer.android.com/reference/android/content/Intent#ACTION_SEND) intent when the data type is text:  
++`https://developer.android.com/reference/android/content/Intent#ACTION_SEND` intent when the data type is text:
+ 
+ ```xml
+ <activity android:name="ShareActivity" android:exported="false">
+@@ -620,7 +622,7 @@ If it fails to match even one of them, the Android system won't deliver the inte
+ component. However, because a component may have multiple intent filters, an intent that does
+ not pass through one of a component's filters might make it through on another filter.
+ More information about how the system resolves intents is provided in the section below
+-about [Intent Resolution](https://developer.android.com/guide/components/intents-filters#Resolution).  
++about [Intent Resolution](https://developer.android.com/guide/components/intents-filters#Resolution).
+ **Caution:** Using an intent filter isn't a secure way to prevent other apps from starting
+ your components. Although intent filters restrict a component to respond to only
+ certain kinds of implicit intents, another app can potentially start your app component
+@@ -631,19 +633,19 @@ do not declare intent filters in your manifest. Instead, set the
+ to `"false"` for that component.
+ 
+ Similarly, to avoid inadvertently running a different app's
+-[Service](https://developer.android.com/reference/android/app/Service), always use an explicit intent to start your own service.
++`https://developer.android.com/reference/android/app/Service`, always use an explicit intent to start your own service.
+ 
+ **Note:**
+ For all activities, you must declare your intent filters in the manifest file.
+ However, filters for broadcast receivers can be registered dynamically by calling
+-[registerReceiver()](https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter, java.lang.String, android.os.Handler)). You can then unregister the receiver with [unregisterReceiver()](https://developer.android.com/reference/android/content/Context#unregisterReceiver(android.content.BroadcastReceiver)). Doing so allows your app
++`https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter, java.lang.String, android.os.Handler)`. You can then unregister the receiver with `https://developer.android.com/reference/android/content/Context#unregisterReceiver(android.content.BroadcastReceiver)`. Doing so allows your app
+ to listen for specific broadcasts during only a specified period of time while your app
+ is running.
+ 
+ ### Example filters
+ 
+ To demonstrate some of the intent filter behaviors, here is an example
+-from the manifest file of a social-sharing app:  
++from the manifest file of a social-sharing app:
+ 
+ ```xml
+ <activity android:name="MainActivity" android:exported="true">
+@@ -676,8 +678,8 @@ from the manifest file of a social-sharing app:
+ The first activity, `MainActivity`, is the app's main entry point---the activity that
+ opens when the user initially launches the app with the launcher icon:
+ 
+-- The [ACTION_MAIN](https://developer.android.com/reference/android/content/Intent#ACTION_MAIN) action indicates this is the main entry point and does not expect any intent data.
+-- The [CATEGORY_LAUNCHER](https://developer.android.com/reference/android/content/Intent#CATEGORY_LAUNCHER) category indicates that this activity's icon should be placed in the system's app launcher. If the [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element) element does not specify an icon with `icon`, then the system uses the icon from the [`<application>`](https://developer.android.com/guide/topics/manifest/application-element) element.
++- The `https://developer.android.com/reference/android/content/Intent#ACTION_MAIN` action indicates this is the main entry point and does not expect any intent data.
++- The `https://developer.android.com/reference/android/content/Intent#CATEGORY_LAUNCHER` category indicates that this activity's icon should be placed in the system's app launcher. If the [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element) element does not specify an icon with `icon`, then the system uses the icon from the [`<application>`](https://developer.android.com/guide/topics/manifest/application-element) element.
+ 
+ These two must be paired together in order for the activity to appear in the app launcher.
+ 
+@@ -718,34 +720,34 @@ Learn more about [intent matching](https://developer.android.com/guide/component
+ 
+ ## Using a pending intent
+ 
+-A [PendingIntent](https://developer.android.com/reference/android/app/PendingIntent) object is a wrapper around an [Intent](https://developer.android.com/reference/android/content/Intent) object. The primary purpose of a [PendingIntent](https://developer.android.com/reference/android/app/PendingIntent)
++A `https://developer.android.com/reference/android/app/PendingIntent` object is a wrapper around an `https://developer.android.com/reference/android/content/Intent` object. The primary purpose of a `https://developer.android.com/reference/android/app/PendingIntent`
+ is to grant permission to a foreign application
+-to use the contained [Intent](https://developer.android.com/reference/android/content/Intent) as if it were executed from your
++to use the contained `https://developer.android.com/reference/android/content/Intent` as if it were executed from your
+ app's own process.
+ 
+ Major use cases for a pending intent include the following:
+ 
+-- Declaring an intent to be executed when the user performs an action with your [Notification](https://developer.android.com/develop/ui/views/notifications) (the Android system's [NotificationManager](https://developer.android.com/reference/android/app/NotificationManager) executes the [Intent](https://developer.android.com/reference/android/content/Intent)).
+-- Declaring an intent to be executed when the user performs an action with your [App Widget](https://developer.android.com/guide/topics/appwidgets) (the Home screen app executes the [Intent](https://developer.android.com/reference/android/content/Intent)).
+-- Declaring an intent to be executed at a specified future time (the Android system's [AlarmManager](https://developer.android.com/reference/android/app/AlarmManager) executes the [Intent](https://developer.android.com/reference/android/content/Intent)).
++- Declaring an intent to be executed when the user performs an action with your [Notification](https://developer.android.com/develop/ui/views/notifications) (the Android system's `https://developer.android.com/reference/android/app/NotificationManager` executes the `https://developer.android.com/reference/android/content/Intent`).
++- Declaring an intent to be executed when the user performs an action with your [App Widget](https://developer.android.com/guide/topics/appwidgets) (the Home screen app executes the `https://developer.android.com/reference/android/content/Intent`).
++- Declaring an intent to be executed at a specified future time (the Android system's `https://developer.android.com/reference/android/app/AlarmManager` executes the `https://developer.android.com/reference/android/content/Intent`).
+ 
+-Just as each [Intent](https://developer.android.com/reference/android/content/Intent) object is designed to be handled by a specific
+-type of app component (either an [Activity](https://developer.android.com/reference/android/app/Activity), a [Service](https://developer.android.com/reference/android/app/Service), or
+-a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver)), so too must a [PendingIntent](https://developer.android.com/reference/android/app/PendingIntent) be
++Just as each `https://developer.android.com/reference/android/content/Intent` object is designed to be handled by a specific
++type of app component (either an `https://developer.android.com/reference/android/app/Activity`, a `https://developer.android.com/reference/android/app/Service`, or
++a `https://developer.android.com/reference/android/content/BroadcastReceiver`), so too must a `https://developer.android.com/reference/android/app/PendingIntent` be
+ created with the same consideration. When using a pending intent, your app doesn't
+-execute the intent with a call such as [startActivity()](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)). Instead, you must declare the intended component type when you create the
+-[PendingIntent](https://developer.android.com/reference/android/app/PendingIntent) by calling the respective creator method:
++execute the intent with a call such as `https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)`. Instead, you must declare the intended component type when you create the
++`https://developer.android.com/reference/android/app/PendingIntent` by calling the respective creator method:
+ 
+-- [PendingIntent.getActivity()](https://developer.android.com/reference/android/app/PendingIntent#getActivity(android.content.Context, int, android.content.Intent, int)) for an [Intent](https://developer.android.com/reference/android/content/Intent) that starts an [Activity](https://developer.android.com/reference/android/app/Activity).
+-- [PendingIntent.getService()](https://developer.android.com/reference/android/app/PendingIntent#getService(android.content.Context, int, android.content.Intent, int)) for an [Intent](https://developer.android.com/reference/android/content/Intent) that starts a [Service](https://developer.android.com/reference/android/app/Service).
+-- [PendingIntent.getBroadcast()](https://developer.android.com/reference/android/app/PendingIntent#getBroadcast(android.content.Context, int, android.content.Intent, int)) for an [Intent](https://developer.android.com/reference/android/content/Intent) that starts a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver).
++- `https://developer.android.com/reference/android/app/PendingIntent#getActivity(android.content.Context, int, android.content.Intent, int)` for an `https://developer.android.com/reference/android/content/Intent` that starts an `https://developer.android.com/reference/android/app/Activity`.
++- `https://developer.android.com/reference/android/app/PendingIntent#getService(android.content.Context, int, android.content.Intent, int)` for an `https://developer.android.com/reference/android/content/Intent` that starts a `https://developer.android.com/reference/android/app/Service`.
++- `https://developer.android.com/reference/android/app/PendingIntent#getBroadcast(android.content.Context, int, android.content.Intent, int)` for an `https://developer.android.com/reference/android/content/Intent` that starts a `https://developer.android.com/reference/android/content/BroadcastReceiver`.
+ 
+ Unless your app is *receiving* pending intents from other apps,
+-the above methods to create a [PendingIntent](https://developer.android.com/reference/android/app/PendingIntent) are probably the only
+-[PendingIntent](https://developer.android.com/reference/android/app/PendingIntent) methods you'll ever need.
++the above methods to create a `https://developer.android.com/reference/android/app/PendingIntent` are probably the only
++`https://developer.android.com/reference/android/app/PendingIntent` methods you'll ever need.
+ 
+-Each method takes the current app [Context](https://developer.android.com/reference/android/content/Context), the
+-[Intent](https://developer.android.com/reference/android/content/Intent) you want to wrap, and one or more flags that specify
++Each method takes the current app `https://developer.android.com/reference/android/content/Context`, the
++`https://developer.android.com/reference/android/content/Intent` you want to wrap, and one or more flags that specify
+ how the intent should be used (such as whether the intent can be used more than once).
+ 
+ For more information about using pending intents, see the documentation for each
+@@ -765,7 +767,7 @@ flag, respectively.
+ If your app attempts to create a `PendingIntent` object
+ without setting either mutability flag, the system throws an
+ [`IllegalArgumentException`](https://developer.android.com/reference/java/lang/IllegalArgumentException), and
+-the following message appears in [Logcat](https://developer.android.com/studio/command-line/logcat):  
++the following message appears in [Logcat](https://developer.android.com/studio/command-line/logcat):
+ 
+     PACKAGE_NAME: Targeting S+ (version 31 and above) requires that one of \
+     FLAG_IMMUTABLE or FLAG_MUTABLE be specified when creating a PendingIntent.
+@@ -779,7 +781,7 @@ the following message appears in [Logcat](https://developer.android.com/studio/c
+ In most cases, your app should create immutable `PendingIntent` objects, as
+ shown in the following code snippet. If a `PendingIntent` object is immutable,
+ then other apps cannot modify the intent to adjust the result of invoking the
+-intent.  
++intent.
+ 
+ ### Kotlin
+ 
+@@ -849,7 +851,7 @@ according to the intent filter declaration in an app's manifest file.
+ ### Action test
+ 
+ To specify accepted intent actions, an intent filter can declare zero or more
+-[`<action>`](https://developer.android.com/guide/topics/manifest/action-element) elements, as shown in the following example:  
++[`<action>`](https://developer.android.com/guide/topics/manifest/action-element) elements, as shown in the following example:
+ 
+ ```xml
+ <intent-filter>
+@@ -859,18 +861,18 @@ To specify accepted intent actions, an intent filter can declare zero or more
+ </intent-filter>
+ ```
+ 
+-To pass this filter, the action specified in the [Intent](https://developer.android.com/reference/android/content/Intent)
++To pass this filter, the action specified in the `https://developer.android.com/reference/android/content/Intent`
+ must match one of the actions listed in the filter.
+ 
+ If the filter does not list any actions, there is nothing for an
+-intent to match, so all intents fail the test. However, if an [Intent](https://developer.android.com/reference/android/content/Intent)
++intent to match, so all intents fail the test. However, if an `https://developer.android.com/reference/android/content/Intent`
+ does not specify an action, it passes the test as long as the filter
+ contains at least one action.
+ 
+ ### Category test
+ 
+ To specify accepted intent categories, an intent filter can declare zero or more
+-[`<category>`](https://developer.android.com/guide/topics/manifest/category-element) elements, as shown in the following example:  
++[`<category>`](https://developer.android.com/guide/topics/manifest/category-element) elements, as shown in the following example:
+ 
+ ```xml
+ <intent-filter>
+@@ -880,15 +882,15 @@ To specify accepted intent categories, an intent filter can declare zero or more
+ </intent-filter>
+ ```
+ 
+-For an intent to pass the category test, every category in the [Intent](https://developer.android.com/reference/android/content/Intent)
++For an intent to pass the category test, every category in the `https://developer.android.com/reference/android/content/Intent`
+ must match a category in the filter. The reverse is not necessary---the intent filter may
+-declare more categories than are specified in the [Intent](https://developer.android.com/reference/android/content/Intent) and the
+-[Intent](https://developer.android.com/reference/android/content/Intent) still passes. Therefore, an intent with no categories
++declare more categories than are specified in the `https://developer.android.com/reference/android/content/Intent` and the
++`https://developer.android.com/reference/android/content/Intent` still passes. Therefore, an intent with no categories
+ always passes this test, regardless of what categories are declared in the filter.
+ 
+ **Note:**
+-Android automatically applies the [CATEGORY_DEFAULT](https://developer.android.com/reference/android/content/Intent#CATEGORY_DEFAULT) category
+-to all implicit intents passed to [startActivity()](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)) and [startActivityForResult()](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)).
++Android automatically applies the `https://developer.android.com/reference/android/content/Intent#CATEGORY_DEFAULT` category
++to all implicit intents passed to `https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)` and `https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)`.
+ If you want your activity to receive implicit intents, it must
+ include a category for `"android.intent.category.DEFAULT"` in its intent filters, as
+ shown in the previous `<intent-filter>` example.
+@@ -896,7 +898,7 @@ shown in the previous `<intent-filter>` example.
+ ### Data test
+ 
+ To specify accepted intent data, an intent filter can declare zero or more
+-[`<data>`](https://developer.android.com/guide/topics/manifest/data-element) elements, as shown in the following example:  
++[`<data>`](https://developer.android.com/guide/topics/manifest/data-element) elements, as shown in the following example:
+ 
+ ```xml
+ <intent-filter>
+@@ -906,7 +908,7 @@ To specify accepted intent data, an intent filter can declare zero or more
+ </intent-filter>
+ ```
+ 
+-Each [<data>](https://developer.android.com/guide/topics/manifest/data-element)
++Each `https://developer.android.com/guide/topics/manifest/data-element`
+ element can specify a URI structure and a data type (MIME media type).
+ Each part of the URI is a separate
+ attribute: `scheme`, `host`, `port`,
+@@ -977,7 +979,7 @@ data is dispensed by content providers.
+ Another common configuration is a filter with a scheme and a data type. For
+ example, a [`<data>`](https://developer.android.com/guide/topics/manifest/data-element)
+ element like the following tells Android that
+-the component can retrieve video data from the network in order to perform the action:  
++the component can retrieve video data from the network in order to perform the action:
+ 
+ ```xml
+ <intent-filter>
+@@ -992,19 +994,19 @@ Intents are matched against intent filters not only to discover a target
+ component to activate, but also to discover something about the set of
+ components on the device. For example, the Home app populates the app launcher
+ by finding all the activities with intent filters that specify the
+-[ACTION_MAIN](https://developer.android.com/reference/android/content/Intent#ACTION_MAIN) action and
+-[CATEGORY_LAUNCHER](https://developer.android.com/reference/android/content/Intent#CATEGORY_LAUNCHER) category.
++`https://developer.android.com/reference/android/content/Intent#ACTION_MAIN` action and
++`https://developer.android.com/reference/android/content/Intent#CATEGORY_LAUNCHER` category.
+ A match is only successful if the actions and categories in the Intent match
+-against the filter, as described in the documentation for the [IntentFilter](https://developer.android.com/reference/android/content/IntentFilter)
++against the filter, as described in the documentation for the `https://developer.android.com/reference/android/content/IntentFilter`
+ class.
+ 
+ Your application can use intent matching in a manner similar to what the Home app does.
+-The [PackageManager](https://developer.android.com/reference/android/content/pm/PackageManager) has a set of `query...()`
++The `https://developer.android.com/reference/android/content/pm/PackageManager` has a set of `query...()`
+ methods that return all components that can accept a particular intent and
+ a similar series of `resolve...()` methods that determine the best
+ component to respond to an intent. For example,
+-[queryIntentActivities()](https://developer.android.com/reference/android/content/pm/PackageManager#queryIntentActivities(android.content.Intent, int)) returns a list of all activities that can perform
+-the intent passed as an argument, and [queryIntentServices()](https://developer.android.com/reference/android/content/pm/PackageManager#queryIntentServices(android.content.Intent, int)) returns a similar list of services.
++`https://developer.android.com/reference/android/content/pm/PackageManager#queryIntentActivities(android.content.Intent, int)` returns a list of all activities that can perform
++the intent passed as an argument, and `https://developer.android.com/reference/android/content/pm/PackageManager#queryIntentServices(android.content.Intent, int)` returns a similar list of services.
+ Neither method activates the components; they just list the ones that
+ can respond. There's a similar method,
+-[queryBroadcastReceivers()](https://developer.android.com/reference/android/content/pm/PackageManager#queryBroadcastReceivers(android.content.Intent, int)), for broadcast receivers.
+\ No newline at end of file
++`https://developer.android.com/reference/android/content/pm/PackageManager#queryBroadcastReceivers(android.content.Intent, int)`, for broadcast receivers.
+\ No newline at end of file

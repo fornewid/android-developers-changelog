@@ -1,0 +1,15 @@
+diff --git a/docs/guide/topics/permissions/defining.md b/docs/guide/topics/permissions/defining.md
+index cbf2a14..36cdbe7 100644
+--- a/docs/guide/topics/permissions/defining.md
++++ b/docs/guide/topics/permissions/defining.md
+@@ -76,7 +76,9 @@ ID and isn't normally accessible to other packages.
+ 
+ For more information about Android's security model, see [Android Security
+ Overview](https://source.android.com/tech/security/index.html).
+-| **Warning:** The `https://developer.android.com/guide/topics/manifest/manifest-element#uid` attribute in the `AndroidManifest.xml` file's [`<manifest>`](https://developer.android.com/guide/topics/manifest/manifest-element) tag for each package can be used to have multiple packages assigned the same user ID. However, shared user IDs cause non-deterministic behavior within the package manager. As such, their use is strongly discouraged and may be removed in a future version of Android. Instead, apps should use proper communication mechanisms, such as services and content providers, to facilitate interoperability between shared components. Note that existing apps can't remove this value, because migrating off a shared user ID is not supported.
++
++> [!WARNING]
++> **Warning:** The `https://developer.android.com/guide/topics/manifest/manifest-element#uid` attribute in the `AndroidManifest.xml` file's [`<manifest>`](https://developer.android.com/guide/topics/manifest/manifest-element) tag for each package can be used to have multiple packages assigned the same user ID. However, shared user IDs cause non-deterministic behavior within the package manager. As such, their use is strongly discouraged and may be removed in a future version of Android. Instead, apps should use proper communication mechanisms, such as services and content providers, to facilitate interoperability between shared components. Note that existing apps can't remove this value, because migrating off a shared user ID is not supported.
+ 
+ ## Define and enforce permissions
+ 

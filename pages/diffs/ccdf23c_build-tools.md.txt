@@ -1,0 +1,22 @@
+diff --git a/docs/tools/releases/build-tools.md b/docs/tools/releases/build-tools.md
+index 4b60428..d6247a6 100644
+--- a/docs/tools/releases/build-tools.md
++++ b/docs/tools/releases/build-tools.md
+@@ -14,7 +14,7 @@ using the [Android SDK Manager](https://developer.android.com/studio/intro/updat
+ your project automatically uses a default version of the build tools that the plugin specifies. To
+ use a different version of the build tools, specify it using
+ [`buildToolsVersion`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.AppExtension.html#com.android.build.gradle.AppExtension:buildToolsVersion)
+-in your module's `build.gradle`, as follows:  
++in your module's `build.gradle`, as follows:
+ 
+ ### Groovy
+ 
+@@ -113,7 +113,7 @@ following updates to the tool:
+ 
+ - Adds PKCS #11 support to allow signing with keys held in secure hardware. ([Issue #37140484](https://issuetracker.google.com/issues/37140484))
+ - Adds support for loading additional [JCA Providers](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html#Provider) before signing.
+-- Honors [android:targetSandboxVersion](https://developer.android.com/reference/android/R.attr#targetSandboxVersion) when verifying APKs.
++- Honors `https://developer.android.com/reference/android/R.attr#targetSandboxVersion` when verifying APKs.
+ - When signing, rejects APKs with files that include 'CR' (carriage return), 'LF' (line feed), or 'NUL' (null) special characters in the file name.
+ - Fixes `apksigner.bat` to correctly handle parameters containing spaces. ([Issue #38132450](https://issuetracker.google.com/issues/38132450))
+ - Fixes a bug in JAR signature verification when multiple digests are present for the same entry in `MANIFEST.MF`. ([Issue #38497270](https://issuetracker.google.com/issues/38497270))

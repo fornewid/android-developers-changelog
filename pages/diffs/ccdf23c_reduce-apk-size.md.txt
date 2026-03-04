@@ -1,0 +1,150 @@
+diff --git a/docs/topic/performance/reduce-apk-size.md b/docs/topic/performance/reduce-apk-size.md
+index 395455a..de06d8c 100644
+--- a/docs/topic/performance/reduce-apk-size.md
++++ b/docs/topic/performance/reduce-apk-size.md
+@@ -24,8 +24,10 @@ size restriction](https://developer.android.com/guide/app-bundle#size_restrictio
+ are possible using Play Feature Delivery and Play Asset Delivery but increasing your app's size can
+ negatively impact install success and increase uninstalls, so we recommend you apply the
+ guidelines described in this page to reduce your app's download size as much as possible.
+-| **Note:** For apps you publish to Google Play by uploading signed APKs, **compressed downloads
+-| are restricted to 100 MB**.
++
++> [!NOTE]
++> **Note:** For apps you publish to Google Play by uploading signed APKs, **compressed downloads
++> are restricted to 100 MB**.
+ 
+ ## Understand the APK structure
+ 
+@@ -36,13 +38,17 @@ files include Java class files, resource files, and a file containing compiled r
+ An APK contains the following directories:
+ 
+ - `META-INF/`: contains the `CERT.SF` and `CERT.RSA` signature files, as well as the `MANIFEST.MF` manifest file.
+-- `assets/`: contains the app's assets, which the app can retrieve using an [AssetManager](https://developer.android.com/reference/android/content/res/AssetManager) object.
++- `assets/`: contains the app's assets, which the app can retrieve using an `https://developer.android.com/reference/android/content/res/AssetManager` object.
+ - `res/`: contains resources that aren't compiled into `resources.arsc`.
+ - `lib/`: contains the compiled code that is specific to the software layer of a processor. This directory contains a subdirectory for each platform type, such as `armeabi`, `armeabi-v7a`, `arm64-v8a`, `x86`, `x86_64`, and `mips`.
+ 
+ An APK also contains the following files. Only `AndroidManifest.xml` is mandatory:
+ 
+-- `resources.arsc`: contains compiled resources. This file contains the XML content from all configurations of the `res/values/` folder. The packaging tool extracts this XML content, compiles it to binary form, and archives the content. This content includes language strings and styles, as well as paths to content that isn't included directly in the `resources.arsc` file, such as layout files and images. **Note:** Don't compress this file in your APK.
++- `resources.arsc`: contains compiled resources. This file contains the XML content from all configurations of the `res/values/` folder. The packaging tool extracts this XML content, compiles it to binary form, and archives the content. This content includes language strings and styles, as well as paths to content that isn't included directly in the `resources.arsc` file, such as layout files and images.
++
++  > [!NOTE]
++  > **Note:** Don't compress this file in your APK.
++
+ - `classes.dex`: contains the classes compiled in the DEX file format understood by the Dalvik or ART virtual machine.
+ - `AndroidManifest.xml`: contains the core Android manifest file. This file lists the name, version, access rights, and referenced library files of the app. The file uses Android's binary XML format.
+ 
+@@ -52,7 +58,7 @@ The size of your APK has an impact on how fast your app loads, how much memory i
+ much power it consumes. You can make your APK smaller by reducing the number and size of the
+ resources it contains. In particular, you can remove resources that your app no longer uses, and you
+ can use scalable
+-[Drawable](https://developer.android.com/reference/android/graphics/drawable/Drawable) objects in
++`https://developer.android.com/reference/android/graphics/drawable/Drawable` objects in
+ place of image files. This section discusses these methods and other ways you can reduce the
+ resources in your app to decrease the overall size of your APK.
+ 
+@@ -61,18 +67,20 @@ resources in your app to decrease the overall size of your APK.
+ The [`lint`](https://developer.android.com/studio/write/lint) tool---a static code analyzer
+ included in Android Studio---detects resources in your `res/` folder that your code
+ doesn't reference. When the `lint` tool discovers a potentially unused resource in your
+-project, it prints a message like the following example:  
++project, it prints a message like the following example:
+ 
+ ```
+ res/layout/preferences.xml: Warning: The resource R.layout.preferences appears
+     to be unused [UnusedResources]
+ ```
+-| **Note:** The `lint` tool doesn't scan the `assets/` folder, assets that are referenced via reflection, or library files that you link to your app. Also, it doesn't remove resources. It only alerts you to their presence.
++
++> [!NOTE]
++> **Note:** The `lint` tool doesn't scan the `assets/` folder, assets that are referenced via reflection, or library files that you link to your app. Also, it doesn't remove resources. It only alerts you to their presence.
+ 
+ Libraries that you add to your code might include unused resources. Gradle can automatically
+ remove resources on your behalf if you enable
+ [`shrinkResources`](https://developer.android.com/studio/build/shrink-code#shrink-resources) in your
+-app's `build.gradle.kts` file.  
++app's `build.gradle.kts` file.
+ 
+ ### Kotlin
+ 
+@@ -114,7 +122,7 @@ APK size, see [Shrink, obfuscate, and optimize your app](https://developer.andro
+ 
+ In Android Gradle Plugin 7.0 and later, you can declare the configurations that your app
+ supports. Gradle passes this information to the build system using the
+-[resourceConfigurations](https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/dsl/BaseFlavor#resourceConfigurations())
++`https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/dsl/BaseFlavor#resourceConfigurations()`
+ flavor and the `defaultConfig` option. The build system then prevents resources from
+ other unsupported configurations from appearing in the APK, reducing the APK's size. For more
+ information about this feature, see
+@@ -133,12 +141,14 @@ If a library is designed for a server or desktop, it can include many objects an
+ your app doesn't need. To include only the parts of the library that your app needs, you can edit
+ the library's files if the license lets you modify the library. You can also use an alternative,
+ mobile-friendly library to add specific functionality to your app.
+-| **Note:** You can use [code shrinking](https://developer.android.com/studio/build/shrink-code) to clean up some of a library's unnecessary code, but it might not remove some large internal dependencies.
++
++> [!NOTE]
++> **Note:** You can use [code shrinking](https://developer.android.com/studio/build/shrink-code) to clean up some of a library's unnecessary code, but it might not remove some large internal dependencies.
+ 
+ ### Native animated image decoding
+ 
+ In Android 12 (API level 31), the NDK
+-[ImageDecoder](https://developer.android.com/ndk/reference/group/image-decoder) API is expanded to decode
++`https://developer.android.com/ndk/reference/group/image-decoder` API is expanded to decode
+ all frames and timing data from images that use the animated GIF and animated WebP file formats.
+ 
+ Use `ImageDecoder` instead of third-party libraries to further
+@@ -146,7 +156,7 @@ Use `ImageDecoder` instead of third-party libraries to further
+ updates related to security and performance.
+ 
+ For more details about the `ImageDecoder` API, refer to the
+-[API reference](https://developer.android.com/ndk/reference/group/image-decoder) and the
++`https://developer.android.com/ndk/reference/group/image-decoder` and the
+ [sample
+ on GitHub](https://github.com/android/ndk-samples/tree/develop/webp/image-decoder).
+ 
+@@ -195,7 +205,7 @@ Android provides several utilities to change the color of an asset, either using
+ 
+ You can also omit resources that are only a rotated equivalent of another resource. The following
+ code snippet provides an example of turning a "thumb up" into a "thumb down" by pivoting at the
+-middle of the image and rotating it 180 degrees:  
++middle of the image and rotating it 180 degrees:
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -222,7 +232,7 @@ The `aapt` has the following limitations:
+ 
+ - The `aapt` tool doesn't shrink PNG files contained in the `asset/` folder.
+ - Image files need to use 256 or fewer colors for the `aapt` tool to optimize them.
+-- The `aapt` tool might inflate PNG files that are already compressed. To prevent this, you can use the `isCrunchPngs` flag to disable this process for PNG files:  
++- The `aapt` tool might inflate PNG files that are already compressed. To prevent this, you can use the `isCrunchPngs` flag to disable this process for PNG files:
+ 
+ ### Kotlin
+ 
+@@ -267,7 +277,7 @@ For more information, see [Create WebP images](https://developer.android.com/stu
+ You can use vector graphics to create resolution-independent icons and other scalable media.
+ You can use these graphics to greatly reduce your APK footprint. Vector images are represented in
+ Android as
+-[VectorDrawable](https://developer.android.com/reference/android/graphics/drawable/VectorDrawable)
++`https://developer.android.com/reference/android/graphics/drawable/VectorDrawable`
+ objects. With a `VectorDrawable` object, a 100-byte file can generate a sharp image the
+ size of the screen.
+ 
+@@ -281,7 +291,7 @@ For more information about working with `VectorDrawable` objects, see
+ ### Use vector graphics for animated images
+ 
+ Don't use
+-[AnimationDrawable](https://developer.android.com/reference/android/graphics/drawable/AnimationDrawable)
++`https://developer.android.com/reference/android/graphics/drawable/AnimationDrawable`
+ to create frame-by-frame animations, because doing so requires that you include a separate bitmap
+ file for each frame of the animation, which drastically increases the size of your APK.
+ 
+@@ -327,7 +337,7 @@ When building the release version of your app, package uncompressed `.so` files
+ APK by setting
+ [`useLegacyPackaging`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/JniLibsPackagingOptions#uselegacypackaging)
+ to `false` in your app's `build.gradle.kts` file. Disabling this flag prevents
+-[PackageManager](https://developer.android.com/reference/android/content/pm/PackageManager) from
++`https://developer.android.com/reference/android/content/pm/PackageManager` from
+ copying `.so` files from the APK to the filesystem during installation. This method makes
+ updates of your app smaller.
+ 

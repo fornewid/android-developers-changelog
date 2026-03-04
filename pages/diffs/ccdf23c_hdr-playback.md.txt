@@ -1,0 +1,26 @@
+diff --git a/docs/media/grow/hdr-playback.md b/docs/media/grow/hdr-playback.md
+index 900100f..b83014a 100644
+--- a/docs/media/grow/hdr-playback.md
++++ b/docs/media/grow/hdr-playback.md
+@@ -56,7 +56,9 @@ if (!capabilities.contains(HDR_TYPE_HLG)) {
+ If your app uses [ExoPlayer](https://exoplayer.dev/), it supports HDR playback by default. See [Check for HDR playback support](https://developer.android.com/media/grow/hdr-playback#check_for_hdr_playback_support) for next steps.
+ 
+ If your app does not use ExoPlayer, set up HDR playback using `MediaCodec` via `SurfaceView`.
+-| **Note:** HDR playback has limited support on [`TextureView`](https://developer.android.com/reference/android/view/TextureView) in Android 13 (API layer 33) and higher. When playing back HDR video content, `TextureView` transcodes the video from HDR to SDR, resulting in playback with possible loss of detail including clipped colors and video banding. If at all possible, you should use `SurfaceView` for HDR playback.
++
++> [!NOTE]
++> **Note:** HDR playback has limited support on [`TextureView`](https://developer.android.com/reference/android/view/TextureView) in Android 13 (API layer 33) and higher. When playing back HDR video content, `TextureView` transcodes the video from HDR to SDR, resulting in playback with possible loss of detail including clipped colors and video banding. If at all possible, you should use `SurfaceView` for HDR playback.
+ 
+ ### Set up MediaCodec using SurfaceView
+ 
+@@ -168,7 +170,9 @@ codec.release();
+ ```
+ 
+ For more `MediaCodec` implementations using `SurfaceView`, see the [Android Camera samples](https://github.com/android/camera-samples).
+-| **Note:** Android takes screenshots in SDR. HDR content is tonemapped to SDR in screenshots.
++
++> [!NOTE]
++> **Note:** Android takes screenshots in SDR. HDR content is tonemapped to SDR in screenshots.
+ 
+ ## Resources
+ 

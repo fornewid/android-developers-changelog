@@ -1,0 +1,83 @@
+diff --git a/docs/topic/performance/measuring-performance.md b/docs/topic/performance/measuring-performance.md
+index 64395a4..04e0c1f 100644
+--- a/docs/topic/performance/measuring-performance.md
++++ b/docs/topic/performance/measuring-performance.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/performance/measuring-performance
+ source: md.txt
+ ---
+ 
++[Video](https://www.youtube.com/watch?v=8ORC7SeYF5E)
++
+ This document helps you to identify and fix key performance issues in your app.
+ 
+ ## Key performance issues
+@@ -136,7 +138,8 @@ of work of \>0.1ms can give significant insights into bottlenecks.
+ 
+ ### APK considerations
+ 
+-| **Caution:** Don't measure performance on a [debug build](https://developer.android.com/studio/debug#enable-debug).
++> [!CAUTION]
++> **Caution:** Don't measure performance on a [debug build](https://developer.android.com/studio/debug#enable-debug).
+ 
+ Debug variants can be helpful for troubleshooting and symbolizing stack samples,
+ but they have severe impacts on performance. Devices running Android 10 (API
+@@ -154,14 +157,16 @@ the configuration you're running tests on.
+ simplicity, or `speed-profile` for more closely matching production performance
+ (though this requires warming up the application and dumping profiles, or
+ compiling the app's baseline profiles).
+-| **Note:** It is recommended to use [Macrobenchmark to measure compilation states](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview#compilationmode) more closely matching production, as it automates non-trivial setup steps.
++
++> [!NOTE]
++> **Note:** It is recommended to use [Macrobenchmark to measure compilation states](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview#compilationmode) more closely matching production, as it automates non-trivial setup steps.
+ 
+ Both `speed` and `speed-profile` reduce the amount of code running
+ interpreted from dex, and consequently the amount of background just-in-time
+ (JIT) compilation which can cause significant interference. Only `speed-profile`
+ reduces the impact of runtime class loading from dex.
+ 
+-The following command compiles the application using the `speed` mode:  
++The following command compiles the application using the `speed` mode:
+ 
+     adb shell cmd package compile -m speed -f com.example.packagename
+ 
+@@ -170,7 +175,7 @@ The `speed` compilation mode compiles the app's methods completely. The
+ profile of the utilized code paths that is collected during app usage. It can be
+ difficult to collect profiles consistently and correctly, so if you decide to
+ use them, confirm they are collecting what you expect. The profiles are located
+-in the following location:  
++in the following location:
+ 
+     /data/misc/profiles/ref/[package-name]/primary.prof
+ 
+@@ -208,7 +213,9 @@ This can happen both in a notification entrypoint and a regular app startup
+ entrypoint, and you can often address it by refactoring. For example, if you're
+ using this activity to perform setup before another activity runs, factor this
+ code out into a reusable component or library.
+-| **Note:** To improve app performance and UX, apps that target Android 12 or higher can't start activities from [services](https://developer.android.com/guide/components/services) or [broadcast receivers](https://developer.android.com/guide/components/broadcasts) that are used as trampolines into an activity.
++
++> [!NOTE]
++> **Note:** To improve app performance and UX, apps that target Android 12 or higher can't start activities from [services](https://developer.android.com/guide/components/services) or [broadcast receivers](https://developer.android.com/guide/components/broadcasts) that are used as trampolines into an activity.
+ 
+ ### Unnecessary allocations triggering frequent GCs
+ 
+@@ -292,7 +299,8 @@ data.
+ 
+ The following are different methods for debugging your app's performance. See
+ the following video for an overview of system tracing and using the Android
+-Studio profiler.  
++Studio profiler.
++[Video](https://www.youtube.com/watch?v=ktknfQykhXU)
+ 
+ ### Debug app startup with Systrace
+ 
+@@ -318,7 +326,9 @@ Some things to look for include the following:
+   app's critical path. If a necessary transaction is expensive, consider working
+   with the associated platform team to make improvements.
+ 
+-  | **Tip:** You can use `am trace-ipc start` to get more information about these calls. Disable it before resuming benchmarking, because it has significant overhead and otherwise persists until device restart.
++  > [!TIP]
++  > **Tip:** You can use `am trace-ipc start` to get more information about these calls. Disable it before resuming benchmarking, because it has significant overhead and otherwise persists until device restart.
++
+ - Concurrent GC: this is common and relatively low impact, but if you're
+   experiencing it often, consider looking into it with the Android Studio memory
+   profiler.

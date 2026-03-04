@@ -1,0 +1,92 @@
+diff --git a/docs/media/media3/session/connect-to-media-app.md b/docs/media/media3/session/connect-to-media-app.md
+index c9cc503..1ee3cc1 100644
+--- a/docs/media/media3/session/connect-to-media-app.md
++++ b/docs/media/media3/session/connect-to-media-app.md
+@@ -30,7 +30,7 @@ player and media session live in a `Service` separate from the `Activity` or
+ 
+ To create a `MediaController`, start by creating a `SessionToken` for the
+ corresponding `MediaSession`. The `onStart()` method of your `Activity` or
+-`Fragment` can be a good place for this.  
++`Fragment` can be a good place for this.
+ 
+ ### Kotlin
+ 
+@@ -46,7 +46,7 @@ corresponding `MediaSession`. The `onStart()` method of your `Activity` or
+ 
+ Using this `SessionToken` to then build a `MediaController` connects the
+ controller to the given session. This takes place asynchronously, so you should
+-listen for the result and use it when available.  
++listen for the result and use it when available.
+ 
+ ### Kotlin
+ 
+@@ -66,8 +66,11 @@ listen for the result and use it when available.
+ 
+ <br />
+ 
+-| **Note:** Use `ContextCompat.getMainExecutor()` instead of `MoreExecutors.directExecutor()` in case you run your service in another process than the UI.
+-| **Note:** Apps targeting SDK level 30 or higher must include a `<queries>` element in their manifest to connect to a different app's `MediaSessionService` (or similar component). Refer to the [package visibility](https://developer.android.com/training/package-visibility) guide for further details.
++> [!NOTE]
++> **Note:** Use `ContextCompat.getMainExecutor()` instead of `MoreExecutors.directExecutor()` in case you run your service in another process than the UI.
++
++> [!NOTE]
++> **Note:** Apps targeting SDK level 30 or higher must include a `<queries>` element in their manifest to connect to a different app's `MediaSessionService` (or similar component). Refer to the [package visibility](https://developer.android.com/training/package-visibility) guide for further details.
+ 
+ ### Use a `MediaController`
+ 
+@@ -76,7 +79,9 @@ defined in the interface to control playback of the connected `MediaSession`.
+ This is to say that calling `play()` on a `MediaController` will send the
+ command to the connected `MediaSession`, which will subsequently delegate the
+ command to its underlying `Player`.
+-| **Tip:** A media controller implements the `Player` interface, and as such you can use it within your UI as a `Player`.
++
++> [!TIP]
++> **Tip:** A media controller implements the `Player` interface, and as such you can use it within your UI as a `Player`.
+ 
+ You can add a `Player.Listener` to the controller to listen for changes in the
+ `Player` state. Refer to the [Player events](https://developer.android.com/guide/topics/media/exoplayer/listening-to-player-events) guide for more details on using a
+@@ -90,7 +95,7 @@ session commands or [`onDisconnected()`](https://developer.android.com/reference
+ from the session.
+ 
+ A `MediaController.Listener` can be set when building the controller with a
+-`Builder`:  
++`Builder`:
+ 
+ ### Kotlin
+ 
+@@ -136,7 +141,7 @@ A `MediaController.Listener` can be set when building the controller with a
+ 
+ As with other components, remember to release the `MediaController` when it is
+ no longer needed, such as in the `onStop()` method of an `Activity` or
+-`Fragment`.  
++`Fragment`.
+ 
+ ### Kotlin
+ 
+@@ -180,7 +185,7 @@ app's `MediaLibraryService`.
+ ### Use a `MediaBrowser`
+ 
+ To start browsing the media app's content library, first retrieve the root node
+-with `getLibraryRoot()`:  
++with `getLibraryRoot()`:
+ 
+ ### Kotlin
+ 
+@@ -203,7 +208,7 @@ with `getLibraryRoot()`:
+ 
+ You can then navigate through the media library by retrieving the children of a
+ `MediaItem` in the library with `getChildren()`. For example, to retrieve the
+-children of the root node `MediaItem`:  
++children of the root node `MediaItem`:
+ 
+ ### Kotlin
+ 
+@@ -238,7 +243,7 @@ restrictions of your UI can do, and the [`resolve`](https://developer.android.co
+ provides a definite list of buttons to display with their icon, position and
+ intended action. If a user clicks one of these buttons, you can use
+ `CommandButton.executeAction` to trigger the associated action in the media
+-app.  
++app.
+ 
+ ### Kotlin
+ 

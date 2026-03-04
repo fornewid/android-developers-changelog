@@ -1,0 +1,103 @@
+diff --git a/docs/topic/performance/benchmarking/microbenchmark-write.md b/docs/topic/performance/benchmarking/microbenchmark-write.md
+index e80a45f..552da64 100644
+--- a/docs/topic/performance/benchmarking/microbenchmark-write.md
++++ b/docs/topic/performance/benchmarking/microbenchmark-write.md
+@@ -100,7 +100,7 @@ To perform one-off benchmarking, do the following:
+    about writing benchmarks, see [Create a Microbenchmark class](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#create-microbenchmark).
+ 
+    The following code snippet shows how to add a benchmark to an Instrumented
+-   test:  
++   test:
+ 
+    ### Kotlin
+ 
+@@ -144,7 +144,9 @@ To learn how to write a benchmark, skip to [Create a Microbenchmark class](https
+ To set up regular benchmarking rather than one-off benchmarking, isolate
+ benchmarks into their own module. This helps ensure that their configuration,
+ such as setting [`debuggable`](https://developer.android.com/guide/topics/manifest/application-element#debug) to `false`, is separate from regular tests.
+-| **Note:** If you don't separate your tests and benchmarks and you set `debuggable=false` for the module, you can't use the debugger and profiling tools with your tests.
++
++> [!NOTE]
++> **Note:** If you don't separate your tests and benchmarks and you set `debuggable=false` for the module, you can't use the debugger and profiling tools with your tests.
+ 
+ Because Microbenchmark runs your code directly, place the code you want to
+ benchmark into a separate Gradle module and set dependency on that module as
+@@ -154,7 +156,9 @@ shown in figure 1.
+ To add a new Gradle module, you can use the module wizard in Android Studio. The
+ wizard creates a module that is pre-configured for benchmarking, with a
+ benchmark directory added and `debuggable` set to `false`.
+-| **Note:** To enable [minification](https://developer.android.com/build/shrink-code) in library modules set `android.buildTypes.release.androidTest.enableMinification` to `true` in your `build.gradle.kts` or `build.gradle` file. Microbenchmarking with minification requires AGP 8.3 or higher.
++
++> [!NOTE]
++> **Note:** To enable [minification](https://developer.android.com/build/shrink-code) in library modules set `android.buildTypes.release.androidTest.enableMinification` to `true` in your `build.gradle.kts` or `build.gradle` file. Microbenchmarking with minification requires AGP 8.3 or higher.
+ 
+ 1. Right-click your project or module in the **Project** panel in Android
+    Studio and click **New \> Module**.
+@@ -171,7 +175,7 @@ benchmark directory added and `debuggable` set to `false`.
+ 
+ After the module is created, change its `build.gradle` or `build.gradle.kts`
+ file and add [`androidTestImplementation`](https://developer.android.com/training/testing/instrumented-tests#set-testing) to the module containing code to
+-benchmark:  
++benchmark:
+ 
+ ### Kotlin
+ 
+@@ -198,7 +202,7 @@ Benchmarks are standard instrumentation tests. To create a benchmark, use the
+ [`ActivityScenario`](https://developer.android.com/reference/androidx/test/core/app/ActivityScenario) or [`ActivityScenarioRule`](https://developer.android.com/reference/androidx/test/ext/junit/rules/ActivityScenarioRule). To benchmark UI code,
+ use [`@UiThreadTest`](https://developer.android.com/reference/androidx/test/annotation/UiThreadTest).
+ 
+-The following code shows a sample benchmark:  
++The following code shows a sample benchmark:
+ 
+ ### Kotlin
+ 
+@@ -241,7 +245,7 @@ class SampleBenchmark {
+ 
+ You can disable timing for sections of code you don't want to measure with the
+ [`runWithTimingDisabled{}`](https://developer.android.com/reference/kotlin/androidx/benchmark/junit4/BenchmarkRule.Scope#runWithTimingDisabled(kotlin.Function0)) block. These sections usually represent some
+-code which you need to run on each iteration of the benchmark.  
++code which you need to run on each iteration of the benchmark.
+ 
+ ### Kotlin
+ 
+@@ -320,11 +324,11 @@ gutter action next to your test class or method, as shown in figure 3.
+ ![Run Microbenchmark](https://developer.android.com/static/topic/performance/images/benchmark_images/microbenchmark_run.png) **Figure 3.** Run Microbenchmark test using the gutter action next to a test class.
+ 
+ Alternatively, from the command line, run the [`connectedCheck`](https://developer.android.com/studio/test/command-line) to run all
+-of the tests from specified Gradle module:  
++of the tests from specified Gradle module:
+ 
+     ./gradlew benchmark:connectedCheck
+ 
+-Or a single test:  
++Or a single test:
+ 
+     ./gradlew benchmark:connectedCheck -P android.testInstrumentationRunnerArguments.class=com.example.benchmark.SampleBenchmark#benchmarkSomeWork
+ 
+@@ -336,7 +340,7 @@ information is available in JSON format.
+ ![Microbenchmark results](https://developer.android.com/static/topic/performance/images/benchmark_images/microbenchmark_results.png) **Figure 4.** Microbenchmark results.
+ 
+ JSON reports and any profiling traces are also automatically copied from device
+-to host. These are written on the host machine in the following location:  
++to host. These are written on the host machine in the following location:
+ 
+     project_root/module/build/outputs/connected_android_test_additional_output/debugAndroidTest/connected/device_id/
+ 
+@@ -361,7 +365,7 @@ To suppress specific error types as warnings and prevent them from halting the
+ benchmark, pass the error type in a comma-separated list to the instrumentation
+ argument [`androidx.benchmark.suppressErrors`](https://developer.android.com/studio/profile/microbenchmark-instrumentation-args#suppresserrors).
+ 
+-You can set this from your Gradle script, as shown in the following example:  
++You can set this from your Gradle script, as shown in the following example:
+ 
+ ### Kotlin
+ 
+@@ -387,7 +391,7 @@ android {
+ 
+ <br />
+ 
+-You can also suppress errors from the command line:  
++You can also suppress errors from the command line:
+ 
+     $ ./gradlew :benchmark:connectedCheck -P andoidtestInstrumentationRunnerArguments.androidx.benchmark.supperssErrors=DEBUGGABLE,LOW-BATTERY
+ 

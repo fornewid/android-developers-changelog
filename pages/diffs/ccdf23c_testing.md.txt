@@ -1,0 +1,29 @@
+diff --git a/docs/training/package-visibility/testing.md b/docs/training/package-visibility/testing.md
+index 411d78a..21b521a 100644
+--- a/docs/training/package-visibility/testing.md
++++ b/docs/training/package-visibility/testing.md
+@@ -31,17 +31,19 @@ To discover more details about how the default visibility of apps affects your
+ app, you can enable log messages for package filtering. If you're developing a
+ test app or debuggable app in Android Studio, the [system log provides this
+ capability](https://developer.android.com/studio/debug#systemLog) for you. Otherwise, you can run the
+-following command in a terminal window to enable it manually:  
++following command in a terminal window to enable it manually:
+ 
+ ```
+ adb shell pm log-visibility --enable PACKAGE_NAME
+ ```
+ 
+ Then, whenever packages are filtered out of a `PackageManager` object's return
+-values, you see a message similar to the following in Logcat:  
++values, you see a message similar to the following in Logcat:
+ 
+ ```
+ I/AppsFilter: interaction: PackageSetting{7654321 \
+   com.example.myapp/12345} -> PackageSetting{...} BLOCKED
+ ```
+-| **Caution:** Your app's performance is affected when this flag is enabled. Unless you're testing how package visibility affects your app, disable the logging of messages related to package visibility.
+\ No newline at end of file
++
++> [!CAUTION]
++> **Caution:** Your app's performance is affected when this flag is enabled. Unless you're testing how package visibility affects your app, disable the logging of messages related to package visibility.
+\ No newline at end of file

@@ -1,0 +1,35 @@
+diff --git a/docs/work/versions/android-11.md b/docs/work/versions/android-11.md
+index 5158d0d..dd51167 100644
+--- a/docs/work/versions/android-11.md
++++ b/docs/work/versions/android-11.md
+@@ -50,7 +50,7 @@ device features. In Android 11, device manufacturers can present
+ work and personal tabs:
+ 
+ - In the Settings app, specifically for Location, Storage, Accounts, and App info.
+-- When a user taps Share share.
++- When a user taps Share .
+ - When a user is presented with the option to open a selected item with another app (*Open with* menu).
+ - When selecting documents.
+ 
+@@ -92,7 +92,8 @@ Term Keys, and Wi-Fi configuration stores.
+ 
+ ### Individual key attestation support
+ 
+-| **Note:** This feature is only available for devices with a [StrongBox security chip](https://developer.android.com/training/articles/keystore#HardwareSecurityModule).
++> [!NOTE]
++> **Note:** This feature is only available for devices with a [StrongBox security chip](https://developer.android.com/training/articles/keystore#HardwareSecurityModule).
+ 
+ In Android 11, admins of company-owned devices can [request device attestation](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#generateKeyPair(android.content.ComponentName,%20java.lang.String,%20android.security.keystore.KeyGenParameterSpec,%20int)) using individual attestation certificates:
+ 
+@@ -115,7 +116,10 @@ A new method is also available to [check if a device supports unique device ID a
+   For example, VPN apps that run as a background service can use this feature to
+   gain access to the certificates they need without requiring any user
+   interaction. A new method is also available to revoke access.
+-  | **Note:** Apps installed on unmanaged devices or in a device's personal profile can no longer install CA certificates using [`createInstallIntent()`](https://developer.android.com/reference/android/security/KeyChain#createInstallIntent()). Instead, users must manually install CA certificates in **Settings**.
++
++  > [!NOTE]
++  > **Note:** Apps installed on unmanaged devices or in a device's personal profile can no longer install CA certificates using [`createInstallIntent()`](https://developer.android.com/reference/android/security/KeyChain#createInstallIntent()). Instead, users must manually install CA certificates in **Settings**.
++
+ - [All methods related to setting password minimums](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumLength(android.content.ComponentName,%20int))
+   require an appropriate [password quality](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordQuality(android.content.ComponentName,%20int)) before they can be enforced.
+ 

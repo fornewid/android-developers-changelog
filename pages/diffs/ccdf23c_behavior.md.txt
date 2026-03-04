@@ -1,0 +1,65 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/behavior.md b/docs/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/behavior.md
+index 9b94694..0c725c1 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/behavior.md
++++ b/docs/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/behavior.md
+@@ -65,13 +65,21 @@ standard style and renders only common fields such as the [content title](https:
+ Besides the notification's style, a notification must also meet the following
+ criteria to be bridged to AI glasses:
+ 
+-1. The notification is assigned to a channel with [`IMPORTANCE_HIGH`](https://developer.android.com/reference/kotlin/android/app/NotificationManager#importance_high) or [`IMPORTANCE_MAX`](https://developer.android.com/reference/kotlin/android/app/NotificationManager#importance_max).
+-2. The [notification's title](https://developer.android.com/reference/kotlin/android/app/Notification#extra_title) isn't `null` or empty.
+-3. The notification isn't marked with [`FLAG_LOCAL_ONLY`](https://developer.android.com/reference/kotlin/android/app/Notification#flag_local_only). If this flag is set, the notification is restricted to the primary device.
+-4. The notification isn't an [ongoing notification](https://developer.android.com/reference/kotlin/android/app/Notification.Builder#setongoing), such as a persistent background task, unless it [qualifies as a Live Update notification](https://developer.android.com/develop/ui/views/notifications/live-update).
+-5. The notification isn't subject to any of the following user-controlled
++1. The notification isn't subject to **any** of the following user-controlled
+    settings that would prevent its delivery:
+ 
++   - **Glasses companion app settings**:
++
++     - App-level toggle: By default, **app notifications are toggled off**
++       in the Glasses app to help users purposefully
++       decide which notifications are bridged to their AI glasses.
++
++       This default behavior lets a user leave notifications
++       enabled on their phone for a certain app, but disable them for that
++       app on their AI glasses. To help a user decide whether to enable
++       notifications for your app in the Glasses app,
++       explain how notifications would improve their experience with your
++       app.
+    - **System-level notification settings on the user's phone**:
+ 
+      - App-level toggle: If a user disables notifications entirely for an
+@@ -81,22 +89,21 @@ criteria to be bridged to AI glasses:
+        an [app-defined notification channel](https://developer.android.com/develop/ui/views/notifications/channels), no notifications for
+        that channel are bridged.
+ 
+-   - **Glasses companion app settings**:
+-
+-     - App-level toggle: If a user disables notifications entirely for an
+-       app through the Glasses app, no notifications for
+-       that app are bridged. This means a user can leave notifications
+-       enabled on their phone for a certain app, but disable them for that
+-       app on their AI glasses.
+-
+-     - Conversation detection: If a user enables conversation detection,
+-       notifications are suppressed whenever the system detects that the
+-       user is having a conversation.
+-
+    - **System-level Do Not Disturb (DND) settings on the user's phone**: AI
+      glasses use the phone's DND settings. If the user's phone is in DND
+      mode, notifications are also suppressed on the user's glasses.
+ 
++2. The notification is assigned to a channel with [`IMPORTANCE_HIGH`](https://developer.android.com/reference/kotlin/android/app/NotificationManager#importance_high) or
++   [`IMPORTANCE_MAX`](https://developer.android.com/reference/kotlin/android/app/NotificationManager#importance_max).
++
++3. The [notification's title](https://developer.android.com/reference/kotlin/android/app/Notification#extra_title) isn't `null` or empty.
++
++4. The notification isn't marked with [`FLAG_LOCAL_ONLY`](https://developer.android.com/reference/kotlin/android/app/Notification#flag_local_only). If this flag is
++   set, the notification is restricted to the primary device.
++
++5. The notification isn't an [ongoing notification](https://developer.android.com/reference/kotlin/android/app/Notification.Builder#setongoing), such as a persistent
++   background task, unless it [qualifies as a Live Update notification](https://developer.android.com/develop/ui/views/notifications/live-update).
++
+ ## How Live Update notifications are bridged to AI glasses
+ 
+ [Live Update notifications](https://developer.android.com/develop/ui/views/notifications/live-update) are a specialized class of notifications designed

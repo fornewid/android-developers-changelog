@@ -1,0 +1,42 @@
+diff --git a/docs/identity/autofill/ime-autofill.md b/docs/identity/autofill/ime-autofill.md
+index 5b2f933..7d82a2e 100644
+--- a/docs/identity/autofill/ime-autofill.md
++++ b/docs/identity/autofill/ime-autofill.md
+@@ -56,7 +56,7 @@ This section describes how to configure your IME to support inline autofill. If
+ your IME doesn't support inline autofill, the platform defaults to showing
+ autofill suggestions in a menu.
+ 
+-Your IME must [set the `supportsInlinedSuggestions` attribute to `true`](https://developer.android.com/guide/topics/text/creating-input-method):  
++Your IME must [set the `supportsInlinedSuggestions` attribute to `true`](https://developer.android.com/guide/topics/text/creating-input-method):
+ 
+     <input-method
+         xmlns:android="http://schemas.android.com/apk/res/android"
+@@ -71,7 +71,8 @@ following:
+ - \*\*An [`InlinePresentationSpec`](https://developer.android.com/reference/android/widget/inline/InlinePresentationSpec) for each suggestion, which defines how
+   the suggestion must be presented.
+ 
+-  | **Note:** If you provide fewer presentation specs than the number of suggestions requested, the last spec is used for all the excess suggestions. This means, for example, that if you provide only a single presentation spec, the suggestion provider uses that spec for all the suggestions.
++  > [!NOTE]
++  > **Note:** If you provide fewer presentation specs than the number of suggestions requested, the last spec is used for all the excess suggestions. This means, for example, that if you provide only a single presentation spec, the suggestion provider uses that spec for all the suggestions.
+ 
+ When the platform has suggestions, it calls your IME's
+ [`onInlineSuggestionsResponse()`](https://developer.android.com/reference/android/inputmethodservice/InputMethodService#onInlineSuggestionsResponse(android.view.inputmethod.InlineSuggestionsResponse)) method, passing an
+@@ -88,7 +89,7 @@ autofill. If your app doesn't support inline autofill, the platform defaults to
+ showing its autofill suggestions in a menu.
+ 
+ Your autofill service must [set the `supportsInlinedSuggestions` attribute to
+-`true`](https://developer.android.com/guide/topics/text/autofill-services):  
++`true`](https://developer.android.com/guide/topics/text/autofill-services):
+ 
+     <autofill-service
+         xmlns:android="http://schemas.android.com/apk/res/android"
+@@ -109,4 +110,6 @@ must obey the size constraints specified by the `InlineSuggestionsRequest`. To
+ return your suggestions to the IME, call [`Dataset.Builder.setValue()`](https://developer.android.com/reference/android/service/autofill/Dataset.Builder#setValue(android.view.autofill.AutofillId,%20android.view.autofill.AutofillValue,%20java.util.regex.Pattern,%20android.widget.RemoteViews,%20android.service.autofill.InlinePresentation)) once
+ for each suggestion. Android 11 provides versions of
+ `Dataset.Builder.setValue()` to support inline suggestions.
+-| **Note:** Although the IME is supposed to use the suggestions your service provides, this behavior isn't ensured.
+\ No newline at end of file
++
++> [!NOTE]
++> **Note:** Although the IME is supposed to use the suggestions your service provides, this behavior isn't ensured.
+\ No newline at end of file

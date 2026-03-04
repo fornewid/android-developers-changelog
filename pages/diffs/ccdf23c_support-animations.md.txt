@@ -1,0 +1,63 @@
+diff --git a/docs/guide/navigation/custom-back/support-animations.md b/docs/guide/navigation/custom-back/support-animations.md
+index 30608e9..60a636f 100644
+--- a/docs/guide/navigation/custom-back/support-animations.md
++++ b/docs/guide/navigation/custom-back/support-animations.md
+@@ -5,7 +5,7 @@ source: md.txt
+ ---
+ 
+ When using the system back APIs, you can opt in to receive in-app animations and
+-support custom transitions.  
++support custom transitions.
+ Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/guide/navigation/custom-back/pb-cross-activity-and-back-to-home (1).mp4) and watch it with a video player. **Video 1:**Predictive back animations
+ 
+ After opting in, your app displays animations for back-to-home, cross-activity,
+@@ -57,7 +57,9 @@ We expect most apps to use the backward compatible AndroidX APIs, but there are
+ also similar platform APIs within the
+ [`OnBackAnimationCallback`](https://developer.android.com/reference/kotlin/android/window/OnBackAnimationCallback)
+ interface available to test in Android 14 Developer Preview 1 and higher.
+-| **Note:** Learn how to [design custom in-app transitions and animations.](https://developer.android.com/design/ui/mobile/guides/patterns/predictive-back).
++
++> [!NOTE]
++> **Note:** Learn how to [design custom in-app transitions and animations.](https://developer.android.com/design/ui/mobile/guides/patterns/predictive-back).
+ 
+ #### Use the Progress APIs with AndroidX Transitions
+ 
+@@ -73,7 +75,7 @@ on Android 14 and later to create Predictive Back transitions.
+ 5. Finally, reset the state of the transition within `handleOnBackCancelled`.
+ 
+ The following video, Kotlin code, and XML demonstrate a custom transition
+-between two boxes implemented with `OnBackPressedCallback`:  
++between two boxes implemented with `OnBackPressedCallback`:
+ 
+ ```kotlin
+     class MyFragment : Fragment() {
+@@ -153,7 +155,7 @@ between two boxes implemented with `OnBackPressedCallback`:
+     }
+ }
+   
+-```  
++```
+ 
+     <?xml version="1.0" encoding="utf-8"?>
+     ...
+@@ -203,7 +205,8 @@ Activity animations in the following way:
+ - When specifying `OVERRIDE_TRANSITION_CLOSE`, the `enterAnim` is Activity A's
+   enter animation and the `exitAnim` is Activity B's exit animation.
+ 
+-  | **Note:** If `exitAnim` isn't set or is set to `0`, the default cross-activity predictive animation, shown in the preceding video, plays instead.
++  > [!NOTE]
++  > **Note:** If `exitAnim` isn't set or is set to `0`, the default cross-activity predictive animation, shown in the preceding video, plays instead.
+ 
+ ### Add support for Predictive Back with fragments
+ 
+@@ -260,7 +263,9 @@ For more information, see [the code sample](https://github.com/android/animation
+ Use the following table to understand what is controlled by`targetSdkVersion`
+ and `compileSdkVersion`, device version, dependencies,
+ manifest flags, and fragment flags. This table refers to code requirements.
+-| **Note:** In Android 15 and later, the developer option is no longer available. System animations such as back-to-home, cross-task, and cross-activity now appear for apps that have opted into the predictive back gesture.
++
++> [!NOTE]
++> **Note:** In Android 15 and later, the developer option is no longer available. System animations such as back-to-home, cross-task, and cross-activity now appear for apps that have opted into the predictive back gesture.
+ 
+ | Category | Animation | compileSdk | targetSdk | Device version | android:enableOnBackInvokedCallback | Dependency |
+ |---|---|---|---|---|---|---|
