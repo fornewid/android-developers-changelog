@@ -1,0 +1,54 @@
+diff --git a/docs/games/pgs/android/achievements.md b/docs/games/pgs/android/achievements.md
+index 6fbb34d..ffddb6c 100644
+--- a/docs/games/pgs/android/achievements.md
++++ b/docs/games/pgs/android/achievements.md
+@@ -4,8 +4,9 @@ url: https://developer.android.com/games/pgs/android/achievements
+ source: md.txt
+ ---
+ 
+-| **Note:** This guide is for the Play Games Services v2 SDK. For information about the previous version of this SDK, see the [Play Games Services v1
+-| documentation](https://developer.android.com/games/pgs/v1/android/achievements).
++> [!NOTE]
++> **Note:** This guide is for the Play Games Services v2 SDK. For information about the previous version of this SDK, see the [Play Games Services v1
++> documentation](https://developer.android.com/games/pgs/v1/android/achievements).
+ 
+ This guide shows you how to use the achievements APIs in an Android application
+ to unlock and display achievements in your game. The APIs can be found
+@@ -40,7 +41,9 @@ To start using the achievements API, your game must first obtain an
+ object. You can do this by calling the
+ [`Games.getAchievementClient()`](https://developers.google.com/android/reference/com/google/android/gms/games/AchievementsClient#public-abstract-taskintent-getachievementsintent)
+ method and passing in the activity.
+-| **Note:** The [`AchievementsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/AchievementsClient) class makes use of the Google Play services [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) class to return results asynchronously. To learn more about using tasks to manage threaded work, see the [Tasks API developer guide](https://developers.google.com/android/guides/tasks).
++
++> [!NOTE]
++> **Note:** The [`AchievementsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/AchievementsClient) class makes use of the Google Play services [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) class to return results asynchronously. To learn more about using tasks to manage threaded work, see the [Tasks API developer guide](https://developers.google.com/android/guides/tasks).
+ 
+ ## Unlock achievements
+ 
+@@ -50,7 +53,7 @@ method and pass in the achievement ID.
+ 
+ The following code snippet shows how your app can unlock achievements:
+ 
+-```scdoc
++```
+ PlayGames.getAchievementsClient(this).unlock(getString(R.string.my_achievement_id));
+ ```
+ 
+@@ -61,7 +64,7 @@ instead.
+ The following code snippet shows how your app can increment the player's
+ achievement:
+ 
+-```scdoc
++```
+ PlayGames.getAchievementsClient(this).increment(getString(R.string.my_achievement_id), 1);
+ ```
+ 
+@@ -89,7 +92,7 @@ The following code snippet shows how your app can display the default
+ achievement user interface. In the snippet, `RC_ACHIEVEMENT_UI` is an arbitrary
+ integer that the game uses as the request code.
+ 
+-```transact-sql
++```
+ private static final int RC_ACHIEVEMENT_UI = 9003;
+ 
+ private void showAchievements() {

@@ -1,0 +1,44 @@
+diff --git a/docs/training/data-storage/room/creating-views.md b/docs/training/data-storage/room/creating-views.md
+index 158dbcf..c843516 100644
+--- a/docs/training/data-storage/room/creating-views.md
++++ b/docs/training/data-storage/room/creating-views.md
+@@ -4,16 +4,23 @@ url: https://developer.android.com/training/data-storage/room/creating-views
+ source: md.txt
+ ---
+ 
+-# Create views into a database
++Version 2.1.0 and higher of the [Room persistence
++library](https://developer.android.com/training/data-storage/room) provides support for [SQLite database
++views](https://www.sqlite.org/lang_createview.html), allowing you
++to encapsulate a query into a class. Room refers to these query-backed classes
++as *views* , and they behave the same as simple data objects when used in a
++[DAO](https://developer.android.com/training/data-storage/room/accessing-data).
+ 
+-Version 2.1.0 and higher of the[Room persistence library](https://developer.android.com/training/data-storage/room)provides support for[SQLite database views](https://www.sqlite.org/lang_createview.html), allowing you to encapsulate a query into a class. Room refers to these query-backed classes as*views* , and they behave the same as simple data objects when used in a[DAO](https://developer.android.com/training/data-storage/room/accessing-data).
+-| **Note:** Like[entities](https://developer.android.com/training/data-storage/room/defining-data), you can run`SELECT`statements against views. However, you cannot run`INSERT`,`UPDATE`, or`DELETE`statements against views.
++> [!NOTE]
++> **Note:** Like [entities](https://developer.android.com/training/data-storage/room/defining-data), you can run `SELECT` statements against views. However, you cannot run `INSERT`, `UPDATE`, or `DELETE` statements against views.
+ 
+ ## Create a view
+ 
+-To create a view, add the[`@DatabaseView`](https://developer.android.com/reference/androidx/room/DatabaseView)annotation to a class. Set the annotation's value to the query that the class should represent.
++To create a view, add the
++[`@DatabaseView`](https://developer.android.com/reference/androidx/room/DatabaseView) annotation to a class.
++Set the annotation's value to the query that the class should represent.
+ 
+-The following code snippet provides an example of a view:  
++The following code snippet provides an example of a view:
+ 
+ ### Kotlin
+ 
+@@ -45,7 +52,9 @@ public class UserDetail {
+ 
+ ## Associate a view with your database
+ 
+-To include this view as part of your app's database, include the[`views`](https://developer.android.com/reference/androidx/room/Database#views)property in your app's`@Database`annotation:  
++To include this view as part of your app's database, include the
++[`views`](https://developer.android.com/reference/androidx/room/Database#views) property in your app's
++`@Database` annotation:
+ 
+ ### Kotlin
+ 

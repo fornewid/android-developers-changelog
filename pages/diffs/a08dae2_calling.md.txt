@@ -1,0 +1,25 @@
+diff --git a/docs/training/cars/communication/calling.md b/docs/training/cars/communication/calling.md
+index 7a9e63d..a1e67a6 100644
+--- a/docs/training/cars/communication/calling.md
++++ b/docs/training/cars/communication/calling.md
+@@ -19,7 +19,9 @@ app](https://developer.android.com/develop/connectivity/telecom/voip-app). In pa
+ described in [Remote surface support](https://developer.android.com/develop/connectivity/telecom/voip-app/telecom#remote-surface-support). Your app must also use
+ its telecom integration at all times, not just when a user's phone is running
+ Android Auto.
+-| **Important:** Additional requirements for your app's telecom integration will be provided in this guide soon.
++
++> [!IMPORTANT]
++> **Important:** Additional requirements for your app's telecom integration will be provided in this guide soon.
+ 
+ ## Build a templated calling experience
+ 
+@@ -61,7 +63,8 @@ filter of its [`CarAppService`](https://developer.android.com/reference/androidx
+         ...
+     <application>
+ 
+-| **Important:** If your app supports both calling and [messaging](https://developer.android.com/training/cars/communication/messaging), include both `androidx.car.app.category.CALLING` and `androidx.car.app.category.MESSAGING` `<category>` elements in the same intent filter.
++> [!IMPORTANT]
++> **Important:** If your app supports both calling and [messaging](https://developer.android.com/training/cars/communication/messaging), include both `androidx.car.app.category.CALLING` and `androidx.car.app.category.MESSAGING` `<category>` elements in the same intent filter.
+ 
+ ## Distribute calling apps
+ 

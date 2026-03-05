@@ -1,0 +1,42 @@
+diff --git a/docs/training/permissions/requesting-special.md b/docs/training/permissions/requesting-special.md
+index d6fca36..cba1a68 100644
+--- a/docs/training/permissions/requesting-special.md
++++ b/docs/training/permissions/requesting-special.md
+@@ -6,7 +6,7 @@ source: md.txt
+ 
+ A *special permission* guards access to system resources that are particularly
+ sensitive or not directly related to user privacy. These permissions are
+-different than [install-time permissions](https://developer.android.com/guide/topics/permissions/overview#install-time) and [runtime permissions](https://developer.android.com/guide/topics/permissions/overview#runtime).  
++different than [install-time permissions](https://developer.android.com/guide/topics/permissions/overview#install-time) and [runtime permissions](https://developer.android.com/guide/topics/permissions/overview#runtime).
+ ![Android system settings 'Special app access' screen, showing a list of apps and their special permission statuses.](https://developer.android.com/static/images/training/permissions/special-app-access.svg) **Figure 1.** The **Special app access** screen in system settings.
+ 
+ Some examples of special permissions include:
+@@ -18,7 +18,9 @@ Some examples of special permissions include:
+ Apps that declare a special permission are shown in the **Special app access**
+ page in system settings (figure 1). To grant a special permission to the app, a
+ user must navigate to this page: **Settings \> Apps \> Special app access**.
+-| **Note:** Use special permissions only in specific use cases. There may be policy implications to adding them in your app.
++
++> [!NOTE]
++> **Note:** Use special permissions only in specific use cases. There may be policy implications to adding them in your app.
+ 
+ ## Workflow
+ 
+@@ -47,7 +49,7 @@ page for a given special permission. After the user returns to the app, the app
+ can check if the permission has been granted in the `onResume()` function.
+ 
+ The following sample code shows how to request the
+-[`SCHEDULE_EXACT_ALARMS`](https://developer.android.com/reference/android/Manifest.permission#SCHEDULE_EXACT_ALARM) special permission from users:  
++[`SCHEDULE_EXACT_ALARMS`](https://developer.android.com/reference/android/Manifest.permission#SCHEDULE_EXACT_ALARM) special permission from users:
+ 
+     val alarmManager = getSystemService<AlarmManager>()!!
+     when {
+@@ -61,7 +63,7 @@ The following sample code shows how to request the
+        }
+     }
+ 
+-Sample code to check the permission and handle user decisions in `onResume()`:  
++Sample code to check the permission and handle user decisions in `onResume()`:
+ 
+     override fun onResume() {
+         // ...

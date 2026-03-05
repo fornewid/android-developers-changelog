@@ -1,0 +1,24 @@
+diff --git a/docs/training/testing/espresso/cheat-sheet.md b/docs/training/testing/espresso/cheat-sheet.md
+index 833e42c..6b6794b 100644
+--- a/docs/training/testing/espresso/cheat-sheet.md
++++ b/docs/training/testing/espresso/cheat-sheet.md
+@@ -4,10 +4,12 @@ url: https://developer.android.com/training/testing/espresso/cheat-sheet
+ source: md.txt
+ ---
+ 
+-# Espresso cheat sheet
++The Espresso Cheat Sheet is a quick reference you can use during development.
++This cheat sheet contains most available instances of `Matcher`, `ViewAction`,
++and `ViewAssertion`.
+ 
+-The Espresso Cheat Sheet is a quick reference you can use during development. This cheat sheet contains most available instances of`Matcher`,`ViewAction`, and`ViewAssertion`.
++![List of methods available for onView(), onData(), intended() and
++intending()](https://developer.android.com/static/images/training/testing/espresso-cheatsheet.png)
+ 
+-![List of methods available for onView(), onData(), intended() and intending()](https://developer.android.com/static/images/training/testing/espresso-cheatsheet.png)
+-
+-An offline version is also available in PDF format:[espresso-cheat-sheet-2.1.0.pdf](https://android.github.io/android-test/downloads/espresso-cheat-sheet-2.1.0.pdf).
+\ No newline at end of file
++An offline version is also available in PDF format:
++[espresso-cheat-sheet-2.1.0.pdf](https://android.github.io/android-test/downloads/espresso-cheat-sheet-2.1.0.pdf).
+\ No newline at end of file

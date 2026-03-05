@@ -1,0 +1,15 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk.md b/docs/develop/xr/jetpack-xr-sdk.md
+index 8004b12..079804b 100644
+--- a/docs/develop/xr/jetpack-xr-sdk.md
++++ b/docs/develop/xr/jetpack-xr-sdk.md
+@@ -79,8 +79,8 @@ UI in a spatial layout.
+ See [Develop UI with Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui) for detailed guidance.
+ ![Develop UI XR components orbiter generic example](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/index/develop-ui-xr-component-orbiter-generic.jpg)
+ 
+-Compose for XR introduces the [`Volume`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#Volume(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1)) subspace composable, which lets you
+-place [SceneCore](https://developer.android.com/develop/xr/jetpack-xr-sdk#jetpack-scenecore) entities, such as 3D models, relative to your UI.
++Compose for XR introduces the [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)) subspace composable, which
++lets you [place entities](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui#use-scenecoreentity), such as 3D models, relative to your UI.
+ 
+ Learn how to [spatialize your existing Android app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing) or view the API reference
+ for more detailed information.

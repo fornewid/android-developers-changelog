@@ -1,0 +1,59 @@
+diff --git a/docs/topic/performance/app-hibernation.md b/docs/topic/performance/app-hibernation.md
+index 51e6142..0ef6fba 100644
+--- a/docs/topic/performance/app-hibernation.md
++++ b/docs/topic/performance/app-hibernation.md
+@@ -60,7 +60,8 @@ considered to be user interactions:
+ - The user interacts with a notification, except for dismissing the
+   [notification](https://developer.android.com/guide/topics/ui/notifiers/notifications).
+ 
+-  | **Note:** If the user dismisses the notification and doesn't otherwise interact with the notification, this doesn't count as app usage.
++  > [!NOTE]
++  > **Note:** If the user dismisses the notification and doesn't otherwise interact with the notification, this doesn't count as app usage.
+ 
+ It should be noted that app usage for hibernation doesn't explicitly require
+ user interaction. As long as a component of the package is invoked, it is still
+@@ -70,7 +71,8 @@ considered app usage. Some examples of this include:
+ - Broadcast receivers in the package receiving an explicit broadcast from an
+   external package.
+ 
+-  | **Note:** This excludes usage that would not occur if the app is force stopped. For example, running a job does not count as usage even though the job service component is invoked.
++  > [!NOTE]
++  > **Note:** This excludes usage that would not occur if the app is force stopped. For example, running a job does not count as usage even though the job service component is invoked.
+ 
+ ### Non-examples
+ 
+@@ -123,9 +125,10 @@ your app does any of the following:
+ - Communicate with smart devices, such as a TV.
+ - Pair to companion devices, such as a watch.
+ 
+-| **Note:** If your app is a [device policy controller](https://developer.android.com/work/dpc/build-dpc) that implements [`DeviceAdminService`](https://developer.android.com/reference/android/app/admin/DeviceAdminService), runs in the [device owner or profile owner mode of
+-| operation](https://developers.google.com/android/work/play/emm-api/prov-devices#modes_of_operation), or is a [carrier-privileged
+-| app](https://source.android.com/devices/tech/config/carrier), the system never places your app into a hibernation state.
++> [!NOTE]
++> **Note:** If your app is a [device policy controller](https://developer.android.com/work/dpc/build-dpc) that implements [`DeviceAdminService`](https://developer.android.com/reference/android/app/admin/DeviceAdminService), runs in the [device owner or profile owner mode of
++> operation](https://developers.google.com/android/work/play/emm-api/prov-devices#modes_of_operation), or is a [carrier-privileged
++> app](https://source.android.com/devices/tech/config/carrier), the system never places your app into a hibernation state.
+ 
+ To request an exemption, complete the steps in the following sections.
+ 
+@@ -169,7 +172,9 @@ request to the user. To do so, complete these steps:
+ 
+ This code example shows how to check whether hibernation is enabled for your
+ app, and the correct way to ask users to disable hibernation for your app.
+-**Note:** This API can be used on a device running any version of Android, but it provides information for your app only if your app targets Android 11 or higher.  
++
++> [!NOTE]
++> **Note:** This API can be used on a device running any version of Android, but it provides information for your app only if your app targets Android 11 or higher.
+ 
+ ### Kotlin
+ 
+@@ -225,7 +230,8 @@ the following list shows how to use it:
+ 
+ ## Manually invoke hibernation behavior
+ 
+-| **Note:** If you test your app on a device that runs Android 11, you can skip several steps in this section. These steps are labeled "Android 12 and higher only".
++> [!NOTE]
++> **Note:** If you test your app on a device that runs Android 11, you can skip several steps in this section. These steps are labeled "Android 12 and higher only".
+ 
+ To test how your app behaves after the system places your app in a hibernation
+ state, complete the following steps:

@@ -1,0 +1,20 @@
+diff --git a/docs/training/cars/communication.md b/docs/training/cars/communication.md
+index bf77182..011f435 100644
+--- a/docs/training/cars/communication.md
++++ b/docs/training/cars/communication.md
+@@ -4,7 +4,10 @@ url: https://developer.android.com/training/cars/communication
+ source: md.txt
+ ---
+ 
+-# Build communication apps for Android Auto
++The communication category encompasses a variety of experiences that let users
++stay connected on the go with Android Auto. These include [notification-powered](https://developer.android.com/training/cars/communication/notification-messaging)
++and [templated](https://developer.android.com/training/cars/communication/templated-messaging) experiences for short-form text messaging, as well as [calling](https://developer.android.com/training/cars/communication/calling)
++experiences for apps that support making and receiving voice calls.
+ 
+-The communication category encompasses a variety of experiences that let users stay connected on the go with Android Auto. These include[notification-powered](https://developer.android.com/training/cars/communication/notification-messaging)and[templated](https://developer.android.com/training/cars/communication/templated-messaging)experiences for short-form text messaging, as well as[calling](https://developer.android.com/training/cars/communication/calling)experiences for apps that support making and receiving voice calls.
+-| **Tip:** Communication apps can support both messaging and calling experiences in the same app.
+\ No newline at end of file
++> [!TIP]
++> **Tip:** Communication apps can support both messaging and calling experiences in the same app.
+\ No newline at end of file

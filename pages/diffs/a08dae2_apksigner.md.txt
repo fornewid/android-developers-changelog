@@ -1,0 +1,126 @@
+diff --git a/docs/tools/apksigner.md b/docs/tools/apksigner.md
+index 1892d18..61845bc 100644
+--- a/docs/tools/apksigner.md
++++ b/docs/tools/apksigner.md
+@@ -27,7 +27,7 @@ your APK, use it before signing the APK.
+ 
+ 
+ The syntax for signing an APK using the `apksigner` tool is as
+-follows:  
++follows:
+ 
+ ```
+ apksigner sign --ks keystore.jks |
+@@ -47,7 +47,7 @@ two ways:
+ Usually, you sign an APK using only one signer. If you need to
+ sign an APK using multiple signers, use the `--next-signer` option
+ to separate the set of [general options](https://developer.android.com/tools/apksigner#options-sign-general) to
+-apply to each signer:  
++apply to each signer:
+ 
+ ```
+ apksigner sign [signer_1_options] --next-signer [signer_2_options] app-name.apk
+@@ -57,7 +57,7 @@ apksigner sign [signer_1_options] --next-signer [signer_2_options] app-name.apk
+ 
+ 
+ The syntax for confirming the successful verification of an APK's signature
+-on supported platforms is as follows:  
++on supported platforms is as follows:
+ 
+ ```
+ apksigner verify [options] app-name.apk
+@@ -66,7 +66,7 @@ apksigner verify [options] app-name.apk
+ ### Rotate signing keys
+ 
+ The syntax for rotating a *signing certificate lineage*, or a new sequence of
+-signatures, is as follows:  
++signatures, is as follows:
+ 
+ ```
+ $ apksigner rotate --in /path/to/existing/lineage \
+@@ -149,7 +149,7 @@ The following options specify basic settings to apply to a signer:
+ :   Determines whether `apksigner` signs the given APK package
+     using the [APK
+     Signature Scheme v4](https://developer.android.com/about/versions/11/features#signature-scheme-v4). This scheme
+-    produces a signature in a separate file (<var translate="no">apk-name</var>`.apk.idsig`).
++    produces a signature in a separate file (`apk-name.apk.idsig`).
+     If `true` and the APK is not signed, then a v2 or v3 signature
+     is generated based on the values of `--min-sdk-version` and
+     `--max-sdk-version`. The command then produces the
+@@ -335,28 +335,28 @@ The following are examples using `apksigner`.
+ 
+ 
+ Sign an APK using `release.jks`, which is the only key in the
+-KeyStore:  
++KeyStore:
+ 
+ ```
+ $ apksigner sign --ks release.jks app.apk
+ ```
+ 
+ 
+-Sign an APK using a private key and certificate stored as separate files:  
++Sign an APK using a private key and certificate stored as separate files:
+ 
+ ```
+ $ apksigner sign --key release.pk8 --cert release.x509.pem app.apk
+ ```
+ 
+ 
+-Sign an APK using two keys:  
++Sign an APK using two keys:
+ 
+ ```
+ $ apksigner sign --ks first-release-key.jks --next-signer --ks second-release-key.jks app.apk
+ ```
+ 
+ 
+-Sign an APK with a rotated signing key and the rotation targeting SDK version 28+:  
++Sign an APK with a rotated signing key and the rotation targeting SDK version 28+:
+ 
+ ```
+ $ apksigner sign --ks release.jks --next-signer --ks release2.jks \
+@@ -365,7 +365,7 @@ $ apksigner sign --ks release.jks --next-signer --ks release2.jks \
+ ```
+ 
+ 
+-Sign an APK with a rotated signing key and the rotation targeting SDK version 33+:  
++Sign an APK with a rotated signing key and the rotation targeting SDK version 33+:
+ 
+ ```
+ $ apksigner sign --ks release.jks --next-signer --ks release2.jks \
+@@ -376,7 +376,7 @@ $ apksigner sign --ks release.jks --next-signer --ks release2.jks \
+ 
+ 
+ Check whether the APK's signatures are expected to be confirmed as valid on
+-all Android platforms that the APK supports:  
++all Android platforms that the APK supports:
+ 
+ ```
+ $ apksigner verify app.apk
+@@ -384,7 +384,7 @@ $ apksigner verify app.apk
+ 
+ 
+ Check whether the APK's signatures are expected to be confirmed as valid on
+-Android 4.0.3 (API level 15) and higher:  
++Android 4.0.3 (API level 15) and higher:
+ 
+ ```
+ $ apksigner verify --min-sdk-version 15 app.apk
+@@ -392,14 +392,14 @@ $ apksigner verify --min-sdk-version 15 app.apk
+ 
+ ### Rotate signing keys
+ 
+-Enable a signing certificate lineage that supports key rotation:  
++Enable a signing certificate lineage that supports key rotation:
+ 
+ ```
+ $ apksigner rotate --out /path/to/new/file --old-signer \
+     --ks release.jks --new-signer --ks release2.jks
+ ```
+ 
+-Rotate your signing keys again:  
++Rotate your signing keys again:
+ 
+ ```
+ $ apksigner rotate --in /path/to/existing/lineage \

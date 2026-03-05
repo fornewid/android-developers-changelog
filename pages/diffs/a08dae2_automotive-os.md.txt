@@ -1,0 +1,76 @@
+diff --git a/docs/training/cars/platforms/automotive-os.md b/docs/training/cars/platforms/automotive-os.md
+index 2a2b2ec..91b0a87 100644
+--- a/docs/training/cars/platforms/automotive-os.md
++++ b/docs/training/cars/platforms/automotive-os.md
+@@ -10,7 +10,9 @@ Android Automotive OS is a version of Android optimized for in-car use that
+ extends upon the core Android platform. [Cars with Google built-in](https://built-in.google/cars/) run
+ Android Automotive OS and come with Google apps and services including Google
+ Play, Google Assistant, and Google Maps.
+-| **Note:** Android Automotive OS and [Android Auto](https://developer.android.com/training/cars/platforms/android-auto) are not exclusive. That is, a car can run Android Automotive OS and also support Android Auto.
++
++> [!NOTE]
++> **Note:** Android Automotive OS and [Android Auto](https://developer.android.com/training/cars/platforms/android-auto) are not exclusive. That is, a car can run Android Automotive OS and also support Android Auto.
+ 
+ ## Learn about Android Automotive OS hardware
+ 
+@@ -18,7 +20,9 @@ To learn more about the minimum hardware specifications for Android Automotive
+ OS devices, see the *Automotive Requirements* section of the [Android
+ Compatibility Definition Document (CDD)](https://source.android.com/docs/compatibility/cdd) for the Android version(s) your app
+ supports.
+-| **Note:** All vehicles with Google built-in run Android 9 or higher.
++
++> [!NOTE]
++> **Note:** All vehicles with Google built-in run Android 9 or higher.
+ 
+ ### Display cutouts
+ 
+@@ -43,7 +47,9 @@ impact the way that apps can be developed and used.
+ 
+ There are some differences in how these system UI elements function in cars that
+ you should be aware of.
+-| **Tip:** The [Android Automotive OS compatibility mode](https://developer.android.com/training/cars/platforms/automotive-os/compatibility-mode) present on some devices addresses many of the implications of these differences.
++
++> [!TIP]
++> **Tip:** The [Android Automotive OS compatibility mode](https://developer.android.com/training/cars/platforms/automotive-os/compatibility-mode) present on some devices addresses many of the implications of these differences.
+ 
+ #### Navigation
+ 
+@@ -105,7 +111,7 @@ unnecessarily restrict an app running on a passenger display.
+ By default, activities cannot be run while UX restrictions are
+ active to limit driver distractions. To indicate to the system that an activity
+ should continue running while the vehicle is motion, the following `<meta-data>`
+-element can be added within the corresponding `<activity>` element.  
++element can be added within the corresponding `<activity>` element.
+ 
+     <activity ...>
+       <meta-data android:name="distractionOptimized" android:value="true">
+@@ -144,7 +150,9 @@ guidance on using networks other than the default.
+ You can detect whether a given feature is available using
+ [`PackageManager::hasSystemFeature`](https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)) and adjust your app's behavior
+ accordingly.
+-| **Tip:** You can use the [Device catalog](https://play.google.com/console/about/devicecatalog/) in the Google Play Console to determine which vehicles support any given feature by using the *Form factor* filter with value *Car* combined with the *System feature* filter.
++
++> [!TIP]
++> **Tip:** You can use the [Device catalog](https://play.google.com/console/about/devicecatalog/) in the Google Play Console to determine which vehicles support any given feature by using the *Form factor* filter with value *Car* combined with the *System feature* filter.
+ 
+ ### Hardware features
+ 
+@@ -185,7 +193,7 @@ are not available on many Android Automotive OS vehicles:
+ To be distributed to cars through Google Play, apps built for Android Automotive
+ OS must include a [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) element in the
+ [`AndroidManifest.xml`](https://developer.android.com/guide/topics/manifest/manifest-intro) file for the `android.hardware.type.automotive`
+-feature:  
++feature:
+ 
+     <manifest ...>
+       ...
+@@ -209,7 +217,8 @@ requirements don't prevent its distribution to otherwise compatible vehicles:
+ - [`android.hardware.screen.landscape`](https://developer.android.com/guide/topics/manifest/uses-feature-element#screen-hw-features)
+ - [`android.hardware.camera`](https://developer.android.com/guide/topics/manifest/uses-feature-element#camera-hw-features)
+ 
+-| **Tip:** Use the [Merged Manifest view](https://developer.android.com/build/manage-manifests#inspect_the_merged_manifest_and_find_conflicts) when validating your app's feature requirements as dependencies can introduce requirements you might not be aware of.
++> [!TIP]
++> **Tip:** Use the [Merged Manifest view](https://developer.android.com/build/manage-manifests#inspect_the_merged_manifest_and_find_conflicts) when validating your app's feature requirements as dependencies can introduce requirements you might not be aware of.
+ 
+ For features explicitly declared with `android:required="true"`, you can do
+ one of the following:

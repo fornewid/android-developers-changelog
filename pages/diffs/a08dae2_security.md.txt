@@ -1,0 +1,140 @@
+diff --git a/docs/work/dpc/security.md b/docs/work/dpc/security.md
+index f152920..71ce4a5 100644
+--- a/docs/work/dpc/security.md
++++ b/docs/work/dpc/security.md
+@@ -70,7 +70,7 @@ To restrict app installs to Google Play, follow these steps:
+ 3. Add the [`ENSURE_VERIFY_APPS`](https://developer.android.com/reference/android/os/UserManager#ENSURE_VERIFY_APPS) user restriction.
+ 
+ The following example shows how you can check that Google Play supports this
+-setting and set the value to `true`:  
++setting and set the value to `true`:
+ 
+ ### Kotlin
+ 
+@@ -145,7 +145,7 @@ To limit the accounts in Google Play, do the following:
+ 1. Set a managed configuration bundle for the Google Play package `com.android.vending`.
+ 2. In the bundle, put the comma-separated email addresses as a string value for the `allowed_accounts` key.
+ 
+-The following example shows how you can limit accounts:  
++The following example shows how you can limit accounts:
+ 
+ ### Kotlin
+ 
+@@ -206,7 +206,9 @@ employee devices when an employee leaves the organization. However, if the
+ organization doesn't know an employee's account credentials, factory reset
+ protection can block the organization's ability to issue a device to another
+ employee.
+-| **Note:** Factory reset protection is disabled if OEM unlocking is enabled in Developer Options.
++
++> [!NOTE]
++> **Note:** Factory reset protection is disabled if OEM unlocking is enabled in Developer Options.
+ 
+ ### Control provisioning after a factory reset
+ 
+@@ -219,7 +221,9 @@ device.
+ 
+ A DPC can configure these accounts throughout the lifetime of a fully managed
+ device.
+-| **Note:** The DPC uses the `userID` value to configure which accounts can provision a device after a factory reset.
++
++> [!NOTE]
++> **Note:** The DPC uses the `userID` value to configure which accounts can provision a device after a factory reset.
+ 
+ 1. The IT admin can use the [`people.get`](https://developers.google.com/people/api/rest/v1/people/get) method from the People API [with the special value `me`](https://developers.google.com/people/api/rest/v1/people/get?apix_params=%7B%22resourceName%22:%22people/me%22,%22personFields%22:%22names%22%7D). This retrieves the `userId` for the logged in account. The `userID` is returned in the `resourceName` key in the form `people/[userId]` as an integer string. Newly-created accounts might not be available for factory reset purposes for 72 hours.
+ 2. You may also want to enable one or more IT admins to unlock the device after a factory reset. Have each of these IT admins log into their Google Account and also follow step 1 and share their `userId` with you, so that you can add these `userIds` to the List in the next step.
+@@ -285,7 +289,7 @@ context.sendBroadcast(frpChangedIntent);
+ For devices that cannot use `setFactoryResetProtectionPolicy()`, introduced with
+ API Level 30, your DPC can use [`setApplicationRestrictions`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setApplicationRestrictions(android.content.ComponentName,%20java.lang.String,%20android.os.Bundle)) to add
+ the chosen accounts to the `factoryResetProtectionAdmin` managed configuration
+-for the `com.google.android.gms` package.  
++for the `com.google.android.gms` package.
+ 
+ ### Kotlin
+ 
+@@ -336,7 +340,7 @@ context.sendBroadcast(frpChangedIntent);
+ ### Disable enterprise factory reset protection
+ 
+ To disable factory reset protection, your DPC can use
+-`setFactoryResetProtectionPolicy()`passing the value `null`.  
++`setFactoryResetProtectionPolicy()`passing the value `null`.
+ 
+ ### Kotlin
+ 
+@@ -378,7 +382,9 @@ For devices that cannot use `setFactoryResetProtectionPolicy()`, introduced with
+ API Level 30, your DPC can use [`setApplicationRestrictions`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setApplicationRestrictions(android.content.ComponentName,%20java.lang.String,%20android.os.Bundle)) to set a key
+ value of `true` in the `disableFactoryResetProtectionAdmin` managed
+ configuration for the `com.google.android.gms` package.
+-**Note:** Simply leaving `factoryResetProtectionAdmin` managed configuration unset does *not* disable factory reset protection.  
++
++> [!NOTE]
++> **Note:** Simply leaving `factoryResetProtectionAdmin` managed configuration unset does *not* disable factory reset protection.
+ 
+ ### Kotlin
+ 
+@@ -469,7 +475,7 @@ For details on how to read logs, see [`SecurityLog`](https://developer.android.c
+ While you're developing and testing, you can force the system to make any
+ existing security logs available to your DPC---you don't have to wait for a full
+ batch. In Android 9.0 (API level 28) or higher, run the following
+-[Android Debug Bridge](https://developer.android.com/studio/command-line/adb) (adb) command in your terminal:  
++[Android Debug Bridge](https://developer.android.com/studio/command-line/adb) (adb) command in your terminal:
+ 
+ ```
+ adb shell dpm force-security-logs
+@@ -558,7 +564,9 @@ ahead of the time an IT admin might need to use it.
+ A password reset token is a cryptographically strong random value and needs to
+ be at least 32 bytes long. Create a token for each device and profile---don't
+ reuse or share your generated tokens.
+-| **Warning:** Treat the token as you would treat user credentials. Never store the token on the device as plain text, especially in device encrypted storage. Your organization should carefully consider how you store the tokens on a server and who gets access to the tokens. Tokens might be subject to legal requests for device access.
++
++> [!WARNING]
++> **Warning:** Treat the token as you would treat user credentials. Never store the token on the device as plain text, especially in device encrypted storage. Your organization should carefully consider how you store the tokens on a server and who gets access to the tokens. Tokens might be subject to legal requests for device access.
+ 
+ We recommend storing tokens, or the means to decrypt an encrypted token, on a
+ server. If you store tokens locally in credential encrypted storage, your DPC
+@@ -569,7 +577,7 @@ user.
+ 
+ You can generate a new token in your DPC or fetch a token from a server. The
+ example below shows a DPC generating a token itself and reporting it to a
+-server:  
++server:
+ 
+ ### Kotlin
+ 
+@@ -620,7 +628,7 @@ Your DPC can call the `KeyguardManager` method
+ [`createConfirmDeviceCredentialIntent()`](https://developer.android.com/reference/android/app/KeyguardManager#createConfirmDeviceCredentialIntent(java.lang.CharSequence,%20java.lang.CharSequence)) to get an `Intent` that starts the
+ confirmation. Explain to the device user in the user interface, why you're
+ asking them to authenticate. The snippet below shows how you might activate a
+-token in your DPC:  
++token in your DPC:
+ 
+ ### Kotlin
+ 
+@@ -682,7 +690,7 @@ the password and isn't affected by the user changing or clearing the password.
+ You can call [`clearResetPasswordToken()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#clearResetPasswordToken(android.content.ComponentName)) to delete a token that your DPC
+ set earlier. You might need to revoke a compromised token or you might want to
+ remove the ability to reset the password. The sample below shows how you can do
+-this in your DPC:  
++this in your DPC:
+ 
+ ### Kotlin
+ 
+@@ -712,7 +720,7 @@ if (!dpm.clearResetPasswordToken(admin)) {
+ 
+ When an IT admin needs to reset the password, call
+ [`resetPasswordWithToken()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#resetPasswordWithToken(android.content.ComponentName,%20java.lang.String,%20byte%5B%5D,%20int)) and pass the token your DPC set and activated
+-in advance:  
++in advance:
+ 
+ ### Kotlin
+ 
+@@ -775,7 +783,9 @@ challenge for apps running in the work profile. The system shows the security
+ challenge when the user attempts to open any work apps. If the user successfully
+ completes the security challenge, the system unlocks the work profile and
+ decrypts it, if necessary.
+-| **Note:** The separate work challenge is a feature that a user can also set, and if the user chooses the unified lock option, they can access work apps once they unlock their personal lock on the device.
++
++> [!NOTE]
++> **Note:** The separate work challenge is a feature that a user can also set, and if the user chooses the unified lock option, they can access work apps once they unlock their personal lock on the device.
+ 
+ ### How work profile security challenge works
+ 

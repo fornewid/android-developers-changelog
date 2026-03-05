@@ -1,0 +1,98 @@
+diff --git a/docs/training/tv/accessibility/custom-views-sample.md b/docs/training/tv/accessibility/custom-views-sample.md
+index eb3ac20..03c9000 100644
+--- a/docs/training/tv/accessibility/custom-views-sample.md
++++ b/docs/training/tv/accessibility/custom-views-sample.md
+@@ -14,26 +14,26 @@ focusable and let accessibility services navigate between them.
+ Create a layout file for the custom view activity.
+ 
+ ```xml
+-<?xml version="1.0" encodi>n<g="utf-8"
+-LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<?xml version="1.0" encoding="utf-8">
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:orientation="vertical"
+-        android:layout_width="match_parent&>quot;
+-<        android:layout_height="wrap_content"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content">
+ 
+-    LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
++    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+-   >      <   android:layout_height="match_parent"
+-            tools:context=".custom.CustomViewActivity"
++            android:layout_height="match_parent"
++            tools:context=".custom.CustomViewActivity">
+ 
+-    com.example.tvcustomv>iews.S<ampleCustomVi>ew<
+-            >android:layout_width="match_parent"
+-            android:layout_height="wrap_content" /
++    <com.example.tvcustomviews.SampleCustomView
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content" />
+ 
+-    /LinearLayout
++    </LinearLayout>
+ 
+-/LinearLayout
++</LinearLayout>
+ ```
+ 
+ The following sections define the
+@@ -357,8 +357,8 @@ internal class SampleExploreByTouchHelper(parentView:SampleCustomView):ExploreBy
+     for (mapElement in parentView.virtualIdRectMap.entrySet())
+     {
+       val rect = mapElement.value.rect
+-      if ((<rect&&.le<ft = x  x = rect.right
+- &&          < rec&&t.t<op = y  y = rect.bottom))
++      if ((rect.left <= x && x <= rect.right
++           && rect.top <= y && y <= rect.bottom))
+       {
+         return mapElement.value.id
+       }
+@@ -367,7 +367,7 @@ internal class SampleExploreByTouchHelper(parentView:SampleCustomView):ExploreBy
+     return ExploreByTouchHelper.INVALID_ID
+   }
+ 
+-  protected fun getVisibleVirtualViews(virtualVi<ewI>ds:ListInt) {
++  protected fun getVisibleVirtualViews(virtualViewIds:List<Int>) {
+     for (mapElement in parentView.virtualIdRectMap.entrySet())
+     {
+       virtualViewIds.add(mapElement.key)
+@@ -380,7 +380,7 @@ internal class SampleExploreByTouchHelper(parentView:SampleCustomView):ExploreBy
+       // After Talkback is turned on, if you want to handle
+       // DPAD_CENTER key event with your own logic,
+       // implement it under ACTION_CLICK action.
+-      AccessibilityNodeInfoCompat.ACTI>ON_CLICK - {
++      AccessibilityNodeInfoCompat.ACTION_CLICK -> {
+         Log.e(TAG, "ACTION_CLICK action handled here.")
+         return true
+       }
+@@ -454,11 +454,11 @@ class SampleExploreByTouchHelper extends ExploreByTouchHelper {
+ 
+   @Override
+   protected int getVirtualViewAt(float x, float y) {
+-    for <(Map.EntryInteger, V>irtualRect mapElement :
++    for (Map.Entry<Integer, VirtualRect> mapElement :
+         parentView.virtualIdRectMap.entrySet()) {
+       Rect rect = mapElement.getValue().rect;
+-      if (<rect&&.le<ft = x  x = rect.right
+-&&          < rec&&t.t<op = y  y = rect.bottom) {
++      if (rect.left <= x && x <= rect.right
++          && rect.top <= y && y <= rect.bottom) {
+         return mapElement.getValue().id;
+       }
+     }
+@@ -466,8 +466,8 @@ class SampleExploreByTouchHelper extends ExploreByTouchHelper {
+   }
+ 
+   @Override
+-  protected void getVisibleVirtual<Views(L>istInteger virtualViewIds) {
+-    for <(Map.EntryInteger, V>irtualRect mapElement :
++  protected void getVisibleVirtualViews(List<Integer> virtualViewIds) {
++    for (Map.Entry<Integer, VirtualRect> mapElement :
+         parentView.virtualIdRectMap.entrySet()) {
+       virtualViewIds.add(mapElement.getKey());
+     }

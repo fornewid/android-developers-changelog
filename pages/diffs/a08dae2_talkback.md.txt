@@ -1,0 +1,130 @@
+diff --git a/docs/training/tv/accessibility/talkback.md b/docs/training/tv/accessibility/talkback.md
+index e1d3396..e539a1b 100644
+--- a/docs/training/tv/accessibility/talkback.md
++++ b/docs/training/tv/accessibility/talkback.md
+@@ -4,13 +4,16 @@ url: https://developer.android.com/training/tv/accessibility/talkback
+ source: md.txt
+ ---
+ 
+-# TalkBack evaluation examples for TV apps
+-
+-This guide lists steps to evaluate your TV app to improve a screen reader user's experience. Perform these steps to understand how users experience your app when TalkBack, the Android screen reader, is enabled.
++This guide lists steps to evaluate your TV app to improve a screen reader user's
++experience. Perform these steps to understand how users experience your
++app when TalkBack, the Android screen reader, is enabled.
+ 
+ ## Evaluation examples
+ 
+-Start your evaluation by[enabling TalkBack](https://support.google.com/googletv/answer/10070337)and opening your app. We recommend that the first time you conduct this evaluation, you do so without looking at the TV screen.
++Start your evaluation by [enabling TalkBack](https://support.google.com/googletv/answer/10070337)
++and opening your app.
++We recommend that the first time you conduct this evaluation,
++you do so without looking at the TV screen.
+ 
+ ### First-time use
+ 
+@@ -25,7 +28,7 @@ Confirm the following:
+ - Are all key elements on the page reachable and clickable? That is, can you select all key elements when navigating with the remote?
+ - Are elements, such as "Login," meaningfully labeled and announced when TalkBack is enabled? Watch out for unlabeled elements or sequences of numbers, such as "unlabeled" or "item 08328492qw."
+ - When TalkBack is enabled, is all the text that appears on screen announced?
+-- Do interactions yield expected results? For example, does clicking the**Sign in**button actually bring users to a sign-in page?
++- Do interactions yield expected results? For example, does clicking the **Sign in** button actually bring users to a sign-in page?
+ - Is navigation smooth, or do issues occur? For example, does the selection jump to the wrong element in the UI at any point?
+ - Confirm the following login-specific issues:
+   - Can you move from character to character on the screen keyboard when using the remote to type?
+@@ -33,7 +36,8 @@ Confirm the following:
+ 
+ ### Navigate the user interface with a remote
+ 
+-Navigate through the interface, testing the following behaviors for all pages and menus:
++Navigate through the interface, testing the following behaviors for all pages
++and menus:
+ 
+ - Navigate all the way to the end of the page and back.
+ - Navigate all the way to the end of a row and back.
+@@ -45,7 +49,7 @@ Confirm the following:
+ - If an element has focus, is it meaningfully labeled and announced? Watch out for unlabeled elements or sequences of numbers, such as "unlabeled" or "item 08328492qw."
+ - If an element with text has focus, is all the text that appears on screen announced by TalkBack?
+ - Do interactions yield expected results? Is navigation smooth, or do issues occur? For example, does the selection jump to the wrong element in the UI at any point?
+-- When opening a page, does clicking the**Back**button bring the user to where they were before opening the page?
++- When opening a page, does clicking the **Back** button bring the user to where they were before opening the page?
+ - Confirm the following row-specific issues:
+   - If a row heading has focus, is it announced by TalkBack?
+   - If a row has focus, are all items within the row announced by TalkBack? For example, if it's a movie row, are all movie titles announced by TalkBack?
+@@ -53,11 +57,16 @@ Confirm the following:
+   - Does content start playing only when the user has initiated an interaction?
+   - If not, can autoplaying content be paused or stopped by the user?
+ 
+-**Note:** Automatic playback of content, such as trailer autoplay, can be disruptive for users with vision impairments. The ability to pause or stop autoplay content is recommended by the[Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/).
++**Note:** Automatic playback of content, such as trailer
++autoplay, can be disruptive for users with vision impairments. The ability to
++pause or stop autoplay content is recommended by the
++[Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/).
+ 
+ ### Explore information pages for media content
+ 
+-If your app contains media content with detail pages, such as an information page about a movie or show, open the detail page for two or more media titles and do the following:
++If your app contains media content with detail pages, such as an information page
++about a movie or show, open the detail page for two or more media titles and do
++the following:
+ 
+ - Navigate through all the information available for a title.
+ - Test all available actions, such as play, rent, and add to favorites.
+@@ -68,7 +77,7 @@ Confirm the following:
+ - If an element has focus, is it meaningfully labeled and announced? Watch out for unlabeled elements or sequences of numbers, such as "unlabeled" or "item 08328492qw."
+ - If an element has focus, is all the text announced by TalkBack?
+ - Do interactions yield expected results? Is navigation smooth, or do issues occur? For example, does the selection jump to the wrong element in the UI at any point?
+-- When opening a page, does clicking the**Back**button bring the user to where they were before opening the page?
++- When opening a page, does clicking the **Back** button bring the user to where they were before opening the page?
+ - Confirm the following detail-page specific issues:
+   - Is the title announced by TalkBack when the user lands on the page?
+   - Is metadata, such as ratings and genre, announced by TalkBack?
+@@ -96,7 +105,7 @@ Confirm the following:
+ - When rewinding or fast-forwarding, does TalkBack provide information about timestamps or about rewinding and fast-forwarding speed?
+ - Change settings and check the following:
+   - Are actions confirmed by TalkBack?
+-  - Are toggles and toggle actions appropriately labeled? For example, is*current state* +*action*announced?
++  - Are toggles and toggle actions appropriately labeled? For example, is *current state* + *action* announced?
+ 
+ ### Watch live content with an Electronic Programming Guide
+ 
+@@ -114,7 +123,7 @@ Confirm the following:
+ - If an element has focus, is it meaningfully labeled and announced? Watch out for unlabeled elements or sequences of numbers, such as "unlabeled" or "item 08328492qw."
+ - If an element has focus, is all the text that appears on screen announced by TalkBack?
+ - Do interactions yield expected results? Is navigation smooth, or do issues occur? For example, does the selection jump to the wrong element in the UI at any point?
+-- When opening a page, does clicking the**Back**button bring the user to where they were before opening the page?
++- When opening a page, does clicking the **Back** button bring the user to where they were before opening the page?
+ 
+ ### Voice support
+ 
+@@ -128,7 +137,8 @@ Confirm the following:
+ - Can users revise what they have spelled?
+ - Are there any interferences between searching or spelling with voice and TalkBack? For example, when TalkBack announces something, is the announcement picked up as a voice query?
+ 
+-Examine the search results page like any other page. For guidance, see the[Navigate the user interface with a remote](https://developer.android.com/training/tv/accessibility/talkback#navigate-with-remote)section.
++Examine the search results page like any other page. For guidance, see the
++[Navigate the user interface with a remote](https://developer.android.com/training/tv/accessibility/talkback#navigate-with-remote) section.
+ 
+ ### Explore app settings
+ 
+@@ -143,10 +153,10 @@ Confirm the following:
+ - If an element has focus, is it meaningfully labeled and announced? Watch out for unlabeled elements or sequences of numbers, such as "unlabeled" or "item 08328492qw."
+ - If a setting has focus, is all the text that appears on screen announced by TalkBack?
+ - Do interactions yield expected results? Is navigation smooth, or do issues occur? For example, does the selection jump to the wrong element in the UI at any point?
+-- When opening a page, does clicking the**Back**button bring the user to where they were before opening the page?
++- When opening a page, does clicking the **Back** button bring the user to where they were before opening the page?
+ - Change settings and check the following:
+   - Are selections confirmed by TalkBack?
+-  - Are toggles and toggle actions appropriately labeled? For example, is*current state* +*action*announced?
++  - Are toggles and toggle actions appropriately labeled? For example, is *current state* + *action* announced?
+ 
+ ### Make changes to global TalkBack settings
+ 
+@@ -157,4 +167,4 @@ Open the global TalkBack settings on the TV device and do the following:
+ 
+ ## Learn more
+ 
+-To learn more, see our[accessibility development resources](https://developer.android.com/guide/topics/ui/accessibility).
+\ No newline at end of file
++To learn more, see our [accessibility development resources](https://developer.android.com/guide/topics/ui/accessibility).
+\ No newline at end of file

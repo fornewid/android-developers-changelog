@@ -1,0 +1,70 @@
+diff --git a/docs/training/tv/games.md b/docs/training/tv/games.md
+index f5619df..cfb63d3 100644
+--- a/docs/training/tv/games.md
++++ b/docs/training/tv/games.md
+@@ -24,8 +24,7 @@ your TV games to be displayed in landscape mode.
+ 
+ 
+ Certain displays can perform graphics post-processing. This post-processing improves graphics
+-quality but can increase latency. Newer displays that support HDMI 2.1 have an *auto low
+-latency mode* (*ALLM* ), which minimizes latency by switching off this post-processing. For
++quality but can increase latency. Newer displays that support HDMI 2.1 have an *auto low latency mode* (*ALLM*), which minimizes latency by switching off this post-processing. For
+ more details on ALLM, refer to the
+ [HDMI 2.1 specification](https://www.hdmi.org/spec/hdmi2_1). Other
+ displays may support a *game mode* with similar behavior.
+@@ -38,12 +37,12 @@ having the best possible graphics.
+ 
+ 
+ To enable or disable minimal post-processing, call
+-[Window.setPreferMinimalPostProcessing()](https://developer.android.com/reference/android/view/Window#setPreferMinimalPostProcessing(boolean)),
++`https://developer.android.com/reference/android/view/Window#setPreferMinimalPostProcessing(boolean)`,
+ or set the window's
+-[preferMinimalPostProcessing](https://developer.android.com/reference/android/R.attr#preferMinimalPostProcessing)
++`https://developer.android.com/reference/android/R.attr#preferMinimalPostProcessing`
+ attribute to `true`. Not all displays support minimal post-processing; to find out if a
+ particular display does support it, call the
+-[Display.isMinimalPostProcessingSupported()](https://developer.android.com/reference/android/view/Display#isMinimalPostProcessingSupported()) method.
++`https://developer.android.com/reference/android/view/Display#isMinimalPostProcessingSupported()` method.
+ 
+ ## Input devices
+ 
+@@ -61,10 +60,10 @@ information about using TV controllers for games.
+ 
+ 
+ In Android 13 (API level 33) and higher, you can determine keyboard layouts using
+-[getKeyCodeForKeyLocation()](https://developer.android.com/reference/android/view/InputDevice#getKeyCodeForKeyLocation(int)).
++`https://developer.android.com/reference/android/view/InputDevice#getKeyCodeForKeyLocation(int)`.
+ For example, your game supports movement using the WASD keys, but this may not work correctly on
+ an AZERTY keyboard which has the A and W keys in different locations. You can get the keycodes
+-for the keys you expect at certain positions:  
++for the keys you expect at certain positions:
+ 
+ ### Kotlin
+ 
+@@ -116,7 +115,7 @@ There are some special things games should include in the Android manifest.
+ The Android TV home screen displays games in a separate row from regular apps.
+ To make your game appear in the list of games, set the
+ [`android:isGame`](https://developer.android.com/guide/topics/manifest/application-element#isGame) attribute to `"true"` in your app manifest's
+-[`<application>`](https://developer.android.com/guide/topics/manifest/application-element) tag. For example:  
++[`<application>`](https://developer.android.com/guide/topics/manifest/application-element) tag. For example:
+ 
+ ```xml
+ <application
+@@ -131,7 +130,7 @@ To make your game appear in the list of games, set the
+ 
+ Games controllers may not be available or active for users of a TV device. In order to properly
+ inform users that your game supports a game controller, you must include the following entry in
+-your app manifest:  
++your app manifest:
+ 
+ ```xml
+   <uses-feature android:name="android.hardware.gamepad" android:required="false"/>
+@@ -191,7 +190,7 @@ Home button to provide an exit, as that is not consistent nor reliable across di
+ Do not enable web browsing in games for Android TV. Android TV does not support a web browser.
+ 
+ 
+-**Note:** You can use the [WebView](https://developer.android.com/reference/android/webkit/WebView) class for logins to
++**Note:** You can use the `https://developer.android.com/reference/android/webkit/WebView` class for logins to
+ social media services.
+ 
+ ## Networking

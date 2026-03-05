@@ -1,0 +1,40 @@
+diff --git a/docs/topic/performance/app-optimization/target-a-build-variant.md b/docs/topic/performance/app-optimization/target-a-build-variant.md
+index d4b98cf..732a0df 100644
+--- a/docs/topic/performance/app-optimization/target-a-build-variant.md
++++ b/docs/topic/performance/app-optimization/target-a-build-variant.md
+@@ -4,13 +4,17 @@ url: https://developer.android.com/topic/performance/app-optimization/target-a-b
+ source: md.txt
+ ---
+ 
+-# Target a build variant
+-
+-If you have different versions of your app based on different build variants, create custom[keep rules](https://developer.android.com/topic/performance/app-optimization/add-keep-rules)for each variant. For example, if you have a free tier and a paid tier of your app with different features and dependencies, each tier should have its own keep rules.
++If you have different versions of your app based on different build variants,
++create custom [keep rules](https://developer.android.com/topic/performance/app-optimization/add-keep-rules) for each variant. For example, if you have a free
++tier and a paid tier of your app with different features and dependencies, each
++tier should have its own keep rules.
+ 
+ ## Create keep rules
+ 
+-To create keep rules that are specific to a build variant, add the`proguardFiles`property in the corresponding*flavor* block under`productFlavors`. For example, the following build script adds the rules file`flavor2‑rules.pro`to the`flavor2`product flavor:  
++To create keep rules that are specific to a build variant, add the
++`proguardFiles` property in the corresponding *flavor* block under
++`productFlavors`. For example, the following build script adds the rules file
++`flavor2‑rules.pro` to the `flavor2` product flavor:
+ 
+ ### Kotlin
+ 
+@@ -59,8 +63,9 @@ To create keep rules that are specific to a build variant, add the`proguardFiles
+         }
+     }
+ 
+-| **Note:** The`flavor2`product flavor uses rules from three rules files---`flavor2‑rules.pro`,`proguard‑rules.pro`, and`proguard‑android‑optimize.txt`---because the script applies the rules from the release block.
++> [!NOTE]
++> **Note:** The `flavor2` product flavor uses rules from three rules files---`flavor2‑rules.pro`, `proguard‑rules.pro`, and `proguard‑android‑optimize.txt`---because the script applies the rules from the release block.
+ 
+ ## Additional resources
+ 
+-- [Customize which resources to keep](https://developer.android.com/topic/performance/app-optimization/customize-which-resources-to-keep)--- Learn how to add keep rules for resources.
+\ No newline at end of file
++- [Customize which resources to keep](https://developer.android.com/topic/performance/app-optimization/customize-which-resources-to-keep) --- Learn how to add keep rules for resources.
+\ No newline at end of file

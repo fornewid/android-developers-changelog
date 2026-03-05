@@ -1,0 +1,47 @@
+diff --git a/docs/training/wearables/user-interfaces.md b/docs/training/wearables/user-interfaces.md
+index ddfac44..37d20c2 100644
+--- a/docs/training/wearables/user-interfaces.md
++++ b/docs/training/wearables/user-interfaces.md
+@@ -4,8 +4,6 @@ url: https://developer.android.com/training/wearables/user-interfaces
+ source: md.txt
+ ---
+ 
+-# Wear OS user interfaces
+-
+ Wear OS makes it easy for users to engage with apps optimized for a watch.
+ Ensure that content is displayed on the appropriate surface.
+ 
+@@ -29,7 +27,9 @@ The following sections cover each of these surfaces in more detail.
+ An app is a focused view that can serve a complex or less-common task or
+ a cluster of tasks. An app is immersive, and it's similar to a mobile app's
+ main user interface (UI), though there are some differences.
+-| **Note:** Consider using [Compose for Wear OS](https://developer.android.com/training/wearables/compose) to create your app. Compose for Wear OS is a modern declarative UI toolkit and is the recommended approach for building apps on Wear OS.
++
++> [!NOTE]
++> **Note:** Consider using [Compose for Wear OS](https://developer.android.com/training/wearables/compose) to create your app. Compose for Wear OS is a modern declarative UI toolkit and is the recommended approach for building apps on Wear OS.
+ 
+ Other surfaces (tiles, complications, and notifications) can link into an
+ app to let users carry out more complex tasks.
+@@ -58,7 +58,9 @@ favorite contact.
+ 
+ A notification provides glanceable, time-sensitive information and actions for
+ the user. Notifications on Wear OS are similar to mobile notifications.
+-| **Note:** You can combine ongoing notifications that have a background task with an ongoing activity to appear on additional surfaces within the Wear OS user interface. This keeps users more engaged with long running activities.
++
++> [!NOTE]
++> **Note:** You can combine ongoing notifications that have a background task with an ongoing activity to appear on additional surfaces within the Wear OS user interface. This keeps users more engaged with long running activities.
+ 
+ ![notification](https://developer.android.com/static/wear/images/ui_overview_5.gif)
+ 
+@@ -77,9 +79,8 @@ Devices support at least one of the following app launcher experiences:
+ - **List view:** The icons appear next to each other vertically, as shown in figure 6. Available on almost all devices that run Wear OS, and on all devices that don't support the grid view.
+ 
+ If a device supports both types of views, switch between the two using system
+-settings.  
+-![](https://developer.android.com/static/wear/images/grid-app-launcher.png) **Figure 5.** The grid-based app launcher view.  
+-![](https://developer.android.com/static/wear/images/ui_overview_4.png) **Figure 6.** The list-based app launcher view.
++settings.
++![](https://developer.android.com/static/wear/images/grid-app-launcher.png) **Figure 5.** The grid-based app launcher view. ![](https://developer.android.com/static/wear/images/ui_overview_4.png) **Figure 6.** The list-based app launcher view.
+ 
+ ## Watch faces
+ 

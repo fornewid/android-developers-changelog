@@ -1,0 +1,23 @@
+diff --git a/docs/training/constraint-layout/motionlayout/ref/constraint.md b/docs/training/constraint-layout/motionlayout/ref/constraint.md
+index 1d1f5cc..c566c00 100644
+--- a/docs/training/constraint-layout/motionlayout/ref/constraint.md
++++ b/docs/training/constraint-layout/motionlayout/ref/constraint.md
+@@ -4,7 +4,7 @@ url: https://developer.android.com/training/constraint-layout/motionlayout/ref/c
+ source: md.txt
+ ---
+ 
+-# &lt;Constraint&gt;
++[Video](https://www.youtube.com/watch?v=-POu45WaSsc)
+ 
+ Specifies the location and attributes of one element of a motion sequence.
+ 
+@@ -23,4 +23,6 @@ Specifies the location and attributes of one element of a motion sequence.
+ 
+ ## Attributes
+ 
+-The`<Constraint>`element supports the standard set of`ConstraintLayout`attributes. For full documentation, see the[`ConstraintLayout`developer guide](https://developer.android.com/reference/android/support/constraint/ConstraintLayout#developer-guide).
+\ No newline at end of file
++The `<Constraint>` element supports the standard set of `ConstraintLayout`
++attributes. For full documentation, see the [`ConstraintLayout` developer
++guide](https://developer.android.com/reference/android/support/constraint/ConstraintLayout#developer-guide).
+\ No newline at end of file

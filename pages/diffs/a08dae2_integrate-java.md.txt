@@ -1,0 +1,249 @@
+diff --git a/docs/guide/playcore/asset-delivery/integrate-java.md b/docs/guide/playcore/asset-delivery/integrate-java.md
+index 9a94cef..f5f0fd3 100644
+--- a/docs/guide/playcore/asset-delivery/integrate-java.md
++++ b/docs/guide/playcore/asset-delivery/integrate-java.md
+@@ -11,7 +11,9 @@ code.
+ 
+ Use the following steps to build Play Asset Delivery into your project's Android
+ App Bundle. You don't need to use Android Studio to perform these steps.
+-| **Note:** For a guided tutorial, see the [Using Play Asset Delivery in native games Codelab](https://codelabs.developers.google.com/codelabs/native-gamepad).
++
++> [!NOTE]
++> **Note:** For a guided tutorial, see the [Using Play Asset Delivery in native games Codelab](https://codelabs.developers.google.com/codelabs/native-gamepad).
+ 
+ 1. Update the version of the Android Gradle plugin in your project's
+    `build.gradle` file to `4.0.0` or later.
+@@ -34,7 +36,7 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+    }
+ 
+    assetPack {
+-       packName = "<var translate="no">asset-pack-name</var>" // Directory name for the asset pack
++       packName = "asset-pack-name" // Directory name for the asset pack
+        dynamicDelivery {
+            deliveryType = "[ install-time | fast-follow | on-demand ]"
+        }
+@@ -50,7 +52,7 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+    }
+ 
+    assetPack {
+-     packName.set("<var translate="no">asset-pack-name</var>") // Directory name for the asset pack
++     packName.set("asset-pack-name") // Directory name for the asset pack
+      dynamicDelivery {
+        deliveryType.set("[ install-time | fast-follow | on-demand ]")
+      }
+@@ -65,7 +67,7 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+    // In the app build.gradle file:
+    android {
+        ...
+-       assetPacks = [":<var translate="no">asset-pack-name</var>", ":<var translate="no">asset-pack2-name</var>"]
++       assetPacks = [":asset-pack-name", ":asset-pack2-name"]
+    }
+    ```
+ 
+@@ -75,7 +77,7 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+    // In the app build.gradle.kts file:
+    android {
+        ...
+-       assetPacks += listOf(":<var translate="no">asset-pack-name</var>", ":<var translate="no">asset-pack2-name</var>")
++       assetPacks += listOf(":asset-pack-name", ":asset-pack2-name")
+    }
+    ```
+ 5. In the project's `settings.gradle` file, include all asset packs in your
+@@ -86,8 +88,8 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+    ```groovy
+    // In the settings.gradle file:
+    include ':app'
+-   include ':<var translate="no">asset-pack-name</var>'
+-   include ':<var translate="no">asset-pack2-name</var>'
++   include ':asset-pack-name'
++   include ':asset-pack2-name'
+    ```
+ 
+    ### Kotlin
+@@ -95,8 +97,8 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+    ```kotlin
+    // In the settings.gradle.kts file:
+    include(":app")
+-   include(":<var translate="no">asset-pack-name</var>")
+-   include(":<var translate="no">asset-pack2-name</var>")
++   include(":asset-pack-name")
++   include(":asset-pack2-name")
+    ```
+ 6. In the asset pack directory, create the following subdirectory:
+    `src/main/assets`.
+@@ -108,14 +110,14 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+    - `build.gradle`
+    - `settings.gradle`
+    - `app/`
+-   - <var translate="no">asset-pack-name</var>`/build.gradle`
+-   - <var translate="no">asset-pack-name</var>`/src/main/assets/`<var translate="no">your-asset-directories</var>
++   - `asset-pack-name/build.gradle`
++   - `asset-pack-name/src/main/assets/your-asset-directories`
+ 8. [Build the Android App Bundle with Gradle](https://developer.android.com/studio/build/building-cmdline#build_bundle).
+    In the generated app bundle, the root-level directory now includes the
+    following:
+ 
+-   - <var translate="no">asset-pack-name</var>`/manifest/AndroidManifest.xml`: Configures the asset pack's identifier and delivery mode
+-   - <var translate="no">asset-pack-name</var>`/assets/`<var translate="no">your-asset-directories</var>: Directory that contains all assets delivered as part of the asset pack
++   - `asset-pack-name/manifest/AndroidManifest.xml`: Configures the asset pack's identifier and delivery mode
++   - `asset-pack-name/assets/your-asset-directories`: Directory that contains all assets delivered as part of the asset pack
+ 
+    Gradle generates the manifest for each asset pack and outputs the `assets/`
+    directory for you.
+@@ -142,7 +144,8 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+ 10. (Optional) Configure your app bundle to support different [texture
+     compression formats](https://developer.android.com/guide/playcore/asset-delivery/texture-compression).
+ 
+-| **Note:** You must run your app as an app bundle rather than as a standalone APK to access the bundled assets. Or, you can edit the default run/debug configuration to deliver the app as an APK rather than a bundle. See [Build and test your Android App Bundle](https://developer.android.com/guide/app-bundle/test#deploy-using-studio).
++> [!NOTE]
++> **Note:** You must run your app as an app bundle rather than as a standalone APK to access the bundled assets. Or, you can edit the default run/debug configuration to deliver the app as an APK rather than a bundle. See [Build and test your Android App Bundle](https://developer.android.com/guide/app-bundle/test#deploy-using-studio).
+ 
+ ## Integrate with the Play Asset Delivery API
+ 
+@@ -153,7 +156,9 @@ class for requesting asset packs, managing downloads, and accessing the assets.
+ 
+ You implement this API according to the delivery type of the asset pack you wish
+ to access. These steps are shown in the following flowchart.
+-| **Note:** You use a different API to access `install-time` asset packs than `fast-follow` and `on-demand` asset packs.
++
++> [!NOTE]
++> **Note:** You use a different API to access `install-time` asset packs than `fast-follow` and `on-demand` asset packs.
+ 
+ ![Asset pack flow diagram for the Java programming language](https://developer.android.com/static/images/app-bundle/asset-pack-flow-java.png)
+ 
+@@ -167,16 +172,16 @@ to access. These steps are shown in the following flowchart.
+ Asset packs configured as `install-time` are immediately available at app
+ launch. Use the Java
+ [AssetManager API](https://developer.android.com/reference/android/content/res/AssetManager) to access assets
+-served in this mode:  
++served in this mode:
+ 
+ ### Kotlin
+ 
+ ```kotlin
+ import android.content.res.AssetManager
+ ...
+-val context: Context = createPackageContext("<var translate="no">com.example.app</var>", 0)
++val context: Context = createPackageContext("com.example.app", 0)
+ val assetManager: AssetManager = context.assets
+-val stream: InputStream = assetManager.open("<var translate="no">asset-name</var>")
++val stream: InputStream = assetManager.open("asset-name")
+ ```
+ 
+ ### Java
+@@ -184,9 +189,9 @@ val stream: InputStream = assetManager.open("<var translate="no">asset-name</var
+ ```java
+ import android.content.res.AssetManager;
+ ...
+-Context context = createPackageContext("<var translate="no">com.example.app</var>", 0);
++Context context = createPackageContext("com.example.app", 0);
+ AssetManager assetManager = context.getAssets();
+-InputStream is = assetManager.open("<var translate="no">asset-name</var>");
++InputStream is = assetManager.open("asset-name");
+ ```
+ 
+ ## Fast-follow and on-demand delivery
+@@ -209,7 +214,8 @@ following values:
+ | A valid [`AssetPackLocation`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackLocation) object | Asset pack root folder is ready for immediate access at [`assetsPath()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackLocation#assetspath) |
+ | `null` | Unknown asset pack or assets are not available |
+ 
+-| **Note:** Do not rely on cached asset pack locations between app launches. The app should always check for the existence of asset packs at every launch. Asset packs may become invalid due to app updates or if the user clears the app data.
++> [!NOTE]
++> **Note:** Do not rely on cached asset pack locations between app launches. The app should always check for the existence of asset packs at every launch. Asset packs may become invalid due to app updates or if the user clears the app data.
+ 
+ ### Get download information about asset packs
+ 
+@@ -218,7 +224,7 @@ pack. Use the
+ [`requestPackStates()`](https://developer.android.com/reference/com/google/android/play/core/ktx/package-summary#requestpackstates)
+ or the [`getPackStates()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#getpackstates)
+ method to determine the size of the download and whether the pack is already
+-downloading.  
++downloading.
+ 
+ ### Kotlin
+ 
+@@ -238,7 +244,7 @@ object while the `getPackStates()` is an asynchronous method that returns a `Tas
+ [`packStates()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackStates#packstates)
+ method of an `AssetPackStates` object returns a `Map<String,
+ AssetPackState>`. This map contains the state of each requested asset
+-pack, keyed by its name:  
++pack, keyed by its name:
+ 
+ ### Kotlin
+ 
+@@ -252,7 +258,7 @@ AssetPackStates#packStates(): Map<String, AssetPackState>
+ Map<String, AssetPackState> AssetPackStates#packStates()
+ ```
+ 
+-The final request is shown by the following:  
++The final request is shown by the following:
+ 
+ ### Kotlin
+ 
+@@ -273,7 +279,7 @@ coroutineScope.launch {
+ ### Java
+ 
+ ```java
+-final String assetPackName = "<var translate="no">myasset</var>";
++final String assetPackName = "myasset";
+ 
+ assetPackManager
+     .getPackStates(Collections.singletonList(assetPackName))
+@@ -319,7 +325,7 @@ class.
+ Use the [`requestFetch()`](https://developer.android.com/reference/com/google/android/play/core/ktx/package-summary#requestfetch) or
+ [`fetch()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#fetch)
+ method to download an asset pack for the first time or call for the update of an
+-asset pack to complete:  
++asset pack to complete:
+ 
+ ### Kotlin
+ 
+@@ -338,7 +344,9 @@ This method returns an
+ object containing a list of packs and their initial download states and sizes.
+ If an asset pack requested via `requestFetch()` or `fetch()` is already downloading, the download
+ status is returned and no additional download is started.
+-| **Note:** In most cases, you implement a `listener` to track the download and installation process as covered in the next section.
++
++> [!NOTE]
++> **Note:** In most cases, you implement a `listener` to track the download and installation process as covered in the next section.
+ 
+ ### Monitor download states
+ 
+@@ -347,7 +355,7 @@ You should implement an
+ to track the installation progress of asset
+ packs. The status updates are broken down per pack to support tracking the
+ status of individual asset packs. You can start using available asset packs
+-before all other downloads for your request have completed.  
++before all other downloads for your request have completed.
+ 
+ ### Kotlin
+ 
+@@ -362,7 +370,9 @@ fun unregisterListener(listener: AssetPackStateUpdatedListener)
+ void registerListener(AssetPackStateUpdatedListener listener)
+ void unregisterListener(AssetPackStateUpdatedListener listener)
+ ```
+-| **Note:** The Play Store automatically triggers the download of any `fast-follow` packs after the user installs or updates the app. However, these packs may not be ready to use immediately. You must check the status of the `fast-follow` packs at every app launch. If the download is in progress, monitor it with a listener. If the download is cancelled or paused, you can resume it by using the `fetch()` method, as covered in the [Install](https://developer.android.com/guide/playcore/asset-delivery/integrate-java#install) section.
++
++> [!NOTE]
++> **Note:** The Play Store automatically triggers the download of any `fast-follow` packs after the user installs or updates the app. However, these packs may not be ready to use immediately. You must check the status of the `fast-follow` packs at every app launch. If the download is in progress, monitor it with a listener. If the download is cancelled or paused, you can resume it by using the `fetch()` method, as covered in the [Install](https://developer.android.com/guide/playcore/asset-delivery/integrate-java#install) section.
+ 
+ #### Large downloads
+ 
+@@ -390,7 +400,7 @@ Note that calling
+ in this case will cause the app to be updated. After the update, you will need
+ to request the assets again.
+ 
+-The following is an example implementation of a listener:  
++The following is an example implementation of a listener:
+ 
+ ### Kotlin
+ 
+@@ -537,7 +547,7 @@ Assets are stored in the `assets` directory within the asset pack root
+ directory. You can get the path to the `assets` directory by using the
+ convenience method
+ [`assetsPath()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackLocation#assetspath).
+-Use the following method to get the path to a specific asset:  
++Use the following method to get the path to a specific asset:
+ 
+ ### Kotlin
+ 

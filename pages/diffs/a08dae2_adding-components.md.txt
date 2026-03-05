@@ -1,0 +1,15 @@
+diff --git a/docs/topic/libraries/architecture/adding-components.md b/docs/topic/libraries/architecture/adding-components.md
+index 0823421..9426034 100644
+--- a/docs/topic/libraries/architecture/adding-components.md
++++ b/docs/topic/libraries/architecture/adding-components.md
+@@ -41,7 +41,9 @@ dependencyResolutionManagement {
+     }
+ }
+ ```
+-| **Warning:** The JCenter repository is read-only, as of March 31, 2021. For more information, see [JCenter service update](https://developer.android.com/studio/build/jcenter-migration).
++
++> [!WARNING]
++> **Warning:** The JCenter repository is read-only, as of March 31, 2021. For more information, see [JCenter service update](https://developer.android.com/studio/build/jcenter-migration).
+ 
+ ## Declare dependencies
+ 

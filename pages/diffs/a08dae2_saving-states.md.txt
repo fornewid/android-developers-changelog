@@ -1,0 +1,110 @@
+diff --git a/docs/topic/libraries/architecture/saving-states.md b/docs/topic/libraries/architecture/saving-states.md
+index 576276e..e5c4be2 100644
+--- a/docs/topic/libraries/architecture/saving-states.md
++++ b/docs/topic/libraries/architecture/saving-states.md
+@@ -102,7 +102,8 @@ that impact the user experience:
+ | Data limitations | complex objects are fine, but space is limited by available memory | only for primitive types and simple, small objects such as String | only limited by disk space or cost / time of retrieval from the network resource |
+ | Read/write time | quick (memory access only) | slow (requires serialization/deserialization) | slow (requires disk access or network transaction) |
+ 
+-| **Note:** Saved instance state in the above table includes the `onSaveInstanceState()` and `rememberSaveable` APIs, and `SavedStateHandle` as part of ViewModels.
++> [!NOTE]
++> **Note:** Saved instance state in the above table includes the `onSaveInstanceState()` and `rememberSaveable` APIs, and `SavedStateHandle` as part of ViewModels.
+ 
+ ## Use ViewModel to handle configuration changes
+ 
+@@ -149,7 +150,9 @@ serialize data. Serialization can consume a lot of memory if the objects being
+ serialized are complicated. Because this process happens on the main thread
+ during a configuration change, long-running serialization can cause dropped
+ frames and visual stutter.
+-| **Key Point:** Saved instance state APIs only save data written to it when the `Activity` is stopped. Writing into it in between this lifecycle state defers the save operation till the next stopped lifecycle event.
++
++> [!IMPORTANT]
++> **Key Point:** Saved instance state APIs only save data written to it when the `Activity` is stopped. Writing into it in between this lifecycle state defers the save operation till the next stopped lifecycle event.
+ 
+ Don't use saved instance state to store large amounts of data, such as bitmaps,
+ nor complex data structures that require lengthy serialization or
+@@ -158,15 +161,21 @@ such as `String`. As such, use saved instance state to store a minimal amount of
+ data necessary, such as an ID, to re-create the data necessary to restore the UI
+ back to its previous state should the other persistence mechanisms fail. Most
+ apps should implement this to handle system-initiated process death.
+-| **Note:** Android keeps a serialized copy of the data in memory, outside of your process. Depending on various factors, the system might try to optimize this process and leave the same Bundle object in memory without serialization for quicker access. These behaviors however, may change across Android API versions.
+-| **Warning:** The system can potentially store the data to disk if you use [`PersistableBundle`](https://developer.android.com/reference/android/os/PersistableBundle) instead of [`Bundle`](https://developer.android.com/reference/android/os/Bundle). However, Fragments, Jetpack Compose, and other AndroidX libraries don't support it. Thus, use `Bundle` instead.
++
++> [!NOTE]
++> **Note:** Android keeps a serialized copy of the data in memory, outside of your process. Depending on various factors, the system might try to optimize this process and leave the same Bundle object in memory without serialization for quicker access. These behaviors however, may change across Android API versions.
++
++> [!WARNING]
++> **Warning:** The system can potentially store the data to disk if you use [`PersistableBundle`](https://developer.android.com/reference/android/os/PersistableBundle) instead of [`Bundle`](https://developer.android.com/reference/android/os/Bundle). However, Fragments, Jetpack Compose, and other AndroidX libraries don't support it. Thus, use `Bundle` instead.
+ 
+ Depending on your app's use cases, you might not need to use saved instance
+ state at all. For example, a browser might take the user back to the exact
+ webpage they were looking at before they exited the browser. If your activity
+ behaves this way, you can forego using saved instance state and instead persist
+ everything locally.
+-| **Key Point:** Usually, data stored in saved instance state is transient state that depends on user input or navigation. Examples of this can be the scroll position of a list, the id of the item the user wants more detail about, the in-progress selection of user preferences, or input in text fields.
++
++> [!IMPORTANT]
++> **Key Point:** Usually, data stored in saved instance state is transient state that depends on user input or navigation. Examples of this can be the scroll position of a list, the id of the item the user wants more detail about, the in-progress selection of user preferences, or input in text fields.
+ 
+ Additionally, when you open an activity from an intent, the bundle of extras is
+ delivered to the activity both when the configuration changes and when the
+@@ -180,10 +189,14 @@ wasting cycles reloading data from the database during a configuration change.
+ 
+ In cases where the UI data to preserve is simple and lightweight, you might use
+ saved instance state APIs alone to preserve your state data.
+-| **Key Point:** The API to use depends on where the state is held and the logic that it requires. For state that is used in [business logic](https://developer.android.com/architecture/ui-layer/stateholders#logic), hold it in a ViewModel and save it using `SavedStateHandle`. For state that is used in [UI
+-| logic](https://developer.android.com/architecture/ui-layer/stateholders#logic), use the `onSaveInstanceState` API in the View system or `rememberSaveable` in Compose.
+-| **Note:** To learn more about `rememberSaveable`, check out the [State and Jetpack
+-| Compose](https://developer.android.com/jetpack/compose/state#restore-ui-state) documentation.
++
++> [!IMPORTANT]
++> **Key Point:** The API to use depends on where the state is held and the logic that it requires. For state that is used in [business logic](https://developer.android.com/architecture/ui-layer/stateholders#logic), hold it in a ViewModel and save it using `SavedStateHandle`. For state that is used in [UI
++> logic](https://developer.android.com/architecture/ui-layer/stateholders#logic), use the `onSaveInstanceState` API in the View system or `rememberSaveable` in Compose.
++
++> [!NOTE]
++> **Note:** To learn more about `rememberSaveable`, check out the [State and Jetpack
++> Compose](https://developer.android.com/jetpack/compose/state#restore-ui-state) documentation.
+ 
+ ### Hook into saved state using SavedStateRegistry
+ 
+@@ -203,7 +216,9 @@ called [`saveState()`](https://developer.android.com/reference/androidx/savedsta
+ return a `Bundle` containing any state that should be saved from that component.
+ `SavedStateRegistry` calls this method during the saving state phase of the UI
+ controller's lifecycle.
+-**Important:** The `SavedStateHandle` only saves data written to it when the `Activity` is stopped. Writes to `SavedStateHandle` while the `Activity` is stopped aren't saved unless the `Activity` receives `onStart` followed by `onStop` again.  
++
++> [!IMPORTANT]
++> **Important:** The `SavedStateHandle` only saves data written to it when the `Activity` is stopped. Writes to `SavedStateHandle` while the `Activity` is stopped aren't saved unless the `Activity` receives `onStart` followed by `onStop` again.
+ 
+ ### Kotlin
+ 
+@@ -254,7 +269,7 @@ Within an `Activity` or `Fragment`, you can register a `SavedStateProvider` in
+ [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner), and register the `SavedStateProvider` once the
+ `ON_CREATE` event occurs. By using a `LifecycleObserver`, you can decouple the
+ registration and retrieval of the previously saved state from the
+-`SavedStateRegistryOwner` itself.  
++`SavedStateRegistryOwner` itself.
+ 
+ ### Kotlin
+ 
+@@ -341,7 +356,9 @@ class SearchFragment extends Fragment {
+     ...
+ }
+ ```
+-| **Note:** `SavedStateRegistry` stores data in the same `Bundle` as the other saved instance state APIs, therefore the same considerations and data limitations apply.
++
++> [!NOTE]
++> **Note:** `SavedStateRegistry` stores data in the same `Bundle` as the other saved instance state APIs, therefore the same considerations and data limitations apply.
+ 
+ ## Use local persistence to handle process death for complex or large data
+ 
+@@ -402,7 +419,8 @@ scenarios for recreating the activity:
+ - The activity is recreated after having been stopped by the system. The system has the query saved in an saved instance state bundle, and the UI should pass the query to the `ViewModel` if `SavedStateHandle` is not used. The `ViewModel` sees that it has no search results cached and delegates loading the search results using the given search query.
+ - The activity is created after a configuration change. Since the `ViewModel` instance hasn't been destroyed, the `ViewModel` has all the information cached in memory and it doesn't need to re-query the database.
+ 
+-| **Note:** When an activity is initially created, the saved instance state bundle contains no data, and the `ViewModel` object is empty. When you create the `ViewModel` object, you pass an empty query, which tells the `ViewModel` object that there's no data to load yet. Therefore, the activity starts in an empty state.
++> [!NOTE]
++> **Note:** When an activity is initially created, the saved instance state bundle contains no data, and the `ViewModel` object is empty. When you create the `ViewModel` object, you pass an empty query, which tells the `ViewModel` object that there's no data to load yet. Therefore, the activity starts in an empty state.
+ 
+ ## Additional resources
+ 

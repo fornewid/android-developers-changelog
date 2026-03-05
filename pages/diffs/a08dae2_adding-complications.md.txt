@@ -1,0 +1,15 @@
+diff --git a/docs/training/wearables/watch-faces/adding-complications.md b/docs/training/wearables/watch-faces/adding-complications.md
+index 8e116e5..1813a02 100644
+--- a/docs/training/wearables/watch-faces/adding-complications.md
++++ b/docs/training/wearables/watch-faces/adding-complications.md
+@@ -4,6 +4,10 @@ url: https://developer.android.com/training/wearables/watch-faces/adding-complic
+ source: md.txt
+ ---
+ 
++description: This document explains how to add and configure watch face complications on Wear OS using the Watch Face Format, detailing available complication types and their fields. keywords_public: Android,Wear OS,watch faces,complications,Watch Face Format,ComplicationData,data sources
++
++<br />
++
+ A watch face complication displays data from a data source. Using the
+ [Watch Face Format](https://developer.android.com/training/wearables/wff), you can choose the data sources to get the underlying
+ data. This lets your watch faces display information beyond the time of day

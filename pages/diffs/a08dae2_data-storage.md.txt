@@ -1,0 +1,37 @@
+diff --git a/docs/training/data-storage.md b/docs/training/data-storage.md
+index 74c4bd9..bbee5a5 100644
+--- a/docs/training/data-storage.md
++++ b/docs/training/data-storage.md
+@@ -56,14 +56,16 @@ a more reliable place to put data on which your app depends.
+ Removable volumes, such as an SD card, appear in the file system as part of
+ external storage. Android represents these devices using a path, such as
+ `/sdcard`.
+-| **Caution:**
+-|
+-| - The exact location of where your files can be saved might vary across devices. For this reason, don't use hard-coded file paths.
+-| - To avoid accidental disclosure of information, don't use predictable patterns to filenames in ways that could reveal the kinds of information found within a file.
++
++> [!CAUTION]
++> **Caution:**
++>
++> - The exact location of where your files can be saved might vary across devices. For this reason, don't use hard-coded file paths.
++> - To avoid accidental disclosure of information, don't use predictable patterns to filenames in ways that could reveal the kinds of information found within a file.
+ 
+ Apps themselves are stored within internal storage by default. If your APK size
+ is very large, however, you can indicate a preference within your app's manifest
+-file to install your app on external storage instead:  
++file to install your app on external storage instead:
+ 
+ ```xml
+ <manifest ...
+@@ -107,7 +109,9 @@ target Android 10 (API level 29) and higher are given scoped access into externa
+ storage, or *scoped storage*, by default. Such apps have access only to the
+ app-specific directory on external storage, as well as specific types of media
+ that the app has created.
+-| **Note:** If your app requests a storage-related permission at runtime, the user-facing dialog indicates that your app is requesting broad access to external storage, even when scoped storage is enabled.
++
++> [!NOTE]
++> **Note:** If your app requests a storage-related permission at runtime, the user-facing dialog indicates that your app is requesting broad access to external storage, even when scoped storage is enabled.
+ 
+ Use scoped storage unless your app needs access to a file that's stored outside
+ of an [app-specific directory](https://developer.android.com/training/data-storage/app-specific) and outside

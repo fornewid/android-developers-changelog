@@ -1,0 +1,139 @@
+diff --git a/docs/work/dpc/dedicated-devices/lock-task-mode.md b/docs/work/dpc/dedicated-devices/lock-task-mode.md
+index 79406eb..9a74032 100644
+--- a/docs/work/dpc/dedicated-devices/lock-task-mode.md
++++ b/docs/work/dpc/dedicated-devices/lock-task-mode.md
+@@ -4,8 +4,6 @@ url: https://developer.android.com/work/dpc/dedicated-devices/lock-task-mode
+ source: md.txt
+ ---
+ 
+-# Lock task mode
+-
+ This developer's guide explains how dedicated devices can be locked to a single
+ app or a set of apps. If you're an enterprise mobility management (EMM)
+ developer or solutions integrator read this guide to add lock task mode to your
+@@ -18,7 +16,9 @@ mode*. You might use lock task mode if you're developing a kiosk application or
+ a launcher to present a collection of apps. When the system runs in lock task
+ mode, device users typically can't see notifications, access non-allowlisted
+ apps, or return to the home screen (unless the home screen is allowlisted).
+-| **Key Term:** Lock task mode and screen pinning are sometimes used interchangeably. [Screen pinning](https://support.google.com/android/answer/9455138) appears similar (and provides an immersive experience) but the person using the device can exit the mode whenever they want.
++
++> [!IMPORTANT]
++> **Key Term:** Lock task mode and screen pinning are sometimes used interchangeably. [Screen pinning](https://support.google.com/android/answer/9455138) appears similar (and provides an immersive experience) but the person using the device can exit the mode whenever they want.
+ 
+ Only apps that have been allowlisted by a device policy controller (DPC) can run
+ when the system is in lock task mode. Apps are allowlisted because the person
+@@ -35,11 +35,11 @@ will depend on the problem you want to solve. Here are some examples:
+ The system can run in lock task mode in Android 5.0 or later. Table 1 shows
+ which versions of Android support allowlisting apps by user.
+ 
+-|           Android version            |      DPC administers      |                                                                                    Notes                                                                                     |
+-|--------------------------------------|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+-| Android 5.0 (API level 21) or higher | Fully managed device      |                                                                                                                                                                              |
++| Android version | DPC administers | Notes |
++|---|---|---|
++| Android 5.0 (API level 21) or higher | Fully managed device |   |
+ | Android 8.0 (API level 26) or higher | Affiliated secondary user | The secondary user must be affiliated with the primary user. See [multiple user](https://developer.android.com/work/dpc/dedicated-devices/multiple-users#overview) overview. |
+-| Android 9.0 (API level 28) or higher | Secondary user            |                                                                                                                                                                              |
++| Android 9.0 (API level 28) or higher | Secondary user |   |
+ [**Table 1**. Android version support for DPC admin modes]
+ 
+ In Android 9.0 or later a DPC can start any app's activity into lock task mode.
+@@ -50,7 +50,7 @@ lock task mode.
+ 
+ A DPC must allowlist apps before they can be used in lock task mode. Call
+ [`DevicePolicyManager.setLockTaskPackages()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setLockTaskPackages(android.content.ComponentName,%20java.lang.String%5B%5D)) to
+-allowlist apps for lock task mode as shown in the following sample:  
++allowlist apps for lock task mode as shown in the following sample:
+ 
+ ### Kotlin
+ 
+@@ -99,7 +99,7 @@ lock task mode. If an activity is already running in the foreground or
+ background, you need to relaunch the activity. Call
+ [`ActivityOptions.setLockTaskEnabled()`](https://developer.android.com/reference/android/app/ActivityOptions#setLockTaskEnabled(boolean)) and supply these
+ options when starting the activity. The following snippet shows one way you can
+-do this:  
++do this:
+ 
+ ### Kotlin
+ 
+@@ -136,7 +136,7 @@ mode by calling [`Activity.startLockTask()`](https://developer.android.com/refer
+ method, the activity must be running in the foreground (see [Activity-lifecycle
+ concepts](https://developer.android.com/guide/components/activities/activity-lifecycle#alc)) so we suggest calling in the
+ [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) method of an [`Activity`](https://developer.android.com/reference/android/app/Activity) or
+-[`Fragment`](https://developer.android.com/reference/androidx/fragment/app/Fragment). Here's how you can call `startLockTask()`:  
++[`Fragment`](https://developer.android.com/reference/androidx/fragment/app/Fragment). Here's how you can call `startLockTask()`:
+ 
+ ### Kotlin
+ 
+@@ -188,7 +188,7 @@ file](https://developer.android.com/guide/topics/manifest/manifest-intro) how an
+ the system is running in lock task mode. To have the system automatically run
+ your activity in lock task mode, set the
+ [`android:lockTaskMode`](https://developer.android.com/guide/topics/manifest/activity-element#ltmode) attribute to `if_whitelisted` as
+-shown in the following example:  
++shown in the following example:
+ 
+     <activity
+         android:name=".MainActivity"
+@@ -207,7 +207,9 @@ allowlist. Call
+ Android 6.0 (API level 23) or later, and omit the package name from the
+ allowlist array. When you update the allowlist, the app returns to the previous
+ task in the stack.
+-| **Note:** Removing the app from the allowlist in Android 5.0 and 5.1 doesn't stop lock task mode. If your solution needs to exit lock task mode on these versions, confirm that the app supports this itself. See the following `stopLockTask()` note.
++
++> [!NOTE]
++> **Note:** Removing the app from the allowlist in Android 5.0 and 5.1 doesn't stop lock task mode. If your solution needs to exit lock task mode on these versions, confirm that the app supports this itself. See the following `stopLockTask()` note.
+ 
+ If an activity previously called `startLockTask()`, then the activity can call
+ [`Activity.stopLockTask()`](https://developer.android.com/reference/android/app/Activity#stopLockTask()) to stop lock task mode. This method
+@@ -230,7 +232,7 @@ callback methods in your DPC's [`DeviceAdminReceiver`](https://developer.android
+ If you launch another app into lock task mode, you need to track the running
+ status in your own app. To check if the current app is running in lock task
+ mode, use the methods on [`ActivityManager`](https://developer.android.com/reference/android/app/ActivityManager) as shown in the following
+-example:  
++example:
+ 
+ ### Kotlin
+ 
+@@ -291,7 +293,7 @@ In Android 9.0 or higher when lock task mode is enabled, your DPC can enable
+ certain system UI features on the device---useful to developers creating a custom
+ launcher. Call
+ [`DevicePolicyManager.setLockTaskFeatures()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setLockTaskFeatures(android.content.ComponentName,%20int)) as shown
+-in the following snippet:  
++in the following snippet:
+ 
+ ### Kotlin
+ 
+@@ -319,15 +321,15 @@ enabled UI features persist between launches into lock task mode. If the device
+ is already in lock task mode, any changes you make to the lock task features
+ show immediately. Table 2 describes the UI features you can customize.
+ 
+-|                                                                  System UI feature                                                                   |                                                                                                                                                                                     Description                                                                                                                                                                                     |
+-|------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+-| [`LOCK_TASK_FEATURE_HOME`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_HOME)                     | Shows the Home button. Enable for custom launchers---tapping an enabled Home button has no action unless you allowlist the default Android launcher.                                                                                                                                                                                                                                |
+-| [`LOCK_TASK_FEATURE_OVERVIEW`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_OVERVIEW)             | Shows the Overview button (tapping this button opens the [Recents](https://developer.android.com/guide/components/activities/recents) screen). If you enable this button, you must also enable the Home button.                                                                                                                                                                     |
+-| [`LOCK_TASK_FEATURE_GLOBAL_ACTIONS`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_GLOBAL_ACTIONS) | Enables the global actions dialog that shows when long-pressing the power button. The only feature that's enabled when [setLockTaskFeatures()](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setLockTaskFeatures(android.content.ComponentName,%20int)) hasn't been called. A user typically can't power off the device if you disable this dialog. |
+-| [`LOCK_TASK_FEATURE_NOTIFICATIONS`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_NOTIFICATIONS)   | Enables notifications for all apps. This shows notification icons in the status bar, heads-up notifications, and the expandable notification shade. If you enable this button, you must also enable the Home button. Tapping notification actions and buttons that open new panels, doesn't work in lock task mode.                                                                 |
+-| [`LOCK_TASK_FEATURE_SYSTEM_INFO`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_SYSTEM_INFO)       | Enables the status bar's system info area that contains indicators such as connectivity, battery, and sound and vibrate options.                                                                                                                                                                                                                                                    |
+-| [`LOCK_TASK_FEATURE_KEYGUARD`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_KEYGUARD)             | Enables any lock screen that might be set on the device. Typically not suitable for devices with public users such as information kiosks or digital signage.                                                                                                                                                                                                                        |
+-| [`LOCK_TASK_FEATURE_NONE`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_NONE)                     | Disables all the system UI features listed above.                                                                                                                                                                                                                                                                                                                                   |
++| System UI feature | Description |
++|---|---|
++| [`LOCK_TASK_FEATURE_HOME`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_HOME) | Shows the Home button. Enable for custom launchers---tapping an enabled Home button has no action unless you allowlist the default Android launcher. |
++| [`LOCK_TASK_FEATURE_OVERVIEW`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_OVERVIEW) | Shows the Overview button (tapping this button opens the [Recents](https://developer.android.com/guide/components/activities/recents) screen). If you enable this button, you must also enable the Home button. |
++| [`LOCK_TASK_FEATURE_GLOBAL_ACTIONS`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_GLOBAL_ACTIONS) | Enables the global actions dialog that shows when long-pressing the power button. The only feature that's enabled when `https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setLockTaskFeatures(android.content.ComponentName,%20int)` hasn't been called. A user typically can't power off the device if you disable this dialog. |
++| [`LOCK_TASK_FEATURE_NOTIFICATIONS`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_NOTIFICATIONS) | Enables notifications for all apps. This shows notification icons in the status bar, heads-up notifications, and the expandable notification shade. If you enable this button, you must also enable the Home button. Tapping notification actions and buttons that open new panels, doesn't work in lock task mode. |
++| [`LOCK_TASK_FEATURE_SYSTEM_INFO`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_SYSTEM_INFO) | Enables the status bar's system info area that contains indicators such as connectivity, battery, and sound and vibrate options. |
++| [`LOCK_TASK_FEATURE_KEYGUARD`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_KEYGUARD) | Enables any lock screen that might be set on the device. Typically not suitable for devices with public users such as information kiosks or digital signage. |
++| [`LOCK_TASK_FEATURE_NONE`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#LOCK_TASK_FEATURE_NONE) | Disables all the system UI features listed above. |
+ [**Table 2**. Customizable system UI features in lock task mode]
+ 
+ A DPC can call
+@@ -344,7 +346,7 @@ Apps and services create these windows to show toasts, dialogs, and overlays to
+ the person using the device. Your DPC can prevent these by adding the
+ [`DISALLOW_CREATE_WINDOWS`](https://developer.android.com/reference/android/os/UserManager#DISALLOW_CREATE_WINDOWS) user restriction.
+ The following example shows how you might do this in the
+-[`onLockTaskModeEntering()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onLockTaskModeEntering(android.content.Context,%20android.content.Intent,%20java.lang.String)) callback:  
++[`onLockTaskModeEntering()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onLockTaskModeEntering(android.content.Context,%20android.content.Intent,%20java.lang.String)) callback:
+ 
+ ### Kotlin
+ 

@@ -1,0 +1,55 @@
+diff --git a/docs/training/constraint-layout/motionlayout/ref/onswipe.md b/docs/training/constraint-layout/motionlayout/ref/onswipe.md
+index fc19d8d..092ef0f 100644
+--- a/docs/training/constraint-layout/motionlayout/ref/onswipe.md
++++ b/docs/training/constraint-layout/motionlayout/ref/onswipe.md
+@@ -4,11 +4,16 @@ url: https://developer.android.com/training/constraint-layout/motionlayout/ref/o
+ source: md.txt
+ ---
+ 
+-# &lt;OnSwipe&gt;
++[Video](https://www.youtube.com/watch?v=XtnAZXM26wQ)
+ 
+-Specifies the action to perform when the user swipes on the layout. The speed of the motion sequence and the motion of the targeted view are affected by the speed and direction of the swipe, subject to the limits you set with optional parameters.
++Specifies the action to perform when the user swipes on the layout. The speed of
++the motion sequence and the motion of the targeted view are affected by the
++speed and direction of the swipe, subject to the limits you set with optional
++parameters.
+ 
+-There can be multiple`<OnSwipe>`nodes for a single`<Transition>`, with each`<OnSwipe>`specifying a different swipe direction and a different action to perform when the user performs that swipe.
++There can be multiple `<OnSwipe>` nodes for a single `<Transition>`, with each
++`<OnSwipe>` specifying a different swipe direction and a different action to
++perform when the user performs that swipe.
+ 
+ ## Syntax
+ 
+@@ -29,16 +34,26 @@ There can be multiple`<OnSwipe>`nodes for a single`<Transition>`, with each`<OnS
+ :   View that is being moved by the swipe.
+ 
+ `motion:touchAnchorSide`
+-:   Side of the target view that the swipe is anchored to.`MotionLayout`keeps a constant distance between the anchor and the user's finger. Acceptable values are`"left"`,`"right"`,`"top"`, and`"bottom"`.
++:   Side of the target view that the swipe is anchored to. `MotionLayout` keeps a
++    constant distance between the anchor and the user's finger. Acceptable values
++    are `"left"`, `"right"`, `"top"`, and `"bottom"`.
+ 
+ `motion:dragDirection`
+-:   Direction of the user's swipe motion. If this attribute is set, this`<OnSwipe>`only applies to swipes in the specified direction. Acceptable values are`"dragLeft"`,`"dragRight"`,`"dragUp"`, and`"dragDown"`.
++:   Direction of the user's swipe motion. If this attribute is set, this
++    `<OnSwipe>` only applies to swipes in the specified direction. Acceptable values
++    are `"dragLeft"`, `"dragRight"`, `"dragUp"`, and `"dragDown"`.
+ 
+ `motion:dragScale`
+ 
+-:   Controls the distance the view moves relative to the length of the swipe. The default value is 1, indicating that the view moves as far as the swipe does. If`dragScale`is less than 1, the view moves less than the swipe distance. For example, a`dragScale`of 0.5 means that if the swipe moves 4 cm, the target view moves 2 cm.
++:   Controls the distance the view moves relative to the length of the swipe. The
++    default value is 1, indicating that the view moves as far as the swipe does.
++    If `dragScale` is less than 1, the view moves less than the swipe distance.
++    For example, a `dragScale` of 0.5 means that if the swipe moves 4 cm, the
++    target view moves 2 cm.
+ 
+-    If`dragScale`is greater than 1, the view moves farther than the swipe distance. For example, a`dragScale`of 1.5 means that if the swipe moves 4 cm, the target view moves 6 cm.
++    If `dragScale` is greater than 1, the view moves farther than the swipe
++    distance. For example, a `dragScale` of 1.5 means that if the swipe moves 4
++    cm, the target view moves 6 cm.
+ 
+ `motion:maxVelocity`
+ 

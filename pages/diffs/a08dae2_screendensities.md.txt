@@ -1,0 +1,121 @@
+diff --git a/docs/training/multiscreen/screendensities.md b/docs/training/multiscreen/screendensities.md
+index 7f99a22..1d50d29 100644
+--- a/docs/training/multiscreen/screendensities.md
++++ b/docs/training/multiscreen/screendensities.md
+@@ -16,7 +16,8 @@ This page shows you how you can design your app to support
+ different pixel densities by using resolution-independent units of measurements
+ and providing alternative bitmap resources for each pixel density.
+ 
+-Watch the following video for an overview of these techniques.  
++Watch the following video for an overview of these techniques.
++[Video](https://www.youtube.com/watch?v=zhszwkcay2A)
+ 
+ For more information about designing icon assets, see the [Material Design icon guidelines](https://m3.material.io/styles/icons/designing-icons).
+ 
+@@ -44,7 +45,7 @@ pixels* (sp) as your units. The sp unit is
+ the same size as a dp, by default, but it resizes based on the user's preferred
+ text size. Never use sp for layout sizes.
+ 
+-For example, to specify spacing between two views, use dp:  
++For example, to specify spacing between two views, use dp:
+ 
+ ```xml
+ <Button android:layout_width="wrap_content"
+@@ -53,7 +54,7 @@ For example, to specify spacing between two views, use dp:
+     android:layout_marginTop="20dp" />
+ ```
+ 
+-When specifying text size, use sp:  
++When specifying text size, use sp:
+ 
+ ```xml
+ <TextView android:layout_width="match_parent"
+@@ -70,7 +71,7 @@ is as follows:
+ `px = dp * (dpi / 160)`
+ 
+ **Note:** Never hardcode this equation to calculate pixels. Instead, use
+-[TypedValue.applyDimension()](https://developer.android.com/reference/android/util/TypedValue#applyDimension(int,%20float,%20android.util.DisplayMetrics)),
++`https://developer.android.com/reference/android/util/TypedValue#applyDimension(int,%20float,%20android.util.DisplayMetrics)`,
+ which converts many types of dimensions (dp, sp, etc.) to pixels for you.
+ 
+ Imagine an app in which a scroll or fling gesture is recognized
+@@ -86,7 +87,7 @@ equals 1/15 of an inch (or 1.7 mm). The distance is much shorter, and
+ the app therefore appears more sensitive to the user.
+ 
+ To fix this issue, express the gesture threshold in code in dp and
+-then convert it to actual pixels. For example:  
++then convert it to actual pixels. For example:
+ 
+ ### Kotlin
+ 
+@@ -121,21 +122,21 @@ int gestureThreshold = (int) TypedValue.applyDimension(
+ ```
+ 
+ 
+-The [DisplayMetrics.density](https://developer.android.com/reference/android/util/DisplayMetrics#density) field
++The `https://developer.android.com/reference/android/util/DisplayMetrics#density` field
+ specifies the scale factor used to convert dp units to
+ pixels according to the current pixel density. On a medium-density screen,
+ `DisplayMetrics.density` equals
+ 1.0, and on a high-density screen it equals 1.5. On an extra-high-density screen,
+ it equals 2.0, and on a low-density screen, it equals 0.75. This figure is
+-used by [TypedValue.applyDimension()](https://developer.android.com/reference/android/util/TypedValue#applyDimension(int,%20float,%20android.util.DisplayMetrics)) to
++used by `https://developer.android.com/reference/android/util/TypedValue#applyDimension(int,%20float,%20android.util.DisplayMetrics)` to
+ get the actual pixel count for the current screen.
+ 
+ ### Use pre-scaled configuration values
+ 
+-You can use the [ViewConfiguration](https://developer.android.com/reference/android/view/ViewConfiguration) class to access common
++You can use the `https://developer.android.com/reference/android/view/ViewConfiguration` class to access common
+ distances, speeds, and times used by the Android system. For instance, the
+ distance in pixels used by the framework as the scroll threshold can be obtained
+-with [getScaledTouchSlop()](https://developer.android.com/reference/android/view/ViewConfiguration#getScaledTouchSlop()):  
++with `https://developer.android.com/reference/android/view/ViewConfiguration#getScaledTouchSlop()`:
+ 
+ ### Kotlin
+ 
+@@ -187,7 +188,7 @@ as follows:
+ 
+    Because one vector drawable can be used on all pixel densities, this file
+    goes in your default drawables directory, as shown in the following
+-   hierarchy. You don't need to use density-specific directories.  
++   hierarchy. You don't need to use density-specific directories.
+ 
+    ```
+    res/
+@@ -237,7 +238,7 @@ a bitmap drawable that's 48x48 pixels for medium-density screens, the sizes are:
+ - 192x192 (4.0x) for extra-extra-extra-high density (xxxhdpi)
+ 
+ Place the generated image files in the appropriate subdirectory
+-under `res/`:  
++under `res/`:
+ 
+ ```
+ res/
+@@ -283,7 +284,7 @@ To avoid this, put all
+ your app icons in `mipmap` directories instead of `drawable` directories. Unlike
+ `drawable` directories, all `mipmap` directories are retained in the APK, even
+ if you build density-specific APKs. This lets launcher apps pick the best
+-resolution icon to display on the home screen.  
++resolution icon to display on the home screen.
+ 
+ ```
+ res/
+@@ -334,7 +335,7 @@ This is done in the following ways:
+ 
+    There are some situations in which you might not want Android to pre-scale
+    a resource. The easiest way to avoid pre-scaling is to put the resource in a resource directory
+-   with the `nodpi` configuration qualifier. For example:  
++   with the `nodpi` configuration qualifier. For example:
+ 
+    ```
+    res/drawable-nodpi/icon.png
+@@ -346,7 +347,7 @@ This is done in the following ways:
+ 
+ 
+    You can disable pre-scaling dimensions and images by setting [`android:anyDensity`](https://developer.android.com/guide/topics/manifest/supports-screens-element#any)
+-   to `"false"` in the manifest or programmatically for a [Bitmap](https://developer.android.com/reference/android/graphics/Bitmap) by setting [inScaled](https://developer.android.com/reference/android/graphics/BitmapFactory.Options#inScaled) to `"false"`. In
++   to `"false"` in the manifest or programmatically for a `https://developer.android.com/reference/android/graphics/Bitmap` by setting `https://developer.android.com/reference/android/graphics/BitmapFactory.Options#inScaled` to `"false"`. In
+    this case, the system auto-scales any absolute pixel coordinates and pixel
+    dimension values at draw time. It does this to ensure that pixel-defined
+    screen elements are still displayed at approximately the same physical size

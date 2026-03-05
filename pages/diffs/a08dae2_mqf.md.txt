@@ -1,0 +1,13 @@
+diff --git a/docs/training/tv/mqf.md b/docs/training/tv/mqf.md
+index a5d0a10..ef0033c 100644
+--- a/docs/training/tv/mqf.md
++++ b/docs/training/tv/mqf.md
+@@ -125,7 +125,7 @@ Key methods include:
+ 
+ #### PictureProfile Object
+ 
+-The `PictureProfile` object encapsulates all the information for a given picture mode.  
++The `PictureProfile` object encapsulates all the information for a given picture mode.
+ 
+     public final class PictureProfile {
+       private String id;

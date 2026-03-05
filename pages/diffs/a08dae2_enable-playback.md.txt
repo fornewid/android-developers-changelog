@@ -1,0 +1,74 @@
+diff --git a/docs/training/cars/media/enable-playback.md b/docs/training/cars/media/enable-playback.md
+index fe25786..225857e 100644
+--- a/docs/training/cars/media/enable-playback.md
++++ b/docs/training/cars/media/enable-playback.md
+@@ -30,7 +30,7 @@ implement the associated callback methods.
+ In your media browser service's [`onCreate`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onCreate()) method, create an instance of
+ [`MediaSessionCompat`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat), then call [`setSessionToken`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#setSessionToken(android.support.v4.media.session.MediaSessionCompat.Token)) to register the
+ media session. This code snippet shows how to create and register a media
+-session:  
++session:
+ 
+ ### Kotlin
+ 
+@@ -66,7 +66,9 @@ When you create the media session object, you set a callback object that is used
+ to handle playback control requests. You create this callback object by
+ providing an implementation of the [`MediaSessionCompat.Callback`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback)
+ class for your app. The next section discusses how to implement this object.
+-| **Note:** To inspect the media session run `adb shell dumpsys media_session`
++
++> [!NOTE]
++> **Note:** To inspect the media session run `adb shell dumpsys media_session`
+ 
+ ## Implement play commands
+ 
+@@ -93,7 +95,8 @@ offered by your app:
+     app must play its default content or, if playback was paused with
+     [`onPause`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback#onPause()), your app resumes playback.
+ 
+-    | **Note:** Your app mustn't automatically start playing music when Android Automotive OS or Android Auto connect to the media browser service. To learn more, see [Set initial PlaybackState](https://developer.android.com/training/cars/media/enable-playback#initial-playback-state).
++    > [!NOTE]
++    > **Note:** Your app mustn't automatically start playing music when Android Automotive OS or Android Auto connect to the media browser service. To learn more, see [Set initial PlaybackState](https://developer.android.com/training/cars/media/enable-playback#initial-playback-state).
+ 
+ [`onPlayFromMediaId`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback#onPlayFromMediaId(java.lang.String,android.os.Bundle))
+ 
+@@ -162,7 +165,9 @@ Also, add support for the **Now playing** icon, which is an indicator for what
+ is playing. To do this, call the [`setActiveQueueItemId`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat.Builder#setActiveQueueItemId(long)) method and pass
+ the ID of the playing item in the queue. You need to update
+ `setActiveQueueItemId` whenever there is a queue change.
+-| **Note:** Adding support for a **Now playing** icon is only required when supporting a play queue.
++
++> [!NOTE]
++> **Note:** Adding support for a **Now playing** icon is only required when supporting a play queue.
+ 
+ Android Auto and AAOS display buttons for each enabled action as well as the
+ playback queue. When users click these buttons, the system invokes the
+@@ -200,7 +205,9 @@ to resume or start playback based on the car's state or user actions.
+ To accomplish this, set the initial `PlaybackStateCompat`
+ of your media session to [`STATE_STOPPED`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#STATE_STOPPED()), [`STATE_PAUSED`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#STATE_PAUSED()),
+ [`STATE_NONE`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#STATE_NONE()), or [`STATE_ERROR`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#STATE_ERROR()).
+-| **Note:** When `PlaybackStateCompat` is set to `STATE_NONE`, Android Auto and AAOS make playback UI inaccessible. Only send this state when the app has nothing to play and the user needs to select new content to initiate playback.
++
++> [!NOTE]
++> **Note:** When `PlaybackStateCompat` is set to `STATE_NONE`, Android Auto and AAOS make playback UI inaccessible. Only send this state when the app has nothing to play and the user needs to select new content to initiate playback.
+ 
+ Media sessions within Android Auto and AAOS only last for the
+ duration of the drive, so users start and stop these sessions frequently. To
+@@ -222,7 +229,7 @@ Don't use them to replace or duplicate standard actions.
+ 
+ To add custom actions, use the [`addCustomAction`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat.Builder#addCustomAction(android.support.v4.media.session.PlaybackStateCompat.CustomAction)) method in the
+ [`PlaybackStateCompat.Builder`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat.Builder) class. This code snippet shows how to add
+-a custom action to "Start a radio channel":  
++a custom action to "Start a radio channel":
+ 
+ ### Kotlin
+ 
+@@ -263,7 +270,7 @@ create your custom action, your media session can respond to the actions
+ by overriding the [`onCustomAction`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback#onCustomAction(java.lang.String,%20android.os.Bundle)) method.
+ 
+ This code snippet shows how your app could respond to a "Start a radio channel"
+-action:  
++action:
+ 
+ ### Kotlin
+ 

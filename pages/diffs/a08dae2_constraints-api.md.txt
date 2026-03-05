@@ -1,0 +1,15 @@
+diff --git a/docs/training/cars/apps/library/constraints-api.md b/docs/training/cars/apps/library/constraints-api.md
+index 768b292..5f7309f 100644
+--- a/docs/training/cars/apps/library/constraints-api.md
++++ b/docs/training/cars/apps/library/constraints-api.md
+@@ -8,7 +8,9 @@ Different cars can allow for differing numbers of
+ [`Item`](https://developer.android.com/reference/androidx/car/app/model/Item) instances to be displayed to the user at a time. Use the
+ [`ConstraintManager`](https://developer.android.com/reference/androidx/car/app/constraints/ConstraintManager) to check the content limit at runtime and to set the
+ appropriate number of items in your templates.
+-| **Important:** The host sets these limits, which can't be modified by client apps. To see minimum values, see the [`integers.xml`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:car/app/app/src/main/res/values/integers.xml) resource file.
++
++> [!IMPORTANT]
++> **Important:** The host sets these limits, which can't be modified by client apps. To see minimum values, see the [`integers.xml`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:car/app/app/src/main/res/values/integers.xml) resource file.
+ 
+ Get a `ConstraintManager` from the `CarContext`:
+ 

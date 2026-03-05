@@ -1,0 +1,215 @@
+diff --git a/docs/guide/playcore/asset-delivery/integrate-native.md b/docs/guide/playcore/asset-delivery/integrate-native.md
+index c7a6db7..e33157c 100644
+--- a/docs/guide/playcore/asset-delivery/integrate-native.md
++++ b/docs/guide/playcore/asset-delivery/integrate-native.md
+@@ -13,7 +13,9 @@ Sample [integration code](https://github.com/android/app-bundle-samples/tree/mai
+ 
+ Use the following steps to build Play Asset Delivery into your project's Android
+ App Bundle. You don't need to use Android Studio to perform these steps.
+-| **Note:** For a guided tutorial, see the [Using Play Asset Delivery in Native games Codelab](https://codelabs.developers.google.com/codelabs/native-gamepad).
++
++> [!NOTE]
++> **Note:** For a guided tutorial, see the [Using Play Asset Delivery in Native games Codelab](https://codelabs.developers.google.com/codelabs/native-gamepad).
+ 
+ 1. Update the version of the Android Gradle plugin in your project's
+    `build.gradle` file to `4.0.0` or later.
+@@ -34,7 +36,7 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+    }
+ 
+    assetPack {
+-       packName = "<var translate="no">asset-pack-name</var>" // Directory name for the asset pack
++       packName = "asset-pack-name" // Directory name for the asset pack
+        dynamicDelivery {
+            deliveryType = "[ install-time | fast-follow | on-demand ]"
+        }
+@@ -47,7 +49,7 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+    // In the app build.gradle file:
+    android {
+        ...
+-       assetPacks = [":<var translate="no">asset-pack-name</var>", ":<var translate="no">asset-pack2-name</var>"]
++       assetPacks = [":asset-pack-name", ":asset-pack2-name"]
+    }
+    ```
+ 5. In the project's `settings.gradle` file, include all asset packs in your
+@@ -56,8 +58,8 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+    ```groovy
+    // In the settings.gradle file:
+    include ':app'
+-   include ':<var translate="no">asset-pack-name</var>'
+-   include ':<var translate="no">asset-pack2-name</var>'
++   include ':asset-pack-name'
++   include ':asset-pack2-name'
+    ```
+ 6. In the asset pack directory, create the following subdirectory:
+    `src/main/assets`.
+@@ -69,14 +71,14 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+    - `build.gradle`
+    - `settings.gradle`
+    - `app/`
+-   - <var translate="no">asset-pack-name</var>`/build.gradle`
+-   - <var translate="no">asset-pack-name</var>`/src/main/assets/`<var translate="no">your-asset-directories</var>
++   - `asset-pack-name/build.gradle`
++   - `asset-pack-name/src/main/assets/your-asset-directories`
+ 8. [Build the Android App Bundle with Gradle](https://developer.android.com/studio/build/building-cmdline#build_bundle).
+    In the generated app bundle, the root-level directory now includes the
+    following:
+ 
+-   - <var translate="no">asset-pack-name</var>`/manifest/AndroidManifest.xml`: Configures the asset pack's identifier and delivery mode
+-   - <var translate="no">asset-pack-name</var>`/assets/`<var translate="no">your-asset-directories</var>: Directory that contains all assets delivered as part of the asset pack
++   - `asset-pack-name/manifest/AndroidManifest.xml`: Configures the asset pack's identifier and delivery mode
++   - `asset-pack-name/assets/your-asset-directories`: Directory that contains all assets delivered as part of the asset pack
+ 
+    Gradle generates the manifest for each asset pack and outputs the `assets/`
+    directory for you.
+@@ -88,7 +90,9 @@ App Bundle. You don't need to use Android Studio to perform these steps.
+ You implement this API according to the delivery type of
+ the asset pack you wish to access. These steps are shown in the following
+ flowchart.
+-| **Note:** You use a different API to access `install-time` asset packs than `fast-follow` and `on-demand` asset packs.
++
++> [!NOTE]
++> **Note:** You use a different API to access `install-time` asset packs than `fast-follow` and `on-demand` asset packs.
+ 
+ ![Asset pack flow diagram for native code](https://developer.android.com/static/images/app-bundle/asset-pack-flow-native.png)
+ 
+@@ -106,7 +110,7 @@ accessing the assets.
+ 
+ ## Download Play Core Native SDK
+ 
+-Before downloading, you must agree to the following terms and conditions.  
++Before downloading, you must agree to the following terms and conditions.
+ 
+ ## Terms and Conditions
+ 
+@@ -116,9 +120,8 @@ Last modified: September 24, 2020
+ 2. For purposes of these terms, "APIs" means Google's APIs, other developer services, and associated software, including any Redistributable Code.
+ 3. "Redistributable Code" means Google-provided object code or header files that call the APIs.
+ 4. Subject to these terms and the terms of the API ToS, you may copy and distribute Redistributable Code solely for inclusion as part of your API Client. Google and its licensors own all right, title and interest, including any and all intellectual property and other proprietary rights, in and to Redistributable Code. You will not modify, translate, or create derivative works of Redistributable Code.
+-5. Google may make changes to these terms at any time with notice and the opportunity to decline further use of the Play Core Software Development Kit. Google will post notice of modifications to the terms at <https://developer.android.com/guide/playcore/license>. Changes will not be retroactive.  
+-I have read and agree with the above terms and conditions  
+-Download Play Core Native SDK [Download Play Core Native SDK](https://dl.google.com/games/play/core/play-core-native-sdk-1.16.0.zip)
++5. Google may make changes to these terms at any time with notice and the opportunity to decline further use of the Play Core Software Development Kit. Google will post notice of modifications to the terms at <https://developer.android.com/guide/playcore/license>. Changes will not be retroactive.
++I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Play Core Native SDK </button> [Download Play Core Native SDK](https://dl.google.com/games/play/core/play-core-native-sdk-1.16.0.zip)
+ 
+ *play-core-native-sdk-1.16.0.zip*
+ 
+@@ -136,7 +139,7 @@ Download Play Core Native SDK [Download Play Core Native SDK](https://dl.google.
+ 
+    | Download Link | Size | SHA-256 Checksum |
+    |---|---|---|
+-   | play-core-native-sdk-1.16.0.zip | 54.8 MiB | 008b8fedc6179a6dc6ccc21af75591afc7036f78f3d5559d844f1b923934fef0 |
++   | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Play Core Native SDK" data-action="download" data-label="play_core_native_sdk_zip" data-modal-dialog-id="play_core_native_sdk_zip">play-core-native-sdk-1.16.0.zip</button> | 54.8 MiB | 008b8fedc6179a6dc6ccc21af75591afc7036f78f3d5559d844f1b923934fef0 |
+ 
+ 4. Update your app's `build.gradle` file as shown below:
+ 
+@@ -151,7 +154,7 @@ Download Play Core Native SDK [Download Play Core Native SDK](https://dl.google.
+ 
+        // Define a path to the extracted Play Core SDK files.
+        // If using a relative path, wrap it with file() since CMake requires absolute paths.
+-       def playcoreDir = file('<var translate="no">../path/to/playcore-native-sdk</var>')
++       def playcoreDir = file('../path/to/playcore-native-sdk')
+ 
+        android {
+            defaultConfig {
+@@ -173,7 +176,7 @@ Download Play Core Native SDK [Download Play Core Native SDK](https://dl.google.
+                    // Include Play Core Library proguard config files to strip unused code while retaining the Java symbols needed for JNI.
+                    proguardFile '$playcoreDir/proguard/common.pgcfg'
+                    proguardFile '$playcoreDir/proguard/gms_task.pgcfg'
+-                   proguardFile '$playcoreDir/proguard/<var translate="no">per-feature-proguard-files</var>'
++                   proguardFile '$playcoreDir/proguard/per-feature-proguard-files'
+                    ...
+                }
+                debug {
+@@ -213,7 +216,7 @@ Download Play Core Native SDK [Download Play Core Native SDK](https://dl.google.
+ 
+    // Define a path to the extracted Play Core SDK files.
+    // If using a relative path, wrap it with file() since CMake requires absolute paths.
+-   val playcoreDir = file("<var translate="no">../path/to/playcore-native-sdk</var>")
++   val playcoreDir = file("../path/to/playcore-native-sdk")
+ 
+    android {
+        defaultConfig {
+@@ -235,7 +238,7 @@ Download Play Core Native SDK [Download Play Core Native SDK](https://dl.google.
+                // Include Play Core Library proguard config files to strip unused code while retaining the Java symbols needed for JNI.
+                proguardFile("$playcoreDir/proguard/common.pgcfg")
+                proguardFile("$playcoreDir/proguard/gms_task.pgcfg")
+-               proguardFile("$playcoreDir/proguard/<var translate="no">per-feature-proguard-files</var>")
++               proguardFile("$playcoreDir/proguard/per-feature-proguard-files")
+                ...
+            }
+            debug {
+@@ -309,14 +312,14 @@ package to the Play Console.
+ 
+ Asset packs configured as `install-time` are immediately available at app
+ launch. Use the [NDK AAssetManager API](https://developer.android.com/ndk/reference/group/asset#aassetmanager) to access
+-assets served in this mode:  
++assets served in this mode:
+ 
+ ```c
+ #include <android/asset_manager.h>
+ #include <android_native_app_glue.h>
+ ...
+ AAssetManager* assetManager = app->activity->assetManager;
+-AAsset* asset = AAssetManager_open(assetManager, "<var translate="no">asset-name</var>", AASSET_MODE_BUFFER);
++AAsset* asset = AAssetManager_open(assetManager, "asset-name", AASSET_MODE_BUFFER);
+ size_t assetLength = AAsset_getLength(asset);
+ char* buffer = (char*) malloc(assetLength + 1);
+ AAsset_read(asset, buffer, assetLength);
+@@ -334,7 +337,7 @@ download, and how to access the downloaded packs. These sections apply to
+ Always call [`AssetPackManager_init()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_init)
+ to initialize the asset pack API before calling any other
+ function. Check for any
+-[asset pack error codes](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackerrorcode).  
++[asset pack error codes](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackerrorcode).
+ 
+ ```c
+ #include "play/asset_pack.h"
+@@ -357,7 +360,7 @@ asynchronous request for the size of the download and
+ whether the pack is already downloading. Then use
+ [`AssetPackManager_getDownloadState()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_getdownloadstate) to poll for the download state
+ (for example, call this function once per frame in your game loop). If a request
+-fails, check the [asset pack error codes](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackerrorcode).  
++fails, check the [asset pack error codes](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackerrorcode).
+ 
+ ```c
+ AssetPackErrorCode AssetPackManager_requestInfo();      // Call once
+@@ -366,7 +369,7 @@ AssetPackErrorCode AssetPackManager_getDownloadState(); // Call once per frame i
+ 
+ The `AssetPackManager_getDownloadState()` function returns the opaque type
+ [`AssetPackDownloadState`](https://developer.android.com/reference/native/play/core/group/assetpack#group__assetpack_1gaa635665bad061c34cbee483ada331afc)
+-as an output pointer. Use this pointer to call the following functions:  
++as an output pointer. Use this pointer to call the following functions:
+ 
+ ```c
+ AssetPackDownloadState* state;
+@@ -382,7 +385,7 @@ AssetPackDownloadState_destroy(state);
+ Use
+ [`AssetPackManager_requestDownload()`](https://developer.android.com/reference/native/play/core/group/assetpack#assetpackmanager_requestdownload)
+ to start downloading an asset pack for the first time or to request for an asset
+-pack update to complete:  
++pack update to complete:
+ 
+ ```c
+ AssetPackErrorCode AssetPackManager_requestDownload();  // Call once
+@@ -393,7 +396,9 @@ The `AssetPackManager_getDownloadState()` function returns the opaque type
+ [`AssetPackDownloadState`](https://developer.android.com/reference/native/play/core/group/assetpack#group__assetpack_1gaa635665bad061c34cbee483ada331afc).
+ For information on how to use this type, see
+ [Get download information](https://developer.android.com/guide/playcore/asset-delivery/integrate-native#get-download-information).
+-| **Note:** The Android system notification bar shows download progress for `fast-follow` and `on-demand` asset packs. The user can cancel the download from this bar at any time.
++
++> [!NOTE]
++> **Note:** The Android system notification bar shows download progress for `fast-follow` and `on-demand` asset packs. The user can cancel the download from this bar at any time.
+ 
+ #### Large downloads
+ 
+@@ -446,7 +451,9 @@ if (error_code == ASSET_PACK_NO_ERROR) {
+ 
+ Once you locate the assets, use functions like `fopen` or `ifstream` to access
+ the files.
+-| **Note:** Do not rely on cached asset pack locations between app launches. The app should check for the existence of asset packs at every launch. Asset packs may become invalid due to app updates or if the user clears the app data.
++
++> [!NOTE]
++> **Note:** Do not rely on cached asset pack locations between app launches. The app should check for the existence of asset packs at every launch. Asset packs may become invalid due to app updates or if the user clears the app data.
+ 
+ ## Other Play Core API methods
+ 

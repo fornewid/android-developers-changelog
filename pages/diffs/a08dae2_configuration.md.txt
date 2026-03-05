@@ -1,0 +1,172 @@
+diff --git a/docs/media/camera/camerax/configuration.md b/docs/media/camera/camerax/configuration.md
+index 574a699..fb3be8c 100644
+--- a/docs/media/camera/camerax/configuration.md
++++ b/docs/media/camera/camerax/configuration.md
+@@ -8,7 +8,7 @@ You configure each CameraX use case to control different aspects of the use
+ case's operations.
+ 
+ For example, with the image capture use case, you can set a target aspect ratio
+-and a flash mode. The following code shows one example:  
++and a flash mode. The following code shows one example:
+ 
+ ### Kotlin
+ 
+@@ -60,7 +60,7 @@ The following procedure describes how to use `CameraXConfig`:
+ 3. Add your `Application` class to your `AndroidManifest.xml` file, as described [here](https://developer.android.com/reference/android/app/Application).
+ 
+ For example, the following code sample restricts CameraX logging to error
+-messages only:  
++messages only:
+ 
+ ### Kotlin
+ 
+@@ -92,7 +92,7 @@ to
+ [`CameraXConfig.Builder.setAvailableCamerasLimiter()`](https://developer.android.com/reference/androidx/camera/core/CameraXConfig.Builder#setAvailableCamerasLimiter(androidx.camera.core.CameraSelector))
+ filters out a camera, CameraX behaves as if that camera doesn't exist. For
+ example, the following code limits the application to only use the device's
+-default back camera:  
++default back camera:
+ 
+ ### Kotlin
+ 
+@@ -119,7 +119,9 @@ that are used through
+ [`CameraXConfig.Builder.setCameraExecutor()`](https://developer.android.com/reference/androidx/camera/core/CameraXConfig.Builder#setCameraExecutor(java.util.concurrent.Executor))
+ and
+ [`CameraXConfig.Builder.setSchedulerHandler()`](https://developer.android.com/reference/androidx/camera/core/CameraXConfig.Builder#setSchedulerHandler(android.os.Handler)).
+-| **Note:** When providing a custom executor or scheduler handler, use one that doesn't execute code on the main thread.
++
++> [!NOTE]
++> **Note:** When providing a custom executor or scheduler handler, use one that doesn't execute code on the main thread.
+ 
+ ### Camera Executor
+ 
+@@ -206,7 +208,7 @@ output from
+ [`Preview.PreviewOutput()`](https://developer.android.com/reference/androidx/camera/core/Preview.PreviewOutput)
+ to create transforms.
+ 
+-The following code sample shows how to set the rotation on an orientation event:  
++The following code sample shows how to set the rotation on an orientation event:
+ 
+ ### Kotlin
+ 
+@@ -278,7 +280,7 @@ By default, the crop rect is the full buffer rect. You can customize it with
+ cases and setting the viewport, CameraX guarantees that the crop rects of all
+ the use cases in the group point to the same area in the camera sensor.
+ 
+-The following code snippet shows how to use these two classes:  
++The following code snippet shows how to use these two classes:
+ 
+ ### Kotlin
+ 
+@@ -314,7 +316,7 @@ attached use cases. Usually, to achieve a WYSIWYG effect, you can configure
+ the viewport based on the preview use case. A simple way to get the viewport is
+ to use [`PreviewView`](https://developer.android.com/training/camerax/preview#implementation).
+ 
+-The following code snippets shows how to get the `ViewPort` object:  
++The following code snippets shows how to get the `ViewPort` object:
+ 
+ ### Kotlin
+ 
+@@ -346,12 +348,13 @@ selected for you, there are a few options:
+ - Request the default rear facing camera with [`CameraSelector.DEFAULT_BACK_CAMERA`](https://developer.android.com/reference/androidx/camera/core/CameraSelector#DEFAULT_BACK_CAMERA).
+ - Filter the list of available devices by their [`CameraCharacteristics`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics) with [`CameraSelector.Builder.addCameraFilter()`](https://developer.android.com/reference/androidx/camera/core/CameraSelector.Builder#addCameraFilter(androidx.camera.core.CameraFilter)).
+ 
+-| **Note:** Camera devices must be recognized by the system and appear in `CameraManager.getCameraIdList()` before they can be used.
+-|
+-| Additionally, each OEM is responsible for choosing whether to support external camera devices. So be sure to check that `PackageManager.FEATURE_CAMERA_EXTERNAL` is enabled before attempting to use any external cameras.
++> [!NOTE]
++> **Note:** Camera devices must be recognized by the system and appear in `CameraManager.getCameraIdList()` before they can be used.
++>
++> Additionally, each OEM is responsible for choosing whether to support external camera devices. So be sure to check that `PackageManager.FEATURE_CAMERA_EXTERNAL` is enabled before attempting to use any external cameras.
+ 
+ The following code sample illustrates how to create a `CameraSelector` to
+-influence device selection:  
++influence device selection:
+ 
+ ### Kotlin
+ 
+@@ -395,7 +398,7 @@ When using the Concurrent Camera feature, the device can operate two cameras
+ with different-facing lenses at the same time, or operate two back cameras at
+ the same time. The following code block shows how to set two cameras when
+ calling `bindToLifecycle`, and how to get both Camera objects from the returned
+-`ConcurrentCamera` object.  
++`ConcurrentCamera` object.
+ 
+ ### Kotlin
+ 
+@@ -501,7 +504,7 @@ following table shows the resolutions:
+ 
+ You can set specific resolutions when building use cases using the
+ `setTargetResolution(Size resolution)` method, as shown in the following code
+-sample:  
++sample:
+ 
+ ### Kotlin
+ 
+@@ -547,7 +550,9 @@ and CameraX determines a specific resolution suitable based on the device.
+ If the primary need of the app is to specify a resolution in order to make image
+ processing more efficient (for example a small or mid-sized image based on
+ device processing capability), use `setTargetResolution(Size resolution)`.
+-| **Note:** If you use `setTargetResolution()`, then you can receive a buffer whose aspect ratio doesn't match other use cases. If the aspect ratios must match, check the dimensions of the buffers returned by both use cases and crop or scale one of them to match the other.
++
++> [!NOTE]
++> **Note:** If you use `setTargetResolution()`, then you can receive a buffer whose aspect ratio doesn't match other use cases. If the aspect ratios must match, check the dimensions of the buffers returned by both use cases and crop or scale one of them to match the other.
+ 
+ If your app requires an exact resolution, see the table within
+ [`createCaptureSession()`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice#regular-capture)
+@@ -580,7 +585,7 @@ These are the supported camera features with CameraControl:
+ Retrieve instances of `CameraControl` and `CameraInfo` using the
+ [`Camera`](https://developer.android.com/reference/androidx/camera/core/Camera) object returned by
+ [`ProcessCameraProvider.bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider).
+-The following code shows an example:  
++The following code shows an example:
+ 
+ ### Kotlin
+ 
+@@ -608,7 +613,9 @@ For example, you can submit zoom and other `CameraControl` operations after
+ calling `bindToLifecycle()`. After you stop or destroy the activity used to bind
+ the camera instance, `CameraControl` can no longer execute operations and
+ returns a failed `ListenableFuture`.
+-| **Note:** All changes to the state of zoom, torch, focus and metering, and exposure compensation controls revert to their default values after the `Camera` is closed, which happens when the [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner) is stopped or destroyed.
++
++> [!NOTE]
++> **Note:** All changes to the state of zoom, torch, focus and metering, and exposure compensation controls revert to their default values after the `Camera` is closed, which happens when the [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner) is stopped or destroyed.
+ 
+ ### Zoom
+ 
+@@ -687,7 +694,7 @@ The size of the `MeteringPoint` ranges from 0 to 1, with a default size of
+ size)`, CameraX creates a rectangle region centered at `(x, y)` for the provided
+ `size`.
+ 
+-The following code demonstrates how to create a `MeteringPoint`:  
++The following code demonstrates how to create a `MeteringPoint`:
+ 
+ ### Kotlin
+ 
+@@ -731,7 +738,7 @@ combinations from
+ [`FLAG_AF`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction#FLAG_AF),
+ [`FLAG_AE`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction#FLAG_AE),
+ [`FLAG_AWB`](https://developer.android.com/reference/androidx/camera/core/FocusMeteringAction#FLAG_AWB). The
+-follow code demonstrates this usage:  
++follow code demonstrates this usage:
+ 
+ ### Kotlin
+ 
+@@ -802,7 +809,7 @@ request, and calling the function multiple times before the previous request
+ gets executed results in its cancellation.
+ 
+ The following snippet sets an exposure compensation index and registers a
+-callback for when the exposure change request has been executed:  
++callback for when the exposure change request has been executed:
+ 
+ ### Kotlin
+ 
+@@ -829,7 +836,7 @@ camera.cameraControl.setExposureCompensationIndex(exposureCompensationIndex)
+ 
+ For example, the following code initializes the settings for an exposure
+ [`SeekBar`](https://developer.android.com/reference/android/widget/SeekBar) with current `ExposureState`
+-values:  
++values:
+ 
+ ### Kotlin
+ 

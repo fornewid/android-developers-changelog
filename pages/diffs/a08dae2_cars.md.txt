@@ -1,0 +1,24 @@
+diff --git a/docs/training/cars.md b/docs/training/cars.md
+index 9940d64..eac16dd 100644
+--- a/docs/training/cars.md
++++ b/docs/training/cars.md
+@@ -16,7 +16,9 @@ stereo system](https://www.android.com/auto/compatibility/). Users can use your
+ connecting their phone. You enable Android Auto to connect with your phone app
+ by creating services that Android Auto uses to display a driver-optimized
+ interface to the driver. To learn more, see [Android Auto overview](https://developer.android.com/training/cars/platforms/android-auto).
+-| **Note:** Android Auto is only compatible with phones running Android 9 (API level 28) or higher.
++
++> [!NOTE]
++> **Note:** Android Auto is only compatible with phones running Android 9 (API level 28) or higher.
+ 
+ ![Android Auto user interface](https://developer.android.com/static/images/training/cars/android-auto.png)
+ 
+@@ -56,7 +58,7 @@ only support certain types of apps as described in the following table:
+ | Internet of Things (IOT) | IOT apps let users take relevant actions on connected devices from within the car. Examples include controlling the state of certain devices, such as opening a garage door, flipping home light switches, or enabling home security. *Built using:* The [Android for Cars App Library](https://developer.android.com/training/cars/apps). See [Build an internet of things app](https://developer.android.com/training/cars/apps/iot) for additional information specific to IOT apps. | Android Auto and Android Automotive OS | While driving or parked | All track types |
+ | Weather | Weather apps let users see relevant weather information related to their current location or along their route. Weather apps can also provide navigation capabilities. *Built using:* The [Android for Cars App Library](https://developer.android.com/training/cars/apps). See [Build a weather app](https://developer.android.com/training/cars/apps/weather) for additional information specific to weather apps. | Android Auto and Android Automotive OS | While driving or parked | All track types |
+ | Parked app categories |||||
+-| Video | Video apps let users view streaming videos while the car is parked. The core purpose of these apps is to display streaming videos. *Built using:* Views and/or Compose. See [Build video apps for Android Automotive OS](https://developer.android.com/training/cars/parked/video) for more information. | Android Automotive OS | Primarily while parked *Video apps can support limited use while driving as described in [Support audio while driving](https://developer.android.com/training/cars/parked/video#audio-while-driving).* | All track types |
++| Video | Video apps let users view streaming videos while the car is parked. The core purpose of these apps is to display streaming videos. *Built using:* Views and/or Compose. See [Build video apps for Android Automotive OS](https://developer.android.com/training/cars/parked/video) for more information. | Android Automotive OS | Primarily while parked * Video apps can support limited use while driving as described in [Support audio while driving](https://developer.android.com/training/cars/parked/video#audio-while-driving). * | All track types |
+ | Games labs | Game apps let users play games while the car is parked. The core purpose of these apps is to play games. *Built using:* Views and/or Compose. See [Build games for cars](https://developer.android.com/training/cars/parked/games) for more information. | Android Auto and Android Automotive OS | Only while parked | Internal Testing and Closed Testing tracks |
+ | Browsers labs | Browser apps let users access web pages while the car is parked. *Built using:* Views and/or Compose. See [Build browsers for Android Automotive OS](https://developer.android.com/training/cars/parked/browser) for more information. | Android Automotive OS | Only while parked | Internal Testing tracks |
+ 

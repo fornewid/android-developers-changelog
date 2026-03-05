@@ -1,0 +1,45 @@
+diff --git a/docs/training/tv/accessibility/system-caption-settings.md b/docs/training/tv/accessibility/system-caption-settings.md
+index 0917925..954ebf5 100644
+--- a/docs/training/tv/accessibility/system-caption-settings.md
++++ b/docs/training/tv/accessibility/system-caption-settings.md
+@@ -4,23 +4,24 @@ url: https://developer.android.com/training/tv/accessibility/system-caption-sett
+ source: md.txt
+ ---
+ 
+-# Adopt system caption settings
++On Android TV, settings are provided for users to define their own caption style.
++This guide demonstrates how an app can obtain and apply the system-provided
++caption style.
+ 
+-On Android TV, settings are provided for users to define their own caption style. This guide demonstrates how an app can obtain and apply the system-provided caption style.
+-
+-The caption options can be found under**Settings \> System \> Accessibility \> Caption**:
++The caption options can be found under **Settings \> System \> Accessibility \> Caption**:
+ 
+ ![ATV_Caption_Settings](https://developer.android.com/training/tv/images/tv-caption-settings.png)
+ 
+ ## Obtain the CaptioningManager
+ 
+-From an activity, you can get the caption service from its`Context`using[`CaptioningManager`](https://developer.android.com/reference/android/view/accessibility/CaptioningManager):  
++From an activity, you can get the caption service from its `Context` using
++[`CaptioningManager`](https://developer.android.com/reference/android/view/accessibility/CaptioningManager):
+ 
+     CaptioningManager captioningManager = (CaptioningManager)context.getSystemService(Context.CAPTIONING_SERVICE);
+ 
+ ## Handle caption style changes
+ 
+-You can then handle caption style changes by implementing[`CaptioningChangeListener`](https://developer.android.com/reference/android/view/accessibility/CaptioningManager.CaptioningChangeListener):  
++You can then handle caption style changes by implementing [`CaptioningChangeListener`](https://developer.android.com/reference/android/view/accessibility/CaptioningManager.CaptioningChangeListener):
+ 
+     if (captioningManager != null) {
+       // Define a class to store the CaptionStyle details.
+@@ -71,6 +72,7 @@ You can then handle caption style changes by implementing[`CaptioningChangeListe
+ 
+       });
+ 
+-To obtain the system`CaptionStyle`, you can call`getUserStyle()`directly:  
++To obtain the system `CaptionStyle`, you can call `getUserStyle()`
++directly:
+ 
+     CaptionStyle systemCaptionStyle = captioningManager.getUserStyle();
+\ No newline at end of file

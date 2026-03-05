@@ -1,0 +1,74 @@
+diff --git a/docs/training/tv/get-started/multitasking.md b/docs/training/tv/get-started/multitasking.md
+index 3efda73..ef8b4ac 100644
+--- a/docs/training/tv/get-started/multitasking.md
++++ b/docs/training/tv/get-started/multitasking.md
+@@ -25,10 +25,12 @@ Note that when integrating multitasking, your application must declare its
+ For TV devices running Android 14 (API level 34) or higher, run your app in PiP
+ mode by calling [`enterPictureInPictureMode()`](https://developer.android.com/reference/android/app/Activity#enterPictureInPictureMode(android.app.PictureInPictureParams)). TV devices running earlier
+ versions of Android don't support PiP mode.
+-| **Note:** There is a deprecated `enterPictureInPictureMode()` method for API level 26 and earlier that does not use `PictureInPictureParams.Builder`. Avoid using it, because it's not supported on TV devices.
++
++> [!NOTE]
++> **Note:** There is a deprecated `enterPictureInPictureMode()` method for API level 26 and earlier that does not use `PictureInPictureParams.Builder`. Avoid using it, because it's not supported on TV devices.
+ 
+ Here is an example of how to implement the logic of a button to enter
+-PiP mode:  
++PiP mode:
+ 
+ ### Kotlin
+ 
+@@ -81,7 +83,9 @@ played.
+ 
+ Be sure to add a [title](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setTitle(java.lang.CharSequence)) and [subtitle](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSubtitle(java.lang.CharSequence)) to give the user information
+ about what this PIP is generally being used for.
+-| **Note:** Entering picture-in picture mode requires explicit and intentional action by the user within the app. For details, see the [TV app quality guidelines](https://developer.android.com/docs/quality-guidelines/tv-app-quality#pip).
++
++> [!NOTE]
++> **Note:** Entering picture-in picture mode requires explicit and intentional action by the user within the app. For details, see the [TV app quality guidelines](https://developer.android.com/docs/quality-guidelines/tv-app-quality#pip).
+ 
+ ## Coexist with apps running in PiP mode
+ 
+@@ -97,10 +101,12 @@ attempts to honor the requests to avoid covering these components by
+ repositioning the PiP window.
+ 
+ ![Keep-Clear](https://developer.android.com/static/training/tv/images/keep-clear.png)
+-| **Note:** The system might not honor these requests if too many UI components are marked as keep-clear, or if they take up large portions of the screen. Be mindful of this when using these APIs.
++
++> [!NOTE]
++> **Note:** The system might not honor these requests if too many UI components are marked as keep-clear, or if they take up large portions of the screen. Be mindful of this when using these APIs.
+ 
+ To specify that a view shouldn't be overlaid, use [`preferKeepClear`](https://developer.android.com/reference/android/R.attr#preferKeepClear) in your
+-XML layout as in the following example:  
++XML layout as in the following example:
+ 
+     <TextView
+         android:id="@+id/important_text"
+@@ -109,7 +115,7 @@ XML layout as in the following example:
+         android:preferKeepClear="true"
+         android:text="@string/app_name"/>
+ 
+-You can also do this programmatically using [`setPreferKeepClear()`](https://developer.android.com/reference/android/view/View#setPreferKeepClear(boolean)):  
++You can also do this programmatically using [`setPreferKeepClear()`](https://developer.android.com/reference/android/view/View#setPreferKeepClear(boolean)):
+ 
+ ### Kotlin
+ 
+@@ -145,7 +151,9 @@ only a section of it. The [`setPreferKeepClearRects()`](https://developer.androi
+ specify regions of the `View` that shouldn't be overlaid. UIs that don't use
+ `View`s natively, such as Flutter, Jetpack Compose, and WebView, may have
+ sub-sections that need regions kept clear. This API can be used for those cases.
+-| **Note:** If you set [`setPreferKeepClear()`](https://developer.android.com/reference/android/view/View#setPreferKeepClear(boolean)) to `true`, the entire `View` is marked as keep clear, and any regions specified using [`setPreferKeepClearRects()`](https://developer.android.com/reference/android/view/View#setPreferKeepClearRects(java.util.List%3Candroid.graphics.Rect%3E)) are ignored.
++
++> [!NOTE]
++> **Note:** If you set [`setPreferKeepClear()`](https://developer.android.com/reference/android/view/View#setPreferKeepClear(boolean)) to `true`, the entire `View` is marked as keep clear, and any regions specified using [`setPreferKeepClearRects()`](https://developer.android.com/reference/android/view/View#setPreferKeepClearRects(java.util.List%3Candroid.graphics.Rect%3E)) are ignored.
+ 
+ ## Usage types
+ 
+@@ -165,7 +173,7 @@ playback of media content, are not allowed in picture-in-picture mode on TV.
+ | "`health`" | Health use cases, such as fitness tracking or health monitoring. |
+ | "`ticker`" | Ticker use cases, such as live sports scores or news and stock tickers. |
+ 
+-Multiple values are separated by a vertical bar (`|`). For example:  
++Multiple values are separated by a vertical bar (`|`). For example:
+ 
+ ```xml
+ <meta-data android:name="com.google.android.tv.pip.category" android:value="smartHome|health" />

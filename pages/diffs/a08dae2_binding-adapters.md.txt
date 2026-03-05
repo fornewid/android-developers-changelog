@@ -1,0 +1,35 @@
+diff --git a/docs/topic/libraries/data-binding/binding-adapters.md b/docs/topic/libraries/data-binding/binding-adapters.md
+index bb2730f..16ae5db 100644
+--- a/docs/topic/libraries/data-binding/binding-adapters.md
++++ b/docs/topic/libraries/data-binding/binding-adapters.md
+@@ -163,7 +163,8 @@ resource with `@{}` makes it a valid binding expression.
+ 
+     <ImageView app:imageUrl="@{venue.imageUrl}" app:error="@{@drawable/venueError}" />
+ 
+-| **Note:** The Data Binding Library ignores custom namespaces for matching purposes.
++> [!NOTE]
++> **Note:** The Data Binding Library ignores custom namespaces for matching purposes.
+ 
+ The adapter is called if `imageUrl` and `error` are used for an
+ [`ImageView`](https://developer.android.com/reference/android/widget/ImageView) object, `imageUrl` is a
+@@ -198,7 +199,9 @@ public static void setImageUrl(ImageView imageView, String url, Drawable placeHo
+   }
+ }
+ ```
+-| **Note:** Your binding adapters override the default data binding adapters when there is a conflict.
++
++> [!NOTE]
++> **Note:** Your binding adapters override the default data binding adapters when there is a conflict.
+ 
+ Binding adapter methods can take the old values in their handlers. A method
+ taking old and new values must declare all old values for the attributes first,
+@@ -421,7 +424,8 @@ store data, as shown in the following example:
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+ 
+-| **Note:** You can also refer to a value in the map using the `object.key` notation. For example, you can replace `@{userMap["lastName"]}` in the previous example with `@{userMap.lastName}`.
++> [!NOTE]
++> **Note:** You can also refer to a value in the map using the `object.key` notation. For example, you can replace `@{userMap["lastName"]}` in the previous example with `@{userMap.lastName}`.
+ 
+ The `userMap` object in the expression returns a value, which is automatically
+ cast to the parameter type found in the `setText(CharSequence)` method used to

@@ -1,0 +1,117 @@
+diff --git a/docs/training/testing/instrumented-tests.md b/docs/training/testing/instrumented-tests.md
+index d63211a..ca6e62c 100644
+--- a/docs/training/testing/instrumented-tests.md
++++ b/docs/training/testing/instrumented-tests.md
+@@ -4,22 +4,34 @@ url: https://developer.android.com/training/testing/instrumented-tests
+ source: md.txt
+ ---
+ 
+-# Build instrumented tests
++Instrumented tests run on Android devices, whether physical or emulated. As
++such, they can take advantage of the Android framework APIs. Instrumented tests
++therefore provide more fidelity than local tests, though they run much more
++slowly.
+ 
+-Instrumented tests run on Android devices, whether physical or emulated. As such, they can take advantage of the Android framework APIs. Instrumented tests therefore provide more fidelity than local tests, though they run much more slowly.
++We recommend using instrumented tests only in cases where you must test against
++the behavior of a real device. [AndroidX Test](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/test-setup) provides several libraries
++that make it easier to write instrumented tests when necessary.
+ 
+-We recommend using instrumented tests only in cases where you must test against the behavior of a real device.[AndroidX Test](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/test-setup)provides several libraries that make it easier to write instrumented tests when necessary.
+-| **Note:** Instrumented test, also known as*instrumentation* tests, are initialized in a special environment that gives them access to an instance of[Instrumentation](https://developer.android.com/reference/android/app/Instrumentation). This class provides access to the application context and APIs to manipulate the app under test and gives instrumented tests their name.
++> [!NOTE]
++> **Note:** Instrumented test, also known as *instrumentation* tests, are initialized in a special environment that gives them access to an instance of [Instrumentation](https://developer.android.com/reference/android/app/Instrumentation). This class provides access to the application context and APIs to manipulate the app under test and gives instrumented tests their name.
+ 
+ ## Set up your testing environment
+ 
+-In your Android Studio project, you store the source files for instrumented tests in`module-name/src/androidTest/java/`. This directory already exists when you create a new project and contains an example instrumented test.
++In your Android Studio project, you store the source files for instrumented
++tests in `module-name/src/androidTest/java/`. This directory already exists when
++you create a new project and contains an example instrumented test.
+ 
+-Before you begin, you should add AndroidX Test APIs, which allow you to quickly build and run instrumented test code for your apps. AndroidX Test includes a JUnit 4 test runner ,[`AndroidJUnitRunner`](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner), and APIs for functional UI tests such as[Espresso](https://developer.android.com/training/testing/espresso),[UI Automator](https://developer.android.com/training/testing/ui-automator)and[Compose test](https://developer.android.com/jetpack/compose/testing).
++Before you begin, you should add AndroidX Test APIs, which allow you to quickly
++build and run instrumented test code for your apps. AndroidX Test includes a
++JUnit 4 test runner ,[`AndroidJUnitRunner`](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner), and APIs for functional UI tests
++such as [Espresso](https://developer.android.com/training/testing/espresso), [UI Automator](https://developer.android.com/training/testing/ui-automator) and [Compose test](https://developer.android.com/jetpack/compose/testing).
+ 
+-You also need to configure the Android testing dependencies for your project to use the test runner and the rules APIs provided by AndroidX Test.
++You also need to configure the Android testing dependencies for your project to
++use the test runner and the rules APIs provided by AndroidX Test.
+ 
+-In your app's top-level`build.gradle`file, you need to specify these libraries as dependencies:  
++In your app's top-level `build.gradle` file, you need to specify these libraries
++as dependencies:
+ 
+     dependencies {
+         androidTestImplementation "androidx.test:runner:$androidXTestVersion"
+@@ -32,9 +44,13 @@ In your app's top-level`build.gradle`file, you need to specify these libraries a
+         androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+     }
+ 
+-You can find the latest versions in the[AndroidX Release Notes](https://developer.android.com/jetpack/androidx/releases/test)and[Compose UI Release Notes](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner).
++You can find the latest versions in the [AndroidX Release Notes](https://developer.android.com/jetpack/androidx/releases/test) and [Compose
++UI Release Notes](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner).
+ 
+-To use JUnit 4 test classes and have access to features such as test filtering, make sure to specify[AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)as the default test instrumentation runner in your project by including the following setting in your app's module-level`build.gradle`file:  
++To use JUnit 4 test classes and have access to features such as test filtering,
++make sure to specify [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner) as the default test instrumentation
++runner in your project by including the following setting in your app's
++module-level `build.gradle` file:
+ 
+     android {
+         defaultConfig {
+@@ -44,12 +60,18 @@ To use JUnit 4 test classes and have access to features such as test filtering,
+ 
+ ## Create an instrumented test class
+ 
+-Your instrumented test class should be a JUnit 4 test class that's similar to the class described in the section on how to[build local tests](https://developer.android.com/training/testing/unit-testing/local-unit-tests#build).
++Your instrumented test class should be a JUnit 4 test class that's similar to
++the class described in the section on how to [build local tests](https://developer.android.com/training/testing/unit-testing/local-unit-tests#build).
+ 
+-To create an instrumented JUnit 4 test class, specify`AndroidJUnit4`as your default test runner.
+-| **Note:** If your test suite depends on a mix of JUnit3 and JUnit4 libraries, add the`@RunWith(AndroidJUnit4::class)`annotation at the beginning of your test class definition.
++To create an instrumented JUnit 4 test class, specify `AndroidJUnit4` as your
++default test runner.
+ 
+-The following example shows how you might write an instrumented test to verify that the[Parcelable](https://developer.android.com/reference/android/os/Parcelable)interface is implemented correctly for the`LogHistory`class:  
++> [!NOTE]
++> **Note:** If your test suite depends on a mix of JUnit3 and JUnit4 libraries, add the `@RunWith(AndroidJUnit4::class)` annotation at the beginning of your test class definition.
++
++The following example shows how you might write an instrumented test to verify
++that the [Parcelable](https://developer.android.com/reference/android/os/Parcelable) interface is implemented correctly for the
++`LogHistory` class:
+ 
+ ### Kotlin
+ 
+@@ -153,20 +175,26 @@ public class LogHistoryAndroidUnitTest {
+     }
+ }
+ ```
+-| **Note:** Using backticks to name tests in Kotlin is only supported on devices running API 30 and above. For example,``@Test fun `everything works`() { ... }``
++
++> [!NOTE]
++> **Note:** Using backticks to name tests in Kotlin is only supported on devices running API 30 and above. For example, ``@Test fun `everything works`() { ... }``
+ 
+ ## Run instrumented tests
+ 
+-Instrumented tests can be run on real devices or emulators. In the Android Studio guide you can learn how to:
++Instrumented tests can be run on real devices or emulators. In the Android
++Studio guide you can learn how to:
+ 
+ - [Test from Android Studio](https://developer.android.com/studio/test)
+ - [Test from the command line](https://developer.android.com/studio/test/command-line)
+ 
+ ## Additional resources
+ 
+-**UI tests** are usually Instrumented tests that verify the correct behavior of the UI. They use frameworks such as**Espresso** or**Compose Test** . To learn more, read the[UI testing guide](https://developer.android.com/training/testing/ui-tests).
++**UI tests** are usually Instrumented tests that verify the correct behavior of
++the UI. They use frameworks such as **Espresso** or **Compose Test** . To learn
++more, read the [UI testing guide](https://developer.android.com/training/testing/ui-tests).
+ 
+-For more information about using Instrumentation tests, consult the following resources.
++For more information about using Instrumentation tests, consult the following
++resources.
+ 
+ ### Sample
+ 

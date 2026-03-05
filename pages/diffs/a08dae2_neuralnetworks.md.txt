@@ -1,0 +1,282 @@
+diff --git a/docs/ndk/guides/neuralnetworks.md b/docs/ndk/guides/neuralnetworks.md
+index c11e51b..0645df7 100644
+--- a/docs/ndk/guides/neuralnetworks.md
++++ b/docs/ndk/guides/neuralnetworks.md
+@@ -4,14 +4,15 @@ url: https://developer.android.com/ndk/guides/neuralnetworks
+ source: md.txt
+ ---
+ 
+-| **Warning:** NNAPI is deprecated.
+-| While you can continue to use NNAPI, we expect the majority of devices in
+-| the future to use the CPU backend, and therefore for performance critical
+-| workloads, we recommend migrating to alternative solutions, for example
+-| the TF Lite GPU runtime.
+-|
+-| For more information, see the
+-| [NNAPI Migration Guide](https://developer.android.com/ndk/guides/neuralnetworks/migration-guide).
++> [!WARNING]
++> **Warning:** NNAPI is deprecated.
++> While you can continue to use NNAPI, we expect the majority of devices in
++> the future to use the CPU backend, and therefore for performance critical
++> workloads, we recommend migrating to alternative solutions, for example
++> the TF Lite GPU runtime.
++>
++> For more information, see the
++> [NNAPI Migration Guide](https://developer.android.com/ndk/guides/neuralnetworks/migration-guide).
+ 
+ The Android Neural Networks API (NNAPI) is an Android C API designed for running
+ computationally intensive operations for machine learning on Android devices.
+@@ -21,7 +22,9 @@ machine learning frameworks, such as
+ and Caffe2, that build and train neural networks. The API is available
+ on all Android devices running Android 8.1 (API level 27) or higher,
+ but was deprecated in Android 15.
+-| **Note:** This topic uses the term "device" to refer to CPUs, GPUs, and accelerators. In other topics on this site, "device" refers to Android devices. To clarify this distinction, when referring to an Android device, this topic includes the word "Android." All other instances of the word device refer to processors and accelerators.
++
++> [!NOTE]
++> **Note:** This topic uses the term "device" to refer to CPUs, GPUs, and accelerators. In other topics on this site, "device" refers to Android devices. To clarify this distinction, when referring to an Android device, this topic includes the word "Android." All other instances of the word device refer to processors and accelerators.
+ 
+ NNAPI supports inferencing by applying data from Android devices to previously
+ trained, developer-defined models. Examples of inferencing include classifying
+@@ -93,7 +96,9 @@ Figure 2 shows the basic programming flow.
+ 
+ The rest of this section describes the steps to set up your NNAPI model to
+ perform computation, compile the model, and execute the compiled model.
+-| **Tip:** For brevity, we've omitted checking the result codes from each operation in the code snippets below. You should make sure to do so in your production code.
++
++> [!NOTE]
++> **Tip:** For brevity, we've omitted checking the result codes from each operation in the code snippets below. You should make sure to do so in your production code.
+ 
+ ### Provide access to training data
+ 
+@@ -104,7 +109,7 @@ instance by calling the
+ [`ANeuralNetworksMemory_createFromFd()`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksmemory_createfromfd)
+ function and passing in the file descriptor of the opened data file. You also
+ specify memory protection flags and an offset where the shared memory region
+-starts in the file.  
++starts in the file.
+ 
+     // Create a memory buffer from the file that contains the trained data
+     ANeuralNetworksMemory* mem1 = NULL;
+@@ -135,7 +140,7 @@ To allow the NNAPI runtime to access an `AHardwareBuffer` object, create an
+ [`ANeuralNetworksMemory`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksmemory)
+ instance by calling the
+ `ANeuralNetworksMemory_createFromAHardwareBuffer` function and passing in the
+-`AHardwareBuffer` object, as shown in the following code sample:  
++`AHardwareBuffer` object, as shown in the following code sample:
+ 
+ ```c++
+ // Configure and create AHardwareBuffer object
+@@ -149,11 +154,11 @@ ANeuralNetworksMemory_createFromAHardwareBuffer(ahwb, &mem2);
+ ```
+ 
+ When NNAPI no longer needs to access the `AHardwareBuffer` object, free the
+-corresponding `ANeuralNetworksMemory` instance:  
++corresponding `ANeuralNetworksMemory` instance:
+ 
+ ```c++
+ ANeuralNetworksMemory_free(mem2);
+-```  
++```
+ **Note:**
+ 
+ - You can use `AHardwareBuffer` only for the whole buffer; you cannot use it with an `ARect` parameter.
+@@ -235,21 +240,21 @@ The operations that NNAPI supports are summarized in the table below:
+ 
+ | Category | Operations |
+ |---|---|
+-| Element-wise mathematical operations | - [ANEURALNETWORKS_ABS](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a8ecc424dd6710f89683edaf12ce38e39) - [ANEURALNETWORKS_ADD](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ad681988001e5f8ab73230a311f4ab034) - [ANEURALNETWORKS_DIV](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a139794099b4137599bbc73af18b0d42a) - [ANEURALNETWORKS_EQUAL](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a4af31ebf58c6845d36fe26cf1a794d2c) - [ANEURALNETWORKS_EXP](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a32bd40860ff7c3d91f5e62980bb52bc2) - [ANEURALNETWORKS_FLOOR](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0acdb4a57160153118dc6f87af0e4eccc5) - [ANEURALNETWORKS_GREATER](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0afe61c7102e8fa16d19c2d7d8f4f15360) - [ANEURALNETWORKS_GREATER_OR_EQUAL](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a3327f787f234f2a21f1fe14876ba85aa) - [ANEURALNETWORKS_LESS](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a858bf52c76d31c41a8df611017a96db0) - [ANEURALNETWORKS_LESS_OR_EQUAL](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0acf4d4d24685a6267d28f4873e7a43ae1) - [ANEURALNETWORKS_LOG](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ad22137e675fafa6d72da7b52952cfb78) - [ANEURALNETWORKS_LOGICAL_AND](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a3e5d914633b5520c00b1668d2244b911) - [ANEURALNETWORKS_LOGICAL_NOT](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0acb90aff5615d001708e9e4c6545b2b3c) - [ANEURALNETWORKS_LOGICAL_OR](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a132ac3197242be5700d62b0037701718) - [ANEURALNETWORKS_MAXIMUM](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aad00698dac694a7c1233dede8e8de91e) - [ANEURALNETWORKS_MINIMUM](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a8738794be11b7a43e5c83010f582e0a6) - [ANEURALNETWORKS_MUL](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ab34ca99890c827b536ce66256a803d7a) - [ANEURALNETWORKS_NEG](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a3418665f9871dca43e3cb2efcac3990b) - [ANEURALNETWORKS_NOT_EQUAL](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a7b79220811dd60b3c9afaabdc6ea6842) - [ANEURALNETWORKS_POW](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0af04a05fbde5ec0d2e4e088750a8451ad) - [ANEURALNETWORKS_RSQRT](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ac48dc0e528086e4d241d42d2923467da) - [ANEURALNETWORKS_SIN](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0af16ba8e2a692bce91fb53c0cd64eed11) - [ANEURALNETWORKS_SQRT](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0acf8329b28ec9fd0aa9d0e6a41aaba628) - [ANEURALNETWORKS_SUB](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a06a4248fe5ec71820ab95b87613780be) |
+-| Tensor manipulation | - [ANEURALNETWORKS_ARGMAX](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0af78048ff71a1e79bbc6034d30cad7cbc) - [ANEURALNETWORKS_ARGMIN](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a89be86ff36e83254e9b3d0954e7e0729) - [ANEURALNETWORKS_BATCH_TO_SPACE_ND](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2bdfefbdc6409b4bbcacc16c72002703) - [ANEURALNETWORKS_CAST](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a0a1bde5b34668d90eec4cfa4944e241d) - [ANEURALNETWORKS_CHANNEL_SHUFFLE](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a5b993c1211c4b1bc52fb595a3025251d) - [ANEURALNETWORKS_CONCATENATION](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a44cbea825c4b224dd3ea757e9b1f65ed) - [ANEURALNETWORKS_DEPTH_TO_SPACE](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a34253f8b844b4c143f0fa36be3ba3f7a) - [ANEURALNETWORKS_DEQUANTIZE](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ad4c9300b061d9d14669bd5acdc7538e2) - [ANEURALNETWORKS_EXPAND_DIMS](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2ac3c3daa1904f202589bef8c1c1860a) - [ANEURALNETWORKS_GATHER](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a4bcb358f8c49e45e386a0a75405d5763) - [ANEURALNETWORKS_MEAN](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a047fe95a35b27f45c05432b6ca18eb6c) - [ANEURALNETWORKS_PAD](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aaced01fc41e401b81cefcf53780558d1) - [ANEURALNETWORKS_PAD_V2](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0afe2c4f9e541dcc278509921fd2c8a502) - [ANEURALNETWORKS_QUANTIZE](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a60e0015c8f08ed26d59afe92f728068d) - [ANEURALNETWORKS_REDUCE_ALL](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0af34811ac80385eaf39f79a97d99fb49e) - [ANEURALNETWORKS_REDUCE_ANY](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a216dc116d754af120bc0cfbea4c17d7d) - [ANEURALNETWORKS_REDUCE_MAX](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a257a84d4cfa9f6eef0997ddd591e9584) - [ANEURALNETWORKS_REDUCE_MIN](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ab5934984ee3e89ffb703b0cac7d6a2f8) - [ANEURALNETWORKS_REDUCE_PROD](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aea51a05dfc337082df51b4a263eb0c5c) - [ANEURALNETWORKS_REDUCE_SUM](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aa2b7674dd559dd3233523688ad71cb3e) - [ANEURALNETWORKS_RESHAPE](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a535e7e99383ee49456c8671843b93a59) - [ANEURALNETWORKS_SLICE](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a13adfb1d5d7bce0e342a7a16e1a1be3e) - [ANEURALNETWORKS_SPACE_TO_BATCH_ND](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a91f17c92abe95e211de39c3715acd535) - [ANEURALNETWORKS_SPACE_TO_DEPTH](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a90099ec472f6571a932b111d979dcccd) - [ANEURALNETWORKS_SPLIT](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0afb787314a8631fe847f1fd93cfd576a7) - [ANEURALNETWORKS_SQUEEZE](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a1207019989837ee9d10c5b6663504933) - [ANEURALNETWORKS_STRIDED_SLICE](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a89695302f8b1e7ae7ce8f4d8c0b8a752) - [ANEURALNETWORKS_TILE](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aae56dc75c058291cee272a537978ecd3) - [ANEURALNETWORKS_TOPK_V2](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0afb989792e22adaaa6fb540ae8415f562) - [ANEURALNETWORKS_TRANSPOSE](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a92d7bc95eb68525334b6cfe80cd271ee) |
+-| Image operations | - [ANEURALNETWORKS_RESIZE_BILINEAR](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a42bd92518e273b6716ecd56b571fcd3e) - [ANEURALNETWORKS_RESIZE_NEAREST_NEIGHBOR](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a633997ea5224dc4063d35b9f2b2ab84b) |
+-| Lookup operations | - [ANEURALNETWORKS_EMBEDDING_LOOKUP](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a8d2ada77adb74357fc0770405bca0e3c) - [ANEURALNETWORKS_HASHTABLE_LOOKUP](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aca92716c8c73c1f0fa7f0757916fee26) |
+-| Normalization operations | - [ANEURALNETWORKS_INSTANCE_NORMALIZATION](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a1e47d64cc1ac622e6fc515d602e1cd55) - [ANEURALNETWORKS_L2_NORMALIZATION](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0abf295dee59560ff29d435226ec4c24bd) - [ANEURALNETWORKS_LOCAL_RESPONSE_NORMALIZATION](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a876ccb0f3e6555637c5e278a7715fc05) |
+-| Convolution operations | - [ANEURALNETWORKS_CONV_2D](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a34a73b5eaf458b67db5eda71557d1d01) - [ANEURALNETWORKS_DEPTHWISE_CONV_2D](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2b49a44b7ebba243fad01556c1f0392e) - [ANEURALNETWORKS_GROUPED_CONV_2D](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a847acf8d9f3d2343328c3dbe6d447c50) - [ANEURALNETWORKS_TRANSPOSE_CONV_2D](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a5ac65e772b035ddb27c18236752aa1fd) |
+-| Pooling operations | - [ANEURALNETWORKS_AVERAGE_POOL_2D](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a12e6b53aadbd3736c38f1a159adea788) - [ANEURALNETWORKS_L2_POOL_2D](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2fb636e30d8853f9fa1a395e30660e92) - [ANEURALNETWORKS_MAX_POOL_2D](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a0f227a4d98ad5af31f7fd4d255d246ce) |
+-| Activation operations | - [ANEURALNETWORKS_LOG_SOFTMAX](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a9e6c534786db67a647aeefcdafc3af0e) - [ANEURALNETWORKS_LOGISTIC](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a82a340eb540933f638db420369650483) - [ANEURALNETWORKS_PRELU](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a82e7e7c709ad117a0178203217be30cf) - [ANEURALNETWORKS_RELU](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0abb2f979866b131c5089ba0caaecee656) - [ANEURALNETWORKS_RELU1](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a73b9a2ded1dda2925d2e73aec44d2e2e) - [ANEURALNETWORKS_RELU6](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a04a24c2d6f0aac4c3f5324c1d7764714) - [ANEURALNETWORKS_SOFTMAX](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2bfbb83a537701e2843a3d5004250c2c) - [ANEURALNETWORKS_TANH](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a4b63c9caab823f112d82d853a77381e5) |
+-| Other operations | - [ANEURALNETWORKS_AXIS_ALIGNED_BBOX_TRANSFORM](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0afd7603dd54060e6a52f5861674448528) - [ANEURALNETWORKS_BIDIRECTIONAL_SEQUENCE_LSTM](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a492a71cb7aa50b9a1a834a3cb269d778) - [ANEURALNETWORKS_BIDIRECTIONAL_SEQUENCE_RNN](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a487fc5ae247de828f13e62b99f259f3c) - [ANEURALNETWORKS_BOX_WITH_NMS_LIMIT](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2d81e878c19e15700dad111ba6c0be89) - [ANEURALNETWORKS_DETECTION_POSTPROCESSING](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0abd6365933837275bb1f5cde1fd9b8234) - [ANEURALNETWORKS_FULLY_CONNECTED](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aaada7a3dbaf4676aba560c933ff610c5) - [ANEURALNETWORKS_GENERATE_PROPOSALS](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a72484020f2c41c814de0a7bf93dbbfd4) - [ANEURALNETWORKS_HEATMAP_MAX_KEYPOINT](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a5ffccf92d127766a741225ff7ad6f743) - [ANEURALNETWORKS_LSH_PROJECTION](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a800cdcec5d7ba776789cb2d1ef669965) - [ANEURALNETWORKS_LSTM](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ad0377e8c305e596fb7f64ff896671fc5) - [ANEURALNETWORKS_RANDOM_MULTINOMIAL](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a6cb5032c09d3c4b542d18495c247b5b4) - [ANEURALNETWORKS_QUANTIZED_16BIT_LSTM](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a42edb5ab6f1c74f4a756eb1ed0183a16) - [ANEURALNETWORKS_RNN](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0acd2684ac9c73bb29767b534e78a332e8) - [ANEURALNETWORKS_ROI_ALIGN](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2848b39dd4bfba78f2438fda0d9397a4) - [ANEURALNETWORKS_ROI_POOLING](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a6736198af337b2efbdb0b6b64dee7fe4) - [ANEURALNETWORKS_SELECT](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a49b2dc37ea9219789a6d82f281499dbb) - [ANEURALNETWORKS_SVDF](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a7096de21038c1ce49d354a00cba7b552) - [ANEURALNETWORKS_UNIDIRECTIONAL_SEQUENCE_LSTM](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aaf30e491ad0b1fc7602cbde695b2c859) - [ANEURALNETWORKS_UNIDIRECTIONAL_SEQUENCE_RNN](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ae11aa1d461d2abaa117f6ee2cb503dd8) |
++| Element-wise mathematical operations | - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a8ecc424dd6710f89683edaf12ce38e39` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ad681988001e5f8ab73230a311f4ab034` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a139794099b4137599bbc73af18b0d42a` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a4af31ebf58c6845d36fe26cf1a794d2c` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a32bd40860ff7c3d91f5e62980bb52bc2` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0acdb4a57160153118dc6f87af0e4eccc5` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0afe61c7102e8fa16d19c2d7d8f4f15360` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a3327f787f234f2a21f1fe14876ba85aa` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a858bf52c76d31c41a8df611017a96db0` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0acf4d4d24685a6267d28f4873e7a43ae1` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ad22137e675fafa6d72da7b52952cfb78` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a3e5d914633b5520c00b1668d2244b911` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0acb90aff5615d001708e9e4c6545b2b3c` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a132ac3197242be5700d62b0037701718` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aad00698dac694a7c1233dede8e8de91e` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a8738794be11b7a43e5c83010f582e0a6` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ab34ca99890c827b536ce66256a803d7a` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a3418665f9871dca43e3cb2efcac3990b` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a7b79220811dd60b3c9afaabdc6ea6842` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0af04a05fbde5ec0d2e4e088750a8451ad` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ac48dc0e528086e4d241d42d2923467da` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0af16ba8e2a692bce91fb53c0cd64eed11` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0acf8329b28ec9fd0aa9d0e6a41aaba628` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a06a4248fe5ec71820ab95b87613780be` |
++| Tensor manipulation | - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0af78048ff71a1e79bbc6034d30cad7cbc` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a89be86ff36e83254e9b3d0954e7e0729` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2bdfefbdc6409b4bbcacc16c72002703` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a0a1bde5b34668d90eec4cfa4944e241d` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a5b993c1211c4b1bc52fb595a3025251d` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a44cbea825c4b224dd3ea757e9b1f65ed` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a34253f8b844b4c143f0fa36be3ba3f7a` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ad4c9300b061d9d14669bd5acdc7538e2` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2ac3c3daa1904f202589bef8c1c1860a` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a4bcb358f8c49e45e386a0a75405d5763` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a047fe95a35b27f45c05432b6ca18eb6c` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aaced01fc41e401b81cefcf53780558d1` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0afe2c4f9e541dcc278509921fd2c8a502` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a60e0015c8f08ed26d59afe92f728068d` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0af34811ac80385eaf39f79a97d99fb49e` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a216dc116d754af120bc0cfbea4c17d7d` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a257a84d4cfa9f6eef0997ddd591e9584` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ab5934984ee3e89ffb703b0cac7d6a2f8` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aea51a05dfc337082df51b4a263eb0c5c` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aa2b7674dd559dd3233523688ad71cb3e` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a535e7e99383ee49456c8671843b93a59` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a13adfb1d5d7bce0e342a7a16e1a1be3e` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a91f17c92abe95e211de39c3715acd535` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a90099ec472f6571a932b111d979dcccd` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0afb787314a8631fe847f1fd93cfd576a7` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a1207019989837ee9d10c5b6663504933` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a89695302f8b1e7ae7ce8f4d8c0b8a752` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aae56dc75c058291cee272a537978ecd3` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0afb989792e22adaaa6fb540ae8415f562` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a92d7bc95eb68525334b6cfe80cd271ee` |
++| Image operations | - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a42bd92518e273b6716ecd56b571fcd3e` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a633997ea5224dc4063d35b9f2b2ab84b` |
++| Lookup operations | - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a8d2ada77adb74357fc0770405bca0e3c` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aca92716c8c73c1f0fa7f0757916fee26` |
++| Normalization operations | - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a1e47d64cc1ac622e6fc515d602e1cd55` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0abf295dee59560ff29d435226ec4c24bd` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a876ccb0f3e6555637c5e278a7715fc05` |
++| Convolution operations | - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a34a73b5eaf458b67db5eda71557d1d01` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2b49a44b7ebba243fad01556c1f0392e` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a847acf8d9f3d2343328c3dbe6d447c50` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a5ac65e772b035ddb27c18236752aa1fd` |
++| Pooling operations | - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a12e6b53aadbd3736c38f1a159adea788` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2fb636e30d8853f9fa1a395e30660e92` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a0f227a4d98ad5af31f7fd4d255d246ce` |
++| Activation operations | - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a9e6c534786db67a647aeefcdafc3af0e` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a82a340eb540933f638db420369650483` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a82e7e7c709ad117a0178203217be30cf` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0abb2f979866b131c5089ba0caaecee656` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a73b9a2ded1dda2925d2e73aec44d2e2e` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a04a24c2d6f0aac4c3f5324c1d7764714` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2bfbb83a537701e2843a3d5004250c2c` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a4b63c9caab823f112d82d853a77381e5` |
++| Other operations | - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0afd7603dd54060e6a52f5861674448528` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a492a71cb7aa50b9a1a834a3cb269d778` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a487fc5ae247de828f13e62b99f259f3c` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2d81e878c19e15700dad111ba6c0be89` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0abd6365933837275bb1f5cde1fd9b8234` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aaada7a3dbaf4676aba560c933ff610c5` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a72484020f2c41c814de0a7bf93dbbfd4` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a5ffccf92d127766a741225ff7ad6f743` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a800cdcec5d7ba776789cb2d1ef669965` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ad0377e8c305e596fb7f64ff896671fc5` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a6cb5032c09d3c4b542d18495c247b5b4` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a42edb5ab6f1c74f4a756eb1ed0183a16` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0acd2684ac9c73bb29767b534e78a332e8` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a2848b39dd4bfba78f2438fda0d9397a4` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a6736198af337b2efbdb0b6b64dee7fe4` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a49b2dc37ea9219789a6d82f281499dbb` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0a7096de21038c1ce49d354a00cba7b552` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aaf30e491ad0b1fc7602cbde695b2c859` - `https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0ae11aa1d461d2abaa117f6ee2cb503dd8` |
+ 
+ 
+ **Known issue in API level 28:** When passing
+-[ANEURALNETWORKS_TENSOR_QUANT8_ASYMM](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaf06d1affd33f3bc698d0c04eceb23298a07984961d5c7c12f0f8c811bedd85dc3)
++`https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaf06d1affd33f3bc698d0c04eceb23298a07984961d5c7c12f0f8c811bedd85dc3`
+ tensors to the
+-[ANEURALNETWORKS_PAD](https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aaced01fc41e401b81cefcf53780558d1)
++`https://developer.android.com/ndk/reference/group/neural-networks#group___neural_networks_1ggaabbe492c60331b13038e39d4207940e0aaced01fc41e401b81cefcf53780558d1`
+ operation, which is available on Android 9 (API level 28) and higher, the
+ output from NNAPI may not match output from higher-level machine learning
+ frameworks, such as
+@@ -317,7 +322,7 @@ To build the model, follow these steps:
+ 
+    In the following example, we set constant values from the training data file
+    corresponding to the memory buffer we created in [Provide access to
+-   training data](https://developer.android.com/ndk/guides/neuralnetworks#training-data).  
++   training data](https://developer.android.com/ndk/guides/neuralnetworks#training-data).
+ 
+    ```c++
+    // In our example, operands 1 and 3 are constant tensors whose values were
+@@ -345,7 +350,7 @@ To build the model, follow these steps:
+    - the array of the indexes for output operands
+ 
+    Note that an operand cannot be used for both input and output of the same
+-   operation.  
++   operation.
+ 
+    ```c++
+    // We have two operations in our example
+@@ -562,7 +567,7 @@ specifying multiple processors (either explicitly when using
+ application.
+ 
+ To understand how your model has been partitioned by NNAPI, check the
+-Android logs for a message (at INFO level with tag `ExecutionPlan`):  
++Android logs for a message (at INFO level with tag `ExecutionPlan`):
+ 
+ ```
+ ModelBuilder::findBestDeviceForEachOperation(op-name): device-index
+@@ -575,7 +580,7 @@ or, if using `ANeuralNetworksCompilation_createForDevices`, the list of devices
+ returned when iterating over all devices using `ANeuralNetworks_getDeviceCount` and
+ `ANeuralNetworks_getDevice`.
+ 
+-The message (at INFO level with tag `ExecutionPlan`):  
++The message (at INFO level with tag `ExecutionPlan`):
+ 
+ ```
+ ModelBuilder::partitionTheWork: only one best device: device-name
+@@ -614,7 +619,10 @@ To execute a compiled model, follow these steps:
+    float32 myInput[3][4] = { ...the data... };
+    ANeuralNetworksExecution_setInput(run1, 0, NULL, myInput, sizeof(myInput));
+    ```
+-   | **Important:** The indexes you specify when setting execution inputs and outputs are indexes into the lists of inputs and outputs of the model as specified by [`ANeuralNetworksModel_identifyInputsAndOutputs()`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksmodel_identifyinputsandoutputs). Don't confuse them with the operand indexes used when creating the model. For example, for a model with three inputs, we should see three calls to [`ANeuralNetworksExecution_setInput()`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksexecution_setinput): one with an index of 0, one with an index of 1, and one with an index of 2.
++
++   > [!CAUTION]
++   > **Important:** The indexes you specify when setting execution inputs and outputs are indexes into the lists of inputs and outputs of the model as specified by [`ANeuralNetworksModel_identifyInputsAndOutputs()`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksmodel_identifyinputsandoutputs). Don't confuse them with the operand indexes used when creating the model. For example, for a model with three inputs, we should see three calls to [`ANeuralNetworksExecution_setInput()`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksexecution_setinput): one with an index of 0, one with an index of 1, and one with an index of 2.
++
+ 3. Specify where your app writes the output values. Your app can write output values to either a
+    user buffer or an allocated memory space, by calling
+    [`ANeuralNetworksExecution_setOutput()`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksexecution_setoutput) or
+@@ -683,7 +691,9 @@ for an asynchronous inference call to the runtime, the application calls
+ to make a synchronous call to the runtime. A call to
+ `ANeuralNetworksExecution_compute` does not take an `ANeuralNetworksEvent` and
+ is not paired with a call to `ANeuralNetworksEvent_wait`.
+-| **Note:** To estimate the impact of using `ANeuralNetworksExecution_compute` without modifying your application, set the `debug.nn.syncexec-runtime` property to `1`, which causes `ANeuralNetworksExecution_startCompute` to function synchronously.
++
++> [!NOTE]
++> **Note:** To estimate the impact of using `ANeuralNetworksExecution_compute` without modifying your application, set the `debug.nn.syncexec-runtime` property to `1`, which causes `ANeuralNetworksExecution_startCompute` to function synchronously.
+ 
+ #### Burst executions
+ 
+@@ -700,7 +710,7 @@ high-performance state for the duration of the burst.
+ `ANeuralNetworksBurst` introduces only a small change in the normal execution
+ path. You create a burst object using
+ [`ANeuralNetworksBurst_create`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksburst_create),
+-as shown in the following code snippet:  
++as shown in the following code snippet:
+ 
+ ```c++
+ // Create burst object to be reused across a sequence of executions
+@@ -713,7 +723,7 @@ Burst executions are synchronous. However, instead of using
+ to perform each inference, you pair the various
+ [`ANeuralNetworksExecution`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksexecution)
+ objects with the same `ANeuralNetworksBurst` in calls to the function
+-[`ANeuralNetworksExecution_burstCompute`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksexecution_burstcompute).  
++[`ANeuralNetworksExecution_burstCompute`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksexecution_burstcompute).
+ 
+ ```c++
+ // Create and configure first execution object
+@@ -737,7 +747,7 @@ ANeuralNetworksExecution_burstCompute(execution2, burst);
+ 
+ Free the `ANeuralNetworksBurst` object with
+ [`ANeuralNetworksBurst_free`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksburst_free)
+-when it is no longer needed.  
++when it is no longer needed.
+ 
+ ```c++
+ // Cleanup
+@@ -773,7 +783,7 @@ time---use
+ and
+ [`ANeuralNetworksExecution_getOutputOperandDimensions`](https://developer.android.com/ndk/reference/group/neural-networks#aneuralnetworksexecution_getoutputoperanddimensions).
+ 
+-The following code sample shows how to do this:  
++The following code sample shows how to do this:
+ 
+ ```c++
+ // Get the rank of the output
+@@ -788,7 +798,7 @@ ANeuralNetworksExecution_getOutputOperandDimensions(run1, 0, myOutputDimensions.
+ ### Cleanup
+ 
+ The cleanup step handles the freeing of internal resources used for your
+-computation.  
++computation.
+ 
+ ```c++
+ // Cleanup
+@@ -912,7 +922,7 @@ driver. The client is encouraged to implement fallback logic by allocating a
+ large enough buffer backed by Ashmem or BLOB-mode `AHardwareBuffer`.
+ 
+ When NNAPI no longer needs to access the opaque memory object, free the
+-corresponding `ANeuralNetworksMemory` instance:  
++corresponding `ANeuralNetworksMemory` instance:
+ 
+ ```c++
+ ANeuralNetworksMemory_free(opaqueMem);
+@@ -1018,7 +1028,7 @@ spent waiting for execution on a call to an underlying layer
+ (as per-execution times) instead of stats for all phases
+ - `--json`: produces the output in JSON format
+ 
+-An example of the output is shown below:  
++An example of the output is shown below:
+ 
+     ===========================================================================================================================================
+     NNAPI timing summary (total time, ms wall-clock)                                                      Execution
+@@ -1062,7 +1072,7 @@ Here is an example of how you can alter the TFLite image classification example
+ code by adding a `runInferenceModel` section for the `Execution` phase and the
+ `Application` layer containing another other sections `preprocessBitmap` that
+ won't be considered in NNAPI traces. The `runInferenceModel` section will be
+-part of the systrace events processed by the nnapi systrace parser:  
++part of the systrace events processed by the nnapi systrace parser:
+ 
+ ### Kotlin
+ 
+@@ -1119,7 +1129,9 @@ of time expected to complete a given computation. Android 11 also introduces
+ additional NNAPI [result codes](https://developer.android.com/ndk/reference/group/neural-networks#resultcode)
+ that enable applications to understand failures such as missed execution
+ deadlines.
+-| **Note:** The APIs for setting priority and timeouts act as hints to acceleration hardware and do not provide hard guarantees about execution time.
++
++> [!NOTE]
++> **Note:** The APIs for setting priority and timeouts act as hints to acceleration hardware and do not provide hard guarantees about execution time.
+ 
+ ### Set the priority of a workload
+ 
+@@ -1148,7 +1160,7 @@ value of each cell is represented by an 8-bit integer. Associated with the
+ tensor is a scale and a zero point value. These are used to convert the 8-bit
+ integers into the floating point values that are being represented.
+ 
+-The formula is:  
++The formula is:
+ 
+ ```c++
+ (cellValue - zeroPoint) * scale
+@@ -1301,13 +1313,13 @@ To control the level of log messages shown by `logcat`, use
+ the environment variable `ANDROID_LOG_TAGS`.
+ 
+ To show the full set of NNAPI log messages and disable any others, set `ANDROID_LOG_TAGS` to
+-the following:  
++the following:
+ 
+ ```
+ BurstBuilder:V Callbacks:V CompilationBuilder:V CpuExecutor:V ExecutionBuilder:V ExecutionBurstController:V ExecutionBurstServer:V ExecutionPlan:V FibonacciDriver:V GraphDump:V IndexedShapeWrapper:V IonWatcher:V Manager:V MemoryUtils:V Memory:V MetaModel:V ModelArgumentInfo:V ModelBuilder:V NeuralNetworks:V OperationResolver:V OperationsUtils:V Operations:V PackageInfo:V TokenHasher:V TypeManager:V Utils:V ValidateHal:V VersionedInterfaces:V *:S.
+ ```
+ 
+-You can set `ANDROID_LOG_TAGS` using the following command:  
++You can set `ANDROID_LOG_TAGS` using the following command:
+ 
+ ```
+ export ANDROID_LOG_TAGS=$(grep -R 'define LOG_TAG' | awk -F '"' '{ print $2 ":V" }' | sort -u | egrep -v "Sample|FileTag|test" | xargs echo -n; echo ' *:S')

@@ -1,0 +1,73 @@
+diff --git a/docs/topic/performance/benchmarking/macrobenchmark-control-app.md b/docs/topic/performance/benchmarking/macrobenchmark-control-app.md
+index 54cf71f..386d80c 100644
+--- a/docs/topic/performance/benchmarking/macrobenchmark-control-app.md
++++ b/docs/topic/performance/benchmarking/macrobenchmark-control-app.md
+@@ -4,11 +4,17 @@ url: https://developer.android.com/topic/performance/benchmarking/macrobenchmark
+ source: md.txt
+ ---
+ 
+-Unlike most Android UI tests, Macrobenchmark tests run in a separate process from the app itself. This is necessary to enable things like stopping the app process and compiling from DEX bytecode to machine code.
++Unlike most Android UI tests, Macrobenchmark tests run in a separate process
++from the app itself. This is necessary to enable things like stopping the
++app process and compiling from DEX bytecode to machine code.
+ 
+-You can drive your app's state using the[UIAutomator library](https://developer.android.com/training/testing/ui-automator)or other mechanisms that can control the target app from the test process. You can't use[Espresso](https://developer.android.com/training/testing/espresso)or[`ActivityScenario`](https://developer.android.com/reference/androidx/test/core/app/ActivityScenario)for Macrobenchmark because they expect to run in a shared process with the app.
++You can drive your app's state using the [UIAutomator library](https://developer.android.com/training/testing/ui-automator) or other
++mechanisms that can control the target app from the test process.
++You can't use [Espresso](https://developer.android.com/training/testing/espresso) or [`ActivityScenario`](https://developer.android.com/reference/androidx/test/core/app/ActivityScenario) for
++Macrobenchmark because they expect to run in a shared process with the app.
+ 
+-The following example finds a[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView)using its resource ID and scrolls down several times:  
++The following example finds a [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) using its resource ID and
++scrolls down several times:
+ 
+ ### Kotlin
+ 
+@@ -31,7 +37,7 @@ fun scrollList() {
+         }
+ 
+     }
+-}https://github.com/android/performance-samples/blob/09d89822210bc2653163bdd2766b07badedbb94d/MacrobenchmarkSample/macrobenchmark/src/main/kotlin/com/example/macrobenchmark/benchmark/frames/FrameTimingBenchmark.kt#L43-L69
++}
+ ```
+ 
+ ### Java
+@@ -66,14 +72,25 @@ public void scrollList() {
+ }
+ ```
+ 
+-Your benchmark doesn't have to scroll the UI. Instead, it can run an animation, for example. It also doesn't need to use UI Automator specifically. It collects performance metrics as long as frames are being produced by the view system, including frames produced by[Jetpack Compose](https://developer.android.com/jetpack/compose).
+-| **Note:** When accessing UI objects, specify the`packageName`, because the tests run in a separate process.
++Your benchmark doesn't have to scroll the UI. Instead, it can run an
++animation, for example. It also doesn't need to use UI Automator
++specifically. It collects performance metrics as long as frames are being
++produced by the view system, including frames produced by [Jetpack Compose](https://developer.android.com/jetpack/compose).
++
++> [!NOTE]
++> **Note:** When accessing UI objects, specify the `packageName`, because the tests run in a separate process.
+ 
+ ## Navigate to internal parts of the app
+ 
+-Sometimes you want to benchmark parts of your app that aren't directly accessible from outside. This might be, for example, accessing inner Activities that are marked with[`exported=false`](https://developer.android.com/guide/topics/manifest/activity-element#exported), navigating to a[`Fragment`](https://developer.android.com/reference/android/app/Fragment), or swiping some part of your UI away. The benchmarks need to manually navigate to these parts of the app like a user.
++Sometimes you want to benchmark parts of your app that aren't directly
++accessible from outside. This might be, for example, accessing inner Activities
++that are marked with [`exported=false`](https://developer.android.com/guide/topics/manifest/activity-element#exported), navigating to a [`Fragment`](https://developer.android.com/reference/android/app/Fragment), or swiping
++some part of your UI away. The benchmarks need to manually navigate to these
++parts of the app like a user.
+ 
+-To manually navigate, change the code inside`setupBlock{}`to contain the effect you want, such as button tap or swipe. Your`measureBlock{}`contains only the UI manipulation you want to actually benchmark:  
++To manually navigate, change the code inside `setupBlock{}` to contain the
++effect you want, such as button tap or swipe. Your `measureBlock{}` contains
++only the UI manipulation you want to actually benchmark:
+ 
+ ### Kotlin
+ 
+@@ -97,7 +114,7 @@ private fun setupBenchmark(): MacrobenchmarkScope.() -> Unit = {
+         // wait until the activity is shown
+         waitForStableInActiveWindow()
+     }
+-}https://github.com/android/performance-samples/blob/09d89822210bc2653163bdd2766b07badedbb94d/MacrobenchmarkSample/macrobenchmark/src/main/kotlin/com/example/macrobenchmark/benchmark/frames/NonExportedActivityBenchmark.kt#L46-L79
++}
+ ```
+ 
+ ### Java

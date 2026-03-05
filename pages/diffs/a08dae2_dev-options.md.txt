@@ -1,0 +1,53 @@
+diff --git a/docs/studio/debug/dev-options.md b/docs/studio/debug/dev-options.md
+index aa490ad..73bfbd8 100644
+--- a/docs/studio/debug/dev-options.md
++++ b/docs/studio/debug/dev-options.md
+@@ -74,7 +74,7 @@ Settings panel.
+ 
+ Once you select one or more of the available tiles, shown in figure 2, open the
+ Quick Settings panel and tap the pencil to enter edit mode. Then, drag the developer tiles from
+-the tiles pane onto the Quick settings panel, and tap the pencil again to exit edit mode.  
++the tiles pane onto the Quick settings panel, and tap the pencil again to exit edit mode.
+ ![](https://developer.android.com/static/studio/images/run/dev-options-quick-settings_2x.png)
+ 
+ **Figure 2.** Add options to the Quick Settings panel.
+@@ -84,7 +84,11 @@ Other general options include the following:
+ 
+ - **Memory**: Displays memory stats, such as average memory usage, memory performance, total memory available, average memory used, how much free memory is available, and how much memory apps are using.
+ - **Take bug report:** Gets a copy of the current device log files to share with someone. When you get a notification that the bug report is ready, tap the notification to share it.
+-- **System UI demo mode:** Makes it easier to take clean screenshots by displaying a generic, preset notification bar that doesn't show notifications or low battery warnings. **Enable Demo Mode** lets you change the appearance of the status bar using [`adb` demo mode commands](https://android.googlesource.com/platform/frameworks/base/+/master/packages/SystemUI/docs/demo_mode.md). Or you can use **Show Demo Mode** to hide notifications and display a preset status bar. **Note:** The `adb` demo mode commands might not work on all devices because they are not verified during Android certification testing. They're only verified to work on Nexus and Pixel devices.
++- **System UI demo mode:** Makes it easier to take clean screenshots by displaying a generic, preset notification bar that doesn't show notifications or low battery warnings. **Enable Demo Mode** lets you change the appearance of the status bar using [`adb` demo mode commands](https://android.googlesource.com/platform/frameworks/base/+/master/packages/SystemUI/docs/demo_mode.md). Or you can use **Show Demo Mode** to hide notifications and display a preset status bar.
++
++  > [!NOTE]
++  > **Note:** The `adb` demo mode commands might not work on all devices because they are not verified during Android certification testing. They're only verified to work on Nexus and Pixel devices.
++
+ - **Desktop backup password:** Sets a backup password so you can use `adb` commands to back up and restore device apps and data under password protection.
+ - **Stay awake:** Sets your screen to stay on while the device is plugged in.
+ - **Enable Bluetooth Host Controller Interface (HCI) snoop log:** Captures all Bluetooth HCI packets in a file stored at `/sdcard/btsnoop_hci.log`. You can retrieve the packets and use a program like Wireshark to analyze and troubleshoot the information.
+@@ -110,7 +114,7 @@ the selected app waits for the debugger to attach before it executes.
+ Other debugging options include the following:
+ 
+ - **Store logger data persistently on device:** Select the type of log messages you want to store persistently on the device. The options are off, all, all but radio, or kernel only.
+-- **Select mock location app:** Use this option to fake the GPS location of the device to test whether your app behaves the same in other locations. To use this option, download and install a GPS mock location app.  
++- **Select mock location app:** Use this option to fake the GPS location of the device to test whether your app behaves the same in other locations. To use this option, download and install a GPS mock location app.
+ ![](https://developer.android.com/static/studio/images/run/dev-options-view-attributes_2x.png)
+ 
+ **Figure 4.** View attributes.
+@@ -164,7 +168,7 @@ The following list describes other ways to configure Wi-Fi and DHCP setup:
+ 
+ Enable **Show taps** to display taps when you touch the screen. A circle appears under your
+ finger or stylus and follows you as you move around the screen. A tap works like a pointer when
+-you [record a video](https://developer.android.com/studio/debug/am-video) on your device.  
++you [record a video](https://developer.android.com/studio/debug/am-video) on your device.
+ ![](https://developer.android.com/static/studio/images/run/dev-options-bar_2x.png)
+ 
+ **Figure 6.** Pointer location bar.
+@@ -268,7 +272,7 @@ GPU operations.
+ 
+ Tap **Profile GPU Rendering** and then **On screen as bars** to display the GPU rendering
+ profile as bars, as shown in figure 9. For more
+-information, see [Profile GPU rendering speed](https://developer.android.com/topic/performance/rendering/inspect-gpu-rendering#profile_rendering).  
++information, see [Profile GPU rendering speed](https://developer.android.com/topic/performance/rendering/inspect-gpu-rendering#profile_rendering).
+ 
+ ## Apps
+ 

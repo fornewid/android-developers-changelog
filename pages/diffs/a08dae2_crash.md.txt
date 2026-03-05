@@ -1,0 +1,99 @@
+diff --git a/docs/topic/performance/vitals/crash.md b/docs/topic/performance/vitals/crash.md
+index d26ead7..df645eb 100644
+--- a/docs/topic/performance/vitals/crash.md
++++ b/docs/topic/performance/vitals/crash.md
+@@ -4,8 +4,6 @@ url: https://developer.android.com/topic/performance/vitals/crash
+ source: md.txt
+ ---
+ 
+-# Crashes
+-
+ An Android app crashes whenever there's an unexpected exit caused by an
+ unhandled exception or signal. An app that is written using Java or Kotlin
+ crashes if it throws an unhandled exception, represented by the
+@@ -46,7 +44,9 @@ Android vitals measures several crash rates:
+   if it is displaying any activity or executing any
+   [foreground service](https://developer.android.com/develop/background-work/services/fgs).
+ 
+-  | **Note:** For Wear OS apps, user-perceived crash rates include both foreground and background crashes. Wear OS devices always have watch faces running in the background, and users frequently move Wear OS apps to the background, even during active usage, because of the small screen size.
++  > [!NOTE]
++  > **Note:** For Wear OS apps, user-perceived crash rates include both foreground and background crashes. Wear OS devices always have watch faces running in the background, and users frequently move Wear OS apps to the background, even during active usage, because of the small screen size.
++
+ - **Multiple crash rate:** The percentage of your daily active users who
+   experienced at least two crashes.
+ 
+@@ -107,9 +107,9 @@ either by manually testing the app or by reaching out to affected users, and
+ reproduce it while using logcat.
+ 
+ The following trace shows an example of a crash on an app written using the Java
+-programming language:  
++programming language:
+ 
+-    --------- beginning of crash
++    --- beginning of crash
+     AndroidRuntime: FATAL EXCEPTION: main
+     Process: com.android.developer.crashsample, PID: 3686
+     java.lang.NullPointerException: crash sample
+@@ -123,7 +123,7 @@ programming language:
+     at java.lang.reflect.Method.invoke(Native Method)
+     at com.android.internal.os.Zygote$MethodAndArgsCaller.run(Zygote.java:240)
+     at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:746)
+-    --------- beginning of system
++    --- beginning of system
+ 
+ A stack trace shows two pieces of information that are critical to debugging a
+ crash:
+@@ -148,7 +148,7 @@ stack trace, finding any API classes that you used, and confirming that the
+ parameters you passed were correct, and that you called it from a place that is
+ allowed.
+ 
+-Stack traces for apps with C and C++ code work much the same way.  
++Stack traces for apps with C and C++ code work much the same way.
+ 
+     *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+     Build fingerprint: 'google/foo/bar:10/123.456/78910:user/release-keys'
+@@ -218,7 +218,7 @@ Another option is to reduce the quality of the network in the emulator by
+ choosing a network speed emulation and/or a network delay. You can use the
+ **Speed** and **Latency** settings on AVD manager, or you can start the emulator
+ with the `-netdelay` and `-netspeed` flags, as shown in the following
+-command-line example:  
++command-line example:
+ 
+     emulator -avd [your-avd-image] -netdelay 20000 -netspeed gsm
+ 
+@@ -285,7 +285,7 @@ You should always prefer types that convey nullability.
+ In Kotlin,
+ [nullability](https://kotlinlang.org/docs/reference/null-safety.html)
+ is part of the type system. For example, a variable needs to be declared from
+-the beginning as nullable or non-nullable. Nullable types are marked with a `?`:  
++the beginning as nullable or non-nullable. Nullable types are marked with a `?`:
+ 
+     // non-null
+     var s: String = "Hello"
+@@ -297,7 +297,7 @@ Non-nullable variables cannot be assigned a null value and nullable variables
+ need to be checked for nullability before being used as non-null.
+ 
+ If you don't want to check for null explicitly, you can use the `?.` safe call
+-operator:  
++operator:
+ 
+     val length: Int? = string?.length  // length is a nullable int
+                                        // if string is null, then length is null
+@@ -318,7 +318,7 @@ The following are some ways to check for null:
+ - `?:` [Elvis operator](https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator)
+ 
+   This operator allows you to state "if the object is non-null, return the
+-  object; otherwise, return something else".  
++  object; otherwise, return something else".
+ 
+       val length = string?.length ?: 0
+ 
+@@ -336,7 +336,7 @@ Platform types are object declarations coming from Java.
+ null checks are not as enforced, so the non-null guarantee is the same as in
+ Java. When you access a platform type reference, Kotlin does not create compile
+ time errors but these references can lead to runtime errors. See the following
+-example from the Kotlin documentation:  
++example from the Kotlin documentation:
+ 
+     val list = ArrayList<String>() // non-null (constructor result) list.add("Item")
+     val size = list.size // non-null (primitive int) val item = list[0] // platform

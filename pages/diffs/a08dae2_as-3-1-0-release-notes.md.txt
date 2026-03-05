@@ -1,0 +1,42 @@
+diff --git a/docs/studio/releases/past-releases/as-3-1-0-release-notes.md b/docs/studio/releases/past-releases/as-3-1-0-release-notes.md
+index cb96280..38b4ca9 100644
+--- a/docs/studio/releases/past-releases/as-3-1-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-3-1-0-release-notes.md
+@@ -9,8 +9,8 @@ source: md.txt
+ # Android Studio 3.1 (March 2018)
+ 
+ Android Studio 3.1.0 is a major release that includes a variety of new
+-features and improvements.  
+-**3.1.4 (August 2018)**
++features and improvements.
++[Video](https://www.youtube.com/watch?v=nnnW0nehPEA) **3.1.4 (August 2018)**
+ 
+ This update to Android Studio 3.1 includes the following changes and fixes:
+ 
+@@ -45,7 +45,7 @@ This update to Android Studio 3.1 includes fixes for the following bugs:
+ - Builds configured with [source sets](https://developer.android.com/studio/build/build-variants#sourcesets)
+   failed with the following message when Instant Run was enabled:
+ 
+-  `"The SourceSet `<var translate="no">name</var>` is not recognized by the
++  `"The SourceSet name is not recognized by the
+   Android Gradle Plugin."`
+ - When Instant Run was enabled, builds of new Kotlin projects failed when triggered by the **Run** command.
+ - During editing of the `build.gradle` file, there was sometimes a noticeable delay between typing a character and the character appearing on the screen.
+@@ -173,7 +173,7 @@ disabled the D8 compiler.
+ 
+ If you set `android.enableD8` to `false` in your
+ `gradle.properties`, either delete that flag or set it to
+-`true`:  
++`true`:
+ 
+             android.enableD8=true
+           
+@@ -193,7 +193,7 @@ Desugaring converts
+ into a form that the compiler can process more efficiently.
+ 
+ You can disable incremental desugaring by specifying the following in
+-your project's `gradle.properties` file:  
++your project's `gradle.properties` file:
+ 
+             android.enableIncrementalDesugaring=false
+           

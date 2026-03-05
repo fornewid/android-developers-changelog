@@ -1,0 +1,271 @@
+diff --git a/docs/training/dependency-injection/manual.md b/docs/training/dependency-injection/manual.md
+index 5877599..6354109 100644
+--- a/docs/training/dependency-injection/manual.md
++++ b/docs/training/dependency-injection/manual.md
+@@ -4,27 +4,49 @@ url: https://developer.android.com/training/dependency-injection/manual
+ source: md.txt
+ ---
+ 
+-# Manual dependency injection
+-
+-[Android's recommended app architecture](https://developer.android.com/jetpack/docs/guide#recommended-app-arch)encourages dividing your code into classes to benefit from separation of concerns, a principle where each class of the hierarchy has a single defined responsibility. This leads to more, smaller classes that need to be connected together to fulfill each other's dependencies.  
+-![Android apps are usually made up of many classes, and some of them depend on each other.](https://developer.android.com/static/topic/libraries/architecture/images/final-architecture.png)**Figure 1.**A model of an Android app's application graph
+-
+-The dependencies between classes can be represented as a graph, in which each class is connected to the classes it depends on. The representation of all your classes and their dependencies makes up the*application graph* . In figure 1, you can see an abstraction of the application graph. When class A (`ViewModel`) depends on class B (`Repository`), there's a line that points from A to B representing that dependency.
+-
+-Dependency injection helps make these connections and enables you to swap out implementations for testing. For example, when testing a`ViewModel`that depends on a repository, you can pass different implementations of`Repository`with either fakes or mocks to test the different cases.
++[Android's recommended app architecture](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) encourages dividing
++your code into classes to benefit from separation of concerns, a principle
++where each class of the hierarchy has a single defined responsibility.
++This leads to more, smaller classes that need to be connected together
++to fulfill each other's dependencies.
++![Android apps are usually made up of many classes, and some of them
++depend on each other.](https://developer.android.com/static/topic/libraries/architecture/images/final-architecture.png) **Figure 1.** A model of an Android app's application graph
++
++The dependencies between classes can be represented as a graph, in which each
++class is connected to the classes it depends on. The representation of all your
++classes and their dependencies makes up the *application graph* .
++In figure 1, you can see an abstraction of the application graph.
++When class A (`ViewModel`) depends on class B (`Repository`), there's
++a line that points from A to B representing that dependency.
++
++Dependency injection helps make these connections and enables you to swap out
++implementations for testing. For example, when testing a `ViewModel`
++that depends on a repository, you can pass different implementations of
++`Repository` with either fakes or mocks to test the different cases.
+ 
+ ## Basics of manual dependency injection
+ 
+-This section covers how to apply manual dependency injection in a real Android app scenario. It walks through an iterated approach of how you might start using dependency injection in your app. The approach improves until it reaches a point that is very similar to what Dagger would automatically generate for you. For more information about Dagger, read[Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics).
++This section covers how to apply manual dependency injection in a real Android
++app scenario. It walks through an iterated approach of how you might start
++using dependency injection in your app. The approach improves until it reaches
++a point that is very similar to what Dagger would automatically generate for
++you. For more information about Dagger, read [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics).
+ 
+-Consider a**flow**to be a group of screens in your app that correspond to a feature. Login, registration, and checkout are all examples of flows.
++Consider a **flow** to be a group of screens in your app that correspond to a
++feature. Login, registration, and checkout are all examples of flows.
+ 
+-When covering a login flow for a typical Android app, the`LoginActivity`depends on`LoginViewModel`, which in turn depends on`UserRepository`. Then`UserRepository`depends on a`UserLocalDataSource`and a`UserRemoteDataSource`, which in turn depends on a[`Retrofit`](https://square.github.io/retrofit/)service.  
++When covering a login flow for a typical Android app, the `LoginActivity`
++depends on `LoginViewModel`, which in turn depends on `UserRepository`.
++Then `UserRepository` depends on a `UserLocalDataSource` and a
++`UserRemoteDataSource`, which in turn depends on a [`Retrofit`](https://square.github.io/retrofit/)
++service.
+ ![](https://developer.android.com/static/images/training/dependency-injection/2-application-graph.png)
+ 
+-`LoginActivity`is the entry point to the login flow and the user interacts with the activity. Thus,`LoginActivity`needs to create the`LoginViewModel`with all its dependencies.
++`LoginActivity` is the entry point to the login flow and the user
++interacts with the activity. Thus, `LoginActivity` needs to create the
++`LoginViewModel` with all its dependencies.
+ 
+-The`Repository`and`DataSource`classes of the flow look like this:  
++The `Repository` and `DataSource` classes of the flow look like this:
+ 
+ ### Kotlin
+ 
+@@ -73,7 +95,7 @@ class UserRepository {
+ }
+ ```
+ 
+-Here's what`LoginActivity`looks like:  
++Here's what `LoginActivity` looks like:
+ 
+ ### Kotlin
+ 
+@@ -141,15 +163,25 @@ public class MainActivity extends Activity {
+ 
+ There are issues with this approach:
+ 
+-1. There's a lot of boilerplate code. If you wanted to create another instance of`LoginViewModel`in another part of the code, you'd have code duplication.
++1. There's a lot of boilerplate code. If you wanted to create another instance
++   of `LoginViewModel` in another part of the code, you'd have code duplication.
+ 
+-2. Dependencies have to be declared in order. You have to instantiate`UserRepository`before`LoginViewModel`in order to create it.
++2. Dependencies have to be declared in order. You have to instantiate
++   `UserRepository` before `LoginViewModel` in order to create it.
+ 
+-3. It's difficult to reuse objects. If you wanted to reuse`UserRepository`across multiple features, you'd have to make it follow the[singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern). The singleton pattern makes testing more difficult because all tests share the same singleton instance.
++3. It's difficult to reuse objects. If you wanted to reuse `UserRepository`
++   across multiple features, you'd have to make it follow the
++   [singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern).
++   The singleton pattern makes testing more difficult because all tests share the
++   same singleton instance.
+ 
+ ## Managing dependencies with a container
+ 
+-To solve the issue of reusing objects, you can create your own*dependencies container* class that you use to get dependencies. All instances provided by this container can be public. In the example, because you only need an instance of`UserRepository`, you can make its dependencies private with the option of making them public in the future if they need to be provided:  
++To solve the issue of reusing objects, you can create your own
++*dependencies container* class that you use to get dependencies. All instances
++provided by this container can be public. In the example, because you only need
++an instance of `UserRepository`, you can make its dependencies private with the
++option of making them public in the future if they need to be provided:
+ 
+ ### Kotlin
+ 
+@@ -193,7 +225,10 @@ public class AppContainer {
+ }
+ ```
+ 
+-Because these dependencies are used across the whole application, they need to be placed in a common place all activities can use: the[`Application`](https://developer.android.com/reference/android/app/Application)class. Create a custom`Application`class that contains an`AppContainer`instance.  
++Because these dependencies are used across the whole application, they need
++to be placed in a common place all activities can use: the
++[`Application`](https://developer.android.com/reference/android/app/Application) class. Create a custom
++`Application` class that contains an `AppContainer` instance.
+ 
+ ### Kotlin
+ 
+@@ -218,9 +253,12 @@ public class MyApplication extends Application {
+     public AppContainer appContainer = new AppContainer();
+ }
+ ```
+-| **Note:** `AppContainer`is just a regular class with a unique instance shared across the app placed in your`Application`class. However,`AppContainer`is not following the[singleton](https://en.wikipedia.org/wiki/Singleton_pattern)pattern; in Kotlin, it's not an`object`, and in Java, it's not accessed with the typical`Singleton.getInstance()`method.
+ 
+-Now you can get the instance of the`AppContainer`from the application and obtain the shared`UserRepository`instance:  
++> [!NOTE]
++> **Note:** `AppContainer` is just a regular class with a unique instance shared across the app placed in your `Application` class. However, `AppContainer` is not following the [singleton](https://en.wikipedia.org/wiki/Singleton_pattern) pattern; in Kotlin, it's not an `object`, and in Java, it's not accessed with the typical `Singleton.getInstance()` method.
++
++Now you can get the instance of the `AppContainer` from the application and
++obtain the shared `UserRepository` instance:
+ 
+ ### Kotlin
+ 
+@@ -258,9 +296,15 @@ public class MainActivity extends Activity {
+ }
+ ```
+ 
+-In this way, you don't have a singleton`UserRepository`. Instead, you have an`AppContainer`shared across all activities that contains objects from the graph and creates instances of those objects that other classes can consume.
++In this way, you don't have a singleton `UserRepository`. Instead, you have an
++`AppContainer` shared across all activities that contains objects from the graph
++and creates instances of those objects that other classes can consume.
+ 
+-If`LoginViewModel`is needed in more places in the application, having a centralized place where you create instances of`LoginViewModel`makes sense. You can move the creation of`LoginViewModel`to the container and provide new objects of that type with a factory. The code for a`LoginViewModelFactory`looks like this:  
++If `LoginViewModel` is needed in more places in the application, having a
++centralized place where you create instances of `LoginViewModel` makes
++sense. You can move the creation of `LoginViewModel` to the container and provide
++new objects of that type with a factory. The code for a `LoginViewModelFactory`
++looks like this:
+ 
+ ### Kotlin
+ 
+@@ -306,7 +350,8 @@ class LoginViewModelFactory implements Factory {
+ }
+ ```
+ 
+-You can include the`LoginViewModelFactory`in the`AppContainer`and make the`LoginActivity`consume it:  
++You can include the `LoginViewModelFactory` in the `AppContainer` and make the
++`LoginActivity` consume it:
+ 
+ ### Kotlin
+ 
+@@ -363,29 +408,48 @@ public class MainActivity extends Activity {
+ }
+ ```
+ 
+-This approach is better than the previous one, but there are still some challenges to consider:
++This approach is better than the previous one, but there are still some
++challenges to consider:
+ 
+-1. You have to manage`AppContainer`yourself, creating instances for all dependencies by hand.
++1. You have to manage `AppContainer` yourself, creating instances for all
++   dependencies by hand.
+ 
+-2. There is still a lot of boilerplate code. You need to create factories or parameters by hand depending on whether you want to reuse an object or not.
++2. There is still a lot of boilerplate code. You need to create factories or
++   parameters by hand depending on whether you want to reuse an object or not.
+ 
+ ## Managing dependencies in application flows
+ 
+-`AppContainer`gets complicated when you want to include more functionality in the project. When your app becomes larger and you start introducing different feature flows, there are even more problems that arise:
++`AppContainer` gets complicated when you want to include more functionality in
++the project. When your app becomes larger and you start introducing different
++feature flows, there are even more problems that arise:
+ 
+-1. When you have different flows, you might want objects to just live in the scope of that flow. For example, when creating`LoginUserData`(that might consist of the username and password used only in the login flow) you don't want to persist data from an old login flow from a different user. You want a new instance for every new flow. You can achieve that by creating`FlowContainer`objects inside the`AppContainer`as demonstrated in the next code example.
++1. When you have different flows, you might want objects to just live in the
++   scope of that flow. For example, when creating `LoginUserData` (that might
++   consist of the username and password used only in the login flow) you don't want
++   to persist data from an old login flow from a different user. You want a new
++   instance for every new flow. You can achieve that by creating `FlowContainer`
++   objects inside the `AppContainer` as demonstrated in the next code example.
+ 
+-2. Optimizing the application graph and flow containers can also be difficult. You need to remember to delete instances that you don't need, depending on the flow you're in.
++2. Optimizing the application graph and flow containers can also be difficult.
++   You need to remember to delete instances that you don't need, depending on the
++   flow you're in.
+ 
+-Imagine you have a login flow that consists of one activity (`LoginActivity`) and multiple fragments (`LoginUsernameFragment`and`LoginPasswordFragment`). These views want to:
++Imagine you have a login flow that consists of one activity (`LoginActivity`)
++and multiple fragments (`LoginUsernameFragment` and `LoginPasswordFragment`).
++These views want to:
+ 
+-1. Access the same`LoginUserData`instance that needs to be shared until the login flow finishes.
++1. Access the same `LoginUserData` instance that needs to be shared until the
++   login flow finishes.
+ 
+-2. Create a new instance of`LoginUserData`when the flow starts again.
++2. Create a new instance of `LoginUserData` when the flow starts again.
+ 
+-You can achieve that with a login flow container. This container needs to be created when the login flow starts and removed from memory when the flow ends.
++You can achieve that with a login flow container. This container needs to be
++created when the login flow starts and removed from memory when the flow ends.
+ 
+-Let's add a`LoginContainer`to the example code. You want to be able to create multiple instances of`LoginContainer`in the app, so instead of making it a singleton, make it a class with the dependencies the login flow needs from the`AppContainer`.  
++Let's add a `LoginContainer` to the example code. You want to be able to create
++multiple instances of `LoginContainer` in the app, so instead of making it a
++singleton, make it a class with the dependencies the login flow needs from
++the `AppContainer`.
+ 
+ ### Kotlin
+ 
+@@ -435,7 +499,11 @@ public class AppContainer {
+ }
+ ```
+ 
+-Once you have a container specific to a flow, you have to decide when to create and delete the container instance. Because your login flow is self-contained in an activity (`LoginActivity`), the activity is the one managing the lifecycle of that container.`LoginActivity`can create the instance in`onCreate()`and delete it in`onDestroy()`.  
++Once you have a container specific to a flow, you have to decide when to create
++and delete the container instance. Because your login flow is self-contained in
++an activity (`LoginActivity`), the activity is the one managing the lifecycle
++of that container. `LoginActivity` can create the instance in `onCreate()` and
++delete it in `onDestroy()`.
+ 
+ ### Kotlin
+ 
+@@ -501,15 +569,28 @@ public class LoginActivity extends Activity {
+ }
+ ```
+ 
+-Like`LoginActivity`, login fragments can access the`LoginContainer`from`AppContainer`and use the shared`LoginUserData`instance.
++Like `LoginActivity`, login fragments can access the `LoginContainer` from
++`AppContainer` and use the shared `LoginUserData` instance.
++
++Because in this case you're dealing with view lifecycle logic, using
++[lifecycle observation](https://developer.android.com/topic/libraries/architecture/lifecycle) makes sense.
+ 
+-Because in this case you're dealing with view lifecycle logic, using[lifecycle observation](https://developer.android.com/topic/libraries/architecture/lifecycle)makes sense.
+-| **Note:** If you need the container to survive configuration changes, follow the[Saving UI States guide](https://developer.android.com/topic/libraries/architecture/saving-states). You need to handle it the same way you handle process death; otherwise, your app might lose state on devices with less memory.
++> [!NOTE]
++> **Note:** If you need the container to survive configuration changes, follow the [Saving UI States guide](https://developer.android.com/topic/libraries/architecture/saving-states). You need to handle it the same way you handle process death; otherwise, your app might lose state on devices with less memory.
+ 
+ ## Conclusion
+ 
+-Dependency injection is a good technique for creating scalable and testable Android apps. Use containers as a way to share instances of classes in different parts of your app and as a centralized place to create instances of classes using factories.
++Dependency injection is a good technique for creating scalable and testable
++Android apps. Use containers as a way to share instances of classes in different
++parts of your app and as a centralized place to create instances of
++classes using factories.
+ 
+-When your application gets larger, you will start seeing that you write a lot of boilerplate code (such as factories), which can be error-prone. You also have to manage the scope and lifecycle of the containers yourself, optimizing and discarding containers that are no longer needed in order to free up memory. Doing this incorrectly can lead to subtle bugs and memory leaks in your app.
++When your application gets larger, you will start seeing that you write a lot of
++boilerplate code (such as factories), which can be error-prone. You also have to
++manage the scope and lifecycle of the containers yourself, optimizing and
++discarding containers that are no longer needed in order to free up memory.
++Doing this incorrectly can lead to subtle bugs and memory leaks in your app.
+ 
+-In the[Dagger section](https://developer.android.com/training/dependency-injection/dagger-basics), you'll learn how you can use Dagger to automate this process and generate the same code you would have written by hand otherwise.
+\ No newline at end of file
++In the [Dagger section](https://developer.android.com/training/dependency-injection/dagger-basics), you'll
++learn how you can use Dagger to automate this process and generate the same code
++you would have written by hand otherwise.
+\ No newline at end of file

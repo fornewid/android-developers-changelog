@@ -1,0 +1,85 @@
+diff --git a/docs/training/cars/apps/library/set-up-project.md b/docs/training/cars/apps/library/set-up-project.md
+index e1529d4..1d93855 100644
+--- a/docs/training/cars/apps/library/set-up-project.md
++++ b/docs/training/cars/apps/library/set-up-project.md
+@@ -10,7 +10,9 @@ the manifest file for your app.
+ ## Install the Car App library
+ 
+ To add the library to your app, see the Jetpack library [release page](https://developer.android.com/jetpack/androidx/releases/car-app#declaring_dependencies).
+-| **Important:** When depending on alpha and beta releases of the library, take extra caution when using newly introduced or experimental APIs. Specifically, new APIs in alpha releases and APIs that are annotated as experimental can change --- and potentially break --- your app when the hosts are updated. \*\*We strongly recommend that you don't refer to these categories of APIs in your production APKs.
++
++> [!IMPORTANT]
++> **Important:** When depending on alpha and beta releases of the library, take extra caution when using newly introduced or experimental APIs. Specifically, new APIs in alpha releases and APIs that are annotated as experimental can change --- and potentially break --- your app when the hosts are updated. \*\*We strongly recommend that you don't refer to these categories of APIs in your production APKs.
+ 
+ ## Configure your app's manifest files
+ 
+@@ -28,7 +30,7 @@ your app's intent filter. See the list of [supported app categories](https://dev
+ values allowed for this element.
+ 
+ The following code snippet shows how to declare a car app service for a point of
+-interest app in your manifest:  
++interest app in your manifest:
+ 
+     <application>
+         ...
+@@ -45,7 +47,8 @@ interest app in your manifest:
+         ...
+     <application>
+ 
+-| **Caution:** You might see a lint warning because the service is exported, but doesn't require a [permission](https://developer.android.com/guide/topics/manifest/service-element#prmsn). It's generally safe to ignore this warning because you must override the [`createHostValidator()`](https://developer.android.com/reference/androidx/car/app/CarAppService#createHostValidator()) method, which gives you more granular control over which host apps can connect to your app.
++> [!CAUTION]
++> **Caution:** You might see a lint warning because the service is exported, but doesn't require a [permission](https://developer.android.com/guide/topics/manifest/service-element#prmsn). It's generally safe to ignore this warning because you must override the [`createHostValidator()`](https://developer.android.com/reference/androidx/car/app/CarAppService#createHostValidator()) method, which gives you more granular control over which host apps can connect to your app.
+ 
+ ### Supported app categories
+ 
+@@ -80,18 +83,21 @@ adding one or more of these values in the intent filter.
+   with voice calling. See
+   [Build calling experiences for Android Auto](https://developer.android.com/training/cars/communication/calling).
+ 
+-| **Important:** The categories listed here are those that are built using the Car App Library. For a complete list of app categories supported in cars, see the [Android for Cars Overview](https://developer.android.com/training/cars#supported-app-categories).
++> [!IMPORTANT]
++> **Important:** The categories listed here are those that are built using the Car App Library. For a complete list of app categories supported in cars, see the [Android for Cars Overview](https://developer.android.com/training/cars#supported-app-categories).
+ 
+ For detailed descriptions of each category and the criteria required to qualify
+ for a category, see [Android app quality for cars](https://developer.android.com/docs/quality-guidelines/car-app-quality).
+-| **Note:** The car app category isn't tied to the [category you choose for listing your app in Google Play](https://support.google.com/googleplay/android-developer/answer/9859673), which is used to help users discover the most relevant apps in the Play Store.
++
++> [!NOTE]
++> **Note:** The car app category isn't tied to the [category you choose for listing your app in Google Play](https://support.google.com/googleplay/android-developer/answer/9859673), which is used to help users discover the most relevant apps in the Play Store.
+ 
+ ### Specify the app name and icon
+ 
+ To represent your app in the system UI, `carPermissionActivityLayout` must
+ specify an app name and an icon for the host. Use the [`label`](https://developer.android.com/guide/topics/manifest/service-element#label) and
+ [`icon`](https://developer.android.com/guide/topics/manifest/service-element#icon) attributes of your [`CarAppService`](https://developer.android.com/guide/topics/manifest/manifest-intro) to specify the app name and
+-icon used by the host to represent your app:  
++icon used by the host to represent your app:
+ 
+     ...
+     <service
+@@ -114,17 +120,17 @@ To set a custom theme for your car app:
+ 
+        <meta-data
+            android:name="androidx.car.app.theme"
+-           android:resource="@style/<var translate="no">MyCarAppTheme</var> />
++           android:resource="@style/MyCarAppTheme />
+ 
+ 2. Declare your [style resource](https://developer.android.com/guide/topics/resources/style-resource) to set the attributes for your custom car
+    app theme:
+ 
+        <resources>
+-         <style name="<var translate="no">MyCarAppTheme</var>">
+-           <item name="carColorPrimary">@color/<var translate="no">my_primary_car_color</var></item>
+-           <item name="carColorPrimaryDark">@color/<var translate="no">my_primary_dark_car_color</var></item>
+-           <item name="carColorSecondary">@color/<var translate="no">my_secondary_car_color</var></item>
+-           <item name="carColorSecondaryDark">@color/<var translate="no">my_secondary_dark_car_color</var></item>
+-           <item name="carPermissionActivityLayout">@layout/<var translate="no">my_custom_background</var></item>
++         <style name="MyCarAppTheme">
++           <item name="carColorPrimary">@color/my_primary_car_color</item>
++           <item name="carColorPrimaryDark">@color/my_primary_dark_car_color</item>
++           <item name="carColorSecondary">@color/my_secondary_car_color</item>
++           <item name="carColorSecondaryDark">@color/my_secondary_dark_car_color</item>
++           <item name="carPermissionActivityLayout">@layout/my_custom_background</item>
+          </style>
+        </resources>
+\ No newline at end of file

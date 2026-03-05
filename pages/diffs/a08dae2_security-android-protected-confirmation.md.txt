@@ -1,0 +1,47 @@
+diff --git a/docs/privacy-and-security/security-android-protected-confirmation.md b/docs/privacy-and-security/security-android-protected-confirmation.md
+index b16cd2c..2775b75 100644
+--- a/docs/privacy-and-security/security-android-protected-confirmation.md
++++ b/docs/privacy-and-security/security-android-protected-confirmation.md
+@@ -12,7 +12,7 @@ statement that reaffirms their intent to complete the sensitive transaction.
+ 
+ If the user accepts the statement, your app can use a key from Android Keystore
+ to sign the message shown in the dialog. The signature indicates, with very high
+-confidence, that the user has seen the statement and has agreed to it.  
++confidence, that the user has seen the statement and has agreed to it.
+ **Caution:**Android Protected Confirmation doesn't provide a
+ secure information channel for the user. Your app can't assume any
+ confidentiality guarantees beyond those that the Android platform offers. In
+@@ -45,7 +45,10 @@ the following steps:
+    nonce for protection against
+    [replay attacks](https://www.pcmag.com/encyclopedia/term/50439/replay-attack)
+    and to disambiguate transactions.
+-   | **Caution:** If the extra data field includes to-be-confirmed data, the relying party must verify the equivalent data that's sent with the prompt string. Android Protected Confirmation doesn't render the extra data, so your app can't assume that the user confirmed this data.
++
++   > [!CAUTION]
++   > **Caution:** If the extra data field includes to-be-confirmed data, the relying party must verify the equivalent data that's sent with the prompt string. Android Protected Confirmation doesn't render the extra data, so your app can't assume that the user confirmed this data.
++
+ 4. Set up the
+    [`ConfirmationCallback`](https://developer.android.com/reference/android/security/ConfirmationCallback)
+    object that informs your app when the user has accepted the prompt shown in a
+@@ -124,7 +127,9 @@ the following steps:
+    builder. Use the previously created key to sign the
+    `dataThatWasConfirmed` BLOB, then pass this BLOB, along with the
+    signature and transaction details, back to the relying party.
+-   | **Note:** Because the key was created using [`setUserConfirmationRequired()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setUserConfirmationRequired(boolean)), it can only be used to sign data that's returned in the `dataThatWasConfirmed` parameter. Attempting to sign any other kind of data fails.
++
++   > [!NOTE]
++   > **Note:** Because the key was created using [`setUserConfirmationRequired()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setUserConfirmationRequired(boolean)), it can only be used to sign data that's returned in the `dataThatWasConfirmed` parameter. Attempting to sign any other kind of data fails.
+ 
+    To make full use of the security assurance that Android Protected
+    Confirmation offers, the relying party must perform the following steps upon
+@@ -180,7 +185,9 @@ the following steps:
+              .build();
+      dialog.presentPrompt(threadReceivingCallback, callback);
+    ```
+-   | **Note:** The confirmation prompt UI, which consists of a full-screen dialog, isn't customizable. However, the framework takes care of localizing button text for you.
++
++   > [!NOTE]
++   > **Note:** The confirmation prompt UI, which consists of a full-screen dialog, isn't customizable. However, the framework takes care of localizing button text for you.
+ 
+ ## Additional resources
+ 

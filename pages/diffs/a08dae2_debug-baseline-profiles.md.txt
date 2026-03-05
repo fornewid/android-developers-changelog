@@ -1,0 +1,86 @@
+diff --git a/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md b/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
+index 1c4e70e..7764a8b 100644
+--- a/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
++++ b/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
+@@ -12,7 +12,7 @@ benefit.
+ 
+ If you have copied the Baseline Profiles example in the [Now in Android](https://github.com/android/nowinandroid)
+ sample app, you might encounter test failures during the Baseline Profile task
+-stating that the tests cannot be run on an emulator:  
++stating that the tests cannot be run on an emulator:
+ 
+     ./gradlew assembleDemoRelease
+     Starting a Gradle Daemon (subsequent builds will be faster)
+@@ -33,14 +33,17 @@ shouldn't run performance benchmarks on an emulator. However, since you're not
+ collecting performance metrics when you generate Baseline Profiles, you can run
+ Baseline Profile collection on emulators for convenience. To use Baseline
+ Profiles with an emulator, perform the build and installation from the
+-command-line, and set an argument to enable Baseline Profiles rules:  
++command-line, and set an argument to enable Baseline Profiles rules:
+ 
+     installDemoRelease -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+ 
+ Alternatively, you can create a custom run configuration in Android Studio to
+ enable Baseline Profiles on emulators by selecting
+ **Run \> Edit Configurations**:
+-![Add a custom run configuration to create Baseline Profiles in Now in Android](https://developer.android.com/static/topic/performance/images/studio/run-config-nowinandroid-baselineprofiles.png) **Figure 1.** Add a custom run configuration to create Baseline Profiles in Now in Android. **Note:** Creating a custom run configuration isn't necessary when you add Baseline Profiles using the Baseline Profile module wizard in Android Studio, which is recommended. The wizard creates a run configuration for you.
++![Add a custom run configuration to create Baseline Profiles in Now in Android](https://developer.android.com/static/topic/performance/images/studio/run-config-nowinandroid-baselineprofiles.png) **Figure 1.** Add a custom run configuration to create Baseline Profiles in Now in Android.
++
++> [!NOTE]
++> **Note:** Creating a custom run configuration isn't necessary when you add Baseline Profiles using the Baseline Profile module wizard in Android Studio, which is recommended. The wizard creates a run configuration for you.
+ 
+ ## Verify profile installation and application
+ 
+@@ -73,7 +76,9 @@ In those cases, if you want to make sure your Baseline Profiles are being used,
+ you might need to [force compilation of Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/debug-baseline-profiles#force-compilation).
+ [`ProfileVerifier`](https://developer.android.com/reference/androidx/profileinstaller/ProfileVerifier) lets you query the status of the profile installation and
+ compilation, as shown in the following example:
+-**Note:** If you're using an AGP version lower than 8.4 and installing the app using Android Studio or the Gradle Wrapper command line tool (or tools other than the Play Store), the Baseline Profile compilation doesn't happen automatically. For more information, see [Minimum recommended stable versions](https://developer.android.com/topic/performance/baselineprofiles/overview#recommended-versions).  
++
++> [!NOTE]
++> **Note:** If you're using an AGP version lower than 8.4 and installing the app using Android Studio or the Gradle Wrapper command line tool (or tools other than the Play Store), the Baseline Profile compilation doesn't happen automatically. For more information, see [Minimum recommended stable versions](https://developer.android.com/topic/performance/baselineprofiles/overview#recommended-versions).
+ 
+ ### Kotlin
+ 
+@@ -239,18 +244,18 @@ Baseline Profiles.
+ 
+ If the compilation status of your Baseline Profiles is
+ `RESULT_CODE_PROFILE_ENQUEUED_FOR_COMPILATION`, you can force immediate
+-compilation using [`adb`](https://developer.android.com/tools/adb):  
++compilation using [`adb`](https://developer.android.com/tools/adb):
+ 
+-    adb shell cmd package compile -r bg-dexopt <var translate="no">PACKAGE_NAME</var>
++    adb shell cmd package compile -r bg-dexopt PACKAGE_NAME
+ 
+ ### Check Baseline Profile compilation state without `ProfileVerifier`
+ 
+ If you aren't using `ProfileVerifier`, you can check the compilation state using
+-`adb`, although it doesn't give as deep insights as `ProfileVerifier`:  
++`adb`, although it doesn't give as deep insights as `ProfileVerifier`:
+ 
+-    adb shell dumpsys package dexopt | grep -A 2 <var translate="no">PACKAGE_NAME</var>
++    adb shell dumpsys package dexopt | grep -A 2 PACKAGE_NAME
+ 
+-Using `adb` produces something similar to the following:  
++Using `adb` produces something similar to the following:
+ 
+       [com.google.samples.apps.nowinandroid.demo]
+         path: /data/app/~~dzJiGMKvp22vi2SsvfjkrQ==/com.google.samples.apps.nowinandroid.demo-7FR1sdJ8ZTy7eCLwAnn0Vg==/base.apk
+@@ -374,7 +379,7 @@ benchmarks from this variant to the release variant that contains both the
+ library profiles and your custom profiles. The following example shows how
+ to set up the variant that includes only library profiles. Add a new variant
+ named `releaseWithoutCustomProfile` to your profile consumer module, which is
+-typically your app module:  
++typically your app module:
+ 
+ ### Kotlin
+ 
+@@ -447,7 +452,7 @@ plugin is still running for all variants, and is responsible for including
+ library profiles.
+ 
+ You also need to add the new variant to the profile generator module. In this
+-example the producer module is named `:baselineprofile`.  
++example the producer module is named `:baselineprofile`.
+ 
+ ### Kotlin
+ 

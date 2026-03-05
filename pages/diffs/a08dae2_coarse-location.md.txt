@@ -1,0 +1,15 @@
+diff --git a/docs/training/cars/platforms/automotive-os/coarse-location.md b/docs/training/cars/platforms/automotive-os/coarse-location.md
+index b7cb38a..dd1580c 100644
+--- a/docs/training/cars/platforms/automotive-os/coarse-location.md
++++ b/docs/training/cars/platforms/automotive-os/coarse-location.md
+@@ -72,7 +72,9 @@ when coarse locations are provided to a client.
+ As such, in a very few instances, there can be a longer than usual time for the
+ first position to be available. For example, the very first time a vehicle or,
+ to be more precise, its location subsystem is used or after getting towed.
+-| **Note:** Automotive apps should have no expectation that an NLP can be leveraged nor is it expected that the FLP perform any sensor fusion.
++
++> [!NOTE]
++> **Note:** Automotive apps should have no expectation that an NLP can be leveraged nor is it expected that the FLP perform any sensor fusion.
+ 
+ ### Design apps to target mobile and automotive uses
+ 

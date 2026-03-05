@@ -1,0 +1,60 @@
+diff --git a/docs/training/cars/apps/library/draw-maps.md b/docs/training/cars/apps/library/draw-maps.md
+index b43eabb..4cb288c 100644
+--- a/docs/training/cars/apps/library/draw-maps.md
++++ b/docs/training/cars/apps/library/draw-maps.md
+@@ -27,7 +27,7 @@ To view a complete reference implementation, see [Navigation Sample](https://cs.
+ 
+ In addition to the permission required for the template that your app is using,
+ your app must declare the `androidx.car.app.ACCESS_SURFACE` permission in its
+-`AndroidManifest.xml` file to get access to the surface:  
++`AndroidManifest.xml` file to get access to the surface:
+ 
+     <manifest ...>
+       ...
+@@ -41,7 +41,7 @@ To access the `Surface` that the host provides, you must implement a
+ [`SurfaceCallback`](https://developer.android.com/reference/androidx/car/app/SurfaceCallback) and provide that implementation to the [`AppManager`](https://developer.android.com/reference/androidx/car/app/AppManager)
+ car service. The current `Surface` is passed to your `SurfaceCallback` in the
+ `SurfaceContainer` parameter of the `onSurfaceAvailable()` and
+-`onSurfaceDestroyed()` callbacks.  
++`onSurfaceDestroyed()` callbacks.
+ 
+ ### Kotlin
+ 
+@@ -55,7 +55,7 @@ car service. The current `Surface` is passed to your `SurfaceCallback` in the
+ 
+ In addition to rendering directly into the `Surface` using the `Canvas` API,
+ you can also render Views into the `Surface` using the `VirtualDisplay` and
+-`Presentation` APIs, as this example shows:  
++`Presentation` APIs, as this example shows:
+ 
+     class HelloWorldSurfaceCallback(context: Context) : SurfaceCallback {
+       lateinit var virtualDisplay: VirtualDisplay
+@@ -65,7 +65,7 @@ you can also render Views into the `Surface` using the `VirtualDisplay` and
+           virtualDisplay = context
+               .getSystemService(DisplayManager::class.java)
+               .createVirtualDisplay(
+-                  <var translate="no"><span class="devsite-syntax-n">VIRTUAL_DISPLAY_NAME</span><span class="devsite-syntax-w"> </span></var>,
++                  VIRTUAL_DISPLAY_NAME ,
+                   surfaceContainer.width,
+                   surfaceContainer.height,
+                   surfaceContainer.dpi,
+@@ -97,7 +97,7 @@ propagates a `LifecycleOwner` and `SavedStateRegistryOwner`. To do this, use
+ `setViewTreeLifecycleOwner` and `setViewTreeSavedStateRegistryOwner`.
+ 
+ `Session` already implements `LifecycleOwner`. To serve both roles, your
+-implementation can additionally implement `SavedStateRegistryOwner`.  
++implementation can additionally implement `SavedStateRegistryOwner`.
+ 
+     class HelloWorldSession() : Session(), SavedStateRegistryOwner { ... }
+ 
+@@ -150,7 +150,9 @@ colors when the host determines conditions warrant it, as described in
+ To draw a dark map, use the [`CarContext.isDarkMode`](https://developer.android.com/reference/androidx/car/app/CarContext#isDarkMode()) method. When dark
+ theme status changes, you receive a call to
+ [`Session.onCarConfigurationChanged`](https://developer.android.com/reference/androidx/car/app/Session#onCarConfigurationChanged(android.content.res.Configuration)).
+-| **Important:** By default, apps must draw with light colors and support the dark theme, as described. However, apps can allow users to persistently display the app in either the light or dark theme.
++
++> [!IMPORTANT]
++> **Important:** By default, apps must draw with light colors and support the dark theme, as described. However, apps can allow users to persistently display the app in either the light or dark theme.
+ 
+ ## Draw maps on the cluster display
+ 

@@ -1,0 +1,16 @@
+diff --git a/docs/guide/playcore/install-prompt.md b/docs/guide/playcore/install-prompt.md
+index be5a6e0..b748be9 100644
+--- a/docs/guide/playcore/install-prompt.md
++++ b/docs/guide/playcore/install-prompt.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/guide/playcore/install-prompt
+ source: md.txt
+ ---
+ 
+-In-app install prompts are in beta  
+-Displaying in-app install prompts is limited to early access partners. While this feature is in beta, you can prepare your app for support by following the guidance in this section.  
+-[Nominate yourself to be an early access partner →](https://goo.gle/)  
+-![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
++In-app install prompts are in beta Displaying in-app install prompts is limited to early access partners. While this feature is in beta, you can prepare your app for support by following the guidance in this section. [Nominate yourself to be an early access partner →](https://goo.gle/) ![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
+ 
+ When users install your app on multiple devices they own, they can engage with
+ it more often and in new contexts---on their watch while on the go, on their TV

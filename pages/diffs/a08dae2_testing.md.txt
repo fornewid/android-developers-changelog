@@ -1,0 +1,39 @@
+diff --git a/docs/training/testing.md b/docs/training/testing.md
+index 7dd7394..9a1a81a 100644
+--- a/docs/training/testing.md
++++ b/docs/training/testing.md
+@@ -5,15 +5,16 @@ source: md.txt
+ ---
+ 
+ # Test apps on Android
++Part of [Android Jetpack](https://developer.android.com/jetpack).
+ 
+-# Test apps on AndroidPart of[Android Jetpack](https://developer.android.com/jetpack).
+-
+-Testing your app is an integral part of the app development process. By running tests against your app consistently, you can verify your app's correctness, functional behavior, and usability before you release it publicly.
++Testing your app is an integral part of the app development process. By running
++tests against your app consistently, you can verify your app's correctness,
++functional behavior, and usability before you release it publicly.
+ 
+ Testing also offers the following advantages:
+ 
+-- **Rapid feedback**on failures.
+-- **Early failure detection**in the development cycle.
++- **Rapid feedback** on failures.
++- **Early failure detection** in the development cycle.
+ - **Safer code refactoring**, allowing you to optimize code without worrying about regressions.
+ - **Stable development velocity**, helping you minimize technical debt.
+ 
+@@ -22,9 +23,9 @@ Testing also offers the following advantages:
+ The documentation covers best practices around testing Android apps:
+ 
+ - [Fundamentals of testing Android apps](https://developer.android.com/training/testing/fundamentals)
+-- [Build local unit tests](https://developer.android.com/training/testing/local-tests)that run on the host
+-- [Build instrumented tests](https://developer.android.com/training/testing/instrumented-tests)that run on devices or emulators
+-- Verify UIs with[Behavior](https://developer.android.com/training/testing/ui-tests/behavior)and[Screenshot tests](https://developer.android.com/training/testing/ui-tests/screenshot)
++- [Build local unit tests](https://developer.android.com/training/testing/local-tests) that run on the host
++- [Build instrumented tests](https://developer.android.com/training/testing/instrumented-tests) that run on devices or emulators
++- Verify UIs with [Behavior](https://developer.android.com/training/testing/ui-tests/behavior) and [Screenshot tests](https://developer.android.com/training/testing/ui-tests/screenshot)
+ - [Test different screen sizes](https://developer.android.com/training/testing/different-screens)
+ 
+ ## Additional resources

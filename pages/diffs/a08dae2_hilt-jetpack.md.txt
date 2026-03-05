@@ -1,0 +1,149 @@
+diff --git a/docs/training/dependency-injection/hilt-jetpack.md b/docs/training/dependency-injection/hilt-jetpack.md
+index bd65083..d336daa 100644
+--- a/docs/training/dependency-injection/hilt-jetpack.md
++++ b/docs/training/dependency-injection/hilt-jetpack.md
+@@ -4,20 +4,23 @@ url: https://developer.android.com/training/dependency-injection/hilt-jetpack
+ source: md.txt
+ ---
+ 
+-# Use Hilt with other Jetpack libraries
+-
+-Hilt includes extensions for providing classes from other Jetpack libraries. Hilt currently supports the following Jetpack components:
++Hilt includes extensions for providing classes from other Jetpack libraries.
++Hilt currently supports the following Jetpack components:
+ 
+ - `ViewModel`
+ - Navigation
+ - Compose
+ - WorkManager
+ 
+-You must add the Hilt dependencies to take advantage of these integrations. For more information about adding dependencies, see[Dependency injection with Hilt](https://developer.android.com/training/dependency-injection/hilt-android#setup).
++You must add the Hilt dependencies to take advantage of these integrations. For
++more information about adding dependencies, see [Dependency injection with
++Hilt](https://developer.android.com/training/dependency-injection/hilt-android#setup).
+ 
+ ## Inject ViewModel objects with Hilt
+ 
+-Provide a[`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel)by annotating it with`@HiltViewModel`and using the`@Inject`annotation in the`ViewModel`object's constructor.  
++Provide a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) by annotating
++it with `@HiltViewModel` and using the `@Inject` annotation in the `ViewModel`
++object's constructor.
+ 
+ ### Kotlin
+ 
+@@ -52,7 +55,9 @@ public class ExampleViewModel extends ViewModel {
+ }
+ ```
+ 
+-Then, an activity or a fragment that is annotated with`@AndroidEntryPoint`can get the`ViewModel`instance as normal using`ViewModelProvider`or the`by viewModels()`[KTX extensions](https://developer.android.com/kotlin/ktx):  
++Then, an activity or a fragment that is annotated with `@AndroidEntryPoint` can
++get the `ViewModel` instance as normal using `ViewModelProvider` or the
++`by viewModels()` [KTX extensions](https://developer.android.com/kotlin/ktx):
+ 
+ ### Kotlin
+ 
+@@ -80,21 +85,29 @@ public class ExampleActivity extends AppCompatActivity {
+   ...
+ }
+ ```
+-| **Note:** To use Dagger's assisted injection with ViewModels, see the following[Github issue](https://github.com/google/dagger/issues/2287).
++
++> [!NOTE]
++> **Note:** To use Dagger's assisted injection with ViewModels, see the following [Github issue](https://github.com/google/dagger/issues/2287).
+ 
+ ### @ViewModelScoped
+ 
+-All Hilt ViewModels are provided by the`ViewModelComponent`which follows the same lifecycle as a`ViewModel`, and as such, can survive configuration changes. To scope a dependency to a`ViewModel`use the`@ViewModelScoped`annotation.
++All Hilt ViewModels are provided by the `ViewModelComponent` which follows the
++same lifecycle as a `ViewModel`, and as such, can survive configuration changes.
++To scope a dependency to a `ViewModel` use the `@ViewModelScoped` annotation.
+ 
+-A`@ViewModelScoped`type will make it so that a single instance of the scoped type is provided across all dependencies injected into the`ViewModel`. Other instances of a ViewModel that request the scoped instance will receive a different instance.
++A `@ViewModelScoped` type will make it so that a single instance of the scoped
++type is provided across all dependencies injected into the `ViewModel`.
++Other instances of a ViewModel that request the scoped instance will receive
++a different instance.
+ 
+-If a single instance needs to be shared across various ViewModels, then it should be scoped using either`@ActivityRetainedScoped`or`@Singleton`.
++If a single instance needs to be shared across various ViewModels, then it
++should be scoped using either `@ActivityRetainedScoped` or `@Singleton`.
+ 
+ ## Integration with the Jetpack navigation library
+ 
+ Add the following additional dependencies to your Gradle file:
+ 
+-app/build.gradle  
++app/build.gradle
+ 
+ ### Groovy
+ 
+@@ -114,7 +127,10 @@ dependencies {
+ }
+ ```
+ 
+-If your`ViewModel`is[scoped to the navigation graph](https://developer.android.com/guide/navigation/navigation-programmatic#share_ui-related_data_between_destinations_with_viewmodel), use the`hiltNavGraphViewModels`function that works with fragments that are annotated with`@AndroidEntryPoint`.  
++If your `ViewModel` is [scoped to the navigation
++graph](https://developer.android.com/guide/navigation/navigation-programmatic#share_ui-related_data_between_destinations_with_viewmodel),
++use the `hiltNavGraphViewModels` function that works with fragments that are
++annotated with `@AndroidEntryPoint`.
+ 
+ ### Kotlin
+ 
+@@ -135,13 +151,16 @@ ExampleViewModel exampleViewModel = new ViewModelProvider(
+ 
+ ## Integration with Jetpack Compose
+ 
+-To see how Hilt integrates with Jetpack Compose, see the Hilt section of[Compose and other libraries](https://developer.android.com/jetpack/compose/libraries#hilt).
++To see how Hilt integrates with Jetpack Compose, see the Hilt section of
++[Compose and other libraries](https://developer.android.com/jetpack/compose/libraries#hilt).
+ 
+ ## Inject WorkManager with Hilt
+ 
+-Add the following additional dependencies to your Gradle file. Note that in addition to the library, you need to include an additional annotation processor that works on top of the Hilt annotation processor:
++Add the following additional dependencies to your Gradle file. Note that in
++addition to the library, you need to include an additional annotation processor
++that works on top of the Hilt annotation processor:
+ 
+-app/build.gradle  
++app/build.gradle
+ 
+ ### Groovy
+ 
+@@ -168,7 +187,11 @@ dependencies {
+ }
+ ```
+ 
+-Inject a[`Worker`](https://developer.android.com/reference/kotlin/androidx/work/Worker)using the`@HiltWorker`annotation in the class and`@AssistedInject`in the`Worker`object's constructor. You can use only`@Singleton`or unscoped bindings in`Worker`objects. You must also annotate the`Context`and`WorkerParameters`dependencies with`@Assisted`:  
++Inject a [`Worker`](https://developer.android.com/reference/kotlin/androidx/work/Worker) using the
++`@HiltWorker` annotation in the class and `@AssistedInject` in the `Worker`
++object's constructor. You can use only `@Singleton` or unscoped bindings in
++`Worker` objects. You must also annotate the `Context` and `WorkerParameters`
++dependencies with `@Assisted`:
+ 
+ ### Kotlin
+ 
+@@ -202,7 +225,9 @@ public class ExampleWorker extends Worker {
+ }
+ ```
+ 
+-Then, have your[`Application`](https://developer.android.com/reference/android/app/Application)class implement the`Configuration.Provider`interface, inject an instance of`HiltWorkFactory`, and pass it into the`WorkManager`configuration as follows:  
++Then, have your [`Application`](https://developer.android.com/reference/android/app/Application) class
++implement the `Configuration.Provider` interface, inject an instance of
++`HiltWorkFactory`, and pass it into the `WorkManager` configuration as follows:
+ 
+ ### Kotlin
+ 
+@@ -235,5 +260,9 @@ public class ExampleApplication extends Application implements Configuration.Pro
+   }
+ }
+ ```
+-| **Note:** Because this customizes the`WorkManager`configuration, you also must remove the default initializer from the`AndroidManifest.xml`file as specified in the[WorkManager docs](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration).
+-| **Warning:** `WorkManager`version`2.6.0-alpha01`or higher uses the`androidx.startup`initializer. To properly configure`WorkManager`in this version with Hilt, check out the[`WorkManager`release notes](https://developer.android.com/jetpack/androidx/releases/work#2.6.0-alpha01).
+\ No newline at end of file
++
++> [!NOTE]
++> **Note:** Because this customizes the `WorkManager` configuration, you also must remove the default initializer from the `AndroidManifest.xml` file as specified in the [WorkManager docs](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration).
++
++> [!WARNING]
++> **Warning:** `WorkManager` version `2.6.0-alpha01` or higher uses the `androidx.startup` initializer. To properly configure `WorkManager` in this version with Hilt, check out the [`WorkManager` release notes](https://developer.android.com/jetpack/androidx/releases/work#2.6.0-alpha01).
+\ No newline at end of file
