@@ -4,15 +4,18 @@ url: https://developer.android.com/training/cars/media/create-media-browser
 source: md.txt
 ---
 
-# Media browser service overview
-
-You create a media browser service by extending the supported[`MediaBrowserServiceCompat`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat)or[`MediaLibraryService`](https://developer.android.com/media/media3/session/serve-content)classes. Android Auto and Android Automotive OS (AAOS) can then use your service to:
+You create a media browser service by extending the supported
+[`MediaBrowserServiceCompat`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat) or [`MediaLibraryService`](https://developer.android.com/media/media3/session/serve-content) classes. Android
+Auto and Android Automotive OS (AAOS) can then use your service to:
 
 - Browse your app's content hierarchy to present a menu to the user.
 
-- Get the token for your app's[`MediaSessionCompat`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat)object to control audio playback.
+- Get the token for your app's [`MediaSessionCompat`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat) object to control
+  audio playback.
 
-You can also use your media browser service to let other clients access media content from your app. These media clients might be other apps on a user's phone, or they can be other remote clients.
+You can also use your media browser service to let other clients access media
+content from your app. These media clients might be other apps on a user's
+phone, or they can be other remote clients.
 
 ## Contents
 

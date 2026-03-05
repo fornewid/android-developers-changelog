@@ -17,8 +17,9 @@ A `mutableStateListOf<Any>` is used to manage the navigation back stack.
 The `NavDisplay` composable is used to display the current screen. Its `entryProvider` parameter is a lambda that takes a route from the back stack and returns a `NavEntry`. Inside the `entryProvider`, a `when` statement is used to determine which composable to display based on the route.
 
 To navigate from `RouteA` to `RouteB`, we simply add a `RouteB` instance to the back stack. The `id` is passed as an argument to the `RouteB` data class.
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/basic)
 
-```python
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *

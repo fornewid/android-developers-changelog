@@ -25,7 +25,7 @@ To determine the default account for new contacts, use the
 
 Call [`getDefaultAccountForNewContacts()`](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts.DefaultAccount#getDefaultAccountForNewContacts(android.content.ContentResolver)) to get the
 [`ContactsContrast.RawContacts.DefaultAccount.DefaultAccountAndState`](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts.DefaultAccount.DefaultAccountAndState)
-object. This object contains information about the default account setting.  
+object. This object contains information about the default account setting.
 
 ### Kotlin
 
@@ -54,9 +54,10 @@ The `DefaultAccountAndState` object contains:
 - State: Indicates whether a default account is set and, if so, the category of that account (cloud, local, or SIM).
 - Account: Provides the specific account details (name and type) if the state is `DEFAULT_ACCOUNT_STATE_CLOUD or DEFAULT_ACCOUNT_STATE_SIM`. It will be null for other states, including `DEFAULT_ACCOUNT_STATE_LOCAL`.
 
-| **Note:** For the local account (`DEFAULT_ACCOUNT_STATE_LOCAL`), you can retrieve the account information using `RawContacts.getLocalAccountName()` and `RawContacts.getLocalAccountType()`.
+> [!NOTE]
+> **Note:** For the local account (`DEFAULT_ACCOUNT_STATE_LOCAL`), you can retrieve the account information using `RawContacts.getLocalAccountName()` and `RawContacts.getLocalAccountType()`.
 
-Here's an example of how to parse the `DefaultAccountAndState` object:  
+Here's an example of how to parse the `DefaultAccountAndState` object:
 
 ### Kotlin
 
@@ -115,7 +116,7 @@ the new contact to the default account. Here's how to create a contact without
 specifying an account.
 
 Create a new `ArrayList` of `ContentProviderOperation` objects. This list
-holds the operations to insert the raw contact and its associated data.  
+holds the operations to insert the raw contact and its associated data.
 
 ### Kotlin
 
@@ -128,7 +129,7 @@ holds the operations to insert the raw contact and its associated data.
 
 Create a new `ContentProviderOperation` to insert the raw contact. Since you're
 not specifying an account, you don't need to include the `ACCOUNT_TYPE` and
-`ACCOUNT_NAME`.  
+`ACCOUNT_NAME`.
 
 ### Kotlin
 
@@ -147,7 +148,7 @@ not specifying an account, you don't need to include the `ACCOUNT_TYPE` and
 
 Add other `ContentProviderOperation` objects to the ops list to include the
 contact fields (like name, phone number, email). Then execute the batch
-operation to create the contact.  
+operation to create the contact.
 
 ### Kotlin
 
@@ -174,7 +175,7 @@ operation to create the contact.
 To create a contact in a cloud account, insert the raw contact row into the
 `ContactsContract.RawContacts` table and specify the cloud account. Here's how:
 
-Create a new `ArrayList` of `ContentProviderOperation` objects.  
+Create a new `ArrayList` of `ContentProviderOperation` objects.
 
 ### Kotlin
 
@@ -187,7 +188,7 @@ Create a new `ArrayList` of `ContentProviderOperation` objects.
 
 Create a new `ContentProviderOperation` to insert the raw contact. Use the
 `withValue()` method to specify the account type and account name of the
-selected cloud account.  
+selected cloud account.
 
 ### Kotlin
 
@@ -225,13 +226,14 @@ contact fields and execute the batch operation to create the contact.
 
 ### Create contacts in the local account
 
-| **Caution:** When the default account is set to a cloud account (`DEFAULT_ACCOUNT_STATE_CLOUD`), contacts should only be created in the cloud account. Avoid creating contacts in the local account or any SIM accounts in this scenario.
+> [!CAUTION]
+> **Caution:** When the default account is set to a cloud account (`DEFAULT_ACCOUNT_STATE_CLOUD`), contacts should only be created in the cloud account. Avoid creating contacts in the local account or any SIM accounts in this scenario.
 
 To create a contact in the local account, insert a new raw contact row into the
 `ContactsContract.RawContacts` table and specify the account information for the
 local account:
 
-Create a new `ArrayList` of `ContentProviderOperation` objects.  
+Create a new `ArrayList` of `ContentProviderOperation` objects.
 
 ### Kotlin
 
@@ -245,7 +247,7 @@ Create a new `ArrayList` of `ContentProviderOperation` objects.
 Create a new `ContentProviderOperation` to insert the raw contact. Use
 `ContactsContract.RawContacts.getLocalAccountName()` and
 `ContactsContract.RawContacts.getLocalAccountType()` to specify the account
-information for the local account.  
+information for the local account.
 
 ### Kotlin
 

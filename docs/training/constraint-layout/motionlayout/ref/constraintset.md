@@ -4,9 +4,13 @@ url: https://developer.android.com/training/constraint-layout/motionlayout/ref/c
 source: md.txt
 ---
 
-# &lt;ConstraintSet&gt;
+[Video](https://www.youtube.com/watch?v=-POu45WaSsc)
 
-Specifies the positions and attributes of all views at one point in a motion sequence. Typically, a[`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition)element points to two`<ConstraintSet>`elements, one defining the beginning of the motion sequence and one defining the end.
+Specifies the positions and attributes of all views at one point in a motion
+sequence. Typically, a
+[`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition)
+element points to two `<ConstraintSet>` elements, one defining the beginning of
+the motion sequence and one defining the end.
 
 ## Syntax
 
@@ -21,14 +25,17 @@ Specifies the positions and attributes of all views at one point in a motion seq
 ## Attributes
 
 `deriveConstraintsFrom`
-:   *(optional)* The ID of another`ConstraintSet`. If specified, all constraints from that set are applied to this`ConstraintSet`, unless this set specifically overrides them.
+:   *(optional)* The ID of another `ConstraintSet`. If specified, all constraints
+    from that set are applied to this `ConstraintSet`, unless this set specifically
+    overrides them.
 
 `android:id`
-:   Unique identifier for this constraint set. The`<Transition>`needs this ID to identify the start and end points of the motion sequence.
+:   Unique identifier for this constraint set. The `<Transition>` needs this ID to
+    identify the start and end points of the motion sequence.
 
 ## Must contain
 
-- One or more[`<Constraint>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/constraint)elements.
+- One or more [`<Constraint>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/constraint) elements.
 
 ## Contained in
 

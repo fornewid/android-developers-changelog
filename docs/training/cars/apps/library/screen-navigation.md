@@ -13,7 +13,7 @@ that can be popped automatically when the user selects a **Back** button on the
 car screen or uses the hardware **Back** button available in some cars.
 
 This code shows how to add a back action to a message template as well as an
-action to push a new screen when selected by the user:  
+action to push a new screen when selected by the user:
 
 ### Kotlin
 

@@ -4,9 +4,10 @@ url: https://developer.android.com/training/constraint-layout/motionlayout/ref/t
 source: md.txt
 ---
 
-# &lt;Transition&gt;
+[Video](https://www.youtube.com/watch?v=m7VpGPdlDvQ)
 
-Specifies the beginning and end state of a motion sequence, the target intermediate states, and the user interactions that trigger the motion.
+Specifies the beginning and end state of a motion sequence, the target
+intermediate states, and the user interactions that trigger the motion.
 
 ## Syntax
 
@@ -22,13 +23,23 @@ Specifies the beginning and end state of a motion sequence, the target intermedi
 ## Attributes
 
 `motion:constraintSetStart`
-:   Initial state of the motion sequence. This can either be the ID of a[`<ConstraintSet>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/constraintset)or a layout. To specify a`<ConstraintSet>`, set this attribute to`"@+id/`<var translate="no">constraintSetId</var>`"`. To specify a layout, set it to`"@layout/`<var translate="no">layoutState</var>`"`.
+:   Initial state of the motion sequence. This can either be the ID of a
+    [`<ConstraintSet>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/constraintset)
+    or a layout. To specify a `<ConstraintSet>`, set this
+    attribute to
+    `"@+id/constraintSetId"`. To specify a layout, set
+    it to `"@layout/layoutState"`.
 
 `motion:constraintSetEnd`
-:   Final state of the motion sequence. This can either be the ID of a`<ConstraintSet>`, or a layout. To specify a`<ConstraintSet>`, set this attribute to`"@+id/`<var translate="no">constraintSetId</var>`"`. To specify a layout, set it to`"@layout/`<var translate="no">layoutState</var>`"`.
+:   Final state of the motion sequence. This can either be the ID of a
+    `<ConstraintSet>`, or a layout. To specify a `<ConstraintSet>`, set this
+    attribute to `"@+id/constraintSetId"`. To specify a
+    layout, set it to `"@layout/layoutState"`.
 
 `motion:duration`
-:   Duration of the motion sequence in milliseconds. If not specified, the[`<MotionScene>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/motionscene)element's`defaultDuration`is used.
+:   Duration of the motion sequence in milliseconds. If not specified, the
+    [`<MotionScene>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/motionscene)
+    element's `defaultDuration` is used.
 
 ## Can contain
 
@@ -39,7 +50,8 @@ Specifies the beginning and end state of a motion sequence, the target intermedi
 :   Indicates that the motion sequence is triggered by a user swipe.
 
 [`<KeyFrameSet>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/keyframeset)
-:   Specifies one or more intermediate positions or attribute settings for elements in the motion sequence.
+:   Specifies one or more intermediate positions or attribute settings for
+    elements in the motion sequence.
 
 ## Contained in
 

@@ -112,11 +112,12 @@ To create a color style that's customizable on the watch, create a new style:
 1. Deselect everything on the canvas.
 2. In the right sidebar, next to **Styles** , select the **+** button.
 
-You must name it in a specific way:  
+You must name it in a specific way:
 
     Watch Face Name/Element Family Name/Descriptive Color Name/Specific Element Name
 
-| **Note:** Figma uses forward slashes (`/`) to represent folders in styles.
+> [!NOTE]
+> **Note:** Figma uses forward slashes (`/`) to represent folders in styles.
 
 In this case, the sample watch face's name is `Bauhaus`, so the color starts
 with that, followed by `Hands`, which is the element that users can customize.

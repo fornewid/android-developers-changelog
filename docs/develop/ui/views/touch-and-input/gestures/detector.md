@@ -73,23 +73,23 @@ class MainActivity : Activity() {
                 Log.d(DEBUG_TAG, "Action was DOWN")
                 true
             }
-            MotionEvent.ACT>ION_MOVE - {
+            MotionEvent.ACTION_MOVE -> {
                 Log.d(DEBUG_TAG, "Action was MOVE")
                 true
             }
-            Mot>ionEvent.ACTION_UP - {
+            MotionEvent.ACTION_UP -> {
                 Log.d(DEBUG_TAG, "Action was UP")
                 true
             }
-         >   MotionEvent.ACTION_CANCEL - {
+            MotionEvent.ACTION_CANCEL -> {
                 Log.d(DEBUG_TAG, "Action was CANCEL")
                 true
             }
->            MotionEvent.ACTION_OUTSIDE - {
+            MotionEvent.ACTION_OUTSIDE -> {
                 Log.d(DEBUG_TAG, "Movement occurred outside bounds of current screen element")
-   >             true
+                true
             }
-            else - super.onTouchEvent(event)
+            else -> super.onTouchEvent(event)
         }
     }
 }

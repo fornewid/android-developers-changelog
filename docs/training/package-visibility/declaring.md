@@ -24,7 +24,7 @@ sections.
 If you know the specific apps that you want to query or interact with, such as
 apps that integrate with your app or apps whose services you use, include their
 package names in a set of [`<package>`](https://developer.android.com/guide/topics/manifest/queries-element)
-elements inside the `<queries>` element:  
+elements inside the `<queries>` element:
 
 ```xml
 <manifest package="com.example.game">
@@ -35,7 +35,9 @@ elements inside the `<queries>` element:
     ...
 </manifest>
 ```
-| **Note:** If you declare a `<package>` element in your app's manifest, then the app associated with that package name appears in the results of any query to `PackageManager` that matches a component from that app.
+
+> [!NOTE]
+> **Note:** If you declare a `<package>` element in your app's manifest, then the app associated with that package name appears in the results of any query to `PackageManager` that matches a component from that app.
 
 ### Communicate with a host app in a library
 
@@ -46,7 +48,7 @@ functionality as the element that apps can declare in their own manifests.
 
 If your library involves communication with a host app, such as using a [bound
 service](https://developer.android.com/guide/components/bound-services), include a `<package>` element that
-specifies the host app's package name:  
+specifies the host app's package name:
 
 ```xml
 <!-- Place inside the <queries> element. -->
@@ -72,7 +74,7 @@ matching
 elements.
 
 The following code example shows an `<intent>` element that would allow the app
-to see other installed apps that support JPEG image sharing:  
+to see other installed apps that support JPEG image sharing:
 
 ```xml
 <manifest package="com.example.game">
@@ -119,7 +121,7 @@ If you need to query a [content
 provider](https://developer.android.com/guide/topics/providers/content-provider-basics#ContentURIs) but
 don't know the specific package names, you can declare the provider authority
 in a [`<provider>`](https://developer.android.com/guide/topics/manifest/provider-element) element, as shown
-in the following snippet:  
+in the following snippet:
 
 ```xml
 <manifest package="com.example.suite.enterprise">
@@ -129,8 +131,10 @@ in the following snippet:
     ...
 </manifest>
 ```
-| **Note:** If your `<queries>` element includes a `<provider>` element, you might see an editor warning in Android Studio related to the `<provider>` element. As long as you're using the latest dot release of the Android Gradle plugin, your build is unaffected, so you can disregard the warning. Learn more in the blog post about [Preparing your Gradle build for package visibility in
-| Android 11](https://android-developers.googleblog.com/2020/07/preparing-your-build-for-package-visibility-in-android-11.html).
+
+> [!NOTE]
+> **Note:** If your `<queries>` element includes a `<provider>` element, you might see an editor warning in Android Studio related to the `<provider>` element. As long as you're using the latest dot release of the Android Gradle plugin, your build is unaffected, so you can disregard the warning. Learn more in the blog post about [Preparing your Gradle build for package visibility in
+> Android 11](https://android-developers.googleblog.com/2020/07/preparing-your-build-for-package-visibility-in-android-11.html).
 
 You can declare provider authorities in a single `<queries>` element. Within the
 `<queries>` element, you can declare one or more `<provider>` elements. A

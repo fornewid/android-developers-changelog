@@ -19,7 +19,7 @@ efficient and streamlined credential creation and retrieval process.
 
 This method's creation steps match the [existing credential creation
 process](https://developer.android.com/identity/sign-in/credential-provider#handle-passkey-creation). Within your `BeginCreatePublicKeyCredentialRequest`, use
-`handleCreatePasskeyQuery()` to process the request if it is for a passkey.  
+`handleCreatePasskeyQuery()` to process the request if it is for a passkey.
 
     is BeginCreatePublicKeyCredentialRequest -> {
         Log.i(TAG, "Request is passkey type")
@@ -27,7 +27,7 @@ process](https://developer.android.com/identity/sign-in/credential-provider#hand
     }
 
 In your `handleCreatePasskeyQuery()`, include [`BiometricPromptData`](https://developer.android.com/reference/kotlin/androidx/credentials/provider/BiometricPromptData) with
-the `CreateEntry` class:  
+the `CreateEntry` class:
 
     val createEntry = CreateEntry(
         // Additional properties...
@@ -40,14 +40,16 @@ Credential providers should explicitly set the `allowedAuthenticator` property
 in the `BiometricPromptData` instance. If this property is not set, the value
 defaults to `DEVICE_WEAK`. Set the optional `cryptoObject` property if needed
 for your use case.
-| **Note:** If the device is configured to use `DEVICE_CREDENTIALS` to require a PIN or passcode for authentication---regardless of whether biometrics are available or enabled---the standard credential manager flow will be used instead of the single-tap flow. This means the provider will always receive a `null` value for `biometricPromptResult` in these scenarios.
+
+> [!NOTE]
+> **Note:** If the device is configured to use `DEVICE_CREDENTIALS` to require a PIN or passcode for authentication---regardless of whether biometrics are available or enabled---the standard credential manager flow will be used instead of the single-tap flow. This means the provider will always receive a `null` value for `biometricPromptResult` in these scenarios.
 
 ## Enable single tap on sign-in passkey flows
 
 Similar to the passkey creation flow, this will follow the existing setup for
 [handling user sign-in](https://developer.android.com/identity/sign-in/credential-provider#handle-user-sign-in). Under the `BeginGetPublicKeyCredentialOption`, use
 `populatePasskeyData()` to gather the relevant information about the
-authentication request:  
+authentication request:
 
     is BeginGetPublicKeyCredentialOption -> {
         // ... other logic
@@ -65,7 +67,7 @@ authentication request:
 
 Similar to `CreateEntry`, a `BiometricPromptData` instance is set to the
 `PublicKeyCredentialEntry` instance. If not explicitly set,
-`allowedAuthenticator` defaults to `BIOMETRIC_WEAK`.  
+`allowedAuthenticator` defaults to `BIOMETRIC_WEAK`.
 
     PublicKeyCredentialEntry(
         // other properties...
@@ -75,7 +77,8 @@ Similar to `CreateEntry`, a `BiometricPromptData` instance is set to the
         )
     )
 
-| **Note:** The user is presented with a biometric authentication option if their device supports it and they have granted permission for its use. The code is similar to the previous example, with the addition of a [`cryptoObject`](https://developer.android.com/reference/androidx/biometric/BiometricPrompt.CryptoObject).
+> [!NOTE]
+> **Note:** The user is presented with a biometric authentication option if their device supports it and they have granted permission for its use. The code is similar to the previous example, with the addition of a [`cryptoObject`](https://developer.android.com/reference/androidx/biometric/BiometricPrompt.CryptoObject).
 
 ## Handle credential entry selection
 
@@ -84,7 +87,7 @@ While handling the credential entry selection for [passkey creation](https://dev
 retrieveProviderCreateCredentialRequest`, or
 `retrieveProviderGetCredentialRequest`, as appropriate. These return objects
 that contain the metadata needed for the provider. For example, when handling
-passkey creation entry selection, update your code as shown:  
+passkey creation entry selection, update your code as shown:
 
     val createRequest = PendingIntentHandler.retrieveProviderCreateCredentialRequest(intent)
     if (createRequest == null) {
@@ -134,7 +137,7 @@ defined in the androidx.biometric library, such as
 
 Similarly, extract metadata during the `retrieveProviderGetCredentialRequest`.
 Check if your biometric flow is `null`. If yes, configure your own biometrics to
-authenticate. This is similar to how the [get operation](https://developer.android.com/identity/sign-in/credential-provider#passkeys-implement) is instrumented:  
+authenticate. This is similar to how the [get operation](https://developer.android.com/identity/sign-in/credential-provider#passkeys-implement) is instrumented:
 
     val getRequest =
         PendingIntentHandler.retrieveProviderGetCredentialRequest(intent)

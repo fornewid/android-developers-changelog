@@ -9,7 +9,8 @@ come to life on a physical watch or using the [Android emulator](https://develop
 
 ## Google Play
 
-| **Note:** This is the recommended exporting method for designers who create watch faces on Wear OS.
+> [!NOTE]
+> **Note:** This is the recommended exporting method for designers who create watch faces on Wear OS.
 
 Google Play publishes files that use the `.aab` ([Android App Bundle](https://developer.android.com/guide/app-bundle))
 format. Watch Face Designer handles everything about packaging your watch face
@@ -19,7 +20,8 @@ To publish to Play, follow [Google Play publishing instructions](https://develop
 
 ## Android Studio
 
-| **Note:** This is the recommended exporting method for developers who create watch faces on Wear OS.
+> [!NOTE]
+> **Note:** This is the recommended exporting method for developers who create watch faces on Wear OS.
 
 Android Studio export saves a ZIP file that you can extract and use as an
 Android Studio project directory. It comes preconfigured with Gradle scripts and
@@ -34,7 +36,8 @@ Watch Face Designer supports several other exporting methods, as well.
 
 ### One-click deploy
 
-| **Note:** This option is available only on macOS development machines. If you're developing on a Windows, Linux, or ChromeOS machine, use [APK exports](https://developer.android.com/training/wearables/watch-face-designer/export#apk) instead.
+> [!NOTE]
+> **Note:** This option is available only on macOS development machines. If you're developing on a Windows, Linux, or ChromeOS machine, use [APK exports](https://developer.android.com/training/wearables/watch-face-designer/export#apk) instead.
 
 To export using one-click deploy, complete the following steps:
 
@@ -56,7 +59,9 @@ To export using one-click deploy, complete the following steps:
 
    The watch face is deployed to the watch and set as the current watch face
    favorite.
-   | **Note:** You may need to accept a permissions dialog. If you press **Always Allow**, you don't have to do this again in future.
+
+   > [!NOTE]
+   > **Note:** You may need to accept a permissions dialog. If you press **Always Allow**, you don't have to do this again in future.
 
 ### APK
 
@@ -82,4 +87,6 @@ around features like signing keys and certificates.
 ### Watch Face Studio (experimental)
 
 This option creates a project for use in [Watch Face Studio](https://developer.samsung.com/watch-face-studio/overview.html).
-| **Note:** Some features from Figma might not appear as expected in Watch Face Studio.
+
+> [!NOTE]
+> **Note:** Some features from Figma might not appear as expected in Watch Face Studio.

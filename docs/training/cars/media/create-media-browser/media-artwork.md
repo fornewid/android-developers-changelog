@@ -12,7 +12,9 @@ either a bitmap or a vector drawable.
 - For `MediaDescriptionCompat` objects representing items in the [content
   hierarchy](https://developer.android.com/training/cars/media/create-media-browser/content-hierarchy#onLoadChildren), pass the URI through [`setIconUri`](https://developer.android.com/reference/android/support/v4/media/MediaDescriptionCompat.Builder#setIconUri(android.net.Uri)).
 
-  | **Warning:** Don't provide artwork using [`setIconBitmap`](https://developer.android.com/reference/android/support/v4/media/MediaDescriptionCompat.Builder#setIconUri(android.net.Uri)). While this method is supported on Android Auto, it isn't supported on Android Automotive OS (AAOS). Additionally, including many bitmaps in a result can cause you to exceed the [1MB binder size limit](https://developer.android.com/guide/components/activities/parcelables-and-bundles#sdbp), causing your app to be unresponsive.
+  > [!WARNING]
+  > **Warning:** Don't provide artwork using [`setIconBitmap`](https://developer.android.com/reference/android/support/v4/media/MediaDescriptionCompat.Builder#setIconUri(android.net.Uri)). While this method is supported on Android Auto, it isn't supported on Android Automotive OS (AAOS). Additionally, including many bitmaps in a result can cause you to exceed the [1MB binder size limit](https://developer.android.com/guide/components/activities/parcelables-and-bundles#sdbp), causing your app to be unresponsive.
+
 - For `MediaMetadataCompat` objects representing the [playing item](https://developer.android.com/media/legacy/mediasession#maintain-state),
   use any of these keys to pass the URI through [`putString`](https://developer.android.com/reference/android/support/v4/media/MediaMetadataCompat.Builder#putString(java.lang.String,%20java.lang.String)):
 
@@ -23,14 +25,14 @@ either a bitmap or a vector drawable.
 ## Provide artwork from your app's resources
 
 To provide drawables from your [app's resources](https://developer.android.com/guide/topics/resources/providing-resources), pass a URI in the
-following format:  
+following format:
 
-    android.resource://<var translate="no">PACKAGE_NAME</var>/<var translate="no">RESOURCE_TYPE</var>/<var translate="no">RESOURCE_NAME</var>
+    android.resource://PACKAGE_NAME/RESOURCE_TYPE/RESOURCE_NAME
 
     // Example URI - note that there is no file extension at the end of the URI
     android.resource://com.example.app/drawable/example_drawable
 
-This snippet demonstrates how to create a URI of this format from a resource ID:  
+This snippet demonstrates how to create a URI of this format from a resource ID:
 
     val resources = context.resources
     val resourceId: Int = R.drawable.example_drawable
@@ -126,4 +128,5 @@ Universal Android Music Player sample app.
              return ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY);
          }
 
-| **Note:** The content URI should be quickly constructed and sent to Android Auto and AAOS, as demonstrated in the previous example. This is true even when the file isn't downloaded. Android Auto and AAOS show a loading UI for the images when waiting for the content provider to respond. Consider optimizing your app to quickly fetch images and to minimize the time needed to load the UI. Consider preloading and caching images.
+> [!NOTE]
+> **Note:** The content URI should be quickly constructed and sent to Android Auto and AAOS, as demonstrated in the previous example. This is true even when the file isn't downloaded. Android Auto and AAOS show a loading UI for the images when waiting for the content provider to respond. Consider optimizing your app to quickly fetch images and to minimize the time needed to load the UI. Consider preloading and caching images.

@@ -10,7 +10,7 @@ fit the screen. To see where text variants are accepted, look for templates and
 components that take a [`CarText`](https://developer.android.com/reference/androidx/car/app/model/CarText).
 
 You can add text string variants to a `CarText` with the
-[`CarText.Builder.addVariant()`](https://developer.android.com/reference/androidx/car/app/model/CarText.Builder#addVariant(java.lang.CharSequence)) method:  
+[`CarText.Builder.addVariant()`](https://developer.android.com/reference/androidx/car/app/model/CarText.Builder#addVariant(java.lang.CharSequence)) method:
 
 ### Kotlin
 
@@ -27,7 +27,7 @@ You can add text string variants to a `CarText` with the
      .build();
 
 You can then use this `CarText`---for example, as the primary text of a
-[`GridItem`](https://developer.android.com/reference/androidx/car/app/model/GridItem).  
+[`GridItem`](https://developer.android.com/reference/androidx/car/app/model/GridItem).
 
 ### Kotlin
 

@@ -4,25 +4,65 @@ url: https://developer.android.com/training/basics/intents/result
 source: md.txt
 ---
 
-# Get a result from an activity
+Starting another activity, whether it is one within your app or from another
+app,
+doesn't need to be a one-way operation. You can also start an activity
+and receive a result back. For example, your app can start a camera app and
+receive the captured photo as a result. Or you might start the Contacts app
+for the user to select a contact, and then receive the contact
+details as a result.
 
-Starting another activity, whether it is one within your app or from another app, doesn't need to be a one-way operation. You can also start an activity and receive a result back. For example, your app can start a camera app and receive the captured photo as a result. Or you might start the Contacts app for the user to select a contact, and then receive the contact details as a result.
+While the underlying
+[`startActivityForResult()`](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent,%20int))
+and
+[`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent))
+APIs are available on the `Activity` class on all API levels, Google strongly
+recommends using the Activity Result APIs introduced in AndroidX
+[`Activity`](https://developer.android.com/jetpack/androidx/releases/activity)
+and [`Fragment`](https://developer.android.com/jetpack/androidx/releases/fragment) classes.
 
-While the underlying[`startActivityForResult()`](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent,%20int))and[`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent))APIs are available on the`Activity`class on all API levels, Google strongly recommends using the Activity Result APIs introduced in AndroidX[`Activity`](https://developer.android.com/jetpack/androidx/releases/activity)and[`Fragment`](https://developer.android.com/jetpack/androidx/releases/fragment)classes.
-
-The Activity Result APIs provide components for registering for a result, launching the activity that produces the result, and handling the result once it is dispatched by the system.
+The Activity Result APIs provide components for registering for a result,
+launching the activity that produces the result, and handling the result once it
+is dispatched by the system.
 
 ## Register a callback for an activity result
 
-When starting an activity for a result, it is possible---and, in cases of memory-intensive operations such as camera usage, almost certain---that your process and your activity will be destroyed due to low memory.
+When starting an activity for a result, it is possible---and, in cases of
+memory-intensive operations such as camera usage, almost certain---that your
+process and your activity will be destroyed due to low memory.
 
-For this reason, the Activity Result APIs decouple the result callback from the place in your code where you launch the other activity. Because the result callback needs to be available when your process and activity are recreated, the callback must be unconditionally registered every time your activity is created, even if the logic of launching the other activity only happens based on user input or other business logic.
+For this reason, the Activity Result APIs decouple the result
+callback from the place in your code where you launch the other activity.
+Because
+the result callback needs to be available when your process and activity are
+recreated, the callback must be unconditionally registered every time your
+activity is created, even if the logic of launching the other activity only
+happens based on user input or other business logic.
 
-When in a[`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity)or a[`Fragment`](https://developer.android.com/reference/androidx/fragment/app/Fragment), the Activity Result APIs provide a[`registerForActivityResult()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultCaller#public-methods_1)API for registering the result callback.`registerForActivityResult()`takes an[`ActivityResultContract`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContract)and an[`ActivityResultCallback`](https://developer.android.com/reference/androidx/activity/result/ActivityResultCallback)and returns an[`ActivityResultLauncher`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher), which you use to launch the other activity.
+When in a
+[`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity) or a
+[`Fragment`](https://developer.android.com/reference/androidx/fragment/app/Fragment), the Activity Result
+APIs provide a
+[`registerForActivityResult()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultCaller#public-methods_1)
+API for registering the result callback. `registerForActivityResult()` takes an
+[`ActivityResultContract`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContract)
+and an
+[`ActivityResultCallback`](https://developer.android.com/reference/androidx/activity/result/ActivityResultCallback)
+and returns an
+[`ActivityResultLauncher`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher),
+which you use to launch the other activity.
 
-An`ActivityResultContract`defines the input type needed to produce a result along with the output type of the result. The APIs provide[default contracts](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts)for basic intent actions like taking a picture, requesting permissions, and so on. You can also[create a custom contract](https://developer.android.com/training/basics/intents/result#custom).
+An `ActivityResultContract` defines the input type needed to produce a result
+along with the output type of the result. The APIs provide
+[default contracts](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts)
+for basic intent actions like taking a picture, requesting permissions, and so
+on. You can also
+[create a custom contract](https://developer.android.com/training/basics/intents/result#custom).
 
-`ActivityResultCallback`is a single method interface with an[`onActivityResult()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultCallback#onActivityResult(kotlin.Any))method that takes an object of the output type defined in the`ActivityResultContract`:  
+`ActivityResultCallback` is a single method interface with an
+[`onActivityResult()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultCallback#onActivityResult(kotlin.Any))
+method that takes an object of the output type defined in the
+`ActivityResultContract`:
 
 ### Kotlin
 
@@ -46,16 +86,33 @@ ActivityResultLauncher<String> mGetContent = registerForActivityResult(new GetCo
 });
 ```
 
-If you have multiple activity result calls and you either use different contracts or want separate callbacks, you can call`registerForActivityResult()`multiple times to register multiple`ActivityResultLauncher`instances. You must call`registerForActivityResult()`in the same order for each creation of your fragment or activity so that the inflight results are delivered to the correct callback.
+If you have multiple activity result calls and you either use different
+contracts
+or want separate callbacks, you can call `registerForActivityResult()` multiple
+times to register multiple `ActivityResultLauncher` instances. You must
+call `registerForActivityResult()` in the same order for each creation of your
+fragment or activity so that the inflight results are delivered to the
+correct callback.
 
-`registerForActivityResult()`is safe to call before your fragment or activity is created, letting it be used directly when declaring member variables for the returned`ActivityResultLauncher`instances.
-| **Note:** You must call`registerForActivityResult()`before the fragment or activity is created, but you can't launch the`ActivityResultLauncher`until the fragment or activity's[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle)has reached[`CREATED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#CREATED).
+`registerForActivityResult()` is safe to call before your fragment or activity
+is created, letting it be used directly when declaring member variables
+for the returned `ActivityResultLauncher` instances.
+
+> [!NOTE]
+> **Note:** You must call `registerForActivityResult()` before the fragment or activity is created, but you can't launch the `ActivityResultLauncher` until the fragment or activity's [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) has reached [`CREATED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#CREATED).
 
 ## Launch an activity for result
 
-While`registerForActivityResult()`registers your callback, it does*not* launch the other activity and kick off the request for a result. Instead, this is the responsibility of the returned`ActivityResultLauncher`instance.
+While `registerForActivityResult()` registers your callback, it does *not*
+launch the other activity and kick off the request for a result. Instead, this
+is the responsibility of the returned `ActivityResultLauncher` instance.
 
-If input exists, the launcher takes the input that matches the type of the`ActivityResultContract`. Calling[`launch()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher#launch(I))starts the process of producing the result. When the user is done with the subsequent activity and returns, the`onActivityResult()`from the`ActivityResultCallback`is then executed, as shown in the following example:  
+If input exists, the launcher takes the input that matches the type of the
+`ActivityResultContract`. Calling
+[`launch()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher#launch(I))
+starts the process of producing the result. When the user is done with the
+subsequent activity and returns, the `onActivityResult()` from the
+`ActivityResultCallback` is then executed, as shown in the following example:
 
 ### Kotlin
 
@@ -105,14 +162,28 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
 }
 ```
 
-An overloaded version of[`launch()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher#launch(I,%20androidx.core.app.ActivityOptionsCompat))lets you pass an[`ActivityOptionsCompat`](https://developer.android.com/reference/androidx/core/app/ActivityOptionsCompat)in addition to the input.
-| **Note:** Since your process and activity can be destroyed between when you call`launch()`and when the`onActivityResult()`callback is triggered, any additional state needed to handle the result must be saved and restored separately from these APIs.
+An overloaded version of
+[`launch()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher#launch(I,%20androidx.core.app.ActivityOptionsCompat))
+lets you pass an
+[`ActivityOptionsCompat`](https://developer.android.com/reference/androidx/core/app/ActivityOptionsCompat)
+in addition to the input.
+
+> [!NOTE]
+> **Note:** Since your process and activity can be destroyed between when you call `launch()` and when the `onActivityResult()` callback is triggered, any additional state needed to handle the result must be saved and restored separately from these APIs.
 
 ## Receive an activity result in a separate class
 
-While the`ComponentActivity`and`Fragment`classes implement the[`ActivityResultCaller`](https://developer.android.com/reference/androidx/activity/result/ActivityResultCaller)interface to let you use the`registerForActivityResult()`APIs, you can also receive the activity result in a separate class that doesn't implement`ActivityResultCaller`by using[`ActivityResultRegistry`](https://developer.android.com/reference/androidx/activity/result/ActivityResultRegistry)directly.
+While the `ComponentActivity` and `Fragment` classes implement the
+[`ActivityResultCaller`](https://developer.android.com/reference/androidx/activity/result/ActivityResultCaller)
+interface to let you use the `registerForActivityResult()` APIs, you can also
+receive the activity result in a separate class that doesn't implement
+`ActivityResultCaller` by using
+[`ActivityResultRegistry`](https://developer.android.com/reference/androidx/activity/result/ActivityResultRegistry)
+directly.
 
-For example, you might want to implement a[`LifecycleObserver`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleObserver)that handles registering a contract along with launching the launcher:  
+For example, you might want to implement a
+[`LifecycleObserver`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleObserver)
+that handles registering a contract along with launching the launcher:
 
 ### Kotlin
 
@@ -206,16 +277,33 @@ class MyFragment extends Fragment {
 }
 ```
 
-When using the`ActivityResultRegistry`APIs, Google strongly recommends using the APIs that take a`LifecycleOwner`, as the`LifecycleOwner`automatically removes your registered launcher when the`Lifecycle`is destroyed. However, in cases where a`LifecycleOwner`isn't available, each`ActivityResultLauncher`class lets you manually call[`unregister()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher#unregister())as an alternative.
+When using the `ActivityResultRegistry` APIs, Google strongly recommends using
+the APIs that take a `LifecycleOwner`, as the `LifecycleOwner` automatically
+removes your registered launcher when the `Lifecycle` is destroyed. However,
+in cases where a `LifecycleOwner` isn't available, each
+`ActivityResultLauncher` class lets you manually call
+[`unregister()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher#unregister())
+as an alternative.
 
 ## Test
 
-By default,`registerForActivityResult()`automatically uses the`ActivityResultRegistry`provided by the activity. It also provides an overload that lets you pass in your own instance of`ActivityResultRegistry`that you can use to test your activity result calls without actually launching another activity.
+By default, `registerForActivityResult()` automatically uses the
+`ActivityResultRegistry`
+provided by the activity. It also provides an overload that lets you pass
+in your own instance of `ActivityResultRegistry` that you can use to test your
+activity result calls without actually launching another activity.
 
-When[testing your app's fragments](https://developer.android.com/training/basics/fragments/testing), you provide a test`ActivityResultRegistry`using a[`FragmentFactory`](https://developer.android.com/reference/androidx/fragment/app/FragmentFactory)to pass in the`ActivityResultRegistry`to the fragment's constructor.
-| **Note:** Any mechanism that lets you inject a separate`ActivityResultRegistry`in tests is enough to enable testing your activity result calls.
+When [testing your app's fragments](https://developer.android.com/training/basics/fragments/testing), you
+provide a test `ActivityResultRegistry` using a
+[`FragmentFactory`](https://developer.android.com/reference/androidx/fragment/app/FragmentFactory) to pass
+in the `ActivityResultRegistry` to the fragment's constructor.
 
-For example, a fragment that uses the`TakePicturePreview`contract to get a thumbnail of the image might be written similar to the following:  
+> [!NOTE]
+> **Note:** Any mechanism that lets you inject a separate `ActivityResultRegistry` in tests is enough to enable testing your activity result calls.
+
+For example, a fragment that uses the `TakePicturePreview` contract to get a
+thumbnail
+of the image might be written similar to the following:
 
 ### Kotlin
 
@@ -268,7 +356,13 @@ public class MyFragment extends Fragment {
 }
 ```
 
-When creating a test-specific`ActivityResultRegistry`, you must implement the[`onLaunch()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultRegistry#onLaunch(int,androidx.activity.result.contract.ActivityResultContract%3CI,O%3E,I,androidx.core.app.ActivityOptionsCompat))method. Instead of calling`startActivityForResult()`, your test implementation can call[`dispatchResult()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultRegistry#dispatchResult(int,%20O))directly, providing the exact results you want to use in your test:  
+When creating a test-specific `ActivityResultRegistry`, you must implement
+the
+[`onLaunch()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultRegistry#onLaunch(int,androidx.activity.result.contract.ActivityResultContract%3CI,O%3E,I,androidx.core.app.ActivityOptionsCompat))
+method. Instead of calling `startActivityForResult()`, your test
+implementation can call
+[`dispatchResult()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultRegistry#dispatchResult(int,%20O))
+directly, providing the exact results you want to use in your test:
 
     val testRegistry = object : ActivityResultRegistry() {
         override fun <I, O> onLaunch(
@@ -281,7 +375,10 @@ When creating a test-specific`ActivityResultRegistry`, you must implement the[`o
         }
     }
 
-The complete test creates the expected result, constructs a test`ActivityResultRegistry`, passes it to the fragment, triggers the launcher either directly or using other test APIs such as Espresso, and then verifies the results:  
+The complete test creates the expected result, constructs a test
+`ActivityResultRegistry`, passes it to the fragment, triggers the launcher
+either directly or using other test APIs such as Espresso, and then verifies
+the results:
 
     @Test
     fun activityResultTest {
@@ -315,17 +412,32 @@ The complete test creates the expected result, constructs a test`ActivityResultR
 
 ## Create a custom contract
 
-While[`ActivityResultContracts`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts)contains a number of prebuilt`ActivityResultContract`classes for use, you can provide your own contracts that provide the precise type-safe API you need.
+While [`ActivityResultContracts`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts)
+contains a number of prebuilt `ActivityResultContract` classes for use, you can
+provide your own contracts that provide the precise type-safe API you need.
 
-Each`ActivityResultContract`requires defined input and output classes, using`Void`as the input type if you don't require any input (in Kotlin, use either`Void?`or`Unit`).
+Each `ActivityResultContract` requires defined input and output classes,
+using `Void` as the input type if you
+don't require any input (in Kotlin, use either `Void?` or `Unit`).
 
-Each contract must implement the[`createIntent()`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContract#createIntent(android.content.Context,kotlin.Any))method, which takes a`Context`and the input and constructs the`Intent`that is used with`startActivityForResult()`.
+Each contract must implement the
+[`createIntent()`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContract#createIntent(android.content.Context,kotlin.Any))
+method, which takes a `Context` and the input and constructs the `Intent` that
+is used
+with `startActivityForResult()`.
 
-Each contract must also implement[`parseResult()`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContract#parseResult(kotlin.Int,android.content.Intent)), which produces the output from the given`resultCode`, such as`Activity.RESULT_OK`or`Activity.RESULT_CANCELED`, and the`Intent`.
+Each contract must also implement
+[`parseResult()`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContract#parseResult(kotlin.Int,android.content.Intent)),
+which produces the output from the given `resultCode`, such as
+`Activity.RESULT_OK` or `Activity.RESULT_CANCELED`, and the `Intent`.
 
-Contracts can optionally implement[`getSynchronousResult()`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContract#getSynchronousResult(android.content.Context,kotlin.Any))if it is possible to determine the result for a given input without needing to call`createIntent()`, start the other activity, and use`parseResult()`to build the result.
+Contracts can optionally implement
+[`getSynchronousResult()`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContract#getSynchronousResult(android.content.Context,kotlin.Any))
+if it is possible to determine the result for a given input without
+needing to call `createIntent()`, start the other activity, and use
+`parseResult()` to build the result.
 
-The following example shows how to construct an`ActivityResultContract`:  
+The following example shows how to construct an `ActivityResultContract`:
 
 ### Kotlin
 
@@ -367,7 +479,13 @@ public class PickRingtone extends ActivityResultContract<Integer, Uri> {
 }
 ```
 
-If you don't need a custom contract, you can use the[`StartActivityForResult`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts.StartActivityForResult)contract. This is a generic contract that takes any`Intent`as an input and returns an[`ActivityResult`](https://developer.android.com/reference/androidx/activity/result/ActivityResult), letting you extract the`resultCode`and`Intent`as part of your callback, as shown in the following example:  
+If you don't need a custom contract, you can use the
+[`StartActivityForResult`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts.StartActivityForResult)
+contract. This is a generic contract that takes any `Intent` as an input and
+returns an
+[`ActivityResult`](https://developer.android.com/reference/androidx/activity/result/ActivityResult),
+letting you extract the `resultCode` and `Intent` as part of your callback,
+as shown in the following example:
 
 ### Kotlin
 

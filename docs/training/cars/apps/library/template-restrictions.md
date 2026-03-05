@@ -21,8 +21,12 @@ templates.
 
 Alternatively, if each screen is structured to send a single template, then the
 app can push five screen instances onto the `ScreenManager` stack.
-| **Caution:** If the template quota is exhausted and the app attempts to send a new template, the host displays an error message to the user before closing the app.
-| **Note:** During development with Android Auto, you can see the current number of steps overlaid on the screen by first enabling [Developer Mode](https://developer.android.com/training/cars/testing#developer-mode) and then checking **Enable debug overlay** in the **Developer Settings** screen. On Android Automotive OS, you can see the current number of steps in the logcat output after running `adb shell setprop log.tag.CarApp.H.Dis VERBOSE`.
+
+> [!CAUTION]
+> **Caution:** If the template quota is exhausted and the app attempts to send a new template, the host displays an error message to the user before closing the app.
+
+> [!NOTE]
+> **Note:** During development with Android Auto, you can see the current number of steps overlaid on the screen by first enabling [Developer Mode](https://developer.android.com/training/cars/testing#developer-mode) and then checking **Enable debug overlay** in the **Developer Settings** screen. On Android Automotive OS, you can see the current number of steps in the logcat output after running `adb shell setprop log.tag.CarApp.H.Dis VERBOSE`.
 
 There are special cases to these restrictions: template refreshes and back and
 reset operations.

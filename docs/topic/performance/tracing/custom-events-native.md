@@ -4,15 +4,24 @@ url: https://developer.android.com/topic/performance/tracing/custom-events-nativ
 source: md.txt
 ---
 
-# Custom trace events in native code
+Android 6.0 (API level 23) and higher support a native tracing API, `trace.h`,
+to write trace events to the system buffer that you can then analyze using
+Perfetto or systrace. Common use cases for this API include observing the time
+that a particular block of code takes to execute and associating a block of code
+with undesirable system behavior.
 
-Android 6.0 (API level 23) and higher support a native tracing API,`trace.h`, to write trace events to the system buffer that you can then analyze using Perfetto or systrace. Common use cases for this API include observing the time that a particular block of code takes to execute and associating a block of code with undesirable system behavior.
+**Note:** On devices and emulators running API level 27 and lower, if there
+isn't enough memory available or the memory is too fragmented, you'll get the
+following message: `Atrace could not allocate enough memory to record a trace`.
+If this happens and your capture does not have a complete set of data, then you
+should close background processes or restart the device or emulator.
 
-**Note:** On devices and emulators running API level 27 and lower, if there isn't enough memory available or the memory is too fragmented, you'll get the following message:`Atrace could not allocate enough memory to record a trace`. If this happens and your capture does not have a complete set of data, then you should close background processes or restart the device or emulator.
+To define custom events that occur in the native code within your app or game,
+complete the following steps:
 
-To define custom events that occur in the native code within your app or game, complete the following steps:
-
-1. Define function pointers for the ATrace functions that you use to capture custom events within your app or game, as shown in the following code snippet:
+1. Define function pointers for the ATrace functions that you use to
+   capture custom events within your app or game, as shown in the following code
+   snippet:
 
    ```c++
    #include <android/trace.h>
@@ -24,7 +33,8 @@ To define custom events that occur in the native code within your app or game, c
    typedef void *(*fp_ATrace_beginSection) (const char* sectionName);
    typedef void *(*fp_ATrace_endSection) (void);
    ```
-2. Load the ATrace symbols at runtime, as shown in the following code snippet. Usually, you perform this process in an object constructor.
+2. Load the ATrace symbols at runtime, as shown in the following code
+   snippet. Usually, you perform this process in an object constructor.
 
    ```c++
    // Retrieve a handle to libandroid.
@@ -41,10 +51,16 @@ To define custom events that occur in the native code within your app or game, c
    }
    ```
 
-   **Caution:** For security reasons, include calls to`dlopen()`only in the debug version of your app or game.
+   **Caution:** For security reasons, include calls to
+   `dlopen()` only in the debug version of your app or game.
 
-   **Note:** To provide tracing support further back to Android 4.3 (API level 18), you can use JNI to call the methods in[managed code](https://developer.android.com/topic/performance/tracing/custom-events-native#managed-code)around the code shown in the preceding snippet.
-3. Call`ATrace_beginSection()`and`ATrace_endSection()`at the beginning and end, respectively, of your custom event:
+   **Note:** To provide tracing support further back to
+   Android 4.3 (API level 18), you can use JNI to call the methods in
+   [managed code](https://developer.android.com/topic/performance/tracing/custom-events-native#managed-code) around the code shown in the
+   preceding snippet.
+3. Call `ATrace_beginSection()` and
+   `ATrace_endSection()` at the beginning and end, respectively, of
+   your custom event:
 
    ```c++
    #include <android/trace.h>
@@ -55,18 +71,30 @@ To define custom events that occur in the native code within your app or game, c
    ATrace_beginSection(customEventName);
    // Your app or game's response to the button being pressed.
    ATrace_endSection();
-   ```  
-   **Note:** When you call`ATrace_beginSection()`multiple times, calling`ATrace_endSection()`ends only the most recently called`ATrace_beginSection()`method. So, for nested calls, make sure that you properly match each call to`ATrace_beginSection()`with a call to`ATrace_endSection()`.
+   ```
+   **Note:** When you call `ATrace_beginSection()` multiple
+   times, calling `ATrace_endSection()` ends only the most
+   recently called `ATrace_beginSection()` method. So, for nested
+   calls, make sure that you properly match each call to
+   `ATrace_beginSection()` with a call to
+   `ATrace_endSection()`.
 
-   Additionally, you cannot call`ATrace_beginSection()`on one thread and end it from another. You must call both functions from the same thread.
+   Additionally, you cannot call `ATrace_beginSection()` on one
+   thread and end it from another. You must call both functions from the same
+   thread.
 
 # Convenience tips
 
-The following tips are optional but might make it easier to analyze your native code.
+The following tips are optional but might make it easier to analyze your native
+code.
 
 ## Trace an entire function
 
-When instrumenting your call stack or function timing, you might find it useful to trace entire functions. You can use the`ATRACE_CALL()`macro to make this type of tracing easier to set up. Furthermore, such a macro allows you to skip creating`try`and`catch`blocks for cases where the traced function might throw an exception or call`return`early.
+When instrumenting your call stack or function timing, you might find it useful
+to trace entire functions. You can use the `ATRACE_CALL()` macro to make this
+type of tracing easier to set up. Furthermore, such a macro allows you to skip
+creating `try` and `catch` blocks for cases where the traced function might
+throw an exception or call `return` early.
 
 To create a macro for tracing an entire function, complete the following steps:
 
@@ -100,7 +128,9 @@ To create a macro for tracing an entire function, complete the following steps:
 
 ## Name your threads
 
-You can give a name to each thread in which your events occur, as demonstrated in the following code snippet. This step makes it easier to identify the threads that belong to specific actions within your game.  
+You can give a name to each thread in which your events occur, as demonstrated
+in the following code snippet. This step makes it easier to identify the threads
+that belong to specific actions within your game.
 
 ```c++
 #include <pthread.h>

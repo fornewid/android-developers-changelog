@@ -41,7 +41,7 @@ preview.
 The following code snippet creates a matrix that maps from image analysis
 coordinates to `PreviewView` coordinates. To transform the (x, y) coordinates
 with a [`Matrix`](https://developer.android.com/reference/android/graphics/Matrix), see
-[`Matrix.mapPoints()`](https://developer.android.com/reference/android/graphics/Matrix#mapPoints(float%5B%5D)).  
+[`Matrix.mapPoints()`](https://developer.android.com/reference/android/graphics/Matrix#mapPoints(float%5B%5D)).
 
 ### Kotlin
 

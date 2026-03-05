@@ -37,7 +37,7 @@ permissions you must request to use them.
 | [`addMileageListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#addMileageListener(java.util.concurrent.Executor,%20androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.Mileage>)) [`removeMileageListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#removeMileageListener(androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.Mileage>)) | Odometer distance | `com.google.android.gms.permission.CAR_MILEAGE` | *Data not available to Android Automotive OS apps installed from Google Play.* | 3 |
 
 For example, to get the remaining range, instantiate a
-`CarInfo` object, then create and register an `OnCarDataAvailableListener`:  
+`CarInfo` object, then create and register an `OnCarDataAvailableListener`:
 
 ### Kotlin
 
@@ -85,7 +85,7 @@ gyroscope, compass, and location data. The availability of these values may
 depend on the OEM. The format for the data from the accelerometer, gyroscope,
 and compass is the same as you would get from the [`SensorManager` API](https://developer.android.com/reference/android/hardware/SensorManager).
 
-For example, to check the vehicle's heading:  
+For example, to check the vehicle's heading:
 
 ### Kotlin
 
@@ -124,7 +124,9 @@ For example, to check the vehicle's heading:
 
 To access location data from the car, you also need to declare and request the
 `android.permission.ACCESS_FINE_LOCATION` permission.
-| **Caution:** On Android Automotive OS, `CarSensors` data returns [`STATUS_UNIMPLEMENTED`](https://developer.android.com/reference/androidx/car/app/hardware/common/CarValue#STATUS_UNIMPLEMENTED()). Instead, use standard Android APIs to access the data, such as `SensorManager` or [`LocationManager`](https://developer.android.com/reference/android/location/LocationManager).
+
+> [!CAUTION]
+> **Caution:** On Android Automotive OS, `CarSensors` data returns [`STATUS_UNIMPLEMENTED`](https://developer.android.com/reference/androidx/car/app/hardware/common/CarValue#STATUS_UNIMPLEMENTED()). Instead, use standard Android APIs to access the data, such as `SensorManager` or [`LocationManager`](https://developer.android.com/reference/android/location/LocationManager).
 
 ## Test
 

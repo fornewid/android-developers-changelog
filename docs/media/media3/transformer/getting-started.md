@@ -20,7 +20,7 @@ complete example.
 ## Add Media3 Transformer as a dependency
 
 The easiest way to get started using Transformer is to add gradle dependencies
-on the library in the `build.gradle` file of your app module:  
+on the library in the `build.gradle` file of your app module:
 
 ### Kotlin
 
@@ -41,7 +41,9 @@ implementation "androidx.media3:media3-common:1.9.2"
 where 1.9.2 is your preferred version. The latest version can be
 found by consulting the [release
 notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md).
-| **Important:** If you're using any other Media3 modules, including Media3 ExoPlayer, they must all be the same version.
+
+> [!IMPORTANT]
+> **Important:** If you're using any other Media3 modules, including Media3 ExoPlayer, they must all be the same version.
 
 More information on the library modules that are available can be found on the
 [Google Maven AndroidX Media3
@@ -51,7 +53,7 @@ page](https://maven.google.com/web/index.html?q=media3).
 
 If not enabled already, you need to turn on Java 8 support in all `build.gradle`
 files that depend on Transformer by adding the following to the `android`
-section:  
+section:
 
     compileOptions {
       targetCompatibility JavaVersion.VERSION_1_8
@@ -61,7 +63,7 @@ section:
 
 Here's an example of creating an `EditedMediaItem` to remove audio for an input
 file, then creating and configuring a `Transformer` instance to export
-H.265/HEVC video, outputting the result to `outputPath`.  
+H.265/HEVC video, outputting the result to `outputPath`.
 
 ### Kotlin
 
@@ -102,7 +104,9 @@ the output is always an MP4 file.
 You can execute multiple export operations sequentially on the same
 `Transformer` instance, but concurrent exports with the same instance are not
 supported.
-| **Note:** Support for generating media by composing together multiple inputs is planned for future versions of Transformer.
+
+> [!NOTE]
+> **Note:** Support for generating media by composing together multiple inputs is planned for future versions of Transformer.
 
 ### A note on threading
 
@@ -115,7 +119,7 @@ methods on the application thread.
 ## Listen to events
 
 The `start` method is asynchronous. It returns immediately and the app is
-notified of events through the listener passed to the `Transformer` builder.  
+notified of events through the listener passed to the `Transformer` builder.
 
 ### Kotlin
 
@@ -163,7 +167,7 @@ transformation. The returned value indicates the progress state. If the progress
 state is `PROGRESS_STATE_AVAILABLE`, then the provided `ProgressHolder` is
 updated with the current progress percentage. The following example shows how to
 periodically query the progress of a transformation, where the
-`updateProgressInUi` method can be implemented to update a progress bar.  
+`updateProgressInUi` method can be implemented to update a progress bar.
 
 ### Kotlin
 

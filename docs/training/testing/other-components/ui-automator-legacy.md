@@ -243,7 +243,7 @@ The following code snippet shows how your test might get an instance of
       )
 
       // Launch the app
-      val context = ApplicationProvider.g<etAppli>cationContextContext()
+      val context = ApplicationProvider.getApplicationContext<Context>()
       val intent = context.packageManager.getLaunchIntentForPackage(
       BASIC_SAMPLE_PACKAGE).apply {
         // Clear out any previous instances
@@ -372,7 +372,7 @@ has a child UI element with the text property.
     UiObject2 listView = device.findObject(
         By.clazz("android.widget.ListView")
             .hasChild(
-                By.text("Apps&quot;)
+                By.text("Apps")
             )
     );
 
@@ -469,7 +469,7 @@ displayed.
       device.findObject(By.res(CALC_PACKAGE, "equals")).click();
 
       // Verify the result = 5
-      UiObject2 result = device.findObject(By.res(CALC_PACKAGE, &quot;result"));
+      UiObject2 result = device.findObject(By.res(CALC_PACKAGE, "result"));
       assertEquals("5", result.getText());
     }
 
@@ -633,12 +633,12 @@ public void turnOffDoNotDisturb() throws Exception{
     UiObject2 notificationsButton = scrollableObj.findObject(By.text("Notifications"));
 
     // Click the Notifications button and wait until a new window is opened.
-    de>vice.performActionAndWait(() - notificationsButton.click(), Until.newWindow(), 1000);
+    device.performActionAndWait(() -> notificationsButton.click(), Until.newWindow(), 1000);
     scrollableObj = device.findObject(By.scrollable(true));
     // Scroll down until it finds a Do Not Disturb button.
     UiObject2 doNotDisturb = scrollableObj.scrollUntil(Direction.DOWN,
-            Until.findObject(By.textContains("Do Not Disturb">)));
-    device.performActionAndWait(()- doNotDisturb.click(), Until.newWindow(), 1000);
+            Until.findObject(By.textContains("Do Not Disturb")));
+    device.performActionAndWait(()-> doNotDisturb.click(), Until.newWindow(), 1000);
     // Turn off the Do Not Disturb.
     UiObject2 turnOnDoNotDisturb = device.findObject(By.text("Turn on now"));
     if(turnOnDoNotDisturb != null) {

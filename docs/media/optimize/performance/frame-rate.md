@@ -18,7 +18,9 @@ refresh rate from 60Hz to 120Hz. This new refresh rate enables smooth,
 judder-free playback of 24Hz video, with no need for 3:2 pulldown as would be
 required to play the same video on a 60Hz display. This results in a better user
 experience.
-| **Important:** The scheduler takes a number of factors into consideration when deciding on the display refresh rate, so there is no guarantee that your app will get the frame rate you request with `setFrameRate()`.
+
+> [!IMPORTANT]
+> **Important:** The scheduler takes a number of factors into consideration when deciding on the display refresh rate, so there is no guarantee that your app will get the frame rate you request with `setFrameRate()`.
 
 ## Basic usage
 

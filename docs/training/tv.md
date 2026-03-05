@@ -4,9 +4,12 @@ url: https://developer.android.com/training/tv
 source: md.txt
 ---
 
-# Android TV overview
+[Video](https://www.youtube.com/watch?v=Vo-UQDVykIs)
 
-If you've got an Android app or game, Android TV can bring it to your users in their living room. Android TV apps use the same architecture as those for phones and tablets. This approach means you can build new TV apps based on what you already know about building apps for Android, or extend your existing apps to also run on TV devices.
+If you've got an Android app or game, Android TV can bring it to your users in their living room.
+Android TV apps use the same architecture as those for phones and tablets. This approach means you
+can build new TV apps based on what you already know about building apps for Android, or extend
+your existing apps to also run on TV devices.
 
 ## Documentation
 
@@ -14,7 +17,8 @@ If you've got an Android app or game, Android TV can bring it to your users in t
   - [Design TV UI ⍈](https://developer.android.com/design/ui/tv)
 - Building TV apps:
   - [Get started with TV apps](https://developer.android.com/training/tv/get-started)
-  - [Build TV playback apps](https://developer.android.com/training/tv/playback), adjust the[audio](https://developer.android.com/training/tv/playback/audio-capabilities)and[display](https://developer.android.com/training/tv/playback/framerate)settings for optimal playback, and[help users find your content on TV](https://developer.android.com/training/tv/discovery)
+  - [Build TV playback apps](https://developer.android.com/training/tv/playback), adjust the [audio](https://developer.android.com/training/tv/playback/audio-capabilities) and [display](https://developer.android.com/training/tv/playback/framerate) settings for optimal playback, and [help users find your
+    content on TV](https://developer.android.com/training/tv/discovery)
   - [Build TV games](https://developer.android.com/training/tv/games)
   - [Build TV input services](https://developer.android.com/training/tv/tif)
   - [Accessibility best practices](https://developer.android.com/training/tv/accessibility)

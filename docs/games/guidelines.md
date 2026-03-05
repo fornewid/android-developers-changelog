@@ -4,6 +4,13 @@ url: https://developer.android.com/games/guidelines
 source: md.txt
 ---
 
+<br />
+
+As [announced](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) on March 4, 2026, we are revamping the
+Level Up program. There are no changes to the current program and benefits at this time. More details will be coming soon.
+
+<br />
+
 Google Play Games Level Up is a program to recognize and reward great gaming experiences,
 providing you with powerful tools and promotional opportunities to drive
 business growth for your game.
@@ -156,7 +163,7 @@ The key dates dates are as follows:
 
 |---|---|
 | **Deadline** | **Milestone** |
-| **July 31, 2026** | Games released before July 31, 2026 will be automatically enrolled in the program and can enjoy the program [benefits](https://play.google.com/console/about/levelup) upon release. After July 31, 2026, games will have to meet the required user experience guidelines for the following features: - **[Achievements](https://developer.android.com/games/guidelines#achievements)** You must have integrated your game to use [Play Games Services](https://developer.android.com/games/pgs/overview) v2 SDK. - **[Play Games Sidekick](https://developer.android.com/games/guidelines#play-games-sidekick)** From early 2026, you can enable this experience for internal testing by using a toggle in Play Console with a streamlined testing process. > [!WARNING] > **Beta:** The Play Games Sidekick feature is now available to early access partners, as we work to enhance its performance and stability. |
+| **July 31, 2026** | Games released before July 31, 2026 will be automatically enrolled in the program and can enjoy the program [benefits](https://play.google.com/console/about/levelup) upon release. After July 31, 2026, games will have to meet the required user experience guidelines for the following features: - **[Achievements](https://developer.android.com/games/guidelines#achievements)** - **[Play Games Sidekick](https://developer.android.com/games/guidelines#play-games-sidekick)** From early 2026, you can enable this experience for internal testing by using a toggle in Play Console with a streamlined testing process. > [!WARNING] > **Beta:** The Play Games Sidekick feature is now available to early access partners, as we work to enhance its performance and stability. |
 | **November 30, 2026** | After November 30, 2026, games will have to meet the required user experience guidelines for the following features: - **[Cloud save](https://developer.android.com/games/guidelines#cloud-save)** |
 
 ## Frequently asked questions

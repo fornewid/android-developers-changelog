@@ -30,7 +30,9 @@ This update provides a migration path to properly intercept back navigation,
 which involves replacing back interceptions from [`KeyEvent.KEYCODE_BACK`](https://developer.android.com/reference/android/view/KeyEvent#KEYCODE_BACK)
 and any classes with `onBackPressed` methods such as `Activity` and
 [`Dialog`](https://developer.android.com/reference/android/app/Dialog#onBackPressed()) with the new system Back APIs.
-| **Note:** `KeyEvent.KEYCODE_BACK` is not deprecated as there are some supported use cases of `KeyEvent.KEYCODE_BACK`; however, intercepting back events from `KeyEvent.KEYCODE_BACK` is no longer supported.
+
+> [!NOTE]
+> **Note:** `KeyEvent.KEYCODE_BACK` is not deprecated as there are some supported use cases of `KeyEvent.KEYCODE_BACK`; however, intercepting back events from `KeyEvent.KEYCODE_BACK` is no longer supported.
 
 #### Codelab and Google I/O video
 
@@ -63,7 +65,8 @@ depending on whether it uses AndroidX and how it handles back navigation.
 | No | Unsupported platform APIs, able to migrate | [Migrate an app that uses unsupported back navigation APIs to platform APIs](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#migrate-app) |
 | No | Unsupported platform APIs, but unable to migrate | Temporarily opt out by setting the [`android:enableOnBackInvokedCallback`](https://developer.android.com/guide/topics/manifest/activity-element#enabledCallback) attribute to `false` in the `&ltapplication>` or `&ltactivity>` tag of your app's `AndroidManifest.xml` file. |
 
-| **Important:** We strongly recommend that you implement predictive back navigation as soon as possible. Otherwise, users might experience unexpected behavior in a future release of Android.
+> [!IMPORTANT]
+> **Important:** We strongly recommend that you implement predictive back navigation as soon as possible. Otherwise, users might experience unexpected behavior in a future release of Android.
 
 ### Migrate an AndroidX back navigation implementation
 
@@ -90,7 +93,9 @@ predictive back gesture, upgrade to
 If your app uses AndroidX libraries but implements or makes reference to the
 unsupported back navigation APIs, you'll need to migrate to using AndroidX APIs
 to support the new behavior.
-| **Note:** We strongly recommend using AndroidX libraries. AndroidX automatically enables updated system Back navigation in your app when you enable the feature, and also provides [many other useful features](https://developer.android.com/jetpack/androidx) that automatically update APIs with each release to save you work and time.
+
+> [!NOTE]
+> **Note:** We strongly recommend using AndroidX libraries. AndroidX automatically enables updated system Back navigation in your app when you enable the feature, and also provides [many other useful features](https://developer.android.com/jetpack/androidx) that automatically update APIs with each release to save you work and time.
 
 To migrate unsupported APIs to AndroidX APIs:
 
@@ -114,14 +119,17 @@ To migrate unsupported APIs to AndroidX APIs:
        // Add this in addition to your other dependencies
        implementation "androidx.activity:activity:1.6.0-alpha05"
 
-   | **Note:** `OnBackPressedCallback` is always called regardless of the value of `android:enableOnBackInvokedCallback`. In other words, disabling the system animation doesn't affect your app's back handling logic if it uses `OnBackPressedCallback`.
+   > [!NOTE]
+   > **Note:** `OnBackPressedCallback` is always called regardless of the value of `android:enableOnBackInvokedCallback`. In other words, disabling the system animation doesn't affect your app's back handling logic if it uses `OnBackPressedCallback`.
 
 ### Migrate an app that uses unsupported back navigation APIs to platform APIs
 
 If your app cannot use AndroidX libraries and instead implements or makes
 reference to custom Back navigation using the unsupported APIs, you must migrate
 to the `OnBackInvokedCallback` platform API.
-| **Note:** We strongly recommend using AndroidX libraries. AndroidX automatically enables updated system Back navigation in your app when you enable the feature, and also provides [many other useful features](https://developer.android.com/jetpack/androidx) that automatically update APIs with each release to save you work and time.
+
+> [!NOTE]
+> **Note:** We strongly recommend using AndroidX libraries. AndroidX automatically enables updated system Back navigation in your app when you enable the feature, and also provides [many other useful features](https://developer.android.com/jetpack/androidx) that automatically update APIs with each release to save you work and time.
 
 Complete the following steps to migrate unsupported APIs to the platform API:
 
@@ -340,7 +348,8 @@ stack must be empty so its internal callback is disabled.
 
 ## Test the predictive back gesture animation
 
-| **Note:** With Android 15, system animations such as back-to-home, cross-task, and cross-activity are no longer behind the developer option. They now appear for apps that have opted into the predictive back gesture either entirely or at an activity level.
+> [!NOTE]
+> **Note:** With Android 15, system animations such as back-to-home, cross-task, and cross-activity are no longer behind the developer option. They now appear for apps that have opted into the predictive back gesture either entirely or at an activity level.
 
 If you still use Android 13 or Android 14, you can test the back-to-home
 animation shown in Figure 1.

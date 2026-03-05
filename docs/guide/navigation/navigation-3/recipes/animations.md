@@ -15,8 +15,9 @@ The `NavDisplay` composable takes `transitionSpec`, `popTransitionSpec`, and `pr
 In this example, we use `slideInHorizontally` and `slideOutHorizontally` to create a sliding animation for forward and backward navigation.
 
 It is also possible to override these animations for a specific destination by providing a different `transitionSpec` and `popTransitionSpec` to the `entry` composable. In this recipe, `ScreenC` has a custom vertical slide animation.
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/animations)
 
-```python
+```
 package com.example.nav3recipes.animations
 
 

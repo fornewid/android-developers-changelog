@@ -4,8 +4,6 @@ url: https://developer.android.com/about/versions/14/features/app-metadata-schem
 source: md.txt
 ---
 
-# Schema for app metadata bundles
-
 Starting in Android 14, the Android package installer can ingest metadata about
 an app, such as data safety practices, for use in Android platform features such
 as the updated Location permission prompt.
@@ -20,11 +18,14 @@ There are two ways to provide this metadata:
   installers** should pass a [`PersistableBundle`](https://developer.android.com/reference/android/os/PersistableBundle) object into the
   [`setAppMetadata()`](https://developer.android.com/reference/android/content/pm/PackageInstaller.Session#setAppMetadata(android.os.PersistableBundle)) method.
 
-| **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `setAppMetadata()`. In these cases, it is assumed that no app metadata is available.
+> [!NOTE]
+> **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `setAppMetadata()`. In these cases, it is assumed that no app metadata is available.
 
 The top-level persistable bundle consists of the following key/values pairs.
 Unless specified otherwise, each key is optional.
-| **Important:** All keys should be lowercase.
+
+> [!IMPORTANT]
+> **Important:** All keys should be lowercase.
 
 `version` (required)
 :   The version number of the app metadata format. Use `2` as the value for this
@@ -46,7 +47,9 @@ Unless specified otherwise, each key is optional.
 ## Safety labels format
 
 The `safety_labels` bundle contains the following key/values pairs:
-| **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `safety_labels`. In these cases, it is assumed that no information is available.
+
+> [!NOTE]
+> **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `safety_labels`. In these cases, it is assumed that no information is available.
 
 `version` (required)
 :   The version number of the safety labels format. Use `1` as the value for this
@@ -67,7 +70,9 @@ The `safety_labels` bundle contains the following key/values pairs:
 ### Data collected and shared
 
 The `data_labels` bundle contains the following key/value pairs:
-| **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `data_labels`. In these cases, it is assumed that no information is available.
+
+> [!NOTE]
+> **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `data_labels`. In these cases, it is assumed that no information is available.
 
 `data_collected`
 :   A `PersistableBundle` object that specifies the types of data that the app
@@ -83,7 +88,9 @@ Both the `data_collected` and `data_shared` keys use the `data_category` bundle
 format, which contains the key/value pairs shown in the following list. Each key
 maps to a `PersistableBundle` object that specifies the [data types](https://developer.android.com/about/versions/14/features/app-metadata-schema#data-types) for a
 particular category.
-| **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `data_collected` and `data_shared`. In these cases, it is assumed that the data category is not collected or shared.
+
+> [!NOTE]
+> **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `data_collected` and `data_shared`. In these cases, it is assumed that the data category is not collected or shared.
 
 - `personal`
 - `financial`
@@ -235,7 +242,9 @@ The `data_usage` bundle contains the following key/value pairs:
 
 The `security_labels` bundle contains key/value pairs that represent the app's
 data deletion and encryption practices:
-| **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `security_labels`. In these cases, it is assumed that no information is available.
+
+> [!NOTE]
+> **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `security_labels`. In these cases, it is assumed that no information is available.
 
 `is_data_deletable`
 :   Boolean value. Specifies whether or not the app allows the user to request
@@ -256,7 +265,9 @@ verifying the app's data safety information.
 For apps acting as a [system service](https://docs.partner.android.com/partners/guides/system-services), the `system_app_safety_label` bundle
 is used instead of the `safety_labels` bundle and contains the following
 key/values pairs:
-| **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `system_app_safety_label`. In these cases, it is assumed that no information is available.
+
+> [!NOTE]
+> **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `system_app_safety_label`. In these cases, it is assumed that no information is available.
 
 `url` (**required**)
 
@@ -267,7 +278,8 @@ key/values pairs:
 
 ## Transparency info format
 
-| **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `transparency_info`. In these cases, it is assumed that no information is available.
+> [!NOTE]
+> **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `transparency_info`. In these cases, it is assumed that no information is available.
 
 The `transparency_info` bundle contains the following key/values pairs:
 
@@ -280,21 +292,23 @@ The `transparency_info` bundle contains the following key/values pairs:
 
 ### Developer info
 
-| **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `developer_info`. In these cases, it is assumed that no information is available.
+> [!NOTE]
+> **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `developer_info`. In these cases, it is assumed that no information is available.
 
 The `developer_info` bundle contains the following key/value pairs:
 
-`developer_`<var translate="no">#</var>
+`developer_#`
 :   A `PersistableBundle` object that identifies the developer. The
-    `developer_info` contains one or more `developer_`<var translate="no">#</var>,
-    where <var translate="no">#</var> is an integer. For example `developer_0`,
+    `developer_info` contains one or more `developer_#`,
+    where `#` is an integer. For example `developer_0`,
     `developer_1`, `developer_2`, and so on.
 
 #### Developer
 
-| **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `developer_`<var translate="no">#</var>. In these cases, it is assumed that no information is available.
+> [!NOTE]
+> **Note:** You can also pass in either `null` or `PersistableBundle.EMPTY` into `developer_#`. In these cases, it is assumed that no information is available.
 
-The `developer_`<var translate="no">#</var> bundle contains the following key/value
+The `developer_#` bundle contains the following key/value
 pairs:
 
 `name` (**required**)
@@ -394,7 +408,8 @@ The `app_info` bundle contains the following key/value pairs:
 - Video players and editors
 - Weather
 
-| **Note:** Categories marked with an asterisk\* are not available in the Google Play store and are intended for preloaded apps only.
+> [!NOTE]
+> **Note:** Categories marked with an asterisk\* are not available in the Google Play store and are intended for preloaded apps only.
 
 `contact_info`
 :   A `PersistableBundle` object that includes [contact information](https://developer.android.com/about/versions/14/features/app-metadata-schema#contact-info) for the

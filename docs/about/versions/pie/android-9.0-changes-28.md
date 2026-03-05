@@ -93,7 +93,9 @@ you must assign a unique data directory suffix for each process, using the
 method, before using a given instance of `WebView` in that process. This method
 places web data from each process in its own directory within your app's data
 directory.
-| **Note:** Even if you use `setDataDirectorySuffix()`, the system doesn't share cookies and other web data across your app's process boundaries. If multiple processes in your app need access to the same web data, you need to copy it between those processes yourself. For example, you can call [`getCookie()`](https://developer.android.com/reference/android/webkit/CookieManager#getCookie(java.lang.String)) and [`setCookie()`](https://developer.android.com/reference/android/webkit/CookieManager#setCookie(java.lang.String,%20java.lang.String,%20android.webkit.ValueCallback%3Cjava.lang.Boolean%3E)) to manually transfer cookie data from one process to another.
+
+> [!NOTE]
+> **Note:** Even if you use `setDataDirectorySuffix()`, the system doesn't share cookies and other web data across your app's process boundaries. If multiple processes in your app need access to the same web data, you need to copy it between those processes yourself. For example, you can call [`getCookie()`](https://developer.android.com/reference/android/webkit/CookieManager#getCookie(java.lang.String)) and [`setCookie()`](https://developer.android.com/reference/android/webkit/CookieManager#setCookie(java.lang.String,%20java.lang.String,%20android.webkit.ValueCallback%3Cjava.lang.Boolean%3E)) to manually transfer cookie data from one process to another.
 
 #### Per-app SELinux domains
 
@@ -144,7 +146,8 @@ can add the following to their `AndroidManifest.xml`:
 
     <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
-| **Note:** The `android:required="false"` attribute is required for apps that have a minimum SDK of 23 or lower, because on devices with API levels lower than 24, the `org.apache.http.legacy` library is not available. (On those devices, the Apache HTTP classes are available on the bootclasspath.)
+> [!NOTE]
+> **Note:** The `android:required="false"` attribute is required for apps that have a minimum SDK of 23 or lower, because on devices with API levels lower than 24, the `org.apache.http.legacy` library is not available. (On those devices, the Apache HTTP classes are available on the bootclasspath.)
 
 As an alternative to using the runtime Apache library, apps can bundle their
 own version of the `org.apache.http` library in their APK. If you do this,

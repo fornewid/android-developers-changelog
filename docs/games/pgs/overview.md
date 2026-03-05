@@ -35,9 +35,9 @@ retention and cross-platform continuity.
 ## Game benefits and program advantages
 
 The Google Play Games platform provides an extensive array of compelling and
-rewarding and engaging mechanics, including leagues, quests, achievements,
-and streaks. These features are restricted to titles enrolled in
-the [LevelUp program](https://developer.android.com/games/pgs/%5Bhttps:/play.google.com/console/about/levelup), a cornerstone of the Google Play Games ecosystem.
+rewarding and engaging mechanics, including leagues, quests, achievements, and
+streaks. These features are restricted to titles enrolled in the [Level Up](https://play.google.com/console/about/levelup)
+program, a cornerstone of the Google Play Games ecosystem.
 
 Integrate your games with Play Games Services to get instant access to these
 features. As the primary method for platform authentication,

@@ -21,8 +21,9 @@ In this example, `RouteB` is configured to be a bottom sheet. When you navigate 
 The content of the bottom sheet can be styled as needed. In this recipe, the content is clipped to have rounded corners.
 
 For more information, see the official documentation on [custom layouts](https://developer.android.com/guide/navigation/navigation-3/custom-layouts).
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/bottomsheet)
 
-```python
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -109,7 +110,7 @@ class BottomSheetActivity : ComponentActivity() {
 }
 ```
 
-```python
+```
 package com.example.nav3recipes.bottomsheet
 
 import androidx.compose.material3.ExperimentalMaterial3Api

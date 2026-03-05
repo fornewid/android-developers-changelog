@@ -26,7 +26,7 @@ signatures](https://source.android.com/devices/tech/dalvik/dex-format), but lets
 wildcards be used to simplify the rule-writing process.
 
 The following example shows a few Baseline Profile rules included in the Jetpack
-Compose library:  
+Compose library:
 
     HSPLandroidx/compose/runtime/ComposerImpl;->updateValue(Ljava/lang/Object;)V
     HSPLandroidx/compose/runtime/ComposerImpl;->updatedNodeCount(I)I
@@ -42,11 +42,11 @@ supported.
 
 ### Rule syntax
 
-These rules take one of two forms to target either methods or classes:  
+These rules take one of two forms to target either methods or classes:
 
     [FLAGS][CLASS_DESCRIPTOR]->[METHOD_SIGNATURE]
 
-A class rule uses the following pattern:  
+A class rule uses the following pattern:
 
     [CLASS_DESCRIPTOR]
 
@@ -62,7 +62,7 @@ These patterns can have wildcards to have a single rule encompass multiple
 methods or classes. For guided assistance when writing with rule syntax in
 Android Studio, see the [Android Baseline Profiles](https://plugins.jetbrains.com/plugin/17384-android-baseline-profiles) plugin.
 
-An example of a wildcard rule might look something like this:  
+An example of a wildcard rule might look something like this:
 
     HSPLandroidx/compose/ui/layout/**->**(**)**
 
@@ -114,7 +114,7 @@ collect rules directly by doing the following:
 
    <br />
 
-   ```scdoc
+   ```
    adb shell am broadcast -a androidx.profileinstaller.action.SKIP_FILE WRITE_SKIP_FILE $PACKAGE_NAME/androidx.profileinstaller.ProfileInstallReceiver
    ```
 3. Reset app compilation and clear any profiles.
@@ -123,14 +123,14 @@ collect rules directly by doing the following:
 
    ### API 34 and higher
 
-   ```carbon
+   ```
    adb shell cmd package compile -f -m verify $PACKAGE_NAME
    adb shell pm art clear-app-profiles $PACKAGE_NAME
    ```
 
    ### API 33 and lower
 
-   ```carbon
+   ```
    adb root
    adb shell cmd package compile --reset $PACKAGE_NAME
    ```
@@ -150,7 +150,7 @@ collect rules directly by doing the following:
 
    <br />
 
-   ```scdoc
+   ```
    adb shell am broadcast -a androidx.profileinstaller.action.SAVE_PROFILE $PACKAGE_NAME/androidx.profileinstaller.ProfileInstallReceiver
    sleep 1 # wait 1 second
    adb shell am force-stop $PACKAGE_NAME
@@ -159,7 +159,7 @@ collect rules directly by doing the following:
 
    <br />
 
-   ```scdoc
+   ```
    adb root
    adb shell killall -s SIGUSR1 $PACKAGE_NAME
    sleep 1 # wait 1 second
@@ -174,7 +174,7 @@ collect rules directly by doing the following:
 
    ### API 34 and higher
 
-   ```scdoc
+   ```
    adb shell pm dump-profiles --dump-classes-and-methods $PACKAGE_NAME
    ```
 
@@ -186,7 +186,7 @@ collect rules directly by doing the following:
 
    <br />
 
-   ```scdoc
+   ```
    /data/misc/profiles/ref/$$PACKAGE_NAME/primary.prof
    ```
 
@@ -196,7 +196,7 @@ collect rules directly by doing the following:
 
    <br />
 
-   ```scdoc
+   ```
    /data/misc/profiles/cur/0/$PACKAGE_NAME/primary.prof
    ```
 
@@ -206,7 +206,7 @@ collect rules directly by doing the following:
 
    <br />
 
-   ```scdoc
+   ```
    adb root
    adb shell pm path $PACKAGE_NAME
    ```
@@ -217,7 +217,7 @@ collect rules directly by doing the following:
 
    <br />
 
-   ```scdoc
+   ```
    adb root
    adb shell profman --dump-classes-and-methods --profile-file=$PROFILE_PATH --apk=$APK_PATH > /data/misc/profman/$PACKAGE_NAME-primary.prof.txt
    ```
@@ -230,7 +230,7 @@ collect rules directly by doing the following:
 
    <br />
 
-   ```scdoc
+   ```
    adb pull /data/misc/profman/$PACKAGE_NAME-primary.prof.txt PATH_TO_APP_MODULE/src/main/
    ```
 
@@ -242,12 +242,13 @@ by following the steps in [Installation issues](https://developer.android.com/to
 
 ## Manually measure app improvements
 
-| **Note:** For greater stability and accuracy, we recommend using Macrobenchmark to measure performance impact, as it can measure repeatedly in a loop, capture traces for performance debugging, and increase reliability---for example, by clearing the operating system's disk cache.
+> [!NOTE]
+> **Note:** For greater stability and accuracy, we recommend using Macrobenchmark to measure performance impact, as it can measure repeatedly in a loop, capture traces for performance debugging, and increase reliability---for example, by clearing the operating system's disk cache.
 
 We highly recommend that you measure app improvements through benchmarking.
 However, if you'd like to measure improvements manually, you can get started by
 measuring the unoptimized [app
-startup](https://developer.android.com/topic/performance/vitals/launch-time#time-initial) for reference.  
+startup](https://developer.android.com/topic/performance/vitals/launch-time#time-initial) for reference.
 
     PACKAGE_NAME=com.example.app
     # Force Stop App
@@ -260,8 +261,10 @@ startup](https://developer.android.com/topic/performance/vitals/launch-time#time
      | grep "TotalTime"
 
 Next, sideload the Baseline Profile.
-| **Note:** This workflow is only supported on version Android 9 (API 28) to Android 11 (API 30). For more information, see [Compilation behavior across Android
-versions](https://developer.android.com/topic/performance/baselineprofiles/overview#compilation-behaviors).  
+
+> [!NOTE]
+> **Note:** This workflow is only supported on version Android 9 (API 28) to Android 11 (API 30). For more information, see [Compilation behavior across Android
+> versions](https://developer.android.com/topic/performance/baselineprofiles/overview#compilation-behaviors).
 
     # Unzip the Release APK first.
     unzip release.apk
@@ -284,12 +287,12 @@ versions](https://developer.android.com/topic/performance/baselineprofiles/overv
     # Install APK + Profile together.
     adb install-multiple release.apk release.dm
 
-To verify that the package was optimized on install, run the following command:  
+To verify that the package was optimized on install, run the following command:
 
     # Check dexopt state.
     adb shell dumpsys package dexopt | grep -A 1 $PACKAGE_NAME
 
-The output must state that the package is compiled:  
+The output must state that the package is compiled:
 
     [com.example.app]
       path: /data/app/~~YvNxUxuP2e5xA6EGtM5i9A==/com.example.app-zQ0tkJN8tDrEZXTlrDUSBg==/base.apk
@@ -297,7 +300,7 @@ The output must state that the package is compiled:
 
 Now, you can measure app startup performance like before but without
 resetting the compiled state. Ensure that you don't reset the compiled state for
-the package.  
+the package.
 
     # Force stop app
     adb shell am force-stop $PACKAGE_NAME
@@ -305,7 +308,8 @@ the package.
     adb shell am start-activity -W -n $PACKAGE_NAME/.ExampleActivity \
      | grep "TotalTime"
 
-| **Note:** For greater stability and accuracy, it's recommended to use Macrobenchmark to measure performance impact, as it can measure repeatedly in a loop, capture traces for performance debugging, and increase reliability (for example, by clearing the operating system's disk cache).
+> [!NOTE]
+> **Note:** For greater stability and accuracy, it's recommended to use Macrobenchmark to measure performance impact, as it can measure repeatedly in a loop, capture traces for performance debugging, and increase reliability (for example, by clearing the operating system's disk cache).
 
 ## Baseline Profiles and profgen
 
@@ -322,7 +326,7 @@ compiled format. The CLI also ships in
 the [`cmdline-tools`](https://developer.android.com/studio/command-line) repository as part of the Android
 SDK.
 
-These features are available in the `studio-main` branch:  
+These features are available in the `studio-main` branch:
 
     ➜ ../cmdline-tools/latest/bin
     apkanalyzer
@@ -336,7 +340,7 @@ These features are available in the `studio-main` branch:
 ### Build compact binary profiles with Profgen-cli
 
 The commands available with Profgen-cli are `bin`, `validate`, and
-`dumpProfile`. To see the available commands, use `profgen --help`:  
+`dumpProfile`. To see the available commands, use `profgen --help`:
 
     ➜  profgen --help
     Usage: profgen options_list
@@ -349,7 +353,7 @@ The commands available with Profgen-cli are `bin`, `validate`, and
         --help, -h -> Usage info
 
 Use the `bin` command to generate the compact binary profile. The
-following is an example invocation:  
+following is an example invocation:
 
     profgen bin ./baseline-prof.txt \
       --apk ./release.apk \
@@ -357,7 +361,7 @@ following is an example invocation:
       --profile-format v0_1_0_p \
       --output ./baseline.prof \
 
-To see the available options, use `profgen bin options_list`:  
+To see the available options, use `profgen bin options_list`:
 
     Usage: profgen bin options_list
     Arguments:
@@ -387,7 +391,8 @@ can use to transcode one ART profile format to another when required.
 
 ### Profile formats and platform versions
 
-| **Note:** When bundling the profile in the `assets` folder, always target the format v0_1_0_p.
+> [!NOTE]
+> **Note:** When bundling the profile in the `assets` folder, always target the format v0_1_0_p.
 
 The following options are available when choosing a profile format:
 
@@ -423,7 +428,9 @@ The APK and DM are installed as part of a single install session using
 something like:
 
 `adb install-multiple base.apk base.dm`
-| **Note:** The right profile DM payload is delivered based on the device SDK version where the APK download request is being made from. Play generates a tuple by transcoding profiles packaged as v0_1_0_p to every known profile version in use to deliver the correct version.
+
+> [!NOTE]
+> **Note:** The right profile DM payload is delivered based on the device SDK version where the APK download request is being made from. Play generates a tuple by transcoding profiles packaged as v0_1_0_p to every known profile version in use to deliver the correct version.
 
 ### Jetpack ProfileInstaller
 
@@ -439,7 +446,9 @@ package-specific staging directory for ART profiles on the device).
 
 Once the device is idle, the profile is then picked up by a process called
 `bg-dexopt` on device.
-| **Note:** ProfileInstaller can backport ART profiles all the way to Android N, even though Play delivery of Baseline Profiles using `install-multiple` is only supported on Android P devices and later. Therefore, it's important to declare a dependency on the `ProfileInstaller` library when using Baseline Profiles.
+
+> [!NOTE]
+> **Note:** ProfileInstaller can backport ART profiles all the way to Android N, even though Play delivery of Baseline Profiles using `install-multiple` is only supported on Android P devices and later. Therefore, it's important to declare a dependency on the `ProfileInstaller` library when using Baseline Profiles.
 
 ### Sideload a Baseline Profile
 
@@ -448,7 +457,7 @@ This section describes how to install a Baseline Profile given an APK.
 #### Broadcast with `androidx.profileinstaller`
 
 On devices running API 24 and later, you can broadcast a command to install the
-profile:  
+profile:
 
     # Broadcast the install profile command - moves binary profile from assets
     #     to a location where ART uses it for the next compile.
@@ -474,7 +483,7 @@ library with a profile applies starting with Jetpack.
 On devices running API 28 and later, you can sideload a Baseline Profile
 without having to have the ProfileInstaller library in the app.
 
-To do so, use Profgen-cli:  
+To do so, use Profgen-cli:
 
     profgen extractProfile \
             --apk app-release.apk \
@@ -486,7 +495,7 @@ To do so, use Profgen-cli:
 
 To support APK splits, run the preceding extract profile steps once per APK. At
 install time, pass each APK and associated `.dm` file, ensuring the APK and
-`.dm` names match:  
+`.dm` names match:
 
     adb install-multiple appname-base.apk appname-base.dm \
     appname-split1.apk appname-split1.dm
@@ -499,7 +508,7 @@ To verify that the profile is correctly installed, you can use the steps from
 ### Dump the contents of a binary profile
 
 To introspect the contents of a compact binary version of a
-Baseline Profile, use the Profgen-cli `dumpProfile` option:  
+Baseline Profile, use the Profgen-cli `dumpProfile` option:
 
     Usage: profgen dumpProfile options_list
     Options:

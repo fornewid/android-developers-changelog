@@ -10,7 +10,7 @@ the `Screen` class and implement its [`onGetTemplate`](https://developer.android
 car screen.
 
 This code snippet shows how to declare a `Screen` that uses a
-[`PaneTemplate`](https://developer.android.com/reference/androidx/car/app/model/PaneTemplate) template to display a "Hello world!" string:  
+[`PaneTemplate`](https://developer.android.com/reference/androidx/car/app/model/PaneTemplate) template to display a "Hello world!" string:
 
 ### Kotlin
 

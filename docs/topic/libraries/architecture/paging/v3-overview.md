@@ -146,7 +146,9 @@ adapter that handles paginated data.
 Alternatively, you can use the included
 [`AsyncPagingDataDiffer`](https://developer.android.com/reference/kotlin/androidx/paging/AsyncPagingDataDiffer)
 component to build your own custom adapter.
-| **Note:** If your app uses [Compose](https://developer.android.com/jetpack/compose) for its UI, use the [`androidx.paging:paging-compose`](https://developer.android.com/reference/kotlin/androidx/paging/compose/package-summary) artifact to integrate Paging with your UI layer instead. To learn more, see the API documentation for [`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/package-summary#collectaslazypagingitems).
+
+> [!NOTE]
+> **Note:** If your app uses [Compose](https://developer.android.com/jetpack/compose) for its UI, use the [`androidx.paging:paging-compose`](https://developer.android.com/reference/kotlin/androidx/paging/compose/package-summary) artifact to integrate Paging with your UI layer instead. To learn more, see the API documentation for [`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/package-summary#collectaslazypagingitems).
 
 ## Additional resources
 

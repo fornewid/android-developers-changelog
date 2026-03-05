@@ -161,7 +161,7 @@ example:
     <CheckBox
         android:id="@+id/rememberMeCheckBox"
         android:checked="@{viewmodel.rememberMe}"
-        android:onCh>eckedChanged="@{() - viewmode>l.rememberMeChanged()}" /
+        android:onCheckedChanged="@{() -> viewmodel.rememberMeChanged()}" />
 
 ## Use an Observable ViewModel for more control over binding adapters
 

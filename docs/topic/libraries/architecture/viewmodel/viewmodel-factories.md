@@ -5,8 +5,6 @@ source: md.txt
 ---
 
 # Create ViewModels with dependencies
-
-# Create ViewModels with dependencies
 Part of [Android Jetpack](https://developer.android.com/jetpack).
 
 Following [dependency injection's](https://developer.android.com/dependency-injection) best practices, ViewModels can
@@ -15,9 +13,13 @@ from the [domain](https://developer.android.com/topic/architecture/domain-layer)
 ViewModels, a special mechanism is required to create instances of them. That
 mechanism is the `ViewModelProvider.Factory` interface. Only **implementations
 of this interface can instantiate ViewModels in the right scope**.
-| **Note:** If the `ViewModel` takes no dependencies or just the [SavedStateHandle
-| type as a dependency](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate), you don't need to provide a factory for the framework to instantiate instances of that `ViewModel` type.
-| **Note:** When [injecting ViewModels using Hilt](https://developer.android.com/training/dependency-injection/hilt-jetpack#viewmodels) as a dependency injection solution, you don't have to define a `ViewModel` factory manually. Hilt generates a factory that knows how to create all ViewModels annotated with `@HiltViewModel` for you at compile time. Classes annotated with `@AndroidEntryPoint` can directly access the Hilt generated factory when calling the regular `ViewModel` APIs.
+
+> [!NOTE]
+> **Note:** If the `ViewModel` takes no dependencies or just the [SavedStateHandle
+> type as a dependency](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate), you don't need to provide a factory for the framework to instantiate instances of that `ViewModel` type.
+
+> [!NOTE]
+> **Note:** When [injecting ViewModels using Hilt](https://developer.android.com/training/dependency-injection/hilt-jetpack#viewmodels) as a dependency injection solution, you don't have to define a `ViewModel` factory manually. Hilt generates a factory that knows how to create all ViewModels annotated with `@HiltViewModel` for you at compile time. Classes annotated with `@AndroidEntryPoint` can directly access the Hilt generated factory when calling the regular `ViewModel` APIs.
 
 ## ViewModels with CreationExtras
 
@@ -29,13 +31,13 @@ new instance of the ViewModel.
 [`CreationExtras`](https://developer.android.com/reference/androidx/lifecycle/viewmodel/CreationExtras) allows you to access relevant information that helps
 instantiate a ViewModel. Here's a list of keys that can be accessed from extras:
 
-|                                                                                               Key                                                                                               |                                           Functionality                                           |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| [`ViewModelProvider.NewInstanceFactory.VIEW_MODEL_KEY`](https://developer.android.com/reference/androidx/lifecycle/ViewModelProvider.NewInstanceFactory.Companion#VIEW_MODEL_KEY())             | Provides access to the custom key you passed to `ViewModelProvider.get()`.                        |
-| [`ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY`](https://developer.android.com/reference/androidx/lifecycle/ViewModelProvider.AndroidViewModelFactory.Companion#APPLICATION_KEY()) | Provides access to the instance of the `Application` class.                                       |
-| [`SavedStateHandleSupport.DEFAULT_ARGS_KEY`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary#DEFAULT_ARGS_KEY())                                              | Provides access to the Bundle of arguments you should use to construct `SavedStateHandle`.        |
-| [`SavedStateHandleSupport.SAVED_STATE_REGISTRY_OWNER_KEY`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary#SAVED_STATE_REGISTRY_OWNER_KEY())                  | Provides access to the `SavedStateRegistryOwner` that is being used to construct the `ViewModel`. |
-| [`SavedStateHandleSupport.VIEW_MODEL_STORE_OWNER_KEY`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary#VIEW_MODEL_STORE_OWNER_KEY())                          | Provides access to the `ViewModelStoreOwner` that is being used to construct the `ViewModel`.     |
+| Key | Functionality |
+|---|---|
+| [`ViewModelProvider.NewInstanceFactory.VIEW_MODEL_KEY`](https://developer.android.com/reference/androidx/lifecycle/ViewModelProvider.NewInstanceFactory.Companion#VIEW_MODEL_KEY()) | Provides access to the custom key you passed to `ViewModelProvider.get()`. |
+| [`ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY`](https://developer.android.com/reference/androidx/lifecycle/ViewModelProvider.AndroidViewModelFactory.Companion#APPLICATION_KEY()) | Provides access to the instance of the `Application` class. |
+| [`SavedStateHandleSupport.DEFAULT_ARGS_KEY`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary#DEFAULT_ARGS_KEY()) | Provides access to the Bundle of arguments you should use to construct `SavedStateHandle`. |
+| [`SavedStateHandleSupport.SAVED_STATE_REGISTRY_OWNER_KEY`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary#SAVED_STATE_REGISTRY_OWNER_KEY()) | Provides access to the `SavedStateRegistryOwner` that is being used to construct the `ViewModel`. |
+| [`SavedStateHandleSupport.VIEW_MODEL_STORE_OWNER_KEY`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary#VIEW_MODEL_STORE_OWNER_KEY()) | Provides access to the `ViewModelStoreOwner` that is being used to construct the `ViewModel`. |
 
 To create a new instance of [`SavedStateHandle`](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate), use the
 [`CreationExtras.createSavedStateHandle()`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandleSupport#(androidx.lifecycle.viewmodel.CreationExtras)
@@ -45,7 +47,7 @@ function and pass it to the ViewModel.
 
 The following is an example of how to provide an instance of a `ViewModel` that
 takes a [repository](https://developer.android.com/topic/architecture/data-layer#architecture) scoped to the `Application` class and
-`SavedStateHandle` as dependencies:  
+`SavedStateHandle` as dependencies:
 
 ### Kotlin
 
@@ -115,9 +117,10 @@ takes a [repository](https://developer.android.com/topic/architecture/data-layer
         );
     }
 
-| **Note:** It's a good practice to place `ViewModel` factories in their ViewModel file for better context, readability, and easier discovery. The same ViewModel factory can be used for multiple ViewModels when they share dependencies, as it's the case for the [Architecture Blueprints](https://github.com/android/architecture-samples/blob/views/app/src/main/java/com/example/android/architecture/blueprints/todoapp/ViewModelFactory.kt) sample.
+> [!NOTE]
+> **Note:** It's a good practice to place `ViewModel` factories in their ViewModel file for better context, readability, and easier discovery. The same ViewModel factory can be used for multiple ViewModels when they share dependencies, as it's the case for the [Architecture Blueprints](https://github.com/android/architecture-samples/blob/views/app/src/main/java/com/example/android/architecture/blueprints/todoapp/ViewModelFactory.kt) sample.
 
-Then, you can use this factory when retrieving an instance of the ViewModel:  
+Then, you can use this factory when retrieving an instance of the ViewModel:
 
 ### Kotlin
 
@@ -158,7 +161,7 @@ Then, you can use this factory when retrieving an instance of the ViewModel:
     }
 
 Alternatively, use the `ViewModel` factory DSL to create factories using a more
-idiomatic Kotlin API:  
+idiomatic Kotlin API:
 
     import androidx.lifecycle.SavedStateHandle
     import androidx.lifecycle.ViewModel
@@ -199,7 +202,7 @@ this is when your `ViewModel` is created inside a Kotlin
 Multiplatform module and therefore does not have access to Android dependencies.
 
 In this example, the `ViewModel` defines a custom key and uses it in the
-`ViewModelProvider.Factory`.  
+`ViewModelProvider.Factory`.
 
     import androidx.lifecycle.ViewModel
     import androidx.lifecycle.ViewModelProvider
@@ -234,7 +237,7 @@ In this example, the `ViewModel` defines a custom key and uses it in the
 You can instantiate a `ViewModel` with a `CreationExtras.Key` from a
 [`ViewModelStoreOwner`](https://developer.android.com/reference/androidx/lifecycle/ViewModelStoreOwner) such as
 `ComponentActivity`, `Fragment`, or `NavBackStackEntry`, or with
-Jetpack Compose.  
+Jetpack Compose.
 
 ### Kotlin
 
@@ -285,7 +288,7 @@ If `Application` or `SavedStateHandle` aren't needed, simply extend from
 
 The following example uses an [`AbstractSavedStateViewModelFactory`](https://developer.android.com/reference/androidx/lifecycle/AbstractSavedStateViewModelFactory) for a
 ViewModel that takes a repository and a [`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle#getStateFlow(kotlin.String,kotlin.Any)) type as a
-dependency:  
+dependency:
 
 ### Kotlin
 
@@ -350,9 +353,10 @@ dependency:
         }
     }
 
-| **Warning:** if you're using a version of `ViewModel` older than 2.5.0, you might have the option to override a create function with `CreationExtras` in its signature. Don't override that function. Instead, override the `create` function that has the `key, modelClass` and `savedStateHandle` parameters.
+> [!WARNING]
+> **Warning:** if you're using a version of `ViewModel` older than 2.5.0, you might have the option to override a create function with `CreationExtras` in its signature. Don't override that function. Instead, override the `create` function that has the `key, modelClass` and `savedStateHandle` parameters.
 
-Then, you can use factory to retrieve your ViewModel:  
+Then, you can use factory to retrieve your ViewModel:
 
 ### Kotlin
 

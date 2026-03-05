@@ -11,7 +11,8 @@ non-Android platforms.
 
 ## Prerequisites
 
-| **Important:** [Express interest in developing the Video Discovery API](http://g.co/tv/vda).
+> [!IMPORTANT]
+> **Important:** [Express interest in developing the Video Discovery API](http://g.co/tv/vda).
 
 - You must first finish the [on-device Engage SDK-based](https://developer.android.com/guide/playcore/engage/tv/continue-watching-client) integration. This critical step establishes the necessary association between Google's user ID and your app's `AccountProfile`.
 - API Access and Authentication: To view and enable the API in your Google Cloud Project, you must go through an allowlist process. All API requests require authentication.
@@ -24,16 +25,16 @@ your account needs to be enrolled.
 1. Google Workspace Customer ID should be available. If not available, you may need to set up a Google Workspace as well as any Google Accounts you want to use to call the API.
 2. Set up an account with Google Cloud Console using an email associated with the Google Workspace.
 3. [Create a new project](https://support.google.com/googleapi/answer/6251787?ref_topic=7014522#zippy=%2Ccreate-a-project).
-4. Create a [service account](https://developer.android.com/identity/protocols/oauth2/service-account) for API Authentication. Once you create the service account, you will have two items:
+4. Create a [service account](https://developers.google.com/identity/protocols/oauth2/service-account) for API Authentication. Once you create the service account, you will have two items:
    - A service account ID.
    - A JSON file with your service account key. Keep this file secure. You'll need it to authenticate your client to the API later.
 5. Workspace and associated Google Accounts can now be able to use REST APIs. Once the change has propagated you will be notified whether the API is ready to be called by your service accounts.
-6. Follow these [steps](https://developer.android.com/identity/protocols/oauth2/service-account#authorizingrequests) to prepare to make a delegated API call.
+6. Follow these [steps](https://developers.google.com/identity/protocols/oauth2/service-account#authorizingrequests) to prepare to make a delegated API call.
 
 ## Publish Continuation Cluster
 
 To publish the video discovery data, perform a POST request to the
-`publishContinuationCluster` API using the following syntax.  
+`publishContinuationCluster` API using the following syntax.
 
     https://tvvideodiscovery.googleapis.com/v1/packages/{package_name}/accounts/{account_id}/profiles/{profile_id}/publishContinuationCluster
 
@@ -43,7 +44,7 @@ Where:
 - `accountId`: The unique ID for the user's account in your system. It must match the `accountId` used in the on-device path.
 - `profileId`: The unique ID for the user's profile within the account in your system. It must match the profileId used in the on-device path.
 
-The URL for the account without profile is:  
+The URL for the account without profile is:
 
     https://tvvideodiscovery.googleapis.com/v1/packages/{package_name}/accounts/{account_id}/publishContinuationCluster
 
@@ -70,7 +71,7 @@ namely [`MovieEntity`](https://developer.android.com/reference/com/google/androi
 fields.
 
 The following code snippet showcases the request body payload for the
-`publishContinuationCluster` API.  
+`publishContinuationCluster` API.
 
     {
       "entities": [
@@ -119,7 +120,7 @@ The following code snippet showcases the request body payload for the
 Use the `clearClusters` API to remove the video discovery data.
 
 To delete the continuation cluster data, perform a POST request to the
-`clearClusters` API using the following syntax.  
+`clearClusters` API using the following syntax.
 
     https://tvvideodiscovery.googleapis.com/v1/packages/{package_name}/accounts/{account_id}/profiles/{profile_id}/clearClusters
 
@@ -131,7 +132,7 @@ Where:
 
 The payload for the `clearClusters` API contains only one field, `reason`, which
 contains a [`DeleteReason`](https://developer.android.com/reference/com/google/android/engage/service/DeleteReason) that specifies the reason for
-removing data.  
+removing data.
 
     {
       "reason": "DELETE_REASON_LOSS_OF_CONSENT"

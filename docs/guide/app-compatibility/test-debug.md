@@ -39,7 +39,8 @@ a device's developer options. To access these options, follow these steps:
 2. Open your device's Settings app and navigate to **System \> Advanced \> Developer options \> App Compatibility Changes**.
 3. Select your app from the list.
 
-   | **Note:** You must use a [debuggable build variant](https://developer.android.com/studio/debug#enable-debug) of your app to toggle changes on and off.
+   > [!NOTE]
+   > **Note:** You must use a [debuggable build variant](https://developer.android.com/studio/debug#enable-debug) of your app to toggle changes on and off.
 
 Each behavior change usually belongs to one of the following two categories:
 
@@ -60,7 +61,9 @@ Each behavior change usually belongs to one of the following two categories:
   **Enabled for targetSdkVersion \>=33** . On some lower versions of Android,
   this section is titled "Enabled After SDK <var translate="no">API_LEVEL</var>"
   instead.
-  | **Note:** During the Android 15 preview until the API level is finalized, some changes that are only enabled when targeting Android 15 use a value of `10000` for the API level instead of the eventual, presumed API level of `35`.
+
+  > [!NOTE]
+  > **Note:** During the Android 15 preview until the API level is finalized, some changes that are only enabled when targeting Android 15 use a value of `10000` for the API level instead of the eventual, presumed API level of `35`.
 
 You'll also notice a section in figure 1 called **Default Disabled Changes** .
 Changes that fall into this section can serve a variety of purposes. Before
@@ -70,11 +73,12 @@ framework list for that Android version](https://developer.android.com/guide/app
 ### Identify enabled changes using logcat
 
 For each behavior change, the first time during your app's process when your app
-calls the affected API, the system outputs a logcat message like this one:  
+calls the affected API, the system outputs a logcat message like this one:
 
     D CompatibilityChangeReporter: Compat change id reported: 194833441; UID 10265; state: ENABLED
 
-| **Note:** Each change is only logged, at most, once per process. Force stop and restart your app's process to ensure that you see all relevant logcat messages.
+> [!NOTE]
+> **Note:** Each change is only logged, at most, once per process. Force stop and restart your app's process to ensure that you see all relevant logcat messages.
 
 Each logcat message includes the following information:
 
@@ -102,7 +106,7 @@ State
 ### Identify enabled changes using ADB
 
 Run the following ADB command to see the complete set of changes (both enabled
-and disabled) on the entire device:  
+and disabled) on the entire device:
 
 ```
 adb shell dumpsys platform_compat
@@ -131,14 +135,14 @@ Package overrides
 
     For example, if this is a change that is enabled by default, your app's
     package name would be listed if you toggled the change off using either the
-    developer options or ADB. In this case, the output would be:  
+    developer options or ADB. In this case, the output would be:
 
         packageOverrides={com.my.package=false}
 
     Changes that are gated by `targetSDKVersion` can be either enabled or
     disabled by default, so the list of packages can include instances of both
     `true` or `false`, depending on each of those app's `targetSDKVersion`. For
-    example:  
+    example:
 
         packageOverrides={com.my.package=true, com.another.package=false}
 
@@ -229,7 +233,9 @@ The compatibility framework lets you toggle each change on or off using the
 developer options or ADB commands. Because toggling changes on or off can cause
 your app to crash or disable important security changes, there are some
 [restrictions on when you can toggle changes](https://developer.android.com/guide/app-compatibility/test-debug#restrictions).
-| **Note:** Whenever you toggle a change for an app using either the developer options or ADB commands, the app will be killed to ensure that your override takes effect immediately.
+
+> [!NOTE]
+> **Note:** Whenever you toggle a change for an app using either the developer options or ADB commands, the app will be killed to ensure that your override takes effect immediately.
 
 ### Toggle changes using the developer options
 
@@ -247,18 +253,18 @@ options, follow these steps:
 
 ### Toggle changes using ADB
 
-To toggle a change on or off using ADB, run one of the following commands:  
+To toggle a change on or off using ADB, run one of the following commands:
 
-    adb shell am compat enable (<var translate="no">CHANGE_ID</var>|<var translate="no">CHANGE_NAME</var>) <var translate="no">PACKAGE_NAME</var>
-    adb shell am compat disable (<var translate="no">CHANGE_ID</var>|<var translate="no">CHANGE_NAME</var>) <var translate="no">PACKAGE_NAME</var>
+    adb shell am compat enable (CHANGE_ID|CHANGE_NAME) PACKAGE_NAME
+    adb shell am compat disable (CHANGE_ID|CHANGE_NAME) PACKAGE_NAME
 
-Pass either the <var translate="no">CHANGE_ID</var> (for example, `194833441`) or
-the <var translate="no">CHANGE_NAME</var> (for example,
+Pass either the `CHANGE_ID` (for example, `194833441`) or
+the `CHANGE_NAME` (for example,
 `NOTIFICATION_PERM_CHANGE_ID`) and your app's
-<var translate="no">PACKAGE_NAME</var>.
+`PACKAGE_NAME`.
 
 You can also use the following command to reset a change back to its default
-state, removing any override that you've set using ADB or the developer options:  
+state, removing any override that you've set using ADB or the developer options:
 
 ```
 adb shell am compat reset (CHANGE_ID|CHANGE_NAME) PACKAGE_NAME
@@ -283,5 +289,5 @@ you are allowed to toggle different types of changes:
 | Build type |
 |---|---|---|---|
 | **All changes** | **Changes gated by targetSDKVersion** | **All other changes** |
-| Developer Preview or Beta build | Can't toggle | Can toggle | Can toggle |
-| Public user build | Can't toggle | Can toggle | Can't toggle |
+| Developer Preview or Beta build | NoCan't toggle | Yes Can toggle | Yes Can toggle |
+| Public user build | NoCan't toggle | Yes Can toggle | NoCan't toggle |

@@ -12,7 +12,9 @@ stereo system](https://www.android.com/auto/compatibility/). They
 can use your app directly on their car's display by connecting their phone. You
 enable Android Auto to connect with your phone app by creating services that
 Android Auto uses to display a driver-optimized interface to the driver.
-| **Note:** Android Auto is only compatible with phones running Android 9 (API level 28) or higher.
+
+> [!NOTE]
+> **Note:** Android Auto is only compatible with phones running Android 9 (API level 28) or higher.
 
 ## How apps declare support for Android Auto
 
@@ -22,7 +24,7 @@ category.
 ### Media, messaging, and templated apps
 
 Media, messaging, and templated apps declare support for Android Auto by
-including the following `<meta-data>` element in their manifest:  
+including the following `<meta-data>` element in their manifest:
 
     <application>
         ...
@@ -32,7 +34,7 @@ including the following `<meta-data>` element in their manifest:
         ...
     </application>
 
-The contents of the resource file vary depending on your app's category:  
+The contents of the resource file vary depending on your app's category:
 
 ### Media
 
@@ -77,7 +79,7 @@ See [Add support for Android Auto to your templated app](https://developer.andro
 ### Parked apps
 
 Parked apps declare support for Android Auto by including the following
-`<category>` element in the intent-filter of an activity in your app's manifest:  
+`<category>` element in the intent-filter of an activity in your app's manifest:
 
     <activity ...>
         <intent-filter>
@@ -141,7 +143,9 @@ sources include the following:
 To detect whether Android Auto is running on a device, you can use the
 `CarConnection` API that is part of the Android for Cars App Library. See
 [Connection API](https://developer.android.com/training/cars/apps#car-connection) for more details.
-| **Caution:** On devices running Android 12 or higher, Android Auto doesn't change the [UI mode](https://developer.android.com/reference/android/content/res/Configuration#uiMode) of the device when running, so don't rely on it.
+
+> [!CAUTION]
+> **Caution:** On devices running Android 12 or higher, Android Auto doesn't change the [UI mode](https://developer.android.com/reference/android/content/res/Configuration#uiMode) of the device when running, so don't rely on it.
 
 ### In which vehicles is Android Auto available?
 

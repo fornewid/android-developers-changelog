@@ -7,7 +7,9 @@ source: md.txt
 If your app needs access to restricted data or actions---for example,
 location---the [standard rules of Android permissions](https://developer.android.com/guide/topics/permissions/overview) apply. To request
 a permission, you can use the [`CarContext.requestPermissions()`](https://developer.android.com/reference/androidx/car/app/CarContext#requestPermissions(java.util.List%3Cjava.lang.String%3E,%20java.util.concurrent.Executor,%20androidx.car.app.OnRequestPermissionsListener)) method.
-| **Warning:** You must update to `androidx.car.app:1.7.0-alpha01` or later for the permissions dialog to show up on the phone screen when your app is used on a device running Android 14 or higher.
+
+> [!WARNING]
+> **Warning:** You must update to `androidx.car.app:1.7.0-alpha01` or later for the permissions dialog to show up on the phone screen when your app is used on a device running Android 14 or higher.
 
 The benefit of using `CarContext.requestPermissions()`, as opposed to using
 [standard Android APIs](https://developer.android.com/training/permissions/requesting#request-permission), is that you needn't launch your own `Activity` to

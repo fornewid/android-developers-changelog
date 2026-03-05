@@ -205,9 +205,9 @@ when {
         // features are disabled if it's declined. In this UI, include a
         // "cancel" or "no thanks" button that lets the user continue
         // using your app without granting the permission.
-        showInContext>UI(...)
+        showInContextUI(...)
     }
-    else - {
+    else -> {
         // You can directly ask for the permission.
         requestPermissions(CONTEXT,
                 arrayOf(Manifest.permission.REQUESTED_PERMISSION),
@@ -260,9 +260,9 @@ when {
         // features are disabled if it's declined. In this UI, include a
         // "cancel" or "no thanks" button that lets the user continue
         // using your app without granting the permission.
-        showInContext>UI(...)
+        showInContextUI(...)
     }
-    else - {
+    else -> {
         // You can directly ask for the permission.
         // The registered ActivityResultCallback gets the result of this request.
         requestPermissionLauncher.launch(
@@ -325,9 +325,9 @@ when {
         // features are disabled if it's declined. In this UI, include a
         // "cancel" or "no thanks" button that lets the user continue
         // using your app without granting the permission.
-        showInContext>UI(...)
+        showInContextUI(...)
     }
-    else - {
+    else -> {
         // You can directly ask for the permission.
         requestPermissions(CONTEXT,
                 arrayOf(Manifest.permission.REQUESTED_PERMISSION),

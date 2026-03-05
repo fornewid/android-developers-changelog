@@ -65,7 +65,8 @@ feature lets you:
 - Create debug tracks from queries to make it easier to visualize the things you care about most in the Perfetto UI.
 - Perform complex analyses directly within the Perfetto UI.
 
-| **Note:** For more information about tracing, see [What is Tracing?](https://perfetto.dev/docs/tracing-101).
+> [!NOTE]
+> **Note:** For more information about tracing, see [What is Tracing?](https://perfetto.dev/docs/tracing-101).
 
 ## Stack sample profiles
 

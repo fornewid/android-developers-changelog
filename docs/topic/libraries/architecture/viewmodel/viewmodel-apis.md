@@ -11,7 +11,9 @@ Scope is key to using ViewModels effectively. Each ViewModel is scoped to an
 object that implements the [`ViewModelStoreOwner`](https://developer.android.com/reference/androidx/lifecycle/ViewModelStoreOwner) interface. There are
 several APIs that allow you to more easily manage the scope of your ViewModels.
 This document outlines some of the key techniques you should know.
-| **Note:** For more information on scope and ViewModel lifecycle, see the [ViewModel Overview](https://developer.android.com/topic/libraries/architecture/viewmodel#scope).
+
+> [!NOTE]
+> **Note:** For more information on scope and ViewModel lifecycle, see the [ViewModel Overview](https://developer.android.com/topic/libraries/architecture/viewmodel#scope).
 
 The `ViewModelProvider.get()` method lets you obtain an instance of a ViewModel
 scoped to any `ViewModelStoreOwner`. For Kotlin users, there are different
@@ -25,7 +27,7 @@ Navigation graph. The
 [`viewModels()`](https://developer.android.com/reference/kotlin/androidx/activity/package-summary#(androidx.activity.ComponentActivity)) extension
 functions provided by the Activity, Fragment and Navigation libraries, and the
 `viewModel()` function in Compose allows you to get an instance of the ViewModel
-scoped to the closest `ViewModelStoreOwner`.  
+scoped to the closest `ViewModelStoreOwner`.
 
 ### Views
 
@@ -79,7 +81,9 @@ fun MyScreen(
     viewModel: MyViewModel = viewModel()
 ) { /* ... */ }
 ```
-| **Note:** If you're using Hilt and Jetpack Compose, replace the `viewModel()` calls with `hiltViewModel()` as explained in the [Compose + Hilt documentation](https://developer.android.com/jetpack/compose/libraries#hilt).
+
+> [!NOTE]
+> **Note:** If you're using Hilt and Jetpack Compose, replace the `viewModel()` calls with `hiltViewModel()` as explained in the [Compose + Hilt documentation](https://developer.android.com/jetpack/compose/libraries#hilt).
 
 ## ViewModels scoped to any ViewModelStoreOwner
 
@@ -88,7 +92,7 @@ the View system and the `viewModel()` function in Compose take an optional
 `ownerProducer` parameter that you can use to specify to which
 `ViewModelStoreOwner` the instance of the ViewModel is scoped to.
 The following sample shows how to get an instance of a ViewModel scoped to the
-parent fragment:  
+parent fragment:
 
 ### Views
 
@@ -143,7 +147,7 @@ fun MyScreen(
 Getting an Activity-scoped ViewModel from a Fragment is a common use case. When
 doing so, use the [`activityViewModels()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/package-summary#(androidx.fragment.app.Fragment).activityViewModels(kotlin.Function0,kotlin.Function0))
 Views extension function is available. If you're not using Views and Kotlin,
-you can use the same APIs as above and by passing the right owner.  
+you can use the same APIs as above and by passing the right owner.
 
 ### Views
 
@@ -192,7 +196,9 @@ fun MyScreen(
     )
 ) { /* ... */ }
 ```
-| **Note:** If you're using Hilt and Jetpack Compose, replace the `viewModel()` calls with `hiltViewModel()` as explained in the [Compose + Hilt documentation](https://developer.android.com/jetpack/compose/libraries#hilt).
+
+> [!NOTE]
+> **Note:** If you're using Hilt and Jetpack Compose, replace the `viewModel()` calls with `hiltViewModel()` as explained in the [Compose + Hilt documentation](https://developer.android.com/jetpack/compose/libraries#hilt).
 
 ## ViewModels scoped to the Navigation graph
 
@@ -201,7 +207,7 @@ Navigation graphs are also ViewModel store owners. If you're using
 [Navigation Compose](https://developer.android.com/jetpack/compose/navigation), you can get an instance of a
 ViewModel scoped to a Navigation graph with the
 [`navGraphViewModels(graphId)`](https://developer.android.com/reference/kotlin/androidx/navigation/package-summary#(androidx.fragment.app.Fragment).navGraphViewModels(kotlin.Int,kotlin.Function0,kotlin.Function0))
-Views extension function.  
+Views extension function.
 
 ### Views
 
@@ -263,7 +269,7 @@ fun MyAppNavHost() {
 
 If you're using Hilt in addition to Jetpack Navigation, you can use the
 [`hiltNavGraphViewModels(graphId)`](https://developer.android.com/reference/kotlin/androidx/hilt/navigation/fragment/package-summary#hiltnavgraphviewmodels)
-API as follows.  
+API as follows.
 
 ### Views
 

@@ -25,7 +25,7 @@ The main components of Espresso include the following:
 - **ViewActions** -- A collection of `ViewAction` objects that can be passed to the `ViewInteraction.perform()` method, such as `click()`.
 - **ViewAssertions** -- A collection of `ViewAssertion` objects that can be passed the `ViewInteraction.check()` method. Most of the time, you will use the matches assertion, which uses a View matcher to assert the state of the currently selected view.
 
-Example:  
+Example:
 
 ### Kotlin
 
@@ -71,7 +71,7 @@ particular view.
 Espresso handles this problem cleanly by allowing you to narrow down the view
 using either existing `ViewMatcher` objects or your own custom ones.
 
-Finding a view by its `R.id` is as simple as calling `onView()`:  
+Finding a view by its `R.id` is as simple as calling `onView()`:
 
 ### Kotlin
 
@@ -89,7 +89,7 @@ Sometimes, `R.id` values are shared between multiple views. When this happens an
 attempt to use a particular `R.id` gives you an exception, such as
 `AmbiguousViewMatcherException`. The exception message provides you with a text
 representation of the current view hierarchy, which you can search for and find
-the views that match the non-unique `R.id`:  
+the views that match the non-unique `R.id`:
 
 ```
 java.lang.RuntimeException:
@@ -116,7 +116,7 @@ root-is-layout-requested=false, x=0.0, y=0.0, child-count=1}
 Looking through the various attributes of the views, you may find uniquely
 identifiable properties. In the example above, one of the views has the text
 `"Hello!"`. You can use this to narrow down your search by using combination
-matchers:  
+matchers:
 
 ### Kotlin
 
@@ -130,7 +130,7 @@ onView(allOf(withId(R.id.my_view), withText("Hello!")))
 onView(allOf(withId(R.id.my_view), withText("Hello!")));
 ```
 
-You can also choose not to reverse any of the matchers:  
+You can also choose not to reverse any of the matchers:
 
 ### Kotlin
 
@@ -158,7 +158,7 @@ for the view matchers provided by Espresso.
 When you have found a suitable matcher for the target view, it is possible to
 perform instances of `ViewAction` on it using the perform method.
 
-For example, to click on the view:  
+For example, to click on the view:
 
 ### Kotlin
 
@@ -172,7 +172,7 @@ onView(...).perform(click())
 onView(...).perform(click());
 ```
 
-You can execute more than one action with one perform call:  
+You can execute more than one action with one perform call:
 
 ### Kotlin
 
@@ -189,7 +189,7 @@ onView(...).perform(typeText("Hello"), click());
 If the view you are working with is located inside a `ScrollView` (vertical or
 horizontal), consider preceding actions that require the view to be
 displayed---such as `click()` and `typeText()`---with `scrollTo()`. This
-ensures that the view is displayed before proceeding to the other action:  
+ensures that the view is displayed before proceeding to the other action:
 
 ### Kotlin
 
@@ -202,7 +202,9 @@ onView(...).perform(scrollTo(), click())
 ```java
 onView(...).perform(scrollTo(), click());
 ```
-| **Note:** The `scrollTo()` method will have no effect if the view is already displayed so you can safely use it in cases when the view is displayed due to larger screen size, such as when your tests run on both smaller and larger screen resolutions.
+
+> [!NOTE]
+> **Note:** The `scrollTo()` method will have no effect if the view is already displayed so you can safely use it in cases when the view is displayed due to larger screen size, such as when your tests run on both smaller and larger screen resolutions.
 
 See [`ViewActions`](https://developer.android.com/reference/androidx/test/espresso/action/ViewActions)
 for the view actions provided by Espresso.
@@ -213,7 +215,7 @@ Assertions can be applied to the currently selected view with the `check()`
 method. The most used assertion is the `matches()` assertion. It uses a
 `ViewMatcher` object to assert the state of the currently selected view.
 
-For example, to check that a view has the text `"Hello!"`:  
+For example, to check that a view has the text `"Hello!"`:
 
 ### Kotlin
 
@@ -226,9 +228,11 @@ onView(...).check(matches(withText("Hello!")))
 ```java
 onView(...).check(matches(withText("Hello!")));
 ```
-| **Note:** Do not put "assertions" into the `onView()` argument. Instead, clearly specify what you are checking inside the check block.
 
-If you want to assert that `"Hello!"` is content of the view, the following is considered bad practice:  
+> [!NOTE]
+> **Note:** Do not put "assertions" into the `onView()` argument. Instead, clearly specify what you are checking inside the check block.
+
+If you want to assert that `"Hello!"` is content of the view, the following is considered bad practice:
 
 ### Kotlin
 
@@ -247,7 +251,9 @@ onView(allOf(withId(...), withText("Hello!"))).check(matches(isDisplayed()));
 On the other hand, if you want to assert that a view with the text `"Hello!"` is
 visible---for example after a change of the views visibility flag---the
 code is fine.
-| **Note:** Be sure to pay attention to the difference between asserting that a view is not displayed and asserting that a view is not present in the view hierarchy.
+
+> [!NOTE]
+> **Note:** Be sure to pay attention to the difference between asserting that a view is not displayed and asserting that a view is not present in the view hierarchy.
 
 ### View assertion simple test
 
@@ -259,7 +265,7 @@ Here's how to test this with Espresso:
 #### Click on the button
 
 The first step is to look for a property that helps to find the button. The
-button in the `SimpleActivity` has a unique `R.id`, as expected.  
+button in the `SimpleActivity` has a unique `R.id`, as expected.
 
 ### Kotlin
 
@@ -273,7 +279,7 @@ onView(withId(R.id.button_simple))
 onView(withId(R.id.button_simple));
 ```
 
-Now to perform the click:  
+Now to perform the click:
 
 ### Kotlin
 
@@ -289,7 +295,7 @@ onView(withId(R.id.button_simple)).perform(click());
 
 #### Verify the TextView text
 
-The `TextView` with the text to verify has a unique `R.id` too:  
+The `TextView` with the text to verify has a unique `R.id` too:
 
 ### Kotlin
 
@@ -303,7 +309,7 @@ onView(withId(R.id.text_simple))
 onView(withId(R.id.text_simple));
 ```
 
-Now to verify the content text:  
+Now to verify the content text:
 
 ### Kotlin
 
@@ -328,7 +334,9 @@ opposed to static widgets like `LinearLayout`, only a subset of the
 Espresso handles this by providing a separate `onData()` entry point which is
 able to first load the adapter item in question, bringing it into focus prior to
 operating on it or any of its children.
-| **Note:** You may choose to bypass the `onData()` loading action for items in adapter views that are initially displayed on screen because they are already loaded. However, it is safer to always use `onData()`.
+
+> [!NOTE]
+> **Note:** You may choose to bypass the `onData()` loading action for items in adapter views that are initially displayed on screen because they are already loaded. However, it is safer to always use `onData()`.
 
 **Warning:** Custom implementations of
 `AdapterView` can have problems with the `onData()`
@@ -371,7 +379,7 @@ For the item selection, the `Spinner` creates a `ListView` with its contents.
 This view can be very long, and the element might not be contributed to the view
 hierarchy. By using `onData()` we force our desired element into the view
 hierarchy. The items in the `Spinner` are strings, so we want to match an item
-that is equal to the String `"Americano"`:  
+that is equal to the String `"Americano"`:
 
 ### Kotlin
 
@@ -408,7 +416,7 @@ Espresso provides useful debugging information when a test fails:
 
 ### Logging
 
-Espresso logs all view actions to logcat. For example:  
+Espresso logs all view actions to logcat. For example:
 
 ```
 ViewInteraction: Performing 'single click' action on view with text: Espresso

@@ -32,4 +32,6 @@ methods and events.
 *Active tiles* are tiles which have been added for display on the watch. Use
 `TileService`'s static method [`getActiveTilesAsync()`](https://developer.android.com/reference/androidx/wear/tiles/TileService#getActiveTilesAsync(android.content.Context,java.util.concurrent.Executor)) to query which tiles
 *belonging to your app* are active.
-| **Caution:** The result reflects the list of active tiles at the time the call was made, which might have changed by the time the result is received. Use `onTileAddEvent()` and `onTileRemoveEvent()` callbacks for scheduling actions that need to happen when your tile becomes either active or inactive.
+
+> [!CAUTION]
+> **Caution:** The result reflects the list of active tiles at the time the call was made, which might have changed by the time the result is received. Use `onTileAddEvent()` and `onTileRemoveEvent()` callbacks for scheduling actions that need to happen when your tile becomes either active or inactive.

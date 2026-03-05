@@ -103,7 +103,7 @@ class MyWorker(appContext: Context, params: WorkerParameters) :
 
     override fun startWork(): ListenableFuture<ListenableWorker.Result> {
         // Do your work here.
-        TODO("Return a ListenableF<utureR>esult")
+        TODO("Return a ListenableFuture<Result>")
     }
 
     override fun onStopped() {
@@ -389,7 +389,7 @@ import java.util.concurrent.TimeUnit
 val constraints: Constraints = TODO("Define constraints as above")
 val request: OneTimeWorkRequest =
      // Tell which work to execute
-     OneTimeWorkRequ<estBuild>erMyWorker()
+     OneTimeWorkRequestBuilder<MyWorker>()
          // Sets the input data for the ListenableWorker
         .setInputData(input)
         // If you want to delay the start of work by 60 seconds
@@ -438,7 +438,7 @@ If you want to create a `PeriodicWorkRequest` then you would do something like:
 ```kotlin
 val constraints: Constraints = TODO("Define constraints as above")
 val request: PeriodicWorkRequest =
-PeriodicWorkRequ<estBuild>erMyWorker(15, TimeUnit.MINUTES)
+PeriodicWorkRequestBuilder<MyWorker>(15, TimeUnit.MINUTES)
     // Sets the input data for the ListenableWorker
     .setInputData(input)
     // Other setters

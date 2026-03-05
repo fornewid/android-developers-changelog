@@ -94,7 +94,9 @@ current time by selecting the **Reset** button in the bottom-left corner:
 Your watch face can include a slot for a custom photo. This lets users add a
 photo that's personal to them as a backdrop, while still showing the time and
 any other elements you've included in your design.
-| **Note:** If your watch face uses this element, it becomes available only on watches that run Wear OS 6 or higher, as this was the version that added support for user-provided photos.
+
+> [!NOTE]
+> **Note:** If your watch face uses this element, it becomes available only on watches that run Wear OS 6 or higher, as this was the version that added support for user-provided photos.
 
 To support custom photos, add a layer to your watch face, and set its
 **Behavior** to "User-provided photo." For this example, we're [using a sample

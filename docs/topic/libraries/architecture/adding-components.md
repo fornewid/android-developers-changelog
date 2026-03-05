@@ -41,7 +41,9 @@ dependencyResolutionManagement {
     }
 }
 ```
-| **Warning:** The JCenter repository is read-only, as of March 31, 2021. For more information, see [JCenter service update](https://developer.android.com/studio/build/jcenter-migration).
+
+> [!WARNING]
+> **Warning:** The JCenter repository is read-only, as of March 31, 2021. For more information, see [JCenter service update](https://developer.android.com/studio/build/jcenter-migration).
 
 ## Declare dependencies
 

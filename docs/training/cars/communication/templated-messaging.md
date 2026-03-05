@@ -49,7 +49,8 @@ category](https://developer.android.com/training/cars/apps#supported-app-categor
         ...
     <application>
 
-| **Note:** If your app supports both messaging and [calling](https://developer.android.com/training/cars/communication/calling), include both `androidx.car.app.category.CALLING` and `androidx.car.app.category.MESSAGING` `<category>` elements in the same intent filter.
+> [!NOTE]
+> **Note:** If your app supports both messaging and [calling](https://developer.android.com/training/cars/communication/calling), include both `androidx.car.app.category.CALLING` and `androidx.car.app.category.MESSAGING` `<category>` elements in the same intent filter.
 
 #### Set the minimum car app API level
 
@@ -145,7 +146,9 @@ Each `ConversationItem` automatically displays actions for playing a message
 and marking it as read as and for replying. Those actions are handled by the
 [`ConversationCallbackDelegate`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationCallbackDelegate) you supply when
 building the `ConversationItem`.
-| **Tip:** You can re-use the logic for marking messages as read and replying that enables your app's notification-powered experience.
+
+> [!TIP]
+> **Tip:** You can re-use the logic for marking messages as read and replying that enables your app's notification-powered experience.
 
 If your app provides [conversation shortcuts](https://developer.android.com/develop/ui/views/notifications/conversations#api-shortcuts), verify
 that the ID provided when building the `ConversationItem` is the same as the

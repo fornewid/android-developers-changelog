@@ -6,12 +6,14 @@ source: md.txt
 
 You need to make a few changes to your app's manifest so that Android Auto
 can discover and interact with your app's media browser service.
-| **Important:** This guide assumes that you have already [built a media browser service](https://developer.android.com/training/cars/media#implement_browser) and you want to add support for Android Auto to your existing project. If you are new to app development for cars, see the [Android for Cars overview page](https://developer.android.com/training/cars).
+
+> [!IMPORTANT]
+> **Important:** This guide assumes that you have already [built a media browser service](https://developer.android.com/training/cars/media#implement_browser) and you want to add support for Android Auto to your existing project. If you are new to app development for cars, see the [Android for Cars overview page](https://developer.android.com/training/cars).
 
 ## Declare media support for Android Auto
 
 Use the following manifest entry to declare that your phone app supports
-Android Auto:  
+Android Auto:
 
     <application>
         ...
@@ -23,7 +25,7 @@ Android Auto:
 This manifest entry refers to an XML file that declares what automotive
 capabilities your app supports. To indicate that you have a media app, add an
 XML file named `automotive_app_desc.xml` to the `res/xml/` directory in your
-project. This file should include the following content:  
+project. This file should include the following content:
 
     <automotiveApp>
         <uses name="media"/>

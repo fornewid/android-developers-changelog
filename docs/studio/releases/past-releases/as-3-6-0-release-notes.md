@@ -21,7 +21,7 @@ We'd also like to thank all of our [community contributors](https://developer.an
 
 <br />
 
-**3.6.3 (April 2020)**
+[Video](https://www.youtube.com/watch?v=h7dCm2lQLOg) **3.6.3 (April 2020)**
 
 
 This minor update includes various bug fixes.

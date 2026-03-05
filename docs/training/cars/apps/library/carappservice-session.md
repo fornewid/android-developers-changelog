@@ -6,7 +6,7 @@ source: md.txt
 
 Your app must extend the [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService) class and implement its
 [`onCreateSession`](https://developer.android.com/reference/androidx/car/app/CarAppService#onCreateSession()) method, which returns a [`Session`](https://developer.android.com/reference/androidx/car/app/Session) instance that
-corresponds to the current connection to the host:  
+corresponds to the current connection to the host:
 
 ### Kotlin
 
@@ -31,7 +31,7 @@ corresponds to the current connection to the host:
     }
 
 The `Session` instance returns which [`Screen`](https://developer.android.com/reference/androidx/car/app/Screen) instance to use when the app
-is started for the first time:  
+is started for the first time:
 
 ### Kotlin
 

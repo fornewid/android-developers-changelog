@@ -11,12 +11,11 @@ designed to meet driver distraction standards and to address details such as the
 variety of car screen factors and input modalities.
 
 This guide provides an overview of the library's key features and concepts and
-walks you through the process of setting up a basic app.  
-[![](https://developer.android.com/static/images/picto-icons/code.svg)
-Codelab
-Learn Car App Library fundamentals
-arrow_forward](https://developer.android.com/codelabs/car-app-library-fundamentals)
-| **Important:** Google takes driver distraction very seriously. Your app must belong to one of the supported categories and meet specific design requirements before it can be listed on Google Play for Android Auto and Android Automotive OS. By adhering to these requirements, you can make it easier to build and test your app. For more information, see [Android app quality for cars](https://developer.android.com/docs/quality-guidelines/car-app-quality).
+walks you through the process of setting up a basic app.
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Codelab Learn Car App Library fundamentals](https://developer.android.com/codelabs/car-app-library-fundamentals)
+
+> [!IMPORTANT]
+> **Important:** Google takes driver distraction very seriously. Your app must belong to one of the supported categories and meet specific design requirements before it can be listed on Google Play for Android Auto and Android Automotive OS. By adhering to these requirements, you can make it easier to build and test your app. For more information, see [Android app quality for cars](https://developer.android.com/docs/quality-guidelines/car-app-quality).
 
 ## Before you begin
 

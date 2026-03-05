@@ -15,8 +15,10 @@ This guide provides several conceptual examples of the library, along with an
 overview of how it works. To view complete examples of how this library
 functions, try out the codelab and samples from the [additional
 resources](https://developer.android.com/topic/libraries/architecture/paging#additional-resources) section.
-| **Caution:** This guide covers an older, deprecated version of the Paging library. For more information about the latest stable version of Paging, see the [Paging
-| 3 guides](https://developer.android.com/topic/libraries/architecture/paging/v3-overview).
+
+> [!CAUTION]
+> **Caution:** This guide covers an older, deprecated version of the Paging library. For more information about the latest stable version of Paging, see the [Paging
+> 3 guides](https://developer.android.com/topic/libraries/architecture/paging/v3-overview).
 
 ## Setup
 
@@ -175,8 +177,10 @@ To display data from a backend server, use the synchronous version of the
 [Retrofit API](http://square.github.io/retrofit/) to load
 information into [your own custom `DataSource`
 object](https://developer.android.com/topic/libraries/architecture/paging/data#custom-data-source).
-| **Note:** The Paging Library's [`DataSource`](https://developer.android.com/reference/androidx/paging/DataSource) objects don't provide any error handling because different apps handle and present error UIs in different ways. If an error occurs, defer to your result callback, and retry the request later. See the [PagingWithNetwork
-| sample](https://github.com/android/architecture-components-samples/tree/main/PagingWithNetworkSample) for an example of this behavior.
+
+> [!NOTE]
+> **Note:** The Paging Library's [`DataSource`](https://developer.android.com/reference/androidx/paging/DataSource) objects don't provide any error handling because different apps handle and present error UIs in different ways. If an error occurs, defer to your result callback, and retry the request later. See the [PagingWithNetwork
+> sample](https://github.com/android/architecture-components-samples/tree/main/PagingWithNetworkSample) for an example of this behavior.
 
 ### Database only
 
@@ -270,7 +274,8 @@ you load data more easily:
 - **Your data can be uncountably large.** Using the Paging Library, you can load data into pages until there isn't any data remaining.
 - **You can observe your data more easily.** The Paging library can present your data that your app's ViewModel holds in an observable data structure.
 
-| **Note:** If your existing app accesses a SQLite database, see the section on [using the Room persistence library](https://developer.android.com/topic/libraries/architecture/room).
+> [!NOTE]
+> **Note:** If your existing app accesses a SQLite database, see the section on [using the Room persistence library](https://developer.android.com/topic/libraries/architecture/room).
 
 ## Database examples
 

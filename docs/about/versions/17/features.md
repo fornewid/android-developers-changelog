@@ -10,7 +10,7 @@ Android 17 introduces great new features and APIs for developers. The following
 sections summarize these features to help you get started with the related APIs.
 
 For a detailed list of new, modified, and removed APIs, read the [API diff
-report](https://developer.android.com/sdk/api_diff/c-dp1/changes). For details on new APIs visit the [Android API reference](https://developer.android.com/reference) --- new
+report](https://developer.android.com/sdk/api_diff/c-beta2/changes). For details on new APIs visit the [Android API reference](https://developer.android.com/reference) --- new
 APIs are highlighted for visibility.
 
 You should also review areas where platform changes might affect your apps. For

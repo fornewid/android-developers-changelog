@@ -82,6 +82,9 @@ Load a previously saved Layout Inspector snapshot by clicking
 
 ## 3D mode
 
+> [!NOTE]
+> **Note:** 3D mode has been deprecated and removed starting in Android Studio Panda 2.
+
 The **Layout Display** features an advanced 3D visualization of your
 app's view hierarchy at runtime. To use this feature, take a snapshot
 ![Snapshot Export/Import](https://developer.android.com/static/studio/images/design/li-snapshot.png), click

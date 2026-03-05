@@ -4,9 +4,10 @@ url: https://developer.android.com/training/tv/playback/media-session
 source: md.txt
 ---
 
-# Implement a media session
-
-Create a[`MediaSession`](https://developer.android.com/reference/android/media/session/MediaSession#MediaSession(android.content.Context,%20java.lang.String))when your app is preparing to play media. The following code snippet is an example of how to set the appropriate callback and flags:  
+Create a
+[`MediaSession`](https://developer.android.com/reference/android/media/session/MediaSession#MediaSession(android.content.Context,%20java.lang.String))
+when your app is preparing to play media. The following code snippet
+is an example of how to set the appropriate callback and flags:
 
 ### Kotlin
 
@@ -30,7 +31,11 @@ session.setFlags(MediaSession.FLAG_HANDLES_MEDIA_BUTTONS |
 
 ## Start a media session
 
-Be sure to also call[`setActive(true)`](https://developer.android.com/reference/android/media/session/MediaSession#setActive(boolean))when playback begins. Your app must also request audio focus, as described in[Manage audio focus](https://developer.android.com/media/optimize/audio-focus). These steps are shown in the following example:  
+Be sure to also call
+[`setActive(true)`](https://developer.android.com/reference/android/media/session/MediaSession#setActive(boolean))
+when playback begins. Your app must also request audio focus, as described in
+[Manage audio focus](https://developer.android.com/media/optimize/audio-focus). These steps are
+shown in the following example:
 
 ### Kotlin
 
@@ -62,7 +67,9 @@ private void handlePlayRequest() {
 
 ## Update the playback state
 
-Update the playback state in the[`MediaSession`](https://developer.android.com/reference/android/media/session/MediaSession)to reflect the state of the current media:  
+Update the playback state in the
+[`MediaSession`](https://developer.android.com/reference/android/media/session/MediaSession) to reflect
+the state of the current media:
 
 ### Kotlin
 
@@ -141,7 +148,12 @@ private long getAvailableActions() {
 
 ## Update the media metadata
 
-Set the[`MediaMetadata`](https://developer.android.com/reference/android/media/MediaMetadata)with the[`setMetadata()`](https://developer.android.com/reference/android/media/session/MediaSession#setMetadata(android.media.MediaMetadata))method. This method is only called once per object that is played. It lets you provide information to the media session about the media, including its title, subtitle, artist, artwork, etc. The following example is tailored toward music and assumes the track's data is stored in a custom data class,`MediaData`:  
+Set the [`MediaMetadata`](https://developer.android.com/reference/android/media/MediaMetadata) with the
+[`setMetadata()`](https://developer.android.com/reference/android/media/session/MediaSession#setMetadata(android.media.MediaMetadata))
+method. This method is only called once per object that is played. It lets you provide information to
+the media session about the media, including its title, subtitle,
+artist, artwork, etc. The following example is tailored toward music and
+assumes the track's data is stored in a custom data class, `MediaData`:
 
 ### Kotlin
 

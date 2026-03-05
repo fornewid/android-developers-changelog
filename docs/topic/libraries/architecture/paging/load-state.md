@@ -4,27 +4,51 @@ url: https://developer.android.com/topic/libraries/architecture/paging/load-stat
 source: md.txt
 ---
 
-# Manage and present loading states
+The Paging library tracks the state of load requests for paged data and exposes
+it through the [`LoadState`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState) class.
+Your app can register a listener with the
+[`PagingDataAdapter`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter) to
+receive information about the current state and update the UI accordingly. These
+states are provided from the adapter because they are synchronous with the UI.
+This means that your listener receives updates when the page load has been
+applied to the UI.
 
-The Paging library tracks the state of load requests for paged data and exposes it through the[`LoadState`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState)class. Your app can register a listener with the[`PagingDataAdapter`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter)to receive information about the current state and update the UI accordingly. These states are provided from the adapter because they are synchronous with the UI. This means that your listener receives updates when the page load has been applied to the UI.
-
-A separate`LoadState`signal is provided for each[`LoadType`](https://developer.android.com/reference/kotlin/androidx/paging/LoadType)and data source type (either[`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource)or[`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator)). The[`CombinedLoadStates`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates)object provided by the listener provides information about the loading state from all of these signals. You can use this detailed information to display the appropriate loading indicators to your users.
+A separate `LoadState` signal is provided for each
+[`LoadType`](https://developer.android.com/reference/kotlin/androidx/paging/LoadType) and data source type
+(either [`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) or
+[`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator)). The
+[`CombinedLoadStates`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates)
+object provided by the listener provides information about the loading state
+from all of these signals. You can use this detailed information to display the
+appropriate loading indicators to your users.
 
 ## Loading states
 
-The Paging library exposes the loading state for use in the UI through the`LoadState`object.`LoadState`objects take one of three forms depending on the current loading state:
+The Paging library exposes the loading state for use in the UI through the
+`LoadState` object. `LoadState` objects take one of three forms depending on the
+current loading state:
 
-- If there is no active load operation and no error, then`LoadState`is a[`LoadState.NotLoading`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState.NotLoading)object. This subclass also includes the[`endOfPaginationReached`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState#endOfPaginationReached())property, which indicates whether the end of pagination has been reached.
-- If there is an active load operation, then`LoadState`is a[`LoadState.Loading`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState.Loading)object.
-- If there is an error, then`LoadState`is a[`LoadState.Error`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState.Error)object.
+- If there is no active load operation and no error, then `LoadState` is a [`LoadState.NotLoading`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState.NotLoading) object. This subclass also includes the [`endOfPaginationReached`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState#endOfPaginationReached()) property, which indicates whether the end of pagination has been reached.
+- If there is an active load operation, then `LoadState` is a [`LoadState.Loading`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState.Loading) object.
+- If there is an error, then `LoadState` is a [`LoadState.Error`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState.Error) object.
 
-There are two ways to use`LoadState`in your UI: using a listener, or using a special list adapter to present the loading state directly in the[`RecyclerView`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView)list.
+There are two ways to use `LoadState` in your UI: using a listener, or using a
+special list adapter to present the loading state directly in the
+[`RecyclerView`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView)
+list.
 
 ## Access the loading state with a listener
 
-To get the loading state for general use in your UI, use the[`loadStateFlow`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter#loadstateflow)stream or the[`addLoadStateListener()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter#addloadstatelistener)method provided by your`PagingDataAdapter`. These mechanisms provide access to a`CombinedLoadStates`object that includes information about the`LoadState`behavior for each load type.
+To get the loading state for general use in your UI, use the
+[`loadStateFlow`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter#loadstateflow)
+stream or the
+[`addLoadStateListener()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter#addloadstatelistener)
+method provided by your `PagingDataAdapter`. These mechanisms provide access to
+a `CombinedLoadStates` object that includes information about the `LoadState`
+behavior for each load type.
 
-In the following example, the`PagingDataAdapter`displays different UI components depending on the current state of the refresh load:  
+In the following example, the `PagingDataAdapter` displays different UI
+components depending on the current state of the refresh load:
 
 ### Kotlin
 
@@ -65,15 +89,25 @@ pagingAdapter.addLoadStateListener(loadStates -> {
     ? View.VISIBLE : View.GONE);
 });
 ```
-| **Note:** Updates from`loadStateFlow`and`addLoadStateListener()`are guaranteed to be synchronous with updates to the UI. This means that if you receive a`LoadState.NotLoading`object, then you can be sure that loading has completed and the UI has been updated accordingly.
 
-For more information on`CombinedLoadStates`, see[Access additional loading state information](https://developer.android.com/topic/libraries/architecture/paging/load-state#additional-info).
+> [!NOTE]
+> **Note:** Updates from `loadStateFlow` and `addLoadStateListener()` are guaranteed to be synchronous with updates to the UI. This means that if you receive a `LoadState.NotLoading` object, then you can be sure that loading has completed and the UI has been updated accordingly.
+
+For more information on `CombinedLoadStates`, see [Access additional loading
+state information](https://developer.android.com/topic/libraries/architecture/paging/load-state#additional-info).
 
 ## Present the loading state with an adapter
 
-The Paging library provides another list adapter called[`LoadStateAdapter`](https://developer.android.com/reference/kotlin/androidx/paging/LoadStateAdapter)for the purpose of presenting the loading state directly in the displayed list of paged data. This adapter provides access to the current load state of the list, which you can pass to a custom view holder that displays the information.
+The Paging library provides another list adapter called
+[`LoadStateAdapter`](https://developer.android.com/reference/kotlin/androidx/paging/LoadStateAdapter) for the
+purpose of presenting the loading state directly in the displayed list of paged
+data. This adapter provides access to the current load state of the list, which
+you can pass to a custom view holder that displays the information.
 
-First, create a view holder class that keeps references to the loading and error views on your screen. Create a`bind()`function that accepts a`LoadState`as a parameter. This function should toggle the view visibility based on the load state parameter:  
+First, create a view holder class that keeps references to the loading and error
+views on your screen. Create a `bind()` function that accepts a `LoadState` as a
+parameter. This function should toggle the view visibility based on the load
+state parameter:
 
 ### Kotlin
 
@@ -175,7 +209,12 @@ class LoadStateViewHolder extends RecyclerView.ViewHolder {
 }
 ```
 
-Next, create a class that implements`LoadStateAdapter`, and define the[`onCreateViewHolder()`](https://developer.android.com/reference/kotlin/androidx/paging/LoadStateAdapter#onCreateViewHolder(android.view.ViewGroup,androidx.paging.LoadState))and[`onBindViewHolder()`](https://developer.android.com/reference/kotlin/androidx/paging/LoadStateAdapter#onBindViewHolder(androidx.recyclerview.widget.RecyclerView.ViewHolder,androidx.paging.LoadState))methods. These methods create an instance of your custom view holder and bind the associated load state.  
+Next, create a class that implements `LoadStateAdapter`, and define the
+[`onCreateViewHolder()`](https://developer.android.com/reference/kotlin/androidx/paging/LoadStateAdapter#onCreateViewHolder(android.view.ViewGroup,androidx.paging.LoadState))
+and
+[`onBindViewHolder()`](https://developer.android.com/reference/kotlin/androidx/paging/LoadStateAdapter#onBindViewHolder(androidx.recyclerview.widget.RecyclerView.ViewHolder,androidx.paging.LoadState))
+methods. These methods create an instance of your custom view holder and bind
+the associated load state.
 
 ### Kotlin
 
@@ -257,7 +296,9 @@ class ExampleLoadStateAdapter extends LoadStateAdapter<LoadStateViewHolder> {
 
 ### Display the loading state as a header or footer
 
-To display the loading progress in a header and a footer, call the[`withLoadStateHeaderAndFooter()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter#withloadstateheaderandfooter)method from your`PagingDataAdapter`object:  
+To display the loading progress in a header and a footer, call the
+[`withLoadStateHeaderAndFooter()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter#withloadstateheaderandfooter)
+method from your `PagingDataAdapter` object:
 
 ### Kotlin
 
@@ -287,13 +328,29 @@ pagingAdapter
     new ExampleLoadStateAdapter(pagingAdapter::retry));
 ```
 
-You can instead call[`withLoadStateHeader()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter#withloadstateheader)or[`withLoadStateFooter()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter#withloadstatefooter)if you want the`RecyclerView`list to display the loading state only in the header or only in the footer.
+You can instead call
+[`withLoadStateHeader()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter#withloadstateheader)
+or
+[`withLoadStateFooter()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter#withloadstatefooter)
+if you want the `RecyclerView` list to display the loading state only in the
+header or only in the footer.
 
 ## Access additional loading state information
 
-The`CombinedLoadStates`object from`PagingDataAdapter`provides information on the load states for your`PagingSource`implementation and also for your`RemoteMediator`implementation, if one exists.
+The `CombinedLoadStates` object from `PagingDataAdapter` provides information on
+the load states for your `PagingSource` implementation and also for your
+`RemoteMediator` implementation, if one exists.
 
-For convenience, you can use the[`refresh`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates#refresh()),[`append`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates#append()), and[`prepend`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates#prepend())properties from`CombinedLoadStates`to access a`LoadState`object for the appropriate load type. These properties generally defer to the load state from the`RemoteMediator`implementation if one exists; otherwise, they contain the appropriate load state from the`PagingSource`implementation. For more detailed information on the underlying logic, see the reference documentation for[`CombinedLoadStates`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates).  
+For convenience, you can use the
+[`refresh`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates#refresh()),
+[`append`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates#append()), and
+[`prepend`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates#prepend())
+properties from `CombinedLoadStates` to access a `LoadState` object for the
+appropriate load type. These properties generally defer to the load state from
+the `RemoteMediator` implementation if one exists; otherwise, they contain the
+appropriate load state from the `PagingSource` implementation. For more detailed
+information on the underlying logic, see the reference documentation for
+[`CombinedLoadStates`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates).
 
 ### Kotlin
 
@@ -345,9 +402,23 @@ pagingAdapter.addLoadStateListener(loadStates -> {
 });
 ```
 
-However, it is important to remember that only the`PagingSource`load states are guaranteed to be synchronous with UI updates. Because the`refresh`,`append`, and`prepend`properties can potentially take the load state from either`PagingSource`or`RemoteMediator`, they are not guaranteed to be synchronous with UI updates. This can cause UI issues where the loading appears to finish before any of the new data has been added to the UI.
+However, it is important to remember that only the `PagingSource` load states
+are guaranteed to be synchronous with UI updates. Because the `refresh`,
+`append`, and `prepend` properties can potentially take the load state from
+either `PagingSource` or `RemoteMediator`, they are not guaranteed to be
+synchronous with UI updates. This can cause UI issues where the loading appears
+to finish before any of the new data has been added to the UI.
 
-For this reason, the convenience accessors work well for displaying the load state in a header or footer, but for other use cases you might need to specifically access the load state from either`PagingSource`or`RemoteMediator`.`CombinedLoadStates`provides the[`source`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates#source())and[`mediator`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates#mediator())properties for this purpose. These properties each expose a[`LoadStates`](https://developer.android.com/reference/kotlin/androidx/paging/LoadStates)object that contains the`LoadState`objects for`PagingSource`or`RemoteMediator`respectively:  
+For this reason, the convenience accessors work well for displaying the load
+state in a header or footer, but for other use cases you might need to
+specifically access the load state from either `PagingSource` or
+`RemoteMediator`. `CombinedLoadStates` provides the
+[`source`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates#source()) and
+[`mediator`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates#mediator())
+properties for this purpose. These properties each expose a
+[`LoadStates`](https://developer.android.com/reference/kotlin/androidx/paging/LoadStates) object that
+contains the `LoadState` objects for `PagingSource` or `RemoteMediator`
+respectively:
 
 ### Kotlin
 
@@ -410,9 +481,16 @@ pagingAdapter.addLoadStateListener(loadStates -> {
 
 ## Chain operators on LoadState
 
-Because the`CombinedLoadStates`object provides access to all changes in load state, it is important to filter the load state stream based on specific events. This ensures that you update your UI at the appropriate time to avoid stutters and unnecessary UI updates.
+Because the `CombinedLoadStates` object provides access to all changes in
+load state, it is important to filter the load state stream based on specific
+events. This ensures that you update your UI at the appropriate time to avoid
+stutters and unnecessary UI updates.
 
-For example, suppose that you want to display an empty view, but only after the initial data load completes. This use case requires that you verify that a data refresh load has started, then wait for the`NotLoading`state to confirm that the refresh has completed. You must filter out all signals except for the ones you need:  
+For example, suppose that you want to display an empty view, but only after the
+initial data load completes. This use case requires that you verify that a data
+refresh load has started, then wait for the `NotLoading` state to confirm that
+the refresh has completed. You must filter out all signals except for the ones
+you need:
 
 ### Kotlin
 
@@ -460,9 +538,12 @@ distinctLiveData.observeForever(loadState -> {
 });
 ```
 
-This example waits until the refresh load state is updated, but only triggers when the state is`NotLoading`. This ensures that the remote refresh has fully finished before any UI updates happen.
+This example waits until the refresh load state is updated, but only triggers
+when the state is `NotLoading`. This ensures that the remote refresh has fully
+finished before any UI updates happen.
 
-Stream APIs make this type of operation possible. Your app can specify the load events it needs and handle the new data when the appropriate criteria are met.
+Stream APIs make this type of operation possible. Your app can specify the load
+events it needs and handle the new data when the appropriate criteria are met.
 
 ## Recommended for you
 

@@ -39,7 +39,8 @@ Use the following specifications as minimum requirements for Vulkan support:
 - Device supports Vulkan API version 1.1 or higher
 - Device has hardware capabilities and features compatible with the 2022 [Android Baseline profile](https://developer.android.com/ndk/guides/graphics/android-baseline-profile)
 
-| **Note:** Vulkan 1.1 support is a requirement for *new* 64-bit Android devices beginning with Android 10.0. The 2022 Android Baseline profile also sets a minimum Vulkan API version of 1.1. Most, but not all, Vulkan 1.1--capable devices are compatible with the 2022 Android Baseline profile. For compatibility statistics, visit the [Distribution dashboard](https://developer.android.com/about/dashboards#Vulkan).
+> [!NOTE]
+> **Note:** Vulkan 1.1 support is a requirement for *new* 64-bit Android devices beginning with Android 10.0. The 2022 Android Baseline profile also sets a minimum Vulkan API version of 1.1. Most, but not all, Vulkan 1.1--capable devices are compatible with the 2022 Android Baseline profile. For compatibility statistics, visit the [Distribution dashboard](https://developer.android.com/about/dashboards#Vulkan).
 
 ### Older device support
 
@@ -172,7 +173,7 @@ When initializing Vulkan, don't request an API version greater than:
 - The Vulkan API version reported by [vkEnumerateInstanceVersion](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkEnumerateInstanceVersion.html)
 - The Vulkan API version reported by the `apiVersion` property of the [VkPhysicalDeviceProperties](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceProperties.html) structure
 
-An example of determining the highest supported Vulkan API version follows:  
+An example of determining the highest supported Vulkan API version follows:
 
     // Minimum Android API levels for Vulkan 1.3/1.1 version support
     static constexpr int kMinimum_vk13_api_level = 33;
@@ -293,7 +294,9 @@ nonoptimal use. These validation layers are not active by default, as the
 validation process adds runtime overhead and impacts the performance of your
 game. For information on how to use validation layers with your game, see
 [Debugging with validation layer](https://developer.android.com/games/develop/vulkan/tools-and-advanced-features#debugging-with-validation-layer).
-| **Note:** Some GPU vendors offer validation layer libraries specific to their GPUs in addition to the standard Vulkan validation layers. Use the GPU-specific validation layers to receive targeted feedback about particular GPUs. These layers can be downloaded from the developer website of the GPU vendor.
+
+> [!NOTE]
+> **Note:** Some GPU vendors offer validation layer libraries specific to their GPUs in addition to the standard Vulkan validation layers. Use the GPU-specific validation layers to receive targeted feedback about particular GPUs. These layers can be downloaded from the developer website of the GPU vendor.
 
 ### Frame capture tools
 

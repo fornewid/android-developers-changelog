@@ -8,7 +8,9 @@ You can add icons inline with text to enrich your app's visual appeal using
 [`CarIconSpan`](https://developer.android.com/reference/kotlin/androidx/car/app/model/CarIconSpan). See the documentation for [`CarIconSpan.create`](https://developer.android.com/reference/kotlin/androidx/car/app/model/CarIconSpan#create) for more
 information on creating these spans. See [Spantastic text styling with Spans](https://medium.com/androiddevelopers/spantastic-text-styling-with-spans-17b0c16b4568)
 for an overview of how text styling with spans work.
-**Note:** On hosts that support a Car App API level of less than five, raw text is rendered instead of the `CarIcon`.  
+
+> [!NOTE]
+> **Note:** On hosts that support a Car App API level of less than five, raw text is rendered instead of the `CarIcon`.
 
 ### Kotlin
 

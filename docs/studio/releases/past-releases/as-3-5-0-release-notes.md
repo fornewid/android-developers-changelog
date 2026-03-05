@@ -38,6 +38,8 @@ helped with this release.
 
 <br />
 
+[Video](https://www.youtube.com/watch?v=OJ3K90FpQ6A)
+
 <br />
 
 <br />

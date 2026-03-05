@@ -17,7 +17,7 @@ feature modules.
 ## Feature module build configuration
 
 When you create a new feature module using Android Studio, the IDE
-applies the following Gradle plugin to the module's `build.gradle` file.  
+applies the following Gradle plugin to the module's `build.gradle` file.
 
     // The following applies the dynamic-feature plugin to your feature module.
     // The plugin includes the Gradle tasks and properties required to configure and build
@@ -47,7 +47,7 @@ feature module's `build.gradle` file:
 
 When Android Studio creates your feature module, it makes it visible
 to the base module by adding the `android.dynamicFeatures` property to the
-base module's `build.gradle` file, as shown below:  
+base module's `build.gradle` file, as shown below:
 
     // In the base module's build.gradle file.
     android {
@@ -57,7 +57,7 @@ base module's `build.gradle` file, as shown below:
         dynamicFeatures = [":dynamic_feature", ":dynamic_feature2"]
     }
 
-Additionally, Android Studio includes the base module as a dependency of the feature module, as shown below:  
+Additionally, Android Studio includes the base module as a dependency of the feature module, as shown below:
 
     // In the feature module's build.gradle file:
     ...
@@ -73,7 +73,7 @@ Although only the base module's build configuration may enable code shrinking
 for your app project, you can provide custom ProGuard rules with each
 feature module using the
 [`proguardFiles`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.BuildType.html#com.android.build.gradle.internal.dsl.BuildType:proguardFiles)
-property, as shown below.  
+property, as shown below.
 
     android.buildTypes {
          release {
@@ -152,7 +152,7 @@ size of the sample marketplace app.
 
 If you want to access a resource stored in a feature module using a
 URI, here's how to generate a feature module resource URI using
-[`Uri.Builder()`](https://developer.android.com/reference/kotlin/android/net/Uri.Builder):  
+[`Uri.Builder()`](https://developer.android.com/reference/kotlin/android/net/Uri.Builder):
 
 ### Kotlin
 
@@ -193,7 +193,7 @@ feature modules with these names:
 
 If the `resId` in the code snippet above refers to a raw file resource named
 "my_video" in your feature module, then the `Uri.Builder()` code above would
-output the following:  
+output the following:
 
     android.resource://com.example.my_app_package/raw/com.example.my_app_package.my_dynamic_feature:my_video
 
@@ -232,7 +232,7 @@ feature modules.
 | android:isFeatureSplit="true \| false"\> | When Android Studio builds your app bundle, it includes this attribute for you. So, **you should not include or modify this attribute manually** . Specifies that this module is a feature module. Manifests in the base module and configuration APKs either omit this attribute or set it to `false`. |
 | \<dist:module | Defines attributes that determine how the module is packaged and distributed as APKs. |
 | dist:instant="true \| false" | Specifies whether the module should be available through [Google Play Instant](https://developer.android.com/topic/google-play-instant/overview) as an instant experience. If your app includes one or more instant-enabled feature modules, you must also instant-enable the base module. When using Android Studio 3.5 or higher, the IDE does this for you when you [create an instant-enabled feature module](https://developer.android.com/guide/app-bundle/instant-delivery). You can't set this XML element to `true` while also setting `<dist:on-demand/>`. However, you can still request on demand downloads of your instant-enabled feature modules *as instant experiences* [using the Play Feature Delivery Library](https://developer.android.com/guide/playcore#java-kotlin-feature-delivery). When a user downloads and *installs* your app, the device downloads and installs your app's instant-enabled feature modules, along with the base APK, by default. |
-| dist:title="@string/feature_name"\> | Specifies a user-facing title for the module. For example, the device may display this title when it requests download confirmation. You need to include the string resource for this title in the base module's <var translate="no">module_root</var>`/src/`<var translate="no">source_set</var>`/res/values/strings.xml` file. |
+| dist:title="@string/feature_name"\> | Specifies a user-facing title for the module. For example, the device may display this title when it requests download confirmation. You need to include the string resource for this title in the base module's `module_root/src/source_set/res/values/strings.xml` file. |
 | \<dist:fusing dist:include="true \| false" /\> | Specifies whether to include the module in multi-APKs that target devices running Android 4.4 (API level 20) and lower. Additionally, when you [use `bundletool` to generate APKs from an app bundle](https://developer.android.com/studio/command-line/bundletool#generate_apks), only feature modules that set this property to `true` are included in the universal APK---which is a monolithic APK that includes code and resources for all device configurations your app supports. |
 | \<dist:delivery\> | Encapsulates options that customizes module delivery, as shown below. Keep in mind, each feature module must configure only one type of these custom delivery options. |
 | \<dist:install-time\> | Specifies that the module should be available at install time. This is the default behavior for feature modules that do not specify another type of custom delivery option. To learn more about install-time downloads, read [Configure install-time delivery](https://developer.android.com/guide/playcore/feature-delivery/install-time). This node is can also specify conditions that limit the module to devices that meet certain requirements, such as device features, user country, or minimum API level. To learn more, read [Configure conditional delivery](https://developer.android.com/guide/playcore/feature-delivery/conditional). |
@@ -244,7 +244,8 @@ feature modules.
 | \<application [android:hasCode](https://developer.android.com/guide/topics/manifest/application-element#code)="true \| false"\> ... \</application\> | If the feature module generates no DEX files---that is, it contains no code that is later compiled into the DEX file format---you must do the following (otherwise, you may get runtime errors): 1. Set `android:hasCode` to `"false"` in the feature module's manifest. 2. Add the following to your **base** module's manifest: ```xml <application android:hasCode="true" tools:replace="android:hasCode"> ... </application> ``` |
 | ... \</manifest\> |   |
 
-| **Note:** Feature modules should not specify activities in their manifest with [`android:exported`](https://developer.android.com/guide/topics/manifest/activity-element#exported) set to `true`. That's because there's no guarantee that the device has downloaded the feature module when another app tries to launch the activity. Additionally, your app should confirm that a feature is downloaded before trying to access its code and resources. To learn more, read [Manage installed modules](https://developer.android.com/guide/playcore/feature-delivery/on-demand#manage_installed_modules).
+> [!NOTE]
+> **Note:** Feature modules should not specify activities in their manifest with [`android:exported`](https://developer.android.com/guide/topics/manifest/activity-element#exported) set to `true`. That's because there's no guarantee that the device has downloaded the feature module when another app tries to launch the activity. Additionally, your app should confirm that a feature is downloaded before trying to access its code and resources. To learn more, read [Manage installed modules](https://developer.android.com/guide/playcore/feature-delivery/on-demand#manage_installed_modules).
 
 ## Additional resources
 

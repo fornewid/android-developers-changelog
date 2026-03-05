@@ -9,13 +9,14 @@ source: md.txt
 # Android Studio 3.0 (October 2017)
 
 Android Studio 3.0.0 is a major release that includes a variety of new
-features and improvements.  
+features and improvements.
+[Video](https://www.youtube.com/watch?v=0n9sBgds-Hs)
 
 
 **macOS users:** If you are updating an older version of Android Studio,
 you may encounter an update error dialog that says "Some conflicts were
 found in the installation area". Simply ignore this error and click
-**Cancel** to resume the installation.  
+**Cancel** to resume the installation.
 
 **3.0.1 (November 2017)**
 
@@ -309,7 +310,7 @@ Assistant can create for you](https://developer.android.com/studio/releases/past
 
 To declare a test URL
 for an intent filter, add a `<tools:validation>` element alongside the
-corresponding `<intent-filter>` element. For example:  
+corresponding `<intent-filter>` element. For example:
 
           <activity ...>
               <intent-filter>
@@ -396,7 +397,7 @@ size, and runtime performance. And when comparing the new D8 compiler with the
 current DX compiler, D8 compiles faster and outputs smaller `.dex` files, while
 having the same or better app runtime performance.
 
-To try it, set the following in your project's `gradle.properties` file:  
+To try it, set the following in your project's `gradle.properties` file:
 
     android.enableD8=true
         
@@ -416,7 +417,7 @@ a continuous integration (CI) system.
 
 All new projects now include the Google Maven repository by default. To update
 your existing project, add `google()` in the `repositories` block of the
-top-level `build.gradle` file:  
+top-level `build.gradle` file:
 
           allprojects {
               repositories {

@@ -125,7 +125,7 @@ Key methods include:
 
 #### PictureProfile Object
 
-The `PictureProfile` object encapsulates all the information for a given picture mode.  
+The `PictureProfile` object encapsulates all the information for a given picture mode.
 
     public final class PictureProfile {
       private String id;

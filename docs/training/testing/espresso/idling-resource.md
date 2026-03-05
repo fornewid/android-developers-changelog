@@ -14,8 +14,8 @@ testing your app.
 Espresso provides a sophisticated set of
 [synchronization capabilities](https://developer.android.com/training/testing/espresso#sync). This
 characteristic of the framework, however, applies only to operations that post
-messages on the [MessageQueue](https://developer.android.com/reference/android/os/MessageQueue), such as a subclass of
-[View](https://developer.android.com/reference/android/view/View) that's drawing its contents on the screen.
+messages on the `https://developer.android.com/reference/android/os/MessageQueue`, such as a subclass of
+`https://developer.android.com/reference/android/view/View` that's drawing its contents on the screen.
 
 Because Espresso isn't aware of any other asynchronous operations, including
 those running on a background thread, Espresso can't provide its synchronization
@@ -26,9 +26,9 @@ If you don't use idling resources when testing the results of your app's
 asynchronous work, you might find yourself having to use one of the
 following bad workarounds to improve your tests' reliability:
 
-- **Adding calls to [Thread.sleep()](https://developer.android.com/reference/java/lang/Thread#sleep(long)).** When you add artificial delays to your tests, it takes longer for your test suite to finish executing, and your tests might still fail sometimes when executed on slower devices. In addition, these delays don't scale well, as your app might have to perform more time-consuming asynchronous work in a future release.
+- **Adding calls to `https://developer.android.com/reference/java/lang/Thread#sleep(long)`.** When you add artificial delays to your tests, it takes longer for your test suite to finish executing, and your tests might still fail sometimes when executed on slower devices. In addition, these delays don't scale well, as your app might have to perform more time-consuming asynchronous work in a future release.
 - **Implementing retry wrappers,** which use a loop to repeatedly check whether your app is still performing asynchronous work until a timeout occurs. Even if you specify a maximum retry count in your tests, each re-execution consumes system resources, particularly the CPU.
-- **Using instances of [CountDownLatch](https://developer.android.com/reference/java/util/concurrent/CountDownLatch),** which allow one or more threads to wait until a specific number of operations being executed in another thread are complete. These objects require you to specify a timeout length; otherwise, your app might be blocked indefinitely. The latches also add unnecessary complexity to your code, making maintenance more difficult.
+- **Using instances of `https://developer.android.com/reference/java/util/concurrent/CountDownLatch`,** which allow one or more threads to wait until a specific number of operations being executed in another thread are complete. These objects require you to specify a timeout length; otherwise, your app might be blocked indefinitely. The latches also add unnecessary complexity to your code, making maintenance more difficult.
 
 Espresso allows you to remove these unreliable workarounds from your tests and
 instead register your app's asynchronous work as idling resources.
@@ -40,12 +40,14 @@ consider using an idling resource:
 
 - **Loading data** from the internet or a local data source.
 - **Establishing connections** with databases and callbacks.
-- **Managing services** , either using a system service or an instance of [IntentService](https://developer.android.com/reference/android/app/IntentService).
+- **Managing services** , either using a system service or an instance of `https://developer.android.com/reference/android/app/IntentService`.
 - **Performing complex business logic**, such as bitmap transformations.
 
 It's especially important to register idling resources when these operations
 update a UI that your tests then validate.
-| **Note:** Some third-party libraries use threading schemes that require manual thread management. In these situations, add threading logic to achieve the same functionality benefits as the ones you enjoy by using idling resources directly.
+
+> [!NOTE]
+> **Note:** Some third-party libraries use threading schemes that require manual thread management. In these situations, add threading logic to achieve the same functionality benefits as the ones you enjoy by using idling resources directly.
 
 ## Example idling resource implementations
 
@@ -55,7 +57,7 @@ that you can [integrate into your app](https://developer.android.com/training/te
 [`CountingIdlingResource`](https://developer.android.com/reference/androidx/test/espresso/idling/CountingIdlingResource)
 :   Maintains a counter of active tasks. When the counter is zero, the associated
     resource is considered idle. This functionality closely resembles that of a
-    [Semaphore](https://developer.android.com/reference/java/util/concurrent/Semaphore). In most cases, this implementation is
+    `https://developer.android.com/reference/java/util/concurrent/Semaphore`. In most cases, this implementation is
     sufficient for managing your app's asynchronous work during testing.
 
 [`UriIdlingResource`](https://developer.android.com/reference/androidx/test/espresso/idling/net/UriIdlingResource)
@@ -67,7 +69,7 @@ that you can [integrate into your app](https://developer.android.com/training/te
     request immediately after receiving a response to a previous request.
 
 [`IdlingThreadPoolExecutor`](https://developer.android.com/reference/androidx/test/espresso/idling/concurrent/IdlingThreadPoolExecutor)
-:   A custom implementation of [ThreadPoolExecutor](https://developer.android.com/reference/java/util/concurrent/ThreadPoolExecutor)
+:   A custom implementation of `https://developer.android.com/reference/java/util/concurrent/ThreadPoolExecutor`
     that keeps track of the total number of running tasks within the created thread
     pools. This class uses a
     [`CountingIdlingResource`](https://developer.android.com/reference/androidx/test/espresso/idling/CountingIdlingResource) to
@@ -75,12 +77,14 @@ that you can [integrate into your app](https://developer.android.com/training/te
 
 [`IdlingScheduledThreadPoolExecutor`](https://developer.android.com/reference/androidx/test/espresso/idling/concurrent/IdlingScheduledThreadPoolExecutor)
 :   A custom implementation of
-    [ScheduledThreadPoolExecutor](https://developer.android.com/reference/java/util/concurrent/ScheduledThreadPoolExecutor). It provides the same
+    `https://developer.android.com/reference/java/util/concurrent/ScheduledThreadPoolExecutor`. It provides the same
     functionality and capabilities as the
     [`IdlingThreadPoolExecutor`](https://developer.android.com/reference/androidx/test/espresso/idling/concurrent/IdlingThreadPoolExecutor)
     class, but it can also keep track of tasks that are scheduled for the future or
     are scheduled to execute periodically.
-| **Note:** The synchronization benefits associated with these implementations of idling resources only take effect following Espresso's first invocation of that resource's [`isIdleNow()`](https://developer.android.com/reference/androidx/test/espresso/IdlingResource#isIdleNow()) method. Therefore, you must register these idling resources **before** you need them.
+
+> [!NOTE]
+> **Note:** The synchronization benefits associated with these implementations of idling resources only take effect following Espresso's first invocation of that resource's [`isIdleNow()`](https://developer.android.com/reference/androidx/test/espresso/IdlingResource#isIdleNow()) method. Therefore, you must register these idling resources **before** you need them.
 
 ## Create your own idling resource
 
@@ -100,7 +104,7 @@ practices in mind, particularly the first one:
     Espresso doesn't make a second, unnecessary check to determine whether a given
     idling resource is idle.
 
-The following code snippet illustrates this recommendation:  
+The following code snippet illustrates this recommendation:
 
 ### Kotlin
 
@@ -161,7 +165,7 @@ public void backgroundWorkDone() {
 **Maintain only simple app state within idling resources.**
 
 :   For example, the idling resources that you implement and register shouldn't
-    contain references to [View](https://developer.android.com/reference/android/view/View) objects.
+    contain references to `https://developer.android.com/reference/android/view/View` objects.
 
 ## Register idling resources
 
@@ -176,7 +180,8 @@ maintainability:
 - Maintain differences in the collection of idling resources that you use for each build variant.
 - Define idling resources in your app's services, rather than in the UI components that reference those services.
 
-| **Note:** The [`IdlingRegistry`](https://developer.android.com/reference/androidx/test/espresso/IdlingRegistry) class is the only supported method of registering your app's idling resources.
+> [!NOTE]
+> **Note:** The [`IdlingRegistry`](https://developer.android.com/reference/androidx/test/espresso/IdlingRegistry) class is the only supported method of registering your app's idling resources.
 
 ## Integrate idling resources into your app
 

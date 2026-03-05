@@ -4,8 +4,6 @@ url: https://developer.android.com/topic/performance/benchmarking/microbenchmark
 source: md.txt
 ---
 
-# Microbenchmark
-
 The Jetpack Microbenchmark library lets you benchmark your Android native
 code---Kotlin or Java---from within Android Studio. The library handles warmup,
 measures your code performance and allocation counts, and outputs benchmarking

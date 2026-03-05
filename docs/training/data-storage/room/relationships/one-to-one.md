@@ -23,7 +23,7 @@ database:
 
 To define a one-to-one relationship, first create a class for each of your two
 entities. One of the entities must include a variable that is a reference to the
-primary key of the other entity.  
+primary key of the other entity.
 
 ### Kotlin
 
@@ -65,7 +65,7 @@ parent entity and the corresponding instance of the child entity. Add the
 [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room/Relation) annotation to the instance of the child entity, with
 [`parentColumn`](https://developer.android.com/reference/kotlin/androidx/room/Relation#parentcolumn()) set to the name of the primary key column of the parent
 entity and [`entityColumn`](https://developer.android.com/reference/kotlin/androidx/room/Relation#entitycolumn()) set to the name of the column of the child entity
-that references the parent entity's primary key.  
+that references the parent entity's primary key.
 
 ### Kotlin
 
@@ -93,7 +93,7 @@ Finally, add a method to the DAO class that returns all instances of the data
 class that pairs the parent entity and the child entity. This method requires
 Room to run two queries. You should therefore add the [`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room/Transaction)
 annotation to this method. This ensures that the whole operation runs
-atomically.  
+atomically.
 
 ### Kotlin
 

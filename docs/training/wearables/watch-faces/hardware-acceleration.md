@@ -4,8 +4,6 @@ url: https://developer.android.com/training/wearables/watch-faces/hardware-accel
 source: md.txt
 ---
 
-# Improve your watch face performance with hardware acceleration
-
 Wear OS apps that use standard views benefit from automatic hardware-accelerated
 graphics rendering. But watch faces are usually implemented using
 canvases, so they don't automatically get hardware acceleration.
@@ -53,10 +51,10 @@ follow these steps:
 3. Run the following `adb` command to check whether your watch face is using
    hardware acceleration:
 
-   `adb shell dumpsys gfxinfo `<var translate="no">[package-name]</var>
+   `adb shell dumpsys gfxinfo [package-name]`
 
 After running the command, you get output similar to the following
-example:  
+example:
 
 ```
 Applications Graphics Acceleration Info:

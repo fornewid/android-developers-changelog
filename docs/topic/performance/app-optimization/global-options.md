@@ -17,7 +17,7 @@ optimization.
 
 The following global options enable additional optimization:
 
-- `-repackageclasses [<optional-package-name>]`: Repackages classes into a single package to reduce app size. If you don't supply the optional package name, classes are moved into the unnamed default package. This is the recommended setting for apps because it results in smaller DEX files by omitting the package prefix from class names.
+- `-repackageclasses [<optional-package-name>]`: Repackages classes into a single package to reduce app size. If you don't supply the optional package name, classes are moved into the unnamed (default) package. This is the recommended setting for apps because it results in smaller DEX files by omitting the package prefix from class names. Since Android Gradle Plugin (AGP) 9.1, this is the default configuration for apps. To opt out of this optimization, use `-dontrepackage`.
 - `-allowaccessmodification`: Lets R8 change (typically widen) the visibility of classes, fields, and methods to perform more extensive optimizations. Enabled when `proguard-android-optimize.txt` is used. Since Android Gradle Plugin (AGP) 8.2, this is the default configuration if you enable [full
   optimization with R8](https://developer.android.com/topic/performance/app-optimization/full-mode).
 - `-processkotlinnullchecks [level]`: Lets R8 change the Kotlin Intrinsics

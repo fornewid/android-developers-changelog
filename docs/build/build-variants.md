@@ -43,7 +43,7 @@ configures app signing with a generic debug keystore.
 
 
 You can add the debug build type to your configuration if you want to add
-or change certain settings. The following sample specifies an [`applicationIdSuffix`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/dsl/ApplicationVariantDimension#applicationIdSuffix()) for the debug build type and configures
+or change certain settings. The following sample specifies an [`applicationIdSuffix`](https://developer.android.com/reference/tools/gradle-api/9.1/com/android/build/api/dsl/ApplicationVariantDimension#applicationIdSuffix()) for the debug build type and configures
 a "staging" build type that is initialized using settings from the debug build type:
 
 ### Kotlin

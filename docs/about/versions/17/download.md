@@ -87,6 +87,7 @@ time.
 |---|---|
 | Pixel 6 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 DP" data-action="download" data-label="oriole" data-modal-dialog-id="oriole_factory_zip">oriole_beta-cp21.260206.011.a1-factory-6e365133.zip</button> `6e3651331070c7d3df47733dfef655b651b8b228a3fcfa471124669ecd14d01b` |
 | Pixel 6 Pro | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 DP" data-action="download" data-label="raven" data-modal-dialog-id="raven_factory_zip">raven_beta-cp21.260206.011.a1-factory-56dd53a6.zip</button> `56dd53a668c7da6af53c1ea3d2bd024a867551f380e8a167a048141f8cb64745` |
+| Pixel 6a | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 DP" data-action="download" data-label="bluejay" data-modal-dialog-id="bluejay_factory_zip">bluejay_beta-cp21.260206.011.a1-factory-48596580.zip</button> `485965803419e07fea4fd216523d073039ba28a287e4640758cdf979a2fb6fa9` |
 | Pixel 7 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 DP" data-action="download" data-label="panther" data-modal-dialog-id="panther_factory_zip">panther_beta-cp21.260206.011.a1-factory-a09c977d.zip</button> `a09c977df018949d056a151a4262c8ca03c1d0c4a9e279db2512e92b903abce4` |
 | Pixel 7 Pro | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 DP" data-action="download" data-label="cheetah" data-modal-dialog-id="cheetah_factory_zip">cheetah_beta-cp21.260206.011.a1-factory-b8bdf1c1.zip</button> `b8bdf1c1bf0c755beb861752bb36387e5231b43d1d3dcb92b4f1065ba2b6454e` |
 | Pixel 7a | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 DP" data-action="download" data-label="lynx" data-modal-dialog-id="lynx_factory_zip">lynx_beta-cp21.260206.011-factory-3d149a71.zip</button> `3d149a71f7ee9afae94ccfb85464b9821808d449a57786f5dd74f87878e02964` |
@@ -146,6 +147,22 @@ Your testing and feedback are important part of the development process and by u
 WITHOUT LIMITING SECTION 10 OF THE ANDROID SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT, YOU UNDERSTAND THAT A DEVELOPMENT VERSION OF A SDK IS NOT A STABLE RELEASE AND MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 factory system image </button> [Download Android 17 factory system image](https://dl.google.com/developers/android/cinnamonbun/images/factory/raven_beta-cp21.260206.011.a1-factory-56dd53a6.zip)
 
 *raven_beta-cp21.260206.011.a1-factory-56dd53a6.zip*
+
+## Download Android 17 factory system image
+
+Before downloading, you must agree to the following terms and conditions.
+
+## Terms and Conditions
+
+By clicking to accept, you hereby agree to the following:  
+
+All use of this development version SDK will be governed by the Android Software Development Kit License Agreement (available at https://developer.android.com/studio/terms and such URL may be updated or changed by Google from time to time), which will terminate when Google issues a final release version.  
+
+Your testing and feedback are important part of the development process and by using the SDK, you acknowledge that (i) implementation of some features are still under development, (ii) you should not rely on the SDK having the full functionality of a stable release; (iii) you agree not to publicly distribute or ship any application using this SDK as this SDK will no longer be supported after the official Android SDK is released; and (iv) you agree that Google may deliver elements of the SDK to your devices via auto-update (OTA or otherwise, in each case as determined by Google).  
+
+WITHOUT LIMITING SECTION 10 OF THE ANDROID SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT, YOU UNDERSTAND THAT A DEVELOPMENT VERSION OF A SDK IS NOT A STABLE RELEASE AND MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 factory system image </button> [Download Android 17 factory system image](https://dl.google.com/developers/android/cinnamonbun/images/factory/bluejay_beta-cp21.260206.011.a1-factory-48596580.zip)
+
+*bluejay_beta-cp21.260206.011.a1-factory-48596580.zip*
 
 ## Download Android 17 factory system image
 
