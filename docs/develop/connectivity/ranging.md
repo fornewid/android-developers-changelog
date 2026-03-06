@@ -349,6 +349,10 @@ an initiator device ranging with an iOS responder:
             .setSessionConfig(sessionConfig)
             .build();
 
+## UWB Downlink-TDoA API
+
+For UWB DL-TDoA API, see [Android 17 new features](https://developer.android.com/about/versions/17/features#dl-tdoa-api-android-17).
+
 ## Sample app
 
 For an end-to-end example of how to use the Ranging module, see the [sample

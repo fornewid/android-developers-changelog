@@ -49,7 +49,8 @@ This method lets you specify the following types of cancellations in the
   from the Play Store, however you can enable them to subscribe again
   within your app.
 
-| **Note:** Specifying `cancellationType` is optional. If you don't specify the parameter in your [`purchases.subscriptions.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel) API request, by default, the default behavior is `DEVELOPER_REQUESTED_STOP_PAYMENTS`.
+> [!NOTE]
+> **Note:** Specifying `cancellationType` is optional. If you don't specify the parameter in your [`purchases.subscriptions.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel) API request, by default, the default behavior is `DEVELOPER_REQUESTED_STOP_PAYMENTS`.
 
 #### Enable users to restore unexpired subscriptions
 
@@ -62,7 +63,7 @@ are restorable by users.
 
 To indicate that a user can restore the cancellation, issue a POST request
 to the [`purchases.subscriptions.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel) API, and set the `cancellationType`
-request parameter to the `USER_REQUESTED_STOP_RENEWAL` value.
+request parameter to the `USER_REQUESTED_STOP_RENEWALS` value.
 
 Example:
 
@@ -77,7 +78,7 @@ HTTP POST request:
 Request body:
 
     {
-      "cancellationType": "USER_REQUESTED_STOP_RENEWAL"
+      "cancellationType": "USER_REQUESTED_STOP_RENEWALS"
     }
 
 #### Enable users to resubscribe expired subscriptions
@@ -85,7 +86,7 @@ Request body:
 To allow the resubscription of an expired subscription, you must [enable
 the **Resubscribe** option](https://support.google.com/googleplay/%0Aandroid-developer/answer/140504) in the subscription's base plan and then
 cancel the subscription by setting the `cancellationType` parameter to the
-`USER_REQUESTED_STOP_RENEWAL` value.
+`USER_REQUESTED_STOP_RENEWALS` value.
 
 #### Enable users to resubscribe only in your application
 
@@ -97,7 +98,9 @@ sign up again for the subscription through your app if required.
 Taking this action triggers a `SUBSCRIPTION_CANCELED` Real-time developer
 notification. Handle these cancellations as described in
 [Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#cancel).
-| **Note:** If you cancel an installment subscription with the [`purchases.subscriptions.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel) API, setting the `cancellationType` parameter to `USER_REQUESTED_STOP_RENEWAL`, cancels only the next renewal of their installment, while the user still needs to finish the commitment. However, setting the parameter value to `DEVELOPER_REQUESTED_STOP_PAYMENTS`, stops the next payment.
+
+> [!NOTE]
+> **Note:** If you cancel an installment subscription with the [`purchases.subscriptions.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel) API, setting the `cancellationType` parameter to `USER_REQUESTED_STOP_RENEWALS`, cancels only the next renewal of their installment, while the user still needs to finish the commitment. However, setting the parameter value to `DEVELOPER_REQUESTED_STOP_PAYMENTS`, stops the next payment.
 
 ## Defer billing
 
@@ -163,7 +166,8 @@ Example:
    API without passing a revoke parameter to refund the jersey purchases to the
    winners.
 
-| **Note:** Access to a subscription can only be revoked for subscriptions with current entitlement. When using the `revoke` parameter while refunding an order, make sure the order is the latest associated with the subscription. If it is not , the refund will be successful, but the subscription won't be revoked. If your use case requires revoking access to an active subscription, Use the [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) API with the purchase ID instead of the refund API with a revoke parameter.
+> [!NOTE]
+> **Note:** Access to a subscription can only be revoked for subscriptions with current entitlement. When using the `revoke` parameter while refunding an order, make sure the order is the latest associated with the subscription. If it is not , the refund will be successful, but the subscription won't be revoked. If your use case requires revoking access to an active subscription, Use the [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) API with the purchase ID instead of the refund API with a revoke parameter.
 
 ### Revoke and refund a subscription by purchase token
 
@@ -239,4 +243,5 @@ Example:
    subscription price refunded and that access to the service terminated
    immediately.
 
-| **Note:** The [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) API is a replacement and improvement of the legacy [`purchases.subscription.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/revoke). The main difference is that the new method allows partial refunds while the legacy is capable of only full refunds. Be aware that a user refund is based on the value of the latest order.
+> [!NOTE]
+> **Note:** The [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) API is a replacement and improvement of the legacy [`purchases.subscription.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/revoke). The main difference is that the new method allows partial refunds while the legacy is capable of only full refunds. Be aware that a user refund is based on the value of the latest order.

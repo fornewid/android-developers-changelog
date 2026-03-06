@@ -4,30 +4,40 @@ url: https://developer.android.com/identity/sign-in/legacy-gsi-migration
 source: md.txt
 ---
 
-# Migrate from legacy Google Sign-In to Credential Manager and AuthorizationClient
+To streamline your app's authentication experience and future-proof your
+development practices, migrate from the legacy [Google Sign-In for Android](https://developer.android.com/identity/legacy/gsi)
+to Android Credential Manager. Google Sign-In for Android (as part of
+[`com.google.android.gms:play-services-auth`](https://maven.google.com/web/index.html?q=play-services-auth#com.google.android.gms:play-services-auth)) is deprecated and will be
+removed from the Google Play services Auth SDK in a future release.
 
-Migrate from[Google Sign-In for Android](https://developers.google.com/identity/sign-in/android/start-integrating)to Android Credential Manager to streamline your app's authentication experience and future-proof your development practices. Google Sign-In for Android is deprecated and will be removed from the[Google Play Services Auth SDK](https://maven.google.com/web/index.html?q=play-services-auth#com.google.android.gms:play-services-auth). (`com.google.android.gms:play-services-auth`) in 2025.
+This guide explains the following areas:
 
-For**authentication** , developers should migrate their Android projects to[Credential Manager](https://developer.android.com/identity/sign-in/legacy-gsi-migration#authentication), which fully supports One Tap and button flows for Sign in with Google. See our[blog post](https://android-developers.googleblog.com/2024/09/streamlining-android-authentication-credential-manager-replaces-legacy-apis.html)for details.
+- Benefits of migrating to the Credential Manager API
+- Differences in implementation between the legacy SDK and Credential Manager
 
-For**authorization** actions that need access to user data stored by Google such as Google Drive, use the[AuthorizationClient API](https://developer.android.com/identity/sign-in/legacy-gsi-migration#authorization).
+## Benefits of the Credential Manager API
 
-## Migrate authentication to the Credential Manager API
+Credential Manager offers several key advantages over legacy Google Sign-In for
+Android. It provides a streamlined, unified API that supports modern features
+and practices while improving the authentication experience for your users. To
+learn more about Credential Manager, see [Credential Manager features](https://developer.android.com/identity/credential-manager#features) and
+the [blog post](https://android-developers.googleblog.com/2024/09/streamlining-android-authentication-credential-manager-replaces-legacy-apis.html).
 
-With a streamlined, unified API that enables support for modern features and practices while improving the authentication experience for your users, Credential Manager offers several key advantages over legacy Google Sign-In for Android:
+Key advantages for Sign in with Google implementations include the following:
 
-- Simplified and streamlined flows built with Credential Manager have been shown to[reduce average sign-up and sign-in times](https://developers.googleblog.com/2023/10/how-kayak-reduced-sign-in-time-and-improved-security-with-passkeys.html)by up to 50%.
-- Credential Manager integrates support for multiple sign-in methods, including[Sign in with Google](https://developer.android.com/training/sign-in/credential-manager),[passkeys](https://developers.google.com/identity/passkeys)and passwords.
-- Credential Manager is a single, unified API that provides a more consistent user interface across Android devices, aligns with evolving security standards, and simplifies your development process.
-- Credential Manager provides a consistent, unified[user experience](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys)across all authentication methods.
-- Starting with Android 14, Credential Manager supports third-party password and passkey providers, allowing users to select their preferred credential provider.
-- Credential Manager fully supports the[Sign in with Google](https://developer.android.com/training/sign-in/credential-manager)button, so developers can drop this directly into existing flows.
-- Credential Manager supports One Tap capabilities, so developers can directly prompt users to sign in with their Google Account with a single tap.
+- **Unified API:** Provides a single integration point for all sign-in methods, including passkeys, passwords, and federated sign-in mechanisms.
+- **Support for Sign in with Google button:** Fully supports the standard button, allowing you to drop it directly into existing UI flows.
+- **Seamless sign-in capabilities:** Directly prompts users to sign in with their Google Account using a single tap, reducing friction during onboarding.
+- **Future-proofed security:** Includes built-in support for passkeys, the new standard for passwordless authentication.
 
-To begin your Credential Manager integration,[read the developer guide](https://developer.android.com/training/sign-in/passkeys). Read about[authentication user experience with passkeys](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys)to understand how your identity flows should be designed. Read the[Integrate Credential Manager with Sign in with Google](https://developer.android.com/training/sign-in/credential-manager)guide for implementation details on One Tap or the Sign in with Google button.
+## Differences between the approaches
 
-## Migrate authorization to the AuthorizationClient API
+The differences between the legacy and updated Credential Manager experience for
+Sign in with Google are as follows:
 
-In contrast with legacy Google Sign-In, the authentication and authorization functions are now available as two separate and distinct flows. Credential Manager is the API you use for***authentication*** on Android. For***authorization***actions, such as accessing a service like Google Drive, use the AuthorizationClient API. This separation helps you map user flows to user intent, so that your users can sign up or sign in with their Google Accounts, and you can separately provide authorization permissions from their Google Account when they are needed by the application as opposed to login time alone.
-
-To learn more about authorization, read the[Authorize Access to User Data](https://developers.google.com/identity/sign-in/android/authorize-access)guide, and check out the[AuthorizationClient API](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationClient)documentation.
+- If you previously used `silentSignIn` with legacy Google Sign-in, the Credential Manager behavior for automatic sign-in has a slight difference in user experience.
+  - With Credential Manager, you request [authentication](https://developer.android.com/identity/sign-in/credential-manager-siwg) with `filterByAuthorizedAccounts` set to `true` and `setAutoSelectEnabled` set to `true`. This displays a bottom sheet for a short duration that requires no interaction from the user.
+  - The result is similar to `silentSignIn`.
+- Unlike the legacy Google Sign-In SDK, which could handle both authentication and authorization in one API call, the updated Credential Manager implementation treats these as distinct actions:
+  - **Authentication:** Use Credential Manager to sign the user into your app.
+  - **Authorization:** Use the [AuthorizationClient API](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationClient) for specific actions, such as accessing Google Drive. To learn more about authorization, see [Authorize Access to User Data](https://developers.google.com/identity/sign-in/android/authorize-access). This separation helps you map user flows to user intent. Your users can sign up or sign in with their Google Accounts. You can request authorization permissions separately when the app needs them, rather than only at sign-in.

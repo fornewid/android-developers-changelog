@@ -23,7 +23,9 @@ source of truth for subscription management.
 The purchase token is valid from subscription signup until 60 days after
 expiration. After this date, the purchase token is no longer valid to use to
 call the Google Play Developer API.
-| **Note:** The [`purchases.subscriptions.get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/get) method is deprecated and present for backward compatibility reasons. This method shouldn't be used to obtain subscription states for new integrations. If you have an existing integration that uses this method, see [API deprecations](https://developer.android.com/google/play/billing/play-developer-apis-deprecations) for alternatives. Other methods in the `purchases.subscriptions` endpoint are still in use.
+
+> [!NOTE]
+> **Note:** The [`purchases.subscriptions.get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/get) method is deprecated and present for backward compatibility reasons. This method shouldn't be used to obtain subscription states for new integrations. If you have an existing integration that uses this method, see [API deprecations](https://developer.android.com/google/play/billing/play-developer-apis-deprecations) for alternatives. Other methods in the `purchases.subscriptions` endpoint are still in use.
 
 ### New auto-renewing subscription purchases
 
@@ -44,7 +46,9 @@ backend. To do this, follow these steps:
 The `offerPhase` field in the `SubscriptionPurchaseLineItem` provides details
 about the current phase of the subscription, such as free trial or introductory
 price.
-| **Note:** If you don't acknowledge a new subscription purchase within three days, the user automatically receives a refund, and Google Play revokes the purchase.
+
+> [!NOTE]
+> **Note:** If you don't acknowledge a new subscription purchase within three days, the user automatically receives a refund, and Google Play revokes the purchase.
 
 The Play Billing Library also includes a method to acknowledge a subscription,
 [`acknowledgePurchase()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#acknowledgepurchase),
@@ -110,12 +114,15 @@ Developer API. The subscription resource looks similar to the following example:
     }
 
 You don't need to acknowledge subscription renewals.
-| **Note:** If a subscription is set to renew on the 29th, 30th, or 31st of the month going into February of a non-leap year, then the subscription renewal day is moved to the 28th of February and continues to renew on the 28th of each month for the duration of the subscription. Similarly, if a user starts a subscription on March 31st, the subscription renews on April 30th and continues to renew on the 30th of each month.
+
+> [!NOTE]
+> **Note:** If a subscription is set to renew on the 29th, 30th, or 31st of the month going into February of a non-leap year, then the subscription renewal day is moved to the 28th of February and continues to renew on the 28th of each month for the duration of the subscription. Similarly, if a user starts a subscription on March 31st, the subscription renews on April 30th and continues to renew on the 30th of each month.
 
 ### Grace period
 
-| **Note:** By default, all auto-renewing base plans have grace period enabled. You can adjust the grace period length or disable it from the [Google Play
-| Console](https://support.google.com/googleplay/android-developer/answer/140504). Specifying a length less than the default value may reduce the number of subscriptions recovered from payment declines.
+> [!NOTE]
+> **Note:** By default, all auto-renewing base plans have grace period enabled. You can adjust the grace period length or disable it from the [Google Play
+> Console](https://support.google.com/googleplay/android-developer/answer/140504). Specifying a length less than the default value may reduce the number of subscriptions recovered from payment declines.
 
 If there are payment issues with a subscription renewal, Google notifies the
 user and periodically attempts to renew the subscription for some time before
@@ -220,7 +227,8 @@ You can also call the `subscriptionV2.get()` method at any point after the
 
 ### Account hold
 
-| **Note:** By default, all auto-renewing base plans and installment plans have account hold enabled and the lengths are automatically calculated. The calculation will be 60 days minus any grace period duration. You can adjust the account hold length or disable it from the [Google Play Console](https://support.google.com/googleplay/android-developer/answer/140504). Specifying a length less than the default value may reduce the number of subscriptions recovered from payment declines.
+> [!NOTE]
+> **Note:** By default, all auto-renewing base plans and installment plans have account hold enabled and the lengths are automatically calculated. The calculation will be 60 days minus any grace period duration. You can adjust the account hold length or disable it from the [Google Play Console](https://support.google.com/googleplay/android-developer/answer/140504). Specifying a length less than the default value may reduce the number of subscriptions recovered from payment declines.
 
 If there are payment issues with a subscription renewal, after any [grace
 period](https://developer.android.com/google/play/billing/lifecycle/subscriptions#grace-period) has ended, an account hold period begins. When a
@@ -288,7 +296,9 @@ the same purchase is recovering, and you receive an RTDN with type
 
 For installment subscriptions, payment declines and recoveries could occur for
 any individual payment attempt.
-| **Note:** If a subscription is recovered from account hold, the billing date moves to the date of recovery.
+
+> [!NOTE]
+> **Note:** If a subscription is recovered from account hold, the billing date moves to the date of recovery.
 
 After recovery, the Play Billing Library returns the subscription again through
 the `queryPurchasesAsync()` method. If you use this method to determine whether
@@ -400,7 +410,9 @@ cancellation with
 When a subscription is canceled, the user retains access to the content until
 the end of the current billing cycle. When the billing cycle ends, access should
 be revoked.
-| **Note:** For installment subscriptions, user-initiated cancellation takes effect at the end of the current commitment period. Developer-initiated cancellation, using the [`purchases.subscriptionsv2.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/cancel) API, where the `cancellationType` request parameter is set to `USER_REQUESTED_STOP_RENEWAL`, takes effect at the end of the current commitment period. However, setting the `cancellationType` request parameter to `DEVELOPER_REQUESTED_STOP_PAYMENTS`, stops the next payment.
+
+> [!NOTE]
+> **Note:** For installment subscriptions, user-initiated cancellation takes effect at the end of the current commitment period. Developer-initiated cancellation, using the [`purchases.subscriptionsv2.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/cancel) API, where the `cancellationType` request parameter is set to `USER_REQUESTED_STOP_RENEWALS`, takes effect at the end of the current commitment period. However, setting the `cancellationType` request parameter to `DEVELOPER_REQUESTED_STOP_PAYMENTS`, stops the next payment.
 
 Canceling a non-installment, auto-renewing subscription triggers a
 `SUBSCRIPTION_CANCELED` notification. When
@@ -483,8 +495,10 @@ still returned from
 [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)).
 You might want to display a message in your app informing the user that their
 subscription was canceled and giving them the date of expiration.
-| **Warning:** Don't remove access to a subscription from Google Play while the user is still entitled to the content. Removing access to content that a user is entitled to is a violation of [Google Play's subscriptions
-| policy](https://support.google.com/googleplay/android-developer/answer/9900533).
+
+> [!WARNING]
+> **Warning:** Don't remove access to a subscription from Google Play while the user is still entitled to the content. Removing access to content that a user is entitled to is a violation of [Google Play's subscriptions
+> policy](https://support.google.com/googleplay/android-developer/answer/9900533).
 
 ### Revocations
 
@@ -553,8 +567,9 @@ following example:
 
 ### Paused subscriptions
 
-| **Note:** All subscriptions have pause enabled by default. You can disable pause from the [Google Play
-| Console](https://support.google.com/googleplay/android-developer/answer/140504#pause).
+> [!NOTE]
+> **Note:** All subscriptions have pause enabled by default. You can disable pause from the [Google Play
+> Console](https://support.google.com/googleplay/android-developer/answer/140504#pause).
 
 You can reduce voluntary churn by enabling users to pause their subscription.
 When you enable the pause feature, users can choose to pause their subscription
@@ -623,7 +638,10 @@ For auto-renewing subscription base plans, the Google Play Store may display a
 **Resubscribe** button. This button allows users to regain access
 to a subscription. It may not appear for various reasons, for example
 when a subscription expired a long time ago.
-| **Note:** For license testers, the **Resubscribe** button is always enabled regardless of the setting in the Google Play Console. To test your app's behavior when resubscribe is disabled, use a non-license-tester account.
+
+> [!NOTE]
+> **Note:** For license testers, the **Resubscribe** button is always enabled regardless of the setting in the Google Play Console. To test your app's behavior when resubscribe is disabled, use a non-license-tester account.
+
 ![](https://developer.android.com/static/images/google/play/billing/lifecycle/restoration.png) **Figure 7.** *Account \> Subscriptions* section of the Google Play Store app showing a canceled subscription with a **Resubscribe** button.
 
 Although the button is always labeled **Resubscribe**, its functionality depends
@@ -642,7 +660,8 @@ or using the API.
 
 #### Restore prior to expiration
 
-| **Note:** All developer apps are required to support Restore.
+> [!NOTE]
+> **Note:** All developer apps are required to support Restore.
 
 If your app relies solely on the
 [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener))
@@ -672,7 +691,8 @@ subscription resource looks similar to the following example:
       ],
     }
 
-| **Note:** A restored subscription uses the same purchase token from when the subscription was canceled. All cancellation fields are cleared from the subscription resource.
+> [!NOTE]
+> **Note:** A restored subscription uses the same purchase token from when the subscription was canceled. All cancellation fields are cleared from the subscription resource.
 
 #### Resubscribe after expiration
 
@@ -761,7 +781,9 @@ received an RTDN if the user takes action to confirm or reject the new price.
 When a user accepts your subscription price increase, you receive a
 [SubscriptionNotification](https://developer.android.com/google/play/billing/rtdn-reference#sub) message with type
 `SUBSCRIPTION_PRICE_CHANGE_UPDATED`.
-| **Note:** For subscriptions without addons `SUBSCRIPTION_PRICE_CHANGE_CONFIRMED` notifications will also be sent. However, this notification is deprecated. For more information, see [Deprecations](https://developer.android.com/google/play/billing/deprecations).
+
+> [!NOTE]
+> **Note:** For subscriptions without addons `SUBSCRIPTION_PRICE_CHANGE_CONFIRMED` notifications will also be sent. However, this notification is deprecated. For more information, see [Deprecations](https://developer.android.com/google/play/billing/deprecations).
 
 #### Handle renewals after price change is applied
 
@@ -824,7 +846,10 @@ one week or longer must be acknowledged within 3 days. Prepaid plans with a
 duration shorter than one week must be acknowledged within half of the plan
 duration. For example, developers have 1.5 days to acknowledge purchase of a
 three-day prepaid plan.
-| **Warning:** If a user on a prepaid plan purchases a top-up and you do not acknowledge the purchase within the corresponding timeframe, the top-up purchase is revoked, the remaining subscription is revoked and canceled, and the user is issued a refund.
+
+> [!WARNING]
+> **Warning:** If a user on a prepaid plan purchases a top-up and you do not acknowledge the purchase within the corresponding timeframe, the top-up purchase is revoked, the remaining subscription is revoked and canceled, and the user is issued a refund.
+
 ![](https://developer.android.com/static/images/google/play/billing/lifecycle/prepaid-states.svg) **Figure 8.** Lifecycle states and transition events for subscription purchases.
 
 A [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub) message
