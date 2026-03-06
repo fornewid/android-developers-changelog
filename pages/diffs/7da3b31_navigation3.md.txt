@@ -1,0 +1,21 @@
+diff --git a/docs/jetpack/androidx/releases/navigation3.md b/docs/jetpack/androidx/releases/navigation3.md
+index d204237..59b541f 100644
+--- a/docs/jetpack/androidx/releases/navigation3.md
++++ b/docs/jetpack/androidx/releases/navigation3.md
+@@ -77,7 +77,7 @@ February 25, 2026
+ 
+ February 11, 2026
+ 
+-`androidx.navigation3:navigation3-*:1.1.0-alpha04` is released. Version 1.1.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c26c6f088b95903b7b9cd5e6f2092988f1e64dc3..628cb9b293c226198b42c59be36a956491f36133/navigation3).
++`androidx.navigation3:navigation3-*:1.1.0-alpha04` is released. Version 1.1.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c26c6f088b95903b7b9cd5e6f2092988f1e64dc3..cdf076c6abd0f3125cb0302756fcb77fe981ab7c/navigation3).
+ 
+ **New Features**
+ 
+@@ -86,6 +86,7 @@ February 11, 2026
+ **API Changes**
+ 
+ - The `OverlayScene` interface has a new `onRemoved` suspending callback. This callback is invoked after a key associated with the scene is removed from the backstack, but before it leaves composition. This allows exit animations called within `onRemoved` to complete before the overlay scene is removed from composition. ([I29a72](https://android-review.googlesource.com/#/q/I29a728f2bc10ff4c0126ddf912907140a49676f9), [b/440558061](https://issuetracker.google.com/issues/440558061))
++- `SceneStrategy` has separated the decoration function into a new `SceneDecoratorStrategy`. This new interface is what is should be used to decorate scenes. There are new APIs for `NavDisplay` and `rememberSceneState` to allow the addition of `SceneDecoratorStrategies`. ([If9385](https://android-review.googlesource.com/#/q/If938555c2a8ac67748ff9d2d1106853badb946ae), [b/477669607](https://issuetracker.google.com/issues/477669607), [b/477670333](https://issuetracker.google.com/issues/477670333))
+ 
+ **Bug Fixes**
+ 

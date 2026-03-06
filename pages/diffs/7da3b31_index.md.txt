@@ -1,0 +1,18 @@
+diff --git a/docs/index.md b/docs/index.md
+index 68f516e..4958d83 100644
+--- a/docs/index.md
++++ b/docs/index.md
+@@ -4,11 +4,9 @@ url: https://developer.android.com/
+ source: md.txt
+ ---
+ 
+-![](http://developer.android.com/static/images/io-26/io-android.png) ![](http://developer.android.com/static/images/io-26/google-io.svg)
++### Elevating AI assistance with LLM benchmarking
+ 
+-### Tune in to Google I/O May 19-20
+-
+-Learn about the latest Android innovations and what we're doing to help you transform your work. [Register Now](https://io.google/2026/?utm_source=android&utm_medium=embedded_marketing&utm_campaign=svd&utm_content)
++Check out Android Bench, our official benchmark of LLMs for Android development. [Read more](https://android-developers.googleblog.com/2026/03/elevating-ai-assisted-androi.html) [View leaderboard](http://developer.android.com/bench)
+ - [![](https://developer.android.com/static/images/logos/android.svg)
+   Download Android Studio](https://developer.android.com/studio)
+ - [![](https://developer.android.com/static/images/picto-icons/game-console.svg)

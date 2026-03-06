@@ -1,0 +1,34 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/ui-compose.md b/docs/develop/xr/jetpack-xr-sdk/ui-compose.md
+index f1b36dc..767966f 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/ui-compose.md
++++ b/docs/develop/xr/jetpack-xr-sdk/ui-compose.md
+@@ -29,16 +29,16 @@ concepts of *subspace* and *spatialized components*.
+ 
+ ### About subspace
+ 
+-When developing for Android XR, you'll need to add a [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Subspace(kotlin.Function1)) to your app
++When developing for Android XR, you'll need to add a subspace to your app
+ or layout. A subspace is a partition of 3D space within your app where you can
+ place 3D content, build 3D layouts, and add depth to otherwise 2D content. A
+ subspace is rendered only when spatialization is enabled. In Home Space or on
+ non-XR devices, any code within that subspace is ignored.
+ 
+-There are two ways to create a subspace:
++There are a few ways to create a subspace:
+ 
+-- [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Subspace(kotlin.Function1)): This composable can be placed anywhere within your app's UI hierarchy, allowing you to maintain layouts for 2D and spatial UI without losing context between files. This makes it easier to share things like existing app architecture between XR and other form factors without needing to hoist state through your whole UI tree or re-architect your app.
+-- [`ApplicationSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#ApplicationSubspace(androidx.xr.compose.unit.VolumeConstraints,androidx.xr.compose.spatial.ConstraintsBehavior,kotlin.Function1)): This function creates app-level subspace only and must be placed at the top most level in your application's spatial UI hierarchy. [`ApplicationSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#ApplicationSubspace(androidx.xr.compose.unit.VolumeConstraints,androidx.xr.compose.spatial.ConstraintsBehavior,kotlin.Function1)) renders spatial content with optional [`VolumeConstraints`](https://developer.android.com/reference/kotlin/androidx/xr/compose/unit/VolumeConstraints#VolumeConstraints). Unlike [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Subspace(kotlin.Function1)), [`ApplicationSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#ApplicationSubspace(androidx.xr.compose.unit.VolumeConstraints,androidx.xr.compose.spatial.ConstraintsBehavior,kotlin.Function1)) cannot be nested within another [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Subspace(kotlin.Function1)) or [`ApplicationSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#ApplicationSubspace(androidx.xr.compose.unit.VolumeConstraints,androidx.xr.compose.spatial.ConstraintsBehavior,kotlin.Function1)).
++- [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Boolean,kotlin.Function1)): This composable creates a new, independent Spatial UI hierarchy. It does not inherit the spatial position, orientation, or scale of any parent `Subspace` it is nested within. `Subspace` is automatically bound by the system's recommended content box.
++- [`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#PlanarEmbeddedSubspace(kotlin.Function1)): This composable can be placed within your app's UI hierarchy, allowing you to maintain layouts for 2D and spatial UI. `PlanarEmbeddedSubspace` respects the constraints and positioning of its parent. The 3D content placed inside it is then positioned relative to this 2D-defined area.
+ 
+ For more information, see [Add a subspace to your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-subspace).
+ 
+@@ -110,7 +110,7 @@ fun SpatialPanelContent() {
+ 
+ ### Key points about the code
+ 
+-- Because [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) APIs are subspace composables, you must call them inside [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Subspace(kotlin.Function1)). Calling them outside of a subspace throws an exception.
++- Because [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) APIs are subspace composables, you must call them inside \[`Subspace`\]\[4\]. Calling them outside of a subspace throws an exception.
+ - The size of the `SpatialPanel` has been set using the `height` and `width` specifications on the `SubspaceModifier`. Omitting these specifications lets the size of the panel be determined by the measurements of its contents.
+ - Allow the user to move a panel by adding a [`MovePolicy`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/MovePolicy).
+ - Allow the user to resize a panel by adding a [`ResizePolicy`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/ResizePolicy).

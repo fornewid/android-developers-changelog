@@ -1,0 +1,62 @@
+diff --git a/docs/design/ui/ai-glasses/guides/components/overview.md b/docs/design/ui/ai-glasses/guides/components/overview.md
+index 6a4d121..f41b39e 100644
+--- a/docs/design/ui/ai-glasses/guides/components/overview.md
++++ b/docs/design/ui/ai-glasses/guides/components/overview.md
+@@ -4,24 +4,45 @@ url: https://developer.android.com/design/ui/ai-glasses/guides/components/overvi
+ source: md.txt
+ ---
+ 
+-Components are purpose built building blocks for building your UI. Your app should utilize Jetpack Compose Glimmer for components as they are optimized for the unique Glasses display use cases.
++Components are purpose-built building blocks for building your UI. Your app
++should utilize Jetpack Compose Glimmer for components as they are optimized for
++the unique use cases of displays on AI glasses.
+ 
+-![Design elements should be anchored to the bottom of the frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_overview.png)
++![Design elements should be anchored to the bottom of the
++frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_overview.png)
+ 
+ ## Optimized components
+ 
+-**How were components optimized for transparent display?**
+ 
+-**Surface color**: The surface color of components is black to maximize contrast for card content.
++Glimmer components are optimized for transparent displays in a variety of ways:
+ 
+-**Outline \& Highlight**: The Outline color is optimized for contrast. The use of a highlight provides visual expression and might be used to indicate some types of input.
++<br />
+ 
+-**Shape**: A softer shape system is used to improve glanceability by reducing the sharpness of corners and improving comfort.
++**A. Surface color**: Surfaces need to have transparency, so the opaque
++surface color here would be changed to black to make it transparent.
+ 
+-**On Surface color**: The On Surface color of content is white or close to white to maximize contrast against surface.
++**B. Outline \& Highlight**: The Outline color is optimized for contrast. The use
++of a highlight provides visual expression and might be used to indicate some
++types of input.
+ 
+-**Typography**: The typography scale uses a small set of refined Body and Title styles that optimize kerning, size and weight for optimal readability \& legibility.
++**C. Shape**: A softer shape system is used to improve glanceability by reducing
++the sharpness of corners and improving comfort. On Surface color: The On Surface
++color of content is white to maximize contrast against the world.
+ 
+-**Iconography**: The use of rounded Material Symbols coheres with the rounded typography scale.
++**D. Typography**: Glimmer's typography scale uses a small set of refined Body
++and Title styles that optimize kerning, size and weight for optimal readability
++\& legibility.
+ 
+-Ready to implement components? Check out the Jetpack Compose Glimmer UI library documentation.
+\ No newline at end of file
++**E. Iconography**: The use of rounded Material Symbols coheres with the rounded
++typography scale.
++
++![Glimmer components are optimized for transparent display.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_foundation_getstarted_step2_optimized.png)
++
++<br />
++
++<br />
++
++## Get started
++
++Ready to implement components? Check out the [Jetpack Compose Glimmer
++documentation](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
+\ No newline at end of file

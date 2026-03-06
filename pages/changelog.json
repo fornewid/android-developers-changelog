@@ -1,5 +1,135 @@
 [
   {
+    "date": "2026-03-06T15:14:08Z",
+    "commit_hash": "7da3b31",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/features\" target=\"_blank\">Features and APIs</a>",
+        "path": "about/versions/17/features.md",
+        "summary": "This document introduces the UWB Downlink-TDoA API for Android 17. It details how to initialize the Ranging Manager, verify device capabilities, start a DL-TDoA session, and configure parameters using both Kotlin and Java code examples. It also provides guidance on Out-of-Band (OOB) configurations for Wi-Fi and BLE, as well as alternative parameter building methods.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench\" target=\"_blank\">Android Bench</a>",
+        "path": "bench.md",
+        "summary": "This new documentation introduces \"Android Bench,\" a benchmark specifically designed to evaluate the capabilities of LLMs in Android development, addressing challenges not covered by existing benchmarks.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench/methodology\" target=\"_blank\">Android Bench</a>",
+        "path": "bench/methodology.md",
+        "summary": "This new documentation, \"methodology.md,\" details the Android Bench benchmark, outlining its goals, methodology, and composition for evaluating Large Language Models (LLMs) in Android development. It aims to encourage LLM improvements and empower developers with AI assistance.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/components/overview\" target=\"_blank\">Components</a>",
+        "path": "design/ui/ai-glasses/guides/components/overview.md",
+        "summary": "The documentation for AI glasses components has been updated to provide a more detailed explanation of the optimizations made for transparent displays. The changes include specifying that surfaces use transparency by changing the surface color to black to make it transparent, adding details on outlines, highlights, shapes, typography, and iconography. This helps developers understand the specific design considerations for building user interfaces on AI glasses, leading to better visual experiences.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/ai-glasses/guides/foundations/get-started\" target=\"_blank\">Get started</a>",
+        "path": "design/ui/ai-glasses/guides/foundations/get-started.md",
+        "summary": "This document provides a guide to building AI Glasses apps using the Jetpack Compose Glimmer UI framework.  The changes primarily involve minor wording adjustments for clarity, formatting, and improved image alt text. The core content and guidance on design principles, user journeys, audio flows, and system UI remain consistent.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/ranging\" target=\"_blank\">Range between devices</a>",
+        "path": "develop/connectivity/ranging.md",
+        "summary": "The documentation has been updated to include information about the UWB Downlink-TDoA API. This addition provides a link to the Android 17 features page, offering developers details about the new API for utilizing UWB technology to measure distance and location with improved accuracy.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_ranging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose\" target=\"_blank\">Develop spatial UI with Jetpack Compose for XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/ui-compose.md",
+        "summary": "The documentation has been updated to reflect the addition of `PlanarEmbeddedSubspace` and changes to the `Subspace` composable.  `PlanarEmbeddedSubspace` allows for the integration of 3D content within a 2D layout, offering greater flexibility. Also, the documentation clarifies `Subspace` behavior and the importance of using subspace composables within the appropriate context. These changes provide developers with additional options for spatial UI design and clarify existing usage patterns.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_ui-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/samples\" target=\"_blank\">Play Games PC samples</a>",
+        "path": "games/playgames/native-pc/samples.md",
+        "summary": "This new documentation page introduces code samples designed to help developers quickly integrate Play Games PC features into their games. It includes samples for Play Billing integration and demonstrates the use of the Play PC SDK within a Unity project.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/lifecycle/subscriptions\" target=\"_blank\">Subscription lifecycle</a>",
+        "path": "google/play/billing/lifecycle/subscriptions.md",
+        "summary": "The documentation for subscriptions.md was updated to replace all instances of \"**Note:**\" and \"**Warning:**\" with blockquotes using \"[!NOTE]\" and \"[!WARNING]\" respectively. This change improves the visual presentation and readability of the document by using a more structured format for important notes and warnings. Additionally, there was a minor change in the cancellation type from `USER_REQUESTED_STOP_RENEWALS` to `USER_REQUESTED_STOP_RENEWALS`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_subscriptions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/manage-purchases\" target=\"_blank\">Manage subscriptions and one-time purchases</a>",
+        "path": "google/play/billing/manage-purchases.md",
+        "summary": "The documentation was updated to reflect the change of `cancellationType` value from `USER_REQUESTED_STOP_RENEWAL` to `USER_REQUESTED_STOP_RENEWALS` when cancelling a subscription. Additionally, the documentation now uses the NOTE formatting style. Also, clarification has been added regarding subscription revoking via API calls, especially for the installment subscriptions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_manage-purchases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/credential-manager-siwg-implementation\" target=\"_blank\">Implement Sign in with Google</a>",
+        "path": "identity/sign-in/credential-manager-siwg-implementation.md",
+        "summary": "This new documentation page provides a guide on how to implement Sign in with Google using the Credential Manager on Android, covering steps from adding dependencies to handling sign-out.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/credential-manager-siwg\" target=\"_blank\">About Sign in with Google</a>",
+        "path": "identity/sign-in/credential-manager-siwg.md",
+        "summary": "This document provides an overview of integrating Sign in with Google using Credential Manager. It highlights the benefits, user interface guidelines, and prerequisites for implementing the feature, including version compatibility and links to relevant documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_credential-manager-siwg.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/legacy-gsi-migration\" target=\"_blank\">About the migration from legacy Google Sign-In</a>",
+        "path": "identity/sign-in/legacy-gsi-migration.md",
+        "summary": "This document outlines the migration from legacy Google Sign-In for Android to the Android Credential Manager and AuthorizationClient API. The guide highlights the benefits of using Credential Manager, including a unified API, support for the Sign in with Google button, and streamlined sign-in flows. It also explains the differences between the legacy approach and the updated Credential Manager implementation, particularly in how authentication and authorization are handled.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_legacy-gsi-migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/index\" target=\"_blank\">Android Mobile App Developer Tools - Android Developers</a>",
+        "path": "index.md",
+        "summary": "The documentation introduces 'Android Bench', an official benchmark for Large Language Models (LLMs) used in Android development, replacing the previous Google I/O announcement. This change provides developers with a dedicated resource for evaluating and comparing LLMs, which is critical for developers looking to integrate AI into their Android applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_index.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/navigation3\" target=\"_blank\">navigation3</a>",
+        "path": "jetpack/androidx/releases/navigation3.md",
+        "summary": "Version 1.1.0-alpha04 of androidx.navigation3 has been released. This release includes a new suspending callback `onRemoved` in the `OverlayScene` interface, which is invoked before the overlay scene is removed from composition.  Additionally, the `SceneStrategy` interface has been refactored with a new `SceneDecoratorStrategy` interface to manage scene decoration, along with new APIs for `NavDisplay` and `rememberSceneState`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_navigation3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated to reflect the latest nightly build. Specifically, the download links and version numbers were updated from 2026-03-05 to 2026-03-06.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7da3b31_nightly.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-05T15:20:13Z",
     "commit_hash": "a08dae2",
     "entries": [

@@ -1,0 +1,201 @@
+diff --git a/docs/about/versions/17/features.md b/docs/about/versions/17/features.md
+index 28f94e6..1894037 100644
+--- a/docs/about/versions/17/features.md
++++ b/docs/about/versions/17/features.md
+@@ -181,4 +181,193 @@ The following example shows how to apply semantic styles to text in a notificati
+               .setContentTitle("Hello World!")
+               .setContentText(ssb)
+               .setOngoing(true)
+-                  .setRequestPromotedOngoing(true)
+\ No newline at end of file
++                  .setRequestPromotedOngoing(true)
++
++### UWB Downlink-TDoA API for Android 17
++
++Downlink Time Difference of Arrival (DL-TDoA) ranging lets a device determine
++its position relative to multiple anchors by measuring the relative arrival
++times of signals.
++
++The following snippet demonstrates how to initialize the [Ranging Manager](https://developer.android.com/reference/android/ranging/RangingManager),
++verify device capabilities, and start a DL-TDoA session:
++
++### Kotlin
++
++    class RangingApp {
++
++        fun initDlTdoa(context: Context) {
++            // Initialize the Ranging Manager
++            val rangingManager = context.getSystemService(RangingManager::class.java)
++
++            // Register for device capabilities
++            val capabilitiesCallback = object : RangingManager.CapabilitiesCallback {
++                override fun onRangingCapabilities(capabilities: RangingCapabilities) {
++                    // Make sure Dl-TDoA is supported before starting the session
++                    if (capabilities.uwbCapabilities != null && capabilities.uwbCapabilities!!.isDlTdoaSupported) {
++                        startDlTDoASession(context)
++                    }
++                }
++            }
++            rangingManager.registerCapabilitiesCallback(Executors.newSingleThreadExecutor(), capabilitiesCallback)
++        }
++
++        fun startDlTDoASession(context: Context) {
++
++            // Initialize the Ranging Manager
++            val rangingManager = context.getSystemService(RangingManager::class.java)
++
++            // Create session and configure parameters
++            val executor = Executors.newSingleThreadExecutor()
++            val rangingSession = rangingManager.createRangingSession(executor, RangingSessionCallback())
++            val rangingRoundIndexes = intArrayOf(0)
++            val config: ByteArray = byteArrayOf() // OOB config data
++            val params = DlTdoaRangingParams.createFromFiraConfigPacket(config, rangingRoundIndexes)
++
++            val rangingDevice = RangingDevice.Builder().build()
++            val rawTagDevice = RawRangingDevice.Builder()
++                .setRangingDevice(rangingDevice)
++                .setDlTdoaRangingParams(params)
++                .build()
++
++            val dtTagConfig = RawDtTagRangingConfig.Builder(rawTagDevice).build()
++
++            val preference = RangingPreference.Builder(DEVICE_ROLE_DT_TAG, dtTagConfig)
++                .setSessionConfig(SessionConfig.Builder().build())
++                .build()
++
++            // Start the ranging session
++            rangingSession.start(preference)
++        }
++    }
++
++    private class RangingSessionCallback : RangingSession.Callback {
++        override fun onDlTdoaResults(peer: RangingDevice, measurement: DlTdoaMeasurement) {
++            // Process measurement results here
++        }
++    }
++
++### Java
++
++    public class RangingApp {
++
++        public void initDlTdoa(Context context) {
++
++            // Initialize the Ranging Manager
++            RangingManager rangingManager = context.getSystemService(RangingManager.class);
++
++            // Register for device capabilities
++            RangingManager.CapabilitiesCallback capabilitiesCallback = new RangingManager.CapabilitiesCallback() {
++                @Override
++                public void onRangingCapabilities(RangingCapabilities capabilities) {
++                    // Make sure Dl-TDoA is supported before starting the session
++                    if (capabilities.getUwbCapabilities() != null && capabilities.getUwbCapabilities().isDlTdoaSupported) {
++                        startDlTDoASession(context);
++                    }
++                }
++            };
++            rangingManager.registerCapabilitiesCallback(Executors.newSingleThreadExecutor(), capabilitiesCallback);
++        }
++
++        public void startDlTDoASession(Context context) {
++            RangingManager rangingManager = context.getSystemService(RangingManager.class);
++
++            // Create session and configure parameters
++            Executor executor = Executors.newSingleThreadExecutor();
++            RangingSession rangingSession = rangingManager.createRangingSession(executor, new RangingSessionCallback());
++            int[] rangingRoundIndexes = new int[] {0};
++            byte[] config = new byte[0]; // OOB config data
++            DlTdoaRangingParams params = DlTdoaRangingParams.createFromFiraConfigPacket(config, rangingRoundIndexes);
++
++            RangingDevice rangingDevice = new RangingDevice.Builder().build();
++            RawRangingDevice rawTagDevice = new RawRangingDevice.Builder()
++                    .setRangingDevice(rangingDevice)
++                    .setDlTdoaRangingParams(params)
++                    .build();
++
++            RawDtTagRangingConfig dtTagConfig = new RawDtTagRangingConfig.Builder(rawTagDevice).build();
++
++            RangingPreference preference = new RangingPreference.Builder(DEVICE_ROLE_DT_TAG, dtTagConfig)
++                    .setSessionConfig(new SessionConfig.Builder().build())
++                    .build();
++
++            // Start the ranging session
++            rangingSession.start(preference);
++        }
++
++        private static class RangingSessionCallback implements RangingSession.Callback {
++
++            @Override
++            public void onDlTdoaResults(RangingDevice peer, DlTdoaMeasurement measurement) {
++                // Process measurement results here
++            }
++        }
++    }
++
++### Out-of-Band (OOB) Configurations
++
++The following snippet provides an example of DL-TDoA OOB configuration data for
++Wi-Fi and BLE:
++
++### Java
++
++    // Wifi Configuration
++    byte[] wifiConfig = {
++        (byte) 0xDD, (byte) 0x2D, (byte) 0x5A, (byte) 0x18, (byte) 0xFF, // Header
++        (byte) 0x5F, (byte) 0x19, // FiRa Sub-Element
++        (byte) 0x02, (byte) 0x00, // Profile ID
++        (byte) 0x06, (byte) 0x02, (byte) 0x20, (byte) 0x08, // MAC Address
++        (byte) 0x14, (byte) 0x01, (byte) 0x0C, // Preamble Index
++        (byte) 0x27, (byte) 0x02, (byte) 0x08, (byte) 0x07, // Vendor ID
++        (byte) 0x28, (byte) 0x06, (byte) 0xCA, (byte) 0xC8, (byte) 0xA6, (byte) 0xF7, (byte) 0x6F, (byte) 0x08, // Static STS IV
++        (byte) 0x08, (byte) 0x02, (byte) 0x60, (byte) 0x09, // Slot Duration
++        (byte) 0x1B, (byte) 0x01, (byte) 0x0A, // Slots per RR
++        (byte) 0x09, (byte) 0x04, (byte) 0xE8, (byte) 0x03, (byte) 0x00, (byte) 0x00, // Duration
++        (byte) 0x9F, (byte) 0x04, (byte) 0x67, (byte) 0x45, (byte) 0x23, (byte) 0x01  // Session ID
++    };
++
++    // BLE Configuration
++    byte[] bleConfig = {
++        (byte) 0x2D, (byte) 0x16, (byte) 0xF4, (byte) 0xFF, // Header
++        (byte) 0x5F, (byte) 0x19, // FiRa Sub-Element
++        (byte) 0x02, (byte) 0x00, // Profile ID
++        (byte) 0x06, (byte) 0x02, (byte) 0x20, (byte) 0x08, // MAC Address
++        (byte) 0x14, (byte) 0x01, (byte) 0x0C, // Preamble Index
++        (byte) 0x27, (byte) 0x02, (byte) 0x08, (byte) 0x07, // Vendor ID
++        (byte) 0x28, (byte) 0x06, (byte) 0xCA, (byte) 0xC8, (byte) 0xA6, (byte) 0xF7, (byte) 0x6F, (byte) 0x08, // Static STS IV
++        (byte) 0x08, (byte) 0x02, (byte) 0x60, (byte) 0x09, // Slot Duration
++        (byte) 0x1B, (byte) 0x01, (byte) 0x0A, // Slots per RR
++        (byte) 0x09, (byte) 0x04, (byte) 0xE8, (byte) 0x03, (byte) 0x00, (byte) 0x00, // Duration
++        (byte) 0x9F, (byte) 0x04, (byte) 0x67, (byte) 0x45, (byte) 0x23, (byte) 0x01  // Session ID
++    };
++
++If you can't use an OOB configuration because it is missing, or if you need to
++change default values that aren't in the OOB config, you can build parameters
++with `DlTdoaRangingParams.Builder` as shown in the following snippet. You can use
++these parameters in place of `DlTdoaRangingParams.createFromFiraConfigPacket()`:
++
++### Kotlin
++
++    val dlTdoaParams = DlTdoaRangingParams.Builder(1)
++        .setComplexChannel(UwbComplexChannel.Builder()
++                .setChannel(9).setPreambleIndex(10).build())
++        .setDeviceAddress(deviceAddress)
++        .setSessionKeyInfo(byteArrayOf(0x01, 0x02, 0x03, 0x04))
++        .setRangingIntervalMillis(240)
++        .setSlotDuration(UwbRangingParams.DURATION_2_MS)
++        .setSlotsPerRangingRound(20)
++        .setRangingRoundIndexes(byteArrayOf(0x01, 0x05))
++        .build()
++
++### Java
++
++    DlTdoaRangingParams dlTdoaParams = new DlTdoaRangingParams.Builder(1)
++        .setComplexChannel(new UwbComplexChannel.Builder()
++                .setChannel(9).setPreambleIndex(10).build())
++        .setDeviceAddress(deviceAddress)
++        .setSessionKeyInfo(new byte[]{0x01, 0x02, 0x03, 0x04})
++        .setRangingIntervalMillis(240)
++        .setSlotDuration(UwbRangingParams.DURATION_2_MS)
++        .setSlotsPerRangingRound(20)
++        .setRangingRoundIndexes(new byte[]{0x01, 0x05})
++        .build();
+\ No newline at end of file
