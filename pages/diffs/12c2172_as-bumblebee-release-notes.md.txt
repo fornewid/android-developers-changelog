@@ -1,0 +1,55 @@
+diff --git a/docs/studio/releases/past-releases/as-bumblebee-release-notes.md b/docs/studio/releases/past-releases/as-bumblebee-release-notes.md
+index d107969..2f12a40 100644
+--- a/docs/studio/releases/past-releases/as-bumblebee-release-notes.md
++++ b/docs/studio/releases/past-releases/as-bumblebee-release-notes.md
+@@ -36,7 +36,8 @@ To open the new **Device Manager**, do one of the following:
+ - From the Android Studio Welcome screen, select **More Actions \> Virtual Device
+   Manager**.
+ 
+-| **Note:** You can currently create and manage only virtual devices from the welcome screen.
++> [!NOTE]
++> **Note:** You can currently create and manage only virtual devices from the welcome screen.
+ 
+ - After opening a project, select **View \> Tool Windows \> Device Manager** from the main menu bar.
+ 
+@@ -110,7 +111,8 @@ steps:
+ 
+   1. Deploy your app to the device and connect the Layout Inspector. Android Studio will check whether the flag is set and avoid restarting the Activity if possible.
+ 
+-| **Note:** While typically not noticeable, setting this device flag when not using the Layout Inspector might affect the app's performance.
++> [!NOTE]
++> **Note:** While typically not noticeable, setting this device flag when not using the Layout Inspector might affect the app's performance.
+ 
+ ### Document Layout Inspector snapshots
+ 
+@@ -152,8 +154,10 @@ progress. Similar to Workers, you can select a Job, Alarm, or Wakelock to
+ inspect its detailed information in the **Task Details** panel.
+ 
+ ![Background Task Inspector showing Jobs, Alarms, and Wakelocks](https://developer.android.com/static/studio/images/inspect/background-task-inspector.png)
+-| **Note:** This functionality has been migrated from the [Energy
+-| profiler](https://developer.android.com/studio/profile/energy-profiler). So you should now use the **Background task inspector** to inspect all of your app's asynchronous tasks.
++
++> [!NOTE]
++> **Note:** This functionality has been migrated from the [Energy
++> profiler](https://developer.android.com/studio/profile/energy-profiler). So you should now use the **Background task inspector** to inspect all of your app's asynchronous tasks.
+ 
+ Because Workers use Jobs and Wakelocks under the hood, those tasks that are
+ scheduled by Workers appear as children of each Worker. Keep in mind, you can
+@@ -186,7 +190,7 @@ version of your app that most closely resembles what your users will install. To
+ do so, you can now include the
+ [`<profileable>`](https://developer.android.com/guide/topics/manifest/profileable-element) property in your
+ app's manifest to profile apps that are not debuggable, as shown by the
+-following code.  
++following code.
+ 
+     <profileable android:shell="true"/>
+ 
+@@ -358,7 +362,7 @@ To help resolve issues that you might be expereincing, please
+ 
+ ## Patch releases
+ 
+-The following are patch releases in Android Studio Bumblebee.  
++The following are patch releases in Android Studio Bumblebee.
+ **Android Studio Bumblebee \| 2021.1.1 Patch 3 (April 2022)**
+ 
+ This minor update includes the following bug fixes:

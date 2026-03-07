@@ -1,0 +1,30 @@
+diff --git a/docs/studio/services/deprecated.md b/docs/studio/services/deprecated.md
+index c1fb5a0..8a165fd 100644
+--- a/docs/studio/services/deprecated.md
++++ b/docs/studio/services/deprecated.md
+@@ -4,8 +4,6 @@ url: https://developer.android.com/studio/services/deprecated
+ source: md.txt
+ ---
+ 
+-# Deprecated service integrations
+-
+ The following Android Studio service integrations have been deprecated:
+ 
+ ## Meerkat
+@@ -13,10 +11,12 @@ The following Android Studio service integrations have been deprecated:
+ - [Cloud Source Repositories project import](https://cloud.google.com/tools/android-studio/vcs)
+ - App Engine support
+ 
+-The listed service integrations will be removed starting in Android Studio Narwhal Feature Drop and won't be available in future versions.
++The listed service integrations will be removed starting in Android Studio
++Narwhal Feature Drop and won't be available in future versions.
+ 
+ ## Narwhal Feature Drop
+ 
+ - [Run with Firebase Test Lab](https://developer.android.com/studio/test/test-in-android-studio#run-with-firebase-test-lab)
+ 
+-The listed service integrations will be removed starting in Android Studio "O" Feature Drop and won't be available in future versions.
+\ No newline at end of file
++The listed service integrations will be removed starting in Android Studio
++"O" Feature Drop and won't be available in future versions.
+\ No newline at end of file

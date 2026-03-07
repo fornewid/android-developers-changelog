@@ -1,0 +1,29 @@
+diff --git a/docs/studio/profile/standalone-profiler.md b/docs/studio/profile/standalone-profiler.md
+index c1543f8..3cf736f 100644
+--- a/docs/studio/profile/standalone-profiler.md
++++ b/docs/studio/profile/standalone-profiler.md
+@@ -4,16 +4,16 @@ url: https://developer.android.com/studio/profile/standalone-profiler
+ source: md.txt
+ ---
+ 
+-# Run the standalone profiler
+-
+-The standalone Android Studio profiler lets you[profile your app](https://developer.android.com/studio/profile)without running the full Android Studio IDE.
++The standalone Android Studio profiler lets you [profile your app](https://developer.android.com/studio/profile) without running
++the full Android Studio IDE.
+ 
+ To run the standalone profiler, do the following:
+ 
+ 1. Make sure the profiler is not currently running inside of Android Studio.
+-2. Go to the installation directory and navigate to the`bin`directory:
++2. Go to the installation directory and navigate to the `bin`
++   directory:
+ 
+-   **Windows/Linux** :<var translate="no">studio-installation-folder</var>`/bin`
++   **Windows/Linux** : `studio-installation-folder/bin`
+ 
+    **macOS**: The use of standalone profilers is not supported on macOS.
+-3. Depending on your OS, run`profiler.exe`or`profiler.sh`. The Android Studio splash screen appears. After the splash screen disappears, a profiler window opens.
+\ No newline at end of file
++3. Depending on your OS, run `profiler.exe` or `profiler.sh`. The Android Studio splash screen appears. After the splash screen disappears, a profiler window opens.
+\ No newline at end of file

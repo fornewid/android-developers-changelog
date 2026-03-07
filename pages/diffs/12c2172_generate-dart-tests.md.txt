@@ -1,0 +1,25 @@
+diff --git a/docs/studio/prompt-gallery/prompts/generate-dart-tests.md b/docs/studio/prompt-gallery/prompts/generate-dart-tests.md
+index 65cb580..eb33b84 100644
+--- a/docs/studio/prompt-gallery/prompts/generate-dart-tests.md
++++ b/docs/studio/prompt-gallery/prompts/generate-dart-tests.md
+@@ -4,8 +4,6 @@ url: https://developer.android.com/studio/prompt-gallery/prompts/generate-dart-t
+ source: md.txt
+ ---
+ 
+-# Generate Dart tests
+-
+ Generates tests for the most significant class in a file.
+ 
+ *** ** * ** ***
+@@ -16,7 +14,8 @@ Generates tests for the most significant class in a file.
+ 
+     Group the tests into a `testGroup` and include appropriate setup and teardown as needed.
+ 
+-| To run this prompt in Android Studio, click**Gemini** in the sidebar and paste it in the chat field.  
+-| To save and retrieve prompts in the Studio IDE, go to**Settings \> Gemini \> Prompt Library**.
++> [!NOTE]
++> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
++> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
+ 
+ *** ** * ** ***
+\ No newline at end of file

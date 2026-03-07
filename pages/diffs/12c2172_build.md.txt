@@ -1,0 +1,13 @@
+diff --git a/docs/ndk/guides/build.md b/docs/ndk/guides/build.md
+index c7875ca..75935f6 100644
+--- a/docs/ndk/guides/build.md
++++ b/docs/ndk/guides/build.md
+@@ -4,8 +4,6 @@ url: https://developer.android.com/ndk/guides/build
+ source: md.txt
+ ---
+ 
+-# Build your project
+-
+ There are three main ways to build code with the NDK:
+ 
+ - The Make-based [ndk-build](https://developer.android.com/ndk/guides/ndk-build).

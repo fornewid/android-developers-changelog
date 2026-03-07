@@ -1,0 +1,25 @@
+diff --git a/docs/studio/write/motion-editor.md b/docs/studio/write/motion-editor.md
+index 950ccdc..40bc0b9 100644
+--- a/docs/studio/write/motion-editor.md
++++ b/docs/studio/write/motion-editor.md
+@@ -4,7 +4,8 @@ url: https://developer.android.com/studio/write/motion-editor
+ source: md.txt
+ ---
+ 
+-# Build animation with the Motion Editor
++> [!WARNING]
++> **Deprecated:** As of Android Studio Meerkat Feature Drop, the Motion Editor is [deprecated](https://developer.android.com/studio/releases/past-releases/as-meerkat-feature-drop-release-notes#motion-editor-deprecation).
+ 
+ Android Studio includes a visual design editor for the
+ [MotionLayout](https://developer.android.com/training/constraint-layout/motionlayout) layout type, making it
+@@ -16,7 +17,9 @@ apps. Without Android Studio, creating and altering these elements requires
+ manually editing constraints in XML resource files. The Motion Editor, however,
+ can generate this XML for you, with support for start and end states, keyframes,
+ transitions, and timelines.
+-| **Note:** Before using the Motion Editor, be sure to set the `ConstraintLayout` dependency in your `build.gradle` file to version `2.0.0-beta3`, as described in the MotionLayout [reference documentation](https://developer.android.com/training/constraint-layout/motionlayout#getting_started).
++
++> [!NOTE]
++> **Note:** Before using the Motion Editor, be sure to set the `ConstraintLayout` dependency in your `build.gradle` file to version `2.0.0-beta3`, as described in the MotionLayout [reference documentation](https://developer.android.com/training/constraint-layout/motionlayout#getting_started).
+ 
+ To get started with the Motion Editor:
+ 

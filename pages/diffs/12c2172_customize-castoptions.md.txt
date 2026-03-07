@@ -1,0 +1,66 @@
+diff --git a/docs/media/media3/cast/customize-castoptions.md b/docs/media/media3/cast/customize-castoptions.md
+index 4ccaa0d..89be1ff 100644
+--- a/docs/media/media3/cast/customize-castoptions.md
++++ b/docs/media/media3/cast/customize-castoptions.md
+@@ -48,27 +48,20 @@ example, by setting your custom receiver application ID.
+ 
+ For more information, see [CastOptions.Builder](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/CastOptions.Builder).
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-import android.content.Context
+-import com.google.android.gms.cast.framework.CastOptions
+-import com.google.android.gms.cast.framework.OptionsProvider
+-import com.google.android.gms.cast.framework.SessionProvider
+-
+-class MyCustomCastOptionsProvider: OptionsProvider {
++class MyCustomCastOptionsProvider : OptionsProvider {
+ 
+   override fun getCastOptions(context: Context): CastOptions {
+-    return CastOptions
+-      .Builder()
++    return CastOptions.Builder()
+       .setReceiverApplicationId(APP_ID)
+       .setRemoteToLocalEnabled(true)
+       .build()
+   }
+ 
+-  override fun getAdditionalSessionProviders(
+-      context: Context
+-  ): List<SessionProvider>? {
++  override fun getAdditionalSessionProviders(context: Context): List<SessionProvider>? {
+     return null
+   }
+ 
+@@ -82,13 +75,7 @@ class MyCustomCastOptionsProvider: OptionsProvider {
+ ### Java
+ 
+ ```java
+-import android.content.Context;
+-import com.google.android.gms.cast.framework.CastOptions;
+-import com.google.android.gms.cast.framework.OptionsProvider;
+-import com.google.android.gms.cast.framework.SessionProvider;
+-import java.util.List;
+-
+-public final class MyCustomCastOptionsProvider implements OptionsProvider {
++public static final class MyCustomCastOptionsProvider implements OptionsProvider {
+ 
+   // Add your receiver app ID in <APP_ID>.
+   public static final String APP_ID = "<APP_ID>";
+@@ -102,8 +89,11 @@ public final class MyCustomCastOptionsProvider implements OptionsProvider {
+   }
+ 
+   @Override
++  @Nullable
+   public List<SessionProvider> getAdditionalSessionProviders(Context context) {
+     return null;
+   }
+ }
+-```
+\ No newline at end of file
++```
++
++<br />
+\ No newline at end of file

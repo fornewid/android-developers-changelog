@@ -1,0 +1,88 @@
+diff --git a/docs/ndk/guides/ndk-stack.md b/docs/ndk/guides/ndk-stack.md
+index da33b06..b1285b3 100644
+--- a/docs/ndk/guides/ndk-stack.md
++++ b/docs/ndk/guides/ndk-stack.md
+@@ -4,11 +4,14 @@ url: https://developer.android.com/ndk/guides/ndk-stack
+ source: md.txt
+ ---
+ 
+-# ndk-stack
++The `ndk-stack` tool allows you to symbolize stack traces from
++[`adb logcat`](https://developer.android.com/tools/help/logcat) or a
++tombstone in `/data/tombstones/`. It replaces any
++address inside a shared library with the corresponding
++`<source-file>:<line-number>` from your source code,
++making debugging easier.
+ 
+-The`ndk-stack`tool allows you to symbolize stack traces from[`adb logcat`](https://developer.android.com/tools/help/logcat)or a tombstone in`/data/tombstones/`. It replaces any address inside a shared library with the corresponding`<source-file>:<line-number>`from your source code, making debugging easier.
+-
+-For example, it translates something like:  
++For example, it translates something like:
+ 
+ ```
+ I/DEBUG   (   31): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+@@ -29,7 +32,7 @@ I/DEBUG   (   31):          #06  pc 0000d362  /system/lib/libc.so
+ I/DEBUG   (   31):
+ ```
+ 
+-into the more readable:  
++into the more readable:
+ 
+ ```
+ ********** Crash dump: **********
+@@ -47,31 +50,46 @@ Stack frame #06  pc 0000d362  /system/lib/libc.so
+ 
+ ## Usage
+ 
+-To use`ndk-stack`, you first need a directory containing unstripped versions of your app's shared libraries. If you use`ndk-build`, these unstripped shared libraries are found in`$PROJECT_PATH/obj/local/<abi>`, where`<abi>`is your device's ABI.
++To use `ndk-stack`, you first need a directory containing unstripped versions of
++your app's shared libraries. If you use `ndk-build`, these unstripped shared
++libraries are found in `$PROJECT_PATH/obj/local/<abi>`, where `<abi>` is your
++device's ABI.
+ 
+-For an Android Gradle Plugin (AGP) build, the unstripped libraries will be in`<project-path>/build/intermediates/cxx/<build-type>/<hash>/obj/<abi>`, where`<project-path>`is the directory of the AGP project that contains the module you're trying to symbolize (by default this is`app`),`<build-type>`is the name of the CMake or ndk-build build type (such as`RelWithDebInfo`,`Release`,`Debug`, etc.),`<hash>`is arbitrary, and`<abi>`is your device's ABI.
++For an Android Gradle Plugin (AGP) build, the unstripped libraries will be in
++`<project-path>/build/intermediates/cxx/<build-type>/<hash>/obj/<abi>`, where
++`<project-path>` is the directory of the AGP project that contains the module
++you're trying to symbolize (by default this is `app`), `<build-type>` is the
++name of the CMake or ndk-build build type (such as `RelWithDebInfo`, `Release`,
++`Debug`, etc.), `<hash>` is arbitrary, and `<abi>` is your device's ABI.
+ 
+-There are two ways to use the tool. You can feed the logcat text as direct input to the program. For example:  
++There are two ways to use the tool. You can feed the logcat text as direct input to the program.
++For example:
+ 
+ ```
+ adb logcat | $NDK/ndk-stack -sym $PROJECT_PATH/obj/local/armeabi-v7a
+ ```
+ 
+-You can also use the`-dump`option to specify the logcat as an input file. For example:  
++You can also use the `-dump` option to specify the logcat as an input file. For example:
+ 
+ ```
+ adb logcat > /tmp/foo.txt
+ $NDK/ndk-stack -sym $PROJECT_PATH/obj/local/armeabi-v7a -dump foo.txt
+ ```
+ 
+-When it begins parsing the logcat output, the tool looks for an initial line of asterisks. For example:  
++When it begins parsing the logcat output, the tool looks for an initial line of asterisks.
++For example:
+ 
+ ```
+ *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+ ```
+ 
+-**Note:** When copy/pasting traces, don't forget this line, or`ndk-stack`won't work correctly.
++**Note:** When copy/pasting traces, don't forget this line, or
++`ndk-stack` won't work correctly.
+ 
+ ## More information
+ 
+-Google Play uses`ndk-stack`to symbolize stack traces for native apps in the Google Play Console. For information on how to enable this for your app in a production environment, see how to[include a native debug symbols file](https://developer.android.com/studio/build/shrink-code#strip-native-libraries)for your app in the Google Play Console.
+\ No newline at end of file
++Google Play uses `ndk-stack` to symbolize stack traces for native
++apps in the Google Play Console. For information on how to enable this for your
++app in a production environment, see how to
++[include a native debug symbols file](https://developer.android.com/studio/build/shrink-code#strip-native-libraries)
++for your app in the Google Play Console.
+\ No newline at end of file

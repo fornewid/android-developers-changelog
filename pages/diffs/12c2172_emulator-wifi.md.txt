@@ -1,0 +1,13 @@
+diff --git a/docs/studio/run/emulator-wifi.md b/docs/studio/run/emulator-wifi.md
+index 7d257c7..bb33a61 100644
+--- a/docs/studio/run/emulator-wifi.md
++++ b/docs/studio/run/emulator-wifi.md
+@@ -4,8 +4,6 @@ url: https://developer.android.com/studio/run/emulator-wifi
+ source: md.txt
+ ---
+ 
+-# Wi-Fi
+-
+ When using an AVD with API level 25 or higher, the emulator provides a simulated
+ Wi-Fi access point ("AndroidWifi"), and Android automatically connects to it.
+ 

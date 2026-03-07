@@ -1,0 +1,55 @@
+diff --git a/docs/studio/run/android-device-streaming.md b/docs/studio/run/android-device-streaming.md
+index 538d227..47cbad5 100644
+--- a/docs/studio/run/android-device-streaming.md
++++ b/docs/studio/run/android-device-streaming.md
+@@ -4,7 +4,8 @@ url: https://developer.android.com/studio/run/android-device-streaming
+ source: md.txt
+ ---
+ 
+-| **Note:** Android Device Streaming is only available in the latest stable channel version of Android Studio and major versions (including their patches) released in the previous 10 months. If you are using an older version of Android Studio, you will need to update to access Cloud services. For more information, see [Android Studio and Cloud services compatibility](https://developer.android.com/studio/releases#service-compat).
++> [!NOTE]
++> **Note:** Android Device Streaming is only available in the latest stable channel version of Android Studio and major versions (including their patches) released in the previous 10 months. If you are using an older version of Android Studio, you will need to update to access Cloud services. For more information, see [Android Studio and Cloud services compatibility](https://developer.android.com/studio/releases#service-compat).
+ 
+ Android Device Streaming, powered by Firebase, lets you securely connect to
+ remote physical Android devices hosted in Google's secure data centers and
+@@ -25,16 +26,20 @@ anything else you might do with a device using an ADB over SSL
+ connection---all without leaving Android Studio. When you're done using the
+ device, Google wipes all your data and factory resets the device before making
+ it available to another developer.
+-| **Now available:** The following devices are now available from Android Device Streaming:
+-|
+-| - Google Pixel 9a
+-| - Google Pixel 9
+-| - Google Pixel 9 Pro
+-| - Google Pixel 9 Pro XL
+-| - Google Pixel 9 Pro Fold
+-| - Select devices from Samsung, Xiaomi, OPPO, OnePlus, vivo, and Transsion Android Partner Device Labs
+-| **Note:** Android Device Streaming is only available in the current stable channel version of Android Studio, the three most recent previous major versions, and patches associated with those versions. If you are using an older version of Android Studio, you will need to update to use Android Device Streaming. [More
+-| information](https://developer.android.com/studio/releases#service-compat).
++
++> [!NOTE]
++> **Now available:** The following devices are now available from Android Device Streaming:
++>
++> - Google Pixel 9a
++> - Google Pixel 9
++> - Google Pixel 9 Pro
++> - Google Pixel 9 Pro XL
++> - Google Pixel 9 Pro Fold
++> - Select devices from Samsung, Xiaomi, OPPO, OnePlus, vivo, and Transsion Android Partner Device Labs
++
++> [!NOTE]
++> **Note:** Android Device Streaming is only available in the current stable channel version of Android Studio, the three most recent previous major versions, and patches associated with those versions. If you are using an older version of Android Studio, you will need to update to use Android Device Streaming. [More
++> information](https://developer.android.com/studio/releases#service-compat).
+ 
+ ## Get started
+ 
+@@ -117,7 +122,8 @@ To get started, do the following:
+ 3. Click **Confirm**.
+ 4. From the Device Manager, you can connect to the partner lab device like you would any other Android Device Streaming device.
+ 
+-| **Note:** Standard [pricing for Android Device Streaming](https://firebase.google.com/docs/test-lab/usage-quotas-pricing#device-streaming) applies for all Android Partner Device Lab devices, unless specified.
++> [!NOTE]
++> **Note:** Standard [pricing for Android Device Streaming](https://firebase.google.com/docs/test-lab/usage-quotas-pricing#device-streaming) applies for all Android Partner Device Lab devices, unless specified.
+ 
+ ### Enable Partner Device Labs in Google Cloud Console
+ 

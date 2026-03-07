@@ -1,0 +1,64 @@
+diff --git a/docs/ndk/guides/arm-mte.md b/docs/ndk/guides/arm-mte.md
+index 7e09800..735783c 100644
+--- a/docs/ndk/guides/arm-mte.md
++++ b/docs/ndk/guides/arm-mte.md
+@@ -4,9 +4,12 @@ url: https://developer.android.com/ndk/guides/arm-mte
+ source: md.txt
+ ---
+ 
+-| **Note:** This document covers running Android applications under MTE. For information about using MTE for Android platform development, see the [AOSP
+-| documentation](https://source.android.com/docs/security/test/memory-safety/arm-mte).
+-| **Important:** MTE is one of many tools available for memory debugging and mitigation. See [Memory error debugging and mitigation](https://developer.android.com/ndk/guides/memory-debug) for an overview of all the tools.
++> [!NOTE]
++> **Note:** This document covers running Android applications under MTE. For information about using MTE for Android platform development, see the [AOSP
++> documentation](https://source.android.com/docs/security/test/memory-safety/arm-mte).
++
++> [!IMPORTANT]
++> **Important:** MTE is one of many tools available for memory debugging and mitigation. See [Memory error debugging and mitigation](https://developer.android.com/ndk/guides/memory-debug) for an overview of all the tools.
+ 
+ ## Why MTE?
+ 
+@@ -133,7 +136,9 @@ XML into `app/src/<name of buildType>/AndroidManifest.xml`.
+ MTE is disabled by default. Apps that want to use MTE can
+ do so by setting `android:memtagMode` under the `<application>` or `<process>`
+ tag in the `AndroidManifest.xml`.
+-| **Warning:** Applications that enable MTE should be thoroughly tested on an MTE-compatible device before being shipped to the Play Store. Failure to do so may lead to critical bugs being discovered only on MTE-capable devices, which may harm usability of the app.
++
++> [!WARNING]
++> **Warning:** Applications that enable MTE should be thoroughly tested on an MTE-compatible device before being shipped to the Play Store. Failure to do so may lead to critical bugs being discovered only on MTE-capable devices, which may harm usability of the app.
+ 
+     android:memtagMode=(off|default|sync|async)
+ 
+@@ -143,14 +148,19 @@ the `<process>` tag.
+ 
+ ## Build with instrumentation
+ 
+-| **Important:** Apps built with MTE instrumentation are **for debugging purposes only**.
+-| **Note:** MTE Stack Tagging is available starting in Android 14 QPR3.
++> [!IMPORTANT]
++> **Important:** Apps built with MTE instrumentation are **for debugging purposes only**.
++
++> [!NOTE]
++> **Note:** MTE Stack Tagging is available starting in Android 14 QPR3.
+ 
+ Enabling MTE as explained earlier helps detect memory corruption bugs on the
+ native heap. To detect memory corruption on the stack, in addition to enabling
+ MTE for the app, the code needs to be rebuilt with instrumentation. The
+ resulting app **will only run on MTE-capable devices**.
+-| **Important:** Make sure you are using an up-to-date NDK to build your code.
++
++> [!IMPORTANT]
++> **Important:** Make sure you are using an up-to-date NDK to build your code.
+ 
+ To build your app's native (JNI) code with MTE, do the following:
+ 
+@@ -215,7 +225,8 @@ line causing the invalid memory access.
+ 
+ ## Advanced Users: Using MTE in your own allocator
+ 
+-| **Note:** if you are not aware that you are using custom allocators, you can skip this section.
++> [!NOTE]
++> **Note:** if you are not aware that you are using custom allocators, you can skip this section.
+ 
+ To use MTE for memory not allocated through the normal system allocators, you
+ need to modify your allocator to tag memory and pointers.

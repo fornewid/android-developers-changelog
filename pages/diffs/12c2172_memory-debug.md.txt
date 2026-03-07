@@ -1,0 +1,35 @@
+diff --git a/docs/ndk/guides/memory-debug.md b/docs/ndk/guides/memory-debug.md
+index 57f064d..0a57dd3 100644
+--- a/docs/ndk/guides/memory-debug.md
++++ b/docs/ndk/guides/memory-debug.md
+@@ -4,8 +4,6 @@ url: https://developer.android.com/ndk/guides/memory-debug
+ source: md.txt
+ ---
+ 
+-# Memory error debugging and mitigation
+-
+ Android supports multiple tools for debugging memory errors. There are tradeoffs
+ to each, so read below to decide which is best for your use case. This doc gives
+ you an overview of the tools available so you can decide which to investigate
+@@ -50,7 +48,9 @@ necessary to have a new enough kernel and a new enough version of the OS.
+ Looking for `paca` and `bti` in `/proc/cpuinfo` shows you whether you have new
+ enough hardware and a new enough kernel. Android 12 (API 31) has the necessary
+ userspace support.
+-| **Key Point:** Good mitigation requires defense in depth. Consider combining PAC/BTI with [MTE](https://developer.android.com/ndk/guides/memory-debug#mte).
++
++> [!IMPORTANT]
++> **Key Point:** Good mitigation requires defense in depth. Consider combining PAC/BTI with [MTE](https://developer.android.com/ndk/guides/memory-debug#mte).
+ 
+ Pros:
+ 
+@@ -126,7 +126,9 @@ Cons:
+ most widely available of the tools available. It is useful for catching memory
+ errors during testing and debugging issues that only affect old devices where
+ none of the other tools are available. **Whenever possible, prefer HWASan.**
+-| **Deprecated:** ASan has been superseded by the other tools on this page, so is no longer receiving active development or support. ASan should only be used when HWASan is not an option.
++
++> [!WARNING]
++> **Deprecated:** ASan has been superseded by the other tools on this page, so is no longer receiving active development or support. ASan should only be used when HWASan is not an option.
+ 
+ Pros:
+ 

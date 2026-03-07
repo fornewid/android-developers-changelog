@@ -1,0 +1,15 @@
+diff --git a/docs/studio/projects/create-project.md b/docs/studio/projects/create-project.md
+index 776f431..7e29d49 100644
+--- a/docs/studio/projects/create-project.md
++++ b/docs/studio/projects/create-project.md
+@@ -41,7 +41,9 @@ options you need to configure.
+ 2. Specify the **Package name** . By default, this package name becomes your project's namespace (used to access your project resources) and your project's application ID (used as the ID for publishing). To learn more, see [Configure the app module](https://developer.android.com/studio/build/configure-app-module).
+ 3. Specify the **Save location** where you want to locally store your project.
+ 
+-   | **Note:** On macOS, we recommend saving your project in the `/Users/`<var translate="no">user_name</var>`/AndroidStudioProjects` directory. Certain versions of macOS include a security feature called Transparency, Consent, and Control (TCC) that protects specific folders, including `Documents`, `Desktop`, and `Downloads`. If you use these folders, the [project files](https://developer.android.com/studio/projects#ProjectFiles) might not show up correctly in Android Studio unless you give Android Studio special permission to access those folders.
++   > [!NOTE]
++   > **Note:** On macOS, we recommend saving your project in the `/Users/user_name/AndroidStudioProjects` directory. Certain versions of macOS include a security feature called Transparency, Consent, and Control (TCC) that protects specific folders, including `Documents`, `Desktop`, and `Downloads`. If you use these folders, the [project files](https://developer.android.com/studio/projects#ProjectFiles) might not show up correctly in Android Studio unless you give Android Studio special permission to access those folders.
++
+ 4. Select the **Language**, Kotlin or Java, you want Android Studio to use when
+    creating sample code for your new project. Keep in mind that you aren't
+    limited to using only that language in the project.

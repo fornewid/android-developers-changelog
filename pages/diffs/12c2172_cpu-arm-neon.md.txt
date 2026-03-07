@@ -1,0 +1,14 @@
+diff --git a/docs/ndk/guides/cpu-arm-neon.md b/docs/ndk/guides/cpu-arm-neon.md
+index 727d988..5f81b88 100644
+--- a/docs/ndk/guides/cpu-arm-neon.md
++++ b/docs/ndk/guides/cpu-arm-neon.md
+@@ -30,7 +30,8 @@ portable types, just less portable.
+ 
+ ## Build
+ 
+-| **Note:** For NDK r21 and newer Neon is enabled by default for all API levels. If you need to disable Neon to support non-Neon devices (which are rare), invert the settings described below. Alternatively, the Play Store console can be used to [exclude CPUs](https://support.google.com/googleplay/android-developer/answer/7353455) that do not support Neon to prevent your application from being installed on those devices.
++> [!NOTE]
++> **Note:** For NDK r21 and newer Neon is enabled by default for all API levels. If you need to disable Neon to support non-Neon devices (which are rare), invert the settings described below. Alternatively, the Play Store console can be used to [exclude CPUs](https://support.google.com/googleplay/android-developer/answer/7353455) that do not support Neon to prevent your application from being installed on those devices.
+ 
+ ## Disable Neon globally
+ 

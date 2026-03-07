@@ -1,0 +1,16 @@
+diff --git a/docs/ndk/guides/simpleperf-commands.md b/docs/ndk/guides/simpleperf-commands.md
+index e372307..0da5e91 100644
+--- a/docs/ndk/guides/simpleperf-commands.md
++++ b/docs/ndk/guides/simpleperf-commands.md
+@@ -4,6 +4,6 @@ url: https://developer.android.com/ndk/guides/simpleperf-commands
+ source: md.txt
+ ---
+ 
+-# Simpleperf command and options reference
+-
+-Full[Simpleperf reference documentation](https://android.googlesource.com/platform/system/extras/+/master/simpleperf/doc/README.md)is available.
+\ No newline at end of file
++Full
++[Simpleperf reference documentation](https://android.googlesource.com/platform/system/extras/+/master/simpleperf/doc/README.md)
++is available.
+\ No newline at end of file

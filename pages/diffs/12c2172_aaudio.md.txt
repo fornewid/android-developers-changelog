@@ -1,0 +1,35 @@
+diff --git a/docs/ndk/guides/audio/aaudio/aaudio.md b/docs/ndk/guides/audio/aaudio/aaudio.md
+index 1b1cc9d..9360460 100644
+--- a/docs/ndk/guides/audio/aaudio/aaudio.md
++++ b/docs/ndk/guides/audio/aaudio/aaudio.md
+@@ -4,7 +4,8 @@ url: https://developer.android.com/ndk/guides/audio/aaudio/aaudio
+ source: md.txt
+ ---
+ 
+-| **Note:** Developers should consider using the open source Oboe library which is available on [GitHub](https://github.com/google/oboe). Oboe is a C++ wrapper that provides an API that closely resembles AAudio. It calls AAudio when it is available, and falls back to [OpenSL ES](https://developer.android.com/ndk/guides/audio/opensl) if AAudio is not available.
++> [!NOTE]
++> **Note:** Developers should consider using the open source Oboe library which is available on [GitHub](https://github.com/google/oboe). Oboe is a C++ wrapper that provides an API that closely resembles AAudio. It calls AAudio when it is available, and falls back to [OpenSL ES](https://developer.android.com/ndk/guides/audio/opensl) if AAudio is not available.
+ 
+ AAudio is a new Android C API introduced in the Android O release. It is designed for high-performance audio applications that require low latency. Apps communicate with AAudio by reading and writing data to streams.
+ 
+@@ -303,7 +304,9 @@ You can optimize the performance of an audio application by adjusting its intern
+ ### Tuning buffers to minimize latency
+ 
+ AAudio passes data in and out of internal buffers that it maintains, one for each audio device.
+-| **Note:** Don't confuse AAudio's internal buffers with the buffer parameter of the AAudio stream read and write functions.
++
++> [!NOTE]
++> **Note:** Don't confuse AAudio's internal buffers with the buffer parameter of the AAudio stream read and write functions.
+ 
+ The buffer's *capacity* is the total amount of data a buffer can hold. You can call
+ [`AAudioStreamBuilder_setBufferCapacityInFrames()`](https://developer.android.com/ndk/reference/group___audio#ga4dbce24e8b60b733ddbe2a76052e66f0)
+@@ -472,7 +475,8 @@ These calls are also thread safe:
+ - `AAudio_createStreamBuilder()`
+ - `AAudioStream_get*()` except for `AAudioStream_getTimestamp()`
+ 
+-| **Note:** When a stream uses a callback function, it's safe to read/write from the callback thread while also closing the stream from the thread in which it is running.
++> [!NOTE]
++> **Note:** When a stream uses a callback function, it's safe to read/write from the callback thread while also closing the stream from the thread in which it is running.
+ 
+ ## Known issues
+ 

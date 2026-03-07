@@ -1,0 +1,43 @@
+diff --git a/docs/kotlin/guides-changelog.md b/docs/kotlin/guides-changelog.md
+index d1588e9..1ffeaca 100644
+--- a/docs/kotlin/guides-changelog.md
++++ b/docs/kotlin/guides-changelog.md
+@@ -4,17 +4,15 @@ url: https://developer.android.com/kotlin/guides-changelog
+ source: md.txt
+ ---
+ 
+-# Kotlin guide change log
+-
+ ## 29 July 2024
+ 
+ ### Interop
+ 
+-- Fix: Corrected source syntax issues in the["Lambda parameters last"](https://developer.android.com/kotlin/interop#lambda-parameters)and["Idiomatic naming"](https://developer.android.com/kotlin/interop#idiomatic-naming)sections that prevented some code snippets from fully rendering.
++- Fix: Corrected source syntax issues in the ["Lambda parameters last"](https://developer.android.com/kotlin/interop#lambda-parameters) and ["Idiomatic naming"](https://developer.android.com/kotlin/interop#idiomatic-naming) sections that prevented some code snippets from fully rendering.
+ 
+ ## 06 September 2023
+ 
+-- New: Allow`camelCase`for plural filenames containing multiple declarations.
++- New: Allow `camelCase` for plural filenames containing multiple declarations.
+ 
+ ## 9 December 2021
+ 
+@@ -28,7 +26,7 @@ source: md.txt
+ ## 10 June 2020
+ 
+ - Fix: Must wrap after operators in the general case (<https://github.com/android/kotlin-guides/issues/62>).
+-- New: Added rule for`@[...]`annotation syntax.
++- New: Added rule for `@[...]` annotation syntax.
+ 
+ ## 18 May 2018
+ 
+@@ -45,7 +43,8 @@ source: md.txt
+ 
+ ### Interop
+ 
+-Fix: Corrected the content of the "Lambda arguments" section to accurately reflect the current state of lambda types and interface SAM conversion.
++Fix: Corrected the content of the "Lambda arguments" section to accurately
++reflect the current state of lambda types and interface SAM conversion.
+ 
+ ## 2 November 2017
+ 

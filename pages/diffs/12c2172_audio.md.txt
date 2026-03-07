@@ -1,0 +1,43 @@
+diff --git a/docs/ndk/guides/audio.md b/docs/ndk/guides/audio.md
+index 56cb2b9..99de59b 100644
+--- a/docs/ndk/guides/audio.md
++++ b/docs/ndk/guides/audio.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/ndk/guides/audio
+ source: md.txt
+ ---
+ 
+-# High-performance audio
+-
+-High performance audio apps typically require more functionality than the simple ability to play or record sound. They demand responsive realtime system behavior. Some typical use cases include:
++High performance audio apps typically require more functionality than the simple
++ability to play or record sound. They demand responsive realtime system
++behavior. Some typical use cases include:
+ 
+ - Digital audio workstations
+ - Synthesizers
+@@ -17,14 +17,20 @@ High performance audio apps typically require more functionality than the simple
+ - Audio effects
+ - Video/audio conferencing
+ 
+-This section explains the general principles of minimizing[audio latency](https://developer.android.com/ndk/guides/audio/audio-latency). It also provides[advice about audio sampling](https://developer.android.com/ndk/guides/audio/sampling-audio), to help you choose the optimal sample rate and consider the pros and cons of using floating-point numbers to represent your audio data.
++This section explains the general principles of minimizing
++[audio latency](https://developer.android.com/ndk/guides/audio/audio-latency).
++It also provides [advice about audio sampling](https://developer.android.com/ndk/guides/audio/sampling-audio),
++to help you choose the optimal sample rate and consider the pros and cons of using floating-point
++numbers to represent your audio data.
+ 
+-The rest of the section describes the two libraries that are available for writing high-performance audio applications:
++The rest of the section describes the two libraries that
++are available for writing high-performance audio applications:
+ 
+-- [OpenSL ES](https://developer.android.com/ndk/guides/audio/opensl)is an Android-specific implementation of the OpenSL ES™ API specification from the Khronos Group. OpenSL ES is not recommended for new designs. App developers and middleware providers should target either Oboe or AAudio as the native audio interface.
+-- [AAudio](https://developer.android.com/ndk/guides/audio/aaudio/aaudio)was developed as a lightweight, native Android alternative to the OpenSL ES library. The AAudio API is smaller and easier to use than OpenSL ES.
++- [OpenSL ES](https://developer.android.com/ndk/guides/audio/opensl) is an Android-specific implementation of the OpenSL ES™ API specification from the Khronos Group. OpenSL ES is not recommended for new designs. App developers and middleware providers should target either Oboe or AAudio as the native audio interface.
++- [AAudio](https://developer.android.com/ndk/guides/audio/aaudio/aaudio) was developed as a lightweight, native Android alternative to the OpenSL ES library. The AAudio API is smaller and easier to use than OpenSL ES.
+ 
+-| **Note:** Developers should consider using the open source Oboe library which is available on[GitHub](https://github.com/google/oboe). Oboe is a C++ wrapper that provides an API that closely resembles AAudio. It calls AAudio when it is available, and falls back to OpenSL ES if AAudio is not available.
++> [!NOTE]
++> **Note:** Developers should consider using the open source Oboe library which is available on [GitHub](https://github.com/google/oboe). Oboe is a C++ wrapper that provides an API that closely resembles AAudio. It calls AAudio when it is available, and falls back to OpenSL ES if AAudio is not available.
+ 
+ ## Additional resources
+ 

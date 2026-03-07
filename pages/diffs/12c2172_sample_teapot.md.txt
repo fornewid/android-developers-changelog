@@ -1,0 +1,240 @@
+diff --git a/docs/ndk/samples/sample_teapot.md b/docs/ndk/samples/sample_teapot.md
+index 471a9bd..a3e5a62 100644
+--- a/docs/ndk/samples/sample_teapot.md
++++ b/docs/ndk/samples/sample_teapot.md
+@@ -4,17 +4,21 @@ url: https://developer.android.com/ndk/samples/sample_teapot
+ source: md.txt
+ ---
+ 
+-# Sample: Teapot
+-
+-The Teapot sample is located under in the`samples/Teapot/`directory, under the NDK installation's root directory. This sample uses the OpenGL library to render the iconic[Utah teapot](http://math.hws.edu/bridgeman/courses/324/s06/doc/opengl.html#basic). In particular, it showcases the`ndk_helper`helper class, a collection of native helper functions required for implementing games and similar applications as native applications. This class provides:
+-
+-- An abstraction layer,`GLContext`, that handles certain NDK-specific behaviors.
++The Teapot sample is located under in the `samples/Teapot/` directory, under the NDK
++installation's root directory. This sample uses the OpenGL library to render the iconic
++[Utah
++teapot](http://math.hws.edu/bridgeman/courses/324/s06/doc/opengl.html#basic). In particular, it showcases the `ndk_helper` helper class,
++a collection of native helper functions required for implementing games and
++similar applications as native applications. This class provides:
++
++- An abstraction layer, `GLContext`, that handles certain NDK-specific behaviors.
+ - Helper functions that are useful but not present in the NDK, such as tap detection.
+ - Wrappers for JNI calls for platform features such as texture loading.
+ 
+ ## AndroidManifest.xml
+ 
+-The activity declaration here is not[NativeActivity](https://developer.android.com/reference/android/app/NativeActivity)itself, but a subclass of it:`TeapotNativeActivity`.  
++The activity declaration here is not `https://developer.android.com/reference/android/app/NativeActivity` itself, but
++a subclass of it: `TeapotNativeActivity`.
+ 
+ ```xml
+ <activity android:name="com.sample.teapot.TeapotNativeActivity"
+@@ -22,7 +26,10 @@ The activity declaration here is not[NativeActivity](https://developer.android.c
+         android:configChanges="orientation|keyboardHidden">
+ ```
+ 
+-Ultimately, the name of the shared-object file that the build system builds is`libTeapotNativeActivity.so`. The build system adds the`lib`prefix and the`.so`extension; neither is part of the value that the manifest originally assigns to`android:value`.  
++Ultimately, the name of the shared-object file that the build system builds is
++`libTeapotNativeActivity.so`. The build system adds the `lib` prefix and the `.so`
++extension; neither is part of the value that the manifest originally assigns to
++`android:value`.
+ 
+ ```xml
+ <meta-data android:name="android.app.lib_name"
+@@ -31,19 +38,23 @@ Ultimately, the name of the shared-object file that the build system builds is`l
+ 
+ ## Application.mk
+ 
+-An app that uses the[NativeActivity](https://developer.android.com/reference/android/app/NativeActivity)framework class must not specify an Android API level lower than 9, which introduced that class. For more information about the[NativeActivity](https://developer.android.com/reference/android/app/NativeActivity)class, see[Native Activities and Applications](https://developer.android.com/ndk/guides/concepts#naa).  
++An app that uses the `https://developer.android.com/reference/android/app/NativeActivity` framework class must not specify an
++Android API level lower than 9, which introduced that class. For more information about the
++`https://developer.android.com/reference/android/app/NativeActivity` class, see
++[Native Activities and Applications](https://developer.android.com/ndk/guides/concepts#naa).
+ 
+ ```
+ APP_PLATFORM := android-9
+ ```
+ 
+-The next line tells the build system to build for all supported architectures.  
++The next line tells the build system to build for all supported architectures.
+ 
+ ```
+ APP_ABI := all
+ ```
+ 
+-Next, the file tells the build system which[C++ runtime support library](https://developer.android.com/ndk/guides/cpp-support)to use.  
++Next, the file tells the build system which
++[C++ runtime support library](https://developer.android.com/ndk/guides/cpp-support) to use.
+ 
+ ```
+ APP_STL := stlport_static
+@@ -51,7 +62,7 @@ APP_STL := stlport_static
+ 
+ ## Java-side Implementation
+ 
+-The`TeapotNativeActivity`file is located in`teapots/classic-teapot/src/com/sample/teapot`, under the[NDK repo root directory](https://github.com/android/ndk-samples)on GitHub. It handles activity lifecycle events, creates a popup window to display text on the screen with the function`ShowUI()`, and update frame rate dynamically with the function`updateFPS()`. The following code might be interesting to you in that it prepares the app's Activity to be full screen, immersive, and without system navigation bars, so that the whole screen could be used for displaying rendered teapot frames:
++The `TeapotNativeActivity` file is located in `teapots/classic-teapot/src/com/sample/teapot`, under the [NDK repo root directory](https://github.com/android/ndk-samples) on GitHub. It handles activity lifecycle events, creates a popup window to display text on the screen with the function `ShowUI()`, and update frame rate dynamically with the function `updateFPS()`. The following code might be interesting to you in that it prepares the app's Activity to be full screen, immersive, and without system navigation bars, so that the whole screen could be used for displaying rendered teapot frames:
+ 
+ <br />
+ 
+@@ -90,7 +101,9 @@ This section explores the part of the Teapot app implemented in C++.
+ 
+ ### TeapotRenderer.h
+ 
+-These function calls perform the actual rendering of the teapot. It uses`ndk_helper`for matrix calculation and to reposition the camera based on where the user taps.  
++These function calls perform the actual rendering of the teapot. It uses
++`ndk_helper` for matrix calculation and to reposition the camera
++based on where the user taps.
+ 
+ ```c++
+ ndk_helper::Mat4 mat_projection_;
+@@ -103,25 +116,32 @@ ndk_helper::TapCamera* camera_;
+ 
+ ### TeapotNativeActivity.cpp
+ 
+-The following lines include`ndk_helper`in the native source file, and define the helper-class name.  
++The following lines include `ndk_helper` in the native source file, and define the
++helper-class name.
+ 
+ ```c++
+ #include "NDKHelper.h"
+ 
+-//-------------------------------------------------------------------------
++//---
+ //Preprocessor
+-//-------------------------------------------------------------------------
++//---
+ #define HELPER_CLASS_NAME "com/sample/helper/NDKHelper" //Class name of helper
+ function
+ ```
+ 
+-The first use of the`ndk_helper`class is to handle the EGL-related lifecycle, associating EGL context states (created/lost) with Android lifecycle events. The`ndk_helper`class enables the application to preserve context information so that the system can restore a destroyed activity. This ability is useful, for example, when the target machine is rotated (causing an activity to be destroyed, then immediately restored in the new orientation), or when the lock screen appears.  
++The first use of the `ndk_helper` class is to handle the
++EGL-related lifecycle, associating EGL context states (created/lost) with
++Android lifecycle events. The `ndk_helper` class enables the application to preserve context
++information so that the system can restore a destroyed activity. This ability is useful, for
++example, when the target machine is rotated (causing an activity to be
++destroyed, then immediately restored in the new orientation), or when the lock
++screen appears.
+ 
+ ```c++
+ ndk_helper::GLContext* gl_context_; // handles EGL-related lifecycle.
+ ```
+ 
+-Next,`ndk_helper`provides touch control.  
++Next, `ndk_helper` provides touch control.
+ 
+ ```c++
+ ndk_helper::DoubletapDetector doubletap_detector_;
+@@ -130,13 +150,13 @@ ndk_helper::DragDetector drag_detector_;
+ ndk_helper::PerfMonitor monitor_;
+ ```
+ 
+-It also provides camera control (openGL view frustum).  
++It also provides camera control (openGL view frustum).
+ 
+ ```c++
+ ndk_helper::TapCamera tap_camera_;
+ ```
+ 
+-The app then prepares to use the device's sensors, using the native APIs provided in the NDK.  
++The app then prepares to use the device's sensors, using the native APIs provided in the NDK.
+ 
+ ```c++
+ ASensorManager* sensor_manager_;
+@@ -144,7 +164,9 @@ const ASensor* accelerometer_sensor_;
+ ASensorEventQueue* sensor_event_queue_;
+ ```
+ 
+-The app calls the following functions in response to various Android lifecycle events and EGL context state changes, using various functionalities provided by`ndk_helper`via the`Engine`class.  
++The app calls the following functions in response to various Android
++lifecycle events and EGL context state changes, using various functionalities
++provided by `ndk_helper` via the `Engine` class.
+ 
+ ```c++
+ void LoadResources();
+@@ -155,7 +177,7 @@ void TrimMemory();
+ bool IsReady();
+ ```
+ 
+-Then, the following function calls back to the Java side to update the UI display.  
++Then, the following function calls back to the Java side to update the UI display.
+ 
+ ```c++
+ void Engine::ShowUI()
+@@ -175,7 +197,9 @@ void Engine::ShowUI()
+ }
+ ```
+ 
+-Next, this function calls back to the Java side to draw a text box superimposed on the screen rendered on the native side, and showing frame count.  
++Next, this function calls back to the Java side to draw a text box
++superimposed on the screen rendered on the native side, and showing frame
++count.
+ 
+ ```c++
+ void Engine::UpdateFPS( float fFPS )
+@@ -195,20 +219,25 @@ void Engine::UpdateFPS( float fFPS )
+ }
+ ```
+ 
+-The application gets the system clock and supplies it to the renderer for time-based animation based on real-time clock. This information is used, for example, in calculating momentum, where speed declines as a function of time.  
++The application gets the system clock and supplies it to the renderer
++for time-based animation based on real-time clock. This information is used, for example, in
++calculating momentum, where speed declines as a function of time.
+ 
+ ```c++
+ renderer_.Update( monitor_.GetCurrentTime() );
+ ```
+ 
+-The application now flips the rendered frame to the front buffer for display through`GLcontext::Swap()`function; it also handles possible errors happened during the flipping process.  
++The application now flips the rendered frame to the front buffer for display through `GLcontext::Swap()` function; it also handles possible errors happened during the flipping process.
+ 
+ ```c++
+ if( EGL_SUCCESS != gl_context_->Swap() )  // swaps
+ buffer.
+ ```
+ 
+-The program passes touch-motion events to the gesture detector defined in the`ndk_helper`class. The gesture detector tracks multitouch gestures, such as pinch-and-drag, and sends a notification when triggered by any of these events.  
++The program passes touch-motion events to the gesture detector defined
++in the `ndk_helper` class. The gesture detector tracks multitouch
++gestures, such as pinch-and-drag, and sends a notification when triggered by
++any of these events.
+ 
+ ```c++
+ if( AInputEvent_getType( event ) == AINPUT_EVENT_TYPE_MOTION )
+@@ -254,7 +283,8 @@ if( AInputEvent_getType( event ) == AINPUT_EVENT_TYPE_MOTION )
+ }
+ ```
+ 
+-The`ndk_helper`class also provides access to a vector-math library (`vecmath.h`), using it here to transform touch coordinates.  
++The `ndk_helper` class also provides access to a vector-math library
++(`vecmath.h`), using it here to transform touch coordinates.
+ 
+ ```c++
+ void Engine::TransformPosition( ndk_helper::Vec2& vec )
+@@ -265,7 +295,10 @@ void Engine::TransformPosition( ndk_helper::Vec2& vec )
+ }
+ ```
+ 
+-The`HandleCmd()`method handles commands posted from the android_native_app_glue library. For more information about what the messages mean, refer to the comments in the`android_native_app_glue.h`and`.c`source files.  
++The `HandleCmd()` method handles commands posted from the
++android_native_app_glue library. For more information about what the messages
++mean, refer to the comments in the `android_native_app_glue.h` and
++`.c` source files.
+ 
+ ```c++
+ void Engine::HandleCmd( struct android_app* app,
+@@ -310,7 +343,11 @@ void Engine::HandleCmd( struct android_app* app,
+ }
+ ```
+ 
+-The`ndk_helper`class posts`APP_CMD_INIT_WINDOW`when`android_app_glue`receives an`onNativeWindowCreated()`callback from the system. Applications can normally perform window initializations, such as EGL initialization. They do this outside of the activity lifecycle, since the activity is not yet ready.  
++The `ndk_helper` class posts `APP_CMD_INIT_WINDOW` when `android_app_glue`
++receives an `onNativeWindowCreated()` callback from the system.
++Applications can normally perform window initializations, such as EGL
++initialization. They do this outside of the activity lifecycle, since the
++activity is not yet ready.
+ 
+ ```c++
+ //Init helper functions

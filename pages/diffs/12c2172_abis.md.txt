@@ -1,0 +1,24 @@
+diff --git a/docs/ndk/guides/abis.md b/docs/ndk/guides/abis.md
+index df73584..2760599 100644
+--- a/docs/ndk/guides/abis.md
++++ b/docs/ndk/guides/abis.md
+@@ -332,7 +332,8 @@ runtime.
+ 
+ ## ARMv9: Enabling PAC and BTI for C/C++
+ 
+-| **Important:** PAC and BTI are two of many tools available for memory debugging and mitigation. See [Memory error debugging and mitigation](https://developer.android.com/ndk/guides/memory-debug) for an overview of all the tools.
++> [!IMPORTANT]
++> **Important:** PAC and BTI are two of many tools available for memory debugging and mitigation. See [Memory error debugging and mitigation](https://developer.android.com/ndk/guides/memory-debug) for an overview of all the tools.
+ 
+ Enabling PAC/BTI will provide protection against some attack vectors.
+ PAC protects return addresses by cryptographically signing them in a function's
+@@ -357,7 +358,8 @@ the protection works.
+ 
+ ### Build changes
+ 
+-| **Note:** When considering the code to be a target for attackers, we recommend also building with CFI. CFI and PAC/BTI are similar but complementary.
++> [!NOTE]
++> **Note:** When considering the code to be a target for attackers, we recommend also building with CFI. CFI and PAC/BTI are similar but complementary.
+ 
+ ### ndk-build
+ 
