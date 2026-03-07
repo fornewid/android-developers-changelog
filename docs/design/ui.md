@@ -6,7 +6,7 @@ source: md.txt
 
 ## Design for Android
 
-Design beautiful and modern Android apps that meet your user where they are, whether browsing their phone, reading on their tablet, glancing at their wrist, working on a ChromeOS device, or watching TV.
+Design beautiful and modern Android apps that meet your user where they are, whether browsing their phone, reading on their tablet, glancing at their wrist, connected to a display, or watching TV. [Get inspired by UX designs for a variety of screens →](http://developer.android.com/design/ui/gallery)
 
 ## Design for mobile
 
@@ -14,7 +14,7 @@ Create a beautiful and usable modern app design using Android themes, components
 
 ## Enhance your app's productivity
 
-Make sure your app is prepared with adaptive UI and interactions that support all desktop windowing and input methods. [Explore desktop design →](http://developer.android.com/design/ui/desktop) [Get inspired by UX designs for a variety of screens →](http://developer.android.com/large-screens/gallery) ![](http://developer.android.com/static/images/design/ui/desktop_hero.webp)
+Make sure your app is prepared with adaptive UI and interactions that support all desktop windowing and input methods. [Explore desktop design →](http://developer.android.com/design/ui/desktop) [Get inspired by UX designs for a variety of screens →](http://developer.android.com/design/ui/gallery) ![](http://developer.android.com/static/images/design/ui/desktop_hero.webp)
 
 ## Boundless creation with XR
 

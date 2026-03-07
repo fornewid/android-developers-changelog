@@ -90,7 +90,7 @@ permissions at runtime](https://developer.android.com/develop/sensors-and-locati
 
 ## Access a session
 
-Access geospatial information through a Jetpack XR Runtime [`Session`](https://developers.google.com/ar/develop/fundamentals),
+Access geospatial information through a Jetpack XR Runtime [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session),
 which your [app must create](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#access-session-runtime).
 
 ## Configure the session

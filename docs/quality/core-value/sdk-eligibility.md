@@ -13,7 +13,9 @@ the Terms of Service for the API. To accept the Terms of Service, fill out the
 eligible for the API, we will provide you with the Terms of Service for you to
 accept. After you accept the Terms of Service and meet all eligibility criteria,
 we will notify you that you can [integrate the API](https://developer.android.com/distribute/marketing-tools/inline-installs-sdk).
-| **Note:** Even if your SDK has successfully passed the review process and been allowlisted for the Inline Install API, the Inline Install experience may not be available because of [app eligibility criteria](https://developer.android.com/quality/core-value/app-eligibility). In that case, the call redirects to the standard Play Store App deep link page. More information is provided in the technical onboarding.
+
+> [!NOTE]
+> **Note:** Even if your SDK has successfully passed the review process and been allowlisted for the Inline Install API, the Inline Install experience may not be available because of [app eligibility criteria](https://developer.android.com/quality/core-value/app-eligibility). In that case, the call redirects to the standard Play Store App deep link page. More information is provided in the technical onboarding.
 
 ## SDK eligibility criteria
 
@@ -30,7 +32,8 @@ The following table describes all of the criteria to be met:
 | The ad SDK promotes a safe, secure, and high-quality user experience. | You must meet the following criteria: - You must register on [Play SDK Console](https://play.google.com/sdk-console/about/), which includes a commitment that your SDK will not cause apps to violate [Play Developer Policies](https://play.google/developer-content-policy/). - You must provide publicly accessible documentation of your SDK's Data Safety Labels and Privacy Policy, and you must provide links to them on your *SDK Details* page in Play SDK Console. - Your SDK must have no outstanding Play Developer Policy violations. - Your SDK must comply with the [Ad UI Requirements](https://developer.android.com/quality/core-value/sdk-eligibility#ui-reqs). |
 | The ad SDK accepts the API Terms of Service. | You must accept the legally binding Google Play Inline Install (Ad SDK Version) Terms of Service that are shared with you after initial eligibility checks. |
 
-| **Warning:** Ad SDKs must only use the Inline Install API according to the API Terms of Service. Google Play wants to provide users with contextual and seamless journeys. If we see that the Inline Install API is inappropriately used, we may revoke access. It's your responsibility as the SDK provider to ensure that the implementation of your SDK is aligned with the criteria in the table.
+> [!WARNING]
+> **Warning:** Ad SDKs must only use the Inline Install API according to the API Terms of Service. Google Play wants to provide users with contextual and seamless journeys. If we see that the Inline Install API is inappropriately used, we may revoke access. It's your responsibility as the SDK provider to ensure that the implementation of your SDK is aligned with the criteria in the table.
 
 ## Ad UI requirements
 

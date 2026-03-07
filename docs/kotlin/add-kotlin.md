@@ -56,7 +56,7 @@ files** when prompted, as shown in figure 4:
 
 Once you click **OK** , Android Studio adds Kotlin to your project classpath and
 applies the Kotlin Android plugin to each module that contains Kotlin files.
-Your `build.gradle` files should look similar to the examples below:  
+Your `build.gradle` files should look similar to the examples below:
 
 ### Groovy
 
@@ -82,7 +82,7 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
-```  
+```
 
 ### Groovy
 
@@ -127,7 +127,7 @@ to see both Kotlin and Java files in one location. If you'd prefer to separate
 your Kotlin files from your Java files, you can put Kotlin files under
 `src/main/kotlin/` instead. If you do this, then you also need to include this
 directory in your [`sourceSets`](https://developer.android.com/studio/build#sourcesets)
-configuration, as shown below:  
+configuration, as shown below:
 
 ### Groovy
 
@@ -172,7 +172,7 @@ the converted code handles nullable types.
 In Android, it is common to delay initialization of `View` objects and other
 components until the fragment or activity they are attached to reaches the
 appropriate lifecycle state. For example, you may have a reference to a
-button in one of your fragments, as demonstrated in the following snippet:  
+button in one of your fragments, as demonstrated in the following snippet:
 
     public class JavaFragment extends Fragment {
 
@@ -208,7 +208,7 @@ Even though the button variable is nullable, for all practical purposes it
 should never be null when used in this example. However, since its value is not
 assigned at the point of construction, the generated Kotlin code treats `Button`
 as a nullable type and uses the non-null assertion operator to unwrap the button
-when adding a click listener, as shown below:  
+when adding a click listener, as shown below:
 
     class JavaFragment : Fragment() {
 
@@ -235,7 +235,9 @@ when adding a click listener, as shown below:
 This conversion is less ideal than using `lateinit` for this case, because you
 are forced to unwrap the button reference with a non-null assertion or safe-call
 operator in every place it is accessed.
-| **Note:** This example doesn't mean that you should always avoid nullable types. Generally, this pattern of using `lateinit` applies to variables which are never expected to be `null` but cannot be initialized where they are defined, as is the case with `View` references inside of the fragment or activity in which they live.
+
+> [!NOTE]
+> **Note:** This example doesn't mean that you should always avoid nullable types. Generally, this pattern of using `lateinit` applies to variables which are never expected to be `null` but cannot be initialized where they are defined, as is the case with `View` references inside of the fragment or activity in which they live.
 
 In other cases, where `null` is a valid variable assignment based on your
 application's use case, using a safe-call (?.) operator with a terminating elvis

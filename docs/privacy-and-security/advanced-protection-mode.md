@@ -4,9 +4,12 @@ url: https://developer.android.com/privacy-and-security/advanced-protection-mode
 source: md.txt
 ---
 
-# Advanced Protection Mode
-
-Android Advanced Protection Mode (AAPM) is a new feature aimed at enhancing the security of Android devices for at-risk users. It functions as a single setting that implements a set of pre-determined configurations designed to bolster device protection. AAPM prioritizes security over some potentially diminished functionality and usability, meaning some features might be restricted to minimize the attack surface.
+Android Advanced Protection Mode (AAPM) is a new feature aimed at enhancing the
+security of Android devices for at-risk users. It functions as a single setting
+that implements a set of pre-determined configurations designed to bolster
+device protection. AAPM prioritizes security over some potentially diminished
+functionality and usability, meaning some features might be restricted to
+minimize the attack surface.
 
 ## Impact
 
@@ -25,11 +28,12 @@ The impact towards developers is described in the following:
 
 ## Integrate with AAPM
 
-In order to use the relevant APIs the following permission needs to be declared  
+In order to use the relevant APIs the following permission needs to be declared
 
     <uses-permission android:name="android.permission.QUERY_ADVANCED_PROTECTION_MODE" />
 
-The following APIs are from the newly introduced`AdvancedProtectionManager`system service.  
+The following APIs are from the newly introduced `AdvancedProtectionManager`
+system service.
 
     public class AdvancedProtectionManager() {
       // Check the current status
@@ -46,4 +50,5 @@ The following APIs are from the newly introduced`AdvancedProtectionManager`syste
       void onAdvancedProtectionChanged(boolean enabled);
     }
 
-| **Note:** When an application terminates, its registered callbacks are removed. Because a terminated application cannot resume and receive AAPM status changes, it's best to register callbacks during the app's initialization phase. Additionally, perform an on-demand AAPM status query during initialization to ensure you have the current state.
+> [!NOTE]
+> **Note:** When an application terminates, its registered callbacks are removed. Because a terminated application cannot resume and receive AAPM status changes, it's best to register callbacks during the app's initialization phase. Additionally, perform an on-demand AAPM status query during initialization to ensure you have the current state.

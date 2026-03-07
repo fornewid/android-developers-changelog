@@ -99,7 +99,7 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 ### September 10, 2025
 
 - [Compose Material 3 Version 1.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0-rc01)
-- [Graphics Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/graphics#1.1.0-rc01)
+- [Graphics Shapes Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-shapes-1.1.0-rc01)
 
 ### August 27, 2025
 
@@ -333,7 +333,7 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 ### July 24, 2024
 
 - [Games-Performance-Tuner Version 2.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/games#games-performance-tuner-2.0.0-rc01)
-- [Graphics-Shapes Graphics-Shapes-Android Graphics-Shapes-Desktop Version 1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/graphics#1.0.0-rc01)
+- [Graphics-Shapes Graphics-Shapes-Android Graphics-Shapes-Desktop Version 1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-shapes-1.0.0-rc01)
 - [Wear ProtoLayout Version 1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.2.0-rc01)
 - [Wear Tiles Version 1.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.4.0-rc01)
 

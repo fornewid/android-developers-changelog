@@ -8,6 +8,10 @@ The Credential Manager Holder API enables your Android holder (also called
 "wallet") app to manage and present digital credentials to verifiers.
 ![Image showing the digital credentials UI in Credential Manager](https://developer.android.com/static/identity/digital-credentials/images/digital_credentials_ui.svg) **Figure 1.** The digital credentials selector UI.
 
+### Android version compatibility
+
+The Holder API is supported on Android 6 (API level 23) and higher.
+
 ## Core concepts
 
 It is important to familiarize yourself with the following concepts before

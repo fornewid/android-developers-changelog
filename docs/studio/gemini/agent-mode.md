@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/gemini/agent-mode
 source: md.txt
 ---
 
+[Video](https://www.youtube.com/watch?v=jTlW8JeCClA)
+
 Gemini in Android Studio's Agent Mode is designed to handle complex, multi-stage
 development tasks that go beyond what you can experience by just chatting with
 Gemini. You can describe a high-level goal, and the agent creates and

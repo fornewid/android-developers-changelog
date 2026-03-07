@@ -4,11 +4,10 @@ url: https://developer.android.com/privacy-and-security/declare-data-use
 source: md.txt
 ---
 
-# Declare your app&#39;s data use
-
-| **Note:** This page supplements the guidance on how to [provide information for
-| Google Play's Data safety
-| section](https://support.google.com/googleplay/android-developer/answer/10787469) when you publish an app to Google Play. It's recommended that you read the Help Center article before you review this page.
+> [!NOTE]
+> **Note:** This page supplements the guidance on how to [provide information for
+> Google Play's Data safety
+> section](https://support.google.com/googleplay/android-developer/answer/10787469) when you publish an app to Google Play. It's recommended that you read the Help Center article before you review this page.
 
 The Play Console includes a **Data safety** form on the **App content** page. In
 this form, you explain to users which types of user data your app collects and
@@ -39,7 +38,9 @@ The details in this guidance are subject to change as we continue working with
 developers and to improve both developer and user experiences. For more
 information, read this [blog
 post](https://android-developers.googleblog.com/2021/10/launching-data-safety-in-play-console.html).
-| **Note:** Your app may include third-party SDKs and libraries that can access user data. If a third-party SDK or library in your app collects or shares user data, you must reflect this collection and sharing in the **Data safety** form.
+
+> [!NOTE]
+> **Note:** Your app may include third-party SDKs and libraries that can access user data. If a third-party SDK or library in your app collects or shares user data, you must reflect this collection and sharing in the **Data safety** form.
 
 ## General guidelines
 
@@ -69,9 +70,10 @@ examples but isn't exhaustive:
   - [`ACCESS_MEDIA_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_MEDIA_LOCATION)
 - Derives location information from an IP address or access point name.
 
-| **Note:** On devices that run Android 14 and higher, details about your location data collection and sharing practices appear in the [runtime system permission
-| dialog](https://developer.android.com/training/permissions/requesting). Learn more about how [data safety
-| information is more visible](https://developer.android.com/about/versions/14/changes/data-safety) in Android 14.
+> [!NOTE]
+> **Note:** On devices that run Android 14 and higher, details about your location data collection and sharing practices appear in the [runtime system permission
+> dialog](https://developer.android.com/training/permissions/requesting). Learn more about how [data safety
+> information is more visible](https://developer.android.com/about/versions/14/changes/data-safety) in Android 14.
 
 ### Approximate location
 
@@ -131,8 +133,9 @@ These indicators include, but aren't limited to, the following:
 - [Has carrier
   privileges](https://developer.android.com/reference/android/telephony/TelephonyManager#hasCarrierPrivileges()).
 
-| **Note:** Google Play restricts the use of certain call log permissions unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of SMS or call log permission
-| groups](https://support.google.com/googleplay/android-developer/answer/10208820).
+> [!NOTE]
+> **Note:** Google Play restricts the use of certain call log permissions unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of SMS or call log permission
+> groups](https://support.google.com/googleplay/android-developer/answer/10208820).
 
 ### Race and ethnicity
 
@@ -216,8 +219,9 @@ examples but isn't exhaustive:
   - [`SEND_SMS`](https://developer.android.com/reference/android/Manifest.permission#SEND_SMS)
   - `WRITE_SMS` depending on developer usage
 
-| **Note:** Google Play restricts the use of certain SMS permissions unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of SMS or call log permission
-| groups](https://support.google.com/googleplay/android-developer/answer/10208820).
+> [!NOTE]
+> **Note:** Google Play restricts the use of certain SMS permissions unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of SMS or call log permission
+> groups](https://support.google.com/googleplay/android-developer/answer/10208820).
 
 ### Emails
 
@@ -297,8 +301,9 @@ examples but isn't exhaustive:
 - Provides a workflow for [data and file storage](https://developer.android.com/training/data-storage).
 - Provides a workflow for [data backup](https://developer.android.com/guide/topics/data/backup).
 
-| **Note:** Google Play restricts the use of the [`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#MANAGE_EXTERNAL_STORAGE) permission unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of all files access (MANAGE_EXTERNAL_STORAGE)
-| permission](https://support.google.com/googleplay/android-developer/answer/10467955).
+> [!NOTE]
+> **Note:** Google Play restricts the use of the [`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#MANAGE_EXTERNAL_STORAGE) permission unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of all files access (MANAGE_EXTERNAL_STORAGE)
+> permission](https://support.google.com/googleplay/android-developer/answer/10467955).
 
 ## Calendar
 
@@ -450,9 +455,9 @@ provides several examples but isn't exhaustive:
 
 The following table provides a summary of changed content on this page:
 
-|       Date        |                                                                                                                                              Description of change                                                                                                                                              |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| December 13 2022  | Updated the location, health and fitness, photos and videos, app info and performance, and device or other IDs categories to mention the capabilities introduced in Android 13.                                                                                                                                 |
+| Date | Description of change |
+|---|---|
+| December 13 2022 | Updated the location, health and fitness, photos and videos, app info and performance, and device or other IDs categories to mention the capabilities introduced in Android 13. |
 | February 24, 2022 | Changed the name of the **Device or other identifiers** data type category to **Device or other IDs** . Changed the names and descriptions of several data types, including data types in the **Personal info** , **Financial info** , **Health and fitness** , **Messages** , and **App activity** categories. |
-| January 4, 2022   | Updated the "Sexual orientation and gender identity" data type. This [data type now refers to only sexual orientation](https://developer.android.com/privacy-and-security/declare-data-use#sexual-orientation). Gender identity is now an example of other personal information.                                |
-| October 18, 2021  | Initial version published.                                                                                                                                                                                                                                                                                      |
+| January 4, 2022 | Updated the "Sexual orientation and gender identity" data type. This [data type now refers to only sexual orientation](https://developer.android.com/privacy-and-security/declare-data-use#sexual-orientation). Gender identity is now an example of other personal information. |
+| October 18, 2021 | Initial version published. |

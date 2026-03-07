@@ -4,17 +4,16 @@ url: https://developer.android.com/kotlin/getting-started-resources
 source: md.txt
 ---
 
-# Additional resources for getting started with Kotlin
-
-Here's a list of additional learning resources that can help you learn to do even more with Kotlin.
+Here's a list of additional learning resources that can help you learn to
+do even more with Kotlin.
 
 ## Sites
 
-- [kotlinlang.org](https://kotlinlang.org)- The JetBrains site for all things Kotlin.
+- [kotlinlang.org](https://kotlinlang.org) - The JetBrains site for all things Kotlin.
 
 ## Tutorials
 
-- [Hello World](https://play.kotlinlang.org/byExample/01_introduction/01_Hello%20world)- An interactive tutorial by JetBrains that illustrates Kotlin features and syntax.
+- [Hello World](https://play.kotlinlang.org/byExample/01_introduction/01_Hello%20world) - An interactive tutorial by JetBrains that illustrates Kotlin features and syntax.
 
 ## Videos
 

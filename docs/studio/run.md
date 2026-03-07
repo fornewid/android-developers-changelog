@@ -4,7 +4,8 @@ url: https://developer.android.com/studio/run
 source: md.txt
 ---
 
-| **Note:** Android Studio Meerkat updated the labels and ordering of some Build actions. [Learn more](https://developer.android.com/studio/releases#build-actions-update)
+> [!NOTE]
+> **Note:** Android Studio Meerkat updated the labels and ordering of some Build actions. [Learn more](https://developer.android.com/studio/releases#build-actions-update)
 
 To see how your app looks and behaves on a device, you need to build and run it.
 Android Studio sets up new projects so that you can deploy your app to a virtual
@@ -38,7 +39,9 @@ has an error or a warning associated with it. Iconography and stylistic changes
 differentiate between *errors* (device selections that result in a broken
 configuration) and *warnings* (device selections that might result in unexpected
 behavior but are still runnable).
-| **Note:** Android Studio includes deployment optimizations for incremental changes on Android 11 or later. If you manually clear app data in between incremental changes, some changes may be discarded without warning. This may result in your app running outdated code. If you need to clear app data in between deployments, check the option to "Always install with package manager" in the Run/Debug configuration. That will bypass these deployment optimizations and ensure the latest version of the app code is deployed every time the app is run.
+
+> [!NOTE]
+> **Note:** Android Studio includes deployment optimizations for incremental changes on Android 11 or later. If you manually clear app data in between incremental changes, some changes may be discarded without warning. This may result in your app running outdated code. If you need to clear app data in between deployments, check the option to "Always install with package manager" in the Run/Debug configuration. That will bypass these deployment optimizations and ensure the latest version of the app code is deployed every time the app is run.
 
 ## Monitor the build process
 
@@ -209,7 +212,8 @@ enable this behavior, follow these steps:
 
 4. Click **OK**.
 
-| **Note:** Some types of changes don't cause Apply Changes to fail but still require you to restart your app manually before you can see those changes. For example, if you make changes to an activity's [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method, those changes only take effect after the activity is relaunched, so you must restart your app to see those changes.
+> [!NOTE]
+> **Note:** Some types of changes don't cause Apply Changes to fail but still require you to restart your app manually before you can see those changes. For example, if you make changes to an activity's [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method, those changes only take effect after the activity is relaunched, so you must restart your app to see those changes.
 
 #### Platform-dependent changes
 

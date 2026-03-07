@@ -37,8 +37,9 @@ to date). This approach also does not hide your own implementation details.
 
 ## Distributing native libraries in AARs
 
-| **Note:** This section describes how to distribute C/C++ *APIs* to users. If your native libraries are implementation details of your *Java* API, see the [Java
-| middleware with JNI libraries](https://developer.android.com/ndk/guides/middleware-vendors#java_middleware_with_jni_libraries) section.
+> [!NOTE]
+> **Note:** This section describes how to distribute C/C++ *APIs* to users. If your native libraries are implementation details of your *Java* API, see the [Java
+> middleware with JNI libraries](https://developer.android.com/ndk/guides/middleware-vendors#java_middleware_with_jni_libraries) section.
 
 The Android Gradle plugin can import [native dependencies](https://developer.android.com/studio/build/dependencies#using-native-dependencies) distributed in
 [AARs](https://developer.android.com/studio/projects/android-library). If your users are using the Android Gradle plugin, this will be the
@@ -59,7 +60,9 @@ collide with other libraries in the user's app. For example, if the AAR includes
 `libc++_shared.so`, but a different version of `libc++_shared.so` than the app
 uses, only one will be installed to the APK and that may lead to unreliable
 behavior.
-| **Warning:** [Bug 141758241](https://issuetracker.google.com/141758241): Older versions of the Android Gradle plugin do not currently diagnose this error condition. One of the identically named libraries will be arbitrarily chosen for packaging in the APK.
+
+> [!WARNING]
+> **Warning:** [Bug 141758241](https://issuetracker.google.com/141758241): Older versions of the Android Gradle plugin do not currently diagnose this error condition. One of the identically named libraries will be arbitrarily chosen for packaging in the APK.
 
 The most reliable solution is for Java libraries to include no more than **one**
 JNI library (this is good advice for apps too). All dependencies including the

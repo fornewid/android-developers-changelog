@@ -4,8 +4,6 @@ url: https://developer.android.com/studio/prompt-gallery/prompts/add-parameter-t
 source: md.txt
 ---
 
-# Add parameter to Compose file
-
 Customize a visual aspect of a composable.
 
 *** ** * ** ***
@@ -16,7 +14,8 @@ Customize a visual aspect of a composable.
 
     $CURRENT_FILE
 
-| To run this prompt in Android Studio, click**Gemini** in the sidebar and paste it in the chat field.  
-| To save and retrieve prompts in the Studio IDE, go to**Settings \> Gemini \> Prompt Library**.
+> [!NOTE]
+> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
+> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
 
 *** ** * ** ***

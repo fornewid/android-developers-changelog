@@ -125,9 +125,9 @@ potential UI issues and fine-tune your widget's appearance early in the
 development process. To get started follow these steps:
 
 1. Add the dependencies.
-   1. Add the dependencies to your version catalog:  
+   1. Add the dependencies to your version catalog:
 
-      ```transact-sql
+      ```
           [versions]
           androidx-glance-preview = "1.1.0-rc01"
 
@@ -142,21 +142,21 @@ development process. To get started follow these steps:
             version.ref = "androidx-glance-preview" }
           
       ```
-   2. Add the dependencies to your app-level `build.gradle.kts` file:  
+   2. Add the dependencies to your app-level `build.gradle.kts` file:
 
       ```kotlin
           debugImplementation(libs.androidx.glance.preview)
           debugImplementation(libs.androidx.glance.appwidget.preview)
           
       ```
-2. Import the dependencies in the file where you have Glance UI:  
+2. Import the dependencies in the file where you have Glance UI:
 
    ```kotlin
        import androidx.glance.preview.ExperimentalGlancePreviewApi
        import androidx.glance.preview.Preview
        
    ```
-3. Create a preview of your Glance widget:  
+3. Create a preview of your Glance widget:
 
    ```kotlin
      @Composable

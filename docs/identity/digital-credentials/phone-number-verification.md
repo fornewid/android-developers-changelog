@@ -10,6 +10,11 @@ phone numbers for your users. The process involves two steps:
 1. **Request a `TS.43 token`** : Your client app (the "verifier") requests a temporary TS.43 token from the user's device. The `TS.43 token` is a carrier-issued credential that represents the user's identity.
 2. **Exchange the token for a phone number** : Your app's backend exchanges the `TS.43 token` with an aggregator or a carrier for the user's verified phone number.
 
+### Android version compatibility
+
+The Phone Number Verification API is supported on Android 10 (API level 29) and
+higher.
+
 ## Prerequisites
 
 To implement phone number verification with the DigitalCredential API, you need

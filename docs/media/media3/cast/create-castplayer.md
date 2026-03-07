@@ -89,6 +89,7 @@ Switcher** feature to handle player transfers when the output route changes from
 local to remote or from remote to local.
 ![Screenshot showing the Output Switcher UI in notifications.](https://developer.android.com/static/media/media3/cast/images/output_switcher.jpeg) Figure 1: (a) Device chip on Media notification (b) Cast-enabled devices shown on tapping the device chip (c) Device chip on Lock screen notification
 
+
 ### Kotlin
 
 ```kotlin
@@ -96,9 +97,7 @@ override fun onCreate() {
   super.onCreate()
 
   val exoPlayer = ExoPlayer.Builder(context).build()
-  val castPlayer = CastPlayer.Builder(context)
-      .setLocalPlayer(exoPlayer)
-      .build()
+  val castPlayer = CastPlayer.Builder(context).setLocalPlayer(exoPlayer).build()
 
   mediaSession = MediaSession.Builder(context, castPlayer).build()
 }
@@ -112,12 +111,10 @@ public void onCreate() {
   super.onCreate();
 
   ExoPlayer exoPlayer = new ExoPlayer.Builder(context).build();
-  CastPlayer castPlayer = new CastPlayer.Builder(context)
-      .setLocalPlayer(exoPlayer)
-      .build();
+  CastPlayer castPlayer = new CastPlayer.Builder(context).setLocalPlayer(exoPlayer).build();
 
-  mediaSession = new MediaSession.Builder(
-    /* context= */ context, /* player= */ castPlayer).build();
+  mediaSession =
+      new MediaSession.Builder(/* context= */ context, /* player= */ castPlayer).build();
 }
 ```
 
@@ -159,16 +156,8 @@ best choice depends on your app's design and requirements.
 You can add the [`MediaRouteButton`](https://developer.android.com/reference/androidx/mediarouter/app/MediaRouteButton) Composable to your player's UI. For more
 information, see the [Compose](https://developer.android.com/media/media3/ui/compose) guide.
 
-### Kotlin
 
 ```kotlin
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.media3.cast.MediaRouteButton
-
 @Composable
 fun PlayerComposeView(player: Player, modifier: Modifier = Modifier) {
   var controlsVisible by remember { mutableStateOf(false) }
@@ -189,7 +178,7 @@ fun PlayerComposeView(player: Player, modifier: Modifier = Modifier) {
 
 @Composable
 fun PrimaryControls(player: Player, modifier: Modifier = Modifier) {
-  ...
+  // ...
 }
 ```
 
@@ -201,6 +190,7 @@ You can add the [`MediaRouteButton`](https://developer.android.com/reference/and
 controls. After setting the [MediaController](https://developer.android.com/guide/topics/media/session/mediacontroller) as the player for your
 `PlayerView`, provide a `MediaRouteButtonViewProvider` to display the Cast
 button on the Player.
+
 
 ### Kotlin
 
@@ -240,28 +230,30 @@ override `onCreateOptionsMenu` in your `Activity`.
         app:actionProviderClass="androidx.mediarouter.app.MediaRouteActionProvider"/>
     </menu>
 
+
 ### Kotlin
 
 ```kotlin
 override fun onCreateOptionsMenu(menu: Menu): Boolean {
-    ...
-    menuInflater.inflate(R.menu.sample_media_route_button_menu, menu)
-    val menuItemFuture: ListenableFuture<MenuItem> =
-        MediaRouteButtonFactory.setUpMediaRouteButton(
-            context, menu, R.id.media_route_menu_item)
-    Futures.addCallback(
-        menuItemFuture,
-        object : FutureCallback<MenuItem> {
-            override fun onSuccess(menuItem: MenuItem?) {
-                // Do something with the menu item.
-            }
+  // ...
+  menuInflater.inflate(R.menu.sample_media_route_button_menu, menu)
+  val menuItemFuture: ListenableFuture<MenuItem> =
+    MediaRouteButtonFactory.setUpMediaRouteButton(context, menu, R.id.media_route_menu_item)
+  Futures.addCallback(
+    menuItemFuture,
+    object : FutureCallback<MenuItem> {
+      override fun onSuccess(menuItem: MenuItem?) {
+        // Do something with the menu item.
+      }
 
-            override fun onFailure(t: Throwable) {
-                // Handle the failure.
-            }
-        },
-        executor)
-    ...
+      override fun onFailure(t: Throwable) {
+        // Handle the failure.
+      }
+    },
+    executor,
+  )
+  // ...
+  return true
 }
 ```
 
@@ -270,26 +262,26 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
 ```java
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
-    ...
-    getMenuInflater().inflate(R.menu.sample_media_route_button_menu, menu);
-    ListenableFuture<MenuItem> menuItemFuture =
-        MediaRouteButtonFactory.setUpMediaRouteButton(
-          context, menu, R.id.media_route_menu_item);
-    Futures.addCallback(
-        menuItemFuture,
-        new FutureCallback<MenuItem>() {
-          @Override
-          public void onSuccess(MenuItem menuItem) {
-            // Do something with the menu item.
-          }
+  // ...
+  getMenuInflater().inflate(R.menu.sample_media_route_button_menu, menu);
+  ListenableFuture<MenuItem> menuItemFuture =
+      MediaRouteButtonFactory.setUpMediaRouteButton(context, menu, R.id.media_route_menu_item);
+  Futures.addCallback(
+      menuItemFuture,
+      new FutureCallback<MenuItem>() {
+        @Override
+        public void onSuccess(MenuItem menuItem) {
+          // Do something with the menu item.
+        }
 
-          @Override
-          public void onFailure(Throwable t) {
-            // Handle the failure.
-          }
-        },
-        executor);
-    ...
+        @Override
+        public void onFailure(Throwable t) {
+          // Handle the failure.
+        }
+      },
+      executor);
+  // ...
+  return true;
 }
 ```
 
@@ -308,6 +300,7 @@ You can set up a [`MediaRouteButton`](https://developer.android.com/reference/an
 To complete the setup for the [`MediaRouteButton`](https://developer.android.com/reference/androidx/mediarouter/app/MediaRouteButton), use the Media3 Cast
 `MediaRouteButtonFactory` in your `Activity` code.
 
+
 ### Kotlin
 
 ```kotlin
@@ -325,10 +318,11 @@ override fun onCreate(savedInstanceState: Bundle?) {
 ```java
 @Override
 public void onCreate(Bundle savedInstanceState) {
-    ...
-    MediaRouteButton button = findViewById(R.id.media_route_button);
-    ListenableFuture<Void> setUpFuture =
-        MediaRouteButtonFactory.setUpMediaRouteButton(context, button);
+  super.onCreate(savedInstanceState);
+  // ...
+  MediaRouteButton button = findViewById(R.id.media_route_button);
+  ListenableFuture<Void> setUpFuture =
+      MediaRouteButtonFactory.setUpMediaRouteButton(context, button);
 }
 ```
 
@@ -342,12 +336,10 @@ and `PLAYBACK_TYPE_REMOTE`, you can adjust your UI as needed. To prevent memory
 leaks and to confine listener activity to only when your app is visible,
 register the listener in `onStart` and unregister it in `onStop`:
 
+
 ### Kotlin
 
 ```kotlin
-import androidx.media3.common.DeviceInfo
-import androidx.media3.common.Player
-
 private val playerListener: Player.Listener =
   object : Player.Listener {
     override fun onDeviceInfoChanged(deviceInfo: DeviceInfo) {
@@ -373,10 +365,7 @@ override fun onStop() {
 ### Java
 
 ```java
-import androidx.media3.common.DeviceInfo;
-import androidx.media3.common.Player;
-
-private Player.Listener playerListener =
+private final Player.Listener playerListener =
     new Player.Listener() {
       @Override
       public void onDeviceInfoChanged(DeviceInfo deviceInfo) {

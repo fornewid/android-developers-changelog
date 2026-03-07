@@ -4,8 +4,6 @@ url: https://developer.android.com/studio/prompt-gallery/prompts/accessibility-r
 source: md.txt
 ---
 
-# Accessibility review
-
 Make updates to improve accessibility of your UI.
 
 *** ** * ** ***
@@ -18,7 +16,8 @@ Make updates to improve accessibility of your UI.
 
     $CURRENT_FILE
 
-| To run this prompt in Android Studio, click**Gemini** in the sidebar and paste it in the chat field.  
-| To save and retrieve prompts in the Studio IDE, go to**Settings \> Gemini \> Prompt Library**.
+> [!NOTE]
+> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
+> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
 
 *** ** * ** ***

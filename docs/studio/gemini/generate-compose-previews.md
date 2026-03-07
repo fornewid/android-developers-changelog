@@ -15,7 +15,8 @@ You can access this tool in two ways:
 - Within any composable, right-click and navigate to **Gemini \> Generate
   "\<composable\>" Preview** or **Generate Compose Previews for this file**.
 
-  | **Note:** You only see the option to generate Compose previews for the whole file if there are multiple composables in the file that don't have associated previews.
+  > [!NOTE]
+  > **Note:** You only see the option to generate Compose previews for the whole file if there are multiple composables in the file that don't have associated previews.
 
   ![Compose preview generation from context menu](https://developer.android.com/static/studio/gemini/images/compose-preview-menu.png)
 - If you don't have any previews set up yet, in the empty preview panel click

@@ -4,7 +4,8 @@ url: https://developer.android.com/studio/preview/compose-screenshot-testing
 source: md.txt
 ---
 
-| **Experimental:** Compose Preview Screenshot Testing is still in development. Its features and APIs are subject to change substantially during the alpha phase. Report any feedback and issues through the [issue tracker](https://issuetracker.google.com/issues/new?component=192708&template=840533).
+> [!WARNING]
+> **Experimental:** Compose Preview Screenshot Testing is still in development. Its features and APIs are subject to change substantially during the alpha phase. Report any feedback and issues through the [issue tracker](https://issuetracker.google.com/issues/new?component=192708&template=840533).
 
 Screenshot testing is an effective way to verify how your UI looks to users. The
 Compose Preview Screenshot Testing tool combines the simplicity and features of
@@ -71,20 +72,21 @@ the requirements are as follows:
 - JDK version 17 or higher.
 - Compose enabled for your project. We recommend enabling Compose using the [Compose Compiler Gradle plugin](https://developer.android.com/develop/ui/compose/compiler).
 
-| **Note:** If you can't use the Compose Compiler Gradle plugin, you can enable Compose by [declaring a dependency on the Compose Compiler directly](https://developer.android.com/jetpack/androidx/releases/compose-kotlin#kts). Make sure you use `kotlinCompilerExtensionVersion` version 1.5.4 or higher.
+> [!NOTE]
+> **Note:** If you can't use the Compose Compiler Gradle plugin, you can enable Compose by [declaring a dependency on the Compose Compiler directly](https://developer.android.com/jetpack/androidx/releases/compose-kotlin#kts). Make sure you use `kotlinCompilerExtensionVersion` version 1.5.4 or higher.
 
 ## Setup
 
 Both the integrated tool and the underlying Gradle tasks rely on the Compose
 Preview Screenshot Testing plugin. To set up the plugin, follow these steps:
 
-1. Enable the experimental property in your project's `gradle.properties` file.  
+1. Enable the experimental property in your project's `gradle.properties` file.
 
-   ```text
+   ```
          android.experimental.enableScreenshotTest=true
        
    ```
-2. In the `android {}` block of your module-level `build.gradle.kts` file, enable the experimental flag to use the `screenshotTest` source set.  
+2. In the `android {}` block of your module-level `build.gradle.kts` file, enable the experimental flag to use the `screenshotTest` source set.
 
    ```
          android {
@@ -93,9 +95,9 @@ Preview Screenshot Testing plugin. To set up the plugin, follow these steps:
        
    ```
 3. Add the `com.android.compose.screenshot` plugin, version `0.0.1-alpha13` to your project.
-   1. Add the plugin to your version catalogs file:  
+   1. Add the plugin to your version catalogs file:
 
-      ```transact-sql
+      ```
                 [versions]
                 agp = "9.0.0-rc03"
                 kotlin = "2.1.20"
@@ -105,7 +107,7 @@ Preview Screenshot Testing plugin. To set up the plugin, follow these steps:
                 screenshot = { id = "com.android.compose.screenshot", version.ref = "screenshot"}
               
       ```
-   2. In your module-level `build.gradle.kts` file, add the plugin in the `plugins {}` block:  
+   2. In your module-level `build.gradle.kts` file, add the plugin in the `plugins {}` block:
 
       ```kotlin
                 plugins {
@@ -114,15 +116,15 @@ Preview Screenshot Testing plugin. To set up the plugin, follow these steps:
               
       ```
 4. Add the [`screenshot-validation-api`](https://maven.google.com/web/index.html?q=screenshot-validation-api#com.android.tools.screenshot:screenshot-validation-api) and [`ui-tooling`](https://maven.google.com/web/index.html?q=tooling#androidx.compose.ui:ui-tooling) dependencies.
-   1. Add them to your version catalogs:  
+   1. Add them to your version catalogs:
 
-      ```transact-sql
+      ```
                 [libraries]
                 screenshot-validation-api = { group = "com.android.tools.screenshot", name = "screenshot-validation-api", version.ref = "screenshot"}
                 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling"}
               
       ```
-   2. Add them to your module-level `build.gradle.kts` file:  
+   2. Add them to your module-level `build.gradle.kts` file:
 
       ```kotlin
                 dependencies {
@@ -141,7 +143,7 @@ the new `screenshotTest` source set, for example:
 `app/src/screenshotTest/kotlin/com/example/yourapp/ExamplePreviewScreenshotTest.kt`
 
 You can add more composables and/or previews, including multi-previews, in
-this file or other files created in the same source set.  
+this file or other files created in the same source set.
 
     package com.example.yourapp
 
@@ -182,7 +184,9 @@ Run the following Gradle task:
 After the task completes, find the reference images in
 `app/src/screenshotTestDebug/reference`
 (`{module}/src/screenshotTest{Variant}/reference`).
-| **Note:** The reference images are named with a concatenation of the fully-qualified name of the test function and a hash of the preview parameters, for example `com.sample.screenshottests.test1_da39a3ee_c2200e98_0.png`.
+
+> [!NOTE]
+> **Note:** The reference images are named with a concatenation of the fully-qualified name of the test function and a hash of the preview parameters, for example `com.sample.screenshottests.test1_da39a3ee_c2200e98_0.png`.
 
 ## Generate a test report
 
@@ -197,7 +201,9 @@ Click the gutter icon next to a `@PreviewTest` function and select **Run
 If a test fails, click the test name in the **Run** panel. Select the
 **Screenshot** tab to inspect the image diff using the integrated zoom and pan
 controls.
-| **Note:** Renaming a function annotated with `@PreviewTest` breaks the association with existing reference images. In that case, you must [regenerate reference images](https://developer.android.com/studio/preview/compose-screenshot-testing#generate-reference-images) for the new function name.
+
+> [!NOTE]
+> **Note:** Renaming a function annotated with `@PreviewTest` breaks the association with existing reference images. In that case, you must [regenerate reference images](https://developer.android.com/studio/preview/compose-screenshot-testing#generate-reference-images) for the new function name.
 
 ### With the Gradle tasks
 
@@ -272,7 +278,7 @@ This release introduces:
 
 Image Difference Threshold: This new global threshold setting will allow you to
 gain finer control over screenshot comparisons. To configure, update your
-module's build.gradle.kts:  
+module's build.gradle.kts:
 
     android {
         testOptions {

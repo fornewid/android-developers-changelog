@@ -388,7 +388,9 @@ Tested with Android Studio Giraffe Canary 10, Flamingo RC, and Electric Eel Patc
 ## 32.1.11 (February 8, 2023)
 
 Tested with Android Studio Giraffe Canary 2, Flamingo Beta 1, and Electric Eel Patch 1.
-| **Note:** [Android 14](https://developer.android.com/about) is only compatible with Emulator 32 and higher.
+
+> [!NOTE]
+> **Note:** [Android 14](https://developer.android.com/about) is only compatible with Emulator 32 and higher.
 
 - Network speed optimizations
 - Mouse support in Embedded Emulator
@@ -851,7 +853,9 @@ host audio data on or off, respectively:
 Starting with version 28.0.25, the emulator includes a [headless build option](https://developer.android.com/studio/releases/emulator#headless-build)
 that can run without the UI. You can use headless builds to help you set up the
 emulator for Docker and continuous integration (CI) workflows.
-| **Note:** Although the emulator binary with the `-no-window` flag is still available, the headless build is meant to supersede `-no-window`.
+
+> [!NOTE]
+> **Note:** Although the emulator binary with the `-no-window` flag is still available, the headless build is meant to supersede `-no-window`.
 
 With this update, we've made further improvements to allow the emulator to run
 with a minimum number of dependencies. On Linux, headless builds no longer
@@ -898,7 +902,9 @@ boot after it receives a `boot complete` signal:
     [disabling host audio](https://developer.android.com/studio/releases/emulator#disable-host-audio) for the host. Furthermore, this
     automatically provides the CPU usage mitigation described for
     [hotword detection](https://developer.android.com/studio/releases/emulator#hotword-detection) from the 28.0.23 release.
-| **Note:** The emulator does not run these ADB commands when using system images with API level 25 and lower because those system images cannot communicate a reliable `boot complete` signal back to the host.
+
+> [!NOTE]
+> **Note:** The emulator does not run these ADB commands when using system images with API level 25 and lower because those system images cannot communicate a reliable `boot complete` signal back to the host.
 
 #### New environment variables for performance monitoring
 
@@ -1009,7 +1015,8 @@ To enable Vulkan support, you must add the following feature flags to your
 - `Vulkan = on`
 - `GLDirectMem = on`
 
-| **Note:** Snapshots can't currently be used while Vulkan is enabled. If you enable Vulkan support, the current quickboot snapshot is invalidated.
+> [!NOTE]
+> **Note:** Snapshots can't currently be used while Vulkan is enabled. If you enable Vulkan support, the current quickboot snapshot is invalidated.
 
 #### Initial support for ROM developers
 
@@ -1081,7 +1088,9 @@ Our CI and remote desktop users have the following long-standing issues:
 To address this, when running on a Linux machine, the emulator now serves a
 gRPC service. [gRPC](https://grpc.io/) is a general framework
 for RPC that works over HTTP.
-| **Caution:** This feature is still experimental and is meant to be used from the same machine the emulator is running on. Do not run the service remotely unless you understand and accept the security risks.
+
+> [!CAUTION]
+> **Caution:** This feature is still experimental and is meant to be used from the same machine the emulator is running on. Do not run the service remotely unless you understand and accept the security risks.
 
 By default, the emulator gRPC service is disabled, but you can activate the
 service using the following command line option, where `<port>`
@@ -1090,7 +1099,9 @@ is the port which the emulator should serve gRPC requests (usually `5556`):
 ```
 -grpc <port>
 ```
-| **Caution:** Do not run the service on a port that is not secured from remote users.
+
+> [!CAUTION]
+> **Caution:** Do not run the service on a port that is not secured from remote users.
 
 Once the service is started, gRPC commands can then be issued from clients. The
 current set of commands allows both sending input events and receiving
@@ -1230,7 +1241,8 @@ In addition, we have also improved resource usage in the following areas:
 - Reduced CPU usage when running apps with animations.
 - Fixed an issue where the QEMU AIO context could leak on Windows.
 
-| **Note:** Some Windows emulator users could not launch emulators due to exceeding the RAM commit charge. For help with this issue, see the [emulator Troubleshooting page](https://developer.android.com/studio/run/emulator-troubleshooting#windows_free_ram_and_commit_charge).
+> [!NOTE]
+> **Note:** Some Windows emulator users could not launch emulators due to exceeding the RAM commit charge. For help with this issue, see the [emulator Troubleshooting page](https://developer.android.com/studio/run/emulator-troubleshooting#windows_free_ram_and_commit_charge).
 
 ### Run multiple instances of a single AVD concurrently
 
@@ -1278,7 +1290,8 @@ to discard changes after each session. You can do this in the following ways:
   ```
   After you run this command, the emulator Quickboot snapshot will stay at that checkpoint. Run the same command again to load the emulator from your checkpoint.
 
-| **Note:** When you run [multiple concurrent instances of the same AVD](https://developer.android.com/studio/releases/emulator#concurrent-avd), the emulator disables auto-saving, but those instances then use any existing Quickboot RAM file as a common source of copy-on-write memory.
+> [!NOTE]
+> **Note:** When you run [multiple concurrent instances of the same AVD](https://developer.android.com/studio/releases/emulator#concurrent-avd), the emulator disables auto-saving, but those instances then use any existing Quickboot RAM file as a common source of copy-on-write memory.
 
 Snapshots that are taken and loaded through the Snapshots UI function as they
 did before, with no file mapping.
@@ -1435,8 +1448,10 @@ Some users were having difficulty diagnosing why the Windows Hypervisor Platform
 diagnose these issues, we have added more informative error messages. You can
 enable these error messages by running the emulator from the command line using
 the `-verbose` flag.
-| **Note:** For users with Hyper-V based setups, you must enable the **Windows
-| Hypervisor Platform** feature before you can activate a WHPX emulator. For more information, see [Configuring VM acceleration with Windows HypervisorPlatform](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-hyperv-intel).
+
+> [!NOTE]
+> **Note:** For users with Hyper-V based setups, you must enable the **Windows
+> Hypervisor Platform** feature before you can activate a WHPX emulator. For more information, see [Configuring VM acceleration with Windows HypervisorPlatform](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-hyperv-intel).
 
 ### General fixes
 

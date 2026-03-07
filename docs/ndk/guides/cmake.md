@@ -8,8 +8,10 @@ The Android NDK supports using [CMake](https://cmake.org/) to
 compile C and C++ code for your application. This page discusses how to use
 CMake with the NDK via the Android Gradle Plugin's `ExternalNativeBuild` or when
 invoking CMake directly.
-| **Note:** If you are using Android Studio, go to [Add C and C++ code to your
-| project](https://developer.android.com/studio/projects/add-native-code) to learn the basics of adding native sources to your project, creating a CMake build script, adding your CMake project as a Gradle dependency, and using newer versions of CMake than those included in the SDK.
+
+> [!NOTE]
+> **Note:** If you are using Android Studio, go to [Add C and C++ code to your
+> project](https://developer.android.com/studio/projects/add-native-code) to learn the basics of adding native sources to your project, creating a CMake build script, adding your CMake project as a Gradle dependency, and using newer versions of CMake than those included in the SDK.
 
 ## The CMake toolchain file
 
@@ -17,16 +19,21 @@ The NDK supports CMake via a [toolchain file](https://cmake.org/cmake/help/lates
 that customize the behavior of the toolchain for cross-compiling. The toolchain
 file used for the NDK is located in the NDK at
 `<NDK>/build/cmake/android.toolchain.cmake`.
-| **Note:** If the Android SDK is installed, then the NDK is installed in the SDK directory in `ndk/version/` or `ndk-bundle/`.
+
+> [!NOTE]
+> **Note:** If the Android SDK is installed, then the NDK is installed in the SDK directory in `ndk/version/` or `ndk-bundle/`.
 
 Build parameters such as ABI, `minSdkVersion`, etc. are given on the command
 line when invoking `cmake`. For a list of supported arguments, see the
 [Toolchain arguments](https://developer.android.com/ndk/guides/cmake#variables) section.
-| **Caution:** CMake has its [own built-in NDK support](https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html#cross-compiling-for-android) which has behavior differences compared to the NDK's CMake toolchain file. Android does not support or test the built-in workflow. We recommend using our toolchain file. `externalNativeBuild` (the NDK workflow that's a part of the Android Gradle Plugin) users will get this automatically. If you're not using `externalNativeBuild`, see below for instructions on using our toolchain file directly.
+
+> [!CAUTION]
+> **Caution:** CMake has its [own built-in NDK support](https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html#cross-compiling-for-android) which has behavior differences compared to the NDK's CMake toolchain file. Android does not support or test the built-in workflow. We recommend using our toolchain file. `externalNativeBuild` (the NDK workflow that's a part of the Android Gradle Plugin) users will get this automatically. If you're not using `externalNativeBuild`, see below for instructions on using our toolchain file directly.
 
 ### The "new" toolchain file
 
-| **Warning:** We do not recommend using `-DANDROID_USE_LEGACY_TOOLCHAIN_FILE=OFF`. The legacy toolchain is the default, and despite the name, is what we recommend.
+> [!WARNING]
+> **Warning:** We do not recommend using `-DANDROID_USE_LEGACY_TOOLCHAIN_FILE=OFF`. The legacy toolchain is the default, and despite the name, is what we recommend.
 
 Earlier NDKs experimented with a new implementation of the toolchain file that
 would reduce behavior differences between using the NDK's toolchain file and
@@ -76,11 +83,14 @@ with Gradle, add arguments to
 [ExternalNativeBuild docs](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/ExternalNativeBuildOptions). If building from the command line, pass arguments to
 CMake with `-D`. For example, to force armeabi-v7a to not build with Neon
 support, pass `-DANDROID_ARM_NEON=FALSE`.
-| **Note:** Any required arguments are passed automatically by Gradle and need only be passed explicitly if building from the command line.
+
+> [!NOTE]
+> **Note:** Any required arguments are passed automatically by Gradle and need only be passed explicitly if building from the command line.
 
 ### `ANDROID_ABI`
 
-| **Note:** This is a required argument.
+> [!NOTE]
+> **Note:** This is a required argument.
 
 The target ABI. For information on supported ABIs, see [Android ABIs](https://developer.android.com/ndk/guides/abis).
 
@@ -134,7 +144,9 @@ match the application's `minSdkVersion` and should not be set manually.
 When invoking CMake directly, this value defaults to the lowest API level
 supported by the NDK in use. For example, with NDK r20 this value defaults
 to API level 16.
-| **Warning:** NDK libraries cannot be run on devices with an API level below the `ANDROID_PLATFORM` value with which the code was built.
+
+> [!WARNING]
+> **Warning:** NDK libraries cannot be run on devices with an API level below the `ANDROID_PLATFORM` value with which the code was built.
 
 Multiple formats are accepted for this parameter:
 
@@ -151,7 +163,9 @@ by appending the `-MR1` suffix. For example, API level 25 is `android-N-MR1`.
 
 Specifies which STL to use for this application. For more information, see [C++
 library support](https://developer.android.com/ndk/guides/cpp-support). By default, `c++_static` will be used.
-| **Caution:** The default behavior is not appropriate for all applications. Be sure to read the [C++ library support](https://developer.android.com/ndk/guides/cpp-support) guide and in particular the section about [static runtimes](https://developer.android.com/ndk/guides/cpp-support#static_runtimes) before choosing an STL.
+
+> [!CAUTION]
+> **Caution:** The default behavior is not appropriate for all applications. Be sure to read the [C++ library support](https://developer.android.com/ndk/guides/cpp-support) guide and in particular the section about [static runtimes](https://developer.android.com/ndk/guides/cpp-support#static_runtimes) before choosing an STL.
 
 | Value | Notes |
 |---|---|
@@ -166,7 +180,9 @@ If you need to pass specific flags to the compiler or linker for your build,
 refer to the CMake documentation for [set_target_compile_options](https://cmake.org/cmake/help/latest/command/target_compile_options.html) and the
 related family of options. The "see also" section at the bottom of that page has
 some helpful clues.
-| **Caution:** When using the global compiler flag variables in CMake, such as `CMAKE_CXX_FLAGS`, you need to be aware that CMake has per build-type (`CMAKE_BUILD_TYPE`) variants of those variables and use the appropriate one. The build-type-specific form of the variable (e.g. `CMAKE_CXX_FLAGS_RELEASE`) typically overrides similar flags that appear in the generic form. A common mistake is to add optimization flags (e.g. `-O3`) to `CMAKE_CXX_FLAGS`. This will have no effect, because the default optimization flags in `CMAKE_CXX_FLAGS_RELEASE` will override the flag in `CMAKE_CXX_FLAGS`.
+
+> [!CAUTION]
+> **Caution:** When using the global compiler flag variables in CMake, such as `CMAKE_CXX_FLAGS`, you need to be aware that CMake has per build-type (`CMAKE_BUILD_TYPE`) variants of those variables and use the appropriate one. The build-type-specific form of the variable (e.g. `CMAKE_CXX_FLAGS_RELEASE`) typically overrides similar flags that appear in the generic form. A common mistake is to add optimization flags (e.g. `-O3`) to `CMAKE_CXX_FLAGS`. This will have no effect, because the default optimization flags in `CMAKE_CXX_FLAGS_RELEASE` will override the flag in `CMAKE_CXX_FLAGS`.
 
 In general, the best practice is to apply compiler flags as the narrowest
 available scope. Flags that you want to apply to all of your targets (such as

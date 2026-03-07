@@ -4,8 +4,6 @@ url: https://developer.android.com/ndk/guides/application_mk
 source: md.txt
 ---
 
-# Application.mk
-
 This document explains the `Application.mk` build file used by `ndk-build`.
 
 We recommend that you read the [Concepts](https://developer.android.com/ndk/guides/concepts) page before this
@@ -15,7 +13,9 @@ one.
 
 The `Application.mk` specifies project-wide settings for ndk-build. By default,
 it is located at `jni/Application.mk`, in your application's project directory.
-| **Note:** Many of these parameters also have a per-module equivalent. For example, `APP_CFLAGS` corresponds to `LOCAL_CFLAGS`. In every case, the module-specific option will take precedence over the application-wide option. For flags, both are used but the module-specific flags will appear later in the command line so they may override project-wide settings.
+
+> [!NOTE]
+> **Note:** Many of these parameters also have a per-module equivalent. For example, `APP_CFLAGS` corresponds to `LOCAL_CFLAGS`. In every case, the module-specific option will take precedence over the application-wide option. For flags, both are used but the module-specific flags will appear later in the command line so they may override project-wide settings.
 
 ## Variables
 
@@ -28,20 +28,21 @@ the `APP_ABI` settings for different instruction sets.
 
 **Table 1.** `APP_ABI` settings for different instruction sets.
 
-|       Instruction set        |          Value           |
-|------------------------------|--------------------------|
-| 32-bit ARMv7                 | `APP_ABI := armeabi-v7a` |
-| 64-bit ARMv8 (AArch64)       | `APP_ABI := arm64-v8a`   |
-| x86                          | `APP_ABI := x86`         |
-| x86-64                       | `APP_ABI := x86_64`      |
-| All supported ABIs (default) | `APP_ABI := all`         |
+| Instruction set | Value |
+|---|---|
+| 32-bit ARMv7 | `APP_ABI := armeabi-v7a` |
+| 64-bit ARMv8 (AArch64) | `APP_ABI := arm64-v8a` |
+| x86 | `APP_ABI := x86` |
+| x86-64 | `APP_ABI := x86_64` |
+| All supported ABIs (default) | `APP_ABI := all` |
 
 You can also specify multiple values by placing them on the same line, delimited
-by spaces. For example:  
+by spaces. For example:
 
     APP_ABI := armeabi-v7a arm64-v8a x86
 
-| **Note:** `APP_ABI` is ignored by Gradle's `externalNativeBuild`. Instead, use an `abiFilters` block or (if you are using "Multiple APKs") an `abi` block inside a `splits` block.
+> [!NOTE]
+> **Note:** `APP_ABI` is ignored by Gradle's `externalNativeBuild`. Instead, use an `abiFilters` block or (if you are using "Multiple APKs") an `abi` block inside a `splits` block.
 
 For the list of all supported ABIs and details about their usage and
 limitations, refer to [Android ABIs](https://developer.android.com/ndk/guides/abis).
@@ -50,7 +51,9 @@ limitations, refer to [Android ABIs](https://developer.android.com/ndk/guides/ab
 
 Flags to be passed to the assembler for every assembly source file (`.s` and
 `.S` files) in the project.
-| **Note:** `ASFLAGS` are distinct from `ASMFLAGS`. The latter applies specifically to YASM source files (see the section on [APP_ASMFLAGS](https://developer.android.com/ndk/guides/application_mk#app_asmflags)).
+
+> [!NOTE]
+> **Note:** `ASFLAGS` are distinct from `ASMFLAGS`. The latter applies specifically to YASM source files (see the section on [APP_ASMFLAGS](https://developer.android.com/ndk/guides/application_mk#app_asmflags)).
 
 ### APP_ASMFLAGS
 
@@ -64,12 +67,16 @@ By default, ndk-build assumes that the [Android.mk](https://developer.android.co
 
 To load an [Android.mk](https://developer.android.com/ndk/guides/android_mk) file from a different location, set `APP_BUILD_SCRIPT`
 to the absolute path of the Android.mk file.
-| **Note:** Gradle's `externalNativeBuild` will configure this automatically based on the `externalNativeBuild.ndkBuild.path` variable.
+
+> [!NOTE]
+> **Note:** Gradle's `externalNativeBuild` will configure this automatically based on the `externalNativeBuild.ndkBuild.path` variable.
 
 ### APP_CFLAGS
 
 Flags to be passed for all C/C++ compiles in the project.
-| **Note:** Include paths should use `LOCAL_C_INCLUDES` rather than explicit `-I` flags.
+
+> [!NOTE]
+> **Note:** Include paths should use `LOCAL_C_INCLUDES` rather than explicit `-I` flags.
 
 See also: [APP_CONLYFLAGS](https://developer.android.com/ndk/guides/application_mk#app_conlyflags), [APP_CPPFLAGS](https://developer.android.com/ndk/guides/application_mk#app_cppflags).
 
@@ -98,10 +105,11 @@ See also: [APP_CFLAGS](https://developer.android.com/ndk/guides/application_mk#a
 
 ### APP_CXXFLAGS
 
-| **Note:** [APP_CPPFLAGS](https://developer.android.com/ndk/guides/application_mk#app_cppflags) should be preferred to `APP_CXXFLAGS`.
+> [!NOTE]
+> **Note:** [APP_CPPFLAGS](https://developer.android.com/ndk/guides/application_mk#app_cppflags) should be preferred to `APP_CXXFLAGS`.
 
 Identical to `APP_CPPFLAGS`, but will appear after `APP_CPPFLAGS` in the compile
-command. For example:  
+command. For example:
 
     APP_CPPFLAGS := -DFOO
     APP_CXXFLAGS := -DBAR
@@ -116,7 +124,9 @@ Set to true to build a debuggable application.
 ### APP_LDFLAGS
 
 Flags to be passed when linking executables and shared libraries.
-| **Note:** These flags have no effect on static libraries. Static libraries are not linked.
+
+> [!NOTE]
+> **Note:** These flags have no effect on static libraries. Static libraries are not linked.
 
 ### APP_MANIFEST
 
@@ -124,7 +134,9 @@ Absolute path to an AndroidManifest.xml file.
 
 By default, `$(APP_PROJECT_PATH)/AndroidManifest.xml)` will be used if it
 exists.
-| **Note:** When using `externalNativeBuild` this value will not be set by Gradle.
+
+> [!NOTE]
+> **Note:** When using `externalNativeBuild` this value will not be set by Gradle.
 
 ### APP_MODULES
 
@@ -135,8 +147,10 @@ By default, ndk-build will build all shared libraries, executables, and their
 dependencies. Static libraries will be built only if they are used by the
 project, the project contains *only* static libraries, or if they are named in
 `APP_MODULES`.
-| **Note:** Imported modules (those defined in build scripts imported with `$(call
-| import-module)` will not be built unless depended on by a module to be built or listed in `APP_MODULES`.
+
+> [!NOTE]
+> **Note:** Imported modules (those defined in build scripts imported with `$(call
+> import-module)` will not be built unless depended on by a module to be built or listed in `APP_MODULES`.
 
 ### APP_OPTIM
 
@@ -155,7 +169,9 @@ difficult to step through the code; stack traces may not be reliable.
 Declaring `android:debuggable` in your application manifest's `<application>`
 tag will cause this variable to default to `debug` instead of `release`.
 Override this default value by setting `APP_OPTIM` to `release`.
-| **Note:** When building with `externalNativeBuild`, Android Studio will set this flag appropriately based on your build flavor.
+
+> [!NOTE]
+> **Note:** When building with `externalNativeBuild`, Android Studio will set this flag appropriately based on your build flavor.
 
 ### APP_PLATFORM
 
@@ -165,7 +181,9 @@ and corresponds to the application's `minSdkVersion`.
 If not specified, ndk-build will target the minimum API level supported by the
 NDK. The minimum API level supported by the latest NDK will always be low enough
 to support nearly all active devices.
-| **Warning:** Setting `APP_PLATFORM` higher than an application's `minSdkVersion` will likely produce an application that will not run on older devices. In most cases the libraries will fail to load because they refer to symbols that are not available on older devices.
+
+> [!WARNING]
+> **Warning:** Setting `APP_PLATFORM` higher than an application's `minSdkVersion` will likely produce an application that will not run on older devices. In most cases the libraries will fail to load because they refer to symbols that are not available on older devices.
 
 For example, a value of `android-16` specifies that your library uses APIs that
 are not available below Android 4.1 (API level 16) and can't be used on devices
@@ -230,4 +248,5 @@ A variant of this variable exists for each ABI, as does an ABI-generic variant:
 - `APP_WRAP_SH_x86`
 - `APP_WRAP_SH_x86_64`
 
-| **Note:** `APP_WRAP_SH_<abi>` may not be combined with `APP_WRAP_SH`. If any ABI uses an ABI-specific wrap.sh, all ABIs must.
+> [!NOTE]
+> **Note:** `APP_WRAP_SH_<abi>` may not be combined with `APP_WRAP_SH`. If any ABI uses an ABI-specific wrap.sh, all ABIs must.

@@ -4,13 +4,13 @@ url: https://developer.android.com/studio/gemini/use-a-remote-model
 source: md.txt
 ---
 
-| **Preview:** Remote models are available starting in Android Studio Otter 1 Feature Drop Canary 3. See the [preview release note](https://developer.android.com/studio/preview/features#use-a-remote-model).
-
 Many developers use a variety of large language models like ChatGPT, Claude, and
 GitHub Copilot. By integrating remote models in Android Studio, you can use the
 model
 of your choice and take advantage of a wide range of AI capabilities.
-| **Warning:** By using a third-party model, you agree to send your code and other input data to the provider of the model. Review the model provider's terms to understand how your data will be used. Note that some Android Studio features might not function as expected with external models.
+
+> [!WARNING]
+> **Warning:** By using a third-party model, you agree to send your code and other input data to the provider of the model. Review the model provider's terms to understand how your data will be used. Note that some Android Studio features might not function as expected with external models.
 
 ## Configure a remote model provider
 

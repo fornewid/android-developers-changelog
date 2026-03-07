@@ -4,12 +4,15 @@ url: https://developer.android.com/ndk/guides/hwasan
 source: md.txt
 ---
 
-| **Note:** This document covers running Android applications built with the NDK under [HWAddress Sanitizer](https://clang.llvm.org/docs/HardwareAssistedAddressSanitizerDesign.html). For information about using [HWAddress Sanitizer](https://clang.llvm.org/docs/HardwareAssistedAddressSanitizerDesign.html) on Android platform components, see the [AOSP documentation](https://source.android.com/devices/tech/debug/hwasan.html).
+> [!NOTE]
+> **Note:** This document covers running Android applications built with the NDK under [HWAddress Sanitizer](https://clang.llvm.org/docs/HardwareAssistedAddressSanitizerDesign.html). For information about using [HWAddress Sanitizer](https://clang.llvm.org/docs/HardwareAssistedAddressSanitizerDesign.html) on Android platform components, see the [AOSP documentation](https://source.android.com/devices/tech/debug/hwasan.html).
 
 The Android NDK supports [HWAddress Sanitizer](https://clang.llvm.org/docs/HardwareAssistedAddressSanitizerDesign.html), also known as HWASan, beginning
 with NDK r21 and Android 10 (API level 29). HWASan is only available on 64-bit
 Arm devices.
-| **Important:** HWAsan is one of many tools available for memory debugging and mitigation. See [Memory error debugging and mitigation](https://developer.android.com/ndk/guides/memory-debug) for an overview of all the tools.
+
+> [!IMPORTANT]
+> **Important:** HWAsan is one of many tools available for memory debugging and mitigation. See [Memory error debugging and mitigation](https://developer.android.com/ndk/guides/memory-debug) for an overview of all the tools.
 
 HWASan is a memory error detection tool similar to ASan. Compared to classic
 ASan, HWASan has:
@@ -37,7 +40,8 @@ hwasan.
 
 ## Build
 
-| **Important:** Make sure you are using an up-to-date NDK to build your code.
+> [!IMPORTANT]
+> **Important:** Make sure you are using an up-to-date NDK to build your code.
 
 To build your app's native (JNI) code with [HWAddress Sanitizer](https://clang.llvm.org/docs/HardwareAssistedAddressSanitizerDesign.html), do the
 following:
@@ -119,11 +123,14 @@ and don't have to change CMakeLists.txt:
     }
 
 This will not work when using `ANDROID_USE_LEGACY_TOOLCHAIN_FILE=false`.
-| **Note:** A shared library STL is required because implementations of the operators `new` and `delete` in the STL are usually built without frame pointers. HWASan brings its own implementation, but it can't be used if the STL is linked statically into the application.
+
+> [!NOTE]
+> **Note:** A shared library STL is required because implementations of the operators `new` and `delete` in the STL are usually built without frame pointers. HWASan brings its own implementation, but it can't be used if the STL is linked statically into the application.
 
 ### Android 14 or newer: add wrap.sh
 
-| **Important:** This is incompatible with using `android:useAppZygote` in AndroidManifest. Remove `android:useAppZygote` for testing with HWASan, or follow [Setup Instructions](https://developer.android.com/ndk/guides/hwasan#setup) if you need to keep it.
+> [!IMPORTANT]
+> **Important:** This is incompatible with using `android:useAppZygote` in AndroidManifest. Remove `android:useAppZygote` for testing with HWASan, or follow [Setup Instructions](https://developer.android.com/ndk/guides/hwasan#setup) if you need to keep it.
 
 If you are running Android 14 or newer, you can use a
 [wrap.sh script](https://developer.android.com/ndk/guides/wrap-script) to run your **debuggable** app on any
@@ -168,7 +175,8 @@ messages.
 
 ## Building command-line executables
 
-| **Important:** Make sure you are using the newest NDK. This will fail for NDK before r26b.
+> [!IMPORTANT]
+> **Important:** Make sure you are using the newest NDK. This will fail for NDK before r26b.
 
 You can build and run executables instrumented with HWASan on Android 14 and
 newer. You can use the same configuration as described in [Build](https://developer.android.com/ndk/guides/hwasan#build) for

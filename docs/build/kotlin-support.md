@@ -30,6 +30,7 @@ or if overriding the bundled version.
 | 2.1 | 8.6 | 8.6.17 |
 | 2.2 | 8.10 | 8.10.21 |
 | 2.3 | 8.13.2 | 8.13.19^[1](https://developer.android.com/build/kotlin-support#fn1)^ |
+| 2.4 | 9.1.0 | 9.1.29 |
 
 The AGP versions listed in the table automatically use the
 specified D8 and R8 compiler versions.

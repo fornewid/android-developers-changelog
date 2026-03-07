@@ -4,13 +4,15 @@ url: https://developer.android.com/studio/gemini/availability
 source: md.txt
 ---
 
-# Gemini availability
+Gemini in Android Studio is available in many countries and territories, with
+support for the English language.
 
-Gemini in Android Studio is available in many countries and territories, with support for the English language.
+We'll gradually expand to more countries and territories in a way that is
+consistent with local regulations and our
+[AI principles](https://ai.google/principles/).
 
-We'll gradually expand to more countries and territories in a way that is consistent with local regulations and our[AI principles](https://ai.google/principles/).
-
-**Gemini in Android Studio is available in the following countries and territories:**
+**Gemini in Android Studio is available in the following countries and
+territories:**
 
 - Algeria
 - American Samoa

@@ -4,17 +4,16 @@ url: https://developer.android.com/kotlin/kotlin-java-resources
 source: md.txt
 ---
 
-# Additional resources for Java users learning Kotlin
-
-Here's a list of additional learning resources that can help you learn to do even more with Kotlin.
+Here's a list of additional learning resources that can help you learn to
+do even more with Kotlin.
 
 ## Sites
 
-- [kotlinlang.org](https://kotlinlang.org)- The JetBrains site for all things Kotlin.
+- [kotlinlang.org](https://kotlinlang.org) - The JetBrains site for all things Kotlin.
 
 ## Tutorials
 
-- [Hello World](https://play.kotlinlang.org/byExample/01_introduction/01_Hello%20world)- An interactive tutorial by JetBrains that illustrates Kotlin features and syntax.
+- [Hello World](https://play.kotlinlang.org/byExample/01_introduction/01_Hello%20world) - An interactive tutorial by JetBrains that illustrates Kotlin features and syntax.
 
 ## Codelabs
 
@@ -32,7 +31,7 @@ Here's a list of additional learning resources that can help you learn to do eve
 - [Shaping Your App's Architecture with Kotlin and Architecture Components](https://www.youtube.com/watch?v=Sy6ZdgqrQp0): This video from KotlinConf 2018 covers the architecture lessons learned while converting Plaid to Kotlin and integrating Jetpack Architecture Components.
 - [Android Jetpack ❤️ Kotlin: On the road to more wholesome APIs](https://www.youtube.com/watch?v=TLksQq8T5v4): This KotlinConf 2019 talk provides info about the state of Kotlin on Android and gives you a glimpse into the future of what app development with Android Jetpack looks like.
 - [Understand Kotlin Coroutines on Android](https://www.youtube.com/watch?v=BOHK_w09pVA): This Google I/O 2019 talk gives an overview of using Kotlin coroutines on Android.
-- [LiveData with Coroutines and Flow](https://www.youtube.com/watch?v=B8ppnjGPAGE): This talk from the 2019 Android Dev Summit covers the`liveData`coroutine builder, showing when and how to use it along with testing patterns and antipatterns to make clean, efficient, and solid reactive UIs.
+- [LiveData with Coroutines and Flow](https://www.youtube.com/watch?v=B8ppnjGPAGE): This talk from the 2019 Android Dev Summit covers the `liveData` coroutine builder, showing when and how to use it along with testing patterns and antipatterns to make clean, efficient, and solid reactive UIs.
 - [#AskAndroid at Android Dev Summit 2019 - Kotlin \& Coroutines on Android](https://www.youtube.com/watch?v=zbYYoL7vo9Y): This session from the 2019 Android Dev Summit answers Kotlin and coroutines-related questions submitted online by Android developers.
 
 ## Articles and blog posts

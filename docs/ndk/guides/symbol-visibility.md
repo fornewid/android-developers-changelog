@@ -23,7 +23,9 @@ only of use to OS library vendors, and even we don't use them in Android because
 process. For the topic of this doc, don't worry about terms like "symbol
 version". If you're not defining multiple versions of the same symbol, "symbol
 version" is just an arbitrary named grouping of symbols in the file.
-| **Important:** In this document "linker" without additional qualifications refers to the [static linker](https://en.wikipedia.org/wiki/Linker_(computing)), `ld.lld`, which is run as part of the build process. The [dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker), `/system/bin/linker64`, which is the part of the Android OS that loads those libraries at run-time, will be explicitly named as such.
+
+> [!IMPORTANT]
+> **Important:** In this document "linker" without additional qualifications refers to the [static linker](https://en.wikipedia.org/wiki/Linker_(computing)), `ld.lld`, which is run as part of the build process. The [dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker), `/system/bin/linker64`, which is the part of the Android OS that loads those libraries at run-time, will be explicitly named as such.
 
 If you're a library author (whether your interface is C/C++, or if it's
 Java/Kotlin and your native code is merely an implementation detail) rather than
@@ -55,15 +57,18 @@ omit the comments):
         *;
     };
 
-| **Note:** Version scripts do not apply when creating static libraries. They can be applied to the code in a static library, but that must be done downstream where the static library is consumed. The only consequence that's likely to be relevant is that if you ship a static library and require certain symbols to be visible (such as your own JNI functions), be sure to document that for the consumers of your library, because if *they* use a version script, they'll need to include your library's public symbols in their version script.
+> [!NOTE]
+> **Note:** Version scripts do not apply when creating static libraries. They can be applied to the code in a static library, but that must be done downstream where the static library is consumed. The only consequence that's likely to be relevant is that if you ship a static library and require certain symbols to be visible (such as your own JNI functions), be sure to document that for the consumers of your library, because if *they* use a version script, they'll need to include your library's public symbols in their version script.
 
 If your app has more than one shared library, you must add one version script
 per library.
 
 For JNI libraries that are not using `JNI_OnLoad` and `RegisterNatives()`, you
 can instead list each of the JNI methods with their JNI mangled names.
-| **Tip:** If you're not already using `RegisterNatives()`, you probably should be! See [the
-| Native Libraries section of JNI tips](https://developer.android.com/training/articles/perf-jni#native-libraries) for more information.
+
+> [!TIP]
+> **Tip:** If you're not already using `RegisterNatives()`, you probably should be! See [the
+> Native Libraries section of JNI tips](https://developer.android.com/training/articles/perf-jni#native-libraries) for more information.
 
 For non-JNI libraries (dependencies of JNI libraries, typically), you'll need to
 enumerate your full API surface. If your interface is C++ rather than C, you can

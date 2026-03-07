@@ -139,7 +139,7 @@ production was released on September 21, 2018.
 - [Compose Material3 Adaptive Version 1.2.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.2.0)
 - [Compose Runtime Version 1.9.4](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.9.4)
 - [Compose UI Version 1.9.4](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.9.4)
-- [Graphics Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/graphics#1.1.0)
+- [Graphics Shapes Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-shapes-1.1.0)
 - [Room Version 2.8.3](https://developer.android.com/jetpack/androidx/releases/room#2.8.3)
 - [Wear Compose Version 1.5.4](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.5.4)
 - [WorkManager Version 2.11.0](https://developer.android.com/jetpack/androidx/releases/work#2.11.0)
@@ -528,6 +528,7 @@ production was released on September 21, 2018.
 - [Emoji2 Version 1.5.0](https://developer.android.com/jetpack/androidx/releases/emoji2#1.5.0)
 - [Fragment Version 1.8.3](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.3)
 - [Graphics-Core Version 1.0.1](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-core-1.0.1)
+- [Graphics-Shapes Graphics-Shapes-Android Graphics-Shapes-Desktop Version 1.0.1](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-shapes-1.0.1)
 - [Lifecycle Version 2.8.5](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.8.5)
 - [Navigation Version 2.8.0](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.0)
 - [Wear Compose Version 1.4.0](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.4.0)
@@ -539,7 +540,7 @@ production was released on September 21, 2018.
 ### August 21, 2024
 
 - [Benchmark Version 1.3.0](https://developer.android.com/jetpack/androidx/releases/benchmark#1.3.0)
-- [Graphics-Shapes Graphics-Shapes-Android Graphics-Shapes-Desktop Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/graphics#1.0.0)
+- [Graphics-Shapes Graphics-Shapes-Android Graphics-Shapes-Desktop Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-shapes-1.0.0)
 - [Tv-Material Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/tv#tv-material-1.0.0)
 
 ### August 14, 2024

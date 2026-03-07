@@ -4,13 +4,13 @@ url: https://developer.android.com/studio/gemini/use-a-local-model
 source: md.txt
 ---
 
-| **Preview:** Local models are available starting in Android Studio Otter 1 Canary 3. See the [preview release note](https://developer.android.com/studio/preview/features#use-a-local-model).
-
 Large language models (LLMs) differ in their capabilities. To give you control
 and flexibility in AI-assisted software development, Android Studio lets you
 choose a local model, running on your personal machine, to power the IDE's AI
 functionality.
-| **Warning:** By using a third-party model, you agree to send your code and other input data to the provider of the model. Review the model provider's terms to understand how your data will be used. Note that some Android Studio features might not function as expected with external models.
+
+> [!WARNING]
+> **Warning:** By using a third-party model, you agree to send your code and other input data to the provider of the model. Review the model provider's terms to understand how your data will be used. Note that some Android Studio features might not function as expected with external models.
 
 ## Choose a model
 
@@ -24,11 +24,13 @@ key](https://developer.android.com/studio/gemini/add-api-key).
 Local model capability is a great option if you need to work offline, must
 adhere to strict company policies on AI tool usage, or are interested in
 experimenting with open-source research models.
-| **Caution:** Local models typically offer lower performance compared to cloud-based Gemini models. You might experience less accurate responses, higher latency, and limited feature support. We recommend using [Gemini in Android Studio](https://developer.android.com/gemini-in-android) for the best experience.
+
+> [!CAUTION]
+> **Caution:** Local models typically offer lower performance compared to cloud-based Gemini models. You might experience less accurate responses, higher latency, and limited feature support. We recommend using [Gemini in Android Studio](https://developer.android.com/gemini-in-android) for the best experience.
 
 ## Set up local model support
 
-1. Download and install the [latest canary version of Android Studio](https://developer.android.com/studio/preview).
+1. Download and install the [latest version of Android Studio](https://developer.android.com/studio/releases).
 
 2. Install an LLM provider such as [LM Studio](https://lmstudio.ai) or
    [Ollama](https://ollama.com) on your local computer.
@@ -36,7 +38,7 @@ experimenting with open-source research models.
 3. Add the model provider to Android Studio.
 
    - Go to **Settings \> Tools \> AI \> Model Providers**
-   - Select the add icon
+   - Select the icon
    - Select **Local Provider**
    - Enter a description of the model provider (typically the model provider's name)
    - Set the port on which the provider is listening

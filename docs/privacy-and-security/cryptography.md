@@ -4,33 +4,43 @@ url: https://developer.android.com/privacy-and-security/cryptography
 source: md.txt
 ---
 
-# Cryptography
+This document describes the proper way to use Android's cryptographic facilities
+and includes some examples of their use. If your app requires greater key
+security, use the [Android Keystore system](https://developer.android.com/training/articles/keystore).
 
-This document describes the proper way to use Android's cryptographic facilities and includes some examples of their use. If your app requires greater key security, use the[Android Keystore system](https://developer.android.com/training/articles/keystore).
-| **Note:** Except where specified, this advice applies to all Android versions.
+> [!NOTE]
+> **Note:** Except where specified, this advice applies to all Android versions.
 
 ## Specify a provider only with the Android Keystore system
 
-If you're using the Android Keystore system, you**must**specify a provider.
+If you're using the Android Keystore system,
+you **must** specify a provider.
 
-In other situations, however, Android doesn't guarantee a particular provider for a given algorithm. Specifying a provider without using the Android Keystore system can cause compatibility problems in future releases.
+In other situations, however, Android doesn't guarantee a particular provider
+for a given algorithm. Specifying a provider without using the Android Keystore
+system can cause compatibility problems in future releases.
 
 ## Choose a recommended algorithm
 
-When you have the freedom to choose which algorithm to use (such as when you don't require compatibility with a third-party system), we recommend using the following algorithms:
+When you have the freedom to choose which algorithm to use (such as when you
+don't require compatibility with a third-party system), we recommend using the
+following algorithms:
 
-|     Class     |                                Recommendation                                |
-|---------------|------------------------------------------------------------------------------|
-| Cipher        | AES in either CBC or GCM mode with 256-bit keys (such as`AES/GCM/NoPadding`) |
-| MessageDigest | SHA-2 family (such as`SHA-256`)                                              |
-| Mac           | SHA-2 family HMAC (such as`HMACSHA256`)                                      |
-| Signature     | SHA-2 family with ECDSA (such as`SHA256withECDSA`)                           |
+| Class | Recommendation |
+|---|---|
+| Cipher | AES in either CBC or GCM mode with 256-bit keys (such as `AES/GCM/NoPadding`) |
+| MessageDigest | SHA-2 family (such as `SHA-256`) |
+| Mac | SHA-2 family HMAC (such as `HMACSHA256`) |
+| Signature | SHA-2 family with ECDSA (such as `SHA256withECDSA`) |
 
-| **Note:** When reading and writing local files, your app can use the[Security library](https://developer.android.com/topic/security/data)to perform these actions in a more secure manner. The library specifies a recommended encryption algorithm.
+> [!NOTE]
+> **Note:** When reading and writing local files, your app can use the [Security
+> library](https://developer.android.com/topic/security/data) to perform these actions in a more secure manner. The library specifies a recommended encryption algorithm.
 
 ## Perform common cryptographic operations
 
-The following sections include snippets that demonstrate how you can complete common cryptographic operations in your app.
+The following sections include snippets that demonstrate how you can complete
+common cryptographic operations in your app.
 
 ### Encrypt a message
 
@@ -80,7 +90,10 @@ byte[] digest = md.digest(message);
 
 ### Generate a digital signature
 
-You need to have a[`PrivateKey`](https://developer.android.com/reference/java/security/PrivateKey)object containing the signing key, which you can generate at runtime, read from a file bundled with your app, or obtain from some other source depending on your needs.  
+You need to have a [`PrivateKey`](https://developer.android.com/reference/java/security/PrivateKey) object
+containing the signing key, which you
+can generate at runtime, read from a file bundled with your app, or obtain from
+some other source depending on your needs.
 
 ### Kotlin
 
@@ -108,7 +121,11 @@ byte[] signature = s.sign();
 
 ### Verify a digital signature
 
-You need to have a[`PublicKey`](https://developer.android.com/reference/kotlin/java/security/PublicKey)object containing the signer's public key, which you can read from a file bundled with your app,[extract from a certificate](https://developer.android.com/reference/javax/security/cert/Certificate#getPublicKey()), or obtain from some other source depending on your needs.  
+You need to have a [`PublicKey`](https://developer.android.com/reference/kotlin/java/security/PublicKey)
+object containing the signer's public key,
+which you can read from a file bundled with your app, [extract from a
+certificate](https://developer.android.com/reference/javax/security/cert/Certificate#getPublicKey()), or
+obtain from some other source depending on your needs.
 
 ### Kotlin
 
@@ -138,13 +155,24 @@ boolean valid = s.verify(signature);
 
 ## Implementation complexities
 
-There are some details of the Android cryptography implementation that seem unusual but are present due to compatibility concerns. This section discusses the ones that you'll most likely encounter.
+There are some details of the Android cryptography implementation that seem
+unusual but are present due to compatibility concerns. This section discusses
+the ones that you'll most likely encounter.
 
 ### OAEP MGF1 message digest
 
-RSA OAEP ciphers are parameterized by two different message digests: the "main" digest and the MGF1 digest. There are[`Cipher`](https://developer.android.com/reference/javax/crypto/Cipher)identifiers that include digest names, such as`Cipher.getInstance("RSA/ECB/OAEPwithSHA-256andMGF1Padding")`, which specifies the main digest and leaves the MGF1 digest unspecified. For Android Keystore, SHA-1 is used for the MGF1 digest, whereas for other Android cryptographic providers, the two digests are the same.
+RSA OAEP ciphers are parameterized by two different message digests: the "main"
+digest and the MGF1 digest. There are [`Cipher`](https://developer.android.com/reference/javax/crypto/Cipher)
+identifiers that include digest
+names, such as `Cipher.getInstance("RSA/ECB/OAEPwithSHA-256andMGF1Padding")`,
+which specifies the main digest and leaves the MGF1 digest unspecified. For Android
+Keystore, SHA-1 is used for the MGF1 digest, whereas for other Android
+cryptographic providers, the two digests are the same.
 
-To have more control over the digests that your app uses, request a cipher with OAEPPadding, as in`Cipher.getInstance("RSA/ECB/OAEPPadding")`, and provide an`OAEPParameterSpec`to`init()`to explicitly choose both digests. This is shown in the code that follows:  
+To have more control over the digests that your app uses, request a
+cipher with OAEPPadding, as in `Cipher.getInstance("RSA/ECB/OAEPPadding")`, and
+provide an `OAEPParameterSpec` to `init()` to explicitly choose both digests.
+This is shown in the code that follows:
 
 ### Kotlin
 
@@ -172,11 +200,16 @@ cipher.init(Cipher.ENCRYPT_MODE, key, new OAEPParameterSpec("SHA-256", "MGF1", M
 
 ## Deprecated functionality
 
-The following sections describe deprecated functionality. Don't use it in your app.
+The following sections describe deprecated functionality. Don't use it in your
+app.
 
 ### Bouncy Castle algorithms
 
-The[Bouncy Castle](https://www.bouncycastle.org/)implementations of many algorithms[are deprecated](https://android-developers.googleblog.com/2018/03/cryptography-changes-in-android-p.html). This only affects cases where you explicitly request the Bouncy Castle provider, as shown in the following example:  
+The [Bouncy Castle](https://www.bouncycastle.org/)
+implementations of many algorithms [are
+deprecated](https://android-developers.googleblog.com/2018/03/cryptography-changes-in-android-p.html).
+This only affects cases where you explicitly request the Bouncy Castle provider,
+as shown in the following example:
 
 ### Kotlin
 
@@ -194,13 +227,20 @@ Cipher.getInstance("AES/CBC/PKCS7PADDING", "BC");
 Cipher.getInstance("AES/CBC/PKCS7PADDING", Security.getProvider("BC"));
 ```
 
-As noted in the section about[specifying a provider only with the Android Keystore system](https://developer.android.com/privacy-and-security/cryptography#provider-android-keystore), requesting a specific provider is discouraged. If you follow that guideline, this deprecation doesn't affect you.
+As noted in the section about
+[specifying a provider only with the Android Keystore system](https://developer.android.com/privacy-and-security/cryptography#provider-android-keystore),
+requesting a specific provider is discouraged. If you follow
+that guideline, this deprecation doesn't affect you.
 
 ### Password-based encryption ciphers without an initialization vector
 
-Password-based encryption (PBE) ciphers that require an initialization vector (IV) can obtain it from the key, if it's suitably constructed, or from an explicitly passed IV. If you pass a PBE key that doesn't contain an IV and don't pass an explicit IV, the PBE ciphers on Android currently assume an IV of zero.
+Password-based encryption (PBE) ciphers that require an initialization vector
+(IV) can obtain it from the key, if it's suitably constructed, or from an
+explicitly passed IV. If you pass a PBE key that doesn't contain an IV and don't
+pass an explicit IV, the PBE ciphers on Android currently assume an IV of zero.
 
-When using PBE ciphers, always pass an explicit IV, as shown in the following code snippet:  
+When using PBE ciphers, always pass an explicit IV, as shown in the following
+code snippet:
 
 ### Kotlin
 
@@ -224,7 +264,11 @@ cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv));
 
 ### Crypto provider
 
-As of Android 9 (API level 28), the Crypto Java Cryptography Architecture (JCA) provider has been removed. If your app requests an instance of the Crypto provider, such as by calling the following method, a[`NoSuchProviderException`](https://developer.android.com/reference/java/security/NoSuchProviderException)occurs.  
+As of Android 9 (API level 28), the Crypto Java Cryptography Architecture
+(JCA) provider has been removed. If your app requests an instance of the
+Crypto provider, such as by calling the following method, a
+[`NoSuchProviderException`](https://developer.android.com/reference/java/security/NoSuchProviderException)
+occurs.
 
 ### Kotlin
 
@@ -240,9 +284,14 @@ SecureRandom.getInstance("SHA1PRNG", "Crypto");
 
 ### Jetpack security-crypto library
 
-All APIs in the[`security-crypto`](https://developer.android.com/reference/androidx/security/crypto/package-summary)Jetpack library were deprecated in the stable release of[version`1.1.0`](https://developer.android.com/jetpack/androidx/releases/security#security-crypto_version_110_2). There won't be any subsequent releases of this library.
+All APIs in the
+[`security-crypto`](https://developer.android.com/reference/androidx/security/crypto/package-summary)
+Jetpack library were deprecated in the stable release of
+[version `1.1.0`](https://developer.android.com/jetpack/androidx/releases/security#security-crypto_version_110_2).
+There won't be any subsequent releases of this library.
 
-The deprecation annotations are visible if you have any of the following dependencies in your app module's`build.gradle`file:  
+The deprecation annotations are visible if you have any of the following
+dependencies in your app module's `build.gradle` file:
 
 ### Groovy
 

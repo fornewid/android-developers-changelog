@@ -18,12 +18,12 @@ backwards-compatible support for features such as animated GIFs. The following
 code demonstrates how to implement animated GIF playback using the
 [Coil image loading library](https://coil-kt.github.io/coil/):
 
-**Add the Coil dependency for GIF:**  
+**Add the Coil dependency for GIF:**
 
     implementation("io.coil-kt:coil-gif:2.6.0")
 
 **Create the GIF-enabled loader** using both the platform ImageDecoder, added
-in Android 9 (API level 28), as well as Coil's GifDecoder for backwards compatibility:  
+in Android 9 (API level 28), as well as Coil's GifDecoder for backwards compatibility:
 
     val gifEnabledLoader = ImageLoader.Builder(this)
         .components {
@@ -34,7 +34,7 @@ in Android 9 (API level 28), as well as Coil's GifDecoder for backwards compatib
             }
         }.build()
 
-**Use the gifEnabledLoader in your Coil AsyncImage composable:**  
+**Use the gifEnabledLoader in your Coil AsyncImage composable:**
 
     AsyncImage(
         imageLoader = gifEnabledLoader,
@@ -53,12 +53,12 @@ Android 9+ (API level 28) has built-in support for animated GIF files. With a
 little help from an [Accompanist library](https://medium.com/androiddevelopers/jetpack-compose-accompanist-an-faq-b55117b02712), Jetpack Compose can
 play these animations with just a few lines of code.
 
-**Add the Accompanist library dependency to support drawable painters:**  
+**Add the Accompanist library dependency to support drawable painters:**
 
     implementation("com.google.accompanist:accompanist-drawablepainter:0.35.0-alpha")
 
 **Create a method that loads the animated GIF** into an [AnimatedImageDrawable](https://developer.android.com/reference/android/graphics/drawable/AnimatedImageDrawable)
-using [ImageDecoder](https://developer.android.com/reference/android/graphics/ImageDecoder):  
+using [ImageDecoder](https://developer.android.com/reference/android/graphics/ImageDecoder):
 
     private fun createAnimatedImageDrawableFromImageDecoder(context: Context, uri: Uri): AnimatedImageDrawable {
         val source = ImageDecoder.createSource(context.contentResolver, uri)
@@ -67,7 +67,7 @@ using [ImageDecoder](https://developer.android.com/reference/android/graphics/Im
     }
 
 **Use the [rememberDrawablePainter](https://google.github.io/accompanist/api/drawablepainter/com.google.accompanist.drawablepainter/remember-drawable-painter.html) with the**
-**`AnimatedImageDrawable`**:  
+**`AnimatedImageDrawable`**:
 
     Image(
         painter = rememberDrawablePainter(

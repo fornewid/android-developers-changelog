@@ -4,7 +4,8 @@ url: https://developer.android.com/studio/gemini/generate-ui-with-images
 source: md.txt
 ---
 
-| **Note:** Image attachment is only available in Gemini's no-cost tier.
+> [!NOTE]
+> **Note:** Image attachment is only available in Gemini's no-cost tier.
 
 The AI agent is uniquely equipped to help you make your Android app UI vision a
 reality, using Jetpack Compose and following Android best practices. This page

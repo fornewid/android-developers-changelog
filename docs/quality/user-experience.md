@@ -28,8 +28,9 @@ experience. For example:
 - Enable content sharing with [Android Sharesheets](https://developer.android.com/training/sharing/send), which has built-in support for share targets
 - Support [backup and restore](https://developer.android.com/guide/topics/data/backup) so that user data and settings are preserved if users add a new device, replace an existing device, or reinstall your app
 
-| **Note:** Follow the recommended [UX design guidelines](https://developer.android.com/design/ui) and [adaptive app quality
-| guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality) for all the form factors that your app supports.
+> [!NOTE]
+> **Note:** Follow the recommended [UX design guidelines](https://developer.android.com/design/ui) and [adaptive app quality
+> guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality) for all the form factors that your app supports.
 
 When needed, provide an engaging way for users to learn how to make the most of
 your app or game or any new features that you may add. Design onboarding for

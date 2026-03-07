@@ -4,8 +4,6 @@ url: https://developer.android.com/ndk/guides
 source: md.txt
 ---
 
-# Get started with the NDK
-
 The Native Development Kit (NDK) is a set of tools that allows you to use C
 and C++ code with Android, and provides [platform libraries](https://developer.android.com/ndk/guides/stable_apis) you can use to manage
 native activities and access physical device components, such as sensors and
@@ -77,7 +75,7 @@ existing Android Studio project, you need to follow this basic process:
    **Note:** If your existing project uses the deprecated
    `ndkCompile` tool, you should open your
    `build.properties` file and remove the following line of code
-   before configuring Gradle to use CMake or ndk-build:  
+   before configuring Gradle to use CMake or ndk-build:
 
    ```
    // Remove this line

@@ -17,8 +17,17 @@ Android.
 
 ## Android 15
 
-- Because of the [window inset changes](https://developer.android.com/about/versions/15/behavior-changes-15#window-insets) for apps targeting Android 15 or higher, you should test apps distributed to Android Automotive OS to verify that activities implemented by your app render as intended. See [Work with window
-  insets and display cutouts](https://developer.android.com/training/cars/parked/automotive-os#insets-and-cutouts) for more details on the considerations unique to Android Automotive OS.
+- Apps for Android Automotive OS that use the Android for Cars App Library must
+  update to [version 1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/car-app#1.7.0-rc01) or later. This prevents crashes when running
+  on Android 15 or higher, that can be caused by the
+  [secured background activity launch changes](https://developer.android.com/about/versions/15/behavior-changes-15#secured-bal) when permission dialogs are
+  triggered.
+
+- Because of the [window inset changes](https://developer.android.com/about/versions/15/behavior-changes-15#window-insets) for apps targeting Android 15 or
+  higher, you should test apps distributed to Android Automotive OS to verify that
+  activities implemented by your app render as intended. See [Work with window
+  insets and display cutouts](https://developer.android.com/training/cars/parked/automotive-os#insets-and-cutouts) for more details on the considerations unique to
+  Android Automotive OS.
 
 ## Android 14
 

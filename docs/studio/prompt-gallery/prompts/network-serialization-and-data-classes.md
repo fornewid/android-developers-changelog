@@ -4,8 +4,6 @@ url: https://developer.android.com/studio/prompt-gallery/prompts/network-seriali
 source: md.txt
 ---
 
-# Network serialization and data classes
-
 Convert data into a data class using serialization.
 
 *** ** * ** ***
@@ -16,7 +14,8 @@ Convert data into a data class using serialization.
     different data types. After, provide a Kotlin function using Gson to deserialize
     a sample JSON string into an instance of this data class.
 
-| To run this prompt in Android Studio, click**Gemini** in the sidebar and paste it in the chat field.  
-| To save and retrieve prompts in the Studio IDE, go to**Settings \> Gemini \> Prompt Library**.
+> [!NOTE]
+> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
+> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
 
 *** ** * ** ***
