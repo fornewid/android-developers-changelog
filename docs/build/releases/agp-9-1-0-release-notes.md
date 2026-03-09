@@ -24,6 +24,42 @@ Here is other compatibility info:
 
 <br />
 
+## R8 changes
+
+The following R8 changes are included in AGP 9.1.0.
+
+### Enable repackaging to unnamed (default) package when compiling to DEX
+
+R8 now repackages classes into the unnamed (default) package when compiling
+to DEX by default. This effectively adds the rule `-repackageclasses` to
+builds that use neither `-flattenpackagehierarchy` or
+`-repackageclasses` explicitly.
+
+Repackaging by default ensures consistency with obfuscation, optimization and
+shrinking, which are all opt-out rather than opt-in, and thereby
+mitigates suboptimal configurations that are not explicitly opting in to
+repackaging.
+
+In order to opt out of this behavior, use the new `-dontrepackage` rule.
+
+### Support named levels for -maximumremovedandroidloglevel
+
+When using `-maximumremovedandroidloglevel`, you can now specify the log
+level names instead of the numbers. The following table shows the names
+and the corresponding numeric log level.
+
+| Name | Level |
+|---|---|
+| `ASSERT` | 7 |
+| `ERROR` | 6 |
+| `WARN` | 5 |
+| `INFO` | 4 |
+| `DEBUG` | 3 |
+| `VERBOSE` | 2 |
+| `NONE` | 1 |
+
+You must specify the log level names in all caps.
+
 ## Fixed issues
 
 

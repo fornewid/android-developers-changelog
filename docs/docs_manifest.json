@@ -9320,8 +9320,8 @@
     },
     "build/releases/agp-9-1-0-release-notes.md": {
       "original_url": "https://developer.android.com/build/releases/agp-9-1-0-release-notes",
-      "hash": "ab2682c6beb71bb23b5daa2ae8f6faebe78f3c12e9116976cd63a5a6d7d98cdb",
-      "last_updated": "2026-03-04T15:12:24.029816",
+      "hash": "02a65050597d5371b910c25786d27426146047a9b7c8796fe0408ae80ee2f575",
+      "last_updated": "2026-03-09T15:19:43.720613",
       "fetch_method": "md.txt"
     },
     "topic/google-play-instant/guides/advertising.md": {
@@ -21098,8 +21098,8 @@
     },
     "games/playgames/native-pc/downloads.md": {
       "original_url": "https://developer.android.com/games/playgames/native-pc/downloads",
-      "hash": "2bfdc1451f75ed886054193b4a3ea3c3ac19f22a5d0ed409d4f294bb19f811a3",
-      "last_updated": "2026-02-25T15:23:09.627692",
+      "hash": "49507e0828df78b3a976f20d87576c29e5c8fd27bbcb817a799d8d509e244f9c",
+      "last_updated": "2026-03-09T15:21:45.226514",
       "fetch_method": "md.txt"
     },
     "games/engines/godot/godot-renderers.md": {
@@ -25693,5 +25693,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-03-07T15:07:37.209270"
+  "last_updated": "2026-03-09T15:22:25.258883"
 }

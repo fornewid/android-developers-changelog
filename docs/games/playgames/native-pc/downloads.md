@@ -36,4 +36,4 @@ The Play publishing tool helps you package your game for distribution on Google 
 
 | Name | Version |
 |---|---|
-| [Play publishing tool](https://developer.android.com/games/playgames/native-pc/downloads/playpublishingtool) | 1.0.1 |
+| [Play publishing tool](https://developer.android.com/games/playgames/native-pc/downloads/playpublishingtool) | 1.0.2 |
