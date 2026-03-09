@@ -1,5 +1,27 @@
 [
   {
+    "date": "2026-03-09T15:22:25Z",
+    "commit_hash": "a6aab62",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-1-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.1.0 (March 2026)</a>",
+        "path": "build/releases/agp-9-1-0-release-notes.md",
+        "summary": "AGP 9.1.0 includes changes to R8, the Android dexer and optimizer. These changes include enabling repackaging to the unnamed (default) package by default during DEX compilation for consistency and providing named levels for the `-maximumremovedandroidloglevel` option, making it easier to specify log levels in R8 configurations. These updates improve build consistency and provide more user-friendly configuration options.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a6aab62_agp-9-1-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/downloads\" target=\"_blank\">Play for Native PC</a>",
+        "path": "games/playgames/native-pc/downloads.md",
+        "summary": "The Play publishing tool has been updated from version 1.0.1 to 1.0.2. This update likely includes bug fixes, performance improvements, or new features for publishing games on Google Play.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a6aab62_downloads.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-07T15:07:37Z",
     "commit_hash": "12c2172",
     "entries": [
