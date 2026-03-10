@@ -25,8 +25,8 @@ Using `MetadataRetriever` is a two-step process:
 1. **Build the retriever** : Create an instance using `MetadataRetriever.Builder`. Pass a `Context` and the `MediaItem` that you want to inspect to the builder. For advanced use cases, such as custom networking or caching, you can also supply a custom [`MediaSource.Factory`](https://developer.android.com/reference/androidx/media3/exoplayer/source/MediaSource.Factory).
 2. **Retrieve metadata** : Call methods like [`retrieveDurationUs()`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever#retrieveDurationUs()), [`retrieveTimeline()`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever#retrieveTimeline()), or [`retrieveTrackGroups()`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever#retrieveTrackGroups()) to fetch the required information. These methods are **asynchronous** , returning a `ListenableFuture` so that network or I/O operations don't block the main thread.
 
-### Kotlin
 
+### Kotlin
 
 ```kotlin
 suspend fun retrieveMetadata(context: Context, mediaItem: MediaItem) {
@@ -47,10 +47,7 @@ suspend fun retrieveMetadata(context: Context, mediaItem: MediaItem) {
 }
 ```
 
-<br />
-
 ### Java
-
 
 ```java
 public void retrieveMetadata(Context context, MediaItem mediaItem) {

@@ -159,6 +159,10 @@ To create a Play Managed Installation WAB file, follow these steps:
        > **Warning:** Displays a [UAC prompt](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/) for the gamer.
 
        - **"false"**: Run as the current user. This is the default if unspecified.
+
+       > [!NOTE]
+       > **Note:** If an `<install-operation>` or `<uninstall-operation>` includes an `<execute-file>` action and you set `requiresElevation="true"`, then the executable file specified in that action must be signed using [Authenticode signing](https://learn.microsoft.com/en-us/visualstudio/deployment/clickonce-and-authenticode?view=vs-2022#authenticode-and-code-signing).
+
      - `operation-identifier`: A unique string to identify an
        `install-operation`.
 

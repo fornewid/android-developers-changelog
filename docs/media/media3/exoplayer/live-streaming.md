@@ -72,6 +72,7 @@ order of priority (the first value found is used):
 - Global default values set on `DefaultMediaSourceFactory`.
 - Values read directly from the media.
 
+
 ### Kotlin
 
 ```kotlin
@@ -112,6 +113,8 @@ MediaItem mediaItem =
 player.setMediaItem(mediaItem);
 ```
 
+<br />
+
 Available configuration values are:
 
 - `targetOffsetMs`: The target live offset. The player will attempt to get close to this live offset during playback if possible.
@@ -146,6 +149,7 @@ adjustments are made. It's possible to implement a custom
 `DefaultLivePlaybackSpeedControl`. In both cases, an instance can be set when
 building the player:
 
+
 ### Kotlin
 
 ```kotlin
@@ -169,6 +173,8 @@ ExoPlayer player =
         .build();
 ```
 
+<br />
+
 Relevant customization parameters of `DefaultLivePlaybackSpeedControl` are:
 
 - `fallbackMinPlaybackSpeed` and `fallbackMaxPlaybackSpeed`: The minimum and maximum playback speeds that can be used for adjustment if neither the media nor the app-provided `MediaItem` define limits.
@@ -185,6 +191,7 @@ playback will fail and an exception with error code
 `Player.Listener.onPlayerError`. Application code may wish to handle such
 errors by resuming playback at the default position. The [PlayerActivity](https://github.com/androidx/media/tree/release/demos/main/src/main/java/androidx/media3/demo/main/PlayerActivity.java) of
 the demo app exemplifies this approach.
+
 
 ### Kotlin
 
@@ -214,3 +221,5 @@ public void onPlayerError(PlaybackException error) {
   }
 }
 ```
+
+<br />

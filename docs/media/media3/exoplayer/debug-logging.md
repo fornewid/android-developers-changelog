@@ -10,6 +10,7 @@ understanding what the player is doing, as well as for debugging playback
 issues. `EventLogger` implements `AnalyticsListener`, so registering an instance
 with an `ExoPlayer` is easy:
 
+
 ### Kotlin
 
 ```kotlin
@@ -21,6 +22,8 @@ player.addAnalyticsListener(EventLogger())
 ```java
 player.addAnalyticsListener(new EventLogger());
 ```
+
+<br />
 
 The easiest way to observe the log is using Android Studio's [logcat tab](https://developer.android.com/studio/debug/am-logcat). You
 can select your app as debuggable process by the package name (

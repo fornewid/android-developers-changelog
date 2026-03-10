@@ -44,7 +44,7 @@ For example, here's how to create an intent to initiate a phone call using the `
 ### Kotlin
 
 ```kotlin
-val callIntent: Intent = Uri.parse("tel:5551234").let >{ number -
+val callIntent: Intent = Uri.parse("tel:5551234").let { number ->
     Intent(Intent.ACTION_DIAL, number)
 }
 ```
@@ -69,7 +69,7 @@ pairs:
 // Map point based on address
 val mapIntent: Intent = Uri.parse(
         "geo:0,0?q=1600+Amphitheatre+Parkway,+Mountain+View,+California"
-).let { >location -
+).let { location ->
     // Or map point based on latitude/longitude
     // val location: Uri = Uri.parse("geo:37.422219,-122.08364?z=14") // z param is zoom level
     Intent(Intent.ACTION_VIEW, location)
@@ -91,7 +91,7 @@ Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
 ### Kotlin
 
 ```kotlin
-val webIntent: Intent = Uri.parse("https://www.android.com").let {> webpage -
+val webIntent: Intent = Uri.parse("https://www.android.com").let { webpage ->
     Intent(Intent.ACTION_VIEW, webpage)
 }
 ```

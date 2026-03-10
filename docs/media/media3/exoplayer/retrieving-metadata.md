@@ -13,6 +13,7 @@ most straightforward is to listen for the
 `albumArtist`. Alternatively, calling `Player#getMediaMetadata` returns the same
 object.
 
+
 ### Kotlin
 
 ```kotlin
@@ -32,6 +33,8 @@ public void onMediaMetadataChanged(MediaMetadata mediaMetadata) {
 }
 ```
 
+<br />
+
 If your app needs access to specific [`Metadata.Entry`](https://developer.android.com/reference/androidx/media3/common/Metadata.Entry) objects, then it
 should listen to `Player.Listener#onMetadata` (for dynamic metadata delivered
 during playback). Alternatively, if there is a need to look at static metadata,
@@ -43,6 +46,7 @@ this can be accessed through the `TrackSelections#getFormat`.
 If playback is not needed, it is more efficient to use the
 [`MetadataRetriever`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever) to extract the metadata because it avoids having to
 create and prepare a player.
+
 
 ### Kotlin
 
@@ -101,6 +105,8 @@ public void retrieveMetadata(Context context, MediaItem mediaItem) {
 }
 ```
 
+<br />
+
 ## Motion photos
 
 > [!NOTE]
@@ -112,6 +118,7 @@ lengths of the image and video parts of the file.
 For motion photos, the `TrackGroupArray` obtained with the `MetadataRetriever`
 contains a `TrackGroup` with a single `Format` enclosing a
 [`MotionPhotoMetadata`](https://developer.android.com/reference/androidx/media3/extractor/metadata/MotionPhotoMetadata) metadata entry.
+
 
 ### Kotlin
 
@@ -140,3 +147,5 @@ for (int i = 0; i < trackGroups.length; i++) {
   }
 }
 ```
+
+<br />

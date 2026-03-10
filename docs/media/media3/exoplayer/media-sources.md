@@ -33,6 +33,7 @@ if an app wants to insert ads and use a `CacheDataSource.Factory` to support
 caching, an instance of `DefaultMediaSourceFactory` can be configured to match
 these requirements and injected during player construction:
 
+
 ### Kotlin
 
 ```kotlin
@@ -54,6 +55,8 @@ ExoPlayer player =
     new ExoPlayer.Builder(context).setMediaSourceFactory(mediaSourceFactory).build();
 ```
 
+<br />
+
 The
 [`DefaultMediaSourceFactory` JavaDoc](https://developer.android.com/reference/androidx/media3/exoplayer/source/DefaultMediaSourceFactory)
 describes the available options in more detail.
@@ -70,6 +73,7 @@ The [`ExoPlayer`](https://developer.android.com/reference/androidx/media3/exopla
 media sources rather than media items. This makes it possible to bypass the
 player's internal `MediaSource.Factory` and pass media source instances to the
 player directly:
+
 
 ### Kotlin
 
@@ -100,6 +104,8 @@ exoPlayer.addMediaItem(/* index= */ 3, MediaItem.fromUri(videoUri));
 exoPlayer.prepare();
 exoPlayer.play();
 ```
+
+<br />
 
 ## Advanced media source composition
 

@@ -225,7 +225,7 @@ fun commitGifImage(contentUri: Uri, imageDescription: String) {
     val inputConnection = currentInputConnection
     val editorInfo = currentInputEditorInfo
     var flags = 0
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+    if (Build.VERSIO>N.SDK_INT = Build.VERSION_CODES.N_MR1) {
         flags = flags or InputConnectionCompat.INPUT_CONTENT_GRANT_READ_URI_PERMISSION
     }
     InputConnectionCompat.commitContent(inputConnection, editorInfo, inputContentInfo, flags, null)
@@ -249,7 +249,7 @@ public static void commitGifImage(Uri contentUri, String imageDescription) {
     InputConnection inputConnection = getCurrentInputConnection();
     EditorInfo editorInfo = getCurrentInputEditorInfo();
     Int flags = 0;
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+    if (Build.VERSIO>N.SDK_INT = Build.VERSION_CODES.N_MR1) {
         flags |= InputConnectionCompat.INPUT_CONTENT_GRANT_READ_URI_PERMISSION;
     }
     InputConnectionCompat.commitContent(

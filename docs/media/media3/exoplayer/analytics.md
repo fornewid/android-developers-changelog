@@ -26,6 +26,7 @@ Raw playback events from the player are reported to `AnalyticsListener`
 implementations. You can easily add your own listener and override only the
 methods you are interested in:
 
+
 ### Kotlin
 
 ```kotlin
@@ -55,6 +56,8 @@ exoPlayer.addAnalyticsListener(
           EventTime eventTime, int droppedFrames, long elapsedMs) {}
     });
 ```
+
+<br />
 
 The `EventTime` that's passed to each callback associates the event to a media
 item in the playlist, as well as playback position and timestamp metadata:
@@ -87,6 +90,7 @@ multiple playbacks. It's also possible to query the `PlaybackStats` for the
 current playback session at any time using
 `PlaybackStatsListener.getPlaybackStats()`.
 
+
 ### Kotlin
 
 ```kotlin
@@ -109,6 +113,8 @@ exoPlayer.addAnalyticsListener(
           // Analytics data for the session started at `eventTime` is ready.
         }));
 ```
+
+<br />
 
 The constructor of `PlaybackStatsListener` gives the option to keep the full
 history of processed events. Note that this may incur an unknown memory overhead
@@ -155,6 +161,7 @@ returned by `getPlaybackStateDurationMs`. For convenience, you'll also find
 methods like `getTotalPlayTimeMs` and `getTotalWaitTimeMs` that return the
 duration of specific playback state combinations.
 
+
 ### Kotlin
 
 ```kotlin
@@ -180,6 +187,8 @@ Log.d(
         + playbackStats.totalRebufferCount);
 ```
 
+<br />
+
 > [!NOTE]
 > **Note:** Some values like `totalVideoFormatHeightTimeProduct` are only useful when calculating derived summary metrics like the average video height, but are required to correctly combine multiple `PlaybackStats` together.
 
@@ -198,6 +207,7 @@ aggregated view of all analytics data collected in the lifetime of a
 
 In addition to the basic analytics data, `PlaybackStats` provides many methods
 to calculate summary metrics.
+
 
 ### Kotlin
 
@@ -224,6 +234,8 @@ Log.d(
         + playbackStats.getMeanTimeBetweenRebuffers());
 ```
 
+<br />
+
 ## Advanced topics
 
 ### Associating analytics data with playback metadata
@@ -236,6 +248,7 @@ It's advisable to set media-specific metadata with `MediaItem.Builder.setTag`.
 The media tag is part of the `EventTime` reported for raw events and when
 `PlaybackStats` are finished, so it can be easily retrieved when handling the
 corresponding analytics data:
+
 
 ### Kotlin
 
@@ -268,6 +281,8 @@ new PlaybackStatsListener(
     });
 ```
 
+<br />
+
 ### Reporting custom analytics events
 
 In case you need to add custom events to the analytics data, you need to save
@@ -275,6 +290,7 @@ these events in your own data structure and combine them with the reported
 `PlaybackStats` later. If it helps, you can extend `DefaultAnalyticsCollector`
 to be able to generate `EventTime` instances for your custom events and send
 them to the already registered listeners as shown in the following example.
+
 
 ### Kotlin
 
@@ -354,3 +370,5 @@ public static void useExtendedAnalyticsCollector(Context context) {
   ((ExtendedCollector) player.getAnalyticsCollector()).customEvent();
 }
 ```
+
+<br />

@@ -43,6 +43,7 @@ created for the given media item.
 
 ### Enable CMCD with default configuration factory
 
+
 ### Kotlin
 
 ```kotlin
@@ -61,10 +62,13 @@ MediaSource.Factory mediaSourceFactory =
         .setCmcdConfigurationFactory(CmcdConfiguration.Factory.DEFAULT);
 ```
 
+<br />
+
 > [!NOTE]
 > **Note:** When using the default configuration, data is transmitted as custom HTTP request headers.
 
 ### Enable CMCD with custom configuration factory
+
 
 ### Kotlin
 
@@ -139,6 +143,8 @@ MediaSource.Factory mediaSourceFactory =
     new DefaultMediaSourceFactory(context)
         .setCmcdConfigurationFactory(cmcdConfigurationFactory);
 ```
+
+<br />
 
 > [!NOTE]
 > **Note:** When utilising a custom configuration, you have the option to transmit data as custom request headers (`MODE_REQUEST_HEADER`) or as query parameters (`MODE_QUERY_PARAMETER`).

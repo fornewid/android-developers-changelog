@@ -34,6 +34,7 @@ content video so that the player can resume content playback seamlessly.
 
 An ad tag URI can be specified when building a `MediaItem`:
 
+
 ### Kotlin
 
 ```kotlin
@@ -54,9 +55,12 @@ MediaItem mediaItem =
         .build();
 ```
 
+<br />
+
 To enable player support for media items that specify ad tags, it's necessary to
 build and inject a `DefaultMediaSourceFactory` configured with an
 `AdsLoader.Provider` and an `AdViewProvider` when creating the player:
+
 
 ### Kotlin
 
@@ -76,6 +80,8 @@ MediaSource.Factory mediaSourceFactory =
 ExoPlayer player =
     new ExoPlayer.Builder(context).setMediaSourceFactory(mediaSourceFactory).build();
 ```
+
+<br />
 
 Internally, `DefaultMediaSourceFactory` will wrap the content media source in an
 `AdsMediaSource`. The `AdsMediaSource` will obtain an `AdsLoader` from the
@@ -102,6 +108,7 @@ only, rather than the combination of the media ID and ad tag URI, by passing the
 ad tag URI as the ads identifier. The effect is that ads will load only once and
 the user will not see ads on the second item when playing the playlist from
 start to finish.
+
 
 ### Kotlin
 
@@ -146,6 +153,8 @@ MediaItem secondItem =
 player.addMediaItem(firstItem);
 player.addMediaItem(secondItem);
 ```
+
+<br />
 
 ### Server-guided client-side ad insertion
 
@@ -213,6 +222,7 @@ since it provides the benefits of `AdsMediaSource` described above.
 Alternatively, you can use ExoPlayer's [playlist support](https://developer.android.com/guide/topics/media/exoplayer/playlists) to build a sequence
 of ads and content clips:
 
+
 ### Kotlin
 
 ```kotlin
@@ -273,6 +283,8 @@ player.addMediaItem(midRollAd);
 player.addMediaItem(contentEnd);
 ```
 
+<br />
+
 ## Server-side ad insertion
 
 In server-side ad insertion (also called dynamic ad insertion, or DAI), the
@@ -286,6 +298,7 @@ in the UI or it may need to report events to an ads SDK or ad server.
 
 ExoPlayer's `DefaultMediaSourceFactory` can delegate all these tasks to a
 server-side ad insertion `MediaSource` for URIs using the `ssai://` scheme:
+
 
 ### Kotlin
 
@@ -309,6 +322,8 @@ Player player =
         .build();
 ```
 
+<br />
+
 ### ExoPlayer IMA library
 
 The [ExoPlayer IMA library](https://github.com/androidx/media/tree/release/libraries/exoplayer_ima) provides `ImaServerSideAdInsertionMediaSource`,
@@ -321,6 +336,7 @@ and let the player handle ad playback logic like skipping already played ads.
 In order to use this class, you need to set up the
 `ImaServerSideAdInsertionMediaSource.AdsLoader` and the
 `ImaServerSideAdInsertionMediaSource.Factory` and connect them to the player:
+
 
 ### Kotlin
 
@@ -365,8 +381,11 @@ Player player =
 adsLoader.setPlayer(player);
 ```
 
+<br />
+
 Load your IMA asset key, or content source id and video id, by building an URL
 with `ImaServerSideAdInsertionUriBuilder`:
+
 
 ### Kotlin
 
@@ -390,7 +409,10 @@ Uri ssaiUri =
 player.setMediaItem(MediaItem.fromUri(ssaiUri));
 ```
 
+<br />
+
 Finally, release your ads loader once it's no longer used:
+
 
 ### Kotlin
 
@@ -403,6 +425,8 @@ adsLoader.release()
 ```java
 adsLoader.release();
 ```
+
+<br />
 
 > [!NOTE]
 > **Note:** Currently only a single IMA server-side ad insertion stream is supported in the same playlist. You can combine the stream with other media but not with another IMA server-side ad insertion stream.

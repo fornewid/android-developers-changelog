@@ -338,7 +338,7 @@ Gradle build file. The `asArguments()` method in the sample class passes
       Iterable<String> asArguments() {
         // Note: If you're using KAPT and javac, change the line below to
         // return ["-Aroom.schemaLocation=${schemaDir.path}".toString()].
-        return ["room.schemaLocation=${schemaDir.path}&quot;.toString()]
+        return ["room.schemaLocation=${schemaDir.path}".toString()]
       }
     }
 

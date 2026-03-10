@@ -91,6 +91,7 @@ implement a `DrmSessionManagerProvider` and pass this to the
 choose whether to instantiate a new manager instance each time or not. To always
 use the same instance:
 
+
 ### Kotlin
 
 ```kotlin
@@ -109,6 +110,8 @@ MediaSource.Factory mediaSourceFactory =
     new DefaultMediaSourceFactory(context)
         .setDrmSessionManagerProvider(mediaItem -> customDrmSessionManager);
 ```
+
+<br />
 
 ### Improving playback performance
 

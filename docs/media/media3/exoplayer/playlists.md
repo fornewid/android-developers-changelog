@@ -10,6 +10,7 @@ multiple media items. The following example shows how to start playback of a
 playlist
 containing two videos:
 
+
 ### Kotlin
 
 ```kotlin
@@ -40,6 +41,8 @@ player.prepare();
 player.play();
 ```
 
+<br />
+
 Transitions between items in a playlist are seamless. There's no requirement
 that they're of the same format (for example, it's fine for a playlist to contain both
 H264 and VP9 videos). They may even be of different types (that is, it's fine for a
@@ -51,6 +54,7 @@ same `MediaItem` multiple times within a playlist.
 You can dynamically modify a playlist by adding, moving, removing or replacing
 media items. This can be done both before and during playback by calling the
 corresponding playlist API methods:
+
 
 ### Kotlin
 
@@ -78,7 +82,10 @@ player.removeMediaItem(/* index= */ 0);
 player.replaceMediaItem(/* index= */ 1, MediaItem.fromUri(newUri));
 ```
 
+<br />
+
 Replacing and clearing the entire playlist are also supported:
+
 
 ### Kotlin
 
@@ -101,6 +108,8 @@ player.setMediaItems(newItems, /* resetPosition= */ true);
 // Clears the playlist. If prepared, the player transitions to the ended state.
 player.clearMediaItems();
 ```
+
+<br />
 
 The player automatically handles modifications during playback in the correct
 way:
@@ -149,13 +158,14 @@ By default, the player supports shuffling by using the `DefaultShuffleOrder`.
 This can be customized by providing a custom shuffle order implementation, or by
 setting a custom order in the `DefaultShuffleOrder` constructor:
 
+
 ### Kotlin
 
 ```kotlin
 // Set a custom shuffle order for the 5 items currently in the playlist:
 exoPlayer.setShuffleOrder(DefaultShuffleOrder(intArrayOf(3, 1, 0, 4, 2), randomSeed))
 // Enable shuffle mode.
-exoPlayer.shuffleModeEnabled = truehttps://github.com/androidx/media/blob/84ee6d1c66ae564d5c936d364cb8eb90f074d177/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/Playlists.kt#L77-L80
+exoPlayer.shuffleModeEnabled = truehttps://github.com/androidx/media/blob/2fc8ea0a416693e43aa3059c4af832ac0c5cbcaf/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/Playlists.kt#L77-L80
 ```
 
 ### Java
@@ -167,10 +177,13 @@ exoPlayer.setShuffleOrder(new DefaultShuffleOrder(new int[] {3, 1, 0, 4, 2}, ran
 exoPlayer.setShuffleModeEnabled(/* shuffleModeEnabled= */ true);
 ```
 
+<br />
+
 ## Identifying playlist items
 
 To identify playlist items, `MediaItem.mediaId` can be set when building the
 item:
+
 
 ### Kotlin
 
@@ -186,6 +199,8 @@ val mediaItem = MediaItem.Builder().setUri(uri).setMediaId(mediaId).build()
 MediaItem mediaItem = new MediaItem.Builder().setUri(uri).setMediaId(mediaId).build();
 ```
 
+<br />
+
 If an app does not explicitly define a media ID for a media item, the string
 representation of the URI is used.
 
@@ -194,6 +209,7 @@ representation of the URI is used.
 In addition to an ID, each media item can also be configured with a custom tag,
 which can be any app provided object. One use of custom tags is to attach
 metadata to each media item:
+
 
 ### Kotlin
 
@@ -209,6 +225,8 @@ val mediaItem = MediaItem.Builder().setUri(uri).setTag(metadata).build()
 MediaItem mediaItem = new MediaItem.Builder().setUri(uri).setTag(metadata).build();
 ```
 
+<br />
+
 ## Detecting when playback transitions to another media item
 
 When playback transitions to another media item, or starts repeating the same
@@ -217,6 +235,7 @@ media item, `Listener.onMediaItemTransition(MediaItem,
 item, along with a `@MediaItemTransitionReason` indicating why the transition
 occurred. A common use case for `onMediaItemTransition` is to update the
 app's UI for the new media item:
+
 
 ### Kotlin
 
@@ -239,8 +258,11 @@ public void onMediaItemTransition(
 }
 ```
 
+<br />
+
 If the metadata required to update the UI is attached to each media item using
 custom tags, then an implementation might look like:
+
 
 ### Kotlin
 
@@ -271,12 +293,15 @@ public void onMediaItemTransition(
 }
 ```
 
+<br />
+
 ## Detecting when the playlist changes
 
 When a media item is added, removed or moved,
 `Listener.onTimelineChanged(Timeline, @TimelineChangeReason)` is called
 immediately with `TIMELINE_CHANGE_REASON_PLAYLIST_CHANGED`. This callback is
 called even when the player has not yet been prepared.
+
 
 ### Kotlin
 
@@ -300,6 +325,8 @@ public void onTimelineChanged(Timeline timeline, @TimelineChangeReason int reaso
   }
 }
 ```
+
+<br />
 
 When information such as the duration of a media item in the playlist becomes
 available, the `Timeline` will be updated and `onTimelineChanged` will be called

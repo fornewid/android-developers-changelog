@@ -44,17 +44,14 @@ To play a DASH stream, you need to depend on the DASH module.
 
 ### Kotlin
 
-```kotlin
-implementation("androidx.media3:media3-exoplayer-dash:1.9.2")
-```
+    implementation("androidx.media3:media3-exoplayer-dash:1.9.2")
 
 ### Groovy
 
-```groovy
-implementation "androidx.media3:media3-exoplayer-dash:1.9.2"
-```
+    implementation "androidx.media3:media3-exoplayer-dash:1.9.2"
 
 You can then create a `MediaItem` for a DASH MPD URI and pass it to the player.
+
 
 ### Kotlin
 
@@ -78,6 +75,8 @@ player.setMediaItem(MediaItem.fromUri(dashUri));
 player.prepare();
 ```
 
+<br />
+
 If your URI doesn't end with `.mpd`, you can pass `MimeTypes.APPLICATION_MPD`
 to `setMimeType` of `MediaItem.Builder` to explicitly indicate the type of the
 content.
@@ -89,6 +88,7 @@ manifest, taking into account both available bandwidth and device capabilities.
 
 For more customization options, you can create a `DashMediaSource` and pass it
 directly to the player instead of a `MediaItem`.
+
 
 ### Kotlin
 
@@ -121,6 +121,8 @@ player.setMediaSource(mediaSource);
 player.prepare();
 ```
 
+<br />
+
 ## Accessing the manifest
 
 You can retrieve the current manifest by calling `Player.getCurrentManifest`.
@@ -129,6 +131,7 @@ For DASH you should cast the returned object to `DashManifest`. The
 the manifest is loaded. This will happen once for a on-demand content, and
 possibly many times for live content. The following code snippet shows how an app
 can do something whenever the manifest is loaded.
+
 
 ### Kotlin
 
@@ -164,6 +167,8 @@ player.addListener(
       }
     });
 ```
+
+<br />
 
 ## Customizing playback
 

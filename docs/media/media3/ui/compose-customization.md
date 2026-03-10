@@ -23,6 +23,7 @@ Material3 library, but you need a completely custom `PlayPauseButton`. You can
 achieve this by using [`PlayPauseButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/buttons/package-summary#PlayPauseButton(androidx.media3.common.Player,kotlin.Function1)) from the core `media3-ui-compose`
 library and place it alongside the prebuilt components.
 
+
 ```kotlin
 Row {
   // Use prebuilt component from the Media3 UI Compose Material3 library
@@ -47,6 +48,8 @@ Row {
   NextButton(player)
 }
 ```
+
+<br />
 
 ### Available components
 
@@ -93,6 +96,7 @@ be consumed by button-like Composables.
 
 Example usage of `PlayPauseButtonState`:
 
+
 ```kotlin
 val state = rememberPlayPauseButtonState(player)
 
@@ -107,12 +111,15 @@ IconButton(onClick = state::onClick, modifier = modifier, enabled = state.isEnab
 }
 ```
 
+<br />
+
 ### Visual output state holders
 
 [`PresentationState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PresentationState) holds to information for when the video output in a
 [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/package-summary#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) can be shown or should be covered by a placeholder UI element.
 [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/package-summary#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) Composable combines the aspect ratio handling with taking care
 of showing the shutter over a surface that is not ready yet.
+
 
 ```kotlin
 @Composable
@@ -139,6 +146,8 @@ fun ContentFrame(
   }
 }
 ```
+
+<br />
 
 Here, we can use both `presentationState.videoSizeDp` to scale the Surface to
 the chosen aspect ratio (see [ContentScale docs](https://developer.android.com/develop/ui/compose/graphics/images/customize#content-scale) for more types) and

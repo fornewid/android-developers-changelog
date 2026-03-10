@@ -28,6 +28,7 @@ To play an image as part of a playlist, create a `MediaItem` with the image URI
 and pass it to the player. The `MediaItem` must have a `imageDurationMs` to
 specify for how long the image should be displayed.
 
+
 ### Kotlin
 
 ```kotlin
@@ -50,6 +51,8 @@ player.setMediaItem(new MediaItem.Builder().setUri(imageUri).setImageDurationMs(
 player.prepare();
 ```
 
+<br />
+
 ### Motion Photos
 
 Motion photos are files combining a still image with a short video.
@@ -61,6 +64,7 @@ Motion photos are files combining a still image with a short video.
 
 For more customization options, you can create a `ProgressiveMediaSource` and
 pass it directly to the player instead of a `MediaItem`.
+
 
 ### Kotlin
 
@@ -97,6 +101,8 @@ player.setMediaSource(mediaSource);
 player.prepare();
 ```
 
+<br />
+
 ## Customizing playback
 
 ExoPlayer provides multiple ways for you to tailor playback experience to your
@@ -120,6 +126,7 @@ The `MediaItem` added to the `Player` must define the
 `APPLICATION_EXTERNALLY_LOADED_IMAGE` MIME type explicitly to use the image
 loading library code paths:
 
+
 ### Kotlin
 
 ```kotlin
@@ -140,6 +147,8 @@ MediaItem mediaItem =
         .build();
 ```
 
+<br />
+
 ### Image decoder using an image loading library
 
 The image renderer needs an `ExternallyLoadedImageDecoder` to retrieve the
@@ -148,6 +157,7 @@ The image renderer needs an `ExternallyLoadedImageDecoder` to retrieve the
 
 The following example uses Glide to load an image, limiting the output to
 the display size to avoid creating very large `Bitmap` objects:
+
 
 ### Kotlin
 
@@ -199,6 +209,8 @@ Player player =
         .build();
 ```
 
+<br />
+
 ### Image preloading with an image loading library
 
 During playback, the player requests to preload the next image once the previous
@@ -209,6 +221,7 @@ can do nothing.
 
 The following example uses Glide to ensure that the requested image is preloaded
 to disk:
+
 
 ### Kotlin
 
@@ -252,3 +265,5 @@ Player player =
             new DefaultMediaSourceFactory(context).setExternalImageLoader(glidePreloader))
         .build();
 ```
+
+<br />

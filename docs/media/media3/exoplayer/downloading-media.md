@@ -54,6 +54,7 @@ demo app for a concrete example.
 The following code snippet demonstrates how to instantiate a `DownloadManager`,
 which can be returned by `getDownloadManager()` in your `DownloadService`:
 
+
 ### Kotlin
 
 ```kotlin
@@ -109,6 +110,8 @@ downloadManager.setRequirements(requirements);
 downloadManager.setMaxParallelDownloads(3);
 ```
 
+<br />
+
 See [`DemoUtil`](https://github.com/androidx/media/tree/release/demos/main/src/main/java/androidx/media3/demo/main/DemoUtil.java) in the demo app for a concrete example.
 
 ## Adding a download
@@ -117,6 +120,7 @@ To add a download, create a `DownloadRequest` and send it to your
 `DownloadService`. For adaptive streams, [use `DownloadHelper` to help
 build a `DownloadRequest`](https://developer.android.com/media/media3/exoplayer/downloading-media#dl-play-adaptive-streams). The following
 example shows how to create a download request:
+
 
 ### Kotlin
 
@@ -130,6 +134,8 @@ val downloadRequest = DownloadRequest.Builder(contentId, contentUri).build()
 DownloadRequest downloadRequest = new DownloadRequest.Builder(contentId, contentUri).build();
 ```
 
+<br />
+
 In this example, `contentId` is a unique identifier for the content. In simple cases, the
 `contentUri` can often be used as the `contentId`, however apps are free to use
 whatever ID scheme best suits their use case. `DownloadRequest.Builder` also has
@@ -140,6 +146,7 @@ as a hint for cases where the content type cannot be inferred from `contentUri`.
 
 Once created, the request can be sent to the `DownloadService` to add the
 download:
+
 
 ### Kotlin
 
@@ -159,6 +166,8 @@ DownloadService.sendAddDownload(
     context, MyDownloadService.class, downloadRequest, /* foreground= */ false);
 ```
 
+<br />
+
 In this example, `MyDownloadService` is the app's `DownloadService` subclass, and the
 `foreground` parameter controls whether the service will be started in the
 foreground. If your app is already in the foreground, then the `foreground`
@@ -169,6 +178,7 @@ put itself in the foreground if it determines that it has work to do.
 
 A download can be removed by sending a remove command to the `DownloadService`,
 where `contentId` identifies the download to be removed:
+
 
 ### Kotlin
 
@@ -188,6 +198,8 @@ DownloadService.sendRemoveDownload(
     context, MyDownloadService.class, contentId, /* foreground= */ false);
 ```
 
+<br />
+
 You can also remove all downloaded data with
 `DownloadService.sendRemoveAllDownloads`.
 
@@ -206,6 +218,7 @@ All of these conditions can be controlled by sending commands to your
 #### Setting and clearing download stop reasons
 
 It's possible to set a reason for one or all downloads being stopped:
+
 
 ### Kotlin
 
@@ -245,6 +258,8 @@ DownloadService.sendSetStopReason(
     /* foreground= */ false);
 ```
 
+<br />
+
 `stopReason` can be any non-zero value (`Download.STOP_REASON_NONE = 0` is
 a special value meaning that the download is not stopped). Apps that have
 multiple reasons for stopping downloads can use different values to keep track
@@ -263,6 +278,7 @@ later restarted.
 #### Pausing and resuming all downloads
 
 All downloads can be paused and resumed as follows:
+
 
 ### Kotlin
 
@@ -292,6 +308,8 @@ DownloadService.sendPauseDownloads(context, MyDownloadService.class, /* foregrou
 DownloadService.sendResumeDownloads(context, MyDownloadService.class, /* foreground= */ false);
 ```
 
+<br />
+
 When downloads are paused, they will be in the `Download.STATE_QUEUED` state.
 Unlike [setting stop reasons](https://developer.android.com/media/media3/exoplayer/downloading-media#setting-and-clearing-download-stop-reasons), this approach does not persist any state
 changes. It only affects the runtime state of the `DownloadManager`.
@@ -303,6 +321,7 @@ downloads to proceed. The requirements can be set by calling
 `DownloadManager.setRequirements()` when creating the `DownloadManager`, as in
 the example [above](https://developer.android.com/media/media3/exoplayer/downloading-media#creating-a-downloadmanager). They can also be changed dynamically by sending a command
 to the `DownloadService`:
+
 
 ### Kotlin
 
@@ -323,6 +342,8 @@ DownloadService.sendSetRequirements(
 DownloadService.sendSetRequirements(
     context, MyDownloadService.class, requirements, /* foreground= */ false);
 ```
+
+<br />
 
 When a download cannot proceed because the requirements are not met, it
 will be in the `Download.STATE_QUEUED` state. You can query the not met
@@ -356,6 +377,7 @@ the progress and status of current downloads.
 You can add a listener to `DownloadManager` to be informed when current
 downloads change state:
 
+
 ### Kotlin
 
 ```kotlin
@@ -374,6 +396,8 @@ downloadManager.addListener(
     });
 ```
 
+<br />
+
 See `DownloadManagerListener` in the demo app's [`DownloadTracker`](https://github.com/androidx/media/tree/release/demos/main/src/main/java/androidx/media3/demo/main/DownloadTracker.java) class for
 a concrete example.
 
@@ -391,6 +415,7 @@ data is read from the download `Cache` instead of over the network.
 To play downloaded content, create a `CacheDataSource.Factory` using the same
 `Cache` instance that was used for downloading, and inject it into
 `DefaultMediaSourceFactory` when building the player:
+
 
 ### Kotlin
 
@@ -427,6 +452,8 @@ ExoPlayer player =
         .build();
 ```
 
+<br />
+
 If the same player instance will also be used to play non-downloaded content
 then the `CacheDataSource.Factory` should be configured as read-only to avoid
 downloading that content as well during playback.
@@ -442,6 +469,7 @@ directly from a `DownloadRequest` using `DownloadRequest.toMediaItem`.
 The preceding example makes the download cache available for playback of all
 `MediaItem`s. You can also make the download cache available for
 individual `MediaSource` instances, which can be passed directly to the player:
+
 
 ### Kotlin
 
@@ -463,6 +491,8 @@ player.setMediaSource(mediaSource);
 player.prepare();
 ```
 
+<br />
+
 ## Downloading and playing adaptive streams
 
 Adaptive streams (e.g. DASH, SmoothStreaming and HLS) normally contain multiple
@@ -480,6 +510,7 @@ follows these steps:
 2. Optionally, inspect the default selected tracks using `getMappedTrackInfo` and `getTrackSelections`, and make adjustments using `clearTrackSelections`, `replaceTrackSelections` and `addTrackSelection`.
 3. Create a `DownloadRequest` for the selected tracks by calling `getDownloadRequest`. The request can be passed to your `DownloadService` to add the download, as described above.
 4. Release the helper using `release()`.
+
 
 ### Kotlin
 
@@ -502,6 +533,8 @@ DownloadHelper downloadHelper =
         .create(MediaItem.fromUri(contentUri));
 downloadHelper.prepare(callback);
 ```
+
+<br />
 
 Playback of downloaded adaptive content requires configuring the player and
 passing the corresponding `MediaItem`, as described above.

@@ -32,21 +32,17 @@ you can add dependencies on the modules like this:
 
 ### Kotlin
 
-```kotlin
-implementation("androidx.media3:media3-exoplayer:1.9.2")
-implementation("androidx.media3:media3-exoplayer-dash:1.9.2")
-implementation("androidx.media3:media3-ui:1.9.2")
-implementation("androidx.media3:media3-ui-compose:1.9.2")
-```
+    implementation("androidx.media3:media3-exoplayer:1.9.2")
+    implementation("androidx.media3:media3-exoplayer-dash:1.9.2")
+    implementation("androidx.media3:media3-ui:1.9.2")
+    implementation("androidx.media3:media3-ui-compose:1.9.2")
 
 ### Groovy
 
-```groovy
-implementation "androidx.media3:media3-exoplayer:1.9.2"
-implementation "androidx.media3:media3-exoplayer-dash:1.9.2"
-implementation "androidx.media3:media3-ui:1.9.2"
-implementation("androidx.media3:media3-ui-compose:1.9.2")
-```
+    implementation "androidx.media3:media3-exoplayer:1.9.2"
+    implementation "androidx.media3:media3-exoplayer-dash:1.9.2"
+    implementation "androidx.media3:media3-ui:1.9.2"
+    implementation("androidx.media3:media3-ui-compose:1.9.2")
 
 where 1.9.2 is your preferred version (the latest version can be found by
 consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)). All modules must be of the same version.
@@ -75,6 +71,7 @@ You can create an `ExoPlayer` instance using `ExoPlayer.Builder`, which provides
 a range of customization options. The following code is the simplest example of
 creating an instance.
 
+
 ### Kotlin
 
 ```kotlin
@@ -86,6 +83,8 @@ val player = ExoPlayer.Builder(context).build()
 ```java
 ExoPlayer player = new ExoPlayer.Builder(context).build();
 ```
+
+<br />
 
 ### A note on threading
 
@@ -116,11 +115,12 @@ playback. These include `PlayerView`, which encapsulates a
 rendered. A `PlayerView` can be included in your application's layout xml.
 For example, to bind the player to the view:
 
+
 ### Kotlin
 
 ```kotlin
 // Bind the player to the view.
-playerView.player = playerhttps://github.com/androidx/media/blob/84ee6d1c66ae564d5c936d364cb8eb90f074d177/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/HelloWorld.kt#L37-L38
+playerView.player = playerhttps://github.com/androidx/media/blob/2fc8ea0a416693e43aa3059c4af832ac0c5cbcaf/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/HelloWorld.kt#L37-L38
 ```
 
 ### Java
@@ -129,6 +129,8 @@ playerView.player = playerhttps://github.com/androidx/media/blob/84ee6d1c66ae564
 // Bind the player to the view.
 playerView.setPlayer(player);
 ```
+
+<br />
 
 Use of ExoPlayer's pre-built UI components is optional. For video apps that
 implement their own UI, the target `SurfaceView`, `TextureView`, `SurfaceHolder`
@@ -152,6 +154,7 @@ page](https://developer.android.com/guide/topics/media/ui/overview).
 In ExoPlayer, every piece of media is represented by a `MediaItem`. To play a
 piece of media, you need to build a corresponding `MediaItem`, add it to the
 player, prepare the player, and call `play` to start the playback:
+
 
 ### Kotlin
 
@@ -179,8 +182,11 @@ player.prepare();
 player.play();
 ```
 
+<br />
+
 ExoPlayer supports playlists directly, so it's possible to prepare the player
 with multiple media items to be played one after the other:
+
 
 ### Kotlin
 
@@ -211,6 +217,8 @@ player.prepare();
 // Start the playback.
 player.play();
 ```
+
+<br />
 
 The playlist can be updated during playback without the need to prepare the
 player again. Read more about populating and manipulating the playlist on the

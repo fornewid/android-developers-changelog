@@ -135,6 +135,7 @@ specify any subtitle tracks by providing a list of expected
 subtitle formats to the `DefaultExtractorsFactory`, including the accessibility
 channels that can be used to identify them in the MPEG-TS stream:
 
+
 ### Kotlin
 
 ```kotlin
@@ -169,6 +170,8 @@ Player player =
     new ExoPlayer.Builder(context, new DefaultMediaSourceFactory(context, extractorsFactory))
         .build();
 ```
+
+<br />
 
 #### Why do some MP4/FMP4 files play incorrectly?
 

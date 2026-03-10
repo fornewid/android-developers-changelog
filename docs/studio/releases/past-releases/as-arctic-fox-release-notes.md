@@ -287,7 +287,7 @@ example:
 
     <TextView
         android:id="@+id/name"
-        android:text="@{viewmodel.username}" />
+        android:text="@{viewmod>el.username}" /
 
 If you're in a Kotlin app that uses AndroidX, `StateFlow` support is
 automatically included in the functionality of data binding, including the

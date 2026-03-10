@@ -29,18 +29,15 @@ module.
 
 ### Kotlin
 
-```kotlin
-implementation("androidx.media3:media3-exoplayer-smoothstreaming:1.9.2")
-```
+    implementation("androidx.media3:media3-exoplayer-smoothstreaming:1.9.2")
 
 ### Groovy
 
-```groovy
-implementation "androidx.media3:media3-exoplayer-smoothstreaming:1.9.2"
-```
+    implementation "androidx.media3:media3-exoplayer-smoothstreaming:1.9.2"
 
 You can then create a `MediaItem` for a SmoothStreaming manifest URI and pass it
 to the player.
+
 
 ### Kotlin
 
@@ -64,6 +61,8 @@ player.setMediaItem(MediaItem.fromUri(ssUri));
 player.prepare();
 ```
 
+<br />
+
 If your URI doesn't end with `.ism/Manifest`, you can pass
 `MimeTypes.APPLICATION_SS` to `setMimeType` of `MediaItem.Builder` to explicitly
 indicate the type of the content.
@@ -75,6 +74,7 @@ manifest, taking into account both available bandwidth and device capabilities.
 
 For more customization options, you can create a `SsMediaSource` and pass it
 directly to the player instead of a `MediaItem`.
+
 
 ### Kotlin
 
@@ -108,6 +108,8 @@ player.setMediaSource(mediaSource);
 player.prepare();
 ```
 
+<br />
+
 ## Accessing the manifest
 
 You can retrieve the current manifest by calling `Player.getCurrentManifest`.
@@ -116,6 +118,7 @@ For SmoothStreaming, you should cast the returned object to `SsManifest`. The
 the manifest is loaded. This will happen once for on-demand content and
 possibly many times for live content. The following code snippet shows how an app
 can do something whenever the manifest is loaded.
+
 
 ### Kotlin
 
@@ -148,6 +151,8 @@ player.addListener(
       }
     });
 ```
+
+<br />
 
 ## Customizing playback
 

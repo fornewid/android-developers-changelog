@@ -24,8 +24,8 @@ Using `FrameExtractor` is a two-step process:
 > [!IMPORTANT]
 > **Important:** `FrameExtractor` instances must be accessed from a single application thread.
 
-### Kotlin
 
+### Kotlin
 
 ```kotlin
 suspend fun extractFrames(context: Context, mediaItem: MediaItem) {
@@ -45,10 +45,7 @@ suspend fun extractFrames(context: Context, mediaItem: MediaItem) {
 }
 ```
 
-<br />
-
 ### Java
-
 
 ```java
 public void extractFrames(Context context, MediaItem mediaItem) {

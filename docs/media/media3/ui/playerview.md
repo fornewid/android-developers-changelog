@@ -52,6 +52,7 @@ pages](https://developer.android.com/develop/background-work/background-tasks/aw
 Once the view is declared in the layout file, it can be looked up in the
 `onCreate` method of the activity:
 
+
 ### Kotlin
 
 ```kotlin
@@ -77,6 +78,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 When a player has been initialized, it can be attached to the view by calling
 `setPlayer`:
+
 
 ### Kotlin
 

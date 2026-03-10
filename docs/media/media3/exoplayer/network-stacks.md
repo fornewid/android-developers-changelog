@@ -25,6 +25,7 @@ that corresponds to the network stack you wish to use. If your app also
 needs to play non-http(s) content, such as local files, use
 `DefaultDataSource.Factory`:
 
+
 ### Kotlin
 
 ```kotlin
@@ -41,12 +42,15 @@ new DefaultDataSource.Factory(
     context, /* baseDataSourceFactory= */ new PreferredHttpDataSource.Factory(context));
 ```
 
+<br />
+
 In this example, `PreferredHttpDataSource.Factory` is the factory corresponding to your
 preferred network stack. The `DefaultDataSource.Factory` layer adds in support
 for non-http(s) sources such as local files.
 
 The following example shows how to build an `ExoPlayer` that will use the Cronet
 network stack and also support playback of non-http(s) content.
+
 
 ### Kotlin
 
@@ -90,6 +94,8 @@ ExoPlayer player =
             new DefaultMediaSourceFactory(context).setDataSourceFactory(dataSourceFactory))
         .build();
 ```
+
+<br />
 
 ## Supported network stacks
 
@@ -226,6 +232,7 @@ media or repeating the same item.
 Caching requires a `SimpleCache` instance pointing to a dedicated cache
 directory and a `CacheDataSource.Factory`:
 
+
 ### Kotlin
 
 ```kotlin
@@ -273,3 +280,5 @@ ExoPlayer player =
             new DefaultMediaSourceFactory(context).setDataSourceFactory(cacheDataSourceFactory))
         .build();
 ```
+
+<br />

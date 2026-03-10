@@ -140,7 +140,8 @@ public override fun onTileRequest(
                 )
             )
             .build()
-   https://github.com/android/snippets/blob/48adb119f98d1fef9d761ab2415e317ce0bb6a9a/wear/src/main/java/com/example/wear/snippets/tile/Animations.kt#L146-L173s.kt
+    )
+}
 ```
 
 ### Slide transitions
@@ -186,7 +187,8 @@ public override fun onTileRequest(
                 )
             )
             .build()
-   https://github.com/android/snippets/blob/48adb119f98d1fef9d761ab2415e317ce0bb6a9a/wear/src/main/java/com/example/wear/snippets/tile/Animations.kt#L181-L216s.kt
+    )
+}
 ```
 
 ## Show a transformation
@@ -306,7 +308,7 @@ class LottieAnimation : TileService() {
 
     val lottieResourceId = "lottie_animation"
 
-    override fun onTileRequest(requestParams: RequestBuilders.TileRequest): Listen<able>FutureTile {
+    override fun onTileRequest(requestParams: RequestBuilders.TileRequest): ListenableFuture<Tile> {
 
         val layout =
             LayoutElementBuilders.Image.Builder()
@@ -325,7 +327,7 @@ class LottieAnimation : TileService() {
 
     override fun onTileResourcesRequest(
         requestParams: ResourcesRequest
-    ): Listen<ableFutur>eResources {
+    ): ListenableFuture<Resources> {
 
         val lottieImage =
             ResourceBuilders.ImageResource.Builder()
@@ -341,7 +343,9 @@ class LottieAnimation : TileService() {
                 .setVersion(requestParams.version)
                 .addIdToImageMapping(lottieResourceId, lottieImage)
                 .build()
-        mations.kt
+        )
+    }
+}
 ```
 
 A few points to note:

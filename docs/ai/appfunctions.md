@@ -4,6 +4,9 @@ url: https://developer.android.com/ai/appfunctions
 source: md.txt
 ---
 
+> [!WARNING]
+> **Experimental:** AppFunctions is in an experimental preview as we refine the API surface, and is subject to change.
+
 AppFunctions allow your Android app to share specific pieces of functionality
 that the system and various AI agents and assistants can discover and invoke. By
 defining these functions, you enable your app to provide services, data, and

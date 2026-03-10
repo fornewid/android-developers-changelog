@@ -52,6 +52,7 @@ a token as a header when requesting the media segments.
 The following example demonstrates how to implement these behaviors by
 injecting a custom `DataSource.Factory` into the `DefaultMediaSourceFactory`:
 
+
 ### Kotlin
 
 ```kotlin
@@ -88,6 +89,8 @@ ExoPlayer player =
         .build();
 ```
 
+<br />
+
 In the code snippet above, the injected `HttpDataSource` includes the header
 `"Header: Value"` in every HTTP request. This behavior is *fixed* for every
 interaction with an HTTP source.
@@ -95,6 +98,7 @@ interaction with an HTTP source.
 For a more granular approach, you can inject just-in-time behavior using a
 `ResolvingDataSource`. The following code snippet shows how to inject
 request headers just before interacting with an HTTP source:
+
 
 ### Kotlin
 
@@ -116,8 +120,11 @@ DataSource.Factory dataSourceFactory =
         dataSpec -> dataSpec.withRequestHeaders(getCustomHeaders(dataSpec.uri)));
 ```
 
+<br />
+
 You may also use a `ResolvingDataSource` to perform
 just-in-time modifications of the URI, as shown in the following snippet:
+
 
 ### Kotlin
 
@@ -139,6 +146,8 @@ DataSource.Factory dataSourceFactory =
         dataSpec -> dataSpec.withUri(resolveUri(dataSpec.uri)));
 ```
 
+<br />
+
 ### Customizing error handling
 
 Implementing a custom [`LoadErrorHandlingPolicy`](https://developer.android.com/reference/androidx/media3/exoplayer/upstream/LoadErrorHandlingPolicy) allows apps to customize the
@@ -146,6 +155,7 @@ way ExoPlayer reacts to load errors. For example, an app may want to fail fast
 instead of retrying many times, or may want to customize the back-off logic that
 controls how long the player waits between each retry. The following snippet
 shows how to implement custom back-off logic:
+
 
 ### Kotlin
 
@@ -187,6 +197,8 @@ ExoPlayer player =
         .build();
 ```
 
+<br />
+
 The `LoadErrorInfo` argument contains more information about the failed load to
 customize the logic based on the error type or the failed request.
 
@@ -196,6 +208,7 @@ Extractor flags can be used to customize how individual formats are extracted
 from progressive media. They can be set on the `DefaultExtractorsFactory` that's
 provided to the `DefaultMediaSourceFactory`. The following example passes a flag
 that enables index-based seeking for MP3 streams.
+
 
 ### Kotlin
 
@@ -220,6 +233,8 @@ ExoPlayer player =
         .build();
 ```
 
+<br />
+
 ### Enabling constant bitrate seeking
 
 For MP3, ADTS and AMR streams, you can enable approximate seeking using a
@@ -228,6 +243,7 @@ These flags can be set for individual extractors using the individual
 `DefaultExtractorsFactory.setXyzExtractorFlags` methods as described above. To
 enable constant bitrate seeking for all extractors that support it, use
 `DefaultExtractorsFactory.setConstantBitrateSeekingEnabled`.
+
 
 ### Kotlin
 
@@ -241,6 +257,8 @@ val extractorsFactory = DefaultExtractorsFactory().setConstantBitrateSeekingEnab
 DefaultExtractorsFactory extractorsFactory =
     new DefaultExtractorsFactory().setConstantBitrateSeekingEnabled(true);
 ```
+
+<br />
 
 The `ExtractorsFactory` can then be injected via `DefaultMediaSourceFactory` as
 described for customizing extractor flags above.
@@ -261,6 +279,7 @@ content.
 In the simplest case, you need to inject a `DefaultRenderersFactory` to the
 player as follows:
 
+
 ### Kotlin
 
 ```kotlin
@@ -276,6 +295,8 @@ DefaultRenderersFactory renderersFactory =
     new DefaultRenderersFactory(context).forceEnableMediaCodecAsynchronousQueueing();
 ExoPlayer exoPlayer = new ExoPlayer.Builder(context, renderersFactory).build();
 ```
+
+<br />
 
 If you're instantiating renderers directly, pass
 `new DefaultMediaCodecAdapter.Factory(context).forceEnableAsynchronous()` to the
@@ -293,6 +314,7 @@ use-cases `ForwardingSimpleBasePlayer` should be preferred to the more
 error-prone `ForwardingPlayer` due to these consistency guarantees.
 
 For example, to add some custom logic when playback is started or stopped:
+
 
 ### Kotlin
 
@@ -322,8 +344,11 @@ public static final class PlayerWithCustomPlay extends ForwardingSimpleBasePlaye
 }
 ```
 
+<br />
+
 Or to disallow the `SEEK_TO_NEXT` command (and ensure `Player.seekToNext` is a
 no-op):
+
 
 ### Kotlin
 
@@ -368,6 +393,8 @@ public static final class PlayerWithoutSeekToNext extends ForwardingSimpleBasePl
 }
 ```
 
+<br />
+
 ## MediaSource customization
 
 The examples above inject customized components for use during playback of all
@@ -376,6 +403,7 @@ required, it's also possible to inject customized components into individual
 `MediaSource` instances, which can be passed directly to the player. The example
 below shows how to customize a `ProgressiveMediaSource` to use a custom
 `DataSource.Factory`, `ExtractorsFactory` and `LoadErrorHandlingPolicy`:
+
 
 ### Kotlin
 
@@ -394,6 +422,8 @@ ProgressiveMediaSource mediaSource =
         .setLoadErrorHandlingPolicy(customLoadErrorHandlingPolicy)
         .createMediaSource(MediaItem.fromUri(streamUri));
 ```
+
+<br />
 
 ## Creating custom components
 

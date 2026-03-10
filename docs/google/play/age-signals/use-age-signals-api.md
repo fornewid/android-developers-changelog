@@ -111,7 +111,7 @@ age-appropriate experiences using these signals.
 | `userStatus` | SUPERVISED_APPROVAL_PENDING | The user has a supervised Google Account, and their supervising parent has not yet approved one or more pending significant changes. <br /> Use `ageLower` and `ageUpper` to determine the user's age range. <br /> Use `mostRecentApprovalDate` to determine the last significant change that was approved. |
 | `userStatus` | SUPERVISED_APPROVAL_DENIED | The user has a supervised Google Account, and their supervising parent denied approval for one or more significant changes. <br /> Use `ageLower` and `ageUpper` to determine the user's age range. <br /> Use `mostRecentApprovalDate` to determine the last significant change that was approved. |
 | `userStatus` | UNKNOWN | The user's age is unknown and the user is in an applicable jurisdiction or region. <br /> **Applicable only to US states:** To obtain an age signal from Google Play, ask the user to visit the Play Store to resolve their status. |
-| `userStatus` | `null` | All other users return this value. If `userStatus` is `null`, you can ignore the other fields. |
+| `userStatus` | `null` | **Either** the user is not in applicable jurisdictions and regions. <br /> **Or** the user does not share their age with apps. |
 | `ageLower` | 0 to 18 | The (inclusive) lower bound of a supervised user's age range. <br /> Use the `ageLower` and `ageUpper` to determine the user's age range. |
 | `ageLower` | `null` | `userStatus` is unknown or `null`. |
 | `ageUpper` | 2 to 18 | The (inclusive) upper bound of a supervised user's age range. <br /> Use the `ageLower` and `ageUpper` to determine the user's age range. |
@@ -124,13 +124,14 @@ age-appropriate experiences using these signals.
 
 ## Example responses for users in Brazil
 
-In Brazil, `userStatus` can only be `DECLARED` and
-`UNKNOWN`.
+In Brazil, `userStatus` can only be `DECLARED`,
+`UNKNOWN`, or `null`.
 
 > [!NOTE]
 > **Note:** Use library version 0.0.3 or higher to receive `DECLARED` as a user status. Earlier library versions will return `null` instead of `DECLARED`.
 
-For a user who declared their age, you would receive the following:
+For a user who declared their age and shares it with apps, you would receive
+the following:
 
 - `userStatus` would be `AgeSignalsVerificationStatus.DECLARED`.
 - `ageLower` would be a number (for example, 13).
@@ -142,8 +143,13 @@ For a user whose age is unknown, you would receive the following:
 - `userStatus` would be `AgeSignalsVerificationStatus.UNKNOWN`.
 - Other response fields would be `null`.
 
-The user status may change from `UNKNOWN` to `DECLARED`
-once the user's age is available to share.
+For a user whose age isn't shared with apps, you would receive the following:
+
+- `userStatus` would be `null`.
+- Other response fields would be `null`.
+
+The user status can change to `DECLARED` once the user's age is
+available to share.
 
 ## Example responses for users in US states
 

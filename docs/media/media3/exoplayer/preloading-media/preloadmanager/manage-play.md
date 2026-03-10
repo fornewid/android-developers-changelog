@@ -29,13 +29,16 @@ Adding the media items does not, by itself, cause the preload manager to start
 loading the content. To trigger the preloading, you'll need to [invalidate the
 priorities in the preload manager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#invalidate).
 
+
 ```kotlin
 val initialMediaItems = pullMediaItemsFromService(count = 20)
 for (index in 0 until initialMediaItems.size) {
   preloadManager.add(initialMediaItems[index], /* rankingData= */ index)
 }
-// items aren't actually loaded yet! need to call invalidate() after thishttps://github.com/androidx/media/blob/84ee6d1c66ae564d5c936d364cb8eb90f074d177/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/preloadmanager/PreloadManagerManagePlay.kt#L37-L41
+// items aren't actually loaded yet! need to call invalidate() after thishttps://github.com/androidx/media/blob/2fc8ea0a416693e43aa3059c4af832ac0c5cbcaf/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/preloadmanager/PreloadManagerManagePlay.kt#L37-L41
 ```
+
+<br />
 
 #### Key points about the code
 
@@ -59,9 +62,12 @@ When you invalidate the preload manager, it calls the
 it should load from each item. It then loads the content for each item in the
 order of their priority from high to low.
 
+
 ```kotlin
 preloadManager.invalidate()
 ```
+
+<br />
 
 #### Key points about the code
 
@@ -74,6 +80,7 @@ the preload manager. If the preload manager has loaded any of the content, the
 content plays faster than it would have if you hadn't used the preload manager.
 If the preload manager hasn't loaded content from that item yet, the content
 plays normally.
+
 
 ```kotlin
 // When a media item is about to display on the screen
@@ -95,6 +102,8 @@ preloadManager.setCurrentPlayingIndex(currentIndex)
 preloadManager.invalidate()
 ```
 
+<br />
+
 #### Key points about the code
 
 - `player` is the Media3 `ExoPlayer` the app is using to play the content. You must create that player by calling [`DefaultPreloadManager.Builder.buildExoPlayer()`](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager.Builder#buildExoPlayer()) on the same builder you used to create the preload manager.
@@ -111,9 +120,12 @@ is watching, it doesn't need to be preloaded. In that case, you'd remove items
 when they got that far away. If the user moves back towards those removed items,
 you can always [add them back](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play#add-items).
 
+
 ```kotlin
 preloadManager.remove(mediaItem)
 ```
+
+<br />
 
 #### Key points about the code
 
@@ -125,9 +137,12 @@ When you no longer need the preload manager, you must release it to free up its
 resources. In particular, make sure to release it when your activity is
 destroyed.
 
+
 ```kotlin
 preloadManager.release()
 ```
+
+<br />
 
 #### Key points about the code
 

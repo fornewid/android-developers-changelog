@@ -26,8 +26,8 @@ Common use cases include:
 
 The following code sample shows how to use `MediaExtractorCompat`:
 
-### Kotlin
 
+### Kotlin
 
 ```kotlin
 fun extractSamples(context: Context, mediaPath: String) {
@@ -65,10 +65,7 @@ fun extractSamples(context: Context, mediaPath: String) {
 }
 ```
 
-<br />
-
 ### Java
-
 
 ```java
 public void extractSamples(Context context, String mediaPath) {

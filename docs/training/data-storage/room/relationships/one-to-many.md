@@ -78,7 +78,7 @@ that references the parent entity's primary key.
               parentColumn = "userId",
               entityColumn = "userCreatorId"
         )
-       < val pla>ylists: ListPlaylist
+        val playlists: List<Playlist>
     )
 
 ### Java
@@ -88,8 +88,8 @@ that references the parent entity's primary key.
         @Relation(
              parentColumn = "userId",
              entityColumn = "userCreatorId"
-     <   )
-       > public ListPlaylist playlists;
+        )
+        public List<Playlist> playlists;
     }
 
 Finally, add a method to the DAO class that returns all instances of the data
@@ -101,10 +101,10 @@ method so that the whole operation is performed atomically.
 
     @Transaction
     @Query("SELECT * FROM User")
-    fun getUsersWithPlaylis<ts(): ListUserWit>hPlaylists
+    fun getUsersWithPlaylists(): List<UserWithPlaylists>
 
 ### Java
 
     @Transaction
     @Query("SELECT * FROM User")
-    p<ublic ListUserWit>hPlaylists getUsersWithPlaylists();
+    public List<UserWithPlaylists> getUsersWithPlaylists();

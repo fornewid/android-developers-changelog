@@ -47,18 +47,15 @@ To play an HLS stream, you need to depend on the HLS module.
 
 ### Kotlin
 
-```kotlin
-implementation("androidx.media3:media3-exoplayer-hls:1.9.2")
-```
+    implementation("androidx.media3:media3-exoplayer-hls:1.9.2")
 
 ### Groovy
 
-```groovy
-implementation "androidx.media3:media3-exoplayer-hls:1.9.2"
-```
+    implementation "androidx.media3:media3-exoplayer-hls:1.9.2"
 
 You can then create a `MediaItem` for an HLS playlist URI and pass it to the
 player.
+
 
 ### Kotlin
 
@@ -82,6 +79,8 @@ player.setMediaItem(MediaItem.fromUri(hlsUri));
 player.prepare();
 ```
 
+<br />
+
 If your URI doesn't end with `.m3u8`, you can pass `MimeTypes.APPLICATION_M3U8`
 to `setMimeType` of `MediaItem.Builder` to explicitly indicate the type of the
 content.
@@ -95,6 +94,7 @@ variants, taking into account both available bandwidth and device capabilities.
 
 For more customization options, you can create a `HlsMediaSource` and pass it
 directly to the player instead of a `MediaItem`.
+
 
 ### Kotlin
 
@@ -128,6 +128,8 @@ player.setMediaSource(hlsMediaSource);
 player.prepare();
 ```
 
+<br />
+
 ## Accessing the manifest
 
 You can retrieve the current manifest by calling `Player.getCurrentManifest`.
@@ -136,6 +138,7 @@ For HLS, you should cast the returned object to `HlsManifest`. The
 the manifest is loaded. This will happen once for on-demand content and
 possibly many times for live content. The following code snippet shows how an app
 can do something whenever the manifest is loaded.
+
 
 ### Kotlin
 
@@ -172,6 +175,8 @@ player.addListener(
     });
 ```
 
+<br />
+
 ## Play HLS streams with interstitials
 
 The HLS specification defines HLS interstitials which can be used to include
@@ -190,6 +195,7 @@ interface to play HLS interstitials.
 
 The `MediaSource.Factory` of `ExoPlayer` can be injected into the builder when
 building the player instance:
+
 
 ### Kotlin
 
@@ -229,8 +235,11 @@ hlsInterstitialsAdsLoader.setPlayer(player);
 playerView.setPlayer(player);
 ```
 
+<br />
+
 With such a player setup, playing HLS interstitials is just about setting a
 media item with an `AdsConfiguration` on the player:
+
 
 ### Kotlin
 
@@ -267,6 +276,8 @@ player.prepare();
 player.play();
 ```
 
+<br />
+
 > [!NOTE]
 > **Note:** The `HlsInterstitialsAdsLoader.AdsMediaSourceFactory` can be used for any HLS stream. If the ads configuration is omitted, the source is played as if it was created with `HlsMediaSource.Factory` directly.
 
@@ -277,6 +288,7 @@ default media source factory. To support interstitials, an app can then
 use `HlsInterstitialsAdsLoader.AdsMediaSourceFactory` directly to create a
 `MediaSource` and provide it to ExoPlayer using the media source based playlist
 API:
+
 
 ### Kotlin
 
@@ -341,6 +353,8 @@ player.prepare();
 player.play();
 ```
 
+<br />
+
 ### Listen to ad events
 
 A `Listener` can be added to `HlsInterstitialsAdsLoader` to monitor events
@@ -352,6 +366,7 @@ verification or to track ad playback progress.
 
 > [!NOTE]
 > **Note:** A conventional `Player.Listener` can be used to track (ad) playback in more detail (see [Listening to player events](https://developer.android.com/media/media3/exoplayer/listening-to-player-events)).
+
 
 ### Kotlin
 
@@ -426,10 +441,13 @@ private static class AdsLoaderListener implements HlsInterstitialsAdsLoader.List
 }
 ```
 
+<br />
+
 See the [JavaDoc of `HlsInterstitialsAdsLoader.Listener`](https://developer.android.com/reference/androidx/media3/exoplayer/hls/HlsInterstitialsAdsLoader.Listener) for the detailed
 documentation of all available callbacks.
 
 The listener can then be added to the ads loader:
+
 
 ### Kotlin
 
@@ -446,6 +464,8 @@ AdsLoaderListener listener = new AdsLoaderListener();
 // Add the listener to the ads loader to receive ad loader events.
 hlsInterstitialsAdsLoader.addListener(listener);
 ```
+
+<br />
 
 ### `HlsInterstitialsAdsLoader` lifecycle
 
@@ -471,6 +491,7 @@ state can be restored by calling `addAdResumptionState()` on the ads loader
 instance. `AdsResumptionState` is bundleable, so it can be stored in an
 `Activity`'s `onSaveInstanceState` bundle. Note that ad resumption is only
 supported for VOD streams
+
 
 ### Kotlin
 
@@ -701,6 +722,8 @@ public static class HlsInterstitialsActivity extends Activity {
 }
 ```
 
+<br />
+
 ## Customizing playback
 
 ExoPlayer provides multiple ways for you to tailor playback experience to your
@@ -722,6 +745,7 @@ will increase start up time as ExoPlayer needs to download a media segment to
 discover these additional tracks and it is preferable to declare the
 closed-caption tracks in the multivariant playlist instead.
 
+
 ### Kotlin
 
 ```kotlin
@@ -739,6 +763,8 @@ HlsMediaSource hlsMediaSource =
         .setAllowChunklessPreparation(false)
         .createMediaSource(MediaItem.fromUri(hlsUri));
 ```
+
+<br />
 
 ## Creating high quality HLS content
 

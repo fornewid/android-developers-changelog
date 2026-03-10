@@ -18,6 +18,7 @@ to tracks, including:
 - The available tracks changing due to playback transitioning from one media item to another.
 - Changes to the selected tracks.
 
+
 ### Kotlin
 
 ```kotlin
@@ -42,6 +43,8 @@ player.addListener(
     });
 ```
 
+<br />
+
 You can also query the current tracks by calling `player.getCurrentTracks()`.
 The returned `Tracks` contains a list of `Tracks.Group` objects, where tracks
 within a single `Group` present the same content but in different formats.
@@ -60,6 +63,7 @@ rate, channel count and so on can be grouped. This also applies to text tracks.
 
 Each `Group` can be queried to determine which tracks are supported for
 playback, which are currently selected, and what `Format` each track uses:
+
 
 ### Kotlin
 
@@ -95,6 +99,8 @@ for (Tracks.Group trackGroup : tracks.getGroups()) {
 }
 ```
 
+<br />
+
 - A track is *supported* if the `Player` is able to decode and render its samples. Note that even if multiple track groups of the same type (for example multiple audio track groups) are supported, it only means that they are supported individually and the player is not necessarily able to play them at the same time.
 - A track is *selected* if it has been chosen for playback given the current `TrackSelectionParameters`. If multiple tracks within one track group are selected, the player uses these tracks for adaptive playback (for example, multiple video tracks with different bitrates). Note that only one of these tracks will be played at any one time.
 
@@ -105,6 +111,7 @@ The track selection process can be configured using
 playback. The following example demonstrates how to obtain the current
 `TrackSelectionParameters` from the player, modify them, and update the `Player`
 with the modified result:
+
 
 ### Kotlin
 
@@ -128,6 +135,8 @@ player.setTrackSelectionParameters(
         .setPreferredAudioLanguage("hu")
         .build());
 ```
+
+<br />
 
 ### Constraint-based track selection
 
@@ -159,6 +168,7 @@ the player's currently available tracks should be queried using
 they can be set on `TrackSelectionParameters` using a `TrackSelectionOverride`.
 For example, to select the first track from a specific `audioTrackGroup`:
 
+
 ### Kotlin
 
 ```kotlin
@@ -184,6 +194,8 @@ player.setTrackSelectionParameters(
         .build());
 ```
 
+<br />
+
 A `TrackSelectionOverride` will only apply to media items that contain a
 `TrackGroup` exactly matching the one specified in the override. Hence an
 override may not apply to a subsequent media item if that item contains
@@ -194,6 +206,7 @@ different tracks.
 Track types like video, audio or text, can be disabled completely using
 `TrackSelectionParameters.Builder.setTrackTypeDisabled`. A disabled track type
 will be disabled for all media items:
+
 
 ### Kotlin
 
@@ -216,8 +229,11 @@ player.setTrackSelectionParameters(
         .build());
 ```
 
+<br />
+
 Alternatively, it's possible to prevent the selection of tracks from a specific
 `TrackGroup` by specifying an empty override for that group:
+
 
 ### Kotlin
 
@@ -245,11 +261,14 @@ player.setTrackSelectionParameters(
         .build());
 ```
 
+<br />
+
 ## Customizing the track selector
 
 Track selection is the responsibility of a `TrackSelector`, an instance
 of which can be provided whenever an `ExoPlayer` is built and later obtained
 with `ExoPlayer.getTrackSelector()`.
+
 
 ### Kotlin
 
@@ -265,10 +284,13 @@ DefaultTrackSelector trackSelector = new DefaultTrackSelector(context);
 ExoPlayer player = new ExoPlayer.Builder(context).setTrackSelector(trackSelector).build();
 ```
 
+<br />
+
 `DefaultTrackSelector` is a flexible `TrackSelector` suitable for most use
 cases. It uses the `TrackSelectionParameters` set in the `Player`, but also
 provides some advanced customization options that can be specified in the
 `DefaultTrackSelector.ParametersBuilder`:
+
 
 ### Kotlin
 
@@ -284,6 +306,8 @@ trackSelector.setParameters(
 trackSelector.setParameters(
     trackSelector.buildUponParameters().setAllowVideoMixedMimeTypeAdaptiveness(true));
 ```
+
+<br />
 
 ### Tunneling
 
@@ -304,6 +328,7 @@ and details.
 You can set preferences for offloaded audio playback to enable it in cases where
 the combination of renderers and selected tracks supports it. To do this,
 specify [`AudioOffloadModePreferences`](https://developer.android.com/reference/androidx/media3/common/TrackSelectionParameters.AudioOffloadPreferences) in your `TrackSelectionParameters`.
+
 
 ### Kotlin
 
@@ -337,3 +362,5 @@ player.setTrackSelectionParameters(
         .setAudioOffloadPreferences(audioOffloadPreferences)
         .build());
 ```
+
+<br />

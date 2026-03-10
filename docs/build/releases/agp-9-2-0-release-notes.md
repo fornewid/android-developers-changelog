@@ -27,6 +27,14 @@ Here is other compatibility info:
 ## Fixed issues
 
 
+### Android Gradle plugin 9.2.0-alpha03
+
+| Fixed Issues ||
+|---|---|
+| **Android Gradle Plugin** | |---| | [Issue #486844145](https://issuetracker.google.com/issues/486844145) JdkImageTransform failure with JDK 26 | | [Issue #474084303](https://issuetracker.google.com/issues/474084303) Automatically encode minAgpVersion in the AAR metadata in AGP 10.0 | |
+| **Lint** | |---| | [Issue #488736407](https://issuetracker.google.com/issues/488736407) Truncated context window in Lint SARIF reports due to stuck offset pointer in \`SarifReporter.kt\` | | [Issue #484887319](https://issuetracker.google.com/issues/484887319) Lint Gradle client is missing a critical feature making it unreliable at best | |
+| **Lint Integration** | |---| | [Issue #468928427](https://issuetracker.google.com/issues/468928427) Lint Gradle tasks ignore --quiet flag | |
+
 ### Android Gradle plugin 9.2.0-alpha02
 
 | Fixed Issues ||

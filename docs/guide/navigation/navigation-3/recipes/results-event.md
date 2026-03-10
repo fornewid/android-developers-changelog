@@ -74,7 +74,7 @@ import kotlinx.serialization.Serializable
 data object Home : NavKey
 
 @Serializable
-class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/720136f00b4c1bfbb3d09ae4b0f4bd16e3006536/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
+class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/f4e6ca737c03896895a509a3dbc41cb9bf747ad5/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
 ```
 
 ```
