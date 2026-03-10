@@ -1,0 +1,26 @@
+diff --git a/docs/training/wearables/watch-face-push.md b/docs/training/wearables/watch-face-push.md
+index b3a2dfa..61b6b53 100644
+--- a/docs/training/wearables/watch-face-push.md
++++ b/docs/training/wearables/watch-face-push.md
+@@ -118,7 +118,7 @@ The validator is available in three forms:
+ 1. Obtain the validator from Google's [Maven repository](https://maven.google.com/web/index.html#com.google.android.wearable.watchface.validator:validator-push-cli).
+ 2. Run the tool as follows:
+ 
+-       java -jar validator-push-cli-1.0.0-alpha07.jar \
++       java -jar validator-push-cli-1.0.0-alpha10.jar \
+            --apk_path=<your watch face>.apk \
+            --package_name=<your marketplace package name>
+ 
+@@ -147,10 +147,10 @@ The validator is available in three forms:
+ 2. Include the validator dependency in your project:
+ 
+        // For use on JVM
+-       implementation("com.google.android.wearable.watchface.validator:validator-push:1.0.0-alpha07")
++       implementation("com.google.android.wearable.watchface.validator:validator-push:1.0.0-alpha10")
+ 
+        // For use on Android
+-       implementation("com.google.android.wearable.watchface.validator:validator-push-android:1.0.0-alpha07")
++       implementation("com.google.android.wearable.watchface.validator:validator-push-android:1.0.0-alpha10")
+ 
+ 3. Run the validator:
+ 

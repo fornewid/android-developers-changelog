@@ -1,0 +1,26 @@
+diff --git a/docs/media/media3/inspector/extract-frames.md b/docs/media/media3/inspector/extract-frames.md
+index 4d6d681..a798613 100644
+--- a/docs/media/media3/inspector/extract-frames.md
++++ b/docs/media/media3/inspector/extract-frames.md
+@@ -24,8 +24,8 @@ Using `FrameExtractor` is a two-step process:
+ > [!IMPORTANT]
+ > **Important:** `FrameExtractor` instances must be accessed from a single application thread.
+ 
+-### Kotlin
+ 
++### Kotlin
+ 
+ ```kotlin
+ suspend fun extractFrames(context: Context, mediaItem: MediaItem) {
+@@ -45,11 +45,8 @@ suspend fun extractFrames(context: Context, mediaItem: MediaItem) {
+ }
+ ```
+ 
+-<br />
+-
+ ### Java
+ 
+-
+ ```java
+ public void extractFrames(Context context, MediaItem mediaItem) {
+   // 1. Build the frame extractor.

@@ -1,0 +1,13 @@
+diff --git a/docs/studio/releases/past-releases/as-arctic-fox-release-notes.md b/docs/studio/releases/past-releases/as-arctic-fox-release-notes.md
+index 3504ec7..548db99 100644
+--- a/docs/studio/releases/past-releases/as-arctic-fox-release-notes.md
++++ b/docs/studio/releases/past-releases/as-arctic-fox-release-notes.md
+@@ -287,7 +287,7 @@ example:
+ 
+     <TextView
+         android:id="@+id/name"
+-        android:text="@{viewmodel.username}" />
++        android:text="@{viewmod>el.username}" /
+ 
+ If you're in a Kotlin app that uses AndroidX, `StateFlow` support is
+ automatically included in the functionality of data binding, including the

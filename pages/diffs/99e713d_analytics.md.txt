@@ -1,0 +1,107 @@
+diff --git a/docs/media/media3/exoplayer/analytics.md b/docs/media/media3/exoplayer/analytics.md
+index f943f05..b519995 100644
+--- a/docs/media/media3/exoplayer/analytics.md
++++ b/docs/media/media3/exoplayer/analytics.md
+@@ -26,6 +26,7 @@ Raw playback events from the player are reported to `AnalyticsListener`
+ implementations. You can easily add your own listener and override only the
+ methods you are interested in:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -56,6 +57,8 @@ exoPlayer.addAnalyticsListener(
+     });
+ ```
+ 
++<br />
++
+ The `EventTime` that's passed to each callback associates the event to a media
+ item in the playlist, as well as playback position and timestamp metadata:
+ 
+@@ -87,6 +90,7 @@ multiple playbacks. It's also possible to query the `PlaybackStats` for the
+ current playback session at any time using
+ `PlaybackStatsListener.getPlaybackStats()`.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -110,6 +114,8 @@ exoPlayer.addAnalyticsListener(
+         }));
+ ```
+ 
++<br />
++
+ The constructor of `PlaybackStatsListener` gives the option to keep the full
+ history of processed events. Note that this may incur an unknown memory overhead
+ depending on the length of the playback and the number of events. Therefore you
+@@ -155,6 +161,7 @@ returned by `getPlaybackStateDurationMs`. For convenience, you'll also find
+ methods like `getTotalPlayTimeMs` and `getTotalWaitTimeMs` that return the
+ duration of specific playback state combinations.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -180,6 +187,8 @@ Log.d(
+         + playbackStats.totalRebufferCount);
+ ```
+ 
++<br />
++
+ > [!NOTE]
+ > **Note:** Some values like `totalVideoFormatHeightTimeProduct` are only useful when calculating derived summary metrics like the average video height, but are required to correctly combine multiple `PlaybackStats` together.
+ 
+@@ -199,6 +208,7 @@ aggregated view of all analytics data collected in the lifetime of a
+ In addition to the basic analytics data, `PlaybackStats` provides many methods
+ to calculate summary metrics.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -224,6 +234,8 @@ Log.d(
+         + playbackStats.getMeanTimeBetweenRebuffers());
+ ```
+ 
++<br />
++
+ ## Advanced topics
+ 
+ ### Associating analytics data with playback metadata
+@@ -237,6 +249,7 @@ The media tag is part of the `EventTime` reported for raw events and when
+ `PlaybackStats` are finished, so it can be easily retrieved when handling the
+ corresponding analytics data:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -268,6 +281,8 @@ new PlaybackStatsListener(
+     });
+ ```
+ 
++<br />
++
+ ### Reporting custom analytics events
+ 
+ In case you need to add custom events to the analytics data, you need to save
+@@ -276,6 +291,7 @@ these events in your own data structure and combine them with the reported
+ to be able to generate `EventTime` instances for your custom events and send
+ them to the already registered listeners as shown in the following example.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -353,4 +369,6 @@ public static void useExtendedAnalyticsCollector(Context context) {
+   // Usage - Triggering the custom event.
+   ((ExtendedCollector) player.getAnalyticsCollector()).customEvent();
+ }
+-```
+\ No newline at end of file
++```
++
++<br />
+\ No newline at end of file

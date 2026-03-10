@@ -1,0 +1,69 @@
+diff --git a/docs/media/media3/exoplayer/dash.md b/docs/media/media3/exoplayer/dash.md
+index 841f4c3..7502a1b 100644
+--- a/docs/media/media3/exoplayer/dash.md
++++ b/docs/media/media3/exoplayer/dash.md
+@@ -44,18 +44,15 @@ To play a DASH stream, you need to depend on the DASH module.
+ 
+ ### Kotlin
+ 
+-```kotlin
+-implementation("androidx.media3:media3-exoplayer-dash:1.9.2")
+-```
++    implementation("androidx.media3:media3-exoplayer-dash:1.9.2")
+ 
+ ### Groovy
+ 
+-```groovy
+-implementation "androidx.media3:media3-exoplayer-dash:1.9.2"
+-```
++    implementation "androidx.media3:media3-exoplayer-dash:1.9.2"
+ 
+ You can then create a `MediaItem` for a DASH MPD URI and pass it to the player.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -78,6 +75,8 @@ player.setMediaItem(MediaItem.fromUri(dashUri));
+ player.prepare();
+ ```
+ 
++<br />
++
+ If your URI doesn't end with `.mpd`, you can pass `MimeTypes.APPLICATION_MPD`
+ to `setMimeType` of `MediaItem.Builder` to explicitly indicate the type of the
+ content.
+@@ -90,6 +89,7 @@ manifest, taking into account both available bandwidth and device capabilities.
+ For more customization options, you can create a `DashMediaSource` and pass it
+ directly to the player instead of a `MediaItem`.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -121,6 +121,8 @@ player.setMediaSource(mediaSource);
+ player.prepare();
+ ```
+ 
++<br />
++
+ ## Accessing the manifest
+ 
+ You can retrieve the current manifest by calling `Player.getCurrentManifest`.
+@@ -130,6 +132,7 @@ the manifest is loaded. This will happen once for a on-demand content, and
+ possibly many times for live content. The following code snippet shows how an app
+ can do something whenever the manifest is loaded.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -165,6 +168,8 @@ player.addListener(
+     });
+ ```
+ 
++<br />
++
+ ## Customizing playback
+ 
+ ExoPlayer provides multiple ways for you to tailor playback experience to your

@@ -1,0 +1,13 @@
+diff --git a/docs/training/data-storage/room/migrating-db-versions.md b/docs/training/data-storage/room/migrating-db-versions.md
+index 47485d5..e7c6d36 100644
+--- a/docs/training/data-storage/room/migrating-db-versions.md
++++ b/docs/training/data-storage/room/migrating-db-versions.md
+@@ -338,7 +338,7 @@ Gradle build file. The `asArguments()` method in the sample class passes
+       Iterable<String> asArguments() {
+         // Note: If you're using KAPT and javac, change the line below to
+         // return ["-Aroom.schemaLocation=${schemaDir.path}".toString()].
+-        return ["room.schemaLocation=${schemaDir.path}&quot;.toString()]
++        return ["room.schemaLocation=${schemaDir.path}".toString()]
+       }
+     }
+ 

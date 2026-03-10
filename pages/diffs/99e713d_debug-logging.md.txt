@@ -1,0 +1,21 @@
+diff --git a/docs/media/media3/exoplayer/debug-logging.md b/docs/media/media3/exoplayer/debug-logging.md
+index d8b09a4..1c8f29f 100644
+--- a/docs/media/media3/exoplayer/debug-logging.md
++++ b/docs/media/media3/exoplayer/debug-logging.md
+@@ -10,6 +10,7 @@ understanding what the player is doing, as well as for debugging playback
+ issues. `EventLogger` implements `AnalyticsListener`, so registering an instance
+ with an `ExoPlayer` is easy:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -22,6 +23,8 @@ player.addAnalyticsListener(EventLogger())
+ player.addAnalyticsListener(new EventLogger());
+ ```
+ 
++<br />
++
+ The easiest way to observe the log is using Android Studio's [logcat tab](https://developer.android.com/studio/debug/am-logcat). You
+ can select your app as debuggable process by the package name (
+ `androidx.media3.demo.main` if using the demo app) and tell the logcat

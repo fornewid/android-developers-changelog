@@ -1,0 +1,66 @@
+diff --git a/docs/training/permissions/requesting.md b/docs/training/permissions/requesting.md
+index f9f6756..329b750 100644
+--- a/docs/training/permissions/requesting.md
++++ b/docs/training/permissions/requesting.md
+@@ -388,8 +388,8 @@ override fun onRequestPermissionsResult(requestCode: Int,
+         }
+ 
+         // Add other 'when' lines to check for other
+-        // permissions this app might request>.
+-        else - {
++        // permissions this app might request.
++        else -> {
+             // Ignore all other requests.
+         }
+     }
+@@ -405,7 +405,7 @@ public void onRequestPermissionsResult(int requestCode, String[] permissions,
+     switch (requestCode) {
+         case PERMISSION_REQUEST_CODE:
+             // If request is cancelled, the result arrays are empty.
+-            if (grantResults.length >&& 0 
++            if (grantResults.length > 0 &&
+                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                 // Permission is granted. Continue the action or workflow
+                 // in your app.
+@@ -461,10 +461,10 @@ situations:
+   <!-- Recommended for Android 9 (API level 28) and lower. -->
+   <!-- Required for Android 10 (API level 29) and higher. -->
+   <service
+-      android:name="MyNavigationService&quot;
+-      android:foregroundServiceType=">;loca<tion" ... 
+-      !-- Any inner >e<lements >go here. --
+-  /service
++      android:name="MyNavigationService"
++      android:foregroundServiceType="location" ... >
++      <!-- Any inner elements go here. -->
++  </service>
+   ```
+ 
+ You declare a need for foreground location when your app requests either the
+@@ -474,11 +474,11 @@ You declare a need for foreground location when your app requests either the
+ ```xml
+ <manifest ... >
+   <!-- Include this permission any time your app needs location information. -->
+-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATI>ON&q<uot; /
++  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+ 
+-  !-- Include only if your app benefits from precise location >acc<ess. --
+-  uses-permission android:name="android.permission.ACCESS_F>I<NE_LOCATI>ON" /
+-/manifest
++  <!-- Include only if your app benefits from precise location access. -->
++  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
++</manifest>
+ ```
+ 
+ #### Background location
+@@ -505,8 +505,8 @@ location access as well.
+     <manifest ... >
+       <!-- Required only when requesting background location access on
+            Android 10 (API level 29) and higher. -->
+-      <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATI>O<N" />
+-    /manifest
++      <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
++    </manifest>
+ 
+ > [!NOTE]
+ > **Note:** The Google Play Store has a [location policy](https://support.google.com/googleplay/android-developer/answer/9799150) concerning device location, restricting background location access to apps that need it for their core functionality and meet related policy requirements.

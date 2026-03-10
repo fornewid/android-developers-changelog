@@ -1,0 +1,21 @@
+diff --git a/docs/media/media3/exoplayer/drm.md b/docs/media/media3/exoplayer/drm.md
+index ce887af..c90fa9e 100644
+--- a/docs/media/media3/exoplayer/drm.md
++++ b/docs/media/media3/exoplayer/drm.md
+@@ -91,6 +91,7 @@ implement a `DrmSessionManagerProvider` and pass this to the
+ choose whether to instantiate a new manager instance each time or not. To always
+ use the same instance:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -110,6 +111,8 @@ MediaSource.Factory mediaSourceFactory =
+         .setDrmSessionManagerProvider(mediaItem -> customDrmSessionManager);
+ ```
+ 
++<br />
++
+ ### Improving playback performance
+ 
+ If you're experiencing video stuttering when playing DRM-protected content on a

@@ -1,0 +1,70 @@
+diff --git a/docs/media/media3/exoplayer/rtsp.md b/docs/media/media3/exoplayer/rtsp.md
+index f2559eb..c902ae9 100644
+--- a/docs/media/media3/exoplayer/rtsp.md
++++ b/docs/media/media3/exoplayer/rtsp.md
+@@ -27,18 +27,15 @@ To play an RTSP stream, you need to depend on the RTSP module.
+ 
+ ### Kotlin
+ 
+-```kotlin
+-implementation("androidx.media3:media3-exoplayer-rtsp:1.9.2")
+-```
++    implementation("androidx.media3:media3-exoplayer-rtsp:1.9.2")
+ 
+ ### Groovy
+ 
+-```groovy
+-implementation "androidx.media3:media3-exoplayer-rtsp:1.9.2"
+-```
++    implementation "androidx.media3:media3-exoplayer-rtsp:1.9.2"
+ 
+ You can then create a `MediaItem` for an RTSP URI and pass it to the player.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -61,6 +58,8 @@ player.setMediaItem(MediaItem.fromUri(rtspUri));
+ player.prepare();
+ ```
+ 
++<br />
++
+ ### Authentication
+ 
+ ExoPlayer supports playback with RTSP BASIC and DIGEST authentication. To play
+@@ -73,6 +72,7 @@ authentication info. Specifically, the URI should be of the form
+ For more customization options, you can create an `RtspMediaSource` and pass it
+ directly to the player instead of a `MediaItem`.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -101,6 +101,8 @@ player.setMediaSource(mediaSource);
+ player.prepare();
+ ```
+ 
++<br />
++
+ ## Using RTSP behind a NAT (RTP/TCP support)
+ 
+ ExoPlayer uses UDP as the default protocol for RTP transport.
+@@ -137,6 +139,7 @@ By default, `RtspMediaSource` will use Java's standard socket factory
+ This behavior can be overridden using
+ `RtspMediaSource.Factory.setSocketFactory()`.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -157,4 +160,6 @@ MediaSource mediaSource =
+     new RtspMediaSource.Factory()
+         .setSocketFactory(socketFactory)
+         .createMediaSource(MediaItem.fromUri(rtspUri));
+-```
+\ No newline at end of file
++```
++
++<br />
+\ No newline at end of file

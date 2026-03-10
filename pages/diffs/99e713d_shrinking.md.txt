@@ -1,0 +1,113 @@
+diff --git a/docs/media/media3/exoplayer/shrinking.md b/docs/media/media3/exoplayer/shrinking.md
+index 5ed875c..5c141fc 100644
+--- a/docs/media/media3/exoplayer/shrinking.md
++++ b/docs/media/media3/exoplayer/shrinking.md
+@@ -18,19 +18,15 @@ as might be required for an app that only plays DASH content:
+ 
+ ### Kotlin
+ 
+-```kotlin
+-implementation("androidx.media3:media3-exoplayer:1.9.2")
+-implementation("androidx.media3:media3-exoplayer-dash:1.9.2")
+-implementation("androidx.media3:media3-ui:1.9.2")
+-```
++    implementation("androidx.media3:media3-exoplayer:1.9.2")
++    implementation("androidx.media3:media3-exoplayer-dash:1.9.2")
++    implementation("androidx.media3:media3-ui:1.9.2")
+ 
+ ### Groovy
+ 
+-```groovy
+-implementation "androidx.media3:media3-exoplayer:1.9.2"
+-implementation "androidx.media3:media3-exoplayer-dash:1.9.2"
+-implementation "androidx.media3:media3-ui:1.9.2"
+-```
++    implementation "androidx.media3:media3-exoplayer:1.9.2"
++    implementation "androidx.media3:media3-exoplayer-dash:1.9.2"
++    implementation "androidx.media3:media3-ui:1.9.2"
+ 
+ ## Enable code and resource shrinking
+ 
+@@ -53,6 +49,7 @@ needs a subset of renderers, you can specify your own `RenderersFactory`
+ instead. For example, an app that only plays audio can define a factory like
+ this when instantiating `ExoPlayer` instances:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -82,6 +79,8 @@ RenderersFactory audioOnlyRenderersFactory =
+ ExoPlayer player = new ExoPlayer.Builder(context, audioOnlyRenderersFactory).build();
+ ```
+ 
++<br />
++
+ This will allow other `Renderer` implementations to be removed by code
+ shrinking. In this particular example video, text and metadata renderers are
+ removed (which means any subtitles or in-stream metadata (e.g.
+@@ -98,6 +97,7 @@ needs to play a small number of container formats, or doesn't play progressive
+ media at all, you can specify your own `ExtractorsFactory` instead. For example,
+ an app that only needs to play mp4 files can provide a factory like:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -118,6 +118,8 @@ ExoPlayer player =
+         .build();
+ ```
+ 
++<br />
++
+ This will allow other `Extractor` implementations to be removed by code
+ shrinking, which can result in a significant reduction in size.
+ 
+@@ -125,6 +127,7 @@ If your app is not playing progressive content at all, you should pass
+ `ExtractorsFactory.EMPTY` to the `DefaultMediaSourceFactory` constructor, then
+ pass that `mediaSourceFactory` to the `ExoPlayer.Builder` constructor.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -142,12 +145,15 @@ ExoPlayer player =
+         .build();
+ ```
+ 
++<br />
++
+ ## Custom MediaSource instantiation
+ 
+ If your app is using a custom `MediaSource.Factory` and you want
+ `DefaultMediaSourceFactory` to be removed by code stripping, you should pass
+ your `MediaSource.Factory` directly to the `ExoPlayer.Builder` constructor.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -160,11 +166,14 @@ val player = ExoPlayer.Builder(context, customMediaSourceFactory).build()
+ ExoPlayer player = new ExoPlayer.Builder(context, mediaSourceFactory).build();
+ ```
+ 
++<br />
++
+ If your app is using `MediaSource` directly instead of `MediaItem` you should
+ pass `MediaSource.Factory.UNSUPPORTED` to the `ExoPlayer.Builder` constructor,
+ to ensure `DefaultMediaSourceFactory` and `DefaultExtractorsFactory` can be
+ stripped by code shrinking.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -181,4 +190,6 @@ ExoPlayer player = new ExoPlayer.Builder(context, MediaSource.Factory.UNSUPPORTE
+ ProgressiveMediaSource mediaSource =
+     new ProgressiveMediaSource.Factory(dataSourceFactory, customExtractorsFactory)
+         .createMediaSource(MediaItem.fromUri(uri));
+-```
+\ No newline at end of file
++```
++
++<br />
+\ No newline at end of file

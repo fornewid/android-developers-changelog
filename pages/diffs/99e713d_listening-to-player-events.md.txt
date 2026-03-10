@@ -1,0 +1,107 @@
+diff --git a/docs/media/media3/exoplayer/listening-to-player-events.md b/docs/media/media3/exoplayer/listening-to-player-events.md
+index 32752e5..aea2f32 100644
+--- a/docs/media/media3/exoplayer/listening-to-player-events.md
++++ b/docs/media/media3/exoplayer/listening-to-player-events.md
+@@ -9,6 +9,7 @@ source: md.txt
+ Events, such as changes in state and playback errors, are reported to registered
+ [`Player.Listener`](https://developer.android.com/reference/androidx/media3/common/Player.Listener) instances. To register a listener to receive such events:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -23,6 +24,8 @@ player.addListener(listener)
+ player.addListener(listener);
+ ```
+ 
++<br />
++
+ `Player.Listener` has empty default methods, so you only need to implement the
+ methods you're interested in. See the [Javadoc](https://developer.android.com/reference/androidx/media3/common/Player.Listener) for a full description of the
+ methods and when they're called. Some of the most important methods are
+@@ -59,6 +62,7 @@ Rather than having to check these properties individually, `Player.isPlaying`
+ can be called. Changes to this state can be received by implementing
+ `onIsPlayingChanged(boolean isPlaying)`:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -97,6 +101,8 @@ player.addListener(
+     });
+ ```
+ 
++<br />
++
+ ### Playback errors
+ 
+ Errors that cause playback to fail can be received by implementing
+@@ -113,6 +119,7 @@ example, [`ExoPlayer`](https://developer.android.com/reference/androidx/media3/e
+ The following example shows how to detect when a playback has failed due to an
+ HTTP networking issue:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -163,6 +170,8 @@ player.addListener(
+     });
+ ```
+ 
++<br />
++
+ ### Playlist transitions
+ 
+ Whenever the player changes to a new media item in the playlist
+@@ -198,6 +207,7 @@ player, Events events)` callback. The generic callback provides access to the
+ callback is always called after the callbacks that correspond to the individual
+ events.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -223,6 +233,8 @@ public void onEvents(Player player, Events events) {
+ }
+ ```
+ 
++<br />
++
+ Individual events should be preferred in the following cases:
+ 
+ - The listener is interested in the reasons for changes. For example, the reasons provided for `onPlayWhenReadyChanged` or `onMediaItemTransition`.
+@@ -256,6 +268,7 @@ purposes. Please refer to the [analytics page](https://developer.android.com/gui
+ logging purposes. Add `EventLogger` to an `ExoPlayer` to enable useful
+ additional logging with a single line:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -268,6 +281,8 @@ player.addAnalyticsListener(EventLogger())
+ player.addAnalyticsListener(new EventLogger());
+ ```
+ 
++<br />
++
+ See the [debug logging page](https://developer.android.com/guide/topics/media/exoplayer/debug-logging) for more details.
+ 
+ ## Firing events at specified playback positions
+@@ -283,6 +298,7 @@ position is encountered (this may happen multiple times due to seeking and
+ repeat modes), or just the first time. Once the `PlayerMessage` is configured,
+ it can be scheduled using `PlayerMessage.send`.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -308,4 +324,6 @@ player
+     .setPayload(customPayloadData)
+     .setDeleteAfterDelivery(false)
+     .send();
+-```
+\ No newline at end of file
++```
++
++<br />
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/results-state.md b/docs/guide/navigation/navigation-3/recipes/results-state.md
+index d1d16b7..d174d5b 100644
+--- a/docs/guide/navigation/navigation-3/recipes/results-state.md
++++ b/docs/guide/navigation/navigation-3/recipes/results-state.md
+@@ -74,7 +74,7 @@ import kotlinx.serialization.Serializable
+ data object Home : NavKey
+ 
+ @Serializable
+-class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/720136f00b4c1bfbb3d09ae4b0f4bd16e3006536/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
++class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/f4e6ca737c03896895a509a3dbc41cb9bf747ad5/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
+ ```
+ 
+ ```

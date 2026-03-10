@@ -1,0 +1,136 @@
+diff --git a/docs/media/media3/exoplayer/media-items.md b/docs/media/media3/exoplayer/media-items.md
+index 5dc8af3..0e971be 100644
+--- a/docs/media/media3/exoplayer/media-items.md
++++ b/docs/media/media3/exoplayer/media-items.md
+@@ -18,6 +18,7 @@ below.
+ A media item consisting only of the stream URI can be built with the `fromUri`
+ convenience method:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -30,9 +31,12 @@ val mediaItem = MediaItem.fromUri(videoUri)
+ MediaItem mediaItem = MediaItem.fromUri(videoUri);
+ ```
+ 
++<br />
++
+ For all other cases, a `MediaItem.Builder` can be used. In the following example, a
+ media item is built with an ID and some attached metadata:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -47,6 +51,8 @@ MediaItem mediaItem =
+     new MediaItem.Builder().setMediaId(mediaId).setTag(myAppData).setUri(videoUri).build();
+ ```
+ 
++<br />
++
+ Attaching metadata can be useful for
+ [updating your app's UI](https://developer.android.com/guide/topics/media/exoplayer/playlists#detecting-transitions)
+ when playlist transitions occur.
+@@ -60,6 +66,7 @@ the image should be shown during playback. See the
+ [Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images#image-loading-libraries)
+ (for example, Glide).
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -73,6 +80,8 @@ MediaItem mediaItem =
+     new MediaItem.Builder().setUri(imageUri).setImageDurationMs(3_000).build();
+ ```
+ 
++<br />
++
+ ## Non-standard file extensions for adaptive media
+ 
+ ExoPlayer provides adaptive media sources for DASH, HLS, and
+@@ -81,6 +90,7 @@ file extension, the corresponding media source is automatically created. If the
+ URI has a non-standard extension or no extension at all, then the MIME type can
+ be set explicitly to indicate the type of the media item:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -95,6 +105,8 @@ MediaItem mediaItem =
+     new MediaItem.Builder().setUri(hlsUri).setMimeType(MimeTypes.APPLICATION_M3U8).build();
+ ```
+ 
++<br />
++
+ For progressive media streams a MIME type is not required.
+ 
+ ## Protected content
+@@ -106,6 +118,7 @@ An example config for playing an item protected with Widevine DRM where the
+ license URI is not available directly in the media (e.g. in a DASH playlist) and
+ multiple sessions are required (e.g. due to key rotation):
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -137,6 +150,8 @@ MediaItem mediaItem =
+         .build();
+ ```
+ 
++<br />
++
+ Inside the
+ player, `DefaultMediaSourceFactory` will pass these properties to a
+ `DrmSessionManagerProvider` to obtain a `DrmSessionManager`, which is then
+@@ -149,6 +164,7 @@ to your needs.
+ To sideload subtitle tracks, `MediaItem.Subtitle` instances can be added when
+ building a media item:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -178,6 +194,8 @@ MediaItem mediaItem =
+         .build();
+ ```
+ 
++<br />
++
+ Internally, `DefaultMediaSourceFactory` will use a `MergingMediaSource` to
+ combine the content media source with a `SingleSampleMediaSource` for each
+ subtitle track. `DefaultMediaSourceFactory` does not support sideloading
+@@ -188,6 +206,7 @@ subtitles for multi-period DASH.
+ To clip the content referred to by a media item, set custom
+ start and end positions:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -217,6 +236,8 @@ MediaItem mediaItem =
+         .build();
+ ```
+ 
++<br />
++
+ Internally, `DefaultMediaSourceFactory` will use a `ClippingMediaSource` to wrap
+ the content media source. There are additional clipping properties. See the
+ [`MediaItem.Builder` Javadoc](https://developer.android.com/reference/androidx/media3/common/MediaItem.Builder) for more details.
+@@ -228,6 +249,7 @@ the content media source. There are additional clipping properties. See the
+ 
+ To insert ads, a media item's ad tag URI property should be set:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -248,6 +270,8 @@ MediaItem mediaItem =
+         .build();
+ ```
+ 
++<br />
++
+ Internally, `DefaultMediaSourceFactory` will wrap the content media source in an
+ `AdsMediaSource` to insert ads as defined by the ad tag. For this to work, the
+ player also needs to have its `DefaultMediaSourceFactory`

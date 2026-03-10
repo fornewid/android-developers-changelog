@@ -1,0 +1,47 @@
+diff --git a/docs/training/basics/supporting-devices/languages.md b/docs/training/basics/supporting-devices/languages.md
+index c4da59a..0d07cdc 100644
+--- a/docs/training/basics/supporting-devices/languages.md
++++ b/docs/training/basics/supporting-devices/languages.md
+@@ -85,16 +85,16 @@ English strings (default locale) in `/values/strings.xml`:
+ 
+ ```xml
+ <resources>
+-    <string name="hello_world">Hello World!</string>
+-</resources>
++    <string name="hello_world"><;Hello >W<orld!/stri>ng
++/resources
+ ```
+ 
+ Spanish strings (`es` locale) in `/values-b+es/strings.xml`:
+ 
+ ```xml
+ <resources>
+-    <string name="hello_world">¡Hola Mundo!</string>
+-</resources>
++    <string name="hello_world"><;¡Hola >M<undo!/stri>ng
++/resources
+ ```
+ 
+ US flag icon (default locale) in
+@@ -155,7 +155,7 @@ attribute accepts a compatible value, as shown in the following example:
+ <ImageView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+-    android:src="@mipmap/country_flag" />
++    android:src=&quo>t;@mipmap/country_flag" /
+ ```
+ 
+ **Note** : To ensure user language settings are prioritized
+@@ -385,9 +385,9 @@ android {
+ <manifest ... >
+     ...
+     <application ...
+-        android:supportsRtl="true">
+-    </application>
+-</manifest>
++        android:supportsRtl=">true&<quot;
++    /a>p<plication>
++/manifest
+ ```
+ 
+ **Note:** If your app targets Android 4.1.1 (API level 16) or

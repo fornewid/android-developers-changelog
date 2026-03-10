@@ -1,0 +1,194 @@
+diff --git a/docs/guide/navigation/custom-back/predictive-back-gesture.md b/docs/guide/navigation/custom-back/predictive-back-gesture.md
+index 84d51a4..f80202d 100644
+--- a/docs/guide/navigation/custom-back/predictive-back-gesture.md
++++ b/docs/guide/navigation/custom-back/predictive-back-gesture.md
+@@ -45,6 +45,27 @@ predictive back gesture using AndroidX Activity APIs.
+ You can also view our Google I/O video, which covers additional examples of
+ implementing the AndroidX and platform APIs.
+ 
++## Handle custom back gestures in Compose
++
++Compose provides the `PredictiveBackHandler` composable to handle custom back
++gestures. This API allows you to respond to the back gesture and provides a
++`Flow` of `BackEventCompat` objects that you can use to implement custom
++animations or transitions as the user swipes.
++
++    PredictiveBackHandler(enabled = isBackHandlerEnabled) { progress: Flow<BackEventCompat> ->
++        try {
++            progress.collect { backEvent ->
++                // Update your UI or animation based on backEvent.progress
++            }
++            // Handle the final back action (e.g., navigate back)
++        } catch (e: CancellationException) {
++            // Back gesture was cancelled, reset your UI
++        }
++    }
++
++If you only need to intercept the back gesture without tracking progress, use
++[`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary#BackHandler(kotlin.Boolean,kotlin.Function0)).
++
+ ## Update an app that uses default back navigation
+ 
+ Predictive back is enabled by default.
+@@ -58,12 +79,10 @@ or higher.
+ If your app implements custom back behavior, there are different migration paths
+ depending on whether it uses AndroidX and how it handles back navigation.
+ 
+-|---|---|---|
+-| **Your app uses AndroidX** | **How your app handles back navigation** | **Recommended migration path** (link on this page) |
+-| Yes | AndroidX APIs | [Migrate an existing AndroidX back implementation](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#migrate-existing) |
+-| Yes | Unsupported platform APIs | [Migrate an AndroidX app containing unsupported back navigation APIs to AndroidX APIs](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#migrate-androidx) |
+-| No | Unsupported platform APIs, able to migrate | [Migrate an app that uses unsupported back navigation APIs to platform APIs](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#migrate-app) |
+-| No | Unsupported platform APIs, but unable to migrate | Temporarily opt out by setting the [`android:enableOnBackInvokedCallback`](https://developer.android.com/guide/topics/manifest/activity-element#enabledCallback) attribute to `false` in the `&ltapplication>` or `&ltactivity>` tag of your app's `AndroidManifest.xml` file. |
++|---|---|
++| **How your app handles back navigation** | **Recommended migration path** (link on this page) |
++| AndroidX APIs | [Migrate an existing AndroidX back implementation](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#migrate-existing) |
++| Unsupported platform APIs | [Migrate an AndroidX app containing unsupported back navigation APIs to AndroidX APIs](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#migrate-androidx) |
+ 
+ > [!IMPORTANT]
+ > **Important:** We strongly recommend that you implement predictive back navigation as soon as possible. Otherwise, users might experience unexpected behavior in a future release of Android.
+@@ -122,99 +141,6 @@ To migrate unsupported APIs to AndroidX APIs:
+    > [!NOTE]
+    > **Note:** `OnBackPressedCallback` is always called regardless of the value of `android:enableOnBackInvokedCallback`. In other words, disabling the system animation doesn't affect your app's back handling logic if it uses `OnBackPressedCallback`.
+ 
+-### Migrate an app that uses unsupported back navigation APIs to platform APIs
+-
+-If your app cannot use AndroidX libraries and instead implements or makes
+-reference to custom Back navigation using the unsupported APIs, you must migrate
+-to the `OnBackInvokedCallback` platform API.
+-
+-> [!NOTE]
+-> **Note:** We strongly recommend using AndroidX libraries. AndroidX automatically enables updated system Back navigation in your app when you enable the feature, and also provides [many other useful features](https://developer.android.com/jetpack/androidx) that automatically update APIs with each release to save you work and time.
+-
+-Complete the following steps to migrate unsupported APIs to the platform API:
+-
+-1. Use the new `OnBackInvokedCallback` API on devices running Android 13 or
+-   higher, and rely on the unsupported APIs on devices running Android 12 or
+-   lower.
+-
+-2. Register your custom back logic in `OnBackInvokedCallback` with
+-   `onBackInvokedDispatcher`. This prevents the current activity from being
+-   finished, and your callback gets a chance to react to the Back action once
+-   the user completes the system Back navigation.
+-
+-3. Unregister the `OnBackInvokedCallback` when ready to stop intercepting the
+-   back gesture. Otherwise, users may see undesirable behavior when using a
+-   system Back navigation---for example, "getting stuck" between views and
+-   forcing them to force quit your app.
+-
+-   Here's an example of how to migrate logic out of `onBackPressed`:
+-
+-   ### Kotlin
+-
+-   ```kotlin
+-   @Override
+-   fun onCreate() {
+-       if (BuildCompat.isAtLeastT()) {
+-           onBackInvokedDispatcher.registerOnBackInvokedCallback(
+-               OnBackInvokedDispatcher.PRIORITY_DEFAULT
+-           ) {
+-               /**
+-                * onBackPressed logic goes here. For instance:
+-                * Prevents closing the app to go home screen when in the
+-                * middle of entering data to a form
+-                * or from accidentally leaving a fragment with a WebView in it
+-                *
+-                * Unregistering the callback to stop intercepting the back gesture:
+-                * When the user transitions to the topmost screen (activity, fragment)
+-                * in the BackStack, unregister the callback by using
+-                * OnBackInvokeDispatcher.unregisterOnBackInvokedCallback
+-                * (https://developer.android.com/reference/kotlin/android/window/OnBackInvokedDispatcher#unregisteronbackinvokedcallback)
+-                */
+-           }
+-       }
+-   }
+-   ```
+-
+-   ### Java
+-
+-   ```java
+-   @Override
+-   void onCreate() {
+-     if (BuildCompat.isAtLeastT()) {
+-       getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+-           OnBackInvokedDispatcher.PRIORITY_DEFAULT,
+-           () -> {
+-             /**
+-              * onBackPressed logic goes here - For instance:
+-              * Prevents closing the app to go home screen when in the
+-              * middle of entering data to a form
+-              * or from accidentally leaving a fragment with a WebView in it
+-              *
+-              * Unregistering the callback to stop intercepting the back gesture:
+-              * When the user transitions to the topmost screen (activity, fragment)
+-              * in the BackStack, unregister the callback by using
+-              * OnBackInvokeDispatcher.unregisterOnBackInvokedCallback
+-              * (https://developer.android.com/reference/kotlin/android/view/OnBackInvokedDispatcher#unregisteronbackinvokedcallback)
+-              */
+-           }
+-       );
+-     }
+-   }
+-   ```
+-4. Stop intercepting back events using `OnBackPressed` or `KeyEvent.KEYCODE_BACK`
+-   for Android 13 and later.
+-
+-You can register an `OnBackInvokedCallback` with `PRIORITY_DEFAULT` or
+-`PRIORITY_OVERLAY`, which is not available in the similar AndroidX
+-`OnBackPressedCallback`. Registering a callback with `PRIORITY_OVERLAY` is
+-helpful in some instances.
+-
+-This applies when you migrate from `onKeyPreIme()` and your callback needs to
+-receive the back gesture instead of an open IME. IMEs register callbacks with
+-`PRIORITY_DEFAULT` when opened. Register your callback with `PRIORITY_OVERLAY`
+-to ensure `OnBackInvokedDispatcher` dispatches the back gesture to your callback
+-instead of the open IME.
+-
+ ## Opt out of predictive back
+ 
+ To opt out, in `AndroidManifest.xml`, in the `<application>` tag, set the
+@@ -268,8 +194,8 @@ Keep in mind the following considerations when using the
+ ## Callback best practices
+ 
+ Here are best practices for using the supported system back callbacks;
+-`BackHandler` (for Compose), `OnBackPressedCallback`, or
+-`OnBackInvokedCallback`.
++[`PredictiveBackHandler`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#compose-back) or [`BackHandler`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#compose-back) (for Compose),
++[`OnBackPressedCallback`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback), or [`OnBackInvokedCallback`](https://developer.android.com/reference/android/window/OnBackInvokedCallback).
+ 
+ ### Determine the UI State that enables and disables each callback
+ 
+@@ -329,22 +255,22 @@ The other callback can include a material component that supports predictive
+ back, an AndroidX transition using the Progress APIs, or another custom
+ callback.
+ 
+-A `childFragmentManager`'s callback runs if the above callbacks are
+-disabled and the back stack for this `FragmentManager` isn't empty, where
+-`childFragmentManager` is attached within a Fragment. In this example, this
+-internal callback is disabled.
++The same stack behavior applies in Compose: the innermost `PredictiveBackHandler`
++or `BackHandler` takes precedence.
++
++Similarly, a `childFragmentManager`'s callback runs if the above callbacks are
++disabled and the back stack for this `FragmentManager` isn't empty. In this
++example, this internal callback is disabled.
+ 
+ Likewise, `supportFragmentManager`'s internal callback runs if the above
+-callbacks are disabled and its stack is non-empty. This behavior is consistent
+-when using either `FragmentManager` or `NavigationComponent` for navigation,
+-as `NavigationComponent` relies on `FragmentManager`. In this example,
++callbacks are disabled and its stack is non-empty. In this example,
+ this callback runs if the user didn't enter text into the form causing the
+ "Are you sure..." callback to be disabled.
+ 
+-Finally, `super.onBackPressed()`is the system-level callback, that again runs if
+-the above callbacks are disabled. In order to trigger system animations such as
+-back-to-home, cross-activity, and cross-task, `supportFragmentManager`'s back
+-stack must be empty so its internal callback is disabled.
++Finally, the system handles the back gesture if the above callbacks are
++disabled. In order to trigger system animations such as back-to-home,
++cross-activity, and cross-task, `supportFragmentManager`'s back stack must be
++empty so its internal callback is disabled.
+ 
+ ## Test the predictive back gesture animation
+ 

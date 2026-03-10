@@ -1,0 +1,20 @@
+diff --git a/docs/media/media3/ui/playerview.md b/docs/media/media3/ui/playerview.md
+index 8fc24be..79dc119 100644
+--- a/docs/media/media3/ui/playerview.md
++++ b/docs/media/media3/ui/playerview.md
+@@ -52,6 +52,7 @@ pages](https://developer.android.com/develop/background-work/background-tasks/aw
+ Once the view is declared in the layout file, it can be looked up in the
+ `onCreate` method of the activity:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -78,6 +79,7 @@ protected void onCreate(Bundle savedInstanceState) {
+ When a player has been initialized, it can be attached to the view by calling
+ `setPlayer`:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin

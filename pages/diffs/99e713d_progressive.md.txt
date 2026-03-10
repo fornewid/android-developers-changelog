@@ -1,0 +1,36 @@
+diff --git a/docs/media/media3/exoplayer/progressive.md b/docs/media/media3/exoplayer/progressive.md
+index 8dbcc86..ec92eae 100644
+--- a/docs/media/media3/exoplayer/progressive.md
++++ b/docs/media/media3/exoplayer/progressive.md
+@@ -51,6 +51,7 @@ Otherwise, it uses the [ExoPlayer library](https://github.com/androidx/media/tre
+ To play a progressive stream, create a `MediaItem` with the media URI and pass
+ it to the player.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -73,11 +74,14 @@ player.setMediaItem(MediaItem.fromUri(progressiveUri));
+ player.prepare();
+ ```
+ 
++<br />
++
+ ## Using ProgressiveMediaSource
+ 
+ For more customization options, you can create a `ProgressiveMediaSource` and
+ pass it directly to the player instead of a `MediaItem`.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -112,6 +116,8 @@ player.setMediaSource(mediaSource);
+ player.prepare();
+ ```
+ 
++<br />
++
+ ## Customizing playback
+ 
+ ExoPlayer provides multiple ways for you to tailor playback experience to your

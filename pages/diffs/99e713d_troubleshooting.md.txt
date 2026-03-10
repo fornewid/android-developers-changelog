@@ -1,0 +1,21 @@
+diff --git a/docs/media/media3/exoplayer/troubleshooting.md b/docs/media/media3/exoplayer/troubleshooting.md
+index e22f351..166f8f2 100644
+--- a/docs/media/media3/exoplayer/troubleshooting.md
++++ b/docs/media/media3/exoplayer/troubleshooting.md
+@@ -135,6 +135,7 @@ specify any subtitle tracks by providing a list of expected
+ subtitle formats to the `DefaultExtractorsFactory`, including the accessibility
+ channels that can be used to identify them in the MPEG-TS stream:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -170,6 +171,8 @@ Player player =
+         .build();
+ ```
+ 
++<br />
++
+ #### Why do some MP4/FMP4 files play incorrectly?
+ 
+ Some MP4/FMP4 files contain edit lists that rewrite the media timeline by

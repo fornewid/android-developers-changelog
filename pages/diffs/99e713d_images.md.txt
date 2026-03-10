@@ -1,0 +1,90 @@
+diff --git a/docs/media/media3/exoplayer/images.md b/docs/media/media3/exoplayer/images.md
+index c441e17..2b7fee8 100644
+--- a/docs/media/media3/exoplayer/images.md
++++ b/docs/media/media3/exoplayer/images.md
+@@ -28,6 +28,7 @@ To play an image as part of a playlist, create a `MediaItem` with the image URI
+ and pass it to the player. The `MediaItem` must have a `imageDurationMs` to
+ specify for how long the image should be displayed.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -50,6 +51,8 @@ player.setMediaItem(new MediaItem.Builder().setUri(imageUri).setImageDurationMs(
+ player.prepare();
+ ```
+ 
++<br />
++
+ ### Motion Photos
+ 
+ Motion photos are files combining a still image with a short video.
+@@ -62,6 +65,7 @@ Motion photos are files combining a still image with a short video.
+ For more customization options, you can create a `ProgressiveMediaSource` and
+ pass it directly to the player instead of a `MediaItem`.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -97,6 +101,8 @@ player.setMediaSource(mediaSource);
+ player.prepare();
+ ```
+ 
++<br />
++
+ ## Customizing playback
+ 
+ ExoPlayer provides multiple ways for you to tailor playback experience to your
+@@ -120,6 +126,7 @@ The `MediaItem` added to the `Player` must define the
+ `APPLICATION_EXTERNALLY_LOADED_IMAGE` MIME type explicitly to use the image
+ loading library code paths:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -140,6 +147,8 @@ MediaItem mediaItem =
+         .build();
+ ```
+ 
++<br />
++
+ ### Image decoder using an image loading library
+ 
+ The image renderer needs an `ExternallyLoadedImageDecoder` to retrieve the
+@@ -149,6 +158,7 @@ The image renderer needs an `ExternallyLoadedImageDecoder` to retrieve the
+ The following example uses Glide to load an image, limiting the output to
+ the display size to avoid creating very large `Bitmap` objects:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -199,6 +209,8 @@ Player player =
+         .build();
+ ```
+ 
++<br />
++
+ ### Image preloading with an image loading library
+ 
+ During playback, the player requests to preload the next image once the previous
+@@ -210,6 +222,7 @@ can do nothing.
+ The following example uses Glide to ensure that the requested image is preloaded
+ to disk:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -251,4 +264,6 @@ Player player =
+         .setMediaSourceFactory(
+             new DefaultMediaSourceFactory(context).setExternalImageLoader(glidePreloader))
+         .build();
+-```
+\ No newline at end of file
++```
++
++<br />
+\ No newline at end of file

@@ -1,0 +1,56 @@
+diff --git a/docs/media/media3/exoplayer/network-stacks.md b/docs/media/media3/exoplayer/network-stacks.md
+index 6c297fb..40e0ca9 100644
+--- a/docs/media/media3/exoplayer/network-stacks.md
++++ b/docs/media/media3/exoplayer/network-stacks.md
+@@ -25,6 +25,7 @@ that corresponds to the network stack you wish to use. If your app also
+ needs to play non-http(s) content, such as local files, use
+ `DefaultDataSource.Factory`:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -41,6 +42,8 @@ new DefaultDataSource.Factory(
+     context, /* baseDataSourceFactory= */ new PreferredHttpDataSource.Factory(context));
+ ```
+ 
++<br />
++
+ In this example, `PreferredHttpDataSource.Factory` is the factory corresponding to your
+ preferred network stack. The `DefaultDataSource.Factory` layer adds in support
+ for non-http(s) sources such as local files.
+@@ -48,6 +51,7 @@ for non-http(s) sources such as local files.
+ The following example shows how to build an `ExoPlayer` that will use the Cronet
+ network stack and also support playback of non-http(s) content.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -91,6 +95,8 @@ ExoPlayer player =
+         .build();
+ ```
+ 
++<br />
++
+ ## Supported network stacks
+ 
+ ExoPlayer provides direct support for HttpEngine, Cronet, OkHttp, and Android's
+@@ -226,6 +232,7 @@ media or repeating the same item.
+ Caching requires a `SimpleCache` instance pointing to a dedicated cache
+ directory and a `CacheDataSource.Factory`:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -272,4 +279,6 @@ ExoPlayer player =
+         .setMediaSourceFactory(
+             new DefaultMediaSourceFactory(context).setDataSourceFactory(cacheDataSourceFactory))
+         .build();
+-```
+\ No newline at end of file
++```
++
++<br />
+\ No newline at end of file

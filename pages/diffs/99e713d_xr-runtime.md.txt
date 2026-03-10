@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/releases/xr-runtime.md b/docs/jetpack/androidx/releases/xr-runtime.md
+index 5038a91..94351eb 100644
+--- a/docs/jetpack/androidx/releases/xr-runtime.md
++++ b/docs/jetpack/androidx/releases/xr-runtime.md
+@@ -108,7 +108,7 @@ January 28, 2026
+ 
+ **API Changes**
+ 
+-- `ConfigMode.HeadTrackingMode` is replaced with `ConfigMode.HeadTrackingMode`. ([le273e](https://android-review.googlesource.com/#/q/Ie273ef58cbd8187d33e91b344d37107187002990), [b/467150206](https://issuetracker.google.com/issues/467150206))
++- `ConfigMode.HeadTrackingMode` is replaced with `ConfigMode.DeviceTrackingMode`. ([le273e](https://android-review.googlesource.com/#/q/Ie273ef58cbd8187d33e91b344d37107187002990), [b/467150206](https://issuetracker.google.com/issues/467150206))
+ - Removed Quaternion's `toNormalized`, `times(float)`, `div(float)` methods. These methods are redundant given that all Quaternions are normalized at construction time and given that the class is immutable. ([l558fc](https://android-review.googlesource.com/#/q/I558fcff3211fc4a9122262b548936b2b877735e4), [b/460210457](https://issuetracker.google.com/issues/460210457))
+ 
+ **Bug Fixes**

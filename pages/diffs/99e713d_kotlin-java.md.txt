@@ -1,0 +1,22 @@
+diff --git a/docs/guide/playcore/install-prompt/kotlin-java.md b/docs/guide/playcore/install-prompt/kotlin-java.md
+index 32534a0..897c17f 100644
+--- a/docs/guide/playcore/install-prompt/kotlin-java.md
++++ b/docs/guide/playcore/install-prompt/kotlin-java.md
+@@ -23,7 +23,7 @@ dependency:
+     dependencies {
+         // This dependency is downloaded from the <a href="/studio/build/dependencies#google-maven">Google's Maven repository</a>.
+         // So, make sure you also include that repository in your project's build.gradle file.
+-        implementation 'com.google.android.play:crossdeviceprompt:0.0.1-eap01'
++        implementation 'com.google.android.play:crossdeviceprompt:0.0.1'
+         ...
+     }
+ 
+@@ -34,7 +34,7 @@ dependency:
+     dependencies {
+         // This dependency is downloaded from the <a href="/studio/build/dependencies#google-maven">Google's Maven repository</a>.
+         // So, make sure you also include that repository in your project's build.gradle file.
+-        implementation("com.google.android.play:crossdeviceprompt:0.0.1-eap01")
++        implementation("com.google.android.play:crossdeviceprompt:0.0.1")
+         ...
+     }
+ 

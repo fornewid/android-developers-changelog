@@ -1,0 +1,67 @@
+diff --git a/docs/training/cars/apps/navigation.md b/docs/training/cars/apps/navigation.md
+index 6a5df25..9a7073d 100644
+--- a/docs/training/cars/apps/navigation.md
++++ b/docs/training/cars/apps/navigation.md
+@@ -21,14 +21,14 @@ filter of its [`CarAppService`](https://developer.android.com/reference/androidx
+        <service
+            ...
+             android:name=".MyNavigationCarAppService"
+-            android:expor>ted=&qu<ot;true">
+-          in<tent-filter
+-            action android:name="androidx>.car.app.<CarAppService" /
+-            category android:name="and>roidx.c<ar.app.categor>y.NAV<IGATION&>quot;/
+-      <    />intent-filter
+-        /service
++            android:exported="true">
++          <intent-filter>
++            <action android:name="androidx.car.app.CarAppService" />
++            <category android:name="androidx.car.app.category.NAVIGATION"/>
++          </intent-filter>
++        </service>
+         ...
+-    /application
++    </application>
+ 
+ > [!IMPORTANT]
+ > **Important:** Navigation apps built for Android Automotive OS require additional declarations in the manifest, as described in [Additional requirements for
+@@ -80,9 +80,9 @@ the `androidx.car.app.NAVIGATION_TEMPLATES` permission in its
+ 
+     <manifest ...>
+       ...
+-      <uses-permission android:name="androidx.car.app.NAVIGATION_TEMPLA>TES&quo<t;/
+-      ...>
+-    /manifest
++      <uses-permission android:name="androidx.car.app.NAVIGATION_TEMPLATES"/>
++      ...
++    </manifest>
+ 
+ An additional permission is required to [draw maps](https://developer.android.com/training/cars/apps#draw-maps).
+ 
+@@ -379,18 +379,18 @@ following snippet:
+ ```xml
+ <application>
+     ...
+-<   service
++   <service
+        ...
+         android:name=".MyNavigationCarAppService"
+-        android:exported=&<quot;true">
+-   <   intent-filter>
+-        action android:name="androidx.<car.app.CarAppService" />
+-        category android:name="a<ndroidx.car.app.category.NAVIGATION"/>
+-        category android:na<me="androidx.ca<r.app.category.FEA<TURE_CLUSTER"/>
+-      /intent-filter>
+-    /service>
++        android:exported="true">
++      <intent-filter>
++        <action android:name="androidx.car.app.CarAppService" />
++        <category android:name="androidx.car.app.category.NAVIGATION"/>
++        <category android:name="androidx.car.app.category.FEATURE_CLUSTER"/>
++      </intent-filter>
++    </service>
+     ...
+-/application>
++</application>
+ ```
+ 
+ ### Lifecycle and State Management

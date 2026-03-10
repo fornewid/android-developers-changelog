@@ -1,0 +1,49 @@
+diff --git a/docs/jetpack/androidx/releases/wear-watchfacepush.md b/docs/jetpack/androidx/releases/wear-watchfacepush.md
+index a59b2ac..9bfdb33 100644
+--- a/docs/jetpack/androidx/releases/wear-watchfacepush.md
++++ b/docs/jetpack/androidx/releases/wear-watchfacepush.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ API Reference  
+ [androidx.wear.watchfacepush](https://developer.android.com/reference/kotlin/androidx/wear/watchfacepush/package-summary)  
+-Watch Face Push allows a Wear OS app to install a watch face on a watch programmatically.  
++Watch Face Push allows a Wear OS app to install a watch face on a watch programmatically.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+@@ -22,7 +22,7 @@ Read [Google's Maven repository](https://developer.android.com/studio/build/depe
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:  
++your app or module:
+ 
+ ### Groovy
+ 
+@@ -46,7 +46,7 @@ dependencies {
+     implementation("androidx.wear.watchfacepush:watchfacepush:1.0.0-beta01")
+ }
+ ```
+-Additionally, if the app needs to generate tokens for a watch face at runtime, add the following dependency:  
++Additionally, if the app needs to generate tokens for a watch face at runtime, add the following dependency:
+ 
+ ### Groovy
+ 
+@@ -62,7 +62,7 @@ repositories {
+ }
+ 
+ dependencies {
+-    implementation "com.google.android.wearable.watchface.validator:validator-push:1.0.0-alpha07"
++    implementation "com.google.android.wearable.watchface.validator:validator-push:1.0.0-alpha10"
+ }
+ ```
+ 
+@@ -80,7 +80,7 @@ repositories {
+ }
+ 
+ dependencies {
+-    implementation("com.google.android.wearable.watchface.validator:validator-push:1.0.0-alpha07")
++    implementation("com.google.android.wearable.watchface.validator:validator-push:1.0.0-alpha10")
+ }
+ ```
+ 

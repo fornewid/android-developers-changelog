@@ -1,5 +1,531 @@
 [
   {
+    "date": "2026-03-10T15:21:43Z",
+    "commit_hash": "99e713d",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/ai/appfunctions\" target=\"_blank\">Overview of AppFunctions</a>",
+        "path": "ai/appfunctions.md",
+        "summary": "A warning regarding the experimental status of AppFunctions has been added, emphasizing that the API is subject to change as it is in a preview state. This matters because it informs developers of the potential for future modifications and encourages caution when integrating this feature.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_appfunctions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-2-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.2.0</a>",
+        "path": "build/releases/agp-9-2-0-release-notes.md",
+        "summary": "This release notes update includes a new section detailing fixed issues in Android Gradle Plugin 9.2.0-alpha03, covering issues related to JdkImageTransform, AAR metadata encoding, and fixes in Lint and Lint integration. These fixes address bugs that improve stability and functionality for developers using the Android Gradle Plugin.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_agp-9-2-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/sensors-and-location/location/geofencing\" target=\"_blank\">Create and monitor geofences</a>",
+        "path": "develop/sensors-and-location/location/geofencing.md",
+        "summary": "The provided diff shows changes to the XML code block within the geofencing.md file. Specifically, it corrects a minor syntax error in the XML by fixing the closing tags of the receiver. This ensures the application functions as intended by correctly registering the GeofenceBroadcastReceiver.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_geofencing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/layouts/adaptive/support-connected-displays\" target=\"_blank\">Support connected displays</a>",
+        "path": "develop/ui/compose/layouts/adaptive/support-connected-displays.md",
+        "summary": "This document introduces changes related to handling display disconnections, using Jetpack Compose for display information, and best practices for managing activity launches and avoiding device allowlists in the context of connected displays. These changes ensure applications correctly handle display configurations, adapt UIs to different displays and screen sizes, and avoid reliance on device allowlists.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_support-connected-displays.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/appwidgets\" target=\"_blank\">Create a simple widget</a>",
+        "path": "develop/ui/views/appwidgets.md",
+        "summary": "The documentation updates the behavior of `maxResizeWidth` and `maxResizeHeight` attributes for app widgets. It clarifies that these attributes, introduced in Android 12, are ignored if they are smaller than `minWidth` or `minHeight`, or if resizing isn't enabled.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_appwidgets.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/image-keyboard\" target=\"_blank\">Image keyboard support</a>",
+        "path": "develop/ui/views/touch-and-input/image-keyboard.md",
+        "summary": "The changes appear to correct a typo in the code example. The code was updated to fix a conditional check for the Android SDK version. This ensures that the appropriate flags are set when committing content, which is important for compatibility and proper functionality on different Android versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_image-keyboard.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/publish/play-managed-installation\" target=\"_blank\">Play Managed Publishing</a>",
+        "path": "games/playgames/native-pc/publish/play-managed-installation.md",
+        "summary": "The documentation for Play Managed Installation has been updated to include a note about the Authenticode signing requirement for executable files when using the `requiresElevation=\"true\"` attribute in install or uninstall operations. This update clarifies a crucial security consideration for game developers using this feature, ensuring that executables launched with elevated privileges are properly signed to maintain user trust and system integrity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_play-managed-installation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/use-age-signals-api\" target=\"_blank\">Use Play Age Signals API (beta)</a>",
+        "path": "google/play/age-signals/use-age-signals-api.md",
+        "summary": "The documentation was updated to clarify the possible values for `userStatus` and their implications, especially concerning users in Brazil and those who don't share their age. The changes provide more specific information on when each status is returned and the meaning behind it. This ensures developers understand how to interpret the age signals API responses correctly for different user scenarios.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_use-age-signals-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture\" target=\"_blank\">Add support for the predictive back gesture</a>",
+        "path": "guide/navigation/custom-back/predictive-back-gesture.md",
+        "summary": "The documentation was updated to include information on handling custom back gestures in Compose using the `PredictiveBackHandler` and `BackHandler` composables. It also streamlined the migration path section, updating the table and removing redundant migration steps for unsupported APIs and reordered sections for clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_predictive-back-gesture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-basic\" target=\"_blank\">Deep Link Basic Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/deeplinks-basic.md",
+        "summary": "The update modifies the handling of query parameters in deep link patterns. It now ignores static query parameters that are not defined within the Serializable class associated with the deep link. This change prevents potential errors when dealing with query parameters not directly mapped to serialized properties and improves the robustness of deep link processing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_deeplinks-basic.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/results-event\" target=\"_blank\">Returning a Result (Event-Based)</a>",
+        "path": "guide/navigation/navigation-3/recipes/results-event.md",
+        "summary": "The documentation for the results-event.md file has been updated to reflect a change in the GitHub repository URL used within the code example. This update ensures that the code example points to the correct location in the repository.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_results-event.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/results-state\" target=\"_blank\">Returning a Result (State-Based)</a>",
+        "path": "guide/navigation/navigation-3/recipes/results-state.md",
+        "summary": "The documentation updated the link to the `NavKeys.kt` file within the `PersonDetailsForm` class definition. This change ensures the link points to the correct version of the code repository.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_results-state.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/install-prompt/kotlin-java\" target=\"_blank\">Integrate in-app install prompts</a>",
+        "path": "guide/playcore/install-prompt/kotlin-java.md",
+        "summary": "The documentation for the Play Core Install Prompt has been updated to reflect a dependency version change. Specifically, the version for `crossdeviceprompt` was updated from `0.0.1-eap01` to `0.0.1`. This update likely represents a release candidate or a stable release, rather than an early access preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_kotlin-java.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/wear-watchfacepush\" target=\"_blank\">Wear Watch Face Push</a>",
+        "path": "jetpack/androidx/releases/wear-watchfacepush.md",
+        "summary": "The documentation for the Wear Watch Face Push library has been updated to reflect a dependency update. Specifically, the version of `com.google.android.wearable.watchface.validator:validator-push` has been updated from `1.0.0-alpha07` to `1.0.0-alpha10`. This change indicates a newer version of the validator library is now recommended for use.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_wear-watchfacepush.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/xr-runtime\" target=\"_blank\">XR Runtime</a>",
+        "path": "jetpack/androidx/releases/xr-runtime.md",
+        "summary": "The xr-runtime.md documentation has been updated to reflect API changes and bug fixes. Specifically, `ConfigMode.HeadTrackingMode` has been replaced with `ConfigMode.DeviceTrackingMode`, and several redundant methods from the Quaternion class have been removed. These changes likely improve clarity and efficiency in the XR runtime library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_xr-runtime.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "Android Studio Canary channel has been updated. The latest update includes a new Canary version with the latest tools and features for Android development. The date of the Stable release has also been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/ad-insertion\" target=\"_blank\">Ad insertion</a>",
+        "path": "media/media3/exoplayer/ad-insertion.md",
+        "summary": "The documentation for ad insertion in ExoPlayer has been updated. The changes include adding Kotlin code snippets, minor formatting adjustments and addition of `<br />` tags to improve readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_ad-insertion.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/analytics\" target=\"_blank\">Analytics</a>",
+        "path": "media/media3/exoplayer/analytics.md",
+        "summary": "The documentation for ExoPlayer's analytics has been updated to include extra line breaks after code blocks and before certain sections to improve readability. These changes don't introduce any functional or conceptual modifications but are purely for formatting purposes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_analytics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/cmcd\" target=\"_blank\">Common Media Client Data (CMCD)</a>",
+        "path": "media/media3/exoplayer/cmcd.md",
+        "summary": "The documentation was updated to include additional examples and notes on enabling CMCD (Common Media Client Data) in ExoPlayer. The changes include adding code snippets to illustrate how to enable CMCD with both default and custom configuration factories in Kotlin and Java, along with clarifications on data transmission methods (request headers or query parameters) when using a custom configuration. This is important for configuring CMCD for custom setups.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_cmcd.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/customization\" target=\"_blank\">Customization</a>",
+        "path": "media/media3/exoplayer/customization.md",
+        "summary": "The documentation introduces several changes related to code formatting and organization. Specifically, it added `<br />` tags and blank lines to improve readability by visually separating code snippets and sections. Although these changes improve the presentation, they don't affect the core technical content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_customization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/dash\" target=\"_blank\">DASH</a>",
+        "path": "media/media3/exoplayer/dash.md",
+        "summary": "The documentation for DASH playback in ExoPlayer has been updated to improve code readability and add visual separation. Specifically, code blocks for Kotlin and Groovy examples were reformatted, and `<br />` tags were added to provide spacing between sections, enhancing clarity and organization. These changes make the documentation easier to follow and understand.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_dash.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/debug-logging\" target=\"_blank\">Debug logging</a>",
+        "path": "media/media3/exoplayer/debug-logging.md",
+        "summary": "The documentation for debug logging in ExoPlayer has been updated to include a visual separation between the Kotlin and Java code snippets, making it easier for developers to distinguish the code examples. Also there is a minor text update.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_debug-logging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/downloading-media\" target=\"_blank\">Downloading media</a>",
+        "path": "media/media3/exoplayer/downloading-media.md",
+        "summary": "The documentation has been updated with several new line breaks to improve readability. These changes do not introduce any new functionality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_downloading-media.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/drm\" target=\"_blank\">Digital rights management</a>",
+        "path": "media/media3/exoplayer/drm.md",
+        "summary": "The documentation was updated to include additional examples and formatting.  The changes include Kotlin code examples, and formatting to improve readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_drm.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/hello-world\" target=\"_blank\">Getting started</a>",
+        "path": "media/media3/exoplayer/hello-world.md",
+        "summary": "The documentation for the ExoPlayer 'Hello World' example has been updated to remove code block formatting and add line breaks for better readability. Additionally, a link in the Kotlin example was updated to point to the correct source code.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_hello-world.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/hls\" target=\"_blank\">HLS</a>",
+        "path": "media/media3/exoplayer/hls.md",
+        "summary": "This document introduces updates in HLS streams with interstitials for ExoPlayer. It includes more comprehensive information about setting up and configuring the HlsInterstitialsAdsLoader. The updated documentation introduces clearer examples and more detailed descriptions of the implementation steps, including the addition of new Kotlin examples. It also updates the code formatting and adds line breaks for better readability, and incorporates the latest APIs for HLS stream handling.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_hls.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/images\" target=\"_blank\">Images</a>",
+        "path": "media/media3/exoplayer/images.md",
+        "summary": "The documentation for image playback in ExoPlayer has been updated with several new line breaks for better readability. The changes include adding line breaks after each code block and before section headers throughout the document, improving the overall visual structure and clarity of the content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_images.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/listening-to-player-events\" target=\"_blank\">Player events</a>",
+        "path": "media/media3/exoplayer/listening-to-player-events.md",
+        "summary": "The documentation has been updated with extra line breaks for better readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_listening-to-player-events.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/live-streaming\" target=\"_blank\">Live streaming</a>",
+        "path": "media/media3/exoplayer/live-streaming.md",
+        "summary": "The documentation for live streaming in ExoPlayer was updated to include Java and Kotlin code snippets. Formatting changes include additional line breaks for better readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_live-streaming.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/media-items\" target=\"_blank\">Media items</a>",
+        "path": "media/media3/exoplayer/media-items.md",
+        "summary": "The documentation introduces and explains the usage of `MediaItem` in ExoPlayer. It describes how to create `MediaItem` instances with different configurations, including setting URIs, metadata, image display, handling non-standard file extensions, protected content, sideloading subtitles, content clipping, and inserting ads. The changes add line breaks for better readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_media-items.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/media-sources\" target=\"_blank\">Media sources</a>",
+        "path": "media/media3/exoplayer/media-sources.md",
+        "summary": "The documentation for media sources in ExoPlayer has been updated to include code examples in both Kotlin and Java for creating a DefaultMediaSourceFactory, injecting it into an ExoPlayer instance, and preparing and playing media sources. It now also demonstrates how to bypass the player's internal MediaSource.Factory and pass media source instances directly to the player, with corresponding Kotlin and Java examples. The changes also include formatting improvements such as line breaks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_media-sources.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/network-stacks\" target=\"_blank\">Network stacks</a>",
+        "path": "media/media3/exoplayer/network-stacks.md",
+        "summary": "The documentation for network stacks in ExoPlayer has been updated with examples and formatting changes.  The primary changes include the addition of Kotlin examples, code formatting, and improved organization with line breaks. These updates provide clearer guidance on configuring network stacks and caching within the ExoPlayer framework, improving usability for developers implementing these features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_network-stacks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/playlists\" target=\"_blank\">Playlists</a>",
+        "path": "media/media3/exoplayer/playlists.md",
+        "summary": "The documentation for playlists in ExoPlayer has been updated to include additional Kotlin and Java examples and better formatting, specifically adding line breaks to improve readability. The changes provide more comprehensive examples and enhance the overall clarity of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_playlists.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/create\" target=\"_blank\">Create and configure a DefaultPreloadManager</a>",
+        "path": "media/media3/exoplayer/preloading-media/preloadmanager/create.md",
+        "summary": "The documentation was updated to include additional code snippets and formatting for clarity. It also clarifies that a DefaultPreloadManager can only be built once per builder, and includes a key points section to highlight the code snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_create.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play\" target=\"_blank\">Manage and play content</a>",
+        "path": "media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md",
+        "summary": "The documentation introduces and explains the key methods of `PreloadManager` such as `add()`, `invalidate()`, `getMediaSource()`, `setCurrentPlayingIndex()`, `remove()`, and `release()` with example code snippets and key points. This helps developers efficiently manage media preloading and optimize playback performance in their Android applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_manage-play.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/progressive\" target=\"_blank\">Progressive</a>",
+        "path": "media/media3/exoplayer/progressive.md",
+        "summary": "The documentation for progressive media playback in ExoPlayer has been updated to include additional whitespace and formatting changes.  These changes primarily involve the insertion of `<br />` tags to improve visual presentation, and slight modifications in code examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_progressive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/retrieving-metadata\" target=\"_blank\">Retrieving metadata</a>",
+        "path": "media/media3/exoplayer/retrieving-metadata.md",
+        "summary": "The documentation for retrieving media metadata has been updated to include additional spacing and formatting for better readability, but the core content and examples remain consistent with the original version. These changes primarily improve the visual organization of the content without altering the technical instructions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_retrieving-metadata.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/rtsp\" target=\"_blank\">RTSP</a>",
+        "path": "media/media3/exoplayer/rtsp.md",
+        "summary": "The documentation updates include formatting changes such as adding blank lines for better readability and removing code block markers. These changes improve the visual structure of the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_rtsp.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/shrinking\" target=\"_blank\">APK shrinking</a>",
+        "path": "media/media3/exoplayer/shrinking.md",
+        "summary": "The documentation was updated to remove code block markers for Kotlin and Groovy code samples, and to add line breaks after code examples. This change improves the visual presentation and readability of the documentation by removing unnecessary formatting elements and providing better separation between code blocks and surrounding text.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_shrinking.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/smoothstreaming\" target=\"_blank\">SmoothStreaming</a>",
+        "path": "media/media3/exoplayer/smoothstreaming.md",
+        "summary": "This document provides examples of how to integrate SmoothStreaming content using ExoPlayer. The updates include minor formatting changes like removing code block markers and adding line breaks for better readability, and it demonstrates how to specify the content type when the URI doesn't end with the expected file extension, along with examples for manifest access and playback customization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_smoothstreaming.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/track-selection\" target=\"_blank\">Track selection</a>",
+        "path": "media/media3/exoplayer/track-selection.md",
+        "summary": "The documentation for track selection has been updated to include `<br />` tags to improve readability by adding line breaks between code examples and explanatory text. There are no functional changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_track-selection.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/troubleshooting\" target=\"_blank\">Troubleshooting</a>",
+        "path": "media/media3/exoplayer/troubleshooting.md",
+        "summary": "The documentation was updated to include additional information regarding subtitle track selection in MPEG-TS streams. It provides guidance on how to specify subtitle tracks by providing a list of expected subtitle formats, including accessibility channels, in Kotlin and Java examples. Additionally, it contains a new section to address issues in MP4/FMP4 file playback, and explains that some MP4/FMP4 files might contain edit lists that rewrite the media timeline by reordering media segments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_troubleshooting.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/inspector/extract-frames\" target=\"_blank\">Extract video frames</a>",
+        "path": "media/media3/inspector/extract-frames.md",
+        "summary": "The documentation for extracting frames has been updated to include a Java code example in addition to the existing Kotlin example. The addition of the Java example makes the documentation more accessible to developers who prefer to use Java. Also, some formatting changes like adding horizontal rules were made.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_extract-frames.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/inspector/extract-samples\" target=\"_blank\">Extract encoded samples</a>",
+        "path": "media/media3/inspector/extract-samples.md",
+        "summary": "The documentation provides code samples demonstrating the use of `MediaExtractorCompat` in both Kotlin and Java to extract samples from media files. The update adds a Java code example, providing developers with a complete set of code examples for the library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_extract-samples.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/inspector/retrieve-metadata\" target=\"_blank\">Retrieve metadata</a>",
+        "path": "media/media3/inspector/retrieve-metadata.md",
+        "summary": "The documentation for retrieving media metadata using `MetadataRetriever` has been updated to include code examples for both Kotlin and Java, demonstrating how to use the retriever to fetch media information asynchronously. This update provides developers with clear, runnable code snippets to facilitate the implementation of metadata retrieval in their Android applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_retrieve-metadata.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/androidtv\" target=\"_blank\">Android TV</a>",
+        "path": "media/media3/ui/androidtv.md",
+        "summary": "The documentation for Android TV was updated to include example code snippets in Kotlin for handling key events and requesting focus for the PlayerView, and also provides a Kotlin example for using AndroidView in Compose to handle focus and key events.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_androidtv.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/compose-customization\" target=\"_blank\">Core Compose</a>",
+        "path": "media/media3/ui/compose-customization.md",
+        "summary": "The documentation for compose-customization.md has been updated to include spacing and formatting changes. Additionally, the document now includes better code examples and visual output state holders to improve clarity and readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_compose-customization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/compose-material3\" target=\"_blank\">Material3 Compose</a>",
+        "path": "media/media3/ui/compose-material3.md",
+        "summary": "This document introduces the `media3-ui-compose-material3` library, which provides Material3 styled UI components for media playback. The changes include adding code block examples, formatting, and demonstrating how to customize the appearance of the components by using a custom color scheme within a `MaterialTheme`. These updates help users integrate Material3 theming into their media UI and offers visual customization options.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_compose-material3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/customization\" target=\"_blank\">UI customizations</a>",
+        "path": "media/media3/ui/customization.md",
+        "summary": "The documentation updates include minor formatting changes, such as adding blank lines for readability and improved code style with more consistent spacing and indentation in the provided Kotlin and Java examples. These updates enhance the clarity of the code snippets without altering their functionality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_customization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/playerview\" target=\"_blank\">Getting started with Views-based UI</a>",
+        "path": "media/media3/ui/playerview.md",
+        "summary": "The documentation for `playerview.md` has been updated with extra blank lines in the Kotlin and Java examples. These changes don't affect the functionality or explanation of the code, so they are considered trivial.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_playerview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/archive\" target=\"_blank\">Android Studio download archives</a>",
+        "path": "studio/archive.md",
+        "summary": "The embedded iframe source URL has been updated, likely to reflect a change in the archived Studio resources. This ensures the documentation uses the current content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/emulator_archive\" target=\"_blank\">Emulator download archives</a>",
+        "path": "studio/emulator_archive.md",
+        "summary": "The change involves updating the URL of the embedded iframe. This is likely a minor update, potentially to reflect a change in the documentation's hosting or a refresh of the embedded content, and doesn't impact the core functionality or guidance provided.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_emulator_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated to reflect the new nightly build date and download links for Android Studio Panda 3, specifically changing the date from 2026-03-06 to 2026-03-10. This ensures users have access to the latest nightly build version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">Android Studio Preview</a>",
+        "path": "studio/preview.md",
+        "summary": "This update changes the Android Studio version from Canary 2 to Canary 3 for the Panda 3 release across all download sections (Windows, Mac, and Linux). This includes updates to download links and file names. This is an expected update for users to get the latest preview release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/36\" target=\"_blank\">Android Emulator 36 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/36.md",
+        "summary": "This release adds information about the Android Emulator 36.5.7 Canary release, highlighting minor fixes and improvements. It also includes an entry for the 36.5.6 Canary release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_36.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.3\" target=\"_blank\">Android Studio Panda 3 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2025.3.3.md",
+        "summary": "This document details the fixed issues in Android Studio Panda 3, specifically Canary 3 (2025.3.3). It highlights bug fixes across several areas including Android Gradle Plugin, ASwB, Code Editor, Gemini, Lint, Lint Integration, and Project View, and provides links to the relevant issue trackers. This information is crucial for developers to understand and address potential problems encountered in their Android development workflow when using this version of Android Studio.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_2025.3.3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-arctic-fox-release-notes\" target=\"_blank\">Android Studio Arctic Fox</a>",
+        "path": "studio/releases/past-releases/as-arctic-fox-release-notes.md",
+        "summary": "The diff corrects a typo in the example code within the Android Studio release notes. The original code contained an invalid tag 'viewmodel.username' and has been corrected to 'viewmodel.username'. This correction ensures the example functions correctly and accurately represents the intended code snippet.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_as-arctic-fox-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/basics/intents/sending\" target=\"_blank\">Sending the user to another app</a>",
+        "path": "training/basics/intents/sending.md",
+        "summary": "The documentation for sending intents has been updated to use Kotlin's `let` function more clearly. The modifications improve code readability by explicitly naming the Uri parameter within the `let` block, enhancing clarity for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_sending.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/basics/supporting-devices/languages\" target=\"_blank\">Support different languages and cultures</a>",
+        "path": "training/basics/supporting-devices/languages.md",
+        "summary": "The changes appear to be related to fixing some formatting and typo issues in the code snippets within the document. Specifically, some angle brackets, quotes, and closing tags in the XML code examples and the manifest file were corrected to ensure correct rendering. This is important for the examples to display correctly and for users to be able to copy/paste the example code into their projects.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_languages.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/apps/navigation\" target=\"_blank\">Build a navigation app</a>",
+        "path": "training/cars/apps/navigation.md",
+        "summary": "This document, detailing the development of navigation apps for Android Automotive OS, has undergone updates to refine code snippets and clarify manifest declarations. These changes focus on correcting formatting issues and ensuring accurate XML syntax within the manifest files, and also include adding the FEATURE_CLUSTER category. This makes the documentation easier to understand and more accurate for developers building navigation applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/data-storage/room/migrating-db-versions\" target=\"_blank\">Migrate your Room database</a>",
+        "path": "training/data-storage/room/migrating-db-versions.md",
+        "summary": "The documentation was updated to correct a typo in the Gradle configuration example for Room schema generation. The previous version included an invalid character ('&quot;') in the `asArguments()` method of the `SchemaExportTask` class. This fix ensures the correct path for schema generation is passed to the Room processor, which is crucial for database versioning and migration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_migrating-db-versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/data-storage/room/relationships/one-to-many\" target=\"_blank\">Define and query one-to-many relationships</a>",
+        "path": "training/data-storage/room/relationships/one-to-many.md",
+        "summary": "The documentation was updated to reflect the correct Kotlin and Java syntax for a one-to-many relationship using Room. Specifically, the type declarations for the `playlists` field in the `UserWithPlaylists` data class and the return type of the `getUsersWithPlaylists()` method in the DAO were corrected to use `List<Playlist>` in Kotlin and `List<UserWithPlaylists>` in Java, resolving syntax errors and ensuring the code functions as intended.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_one-to-many.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/permissions/requesting\" target=\"_blank\">Request runtime permissions</a>",
+        "path": "training/permissions/requesting.md",
+        "summary": "The documentation was updated to fix several code snippets and improve readability. These changes include correcting syntax errors in Kotlin and Java code examples, fixing XML tags, and clarifying the use of location permissions, including background location access and foreground service type for location-based applications. These corrections ensure the examples are accurate and the instructions are clear for developers implementing location-aware features in their Android applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_requesting.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/tiles/animations\" target=\"_blank\">Tile animations</a>",
+        "path": "training/wearables/tiles/animations.md",
+        "summary": "The documentation for animations in Wear OS tiles has been updated with minor changes. The primary changes involve the removal of a trailing 's' in code snippets and correcting type definitions for the `onTileRequest` and `onTileResourcesRequest` methods, replacing `Listen<able>FutureTile` with `ListenableFuture<Tile>` and `Listen<ableFutur>eResources` with `ListenableFuture<Resources>`, respectively. These changes ensure the code samples and documentation align with the correct API definitions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_animations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/watch-face-push\" target=\"_blank\">Watch Face Push</a>",
+        "path": "training/wearables/watch-face-push.md",
+        "summary": "The documentation for the watch face push validator tool has been updated to reflect the latest version, which is 1.0.0-alpha10, replacing the previous version 1.0.0-alpha07. This ensures developers are using the most current version of the validator when building and testing watch faces.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/99e713d_watch-face-push.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-09T15:22:25Z",
     "commit_hash": "a6aab62",
     "entries": [
