@@ -1,0 +1,107 @@
+diff --git a/docs/health-and-fitness/health-connect/medical-records/read-data.md b/docs/health-and-fitness/health-connect/medical-records/read-data.md
+index 4998b02..4e978a1 100644
+--- a/docs/health-and-fitness/health-connect/medical-records/read-data.md
++++ b/docs/health-and-fitness/health-connect/medical-records/read-data.md
+@@ -11,8 +11,7 @@ follow these steps:
+ 
+ 1. Check for feature availability.
+ 2. Request read permissions.
+-3. Read medical records ([`MedicalResource`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MedicalResource)).
+-4. Read data sources ([`MedicalDataSource`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MedicalDataSource)).
++3. Read data, such as [`MedicalResource`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MedicalResource) records or [`MedicalDataSource`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MedicalDataSource) details.
+ 
+ ## Feature availability
+ 
+@@ -51,7 +50,7 @@ Reading medical data is protected by the following permission:
+ - `android.permission.health.READ_MEDICAL_DATA_VITAL_SIGNS`
+ 
+ Declare these permissions in the Play Console for your app, as well as in your
+-app's manifest:  
++app's manifest:
+ 
+     <application>
+       <uses-permission
+@@ -72,7 +71,7 @@ the user. Users must be allowed to grant or deny permissions at any time.
+ 
+ To do so, create a set of permissions for the required data types.
+ Make sure that the permissions in the set are declared in your Android
+-manifest first.  
++manifest first.
+ 
+     // Create a set of permissions for required data types
+     import androidx.health.connect.client.permission.HealthPermission.Companion.PERMISSION_READ_MEDICAL_DATA_ALLERGIES_INTOLERANCES
+@@ -107,7 +106,7 @@ manifest first.
+ Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
+ required permissions granted. If not, use
+ [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
+-those permissions. This displays the Health Connect permissions screen.  
++those permissions. This displays the Health Connect permissions screen.
+ 
+     // Create the permissions launcher
+     val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
+@@ -130,7 +129,7 @@ those permissions. This displays the Health Connect permissions screen.
+     }
+ 
+ Because users can grant or revoke permissions at any time, your app needs to
+-periodically check for granted permissions and handle scenarios where
++check for permissions every time before using them and handle scenarios where
+ permission is lost.
+ 
+ ## Medical resources
+@@ -141,18 +140,18 @@ written to Health Connect for the user, including those added by other apps.
+ ### Get MedicalResource records
+ 
+ Filter a get request by specifying the `medicalResourceType`. Make sure to use
+-paged requests and be mindful of [rate limiting](https://developer.android.com/health-and-fitness/guides/health-connect/plan/rate-limiting).  
++paged requests and be mindful of [rate limiting](https://developer.android.com/health-and-fitness/guides/health-connect/plan/rate-limiting).
+ 
+     // Read `MedicalResource`s back from the `MedicalDataSource`
+     // Read 100 resources / page. See `pageSize` doc for defaults and limits.
+     val pageSize = 100
+     // Prepare the initial read request.
+-    // All `MedicalResource`s in the given `MedicalDataSource`s and of given `medicalResourceType`
+-    // will be retrieved.
++    // If `medicalDataSourceIds` is empty, all `MedicalResource`s of the given `medicalResourceType`
++    // across all `MedicalDataSource`s will be retrieved.
+     val initialRequest: ReadMedicalResourcesRequest =
+         ReadMedicalResourcesInitialRequest(
+             MEDICAL_RESOURCE_TYPE_LABORATORY_RESULTS,
+-            setOf(medicalDataSource.id),
++            medicalDataSourceIds = emptySet(),
+             pageSize = pageSize,
+         )
+     // Continue reading pages until all `MedicalResource`s are read
+@@ -173,7 +172,7 @@ paged requests and be mindful of [rate limiting](https://developer.android.com/h
+ 
+ ### Get MedicalResource records by ID
+ 
+-You can also retrieve a `MedicalResource` using an ID:  
++You can also retrieve a `MedicalResource` using an ID:
+ 
+     // Retrieve `fhirResourceType` type `MedicalResource`s with the specified `id`s from the
+     // provided `MedicalDataSource`
+@@ -193,9 +192,14 @@ You can also retrieve a `MedicalResource` using an ID:
+ You can read any data source ([`MedicalDataSource`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MedicalDataSource))
+ written to Health Connect for the user, including those added by other apps.
+ 
++A `MedicalDataSource` represents the source of medical records, such as a
++hospital or clinic. This helps you identify where specific medical records
++originated, which is useful for filtering data or displaying source
++information to the user.
++
+ ### Get a MedicalDataSource record by package name
+ 
+-Use `GetMedicalDataSourcesRequest` to request by package name (app):  
++Use `GetMedicalDataSourcesRequest` to request by package name (app):
+ 
+     // Retrieve all `MedicalDataSource`s created by any of the specified package names
+     // Package names may be found in other `MedicalDataSource`s or from arbitrary input
+@@ -206,7 +210,7 @@ Use `GetMedicalDataSourcesRequest` to request by package name (app):
+ 
+ ### Get a MedicalDataSource record by ID
+ 
+-Or, request by `id` if you know it:  
++Or, request by `id` if you know it:
+ 
+     // Retrieve all `MedicalDataSource` with `id` matching any of the given ids
+     val medicalDataSources: List<MedicalDataSource> =

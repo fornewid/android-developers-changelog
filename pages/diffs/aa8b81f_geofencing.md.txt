@@ -1,0 +1,19 @@
+diff --git a/docs/develop/sensors-and-location/location/geofencing.md b/docs/develop/sensors-and-location/location/geofencing.md
+index 89c046a..48c300a 100644
+--- a/docs/develop/sensors-and-location/location/geofencing.md
++++ b/docs/develop/sensors-and-location/location/geofencing.md
+@@ -46,10 +46,10 @@ a child of the `https://developer.android.com/guide/topics/manifest/application-
+ 
+ ```xml
+ <application
+-   android:allowBackup=">true"
+-<   ...
+-   receiver android:name=".GeofenceBroa>d<castReceiver>"/
+-application/
++   android:allowBackup="true">
++   ...
++   <receiver android:name=".GeofenceBroadcastReceiver"/>
++<application/>
+ ```
+ 
+ To access the location APIs, you need to create an instance of the

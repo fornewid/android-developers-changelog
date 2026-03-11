@@ -1,0 +1,27 @@
+diff --git a/docs/health-and-fitness/health-connect/aggregate-data.md b/docs/health-and-fitness/health-connect/aggregate-data.md
+index bb6c23d..b5903d1 100644
+--- a/docs/health-and-fitness/health-connect/aggregate-data.md
++++ b/docs/health-and-fitness/health-connect/aggregate-data.md
+@@ -6,8 +6,10 @@ source: md.txt
+ 
+ Aggregating data in Health Connect includes basic aggregations or aggregating
+ data into buckets. The following workflows show you how to do both.
+-| **Tip:** For further guidance on aggregating data, take a look at the [Android
+-| Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E&t=149) in Health Connect.
++
++> [!TIP]
++> **Tip:** For further guidance on aggregating data, take a look at the [Android
++> Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E&t=149) in Health Connect.
+ 
+ ## Basic aggregation
+ 
+@@ -176,7 +178,8 @@ The following shows an example of aggregating steps into monthly buckets:
+         }
+     }
+ 
+-| **Note:** When running bucket aggregates per period, make sure that the start and end times set are not using the [`Instant`](https://developer.android.com/reference/java/time/Instant) class. Otherwise, the app returns an `IllegalStateException`.
++> [!NOTE]
++> **Note:** When running bucket aggregates per period, make sure that the start and end times set are not using the [`Instant`](https://developer.android.com/reference/java/time/Instant) class. Otherwise, the app returns an `IllegalStateException`.
+ 
+ ## Read restrictions
+ 

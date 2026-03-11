@@ -1,0 +1,69 @@
+diff --git a/docs/build/releases/agp-4-1-0-release-notes.md b/docs/build/releases/agp-4-1-0-release-notes.md
+index e3405bd..e0325c1 100644
+--- a/docs/build/releases/agp-4-1-0-release-notes.md
++++ b/docs/build/releases/agp-4-1-0-release-notes.md
+@@ -21,17 +21,17 @@ source: md.txt
+     <p>This version of the Android plugin requires the following:</p>
+     <ul>
+       <li>
+-        <p><a href="https://docs.gradle.org/6.5.1/release-notes.html">Gradle 6.5</a>.
+-        To learn more, read the section about <a href="#updating-gradle">updating
+-        Gradle</a>.</p>
+-      </li>
+-      <li>
+-        <p><a href="/studio/releases/build-tools.html#notes">SDK Build Tools
+-        29.0.2</a> or higher.</p>
+-      </li>
+-    </ul>
+-    <p>The default NDK version in this release is 21.1.6352462. To install a
+-    different NDK version, see <a href="/studio/projects/install-ndk#specific-version">Install a specific version of the NDK</a>.</p>
++        <p><a href="https://docs.gradle.org/6.5.1/release-notes.>html"<Gr>adle 6.5/a.
++        To learn more, read the sect<ion about a href="#u>pdating-gradle"<;u>p<da>tin<g
++     >   <Gr>adle/<a><./p
++      /li
++      li
++        pa href="/studio/release>s/build-tools.html#notes&q<uo>t;SDK Build< T>ool<s
++     > <  2>9<.>0.2/a or higher./p
++      /li
++    /ul
++    pThe default NDK version in this release is 21.1.6352462. To install< a
++    different NDK version, see a href="/studio/pro>jects/install-ndk#specific-version&qu<ot>;<In>stall a specific version of the NDK/a./p
+ 
+ <br />
+ 
+@@ -87,12 +87,12 @@ buildFeatures {
+ 
+ prefab {
+     <var>mylibrary</var&;gt {
+-      headers "src/main/cpp/<var>mylibrary</var>/include"
++      headers "src/<mai>n/cpp/var<myli>brary/var/includ`<e&q>uot;
+     }
+-`<var>myotherlibrary</var> {
+-    headers "src/main/cpp/<var>myotherlibrary</var>/include"
++var<myot>herlibrary/var {
++    headers <&qu>ot;src/main/cp<p/va>rmyotherlibr`ary/var/include"
+ }
+-`
++
+ }
+ ```
+ 
+@@ -102,13 +102,13 @@ buildFeatures {
+ }
+ 
+ prefab {
+-    create("<var>mylibrary</var>") {
+-      headers = "src/main/cpp/<var>mylibrary</var>/include"
++    create(&<quo>t;varmyli<brar>y/var") {
++      headers = &quo<t;s>rc/main/c<pp/v>armylibrary/var/`include&<quo>t;
+     }
+-`create("<var>myotherlibrary</var>") {
+-    headers = "src/main/cpp/<var>myotherlibrary</var>/include"
++creat<e(&q>uot;varmyotherlibrary/var") <{
++ >   headers = &<quot>;src/main/cp`p/varmyotherlibrary/var/include"
+ }
+-`
++
+ }
+ ```
+ 

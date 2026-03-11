@@ -1,0 +1,33 @@
+diff --git a/docs/health-and-fitness/health-connect/features/training-plans.md b/docs/health-and-fitness/health-connect/features/training-plans.md
+index 4821aff..9ac9919 100644
+--- a/docs/health-and-fitness/health-connect/features/training-plans.md
++++ b/docs/health-and-fitness/health-connect/features/training-plans.md
+@@ -6,7 +6,8 @@ source: md.txt
+ 
+ <br />
+ 
+-| **Note:** This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
++> [!NOTE]
++> **Note:** This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
+ 
+ <br />
+ 
+@@ -149,7 +150,7 @@ those permissions. This displays the Health Connect permissions screen.
+     }
+ 
+ Because users can grant or revoke permissions at any time, your app needs to
+-periodically check for granted permissions and handle scenarios where
++check for permissions every time before using them and handle scenarios where
+ permission is lost.
+ 
+ ### Related permissions
+@@ -183,7 +184,8 @@ for each type of app:
+ | `READ_EXERCISE_ROUTES` | `WRITE_EXERCISE_ROUTE` |
+ | `READ_HEART_RATE` | `WRITE_HEART_RATE` |
+ 
+-| **Key Point:** Write permission also provides you read access to records you have written using that permission. It isn't always necessary to request both read and write permission for a data type.
++> [!IMPORTANT]
++> **Key Point:** Write permission also provides you read access to records you have written using that permission. It isn't always necessary to request both read and write permission for a data type.
+ 
+ ## Information included in a planned exercise session record
+ 

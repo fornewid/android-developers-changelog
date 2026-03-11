@@ -1,5 +1,320 @@
 [
   {
+    "date": "2026-03-11T15:20:13Z",
+    "commit_hash": "aa8b81f",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-4-1-0-release-notes\" target=\"_blank\">Android Gradle Plugin 4.1.0 (August 2020)</a>",
+        "path": "build/releases/agp-4-1-0-release-notes.md",
+        "summary": "The release notes document updates related to the Android Gradle Plugin (AGP) version 4.1.0.  Changes include adjustments to Gradle and SDK Build Tools requirements, and code examples for prefab configurations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_agp-4-1-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/sensors-and-location/location/geofencing\" target=\"_blank\">Create and monitor geofences</a>",
+        "path": "develop/sensors-and-location/location/geofencing.md",
+        "summary": "The example XML code snippet for registering a broadcast receiver within the `<application>` tag has been corrected. Specifically, the closing angle bracket was missing in the `android:name` attribute. This fix ensures the receiver is properly registered in the manifest file, which is crucial for the geofencing functionality to work correctly, as it allows the app to receive geofence transition events.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_geofencing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/styles\" target=\"_blank\">Styles in Compose</a>",
+        "path": "develop/ui/compose/styles.md",
+        "summary": "This document introduces the new Style API for Jetpack Compose, a new way to customize UI elements, offering improved flexibility, performance, and easier design system creation compared to traditional modifiers and styling parameters. It explains the core concepts of Styles, StyleScope, and StyleState, and provides guidance on how to get started with the new API.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/styles/dos-donts\" target=\"_blank\">Do's and don'ts with Styles</a>",
+        "path": "develop/ui/compose/styles/dos-donts.md",
+        "summary": "This new documentation page provides guidelines, best practices, and patterns for effectively utilizing Styles in Android Compose to maintain consistency and improve code design. It outlines \"Do's\" and \"Don'ts\" for visual configurations, design systems, animations, and interaction logic when working with Styles.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/styles/examples\" target=\"_blank\">Examples with Styles</a>",
+        "path": "develop/ui/compose/styles/examples.md",
+        "summary": "This new documentation page provides examples of using Styles in Android Compose to create custom UI components, specifically focusing on button styling with various effects like hover, depth, and gradient glows, and demonstrating how to apply multiple styles and animations.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/styles/fundamentals\" target=\"_blank\">Fundamentals of Styles</a>",
+        "path": "develop/ui/compose/styles/fundamentals.md",
+        "summary": "This new documentation introduces the concept of Styles in Jetpack Compose, explaining how to apply them directly to components, through modifiers, and by defining standalone styles for reusability, including inheritance and custom property implementation.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/styles/limitations\" target=\"_blank\">Current limitations</a>",
+        "path": "develop/ui/compose/styles/limitations.md",
+        "summary": "This new documentation page outlines the functional limitations of the Styles API in Android Compose, covering aspects like animation support, property scoping, shapes, and interoperability with other UI elements.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/styles/performance\" target=\"_blank\">Performance benefits with Styles</a>",
+        "path": "develop/ui/compose/styles/performance.md",
+        "summary": "This new documentation page introduces Compose Styles and their performance benefits. It explains how Styles optimize rendering by operating in the layout and drawing phases, reducing object overhead, and deferring allocations, leading to improved performance compared to using modifiers.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/styles/state-animations\" target=\"_blank\">State and animations in Styles</a>",
+        "path": "develop/ui/compose/styles/state-animations.md",
+        "summary": "This new documentation page introduces the Styles API for managing UI changes based on interaction states like hovered, focused, and pressed, streamlining the process and reducing boilerplate code, with built-in animation support.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/styles/styles-vs-modifiers\" target=\"_blank\">Styles versus modifiers</a>",
+        "path": "develop/ui/compose/styles/styles-vs-modifiers.md",
+        "summary": "This new documentation page introduces the concept of Styles in Jetpack Compose, comparing and contrasting them with Modifiers, outlining their respective strengths and limitations, and providing guidance on when to choose one over the other for UI development. It explains that Styles are specialized Modifiers primarily designed for visual appearance, theming, and animation optimization, whereas Modifiers are more suitable for defining behaviors, complex layouts, and adding functionalities.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/image-keyboard\" target=\"_blank\">Image keyboard support</a>",
+        "path": "develop/ui/views/touch-and-input/image-keyboard.md",
+        "summary": "The code now correctly checks the Android API level using `>=` instead of `=` for `Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1` in both Kotlin and Java examples. This ensures the correct behavior when granting read URI permission for input content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_image-keyboard.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose\" target=\"_blank\">Track a device's pose using ARCore for Jetpack XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore/device-pose.md",
+        "summary": "The documentation for device pose has been updated with code samples and clarified explanations. Specifically, code examples now use `deviceTracking` instead of `deviceTrackingMode` and provide two methods for obtaining the device pose: once or continuously via a collector. Additionally, a newline and example code was added after the `processDevicePose` function call. The note about the `HEAD_TRACKING` permission has been updated to use a URL rather than a Markdown link.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_device-pose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial\" target=\"_blank\">Work with geospatial poses using ARCore for Jetpack XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore/geospatial.md",
+        "summary": "The documentation for the Geospatial API was updated to improve code clarity and provide better examples. The changes include code formatting improvements, updated code snippets, and additional context to aid in understanding the API's usage.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_geospatial.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/skill\" target=\"_blank\">Jetpack Navigation 3 Skill</a>",
+        "path": "guide/navigation/navigation-3/skill.md",
+        "summary": "This document has been updated to reflect changes in the navigation guide, including updated links and descriptions. Notably, several recipes have been updated to provide better examples and instructions for common use cases. Furthermore, recipes using Scenes have been updated to reflect the new API and a new 'Material Adaptive' section has been added. These changes improve the clarity and usefulness of the navigation documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/aggregate-data\" target=\"_blank\">Read aggregated data</a>",
+        "path": "health-and-fitness/health-connect/aggregate-data.md",
+        "summary": "The documentation for aggregating data in Health Connect was updated to use a TIP and NOTE callout style for better formatting and readability. The formatting change does not affect the content's technical accuracy.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_aggregate-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/data-types\" target=\"_blank\">Health Connect data types</a>",
+        "path": "health-and-fitness/health-connect/data-types.md",
+        "summary": "The documentation was updated to include a 'Data type fields' table that clarifies the structure and requirements of each data type.  This table describes fields such as record type, unit of measurement, and mandatory fields to maintain data integrity.  The table includes a list of the mandatory fields for each type to improve clarity and assist developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_data-types.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/experiences/sleep\" target=\"_blank\">Develop Sleep Experiences with Health Connect</a>",
+        "path": "health-and-fitness/health-connect/experiences/sleep.md",
+        "summary": "This new documentation details how to build sleep tracking experiences within Android apps using Health Connect, covering data types, permissions, background execution, and recommended workflows for comprehensive sleep data management.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/experiences/vitals\" target=\"_blank\">Develop Vitals Experiences with Health Connect</a>",
+        "path": "health-and-fitness/health-connect/experiences/vitals.md",
+        "summary": "This new documentation page provides a guide on how to build apps that manage user vitals data using Health Connect, covering permissions, read/write workflows, and best practices for data management.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/experiences/workouts\" target=\"_blank\">Develop Workout Experiences with Health Connect</a>",
+        "path": "health-and-fitness/health-connect/experiences/workouts.md",
+        "summary": "This new documentation page provides a guide for developers on building workout tracking experiences using Health Connect, covering data types, background execution, permissions, workflows, and best practices for creating comprehensive workout features.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/exercise-routes\" target=\"_blank\">Add exercise routes</a>",
+        "path": "health-and-fitness/health-connect/features/exercise-routes.md",
+        "summary": "The documentation for exercise routes has been updated to clarify permission handling. The note regarding permission behavior was updated to use a note block, and the guidance on checking for granted permissions has been made more explicit to ensure that apps handle scenarios where permission is lost before using any permission. These changes improve clarity and reinforce best practices for handling user permissions within the Health Connect framework.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_exercise-routes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/mindfulness\" target=\"_blank\">Track mindfulness</a>",
+        "path": "health-and-fitness/health-connect/features/mindfulness.md",
+        "summary": "The documentation for mindfulness sessions in Health Connect has been updated. The changes include correcting the prompt for checking permissions and providing a new code snippet demonstrating how to read mindfulness sessions within a specified time range, including how to process the returned records. Additionally, the code for writing mindfulness sessions is included.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_mindfulness.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/skin-temperature\" target=\"_blank\">Measure skin temperature</a>",
+        "path": "health-and-fitness/health-connect/features/skin-temperature.md",
+        "summary": "The documentation for skin temperature in Health Connect was updated to use a note block and clarify that skin temperature data is not for core body temperature measurement. The documentation also stresses the importance of regularly checking for permissions, which is critical for ensuring that an app can use sensitive health data.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_skin-temperature.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/sleep-sessions\" target=\"_blank\">Track sleep sessions</a>",
+        "path": "health-and-fitness/health-connect/features/sleep-sessions.md",
+        "summary": "The documentation has been updated to clarify the difference between subtype and associated data in sleep sessions. Associated data, unlike subtype data, is recorded independently and has its own UUID. The example code for adding sleep stages has been enhanced with complete stage definitions, including specific start and end times, and timezone offsets. Additionally, the permission check reminder was updated and the formatting of the notes section was changed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_sleep-sessions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/steps\" target=\"_blank\">Track steps</a>",
+        "path": "health-and-fitness/health-connect/features/steps.md",
+        "summary": "The documentation has been updated to reflect best practices for permission handling. The guide now recommends checking permissions before use and handling scenarios where permissions are lost, which is critical for maintaining app functionality and data access.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_steps.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/training-plans\" target=\"_blank\">Training plans</a>",
+        "path": "health-and-fitness/health-connect/features/training-plans.md",
+        "summary": "This document on training plans has been updated to reflect best practices in permission handling and to highlight key information more effectively. The changes include clarifying permission checks and emphasizing the relationship between read and write permissions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_training-plans.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/get-started\" target=\"_blank\">Get started with Health Connect</a>",
+        "path": "health-and-fitness/health-connect/get-started.md",
+        "summary": "This document introduces several changes, including the update of `Note` to `> [!NOTE]` and `Important` to `> [!IMPORTANT]` blocks, and the addition of a clarification on permission checks, ensuring they are performed before using the permissions. These changes aim to improve the clarity and formatting of the documentation, as well as to improve the best practice guidance for Health Connect app developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/medical-records/read-data\" target=\"_blank\">Read medical data</a>",
+        "path": "health-and-fitness/health-connect/medical-records/read-data.md",
+        "summary": "The documentation for reading medical data in Health Connect has been updated. The changes include simplifying the step to read data, clarifying how to obtain medical records, improving the examples for getting medical records by ID, and including a new section explaining the MedicalDataSource. These updates provide clearer guidance on data retrieval and the use of different data sources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_read-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/medical-records/write-data\" target=\"_blank\">Write medical data</a>",
+        "path": "health-and-fitness/health-connect/medical-records/write-data.md",
+        "summary": "The documentation for writing medical data in Health Connect has been updated. Key changes include clarifying permission handling by emphasizing the need to check for permissions before use, and refining the note and caution messages when deleting MedicalDataSource and MedicalResource records, along with minor formatting and code example updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_write-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/publish\" target=\"_blank\">Publish your health app on Google Play</a>",
+        "path": "health-and-fitness/health-connect/publish.md",
+        "summary": "The documentation has been updated to include more visual aids such as figures. The existing text has been formatted with more context using the NOTE and WARNING blocks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_publish.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/write-data\" target=\"_blank\">Write data</a>",
+        "path": "health-and-fitness/health-connect/write-data.md",
+        "summary": "This document introduces changes related to best practices for writing data, handling permissions, and providing more specific guidance for writing different data types like steps, nutrition, heart rate, and multi-sport events. It also updates the guidelines for time zone handling and data resolution.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_write-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/media3\" target=\"_blank\">Media3</a>",
+        "path": "jetpack/androidx/releases/media3.md",
+        "summary": "This update introduces version 1.10.0-rc01 of Media3, released on March 10, 2026. The changes include a fix for notification artwork icon scaling on Android Q and improvements to the UI by hiding playback position updates from the accessibility service to prevent continuous announcements when PlayerControlView is visible.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_media3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">AndroidX releases</a>",
+        "path": "jetpack/androidx/versions.md",
+        "summary": "The `media3` library has been updated. The release date has been changed from December 17, 2025 to March 10, 2026, and the stable version is updated to 1.10.0-rc01.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">Recent Release Notes</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "The documentation has been updated to include the release of Media3 Version 1.10.0-rc01 on March 10, 2026. This update provides developers with the latest version of the Media3 library for building media applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/rc-channel\" target=\"_blank\">RC Releases</a>",
+        "path": "jetpack/androidx/versions/rc-channel.md",
+        "summary": "This document lists the release candidates for AndroidX libraries. The March 10, 2026, entry adds Media3 Version 1.10.0-rc01 as a release candidate. This update provides early access to a new release candidate for the Media3 library, allowing developers to test and prepare for its official release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_rc-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/playlists\" target=\"_blank\">Playlists</a>",
+        "path": "media/media3/exoplayer/playlists.md",
+        "summary": "The documentation for playlists.md has been updated to reflect changes in the link to the sample code for shuffle order. This change affects the sample code link, ensuring it points to the correct version of the code, which is important for users who want to follow the examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_playlists.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play\" target=\"_blank\">Manage and play content</a>",
+        "path": "media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md",
+        "summary": "The documentation has been updated with a modified link in a code comment. The link now points to a different commit in the same repository, likely reflecting an update to the sample code associated with the documentation. This change is not significant and reflects the evolving state of the project.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_manage-play.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/past-releases/as-arctic-fox-release-notes\" target=\"_blank\">Android Studio Arctic Fox</a>",
+        "path": "studio/releases/past-releases/as-arctic-fox-release-notes.md",
+        "summary": "The code example in the documentation was corrected to use the correct variable name `viewmodel.username` instead of `viewmod>el.username` in the data binding example. This ensures the code example functions correctly and reflects proper data binding syntax.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_as-arctic-fox-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/add-keep-rules\" target=\"_blank\">Add keep rules</a>",
+        "path": "topic/performance/app-optimization/add-keep-rules.md",
+        "summary": "The documentation introduces the ability to negate member name patterns within keep rules, starting with Android Gradle Plugin (AGP) 9.2-alpha02. This allows for more granular control over what members are kept or excluded during code shrinking, enabling developers to exclude specific members based on patterns, such as test methods, while still keeping others matching a broader pattern.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_add-keep-rules.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/basics/supporting-devices/languages\" target=\"_blank\">Support different languages and cultures</a>",
+        "path": "training/basics/supporting-devices/languages.md",
+        "summary": "The documentation for supporting different languages in Android has been updated to fix minor HTML issues. Specifically, the example XML code snippets were corrected to display properly formatted strings.  Additionally, several code snippets for defining the `supportsRtl` attribute were fixed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_languages.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/get-started/hardware\" target=\"_blank\">Handle TV hardware</a>",
+        "path": "training/tv/get-started/hardware.md",
+        "summary": "The documentation has been updated to correct syntax errors in the XML code examples. Specifically, it addresses malformed XML tags, ensuring proper closing of feature declarations. This is crucial for the correct interpretation and functionality of the Android app's manifest file, which defines the hardware and software requirements of the app.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/aa8b81f_hardware.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-10T15:21:43Z",
     "commit_hash": "99e713d",
     "entries": [

@@ -1,0 +1,184 @@
+diff --git a/docs/health-and-fitness/health-connect/get-started.md b/docs/health-and-fitness/health-connect/get-started.md
+index 7eaab85..237a20b 100644
+--- a/docs/health-and-fitness/health-connect/get-started.md
++++ b/docs/health-and-fitness/health-connect/get-started.md
+@@ -50,7 +50,7 @@ The Health Connect SDK is responsible for using the Health Connect API to
+ send requests in performing operations against the datastore in the Health
+ Connect app.
+ 
+-Add the Health Connect SDK dependency in your module-level `build.gradle` file:  
++Add the Health Connect SDK dependency in your module-level `build.gradle` file:
+ 
+     dependencies {
+       ...
+@@ -59,7 +59,9 @@ Add the Health Connect SDK dependency in your module-level `build.gradle` file:
+     }
+ 
+ Refer to the [Health Connect releases](https://developer.android.com/jetpack/androidx/releases/health-connect) for the latest version.
+-| **Note:** The Health Connect SDK supports Android 8 (API level 26) or higher, while the Health Connect app is only compatible with Android 9 (API level 28) or higher. This means that third-party apps can support users with Android 8, but only users with Android 9 or higher can use Health Connect.
++
++> [!NOTE]
++> **Note:** The Health Connect SDK supports Android 8 (API level 26) or higher, while the Health Connect app is only compatible with Android 9 (API level 28) or higher. This means that third-party apps can support users with Android 8, but only users with Android 9 or higher can use Health Connect.
+ 
+ ## Step 3: Configure your app
+ 
+@@ -75,7 +77,7 @@ action to take.
+ 
+ The main function to check for feature availability is
+ [`getFeatureStatus()`](https://developer.android.com/health-and-fitness/guides/health-connect/develop/feature-availability#perform-check). This returns integer constants
+-`FEATURE_STATUS_AVAILABLE` or `FEATURE_STATUS_UNAVAILABLE`:  
++`FEATURE_STATUS_AVAILABLE` or `FEATURE_STATUS_UNAVAILABLE`:
+ 
+     if (healthConnectClient
+          .features
+@@ -90,7 +92,8 @@ The main function to check for feature availability is
+       ...
+     }
+ 
+-| **Note:** If a feature isn't available, ask the user to update Health Connect. Features tied to the system module remain unavailable on Android 13 and lower, even with the APK.
++> [!NOTE]
++> **Note:** If a feature isn't available, ask the user to update Health Connect. Features tied to the system module remain unavailable on Android 13 and lower, even with the APK.
+ 
+ ### Declare permissions
+ 
+@@ -103,7 +106,7 @@ declared access to in the Play Console.
+ 
+ Health Connect uses the standard Android permission declaration format.
+ Assign permissions with the `<uses-permission>` tags. Nest them within the
+-`<manifest>` tags.  
++`<manifest>` tags.
+ 
+     <manifest>
+       <uses-permission android:name="android.permission.health.READ_HEART_RATE"/>
+@@ -127,7 +130,7 @@ describing how the user's data is used and handled.
+ 
+ Declare this activity to handle the `ACTION_SHOW_PERMISSIONS_RATIONALE`
+ intent where it is sent to the app when the user clicks on the
+-**privacy policy** link in the Health Connect permissions screen.  
++**privacy policy** link in the Health Connect permissions screen.
+ 
+     ...
+     <application>
+@@ -158,7 +161,8 @@ intent where it is sent to the app when the user clicks on the
+     </application>
+     ...
+ 
+-| **Note:** The activity must display the same privacy policy you provide for your app in the [Google Play Console](https://support.google.com/googleplay/android-developer/answer/9859455).
++> [!NOTE]
++> **Note:** The activity must display the same privacy policy you provide for your app in the [Google Play Console](https://support.google.com/googleplay/android-developer/answer/9859455).
+ 
+ ### Get a Health Connect client
+ 
+@@ -168,7 +172,7 @@ automatically manages its connection to the underlying storage layer and handles
+ all IPC and serialization of outgoing requests and incoming responses.
+ 
+ To get a client instance, declare the Health Connect package name in your
+-Android manifest first.  
++Android manifest first.
+ 
+     <application> ... </application>
+     ...
+@@ -179,7 +183,7 @@ Android manifest first.
+ 
+ Then in your Activity, check if Health Connect is installed
+ using [`getSdkStatus`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)). If it is, obtain a
+-`HealthConnectClient` instance.  
++`HealthConnectClient` instance.
+ 
+     val availabilityStatus = HealthConnectClient.getSdkStatus(context, providerPackageName)
+     if (availabilityStatus == HealthConnectClient.SDK_UNAVAILABLE) {
+@@ -208,7 +212,7 @@ the user. Users must be allowed to grant or deny permissions at any time.
+ 
+ To do so, create a set of permissions for the required data types.
+ Make sure that the permissions in the set are declared in your Android
+-manifest first.  
++manifest first.
+ 
+     // Create a set of permissions for required data types
+     val PERMISSIONS =
+@@ -222,7 +226,7 @@ manifest first.
+ Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
+ required permissions granted. If not, use
+ [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
+-those permissions. This displays the Health Connect permissions screen.  
++those permissions. This displays the Health Connect permissions screen.
+ 
+     // Create the permissions launcher
+     val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
+@@ -245,14 +249,14 @@ those permissions. This displays the Health Connect permissions screen.
+     }
+ 
+ Because users can grant or revoke permissions at any time, your app needs to
+-periodically check for granted permissions and handle scenarios where
++check for permissions every time before using them and handle scenarios where
+ permission is lost.
+ 
+ ### Onboard users
+ 
+ Many apps have a custom onboarding flow such as feature education or asking user
+ consent. To enable Health Connect to launch your onboarding flow, add the
+-following to your manifest:  
++following to your manifest:
+ 
+     <!-- Required to support pre-Android 14 devices with APK Health Connect -->
+     <activity
+@@ -289,7 +293,7 @@ Now that everything is set, perform read and write operations in your app.
+ ### Write data
+ 
+ Structure your data into a record. Check out the list of
+-[data types](https://developer.android.com/guide/health-and-fitness/health-connect/plan/data-types#alpha10) available in Health Connect.  
++[data types](https://developer.android.com/guide/health-and-fitness/health-connect/plan/data-types#alpha10) available in Health Connect.
+ 
+     val stepsRecord = StepsRecord(
+         count = 120,
+@@ -299,7 +303,7 @@ Structure your data into a record. Check out the list of
+         endZoneOffset = END_ZONE_OFFSET,
+     )
+ 
+-Then write your record using [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)).  
++Then write your record using [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)).
+ 
+     suspend fun insertSteps(healthConnectClient: HealthConnectClient) {
+         val endTime = Instant.now()
+@@ -324,8 +328,10 @@ Then write your record using [`insertRecords`](https://developer.android.com/ref
+ ### Read data
+ 
+ You can read your data individually using [`readRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#readRecords(androidx.health.connect.client.request.ReadRecordsRequest)).
+-| **Note:** For cumulative types like `StepsRecord`, use `aggregate()` instead of `readRecords()` to avoid double counting from multiple sources and improve accuracy. See [Read aggregated
+-data](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary) for more information.  
++
++> [!NOTE]
++> **Note:** For cumulative types like `StepsRecord`, use `aggregate()` instead of `readRecords()` to avoid double counting from multiple sources and improve accuracy. See [Read aggregated
++> data](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary) for more information.
+ 
+     suspend fun readHeartRateByTimeRange(
+         healthConnectClient: HealthConnectClient,
+@@ -348,7 +354,7 @@ data](https://developer.android.com/reference/kotlin/androidx/health/connect/cli
+     }
+ 
+ You can also read your data in an aggregated manner using
+-[`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary).  
++[`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary).
+ 
+     suspend fun aggregateSteps(
+         healthConnectClient: HealthConnectClient,
+@@ -369,7 +375,8 @@ You can also read your data in an aggregated manner using
+         }
+     }
+ 
+-| **Important:** Health Connect can read data for up to 30 days prior to the time permission was granted. If you would like your app to read records beyond 30 days, use the `PERMISSION_READ_HEALTH_DATA_HISTORY` permission. See [Read restrictions](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#read-restriction) for more information.
++> [!IMPORTANT]
++> **Important:** Health Connect can read data for up to 30 days prior to the time permission was granted. If you would like your app to read records beyond 30 days, use the `PERMISSION_READ_HEALTH_DATA_HISTORY` permission. See [Read restrictions](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#read-restriction) for more information.
+ 
+ ## Video tutorials
+ 
+@@ -390,7 +397,8 @@ development later on.
+ - **Declare use of data types:** In the Play Console, [declare access to the Health Connect data types](https://developer.android.com/health-and-fitness/guides/health-connect/publish/declare-access) that your app reads from and writes to.
+ - **Optional GitHub code sample and codelab:** See the GitHub code sample [repository](https://github.com/android/health-samples/tree/main/health-connect/HealthConnectSample) and the [codelab](https://developer.android.com/codelabs/health-connect) exercise to help you get started.
+ 
+-| **Note:** If you are applying for another request in case your app requires new data types, you need to include both new and existing data types, and exclude any data types you no longer need. If you only need to remove access to certain data types, include all of your existing data types but exclude the data types you no longer need.
++> [!NOTE]
++> **Note:** If you are applying for another request in case your app requires new data types, you need to include both new and existing data types, and exclude any data types you no longer need. If you only need to remove access to certain data types, include all of your existing data types but exclude the data types you no longer need.
+ 
+ ## Next steps
+ 
