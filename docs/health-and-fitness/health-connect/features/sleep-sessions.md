@@ -19,6 +19,12 @@ such as continuous heart rate or location data.
 **Subtype** data is data that "belongs" to a session and is only meaningful when
 it's read with a parent session. For example, sleep stage.
 
+**Associated data**, on the other hand, refers to data that is recorded
+independently but falls within the time range of a session. For example, if a
+user records Heart Rate during their sleep session, the Heart Rate data would
+be associated data. Unlike subtype data which is part of the session record,
+associated data consists of independent records, each with its own UUID.
+
 ## Check Health Connect availability
 
 Before attempting to use Health Connect, your app should verify that Health Connect is available
@@ -134,7 +140,7 @@ those permissions. This displays the Health Connect permissions screen.
     }
 
 Because users can grant or revoke permissions at any time, your app needs to
-periodically check for granted permissions and handle scenarios where
+check for permissions every time before using them and handle scenarios where
 permission is lost.
 
 ## Supported aggregations
@@ -169,9 +175,8 @@ Health Connect.
         )
     }
 
-- Sessions should **not** be used for general measurements, such as daily step counts.
-- Subtype data doesn't contain a UID, but associated data has distinct UIDs.
 - Subtype data needs to be aligned in a session with sequential timestamps that don't overlap. Gaps are allowed, however.
+- Subtype data doesn't contain a UUID, but associated data has distinct UUIDs.
 - Sessions are useful if the user wants data to be associated with (and tracked as part of) a session, rather than recorded continuously.
 
 ## Sleep sessions
@@ -212,18 +217,33 @@ Here's how to add stages that cover the entire period of a sleep session:
 
     val stages = listOf(
         SleepSessionRecord.Stage(
-            startTime = START_TIME
-            endTime = END_TIME,
+            startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
+            endTime = Instant.parse("2022-05-11T01:00:00.000Z"),
             stage = SleepSessionRecord.STAGE_TYPE_SLEEPING,
-        )
+        ),
+        SleepSessionRecord.Stage(
+            startTime = Instant.parse("2022-05-11T01:00:00.000Z"),
+            endTime = Instant.parse("2022-05-11T02:30:00.000Z"),
+            stage = SleepSessionRecord.STAGE_TYPE_LIGHT,
+        ),
+        SleepSessionRecord.Stage(
+            startTime = Instant.parse("2022-05-11T02:30:00.000Z"),
+            endTime = Instant.parse("2022-05-11T05:00:00.000Z"),
+            stage = SleepSessionRecord.STAGE_TYPE_DEEP,
+        ),
+        SleepSessionRecord.Stage(
+            startTime = Instant.parse("2022-05-11T05:00:00.000Z"),
+            endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
+            stage = SleepSessionRecord.STAGE_TYPE_REM,
+        ),
     )
 
     SleepSessionRecord(
             title = "weekend sleep",
-            startTime = START_TIME,
-            endTime = END_TIME,
-            startZoneOffset = START_ZONE_OFFSET,
-            endZoneOffset = END_ZONE_OFFSET,
+            startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
+            endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
+            startZoneOffset = ZoneOffset.of("-08:00"),
+            endZoneOffset = ZoneOffset.of("-08:00"),
             stages = stages,
     )
 
@@ -262,4 +282,5 @@ This is how to delete a session. For this example, we've used a sleep session:
         healthConnectClient.deleteRecords(SleepSessionRecord::class, timeRangeFilter)
     }
 
-| **Note:** Deleting a session does not automatically delete data associated with that session.
+> [!NOTE]
+> **Note:** Deleting a session does not automatically delete data associated with that session.

@@ -12,7 +12,7 @@ Support libraries for media use cases.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| December 17, 2025 | [1.9.2](https://developer.android.com/jetpack/androidx/releases/media3#1.9.2) | - | - | [1.10.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-alpha01) |
+| March 10, 2026 | [1.10.0-rc01](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc01) | - | - | [1.10.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -195,6 +195,18 @@ Your feedback helps make Jetpack better. You can use the
 to questions, known issues and feature requests, and to file new issues.
 
 ## Version 1.10.0
+
+### 1.10.0-rc01
+
+March 10, 2026
+
+Version 1.10.0-rc01 contains the following
+[commits](https://github.com/androidx/media/commits/1.10.0-rc01).
+
+- Session:
+  - Fix notification artwork icon scaling on Android Q ([#3084](https://github.com/androidx/media/issues/3084)).
+- UI:
+  - Hide playback position from the accessibility service to prevent continuous announcement update when `PlayerControlView` is visible.
 
 ### 1.10.0-beta01
 

@@ -314,8 +314,8 @@
     },
     "jetpack/androidx/versions/all-channel.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/versions/all-channel",
-      "hash": "d3b799077684eaf8e82c08f1dca932857df4b4a67c8b8d32cc0047dbca337396",
-      "last_updated": "2026-03-07T15:03:17.405542",
+      "hash": "a2c0d316dc2ddc6657512668125ed3cc7ff8900b148d42ac4e4b9280f3a617c6",
+      "last_updated": "2026-03-11T15:15:47.908498",
       "fetch_method": "md.txt"
     },
     "topic/performance/tracing/profiling-manager/querying-profiles.md": {
@@ -1892,8 +1892,8 @@
     },
     "health-and-fitness/health-connect/features/steps.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/features/steps",
-      "hash": "9a70bd13c6147cb1a3aed44cd8736f9eb1dea57905ebd6505e618d1772e4af43",
-      "last_updated": "2026-02-23T01:57:23.570414",
+      "hash": "b51c69fa3a5315b78ae8c8d11776b5d8e313cefe8696e933f6a0a901e25f0672",
+      "last_updated": "2026-03-11T15:15:43.028987",
       "fetch_method": "md.txt"
     },
     "tv/adt-1/safety.md": {
@@ -2846,8 +2846,8 @@
     },
     "media/media3/exoplayer/playlists.md": {
       "original_url": "https://developer.android.com/media/media3/exoplayer/playlists",
-      "hash": "3c46435aa4757d5d8f37314570bf5dacada561af5470e092ab64efc61c058514",
-      "last_updated": "2026-03-10T15:17:35.207551",
+      "hash": "47c4fed5a34d1d0a3e9189c952a30d16dabeae25041d5b0cb09ae0db67c00fcb",
+      "last_updated": "2026-03-11T15:15:34.902250",
       "fetch_method": "md.txt"
     },
     "games/services/publishing/api/achievementConfigurations/delete.md": {
@@ -3374,8 +3374,8 @@
     },
     "jetpack/androidx/versions.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/versions",
-      "hash": "4c09838c96019d30e004c1e28b1b5809cad08ca56902e85e61e4333b0e096f9d",
-      "last_updated": "2026-02-26T15:16:37.543227",
+      "hash": "33fce86d926fd0e2101ccd2bd4c6232cbabf9d83b74a916ed9b43f7d37731689",
+      "last_updated": "2026-03-11T15:16:17.722166",
       "fetch_method": "md.txt"
     },
     "games/pgs/quality.md": {
@@ -3890,8 +3890,8 @@
     },
     "develop/xr/jetpack-xr-sdk/arcore/device-pose.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose",
-      "hash": "9406a1ed2428e60d67bdd01f24293729ea8aaa2a54b1cd8f42dbe544f9b9e7cb",
-      "last_updated": "2026-02-27T15:14:02.569218",
+      "hash": "23f1187e89d9b10aae8cf5c6cf8d673c0395ece13aa54937d2993f04304e25e3",
+      "last_updated": "2026-03-11T15:16:23.332293",
       "fetch_method": "md.txt"
     },
     "tools/dmtracedump.md": {
@@ -6824,8 +6824,8 @@
     },
     "topic/performance/app-optimization/add-keep-rules.md": {
       "original_url": "https://developer.android.com/topic/performance/app-optimization/add-keep-rules",
-      "hash": "f09b5d46f830ed0b95c48bc8e732b2c660394528244d1969bb703cc600cee452",
-      "last_updated": "2026-02-23T15:18:05.397988",
+      "hash": "1144683ba7a53633d4d7fb2fae0db2541f164ec0e8ef650c2ebbf1b57efe5351",
+      "last_updated": "2026-03-11T15:16:50.712081",
       "fetch_method": "md.txt"
     },
     "develop/connectivity/bluetooth/ble-audio/audio-recording.md": {
@@ -7784,8 +7784,8 @@
     },
     "health-and-fitness/health-connect/features/training-plans.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/features/training-plans",
-      "hash": "0642d11ec67f90eea9c8926b0c1bf6732a16212b5cc4fb71d2fe9c8b0e805a2e",
-      "last_updated": "2026-02-23T01:59:13.721843",
+      "hash": "88cd4893df03d76f1aed814b6a19f86339aa44e26c8dcb85722224807e4dcbe8",
+      "last_updated": "2026-03-11T15:17:04.899615",
       "fetch_method": "md.txt"
     },
     "media/camera/camerax/orientation-rotation.md": {
@@ -8096,8 +8096,8 @@
     },
     "health-and-fitness/health-connect/get-started.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/get-started",
-      "hash": "542da3b20088a5ec36f46d44cebf3868c2f757ccdb1e00e15e93b4ced85fbb7b",
-      "last_updated": "2026-02-23T01:59:17.442368",
+      "hash": "b2864108e313774b3fa92d19650b9e6456e4971d2d879fa7a2531c176894e734",
+      "last_updated": "2026-03-11T15:17:06.390657",
       "fetch_method": "md.txt"
     },
     "games/playgames/native-pc/publish/developer-installed.md": {
@@ -8330,8 +8330,8 @@
     },
     "health-and-fitness/health-connect/data-types.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/data-types",
-      "hash": "594829d1e0240fa599b53275b07b52ae7280e214232b3c3fa61432dfb2fbe3fb",
-      "last_updated": "2026-02-23T01:59:20.107521",
+      "hash": "ab88de7028acd5bc6f5089baff0644ace8ab265405b204d3d1047f98b83d9223",
+      "last_updated": "2026-03-11T15:17:07.117421",
       "fetch_method": "md.txt"
     },
     "media/media3/ui/androidtv.md": {
@@ -9482,8 +9482,8 @@
     },
     "health-and-fitness/health-connect/features/sleep-sessions.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/features/sleep-sessions",
-      "hash": "b8dd5541626a65200f001889b0c13e9a705416d749a336795e819cb6844fa31e",
-      "last_updated": "2026-02-23T01:59:33.152016",
+      "hash": "ee773dafb7b784840c2b3c1c8e572bf5ef464f7cff91abef35a2a329d4c05ce4",
+      "last_updated": "2026-03-11T15:16:50.682806",
       "fetch_method": "md.txt"
     },
     "topic/google-play-instant/release-notes.md": {
@@ -9512,8 +9512,8 @@
     },
     "develop/ui/views/touch-and-input/image-keyboard.md": {
       "original_url": "https://developer.android.com/develop/ui/views/touch-and-input/image-keyboard",
-      "hash": "0ccf6f568fd322b1d5e1a0c1cfe9d6ab3c4474e21780e8a8f4ee77ffcdb07da6",
-      "last_updated": "2026-03-10T15:18:49.191058",
+      "hash": "ecb1d00a9ed01dbb18415c795b29ee06a6a2a17055cecdac13a883168711e0a6",
+      "last_updated": "2026-03-11T15:17:03.572329",
       "fetch_method": "md.txt"
     },
     "google/play/billing/test.md": {
@@ -10562,8 +10562,8 @@
     },
     "studio/releases/past-releases/as-arctic-fox-release-notes.md": {
       "original_url": "https://developer.android.com/studio/releases/past-releases/as-arctic-fox-release-notes",
-      "hash": "54363071f3f612dad45295203d4ccfc6f148a4948f4a8f78f2f400b8f4b4b107",
-      "last_updated": "2026-03-10T15:19:10.844611",
+      "hash": "b403e05b8ed3c04cbba426a1fd49ff9c182b465746fea1c35fbceefdb4a0d77d",
+      "last_updated": "2026-03-11T15:17:30.769862",
       "fetch_method": "md.txt"
     },
     "jetpack/androidx/versions/beta-channel.md": {
@@ -11810,8 +11810,8 @@
     },
     "health-and-fitness/health-connect/features/mindfulness.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/features/mindfulness",
-      "hash": "5a83bf3a12ba4d771d5a2273530a054ee20728de15bff8d0dbc91e7b6e7a9de6",
-      "last_updated": "2026-02-23T02:00:32.194387",
+      "hash": "3bd3bddd412ad56e8ed2a73fe982436cd897029cd0dc71e6bf557a493d37dfc1",
+      "last_updated": "2026-03-11T15:17:29.676262",
       "fetch_method": "md.txt"
     },
     "training/monitoring-device-state/doze-standby.md": {
@@ -12308,8 +12308,8 @@
     },
     "health-and-fitness/health-connect/medical-records/read-data.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/medical-records/read-data",
-      "hash": "9dadab9aad7908044586715528e605ded0f339fca4b4522ff156f859874ef701",
-      "last_updated": "2026-02-23T02:00:37.887535",
+      "hash": "c3c606163d4b6de5d027aa2f9e8f93a9ecca42f63601f18cb9a63f997078e4e6",
+      "last_updated": "2026-03-11T15:17:32.825847",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/ui-compose.md": {
@@ -12728,8 +12728,8 @@
     },
     "health-and-fitness/health-connect/medical-records/write-data.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/medical-records/write-data",
-      "hash": "2103f97bc7e90650ffa5ecd15c6d0f2038d120c4160c07ac5779382acba5450d",
-      "last_updated": "2026-02-23T02:01:01.028749",
+      "hash": "66d65a7addd3ddf4d3cc5ac5ecb687ddcf5002381f061339084a5cabb8d82393",
+      "last_updated": "2026-03-11T15:18:06.531738",
       "fetch_method": "md.txt"
     },
     "training/constraint-layout/motionlayout/ref/keyframeset.md": {
@@ -13220,8 +13220,8 @@
     },
     "develop/sensors-and-location/location/geofencing.md": {
       "original_url": "https://developer.android.com/develop/sensors-and-location/location/geofencing",
-      "hash": "bfd957d0e7751faa4fa7779d14b9e84281983f53705e2ee9dd0ce6228e435e59",
-      "last_updated": "2026-03-10T15:19:45.093949",
+      "hash": "e20206abbcfd95260d6384da25be6fd862b211c1da5187978ac414c2bb6c9892",
+      "last_updated": "2026-03-11T15:18:11.182325",
       "fetch_method": "md.txt"
     },
     "training/cars/apps/navigation.md": {
@@ -13322,8 +13322,8 @@
     },
     "training/tv/get-started/hardware.md": {
       "original_url": "https://developer.android.com/training/tv/get-started/hardware",
-      "hash": "44c8ad1138fb7b7389af3f1a89fd6084fb8eb048a207cc8b0379664d373f7482",
-      "last_updated": "2026-02-23T02:01:07.946330",
+      "hash": "d7d9884c5b7432377eaed683040403de934f4d23ce5e4b31c887c75fe0a93e97",
+      "last_updated": "2026-03-11T15:18:05.950941",
       "fetch_method": "md.txt"
     },
     "guide/playcore/in-app-updates/unity.md": {
@@ -13526,8 +13526,8 @@
     },
     "health-and-fitness/health-connect/publish.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/publish",
-      "hash": "807f8f3aa90c6da7350825a911bd1f89c7de72408dbcc5bc7a5fb048a8e71e15",
-      "last_updated": "2026-02-23T02:01:10.357025",
+      "hash": "3af766dd4eff1cc292c3b95f369787f6446cb08a6462d1fa4b7f6af237e2bd46",
+      "last_updated": "2026-03-11T15:18:05.962353",
       "fetch_method": "md.txt"
     },
     "design/ui/cars/guides/templates/pane-template.md": {
@@ -15098,8 +15098,8 @@
     },
     "develop/xr/jetpack-xr-sdk/arcore/geospatial.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial",
-      "hash": "9b0d279229cab0ba6b52c543730b67df800c10311f9338e0a517553759a6d9e5",
-      "last_updated": "2026-03-07T15:05:30.800614",
+      "hash": "aa323d3f3fd6061ccc4988031077ee262fb30ae56b654007827ffc667809dc49",
+      "last_updated": "2026-03-11T15:18:12.673616",
       "fetch_method": "md.txt"
     },
     "jetpack/androidx/versions/alpha-channel.md": {
@@ -17996,8 +17996,8 @@
     },
     "health-and-fitness/health-connect/write-data.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/write-data",
-      "hash": "d067283359d26310099004b7a1cbf9b08fbc306e421131fdd6425e0dec2f9b4a",
-      "last_updated": "2026-02-23T02:02:28.841353",
+      "hash": "85a9d899fc7bb90719c212917a5764791d33b2886adf9cad6a468ad4ed7abeb8",
+      "last_updated": "2026-03-11T15:18:55.483718",
       "fetch_method": "md.txt"
     },
     "media/media3/transformer/tone-mapping.md": {
@@ -19526,8 +19526,8 @@
     },
     "health-and-fitness/health-connect/features/exercise-routes.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/features/exercise-routes",
-      "hash": "8b488fffa6aa3d86414e33727342935389deb46ce7b170e093eb22ca256ca641",
-      "last_updated": "2026-02-23T02:03:04.588047",
+      "hash": "76c75d3ee0e183575184e664107dc5bdb50f2e0d84f346ccb12929d53c3bbbc3",
+      "last_updated": "2026-03-11T15:19:35.753145",
       "fetch_method": "md.txt"
     },
     "studio/run/emulator-use-camera.md": {
@@ -19658,8 +19658,8 @@
     },
     "health-and-fitness/health-connect/features/skin-temperature.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/features/skin-temperature",
-      "hash": "c9b42819dc0812f1e025e4802e73771b7b290e976e29f7e7994ea7c355c8b841",
-      "last_updated": "2026-02-23T02:03:05.957054",
+      "hash": "9f407c60cdb9ad11664dc99d10774d8cd41ea8cb1754f60879f298b701a08b3a",
+      "last_updated": "2026-03-11T15:19:27.029443",
       "fetch_method": "md.txt"
     },
     "studio/run/win-usb.md": {
@@ -20072,8 +20072,8 @@
     },
     "health-and-fitness/health-connect/aggregate-data.md": {
       "original_url": "https://developer.android.com/health-and-fitness/health-connect/aggregate-data",
-      "hash": "cb151985387a20c3f173fa4440aafeb57dfa1f499a0ca8425dbd92148ffa6eca",
-      "last_updated": "2026-02-23T02:03:10.375479",
+      "hash": "1093d5ad9194d9576dfe44c51e4983cb59a841ff9b46997897533b97a78e8ab9",
+      "last_updated": "2026-03-11T15:19:34.518158",
       "fetch_method": "md.txt"
     },
     "courses/android-basics-compose/unit-1.md": {
@@ -20432,8 +20432,8 @@
     },
     "training/basics/supporting-devices/languages.md": {
       "original_url": "https://developer.android.com/training/basics/supporting-devices/languages",
-      "hash": "52cea283cc9eeb35eade6ca562b54ea7c91a6f484df9f1af511c085210ef800b",
-      "last_updated": "2026-03-10T15:21:00.556507",
+      "hash": "307825929009b3ebfa0eee7418a59cb86d1ee33314fa5a5c23cf50c4c7867efa",
+      "last_updated": "2026-03-11T15:19:25.925021",
       "fetch_method": "md.txt"
     },
     "develop/background-work/background-tasks/data-transfer-options.md": {
@@ -21716,8 +21716,8 @@
     },
     "jetpack/androidx/versions/rc-channel.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/versions/rc-channel",
-      "hash": "905868f4f0a92efb068b25d704e9287a379ea137cbba2c9e9bf4982e535d31df",
-      "last_updated": "2026-03-07T15:06:53.627709",
+      "hash": "d33ca9ed5be5f6bc62b7e50cb3e64c561fcc24c36da6634e88085358e064ee73",
+      "last_updated": "2026-03-11T15:19:20.620590",
       "fetch_method": "md.txt"
     },
     "develop/background-work/services/fgs/stop-fgs.md": {
@@ -22658,8 +22658,8 @@
     },
     "jetpack/androidx/releases/media3.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/releases/media3",
-      "hash": "ce93d843c2d325b9e11feb51d13f9cf6621bb0c9c597af3b6a62eb590963e15c",
-      "last_updated": "2026-02-25T15:23:57.336194",
+      "hash": "25a2d242cb66785ceb6984810809d8460f84bd7a3b38b4358aef71b5db07360c",
+      "last_updated": "2026-03-11T15:20:08.820293",
       "fetch_method": "md.txt"
     },
     "multidevice.md": {
@@ -24116,8 +24116,8 @@
     },
     "media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md": {
       "original_url": "https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play",
-      "hash": "f2c2c1e5c5bbb732f80be81b57cb91b832c0002e182f3cfb35764985c630a6bc",
-      "last_updated": "2026-03-10T15:21:39.682761",
+      "hash": "d5966da3cb5ec79a3dee7309056d3dd9b23b79456231eac99af9b65b32d7698c",
+      "last_updated": "2026-03-11T15:19:56.570138",
       "fetch_method": "md.txt"
     },
     "topic/architecture/data-layer.md": {
@@ -25082,8 +25082,8 @@
     },
     "build/releases/agp-4-1-0-release-notes.md": {
       "original_url": "https://developer.android.com/build/releases/agp-4-1-0-release-notes",
-      "hash": "e8e4cf7936d5c6295caa8aed7b06e5339f3721b2cc7018d244352a1ac9a5bb3a",
-      "last_updated": "2026-02-23T02:04:28.731139",
+      "hash": "9ef9c390fafddb93f93aafd36c2a085e96876e1dc98da0c0404f1266dec1c1df",
+      "last_updated": "2026-03-11T15:20:04.018965",
       "fetch_method": "md.txt"
     },
     "topic/google-play-instant/samples.md": {
@@ -25214,9 +25214,9 @@
     },
     "guide/navigation/navigation-3/skill.md": {
       "original_url": "https://developer.android.com/guide/navigation/navigation-3/skill",
-      "hash": "87d57a620b7a6bc6d0560acec241a461ab064b03eb7f29f748d30768a36f7343",
-      "last_updated": "2026-02-25T15:20:55.299683",
-      "fetch_method": "html-scrape"
+      "hash": "6f9624d95374bcdb9dad30fd16bfec7f9a38dacd4bc6df140aeed0ee60c25d83",
+      "last_updated": "2026-03-11T15:16:52.752725",
+      "fetch_method": "md.txt"
     },
     "games/pgs/platform-authentication.md": {
       "original_url": "https://developer.android.com/games/pgs/platform-authentication",
@@ -25691,7 +25691,73 @@
       "hash": "be1c6b5d23aea570a5f8afaa4a46d140018732da458a2b112d39238333297951",
       "last_updated": "2026-03-06T15:14:06.342712",
       "fetch_method": "md.txt"
+    },
+    "develop/ui/compose/styles/styles-vs-modifiers.md": {
+      "original_url": "https://developer.android.com/develop/ui/compose/styles/styles-vs-modifiers",
+      "hash": "b123658717a8dc765429c15f16910a2675114fc5edd8963b2aea2000f5beb4fa",
+      "last_updated": "2026-03-11T15:15:34.764944",
+      "fetch_method": "md.txt"
+    },
+    "health-and-fitness/health-connect/experiences/vitals.md": {
+      "original_url": "https://developer.android.com/health-and-fitness/health-connect/experiences/vitals",
+      "hash": "48ef0ae9bed480780a88764c73922040066c5d107a4dc58dcbf1eb3f17636036",
+      "last_updated": "2026-03-11T15:15:41.899784",
+      "fetch_method": "md.txt"
+    },
+    "develop/ui/compose/styles.md": {
+      "original_url": "https://developer.android.com/develop/ui/compose/styles",
+      "hash": "786b91876e494af2acf412d1110ed11c552076aa2c2f949af506722cb3d9005e",
+      "last_updated": "2026-03-11T15:16:20.162662",
+      "fetch_method": "md.txt"
+    },
+    "health-and-fitness/health-connect/experiences/workouts.md": {
+      "original_url": "https://developer.android.com/health-and-fitness/health-connect/experiences/workouts",
+      "hash": "628a99725f0d42ec864e9b8e53a2c77059f1c1dbb936b075400e4757ceee9ea1",
+      "last_updated": "2026-03-11T15:16:30.102856",
+      "fetch_method": "md.txt"
+    },
+    "develop/ui/compose/styles/performance.md": {
+      "original_url": "https://developer.android.com/develop/ui/compose/styles/performance",
+      "hash": "746cf63a0ea7fed61241d77d79f5fd6174b7e59c094d4adb8f43b0d5db745b67",
+      "last_updated": "2026-03-11T15:17:33.215617",
+      "fetch_method": "md.txt"
+    },
+    "develop/ui/compose/styles/examples.md": {
+      "original_url": "https://developer.android.com/develop/ui/compose/styles/examples",
+      "hash": "8ad0a295ea6f6cf02f4fcd766929ded878c5119bbfe7cba7e90a5660ec1f5c64",
+      "last_updated": "2026-03-11T15:17:36.925590",
+      "fetch_method": "md.txt"
+    },
+    "develop/ui/compose/styles/state-animations.md": {
+      "original_url": "https://developer.android.com/develop/ui/compose/styles/state-animations",
+      "hash": "984af4a788d2020bed607a74ba188a415949288b036710525d131e48023931be",
+      "last_updated": "2026-03-11T15:18:05.198138",
+      "fetch_method": "md.txt"
+    },
+    "develop/ui/compose/styles/fundamentals.md": {
+      "original_url": "https://developer.android.com/develop/ui/compose/styles/fundamentals",
+      "hash": "b298eab0aa19082bc2e80e5ba3ce0763746d3766c26d1fa1fca0b6e2dbcb7661",
+      "last_updated": "2026-03-11T15:18:09.879159",
+      "fetch_method": "md.txt"
+    },
+    "health-and-fitness/health-connect/experiences/sleep.md": {
+      "original_url": "https://developer.android.com/health-and-fitness/health-connect/experiences/sleep",
+      "hash": "9091c1c647b57cd634bebff5c5789292b5f154450064bcf250f7e3c0f3c1dbd2",
+      "last_updated": "2026-03-11T15:18:50.585584",
+      "fetch_method": "md.txt"
+    },
+    "develop/ui/compose/styles/dos-donts.md": {
+      "original_url": "https://developer.android.com/develop/ui/compose/styles/dos-donts",
+      "hash": "c8f03014b833f6f9a5b3db84665c189a6ac3e62aecd0defd7b321b1f351fb633",
+      "last_updated": "2026-03-11T15:19:24.515978",
+      "fetch_method": "md.txt"
+    },
+    "develop/ui/compose/styles/limitations.md": {
+      "original_url": "https://developer.android.com/develop/ui/compose/styles/limitations",
+      "hash": "0ee3a689883bd238d6105b3a9db6fd1302a447ebfce9f9d2577f110469ea420d",
+      "last_updated": "2026-03-11T15:19:59.879543",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-03-10T15:21:42.578793"
+  "last_updated": "2026-03-11T15:20:13.081016"
 }

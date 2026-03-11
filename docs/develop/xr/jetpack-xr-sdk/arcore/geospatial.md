@@ -32,8 +32,8 @@ Geospatial anchors.
 
 ## Add additional library dependencies
 
-Using the Geospatial API requires some additonal library dependencies. Add these
-to your app's `build.gradle.kts` file:
+Using the Geospatial API requires some additional library dependencies. Add
+these to your app's `build.gradle.kts` file:
 
 ### Groovy
 
@@ -100,30 +100,31 @@ app to retrieve device pose information, configure the session and set both the
 [`GeospatialMode.VPS_AND_GPS`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#VPS_AND_GPS()) and [`DeviceTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#LAST_KNOWN())
 modes:
 
-    // Define the configuration object to enable Geospatial features.
-    val newConfig = session.config.copy(
-      // Set the GeospatialMode to VPS_AND_GPS.
-      geospatial = GeospatialMode.VPS_AND_GPS
-      // Set the DeviceTrackingMode to LAST_KNOWN.
-      deviceTracking = DeviceTrackingMode.LAST_KNOWN
-    )
 
-    // Apply the configuration to the session.
-    try {
-        when (val configResult = session.configure(newConfig)) {
-            is SessionConfigureGooglePlayServicesLocationLibraryNotLinked -> {
-                // This case generally indicates a missing library dependency.
-            }
-            is SessionConfigureSuccess -> {
-                // The session is now configured to use the Geospatial API.
-            }
-            else -> {
-                // Catch-all for other configuration errors returned using the result class.
-            }
+```kotlin
+// Define the configuration object to enable Geospatial features.
+val newConfig = Config(
+    // Set the GeospatialMode to VPS_AND_GPS.
+    geospatial = GeospatialMode.VPS_AND_GPS,
+    // Set the DeviceTrackingMode to LAST_KNOWN.
+    deviceTracking = DeviceTrackingMode.LAST_KNOWN
+)
+// Apply the configuration to the session.
+try {
+    when (val configResult = session.configure(newConfig)) {
+        is SessionConfigureSuccess -> {
+            // The session is now configured to use the Geospatial API.
         }
-    } catch (e: UnsupportedOperationException) {
-        // Handle configuration failure. For example, if the specific mode is not supported on the current device or API version.
+        else -> {
+            // Handle other configuration errors (e.g., missing library dependencies).
+        }
     }
+} catch (e: UnsupportedOperationException) {
+    // Handle configuration failure if the mode is not supported.
+}
+```
+
+<br />
 
 The `GeospatialMode.VPS_AND_GPS` mode leverages both **Visual Positioning System
 (VPS)** and
@@ -145,8 +146,13 @@ See the [user privacy requirements](https://developers.google.com/ar/develop/pri
 Once the session is configured, obtain the [`Geospatial`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial) object using
 [`Geospatial.getInstance(session)`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#getInstance(androidx.xr.runtime.Session)):
 
-    // Get the Geospatial instance
-    var geospatial = Geospatial.getInstance(session)
+
+```kotlin
+// Get the Geospatial instance for the current session.
+val geospatial = Geospatial.getInstance(session)
+```
+
+<br />
 
 The `Geospatial` object should only be used when its state is
 [`State.RUNNING`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.State#RUNNING()). You can monitor the state using the
@@ -155,35 +161,55 @@ The `Geospatial` object should only be used when its state is
 ## Check VPS availability
 
 Because the Geospatial API uses a combination of [VPS](https://developers.google.com/ar/develop/geospatial#global_localization_with_vps) and GPS
-to determine a Geospatial pose, the API can be used as long as the device is
-able to determine its location. In areas with low GPS accuracy, such as indoor
-spaces and dense urban environments, the API relies on VPS coverage to generate
-high accuracy poses.
+to determine a Geospatial pose, the API is available whenever the device can
+determine its location. In areas with low GPS accuracy, such as indoor spaces
+and dense urban environments, the API relies on VPS coverage to generate
+high-accuracy poses.
 
 Under typical conditions, you can expect VPS to provide positional accuracy of
-approximately 5 meters, and rotational accuracy of 5 degrees. You can check if a
+approximately 5 meters and rotational accuracy of 5 degrees. You can check if a
 location has VPS coverage using the suspend function
 [`Geospatial.checkVpsAvailability(latitude, longitude)`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#checkVpsAvailability(kotlin.Double,kotlin.Double)). This call is an
-asynchronous operation and does not require the session to be configured with
+asynchronous operation and doesn't require the session to be configured with
 the [`GeospatialMode.VPS_AND_GPS`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#VPS_AND_GPS()) mode.
 
 The following code demonstrates how to check the VPS availability from a
 specified latitude and longitude:
 
-    // You can query the GPS to get the current device's location and check if it has VPS
-    val latitude = getLatitudeFromGPS()
-    val longitude = getLongitudeFromGPS()
 
-    // Must be called from a coroutine.
-    val result = geospatial.checkVpsAvailability(latitude, longitude)
-    if (result is VpsAvailabilityAvailable) {
-      // VPS is available
-    } else if (result is VpsAvailabilityUnavailable) {
-      // VPS is not available
+```kotlin
+// You can query the GPS to get the current device's location.
+val latitude = 37.422
+val longitude = -122.084
+
+// Use the geospatial instance to check VPS availability for a specific location.
+val result = geospatial.checkVpsAvailability(latitude, longitude)
+when (result) {
+    is VpsAvailabilityAvailable -> {
+        // VPS is available at this location.
     }
+    is VpsAvailabilityErrorInternal -> {
+        // VPS availability check failed with an internal error.
+    }
+    is VpsAvailabilityNetworkError -> {
+        // VPS availability check failed due to a network error.
+    }
+    is VpsAvailabilityNotAuthorized -> {
+        // VPS availability check failed due to an authorization error.
+    }
+    is VpsAvailabilityResourceExhausted -> {
+        // VPS availability check failed due to resource exhaustion.
+    }
+    is VpsAvailabilityUnavailable -> {
+        // VPS is not available at this location.
+    }
+}
+```
+
+<br />
 
 Your app must be [properly set up to communicate with the ARCore API on Google
-Cloud](https://developers.google.com/ar/develop/authorization?platform=android); otherwise, your app will receive a
+Cloud](https://developers.google.com/ar/develop/authorization?platform=android); otherwise, your app receives a
 [`VpsAvailabilityNotAuthorized`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/VpsAvailabilityNotAuthorized) result.
 
 ## Convert a device pose to a geospatial pose
@@ -202,26 +228,28 @@ This can help you:
 To convert a [device pose](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose) to a geospatial pose using
 [`Geospatial.createGeospatialPoseFromPose()`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#createGeospatialPoseFromPose(androidx.xr.runtime.math.Pose)):
 
-    // Get the current https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose from the AR Session's state
-    // This is the device's position and orientation relative to the AR tracking origin.
-    val devicePose = ArDevice.getInstance(session).state.value.devicePose
 
-    // Convert the device Pose into a GeospatialPose
-    when (val geospatialPoseResult = geospatial.createGeospatialPoseFromPose(devicePose)) {
-        is CreateGeospatialPoseFromPoseSuccess -> {
-            val currentGeospatialPose = geospatialPoseResult.pose
-            val horizontalAccuracy = geospatialPoseResult.horizontalAccuracy
-            // ... use pose and accuracy
-         val latitude = currentGeospatialPose.latitude
-         val longitude = currentGeospatialPose.longitude
-        // The orientation is stored as a Quaternion in the EUS (East-Up-South) system. The EUS coordinate system has X+ pointing east, Y+ pointing up, and Z+ pointing south. True North is aligned with the -Z axis.
-         val eusQuaternion = currentGeospatialPose.eastUpSouthQuaternion
+```kotlin
+// Get the current device Pose from the AR Session's state.
+val devicePose = ArDevice.getInstance(session).state.value.devicePose
 
-        }
-        is CreateGeospatialPoseFromPoseNotTracking -> {
-            // Geospatial is not currently tracking
-        }
+// Convert the device Pose into a GeospatialPose.
+when (val result = geospatial.createGeospatialPoseFromPose(devicePose)) {
+    is CreateGeospatialPoseFromPoseSuccess -> {
+        val geoPose = result.pose
+        val lat = geoPose.latitude
+        val lon = geoPose.longitude
+        val alt = geoPose.altitude
+        // Orientation is in the EUS (East-Up-South) coordinate system.
+        val orientation = geoPose.eastUpSouthQuaternion
     }
+    is CreateGeospatialPoseFromPoseNotTracking -> {
+        // Geospatial is not currently tracking.
+    }
+}
+```
+
+<br />
 
 ## Convert a geospatial pose to a device pose
 
@@ -234,12 +262,18 @@ precise visual space of the user's glasses.
 To convert a geospatial pose to a device pose using
 [`Geospatial.createPoseFromGeospatialPose()`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial#createPoseFromGeospatialPose(androidx.xr.runtime.math.GeospatialPose)):
 
-    when (val poseResult = geospatial.createPoseFromGeospatialPose(geospatialPose)) {
-        is CreatePoseFromGeospatialPoseSuccess -> {
-            val devicePose = poseResult.pose
-        // devicePose is now ready to be used
-        }
-        is CreatePoseFromGeospatialPoseNotTracking -> {
-            // Geospatial is not currently tracking
-        }
+
+```kotlin
+// Convert a GeospatialPose (lat/long/alt) back to a device-space Pose.
+when (val result = geospatial.createPoseFromGeospatialPose(geoPose)) {
+    is CreatePoseFromGeospatialPoseSuccess -> {
+        val devicePose: Pose = result.pose
+        // devicePose is now ready to be used relative to the tracking origin.
     }
+    is CreatePoseFromGeospatialPoseNotTracking -> {
+        // Geospatial is not currently tracking.
+    }
+}
+```
+
+<br />

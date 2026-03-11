@@ -129,7 +129,8 @@ want to request are:
 - Write health and fitness data, including route data: `HealthPermission.getWritePermission(ExerciseSessionRecord::class)`
 - Write exercise route data: `HealthPermission.PERMISSION_WRITE_EXERCISE_ROUTE`
 
-| **Note:** If the user doesn't grant all of the permissions that your app requests, your app should still run, and it should perform as many tasks as it can with the permissions that the user granted.
+> [!NOTE]
+> **Note:** If the user doesn't grant all of the permissions that your app requests, your app should still run, and it should perform as many tasks as it can with the permissions that the user granted.
 
 ### Request permissions from the user
 
@@ -173,9 +174,11 @@ those permissions. This displays the Health Connect permissions screen.
     }
 
 Because users can grant or revoke permissions at any time, your app needs to
-periodically check for granted permissions and handle scenarios where
+check for permissions every time before using them and handle scenarios where
 permission is lost.
-| **Note:** Even if your app has been granted "Always allow" access to exercise route data, background access to routes created by other apps is restricted.
+
+> [!NOTE]
+> **Note:** Even if your app has been granted "Always allow" access to exercise route data, background access to routes created by other apps is restricted.
 
 ## Information included in an exercise session record
 

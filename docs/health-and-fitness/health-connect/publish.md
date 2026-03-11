@@ -50,9 +50,11 @@ out the **Health apps** form on the **App content** page:
    based on the Health Connect data types that your app accesses, as shown in
    figure 1.
 
-   **Note:** If your app doesn't access any health or fitness information, select the checkbox next to **My app does not have any health features**.  
-   ![A checkbox appears next to each health feature](https://developer.android.com/static/images/health-and-fitness/health-features-play-console.png) **Figure 1.** Declare health features used in your app in the Play Console.  
-   ![Each explanation is a text area where you enter an
+   > [!NOTE]
+   > **Note:** If your app doesn't access any health or fitness information, select the checkbox next to **My app does not have any health features**.
+
+   ![A checkbox appears next to each health feature](https://developer.android.com/static/images/health-and-fitness/health-features-play-console.png) ![A checkbox appears next to each health feature](https://developer.android.com/static/images/health-and-fitness/health-features-play-console.png) **Figure 1.** Declare health features used in your app in the Play Console. ![Each explanation is a text area where you enter an
+   explanation](https://developer.android.com/static/images/health-and-fitness/health-apps-permissions-play-console.png) ![Each explanation is a text area where you enter an
    explanation](https://developer.android.com/static/images/health-and-fitness/health-apps-permissions-play-console.png) **Figure 2.** Explain how your app uses each Health Connect data type in the Play Console.
 
    The Play Console page includes these health features:
@@ -114,7 +116,9 @@ the following:
 If you have requested before and you have a new app version, you don't have to
 file a new request just to change the app version. The data type accesses are
 allow-listed for a package name regardless of app version.
-| **Note:** When you submit a new app version, your app's declaration may be reviewed again.
+
+> [!NOTE]
+> **Note:** When you submit a new app version, your app's declaration may be reviewed again.
 
 ## If you previously filled out the Google Health Connect API Request form
 
@@ -125,7 +129,9 @@ by January 22, 2025.**
 
 Follow the process in this guide to update your app registration in the Play
 Console and declare access to the data types you are already using.
-| **Warning:** If you fail to complete the declaration form before the deadline, you will be unable to send any changes to your app registration for review until you have completed and submitted the declaration.
+
+> [!WARNING]
+> **Warning:** If you fail to complete the declaration form before the deadline, you will be unable to send any changes to your app registration for review until you have completed and submitted the declaration.
 
 ## Unable to access Health Connect
 

@@ -107,24 +107,24 @@ on TV devices but uses those features on non-TV devices:
 
 ```xml
 <uses-feature android:name="android.hardware.touchscreen"
-        android:require>d<="false"/
-uses-feature android:name="android.hardware.faketouch"
-   > <    android:required="false"/
-uses-feature android:name="android.hardware>.<telephony"
-        android:required="false"/
-uses-feature android:name>=<"android.hardware.camera"
-        android:required="false"/
-us>e<s-feature android:name="android.hardware.nfc"
-        android:required="fals>e<"/
-uses-feature android:name="android.hardware.location.gps"
-        andro>i<d:required="false"/
-uses-feature android:name="android.hardware.microp>h<one"
-        android:required="false"/
-u>s<es-feature android:name="android.hardware.sensor"
-        android:require>d="false"/
-!-- Some TV devices have an ethernet connection only --
-uses-feature android:name="android.hardware.wifi"
-        android:required="false"/
+        android:required="false"/>
+<uses-feature android:name="android.hardware.faketouch"
+        android:required="false"/>
+<uses-feature android:name="android.hardware.telephony"
+        android:required="false"/>
+<uses-feature android:name="android.hardware.camera"
+        android:required="false"/>
+<uses-feature android:name="android.hardware.nfc"
+        android:required="false"/>
+<uses-feature android:name="android.hardware.location.gps"
+        android:required="false"/>
+<uses-feature android:name="android.hardware.microphone"
+        android:required="false"/>
+<uses-feature android:name="android.hardware.sensor"
+        android:required="false"/>
+<!-- Some TV devices have an ethernet connection only -->
+<uses-feature android:name="android.hardware.wifi"
+        android:required="false"/>
 ```
 
 **Note:** Some features have subfeatures, like `android.hardware.camera.front`,
@@ -247,7 +247,7 @@ photos. If you decide to enable your camera-related app to work on a TV, add the
 following feature declaration your app manifest:
 
 ```xml
-<uses-feature android:name="android.hardware.camera" android:required>="false" /
+<uses-feature android:name="android.hardware.camera" android:required="false" />
 ```
 
 

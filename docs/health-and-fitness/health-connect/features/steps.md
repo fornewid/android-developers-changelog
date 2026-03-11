@@ -10,7 +10,8 @@ and fitness tracking.
 
 <br />
 
-| **Note:** This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
+> [!NOTE]
+> **Note:** This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
 
 <br />
 
@@ -67,7 +68,8 @@ filtering for the `android` data origin:
         }
     }
 
-| **Note:** If your app has significant users on Android 13 and lower, we recommend also maintaining or adding an integration with the local [Recording API](https://developer.android.com/health-and-fitness/recording-api).
+> [!NOTE]
+> **Note:** If your app has significant users on Android 13 and lower, we recommend also maintaining or adding an integration with the local [Recording API](https://developer.android.com/health-and-fitness/recording-api).
 
 ### On-Device Step Counting
 
@@ -189,7 +191,7 @@ those permissions. This displays the Health Connect permissions screen.
     }
 
 Because users can grant or revoke permissions at any time, your app needs to
-periodically check for granted permissions and handle scenarios where
+check for permissions every time before using them and handle scenarios where
 permission is lost.
 
 ## Information included in a Steps record

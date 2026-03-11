@@ -18,6 +18,10 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+### March 10, 2026
+
+- [Media3 Version 1.10.0-rc01](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc01)
+
 ### February 25, 2026
 
 - [Activity Version 1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0-rc01)

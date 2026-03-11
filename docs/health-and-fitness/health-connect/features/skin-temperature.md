@@ -69,7 +69,10 @@ To determine whether a user's device supports skin temperature on Health Connect
       // Feature isn't available
     }
 
-See [Check for feature availability](https://developer.android.com/health-and-fitness/guides/health-connect/develop/feature-availability) to learn more. **Note:** The skin temperature data type isn't meant to measure core body temperature. If your app requires this measurement, use classes such as [`BodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BodyTemperatureRecord) and [`BasalBodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BasalBodyTemperatureRecord).
+See [Check for feature availability](https://developer.android.com/health-and-fitness/guides/health-connect/develop/feature-availability) to learn more.
+
+> [!NOTE]
+> **Note:** The skin temperature data type isn't meant to measure core body temperature. If your app requires this measurement, use classes such as [`BodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BodyTemperatureRecord) and [`BasalBodyTemperatureRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/BasalBodyTemperatureRecord).
 
 ## Required permissions
 
@@ -140,7 +143,7 @@ those permissions. This displays the Health Connect permissions screen.
     }
 
 Because users can grant or revoke permissions at any time, your app needs to
-periodically check for granted permissions and handle scenarios where
+check for permissions every time before using them and handle scenarios where
 permission is lost.
 
 ## Information included in a skin temperature record

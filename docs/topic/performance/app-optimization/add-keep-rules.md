@@ -509,6 +509,26 @@ following:
       void <init>();
     }
 
+### Negate member name patterns
+
+Starting with Android Gradle Plugin (AGP) 9.2-alpha02, you can negate member
+name patterns within your keep rules. This lets you specify members to keep or
+exclude based on patterns. To negate a pattern, prefix the member name pattern
+with an exclamation mark (`!`).
+
+You can use this feature for situations where you want to keep most members that
+match a broader pattern but exclude specific ones, such as methods intended only
+for testing.
+
+**Example:**
+
+To keep all public methods in `com.example.MyClass` except those ending with
+"ForTesting", use the following rule:
+
+    -keepclassmembers class com.example.MyClass {
+        public *** !*ForTesting(...);
+    }
+
 ## Package-level functions
 
 To reference a Kotlin function that's defined outside of a class (commonly

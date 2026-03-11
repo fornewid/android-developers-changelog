@@ -40,7 +40,7 @@ Writing medical data is protected by the following permission:
 - `android.permission.health.WRITE_MEDICAL_DATA`
 
 Declare these permissions in the Play Console for your app, as well as in your
-app's manifest:  
+app's manifest:
 
     <application>
       <uses-permission
@@ -58,7 +58,7 @@ the user. Users must be allowed to grant or deny permissions at any time.
 
 To do so, create a set of permissions for the required data types.
 Make sure that the permissions in the set are declared in your Android
-manifest first.  
+manifest first.
 
     // Create a set of permissions for required data types
     import androidx.health.connect.client.permission.HealthPermission.Companion.PERMISSION_WRITE_MEDICAL_DATA
@@ -71,7 +71,7 @@ manifest first.
 Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
 required permissions granted. If not, use
 [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
-those permissions. This displays the Health Connect permissions screen.  
+those permissions. This displays the Health Connect permissions screen.
 
     // Create the permissions launcher
     val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
@@ -94,7 +94,7 @@ those permissions. This displays the Health Connect permissions screen.
     }
 
 Because users can grant or revoke permissions at any time, your app needs to
-periodically check for granted permissions and handle scenarios where
+check for permissions every time before using them and handle scenarios where
 permission is lost.
 
 ## Data Sources
@@ -141,7 +141,7 @@ Properties of `MedicalDataSource`:
 ### Create a MedicalDataSource record
 
 Create a record for each healthcare organization or entity your app is linked
-to.  
+to.
 
     // Create a `MedicalDataSource`
     // Note that `displayName` must be unique across `MedicalDataSource`s
@@ -157,11 +157,14 @@ to.
 
 ### Delete a MedicalDataSource record
 
-| **Note:** Your app can only delete records that it has written. An app cannot delete records written by another app.
-| **Caution:** Be careful when using this API, as deleting a `MedicalDataSource` also deletes **all** medical resource records associated with that data source.
+> [!NOTE]
+> **Note:** Your app can only delete records that it has written. An app cannot delete records written by another app.
+
+> [!CAUTION]
+> **Caution:** Be careful when using this API, as deleting a `MedicalDataSource` also deletes **all** medical resource records associated with that data source.
 
 The previous example returns an `id` by the system on creation. If you need to
-delete the `MedicalDataSource` record, reference that same `id`:  
+delete the `MedicalDataSource` record, reference that same `id`:
 
     // Delete the `MedicalDataSource` that has the specified `id`
     healthConnectClient.deleteMedicalDataSourceWithData(medicalDataSource.id)
@@ -192,7 +195,7 @@ by the HL7 organization](https://hl7.org/fhir/R4/patient-examples.html).
 ### Insert or update MedicalResource records
 
 Use `UpsertMedicalResourceRequest` to insert new or update existing
-`MedicalResource` records for a `MedicalDataSource`:  
+`MedicalResource` records for a `MedicalDataSource`:
 
     // Insert `MedicalResource`s into the `MedicalDataSource`
     val medicalResources: List<MedicalResource> =
@@ -229,7 +232,7 @@ valid FHIR JSON string.
 
 Here is an example of what that JSON might look like, using AllergyIntolerance
 as the FHIR resource type, which would map to the Medical Resource Type of
-`FHIR_RESOURCE_TYPE_ALLERGY_INTOLERANCE` in Medical Records:  
+`FHIR_RESOURCE_TYPE_ALLERGY_INTOLERANCE` in Medical Records:
 
     {
       "resourceType": "AllergyIntolerance",
@@ -259,9 +262,10 @@ as the FHIR resource type, which would map to the Medical Resource Type of
 
 ### Delete a MedicalResource record
 
-| **Note:** Your app can only delete records that it has written. An app cannot delete records written by another app.
+> [!NOTE]
+> **Note:** Your app can only delete records that it has written. An app cannot delete records written by another app.
 
-`MedicalResource` records may be deleted by ID:  
+`MedicalResource` records may be deleted by ID:
 
     // Delete `MedicalResource`s matching the specified `dataSourceId`, `type` and `fhirResourceId`
     healthConnectClient.deleteMedicalResources(
@@ -274,7 +278,7 @@ as the FHIR resource type, which would map to the Medical Resource Type of
         }
     )
 
-Or they can be deleted by `medicalResourceType`:  
+Or they can be deleted by `medicalResourceType`:
 
     // Delete all `MedicalResource`s that are in any pair of provided `dataSourceIds` and
     // `medicalResourceTypes`

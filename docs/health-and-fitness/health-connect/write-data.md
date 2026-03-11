@@ -7,7 +7,9 @@ source: md.txt
 > This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
 
 This guide covers the process of writing or updating data in Health Connect.
-| **Tip:** For more guidance on how to write data, take a look at the [Android Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E) in Health Connect.
+
+> [!TIP]
+> **Tip:** For more guidance on how to write data, take a look at the [Android Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E) in Health Connect.
 
 ## Handle zero values
 
@@ -30,7 +32,7 @@ The [Steps](https://developer.android.com/reference/kotlin/androidx/health/conne
 user has taken between readings. Step counts represent a common measurement
 across health, fitness, and wellness platforms.
 
-The following example shows how to set steps count data:  
+The following example shows how to set steps count data:
 
     val endTime = Instant.now()
     val startTime = endTime.minus(Duration.ofMinutes(15))
@@ -46,7 +48,8 @@ The following example shows how to set steps count data:
         )
     )
 
-| **Note:** Only write a zero value if the device was worn and no activity occurred. Don't write data if the device was off-body or the data is incomplete. For best practices on handling time zones, see the [Time zone handling](https://developer.android.com/health-and-fitness/health-connect/write-data#time-zone-handling) section.
+> [!NOTE]
+> **Note:** Only write a zero value if the device was worn and no activity occurred. Don't write data if the device was off-body or the data is incomplete. For best practices on handling time zones, see the [Time zone handling](https://developer.android.com/health-and-fitness/health-connect/write-data#time-zone-handling) section.
 
 ### Records with units of measurement
 
@@ -60,7 +63,7 @@ In this data type, all of the nutrients are represented in units of
 [Mass](https://developer.android.com/reference/kotlin/androidx/health/connect/client/units/Mass), while `energy` is represented in a unit of [Energy](https://developer.android.com/reference/kotlin/androidx/health/connect/client/units/Energy).
 
 The following example shows how to set nutrition data for a user who has
-eaten a banana:  
+eaten a banana:
 
     val endTime = Instant.now()
     val startTime = endTime.minus(Duration.ofMinutes(1))
@@ -96,7 +99,7 @@ In this data type, the parameter `samples` is represented by a list of
 [Heart Rate samples](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord.Sample). Each sample contains a `beatsPerMinute`
 value and a `time` value.
 
-The following example shows how to set heart rate series data:  
+The following example shows how to set heart rate series data:
 
     val endTime = Instant.now()
     val startTime = endTime.minus(Duration.ofMinutes(5))
@@ -124,7 +127,7 @@ the user. Users must be allowed to grant or deny permissions at any time.
 
 To do so, create a set of permissions for the required data types.
 Make sure that the permissions in the set are declared in your Android
-manifest first.  
+manifest first.
 
     // Create a set of permissions for required data types
     val PERMISSIONS =
@@ -138,7 +141,7 @@ manifest first.
 Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
 required permissions granted. If not, use
 [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
-those permissions. This displays the Health Connect permissions screen.  
+those permissions. This displays the Health Connect permissions screen.
 
     // Create the permissions launcher
     val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
@@ -161,7 +164,7 @@ those permissions. This displays the Health Connect permissions screen.
     }
 
 Because users can grant or revoke permissions at any time, your app needs to
-periodically check for granted permissions and handle scenarios where
+check for permissions every time before using them and handle scenarios where
 permission is lost.
 
 ## Write data
@@ -169,7 +172,7 @@ permission is lost.
 One of the common workflows in Health Connect is writing data. To add records,
 use [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)).
 
-The following example shows how to write data inserting step counts:  
+The following example shows how to write data inserting step counts:
 
     suspend fun insertSteps(healthConnectClient: HealthConnectClient) {
         val endTime = Instant.now()
@@ -219,7 +222,7 @@ records if necessary. Then, call [`updateRecords`](https://developer.android.com
 the changes.
 
 The following example shows how to update data. For this purpose, each record
-has its zone offset values adjusted into PST.  
+has its zone offset values adjusted into PST.
 
     suspend fun updateSteps(
         healthConnectClient: HealthConnectClient,
@@ -267,7 +270,7 @@ This scenario is useful whenever you need to [sync](https://developer.android.co
 your app datastore to Health Connect.
 
 The following example shows how to perform an upsert on data pulled from
-the app datastore:  
+the app datastore:
 
     suspend fun pullStepsFromDatastore() : ArrayList<StepsRecord> {
         val appStepsRecords = arrayListOf<StepsRecord>()
@@ -300,7 +303,7 @@ the app datastore:
         }
     }
 
-After that, you can call these functions in your main thread.  
+After that, you can call these functions in your main thread.
 
     upsertSteps(healthConnectClient, pullStepsFromDatastore())
 
@@ -314,7 +317,7 @@ ignores the change and the value remains the same.
 
 To include versioning in your data, you need to supply
 `Metadata.clientRecordVersion` with a `Long` value based on your versioning
-logic.  
+logic.
 
     val endTime = Instant.now()
     val startTime = endTime.minus(Duration.ofMinutes(15))
@@ -377,7 +380,7 @@ When writing time-based records, avoid setting offsets to **zoneOffset.UTC**
 by default because this can lead to inaccurate timestamps when users are in
 other zones. Instead, calculate the offset based on the device's actual
 location. You can retrieve the device's time zone using
-`ZoneId.systemDefault()`.  
+`ZoneId.systemDefault()`.
 
     val endTime = Instant.now()
     val startTime = endTime.minus(java.time.Duration.ofDays(1))
@@ -417,7 +420,8 @@ consistent and accurate data. Data resolution encompasses two things:
   - Not every data type requires the same sample rate. There is little benefit to updating step count data every second, as opposed to a less frequent cadence such as every 60 seconds.
   - Higher sample rates may give users a more detailed and granular look at their health and fitness data. Sample rate frequencies should strike a balance between detail and performance.
 
-| **Note:** If your app relies on data from devices that sync less frequently than 15 minutes, adjust your writes to match the device's sync interval. This avoid empty writes to Health Connect.
+> [!NOTE]
+> **Note:** If your app relies on data from devices that sync less frequently than 15 minutes, adjust your writes to match the device's sync interval. This avoid empty writes to Health Connect.
 
 ### Additional guidelines
 
@@ -431,7 +435,7 @@ Follow these guidelines when writing data:
 The following code uses WorkManager to schedule periodic background tasks, with
 a maximum time period of 15 minutes, and a flex interval of 5 minutes. This
 configuration is set using the
-[`PeriodicWorkRequest.Builder`](https://developer.android.com/reference/kotlin/androidx/work/PeriodicWorkRequest.Builder#Builder(java.lang.Class,kotlin.Long,java.util.concurrent.TimeUnit,kotlin.Long,java.util.concurrent.TimeUnit)) class.  
+[`PeriodicWorkRequest.Builder`](https://developer.android.com/reference/kotlin/androidx/work/PeriodicWorkRequest.Builder#Builder(java.lang.Class,kotlin.Long,java.util.concurrent.TimeUnit,kotlin.Long,java.util.concurrent.TimeUnit)) class.
 
     val constraints = Constraints.Builder()
         .requiresBatteryNotLow()
@@ -499,7 +503,7 @@ previous sync. This keeps records at a manageable size and improves the
 performance of querying and processing data.
 
 The following example shows how to create a `HeartRateRecord` for a single
-minute, containing multiple samples:  
+minute, containing multiple samples:
 
     val startTime = Instant.now().truncatedTo(ChronoUnit.MINUTES)
     val endTime = startTime.plus(Duration.ofMinutes(1))
@@ -551,7 +555,8 @@ maximum interval between writes should be 15 minutes.
 | OxygenSaturation | % | Every 1 hour | 6:11 - 95.208% |
 [*Table 1: Guidance for writing data*]
 
-| **Note:** As of version 1.1.0-rc01, **RecordingMethod** and **DeviceType** are mandatory requirements when writing data.
+> [!NOTE]
+> **Note:** As of version 1.1.0-rc01, **RecordingMethod** and **DeviceType** are mandatory requirements when writing data.
 
 Data should be written to Health Connect at the end of the workout or sleep
 session. For active tracking, such as exercise and sleep, or manual user input
@@ -604,7 +609,9 @@ Table 3 shows how to write data during or after a sleep session:
 This approach uses existing data types and structures, and it verifies
 compatibility with current Health Connect implementations and data readers.
 This is a common approach taken by fitness platforms.
-| **Note:** Health Connect doesn't automatically calculate the total duration of a multi-sport event. Data readers must calculate this by using the start time of the first activity and the end time of the last activity.
+
+> [!NOTE]
+> **Note:** Health Connect doesn't automatically calculate the total duration of a multi-sport event. Data readers must calculate this by using the start time of the first activity and the end time of the last activity.
 
 Additionally, individual sessions such as swimming, biking, and running aren't
 inherently linked within Health Connect, and data readers must infer the
@@ -612,7 +619,7 @@ relationship between these sessions based on their time proximity.
 Transitions between segments, such as from swimming to biking, aren't explicitly
 represented.
 
-The following example shows how to write data for a triathlon:  
+The following example shows how to write data for a triathlon:
 
     val swimStartTime = Instant.parse("2024-08-22T08:00:00Z")
     val swimEndTime = Instant.parse("2024-08-22T08:30:00Z")

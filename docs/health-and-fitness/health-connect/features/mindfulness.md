@@ -140,7 +140,7 @@ those permissions. This displays the Health Connect permissions screen.
     }
 
 Because users can grant or revoke permissions at any time, your app needs to
-periodically check for granted permissions and handle scenarios where
+check for permissions every time before using them and handle scenarios where
 permission is lost.
 
 ## Information included in a mindfulness session record
@@ -160,9 +160,9 @@ The following aggregate values are available for
 
 <br />
 
-## Read mindfulness session
+## Write mindfulness session
 
-The following code snippet demonstrates how to read a mindfulness session:
+The following code snippet demonstrates how to write a mindfulness session:
 
     if (healthConnectClient.features.getFeatureStatus(FEATURE_MINDFULNESS_SESSION) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
             healthConnectClient.insertRecords(listOf(MindfulnessSessionRecord(
@@ -180,3 +180,30 @@ The following code snippet demonstrates how to read a mindfulness session:
                 ),
             )))
         }
+
+## Read mindfulness session
+
+The following code snippet demonstrates how to read a mindfulness session
+within a time range:
+
+    Val now = Instant.now()
+
+    val records = healthConnectClient.readRecords(
+        ReadRecordsRequest(
+            recordType = MindfulnessSessionRecord::class,
+            timeRangeFilter = TimeRangeFilter.between(
+                startTime = now.minus(Duration.ofHours(5)),
+                endTime = now
+            )
+        )
+    )
+
+    // Process the returned records
+    records.records.forEach { session ->
+        println("Mindfulness session:")
+        println("Start: ${session.startTime}")
+        println("End: ${session.endTime}")
+        println("Title: ${session.title}")
+        println("Notes: ${session.notes}")
+        println("Type: ${session.mindfulnessSessionType}")
+    }

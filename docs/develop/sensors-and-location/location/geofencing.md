@@ -46,10 +46,10 @@ a child of the `https://developer.android.com/guide/topics/manifest/application-
 
 ```xml
 <application
-   android:allowBackup=">true"
-<   ...
-   receiver android:name=".GeofenceBroa>d<castReceiver>"/
-application/
+   android:allowBackup="true">
+   ...
+   <receiver android:name=".GeofenceBroadcastReceiver"/>
+<application/>
 ```
 
 To access the location APIs, you need to create an instance of the
