@@ -128,8 +128,8 @@ dependencies {
 
     // General compose dependencies
     implementation(composeBom)
-    implementation("androidx.activity:activity-compose:1.12.4")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.10.4")
+    implementation("androidx.activity:activity-compose:1.13.0")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.10.5")
     // Other compose dependencies
 
     // Compose for Wear OS dependencies

@@ -202,7 +202,7 @@ to point to your existing source files, proceed as follows:
        implementation fileTree(dir: 'libs', include: ['*.jar'])
 
        // AndroidX libraries
-       implementation 'androidx.core:core-ktx:1.17.0'
+       implementation 'androidx.core:core-ktx:1.18.0'
        implementation 'androidx.appcompat:appcompat:1.7.1'
        implementation 'androidx.cardview:cardview:1.0.0'
        implementation 'com.google.android.material:material:1.7.0'
@@ -226,7 +226,7 @@ to point to your existing source files, proceed as follows:
        implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
        // AndroidX libraries
-       implementation("androidx.core:core-ktx:1.17.0")
+       implementation("androidx.core:core-ktx:1.18.0")
        implementation("androidx.appcompat:appcompat:1.7.1")
        implementation("androidx.cardview:cardview:1.0.0")
        implementation("com.google.android.material:material:1.7.0")

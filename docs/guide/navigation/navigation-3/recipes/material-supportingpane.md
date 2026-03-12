@@ -112,7 +112,7 @@ class MaterialSupportingPaneActivity : ComponentActivity() {
             NavDisplay(
                 backStack = backStack,
                 onBack = { backStack.removeLastOrNull() },
-                sceneStrategy = supportingPaneStrategy,
+                sceneStrategies = listOf(supportingPaneStrategy),
                 entryProvider = entryProvider {
                     entry<MainVideo>(
                         metadata = SupportingPaneSceneStrategy.mainPane()

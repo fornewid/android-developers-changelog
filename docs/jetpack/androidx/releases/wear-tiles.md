@@ -12,7 +12,7 @@ Create applications for Wear OS by Google smartwatches.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.5.0) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.0-rc01) | - | - |
+| March 11, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.5.0) | [1.6.0-rc02](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.0-rc02) | - | - |
 
 ## Declaring dependencies
 
@@ -87,6 +87,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.6
+
+### Version 1.6.0-rc02
+
+March 11, 2026
+
+`androidx.wear.tiles:tiles-*:1.6.0-rc02` is released with no changes from the previous release. Version 1.6.0-rc02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/75d21c4e15014a79fb55a0a0b38002fae7b5c57b..b7751004e8a8efc67213531484deed01280fb73a/wear/tiles).
 
 ### Version 1.6.0-rc01
 

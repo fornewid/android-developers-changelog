@@ -12,7 +12,7 @@ Store data asynchronously, consistently, and transactionally, overcoming some of
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.0) | - | - | [1.3.0-alpha06](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha06) |
+| March 11, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.1) | - | - | [1.3.0-alpha07](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha07) |
 
 ## Declare dependencies
 
@@ -36,10 +36,10 @@ Add the following lines to the dependencies part of your gradle file:
 ```groovy
     dependencies {
         // Preferences DataStore (SharedPreferences like APIs)
-        implementation "androidx.datastore:datastore-preferences:1.2.0"
+        implementation "androidx.datastore:datastore-preferences:1.2.1"
 
         // Alternatively - without an Android dependency.
-        implementation "androidx.datastore:datastore-preferences-core:1.2.0"
+        implementation "androidx.datastore:datastore-preferences-core:1.2.1"
     }
     
 ```
@@ -49,10 +49,10 @@ Add the following lines to the dependencies part of your gradle file:
 ```kotlin
     dependencies {
         // Preferences DataStore (SharedPreferences like APIs)
-        implementation("androidx.datastore:datastore-preferences:1.2.0")
+        implementation("androidx.datastore:datastore-preferences:1.2.1")
 
         // Alternatively - without an Android dependency.
-        implementation("androidx.datastore:datastore-preferences-core:1.2.0")
+        implementation("androidx.datastore:datastore-preferences-core:1.2.1")
     }
     
 ```
@@ -64,10 +64,10 @@ To add optional RxJava support, add the following dependencies:
 ```groovy
     dependencies {
         // optional - RxJava2 support
-        implementation "androidx.datastore:datastore-preferences-rxjava2:1.2.0"
+        implementation "androidx.datastore:datastore-preferences-rxjava2:1.2.1"
 
         // optional - RxJava3 support
-        implementation "androidx.datastore:datastore-preferences-rxjava3:1.2.0"
+        implementation "androidx.datastore:datastore-preferences-rxjava3:1.2.1"
     }
     
 ```
@@ -77,10 +77,10 @@ To add optional RxJava support, add the following dependencies:
 ```kotlin
     dependencies {
         // optional - RxJava2 support
-        implementation("androidx.datastore:datastore-preferences-rxjava2:1.2.0")
+        implementation("androidx.datastore:datastore-preferences-rxjava2:1.2.1")
 
         // optional - RxJava3 support
-        implementation("androidx.datastore:datastore-preferences-rxjava3:1.2.0")
+        implementation("androidx.datastore:datastore-preferences-rxjava3:1.2.1")
     }
     
 ```
@@ -94,10 +94,10 @@ Add the following lines to the dependencies part of your gradle file:
 ```groovy
     dependencies {
         // Typed DataStore for custom data objects (for example, using Proto or JSON).
-        implementation "androidx.datastore:datastore:1.2.0"
+        implementation "androidx.datastore:datastore:1.2.1"
 
         // Alternatively - without an Android dependency.
-        implementation "androidx.datastore:datastore-core:1.2.0"
+        implementation "androidx.datastore:datastore-core:1.2.1"
     }
     
 ```
@@ -107,10 +107,10 @@ Add the following lines to the dependencies part of your gradle file:
 ```kotlin
     dependencies {
         // Typed DataStore for custom data objects (for example, using Proto or JSON).
-        implementation("androidx.datastore:datastore:1.2.0")
+        implementation("androidx.datastore:datastore:1.2.1")
 
         // Alternatively - without an Android dependency.
-        implementation("androidx.datastore:datastore-core:1.2.0")
+        implementation("androidx.datastore:datastore-core:1.2.1")
     }
     
 ```
@@ -122,10 +122,10 @@ Add the following optional dependencies for RxJava support:
 ```groovy
     dependencies {
         // optional - RxJava2 support
-        implementation "androidx.datastore:datastore-rxjava2:1.2.0"
+        implementation "androidx.datastore:datastore-rxjava2:1.2.1"
 
         // optional - RxJava3 support
-        implementation "androidx.datastore:datastore-rxjava3:1.2.0"
+        implementation "androidx.datastore:datastore-rxjava3:1.2.1"
     }
     
 ```
@@ -135,10 +135,10 @@ Add the following optional dependencies for RxJava support:
 ```kotlin
     dependencies {
         // optional - RxJava2 support
-        implementation("androidx.datastore:datastore-rxjava2:1.2.0")
+        implementation("androidx.datastore:datastore-rxjava2:1.2.1")
 
         // optional - RxJava3 support
-        implementation("androidx.datastore:datastore-rxjava3:1.2.0")
+        implementation("androidx.datastore:datastore-rxjava3:1.2.1")
     }
     
 ```
@@ -251,6 +251,26 @@ for more information.
 
 ## Version 1.3
 
+### Version 1.3.0-alpha07
+
+March 11, 2026
+
+`androidx.datastore:datastore-*:1.3.0-alpha07` is released. Version 1.3.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c640b9aa8e30b5db9ee258561ad1fc4bc947e69d..8107a93d3eeb340973ffee74a307faabd1152ea5/datastore).
+
+**New Features**
+
+- Encryption Support: Introduced the new `androidx.datastore:datastore-tink` artifact which provides support for encryption of your datastore using the [Tink](https://github.com/tink-crypto/tink-java) library. This module introduces the `AeadSerializer`, which is a new wrapper class that implements `Serializer<T>` and uses Tink's Authenticated Encryption with Associated Data (AEAD) to encrypt and decrypt data. The `AeadSerializer` is available to use in JVM and Android target platforms.
+- New `DataStore` Builder API: Introduced `DataStore.Builder<T>` as the scalable alternative to `DataStoreFactory`. With this new API, users now have a way to provide their own corruption logic via `setCorruptionHandler`. In addition, the `Builder` API requires that a `DataStore` is initialized using a `CoroutineContext` instead of a `CoroutineScope`, an improvement for structured concurrency, as it allows callers to define execution behavior (like specific Dispatchers) without forcing `DataStore` to inappropriately manage or be bound by the lifecycle of the caller's scope.
+
+  **Note:** We recommend all users to migrate from `DataStoreFactory` to the new `DataStore.Builder` APIs. By requiring a `CoroutineContext` instead of a `CoroutineScope`, the API enforces better structured concurrency. This ensures DataStore operations are not bound to short-lived UI lifecycles (e.g., `viewModelScope`), preventing premature cancellation and potential data loss.
+
+  **Warning:** Ensure that the `CoroutineContext` provided to the Builder has a `Job`, and that it is application-scoped. If the context is canceled, `DataStore`'s internal operations will be terminated prematurely.
+
+**API Changes**
+
+- Introduced the new `androidx.datastore:datastore-tink` artifact for `DataStore` encryption support. ([Ic106d](https://android-review.googlesource.com/#/q/Ic106dfa3322d538294919a945086533b287e44a2), [b/167697691](https://issuetracker.google.com/issues/167697691))
+- Introduced `DataStore.Builder<T>` as the modern, scalable alternative to `DataStoreFactory`. ([I3b110](https://android-review.googlesource.com/#/q/I3b11004afdbb271da03aa410fb884191734bf182), [b/267785821](https://issuetracker.google.com/issues/267785821), [b/400507108](https://issuetracker.google.com/issues/400507108), [b/368385681](https://issuetracker.google.com/issues/368385681), [b/427722902](https://issuetracker.google.com/issues/427722902), [b/370838564](https://issuetracker.google.com/issues/370838564), [b/167697691](https://issuetracker.google.com/issues/167697691))
+
 ### Version 1.3.0-alpha06
 
 February 25, 2026
@@ -319,6 +339,12 @@ November 19, 2025
 - Added KMP Web support in `DataStore` by using the `sessionStorage` API. This feature allows `DataStore` to persist data temporarily within a single browser tab. ([I60fad](https://android.googlesource.com/platform/frameworks/support/+/3130f94ffea871b556a231bed86f331c1fd82643), [b/316376114](https://issuetracker.google.com/316376114))
 
 ## Version 1.2
+
+### Version 1.2.1
+
+March 11, 2026
+
+`androidx.datastore:datastore-*:1.2.1` is released. Version 1.2.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9c556fd714d249b153cbe3ddce61e9eb43f77ffc..03aea68c431abd3fa436e9f8fa9b9cda12f18334/datastore).
 
 ### Version 1.2.0
 

@@ -52,7 +52,8 @@ The Navigation library supports the following argument types:
 | Custom Serializable | app:argType="\<type\>", where \<type\> is the fully-qualified class name of the `Serializable` | Supports a default value of "@null". Does not support other default values. | No | Yes |
 | Custom Enum | app:argType="\<type\>", where \<type\> is the fully-qualified name of the enum | Yes - Default values must match the unqualified name (e.g. "SUCCESS" to match MyEnum.SUCCESS). | No | No |
 
-| **Note:** References to resources are supported *only* in reference types. Using a resource reference in any other type results in an exception.
+> [!NOTE]
+> **Note:** References to resources are supported *only* in reference types. Using a resource reference in any other type results in an exception.
 
 If an argument type supports null values, you can declare a default value of
 null by using `android:defaultValue="@null"`.
@@ -78,7 +79,8 @@ selected **Type** value. Note the following:
 - Arrays support nullable values, regardless of the support for nullable values of the underlying type. For example, using `app:argType="integer[]"` lets you use `app:nullable="true"` to indicate that passing a null array is acceptable.
 - Arrays support a single default value, "@null". Arrays don't support any other default value.
 
-| **Caution:** Passing complex data structures over arguments is considered an poor practice. Each destination should be responsible for loading UI data based on the minimum necessary information, such as item IDs. This simplifies process recreation and avoids potential data inconsistencies.
+> [!CAUTION]
+> **Caution:** Passing complex data structures over arguments is considered an poor practice. Each destination should be responsible for loading UI data based on the minimum necessary information, such as item IDs. This simplifies process recreation and avoids potential data inconsistencies.
 
 ### Override a destination argument in an action
 
@@ -89,7 +91,7 @@ action level. This argument must be of the same name and type as the argument
 declared in the destination.
 
 The following XML declares an action with an argument that overrides the
-destination-level argument from the preceding example:  
+destination-level argument from the preceding example:
 
     <action android:id="@+id/startMyFragment"
         app:destination="@+id/myFragment">
@@ -111,7 +113,7 @@ Args plugin. In these cases, you can [use Bundles](https://developer.android.com
 pass data.
 
 To add [Safe Args](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args)
-to your project, include the following `classpath` in your top level `build.gradle` file:  
+to your project, include the following `classpath` in your top level `build.gradle` file:
 
 ### Groovy
 
@@ -144,7 +146,7 @@ buildscript {
 You must also apply one of two available plugins.
 
 To generate Java language code suitable for Java or mixed Java and Kotlin modules, add
-this line to **your app or module's** `build.gradle` file:  
+this line to **your app or module's** `build.gradle` file:
 
 ### Groovy
 
@@ -162,7 +164,7 @@ plugins {
 }
 ```
 
-Alternatively, to generate Kotlin code suitable for Kotlin-only modules add:  
+Alternatively, to generate Kotlin code suitable for Kotlin-only modules add:
 
 ### Groovy
 
@@ -210,7 +212,7 @@ receiving destination.
 
 The following example shows you how to use these methods to set an argument and
 pass it to the [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(kotlin.Int))
-method:  
+method:
 
 ### Kotlin
 
@@ -240,7 +242,7 @@ public void onClick(View view) {
 In the code for the receiving destination, use the [`getArguments()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#getArguments()) method
 to retrieve the bundle and use its contents. When using the `-ktx` dependencies,
 Kotlin users can also use the `by navArgs()` property delegate to access
-arguments.  
+arguments.
 
 ### Kotlin
 
@@ -270,7 +272,7 @@ public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 When using Safe Args with a
 [global action](https://developer.android.com/topic/libraries/architecture/navigation/navigation-global-action),
 you must provide an `android:id` value for your root `<navigation>` element, as
-shown in the following example:  
+shown in the following example:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -296,7 +298,7 @@ methods as described in the previous section.
 
 If you aren't using Gradle, you can still pass arguments between destinations by
 using `Bundle` objects. Create a `Bundle` object and pass it to the destination
-using [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(kotlin.Int)), as in the following example:  
+using [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(kotlin.Int)), as in the following example:
 
 ### Kotlin
 
@@ -314,7 +316,7 @@ Navigation.findNavController(view).navigate(R.id.confirmationAction, bundle);
 ```
 
 In your receiving destination's code, use the [`getArguments()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#getArguments()) method to
-retrieve the `Bundle` and use its contents:  
+retrieve the `Bundle` and use its contents:
 
 ### Kotlin
 
@@ -344,7 +346,9 @@ approaches to pass the `Bundle` to the start destination:
 
 To retrieve the data in your start destination, call
 [`Fragment.getArguments()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#getArguments()).
-| **Note:** when manually calling `setGraph()` with arguments, you must **not** use the `app:navGraph` attribute when creating the `NavHostFragment` in XML as that internally calls `setGraph()` without any arguments, resulting in your graph and start destination being created twice.
+
+> [!NOTE]
+> **Note:** when manually calling `setGraph()` with arguments, you must **not** use the `app:navGraph` attribute when creating the `NavHostFragment` in XML as that internally calls `setGraph()` without any arguments, resulting in your graph and start destination being created twice.
 
 ## ProGuard considerations
 
@@ -359,7 +363,7 @@ The following subsections outline these approaches.
 
 ### Use @Keep annotations
 
-The following example adds [`@Keep`](https://developer.android.com/reference/kotlin/androidx/annotation/Keep) annotations to model class definitions:  
+The following example adds [`@Keep`](https://developer.android.com/reference/kotlin/androidx/annotation/Keep) annotations to model class definitions:
 
 ### Kotlin
 
@@ -386,7 +390,7 @@ The following example adds [`@Keep`](https://developer.android.com/reference/kot
 You can also add `keepnames` rules to your `proguard-rules.pro` file, as shown
 in the following example:
 
-*proguard-rules.pro*  
+*proguard-rules.pro*
 
     ...
 

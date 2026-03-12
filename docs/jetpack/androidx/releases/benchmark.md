@@ -15,7 +15,7 @@ Accurately measure your code's performance within Android Studio.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | - | - | [1.5.0-alpha03](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha03) |
+| March 11, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | - | - | [1.5.0-alpha04](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -142,6 +142,20 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.5
+
+### Version 1.5.0-alpha04
+
+March 11, 2026
+
+`androidx.benchmark:benchmark-*:1.5.0-alpha04` is released. Version 1.5.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..1a508f033de883ba2853b9f9ae1853eec7010638/benchmark).
+
+**API Changes**
+
+- Added `JvmOverloads` to `PowerMetric.Energy` and `PowerMetric.Power` ([Iac0d0](https://android-review.googlesource.com/#/q/Iac0d06e0d13c6c2a5318c092e888292fc8166059), [b/481371562](https://issuetracker.google.com/issues/481371562)).
+
+**Bug Fixes**
+
+- Updated `ArtMetric` to account for top-level packages, especially important when using AGP/R8 9.1+, or `-repackageclasses` global option. Previously, `ArtMetric` would fail to detect these classloads in its `artClassLoad...` measurements. ([I207ca](https://android-review.googlesource.com/#/q/I207cad3b03bf4ed2c8779a1260a453e36b1716cf), [b/487402058](https://issuetracker.google.com/issues/487402058))
 
 ### Version 1.5.0-alpha03
 

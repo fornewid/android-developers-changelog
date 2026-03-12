@@ -35,7 +35,7 @@ Jetpack libraries to your `build.gradle.kts` file.
 ```kotlin
    dependencies {
        implementation("androidx.tracing:tracing:1.3.0")
-       implementation("androidx.core:core:1.17.0")
+       implementation("androidx.core:core:1.18.0")
    }
    
 ```
@@ -45,7 +45,7 @@ Jetpack libraries to your `build.gradle.kts` file.
 ```groovy
    dependencies {
        implementation 'androidx.tracing:tracing:1.3.0'
-       implementation 'androidx.core:core:1.17.0'
+       implementation 'androidx.core:core:1.18.0'
    }
    
 ```

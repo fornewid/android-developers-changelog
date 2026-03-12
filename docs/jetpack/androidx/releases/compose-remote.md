@@ -12,7 +12,7 @@ Remote Compose is a framework to create UI for remote surfaces
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha05) |
+| March 11, 2026 | - | - | - | [1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha06) |
 
 ## Declaring dependencies
 
@@ -27,20 +27,20 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha05"
+    implementation "androidx.compose.remote:remote-core:1.0.0-alpha06"
 
     // Use to create Remote Compose documents
-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha05"
-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha05"
-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha05"
-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha05"
-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha05"
+    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha06"
+    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha06"
+    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha06"
+    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha06"
+    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha06"
 
     // Use to render a Remote Compose document
-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha05"
-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha05"
+    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha06"
+    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha06"
 
-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha05"
+    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha06"
 }
 ```
 
@@ -48,20 +48,20 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha05")
+    implementation("androidx.compose.remote:remote-core:1.0.0-alpha06")
 
     // Use to create Remote Compose documents
-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha05")
-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha05")
-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha05")
-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha05")
-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha05")
+    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha06")
+    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha06")
+    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha06")
+    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha06")
+    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha06")
 
     // Use to render a Remote Compose document
-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha05")
-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha05")
+    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha06")
+    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha06")
 
-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha05")
+    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha06")
 }
 ```
 
@@ -81,6 +81,33 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha06
+
+March 11, 2026
+
+`androidx.compose.remote:remote-*:1.0.0-alpha06` is released. Version 1.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c129dd3005b507bbf2c535f70d7329ed14d6804b..1a508f033de883ba2853b9f9ae1853eec7010638/compose/remote).
+
+**New Features**
+
+- Add a new experimental operation for `TextStyle`. `TextStyle` enables commonly used typography styling to be written to the document once, and reused by several text runs ([bfc6487](https://android-review.googlesource.com/#/q/Iee502480ea5a68e0021e777028f77230ee473d0c))
+
+**API Changes**
+
+- Expose `RemoteTextStyle` merge ([I971ce](https://android-review.googlesource.com/#/q/I971cef03b78c66e2cb9577b04081c0e878bd5315), [b/446824085](https://issuetracker.google.com/issues/446824085))
+- Expose `RemotePainter` as public API ([I252c1](https://android-review.googlesource.com/#/q/I252c112a5379185b30116f523726941eacc23123), [b/446824085](https://issuetracker.google.com/issues/446824085))
+- Expose `Border/Clip` Modifiers and `RemoteShape`. ([Id26dd](https://android-review.googlesource.com/#/q/Id26dd4c3ac5617ce391b71a8eb6a70c7712c30d7), [b/446824085](https://issuetracker.google.com/issues/446824085))
+- Expose `RemoteColor` APIs in `remote-creation-compose` ([I4ab00](https://android-review.googlesource.com/#/q/I4ab002dc1de755cb3284ef0fe1f2c047d605bb9d), [b/446824085](https://issuetracker.google.com/issues/446824085))
+- Expose `RemoteText` API ([I6b019](https://android-review.googlesource.com/#/q/I6b019c35f925af55d13ea32f7cc6e34ee19388e0))
+- Expose `RemoteImage` API ([Ided31](https://android-review.googlesource.com/#/q/Ided3150fdcf6fada8f0f9e019421a733421be30f))
+- Expose `RemoteBoolean`, `RemoteString`, and `RemoteFloat` APIs ([Id9ee6](https://android-review.googlesource.com/#/q/Id9ee6a32db042b4dfde15e26bde8fd333488e2e6))
+- Remote Composable from `WidthIn` annotation ([I80784](https://android-review.googlesource.com/#/q/I8078494aa5de54d000d97f9b40e076c72454ac56))
+
+**Bug Fixes**
+
+- Moves libraries to use Java 11 target. This means produced bytecode will be Java 11 (class file version 55) and might require desugaring to use the library ([If4c2a](https://android-review.googlesource.com/#/q/If4c2a6fdda1278f42ea080fa365e8b437b2c2ae6), [b/457821470](https://issuetracker.google.com/issues/457821470))
+  - Ensure length and textlookup update correctly. Previously the length of `RemoteStrings` would be calculated on the first frame, and not updated afterwards ([e49cb53](https://android-review.googlesource.com/#/q/I04122ee502170ae46aee4b83cbe4aa5669fe14a1))
+  - Support `TextFromFloat` for numbers with large fractional components. Previously large "digitsAfter" values could result in the float evaluating to 0 ([5080bc54](https://android-review.googlesource.com/#/q/Ib4f9819a138824a4dc88b524f32bbc1d152da78b))
 
 ### Version 1.0.0-alpha05
 

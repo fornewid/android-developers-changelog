@@ -12,7 +12,7 @@ Work with modern WebView APIs on Android 5 and above.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | [1.15.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.15.0) | - | - | [1.16.0-alpha02](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0-alpha02) |
+| March 11, 2026 | [1.15.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.15.0) | - | - | [1.16.0-alpha03](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -55,6 +55,34 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.16
+
+### Version 1.16.0-alpha03
+
+March 11, 2026
+
+`androidx.webkit:webkit:1.16.0-alpha03` is released. Version 1.16.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..1a508f033de883ba2853b9f9ae1853eec7010638/webkit/webkit).
+
+**New Features**
+
+- Added new Web Performance Metrics APIs `onFirstContentfulPaintMillis`, `onLargestContentfulPaintMillis` and `onPerformanceMarkMillis` to `NavigationListener`. These APIs allow developers to track First/Largest Contentful Paint and performance marks directly in their app instead of using JavaScript to retrieve them. ([Idb93b](https://android-review.googlesource.com/#/q/Idb93b3661861a723d1d0429e7aab6ad779ee52f2), [b/432696062](https://issuetracker.google.com/issues/432696062))
+- Added error information to the Navigation object, see `Navigation#getWebResourceError` and `WebResourceError#getDebugCode.` If a navigation load fails due to a net error, error information about why this occurred is now available on the navigation object. ([I18bdc](https://android-review.googlesource.com/#/q/I18bdcf902e63e5726f0b985e46978ce29d3fdaf5), [b/474625648](https://issuetracker.google.com/issues/474625648))
+- Update the API shape of `BackForwardCache` settings by a new `BackForwardCacheSettings` object that can be obtained by calling `WebSettingsCompat#getBackForwardCacheSettings`, and can be used to alter each setting through set/get methods.   
+  Note: We are removing `WebSetingsCompat#setBackForwardCacheSettings` and `BackForwardCacheSettings.Builder`, so this change may cause compilation errors when you update to this version if you were using the removed API. ([I377f4](https://android-review.googlesource.com/#/q/I377f434d6dc93b2c0fde9cd82c49ff37eaa06f37))
+- Add an api to attch debug information to prefetch request. ([Ibb300](https://android-review.googlesource.com/#/q/Ibb30018c5154fc01d6aa0bdc75c67133150f0fef), [b/474559983](https://issuetracker.google.com/issues/474559983))
+
+**API Changes**
+
+- The minimum supported SDK (minSdk) has been increased to 24. Apps targeting SDK versions below 24 will need to update their target SDK to use this and future versions of the library. ([I4df32](https://android-review.googlesource.com/#/q/I4df32317770517242777fb87b41f17c27a0d1dc4), [b/452708695](https://issuetracker.google.com/issues/452708695))
+- Removed the experimental `Profile#clearPrefetchAsync` since it was no-op. This was in-development functionality that never worked. If you need to clear the cache, please submit a feature request. ([I341a4](https://android-review.googlesource.com/#/q/I341a4e62142ab0bbe439bbceddec00902359873b), [b/483043529](https://issuetracker.google.com/issues/483043529))
+- Migrate `androidx.webkit.OutcomeReceiverCompat` to stable status, and renamed it to `WebViewOutcomeReceiver`. This library-specific copy of the interface allows the `webkit` library to maintain `compileSdk = 33`, and the new name prevents name clashes. ([I0ebf7](https://android-review.googlesource.com/#/q/I0ebf70c1a865512c57185e5edba8dc92a155af5a), [I6ef8a](https://android-review.googlesource.com/#/q/I6ef8a1d6016d354d948f94352b955417ebd11fa7), [b/487934754](https://issuetracker.google.com/issues/487934754))
+- Changed return type of `StartUpLocation.getStackInformation()` from `String` to `Throwable` to allow apps to process the information better. ([I938d6](https://android-review.googlesource.com/#/q/I938d6669c83acc98c71a4a83ef5cd02160a18e98), [b/417434566](https://issuetracker.google.com/issues/417434566))
+
+**External Contribution**
+
+- Introducing new APIs to
+  - Inject persistent JavaScript as part of the document loaded event. This works similar to the existing `WebViewCompat#addDocumentStartJavaScript`, but ensures that the DOM is ready when the script runs. The new API is `WebViewCompat#addJavaScriptOnEvent`.
+  - Inject JavaScript and `WebMessageListener`s into isolated worlds, to prevent collisions with existing page JavaScript. The new APIs are `WebViewCompat#addJavaScriptOnEvent` and `WebViewCompat#addWebMessageListener`.
+  - Execute JavaScript as response to a web message sent from a page in the same frame/world combo that sent the message. The new API is `JavaScriptReplyProxy#executeJavaScript`. ([I45d92](https://android-review.googlesource.com/#/q/I45d92468d5506957702346d4be825b3a386b9282), [b/483103617](https://issuetracker.google.com/issues/483103617))
 
 ### Version 1.16.0-alpha02
 

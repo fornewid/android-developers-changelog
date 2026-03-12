@@ -134,7 +134,7 @@ To register a receiver with a context, perform the following steps:
 
    ```groovy
    dependencies {
-       def core_version = "1.17.0"
+       def core_version = "1.18.0"
 
        // Java language implementation
        implementation "androidx.core:core:$core_version"
@@ -167,7 +167,7 @@ To register a receiver with a context, perform the following steps:
 
    ```kotlin
    dependencies {
-       val core_version = "1.17.0"
+       val core_version = "1.18.0"
 
        // Java language implementation
        implementation("androidx.core:core:$core_version")

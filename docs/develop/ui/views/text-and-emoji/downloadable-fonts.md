@@ -195,7 +195,7 @@ To add AndroidX Core to your application project, add the following dependency t
 ```groovy
 dependencies {
     ...
-    implementation "androidx.core:core-ktx:1.17.0"
+    implementation "androidx.core:core-ktx:1.18.0"
 }
 ```
 
@@ -204,7 +204,7 @@ dependencies {
 ```kotlin
 dependencies {
     ...
-    implementation("androidx.core:core-ktx:1.17.0")
+    implementation("androidx.core:core-ktx:1.18.0")
 }
 ```
 

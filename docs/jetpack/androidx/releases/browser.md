@@ -14,7 +14,7 @@ Display webpages in the user's default browser.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.9.0](https://developer.android.com/jetpack/androidx/releases/browser#1.9.0) | - | - | [1.10.0-alpha04](https://developer.android.com/jetpack/androidx/releases/browser#1.10.0-alpha04) |
+| March 11, 2026 | [1.9.0](https://developer.android.com/jetpack/androidx/releases/browser#1.9.0) | [1.10.0-rc01](https://developer.android.com/jetpack/androidx/releases/browser#1.10.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -57,6 +57,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.10
+
+### Version 1.10.0-rc01
+
+March 11, 2026
+
+`androidx.browser:browser:1.10.0-rc01` is released. Version 1.10.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6e23fc0c137022098ae2d043778ffdc56402ba5e..f0a063331e2c9898a566b5d3c415b40450528575/browser/browser).
 
 ### Version 1.10.0-alpha04
 

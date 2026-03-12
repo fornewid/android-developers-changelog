@@ -14,7 +14,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.4) | - | - | [1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0-alpha06) |
+| March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0-beta01) | - |
 
 ## Structure
 
@@ -47,7 +47,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.animation:animation:1.10.4"
+    implementation "androidx.compose.animation:animation:1.10.5"
 }
 
 android {
@@ -69,7 +69,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.animation:animation:1.10.4")
+    implementation("androidx.compose.animation:animation:1.10.5")
 }
 
 android {
@@ -103,6 +103,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.11
+
+### Version 1.11.0-beta01
+
+March 11, 2026
+
+`androidx.compose.animation:animation-*:1.11.0-beta01` is released. Version 1.11.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6e23fc0c137022098ae2d043778ffdc56402ba5e..a15c668d4bb2e00cfa8ed1af96895a84c3e7e2d5/compose/animation).
+
+**Bug Fixes**
+
+- Fix `isTransitionActive` so that it only reports true when there're active animation from *matched* shared element ([d3426a](https://android-review.googlesource.com/#/q/d3426a6), [b/474385510](https://issuetracker.google.com/issues/474385510))
 
 ### Version 1.11.0-alpha06
 
@@ -161,6 +171,12 @@ December 03, 2025
 - Only acquire position for `sharedElements` if `SharedTransitionLayout` is attached ([I2a035](https://android-review.googlesource.com/#/q/I2a03554b3528abf628787091d3a7bede6c01a292))
 
 ## Version 1.10
+
+### Version 1.10.5
+
+March 11, 2026
+
+`androidx.compose.animation:animation-*:1.10.5` is released. Version 1.10.5 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6b6d8d062bfb0daa907101a196d1ea43d60ecfe2..e5be55ea7f9dceafc442ec739922936c1e056a33/compose/animation).
 
 ### Version 1.10.4
 

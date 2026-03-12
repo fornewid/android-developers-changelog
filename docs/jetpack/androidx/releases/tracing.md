@@ -12,7 +12,7 @@ Write trace events to the system trace buffer.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha02) |
+| March 11, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha03) |
 
 ## Feedback
 
@@ -28,6 +28,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.0
+
+### Version 2.0.0-alpha03
+
+March 11, 2026
+
+`androidx.tracing:tracing-*:2.0.0-alpha03` is released. Version 2.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6e23fc0c137022098ae2d043778ffdc56402ba5e..1a508f033de883ba2853b9f9ae1853eec7010638/tracing).
+
+**API Changes**
+
+- Added an experimental `InMemoryRingBufferTraceSink` implementation which allows setting a capacity restriction and avoids writing to disk unless explicitly asking for it. ([I1dc44](https://android-review.googlesource.com/#/q/I1dc44239f70fed9fea47a2acf8adb291b2a32f35), [b/484409653](https://issuetracker.google.com/issues/484409653), [I65a37](https://android-review.googlesource.com/#/q/I65a37ef9675beed85e525729cdcb116274938678), [b/484409653](https://issuetracker.google.com/issues/484409653))
+- Fix race condition when emitting trace events for coroutine suspends and resumes. ([Ie145e](https://android-review.googlesource.com/#/q/Ie145e2ae7de1960fa4036e0c05a5a69a1f0ee407))
+
+**Bug Fixes**
+
+- `androidx.tracing` no longer attempts to draw connections from parent to child coroutines in traces by default. This has been confusing, since the underlying trace format doesn't support `1:N` and `N:1` connections, resulting in a nest of arrows due to ambiguity about which coroutine slice connects to what. You can still manually opt-in to propagation with the `tokenForManualPropagation()` API when it's important for your use case. ([Ib2cf9](https://android-review.googlesource.com/#/q/Ib2cf9d39bff63c8584da36e32e43f244c817794b))
 
 ### Version 2.0.0-alpha02
 

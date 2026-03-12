@@ -69,6 +69,7 @@ Explore how modern Android architecture is implemented in a real world app [View
 | [navigation \*](https://developer.android.com/jetpack/androidx/releases/navigation) | Build and structure your in-app UI, handle deep links, and navigate between screens. |
 | [paging \*](https://developer.android.com/jetpack/androidx/releases/paging) | Load data in pages, and present it in a RecyclerView. |
 | [room \*](https://developer.android.com/jetpack/androidx/releases/room) | Create, store, and manage persistent data backed by a SQLite database. |
+| [room3 \*](https://developer.android.com/jetpack/androidx/releases/room3) | Create, store, and manage persistent data backed by a SQLite database. |
 | [test \*](https://developer.android.com/jetpack/androidx/releases/test) | Testing in Android. |
 | [work \*](https://developer.android.com/jetpack/androidx/releases/work) | Schedule and execute deferrable, constraint-based background tasks. |
 | [ads](https://developer.android.com/jetpack/androidx/releases/ads) | Get an advertising ID with or without Play Services. |

@@ -19,7 +19,7 @@ This table lists all the artifacts in the `androidx.core` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| core | [1.17.0](https://developer.android.com/jetpack/androidx/releases/core#1.17.0) | [1.18.0-rc01](https://developer.android.com/jetpack/androidx/releases/core#1.18.0-rc01) | - | - |
+| core | [1.18.0](https://developer.android.com/jetpack/androidx/releases/core#1.18.0) | - | - | - |
 | core-animation | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#core-animation-1.0.0) | - | - | - |
 | core-google-shortcuts | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.2.0-alpha01) |
 | core-performance | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#1.0.0) | - | - | - |
@@ -27,7 +27,7 @@ This table lists all the artifacts in the `androidx.core` group.
 | core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-role-1.1.0) | - | - | - |
 | core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core#core-splashscreen-1.2.0) | - | - | - |
 
-This library was last updated on: February 11, 2026
+This library was last updated on: March 11, 2026
 
 ## Declaring dependencies
 
@@ -42,7 +42,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def core_version = "1.17.0"
+    def core_version = "1.18.0"
 
     // Java language implementation
     implementation "androidx.core:core:$core_version"
@@ -75,7 +75,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val core_version = "1.17.0"
+    val core_version = "1.18.0"
 
     // Java language implementation
     implementation("androidx.core:core:$core_version")
@@ -304,6 +304,12 @@ July 26, 2023
 
 ## Core-location-altitude Version 1.0.
 
+### Version 1.0.0-rc01
+
+March 11, 2026
+
+`androidx.core:core-location-altitude:1.0.0-rc01`, `androidx.core:core-location-altitude-external-protobuf:1.0.0-rc01`, and `androidx.core:core-location-altitude-proto:1.0.0-rc01` are released with no notable changes since last beta. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b7446a78657b91b088b062544628faaf3c5a5582..5efc18b3cff6a5fe94edf31670a2a91e56618208/core).
+
 ### Version 1.0.0-beta01
 
 November 05, 2025
@@ -508,6 +514,19 @@ May 10, 2023
   The `CallsManager` API wraps the legacy `ConnectionService` API for devices running older versions of Android.
 
 ## Core and Core-ktx Version 1.18
+
+### Version 1.18.0
+
+March 11, 2026
+
+`androidx.core:core:1.18.0`, `androidx.core:core-ktx:1.18.0`, and `androidx.core:core-testing:1.18.0` are released. Version 1.18.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6d6d409113492a342806d502d7572e4dcf8c6ad1..d0311626e34d3399038ccd85c9ea91f7297de350/core).
+
+**Important changes since 1.17.0:**
+
+- `compileSdk` changed from API 36 to API 36.1
+- Added `NotificationCompat.ProjectedExtender` to support notifications on projected devices.
+- Added `PictureInPictureUiStateCompat` to help handle API differences for picture-in-picture feature
+- Added `AccessibilityNodeInfoCompat.SelectionCompat` to help handle accessibility selection on devices running API 36.1
 
 ### Version 1.18.0-rc01
 
@@ -950,7 +969,9 @@ July 26, 2023
 June 7, 2023
 
 `androidx.core:core:1.12.0-alpha05`, `androidx.core:core-ktx:1.12.0-alpha05`, and `androidx.core:core-testing:1.12.0-alpha05` are released. This version is developed in an internal branch.
-| **Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher. It contains the same bug fixes as 1.11.0-beta02.
+
+> [!NOTE]
+> **Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher. It contains the same bug fixes as 1.11.0-beta02.
 
 **Bug Fixes**
 
@@ -962,14 +983,18 @@ June 7, 2023
 May 10, 2023
 
 `androidx.core:core:1.12.0-alpha04`, `androidx.core:core-ktx:1.12.0-alpha04`, and `androidx.core:core-testing:1.12.0-alpha04` are released. This was released from an internal branch.
-| **Note:** This version will only compile against the Android 14 Beta 2 SDK.
+
+> [!NOTE]
+> **Note:** This version will only compile against the Android 14 Beta 2 SDK.
 
 ### Version 1.12.0-alpha03
 
 April 12, 2023
 
 `androidx.core:core:1.12.0-alpha03`, `androidx.core:core-ktx:1.12.0-alpha03`, and `androidx.core:core-testing:1.12.0-alpha03` are released. This was released from an internal branch.
-| **Note:** This version will only compile against the Android 14 Beta 1 SDK.
+
+> [!NOTE]
+> **Note:** This version will only compile against the Android 14 Beta 1 SDK.
 
 **API Changes**
 
@@ -1818,7 +1843,9 @@ September 6, 2023
 February 22, 2023
 
 `androidx.core:core-splashscreen:1.1.0-alpha01` is released. This was developed in an internal branch.
-| **Note:** This compiles against Android UDC DP1 SDK
+
+> [!NOTE]
+> **Note:** This compiles against Android UDC DP1 SDK
 
 **Bug Fixes**
 
@@ -2148,7 +2175,8 @@ April 15, 2021
 
 ## Core and Core-ktx Version 1.5.0
 
-| **Note:** This version will only compile against the Android 11 SDK.
+> [!NOTE]
+> **Note:** This version will only compile against the Android 11 SDK.
 
 ### Version 1.5.0
 
@@ -2456,7 +2484,8 @@ January 29, 2020
 
 ## Version 1.2.0
 
-| **Note:** newer versions androidx libraries now correctly reflect `implementation` dependencies versus `api` dependencies. If your project relies on an implicit dependency exposed through an `implementation` dependency in version `1.2.0`, it will be necessary to explicitly depend on that dependency in your `build.gradle`.
+> [!NOTE]
+> **Note:** newer versions androidx libraries now correctly reflect `implementation` dependencies versus `api` dependencies. If your project relies on an implicit dependency exposed through an `implementation` dependency in version `1.2.0`, it will be necessary to explicitly depend on that dependency in your `build.gradle`.
 
 ### Version 1.2.0
 
@@ -2529,7 +2558,9 @@ September 5, 2019
 August 7, 2019
 
 `androidx.core:core:1.2.0-alpha03` and `androidx.core:core-ktx:1.2.0-alpha03` are released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/cd16b09b10c939184a8a47a3f85b758f16c08e85..ece690f1fdb4481b47c5128fd21d88da7d6850a6/core).
-| **Note:** The Kotlin dependant libraries of this version (`core-ktx`) target Java 8 bytecode. Please see our [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) page on using Java 8 in your project.
+
+> [!NOTE]
+> **Note:** The Kotlin dependant libraries of this version (`core-ktx`) target Java 8 bytecode. Please see our [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) page on using Java 8 in your project.
 
 **New features**
 
@@ -2554,7 +2585,9 @@ August 7, 2019
 June 13, 2019
 
 `androidx.core:core:1.2.0-alpha02` and `androidx.core:core-ktx:1.2.0-alpha02` are released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/f6d94c8b8adaf0edaff495c1e88e8ddc96060317..cd16b09b10c939184a8a47a3f85b758f16c08e85/core).
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 **API changes**
 
@@ -2564,7 +2597,9 @@ June 13, 2019
 
 May 7, 2019
 `androidx.core:core:1.2.0-alpha01` are `androidx.core:core-ktx:1.2.0-alpha01` are released.
-| **Note:** This version will only compile against the Q Beta 3 SDK.
+
+> [!NOTE]
+> **Note:** This version will only compile against the Q Beta 3 SDK.
 
 **New features**
 
@@ -2857,8 +2892,12 @@ November 20, 2019
 July 2, 2019
 
 `androidx.core:core-role:1.0.0-alpha01` is released. This is the first release of `androidx.core:core-role`. The commits included in this initial version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/1b57674a04707e1adc076536377f967f62d2b68b/core/core-role).
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
-| **Note:** This version will only work with the Q Beta 4 SDK.
+
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+
+> [!NOTE]
+> **Note:** This version will only work with the Q Beta 4 SDK.
 
 **New features**
 

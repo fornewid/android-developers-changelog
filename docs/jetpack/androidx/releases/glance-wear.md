@@ -12,7 +12,7 @@ Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha04) |
+| March 11, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -27,9 +27,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha04"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha05"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha04"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha05"
 }
 ```
 
@@ -37,9 +37,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha04")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha05")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha04")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha05")
 }
 ```
 
@@ -59,6 +59,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha05
+
+March 11, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha05` and `androidx.glance.wear:wear-core:1.0.0-alpha05` are released. Version 1.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6e23fc0c137022098ae2d043778ffdc56402ba5e..1a508f033de883ba2853b9f9ae1853eec7010638/glance/wear).
+
+**API Changes**
+
+- We have added `WearWidgetBrush`API with the `color` method to be used for the Wear Widget background. ([I66f54](https://android-review.googlesource.com/#/q/I66f54dde07793ac7a00c48d374ec04824b9b3858), [b/464273091](https://issuetracker.google.com/issues/464273091))
+- `fetchActiveWidgetsForProvider` method has been removed as there is already `fetchActiveWidgets`. ([I85e4e](https://android-review.googlesource.com/#/q/I85e4e22abd2144a97e4b2765f285c204bbe0c2ab), [b/486197890](https://issuetracker.google.com/issues/486197890))
 
 ### Version 1.0.0-alpha04
 

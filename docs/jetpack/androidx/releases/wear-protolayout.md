@@ -12,7 +12,7 @@ This library allows defining a set of UI layouts and non-UI expressions to be re
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.3.0) | [1.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.0-rc01) | - | - |
+| March 11, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.3.0) | [1.4.0-rc02](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.0-rc02) | - | - |
 
 ## Declaring dependencies
 
@@ -69,6 +69,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.4
+
+### Version 1.4.0-rc02
+
+March 11, 2026
+
+`androidx.wear.protolayout:protolayout-*:1.4.0-rc02` is released. Version 1.4.0-rc02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ab5b6a7b57eb87f47a018419129d770797386e00..b7751004e8a8efc67213531484deed01280fb73a/wear/protolayout).
+
+**API changes**
+
+- Starting from API 36, accessing heart rate data, such as via `ProtoLayout` Expressions library with `PlatformHealthSources.heartRateBpm` and `PlatformHealthSources.heartRateAccuracy` needs `android.health.connect.HealthPermissions.READ_HEART_RATE` permission to be granted to the calling App.
 
 ### Version 1.4.0-rc01
 

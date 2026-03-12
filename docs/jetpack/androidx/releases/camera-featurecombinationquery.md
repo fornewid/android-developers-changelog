@@ -12,7 +12,7 @@ Query camera capabilities.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.0-rc01) | - | - |
+| March 11, 2026 | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -29,10 +29,10 @@ your app or module:
 ```groovy
 dependencies {
     // Use to pull in the base feature combination query library
-    implementation "androidx.camera.featurecombinationquery:featurecombinationquery:1.6.0-rc01"
+    implementation "androidx.camera.featurecombinationquery:featurecombinationquery:1.7.0-alpha01"
 
     // Optional [recommended]: Use to enable play services as a query provider
-    implementation "androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.6.0-rc01"
+    implementation "androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.7.0-alpha01"
 }
 ```
 
@@ -41,10 +41,10 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to pull in the base feature combination query library
-    implementation("androidx.camera.featurecombinationquery:featurecombinationquery:1.6.0-rc01")
+    implementation("androidx.camera.featurecombinationquery:featurecombinationquery:1.7.0-alpha01")
 
     // Optional [recommended]: Use to enable play services as a query provider
-    implementation("androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.6.0-rc01")
+    implementation("androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.7.0-alpha01")
 }
 ```
 
@@ -62,6 +62,14 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.7
+
+### Version 1.7.0-alpha01
+
+March 11, 2026
+
+`androidx.camera.featurecombinationquery:featurecombinationquery:1.7.0-alpha01` and `androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.7.0-alpha01` are released. Version 1.7.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0dc6fa695e63a0bbc17f07b7368ba2567fb47d01..1a508f033de883ba2853b9f9ae1853eec7010638/camera/featurecombinationquery).
 
 ## Version 1.6
 

@@ -21,6 +21,20 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+### March 11, 2026
+
+- [Activity Activity-compose Activity-ktx Version 1.13.0](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0)
+- [Collection Version 1.6.0](https://developer.android.com/jetpack/androidx/releases/collection#1.6.0)
+- [Compose Animation Version 1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.5)
+- [Compose Foundation Version 1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.5)
+- [Compose Material Version 1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.5)
+- [Compose Runtime Version 1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.10.5)
+- [Compose UI Version 1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.5)
+- [Core Core-ktx Core-testing Version 1.18.0](https://developer.android.com/jetpack/androidx/releases/core#1.18.0)
+- [Datastore Version 1.2.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.1)
+- [Games-activity Version 4.4.0](https://developer.android.com/jetpack/androidx/releases/games#games-activity-4.4.0)
+- [Games-text-input Version 4.3.0](https://developer.android.com/jetpack/androidx/releases/games#games-text-input-4.3.0)
+
 ### February 25, 2026
 
 - [Compose Animation Version 1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.4)

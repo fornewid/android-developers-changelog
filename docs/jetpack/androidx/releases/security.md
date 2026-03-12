@@ -20,7 +20,7 @@ This table lists all the artifacts in the `androidx.security` group.
 | security-app-authenticator-testing | [1.0.0](https://developer.android.com/jetpack/androidx/releases/security#security-app-authenticator-testing-1.0.0) | - | - | - |
 | security-identity-credential | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/security#security-identity-credential-1.0.0-alpha03) |
 
-This library was last updated on: February 11, 2026
+This library was last updated on: March 11, 2026
 
 ## Declaring dependencies
 
@@ -81,6 +81,16 @@ September 24, 2025
 - Includes `UpdateInfo`: A data class to represent information about an available update for a component, including URI, component name, Security Patch Level (SPL), and published date.
 
 ## Security-State Version 1.1
+
+### Version 1.1.0-alpha02
+
+March 11, 2026
+
+`androidx.security:security-state:1.1.0-alpha02` is released. Version 1.1.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..1a508f033de883ba2853b9f9ae1853eec7010638/security/security-state).
+
+**Bug Fixes**
+
+- Fixed System Published SPL ([Ic3504](https://android-review.googlesource.com/#/q/Ic350446a6944804469a8b86b7bdabc54d20f0fc4)) and System Modules (Mainline) SPL ([If3c29](https://android-review.googlesource.com/#/q/If3c294b2037ae6cc00f024e6a3d9df8315b77a09)) to use the "global max" Android Security Bulletin date, to support the new "Risk Based Update System" (RBUS).
 
 ### Version 1.1.0-alpha01
 

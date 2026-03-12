@@ -17,31 +17,6 @@ automatically enabled in canary releases and no action is required.
 
 ## Studio Labs features
 
-### Compose preview generation with Gemini
-
-Gemini can automatically generate Jetpack Compose preview code saving you
-time and effort. You can access this feature by right-clicking within a
-composable and navigating to **Gemini \> Generate Compose Preview** or
-**Generate Compose Preview for this file**, or by clicking the link in an
-empty preview panel. The generated preview code is presented in a diff view
-that lets you to quickly accept, edit, or reject the suggestions, providing
-a faster way to visualize your composables.
-![Compose Preview generation with Gemini](https://developer.android.com/static/studio/gemini/images/compose-preview.png) Compose Preview generation with Gemini
-
-### Transform UI with Gemini
-
-Transform UI code within the Compose Preview environment using natural language
-directly in the preview. To use it, right-click in the Compose Preview and
-select **Transform UI With Gemini** . Then enter your natural language requests,
-such as "Center align these buttons," to guide Gemini in adjusting your layout
-or styling, or select specific UI elements in the preview for better context.
-Gemini will then edit your Compose UI code in place, which you can review and
-approve, speeding up the UI development workflow. To learn more, see
-[Transform UI](https://developer.android.com/studio/gemini/transform-ui).
-
-|---|---|
-| !['Transform UI with Gemini' in context menu](https://developer.android.com/static/studio/gemini/images/transform-ui1.png) Accessing 'Transform UI with Gemini' menu | !['Transform UI with Gemini' modal dialog](https://developer.android.com/static/studio/gemini/images/transform-ui2.png) Applying a natural language transformation to a Compose preview |
-
 ### Journeys for Android Studio
 
 [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) helps make end-to-end

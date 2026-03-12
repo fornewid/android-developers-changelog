@@ -16,7 +16,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.4) | - | - | [1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.0-alpha06) |
+| March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.0-beta01) | - |
 
 ## Structure
 
@@ -49,7 +49,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.ui:ui:1.10.4"
+    implementation "androidx.compose.ui:ui:1.10.5"
 }
 
 android {
@@ -71,7 +71,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.ui:ui:1.10.4")
+    implementation("androidx.compose.ui:ui:1.10.5")
 }
 
 android {
@@ -105,6 +105,37 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.11
+
+### Version 1.11.0-beta01
+
+March 11, 2026
+
+`androidx.compose.ui:ui-*:1.11.0-beta01` is released. Version 1.11.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6e23fc0c137022098ae2d043778ffdc56402ba5e..a15c668d4bb2e00cfa8ed1af96895a84c3e7e2d5/compose/ui).
+
+**API Changes**
+
+- Support for custom `windowToken` has been added to Jetpack Compose Dialog ([Ic7728](https://android-review.googlesource.com/#/q/Ic7728a66758224271f18e97c8b359a36ffde526c))
+- Support for custom `windowToken` and `windowType` has been added to Jetpack Compose Popups. ([I0a04f](https://android-review.googlesource.com/#/q/I0a04fd45db8e521250c414764d78f901d1302120))
+- Introduce `PreviewWrapper` interface and an annotation provider. This will allow developers to seamlessly wrap their previews with custom behavior. ([I29f54](https://android-review.googlesource.com/#/q/I29f540ccb829f1982b0843199d02099443a5692d), [b/484306729](https://issuetracker.google.com/issues/484306729))
+- When `AndroidComposeUiFlags.isSharedFontEnabled` is true, font-related object instances, like `FontLoader` and `FontFamilyResolver`, can be shared across `ComposeView` instances inside `ComposeViewContext`. ([I403e8](https://android-review.googlesource.com/#/q/I403e84c15266e6711b0aa2ea8c6777ac1efc2c1c))
+- Compose semantics processors will use view.handler instead of the `mainLooper`, avoiding crashes in views that use non-main handlers. ([I671c3](https://android-review.googlesource.com/#/q/I671c3184af463668f930d8696fd1dad8733c2ebe), [b/486235925](https://issuetracker.google.com/issues/486235925))
+- Added a `isSkipNonImportantSemanticsNodesHitTestEnabled` flag that guards a bug fix for semantics hit testing, which affects `TalkBack`'s touch-to-explore. ([I2933f](https://android-review.googlesource.com/#/q/I2933f69e8eb092c4707d4f03b7344af754b8ebac), [b/481011169](https://issuetracker.google.com/issues/481011169), [b/454377558](https://issuetracker.google.com/issues/454377558), [b/461360154](https://issuetracker.google.com/issues/461360154))
+- Support for displaying Jetpack Compose Dialogs from Android Services has been added. By providing a custom window type through the new `windowType` parameter in `DialogProperties`, developers can now show Dialogs in overlay windows. ([I7c504](https://android-review.googlesource.com/#/q/I7c504278664f1eb5ed804776c88f956958b2dbe4), [b/478214962](https://issuetracker.google.com/issues/478214962))
+- Renames `PointerInputChange` and `HistoricalChange` properties for retrieving scale and pan values. ([I989a8](https://android-review.googlesource.com/#/q/I989a80bdac8c64ce1faacc04bc9ff560fcd963e3), [b/481333653](https://issuetracker.google.com/issues/481333653))
+- Adds more functionality for trackpad testing APIs, to simulate different curves and inputs for a trackpad gesture. ([I290fb](https://android-review.googlesource.com/#/q/I290fb4dea339278201099d0192a7f617b0aaeed0), [b/473603145](https://issuetracker.google.com/issues/473603145), [b/479213358](https://issuetracker.google.com/issues/479213358))
+- Splits the new `PointerEventType.Pan` and into `PointerEventType.PanStart`, `PointerEventType.PanMove` and `PointerEventType.PanEnd`. Similarly, `PointerEventType.Scale` is split into `PointerEventType.ScaleStart`, `PointerEventType.ScaleChange` and `PointerEventType.ScaleEnd`. This split allows passing through additional information about the start and end of platform-interpreted pan and scale gestures, which then allows pointer input handlers in Compose to use this information to detect events appropriately, and especially know when a pan or scale is done. ([I4daf6](https://android-review.googlesource.com/#/q/I4daf682c6cb3624bdbe935115a60fdb9edca19eb), [b/479285849](https://issuetracker.google.com/issues/479285849), [b/481333653](https://issuetracker.google.com/issues/481333653))
+- When `AndroidComposeUiFlags.isSharedHapticsEnabled` is true, `ComposeViewContext` contains the shared haptics controller instance. ([Icd79a](https://android-review.googlesource.com/#/q/Icd79a696376678e8dd748c682284ffc19dec8c41))
+- Introduced experimental `mediaQuery`,`derivedMediaQuery` and `UiMediaScope` APIs (marked as `@ExperimentalMediaQueryApi`) to enable declarative adaptive UI development based on window dimensions, window posture, and other device and environment capabilities. ([I2d21e](https://android-review.googlesource.com/#/q/I2d21e6c3b11c8eebd5abc740facff6b3dc115c6a), [b/479800750](https://issuetracker.google.com/issues/479800750))
+
+**Bug Fixes**
+
+- Fixed an issue where the block-scoped `Modifier.dropShadow` and `Modifier.innerShadow` would not redraw when the Shape parameter was dynamically changed. ([Ida262](https://android-review.googlesource.com/#/q/Ida2622c84ff1a5098f71fb1e34aa6c140fd18ab5), [b/486202623](https://issuetracker.google.com/issues/486202623))
+- Fixed a bug that causes an inline content to be misplaced in RTL layouts with LTR text or LTR layouts with RTL text. ([I09789](https://android-review.googlesource.com/#/q/I09789979bbcda98fbc248337fe24f788b55be01f))
+- Fixes a bug where a `ComposeView` is used in a fragment transition, an exception was being thrown. ([Ia425f](https://android-review.googlesource.com/#/q/Ia425fd55b8c369d2661925238fe674520713bb52), [b/484100557](https://issuetracker.google.com/issues/484100557))
+
+**External Contribution**
+
+- Add a `InputTextSuggestionState` property to help identify the different states a transliteration input can be in when text replacement suggestions are available. Also introduces `TextCompositionRange` to track the range of the current transliteration text composition range; a null value indicates no composition in place. ([I7a67f](https://android-review.googlesource.com/#/q/I7a67fc9413c1b856af1c8a41ff25cbc0648c5e97), [b/476472318](https://issuetracker.google.com/issues/476472318))
 
 ### Version 1.11.0-alpha06
 
@@ -211,6 +242,12 @@ December 03, 2025
 - Introduced `MeasuredSizeAwareModifierNode`, which is needed when you need `onRemeasured()` callback. Please use this interface directly instead of using more generic `LayoutAwareModifierNode` when you don't need other callbacks. ([If6fb0](https://android-review.googlesource.com/#/q/If6fb04b74840d08274d01a41d84bd14507d190b8))
 
 ## Version 1.10
+
+### Version 1.10.5
+
+March 11, 2026
+
+`androidx.compose.ui:ui-*:1.10.5` is released. Version 1.10.5 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6b6d8d062bfb0daa907101a196d1ea43d60ecfe2..e5be55ea7f9dceafc442ec739922936c1e056a33/compose/ui).
 
 ### Version 1.10.4
 

@@ -64,7 +64,7 @@ dependencies {
   implementation "androidx.paging:paging-guava:$paging_version"
 
   // optional - Jetpack Compose integration
-  implementation "androidx.paging:paging-compose:3.4.1"
+  implementation "androidx.paging:paging-compose:3.5.0-alpha01"
 }
 ```
 
@@ -89,7 +89,7 @@ dependencies {
   implementation("androidx.paging:paging-guava:$paging_version")
 
   // optional - Jetpack Compose integration
-  implementation("androidx.paging:paging-compose:3.4.1")
+  implementation("androidx.paging:paging-compose:3.5.0-alpha01")
 }
 ```
 

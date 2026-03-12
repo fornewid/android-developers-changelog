@@ -12,7 +12,7 @@ Reduce the memory impact of existing and new collections that are small.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/collection#1.5.0) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/collection#1.6.0-rc01) | - | - |
+| March 11, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/collection#1.6.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def collection_version = "1.5.0"
+    def collection_version = "1.6.0"
     implementation "androidx.collection:collection:$collection_version"
 }
 ```
@@ -36,7 +36,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val collection_version = "1.5.0"
+    val collection_version = "1.6.0"
     implementation("androidx.collection:collection:$collection_version")
 }
 ```
@@ -57,6 +57,19 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.6
+
+### Version 1.6.0
+
+March 11, 2026
+
+`androidx.collection:collection-*:1.6.0` is released. Version 1.6.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/fb376ee6d05727045f41e320bd36923eb385c5f8..5e46f82d2e75f3f4e6a88da615d2a4aba4427d95/collection).
+
+**Important changes since 1.5.0:**
+
+- Added no-argument version of trim for `MutableFloatList`, `MutableDoubleList`, `MutableIntList`.
+- Add `toMutableOrderedScatterSet`, `toOrderedScatterSet`, `toMutableScatterMap`, `toScatterMap`, `toMutableScatterSet`, `toScatterSet` extension functions.
+- Performance improvements for `ScatterMap` and `ScatterSet`.
+- `minSdk` version is now 23.
 
 ### Version 1.6.0-rc01
 

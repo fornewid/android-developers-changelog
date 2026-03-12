@@ -12,7 +12,7 @@ A library to add pdf viewing capabilities inside apps.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha14) |
+| March 11, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha15) |
 
 ## Declaring dependencies
 
@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.pdf:pdf-viewer-fragment:1.0.0-alpha14"
+    implementation "androidx.pdf:pdf-viewer-fragment:1.0.0-alpha15"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.pdf:pdf-viewer-fragment:1.0.0-alpha14")
+    implementation("androidx.pdf:pdf-viewer-fragment:1.0.0-alpha15")
 }
 ```
 
@@ -57,6 +57,23 @@ for more information.
 There are no release notes for this artifact.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha15
+
+March 11, 2026
+
+`androidx.pdf:pdf-*:1.0.0-alpha15` is released. Version 1.0.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c2de33678eded3b9c19c57db09706e737f17929d..1a508f033de883ba2853b9f9ae1853eec7010638/pdf).
+
+**API Changes**
+
+- Added Android SDK Extension Version 19 as requirement for `ImageSelection` Feature ([I93af7](https://android-review.googlesource.com/#/q/I93af7f81b7174ae62f6bfee2730c70a74f3c754a))
+- Marked `isLinearized Boolean` as deprecated and replaced with `linearizationStatus IntDef`([I5c1bf](https://android-review.googlesource.com/#/q/I5c1bf2cd74cbca7e71e1f1789882338cb6d54ce8))
+
+**Bug Fixes**
+
+- Fix fast scroller rendering without text on single tap gesture for `PdfViewer` compose component ([I442b7](https://android-review.git.corp.google.com/#/q/I442b70e9148e04ff1be21744c172af3a0304785e))
+- Clicking on the center of the widget center for `clickTypeWidgets`.([Ie5661](https://android-review.git.corp.google.com/#/q/Ie566175bd0f87003b558b5f70ec3fe12d3805f52))
+- Moves libraries to use Java 11 target. This means produced bytecode will be Java 11 (class file version 55) and might require desugaring to use the library ([If4c2a](https://android-review.googlesource.com/#/q/If4c2a6fdda1278f42ea080fa365e8b437b2c2ae6), [b/457821470](https://issuetracker.google.com/issues/457821470))
 
 ### Version 1.0.0-alpha14
 

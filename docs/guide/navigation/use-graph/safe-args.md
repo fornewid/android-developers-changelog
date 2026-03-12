@@ -8,13 +8,17 @@ The recommended way to navigate between destinations is to use the Safe Args
 Gradle plugin. This plugin generates object and builder classes that enable
 type-safe navigation between destinations. Use Safe Args for
 navigating and [passing data between destinations](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args).
-| **Note:** If you aren't using Gradle, you must use other navigation methods.
-| **Warning:** Safe Args is only available for Android views and fragments. If you are using Compose, see the guide on [type safe navigation](https://developer.android.com/guide/navigation/navigation-type-safety).
+
+> [!NOTE]
+> **Note:** If you aren't using Gradle, you must use other navigation methods.
+
+> [!WARNING]
+> **Warning:** Safe Args is only available for Android views and fragments. If you are using Compose, see the guide on [type safe navigation](https://developer.android.com/guide/navigation/navigation-type-safety).
 
 ## Enable Safe Args
 
 To add [Safe Args](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args)
-to your project, include the following `classpath` in your top level `build.gradle` file:  
+to your project, include the following `classpath` in your top level `build.gradle` file:
 
 ### Groovy
 
@@ -47,7 +51,7 @@ buildscript {
 You must also apply one of two available plugins.
 
 To generate Java language code suitable for Java or mixed Java and Kotlin modules, add
-this line to **your app or module's** `build.gradle` file:  
+this line to **your app or module's** `build.gradle` file:
 
 ### Groovy
 
@@ -65,7 +69,7 @@ plugins {
 }
 ```
 
-Alternatively, to generate Kotlin code suitable for Kotlin-only modules add:  
+Alternatively, to generate Kotlin code suitable for Kotlin-only modules add:
 
 ### Groovy
 
@@ -116,7 +120,7 @@ method, `actionSpecifyAmountFragmentToConfirmationFragment()`, and an inner
 class called `ActionSpecifyAmountFragmentToConfirmationFragment`. The inner
 class is derived from `NavDirections` and stores the associated action ID and
 `float` parameter. The returned `NavDirections` object can then be passed
-directly to `navigate()`, as shown in the following example:  
+directly to `navigate()`, as shown in the following example:
 
 ### Kotlin
 
@@ -147,10 +151,12 @@ For more information about passing data between destinations with Safe Args, see
 Navigate between destinations using the Safe Args
 Gradle plugin. This plugin generates simple object and builder classes that
 enable type-safe navigation and argument passing between destinations.
-| **Note:** For other ways to navigate, see [Navigate to a destination](https://developer.android.com/guide/navigation/navigation-navigate).
+
+> [!NOTE]
+> **Note:** For other ways to navigate, see [Navigate to a destination](https://developer.android.com/guide/navigation/navigation-navigate).
 
 To add [Safe Args](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args)
-to your project, include the following `classpath` in your top level `build.gradle` file:  
+to your project, include the following `classpath` in your top level `build.gradle` file:
 
 ### Groovy
 
@@ -183,7 +189,7 @@ buildscript {
 You must also apply one of two available plugins.
 
 To generate Java language code suitable for Java or mixed Java and Kotlin modules, add
-this line to **your app or module's** `build.gradle` file:  
+this line to **your app or module's** `build.gradle` file:
 
 ### Groovy
 
@@ -201,7 +207,7 @@ plugins {
 }
 ```
 
-Alternatively, to generate Kotlin code suitable for Kotlin-only modules add:  
+Alternatively, to generate Kotlin code suitable for Kotlin-only modules add:
 
 ### Groovy
 
@@ -241,7 +247,7 @@ destination, `ConfirmationFragment`.
 Safe Args generates a `SpecifyAmountFragmentDirections` class with a single
 method, `actionSpecifyAmountFragmentToConfirmationFragment()`, which returns a
 `NavDirections` object. This returned `NavDirections` object can then be passed
-directly to `navigate()`, as shown in the following example:  
+directly to `navigate()`, as shown in the following example:
 
 ### Kotlin
 

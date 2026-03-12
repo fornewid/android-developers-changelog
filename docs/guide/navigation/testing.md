@@ -14,7 +14,9 @@ them again in your app. What is important to test, however, are the interactions
 between the app specific code in your fragments and their
 [`NavController`](https://developer.android.com/reference/androidx/navigation/NavController).
 This guide walks through a few common navigation scenarios and how to test them.
-| **Note:** This guide makes heavy use of [`FragmentScenario`](https://developer.android.com/reference/androidx/fragment/app/testing/FragmentScenario) for testing the contents of your fragments in isolation. This allows you to verify a fragment's state and interactions in both unit and instrumentation tests. If you are unfamiliar with testing fragments using `FragmentScenario`, you might want to read the [guide to testing your fragments in isolation](https://developer.android.com/training/basics/fragments/testing) before continuing.
+
+> [!NOTE]
+> **Note:** This guide makes heavy use of [`FragmentScenario`](https://developer.android.com/reference/androidx/fragment/app/testing/FragmentScenario) for testing the contents of your fragments in isolation. This allows you to verify a fragment's state and interactions in both unit and instrumentation tests. If you are unfamiliar with testing fragments using `FragmentScenario`, you might want to read the [guide to testing your fragments in isolation](https://developer.android.com/training/basics/fragments/testing) before continuing.
 
 ## Test fragment navigation
 
@@ -27,7 +29,7 @@ stack after
 operations.
 
 You can add the Navigation Testing artifact to your project by adding the
-following dependency in your app module's `build.gradle` file:  
+following dependency in your app module's `build.gradle` file:
 
 ### Groovy
 
@@ -55,7 +57,7 @@ play.
 
 ![](https://developer.android.com/static/images/topic/libraries/architecture/navigation-testing-trivia-game.png)
 
-The fragment representing the **title_screen** might look something like this:  
+The fragment representing the **title_screen** might look something like this:
 
 ### Kotlin
 
@@ -102,7 +104,7 @@ correctly moves the `NavController` to the `R.id.in_game` screen.
 
 Using a combination of `FragmentScenario`, [Espresso](https://developer.android.com/training/testing/espresso),
 and `TestNavHostController`, you can recreate the conditions necessary to test
-this scenario, as shown in the following example:  
+this scenario, as shown in the following example:
 
 ### Kotlin
 
@@ -182,7 +184,9 @@ Unlike a `NavHostController` instance that a `NavHostFragment` would use,
 behavior (such as the `FragmentTransaction` that `FragmentNavigator` does)
 when you call `navigate()` - it only updates the state of the
 `TestNavHostController`.
-| **Note:** when using Navigation `2.2.1` or earlier, it is recommended to use a mock `NavController` with [Mockito](https://site.mockito.org/) and verify that the correct actions are taken rather than verify the NavController's state.
+
+> [!NOTE]
+> **Note:** when using Navigation `2.2.1` or earlier, it is recommended to use a mock `NavController` with [Mockito](https://site.mockito.org/) and verify that the correct actions are taken rather than verify the NavController's state.
 
 ## Test NavigationUI with FragmentScenario
 
@@ -196,7 +200,7 @@ by your fragment, you can call setup methods with your `NavController` before
 the fragment reaches the `RESUMED` state. Thus, you need a way to to set your
 `TestNavHostController` earlier in the lifecycle.
 
-A fragment that owns its own `Toolbar` can be written as follows:  
+A fragment that owns its own `Toolbar` can be written as follows:
 
 ### Kotlin
 
@@ -234,7 +238,7 @@ too late in the lifecycle, causing the `findNavController()` call to fail.
 interface which can be used to register callbacks for lifecycle events. This can
 be combined with `Fragment.getViewLifecycleOwnerLiveData()` to receive a
 callback that immediately follows `onCreateView()`, as shown in the following
-example:  
+example:
 
 ### Kotlin
 
@@ -305,7 +309,7 @@ For example, when testing a fragment that uses a
 [navigation scoped ViewModel](https://developer.android.com/guide/navigation/navigation-programmatic#share_ui-related_data_between_destinations_with_viewmodel),
 you must call
 [`setViewModelStore`](https://developer.android.com/reference/androidx/navigation/NavHostController#setViewModelStore(androidx.lifecycle.ViewModelStore))
-on the `TestNavHostController`:  
+on the `TestNavHostController`:
 
 ### Kotlin
 

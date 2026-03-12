@@ -18,7 +18,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.4) | - | - | [1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0-alpha06) |
+| March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0-beta01) | - |
 
 ## Structure
 
@@ -51,7 +51,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.foundation:foundation:1.10.4"
+    implementation "androidx.compose.foundation:foundation:1.10.5"
 }
 
 android {
@@ -73,7 +73,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.10.4")
+    implementation("androidx.compose.foundation:foundation:1.10.5")
 }
 
 android {
@@ -107,6 +107,33 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.11
+
+### Version 1.11.0-beta01
+
+March 11, 2026
+
+`androidx.compose.foundation:foundation-*:1.11.0-beta01` is released. Version 1.11.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6e23fc0c137022098ae2d043778ffdc56402ba5e..a15c668d4bb2e00cfa8ed1af96895a84c3e7e2d5/compose/foundation).
+
+**API Changes**
+
+- Optimized `BasicTextField`'s internal min size calculations. These are controlled by `ComposeFoundationFlags#isBasicTextFieldMinSizeOptimizationEnabled`, should you need to disable them. ([I70ade](https://android-review.googlesource.com/#/q/I70ade2488b5f1add0d22fa359ab5b850a7bfa16f))
+- Added `rememberUpdatedStyleState` which is part of the experimental Style API. `rememberUpdated` should be used when createing instances of `StyleState` when parameters of the composable component (such as `enabled`) are copied into the style state ([Idf7ff](https://android-review.googlesource.com/#/q/Idf7ffd2c21f089f112b8d9c17a7d9b64a0bcb85b), [b/485510967](https://issuetracker.google.com/issues/485510967))
+- Renames `PointerInputChange` and `HistoricalChange` properties for retrieving scale and pan values. ([I989a8](https://android-review.googlesource.com/#/q/I989a80bdac8c64ce1faacc04bc9ff560fcd963e3), [b/481333653](https://issuetracker.google.com/issues/481333653))
+- Adds more functionality for trackpad testing APIs, to simulate different curves and inputs for a trackpad gesture. ([I290fb](https://android-review.googlesource.com/#/q/I290fb4dea339278201099d0192a7f617b0aaeed0), [b/473603145](https://issuetracker.google.com/issues/473603145), [b/479213358](https://issuetracker.google.com/issues/479213358))
+- Splits the new `PointerEventType.Pan` and into `PointerEventType.PanStart`, `PointerEventType.PanMove` and `PointerEventType.PanEnd`. Similarly, `PointerEventType.Scale` is split into `PointerEventType.ScaleStart`, `PointerEventType.ScaleChange` and `PointerEventType.ScaleEnd`. This split allows passing through additional information about the start and end of platform-interpreted pan and scale gestures, which then allows pointer input handlers in Compose to use this information to detect events appropriately, and especially know when a pan or scale is done. ([I4daf6](https://android-review.googlesource.com/#/q/I4daf682c6cb3624bdbe935115a60fdb9edca19eb), [b/479285849](https://issuetracker.google.com/issues/479285849), [b/481333653](https://issuetracker.google.com/issues/481333653))
+- Added `constraints` to `GridConfigurationScope` to allow defining grid tracks based on the available size. ([I80a41](https://android-review.googlesource.com/#/q/I80a4176b781c6d5fdae07b02a663f25f3fae7c1b), [b/481205205](https://issuetracker.google.com/issues/481205205), [b/481205205](https://issuetracker.google.com/issues/481205205))
+- The `FlexBox` DSL now uses functions (e.g., grow(1f)) instead of properties (e.g., grow = 1f) for configuration within `FlexBoxConfig` and Modifier.flex. ([I8dbae](https://android-review.googlesource.com/#/q/I8dbae079f930c57307ef90970323c31015dca1cc), [b/475491619](https://issuetracker.google.com/issues/475491619))
+
+**Bug Fixes**
+
+- Fixed a bug where `OutputTransformation` causes duplicate character insertion on some IMEs. ([I9fdc0](https://android-review.googlesource.com/#/q/I9fdc0a0b7e74197b0141c49bb8750d59d8b956d3))
+- Adds fling support to trackpad scrolling gestures ([I55f8a](https://android-review.googlesource.com/#/q/I55f8a17d6c2578003c20f263ae459acfc155406a), [b/479285849](https://issuetracker.google.com/issues/479285849))
+- Add benchmarks for the experimental Style API ([I67437](https://android-review.googlesource.com/#/q/I67437ed15c8a32839014cdf2a49b86a9a4f2fa73))
+
+**External Contribution**
+
+- Add a `InputTextSuggestionState` property to help identify the different states a transliteration input can be in when text replacement suggestions are available. Also introduces `TextCompositionRange` to track the range of the current transliteration text composition range; a null value indicates no composition in place. ([I7a67f](https://android-review.googlesource.com/#/q/I7a67fc9413c1b856af1c8a41ff25cbc0648c5e97), [b/476472318](https://issuetracker.google.com/issues/476472318))
+- Added a new overload to `BasicTooltipBox` that allows configuring `propagateMinConstraints`, similar to Box's parameter with the same name. This allows passing the minimum constraints directly to the children of the `BasicTooltipBox`, without them being relaxed by `BasicTooltipBox`. Thanks Steven Schoen! ([Ib145f](https://android-review.googlesource.com/#/q/Ib145f4c9698cc6aec344235e3e03df494ff02409), [b/467532639](https://issuetracker.google.com/issues/467532639), [b/301605744](https://issuetracker.google.com/issues/301605744))
 
 ### Version 1.11.0-alpha06
 
@@ -198,6 +225,16 @@ December 03, 2025
 - Introduces a `visible` Modifier which can be used to skip drawing the content of a Composable without affecting the space it occupies. ([Ia6871](https://android-review.googlesource.com/#/q/Ia687178fc4299c10a19bd5fad63394c45f81b170), [b/158837937](https://issuetracker.google.com/issues/158837937))
 
 ## Version 1.10
+
+### Version 1.10.5
+
+March 11, 2026
+
+`androidx.compose.foundation:foundation-*:1.10.5` is released. Version 1.10.5 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6b6d8d062bfb0daa907101a196d1ea43d60ecfe2..e5be55ea7f9dceafc442ec739922936c1e056a33/compose/foundation).
+
+**Bug Fixes**
+
+- Fixed an `IndexOutOfBoundsException` in `BasicTextField` when using `OutputTransformation` and deleting text. ([I20ee1](https://android-review.googlesource.com/#/q/I20ee17de095ffb2c598267bd7b1450651d2ce1f1))
 
 ### Version 1.10.4
 

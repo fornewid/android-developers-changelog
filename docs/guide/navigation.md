@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/navigation
 source: md.txt
 ---
 
+[Video](https://www.youtube.com/watch?v=Y0Cs2MQxyIs)
+
 Navigation refers to the interactions that let users navigate across, into, and
 back out from the different pieces of content within your app.
 
@@ -12,7 +14,9 @@ library](https://developer.android.com/jetpack/androidx/releases/navigation), [S
 and tooling to help you implement app navigation. The Navigation component
 handles diverse navigation use cases, from straightforward button clicks to more
 complex patterns, such as app bars and the navigation drawer.
-| **Important:** The Navigation component also ensures a consistent and predictable user experience by adhering to an established [set of principles](https://developer.android.com/guide/navigation/navigation-principles).
+
+> [!IMPORTANT]
+> **Important:** The Navigation component also ensures a consistent and predictable user experience by adhering to an established [set of principles](https://developer.android.com/guide/navigation/navigation-principles).
 
 ## Key concepts
 
@@ -27,7 +31,8 @@ navigation and the main types that you use to implement them.
 | Destination | A node in the navigation graph. When the user navigates to this node, the host displays its content. | [`NavDestination`](https://developer.android.com/reference/androidx/navigation/NavDestination) Typically created when constructing the navigation graph. |
 | Route | Uniquely identifies a destination and any data required by it. You can navigate using routes. Routes take you to destinations. | Any serializable data type. |
 
-| **Important:** Whether you are using Compose, views, or a custom UI framework, these concepts always apply when implementing navigation. However, the specific ways in which you use them can differ.
+> [!IMPORTANT]
+> **Important:** Whether you are using Compose, views, or a custom UI framework, these concepts always apply when implementing navigation. However, the specific ways in which you use them can differ.
 
 ## Benefits and features
 
@@ -42,13 +47,16 @@ including the following:
 - **Fragment transactions:** Fully supports and handles fragment transactions.
 - **Back and up:** Handles back and up actions correctly by default.
 
-| **Note:** If you are using XML for your navigation graphs, use Android Studio's [Navigation Editor](https://developer.android.com/guide/navigation/design/editor) to view and edit your graphs.
-| **Note:** Android 13 introduces predictive back navigation, which works with the Navigation component for Android devices. Implement predictive back navigation in your app as soon as possible. Otherwise, users might experience unexpected behavior in a future Android release.
+> [!NOTE]
+> **Note:** If you are using XML for your navigation graphs, use Android Studio's [Navigation Editor](https://developer.android.com/guide/navigation/design/editor) to view and edit your graphs.
+
+> [!NOTE]
+> **Note:** Android 13 introduces predictive back navigation, which works with the Navigation component for Android devices. Implement predictive back navigation in your app as soon as possible. Otherwise, users might experience unexpected behavior in a future Android release.
 
 ## Set up your environment
 
 To include navigation support in your project, add the following dependencies to
-your app's `build.gradle` file:  
+your app's `build.gradle` file:
 
 ### Groovy
 

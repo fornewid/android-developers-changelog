@@ -14,7 +14,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.5.6](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.5.6) | - | [1.6.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.0-beta01) | - |
+| March 11, 2026 | [1.5.6](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.5.6) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.0-rc01) | - | - |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -92,6 +92,14 @@ for more information.
 <br />
 
 ## Wear Compose Version 1.6
+
+### Version 1.6.0-rc01
+
+March 11, 2026
+
+`androidx.wear.compose:compose-*:1.6.0-rc01` is released. Version 1.6.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6e23fc0c137022098ae2d043778ffdc56402ba5e..f0ec8e672666b1686c3e5feb31b77d9d1d089623/wear/compose).
+
+- This release updates the Compose for Wear OS 1.6.0 version to a release candidate, but there are otherwise no significant changes from the 1.6.0-beta01 release.
 
 ### Version 1.6.0-beta01
 

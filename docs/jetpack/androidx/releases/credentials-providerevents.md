@@ -8,11 +8,11 @@ source: md.txt
 
 API Reference  
 [androidx.credentials.providerevents](https://developer.android.com/reference/kotlin/androidx/credentials/providerevents/package-summary)  
-This library provides a set of APIs for credential providers to participate in provider events, such as credential transfer and signal credential changes.  
+This library provides a set of APIs for credential providers to participate in provider events, such as credential transfer and signal credential changes.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| January 28, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/credentials-providerevents#1.0.0-alpha05) |
+| March 11, 2026 | - | - | - | [1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/credentials-providerevents#1.0.0-alpha06) |
 
 ## Declaring dependencies
 
@@ -21,15 +21,15 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
-your app or module:  
+your app or module:
 
 ### Groovy
 
 ```groovy
 dependencies {
     // Use to implement credentials providereventss
-    implementation "androidx.credentials.providerevents:providerevents:1.0.0-alpha05"
-    implementation "androidx.credentials.providerevents:providerevents-play-services:1.0.0-alpha05"
+    implementation "androidx.credentials.providerevents:providerevents:1.0.0-alpha06"
+    implementation "androidx.credentials.providerevents:providerevents-play-services:1.0.0-alpha06"
 ```
 
 ### Kotlin
@@ -37,8 +37,8 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement credentials providereventss
-    implementation("androidx.credentials.providerevents:providerevents:1.0.0-alpha05")
-    implementation("androidx.credentials.providerevents:providerevents-play-services:1.0.0-alpha05")
+    implementation("androidx.credentials.providerevents:providerevents:1.0.0-alpha06")
+    implementation("androidx.credentials.providerevents:providerevents-play-services:1.0.0-alpha06")
 
 
 }
@@ -60,6 +60,18 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha06
+
+March 11, 2026
+
+`androidx.credentials.providerevents:providerevents:1.0.0-alpha06` and `androidx.credentials.providerevents:providerevents-play-services:1.0.0-alpha06` are released. Version 1.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c26c6f088b95903b7b9cd5e6f2092988f1e64dc3..1a508f033de883ba2853b9f9ae1853eec7010638/credentials/providerevents).
+
+**API Changes**
+
+- Creating a factory method for `RegisterExportRequest` without the matcher ([I2e033](https://android-review.googlesource.com/#/q/I2e0334b977bd8482ee918df55d5336bca9ce3bd3))
+- Removing unused `ImportCredentialsException` helper methods ([If2d93](https://android-review.googlesource.com/#/q/If2d93c5699c2129c55120ebf1637345fcbdaa6d5))
+- Removing unused `ImportCredentialsException` helper methods ([Ibff00](https://android-review.googlesource.com/#/q/Ibff001213b1363ec97a4e0483da742af090a06ba))
 
 ### Version 1.0.0-alpha05
 

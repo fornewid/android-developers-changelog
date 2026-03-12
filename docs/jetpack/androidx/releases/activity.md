@@ -12,7 +12,7 @@ Access composable APIs built on top of Activity.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.12.4](https://developer.android.com/jetpack/androidx/releases/activity#1.12.4) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0-rc01) | - | - |
+| March 11, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def activity_version = "1.12.4"
+    def activity_version = "1.13.0"
 
     // Java language implementation
     implementation "androidx.activity:activity:$activity_version"
@@ -40,7 +40,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val activity_version = "1.12.4"
+    val activity_version = "1.13.0"
 
     // Java language implementation
     implementation("androidx.activity:activity:$activity_version")
@@ -65,6 +65,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.13
+
+### Version 1.13.0
+
+March 11, 2026
+
+`androidx.activity:activity:1.13.0`, `androidx.activity:activity-compose:1.13.0`, and `androidx.activity:activity-ktx:1.13.0` are released. Version 1.13.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d1ba6dcc5e581e7f1d2cc18466e48d5044a58d4e..475afe04599ffc0893939effda40187916c4ceb0/activity).
+
+**Important changes since 1.12.0:**
+
+- `ComponentActivity` now implements the `OnPictureInPictureUiStateChangedProvider` interface which means it can now integrate with the new `core:core-pip` artifact that allows allow any component to receive picture-in-picture ui state change events.
+- `EdgeToEdge` is now re-invoked on configuration changes to ensure that the system status bar color is properly updated.
 
 ### Version 1.13.0-rc01
 

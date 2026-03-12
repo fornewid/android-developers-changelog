@@ -15,10 +15,10 @@ This table lists all the artifacts in the `androidx.paging` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| paging-\* | [3.4.1](https://developer.android.com/jetpack/androidx/releases/paging#3.4.1) | - | - | - |
-| paging-compose | [3.4.1](https://developer.android.com/jetpack/androidx/releases/paging#3.4.1) | - | - | - |
+| paging-\* | [3.4.1](https://developer.android.com/jetpack/androidx/releases/paging#3.4.1) | - | - | [3.5.0-alpha01](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0-alpha01) |
+| paging-compose | [3.4.1](https://developer.android.com/jetpack/androidx/releases/paging#3.4.1) | - | - | [3.5.0-alpha01](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0-alpha01) |
 
-This library was last updated on: February 11, 2026
+This library was last updated on: March 11, 2026
 
 ## Declaring dependencies
 
@@ -50,7 +50,7 @@ dependencies {
   implementation "androidx.paging:paging-guava:$paging_version"
 
   // optional - Jetpack Compose integration
-  implementation "androidx.paging:paging-compose:3.4.1"
+  implementation "androidx.paging:paging-compose:3.5.0-alpha01"
 }
 ```
 
@@ -75,7 +75,7 @@ dependencies {
   implementation("androidx.paging:paging-guava:$paging_version")
 
   // optional - Jetpack Compose integration
-  implementation("androidx.paging:paging-compose:3.4.1")
+  implementation("androidx.paging:paging-compose:3.5.0-alpha01")
 }
 ```
 
@@ -96,6 +96,62 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 3.5
+
+### Version 3.5.0-alpha01
+
+March 11, 2026
+
+`androidx.paging:paging-*:3.5.0-alpha01` is released. Version 3.5.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/302478513a01447578462b168226f9de5a26ed10..1a508f033de883ba2853b9f9ae1853eec7010638/paging).
+
+**New Features**
+
+- The `paging-common` artifact now contains a new `asState` flow operator on `Flow<PagingData>` to convert it into a `Flow<ItemSnapshotList>`. This unlocks capabilities such as:
+
+  - combine Flow of `ItemSnapshotList` with other data sources
+  - share flow with multiple collectors without `cachedIn`
+  - cache paged data locally
+  - modify paged data in memory
+  - expose paged data as part of a UI state
+
+      // In your ViewModel
+      val pager = Pager(pagingConfig, pagingSourceFactory)
+      val pagerFlow = pager.flow.asState()
+
+      // alterantively convert the flow to a SharedFlow
+      val pagerFlow = pager.flow.asState().stateIn()
+
+      // In presenter layer
+      val snapshotFlow = viewModel.pagerFlow.collectAsStateWithLifecycle(initialList)
+      val snapshot = itemsFlow.value
+
+      LazyColumn {
+      items(items = snapshot.items) { ... }
+      }
+
+- The `paging-common` artifact has also added `Pager.append` and `Pager.prepend` APIs to manually trigger loads at either edge of loaded items.
+
+  - When used with `paging-runtime` or `paging-compose`, provides an alternative to load more data besides scrolling
+  - When used with the new `asState` API, it is the only way to load more data
+
+      LazyColumn {
+      item {
+             /**
+             * Load more items when users scroll near the top of loaded items.
+             */
+             LaunchedEffect(viewModel) { viewModel.prepend() }
+          }
+      items(snapshot.items) { item -> Text("Item: $item") }
+      item {
+              /**
+              * Load more items when users scroll near the bottom of loaded items.
+              */
+            LaunchedEffect(viewModel) { viewModel.append() }
+        }
+      }
+
+- Added `Pager.refresh` and `Pager.retry` to recover from load errors when using `asState` API. See [this document](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:paging/samples/src/main/java/androidx/paging/samples/PagerAsStateSamples.kt?q=pagerasstatesample) for more sample usages of the new APIs. ([I1e1e9](https://android-review.googlesource.com/#/q/I1e1e9544dd3786b9b778daed2995db04734defdf), [If3c87](https://android-review.googlesource.com/#/q/If3c8768f87a35e6271479b853b637fa60520bd9b), [Idbd48](https://android-review.googlesource.com/#/q/Idbd4853898c0c3d6199914c8c0637b97e337c1f0), [Id1e1d](https://android-review.googlesource.com/#/q/Id1e1d4de0a64ffa6297fa9e6d9901a5cacfaad2e), [I816fe](https://android-review.googlesource.com/#/q/I816febd0a51413c9e8102f9c32cf8dc4dc67892f))
 
 ## Version 3.4
 
@@ -760,7 +816,9 @@ This means that supporting a `LazyVerticalGrid` would look like:
 For more examples of using these new APIs, please see [our samples](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:paging/paging-compose/samples/src/main/java/androidx/paging/compose/samples/PagingFoundationSample.kt?q=PagingFoundationSample).
 
 While these changes do make the `LazyColumn` and `LazyRow` examples a few lines longer, we felt that consistency across all lazy layouts was an important factor for those using Paging Compose going forward. For that reason, the existing extensions to `LazyListScope` have now been deprecated. ([I0c459](https://android-review.googlesource.com/#/q/I0c45926ecf7fbaa7b68fba7bb1201cdf6f13105d), [I92c8f](https://android-review.googlesource.com/#/q/I92c8ffc330fd98f9fb31fe14db2da7a3f7a3b547), [b/276989796](https://issuetracker.google.com/issues/276989796))
-| **Note:** while the deprecated `items` API has a clear equivalent, the quick fix for `itemsIndexed` may still leave your code in a state where it does not compile immediately as generating keys and content types based on indices is no longer possible or recommended as this pattern is susceptible to errors when item indices shift due to prepends (i.e., item 0 actually becomes item 20 due to prepending 20 additional items). It is always recommended to use `items` when using Paging Compose.
+
+> [!NOTE]
+> **Note:** while the deprecated `items` API has a clear equivalent, the quick fix for `itemsIndexed` may still leave your code in a state where it does not compile immediately as generating keys and content types based on indices is no longer possible or recommended as this pattern is susceptible to errors when item indices shift due to prepends (i.e., item 0 actually becomes item 20 due to prepending 20 additional items). It is always recommended to use `items` when using Paging Compose.
 
 **API Changes**
 
@@ -876,7 +934,9 @@ February 24, 2021
 `androidx.paging:paging-compose:1.0.0-alpha08` is released. [Version 1.0.0-alpha08 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/602cf9bff5e74e4355760aa47d3fc73a2e6d779b..4b6cff92e45f1d4467086aa2c6aa0248b4883950/paging/paging-compose)
 
 Updated to integrate with Compose 1.0.0-beta01.
-| **Note:** Paging Compose 1.0.0-alpha08 is only compatible with Compose 1.0.0-beta01.
+
+> [!NOTE]
+> **Note:** Paging Compose 1.0.0-alpha08 is only compatible with Compose 1.0.0-beta01.
 
 ### Version 1.0.0-alpha07
 
@@ -1022,7 +1082,8 @@ March 10, 2021
 - Fixed a bug causing `PagingState` to always be `null` when remote refresh is called.
 - Fixed a bug where empty pages returned by PagingSource could prevent Paging from fetching again to fulfill `prefetchDistance` causing Paging to get "stuck".
 
-| **Note:** Users using PagingSource provided by Room should upgrade to 2.3.0-beta03, which fixes a critical threading bug that could cause Paging to crash due to creating PagingSource on the main thread.
+> [!NOTE]
+> **Note:** Users using PagingSource provided by Room should upgrade to 2.3.0-beta03, which fixes a critical threading bug that could cause Paging to crash due to creating PagingSource on the main thread.
 
 ### Version 3.0.0-beta01
 
@@ -1339,7 +1400,8 @@ March 18, 2020
 
 ## Version 2.1.1
 
-| **Caution:** This version (`2.1.1`) contains unintentionally added methods, which can cause a build or runtime failure. Please update to the latest version (`2.1.2`), in which this issue has been fixed.
+> [!CAUTION]
+> **Caution:** This version (`2.1.1`) contains unintentionally added methods, which can cause a build or runtime failure. Please update to the latest version (`2.1.2`), in which this issue has been fixed.
 
 ### Version 2.1.1
 
@@ -1395,8 +1457,11 @@ Paging `2.1.0-alpha01` has two major additions - page dropping, and KTX extensio
 - `PagedList.loadAround()` now throws `IndexOutOfBoundsException` when index is invalid. Previously it could crash with an unclear other exception.
 - Fixed a case where an extremely small initial load size together with unchanged data would result in no further loading [b/113122599](https://issuetracker.google.com/113122599)
 
-| **Note:** page dropping is currently off by default - enable it with the new `PagedList.Config.Builder.setMaxSize()` API. To correctly support page dropping in a custom `ItemKeyedDataSource`, you must implement `loadBefore`.
-| **Note:** Page dropping is not currently supported in `PageKeyedDataSource`, due to having no way to re-load the `loadInitial` result incrementally.
+> [!NOTE]
+> **Note:** page dropping is currently off by default - enable it with the new `PagedList.Config.Builder.setMaxSize()` API. To correctly support page dropping in a custom `ItemKeyedDataSource`, you must implement `loadBefore`.
+
+> [!NOTE]
+> **Note:** Page dropping is not currently supported in `PageKeyedDataSource`, due to having no way to re-load the `loadInitial` result incrementally.
 
 ## Version 2.0.0
 

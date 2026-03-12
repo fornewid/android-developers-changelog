@@ -15,7 +15,7 @@ Provides developers with Compose and Material design functionalities in order to
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 16, 2025 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/tv#1.0.1) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/tv#1.1.0-alpha01) |
+| March 11, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/tv#1.0.1) | - | [1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/tv#1.1.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -30,8 +30,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.tv:tv-foundation:1.0.0-alpha12"
-    implementation "androidx.tv:tv-material:1.1.0-alpha01"
+    implementation "androidx.tv:tv-foundation:1.0.0-beta01"
+    implementation "androidx.tv:tv-material:1.1.0-beta01"
 }
 ```
 
@@ -39,8 +39,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.tv:tv-foundation:1.0.0-alpha12")
-    implementation("androidx.tv:tv-material:1.1.0-alpha01")
+    implementation("androidx.tv:tv-foundation:1.0.0-beta01")
+    implementation("androidx.tv:tv-material:1.1.0-beta01")
 }
 ```
 
@@ -62,6 +62,21 @@ for more information.
 There are no release notes for this artifact.
 
 ## Tv-Material Version 1.1
+
+### Version 1.1.0-beta01
+
+March 11, 2026
+
+`androidx.tv:tv-material:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ad66672b42ec1e9359219e82b7f8189d03df40f5..1a508f033de883ba2853b9f9ae1853eec7010638/tv/tv-material).
+
+**API Changes**
+
+- Projects released with Kotlin 2.0 require KGP 2.0.0 or newer to be consumed ([Idb6b5](https://android-review.googlesource.com/#/q/Idb6b5d6ae1625ab870ffe74f9790ffabc82a63b4), [b/344563182](https://issuetracker.google.com/issues/344563182))
+
+**External Contribution**
+
+- `androidx.compose.ui.graphics.NativePaint` typealias is deprecated, use `android.graphics.Paint` directly instead ([I6303c](https://android-review.googlesource.com/#/q/I6303c742f80887649d1a77e837ab0ff93ddff212), [b/477394763](https://issuetracker.google.com/issues/477394763))
+- Replace `Paint.asFrameworkPaint()` to `Paint.nativePaint` extension to avoid exposing platform type into `commonMain` sourceset via `typealias` ([I6303c](https://android-review.googlesource.com/#/q/I6303c742f80887649d1a77e837ab0ff93ddff212), [b/477394763](https://issuetracker.google.com/issues/477394763))
 
 ### Version 1.1.0-alpha01
 
@@ -162,6 +177,16 @@ May 1, 2024
 - Changing `contentColor` in `Surface` no longer animates between states ([I436e794f](https://android-review.googlesource.com/#/q/I436e794f32ef2f9dbe28c5dc854330ce34023b9d))
 
 ## Version 1.0.0
+
+### Version 1.0.0-beta01
+
+March 11, 2026
+
+`androidx.tv:tv-foundation:1.0.0-beta01` is released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ad66672b42ec1e9359219e82b7f8189d03df40f5..1a508f033de883ba2853b9f9ae1853eec7010638/tv/tv-foundation).
+
+**API Changes**
+
+- Projects released with Kotlin 2.0 require KGP 2.0.0 or newer to be consumed ([Idb6b5](https://android-review.googlesource.com/#/q/Idb6b5d6ae1625ab870ffe74f9790ffabc82a63b4), [b/344563182](https://issuetracker.google.com/issues/344563182))
 
 ### Version 1.0.0-alpha12
 

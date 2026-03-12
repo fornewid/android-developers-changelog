@@ -10,11 +10,13 @@ that are defined in
 [feature modules](https://developer.android.com/guide/app-bundle/dynamic-delivery#customize_delivery).
 This library also provides seamless installation of on-demand feature
 modules when navigating to these destinations.
-| **Note:** If you are not familiar with Play Feature Delivery, review the [feature module guide](https://developer.android.com/guide/app-bundle/dynamic-delivery#customize_delivery) and [additional resources](https://developer.android.com/guide/app-bundle/dynamic-delivery#additional_resources) before continuing.
+
+> [!NOTE]
+> **Note:** If you are not familiar with Play Feature Delivery, review the [feature module guide](https://developer.android.com/guide/app-bundle/dynamic-delivery#customize_delivery) and [additional resources](https://developer.android.com/guide/app-bundle/dynamic-delivery#additional_resources) before continuing.
 
 ## Setup
 
-To support feature modules, use the following dependencies in your app module's `build.gradle` file:  
+To support feature modules, use the following dependencies in your app module's `build.gradle` file:
 
 ### Groovy
 
@@ -47,7 +49,7 @@ so that they are available to your feature modules.
 
 To support feature modules, first change all instances of
 `NavHostFragment` in your app to
-`androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment`:  
+`androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment`:
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
@@ -60,7 +62,9 @@ Next, add an `app:moduleName` attribute to any `<activity>`, `<fragment>`, or
 navigation graphs that are associated with a `DynamicNavHostFragment`.
 This attribute tells the Dynamic Navigator library that the destination
 belongs to a feature module with the name that you specify.
-**Note:** The `moduleName` needs to match your app's `dynamicFeatures` property as declared in the `build.gradle` file.  
+
+> [!NOTE]
+> **Note:** The `moduleName` needs to match your app's `dynamicFeatures` property as declared in the `build.gradle` file.
 
     <fragment
         app:moduleName="myDynamicFeature"
@@ -123,7 +127,7 @@ object that contains a
 [`DynamicInstallMonitor`](https://developer.android.com/reference/kotlin/androidx/navigation/dynamicfeatures/DynamicInstallMonitor)
 to
 [`NavController.navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(int,%20android.os.Bundle,%20androidx.navigation.NavOptions,%20androidx.navigation.Navigator.Extras)),
-as shown in the following example:  
+as shown in the following example:
 
 ### Kotlin
 
@@ -287,7 +291,9 @@ module, do the following:
 It is important to get the `app:graphPackage` correct as the Navigation
 component will not be able to include the specified `navGraph` from the feature
 module, otherwise.
-| **Caution:** The package name of the dynamic feature module is generated automatically by the build toolchain, and any values in the `AndroidManifest.xml` or `build.gradle` in your dynamic module will be ignored.
+
+> [!CAUTION]
+> **Caution:** The package name of the dynamic feature module is generated automatically by the build toolchain, and any values in the `AndroidManifest.xml` or `build.gradle` in your dynamic module will be ignored.
 
 The package name of a dynamic feature module is constructed by appending the
 name of the module to the `applicationId` of the base app module. So if the
@@ -300,7 +306,7 @@ case-sensitive.
 If you're in any doubt, you can confirm the package name of the feature module
 by checking the generated `AndroidManifest.xml`. After building the project go
 to `<DynamicFeatureModule>/build/intermediates/merged_manifest/debug/AndroidManifest.xml`,
-which should look something like this:  
+which should look something like this:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"

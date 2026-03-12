@@ -20,7 +20,7 @@ Navigation is a framework for navigating between 'destinations' within an Androi
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| January 28, 2026 | [2.9.7](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.7) | - | - | - |
+| March 11, 2026 | [2.9.7](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.7) | - | - | [2.10.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -181,6 +181,26 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 2.10
+
+### Version 2.10.0-alpha01
+
+March 11, 2026
+
+`androidx.navigation:navigation-*:2.10.0-alpha01` is released. Version 2.10.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/587126e8aabdc62a54ccd3011688507299ad66b5..a15c668d4bb2e00cfa8ed1af96895a84c3e7e2d5/navigation).
+
+**New Features**
+
+- `NavHost` now provides an overload that accepts `predictivePopEnterTransition` and `predictivePopExitTransition` parameters to allow for custom transition during the predictive back gesture. ([Iac9b0](https://android-review.googlesource.com/#/q/Iac9b0983a7c287624dc12046a6d7d69ced9df39f), [b/478294569](https://issuetracker.google.com/issues/478294569))
+
+**Min SDK Update**
+
+- The default minSdk has been from API 21 to API 23 along with the rest of the AndroidX libraries. ([Ibdfca](https://android-review.googlesource.com/#/q/Ibdfca5942dbb414ca07594ba240093db14aad4df), [b/380448311](https://issuetracker.google.com/issues/380448311), [b/435705964](https://issuetracker.google.com/issues/435705964), [b/435705223](https://issuetracker.google.com/issues/435705223))
+
+**External Contribution**
+
+- `navigation:navigation-common`, `navigation:navigation-runtime`, and `navigation:navigation-testing` now support desktop, linux, macOS, iOS, javascript, and WASM in addition to android. Thanks Konstantin Tskhovrebov!([I035d9](https://android-review.googlesource.com/#/q/I035d92d46ba5e4f46f27a18686d9c669d0af3457), [Iec624](https://android-review.googlesource.com/#/q/Iec6244141b76c9dcd717c75e959cac531d47e8ae), [I1615d](https://android-review.googlesource.com/#/q/I1615d9b8b27ee93ba621f181f9b1bb70a7941d50))
 
 ## Version 2.9
 
@@ -2150,7 +2170,8 @@ The `KEY_ROUTE` argument has been replaced with the `route` property on `NavDest
 
 ## Navigation Compose Version 1.0.0
 
-| **Note:** Navigation Compose has aligned versioning with the rest of `androidx.navigation` as of `2.4.0-alpha01`. `androidx.navigation:navigation-compose:1.0.0-alpha11` became `androidx.navigation:navigation-compose:2.4.0-alpha01`.
+> [!NOTE]
+> **Note:** Navigation Compose has aligned versioning with the rest of `androidx.navigation` as of `2.4.0-alpha01`. `androidx.navigation:navigation-compose:1.0.0-alpha11` became `androidx.navigation:navigation-compose:2.4.0-alpha01`.
 
 ### Version 1.0.0-alpha10
 
@@ -2191,7 +2212,8 @@ February 24, 2021
 
 - `NavHost` now populates the `LocalSavedStateRegistryOwner` CompositionLocal with that destination's `NavBackStackEntry`, ensuring that any state directly saved into the `SavedStateRegistry` will be saved and restored alongside the destination. ([I435d7](https://android-review.googlesource.com/#/q/I435d70ef0cfa8059e0d490cd5e4ed141b690ec59), [b/179469431](https://issuetracker.google.com/issues/179469431))
 
-| **Note:** Navigation Compose 1.0.0-alpha08 is only compatible with Compose 1.0.0-beta01.
+> [!NOTE]
+> **Note:** Navigation Compose 1.0.0-alpha08 is only compatible with Compose 1.0.0-beta01.
 
 ### Version 1.0.0-alpha07
 
@@ -2204,7 +2226,8 @@ February 10, 2021
 - Navigation Compose now depends on [Lifecycle ViewModel Compose 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#viewmodel-compose-1.0.0-alpha01) to provide `viewModel()` support to `composable` destinations. ([I7a374](https://android-review.googlesource.com/#/q/I7a374b76168a6387e585337c131a988bddcb912b))
 - `NavHost` now uses the new `LocalOnBackPressedDispatcherOwner` from [Activity-Compose 1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/activity#1.3.0-alpha01) to get the `OnBackPressedDispatcher` that is set on the `NavController`. ([I65b12](https://android-review.googlesource.com/#/q/I65b12306c42364d26e1819145ab378b02b2ff0f5))
 
-| **Note:** Navigation Compose `1.0.0-alpha07` is only compatible with Compose `1.0.0-alpha12`.
+> [!NOTE]
+> **Note:** Navigation Compose `1.0.0-alpha07` is only compatible with Compose `1.0.0-alpha12`.
 
 ### Version 1.0.0-alpha06
 
@@ -2216,7 +2239,8 @@ January 28, 2021
 
 - Added a `getBackStackEntry(route: String)` extension method on `NavController` that returns the associated `NavBackStackEntry`. ([If8931](https://android-review.googlesource.com/#/q/If89316ee73218d779dfaa593eeba53a44d9dfb50))
 
-| **Note:** Navigation Compose `1.0.0-alpha06` is only compatible with Compose `1.0.0-alpha11`.
+> [!NOTE]
+> **Note:** Navigation Compose `1.0.0-alpha06` is only compatible with Compose `1.0.0-alpha11`.
 
 ### Version 1.0.0-alpha05
 
@@ -2234,7 +2258,8 @@ December 16, 2020
 
 - Updated for compatibility with Compose `1.0.0-alpha09`.
 
-| **Note:** Navigation Compose `1.0.0-alpha04` is only compatible with Compose `1.0.0-alpha09`.
+> [!NOTE]
+> **Note:** Navigation Compose `1.0.0-alpha04` is only compatible with Compose `1.0.0-alpha09`.
 
 ### Version 1.0.0-alpha03
 
@@ -2247,7 +2272,8 @@ December 2, 2020
 - Fixed an issue where `popBackStack()` and `navigateUp()` would not work after a configuration change or process death and recreation. ([Icea47](https://android-review.googlesource.com/#/q/Icea477e53970d8fcd22a698ed2feca1734503896), [b/173281473](https://issuetracker.google.com/issues/173281473))
 - Navigating to a nested graph within your NavHost now works properly. ([I0948d](https://android-review.googlesource.com/#/q/I0948d85d73e1e7a9e37a43bc2f9267e0cd7b6355), [b/173647694](https://issuetracker.google.com/issues/173647694))
 
-| **Note:** Navigation Compose `1.0.0-alpha03` is only compatible with Compose `1.0.0-alpha08`.
+> [!NOTE]
+> **Note:** Navigation Compose `1.0.0-alpha03` is only compatible with Compose `1.0.0-alpha08`.
 
 ### Version 1.0.0-alpha02
 
@@ -2389,7 +2415,8 @@ October 14, 2020
 
 ## Version 2.3.0
 
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 2.3.0
 
@@ -2405,7 +2432,8 @@ June 24, 2020
 - **`NavigationUI` support for `Openable`** : All usages of `DrawerLayout` in `NavigationUI` have been replaced with the more generic [`Openable`](https://developer.android.com/reference/androidx/customview/widget/Openable) interface added in [CustomView `1.1.0`](https://developer.android.com/jetpack/androidx/releases/customview#1.1.0) and implemented by `DrawerLayout` in [DrawerLayout `1.1.0`](https://developer.android.com/jetpack/androidx/releases/drawerlayout#1.1.0).
 - **Action and Mime Type support in deep links** : Deep linking has been expanded to support `app:action` and `app:mimeType` in addition to the `app:uri` previously available. `NavController` now supports navigating by any combination of these fields via the new `NavDeepLinkRequest` class. See [Navigate using NavDeepLinkRequest](https://developer.android.com/guide/navigation/navigation-navigate#uri) for more information.
 
-| **Note:** Support for adding an action and mime type in the visual editor is available in Android Studio 4.1 Canary 10 and higher.
+> [!NOTE]
+> **Note:** Support for adding an action and mime type in the visual editor is available in Android Studio 4.1 Canary 10 and higher.
 
 **Known Issues**
 
@@ -2448,7 +2476,8 @@ April 29, 2020
 
 - Deep linking has been expanded to support `app:action` and `app:mimeType` in addition to the `app:uri` previously available. NavController now supports navigating by any combination of these fields via the new `NavDeepLinkRequest` class. ([b/136573074](https://issuetracker.google.com/issues/136573074), [b/135334841](https://issuetracker.google.com/issues/135334841))
 
-| **Note:** Support for deep link actions and mime types is not yet available in Android Studio or in [Manifest Merger](https://issuetracker.google.com/issues/154166825). Until those are completed, you won't see the new attributes in the visual editor and any generated `<intent-filter>` elements won't include your mime type in its `<data>` element or your custom `<action>`. You can add the attributes manually to the `<deeplink>` element in XML and manually add an `<intent-filter>` to your manifest, respectively.
+> [!NOTE]
+> **Note:** Support for deep link actions and mime types is not yet available in Android Studio or in [Manifest Merger](https://issuetracker.google.com/issues/154166825). Until those are completed, you won't see the new attributes in the visual editor and any generated `<intent-filter>` elements won't include your mime type in its `<data>` element or your custom `<action>`. You can add the attributes manually to the `<deeplink>` element in XML and manually add an `<intent-filter>` to your manifest, respectively.
 
 **API Changes**
 
@@ -2564,7 +2593,8 @@ February 5, 2020
 
 ## Version 2.2.2
 
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 2.2.2
 
@@ -2584,7 +2614,8 @@ April 15, 2020
 
 ## Version 2.2.1
 
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 2.2.1
 
@@ -2604,7 +2635,8 @@ February 5, 2020
 
 ## Version 2.2.0
 
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 2.2.0
 
@@ -2761,7 +2793,9 @@ August 7, 2019
 July 19, 2019
 
 `androidx.navigation:*:2.1.0-beta02` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/e08a521e6ca90dc09329823c31c733d69a1164cf..ec4f7aa322b7f2b5aa14aff6dca9475b0df1345c/navigation).
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 **Bug fixes**
 
@@ -2772,8 +2806,12 @@ July 19, 2019
 July 17, 2019
 
 `androidx.navigation:*:2.1.0-beta01` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/498e1c39f543ee174434d4fc26e26219c298e9cd..e08a521e6ca90dc09329823c31c733d69a1164cf/navigation).
-| **Caution:** This version contains an unintentional dependency on `org.jacoco:org.jacoco.agent:0.8.3`, which can cause a build failure. Please update to the latest version, in which this dependency has been removed.
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+
+> [!CAUTION]
+> **Caution:** This version contains an unintentional dependency on `org.jacoco:org.jacoco.agent:0.8.3`, which can cause a build failure. Please update to the latest version, in which this dependency has been removed.
+
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 **New features**
 
@@ -2788,7 +2826,9 @@ July 17, 2019
 July 2, 2019
 
 `androidx.navigation:*:2.1.0-alpha06` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/067bb2bdba5ad5259e147e5f36ec20c5efa9ae42..498e1c39f543ee174434d4fc26e26219c298e9cd/navigation).
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 **New features**
 

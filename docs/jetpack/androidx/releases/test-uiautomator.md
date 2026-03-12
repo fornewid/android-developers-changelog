@@ -12,7 +12,7 @@ Framework for cross app functional UI testing
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | [2.3.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.3.0) | - | [2.4.0-beta01](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0-beta01) | - |
+| March 11, 2026 | [2.3.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.3.0) | - | [2.4.0-beta02](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0-beta02) | - |
 
 ## Declaring dependencies
 
@@ -28,7 +28,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement UIAutomator tests
-    androidTestImplementation "androidx.test.uiautomator:uiautomator:2.4.0-beta01"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:2.4.0-beta02"
 }
 ```
 
@@ -37,7 +37,7 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement UIAutomator tests
-    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.4.0-beta01")
+    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.4.0-beta02")
 }
 ```
 
@@ -86,6 +86,16 @@ June 18, 2025
 - First alpha version of the ui-automator shell library to execute shell commands as shell user. This library allows reading stdout, stderr and writing in the stdin of a sh process launched by shell. De facto, it backports `UiAutomation#executeShellCommandRwe` introduced in api 34.
 
 ## Version 2.4
+
+### Version 2.4.0-beta02
+
+March 11, 2026
+
+`androidx.test.uiautomator:uiautomator:2.4.0-beta02` and `androidx.test.uiautomator:uiautomator-shell:2.4.0-beta02` are released. Version 2.4.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..1a508f033de883ba2853b9f9ae1853eec7010638/test/uiautomator).
+
+**Bug Fixes**
+
+- Fixed `UiObject2#scrollToElementOrNull` throwing instead of returning `null`, and updated its return type ([If0109](https://android-review.googlesource.com/#/q/If0109f22857a774e936625862c8eda98eb8aad22), [b/479892735](https://issuetracker.google.com/issues/479892735))
 
 ### Version 2.4.0-beta01
 

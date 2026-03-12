@@ -13,7 +13,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.4) | - | - | [1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.0-alpha06) |
+| March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.0-beta01) | - |
 
 ## Structure
 
@@ -46,7 +46,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.material:material:1.10.4"
+    implementation "androidx.compose.material:material:1.10.5"
 }
 
 android {
@@ -68,7 +68,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.material:material:1.10.4")
+    implementation("androidx.compose.material:material:1.10.5")
 }
 
 android {
@@ -102,6 +102,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.11
+
+### Version 1.11.0-beta01
+
+March 11, 2026
+
+`androidx.compose.material:material-*:1.11.0-beta01` is released. Version 1.11.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6e23fc0c137022098ae2d043778ffdc56402ba5e..a15c668d4bb2e00cfa8ed1af96895a84c3e7e2d5/compose/material).
 
 ### Version 1.11.0-alpha06
 
@@ -140,6 +146,12 @@ December 03, 2025
 `androidx.compose.material:material-*:1.11.0-alpha01` is released. Version 1.11.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b48588febd37d5947dfa0f2827d2b5ca6af2ed90..deb96499dfe95073f5c1215c1287787683cb1e92/compose/material).
 
 ## Version 1.10
+
+### Version 1.10.5
+
+March 11, 2026
+
+`androidx.compose.material:material-*:1.10.5` is released. Version 1.10.5 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6b6d8d062bfb0daa907101a196d1ea43d60ecfe2..e5be55ea7f9dceafc442ec739922936c1e056a33/compose/material).
 
 ### Version 1.10.4
 
