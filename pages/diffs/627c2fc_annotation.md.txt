@@ -1,0 +1,65 @@
+diff --git a/docs/jetpack/androidx/releases/annotation.md b/docs/jetpack/androidx/releases/annotation.md
+index 683b422..b77f6a2 100644
+--- a/docs/jetpack/androidx/releases/annotation.md
++++ b/docs/jetpack/androidx/releases/annotation.md
+@@ -15,10 +15,10 @@ This table lists all the artifacts in the `androidx.annotation` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| annotation | [1.9.1](https://developer.android.com/jetpack/androidx/releases/annotation#1.9.1) | - | - | - |
++| annotation | [1.9.1](https://developer.android.com/jetpack/androidx/releases/annotation#1.9.1) | - | - | [1.10.0-alpha01](https://developer.android.com/jetpack/androidx/releases/annotation#1.10.0-alpha01) |
+ | annotation-experimental | [1.5.1](https://developer.android.com/jetpack/androidx/releases/annotation#annotation-experimental-1.5.1) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/annotation#annotation-experimental-1.6.0-rc01) | - | - |
+ 
+-This library was last updated on: February 11, 2026
++This library was last updated on: March 11, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -64,6 +64,25 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.10
++
++### Version 1.10.0-alpha01
++
++March 11, 2026
++
++`androidx.annotation:annotation-*:1.10.0-alpha01` is released. Version 1.10.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/87b88ad088cc9b18d4ab75611fc8b74e8b01c24a..e6053653b05d83f0e5eb0ae2debf1aaddadf4334/annotation/annotation).
++
++**New Features**
++
++- Dropped support for x86 based Mac and iOS KMP targets
++
++**API Changes**
++
++- Added `RequiresFlag` annotation for code that must be gated on pre-release flag checks ([I77bba](https://android-review.googlesource.com/#/q/I77bbaf99fed6f99b55bf1a5382b56a11da694f44), [b/479114442](https://issuetracker.google.com/issues/479114442))
++- Adds `ANNOTATION_TYPE` target to `RequiresApi` and `RequiresExtension` ([I0cb0d](https://android-review.googlesource.com/#/q/I0cb0dd0ba050c8c703eee1d59a2c96715c84cc6e))
++- Projects released with Kotlin 2.0 require KGP 2.0.0 or newer to be consumed ([Idb6b5](https://android-review.googlesource.com/#/q/Idb6b5d6ae1625ab870ffe74f9790ffabc82a63b4), [b/344563182](https://issuetracker.google.com/issues/344563182))
++- Updated `@Discouraged` retention policy. ([Id2f85](https://android-review.googlesource.com/#/q/Id2f85e1b47c9f8555352b5a29b1df70d6067af20), [b/375937557](https://issuetracker.google.com/issues/375937557))
++
+ ## Version 1.9
+ 
+ ### Version 1.9.1
+@@ -815,7 +834,9 @@ October 9, 2019
+ September 18, 2019
+ 
+ `androidx.annotation:annotation-experimental:1.0.0-alpha01` and `androidx.annotation:annotation-experimental-lint:1.0.0-alpha01` are released. These are the [commits included in annotation-experimental `1.0.0-alpha01`](https://android.googlesource.com/platform/frameworks/support/+log/571d7a890c8b1e90e9f4db8f783380a928da3624..cd1aae0250ae03f6383bf4fd28a60036778bb509/annotation/annotation-experimental) and these are the [commits included in annotation-experimental-lint `1.0.0-alpha01`](https://android.googlesource.com/platform/frameworks/support/+log/571d7a890c8b1e90e9f4db8f783380a928da3624..55024edf8c790a12afe31ed7729acf895b895034/annotation/annotation-experimental-lint)
+-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
++
++> [!NOTE]
++> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+ 
+ **New features**
+ 
+@@ -842,7 +863,9 @@ May 7, 2019
+ April 3rd, 2019
+ 
+ `androidx.annotation:annotation:1.1.0-beta01` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/091eca9ac5e20c1346e4c1fdace7b63721f9ce43..2f634eec2143acd6a4ea19a375a6e3877cdcc2ed/annotations).
+-| **Note:** this version of Annotation is incompatible with Activity 1.0.0-alpha04 and 1.0.0-alpha05 as well as Fragment 1.1.0-alpha04 and 1.1.0-alpha05. Please upgrade to Activity 1.0.0-alpha06 and Fragment 1.1.0-alpha06, respectively.
++
++> [!NOTE]
++> **Note:** this version of Annotation is incompatible with Activity 1.0.0-alpha04 and 1.0.0-alpha05 as well as Fragment 1.1.0-alpha04 and 1.1.0-alpha05. Please upgrade to Activity 1.0.0-alpha06 and Fragment 1.1.0-alpha06, respectively.
+ 
+ **New features**
+ 

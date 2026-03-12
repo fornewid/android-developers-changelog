@@ -1,0 +1,14 @@
+diff --git a/docs/guide/navigation/navigation-3/modularize.md b/docs/guide/navigation/navigation-3/modularize.md
+index 4b7e1fd..7d92f40 100644
+--- a/docs/guide/navigation/navigation-3/modularize.md
++++ b/docs/guide/navigation/navigation-3/modularize.md
+@@ -21,7 +21,8 @@ To modularize your navigation code, do the following:
+ - Place `entryProviders` and navigable content for each feature into the associated `impl` module
+ - Provide `entryProviders` to your main app modules, either directly or using dependency injection
+ 
+-| **Tip:** If you've created [custom scenes](https://developer.android.com/guide/navigation/navigation-3/custom-layouts) for use in your app, we recommend containing those scenes within their own module or modules. This makes it possible both for feature modules to access the helper functions used to populate metadata *and* for the main app module to use the scene strategies when creating its `NavDisplay`.
++> [!TIP]
++> **Tip:** If you've created [custom scenes](https://developer.android.com/guide/navigation/navigation-3/custom-layouts) for use in your app, we recommend containing those scenes within their own module or modules. This makes it possible both for feature modules to access the helper functions used to populate metadata *and* for the main app module to use the scene strategies when creating its `NavDisplay`.
+ 
+ ## Separate features into api and implementation submodules
+ 

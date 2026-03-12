@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/explorer.md b/docs/jetpack/androidx/explorer.md
+index 79e1079..c76e49b 100644
+--- a/docs/jetpack/androidx/explorer.md
++++ b/docs/jetpack/androidx/explorer.md
+@@ -119,6 +119,7 @@ Select a category:
+ | [remotecallback](https://developer.android.com/jetpack/androidx/releases/remotecallback) | Create a wrapper that makes it easier for developers to provide a PendingIntent. |
+ | [resourceinspection](https://developer.android.com/jetpack/androidx/releases/resourceinspection) | Surface the attributes of custom views in Android Studio's Live Layout Inspector. |
+ | [room \*](https://developer.android.com/jetpack/androidx/releases/room) | Create, store, and manage persistent data backed by a SQLite database. |
++| [room3 \*](https://developer.android.com/jetpack/androidx/releases/room3) | Create, store, and manage persistent data backed by a SQLite database. |
+ | [savedstate](https://developer.android.com/jetpack/androidx/releases/savedstate) | Write pluggable components that save the UI state when a process dies, and restore it when the process restarts. |
+ | [security](https://developer.android.com/jetpack/androidx/releases/security) | Safely manage keys and encrypt files and sharedpreferences. |
+ | [sharetarget](https://developer.android.com/jetpack/androidx/releases/sharetarget) | Provide backwards compatibility for using shortcuts as direct share targets. |

@@ -1,0 +1,178 @@
+diff --git a/docs/guide/navigation/design/kotlin-dsl.md b/docs/guide/navigation/design/kotlin-dsl.md
+index a8edd45..0efdbd3 100644
+--- a/docs/guide/navigation/design/kotlin-dsl.md
++++ b/docs/guide/navigation/design/kotlin-dsl.md
+@@ -17,7 +17,7 @@ configuration to dynamically build a navigation graph in your activity's
+ ## Dependencies
+ 
+ To use the Kotlin DSL with Fragments, add the following dependency to your app's
+-`build.gradle` file:  
++`build.gradle` file:
+ 
+ ### Groovy
+ 
+@@ -60,7 +60,7 @@ Before you can build your app's navigation graph, you need a place to host the
+ graph. This example uses fragments, so it hosts the graph in a
+ [`NavHostFragment`](https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment)
+ inside of a
+-[`FragmentContainerView`](https://developer.android.com/reference/androidx/fragment/app/FragmentContainerView):  
++[`FragmentContainerView`](https://developer.android.com/reference/androidx/fragment/app/FragmentContainerView):
+ 
+     <!-- activity_garden.xml -->
+     <FrameLayout
+@@ -102,14 +102,14 @@ IDs. Each route is represented by a unique type.
+ 
+ When dealing with arguments, these are [built into the route
+ type](https://developer.android.com/jetpack/compose/navigation#nav-with-args). This lets you have type safety
+-for your navigation arguments.  
++for your navigation arguments.
+ 
+     @Serializable data object Home
+     @Serializable data class Plant(val id: String)
+ 
+ ### Build a graph with the NavGraphBuilder DSL
+ 
+-Once you've defined your routes, you can build the navigation graph.  
++Once you've defined your routes, you can build the navigation graph.
+ 
+     val navController = findNavController(R.id.nav_host_fragment)
+     navController.graph = navController.createGraph(
+@@ -146,7 +146,7 @@ arguments and deep links.
+ 
+ Finally, you can navigate from `home` to `plant_detail` using
+ [`NavController.navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(kotlin.Any,kotlin.Function1))
+-calls:  
++calls:
+ 
+     private fun navigateToPlant(plantId: String) {
+        findNavController().navigate(route = PlantDetail(id = plantId))
+@@ -157,13 +157,13 @@ the current
+ [`NavBackStackEntry`](https://developer.android.com/reference/kotlin/androidx/navigation/NavBackStackEntry)
+ and calling
+ [`toRoute`](https://developer.android.com/reference/kotlin/androidx/navigation/NavBackStackEntry#(androidx.navigation.NavBackStackEntry).toRoute())
+-on it to obtain the route instance.  
++on it to obtain the route instance.
+ 
+     val plantDetailRoute = findNavController().getBackStackEntry<PlantDetail>().toRoute<PlantDetail>()
+     val plantId = plantDetailRoute.id
+ 
+ If `PlantDetailFragment` is using a `ViewModel`, obtain the route instance using
+-[`SavedStateHandle.toRoute`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle#(androidx.lifecycle.SavedStateHandle).toRoute(kotlin.collections.Map)).  
++[`SavedStateHandle.toRoute`](https://developer.android.com/reference/kotlin/androidx/lifecycle/SavedStateHandle#(androidx.lifecycle.SavedStateHandle).toRoute(kotlin.collections.Map)).
+ 
+     val plantDetailRoute = savedStateHandle.toRoute<PlantDetail>()
+     val plantId = plantDetailRoute.id
+@@ -185,7 +185,7 @@ The
+ DSL function can be parameterized with the fragment class for the UI and the
+ route type used to uniquely identify this destination, followed by a lambda
+ where you can provide additional configuration as described in the [Navigating
+-with your Kotlin DSL graph](https://developer.android.com/guide/navigation/design/kotlin-dsl#navigate) section.  
++with your Kotlin DSL graph](https://developer.android.com/guide/navigation/design/kotlin-dsl#navigate) section.
+ 
+     fragment<MyFragment, MyRoute> {
+        label = getString(R.string.fragment_title)
+@@ -202,7 +202,7 @@ a trailing lambda. This flexibility lets you define an activity destination for
+ an activity that should be launched using an [implicit
+ intent](https://developer.android.com/guide/components/intents-filters#ExampleSend), where an explicit
+ activity class wouldn't make sense. As with fragment destinations, you can also
+-configure a label, custom arguments, and deep links.  
++configure a label, custom arguments, and deep links.
+ 
+     activity<MyRoute> {
+        label = getString(R.string.activity_title)
+@@ -223,7 +223,7 @@ configure the graph. Valid elements include other destinations, custom argument
+ types, deep links, and a [descriptive label for the
+ destination](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder#label()).
+ This label can be useful for binding the navigation graph to UI components using
+-[`NavigationUI`](https://developer.android.com/guide/navigation/navigation-ui).  
++[`NavigationUI`](https://developer.android.com/guide/navigation/navigation-ui).
+ 
+     @Serializable data object HomeGraph
+     @Serializable data object Home
+@@ -237,7 +237,7 @@ This label can be useful for binding the navigation graph to UI components using
+ If you're using a [new destination type](https://developer.android.com/guide/navigation/navigation-add-new)
+ that does not directly support the Kotlin DSL, you can add these destinations to
+ your Kotlin DSL using
+-[`addDestination()`](https://developer.android.com/reference/androidx/navigation/NavGraph#addDestination(androidx.navigation.NavDestination)):  
++[`addDestination()`](https://developer.android.com/reference/androidx/navigation/NavGraph#addDestination(androidx.navigation.NavDestination)):
+ 
+     // The NavigatorProvider is retrieved from the NavController
+     val customDestination = navigatorProvider[CustomNavigator::class].createDestination().apply {
+@@ -246,7 +246,7 @@ your Kotlin DSL using
+     addDestination(customDestination)
+ 
+ As an alternative, you can also use the unary plus operator to add a newly
+-constructed destination directly to the graph:  
++constructed destination directly to the graph:
+ 
+     // The NavigatorProvider is retrieved from the NavController
+     +navigatorProvider[CustomNavigator::class].createDestination().apply {
+@@ -273,7 +273,7 @@ The [Kotlin serialization
+ plugin](https://kotlinlang.org/docs/serialization.html)
+ automatically generates serialization methods for [basic
+ types](https://kotlinlang.org/docs/basic-types.html) when the
+-`@Serializable` annotation is added to an object.  
++`@Serializable` annotation is added to an object.
+ 
+     @Serializable
+     data class MyRoute(
+@@ -290,7 +290,7 @@ For custom argument types, you'll need to provide a custom `NavType` class. This
+ lets you control exactly how your type is parsed from a route or deep link.
+ 
+ For example, a route used to define a search screen could contain a class that
+-represents the search parameters:  
++represents the search parameters:
+ 
+     @Serializable
+     data class SearchRoute(val parameters: SearchParameters)
+@@ -302,7 +302,7 @@ represents the search parameters:
+       val filters: List<String>
+     )
+ 
+-A custom `NavType` could be written as:  
++A custom `NavType` could be written as:
+ 
+     val SearchParametersType = object : NavType<SearchParameters>(
+       isNullableAllowed = false
+@@ -326,7 +326,7 @@ A custom `NavType` could be written as:
+       }
+     }
+ 
+-This can then be used in your Kotlin DSL like any other type:  
++This can then be used in your Kotlin DSL like any other type:
+ 
+     fragment<SearchFragment, SearchRoute>(
+         typeMap = mapOf(typeOf<SearchParameters>() to SearchParametersType)
+@@ -334,12 +334,12 @@ This can then be used in your Kotlin DSL like any other type:
+         label = getString(R.string.plant_search_title)
+     }
+ 
+-When navigating to the destination, create an instance of your route:  
++When navigating to the destination, create an instance of your route:
+ 
+     val params = SearchParameters("rose", listOf("available"))
+     navController.navigate(route = SearchRoute(params))
+ 
+-The parameter can be obtained from the route in the destination:  
++The parameter can be obtained from the route in the destination:
+ 
+     val searchRoute = navController().getBackStackEntry<SearchRoute>().toRoute<SearchRoute>()
+     val params = searchRoute.parameters
+@@ -367,7 +367,7 @@ You can also add an action and mimetype using the
+ [`deepLinkBuilder`](https://developer.android.com/reference/kotlin/androidx/navigation/NavDeepLinkDslBuilder)
+ trailing lambda.
+ 
+-The following example creates a deep link URI for the `Home` destination.  
++The following example creates a deep link URI for the `Home` destination.
+ 
+     @Serializable data object Home
+ 
+@@ -391,7 +391,7 @@ using the following rules:
+ - Collections are appended as *query parameters* (example: `?items={value1}&items={value2}`)
+ - The order of parameters matches the order of the fields in the route
+ 
+-For example, the following route type:  
++For example, the following route type:
+ 
+     @Serializable data class PlantDetail(
+       val id: String,

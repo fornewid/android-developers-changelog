@@ -1,0 +1,22 @@
+diff --git a/docs/develop/background-work/background-tasks/broadcasts.md b/docs/develop/background-work/background-tasks/broadcasts.md
+index 8b0b6ed..5d059bb 100644
+--- a/docs/develop/background-work/background-tasks/broadcasts.md
++++ b/docs/develop/background-work/background-tasks/broadcasts.md
+@@ -134,7 +134,7 @@ To register a receiver with a context, perform the following steps:
+ 
+    ```groovy
+    dependencies {
+-       def core_version = "1.17.0"
++       def core_version = "1.18.0"
+ 
+        // Java language implementation
+        implementation "androidx.core:core:$core_version"
+@@ -167,7 +167,7 @@ To register a receiver with a context, perform the following steps:
+ 
+    ```kotlin
+    dependencies {
+-       val core_version = "1.17.0"
++       val core_version = "1.18.0"
+ 
+        // Java language implementation
+        implementation("androidx.core:core:$core_version")

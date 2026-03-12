@@ -1,0 +1,153 @@
+diff --git a/docs/jetpack/androidx/releases/games.md b/docs/jetpack/androidx/releases/games.md
+index 8b6c5ea..ca47525 100644
+--- a/docs/jetpack/androidx/releases/games.md
++++ b/docs/jetpack/androidx/releases/games.md
+@@ -6,8 +6,7 @@ source: md.txt
+ 
+ # Android Games
+ 
+-[User Guide](https://developer.android.com/games/sdk)  
+-The android games library mirrors the Android Game SDK which is available as a binary download. You can use the androidx library instead of manually downloading and integrating the Android Game SDK into your build.
++[User Guide](https://developer.android.com/games/sdk) The android games library mirrors the Android Game SDK which is available as a binary download. You can use the androidx library instead of manually downloading and integrating the Android Game SDK into your build.
+ 
+ <br />
+ 
+@@ -20,14 +19,14 @@ This table lists all the artifacts in the `androidx.games` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| games-activity | [4.0.0](https://developer.android.com/jetpack/androidx/releases/games#games-activity-4.0.0) | [4.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/games#games-activity-4.4.0-rc01) | - | - |
++| games-activity | [4.4.0](https://developer.android.com/jetpack/androidx/releases/games#games-activity-4.4.0) | - | - | - |
+ | games-controller | [2.0.2](https://developer.android.com/jetpack/androidx/releases/games#games-controller-2.0.2) | - | - | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-controller-2.3.0-alpha01) |
+ | games-frame-pacing | [2.1.3](https://developer.android.com/jetpack/androidx/releases/games#games-frame-pacing-2.1.3) | - | - | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-frame-pacing-2.3.0-alpha01) |
+ | games-memory-advice | [2.0.1](https://developer.android.com/jetpack/androidx/releases/games#games-memory-advice-2.0.1) | - | [2.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/games#games-memory-advice-2.1.0-beta01) | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-memory-advice-2.3.0-alpha01) |
+-| games-text-input | [4.0.0](https://developer.android.com/jetpack/androidx/releases/games#games-text-input-4.0.0) | [4.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/games#games-text-input-4.3.0-rc01) | - | - |
++| games-text-input | [4.3.0](https://developer.android.com/jetpack/androidx/releases/games#games-text-input-4.3.0) | - | - | - |
+ | games-performance-tuner | [2.0.0](https://developer.android.com/jetpack/androidx/releases/games#games-performance-tuner-2.0.0) | - | - | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-performance-tuner-2.3.0-alpha01) |
+ 
+-This library was last updated on: January 28, 2026
++This library was last updated on: March 11, 2026
+ 
+ ## Requirements
+ 
+@@ -45,7 +44,7 @@ for more information.
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+ your app or module; `games-activity` library has integrated the same version of
+ the `game-text-input` library, hence `GameActivity` apps can not include the
+-`game-text-input` dependency again:  
++`game-text-input` dependency again:
+ 
+ ### Groovy
+ 
+@@ -68,14 +67,14 @@ dependencies {
+     implementation "androidx.games:games-performance-tuner:2.0.0"
+ 
+     // To use the Games Activity library
+-    implementation "androidx.games:games-activity:4.0.0"
++    implementation "androidx.games:games-activity:4.4.0"
+ 
+     // To use the Games Controller Library
+     implementation "androidx.games:games-controller:2.0.2"
+ 
+     // To use the Games Text Input Library
+     // Do not include this if games-activity has been included
+-    implementation "androidx.games:games-text-input:4.0.0"
++    implementation "androidx.games:games-text-input:4.3.0"
+ }
+ ```
+ 
+@@ -100,14 +99,14 @@ dependencies {
+     implementation("androidx.games:games-performance-tuner:2.0.0")
+ 
+     // To use the Games Activity library
+-    implementation("androidx.games:games-activity:4.0.0")
++    implementation("androidx.games:games-activity:4.4.0")
+ 
+     // To use the Games Controller Library
+     implementation("androidx.games:games-controller:2.0.2")
+ 
+     // To use the Games Text Input Library
+     // Do not include this if games-activity has been included
+-    implementation("androidx.games:games-text-input:4.0.0")
++    implementation("androidx.games:games-text-input:4.3.0")
+ }
+ }
+ ```
+@@ -121,7 +120,7 @@ same directory as your app's (or module's) `build.gradle` file. If the
+ `gradle.properties` file does not exist, then create this file.
+ 
+ If you are using Android Studio 4.0, make sure `gradle.properties` contains the
+-following lines:  
++following lines:
+ 
+     # Enables experimental Prefab
+     android.enablePrefab=true
+@@ -129,7 +128,7 @@ following lines:
+     android.useAndroidX=true
+ 
+ If you are using Android Studio 4.1 or later, make sure `gradle.properties`
+-contains the following lines:  
++contains the following lines:
+ 
+     # Tell Android Studio we are using AndroidX
+     android.useAndroidX=true
+@@ -137,21 +136,21 @@ contains the following lines:
+ ## Add packages with CMake
+ 
+ To make the imported Game SDK packages available, add the following to
+-your main app's `CMakeLists.txt` file:  
++your main app's `CMakeLists.txt` file:
+ 
+     # Add the packages from the Android Game SDK
+     find_package(games-frame-pacing REQUIRED CONFIG)
+     find_package(games-performance-tuner REQUIRED CONFIG)
+ 
+ This will allow you to include header files from the Android Game SDK in your
+-game code:  
++game code:
+ 
+     #include "swappy/swappyGL.h"
+     #include "tuningfork/tuningfork.h"
+ 
+ In your main app's `CMakeLists.txt` file, find `target_link_libraries` for the
+ main shared library. Add the references to the Android Game SDK static libraries
+-to include them in your shared library:  
++to include them in your shared library:
+ 
+     target_link_libraries(...
+       games-frame-pacing::swappy_static
+@@ -339,6 +338,12 @@ February 23, 2022
+ 
+ ## Games-Text-Input Version 4.3
+ 
++### Version 4.3.0
++
++March 11, 2026
++
++`androidx.games:games-text-input:4.3.0` is released. Version 4.3.0 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/f81f888fe11e9540dd580edf5993232172ed3cbe..d8d6dc333c8ff9524e565b1d12636b23cb79cc0a/game-text-input).
++
+ ### Version 4.3.0-rc01
+ 
+ January 28, 2026
+@@ -367,6 +372,12 @@ August 7, 2024
+ 
+ ## Games-Activity Version 4
+ 
++### Version 4.4.0
++
++March 11, 2026
++
++`androidx.games:games-activity:4.4.0` is released. Version 4.4.0 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/f81f888fe11e9540dd580edf5993232172ed3cbe..541587a073871a9d2659f90335dcae345007eeed/game-activity).
++
+ ### Version 4.4.0-rc01
+ 
+ January 28, 2026
+@@ -1695,7 +1706,7 @@ androidx.games:games-performance-tuner:1.1.0-alpha01 is released.
+ 
+ August 12, 2020
+ 
+-The Android Gaming library was renamed to the Android Games library.  
++The Android Gaming library was renamed to the Android Games library.
+ 
+     androidx.gaming -> androidx.games
+ 

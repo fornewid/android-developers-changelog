@@ -1,0 +1,83 @@
+diff --git a/docs/jetpack/androidx/releases/lifecycle.md b/docs/jetpack/androidx/releases/lifecycle.md
+index 3d51839..541030c 100644
+--- a/docs/jetpack/androidx/releases/lifecycle.md
++++ b/docs/jetpack/androidx/releases/lifecycle.md
+@@ -15,10 +15,10 @@ This table lists all the artifacts in the `androidx.lifecycle` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| lifecycle-\* | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | - | [2.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha01) |
+-| lifecycle-viewmodel-navigation3 | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | - | [2.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha01) |
++| lifecycle-\* | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | - | [2.11.0-alpha02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha02) |
++| lifecycle-viewmodel-navigation3 | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | - | [2.11.0-alpha02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha02) |
+ 
+-This library was last updated on: February 25, 2026
++This library was last updated on: March 11, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -56,7 +56,7 @@ your app or module:
+         implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+ 
+         // ViewModel integration with Navigation3
+-        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-alpha01"
++        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-alpha02"
+ 
+         // Annotation processor
+         kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+@@ -103,7 +103,7 @@ your app or module:
+         implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+ 
+         // ViewModel integration with Navigation3
+-        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-alpha01")
++        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-alpha02")
+ 
+         // Annotation processor
+         kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+@@ -227,6 +227,46 @@ for more information.
+ 
+ ## Version 2.11
+ 
++### Version 2.11.0-alpha02
++
++March 11, 2026
++
++`androidx.lifecycle:lifecycle-*:2.11.0-alpha02` is released. Version 2.11.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c640b9aa8e30b5db9ee258561ad1fc4bc947e69d..a15c668d4bb2e00cfa8ed1af96895a84c3e7e2d5/lifecycle).
++
++**Scoped ViewModels**
++
++- This release introduces APIs to create scoped `ViewModelStore` instances in Compose. This allows `ViewModels` to be tied to specific UI scopes (such as individual `Pager` pages or `LazyList` items). These `ViewModels` survive configuration changes and are automatically cleared when their corresponding Composable is permanently removed from the hierarchy.
++
++      // Hoist the parent provider outside the Pager.
++      val provider = rememberViewModelStoreProvider()
++      val pagerState = rememberPagerState(pageCount = { 5 })
++
++      HorizontalPager(state = pagerState) { page ->
++          // Create an owner scoped to the current page.
++          val storeOwner = rememberViewModelStoreOwner(provider, key = page)
++
++          // Provide the scoped owner to this composition.
++          CompositionLocalProvider(LocalViewModelStoreOwner provides storeOwner) {
++              // ViewModel is now scoped specifically to this page.
++              val viewModel: PageViewModel = viewModel()
++          }
++      }
++
++Note that `ViewModelStoreProvider` is available outside of Compose and can be used with Activities, Fragments and/or Views.
++
++**New Features**
++
++- Add support for all KMP targets to ViewModel Navigation3. ([I60fa5](https://android-review.googlesource.com/#/q/I60fa5d3ddd456c9834038da562c2c7b367702d65))
++- Add factory functions for `LifecycleOwner`, `ViewModelStoreOwner`, and `SavedStateRegistryOwner` to reduce boilerplate when composing custom owner components. ([I9682c](https://android-review.googlesource.com/#/q/I9682c335efa683b00f36d4e4423780d45a33f320))
++- Add a lambda-based `Lifecycle.addObserver` extension function to allow observing lifecycle events without instantiating an anonymous object. ([I94f38](https://android-review.googlesource.com/#/q/I94f384c239eef10153952b6364d8ba1ed6324197))
++- Add `defaultViewModelProviderFactory` and `defaultViewModelCreationExtras` extensions to `ViewModelStoreOwner`. These provide safe access to defaults without requiring manual type checks against `HasDefaultViewModelProviderFactory`. ([Ifa83d](https://android-review.googlesource.com/#/q/Ifa83de66169a63ca6edb8bd453018f3021fa2a0d))
++
++**API Changes**
++
++- Add `rememberViewModelStoreOwner` to easily create scoped `ViewModelStoreOwner`s in Compose. This function returns an owner that is tied to the Composable's lifecycle, automatically clearing its ViewModels when the Composable is removed from the UI. ([I2a15b](https://android-review.googlesource.com/#/q/I2a15b678b1c2996d53316dd6b68e383c03039f61), [b/165642391](https://issuetracker.google.com/issues/165642391))
++- Add `rememberViewModelStoreProvider` to allow creating scoped `ViewModelStore` instances in Compose. This function links a child store to a parent owner, ensuring ViewModels survive configuration changes while automatically clearing them when the Composable is removed from the hierarchy. ([I0f57a](https://android-review.googlesource.com/#/q/I0f57a493f15eefd5f02cbc5cc3086dffe21fc1d2), [b/165642391](https://issuetracker.google.com/issues/165642391))
++- Add `ViewModelStoreProvider` to manage scoped `ViewModelStore` instances. This class enables the creation of child scopes that survive configuration changes but can be independently cleared. It also provides `ViewModelStoreOwner` wrappers that inherit default factories and creation extras from the parent. ([I87f4f](https://android-review.googlesource.com/#/q/I87f4f0f3e78e131a1a68b170304824c83c524536), [b/434651920](https://issuetracker.google.com/issues/434651920))
++
+ ### Version 2.11.0-alpha01
+ 
+ February 25, 2026

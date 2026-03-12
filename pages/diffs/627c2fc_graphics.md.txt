@@ -1,0 +1,115 @@
+diff --git a/docs/jetpack/androidx/releases/graphics.md b/docs/jetpack/androidx/releases/graphics.md
+index 5b92033..34e1aeb 100644
+--- a/docs/jetpack/androidx/releases/graphics.md
++++ b/docs/jetpack/androidx/releases/graphics.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ API Reference  
+ [androidx.graphics](https://developer.android.com/reference/kotlin/androidx/graphics/package-summary)  
+-Leverage graphics facilities across multiple Android platform releases  
++Leverage graphics facilities across multiple Android platform releases
+ 
+ 
+ This table lists all the artifacts in the `androidx.graphics` group.
+@@ -16,10 +16,10 @@ This table lists all the artifacts in the `androidx.graphics` group.
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+ | graphics-core | [1.0.4](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-core-1.0.4) | - | - | - |
+-| graphics-path | [1.0.1](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-path-1.0.1) | - | [1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-path-1.1.0-beta01) | - |
++| graphics-path | [1.0.1](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-path-1.0.1) | [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-path-1.1.0-rc01) | - | - |
+ | graphics-shapes | [1.1.0](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-shapes-1.1.0) | - | - | - |
+ 
+-This library was last updated on: December 17, 2025
++This library was last updated on: March 11, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -28,14 +28,14 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:  
++your app or module:
+ 
+ ### Groovy
+ 
+ ```groovy
+ dependencies {
+     implementation "androidx.graphics:graphics-core:1.0.4"
+-    implementation "androidx.graphics:graphics-path:1.1.0-beta01"
++    implementation "androidx.graphics:graphics-path:1.1.0-rc01"
+     implementation "androidx.graphics:graphics-shapes:1.1.0"
+ }
+ ```
+@@ -45,7 +45,7 @@ dependencies {
+ ```kotlin
+ dependencies {
+     implementation("androidx.graphics:graphics-core:1.0.4")
+-    implementation("androidx.graphics:graphics-path:1.1.0-beta01")
++    implementation("androidx.graphics:graphics-path:1.1.0-rc01")
+     implementation("androidx.graphics:graphics-shapes:1.1.0")
+ }
+ ```
+@@ -67,25 +67,25 @@ for more information.
+ 
+ There are no release notes for this artifact.
+ 
+-## Graphics Version 1.1
++## Graphics Shapes Version 1.1
+ 
+ ### Version 1.1.0
+ 
+ October 22, 2025
+ 
+-`androidx.graphics:graphics-*:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4b672d6ee0029b3ab664d3c70b7f97b01376f8b..cb163bee53214245ad7a23367396a21b7f85ae82/graphics/graphics-shapes).
++`androidx.graphics:graphics-shapes:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4b672d6ee0029b3ab664d3c70b7f97b01376f8b..cb163bee53214245ad7a23367396a21b7f85ae82/graphics/graphics-shapes).
+ 
+ ### Version 1.1.0-rc01
+ 
+ September 10, 2025
+ 
+-`androidx.graphics:graphics-*:1.1.0-rc01` is released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/def3e53c2013cff4f8a9ddd8e8be7b016a9d2c42..a1575365889263a8ae455c8127adea239f056f80/graphics/graphics-shapes).
++`androidx.graphics:graphics-shapes:1.1.0-rc01` is released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/def3e53c2013cff4f8a9ddd8e8be7b016a9d2c42..a1575365889263a8ae455c8127adea239f056f80/graphics/graphics-shapes).
+ 
+ ### Version 1.1.0-beta01
+ 
+ July 30, 2025
+ 
+-`androidx.graphics:graphics-*:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/46295bc0b75a16f452e8e0090e8de41073d4dbb6..def3e53c2013cff4f8a9ddd8e8be7b016a9d2c42/graphics/graphics-shapes).
++`androidx.graphics:graphics-shapes:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/46295bc0b75a16f452e8e0090e8de41073d4dbb6..def3e53c2013cff4f8a9ddd8e8be7b016a9d2c42/graphics/graphics-shapes).
+ 
+ **API Changes**
+ 
+@@ -96,7 +96,7 @@ July 30, 2025
+ 
+ December 11, 2024
+ 
+-`androidx.graphics:graphics-*:1.1.0-alpha01` is released. Version 1.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/17aea5b083ca354fcad646462e8d3d0c211f1eae..46295bc0b75a16f452e8e0090e8de41073d4dbb6/graphics/graphics-shapes).
++`androidx.graphics:graphics-shapes:1.1.0-alpha01` is released. Version 1.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/17aea5b083ca354fcad646462e8d3d0c211f1eae..46295bc0b75a16f452e8e0090e8de41073d4dbb6/graphics/graphics-shapes).
+ 
+ **New Features**
+ 
+@@ -240,6 +240,12 @@ Graphics-Shapes is a new library which allows easy creation and rendering of rou
+ 
+ ## Graphics Path Version 1.1
+ 
++### Version 1.1.0-rc01
++
++March 11, 2026
++
++`androidx.graphics:graphics-path:1.1.0-rc01` is released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7978b337b99d48895d0f93c8058c5ef4d46adacc..30b984ce6280d296f47db0e9ddf5fc77b8c1039c/graphics/graphics-path).
++
+ ### Version 1.1.0-beta01
+ 
+ December 17, 2025
+@@ -317,7 +323,9 @@ November 29, 2023
+ June 7, 2023
+ 
+ `androidx.graphics:graphics-path:1.0.0-alpha02` is released. This version is developed in an internal branch.
+-| **Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher.
++
++> [!NOTE]
++> **Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher.
+ 
+ **New Features**
+ 

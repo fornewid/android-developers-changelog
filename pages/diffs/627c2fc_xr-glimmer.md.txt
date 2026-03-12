@@ -1,0 +1,50 @@
+diff --git a/docs/jetpack/androidx/releases/xr-glimmer.md b/docs/jetpack/androidx/releases/xr-glimmer.md
+index d1c3031..bd9323e 100644
+--- a/docs/jetpack/androidx/releases/xr-glimmer.md
++++ b/docs/jetpack/androidx/releases/xr-glimmer.md
+@@ -12,7 +12,7 @@ Design language and UI toolkit for building augmented Android XR experiences
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| February 25, 2026 | - | - | - | [1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha07) |
++| March 11, 2026 | - | - | - | [1.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha08) |
+ 
+ ## Declaring dependencies
+ 
+@@ -29,7 +29,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha07"
++    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha08"
+ }
+ ```
+ 
+@@ -37,7 +37,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha07")
++    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha08")
+ }
+ ```
+ 
+@@ -58,6 +58,18 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha08
++
++March 11, 2026
++
++`androidx.xr.glimmer:glimmer:1.0.0-alpha08` is released. Version 1.0.0-alpha08 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6e23fc0c137022098ae2d043778ffdc56402ba5e..1a508f033de883ba2853b9f9ae1853eec7010638/xr/glimmer/glimmer).
++
++**API Changes**
++
++- Replaced `TitleChipDefaults.contentPadding` with a `ContentPadding` constant. ([If992f](https://android-review.googlesource.com/#/q/If992fd165af7e4d9ebd8b32bb8b84e3caa08200b), [b/489451530](https://issuetracker.google.com/issues/489451530))
++- Glimmer `ListState` now provides `ScrollIndicatorState` ([I0a2f8](https://android-review.googlesource.com/#/q/I0a2f870b000c67e5c1105550301946296a6a6964), [b/481662773](https://issuetracker.google.com/issues/481662773))
++- Added a new `TextStyle` called `caption`. For the existing `TextStyles`, Updated `fontWeight`, `fontSize` and `lineHeight`. ([I2319f](https://android-review.googlesource.com/#/q/I2319feefb136d89c10682ffe4835b2f3871b0916), [b/473560419](https://issuetracker.google.com/issues/473560419))
++
+ ### Version 1.0.0-alpha07
+ 
+ February 25, 2026

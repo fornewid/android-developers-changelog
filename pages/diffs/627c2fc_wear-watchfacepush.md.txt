@@ -1,0 +1,44 @@
+diff --git a/docs/jetpack/androidx/releases/wear-watchfacepush.md b/docs/jetpack/androidx/releases/wear-watchfacepush.md
+index 9bfdb33..a4b7c21 100644
+--- a/docs/jetpack/androidx/releases/wear-watchfacepush.md
++++ b/docs/jetpack/androidx/releases/wear-watchfacepush.md
+@@ -12,7 +12,7 @@ Watch Face Push allows a Wear OS app to install a watch face on a watch programm
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| December 3, 2025 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear-watchfacepush#1.0.0-beta01) | - |
++| March 11, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-watchfacepush#1.0.0-rc01) | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -31,7 +31,7 @@ repositories {
+     google() // For the watchfacepush library itself
+ }
+ dependencies {
+-    implementation "androidx.wear.watchfacepush:watchfacepush:1.0.0-beta01"
++    implementation "androidx.wear.watchfacepush:watchfacepush:1.0.0-rc01"
+ }
+ ```
+ 
+@@ -43,7 +43,7 @@ repositories {
+ }
+ 
+ dependencies {
+-    implementation("androidx.wear.watchfacepush:watchfacepush:1.0.0-beta01")
++    implementation("androidx.wear.watchfacepush:watchfacepush:1.0.0-rc01")
+ }
+ ```
+ Additionally, if the app needs to generate tokens for a watch face at runtime, add the following dependency:
+@@ -101,6 +101,12 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-rc01
++
++March 11, 2026
++
++`androidx.wear.watchfacepush:watchfacepush:1.0.0-rc01` is released with no changes from the previous beta. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/deb96499dfe95073f5c1215c1287787683cb1e92..17bd646a50810d4ad3ef4974404f4d7047eff303/wear/watchfacepush/watchfacepush).
++
+ ### Version 1.0.0-beta01
+ 
+ December 03, 2025

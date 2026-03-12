@@ -1,0 +1,129 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md b/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md
+index 797a630..cb02ebc 100644
+--- a/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md
++++ b/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md
+@@ -193,6 +193,7 @@ import android.os.Bundle
+ import androidx.activity.ComponentActivity
+ import androidx.activity.compose.setContent
+ import androidx.compose.animation.ExperimentalSharedTransitionApi
++import androidx.compose.animation.SharedTransitionLayout
+ import androidx.compose.foundation.layout.padding
+ import androidx.compose.material3.Scaffold
+ import androidx.compose.ui.Modifier
+@@ -224,7 +225,8 @@ data class ConversationDetail(
+     val colorId: Int
+ ) : NavKey
+ 
+-@Serializable data object Profile : NavKey
++@Serializable
++data object Profile : NavKey
+ 
+ class ListDetailActivity : ComponentActivity() {
+ 
+@@ -240,35 +242,38 @@ class ListDetailActivity : ComponentActivity() {
+                 val backStack = rememberNavBackStack(ConversationList)
+                 val listDetailStrategy = rememberListDetailSceneStrategy<NavKey>()
+ 
+-                NavDisplay(
+-                    backStack = backStack,
+-                    onBack = { backStack.removeLastOrNull() },
+-                    sceneStrategy = listDetailStrategy,
+-                    modifier = Modifier.padding(paddingValues),
+-                    entryProvider = entryProvider {
+-                        entry<ConversationList>(
+-                            metadata = ListDetailScene.listPane()
+-                        ) {
+-                            ConversationListScreen(
+-                                onConversationClicked = { detailRoute ->
+-                                    backStack.addDetail(detailRoute)
+-                                }
+-                            )
+-                        }
+-                        entry<ConversationDetail>(
+-                            metadata = ListDetailScene.detailPane()
+-                        ) { conversationDetail ->
+-                            ConversationDetailScreen(
+-                                conversationDetail = conversationDetail,
+-                                onBack = { backStack.removeLastOrNull() },
+-                                onProfileClicked = { backStack.add(Profile) }
+-                            )
+-                        }
+-                        entry<Profile> {
+-                            ProfileScreen()
++                SharedTransitionLayout {
++                    NavDisplay(
++                        backStack = backStack,
++                        onBack = { backStack.removeLastOrNull() },
++                        sceneStrategies = listOf(listDetailStrategy),
++                        sharedTransitionScope = this,
++                        modifier = Modifier.padding(paddingValues),
++                        entryProvider = entryProvider {
++                            entry<ConversationList>(
++                                metadata = ListDetailScene.listPane()
++                            ) {
++                                ConversationListScreen(
++                                    onConversationClicked = { detailRoute ->
++                                        backStack.addDetail(detailRoute)
++                                    }
++                                )
++                            }
++                            entry<ConversationDetail>(
++                                metadata = ListDetailScene.detailPane()
++                            ) { conversationDetail ->
++                                ConversationDetailScreen(
++                                    conversationDetail = conversationDetail,
++                                    onBack = { backStack.removeLastOrNull() },
++                                    onProfileClicked = { backStack.add(Profile) }
++                                )
++                            }
++                            entry<Profile> {
++                                ProfileScreen()
++                            }
+                         }
+-                    }
+-                )
++                    )
++                }
+             }
+         }
+     }
+@@ -306,23 +311,23 @@ package com.example.nav3recipes.scenes.listdetail
+ import androidx.compose.foundation.background
+ import androidx.compose.foundation.clickable
+ import androidx.compose.foundation.layout.Arrangement
+-import androidx.compose.foundation.layout.Column
+ import androidx.compose.foundation.layout.Box
++import androidx.compose.foundation.layout.Column
+ import androidx.compose.foundation.layout.Spacer
+ import androidx.compose.foundation.layout.fillMaxSize
+ import androidx.compose.foundation.layout.fillMaxWidth
+ import androidx.compose.foundation.layout.height
+ import androidx.compose.foundation.layout.padding
+ import androidx.compose.foundation.lazy.LazyColumn
++import androidx.compose.material.icons.Icons
++import androidx.compose.material.icons.automirrored.filled.ArrowBack
+ import androidx.compose.material3.Button
++import androidx.compose.material3.Icon
++import androidx.compose.material3.IconButton
+ import androidx.compose.material3.ListItem
+ import androidx.compose.material3.ListItemDefaults
+ import androidx.compose.material3.MaterialTheme
+ import androidx.compose.material3.Text
+-import androidx.compose.material.icons.Icons
+-import androidx.compose.material.icons.automirrored.filled.ArrowBack
+-import androidx.compose.material3.Icon
+-import androidx.compose.material3.IconButton
+ import androidx.compose.runtime.Composable
+ import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Modifier
+@@ -335,7 +340,9 @@ fun ConversationListScreen(
+     onConversationClicked: (ConversationDetail) -> Unit
+ ) {
+     LazyColumn(
+-        modifier = Modifier.fillMaxSize(),
++        modifier = Modifier
++            .fillMaxSize()
++            .background(MaterialTheme.colorScheme.surface),
+     ) {
+         items(10) { index ->
+             val conversationId = index + 1

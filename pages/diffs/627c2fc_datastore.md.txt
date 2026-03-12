@@ -1,0 +1,108 @@
+diff --git a/docs/topic/libraries/architecture/datastore.md b/docs/topic/libraries/architecture/datastore.md
+index 7b7eeb6..99099ff 100644
+--- a/docs/topic/libraries/architecture/datastore.md
++++ b/docs/topic/libraries/architecture/datastore.md
+@@ -61,10 +61,10 @@ Add the following lines to the dependencies part of your gradle file:
+ ```groovy
+     dependencies {
+         // Preferences DataStore (SharedPreferences like APIs)
+-        implementation "androidx.datastore:datastore-preferences:1.2.0"
++        implementation "androidx.datastore:datastore-preferences:1.2.1"
+ 
+         // Alternatively - without an Android dependency.
+-        implementation "androidx.datastore:datastore-preferences-core:1.2.0"
++        implementation "androidx.datastore:datastore-preferences-core:1.2.1"
+     }
+     
+ ```
+@@ -74,10 +74,10 @@ Add the following lines to the dependencies part of your gradle file:
+ ```kotlin
+     dependencies {
+         // Preferences DataStore (SharedPreferences like APIs)
+-        implementation("androidx.datastore:datastore-preferences:1.2.0")
++        implementation("androidx.datastore:datastore-preferences:1.2.1")
+ 
+         // Alternatively - without an Android dependency.
+-        implementation("androidx.datastore:datastore-preferences-core:1.2.0")
++        implementation("androidx.datastore:datastore-preferences-core:1.2.1")
+     }
+     
+ ```
+@@ -89,10 +89,10 @@ To add optional RxJava support, add the following dependencies:
+ ```groovy
+     dependencies {
+         // optional - RxJava2 support
+-        implementation "androidx.datastore:datastore-preferences-rxjava2:1.2.0"
++        implementation "androidx.datastore:datastore-preferences-rxjava2:1.2.1"
+ 
+         // optional - RxJava3 support
+-        implementation "androidx.datastore:datastore-preferences-rxjava3:1.2.0"
++        implementation "androidx.datastore:datastore-preferences-rxjava3:1.2.1"
+     }
+     
+ ```
+@@ -102,10 +102,10 @@ To add optional RxJava support, add the following dependencies:
+ ```kotlin
+     dependencies {
+         // optional - RxJava2 support
+-        implementation("androidx.datastore:datastore-preferences-rxjava2:1.2.0")
++        implementation("androidx.datastore:datastore-preferences-rxjava2:1.2.1")
+ 
+         // optional - RxJava3 support
+-        implementation("androidx.datastore:datastore-preferences-rxjava3:1.2.0")
++        implementation("androidx.datastore:datastore-preferences-rxjava3:1.2.1")
+     }
+     
+ ```
+@@ -119,10 +119,10 @@ Add the following lines to the dependencies part of your gradle file:
+ ```groovy
+     dependencies {
+         // Typed DataStore for custom data objects (for example, using Proto or JSON).
+-        implementation "androidx.datastore:datastore:1.2.0"
++        implementation "androidx.datastore:datastore:1.2.1"
+ 
+         // Alternatively - without an Android dependency.
+-        implementation "androidx.datastore:datastore-core:1.2.0"
++        implementation "androidx.datastore:datastore-core:1.2.1"
+     }
+     
+ ```
+@@ -132,10 +132,10 @@ Add the following lines to the dependencies part of your gradle file:
+ ```kotlin
+     dependencies {
+         // Typed DataStore for custom data objects (for example, using Proto or JSON).
+-        implementation("androidx.datastore:datastore:1.2.0")
++        implementation("androidx.datastore:datastore:1.2.1")
+ 
+         // Alternatively - without an Android dependency.
+-        implementation("androidx.datastore:datastore-core:1.2.0")
++        implementation("androidx.datastore:datastore-core:1.2.1")
+     }
+     
+ ```
+@@ -147,10 +147,10 @@ Add the following optional dependencies for RxJava support:
+ ```groovy
+     dependencies {
+         // optional - RxJava2 support
+-        implementation "androidx.datastore:datastore-rxjava2:1.2.0"
++        implementation "androidx.datastore:datastore-rxjava2:1.2.1"
+ 
+         // optional - RxJava3 support
+-        implementation "androidx.datastore:datastore-rxjava3:1.2.0"
++        implementation "androidx.datastore:datastore-rxjava3:1.2.1"
+     }
+     
+ ```
+@@ -160,10 +160,10 @@ Add the following optional dependencies for RxJava support:
+ ```kotlin
+     dependencies {
+         // optional - RxJava2 support
+-        implementation("androidx.datastore:datastore-rxjava2:1.2.0")
++        implementation("androidx.datastore:datastore-rxjava2:1.2.1")
+ 
+         // optional - RxJava3 support
+-        implementation("androidx.datastore:datastore-rxjava3:1.2.0")
++        implementation("androidx.datastore:datastore-rxjava3:1.2.1")
+     }
+     
+ ```

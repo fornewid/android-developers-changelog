@@ -1,0 +1,48 @@
+diff --git a/docs/jetpack/androidx/releases/navigation3.md b/docs/jetpack/androidx/releases/navigation3.md
+index 59b541f..18735aa 100644
+--- a/docs/jetpack/androidx/releases/navigation3.md
++++ b/docs/jetpack/androidx/releases/navigation3.md
+@@ -13,7 +13,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| February 25, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.1) | - | - | [1.1.0-alpha05](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-alpha05) |
++| March 11, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.1) | - | [1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-beta01) | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -28,8 +28,8 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.navigation3:navigation3-runtime:1.1.0-alpha05"
+-    implementation "androidx.navigation3:navigation3-ui:1.1.0-alpha05"
++    implementation "androidx.navigation3:navigation3-runtime:1.1.0-beta01"
++    implementation "androidx.navigation3:navigation3-ui:1.1.0-beta01"
+ }
+ ```
+ 
+@@ -37,8 +37,8 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.navigation3:navigation3-runtime:1.1.0-alpha05")
+-    implementation("androidx.navigation3:navigation3-ui:1.1.0-alpha05")
++    implementation("androidx.navigation3:navigation3-runtime:1.1.0-beta01")
++    implementation("androidx.navigation3:navigation3-ui:1.1.0-beta01")
+ }
+ ```
+ 
+@@ -61,6 +61,12 @@ There are no release notes for this artifact.
+ 
+ ## Version 1.1
+ 
++### Version 1.1.0-beta01
++
++March 11, 2026
++
++`androidx.navigation3:navigation3-*:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c640b9aa8e30b5db9ee258561ad1fc4bc947e69d..3722e3daaddb618f2b0e21170f3a0dc441509696/navigation3).
++
+ ### Version 1.1.0-alpha05
+ 
+ February 25, 2026

@@ -1,0 +1,76 @@
+diff --git a/docs/jetpack/androidx/releases/compose-runtime.md b/docs/jetpack/androidx/releases/compose-runtime.md
+index 62dee70..916fd23 100644
+--- a/docs/jetpack/androidx/releases/compose-runtime.md
++++ b/docs/jetpack/androidx/releases/compose-runtime.md
+@@ -16,7 +16,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| February 25, 2026 | [1.10.4](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.10.4) | - | - | [1.11.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.0-alpha06) |
++| March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.0-beta01) | - |
+ 
+ ## Structure
+ 
+@@ -49,9 +49,9 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.compose.runtime:runtime:1.10.4"
+-    implementation "androidx.compose.runtime:runtime-livedata:1.10.4"
+-    implementation "androidx.compose.runtime:runtime-rxjava2:1.10.4"
++    implementation "androidx.compose.runtime:runtime:1.10.5"
++    implementation "androidx.compose.runtime:runtime-livedata:1.10.5"
++    implementation "androidx.compose.runtime:runtime-rxjava2:1.10.5"
+ }
+ 
+ android {
+@@ -73,9 +73,9 @@ android {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.compose.runtime:runtime:1.10.4")
+-    implementation("androidx.compose.runtime:runtime-livedata:1.10.4")
+-    implementation("androidx.compose.runtime:runtime-rxjava2:1.10.4")
++    implementation("androidx.compose.runtime:runtime:1.10.5")
++    implementation("androidx.compose.runtime:runtime-livedata:1.10.5")
++    implementation("androidx.compose.runtime:runtime-rxjava2:1.10.5")
+ }
+ 
+ android {
+@@ -173,6 +173,23 @@ September 7, 2022
+ 
+ ## Version 1.11
+ 
++### Version 1.11.0-beta01
++
++March 11, 2026
++
++`androidx.compose.runtime:runtime-*:1.11.0-beta01` is released. Version 1.11.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c640b9aa8e30b5db9ee258561ad1fc4bc947e69d..a15c668d4bb2e00cfa8ed1af96895a84c3e7e2d5/compose/runtime).
++
++**API Changes**
++
++- `SnapshotFlowManager` and the overload of `snapshotFlow` that accept the `manager` parameter are now marked as experimental ([I5c1a5](https://android-review.googlesource.com/#/q/I5c1a54d02edec71c4ce4c7cca7227961bb40f37f), [b/486077876](https://issuetracker.google.com/issues/486077876), [I0de71](https://android-review.googlesource.com/#/q/I0de712a2f311c63e239a4bc0181181a7d033637b), [b/486077876](https://issuetracker.google.com/issues/486077876))
++
++**Bug Fixes**
++
++- Fix "Apply is called on deactivated node" crash in pausable composition ([I880c0](https://android-review.googlesource.com/#/q/I880c073ea4ea5d479c1aee99a9cbc3321e010c31), [b/484300733](https://issuetracker.google.com/issues/484300733))
++- Fixed an issue in the `LinkTable` that could cause `ArrayIndexOutOfBoundsExceptions` or metadata corruption when using `MovableContent`. ([I8452b](https://android-review.googlesource.com/#/q/I8452b177590ca1303e6ceb8f5379ba968e86e3b1))
++- Fixed an issue in the `LinkTable` that would prevent diagnostic traces from being populated correctly ([I59868](https://android-review.googlesource.com/#/q/I5986897dad1e146f93a391ac94815e8120c10561))
++- Fixed an issue in the new SlotTable where `RememberObservers` used in `MovableContent` could cause an `OutOfMemoryError/infinite` loop when removed. ([I884e7](https://android-review.googlesource.com/#/q/I884e7b1e0e83818ccb11fc1fa2dc75761c989ec3))
++
+ ### Version 1.11.0-alpha06
+ 
+ February 25, 2026
+@@ -268,6 +285,12 @@ December 03, 2025
+ 
+ ## Version 1.10
+ 
++### Version 1.10.5
++
++March 11, 2026
++
++`androidx.compose.runtime:runtime-*:1.10.5` is released. Version 1.10.5 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6b6d8d062bfb0daa907101a196d1ea43d60ecfe2..e5be55ea7f9dceafc442ec739922936c1e056a33/compose/runtime).
++
+ ### Version 1.10.4
+ 
+ February 25, 2026

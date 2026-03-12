@@ -1,0 +1,13 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/material-listdetail.md b/docs/guide/navigation/navigation-3/recipes/material-listdetail.md
+index 36198ca..e306f6c 100644
+--- a/docs/guide/navigation/navigation-3/recipes/material-listdetail.md
++++ b/docs/guide/navigation/navigation-3/recipes/material-listdetail.md
+@@ -104,7 +104,7 @@ class MaterialListDetailActivity : ComponentActivity() {
+             NavDisplay(
+                 backStack = backStack,
+                 onBack = { backStack.removeLastOrNull() },
+-                sceneStrategy = listDetailStrategy,
++                sceneStrategies = listOf(listDetailStrategy),
+                 entryProvider = entryProvider {
+                     entry<ConversationList>(
+                         metadata = ListDetailSceneStrategy.listPane(

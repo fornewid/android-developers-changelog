@@ -1,0 +1,13 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/dialog.md b/docs/guide/navigation/navigation-3/recipes/dialog.md
+index 252db87..a592316 100644
+--- a/docs/guide/navigation/navigation-3/recipes/dialog.md
++++ b/docs/guide/navigation/navigation-3/recipes/dialog.md
+@@ -82,7 +82,7 @@ class DialogActivity : ComponentActivity() {
+             NavDisplay(
+                 backStack = backStack,
+                 onBack = { backStack.removeLastOrNull() },
+-                sceneStrategy = dialogStrategy,
++                sceneStrategies = listOf(dialogStrategy),
+                 entryProvider = entryProvider {
+                     entry<RouteA> {
+                         ContentGreen("Welcome to Nav3") {

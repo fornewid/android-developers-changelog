@@ -1,5 +1,817 @@
 [
   {
+    "date": "2026-03-12T15:20:47Z",
+    "commit_hash": "627c2fc",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-4-1-0-release-notes\" target=\"_blank\">Android Gradle Plugin 4.1.0 (August 2020)</a>",
+        "path": "build/releases/agp-4-1-0-release-notes.md",
+        "summary": "This release updates the required Gradle version to 6.5 and SDK Build Tools to 29.0.2 or higher. Additionally, it clarifies and corrects the syntax for specifying prefab headers in the build configuration, improving clarity and correctness of the example configurations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_agp-4-1-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/broadcasts\" target=\"_blank\">Broadcasts overview</a>",
+        "path": "develop/background-work/background-tasks/broadcasts.md",
+        "summary": "The documentation for broadcasts.md was updated to reflect the latest version of the androidx.core library. Specifically, the sample code snippets now use core version 1.18.0 instead of 1.17.0. This update is important to ensure developers are using the most recent and stable version of the library, which includes the latest features, bug fixes, and performance improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_broadcasts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/bom/bom-mapping\" target=\"_blank\">BOM to library version mapping</a>",
+        "path": "develop/ui/compose/bom/bom-mapping.md",
+        "summary": "The BOM mapping documentation has been updated to include the latest Compose library versions (1.10.5) and their corresponding release notes for several modules, including animation, foundation, material, and runtime. The document was also updated to include missing modules with their release versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_bom-mapping.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts\" target=\"_blank\">Use Downloadable Fonts</a>",
+        "path": "develop/ui/views/text-and-emoji/downloadable-fonts.md",
+        "summary": "The documentation for Downloadable Fonts was updated to reflect the latest version of the AndroidX Core library. The core-ktx dependency version was updated from 1.17.0 to 1.18.0 in both Groovy and Kotlin examples. This change ensures developers are using the most recent version of the library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_downloadable-fonts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/common-types-util\" target=\"_blank\">GooglePlayGames.BasicApi.CommonTypesUtil</a>",
+        "path": "games/services/unity/v2/api/class/google-play-games/basic-api/common-types-util.md",
+        "summary": "The documentation for `GooglePlayGames.BasicApi.CommonTypesUtil` was updated to include a 'Details' section for the `StatusIsSuccess` function, clarifying the parameters and return value. Additionally, minor formatting changes and URL updates were applied. These changes enhance the clarity of the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_common-types-util.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api\" target=\"_blank\">GooglePlayGames.BasicApi</a>",
+        "path": "games/services/unity/v2/api/namespace/google-play-games/basic-api.md",
+        "summary": "This document describes the `GooglePlayGames.BasicApi` namespace, likely within the context of the Google Play Games Unity SDK. The changes appear to be formatting adjustments and HTML link updates rather than substantive changes to the documented API itself.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_basic-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation\" target=\"_blank\">Navigation</a>",
+        "path": "guide/navigation.md",
+        "summary": "The documentation for Android Navigation has been updated to include a video resource, and the markdown formatting for important and note sections has been updated to use the \"[!IMPORTANT]\" and \"[!NOTE]\" syntax, improving visual clarity. The changes also include minor formatting and style adjustments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/design/kotlin-dsl\" target=\"_blank\">Fragments and the Kotlin DSL</a>",
+        "path": "guide/navigation/design/kotlin-dsl.md",
+        "summary": "This document provides examples and instructions for using the Kotlin DSL in Android navigation. The changes include minor wording adjustments, clarifications, and formatting changes. There is no significant change in functionality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_kotlin-dsl.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/integrations/feature-modules\" target=\"_blank\">Navigate with feature modules</a>",
+        "path": "guide/navigation/integrations/feature-modules.md",
+        "summary": "The documentation has been updated to use the \"NOTE\" and \"CAUTION\" block quotes in markdown. These blockquotes improve readability and highlight important information for developers integrating feature modules into their applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_feature-modules.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/custom-layouts\" target=\"_blank\">Create custom layouts using Scenes</a>",
+        "path": "guide/navigation/navigation-3/custom-layouts.md",
+        "summary": "The linked snippet in the documentation was updated. This change is important because it updates the link to the latest code example, ensuring developers are referencing the most current and relevant code.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_custom-layouts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/get-started\" target=\"_blank\">Get started</a>",
+        "path": "guide/navigation/navigation-3/get-started.md",
+        "summary": "The `get-started.md` file has been updated to reflect a new alpha version of `lifecycleViewmodelNav3`. The version was updated from `2.11.0-alpha01` to `2.11.0-alpha02`. This change ensures that developers are using the latest version of the library, potentially incorporating bug fixes, performance improvements, and new features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/modularize\" target=\"_blank\">Modularize navigation code</a>",
+        "path": "guide/navigation/navigation-3/modularize.md",
+        "summary": "The documentation was updated to recommend that custom scenes be placed within their own module or modules. This change clarifies how to structure code related to custom scenes when modularizing a navigation system, improving code organization and maintainability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_modularize.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/bottomsheet\" target=\"_blank\">Bottom Sheet Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/bottomsheet.md",
+        "summary": "The `sceneStrategy` property in the `NavDisplay` composable has been updated to `sceneStrategies` and now accepts a `List` of strategies instead of a single strategy. This change allows for greater flexibility and the potential for applying multiple scene strategies to manage the display and transitions of navigation destinations in the bottom sheet. This is important to support future features or complex display needs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_bottomsheet.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/dialog\" target=\"_blank\">Dialog Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/dialog.md",
+        "summary": "The `sceneStrategy` property in the `NavDisplay` composable was changed to `sceneStrategies`. This change allows for a list of scene strategies, providing more flexibility in handling navigation and dialog display strategies.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_dialog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/material-listdetail\" target=\"_blank\">Material List-Detail Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/material-listdetail.md",
+        "summary": "The `sceneStrategy` property in the `NavDisplay` composable was changed to `sceneStrategies`. This change allows the inclusion of a list of `SceneStrategy` objects instead of a single instance. This is important because it provides the ability to handle multiple scene strategies, offering greater flexibility and control over the navigation and display behavior, allowing more complex scenarios.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_material-listdetail.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/material-supportingpane\" target=\"_blank\">Material Supporting Pane Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/material-supportingpane.md",
+        "summary": "The `sceneStrategy` property in the `NavDisplay` composable has been changed to `sceneStrategies`. This change allows the component to support a list of scene strategies, enabling more complex navigation scenarios and potentially improving flexibility in how the UI responds to navigation events.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_material-supportingpane.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/results-event\" target=\"_blank\">Returning a Result (Event-Based)</a>",
+        "path": "guide/navigation/navigation-3/recipes/results-event.md",
+        "summary": "The URL for a NavKey definition has been updated in the code example. This change likely reflects an update to the source code repository, potentially fixing a bug or improving the example's clarity. This matters because it ensures the documentation correctly reflects the most up-to-date and functional implementation of the NavKey, critical for users following the tutorial.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_results-event.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/results-state\" target=\"_blank\">Returning a Result (State-Based)</a>",
+        "path": "guide/navigation/navigation-3/recipes/results-state.md",
+        "summary": "The documentation updated the URL in the `PersonDetailsForm` class definition to point to the correct file in the GitHub repository. This ensures the example code links to the intended source, improving accuracy and maintainability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_results-state.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/scenes-listdetail\" target=\"_blank\">List-Detail Scene Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/scenes-listdetail.md",
+        "summary": "The documentation has been updated to incorporate SharedTransitionLayout.  This change enables shared element transitions between scenes, enhancing the visual experience of the list detail navigation example. Additionally, some UI elements like the background color of the ConversationListScreen have been modified for styling.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_scenes-listdetail.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/scenes-twopane\" target=\"_blank\">Two-Pane Scene Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/scenes-twopane.md",
+        "summary": "The example code has been updated to use `SharedTransitionLayout` to manage animations between navigation destinations and `sharedTransitionScope`. This likely improves the visual experience when transitioning between different views in the two-pane layout.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_scenes-twopane.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/testing\" target=\"_blank\">Test navigation</a>",
+        "path": "guide/navigation/testing.md",
+        "summary": "The documentation has been updated to use the `NOTE` admonition syntax instead of the `**Note:**` convention and other minor improvements to the code examples. These changes enhance the readability and formatting of the documentation. There are no functional changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_testing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/use-graph/pass-data\" target=\"_blank\">Pass data between destinations</a>",
+        "path": "guide/navigation/use-graph/pass-data.md",
+        "summary": "The documentation was updated to reflect changes in the formatting of notes and cautions by using the new \"[!NOTE]\" and \"[!CAUTION]\" callout blocks. Minor grammatical corrections and clarifications were also included throughout the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_pass-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/use-graph/safe-args\" target=\"_blank\">Safe Args</a>",
+        "path": "guide/navigation/use-graph/safe-args.md",
+        "summary": "The documentation for Safe Args has been updated with minor changes including the use of markdown callouts for Notes and Warnings and minor wording adjustments throughout the document. The content remains the same, providing instructions on how to use the Safe Args Gradle plugin for type-safe navigation and passing data between destinations in Android applications, and the code examples are the same.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_safe-args.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack\" target=\"_blank\">Android Jetpack Dev Resources - Android Developers</a>",
+        "path": "jetpack.md",
+        "summary": "The Jetpack documentation has been updated to include a new entry for 'room3'. This addition likely represents a new version or variant of the Room library, offering the same functionality of creating, storing, and managing persistent data with SQLite but potentially with added features or improvements. This matters because it may introduce performance enhancements, bug fixes, or new features for developers using Room for database management in their Android applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_jetpack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/explorer\" target=\"_blank\">Explore the Jetpack libraries by type</a>",
+        "path": "jetpack/androidx/explorer.md",
+        "summary": "The documentation has been updated to include 'room3' in the list of available AndroidX libraries. This addition provides developers with access to tools for creating, storing, and managing persistent data backed by a SQLite database.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_explorer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/activity\" target=\"_blank\">Activity</a>",
+        "path": "jetpack/androidx/releases/activity.md",
+        "summary": "This document details the release of Activity library version 1.13.0, including updates to dependencies and new features. The changes include the implementation of the OnPictureInPictureUiStateChangedProvider interface in ComponentActivity for better Picture-in-Picture integration and re-invocation of EdgeToEdge on configuration changes to update the system status bar color.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_activity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/annotation\" target=\"_blank\">Annotation</a>",
+        "path": "jetpack/androidx/releases/annotation.md",
+        "summary": "The documentation has been updated to reflect the release of androidx.annotation:annotation 1.10.0-alpha01, including new features such as dropping support for x86 based Mac and iOS KMP targets, adding the RequiresFlag annotation, and API changes related to RequiresApi, RequiresExtension, Kotlin 2.0 compatibility, and @Discouraged retention policy. Also, the date of last update has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_annotation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/appfunctions\" target=\"_blank\">appfunctions</a>",
+        "path": "jetpack/androidx/releases/appfunctions.md",
+        "summary": "This document introduces the App Functions library, allowing apps to share functionality and data with AI assistants. It has been updated to reflect the latest alpha release, version 1.0.0-alpha08, and includes details of new features, API changes, and bug fixes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_appfunctions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/benchmark\" target=\"_blank\">Benchmark</a>",
+        "path": "jetpack/androidx/releases/benchmark.md",
+        "summary": "This update introduces version 1.5.0-alpha04 of the AndroidX Benchmark library, released on March 11, 2026. Key changes include API additions, specifically the inclusion of `JvmOverloads` in `PowerMetric.Energy` and `PowerMetric.Power`, and a bug fix in `ArtMetric` to enhance classload detection, especially for projects using recent versions of AGP/R8.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_benchmark.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/browser\" target=\"_blank\">Browser</a>",
+        "path": "jetpack/androidx/releases/browser.md",
+        "summary": "The documentation for the AndroidX Browser library has been updated to reflect the release of version 1.10.0-rc01, including the release date and a link to the relevant commits. This update indicates progress towards a stable release of version 1.10.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_browser.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery\" target=\"_blank\">Camera Feature Combination Query</a>",
+        "path": "jetpack/androidx/releases/camera-featurecombinationquery.md",
+        "summary": "The documentation for camera-featurecombinationquery has been updated to reflect the release of version 1.7.0-alpha01. This includes updating the release date, dependency versions in both Groovy and Kotlin, and adding a new section detailing the changes in the alpha release. This update is important for developers to stay informed about the latest features and improvements available in the CameraX Feature Combination Query library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_camera-featurecombinationquery.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/camera-viewfinder\" target=\"_blank\">camera viewfinder</a>",
+        "path": "jetpack/androidx/releases/camera-viewfinder.md",
+        "summary": "This document details updates to the Camera Viewfinder library, including the introduction of Alpha releases for version 1.7 and dependency updates in both Groovy and Kotlin to reflect these new releases.  Additionally, the date of the last update has been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_camera-viewfinder.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/camera\" target=\"_blank\">CameraX</a>",
+        "path": "jetpack/androidx/releases/camera.md",
+        "summary": "This document introduces the CameraX library version 1.7.0-alpha01, including API changes and bug fixes. Key additions include the `CameraController.setSessionConfig()` API for advanced configurations, fixes for image rotation issues in `ImageAnalysis`, and a transition to Java 11 bytecode.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_camera.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/collection\" target=\"_blank\">Collection</a>",
+        "path": "jetpack/androidx/releases/collection.md",
+        "summary": "The androidx.collection library documentation has been updated to reflect the release of version 1.6.0. This release includes new features such as no-argument trim functions for MutableFloatList, MutableDoubleList, and MutableIntList, extension functions for creating ScatterMaps and ScatterSets, performance enhancements for ScatterMap and ScatterSet, and an updated minSdk version to 23. These updates provide developers with improved tools for managing collections and optimizing performance in their Android applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_collection.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-animation\" target=\"_blank\">Compose Animation</a>",
+        "path": "jetpack/androidx/releases/compose-animation.md",
+        "summary": "The compose-animation documentation has been updated to reflect the latest releases. Specifically, version 1.10.5 of the stable release and version 1.11.0-beta01 have been added, including their corresponding commit logs and bug fixes. This update ensures developers have access to the most recent stable and beta versions of the compose-animation library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_compose-animation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-foundation\" target=\"_blank\">Compose Foundation</a>",
+        "path": "jetpack/androidx/releases/compose-foundation.md",
+        "summary": "This document details the release of Compose Foundation versions 1.10.5 and 1.11.0-beta01. Version 1.10.5 includes a bug fix for `BasicTextField`, while version 1.11.0-beta01 introduces API changes, bug fixes, and external contributions, including optimizations, new features for trackpad testing, and improvements to text input and tooltip functionality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_compose-foundation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-material\" target=\"_blank\">Compose Material</a>",
+        "path": "jetpack/androidx/releases/compose-material.md",
+        "summary": "This document details updates to the Compose Material library.  It announces the release of version 1.10.5 and the beta release of version 1.11.0-beta01, including links to the associated commit logs.  It also updates the code snippets to reflect the latest stable versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_compose-material.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-remote\" target=\"_blank\">remote compose</a>",
+        "path": "jetpack/androidx/releases/compose-remote.md",
+        "summary": "This document details the release of Compose Remote version 1.0.0-alpha06. This version includes new features, API changes, and bug fixes related to remote UI creation and rendering, including the addition of new experimental operations for TextStyle, exposure of Remote APIs and bug fixes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_compose-remote.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-runtime\" target=\"_blank\">Compose Runtime</a>",
+        "path": "jetpack/androidx/releases/compose-runtime.md",
+        "summary": "This document details the updates to the compose-runtime library, including the release of version 1.10.5 and 1.11.0-beta01. These releases include dependency updates and bug fixes, along with API changes in the beta version related to experimental features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_compose-runtime.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-ui\" target=\"_blank\">Compose UI</a>",
+        "path": "jetpack/androidx/releases/compose-ui.md",
+        "summary": "This document outlines changes in the Jetpack Compose UI library. Key updates include the release of version 1.10.5, containing bug fixes and minor updates, and the introduction of version 1.11.0-beta01 with new features like custom window token support, preview enhancements, and experimental APIs for adaptive UI development. Several API changes and bug fixes are also documented in the 1.11.0-beta01 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_compose-ui.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose\" target=\"_blank\">Compose</a>",
+        "path": "jetpack/androidx/releases/compose.md",
+        "summary": "The Compose libraries' stable, beta, and alpha versions have been updated. Several libraries, including compose.animation, compose.foundation, compose.material, compose.runtime, and compose.ui, have new stable and beta releases. This provides developers with access to the latest features, bug fixes, and improvements in the Compose UI toolkit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/core-uwb\" target=\"_blank\">Core Ultra Wideband (UWB)</a>",
+        "path": "jetpack/androidx/releases/core-uwb.md",
+        "summary": "This document describes the changes made to the core-uwb library, including the introduction of a beta release and new API updates. Version 1.0.0-beta01 is released, along with alpha11. These releases include new APIs for handling ranging failures, UWB state change events, and other feature additions and bug fixes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_core-uwb.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/core\" target=\"_blank\">Core</a>",
+        "path": "jetpack/androidx/releases/core.md",
+        "summary": "This document has been updated to reflect the latest stable and release candidate versions of androidx.core libraries. Specifically, the document now indicates Core version 1.18.0 is stable, and Core-location-altitude 1.0.0-rc01 and Core 1.18.0 have been released, along with several other minor updates like changing the compileSdk. The documentation has also been updated to reflect the latest release dates and links to the relevant commits.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_core.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/credentials-providerevents\" target=\"_blank\">credentials providerevents</a>",
+        "path": "jetpack/androidx/releases/credentials-providerevents.md",
+        "summary": "This document details the changes in the credentials-providerevents library. The update includes a new alpha release (1.0.0-alpha06) with API changes, such as the addition of a factory method for RegisterExportRequest and the removal of unused helper methods for ImportCredentialsException.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_credentials-providerevents.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/credentials\" target=\"_blank\">credentials</a>",
+        "path": "jetpack/androidx/releases/credentials.md",
+        "summary": "The documentation for the AndroidX Credentials library was updated to reflect the latest release information. Specifically, the 'Latest Update' date was updated, and the release of 'credentials-e2ee' version 1.0.0-alpha03 was added, including a deprecation notice for `credentials:credentials-e2ee`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_credentials.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/datastore\" target=\"_blank\">DataStore</a>",
+        "path": "jetpack/androidx/releases/datastore.md",
+        "summary": "This document was updated to reflect the latest DataStore releases. It includes details about the release of DataStore 1.2.1, 1.3.0-alpha07 and related dependency updates, including new features such as encryption support via Tink and a new `DataStore.Builder` API.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_datastore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/games\" target=\"_blank\">Android Games</a>",
+        "path": "jetpack/androidx/releases/games.md",
+        "summary": "This update reflects the release of new versions for `games-activity` and `games-text-input`, specifically versions 4.4.0 and 4.3.0, respectively. It also includes an update to the last updated date and the addition of links to the commit logs for the latest releases. These changes provide the latest stable versions and important context regarding the library's development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_games.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/glance-wear\" target=\"_blank\">Glance Wear</a>",
+        "path": "jetpack/androidx/releases/glance-wear.md",
+        "summary": "This document outlines the changes in the Glance Wear library.  The update includes the release of version 1.0.0-alpha05, which introduces a new API for Wear Widget background colors and removes the `fetchActiveWidgetsForProvider` method.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_glance-wear.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/graphics\" target=\"_blank\">graphics</a>",
+        "path": "jetpack/androidx/releases/graphics.md",
+        "summary": "The documentation has been updated to reflect the release of graphics-path 1.1.0-rc01 and also includes the latest update date. Additionally, there are updates to the dependency declarations using Groovy and Kotlin.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_graphics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/ink\" target=\"_blank\">ink</a>",
+        "path": "jetpack/androidx/releases/ink.md",
+        "summary": "This update introduces version 1.1.0-alpha01 of the Ink library, including new features, API changes, and bug fixes. It also includes the release of version 1.0.0, with bug fixes, and details releases from 1.0.0-rc01 to 1.0.0-alpha05. The changes involve improvements to API, and bug fixes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_ink.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/javascriptengine\" target=\"_blank\">JavascriptEngine</a>",
+        "path": "jetpack/androidx/releases/javascriptengine.md",
+        "summary": "This document introduces version 1.1.0-alpha01 of the JavascriptEngine library, released on March 11, 2026. This alpha release includes bug fixes related to Java 11 compatibility and the use of JSpecify nullness annotations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_javascriptengine.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/lifecycle\" target=\"_blank\">Lifecycle</a>",
+        "path": "jetpack/androidx/releases/lifecycle.md",
+        "summary": "This document details the changes in the AndroidX Lifecycle library, specifically focusing on version 2.11.0-alpha02. Key changes include the release of new APIs for scoped `ViewModel` instances in Compose, enabling ViewModels to be tied to specific UI scopes.  This version also introduces new features like support for all KMP targets in ViewModel Navigation3, factory functions for lifecycle owners, and lambda-based lifecycle observer extensions, along with various API additions to support scoped ViewModels and providers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_lifecycle.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/navigation\" target=\"_blank\">Navigation</a>",
+        "path": "jetpack/androidx/releases/navigation.md",
+        "summary": "The documentation for AndroidX Navigation has been updated to include version 2.10.0-alpha01, released on March 11, 2026. This release introduces new features for predictive back gesture transitions and cross-platform support, along with a minimum SDK update. Additionally, several \"Note\" and \"Caution\" sections have been updated to use the \"Note\" and \"Caution\" blockquotes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/navigation3\" target=\"_blank\">navigation3</a>",
+        "path": "jetpack/androidx/releases/navigation3.md",
+        "summary": "The documentation for Navigation 3 has been updated to reflect the release of version 1.1.0-beta01. This update includes the new release date and updated dependency declarations for both Groovy and Kotlin, shifting the dependencies from alpha to beta.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_navigation3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/paging\" target=\"_blank\">Paging</a>",
+        "path": "jetpack/androidx/releases/paging.md",
+        "summary": "This document introduces version 3.5.0-alpha01 of the Paging library, which includes new features for more flexible data handling and UI integration.  Key additions are a new `asState` flow operator and `append`/`prepend` APIs for `Pager`, providing developers with more control over data loading and state management, as well as new APIs for error handling. These changes enable features such as combining paged data with other data sources, sharing data across multiple collectors without caching, and loading data at the beginning or end of the list.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_paging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/pdf\" target=\"_blank\">pdf</a>",
+        "path": "jetpack/androidx/releases/pdf.md",
+        "summary": "This update includes the release of androidx.pdf:pdf-viewer-fragment:1.0.0-alpha15. The changes include API changes, such as adding Android SDK Extension Version 19 as a requirement and deprecating `isLinearized`. Bug fixes address issues with the fast scroller and widget interactions, and the libraries now target Java 11.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_pdf.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/room3\" target=\"_blank\">Room 3.0</a>",
+        "path": "jetpack/androidx/releases/room3.md",
+        "summary": "This document introduces Room 3.0, a new major version of the Room persistence library, focusing on Kotlin Multiplatform (KMP) and introducing changes such as a new package, Coroutine APIs, and support for JavaScript and WasmJS.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/savedstate\" target=\"_blank\">Savedstate</a>",
+        "path": "jetpack/androidx/releases/savedstate.md",
+        "summary": "This update introduces SavedState library version 1.5.0-alpha01, including new features like generic serialization for SavedState objects and extension functions for Kotlin Serializable objects, plus factory functions to reduce boilerplate. It also includes the version information for the latest release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_savedstate.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/security\" target=\"_blank\">Security</a>",
+        "path": "jetpack/androidx/releases/security.md",
+        "summary": "The documentation was updated to reflect the release of `androidx.security:security-state:1.1.0-alpha02`. This update includes bug fixes related to System Published SPL and System Modules SPL, ensuring the use of the 'global max' Android Security Bulletin date to support the 'Risk Based Update System' (RBUS).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_security.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/sqlite\" target=\"_blank\">Sqlite</a>",
+        "path": "jetpack/androidx/releases/sqlite.md",
+        "summary": "This update introduces version 2.7.0-alpha01, including asynchronous APIs for web targets, a new `sqlite-web` artifact for web worker integration, and various bug fixes and improvements in the 2.6.x series, such as enhanced error codes and performance optimizations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_sqlite.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/test-uiautomator\" target=\"_blank\">Test Uiautomator</a>",
+        "path": "jetpack/androidx/releases/test-uiautomator.md",
+        "summary": "The documentation was updated to reflect the release of UI Automator 2.4.0-beta02. This release includes bug fixes, specifically addressing an issue with `UiObject2#scrollToElementOrNull`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_test-uiautomator.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/tracing\" target=\"_blank\">Tracing</a>",
+        "path": "jetpack/androidx/releases/tracing.md",
+        "summary": "The tracing.md documentation was updated to reflect the release of tracing-2.0.0-alpha03. This release includes API changes, bug fixes, and details on the included commits.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_tracing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/tv\" target=\"_blank\">tv</a>",
+        "path": "jetpack/androidx/releases/tv.md",
+        "summary": "This document details the release of androidx.tv libraries. It includes updates to the release dates and dependency versions for tv-foundation and tv-material.  Significant changes include the introduction of beta versions for tv-foundation and tv-material, and updates to the dependencies to support Kotlin 2.0. Additionally, API changes are documented, including the deprecation of `androidx.compose.ui.graphics.NativePaint` and its replacement with `android.graphics.Paint`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_tv.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/wear-compose\" target=\"_blank\">Wear Compose</a>",
+        "path": "jetpack/androidx/releases/wear-compose.md",
+        "summary": "The documentation has been updated to reflect the release of Wear Compose 1.6.0-rc01. This release candidate includes no significant changes compared to the prior beta release, but marks a step towards the final 1.6.0 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_wear-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/wear-protolayout\" target=\"_blank\">wear protolayout</a>",
+        "path": "jetpack/androidx/releases/wear-protolayout.md",
+        "summary": "This update introduces version 1.4.0-rc02 of the wear-protolayout library, released on March 11, 2026. The key change is that applications targeting API 36 and later, which use ProtoLayout Expressions to access heart rate data (e.g., `heartRateBpm`, `heartRateAccuracy`), now require the `android.health.connect.HealthPermissions.READ_HEART_RATE` permission. This change ensures user privacy and data security by requiring explicit permission to access sensitive health information.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_wear-protolayout.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/wear-tiles\" target=\"_blank\">Wear Tiles</a>",
+        "path": "jetpack/androidx/releases/wear-tiles.md",
+        "summary": "The Wear Tiles documentation was updated to reflect the latest release candidate. Version 1.6.0-rc02 was released, including the release date and a link to the commits. This update ensures developers have access to the most current information regarding the Wear Tiles library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_wear-tiles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/wear-watchfacepush\" target=\"_blank\">Wear Watch Face Push</a>",
+        "path": "jetpack/androidx/releases/wear-watchfacepush.md",
+        "summary": "The documentation for the Wear Watch Face Push library has been updated to reflect the release candidate version 1.0.0-rc01. This includes updating the release date, dependency declarations, and version information, indicating progress towards a stable release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_wear-watchfacepush.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/webkit\" target=\"_blank\">Webkit</a>",
+        "path": "jetpack/androidx/releases/webkit.md",
+        "summary": "This document details the changes in the `webkit.md` file, which includes updates for the AndroidX Webkit library. The changes introduce new features, API changes, and external contributions in version 1.16.0-alpha03, released on March 11, 2026. This release includes enhancements to web performance metrics, error information, BackForwardCache settings, and the addition of debug information for prefetch requests. It also includes API changes such as increasing the minimum supported SDK, removing experimental features, and migrating OutcomeReceiverCompat.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_webkit.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/window\" target=\"_blank\">WindowManager</a>",
+        "path": "jetpack/androidx/releases/window.md",
+        "summary": "The documentation for the WindowManager library was updated to reflect the latest releases and changes, including new features, API changes, and bug fixes in versions 1.6.0-alpha01, 1.5.1, 1.5.0, and earlier release candidates and betas.  Key changes include the addition of helper methods for constructing `WindowSizeClassSets` in a grid form, the addition of Large and XLarge `WindowSizeClass` breakpoints, expanding the calculation of `WindowMetrics` to the Application Context, providing a getter for direct access to `WindowLayoutInfo`, and introducing APIs for auto-saving and restoring embedding state.  Various bug fixes are also included.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_window.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/xr-glimmer\" target=\"_blank\">Jetpack Compose Glimmer</a>",
+        "path": "jetpack/androidx/releases/xr-glimmer.md",
+        "summary": "This document details the changes in the xr-glimmer library. The update includes the release of version 1.0.0-alpha08, incorporating API changes such as replacing `TitleChipDefaults.contentPadding` with a `ContentPadding` constant, adding `ScrollIndicatorState` to `ListState`, and introducing a new `TextStyle` called `caption` with updates to existing text styles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_xr-glimmer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">AndroidX releases</a>",
+        "path": "jetpack/androidx/versions.md",
+        "summary": "This update reflects the latest versions of various AndroidX libraries. Notable changes include new stable releases for `activity`, `collection`, `compose`, `compose.animation`, `compose.foundation`, `compose.material`, `core`, and `credentials`, along with alpha and beta releases for several other libraries. These updates provide bug fixes, performance improvements, and new features for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">Recent Release Notes</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "This document has been updated to reflect the latest releases of AndroidX libraries.  It includes a large number of library updates across various categories, including Compose, Camera, Core, Datastore, Navigation, and Wear, among others. These updates provide developers with the most recent versions and features for their Android projects.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/alpha-channel\" target=\"_blank\">Alpha Releases</a>",
+        "path": "jetpack/androidx/versions/alpha-channel.md",
+        "summary": "This document has been updated to include the latest alpha releases for various AndroidX libraries. The updates, dated March 11, 2026, and February 25, 2026, provide information on new versions of libraries like Annotation, Camera, Compose Remote, and many others. This update informs developers about the newest available versions for early access and testing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_alpha-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/beta-channel\" target=\"_blank\">Beta Releases</a>",
+        "path": "jetpack/androidx/versions/beta-channel.md",
+        "summary": "This document has been updated to include the beta releases of several Jetpack Compose and other AndroidX libraries, released on March 11, 2026. This provides developers with early access to new features and improvements in these libraries, allowing them to test and integrate them into their projects before the stable releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_beta-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/rc-channel\" target=\"_blank\">RC Releases</a>",
+        "path": "jetpack/androidx/versions/rc-channel.md",
+        "summary": "This document was updated on March 11, 2026, to include the release candidate versions for Browser, Core-location-altitude, Graphics-path, Wear Compose, Wear Protolayout, Wear Tiles, and Wear Watchfacepush. This update provides developers with the latest pre-release versions of these AndroidX components for testing and integration purposes before the final release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_rc-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/stable-channel\" target=\"_blank\">Stable Releases</a>",
+        "path": "jetpack/androidx/versions/stable-channel.md",
+        "summary": "This document outlines the stable channel releases for AndroidX libraries. The updates include new versions for several libraries such as Activity, Collection, Compose, Core, and Datastore. These updates incorporate bug fixes and new features, enhancing the functionality and stability of the Android development ecosystem.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_stable-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/ktx\" target=\"_blank\">Android KTX</a>",
+        "path": "kotlin/ktx.md",
+        "summary": "The documentation has been updated to reflect the latest versions of the androidx.core:core-ktx and androidx.collection:collection-ktx libraries.  The core-ktx library was updated from 1.17.0 to 1.18.0, and the collection-ktx library was updated from 1.5.0 to 1.6.0. This is important to ensure developers are using the most recent features and bug fixes provided by these libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_ktx.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/ktx/extensions-list\" target=\"_blank\">List of KTX extensions</a>",
+        "path": "kotlin/ktx/extensions-list.md",
+        "summary": "This document lists the dependencies for various KTX extensions. The update reflects version upgrades for several `androidx` libraries, including activity, collection, and core KTX, and others. Updating these dependencies ensures access to the latest features, bug fixes, and performance improvements in the Android Jetpack libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_extensions-list.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform\" target=\"_blank\">Kotlin Multiplatform</a>",
+        "path": "kotlin/multiplatform.md",
+        "summary": "The table listing Jetpack libraries compatible with Kotlin Multiplatform has been updated. Release dates and version numbers for multiple libraries, including annotation, collection, compose, datastore, lifecycle, viewModel, viewModel-compose, navigation, navigation3, paging, and savedstate, have been updated to reflect the latest releases and alpha/beta versions, with most releases occurring on March 11, 2026. This provides up-to-date information on the KMP compatibility status of Jetpack libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_multiplatform.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform/datastore\" target=\"_blank\">Set up DataStore for KMP</a>",
+        "path": "kotlin/multiplatform/datastore.md",
+        "summary": "The DataStore and Preferences DataStore library versions have been updated to 1.2.1. This change incorporates the latest bug fixes and improvements from the library maintainers, ensuring users benefit from the most recent advancements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_datastore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "The documentation has been updated to reflect the latest releases of Compose and Camera libraries.  Compose libraries have updated stable and beta versions, while the Camera library includes new alpha releases, along with an update to the last updated date. These updates provide developers with the most recent versions and features of these libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/architecture\" target=\"_blank\">CameraX architecture</a>",
+        "path": "media/camera/camerax/architecture.md",
+        "summary": "The CameraX library version has been updated from 1.6.0-rc01 to 1.7.0-alpha01 in the build.gradle file examples for both Groovy and Kotlin. This update ensures that developers are using the latest version of the CameraX library, which includes the newest features and bug fixes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_architecture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/hello-world\" target=\"_blank\">Getting started</a>",
+        "path": "media/media3/exoplayer/hello-world.md",
+        "summary": "The documentation has been updated with a new link to the HelloWorld.kt file in the androidx media repository. This update is important for providing users with the correct and up-to-date source code reference for binding the player to the view.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_hello-world.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/playlists\" target=\"_blank\">Playlists</a>",
+        "path": "media/media3/exoplayer/playlists.md",
+        "summary": "The documentation for playlists.md was updated. The changes include a modification to the link referencing the sample code and does not alter any functionality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_playlists.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play\" target=\"_blank\">Manage and play content</a>",
+        "path": "media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md",
+        "summary": "The documentation example's link to the source code has been updated to point to the latest commit. This ensures that the code example is consistent with the latest version of the code.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_manage-play.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/automate-dependency-updates\" target=\"_blank\">Automate dependency updates  |  Android Studio  |  Android Developers</a>",
+        "path": "studio/gemini/automate-dependency-updates.md",
+        "summary": "This new documentation page introduces how to automate dependency updates in Android Studio using Gemini. It describes how Gemini simplifies the dependency update process, identifies dependencies, resolves build errors, validates the project, and generates update reports.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/features\" target=\"_blank\">Gemini in Android Studio features</a>",
+        "path": "studio/gemini/features.md",
+        "summary": "The documentation updates remove the 'In preview' note from several features, including local and remote third-party models, and updating dependencies. They also mention enabling 'Journeys' through Studio Labs. The changes reflect the progression of features from preview to general availability and changes to how some features are accessed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/labs\" target=\"_blank\">AI features in Studio Labs</a>",
+        "path": "studio/gemini/labs.md",
+        "summary": "The documentation has removed the sections on 'Compose preview generation with Gemini' and 'Transform UI with Gemini'. This indicates that these features, which allowed users to generate and modify Compose UI code using Gemini, are no longer highlighted in the documentation. The removal suggests either the features are deprecated, moved, or their documentation has been consolidated elsewhere.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_labs.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/transform-ui\" target=\"_blank\">Transform UI</a>",
+        "path": "studio/gemini/transform-ui.md",
+        "summary": "The documentation removes a preview warning about enabling the Gemini feature through Studio Labs. The functionality appears to be out of the preview stage.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_transform-ui.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/intro/migrate\" target=\"_blank\">Migrate to Android Studio</a>",
+        "path": "studio/intro/migrate.md",
+        "summary": "The documentation was updated to reflect the latest version of the androidx.core:core-ktx library. The version was updated from 1.17.0 to 1.18.0. This update is important for ensuring that developers are using the most recent features, bug fixes, and performance improvements available in the AndroidX library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_migrate.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated to reflect the new nightly build date of March 12, 2026, for Android Studio Panda 3, including changes to download links for Windows, macOS (Apple and Intel chips), and Linux. This ensures users have access to the latest available nightly build.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/features\" target=\"_blank\">Release notes for Android Studio preview</a>",
+        "path": "studio/preview/features.md",
+        "summary": "The 'Compose preview generation' and 'Transform UI' features have been removed from the list of available features in Studio Labs, indicating these features are no longer available in the current preview version. This may reflect changes in feature availability, a shift in development focus, or the features' integration into a different workflow.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases\" target=\"_blank\">Android Studio Panda 2</a>",
+        "path": "studio/releases.md",
+        "summary": "The documentation has been updated to reflect the removal of two features from Android Studio Labs: Compose preview generation and Transform UI. These features were previously available in Studio Labs but are no longer listed, indicating their removal from the active set of features. This change matters because it indicates the evolution of Android Studio Labs, with features being added or removed as development progresses.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_releases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/datastore\" target=\"_blank\">DataStore</a>",
+        "path": "topic/libraries/architecture/datastore.md",
+        "summary": "The documentation was updated to reflect the latest versions of DataStore dependencies. The version numbers for all DataStore related dependencies were incremented from 1.2.0 to 1.2.1.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_datastore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/paging/v3-overview\" target=\"_blank\">Paging library overview</a>",
+        "path": "topic/libraries/architecture/paging/v3-overview.md",
+        "summary": "The Paging Compose dependency has been updated from version 3.4.1 to 3.5.0-alpha01. This update provides the latest features, bug fixes, and improvements for Jetpack Compose integration within the Paging library, ensuring developers have access to the most recent advancements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_v3-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture\" target=\"_blank\">App-driven profiling</a>",
+        "path": "topic/performance/tracing/profiling-manager/how-to-capture.md",
+        "summary": "The documentation was updated to reflect a dependency update. Specifically, the `androidx.core:core` dependency was updated from version 1.17.0 to 1.18.0. This update ensures compatibility with the latest features and bug fixes in the core library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_how-to-capture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/communication/notification-messaging\" target=\"_blank\">Extend messaging notifications to Android Auto</a>",
+        "path": "training/cars/communication/notification-messaging.md",
+        "summary": "The document was updated to reflect the latest versions of the androidx.core libraries. Specifically, the dependencies were updated from version 1.17.0 to 1.18.0. This update ensures that developers are using the most recent version of the library, which may include bug fixes, performance improvements, and new features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_notification-messaging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose\" target=\"_blank\">Use Jetpack Compose on Wear OS</a>",
+        "path": "training/wearables/compose.md",
+        "summary": "The document updates the Compose dependencies for Wear OS. Specifically, it upgrades `androidx.activity:activity-compose` to version 1.13.0 and `androidx.compose.ui:ui-tooling-preview` to version 1.10.5. This ensures the project uses the latest stable versions of the Compose libraries for Wear OS, incorporating bug fixes, performance improvements, and potentially new features related to UI development and previews.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/migrate-to-material3\" target=\"_blank\">Migrate from Material 2.5 to Material 3 in Compose for Wear OS</a>",
+        "path": "training/wearables/compose/migrate-to-material3.md",
+        "summary": "The documentation was updated to reflect the latest release candidates (RC) for the Wear Compose Material 3, Foundation, and Navigation libraries. The new versions are 1.6.0-rc01, replacing the previous beta versions. This update ensures that developers are using the most current and stable versions of these libraries, incorporating the latest features, bug fixes, and performance improvements available before the official release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_migrate-to-material3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/notifications/ongoing-activity\" target=\"_blank\">Display ongoing activities</a>",
+        "path": "training/wearables/notifications/ongoing-activity.md",
+        "summary": "The documentation has been updated to reflect a dependency update. The `androidx.core:core` dependency has been updated from version 1.17.0 to 1.18.0. This update likely includes bug fixes, performance improvements, or new features within the androidx.core library, which are important for maintaining app stability and utilizing the latest Android features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_ongoing-activity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/tiles/debug\" target=\"_blank\">Run and debug a tile</a>",
+        "path": "training/wearables/tiles/debug.md",
+        "summary": "The documentation was updated to reflect the latest versions of the Tiles tooling dependencies in the `build.gradle.kts` file. Specifically, `tiles-tooling-preview` and `tiles-tooling` dependencies were updated from version 1.6.0-rc01 to 1.6.0-rc02. This change ensures developers are using the most recent tools for previewing and debugging tiles, which might include bug fixes, performance improvements, or new features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/627c2fc_debug.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-11T15:20:13Z",
     "commit_hash": "aa8b81f",
     "entries": [

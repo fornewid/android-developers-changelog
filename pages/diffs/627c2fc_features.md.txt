@@ -1,0 +1,13 @@
+diff --git a/docs/studio/preview/features.md b/docs/studio/preview/features.md
+index 37e56ba..188d966 100644
+--- a/docs/studio/preview/features.md
++++ b/docs/studio/preview/features.md
+@@ -67,8 +67,6 @@ The following are features currently available in Studio Labs.
+ 
+ | Feature | Description | Docs |
+ |---|---|---|
+-| Compose preview generation | Gemini can automatically generate Compose previews, including mock data for preview parameters, for a specific composable or all composables in a file. | [Generate Compose previews](https://developer.android.com/studio/gemini/generate-compose-previews) |
+-| Transform UI | Use natural language to update your app UI directly from the Compose preview panel. | [Transform UI](https://developer.android.com/studio/gemini/transform-ui) |
+ | Journeys for Android Studio | Use natural language to describe steps and assertions for end-to-end tests. | [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) |
+ 
+ ## Android Studio Panda 3

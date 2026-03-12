@@ -1,0 +1,30 @@
+diff --git a/docs/training/cars/communication/notification-messaging.md b/docs/training/cars/communication/notification-messaging.md
+index 743d91c..b2fd549 100644
+--- a/docs/training/cars/communication/notification-messaging.md
++++ b/docs/training/cars/communication/notification-messaging.md
+@@ -181,10 +181,10 @@ allprojects {
+ ```groovy
+ dependencies {
+     // If your app is written in Java
+-    implementation 'androidx.core:core:1.17.0'
++    implementation 'androidx.core:core:1.18.0'
+ 
+     // If your app is written in Kotlin
+-    implementation 'androidx.core:core-ktx:1.17.0'
++    implementation 'androidx.core:core-ktx:1.18.0'
+ }
+ ```
+ 
+@@ -193,10 +193,10 @@ dependencies {
+ ```kotlin
+ dependencies {
+     // If your app is written in Java
+-    implementation("androidx.core:core:1.17.0")
++    implementation("androidx.core:core:1.18.0")
+ 
+     // If your app is written in Kotlin
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 

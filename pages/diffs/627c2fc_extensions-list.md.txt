@@ -1,0 +1,310 @@
+diff --git a/docs/kotlin/ktx/extensions-list.md b/docs/kotlin/ktx/extensions-list.md
+index 2018cd9..1f16896 100644
+--- a/docs/kotlin/ktx/extensions-list.md
++++ b/docs/kotlin/ktx/extensions-list.md
+@@ -12,7 +12,7 @@ source: md.txt
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.activity:activity-ktx:1.12.4"
++    implementation "androidx.activity:activity-ktx:1.13.0"
+ }
+ ```
+ 
+@@ -20,7 +20,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.activity:activity-ktx:1.12.4")
++    implementation("androidx.activity:activity-ktx:1.13.0")
+ }
+ ```
+ 
+@@ -97,7 +97,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.collection:collection-ktx:1.5.0"
++    implementation "androidx.collection:collection-ktx:1.6.0"
+ }
+ ```
+ 
+@@ -105,7 +105,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.collection:collection-ktx:1.5.0")
++    implementation("androidx.collection:collection-ktx:1.6.0")
+ }
+ ```
+ 
+@@ -168,7 +168,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -176,7 +176,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -202,7 +202,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -210,7 +210,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -241,7 +241,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -249,7 +249,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -283,7 +283,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -291,7 +291,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -316,7 +316,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -324,7 +324,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -343,7 +343,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -351,7 +351,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -592,7 +592,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -600,7 +600,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -647,7 +647,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -655,7 +655,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -675,7 +675,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -683,7 +683,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -712,7 +712,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -720,7 +720,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -747,7 +747,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -755,7 +755,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -823,7 +823,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -831,7 +831,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -855,7 +855,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -863,7 +863,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -1066,7 +1066,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -1074,7 +1074,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
+@@ -1164,7 +1164,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.core:core-ktx:1.17.0"
++    implementation "androidx.core:core-ktx:1.18.0"
+ }
+ ```
+ 
+@@ -1172,7 +1172,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.core:core-ktx:1.17.0")
++    implementation("androidx.core:core-ktx:1.18.0")
+ }
+ ```
+ 
