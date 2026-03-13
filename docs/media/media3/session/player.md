@@ -96,10 +96,10 @@ Note that the listener interface doesn't include any callbacks to track normal
 playback progression. To continuously monitor playback progress, such as to set
 up a progress bar UI, you should query the current position at proper intervals.
 
+
 ### Kotlin
 
 ```kotlin
-val handler = Handler(Looper.getMainLooper())
 fun checkPlaybackPosition(delayMs: Long): Boolean =
   handler.postDelayed(
     {
@@ -107,19 +107,21 @@ fun checkPlaybackPosition(delayMs: Long): Boolean =
       // Update UI based on currentPosition
       checkPlaybackPosition(delayMs)
     },
-    delayMs)
+    delayMs,
+  )
 ```
 
 ### Java
 
 ```java
-Handler handler = new Handler(Looper.getMainLooper());
 boolean checkPlaybackPosition(long delayMs) {
-    return handler.postDelayed(() -> {
+  return handler.postDelayed(
+      () -> {
         long currentPosition = player.getCurrentPosition();
         // Update UI based on currentPosition
         checkPlaybackPosition(delayMs);
-    }, delayMs);
+      },
+      delayMs);
 }
 ```
 
@@ -153,13 +155,14 @@ current player state when called, including:
 - The set of available commands
 - Playback properties, such as whether the player should start playing when the playback state is `STATE_READY`, the index of the currently playing media item, and the playback position within the current item
 
+
 ### Kotlin
 
 ```kotlin
-class CustomPlayer : SimpleBasePlayer(looper) {
+class CustomPlayer(looper: Looper) : SimpleBasePlayer(looper) {
   override fun getState(): State {
     return State.Builder()
-      .setAvailableCommands(...) // Set which playback commands the player can handle
+      .setAvailableCommands(Commands.EMPTY) // Set which playback commands the player can handle
       // Configure additional playback properties
       .setPlayWhenReady(true, PLAY_WHEN_READY_CHANGE_REASON_USER_REQUEST)
       .setCurrentMediaItemIndex(0)
@@ -172,7 +175,7 @@ class CustomPlayer : SimpleBasePlayer(looper) {
 ### Java
 
 ```java
-public class CustomPlayer extends SimpleBasePlayer {
+private static final class CustomPlayer extends SimpleBasePlayer {
   public CustomPlayer(Looper looper) {
     super(looper);
   }
@@ -180,12 +183,12 @@ public class CustomPlayer extends SimpleBasePlayer {
   @Override
   protected State getState() {
     return new State.Builder()
-      .setAvailableCommands(...) // Set which playback commands the player can handle
-      // Configure additional playback properties
-      .setPlayWhenReady(true, PLAY_WHEN_READY_CHANGE_REASON_USER_REQUEST)
-      .setCurrentMediaItemIndex(0)
-      .setContentPositionMs(0)
-      .build();
+        .setAvailableCommands(Commands.EMPTY) // Set which playback commands the player can handle
+        // Configure additional playback properties
+        .setPlayWhenReady(true, PLAY_WHEN_READY_CHANGE_REASON_USER_REQUEST)
+        .setCurrentMediaItemIndex(0)
+        .setContentPositionMs(0)
+        .build();
   }
 }
 ```

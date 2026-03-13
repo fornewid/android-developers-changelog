@@ -21,16 +21,21 @@ Implementing a `MediaLibraryService` is similar to
 except that in the `onGetSession()` method, you should
 return a `MediaLibrarySession` instead of a `MediaSession`.
 
+
 ### Kotlin
 
 ```kotlin
 class PlaybackService : MediaLibraryService() {
-  var mediaLibrarySession: MediaLibrarySession? = null
-  var callback: MediaLibrarySession.Callback = object : MediaLibrarySession.Callback {...}
+  private var mediaLibrarySession: MediaLibrarySession? = null
+  private val callback: MediaLibrarySession.Callback =
+    object : MediaLibrarySession.Callback {
+      /* ... */
+    }
 
-  // If desired, validate the controller before returning the media library session
-  override fun onGetSession(controllerInfo: MediaSession.ControllerInfo): MediaLibrarySession? =
-    mediaLibrarySession
+  override fun onGetSession(controllerInfo: MediaSession.ControllerInfo): MediaLibrarySession? {
+    // If desired, validate the controller before returning the media library session
+    return mediaLibrarySession
+  }
 
   // Create your player and media library session in the onCreate lifecycle event
   override fun onCreate() {
@@ -41,7 +46,7 @@ class PlaybackService : MediaLibraryService() {
 
   // Remember to release the player and media library session in onDestroy
   override fun onDestroy() {
-    mediaLibrarySession?.run { 
+    mediaLibrarySession?.run {
       player.release()
       release()
       mediaLibrarySession = null
@@ -56,7 +61,9 @@ class PlaybackService : MediaLibraryService() {
 ```java
 class PlaybackService extends MediaLibraryService {
   MediaLibrarySession mediaLibrarySession = null;
-  MediaLibrarySession.Callback callback = new MediaLibrarySession.Callback() {...};
+  MediaLibrarySession.Callback callback = new MediaLibrarySession.Callback() {
+        /* ... */
+      };
 
   @Override
   public MediaLibrarySession onGetSession(MediaSession.ControllerInfo controllerInfo) {
@@ -84,11 +91,9 @@ class PlaybackService extends MediaLibraryService {
   }
 }
 ```
+Remember to declare your `Service` and required permissions in the manifest file as well:
 
 <br />
-
-Remember to declare your `Service` and required permissions in the manifest file
-as well:
 
     <service
         android:name=".PlaybackService"
@@ -139,6 +144,7 @@ command for the item to the session in a convenient way.
 When building the session, a session app declares the set of command buttons
 that a session can handle as custom commands:
 
+
 ### Kotlin
 
 ```kotlin
@@ -154,9 +160,7 @@ val allCommandButtons =
       .setSessionCommand(SessionCommand(COMMAND_RADIO, Bundle.EMPTY))
       .setExtras(radioExtras)
       .build(),
-    // possibly more here
   )
-
 // Add all command buttons for media items supported by the session.
 val session =
   MediaSession.Builder(context, player)
@@ -179,7 +183,6 @@ ImmutableList<CommandButton> allCommandButtons =
             .setSessionCommand(new SessionCommand(COMMAND_RADIO, Bundle.EMPTY))
             .setExtras(radioExtras)
             .build());
-
 // Add all command buttons for media items supported by the session.
 MediaSession session =
     new MediaSession.Builder(context, player)
@@ -187,12 +190,15 @@ MediaSession session =
         .build();
 ```
 
+<br />
+
 > [!NOTE]
 > **Note:** The [Android media controls](https://developer.android.com/media/implement/surfaces/mobile#config-action-buttons) that are available through the media notification aren't using command buttons for media items. Use [media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) to declare preferences for these media controls.
 
 When building a media item, a session app can add a set of supported command IDs
 that reference session commands of command buttons that have been setup when
 building the session:
+
 
 ### Kotlin
 
@@ -202,7 +208,8 @@ val mediaItem =
     .setMediaMetadata(
       MediaMetadata.Builder()
         .setSupportedCommands(listOf(COMMAND_PLAYLIST_ADD, COMMAND_RADIO))
-        .build())
+        .build()
+    )
     .build()
 ```
 
@@ -218,6 +225,8 @@ MediaItem mediaItem =
         .build();
 ```
 
+<br />
+
 > [!NOTE]
 > **Note:** A controller only sees the command buttons for which the session has also made the corresponding [session command available to the controller](https://developer.android.com/media/media3/session/control-playback#available-commands).
 
@@ -228,6 +237,7 @@ can display. The `ControllerInfo` passed into a callback method provides a
 getter to access this value conveniently. By default the value is set to 0 which
 indicates that the browser or controller doesn't support this feature:
 
+
 ### Kotlin
 
 ```kotlin
@@ -236,13 +246,10 @@ override fun onGetItem(
   browser: MediaSession.ControllerInfo,
   mediaId: String,
 ): ListenableFuture<LibraryResult<MediaItem>> {
-
   val settableFuture = SettableFuture.create<LibraryResult<MediaItem>>()
 
   val maxCommandsForMediaItems = browser.maxCommandsForMediaItems
-  scope.launch {
-    loadMediaItem(settableFuture, mediaId, maxCommandsForMediaItems)
-  }
+  loadMediaItemAsync(settableFuture, mediaId, maxCommandsForMediaItems)
 
   return settableFuture
 }
@@ -253,8 +260,9 @@ override fun onGetItem(
 ```java
 @Override
 public ListenableFuture<LibraryResult<MediaItem>> onGetItem(
-    MediaLibraryService.MediaLibrarySession session, ControllerInfo browser, String mediaId) {
-
+    MediaLibraryService.MediaLibrarySession session,
+    ControllerInfo browser,
+    String mediaId) {
   SettableFuture<LibraryResult<MediaItem>> settableFuture = SettableFuture.create();
 
   int maxCommandsForMediaItems = browser.getMaxCommandsForMediaItems();
@@ -264,9 +272,12 @@ public ListenableFuture<LibraryResult<MediaItem>> onGetItem(
 }
 ```
 
+<br />
+
 When handling a custom action that has been sent for a media item, the session
 app can get the media item ID from the arguments `Bundle` passed into
 `onCustomCommand`:
+
 
 ### Kotlin
 
@@ -300,29 +311,30 @@ public ListenableFuture<SessionResult> onCustomCommand(
 }
 ```
 
+<br />
+
 ### Use command buttons as a browser or controller
 
 On the `MediaController` side, an app can declare the maximum number of command
 buttons it supports for a media item when building the `MediaController` or
 `MediaBrowser`:
 
+
 ### Kotlin
 
 ```kotlin
 val browserFuture =
-  MediaBrowser.Builder(context, sessionToken)
-    .setMaxCommandsForMediaItems(3)
-    .buildAsync()
+  MediaBrowser.Builder(context, sessionToken).setMaxCommandsForMediaItems(3).buildAsync()
 ```
 
 ### Java
 
 ```java
 ListenableFuture<MediaBrowser> browserFuture =
-    new MediaBrowser.Builder(context, sessionToken)
-        .setMaxCommandsForMediaItems(3)
-        .buildAsync();
+    new MediaBrowser.Builder(context, sessionToken).setMaxCommandsForMediaItems(3).buildAsync();
 ```
+
+<br />
 
 > [!NOTE]
 > **Note:** By default, the number of commands is set to 0 (zero) which advises the session app to not advertise command buttons for that browser or controller.
@@ -331,11 +343,11 @@ When connected to the session, the controller app can receive the
 command buttons that are supported by the media item and for which the
 controller has the [available command granted by the session app](https://developer.android.com/media/media3/session/control-playback#available-commands):
 
+
 ### Kotlin
 
 ```kotlin
-val commandButtonsForMediaItem: List<CommandButton> =
-  controller.getCommandButtonsForMediaItem(mediaItem)
+val commandButtonsForMediaItem = controller.getCommandButtonsForMediaItem(mediaItem)
 ```
 
 ### Java
@@ -345,23 +357,29 @@ ImmutableList<CommandButton> commandButtonsForMediaItem =
     controller.getCommandButtonsForMediaItem(mediaItem);
 ```
 
+<br />
+
 > [!NOTE]
 > **Note:** The returned command buttons are the intersection of all buttons that have been set up by the session, the supported commands set on the media item and the available commands of the controller.
 
-For convenience a `MediaController` can send media item specific custom commands
-with `MediaController.sendCustomCommand(SessionCommand, MediaItem, Bundle)`:
 
 ### Kotlin
 
 ```kotlin
-controller.sendCustomCommand(addToPlaylistButton.sessionCommand!!, mediaItem, Bundle.EMPTY)
+val future =
+  controller.sendCustomCommand(
+    requireNotNull(addToPlaylistButton.sessionCommand),
+    mediaItem,
+    Bundle.EMPTY,
+  )
 ```
 
 ### Java
 
 ```java
-controller.sendCustomCommand(
-    checkNotNull(addToPlaylistButton.sessionCommand), mediaItem, Bundle.EMPTY);
+ListenableFuture<SessionResult> future =
+    controller.sendCustomCommand(
+        checkNotNull(addToPlaylistButton.sessionCommand), mediaItem, Bundle.EMPTY);
 ```
 
 <br />

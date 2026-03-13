@@ -1,0 +1,86 @@
+---
+title: https://developer.android.com/studio/run/emulator-networking-advanced
+url: https://developer.android.com/studio/run/emulator-networking-advanced
+source: md.txt
+---
+
+The Android Emulator includes a network simulator that lets you develop and test
+Android apps without using physical radios.
+
+This page describes command-line options for controlling features of the network
+simulator.
+
+When starting an emulator from the command line, use the `-netsim-args` flag in
+[emulator flags](https://developer.android.com/studio/run/emulator-commandline) to pass arguments to the network simulator.
+
+    emulator -netsim-args="arg1 [arg2 ...]"
+
+For example, to enable packet capture, logging, and set a specific HCI port you
+can use:
+
+    emulator -netsim-args="--pcap --logtostderr --verbose --hci-port 12345"
+
+## Netsim Configurations
+
+These flags control the general behavior and setup of the netsim daemon.
+
+- `-l, --logtostderr`: Set whether log messages go to stderr instead of log files. Useful for seeing logs directly in the emulator output.
+- `-v, --verbose`: Enable verbose mode. This mode prints more detailed logs, which is useful for debugging complex issues.
+- `--hci-port <HCI_PORT>`: Set a custom HCI port. Useful for running multiple emulators or connecting to a specific HCI port.
+
+## Specify the directory for artifacts
+
+To specify a directory for the network simulator artifacts, set the environment
+variable `$ANDROID_TMP`:
+
+    export ANDROID_TMP=/path/to/your/directory
+
+The network simulator saves the artifacts in the following directory:
+`$ANDROID_TMP/android/netsimd/`. If the environment variable `$USER` is set, the
+network simulator saves the artifacts in `$ANDROID_TMP/android{-$USER}/netsimd/`
+.
+
+## Capture Network Packets
+
+To enable packet capture, use the `--pcap` argument with the emulator.
+
+    emulator -netsim-args="--pcap"
+
+This feature is useful for debugging network issues and analyzing traffic. The
+network simulator saves a packet capture (pcap) file for each radio chip. You
+can open these files with tools like Wireshark. The network simulator saves the
+packet capture files in the `pcap` subdirectory of the `netsimd` artifacts
+directory.
+
+## Configure Wi-Fi access point (custom SSID and encryption)
+
+> [!NOTE]
+> **Note:** This feature is available in Android Emulator version 36.5 and later.
+
+To configure a Wi-Fi access point, use the `--wifi` argument with the emulator.
+For example:
+
+    emulator -netsim-args="--wifi <SSID> <PASSWORD>"
+
+- `SSID`: The network name.
+- `PASSWORD`: The network password is optional and must be 8 or more characters; when set, the access point will be encrypted with WPA2 (CCMP).
+
+## Set Received Signal Strength (RSSI)
+
+The network simulator supports setting specific RSSI values for a specific radio
+with the `--rssi` flag.
+
+> [!NOTE]
+> **Note:** This feature is available in Android Emulator version 36.5 and later. This feature supports only Bluetooth Classic and Bluetooth Low Energy.
+
+    emulator -netsim-args="--rssi <PHY_KIND:RSSI_VALUE>"
+
+- `PHY_KIND`: The type of Bluetooth radio (e.g., `ble`, `bt_classic`). This parameter supports case-insensitive aliases.
+- `RSSI_VALUE`: The RSSI value, an i8 (integer).
+
+For example, the following command sets the RSSI for BLE traffic to -65 dBm:
+
+    emulator -netsim-args="--rssi=ble:-65"
+
+You can specify this flag multiple times for different radios (e.g.,
+`--rssi=bt_classic:-65 --rssi=ble:-72`).

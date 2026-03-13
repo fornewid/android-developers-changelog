@@ -24,6 +24,10 @@ Emulator, see the
 
 For known issues and troubleshooting, please see [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting).
 
+## 36.4.10 Patch (Mar 9, 2026)
+
+- \[Bug Fix\][Issue #489369080](https://issuetracker.google.com/489369080) Fix crash on TV Emulator when hovering after updating to Panda 2
+
 ## 36.4.9 Stable (Feb 10, 2026)
 
 - To streamline GPU selection within the user interface, the Android Emulator

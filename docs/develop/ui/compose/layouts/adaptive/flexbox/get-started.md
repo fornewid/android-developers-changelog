@@ -12,7 +12,7 @@ This page describes how to implement basic `FlexBox` layouts.
    `lib.versions.toml`.
 
        [versions]
-       compose = "1.11.0-alpha06"
+       compose = "1.11.0-beta01"
 
        [libraries]
        androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "compose" }
@@ -32,8 +32,8 @@ aligned.
 ```kotlin
 FlexBox(
     config = {
-        direction = FlexDirection.Column
-        alignItems = FlexAlignItems.Center
+        direction(FlexDirection.Column)
+        alignItems(FlexAlignItems.Center)
     }
 ) {
     Text(text = "Hello", fontSize = 48.sp)
@@ -53,15 +53,15 @@ gap, both vertically and horizontally, between the items.
 ```kotlin
 FlexBox(
     config = {
-        wrap = FlexWrap.Wrap
+        wrap(FlexWrap.Wrap)
         gap(8.dp)
     }
 ) {
     RedRoundedBox()
     BlueRoundedBox()
-    GreenRoundedBox(modifier = Modifier.width(350.dp).flex { grow = 1.0f })
-    OrangeRoundedBox(modifier = Modifier.width(200.dp).flex { grow = 0.7f })
-    PinkRoundedBox(modifier = Modifier.width(200.dp).flex { grow = 0.3f })
+    GreenRoundedBox(modifier = Modifier.width(350.dp).flex { grow(1.0f) })
+    OrangeRoundedBox(modifier = Modifier.width(200.dp).flex { grow(0.7f) })
+    PinkRoundedBox(modifier = Modifier.width(200.dp).flex { grow(0.3f) })
 }
 ```
 

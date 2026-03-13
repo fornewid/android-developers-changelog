@@ -9,16 +9,16 @@ inside a `FlexBox`.
 
 ## Item size
 
-Use the `basis, grow`, and `shrink` properties to control an item's size.
+Use the `basis`, `grow`, and `shrink` functions to control an item's size.
 
 
 ```kotlin
 FlexBox {
     RedRoundedBox(
         modifier = Modifier.flex {
-            basis = FlexBasis.Auto
-            grow = 1.0f
-            shrink = 0.5f
+            basis(FlexBasis.Auto)
+            grow(1.0f)
+            shrink(0.5f)
         }
     )
 }
@@ -33,7 +33,7 @@ distributed. You can think of this as the item's *preferred* size.
 
 |---|---|---|---|
 | **Value type** | **Behavior** | **Code snippet** Note: The boxes have a maximum intrinsic size of `100dp` | **Example using container width `600dp`** |
-| `Auto` (default) | Use the item's maximum intrinsic size. For example, a `Text` composable's maximum intrinsic width is the width of all its text on a single line - no wrapping. | ```kotlin FlexBox { RedRoundedBox( Modifier.flex { basis = FlexBasis.Auto } ) BlueRoundedBox( Modifier.flex { basis = FlexBasis.Auto } ) } ``` | ![Items sized based on their intrinsic size using basis Auto.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/initialsize-1.png) |
+| `Auto` (default) | Use the item's maximum intrinsic size. For example, a `Text` composable's maximum intrinsic width is the width of all its text on a single line - no wrapping. | ```kotlin FlexBox { RedRoundedBox( Modifier.flex { basis(FlexBasis.Auto) } ) BlueRoundedBox( Modifier.flex { basis(FlexBasis.Auto) } ) } ``` | ![Items sized based on their intrinsic size using basis Auto.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/initialsize-1.png) |
 | Fixed `dp` | A fixed size in Dp. | ```kotlin FlexBox { RedRoundedBox( Modifier.flex { basis(200.dp) } ) BlueRoundedBox( Modifier.flex { basis(100.dp) } ) } ``` | ![Items sized to a fixed dp value using basis.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/initialsize-2.png) |
 | Percentage | A percentage of the container size. | ```kotlin FlexBox { RedRoundedBox( Modifier.flex { basis(0.7f) } ) BlueRoundedBox( Modifier.flex { basis(0.3f) } ) } ``` | ![Items sized as a percentage of container size using basis.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/initialsize-3.png) |
 
@@ -58,13 +58,13 @@ it's positive, the child receives all the extra space.
 The images show the `FlexBox` behavior when its container size is `600dp`.
 
 |---|---|
-| ```kotlin FlexBox { RedRoundedBox( title = "400dp", modifier = Modifier.flex { grow = 1f } ) BlueRoundedBox(title = "100dp") GreenRoundedBox(title = "100dp") } ``` | Each child has a basis value of `100dp`. There is `300dp` of extra space. ![Three items with 100dp basis each, in a 600dp container, before growth.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/growitems-1.png) Child 1 grows by `300dp` to fill the extra space. ![First item grows to fill 300dp of extra space.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/growitems-2.png) |
+| ```kotlin FlexBox { RedRoundedBox( title = "400dp", modifier = Modifier.flex { grow(1f) } ) BlueRoundedBox(title = "100dp") GreenRoundedBox(title = "100dp") } ``` | Each child has a basis value of `100dp`. There is `300dp` of extra space. ![Three items with 100dp basis each, in a 600dp container, before growth.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/growitems-1.png) Child 1 grows by `300dp` to fill the extra space. ![First item grows to fill 300dp of extra space.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/growitems-2.png) |
 
 In the following example, the container size and `basis` size are the same. The
 difference is that each child has a different `grow` value.
 
 |---|---|
-| ```kotlin FlexBox { RedRoundedBox( title = "150dp", modifier = Modifier.flex { grow = 1f } ) BlueRoundedBox( title = "200dp", modifier = Modifier.flex { grow = 2f } ) GreenRoundedBox( title = "250dp", modifier = Modifier.flex { grow = 3f } ) } ``` | Each child has a basis value of `100dp`. There is `300dp` of extra space. ![Three items with 100dp basis each, in a 600dp container, before growth, with different grow values.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/growitems-3.png) The total grow value is 6. Child 1 grows by (1 / 6) \* 300 = `50dp` Child 2 grows by (2 / 6) \* 300 = `100dp` Child 3 grows by (3 / 6) \* 300 = `150dp` ![Items grow to fill 300dp of extra space based on relative grow values.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/growitems-4.png) |
+| ```kotlin FlexBox { RedRoundedBox( title = "150dp", modifier = Modifier.flex { grow(1f) } ) BlueRoundedBox( title = "200dp", modifier = Modifier.flex { grow(2f) } ) GreenRoundedBox( title = "250dp", modifier = Modifier.flex { grow(3f) } ) } ``` | Each child has a basis value of `100dp`. There is `300dp` of extra space. ![Three items with 100dp basis each, in a 600dp container, before growth, with different grow values.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/growitems-3.png) The total grow value is 6. Child 1 grows by (1 / 6) \* 300 = `50dp` Child 2 grows by (2 / 6) \* 300 = `100dp` Child 3 grows by (3 / 6) \* 300 = `150dp` ![Items grow to fill 300dp of extra space based on relative grow values.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/flexbox/growitems-4.png) |
 
 ### Shrink items when there's insufficient space
 
@@ -87,14 +87,14 @@ FlexBox {
         fontSize = 36.sp,
         modifier = Modifier
             .background(PastelRed)
-            .flex { shrink = 1f }
+            .flex { shrink(1f) }
     )
     Text(
         "The quick brown fox",
         fontSize = 36.sp,
         modifier = Modifier
             .background(PastelBlue)
-            .flex { shrink = 0f }
+            .flex { shrink(0f) }
     )
 }
 ```
@@ -123,14 +123,14 @@ which override the cross axis alignment.
 ```kotlin
 FlexBox(
     config = {
-        alignItems = FlexAlignItems.Start
+        alignItems(FlexAlignItems.Start)
     }
 ) {
     RedRoundedBox()
-    BlueRoundedBox(modifier = Modifier.flex { alignSelf = FlexAlignSelf.Center })
-    GreenRoundedBox(modifier = Modifier.flex { alignSelf = FlexAlignSelf.End })
-    PinkRoundedBox(modifier = Modifier.flex { alignSelf = FlexAlignSelf.Stretch })
-    OrangeRoundedBox(modifier = Modifier.flex { alignSelf = FlexAlignSelf.Baseline })
+    BlueRoundedBox(modifier = Modifier.flex { alignSelf(FlexAlignSelf.Center) })
+    GreenRoundedBox(modifier = Modifier.flex { alignSelf(FlexAlignSelf.End) })
+    PinkRoundedBox(modifier = Modifier.flex { alignSelf(FlexAlignSelf.Stretch) })
+    OrangeRoundedBox(modifier = Modifier.flex { alignSelf(FlexAlignSelf.Baseline) })
 }
 ```
 
@@ -165,7 +165,7 @@ FlexBox {
     BlueRoundedBox(
         title = "Hello",
         modifier = Modifier.flex {
-            order = -1
+            order(-1)
         }
     )
 }

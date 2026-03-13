@@ -32,15 +32,19 @@ To create a `MediaController`, start by creating a `SessionToken` for the
 corresponding `MediaSession`. The `onStart()` method of your `Activity` or
 `Fragment` can be a good place for this.
 
+
 ### Kotlin
 
-    val sessionToken =
-      SessionToken(context, ComponentName(context, PlaybackService::class.java))
+```kotlin
+val sessionToken = SessionToken(context, ComponentName(context, PlaybackService::class.java))
+```
 
 ### Java
 
-    SessionToken sessionToken =
-      new SessionToken(context, new ComponentName(context, PlaybackService.class));
+```java
+SessionToken sessionToken =
+    new SessionToken(context, new ComponentName(context, PlaybackService.class));
+```
 
 <br />
 
@@ -48,21 +52,30 @@ Using this `SessionToken` to then build a `MediaController` connects the
 controller to the given session. This takes place asynchronously, so you should
 listen for the result and use it when available.
 
+
 ### Kotlin
 
-    val controllerFuture =
-      MediaController.Builder(context, sessionToken).buildAsync()
-    controllerFuture.addListener({
-      // MediaController is available here with controllerFuture.get()
-    }, MoreExecutors.directExecutor())
+```kotlin
+val controllerFuture = MediaController.Builder(context, sessionToken).buildAsync()
+controllerFuture.addListener(
+  {
+    // MediaController is available here with controllerFuture.get()
+  },
+  MoreExecutors.directExecutor(),
+)
+```
 
 ### Java
 
-    ListenableFuture<MediaController> controllerFuture =
-      new MediaController.Builder(context, sessionToken).buildAsync();
-    controllerFuture.addListener(() -> {
+```java
+ListenableFuture<MediaController> controllerFuture =
+    new MediaController.Builder(context, sessionToken).buildAsync();
+controllerFuture.addListener(
+    () -> {
       // MediaController is available here with controllerFuture.get()
-    }, MoreExecutors.directExecutor());
+    },
+    MoreExecutors.directExecutor());
+```
 
 <br />
 
@@ -97,29 +110,35 @@ from the session.
 A `MediaController.Listener` can be set when building the controller with a
 `Builder`:
 
+
 ### Kotlin
 
-    MediaController.Builder(context, sessionToken)
-        .setListener(
-          object : MediaController.Listener {
-            override fun onCustomCommand(
-              controller: MediaController,
-              command: SessionCommand,
-              args: Bundle,
-            ): ListenableFuture<SessionResult> {
-              // Handle custom command.
-              return Futures.immediateFuture(SessionResult(SessionResult.RESULT_SUCCESS))
-            }
+```kotlin
+val controllerFuture =
+  MediaController.Builder(context, sessionToken)
+    .setListener(
+      object : MediaController.Listener {
+        override fun onCustomCommand(
+          controller: MediaController,
+          command: SessionCommand,
+          args: Bundle,
+        ): ListenableFuture<SessionResult> {
+          // Handle custom command.
+          return Futures.immediateFuture(SessionResult(SessionResult.RESULT_SUCCESS))
+        }
 
-            override fun onDisconnected(controller: MediaController) {
-              // Handle disconnection.
-            }
-          }
-        )
-        .buildAsync()
+        override fun onDisconnected(controller: MediaController) {
+          // Handle disconnection.
+        }
+      }
+    )
+    .buildAsync()
+```
 
 ### Java
 
+```java
+ListenableFuture<MediaController> controllerFuture =
     new MediaController.Builder(context, sessionToken)
         .setListener(
             new MediaController.Listener() {
@@ -136,6 +155,7 @@ A `MediaController.Listener` can be set when building the controller with a
               }
             })
         .buildAsync();
+```
 
 <br />
 
@@ -143,13 +163,18 @@ As with other components, remember to release the `MediaController` when it is
 no longer needed, such as in the `onStop()` method of an `Activity` or
 `Fragment`.
 
+
 ### Kotlin
 
-    MediaController.releaseFuture(controllerFuture)
+```kotlin
+MediaController.releaseFuture(controllerFuture)
+```
 
 ### Java
 
-    MediaController.releaseFuture(controllerFuture);
+```java
+MediaController.releaseFuture(controllerFuture);
+```
 
 <br />
 
@@ -165,20 +190,30 @@ app's `MediaLibraryService`.
 
 ### Create a `MediaBrowser`
 
+
 ### Kotlin
 
-    val browserFuture = MediaBrowser.Builder(context, sessionToken).buildAsync()
-    browserFuture.addListener({
-      // MediaBrowser is available here with browserFuture.get()
-    }, MoreExecutors.directExecutor())
+```kotlin
+val browserFuture = MediaBrowser.Builder(context, sessionToken).buildAsync()
+browserFuture.addListener(
+  {
+    // MediaBrowser is available here with browserFuture.get()
+  },
+  MoreExecutors.directExecutor(),
+)
+```
 
 ### Java
 
-    ListenableFuture<MediaBrowser> browserFuture =
-      new MediaBrowser.Builder(context, sessionToken).buildAsync();
-    browserFuture.addListener(() -> {
+```java
+ListenableFuture<MediaBrowser> browserFuture =
+    new MediaBrowser.Builder(context, sessionToken).buildAsync();
+browserFuture.addListener(
+    () -> {
       // MediaBrowser is available here with browserFuture.get()
-    }, MoreExecutors.directExecutor());
+    },
+    MoreExecutors.directExecutor());
+```
 
 <br />
 
@@ -187,22 +222,32 @@ app's `MediaLibraryService`.
 To start browsing the media app's content library, first retrieve the root node
 with `getLibraryRoot()`:
 
+
 ### Kotlin
 
-    // Get the library root to start browsing the library tree.
-    val rootFuture = mediaBrowser.getLibraryRoot(/* params= */ null)
-    rootFuture.addListener({
-      // Root node MediaItem is available here with rootFuture.get().value
-    }, MoreExecutors.directExecutor())
+```kotlin
+// Get the library root to start browsing the library tree.
+val rootFuture = mediaBrowser.getLibraryRoot(/* params= */ null)
+rootFuture.addListener(
+  {
+    // Root node MediaItem is available here with rootFuture.get().value
+  },
+  MoreExecutors.directExecutor(),
+)
+```
 
 ### Java
 
-    // Get the library root to start browsing the library tree.
-    ListenableFuture<LibraryResult<MediaItem>> rootFuture =
-      mediaBrowser.getLibraryRoot(/* params= */ null);
-    rootFuture.addListener(() -> {
+```java
+// Get the library root to start browsing the library tree.
+ListenableFuture<LibraryResult<MediaItem>> rootFuture =
+    mediaBrowser.getLibraryRoot(/* params= */ null);
+rootFuture.addListener(
+    () -> {
       // Root node MediaItem is available here with rootFuture.get().value
-    }, MoreExecutors.directExecutor());
+    },
+    MoreExecutors.directExecutor());
+```
 
 <br />
 
@@ -210,24 +255,33 @@ You can then navigate through the media library by retrieving the children of a
 `MediaItem` in the library with `getChildren()`. For example, to retrieve the
 children of the root node `MediaItem`:
 
+
 ### Kotlin
 
-    // Get the library root to start browsing the library tree.
-    val childrenFuture = 
-      mediaBrowser.getChildren(rootMediaItem.mediaId, 0, Int.MAX_VALUE, null)
-    childrenFuture.addListener({
-      // List of children MediaItem nodes is available here with
-      // childrenFuture.get().value
-    }, MoreExecutors.directExecutor())
+```kotlin
+// Get the library root to start browsing the library tree.
+val childrenFuture = mediaBrowser.getChildren(rootMediaItem.mediaId, 0, Int.MAX_VALUE, null)
+childrenFuture.addListener(
+  {
+    // List of children MediaItem nodes is available here with
+    // childrenFuture.get().value
+  },
+  MoreExecutors.directExecutor(),
+)
+```
 
 ### Java
 
-    ListenableFuture<LibraryResult<ImmutableList<MediaItem>>> childrenFuture =
-      mediaBrowser.getChildren(rootMediaItem.mediaId, 0, Integer.MAX_VALUE, null);
-    childrenFuture.addListener(() -> {
+```java
+ListenableFuture<LibraryResult<ImmutableList<MediaItem>>> childrenFuture =
+    mediaBrowser.getChildren(rootMediaItem.mediaId, 0, Integer.MAX_VALUE, null);
+childrenFuture.addListener(
+    () -> {
       // List of children MediaItem nodes is available here with
       // childrenFuture.get().value
-    }, MoreExecutors.directExecutor());
+    },
+    MoreExecutors.directExecutor());
+```
 
 <br />
 
@@ -245,42 +299,47 @@ intended action. If a user clicks one of these buttons, you can use
 `CommandButton.executeAction` to trigger the associated action in the media
 app.
 
+
 ### Kotlin
 
-    // Get media button preferences from media app
-    val mediaButtonPreferences = controller.getMediaButtonPreferences()
-    // Declare constraints of UI (example: limit overflow button to one)
-    val displayConstraints =
-      DisplayConstraints.Builder().setMaxButtonsForSlot(CommandButton.SLOT_OVERFLOW, 1).build()
-    // Resolve media app preferences with constraints
-    val resolvedButtons = displayConstraints.resolve(mediaButtonPreferences, controller)
-    // Display buttons in UI
-    for (button in resolvedButtons) {
-      generateUiButton(
-        uiPosition = button.slots[0],
-        icon = getIconRes(button.icon),
-        onClick = { button.executeAction(controller) },
-      )
-    }
+```kotlin
+// Get media button preferences from media app
+val mediaButtonPreferences = controller.getMediaButtonPreferences()
+// Declare constraints of UI (example: limit overflow button to one)
+val displayConstraints =
+  DisplayConstraints.Builder().setMaxButtonsForSlot(CommandButton.SLOT_OVERFLOW, 1).build()
+// Resolve media app preferences with constraints
+val resolvedButtons = displayConstraints.resolve(mediaButtonPreferences, controller)
+// Display buttons in UI
+for (button in resolvedButtons) {
+  generateUiButton(
+    uiPosition = button.slots[0],
+    icon = getIconRes(button.icon),
+    onClick = { button.executeAction(controller) },
+  )
+}
+```
 
 ### Java
 
-    // Get media button preferences from media app
-    List<CommandButton> mediaButtonPreferences = controller.getMediaButtonPreferences();
-    // Declare constraints of UI (example: limit overflow button to one)
-    DisplayConstraints displayConstraints =
-        new DisplayConstraints.Builder()
-            .setMaxButtonsForSlot(CommandButton.SLOT_OVERFLOW, 1)
-            .build();
-    // Resolve media app preferences with constraints
-    List<CommandButton> resolvedButtons =
-        displayConstraints.resolve(mediaButtonPreferences, controller);
-    // Display buttons in UI
-    for (CommandButton button : resolvedButtons) {
-      generateUiButton(
-          /* uiPosition= */ button.slots.get(0),
-          /* icon= */ getIconRes(button.icon),
-          /* onClick= */ () -> button.executeAction(controller));
-    }
+```java
+// Get media button preferences from media app
+List<CommandButton> mediaButtonPreferences = controller.getMediaButtonPreferences();
+// Declare constraints of UI (example: limit overflow button to one)
+DisplayConstraints displayConstraints =
+    new DisplayConstraints.Builder()
+        .setMaxButtonsForSlot(CommandButton.SLOT_OVERFLOW, 1)
+        .build();
+// Resolve media app preferences with constraints
+List<CommandButton> resolvedButtons =
+    displayConstraints.resolve(mediaButtonPreferences, controller);
+// Display buttons in UI
+for (CommandButton button : resolvedButtons) {
+  generateUiButton(
+      /* uiPosition= */ button.slots.get(0),
+      /* icon= */ getIconRes(button.icon),
+      /* onClick= */ () -> button.executeAction(controller));
+}
+```
 
 <br />
