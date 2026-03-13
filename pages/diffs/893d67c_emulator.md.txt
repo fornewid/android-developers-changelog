@@ -1,0 +1,13 @@
+diff --git a/docs/training/cars/testing/emulator.md b/docs/training/cars/testing/emulator.md
+index 5a19fe8..084e7ea 100644
+--- a/docs/training/cars/testing/emulator.md
++++ b/docs/training/cars/testing/emulator.md
+@@ -29,7 +29,7 @@ Google Play](https://developer.android.com/training/cars/distribute#opt_in). All
+ > **Caution:** Some images are only available for download when using an [Android
+ > Studio preview](https://developer.android.com/studio/preview) release, as noted in the *Availability* column. Once downloaded, you can use them in an Android Studio stable release.
+ 
+-28 29 30 32 33 34 x86 ARM Google Play Store Compatibility mode Audio while driving Android Studio stable Android Studio preview <button type="button" class="clear-all">Clear all</button>
++28 29 30 32 33 34 35 x86 ARM Google Play Store Compatibility mode Audio while driving Android Studio stable Android Studio preview <button type="button" class="clear-all">Clear all</button>
+ 
+ | Name | API Level | Architecture | Features | Availability |
+ |---|---|---|---|---|

@@ -1,0 +1,277 @@
+diff --git a/docs/media/media3/session/background-playback.md b/docs/media/media3/session/background-playback.md
+index 645bf31..cd350c2 100644
+--- a/docs/media/media3/session/background-playback.md
++++ b/docs/media/media3/session/background-playback.md
+@@ -49,13 +49,14 @@ is left running if playback is ongoing and is stopped otherwise.
+ > [!TIP]
+ > **Tip:** You can [implement casting](https://developer.android.com/media/media3/cast/create-castplayer#add-castplayer) capability in your media app by setting the `ExoPlayer` as the local player instance for `CastPlayer` inside a `MediaSessionService`.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ class PlaybackService : MediaSessionService() {
+   private var mediaSession: MediaSession? = null
+ 
+-  // Create your player and media session in the onCreate lifecycle event
++  // Create your Player and MediaSession in the onCreate lifecycle event
+   override fun onCreate() {
+     super.onCreate()
+     val player = ExoPlayer.Builder(this).build()
+@@ -71,13 +72,16 @@ class PlaybackService : MediaSessionService() {
+     }
+     super.onDestroy()
+   }
++
++  override fun onGetSession(controllerInfo: MediaSession.ControllerInfo): MediaSession? =
++    mediaSession
+ }
+ ```
+ 
+ ### Java
+ 
+ ```java
+-public class PlaybackService extends MediaSessionService {
++class PlaybackService extends MediaSessionService {
+   private MediaSession mediaSession = null;
+ 
+   // Create your Player and MediaSession in the onCreate lifecycle event
+@@ -96,6 +100,11 @@ public class PlaybackService extends MediaSessionService {
+     mediaSession = null;
+     super.onDestroy();
+   }
++
++  @Override
++  public MediaSession onGetSession(MediaSession.ControllerInfo controllerInfo) {
++    return mediaSession;
++  }
+ }
+ ```
+ 
+@@ -104,9 +113,11 @@ public class PlaybackService extends MediaSessionService {
+ As an alternative of keeping playback ongoing in the background, you can
+ stop the service in any case when the user dismisses the app:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
++@OptIn(UnstableApi::class)
+ override fun onTaskRemoved(rootIntent: Intent?) {
+   pauseAllPlayersAndStopSelf()
+ }
+@@ -115,6 +126,7 @@ override fun onTaskRemoved(rootIntent: Intent?) {
+ ### Java
+ 
+ ```java
++@OptIn(markerClass = UnstableApi.class)
+ @Override
+ public void onTaskRemoved(@Nullable Intent rootIntent) {
+   pauseAllPlayersAndStopSelf();
+@@ -132,11 +144,12 @@ foreground service is started.
+ Override the `onGetSession()` method to give other clients access to your media
+ session that was built when the service was created.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ class PlaybackService : MediaSessionService() {
+-  private var mediaSession: MediaSession? = null
++
+   // [...] lifecycle methods omitted
+ 
+   override fun onGetSession(controllerInfo: MediaSession.ControllerInfo): MediaSession? =
+@@ -147,8 +160,8 @@ class PlaybackService : MediaSessionService() {
+ ### Java
+ 
+ ```java
+-public class PlaybackService extends MediaSessionService {
+-  private MediaSession mediaSession = null;
++class PlaybackService extends MediaSessionService {
++
+   // [...] lifecycle methods omitted
+ 
+   @Override
+@@ -221,21 +234,22 @@ current media item being played alongside playback controls based on your
+ The required metadata can be provided in the media or declared as part of the
+ media item as in the following snippet:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ val mediaItem =
+-    MediaItem.Builder()
+-      .setMediaId("media-1")
+-      .setUri(mediaUri)
+-      .setMediaMetadata(
+-        MediaMetadata.Builder()
+-          .setArtist("David Bowie")
+-          .setTitle("Heroes")
+-          .setArtworkUri(artworkUri)
+-          .build()
+-      )
+-      .build()
++  MediaItem.Builder()
++    .setMediaId("media-1")
++    .setUri(mediaUri)
++    .setMediaMetadata(
++      MediaMetadata.Builder()
++        .setArtist("David Bowie")
++        .setTitle("Heroes")
++        .setArtworkUri(artworkUri)
++        .build()
++    )
++    .build()
+ 
+ mediaController.setMediaItem(mediaItem)
+ mediaController.prepare()
+@@ -336,22 +350,26 @@ called.
+ > [!NOTE]
+ > **Note:** The Android System UI resumption notification is only available if you implement a `MediaLibraryService` to [serve a content library](https://developer.android.com/media/media3/session/serve-content).
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ override fun onPlaybackResumption(
+-    mediaSession: MediaSession,
+-    controller: ControllerInfo,
+-    isForPlayback: Boolean,
+-): ListenableFuture<MediaItemsWithStartPosition> {
+-  val settable = SettableFuture.create<MediaItemsWithStartPosition>()
+-  scope.launch {
+-    // Your app is responsible for storing the playlist, metadata (like title
+-    // and artwork) of the current item and the start position to use here.
+-    val resumptionPlaylist = restorePlaylist()
+-    settable.set(resumptionPlaylist)
+-  }
+-  return settable
++  mediaSession: MediaSession,
++  controller: MediaSession.ControllerInfo,
++  isForPlayback: Boolean,
++): ListenableFuture<MediaSession.MediaItemsWithStartPosition> {
++  val settableFuture = SettableFuture.create<MediaSession.MediaItemsWithStartPosition>()
++  settableFuture.addListener(
++    {
++      // Your app is responsible for storing the playlist, metadata (like title
++      // and artwork) of the current item and the start position to use here.
++      val resumptionPlaylist = restorePlaylist()
++      settableFuture.set(resumptionPlaylist)
++    },
++    MoreExecutors.directExecutor(),
++  )
++  return settableFuture
+ }
+ ```
+ 
+@@ -360,17 +378,16 @@ override fun onPlaybackResumption(
+ ```java
+ @Override
+ public ListenableFuture<MediaItemsWithStartPosition> onPlaybackResumption(
+-    MediaSession mediaSession,
+-    ControllerInfo controller,
+-    boolean isForPlayback
+-) {
++    MediaSession mediaSession, ControllerInfo controller, boolean isForPlayback) {
+   SettableFuture<MediaItemsWithStartPosition> settableFuture = SettableFuture.create();
+-  settableFuture.addListener(() -> {
+-    // Your app is responsible for storing the playlist, metadata (like title
+-    // and artwork) of the current item and the start position to use here.
+-    MediaItemsWithStartPosition resumptionPlaylist = restorePlaylist();
+-    settableFuture.set(resumptionPlaylist);
+-  }, MoreExecutors.directExecutor());
++  settableFuture.addListener(
++      () -> {
++        // Your app is responsible for storing the playlist, metadata (like title
++        // and artwork) of the current item and the start position to use here.
++        MediaItemsWithStartPosition resumptionPlaylist = restorePlaylist();
++        settableFuture.set(resumptionPlaylist);
++      },
++      MoreExecutors.directExecutor());
+   return settableFuture;
+ }
+ ```
+@@ -429,12 +446,13 @@ For example, an app can provide an implementation of
+ `MediaSession.Callback.onConnect()` to set available commands and
+ media button preferences specifically for the platform session as follows:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ override fun onConnect(
+   session: MediaSession,
+-  controller: MediaSession.ControllerInfo
++  controller: MediaSession.ControllerInfo,
+ ): ConnectionResult {
+   if (session.isMediaNotificationController(controller)) {
+     val playerCommands =
+@@ -446,9 +464,7 @@ override fun onConnect(
+         .build()
+     // Custom button preferences and commands to configure the platform session.
+     return AcceptedResultBuilder(session)
+-      .setMediaButtonPreferences(
+-        listOf(seekBackButton, seekForwardButton)
+-      )
++      .setMediaButtonPreferences(listOf(seekBackButton, seekForwardButton))
+       .setAvailablePlayerCommands(playerCommands)
+       .build()
+   }
+@@ -474,8 +490,7 @@ public ConnectionResult onConnect(
+             .build();
+     // Custom button preferences and commands to configure the platform session.
+     return new AcceptedResultBuilder(session)
+-        .setMediaButtonPreferences(
+-            ImmutableList.of(seekBackButton, seekForwardButton))
++        .setMediaButtonPreferences(ImmutableList.of(seekBackButton, seekForwardButton))
+         .setAvailablePlayerCommands(playerCommands)
+         .build();
+   }
+@@ -496,24 +511,21 @@ and to support Android Auto with the mobile app, the Android Auto controller
+ requires appropriate available commands, otherwise Media3 would deny
+ incoming custom commands from that controller:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ override fun onConnect(
+   session: MediaSession,
+-  controller: MediaSession.ControllerInfo
++  controller: MediaSession.ControllerInfo,
+ ): ConnectionResult {
+   val sessionCommands =
+-    ConnectionResult.DEFAULT_SESSION_AND_LIBRARY_COMMANDS.buildUpon()
+-      .add(customCommand)
+-      .build()
++    ConnectionResult.DEFAULT_SESSION_COMMANDS.buildUpon().add(customCommand).build()
+   if (session.isMediaNotificationController(controller)) {
+-    // [...] See above.
++    // ... See above.
+   } else if (session.isAutoCompanionController(controller)) {
+-    // Available session commands to accept incoming custom commands from Auto.
+-    return AcceptedResultBuilder(session)
+-      .setAvailableSessionCommands(sessionCommands)
+-      .build()
++    // Available commands to accept incoming custom commands from Auto.
++    return AcceptedResultBuilder(session).setAvailableSessionCommands(sessionCommands).build()
+   }
+   // Default commands for all other controllers.
+   return AcceptedResultBuilder(session).build()
+@@ -527,12 +539,9 @@ override fun onConnect(
+ public ConnectionResult onConnect(
+     MediaSession session, MediaSession.ControllerInfo controller) {
+   SessionCommands sessionCommands =
+-      ConnectionResult.DEFAULT_SESSION_COMMANDS
+-          .buildUpon()
+-          .add(customCommand)
+-          .build();
++      ConnectionResult.DEFAULT_SESSION_COMMANDS.buildUpon().add(customCommand).build();
+   if (session.isMediaNotificationController(controller)) {
+-    // [...] See above.
++    // ... See above.
+   } else if (session.isAutoCompanionController(controller)) {
+     // Available commands to accept incoming custom commands from Auto.
+     return new AcceptedResultBuilder(session)

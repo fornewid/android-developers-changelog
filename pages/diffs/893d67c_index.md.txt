@@ -1,0 +1,34 @@
+diff --git a/docs/index.md b/docs/index.md
+index 4958d83..3c823e9 100644
+--- a/docs/index.md
++++ b/docs/index.md
+@@ -4,9 +4,12 @@ url: https://developer.android.com/
+ source: md.txt
+ ---
+ 
+-### Elevating AI assistance with LLM benchmarking
++![](https://developer.android.com/static/images/home/level-up-logo.png)
+ 
+-Check out Android Bench, our official benchmark of LLMs for Android development. [Read more](https://android-developers.googleblog.com/2026/03/elevating-ai-assisted-androi.html) [View leaderboard](http://developer.android.com/bench)
++### Level Up your game:
++Test Sidekick and prepare for upcoming milestones
++
++Discover the latest updates for the Google Play Games Level Up program, including new tools to optimize your game's reach, Sidekick testing, and a roadmap checklist to help secure your Level Up benefits. [Learn more](https://android-developers.googleblog.com/2026/03/level-up-your-game.html)
+ - [![](https://developer.android.com/static/images/logos/android.svg)
+   Download Android Studio](https://developer.android.com/studio)
+ - [![](https://developer.android.com/static/images/picto-icons/game-console.svg)
+@@ -17,11 +20,11 @@ Check out Android Bench, our official benchmark of LLMs for Android development.
+ 
+ ### [Keeping Google Play \& Android app ecosystems safe in 2025](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html)
+ 
+-Safety is at the heart of everything we do. We want developers to thrive and users to feel confident downloading apps. By investing in world-class defenses, we're stopping threats before they reach our digital world and providing stronger protections for your business. [Read more](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html) [![](http://developer.android.com/static/images/home/google-play-level-up.svg)](https://play.google.com/console/about/levelup) Featured
++Safety is at the heart of everything we do. We want developers to thrive and users to feel confident downloading apps. By investing in world-class defenses, we're stopping threats before they reach our digital world and providing stronger protections for your business. [Read more](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html) [![](http://developer.android.com/static/images/bench/hero.png)](http://developer.android.com/bench) Featured
+ 
+-### [Accelerate your games success with Google Play Games Level Up](https://play.google.com/console/about/levelup)
++### [Elevating AI assistance with LLM benchmarking](http://developer.android.com/bench)
+ 
+-Re-engage players, maximize reach, unlock deeper insights with Google Play Games Level Up. Check out all the benefits available today with the Level Up Program and stay tuned for the latest announcements during GDC Festival of Gaming week. [Learn more](https://play.google.com/console/about/levelup)
++Check out Android Bench, our official benchmark of LLMs for Android development. [View leaderboard](http://developer.android.com/bench)
+ 
+ ## Developer centers
+ 

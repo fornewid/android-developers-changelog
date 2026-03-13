@@ -1,0 +1,407 @@
+diff --git a/docs/media/media3/session/control-playback.md b/docs/media/media3/session/control-playback.md
+index 8885f45..1f37798 100644
+--- a/docs/media/media3/session/control-playback.md
++++ b/docs/media/media3/session/control-playback.md
+@@ -60,6 +60,7 @@ method of the `Service` that owns the media session and its associated player.
+ To create a media session, initialize a `Player` and supply it to
+ `MediaSession.Builder` like this:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -196,6 +197,7 @@ button defines three aspects of the desired UI element:
+ 2. The **Command** , defining the action triggered when the user interacts with the button. You can use `setPlayerCommand` for a `Player.Command`, or `setSessionCommand` for a predefined or custom `SessionCommand`.
+ 3. The **Slot** , defining where the button should be placed in the controller UI. This field is optional and automatically set based on the *Icon* and *Command*. For example, it allows to specify that a button should be displayed in the 'forward' navigation area of the UI instead of the default 'overflow' area.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -237,6 +239,7 @@ building the `MediaSession`. Alternatively, you can override
+ `MediaSession.Callback.onConnect` to customize the media button preferences for
+ each connected controller.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -250,9 +253,9 @@ val mediaSession =
+ 
+ ```java
+ MediaSession mediaSession =
+-  new MediaSession.Builder(context, player)
+-      .setMediaButtonPreferences(ImmutableList.of(likeButton, favoriteButton))
+-      .build();
++    new MediaSession.Builder(context, player)
++        .setMediaButtonPreferences(ImmutableList.of(likeButton, favoriteButton))
++        .build();
+ ```
+ 
+ <br />
+@@ -266,20 +269,19 @@ this button. To update the media button preferences, you can use
+ `MediaSession.setMediaButtonPreferences` to either update the preferences for
+ all controllers or a specific controller:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ // Handle "favoritesButton" action, replace by opposite button
+-mediaSession.setMediaButtonPreferences(
+-  ImmutableList.of(likeButton, removeFromFavoritesButton))
++mediaSession.setMediaButtonPreferences(ImmutableList.of(likeButton, removeFromFavoritesButton))
+ ```
+ 
+ ### Java
+ 
+ ```java
+ // Handle "favoritesButton" action, replace by opposite button
+-mediaSession.setMediaButtonPreferences(
+-    ImmutableList.of(likeButton, removeFromFavoritesButton));
++mediaSession.setMediaButtonPreferences(ImmutableList.of(likeButton, removeFromFavoritesButton));
+ ```
+ 
+ <br />
+@@ -305,21 +307,19 @@ To define custom commands, you need to override
+ `MediaSession.Callback.onConnect()` to set the available custom commands for
+ each connected controller.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-private class CustomMediaSessionCallback: MediaSession.Callback {
++private class CustomMediaSessionCallback : MediaSession.Callback {
++
+   // Configure commands available to the controller in onConnect()
+-  override fun onConnect(
+-    session: MediaSession,
+-    controller: MediaSession.ControllerInfo
+-  ): ConnectionResult {
+-    val sessionCommands = ConnectionResult.DEFAULT_SESSION_COMMANDS.buildUpon()
++  override fun onConnect(session: MediaSession, controller: ControllerInfo): ConnectionResult {
++    val sessionCommands =
++      ConnectionResult.DEFAULT_SESSION_COMMANDS.buildUpon()
+         .add(SessionCommand(SAVE_TO_FAVORITES, Bundle.EMPTY))
+         .build()
+-    return AcceptedResultBuilder(session)
+-        .setAvailableSessionCommands(sessionCommands)
+-        .build()
++    return AcceptedResultBuilder(session).setAvailableSessionCommands(sessionCommands).build()
+   }
+ }
+ ```
+@@ -327,14 +327,14 @@ private class CustomMediaSessionCallback: MediaSession.Callback {
+ ### Java
+ 
+ ```java
+-class CustomMediaSessionCallback implements MediaSession.Callback {
++private static class CustomMediaSessionCallback implements MediaSession.Callback {
++
+   // Configure commands available to the controller in onConnect()
+   @Override
+-  public ConnectionResult onConnect(
+-    MediaSession session,
+-    ControllerInfo controller) {
++  public ConnectionResult onConnect(MediaSession session, ControllerInfo controller) {
+     SessionCommands sessionCommands =
+-        ConnectionResult.DEFAULT_SESSION_COMMANDS.buildUpon()
++        ConnectionResult.DEFAULT_SESSION_COMMANDS
++            .buildUpon()
+             .add(new SessionCommand(SAVE_TO_FAVORITES, new Bundle()))
+             .build();
+     return new AcceptedResultBuilder(session)
+@@ -349,25 +349,25 @@ class CustomMediaSessionCallback implements MediaSession.Callback {
+ To receive custom command requests from a `MediaController`, override the
+ `onCustomCommand()` method in the `Callback`.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-private class CustomMediaSessionCallback: MediaSession.Callback {
+-  ...
++private class CustomCallback : MediaSession.Callback {
++  // ...
+   override fun onCustomCommand(
+     session: MediaSession,
+-    controller: MediaSession.ControllerInfo,
++    controller: ControllerInfo,
+     customCommand: SessionCommand,
+-    args: Bundle
++    args: Bundle,
+   ): ListenableFuture<SessionResult> {
+     if (customCommand.customAction == SAVE_TO_FAVORITES) {
+       // Do custom logic here
+       saveToFavorites(session.player.currentMediaItem)
+-      return Futures.immediateFuture(
+-        SessionResult(SessionResult.RESULT_SUCCESS)
+-      )
++      return Futures.immediateFuture(SessionResult(SessionResult.RESULT_SUCCESS))
+     }
+-    ...
++    // ...
++    return Futures.immediateFuture(SessionResult(SessionResult.RESULT_SUCCESS))
+   }
+ }
+ ```
+@@ -375,23 +375,21 @@ private class CustomMediaSessionCallback: MediaSession.Callback {
+ ### Java
+ 
+ ```java
+-class CustomMediaSessionCallback implements MediaSession.Callback {
+-  ...
++private static class CustomCallback implements MediaSession.Callback {
++  // ...
+   @Override
+   public ListenableFuture<SessionResult> onCustomCommand(
+-    MediaSession session, 
+-    ControllerInfo controller,
+-    SessionCommand customCommand,
+-    Bundle args
+-  ) {
+-    if(customCommand.customAction.equals(SAVE_TO_FAVORITES)) {
++      MediaSession session,
++      ControllerInfo controller,
++      SessionCommand customCommand,
++      Bundle args) {
++    if (customCommand.customAction.equals(SAVE_TO_FAVORITES)) {
+       // Do custom logic here
+       saveToFavorites(session.getPlayer().getCurrentMediaItem());
+-      return Futures.immediateFuture(
+-        new SessionResult(SessionResult.RESULT_SUCCESS)
+-      );
++      return Futures.immediateFuture(new SessionResult(SessionResult.RESULT_SUCCESS));
+     }
+-    ...
++    // ...
++    return Futures.immediateFuture(new SessionResult(SessionResult.RESULT_SUCCESS));
+   }
+ }
+ ```
+@@ -411,14 +409,14 @@ the `MediaSession`. To customize the behavior of a command defined in the
+ `Player` interface, such as `play()` or `seekToNext()`, wrap your `Player` in a
+ `ForwardingSimpleBasePlayer` before passing it to `MediaSession`:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-val player = (logic to build a Player instance)
+-
+-val forwardingPlayer = object : ForwardingSimpleBasePlayer(player) {
+-  // Customizations
+-}
++val forwardingPlayer =
++  object : ForwardingSimpleBasePlayer(player) {
++    // Customizations
++  }
+ 
+ val mediaSession = MediaSession.Builder(context, forwardingPlayer).build()
+ ```
+@@ -426,15 +424,11 @@ val mediaSession = MediaSession.Builder(context, forwardingPlayer).build()
+ ### Java
+ 
+ ```java
+-ExoPlayer player = (logic to build a Player instance)
+-
+-ForwardingSimpleBasePlayer forwardingPlayer =
+-    new ForwardingSimpleBasePlayer(player) {
++ForwardingSimpleBasePlayer forwardingPlayer = new ForwardingSimpleBasePlayer(player) {
+       // Customizations
+     };
+ 
+-MediaSession mediaSession =
+-  new MediaSession.Builder(context, forwardingPlayer).build();
++MediaSession mediaSession = new MediaSession.Builder(context, forwardingPlayer).build();
+ ```
+ 
+ <br />
+@@ -449,11 +443,12 @@ When a call to a `Player` method is originated by a `MediaController`, you can
+ identify the source of origin with `MediaSession.controllerForCurrentRequest`
+ and acquire the `ControllerInfo` for the current request:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-class CallerAwarePlayer(player: Player) :
+-  ForwardingSimpleBasePlayer(player) {
++private class CallerAwarePlayer(player: Player) : ForwardingSimpleBasePlayer(player) {
++  private lateinit var session: MediaSession
+ 
+   override fun handleSeek(
+     mediaItemIndex: Int,
+@@ -472,14 +467,15 @@ class CallerAwarePlayer(player: Player) :
+ ### Java
+ 
+ ```java
+-public class CallerAwarePlayer extends ForwardingSimpleBasePlayer {
++private static final class CallerAwarePlayer extends ForwardingSimpleBasePlayer {
++  private MediaSession session;
++
+   public CallerAwarePlayer(Player player) {
+     super(player);
+   }
+ 
+   @Override
+-  protected ListenableFuture<?> handleSeek(
+-        int mediaItemIndex, long positionMs, int seekCommand) {
++  protected ListenableFuture<?> handleSeek(int mediaItemIndex, long positionMs, int seekCommand) {
+     Log.d(
+         "caller",
+         "seek operation from package: "
+@@ -570,19 +566,18 @@ the error code, the error message, and error extras of a fatal playback error
+ coming from the actual player. It can be achieved by using a `ForwardingPlayer`
+ when building the session:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-val forwardingPlayer = ErrorForwardingPlayer(player)
+-val session = MediaSession.Builder(context, forwardingPlayer).build()
++val session = MediaSession.Builder(context, ErrorForwardingPlayer(context, player)).build()
+ ```
+ 
+ ### Java
+ 
+ ```java
+-Player forwardingPlayer = new ErrorForwardingPlayer(player);
+ MediaSession session =
+-    new MediaSession.Builder(context, forwardingPlayer).build();
++    new MediaSession.Builder(context, new ErrorForwardingPlayer(context, player)).build();
+ ```
+ 
+ <br />
+@@ -591,24 +586,23 @@ The forwarding player can use `ForwardingSimpleBasePlayer` to intercept the
+ error and customize the error code, message or extras. In the same way, you can
+ also generate new errors that don't exist in the original player:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-class ErrorForwardingPlayer (private val context: Context, player: Player) :
+-    ForwardingSimpleBasePlayer(player) {
++private class ErrorForwardingPlayer(private val context: Context, player: Player) :
++  ForwardingSimpleBasePlayer(player) {
+ 
+   override fun getState(): State {
+     var state = super.getState()
+     if (state.playerError != null) {
+       state =
+-        state.buildUpon()
+-          .setPlayerError(customizePlaybackException(state.playerError!!))
+-          .build()
++        state.buildUpon().setPlayerError(customizePlaybackException(state.playerError!!)).build()
+     }
+     return state
+   }
+ 
+-  fun customizePlaybackException(error: PlaybackException): PlaybackException {
++  private fun customizePlaybackException(error: PlaybackException): PlaybackException {
+     val buttonLabel: String
+     val errorMessage: String
+     when (error.errorCode) {
+@@ -631,7 +625,7 @@ class ErrorForwardingPlayer (private val context: Context, player: Player) :
+ ### Java
+ 
+ ```java
+-class ErrorForwardingPlayer extends ForwardingSimpleBasePlayer {
++private static class ErrorForwardingPlayer extends ForwardingSimpleBasePlayer {
+ 
+   private final Context context;
+ 
+@@ -645,9 +639,7 @@ class ErrorForwardingPlayer extends ForwardingSimpleBasePlayer {
+     State state = super.getState();
+     if (state.playerError != null) {
+       state =
+-          state.buildUpon()
+-              .setPlayerError(customizePlaybackException(state.playerError))
+-              .build();
++          state.buildUpon().setPlayerError(customizePlaybackException(state.playerError)).build();
+     }
+     return state;
+   }
+@@ -679,13 +671,15 @@ class ErrorForwardingPlayer extends ForwardingSimpleBasePlayer {
+ Nonfatal errors that do *not* originate from a technical exception can be sent
+ by an app to all or to a specific controller:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-val sessionError = SessionError(
+-  SessionError.ERROR_SESSION_AUTHENTICATION_EXPIRED,
+-  context.getString(R.string.error_message_authentication_expired),
+-)
++val sessionError =
++  SessionError(
++    SessionError.ERROR_SESSION_AUTHENTICATION_EXPIRED,
++    context.getString(R.string.error_message_authentication_expired),
++  )
+ 
+ // Option 1: Sending a nonfatal error to all controllers.
+ mediaSession.sendError(sessionError)
+@@ -693,17 +687,16 @@ mediaSession.sendError(sessionError)
+ // Option 2: Sending a nonfatal error to the media notification controller only
+ // to set the error code and error message in the playback state of the platform
+ // media session.
+-mediaSession.mediaNotificationControllerInfo?.let {
+-  mediaSession.sendError(it, sessionError)
+-}
++mediaSession.mediaNotificationControllerInfo?.let { mediaSession.sendError(it, sessionError) }
+ ```
+ 
+ ### Java
+ 
+ ```java
+-SessionError sessionError = new SessionError(
+-    SessionError.ERROR_SESSION_AUTHENTICATION_EXPIRED,
+-    context.getString(R.string.error_message_authentication_expired));
++SessionError sessionError =
++    new SessionError(
++        SessionError.ERROR_SESSION_AUTHENTICATION_EXPIRED,
++        context.getString(R.string.error_message_authentication_expired));
+ 
+ // Option 1: Sending a nonfatal error to all controllers.
+ mediaSession.sendError(sessionError);
+@@ -718,6 +711,8 @@ if (mediaNotificationControllerInfo != null) {
+ }
+ ```
+ 
++<br />
++
+ When a nonfatal error is sent to the media notification controller, the error
+ code and error message is replicated to the platform media session, while
+ `PlaybackState.state` is not changed to `STATE_ERROR`.
+@@ -727,16 +722,20 @@ code and error message is replicated to the platform media session, while
+ A `MediaController` receives a nonfatal error by implementing
+ `MediaController.Listener.onError`:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-val future = MediaController.Builder(context, sessionToken)
+-  .setListener(object : MediaController.Listener {
+-    override fun onError(controller: MediaController, sessionError: SessionError) {
+-      // Handle nonfatal error.
+-    }
+-  })
+-  .buildAsync()
++val future =
++  MediaController.Builder(context, sessionToken)
++    .setListener(
++      object : MediaController.Listener {
++        override fun onError(controller: MediaController, sessionError: SessionError) {
++          // Handle nonfatal error.
++        }
++      }
++    )
++    .buildAsync()
+ ```
+ 
+ ### Java

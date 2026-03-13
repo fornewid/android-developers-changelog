@@ -1,0 +1,28 @@
+diff --git a/docs/studio/run/emulator-troubleshooting.md b/docs/studio/run/emulator-troubleshooting.md
+index af70c32..d5ecd7d 100644
+--- a/docs/studio/run/emulator-troubleshooting.md
++++ b/docs/studio/run/emulator-troubleshooting.md
+@@ -283,6 +283,23 @@ You can work around this issue by
+ using the option `-dns-server 8.8.8.8` or `-dns.server 2001:4860:4860::8888` to
+ connect over an IPv6-only network.
+ 
++## No internet: MAC address conflict issues
++
++If multiple emulators have the same MAC address, only the first one launched
++will have internet access. This can happen if emulators were assigned the same
++ADB port during creation or if they were launched from the same snapshot.
++
++To resolve this, you can either wipe the data on the second AVD or
++create a new AVD.
++
++## Command line network configuration (`-netsim-args`) limitations
++
++You can only apply [command line network settings specified with `-netsim-args`](https://developer.android.com/studio/run/emulator-commandline#netsim-args)
++when you launch the *first* emulator instance. The emulator applies these
++settings to any subsequently launched emulators. You cannot configure different
++network settings using command line arguments for multiple emulators running
++concurrently.
++
+ ## Old issues (on deprecated emulators or old systems)
+ 
+ *** ** * ** ***

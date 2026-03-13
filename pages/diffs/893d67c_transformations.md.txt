@@ -1,0 +1,281 @@
+diff --git a/docs/media/media3/transformer/transformations.md b/docs/media/media3/transformer/transformations.md
+index cc5274e..5633b67 100644
+--- a/docs/media/media3/transformer/transformations.md
++++ b/docs/media/media3/transformer/transformations.md
+@@ -8,20 +8,20 @@ clips, apply video effects, and optimize exports.
+ keywords_public: Media3, Transformer, transcode, video editing, trimming, audio
+ processing, Android media
+ 
+-
+ ## Transcode between formats
+ 
+ You can specify the output audio and video formats you want to produce when
+ building Transformer. For example, the following code shows how
+ to configure Transformer to output H.264/AVC video and AAC audio:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ Transformer.Builder(context)
+-    .setVideoMimeType(MimeTypes.VIDEO_H264)
+-    .setAudioMimeType(MimeTypes.AUDIO_AAC)
+-    .build()
++  .setVideoMimeType(MimeTypes.VIDEO_H264)
++  .setAudioMimeType(MimeTypes.AUDIO_AAC)
++  .build()
+ ```
+ 
+ ### Java
+@@ -45,6 +45,7 @@ decoding and re-encoding in the same format.
+ 
+ Remove audio or video using `EditedMediaItem.Builder`, for example:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+@@ -65,16 +66,19 @@ You can remove any media outside specified start and end timestamps by setting
+ the clipping configuration on the input media item. For example, to produce a
+ clip containing only the media between 10 seconds and 20 seconds:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-val inputMediaItem = MediaItem.Builder()
++val inputMediaItem =
++  MediaItem.Builder()
+     .setUri(uri)
+     .setClippingConfiguration(
+-        MediaItem.ClippingConfiguration.Builder()
+-            .setStartPositionMs(10_000)
+-            .setEndPositionMs(20_000)
+-            .build())
++      MediaItem.ClippingConfiguration.Builder()
++        .setStartPositionMs(10_000)
++        .setEndPositionMs(20_000)
++        .build()
++    )
+     .build()
+ ```
+ 
+@@ -105,48 +109,41 @@ the undesired initial segment.
+ To make trim-only edits significantly faster, call
+ `experimentalSetMp4EditListTrimEnabled(true)`.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-Transformer.Builder(context)
+-    .experimentalSetMp4EditListTrimEnabled(true)
+-    .build()
++Transformer.Builder(context).experimentalSetMp4EditListTrimEnabled(true).build()
+ ```
+ 
+ ### Java
+ 
+ ```java
+-new Transformer.Builder(context)
+-    .experimentalSetMp4EditListTrimEnabled(true)
+-    .build();
++new Transformer.Builder(context).experimentalSetMp4EditListTrimEnabled(true).build();
+ ```
++It is important to note that not all media players support a "pre-roll" position. This means that when such a player is used, the file will start playback from the absolute beginning of the encoded sample, regardless of any edit list information that might specify a different starting point.
+ 
++<br />
+ 
+-It is important to note that not all media players support a "pre-roll" position.
+-This means that when such a player is used, the file will start playback from the
+-absolute beginning of the encoded sample, regardless of any edit list
+-information that might specify a different starting point.
+-| **Caution:** Trimming video often implies permanent removal of unwanted sections. However, using edit lists creates a privacy risk: users might unknowingly share sensitive, "deleted" information "hidden" by the "pre-roll" position.
++> [!CAUTION]
++> **Caution:** Trimming video often implies permanent removal of unwanted sections. However, using edit lists creates a privacy risk: users might unknowingly share sensitive, "deleted" information "hidden" by the "pre-roll" position.
+ 
+ ## Optimizing trims
+ 
+ To reduce the latency of trimming the beginning of a video, enable trim
+ optimization.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-Transformer.Builder(context)
+-    .experimentalSetTrimOptimizationEnabled(true)
+-    .build()
++Transformer.Builder(context).experimentalSetTrimOptimizationEnabled(true).build()
+ ```
+ 
+ ### Java
+ 
+ ```java
+-new Transformer.Builder(context)
+-    .experimentalSetTrimOptimizationEnabled(true)
+-    .build();
++new Transformer.Builder(context).experimentalSetTrimOptimizationEnabled(true).build();
+ ```
+ 
+ <br />
+@@ -180,23 +177,28 @@ You can rescale media, which can be useful to save on processing resources or
+ bandwidth when dealing with very high resolution input, such as 4k or 8k video.
+ For example, to scale proportionally to 480 pixels high:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ EditedMediaItem.Builder(MediaItem.fromUri(uri))
+-    .setEffects(Effects(
+-        /* audioProcessors= */ listOf(),
+-        /* videoEffects= */ listOf(Presentation.createForHeight(480))
+-    )).build()
++  .setEffects(
++    Effects(
++      /* audioProcessors= */ listOf(),
++      /* videoEffects= */ listOf(Presentation.createForHeight(480)),
++    )
++  )
++  .build()
+ ```
+ 
+ ### Java
+ 
+ ```java
+ new EditedMediaItem.Builder(MediaItem.fromUri(uri))
+-    .setEffects(new Effects(
+-        /* audioProcessors= */ ImmutableList.of(),
+-        /* videoEffects= */ ImmutableList.of(Presentation.createForHeight(480))))
++    .setEffects(
++        new Effects(
++            /* audioProcessors= */ ImmutableList.of(),
++            /* videoEffects= */ ImmutableList.of(Presentation.createForHeight(480))))
+     .build();
+ ```
+ 
+@@ -204,25 +206,32 @@ new EditedMediaItem.Builder(MediaItem.fromUri(uri))
+ 
+ Alternatively, you can scale by a given factor, for example, to halve the size:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-val editedMediaItem = EditedMediaItem.Builder(MediaItem.fromUri(uri))
+-    .setEffects(Effects(
++val editedMediaItem =
++  EditedMediaItem.Builder(MediaItem.fromUri(uri))
++    .setEffects(
++      Effects(
+         /* audioProcessors= */ listOf(),
+         /* videoEffects= */ listOf(
+-            ScaleAndRotateTransformation.Builder().setScale(.5f, .5f).build())
+-    )).build()
++          ScaleAndRotateTransformation.Builder().setScale(.5f, .5f).build()
++        ),
++      )
++    )
++    .build()
+ ```
+ 
+ ### Java
+ 
+ ```java
+ new EditedMediaItem.Builder(MediaItem.fromUri(uri))
+-    .setEffects(new Effects(
+-        /* audioProcessors= */ ImmutableList.of(),
+-        /* videoEffects= */ ImmutableList.of(
+-            new ScaleAndRotateTransformation.Builder().setScale(.5f, .5f).build())))
++    .setEffects(
++        new Effects(
++            /* audioProcessors= */ ImmutableList.of(),
++            /* videoEffects= */ ImmutableList.of(
++                new ScaleAndRotateTransformation.Builder().setScale(.5f, .5f).build())))
+     .build();
+ ```
+ 
+@@ -230,27 +239,31 @@ new EditedMediaItem.Builder(MediaItem.fromUri(uri))
+ 
+ You can configure rotation in the same way:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ EditedMediaItem.Builder(MediaItem.fromUri(uri))
+-    .setEffects(Effects(
+-        /* audioProcessors= */ listOf(),
+-        /* videoEffects= */ listOf(
+-            ScaleAndRotateTransformation.Builder()
+-                .setRotationDegrees(90f)
+-                .build())
+-    )).build()
++  .setEffects(
++    Effects(
++      /* audioProcessors= */ listOf(),
++      /* videoEffects= */ listOf(
++        ScaleAndRotateTransformation.Builder().setRotationDegrees(90f).build()
++      ),
++    )
++  )
++  .build()
+ ```
+ 
+ ### Java
+ 
+ ```java
+ new EditedMediaItem.Builder(MediaItem.fromUri(uri))
+-    .setEffects(new Effects(
+-        /* audioProcessors= */ ImmutableList.of(),
+-        /* videoEffects= */ ImmutableList.of(
+-            new ScaleAndRotateTransformation.Builder().setRotationDegrees(90f).build())))
++    .setEffects(
++        new Effects(
++            /* audioProcessors= */ ImmutableList.of(),
++            /* videoEffects= */ ImmutableList.of(
++                new ScaleAndRotateTransformation.Builder().setRotationDegrees(90f).build())))
+     .build();
+ ```
+ 
+@@ -286,15 +299,18 @@ configure an image as an input source, follow these steps:
+ The following example demonstrates how to configure an image input to generate a
+ 5-second video at 30 frames per second:
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+-val imageMediaItem = MediaItem.Builder()
++val imageMediaItem =
++  MediaItem.Builder()
+     .setUri(imageUri)
+     .setImageDurationMs(5000) // 5 seconds
+     .build()
+ 
+-val editedImageItem = EditedMediaItem.Builder(imageMediaItem)
++val editedImageItem =
++  EditedMediaItem.Builder(imageMediaItem)
+     .setFrameRate(30) // 30 frames per second
+     .build()
+ ```
+@@ -302,12 +318,12 @@ val editedImageItem = EditedMediaItem.Builder(imageMediaItem)
+ ### Java
+ 
+ ```java
+-MediaItem imageMediaItem = new MediaItem.Builder()
+-    .setUri(imageUri)
+-    .setImageDurationMs(5000) // 5 seconds
+-    .build();
+-
+-EditedMediaItem editedImageItem = new EditedMediaItem.Builder(imageMediaItem)
++MediaItem imageMediaItem =
++    new MediaItem.Builder()
++        .setUri(imageUri)
++        .setImageDurationMs(5000) // 5 seconds
++        .build();
++new EditedMediaItem.Builder(imageMediaItem)
+     .setFrameRate(30) // 30 frames per second
+     .build();
+ ```

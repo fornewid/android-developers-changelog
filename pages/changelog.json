@@ -1,5 +1,332 @@
 [
   {
+    "date": "2026-03-13T15:17:53Z",
+    "commit_hash": "893d67c",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/cars\" target=\"_blank\">Android for Cars</a>",
+        "path": "cars.md",
+        "summary": "The documentation for Android for Cars has been updated to reflect the design guidelines and resources. The links to the design sections have been updated to direct users to the respective design hubs, and the order has been re-arranged.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_cars.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/container-behavior\" target=\"_blank\">Set container behavior</a>",
+        "path": "develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md",
+        "summary": "The documentation for container behavior in Flexbox has been updated. The update replaces the assignment of flexbox properties with functions, such as `direction = FlexDirection.Column` to `direction(FlexDirection.Column)`. This change provides a more function-like approach to configuring Flexbox properties.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_container-behavior.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/get-started\" target=\"_blank\">Get started with FlexBox</a>",
+        "path": "develop/ui/compose/layouts/adaptive/flexbox/get-started.md",
+        "summary": "The documentation for FlexBox layouts has been updated. The Compose version has been bumped to 1.11.0-beta01. Additionally, the configuration syntax within the `FlexBox` composable has been updated to use function calls instead of direct property assignment, for example, `direction(FlexDirection.Column)` instead of `direction = FlexDirection.Column`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox/item-behavior\" target=\"_blank\">Set item behavior</a>",
+        "path": "develop/ui/compose/layouts/adaptive/flexbox/item-behavior.md",
+        "summary": "The documentation for `item-behavior.md` has been updated to reflect the use of functions `basis()`, `grow()`, `shrink()`, `alignSelf()`, and `order()` instead of properties `basis`, `grow`, `shrink`, `alignSelf`, and `order` within the `flex` modifier, which is part of the API change.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_item-behavior.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/wear-app-quality\" target=\"_blank\">Wear OS app quality</a>",
+        "path": "docs/quality-guidelines/wear-app-quality.md",
+        "summary": "The documentation was updated to remove the requirement to mention Wear OS in the Play listing description (WO-G2).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_wear-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/index\" target=\"_blank\">Android Mobile App Developer Tools - Android Developers</a>",
+        "path": "index.md",
+        "summary": "The documentation was updated to highlight the Google Play Games Level Up program with new testing tools and milestones, replacing the content related to LLM benchmarking.  Additionally, the featured image was updated for the 'Keeping Google Play & Android app ecosystems safe' section. These changes reflect an emphasis on game development resources and tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_index.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "The Android Studio version Panda 3 Canary has been updated from build 3 to build 4. The stable release date has been updated from March 9, 2026 to March 12, 2026.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/background-playback\" target=\"_blank\">Background playback with a MediaSessionService</a>",
+        "path": "media/media3/session/background-playback.md",
+        "summary": "This document underwent several updates. Key changes include clarifying the use of `Player` and `MediaSession` creation in `onCreate` lifecycle method in the service examples, updating the import for `UnstableApi`, and updating the `onPlaybackResumption` and `onConnect` methods for better functionality and clarity. Additionally, there were code style improvements, like removing unnecessary null checks and improving code formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_background-playback.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/connect-to-media-app\" target=\"_blank\">Connect to a media app</a>",
+        "path": "media/media3/session/connect-to-media-app.md",
+        "summary": "This document has been updated to include code blocks within the example code snippets for better readability and formatting. The code blocks are now clearly delineated using backticks for both Kotlin and Java examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_connect-to-media-app.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/control-playback\" target=\"_blank\">Control and advertise playback using a MediaSession</a>",
+        "path": "media/media3/session/control-playback.md",
+        "summary": "This document introduces changes related to handling errors, custom commands, and player customization within the Media3 session. It includes clarifications and examples on customizing errors through `ForwardingPlayer` and sending nonfatal errors to controllers.  It adds more Kotlin and Java code examples for better clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_control-playback.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/player\" target=\"_blank\">The Player Interface</a>",
+        "path": "media/media3/session/player.md",
+        "summary": "The documentation for the `player.md` file has been updated to include code examples to illustrate how to implement custom players. Specifically, the Kotlin and Java examples have been updated to include setting the `availableCommands` to `Commands.EMPTY` and to reflect some minor formatting changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_player.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/session/serve-content\" target=\"_blank\">Serve content with a MediaLibraryService</a>",
+        "path": "media/media3/session/serve-content.md",
+        "summary": "This document introduces several code examples and formatting changes to improve clarity and consistency in the documentation for serving media content with Media3. These include Kotlin and Java code modifications to declare command buttons, adding extra examples to explain the concepts, and the addition of a `maxCommandsForMediaItems` property.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_serve-content.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/transformer/customization\" target=\"_blank\">Customization</a>",
+        "path": "media/media3/transformer/customization.md",
+        "summary": "The documentation provides guidance on customizing Transformer behavior in Media3. It explains how to control codec configuration, such as disabling resolution fallback, and how to use custom encoding settings. It also covers how to integrate custom muxers for writing media containers, offering greater flexibility in media processing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_customization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/transformer/getting-started\" target=\"_blank\">Getting started</a>",
+        "path": "media/media3/transformer/getting-started.md",
+        "summary": "The documentation has been updated to remove code block formatting in the build.gradle example and improved formatting in the Kotlin example. These changes improve readability and code clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_getting-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/transformer/multi-asset\" target=\"_blank\">Multi-asset editing</a>",
+        "path": "media/media3/transformer/multi-asset.md",
+        "summary": "The documentation has been updated to improve readability and code formatting. The changes include reformatting the text, improved code examples in both Kotlin and Java, and corrected minor wording issues to enhance clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_multi-asset.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/transformer/supported-formats\" target=\"_blank\">Supported formats</a>",
+        "path": "media/media3/transformer/supported-formats.md",
+        "summary": "This document describes the supported media formats for the Android Media3 Transformer, including image and video formats, and special formats like HDR and slow motion video.  The changes include minor formatting adjustments, improved clarity, and updated code examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_supported-formats.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/transformer/tone-mapping\" target=\"_blank\">Tone mapping - Supporting HDR and SDR content</a>",
+        "path": "media/media3/transformer/tone-mapping.md",
+        "summary": "This document provides information on tone mapping when using the Transformer in the Media3 library. It explains how to handle High Dynamic Range (HDR) and Standard Dynamic Range (SDR) content and outlines different options for tone mapping, including MediaCodec, OpenGL, and interpreting HDR as SDR, along with their respective advantages and disadvantages. The changes primarily focus on formatting the existing content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_tone-mapping.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/transformer/transformations\" target=\"_blank\">Transformations</a>",
+        "path": "media/media3/transformer/transformations.md",
+        "summary": "The documentation has been updated with minor formatting changes, code style improvements, and the addition of a warning about potential privacy risks associated with using edit lists for trimming videos. It also includes an additional note about how not all media players support a \"pre-roll\" position.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_transformations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/transformer/troubleshooting\" target=\"_blank\">Troubleshooting</a>",
+        "path": "media/media3/transformer/troubleshooting.md",
+        "summary": "This document introduces improvements to the troubleshooting documentation for the Media3 Transformer. Changes include clarifying how to access local files, improving explanations of remote media transformation, and providing guidance on how to reduce export latency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_troubleshooting.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/archive\" target=\"_blank\">Android Studio download archives</a>",
+        "path": "studio/archive.md",
+        "summary": "The `archive.md` file was updated with a new iframe source. This change likely reflects an update to the content of the embedded frame, which may include updated archive information or a change in the way the information is presented.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/emulator_archive\" target=\"_blank\">Emulator download archives</a>",
+        "path": "studio/emulator_archive.md",
+        "summary": "The embedded iframe source URL has been updated. This change likely reflects an update to the referenced content, such as a video or interactive guide related to the Android emulator archive process, improving the user experience.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_emulator_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated to reflect the latest nightly build date, changing all instances of \"2026-03-12\" to \"2026-03-13\" in download links and file names. This ensures users are directed to the most recent nightly build of Android Studio.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">Android Studio Preview</a>",
+        "path": "studio/preview.md",
+        "summary": "The document was updated to reflect the latest Android Studio Canary build version, from 2025.3.3 Canary 3 to Canary 4, including corresponding download links and filenames for Windows, macOS (Apple and Intel chips), and Linux.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/emulator\" target=\"_blank\">Emulator release notes</a>",
+        "path": "studio/releases/emulator.md",
+        "summary": "This update to the Android Emulator documentation describes a patch release (36.4.10) addressing a crash on the TV Emulator related to hovering after updating to Panda 2. This is important for users of the TV Emulator to ensure stability after updating.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_emulator.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/36\" target=\"_blank\">Android Emulator 36 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/36.md",
+        "summary": "This update introduces the Android Emulator 36.4.10 Stable release, highlighting that the release includes minor fixes and improvements. It also includes the update for Android Emulator 36.5.7 Canary release with minor fixes and improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_36.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.3\" target=\"_blank\">Android Studio Panda 3 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2025.3.3.md",
+        "summary": "This document outlines the bug fixes implemented in Android Studio Panda 3, specifically Canary builds 3 and 4 of the 2025.3.3 release.  Notable fixes include issues related to the Android Gradle Plugin, CoordinatorLayout, and Multiplatform projects, addressing problems with APK renaming, bootClasspath evaluation, layout behavior, and resource prefix support.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_2025.3.3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/devsite-two-way-merge-new\" target=\"_blank\">Extended controls, settings, and help</a>",
+        "path": "studio/run/devsite-two-way-merge-new.md",
+        "summary": "This document provides a comprehensive guide to the Android Emulator's Extended controls, detailing features for display management, network simulation, battery modeling, location spoofing, and more. It explains how to utilize these controls to test various aspects of an Android application within the emulator environment.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-commandline\" target=\"_blank\">Start the emulator from the command line</a>",
+        "path": "studio/run/emulator-commandline.md",
+        "summary": "This document provides an overview of command-line features for the Android Emulator. It includes updated information on starting the emulator, installing apps using ADB, and understanding the emulator's directory structure, including system and data directories.  The changes provide clearer explanations and updated file paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_emulator-commandline.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-comparison\" target=\"_blank\">Comparison of Android Emulator tools</a>",
+        "path": "studio/run/emulator-comparison.md",
+        "summary": "This document provides a comparison of tasks that can be performed using the Android Emulator UI, AVD Manager, command-line startup options, and the Emulator console. The updated content refines the introductory explanation, clarifying the table's purpose of comparing features and how they relate across the different emulator tools. Additionally, it improves the formatting and readability by replacing the first table header with a more concise statement.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_emulator-comparison.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-console\" target=\"_blank\">Send emulator console commands</a>",
+        "path": "studio/run/emulator-console.md",
+        "summary": "The documentation for the emulator console has been updated to clarify the purpose of the console, providing a clearer introduction to the topic. Additionally, the description of the `network` command has been refined to specify that it manages ethernet and cellular network settings only, and the command reference section has been updated for better clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_emulator-console.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-extended-controls\" target=\"_blank\">Extended controls, settings, and help</a>",
+        "path": "studio/run/emulator-extended-controls.md",
+        "summary": "This document describes the extended controls available in the Android Emulator. The changes update the documentation by clarifying the Settings > Proxy section to point to a more detailed guide on using proxies with the emulator.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_emulator-extended-controls.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-networking-address\" target=\"_blank\">Network address space</a>",
+        "path": "studio/run/emulator-networking-address.md",
+        "summary": "This document introduces the Android emulator's networking architecture and explains how the emulator manages network addresses, particularly within the 10.0.2/24 address space, and how to access services running on the host machine.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-networking-advanced\" target=\"_blank\">Advanced emulator networking features</a>",
+        "path": "studio/run/emulator-networking-advanced.md",
+        "summary": "This document introduces the Android Emulator's network simulator, detailing command-line options for advanced network testing and debugging. It explains how to control network behavior, capture packets, and configure Wi-Fi and RSSI settings within the emulator.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-networking-dns\" target=\"_blank\">Configure emulator DNS settings</a>",
+        "path": "studio/run/emulator-networking-dns.md",
+        "summary": "This document introduces how the Android emulator handles DNS resolution by reading system DNS settings and providing aliases for DNS servers, and explains how to manually configure DNS servers using the `-dns-server` option to resolve potential network issues within the emulator.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-networking-interconnect\" target=\"_blank\">Interconnecting Emulator instances</a>",
+        "path": "studio/run/emulator-networking-interconnect.md",
+        "summary": "This document introduces a new page that explains how to connect multiple Android Emulator instances for multi-device testing. It details the networking changes across different emulator versions, including the simplified Wi-Fi based networking for recent versions and the port redirection method for older versions.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-networking-proxy\" target=\"_blank\">Set up Proxy with the Android Emulator</a>",
+        "path": "studio/run/emulator-networking-proxy.md",
+        "summary": "This new documentation page introduces the Android Emulator's proxy configurations, detailing the Android System Proxy for application debugging and the Emulator Proxy for firewall traversal.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-networking-voice\" target=\"_blank\">Send a voice call or SMS to another emulator instance</a>",
+        "path": "studio/run/emulator-networking-voice.md",
+        "summary": "This new documentation explains how to simulate voice calls and SMS messages between different Android emulator instances using their console port numbers.  This allows developers to test telephony-related features, such as call handling and SMS functionality, within the emulator environment.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-networking\" target=\"_blank\">Android Emulator networking</a>",
+        "path": "studio/run/emulator-networking.md",
+        "summary": "The documentation now provides a table that summarizes the networking capabilities of the Android Emulator, including Ethernet, Wi-Fi, Cellular, Bluetooth, and UWB, along with their corresponding API level requirements.  It also includes a footnote about a specific version of the emulator.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_emulator-networking.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-troubleshooting\" target=\"_blank\">Troubleshoot known issues with Android Emulator</a>",
+        "path": "studio/run/emulator-troubleshooting.md",
+        "summary": "The documentation was updated to include troubleshooting steps for common emulator network issues. Specifically, it addresses issues related to MAC address conflicts causing internet access problems and clarifies limitations when using the `-netsim-args` command-line option for network configuration across multiple emulator instances.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_emulator-troubleshooting.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/managing-avds\" target=\"_blank\">Create and manage virtual devices</a>",
+        "path": "studio/run/managing-avds.md",
+        "summary": "The documentation for managing AVDs was updated to clarify the terminology used in the \"Network: Speed\" and \"Network: Latency\" settings. The term \"network protocol\" was replaced with \"cellular technology\" to better reflect the available options for network speed and latency configurations within the Android emulator.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_managing-avds.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/testing/emulator\" target=\"_blank\">Test using the Android Automotive OS emulator</a>",
+        "path": "training/cars/testing/emulator.md",
+        "summary": "A minor change was made to the emulator.md documentation, adding a number to the list of features. This change appears to be trivial and does not significantly impact the overall content or functionality described in the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/893d67c_emulator.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-12T15:20:47Z",
     "commit_hash": "627c2fc",
     "entries": [

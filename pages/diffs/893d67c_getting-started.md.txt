@@ -1,0 +1,122 @@
+diff --git a/docs/media/media3/transformer/getting-started.md b/docs/media/media3/transformer/getting-started.md
+index c9fe92c..ec7b56a 100644
+--- a/docs/media/media3/transformer/getting-started.md
++++ b/docs/media/media3/transformer/getting-started.md
+@@ -24,19 +24,15 @@ on the library in the `build.gradle` file of your app module:
+ 
+ ### Kotlin
+ 
+-```kotlin
+-implementation("androidx.media3:media3-transformer:1.9.2")
+-implementation("androidx.media3:media3-effect:1.9.2")
+-implementation("androidx.media3:media3-common:1.9.2")
+-```
++    implementation("androidx.media3:media3-transformer:1.9.2")
++    implementation("androidx.media3:media3-effect:1.9.2")
++    implementation("androidx.media3:media3-common:1.9.2")
+ 
+ ### Groovy
+ 
+-```groovy
+-implementation "androidx.media3:media3-transformer:1.9.2"
+-implementation "androidx.media3:media3-effect:1.9.2"
+-implementation "androidx.media3:media3-common:1.9.2"
+-```
++    implementation "androidx.media3:media3-transformer:1.9.2"
++    implementation "androidx.media3:media3-effect:1.9.2"
++    implementation "androidx.media3:media3-common:1.9.2"
+ 
+ where 1.9.2 is your preferred version. The latest version can be
+ found by consulting the [release
+@@ -65,13 +61,14 @@ Here's an example of creating an `EditedMediaItem` to remove audio for an input
+ file, then creating and configuring a `Transformer` instance to export
+ H.265/HEVC video, outputting the result to `outputPath`.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ val inputMediaItem = MediaItem.fromUri("path_to_input_file")
+-val editedMediaItem =
+-    EditedMediaItem.Builder(inputMediaItem).setRemoveAudio(true).build()
+-val transformer = Transformer.Builder(context)
++val editedMediaItem = EditedMediaItem.Builder(inputMediaItem).setRemoveAudio(true).build()
++val transformer =
++  Transformer.Builder(context)
+     .setVideoMimeType(MimeTypes.VIDEO_H265)
+     .addListener(transformerListener)
+     .build()
+@@ -121,20 +118,24 @@ methods on the application thread.
+ The `start` method is asynchronous. It returns immediately and the app is
+ notified of events through the listener passed to the `Transformer` builder.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ val transformerListener: Transformer.Listener =
+-    object : Transformer.Listener {
+-  override fun onCompleted(composition: Composition, result: ExportResult) {
+-    playOutput()
+-  }
++  object : Transformer.Listener {
++    override fun onCompleted(composition: Composition, result: ExportResult) {
++      playOutput()
++    }
+ 
+-  override fun onError(composition: Composition, result: ExportResult,
+-                       exception: ExportException) {
+-    displayError(exception)
++    override fun onError(
++      composition: Composition,
++      result: ExportResult,
++      exception: ExportException,
++    ) {
++      displayError(exception)
++    }
+   }
+-}
+ ```
+ 
+ ### Java
+@@ -148,8 +149,8 @@ Transformer.Listener transformerListener =
+       }
+ 
+       @Override
+-      public void onError(Composition composition, ExportResult result,
+-          ExportException exception) {
++      public void onError(
++          Composition composition, ExportResult result, ExportException exception) {
+         displayError(exception);
+       }
+     };
+@@ -169,21 +170,22 @@ updated with the current progress percentage. The following example shows how to
+ periodically query the progress of a transformation, where the
+ `updateProgressInUi` method can be implemented to update a progress bar.
+ 
++
+ ### Kotlin
+ 
+ ```kotlin
+ transformer.start(inputMediaItem, outputPath)
+ val progressHolder = ProgressHolder()
+ mainHandler.post(
+-    object : Runnable {
+-      override fun run() {
+-        val progressState: @ProgressState Int = transformer.getProgress(progressHolder)
+-        updateProgressInUi(progressState, progressHolder)
+-        if (progressState != Transformer.PROGRESS_STATE_NOT_STARTED) {
+-          mainHandler.postDelayed(/* r= */this,  /* delayMillis= */500)
+-        }
++  object : Runnable {
++    override fun run() {
++      val progressState: @ProgressState Int = transformer.getProgress(progressHolder)
++      updateProgressInUi(progressState, progressHolder)
++      if (progressState != Transformer.PROGRESS_STATE_NOT_STARTED) {
++        mainHandler.postDelayed(/* r= */ this, /* delayMillis= */ 500)
+       }
+     }
++  }
+ )
+ ```
+ 

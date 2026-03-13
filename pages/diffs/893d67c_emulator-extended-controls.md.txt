@@ -1,0 +1,36 @@
+diff --git a/docs/studio/run/emulator-extended-controls.md b/docs/studio/run/emulator-extended-controls.md
+index 9fa1e69..b37fe19 100644
+--- a/docs/studio/run/emulator-extended-controls.md
++++ b/docs/studio/run/emulator-extended-controls.md
+@@ -4,16 +4,15 @@ url: https://developer.android.com/studio/run/emulator-extended-controls
+ source: md.txt
+ ---
+ 
+-Use the extended controls on the Android Emulator to send data, change device properties, control apps, and more. To open the **Extended controls** window,
+-click **More**
+-![Emulator extended controls icon](https://developer.android.com/static/studio/images/buttons/emulator-extended-controls.png)
+-in the emulator panel. Note that some of these extended control options are
+-only available when you
+-[run the emulator in a separate window](https://developer.android.com/studio/run/emulator-extended-controls#standalone-window),
+-outside of Android Studio.
++Use the extended controls on the Android Emulator to send data, change device
++properties, control apps, and more. To open the **Extended controls** window,
++click **More** ![Emulator extended controls icon](https://developer.android.com/static/studio/images/buttons/emulator-extended-controls.png) in the emulator panel. Note that
++some of these extended control options are only available when you [run the
++emulator in a separate window](https://developer.android.com/studio/run/emulator-extended-controls#standalone-window), outside of Android Studio.
+ 
+ You can use keyboard shortcuts to perform many of these tasks. For a complete
+ list of shortcuts in the emulator, press <kbd>F1</kbd> (<kbd>Command</kbd>+<kbd>/</kbd>
++
+ on macOS) to open the Help pane.
+ 
+ **Table 1.** Extended controls details
+@@ -35,7 +34,7 @@ on macOS) to open the Help pane.
+ | Record and Playback | See [Record the screen](https://developer.android.com/studio/run/emulator-record-screen). |
+ | Google Play | When the AVD system image includes the Play Store app, this displays the Google Play services version information. |
+ | Settings \> General | - **Emulator window theme** : Select **Light** or **Dark**. - **Send keyboard shortcuts to:** By default, some keyboard combinations trigger emulator control shortcuts. If you're developing an app that includes keyboard shortcuts, such as one targeted at devices with Bluetooth keyboards, you can change this setting to send *all* keyboard input to the virtual device, including input that would be a shortcut in the emulator. - **Screenshot save location**: Click the folder icon to specify a location to save screenshots of the emulator screen. - **Use detected ADB location** : If you're running the emulator from Android Studio, select this setting (the default). If you run the emulator from outside Android Studio and want it to use a specific `adb` executable, deselect this option and specify the SDK Tools location. If this setting is incorrect, features such as screenshot capture and drag-and-drop app installation don't work. - **When to send crash reports** : Select **Always** , **Never** , or **Ask**. - **Show window frame around device**: By default, emulators with device skin files are shown without a surrounding window frame. |
+-| Settings \> Proxy | By default, the emulator uses the Android Studio HTTP proxy settings. This screen lets you manually define an HTTP proxy configuration for the emulator. For more information, see [Use the emulator with a proxy](https://developer.android.com/studio/run/emulator-networking#proxy). |
++| Settings \> Proxy | See [Using Proxies with the Android Emulator](https://developer.android.com/studio/run/emulator-networking-proxy) for more detail. |
+ | Settings \> Advanced | - **Graphics Acceleration** : Select the graphics acceleration type. - **Autoselect**: Automatically select hardware or software graphics acceleration based on your system configuration. The emulator evaluates your GPU capabilities and driver compatibility to determine the most stable backend. - **Software**: Selects the optimal software rendering drivers based on your AVD configuration, requested features, and quality metrics of the emulator. - **Hardware**: Leverages your computer's GPU for maximum performance. Recommended for performance, though some hardware configurations may experience compatibility errors. For finer control over the graphics backend selection, you can use [`-gpu` command line option](https://developer.android.com/studio/run/emulator-acceleration#command-gpu). - **OpenGL ES API level** : Select the maximum version of OpenGL ES to use in the emulator. - **Autoselect**: Let the emulator choose the OpenGL ES version based on the host and guest support. - **Renderer maximum (up to OpenGL ES 3.1)**: Attempt to use the maximum version of OpenGL ES. - **Compatibility (OpenGL ES 1.1/2.0)**: Use the version of OpenGL ES that is compatible with most environments. |
+ | Help \> Keyboard Shortcuts (Emulator standalone) | This pane provides a complete list of keyboard shortcuts for the emulator. To open this pane while working in the emulator, press <kbd>F1</kbd> (<kbd>Command</kbd>+<kbd>/</kbd> on macOS). For the shortcuts to work, the **Send keyboard shortcuts** option in the **General** settings pane must be set to **Emulator controls (default)**. This menu option isn't available when the emulator is running in embedded mode with Android Studio. If you're using the emulator in embedded mode, you can find the keyboard shortcuts at **File** (**Android Studio** on macOS) **\> Settings \> Keymap** under **Running Devices**. |
+ | Help \> Emulator Help (Emulator standalone) | To go to the online documentation for the emulator, click **Documentation**. To file a bug against the emulator, click **Send feedback** . For more information, learn [how to report emulator bugs](https://developer.android.com/studio/report-bugs#emulator-bugs). This menu option isn't available when the emulator is running in embedded mode with Android Studio. If you're using the emulator in embedded mode, open the bug template by clicking **Help \> Submit a Bug Report** and manually add the [details for Android Emulator bugs](https://developer.android.com/studio/report-bugs#emulator-bugs). |

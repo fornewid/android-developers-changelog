@@ -1,0 +1,32 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md b/docs/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md
+index ca149d2..e6c78e2 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md
++++ b/docs/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md
+@@ -11,11 +11,11 @@ block and supply it using the `config` parameter.
+ ```kotlin
+ FlexBox(
+     config = {
+-        direction = FlexDirection.Column
+-        wrap = FlexWrap.Wrap
+-        alignItems = FlexAlignItems.Center
+-        alignContent = FlexAlignContent.SpaceAround
+-        justifyContent = FlexJustifyContent.Center
++        direction(FlexDirection.Column)
++        wrap(FlexWrap.Wrap)
++        alignItems(FlexAlignItems.Center)
++        alignContent(FlexAlignContent.SpaceAround)
++        justifyContent(FlexJustifyContent.Center)
+         gap(16.dp)
+     }
+ ) { // child items
+@@ -29,8 +29,8 @@ alignment, and gaps between items.
+ 
+ ## Layout direction
+ 
+-The `direction` property defines the main axis, which dictates the direction
+-items are laid out in.
++The `direction` function sets the main axis, which dictates the direction
++items are laid out in. It accepts the following values:
+ 
+ - `Row` (default): Sets the main axis to be horizontal. In left-to-right locales this will be left-to-right, with the opposite in right-to-left.
+ - `RowReverse`: Reverses the direction of `Row`.
