@@ -4,8 +4,6 @@ url: https://developer.android.com/media/media3/exoplayer/oems
 source: md.txt
 ---
 
-# OEM testing
-
 ExoPlayer is used by a large number of Android apps. As an OEM, it's
 important to ensure that ExoPlayer works correctly both on new devices, and on
 new platform builds for existing devices. This page describes compatibility
@@ -20,13 +18,13 @@ Android Studio.
 
 ### Command line
 
-From the root directory, build and install the playback tests:  
+From the root directory, build and install the playback tests:
 
 ```
 ./gradlew :test-exoplayer-playback:installDebug
 ```
 
-Next, run the playback tests in the GTS package:  
+Next, run the playback tests in the GTS package:
 
 ```
 adb shell am instrument -w -r -e debug false \
@@ -50,7 +48,7 @@ will add to this list as further failure modes are discovered.
 
 ### Unexpected video buffer presentation timestamp
 
-Logcat will contain an error similar to:  
+Logcat will contain an error similar to:
 
     Caused by: java.lang.IllegalStateException: Expected to dequeue video buffer
     with presentation timestamp: 134766000. Instead got: 134733000 (Processed
@@ -66,7 +64,7 @@ correctly handles adaptive resolution switches without discarding any buffers.
 
 ### Too many dropped buffers
 
-Logcat will contain an error similar to:  
+Logcat will contain an error similar to:
 
     junit.framework.AssertionFailedError: Codec(DashTest:Video) was late decoding:
     200 buffers. Limit: 25.
@@ -83,7 +81,7 @@ them up.
 
 ### Native window could not be authenticated
 
-Logcat will contain an error similar to:  
+Logcat will contain an error similar to:
 
     SurfaceUtils: native window could not be authenticated
     ExoPlayerImplInternal: Internal runtime error.
@@ -94,7 +92,7 @@ bit flag.
 
 ### Test timed out
 
-Logcat will contain an error similar to:  
+Logcat will contain an error similar to:
 
     AssertionFailedError: Test timed out after 300000 ms.
 

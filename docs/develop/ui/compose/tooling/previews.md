@@ -321,7 +321,7 @@ Start by creating your own custom annotation class:
     group = "font scales",
     fontScale = 1.5f
 )
-annotation class FontScalePreviewshttps://github.com/android/snippets/blob/48adb119f98d1fef9d761ab2415e317ce0bb6a9a/compose/snippets/src/main/java/com/example/compose/snippets/tooling/AndroidStudioComposeSnippets.kt#L63-L73
+annotation class FontScalePreviewshttps://github.com/android/snippets/blob/2e71c4f00839800811b83aa43bf03a99b6f95b73/compose/snippets/src/main/java/com/example/compose/snippets/tooling/AndroidStudioComposeSnippets.kt#L63-L73
 ```
 
 <br />

@@ -122,7 +122,7 @@ Button(
     // ...
     onClick = myClickFunction
 )
-// ...https://github.com/android/snippets/blob/48adb119f98d1fef9d761ab2415e317ce0bb6a9a/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L99-L105
+// ...https://github.com/android/snippets/blob/2e71c4f00839800811b83aa43bf03a99b6f95b73/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L99-L105
 ```
 
 <br />
@@ -311,7 +311,7 @@ state-backed properties:
 var showDialog by remember { mutableStateOf(false) }
 
 // Updating the var automatically triggers a state change
-showDialog = truehttps://github.com/android/snippets/blob/48adb119f98d1fef9d761ab2415e317ce0bb6a9a/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L201-L204
+showDialog = truehttps://github.com/android/snippets/blob/2e71c4f00839800811b83aa43bf03a99b6f95b73/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L201-L204
 ```
 
 <br />
@@ -343,7 +343,7 @@ val mary = Person(name = "Mary", age = 35)
 
 // ...
 
-val (name, age) = maryhttps://github.com/android/snippets/blob/48adb119f98d1fef9d761ab2415e317ce0bb6a9a/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L214-L218
+val (name, age) = maryhttps://github.com/android/snippets/blob/2e71c4f00839800811b83aa43bf03a99b6f95b73/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L214-L218
 ```
 
 <br />

@@ -115,7 +115,7 @@ fun MessageDetail(id: String) {
         contentPadding = padding
     ) { scaffoldPaddingValues ->
         // Screen content goes here
-        // ...https://github.com/android/snippets/blob/48adb119f98d1fef9d761ab2415e317ce0bb6a9a/wear/src/main/java/com/example/wear/snippets/m3/navigation/Navigation.kt#L64-L110
+        // ...https://github.com/android/snippets/blob/2e71c4f00839800811b83aa43bf03a99b6f95b73/wear/src/main/java/com/example/wear/snippets/m3/navigation/Navigation.kt#L64-L110
 ```
 
 To learn more about Jetpack Navigation, see

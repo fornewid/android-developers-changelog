@@ -181,10 +181,23 @@ without requiring a connector.
    > [!NOTE]
    > **Note:** In case your app is using a different player than `ExoPlayer`, you need a custom `Player` implementation that you can pass to the `MediaSession` that is wrapping your player. We will provide more guidance around a minimal `Player` implementation that works together with the media session implementation.
 
-       val player = ExoPlayer.Builder(context).build()
-       mediaSession = MediaSession.Builder(context, player)
-           .setSessionCallback(MySessionCallback())
-           .build()
+
+   ### Kotlin
+
+   ```kotlin
+   val player = ExoPlayer.Builder(context).build()
+   mediaSession = MediaSession.Builder(context, player).setCallback(MySessionCallback()).build()
+   ```
+
+   ### Java
+
+   ```java
+   ExoPlayer player = new ExoPlayer.Builder(context).build();
+   mediaSession =
+       new MediaSession.Builder(context, player).setCallback(new MySessionCallback()).build();
+   ```
+
+   <br />
 
    > [!NOTE]
    > **Note:** You can intercept any playback operation on a `Player` by wrapping it in a `ForwardingSimpleBasePlayer(player)`. See [more information about
@@ -203,11 +216,28 @@ without requiring a connector.
 6. Release the media session at the code site where you destroyed your session
    before the migration:
 
-       mediaSession?.run {
-         player.release()
-         release()
-         mediaSession = null
-       }
+
+   ### Kotlin
+
+   ```kotlin
+   mediaSession?.run {
+     player.release()
+     release()
+     mediaSession = null
+   }
+   ```
+
+   ### Java
+
+   ```java
+   if (mediaSession != null) {
+     mediaSession.getPlayer().release();
+     mediaSession.release();
+     mediaSession = null;
+   }
+   ```
+
+   <br />
 
    > [!NOTE]
    > **Note:** It's important to release the media session before creating a new one with the same ID. Media3 throws an exception if an app is leaking a session instance.
@@ -283,9 +313,21 @@ using a `MediaLibraryService` or a legacy `MediaBrowserServiceCompat`.
 
      The callback is then used to build the `MediaLibrarySession`:
 
-         mediaLibrarySession =
-               MediaLibrarySession.Builder(this, player, MySessionCallback())
-                  .build()
+
+     ### Kotlin
+
+     ```kotlin
+     mediaLibrarySession = MediaLibrarySession.Builder(context, player, MySessionCallback()).build()
+     ```
+
+     ### Java
+
+     ```java
+     mediaLibrarySession =
+         new MediaLibrarySession.Builder(context, player, new MySessionCallback()).build();
+     ```
+
+     <br />
 
      Find the [full API of the MediaLibrarySessionCallback](https://github.com/androidx/media/blob/1.9.2/libraries/session/src/main/java/androidx/media3/session/MediaLibraryService.java#L127) in the API
      documentation.
@@ -341,20 +383,32 @@ the `MediaBrowser` in Media3.
 A `MediaBrowser` can be built and await for the connection to the
 service being established:
 
-    scope.launch {
-        val sessionToken =
-            SessionToken(context, ComponentName(context, MusicService::class.java)
-        browser =
-            MediaBrowser.Builder(context, sessionToken))
-                .setListener(BrowserListener())
-                .buildAsync()
-                .await()
-        // Get the library root to start browsing the library.
-        root = browser.getLibraryRoot(/* params= */ null).await();
-        // Add a MediaController.Listener to listen to player state events.
-        browser.addListener(playerListener)
-        playerView.setPlayer(browser)
-    }
+
+### Kotlin
+
+```kotlin
+scope.launch {
+  val sessionToken = SessionToken(context, ComponentName(context, "MusicService"))
+  browser =
+    MediaBrowser.Builder(context, sessionToken)
+      .setListener(BrowserListener())
+      .buildAsync()
+      .await()
+}
+```
+
+### Java
+
+```java
+SessionToken sessionToken =
+    new SessionToken(context, new ComponentName(context, "MusicService"));
+ListenableFuture<MediaBrowser> browserFuture =
+    new MediaBrowser.Builder(context, sessionToken)
+        .setListener(new BrowserListener())
+        .buildAsync();
+```
+
+<br />
 
 Take a look into
 [*Control playback in the media session*](https://developer.android.com/media/media3/exoplayer/playing-in-background#controlling-playback)

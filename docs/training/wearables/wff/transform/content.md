@@ -40,7 +40,7 @@ example:
     <Default>
         <!-- content -->
     </Default>
-</Condition>https://github.com/android/snippets/blob/48adb119f98d1fef9d761ab2415e317ce0bb6a9a/watchface/src/main/res/raw/watchface_dynamic_content.xml#L20-L55
+</Condition>https://github.com/android/snippets/blob/2e71c4f00839800811b83aa43bf03a99b6f95b73/watchface/src/main/res/raw/watchface_dynamic_content.xml#L20-L55
 ```
 
 <br />
