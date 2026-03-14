@@ -1,0 +1,48 @@
+diff --git a/docs/games/docs/release-notes.md b/docs/games/docs/release-notes.md
+index 17ace03..c52174c 100644
+--- a/docs/games/docs/release-notes.md
++++ b/docs/games/docs/release-notes.md
+@@ -69,20 +69,25 @@ Following the deprecation of [Google Sign-in](https://developer.android.com/iden
+ 
+ ## July 08, 2025
+ 
++Deprecated The [Google Play Games plugin for Unity, version 2.1.0](https://github.com/playgameservices/play-games-plugin-for-unity/releases/tag/v2.1.0) update includes the following changes:
++
++- Removed the deprecated [Google Sign-In](https://developer.android.com/identity/legacy/gsi) dependency.
++
++- Removed the deprecated [Google Drive](https://developers.google.com/android/reference/com/google/android/gms/drive/Drive) dependency.
++
+ Feature The [Google Play Games plugin for Unity, version 2.1.0](https://github.com/playgameservices/play-games-plugin-for-unity/releases/tag/v2.1.0) update includes the following changes:
+ 
+ - Added support for additional auth scopes using [requestServerSideAccess](https://developer.android.com/games/pgs/unity/unity-start#retrieve-auth-codes).
+ 
+ - Published the [Play Games Services Unity Plugin (v2) Reference](https://developer.android.com/games/services/unity/v2/api) documentation.
+ 
+-Deprecated The [Google Play Games plugin for Unity, version 2.1.0](https://github.com/playgameservices/play-games-plugin-for-unity/releases/tag/v2.1.0) update includes the following changes:
+-
+-- Removed the deprecated [Google Sign-In](https://developer.android.com/identity/legacy/gsi) dependency.
++## June 23, 2025
+ 
+-- Removed the deprecated [Google Drive](https://developers.google.com/android/reference/com/google/android/gms/drive/Drive) dependency.
++Feature The user can now request three basic OAuth 2.0 identity scopes with `GamesSignInClient` when requesting server-side access to Play Games Services web APIs.
+ 
+-## June 23, 2025
++For details, see:
+ 
++- [Server-side access to Play Games Services](https://developer.android.com/games/pgs/android/server-access)
+ Feature The `play-services-games-v2 (v21.0.0)` update includes the following changes:
+ 
+ - Added support for additional auth scopes using [requestServerSideAccess](https://developers.google.com/android/reference/com/google/android/gms/games/GamesSignInClient#public-abstract-taskauthresponse-requestserversideaccess-string-serverclientid,-boolean-forcerefreshtoken,-listauthscope-scopes).
+@@ -91,12 +96,6 @@ Feature The `play-services-games-v2 (v21.0.0)` update includes the following cha
+ 
+ - Removed the deprecated [Google Drive](https://developers.google.com/android/reference/com/google/android/gms/drive/Drive) dependency.
+ 
+-Feature The user can now request three basic OAuth 2.0 identity scopes with `GamesSignInClient` when requesting server-side access to Play Games Services web APIs.
+-
+-For details, see:
+-
+-- [Server-side access to Play Games Services](https://developer.android.com/games/pgs/android/server-access)
+-
+ ## May 05, 2025
+ 
+ Feature You can now import definitions and other metadata for multiple achievements together in a single step.

@@ -1,0 +1,30 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md b/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md
+index 2c03a8b..272911d 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md
++++ b/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md
+@@ -128,9 +128,9 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
+ ```groovy
+ dependencies {
+     implementation "androidx.xr.runtime:runtime:1.0.0-alpha11"
+-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha06"
+-    implementation "androidx.xr.projected:projected:1.0.0-alpha04"
+-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha10"
++    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha08"
++    implementation "androidx.xr.projected:projected:1.0.0-alpha05"
++    implementation "androidx.xr.arcore:arcore:1.0.0-alpha11"
+ }
+ ```
+ 
+@@ -139,9 +139,9 @@ dependencies {
+ ```kotlin
+ dependencies {
+     implementation("androidx.xr.runtime:runtime:1.0.0-alpha11")
+-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha06")
+-    implementation("androidx.xr.projected:projected:1.0.0-alpha04")
+-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha10")
++    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha08")
++    implementation("androidx.xr.projected:projected:1.0.0-alpha05")
++    implementation("androidx.xr.arcore:arcore:1.0.0-alpha11")
+ }
+ ```
+ 

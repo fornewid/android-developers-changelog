@@ -1,0 +1,30 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md b/docs/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md
+index a5b189e..dd7a05f 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md
++++ b/docs/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md
+@@ -36,9 +36,9 @@ Add the following [library dependencies for AI glasses](https://developer.androi
+ ```groovy
+ dependencies {
+     implementation "androidx.xr.runtime:runtime:1.0.0-alpha11"
+-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha06"
+-    implementation "androidx.xr.projected:projected:1.0.0-alpha04"
+-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha10"
++    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha08"
++    implementation "androidx.xr.projected:projected:1.0.0-alpha05"
++    implementation "androidx.xr.arcore:arcore:1.0.0-alpha11"
+ }
+ ```
+ 
+@@ -47,9 +47,9 @@ dependencies {
+ ```kotlin
+ dependencies {
+     implementation("androidx.xr.runtime:runtime:1.0.0-alpha11")
+-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha06")
+-    implementation("androidx.xr.projected:projected:1.0.0-alpha04")
+-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha10")
++    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha08")
++    implementation("androidx.xr.projected:projected:1.0.0-alpha05")
++    implementation("androidx.xr.arcore:arcore:1.0.0-alpha11")
+ }
+ ```
+ 

@@ -1,0 +1,38 @@
+diff --git a/docs/studio/preview/features.md b/docs/studio/preview/features.md
+index 188d966..d16dae2 100644
+--- a/docs/studio/preview/features.md
++++ b/docs/studio/preview/features.md
+@@ -76,6 +76,23 @@ The following are new features in Android Studio Panda 3.
+ To see what's been fixed in this version of Android Studio, see the [closed
+ issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.3).
+ 
++### Gemini API Starter template
++
++The Gemini API Starter template provides a straightforward path for Android
++developers to integrate AI features into their applications. By leveraging
++Firebase AI Logic, developers can avoid manual configuration and security
++management.
++![](https://developer.android.com/static/studio/preview/features/images/GeminiAPIStarter.png) Gemini API Starter new project template
++
++Key Features:
++
++- **No API Key Management**: Eliminates the need to manually provision, embed, or rotate API keys within your client-side code, reducing security risks and setup time.
++- **Automated Firebase Integration**: Seamlessly connects your Android Studio project to Firebase services. The template handles the backend plumbing required to communicate with Gemini models securely.
++- **Production-Ready Architecture**: Built on top of Firebase's managed infrastructure, ensuring that your AI features can scale from a local prototype to a production environment without architectural changes.
++
++To get started, go to **File** \> **New** \> **New Project** and select the
++**Gemini API Starter** template from the list of available project types.
++
+ ### Suggested fixes for crashes with Agent integration in AQI
+ 
+ The [App Quality Insights](https://developer.android.com/studio/debug/app-quality-insights) tool
+@@ -124,7 +141,8 @@ library from Google Fonts, giving you access to the complete catalog
+ right inside the IDE.
+ 
+ You can now customize icon attributes like weight, grade, and optical size
+-directly in the studio to perfectly match your design. Try it out in the latest canary build!
++directly in the studio to perfectly match your design. Try it out in the
++latest canary build!
+ ![](https://developer.android.com/static/studio/images/design/material-symbols.gif) Material Symbol support in Vector Asset Studio
+ 
+ ### Recomposition state reads in the Layout Inspector

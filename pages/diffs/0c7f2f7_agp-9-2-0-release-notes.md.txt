@@ -1,0 +1,26 @@
+diff --git a/docs/build/releases/agp-9-2-0-release-notes.md b/docs/build/releases/agp-9-2-0-release-notes.md
+index b45aca3..d292c43 100644
+--- a/docs/build/releases/agp-9-2-0-release-notes.md
++++ b/docs/build/releases/agp-9-2-0-release-notes.md
+@@ -17,7 +17,7 @@ Here is other compatibility info:
+ 
+ |   | Minimum version | Default version | Notes |
+ |---:|:---:|:---:|:---:|
+-| Gradle | 9.4.0-rc-1 | 9.4.0-rc-1 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
++| Gradle | 9.5.0-milestone-5 | 9.5.0-milestone-5 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
+ | SDK Build Tools | 36.0.0 | 36.0.0 | [Install](https://developer.android.com/studio/intro/update#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools) SDK Build Tools. |
+ | NDK | N/A | 28.2.13676358 | [Install](https://developer.android.com/studio/projects/install-ndk#specific-version) or [configure](https://developer.android.com/studio/projects/install-ndk#apply-specific-version) a different version of the NDK. |
+ | JDK | 17 | 17 | To learn more, see [setting the JDK version](https://developer.android.com/studio/intro/studio-config#jdk). |
+@@ -27,6 +27,12 @@ Here is other compatibility info:
+ ## Fixed issues
+ 
+ 
++### Android Gradle plugin 9.2.0-alpha04
++
++| Fixed Issues ||
++|---|---|
++| **Android Gradle Plugin** | |---| | [Issue #480062612](https://issuetracker.google.com/issues/480062612) Renaming APK using new AGP DSL | | [Issue #461382865](https://issuetracker.google.com/issues/461382865) Error when accessing (but not evaluating) bootClasspath IllegalStateException: targetCompatibility is not yet finalized | |
++
+ ### Android Gradle plugin 9.2.0-alpha03
+ 
+ | Fixed Issues ||

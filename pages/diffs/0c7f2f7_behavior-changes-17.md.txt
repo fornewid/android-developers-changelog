@@ -1,0 +1,19 @@
+diff --git a/docs/about/versions/17/behavior-changes-17.md b/docs/about/versions/17/behavior-changes-17.md
+index 9d3095b..55d2957 100644
+--- a/docs/about/versions/17/behavior-changes-17.md
++++ b/docs/about/versions/17/behavior-changes-17.md
+@@ -33,6 +33,14 @@ private fields and methods.
+ For more information, including mitigation strategies, see [MessageQueue
+ behavior change guidance](https://developer.android.com/about/versions/17/changes/messagequeue).
+ 
++### Static final fields are now unmodifiable
++
++Apps running on Android 17 or higher that target
++Android 17 or higher cannot change `static final` fields. If
++an app attempts to change a `static final` field by using reflection, it will
++cause an `IllegalAccessException`. Attempting to modify one of these fields
++through JNI APIs (such as `SetStaticLongField()`) will cause the app to crash.
++
+ ## Accessibility
+ 
+ Android 17 makes the following changes to improve accessibility.

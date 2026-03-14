@@ -1,0 +1,77 @@
+diff --git a/docs/media/media3/ui/compose-customization.md b/docs/media/media3/ui/compose-customization.md
+index d1f844b..7d18d07 100644
+--- a/docs/media/media3/ui/compose-customization.md
++++ b/docs/media/media3/ui/compose-customization.md
+@@ -104,9 +104,8 @@ IconButton(onClick = state::onClick, modifier = modifier, enabled = state.isEnab
+   Icon(
+     imageVector = if (state.showPlay) Icons.Default.PlayArrow else Icons.Default.Pause,
+     contentDescription =
+-      if (state.showPlay)
+-        stringResource(androidx.media3.ui.compose.material3.R.string.playpause_button_play)
+-      else stringResource(androidx.media3.ui.compose.material3.R.string.playpause_button_pause),
++      if (state.showPlay) stringResource(R.string.playpause_button_play)
++      else stringResource(R.string.playpause_button_pause),
+   )
+ }
+ ```
+@@ -135,7 +134,7 @@ fun ContentFrame(
+   val scaledModifier =
+     modifier.resizeWithContentScale(contentScale, presentationState.videoSizeDp)
+ 
+-  // Always leave PlayerSurface to be part of the Compose tree because it will be initialised in
++  // Always leave PlayerSurface to be part of the Compose tree because it will be initialized in
+   // the process. If this composable is guarded by some condition, it might never become visible
+   // because the Player won't emit the relevant event, e.g. the first frame being ready.
+   PlayerSurface(player, scaledModifier, surfaceType)
+@@ -191,31 +190,30 @@ UI state holder class does the following:
+ 
+ What happens behind the scenes:
+ 
+-    class SomeButtonState(private val player: Player) {
+-      var isEnabled by mutableStateOf(player.isCommandAvailable(Player.COMMAND_ACTION_A))
+-        private set
+ 
+-      var someField by mutableStateOf(someFieldDefault)
+-        private set
++```kotlin
++class SomeButtonState(private val player: Player) {
++  var isEnabled by mutableStateOf(player.isCommandAvailable(COMMAND_ACTION_A))
++    private set
+ 
+-      fun onClick() {
+-        player.actionA()
+-      }
++  var someFieldValue by mutableStateOf(someFieldDefault)
++    private set
+ 
+-      suspend fun observe() =
+-        player.listen { events ->
+-          if (
+-            events.containsAny(
+-              Player.EVENT_B_CHANGED,
+-              Player.EVENT_C_CHANGED,
+-              Player.EVENT_AVAILABLE_COMMANDS_CHANGED,
+-            )
+-          ) {
+-            someField = this.someField
+-            isEnabled = this.isCommandAvailable(Player.COMMAND_ACTION_A)
+-          }
+-        }
++  fun onClick() {
++    player.actionA()
++  }
++
++  suspend fun observe(): Nothing =
++    player.listen { events ->
++      if (events.containsAny(EVENT_B_CHANGED, EVENT_C_CHANGED, EVENT_AVAILABLE_COMMANDS_CHANGED)) {
++        someFieldValue = this.someField
++        isEnabled = this.isCommandAvailable(COMMAND_ACTION_A)
++      }
+     }
++}
++```
++
++<br />
+ 
+ To react to your own `Player.Events`, you can catch them using [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2))
+ which is a `suspend fun` that lets you enter the coroutine world and

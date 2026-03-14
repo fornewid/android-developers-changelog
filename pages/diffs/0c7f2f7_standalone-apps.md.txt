@@ -1,0 +1,27 @@
+diff --git a/docs/training/wearables/apps/standalone-apps.md b/docs/training/wearables/apps/standalone-apps.md
+index f75fe6a..65fb0c3 100644
+--- a/docs/training/wearables/apps/standalone-apps.md
++++ b/docs/training/wearables/apps/standalone-apps.md
+@@ -24,7 +24,7 @@ the Google Play Store, see [Package and distribute Wear OS Apps](https://develop
+ [Android App Bundles](https://developer.android.com/guide/app-bundle#get_started).
+ 
+ 
+-For new apps, the target API level must be 30 or higher. For more information, see
++For new apps, the target API level must be 34 or higher. For more information, see
+ [Meet Google Play's target API
+ level requirement](https://developer.android.com/google/play/requirements/target-sdk). Set the
+ `targetSdkVersion` to API level 30 (Wear OS 3) to help ensure that your app works well
+@@ -108,9 +108,10 @@ that is specific to a form factor can be in a separate module.
+ 
+ 
+ You can use standard Android storage APIs to store data locally, as you
+-would on a phone. For example, you can use the
+-[SharedPreferences
+-APIs](https://developer.android.com/reference/android/content/SharedPreferences) or the [Room](https://developer.android.com/training/data-storage/room)
++would on a phone. You can use the
++[DataStore](https://developer.android.com/topic/libraries/architecture/datastore) to store
++key-value pairs and typed objects, or you can use the
++[Room](https://developer.android.com/training/data-storage/room)
+ persistence library.
+ 
+ ## Detect your app on another device
