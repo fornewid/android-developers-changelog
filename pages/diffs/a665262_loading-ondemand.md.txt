@@ -1,0 +1,36 @@
+diff --git a/docs/develop/ui/views/layout/improving-layouts/loading-ondemand.md b/docs/develop/ui/views/layout/improving-layouts/loading-ondemand.md
+index 1e713db..bfbe3a4 100644
+--- a/docs/develop/ui/views/layout/improving-layouts/loading-ondemand.md
++++ b/docs/develop/ui/views/layout/improving-layouts/loading-ondemand.md
+@@ -24,7 +24,7 @@ the `android:layout` attribute to specify the layout to inflate.
+ Suppose you have a layout you want to load later in the user journey of your
+ app:
+ 
+-```transact-sql
++```
+ <?xml version="1.0" encoding="utf-8"?>
+ <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+@@ -104,7 +104,10 @@ void onCreate(savedInstanceState: Bundle?) {
+       }, 2000);
+ }
+ ```
+-![](https://developer.android.com/static/images/ui/viewstub_2.png) **Figure 2.** The heavy layout is visible. **Note:** The `inflate()` method returns the inflated `View` after it's complete, so you don't need to call `https://developer.android.com/reference/android/app/Activity#findViewById(int)` if you need to interact with the layout.
++![](https://developer.android.com/static/images/ui/viewstub_2.png) **Figure 2.** The heavy layout is visible.
++
++> [!NOTE]
++> **Note:** The `inflate()` method returns the inflated `View` after it's complete, so you don't need to call `https://developer.android.com/reference/android/app/Activity#findViewById(int)` if you need to interact with the layout.
+ 
+ Once visible or inflated, the `ViewStub` element is no longer part
+ of the view hierarchy. It is replaced by the inflated layout, and the ID for the
+@@ -112,7 +115,9 @@ root view of that layout is specified by the `android:inflatedId`
+ attribute of the `ViewStub`. The ID `android:id` specified
+ for the `ViewStub` is valid only until the `ViewStub`
+ layout is visible or inflated.
+-| **Note:** A drawback of `ViewStub` is that it doesn't support the `<merge>` tag in the layouts to be inflated.
++
++> [!NOTE]
++> **Note:** A drawback of `ViewStub` is that it doesn't support the `<merge>` tag in the layouts to be inflated.
+ 
+ For more information about this topic, see the blog post
+ [Optimize

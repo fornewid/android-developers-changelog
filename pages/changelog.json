@@ -1,5 +1,66 @@
 [
   {
+    "date": "2026-03-16T15:26:49Z",
+    "commit_hash": "a665262",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/improving-layouts/loading-ondemand\" target=\"_blank\">Load views on demand</a>",
+        "path": "develop/ui/views/layout/improving-layouts/loading-ondemand.md",
+        "summary": "The documentation for loading layouts on demand has been updated with a code block, image, and note regarding the inflate method. It also includes notes on the behavior and limitations of ViewStub regarding its behavior after inflation and its lack of merge tag support.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a665262_loading-ondemand.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/hello-world\" target=\"_blank\">Getting started</a>",
+        "path": "media/media3/exoplayer/hello-world.md",
+        "summary": "The documentation for the ExoPlayer 'Hello World' example has been updated. The provided link to the Kotlin sample code has been updated to reflect the latest commit hash, ensuring users access the most recent version of the example code on GitHub.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a665262_hello-world.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/playlists\" target=\"_blank\">Playlists</a>",
+        "path": "media/media3/exoplayer/playlists.md",
+        "summary": "The documentation for playlists has been updated to reflect changes in the sample code. Specifically, the link to the sample code has been updated to reflect the latest commit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a665262_playlists.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play\" target=\"_blank\">Manage and play content</a>",
+        "path": "media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md",
+        "summary": "The provided code example's link in the documentation has been updated. The changes reflect a change in the git commit hash. This ensures the example code remains consistent with the latest version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a665262_manage-play.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "This document has been updated to reflect the latest nightly build of Android Studio. The changes include updates from Panda 3 to Panda 4, along with updated build numbers and download links for Windows, Mac (Apple and Intel chips) and Linux.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a665262_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/printing/custom-docs\" target=\"_blank\">Printing custom documents</a>",
+        "path": "training/printing/custom-docs.md",
+        "summary": "This document was updated to replace instances of `PrintManager`, `PrintDocumentAdapter`, `PrintAttributes`, `onStart()`, `onLayout()`, `onWrite()`, and `onFinish()` with their respective URLs in the Android developer documentation. This change improves clarity and provides direct links to the relevant Android documentation for these classes and methods.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a665262_custom-docs.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/playback/compose/lists\" target=\"_blank\">Create scrollable layouts for TV</a>",
+        "path": "training/tv/playback/compose/lists.md",
+        "summary": "This new documentation page provides guidance on building lists in Android TV apps using Compose, focusing on efficient focus-based navigation using standard lazy layouts for optimal performance and user experience.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      }
+    ]
+  },
+  {
     "date": "2026-03-14T15:09:40Z",
     "commit_hash": "0c7f2f7",
     "entries": [

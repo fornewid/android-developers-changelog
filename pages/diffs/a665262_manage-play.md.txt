@@ -1,0 +1,13 @@
+diff --git a/docs/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md b/docs/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md
+index 6ca7a46..afefb6a 100644
+--- a/docs/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md
++++ b/docs/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md
+@@ -35,7 +35,7 @@ val initialMediaItems = pullMediaItemsFromService(count = 20)
+ for (index in 0 until initialMediaItems.size) {
+   preloadManager.add(initialMediaItems[index], /* rankingData= */ index)
+ }
+-// items aren't actually loaded yet! need to call invalidate() after thishttps://github.com/androidx/media/blob/e568f89ab77f46d66aa09f13bc1a45c880a09db9/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/preloadmanager/PreloadManagerManagePlay.kt#L37-L41
++// items aren't actually loaded yet! need to call invalidate() after thishttps://github.com/androidx/media/blob/2700f36f0bb0ecf61e50943017b067cafc64ac78/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/preloadmanager/PreloadManagerManagePlay.kt#L37-L41
+ ```
+ 
+ <br />
