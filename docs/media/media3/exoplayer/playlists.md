@@ -165,7 +165,7 @@ setting a custom order in the `DefaultShuffleOrder` constructor:
 // Set a custom shuffle order for the 5 items currently in the playlist:
 exoPlayer.setShuffleOrder(DefaultShuffleOrder(intArrayOf(3, 1, 0, 4, 2), randomSeed))
 // Enable shuffle mode.
-exoPlayer.shuffleModeEnabled = truehttps://github.com/androidx/media/blob/e568f89ab77f46d66aa09f13bc1a45c880a09db9/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/Playlists.kt#L77-L80
+exoPlayer.shuffleModeEnabled = truehttps://github.com/androidx/media/blob/2700f36f0bb0ecf61e50943017b067cafc64ac78/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/Playlists.kt#L77-L80
 ```
 
 ### Java

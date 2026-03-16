@@ -2846,8 +2846,8 @@
     },
     "media/media3/exoplayer/playlists.md": {
       "original_url": "https://developer.android.com/media/media3/exoplayer/playlists",
-      "hash": "53c52eab327b7009caf6d38e5485893d09c4e8b32d6ba2316bff9121e78ec1a4",
-      "last_updated": "2026-03-14T15:06:13.498652",
+      "hash": "702263d0802f1d97faaa6c524323b07ae0851051f285f8fc059b99498653fa5a",
+      "last_updated": "2026-03-16T15:23:05.888152",
       "fetch_method": "md.txt"
     },
     "games/services/publishing/api/achievementConfigurations/delete.md": {
@@ -13400,8 +13400,8 @@
     },
     "develop/ui/views/layout/improving-layouts/loading-ondemand.md": {
       "original_url": "https://developer.android.com/develop/ui/views/layout/improving-layouts/loading-ondemand",
-      "hash": "f691ff4927d145d0b791e0421474e568f9ebd90fbf32b0e1ae0e61d5d59f8bdb",
-      "last_updated": "2026-02-23T02:01:08.622385",
+      "hash": "e999906b0e7ba75dccec825b121f1a0f20edc5790b89f49d5987fea2fa1a0b25",
+      "last_updated": "2026-03-16T15:25:12.980932",
       "fetch_method": "md.txt"
     },
     "latest-updates/experimental.md": {
@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "95e241492bb777fb1828281a1cc61ae89690dd87f033e6c6817b715d28131732",
-      "last_updated": "2026-03-13T15:16:29.653010",
+      "hash": "1ceff88189c802ece845f6160db10cee914a17f29f001b91d023338f1e594cf4",
+      "last_updated": "2026-03-16T15:25:09.826792",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -20624,8 +20624,8 @@
     },
     "media/media3/exoplayer/hello-world.md": {
       "original_url": "https://developer.android.com/media/media3/exoplayer/hello-world",
-      "hash": "0bcf6a5d6faaa23c3de169a9fe2ab153a1ee40444070c719d61822a5805e4398",
-      "last_updated": "2026-03-14T15:09:04.247222",
+      "hash": "d7cd5bc3e73ebd76029f46f8fb6b8415b1f6d080a678a479d4f6abde50606a5e",
+      "last_updated": "2026-03-16T15:26:15.888771",
       "fetch_method": "md.txt"
     },
     "stories/games/epic-agde.md": {
@@ -23282,8 +23282,8 @@
     },
     "training/printing/custom-docs.md": {
       "original_url": "https://developer.android.com/training/printing/custom-docs",
-      "hash": "e065b382bfdb2f9bd34dfa937f6219424f5a5279f0ba0c211343c7add4b11f0d",
-      "last_updated": "2026-02-23T02:04:09.176122",
+      "hash": "d573cb3610349d2d62f13d3cfc4dee2370d36d5c078f652176f1d00da990dcfd",
+      "last_updated": "2026-03-16T15:26:42.615355",
       "fetch_method": "md.txt"
     },
     "distribute/console.md": {
@@ -24116,8 +24116,8 @@
     },
     "media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md": {
       "original_url": "https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play",
-      "hash": "d57a61fd9bd33f6cbef7937ea88533dcfda5b4c124c2074244ba385bc2976758",
-      "last_updated": "2026-03-14T15:09:40.306285",
+      "hash": "eedb76d4f383303e8fe0773db1e4fbcd639d28f4157c06f2b5015d5fc053c167",
+      "last_updated": "2026-03-16T15:26:45.300379",
       "fetch_method": "md.txt"
     },
     "topic/architecture/data-layer.md": {
@@ -25817,7 +25817,13 @@
       "hash": "7c41ef0aefd7c1bfc1238c49bc3c3203e7075dc27ef823d7bac9c2f62dbe19aa",
       "last_updated": "2026-03-14T15:07:51.622966",
       "fetch_method": "md.txt"
+    },
+    "training/tv/playback/compose/lists.md": {
+      "original_url": "https://developer.android.com/training/tv/playback/compose/lists",
+      "hash": "efbeadb572c517b0e45be402d92118e89bd3d58ee294428285ab1e012f7ec0af",
+      "last_updated": "2026-03-16T15:26:10.468307",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-03-14T15:09:40.607153"
+  "last_updated": "2026-03-16T15:26:48.562152"
 }
