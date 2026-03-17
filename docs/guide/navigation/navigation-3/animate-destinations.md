@@ -75,26 +75,30 @@ class AnimatedNavDisplayActivity : ComponentActivity() {
                             }
                         }
                         entry<ScreenC>(
-                            metadata = NavDisplay.transitionSpec {
-                                // Slide new content up, keeping the old content in place underneath
-                                slideInVertically(
-                                    initialOffsetY = { it },
-                                    animationSpec = tween(1000)
-                                ) togetherWith ExitTransition.KeepUntilTransitionsFinished
-                            } + NavDisplay.popTransitionSpec {
-                                // Slide old content down, revealing the new content in place underneath
-                                EnterTransition.None togetherWith
-                                    slideOutVertically(
-                                        targetOffsetY = { it },
+                            metadata = metadata {
+                                put(NavDisplay.TransitionKey) {
+                                    // Slide new content up, keeping the old content in place underneath
+                                    slideInVertically(
+                                        initialOffsetY = { it },
                                         animationSpec = tween(1000)
-                                    )
-                            } + NavDisplay.predictivePopTransitionSpec {
-                                // Slide old content down, revealing the new content in place underneath
-                                EnterTransition.None togetherWith
-                                    slideOutVertically(
-                                        targetOffsetY = { it },
-                                        animationSpec = tween(1000)
-                                    )
+                                    ) togetherWith ExitTransition.KeepUntilTransitionsFinished
+                                }
+                                put(NavDisplay.PopTransitionKey) {
+                                    // Slide old content down, revealing the new content in place underneath
+                                    EnterTransition.None togetherWith
+                                            slideOutVertically(
+                                                targetOffsetY = { it },
+                                                animationSpec = tween(1000)
+                                            )
+                                }
+                                put(NavDisplay.PredictivePopTransitionKey) {
+                                    // Slide old content down, revealing the new content in place underneath
+                                    EnterTransition.None togetherWith
+                                            slideOutVertically(
+                                                targetOffsetY = { it },
+                                                animationSpec = tween(1000)
+                                            )
+                                }
                             }
                         ) {
                             ContentGreen("This is Screen C")

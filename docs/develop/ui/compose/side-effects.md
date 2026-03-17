@@ -4,6 +4,13 @@ url: https://developer.android.com/develop/ui/compose/side-effects
 source: md.txt
 ---
 
+Compose applications using various Effect APIs for more predictable behavior and
+proper lifecycle management.
+keywords_public: Android, Jetpack Compose, Side Effects,
+LaunchedEffect, rememberCoroutineScope, rememberUpdatedState, DisposableEffect,
+SideEffect, produceState, derivedStateOf, snapshotFlow, Compose State,
+Coroutines
+
 A **side-effect** is a change to the state of the app that happens outside the
 scope of a composable function.
 Due to composables' lifecycle and properties such as unpredictable
@@ -435,21 +442,26 @@ the previous emitted value (this behavior is similar to that of
 The following example shows a side effect that records when the user scrolls
 past the first item in a list to analytics:
 
-    val listState = rememberLazyListState()
 
-    LazyColumn(state = listState) {
-        // ...
-    }
+```kotlin
+val listState = rememberLazyListState()
 
-    LaunchedEffect(listState) {
-        snapshotFlow { listState.firstVisibleItemIndex }
-            .map { index -> index > 0 }
-            .distinctUntilChanged()
-            .filter { it == true }
-            .collect {
-                MyAnalyticsService.sendScrolledPastFirstItemEvent()
-            }
-    }
+LazyColumn(state = listState) {
+    // ...
+}
+
+LaunchedEffect(listState) {
+    snapshotFlow { listState.firstVisibleItemIndex }
+        .map { index -> index > 0 }
+        .distinctUntilChanged()
+        .filter { it == true }
+        .collect {
+            MyAnalyticsService.sendScrolledPastFirstItemEvent()
+        }
+}
+```
+
+<br />
 
 In the code above, `listState.firstVisibleItemIndex` is converted to a Flow that
 can benefit from the power of Flow's operators.
@@ -485,27 +497,32 @@ In the `DisposableEffect` code shown above, the effect takes as a parameter the
 `lifecycleOwner` used in its block, because any change to them should cause the
 effect to restart.
 
-    @Composable
-    fun HomeScreen(
-        lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current,
-        onStart: () -> Unit, // Send the 'started' analytics event
-        onStop: () -> Unit // Send the 'stopped' analytics event
-    ) {
-        // These values never change in Composition
-        val currentOnStart by rememberUpdatedState(onStart)
-        val currentOnStop by rememberUpdatedState(onStop)
 
-        DisposableEffect(lifecycleOwner) {
-            val observer = LifecycleEventObserver { _, event ->
-                /* ... */
-            }
+```kotlin
+@Composable
+fun HomeScreen(
+    lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current,
+    onStart: () -> Unit, // Send the 'started' analytics event
+    onStop: () -> Unit // Send the 'stopped' analytics event
+) {
+    // These values never change in Composition
+    val currentOnStart by rememberUpdatedState(onStart)
+    val currentOnStop by rememberUpdatedState(onStop)
 
-            lifecycleOwner.lifecycle.addObserver(observer)
-            onDispose {
-                lifecycleOwner.lifecycle.removeObserver(observer)
-            }
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            /* ... */
+        }
+
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
         }
     }
+}
+```
+
+<br />
 
 `currentOnStart` and `currentOnStop` are not needed as `DisposableEffect`
 keys, because their value never change in Composition due to the usage of

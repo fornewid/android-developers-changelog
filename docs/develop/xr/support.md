@@ -68,12 +68,6 @@ Review this detailed [guidance](https://developer.android.com/studio/report-bugs
   - [Jetpack Compose Glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer)
   - [Jetpack Projected](https://developer.android.com/jetpack/androidx/releases/xr-projected)
 
-### Compose Material 3 for XR
-
-- [Report an issue](https://issuetracker.google.com/issues/new?component=1689595&template=2070827)
-- [Search issues](https://issuetracker.google.com/issues?q=componentid:1689595)
-- [Release notes](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3)
-
 ### SceneViewer
 
 - [Report an issue](https://issuetracker.google.com/issues/new?component=1696638&template=2075156)

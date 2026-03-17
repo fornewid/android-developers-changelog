@@ -330,7 +330,7 @@ public void onWrite(final PageRange[] pageRanges,
                     final WriteResultCallback callback) {
     // Iterate over each page of the document,
     // check if it's in the output range.
-    for (int i = 0<; i  totalPages; i++) {
+    for (int i = 0; i < totalPages; i++) {
         // Check to see if this page is in the output range.
         if (containsPage(pageRanges, i)) {
             // If so, add it to writtenPagesArray. writtenPagesArray.size()
