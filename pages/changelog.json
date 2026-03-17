@@ -1,5 +1,176 @@
 [
   {
+    "date": "2026-03-17T15:25:47Z",
+    "commit_hash": "e40a7ac",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/side-effects\" target=\"_blank\">Side-effects in Compose</a>",
+        "path": "develop/ui/compose/side-effects.md",
+        "summary": "The documentation introduces a new introductory paragraph and keywords for improved discoverability.  Additionally, it updates code examples within the document, changing the code snippets into a Kotlin code block.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_side-effects.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/support\" target=\"_blank\">Get support for the Android XR SDK</a>",
+        "path": "develop/xr/support.md",
+        "summary": "The document has been updated to remove the 'Compose Material 3 for XR' section. This section included links for reporting issues, searching for issues, and accessing release notes related to Compose Material 3 for XR. The removal indicates that this specific component or feature is no longer supported or is deprecated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_support.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/guidelines\" target=\"_blank\">Google Play Games</a>",
+        "path": "games/guidelines.md",
+        "summary": "The documentation updates include removing the \"beta\" designation from Play Games Sidekick references and removing the Beta warning. The document also clarifies the timeline for the program, specifically mentioning the Play Games Sidekick and its testing toggle in Play Console, and updates deadlines related to the Level Up program.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_guidelines.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/play-games-sidekick\" target=\"_blank\">Play Games Sidekick</a>",
+        "path": "games/pgs/play-games-sidekick.md",
+        "summary": "This document introduces Play Games Sidekick, an in-game overlay offering features like gaming utilities and rewards. It clarifies the requirements, setup process, and how to add Sidekick to your game, including changes to the feature set, user interface, and FAQs, providing updated information about the Sidekick release and troubleshooting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_play-games-sidekick.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/outside-gpb-backend\" target=\"_blank\">Backend integration guidance for monetization outside of Google Play Billing</a>",
+        "path": "google/play/billing/outside-gpb-backend.md",
+        "summary": "This document describes how to report transactions from billing and link programs. The changes refine terminology, clarify when to call the `externaltransactions` API, and specify requirements for reporting transactions, including initial and recurring purchases. These updates ensure accurate transaction reporting for external billing integrations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_outside-gpb-backend.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/animate-destinations\" target=\"_blank\">Animate between destinations</a>",
+        "path": "guide/navigation/navigation-3/animate-destinations.md",
+        "summary": "The example code for animating destinations in Jetpack Compose Navigation has been updated.  Instead of using `transitionSpec`, `popTransitionSpec`, and `predictivePopTransitionSpec` directly, the example now uses a `metadata` block with keys like `NavDisplay.TransitionKey`, `NavDisplay.PopTransitionKey`, and `NavDisplay.PredictivePopTransitionKey`. This change likely reflects an internal API update or a more structured approach to defining navigation animations, making the code potentially more maintainable and aligned with evolving best practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_animate-destinations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/custom-layouts\" target=\"_blank\">Create custom layouts using Scenes</a>",
+        "path": "guide/navigation/navigation-3/custom-layouts.md",
+        "summary": "The documentation for custom layouts in navigation-3 has been updated. The changes include modifications to the `ListDetailSceneStrategy` to use `NavMetadataKey` for list and detail keys, and to update how metadata is added to NavEntries.  The example code in MyAppContent and MaterialListDetailActivity was updated to reflect the new API for sceneStrategies and metadata changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_custom-layouts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/interop\" target=\"_blank\">Interop Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/interop.md",
+        "summary": "This new documentation page introduces a recipe demonstrating how to integrate `AndroidFragment` and `AndroidView` within a Navigation3 application, enabling the use of classic Android UI components within a Compose-based navigation structure.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/retain\" target=\"_blank\">Retain Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/retain.md",
+        "summary": "This new documentation page provides a recipe demonstrating how to retain values for items on the back stack in Android Navigation 3, utilizing NavEntryDecorators and RetainedValuesStoreRegistry.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/sharedviewmodel\" target=\"_blank\">Shared ViewModel Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/sharedviewmodel.md",
+        "summary": "This document introduces a recipe demonstrating how to share a ViewModel between different screens in Navigation 3 using a custom NavEntryDecorator, allowing child screens to access and modify the parent's ViewModel.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/tv/continue-watching\" target=\"_blank\">Publish Continue Watching data</a>",
+        "path": "guide/playcore/engage/tv/continue-watching.md",
+        "summary": "This document provides information on how to integrate the Continue Watching feature on Android TV using the Play Core library and REST API. It allows users to continue watching videos and view the next episodes from multiple apps in a single UI grouping.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_continue-watching.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/install-prompt\" target=\"_blank\">In-app install prompts</a>",
+        "path": "guide/playcore/install-prompt.md",
+        "summary": "The document removes information about an in-app install prompt feature being in beta and limited to early access partners. This implies the feature may have moved beyond beta or is now more broadly available, and the documentation has been updated to reflect this change.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_install-prompt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/install-prompt/kotlin-java\" target=\"_blank\">Integrate in-app install prompts</a>",
+        "path": "guide/playcore/install-prompt/kotlin-java.md",
+        "summary": "The documentation for the Kotlin/Java in-app install prompt has been updated. The note about early access partners and the link to learn more about the early access program has been removed. This change streamlines the documentation by removing information about early access programs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_kotlin-java.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/paging\" target=\"_blank\">Paging</a>",
+        "path": "jetpack/androidx/releases/paging.md",
+        "summary": "The documentation for the Paging library has been updated. The API reference link has been removed, but the user guide, code sample, and codelab links remain. This change doesn't significantly alter the library's functionality or usage, but it may affect how users access the API documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_paging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/preference\" target=\"_blank\">Preference</a>",
+        "path": "jetpack/androidx/releases/preference.md",
+        "summary": "This document describes the changes in the Preference library. The latest release, 1.2.1, includes a bug fix for PreferenceHeaderFragmentCompat and a dependency update. It also contains details about the 1.2.0 release, including the introduction of PreferenceHeaderFragmentCompat and changes to nullability annotations and callback implementations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_preference.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/hello-world\" target=\"_blank\">Getting started</a>",
+        "path": "media/media3/exoplayer/hello-world.md",
+        "summary": "The provided code snippet in the documentation was updated to reflect the most recent version of the code example hosted on GitHub. This change ensures that developers are referencing the correct lines of code for the provided Kotlin example, which is important for accurate and up-to-date guidance when integrating ExoPlayer into their projects.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_hello-world.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/playlists\" target=\"_blank\">Playlists</a>",
+        "path": "media/media3/exoplayer/playlists.md",
+        "summary": "The documentation for playlist shuffling in ExoPlayer has been updated with a new link to the sample code, referencing a different commit hash for the relevant code snippet. This change provides users with a more up-to-date reference for implementation examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_playlists.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/manage-play\" target=\"_blank\">Manage and play content</a>",
+        "path": "media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md",
+        "summary": "The example code URL in the `manage-play.md` documentation was updated to reflect the latest commit hash. This ensures the code sample continues to point to the correct source code location.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_manage-play.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The document was updated with new nightly build dates and download links for Android Studio Panda 4. The date was updated from 2026-03-16 to 2026-03-17 across multiple sections, including download links for Windows, macOS, and Linux.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/platform\" target=\"_blank\">Android Studio for Platform</a>",
+        "path": "studio/platform.md",
+        "summary": "The documentation was updated to reflect the new Android Studio platform release codename \"Panda 2\" replacing \"Narwhal 3 Feature Drop\" in the download links and table. This update includes a change in the Linux download links and associated file names to reflect the new release. This matters because it ensures users download the correct, up-to-date version of Android Studio for the platform.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_platform.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/printing/custom-docs\" target=\"_blank\">Printing custom documents</a>",
+        "path": "training/printing/custom-docs.md",
+        "summary": "The code snippet was updated to correct a syntax error. Specifically, the less than symbol was corrected from `i <` to `i < totalPages` to ensure correct loop conditions for iterating through all pages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/e40a7ac_custom-docs.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-16T15:26:49Z",
     "commit_hash": "a665262",
     "entries": [
