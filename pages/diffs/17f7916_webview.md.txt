@@ -1,0 +1,219 @@
+diff --git a/docs/develop/ui/views/layout/webapps/webview.md b/docs/develop/ui/views/layout/webapps/webview.md
+index 535adc5..53558b1 100644
+--- a/docs/develop/ui/views/layout/webapps/webview.md
++++ b/docs/develop/ui/views/layout/webapps/webview.md
+@@ -4,12 +4,12 @@ url: https://developer.android.com/develop/ui/views/layout/webapps/webview
+ source: md.txt
+ ---
+ 
+-Use [`WebView`](https://developer.android.com/reference/android/webkit/WebView) to deliver a web application
+-or a web page as a part of a client application. The `WebView` class is an
+-extension of Android's [`View`](https://developer.android.com/reference/android/view/View) class that lets
+-you display web pages as a part of your activity layout. It doesn't include the
+-features of a fully developed web browser, such as navigation controls or an
+-address bar. All `WebView` does, by default, is show a web page.
++Use [`WebView`](https://developer.android.com/reference/android/webkit/WebView) to deliver a web application or a web page as a part of a
++client app. The `WebView` class is an extension of Android's [`View`](https://developer.android.com/reference/android/view/View)
++class that lets you display web pages as a part of your activity layout. It
++doesn't include the features of a fully developed web browser, such as
++navigation controls or an address bar. All `WebView` does, by default, is show a
++web page.
+ 
+ `WebView` can help you provide information in your app that you might need to
+ update, such as an end-user agreement or a user guide. Within your Android app,
+@@ -31,10 +31,9 @@ handle page navigation, and how to manage windows when using `WebView`.
+ ## Work with WebView on earlier versions of Android
+ 
+ To safely use more-recent `WebView` capabilities on the device your app is
+-running on, add the [AndroidX
+-Webkit](https://developer.android.com/reference/androidx/webkit/package-summary) library. This is a static
+-library you can add to your application to use `android.webkit` APIs that aren't
+-available for earlier platform versions.
++running on, add the [AndroidX Webkit](https://developer.android.com/reference/androidx/webkit/package-summary) library. This is a static library you
++can add to your application to use `android.webkit` APIs that aren't available
++for earlier platform versions.
+ 
+ Add it to your `build.gradle` file as follows:
+ 
+@@ -54,9 +53,7 @@ dependencies {
+ }
+ ```
+ 
+-Explore [the `WebView`
+-example](https://github.com/android/views-widgets-samples/tree/main/WebView)
+-on GitHub for more details.
++Explore [the `WebView` example](https://github.com/android/views-widgets-samples/tree/main/WebView) on GitHub for more details.
+ 
+ ## Add a WebView to your app
+ 
+@@ -77,9 +74,8 @@ activity's layout XML file:
+ />
+ ```
+ 
+-To load a web page in the `WebView`, use
+-[`loadUrl()`](https://developer.android.com/reference/android/webkit/WebView#loadUrl(java.lang.String)), as
+-shown in the following example:
++To load a web page in the `WebView`, use [`loadUrl()`](https://developer.android.com/reference/android/webkit/WebView#loadUrl(java.lang.String)), as shown in the
++following example:
+ 
+ ### Kotlin
+ 
+@@ -157,8 +153,8 @@ myWebView.loadData(encodedHtml, "text/html", "base64");
+ > **Note:** There are restrictions on what this HTML can do. See [`loadData()`](https://developer.android.com/reference/android/webkit/WebView#loadData(java.lang.String,%20java.lang.String,%20java.lang.String)) and [`loadDataWithBaseURL()`](https://developer.android.com/reference/android/webkit/WebView#loadDataWithBaseURL(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)) for more info about encoding options.
+ 
+ Your app must have access to the internet. To get internet access, request the
+-[`INTERNET`](https://developer.android.com/reference/android/Manifest.permission#INTERNET) permission in your
+-manifest file, as shown in the following example:
++[`INTERNET`](https://developer.android.com/reference/android/Manifest.permission#INTERNET) permission in your manifest file, as shown in the following
++example:
+ 
+ ```xml
+ <manifest ... >
+@@ -185,8 +181,7 @@ create interfaces between your app code and your JavaScript code.
+ 
+ JavaScript is disabled in a `WebView` by default. You can enable it through the
+ `WebSettings` attached to your `WebView`. Retrieve `WebSettings` with
+-[`getSettings()`](https://developer.android.com/reference/android/webkit/WebView#getSettings()), then enable
+-JavaScript with
++[`getSettings()`](https://developer.android.com/reference/android/webkit/WebView#getSettings()), then enable JavaScript with
+ [`setJavaScriptEnabled()`](https://developer.android.com/reference/android/webkit/WebSettings#setJavaScriptEnabled(boolean)).
+ 
+ See the following example:
+@@ -209,27 +204,29 @@ webSettings.setJavaScriptEnabled(true);
+ `WebSettings` provides access to a variety of other settings that you might find
+ useful. For example, if you're developing a web application that's designed
+ specifically for the `WebView` in your Android app, then you can define a custom
+-user agent string with
+-[`setUserAgentString()`](https://developer.android.com/reference/android/webkit/WebSettings#setUserAgentString(java.lang.String)),
+-then query the custom user agent in your web page to verify that the client
+-requesting your web page is your Android app.
++user agent string with [`setUserAgentString()`](https://developer.android.com/reference/android/webkit/WebSettings#setUserAgentString(java.lang.String)), then query the custom user
++agent in your web page to verify that the client requesting your web page is
++your Android app.
+ 
+ ### Bind JavaScript code to Android code
+ 
+ When developing a web application that's designed specifically for the `WebView`
+ in your Android app, you can create interfaces between your JavaScript code and
+ client-side Android code. For example, your JavaScript code can call a method in
+-your Android code to display a [`Dialog`](https://developer.android.com/reference/android/app/Dialog),
+-instead of using JavaScript's `alert()` function.
++your Android code to display a [`Dialog`](https://developer.android.com/reference/android/app/Dialog), instead of using JavaScript's
++`alert()` function.
+ 
+ To bind a new interface between your JavaScript and Android code, call
+-[`addJavascriptInterface()`](https://developer.android.com/reference/android/webkit/WebView#addJavascriptInterface(java.lang.Object,%20java.lang.String)),
+-passing it a class instance to bind to your JavaScript and an interface name
+-that your JavaScript can call to access the class.
++[`addJavascriptInterface()`](https://developer.android.com/reference/android/webkit/WebView#addJavascriptInterface(java.lang.Object,%20java.lang.String)), passing it a class instance to bind to your
++JavaScript and an interface name that your JavaScript can call to access the
++class.
+ 
+ > [!WARNING]
+ > **Warning:** Using `addJavascriptInterface()` lets JavaScript control your Android app. Although this can be useful, it can also be a dangerous security issue. When the HTML in the `WebView` is untrustworthy---for example, part or all of the HTML is provided by an unknown person or process---then an attacker can include HTML that executes your client-side code and possibly any code of the attacker's choosing. Therefore, don't use `addJavascriptInterface()` unless you wrote all of the HTML and JavaScript that appears in your `WebView`. Don't let the user navigate within your `WebView` to web pages that aren't your own. Instead, let the user's default browser application open foreign links. By default, the user's web browser opens all URL links, so this warning primarily applies if you handle page navigation yourself, as described in the following section.
+ 
++To learn more about communicating between JavaScript and native code, including
++more modern and secure APIs, see [Access native APIs with JSBridge](https://developer.android.com/develop/ui/views/layout/webapps/native-api-access-jsbridge).
++
+ For example, you can include the following class in your Android app:
+ 
+ ### Kotlin
+@@ -269,8 +266,7 @@ public class WebAppInterface {
+ > **Caution:** If you set your [`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target) to 17 or later, add the `@JavascriptInterface` annotation to any method that you want to be available to your JavaScript. The method must be public. If you don't provide this annotation, the method isn't accessible by your web page.
+ 
+ In this example, the `WebAppInterface` class lets the web page create a
+-[`Toast`](https://developer.android.com/reference/android/widget/Toast) message, using the `showToast()`
+-method.
++[`Toast`](https://developer.android.com/reference/android/widget/Toast) message, using the `showToast()` method.
+ 
+ You can bind this class to the JavaScript that runs in your `WebView` with
+ `addJavascriptInterface()`, as shown in the following example:
+@@ -325,11 +321,9 @@ by your `WebView`.
+ > **Note:** For security reasons, the system's browser app doesn't share its application data with your app.
+ 
+ To open links tapped by the user, provide a `WebViewClient` for your `WebView`
+-using
+-[`setWebViewClient()`](https://developer.android.com/reference/android/webkit/WebView#setWebViewClient(android.webkit.WebViewClient)).
+-All links the user taps load in your `WebView`. If you want more control over
+-where a clicked link loads, create your own `WebViewClient` that overrides the
+-[`shouldOverrideUrlLoading()`](https://developer.android.com/reference/android/webkit/WebViewClient#shouldOverrideUrlLoading(android.webkit.WebView,%20android.webkit.WebResourceRequest))
++using [`setWebViewClient()`](https://developer.android.com/reference/android/webkit/WebView#setWebViewClient(android.webkit.WebViewClient)). All links the user taps load in your
++`WebView`. If you want more control over where a clicked link loads, create your
++own `WebViewClient` that overrides the [`shouldOverrideUrlLoading()`](https://developer.android.com/reference/android/webkit/WebViewClient#shouldOverrideUrlLoading(android.webkit.WebView,%20android.webkit.WebResourceRequest))
+ method. The following example assumes that `MyWebViewClient` is an inner class
+ of `Activity`.
+ 
+@@ -390,22 +384,20 @@ WebView myWebView = (WebView) findViewById(R.id.webview);
+ myWebView.setWebViewClient(new MyWebViewClient());
+ ```
+ 
+-Now when the user taps a link, the system calls the
+-`shouldOverrideUrlLoading()` method, which checks whether the URL host matches
+-a specific domain, as defined in the preceding example. If it does match, then
+-the method returns false and doesn't override the URL loading. It lets the
+-`WebView` load the URL as usual. If the URL host doesn't match, then an
+-[`Intent`](https://developer.android.com/reference/android/content/Intent) is created to launch the default
+-`Activity` for handling URLs, which resolves to the user's default web browser.
++Now when the user taps a link, the system calls the `shouldOverrideUrlLoading()`
++method, which checks whether the URL host matches a specific domain, as defined
++in the preceding example. If it does match, then the method returns false and
++doesn't override the URL loading. It lets the `WebView` load the URL as usual.
++If the URL host doesn't match, then an [`Intent`](https://developer.android.com/reference/android/content/Intent) is created to launch the
++default `Activity` for handling URLs, which resolves to the user's default web
++browser.
+ 
+ ### Handle custom URLs
+ 
+ `WebView` applies restrictions when requesting resources and resolving links
+ that use a custom URL scheme. For example, if you implement callbacks such as
+-[`shouldOverrideUrlLoading()`](https://developer.android.com/reference/android/webkit/WebViewClient#shouldOverrideUrlLoading(android.webkit.WebView,%20android.webkit.WebResourceRequest))
+-or
+-[`shouldInterceptRequest()`](https://developer.android.com/reference/android/webkit/WebViewClient#shouldInterceptRequest(android.webkit.WebView,%20android.webkit.WebResourceRequest)),
+-then `WebView` invokes them only for valid URLs.
++[`shouldOverrideUrlLoading()`](https://developer.android.com/reference/android/webkit/WebViewClient#shouldOverrideUrlLoading(android.webkit.WebView,%20android.webkit.WebResourceRequest)) or [`shouldInterceptRequest()`](https://developer.android.com/reference/android/webkit/WebViewClient#shouldInterceptRequest(android.webkit.WebView,%20android.webkit.WebResourceRequest)), then
++`WebView` invokes them only for valid URLs.
+ 
+ For example, `WebView` might not call your `shouldOverrideUrlLoading()` method
+ for links like this:
+@@ -472,8 +464,7 @@ samples.
+ 
+ When your `WebView` overrides URL loading, it automatically accumulates a
+ history of visited web pages. You can navigate backward and forward through the
+-history with [`goBack()`](https://developer.android.com/reference/android/webkit/WebView#goBack()) and
+-[`goForward()`](https://developer.android.com/reference/android/webkit/WebView#goForward()).
++history with [`goBack()`](https://developer.android.com/reference/android/webkit/WebView#goBack()) and [`goForward()`](https://developer.android.com/reference/android/webkit/WebView#goForward()).
+ 
+ For example, the following shows how your `Activity` can use the device Back
+ button to navigate backward:
+@@ -534,12 +525,10 @@ onBackPressedDispatcher.addCallback {
+ }
+ ```
+ 
+-The [`canGoBack()`](https://developer.android.com/reference/android/webkit/WebView#canGoBack()) method
+-returns true if there is web page history for the user to visit. Likewise, you
+-can use [`canGoForward()`](https://developer.android.com/reference/android/webkit/WebView#canGoForward()) to
+-check whether there is a forward history. If you don't perform this check, then
+-after the user reaches the end of the history, `goBack()` and `goForward()` do
+-nothing.
++The [`canGoBack()`](https://developer.android.com/reference/android/webkit/WebView#canGoBack()) method returns true if there is web page history for the
++user to visit. Likewise, you can use [`canGoForward()`](https://developer.android.com/reference/android/webkit/WebView#canGoForward()) to check whether
++there is a forward history. If you don't perform this check, then after the user
++reaches the end of the history, `goBack()` and `goForward()` do nothing.
+ 
+ ### Handle device configuration changes
+ 
+@@ -561,8 +550,7 @@ windows.
+ 
+ To keep your app more secure, it's best to prevent popups and new windows from
+ opening. The safest way to implement this behavior is to pass `"true"` into
+-[`setSupportMultipleWindows()`](https://developer.android.com/reference/android/webkit/WebSettings#setSupportMultipleWindows(boolean))
+-but not override the
+-[`onCreateWindow()`](https://developer.android.com/reference/android/webkit/WebChromeClient#onCreateWindow(android.webkit.WebView,%20boolean,%20boolean,%20android.os.Message))
+-method, which `setSupportMultipleWindows()` depends on. This logic prevents any
+-page that uses `target="_blank"` in its links from loading.
+\ No newline at end of file
++[`setSupportMultipleWindows()`](https://developer.android.com/reference/android/webkit/WebSettings#setSupportMultipleWindows(boolean)) but not override the
++[`onCreateWindow()`](https://developer.android.com/reference/android/webkit/WebChromeClient#onCreateWindow(android.webkit.WebView,%20boolean,%20boolean,%20android.os.Message)) method, which `setSupportMultipleWindows()` depends on.
++This logic prevents any page that uses `target="_blank"` in its links from
++loading.
+\ No newline at end of file

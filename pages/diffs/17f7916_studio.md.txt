@@ -1,0 +1,15 @@
+diff --git a/docs/studio.md b/docs/studio.md
+index cbf4d7f..ba2516a 100644
+--- a/docs/studio.md
++++ b/docs/studio.md
+@@ -19,10 +19,6 @@ Your current device is not supported.
+ 
+ <br />
+ 
+-
+-[Read release notes
+-![](https://developer.android.com/static/images/studio/icon-books.svg)](https://developer.android.com/studio/releases)
+-
+ ### New features
+ 
+ Feature

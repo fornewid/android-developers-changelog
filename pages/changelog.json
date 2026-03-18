@@ -1,5 +1,117 @@
 [
   {
+    "date": "2026-03-18T15:30:18Z",
+    "commit_hash": "17f7916",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/styles/state-animations\" target=\"_blank\">State and animations in Styles</a>",
+        "path": "develop/ui/compose/styles/state-animations.md",
+        "summary": "The update replaces `remember(interactionSource) { MutableStyleState(interactionSource) }` with `rememberUpdatedStyleState(interactionSource) { it.isEnabled = enabled }`. This change ensures the style state is correctly updated when the button's `enabled` state changes, improving the button's behavior and responsiveness.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/17f7916_state-animations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/scroll/nested-scroll-modifiers\" target=\"_blank\">Nested scrolling modifiers</a>",
+        "path": "develop/ui/compose/touch-input/scroll/nested-scroll-modifiers.md",
+        "summary": "This new documentation page introduces the concept of nested scrolling in Compose, explaining how multiple scrolling components can work together and providing guidance on using nested scroll modifiers for advanced customization.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/scroll/scroll-modifiers\" target=\"_blank\">Scroll modifiers</a>",
+        "path": "develop/ui/compose/touch-input/scroll/scroll-modifiers.md",
+        "summary": "This new documentation page introduces and explains the scroll modifiers in Jetpack Compose, including `verticalScroll`, `horizontalScroll`, `scrollableArea`, and `scrollable`, detailing their usage, differences, and appropriate use cases for building custom scrolling behaviors.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/webapps/native-api-access-jsbridge\" target=\"_blank\">Access native APIs with JavaScript bridge</a>",
+        "path": "develop/ui/views/layout/webapps/native-api-access-jsbridge.md",
+        "summary": "This document introduces the native-api-access-jsbridge.md file, detailing how to establish a JavaScript bridge for communication between web content in a WebView and a host Android application, enabling web developers to access native platform features.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/webapps/webview\" target=\"_blank\">Build web apps in WebView</a>",
+        "path": "develop/ui/views/layout/webapps/webview.md",
+        "summary": "The documentation for WebView has been updated to improve clarity, fix formatting issues, and provide more accurate and up-to-date information. Key changes include enhanced explanations of how to work with WebView on earlier Android versions by using the AndroidX Webkit library, and updated details on the communication between JavaScript and native code, adding a link to JSBridge for more modern approaches. Several minor text adjustments, formatting fixes, and link updates have also been applied.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/17f7916_webview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill\" target=\"_blank\">Migrate XML Views to Jetpack Compose  |  Android Developers</a>",
+        "path": "skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill.md",
+        "summary": "This new documentation page provides a guide on migrating XML-based views to Jetpack Compose, outlining the steps, common scenarios, and best practices for a smooth transition in Android applications.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/skills/navigation/jetpack-navigation-3/skill\" target=\"_blank\">Jetpack Navigation 3 Skill  |  App architecture  |  Android Developers</a>",
+        "path": "skills/navigation/jetpack-navigation-3/skill.md",
+        "summary": "This documentation introduces a new page focused on Jetpack Navigation 3, providing a comprehensive guide with migration instructions, developer documentation, and code recipes for various use cases, including basic API usage, common UI patterns, and advanced features like deep links and animations.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio\" target=\"_blank\">Download Android Studio</a>",
+        "path": "studio.md",
+        "summary": "The documentation has been updated. A link to the release notes has been removed. This update simplifies the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/17f7916_studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/emulator_archive\" target=\"_blank\">Emulator download archives</a>",
+        "path": "studio/emulator_archive.md",
+        "summary": "The embedded iframe source URL for the emulator archive documentation has been updated. This change reflects a new version or update to the documentation's interactive elements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/17f7916_emulator_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated with the new nightly build date, changing all instances of '2026-03-17' to '2026-03-18' and updating the download links accordingly. This reflects the most recent nightly build release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/17f7916_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/features\" target=\"_blank\">Release notes for Android Studio preview</a>",
+        "path": "studio/preview/features.md",
+        "summary": "The documentation has been updated to include information on managing permissions for the AI agent in Android Studio. Users can now control the agent's access to files, network resources, and shell commands, enhancing security and allowing for more granular control over the agent's behavior. A sandboxing feature is also introduced to limit unauthorized access and writes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/17f7916_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/36\" target=\"_blank\">Android Emulator 36 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/36.md",
+        "summary": "This update introduces a new canary release, Android Emulator 36.5.8, which includes minor fixes and improvements. This update ensures users have access to the latest bug fixes and enhancements for the Android Emulator.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/17f7916_36.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/paging/v3-compose\" target=\"_blank\">Overview of Paging 3</a>",
+        "path": "topic/libraries/architecture/paging/v3-compose.md",
+        "summary": "This new documentation page provides a guide on implementing Paging 3 with Jetpack Compose, covering both network-only and database-backed implementations for efficient handling of large datasets in Android applications.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/paging/v3-migration\" target=\"_blank\">Migrate to Paging 3</a>",
+        "path": "topic/libraries/architecture/paging/v3-migration.md",
+        "summary": "This document describes the migration steps from Paging 2 to Paging 3. The key changes involve replacing `DataSource` with `PagingSource`, `PagedList` with `PagingData`, and `PagedListAdapter` with `PagingDataAdapter`.  It also highlights changes related to how to set up reactive streams and handle boundary callbacks.  Moreover, it has added information about integrating Paging 3 with Jetpack Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/17f7916_v3-migration.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-17T15:25:47Z",
     "commit_hash": "e40a7ac",
     "entries": [

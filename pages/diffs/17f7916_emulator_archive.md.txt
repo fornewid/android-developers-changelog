@@ -1,0 +1,12 @@
+diff --git a/docs/studio/emulator_archive.md b/docs/studio/emulator_archive.md
+index 53d36ea..9e6e7cc 100644
+--- a/docs/studio/emulator_archive.md
++++ b/docs/studio/emulator_archive.md
+@@ -50,4 +50,4 @@ specified in the `package.xml` file. Specifically, follow these steps:
+ 
+    This is where you should specify the emulator version you downloaded and want to install.
+ 
+-<iframe src="https://android.devsite.google/frame/studio/emulator_archive_307b53ac4ef85af5cb497c57279fbdfe1fc9ac286e1e0b559f39efcf4942ead4.frame" class="framebox inherit-locale scroll" allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+\ No newline at end of file
++<iframe src="https://android.devsite.google/frame/studio/emulator_archive_54396fed5692644730cda03fc6b02ce71966fccbb6b934f2d0bac3402ac215e9.frame" class="framebox inherit-locale scroll" allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+\ No newline at end of file
