@@ -11,9 +11,7 @@ version of the Paging library, read this page to learn more about migrating to
 Paging 3.
 
 If Paging 3 is the first version of the Paging library that you are using in
-your app, see [Load and display paged
-data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data) for basic usage
-information.
+your app, see [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data) for basic usage information.
 
 ## Benefits of migrating to Paging 3
 
@@ -36,15 +34,11 @@ from Paging 2:
 - `PagedListAdapter`
 
 However, some Paging 3 components are backwards-compatible with previous
-versions of Paging. In particular, the
-[`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) API from Paging
-3 can be a data source for
-[`LivePagedListBuilder`](https://developer.android.com/reference/kotlin/androidx/paging/LivePagedListBuilder)
-and [`RxPagedListBuilder`](https://developer.android.com/reference/kotlin/androidx/paging/RxPagedListBuilder)
-from older versions. Similarly, the `Pager` API can use older
-[`DataSource`](https://developer.android.com/reference/kotlin/androidx/paging/DataSource) objects with the
-`asPagingSourceFactory()` method. This means that you have the following
-migration options:
+versions of Paging. In particular, the [`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) API from Paging 3 can
+be a data source for [`LivePagedListBuilder`](https://developer.android.com/reference/kotlin/androidx/paging/LivePagedListBuilder) and [`RxPagedListBuilder`](https://developer.android.com/reference/kotlin/androidx/paging/RxPagedListBuilder)
+from older versions. Similarly, the `Pager` API can use older [`DataSource`](https://developer.android.com/reference/kotlin/androidx/paging/DataSource)
+objects with the `asPagingSourceFactory()` method. This means that you have the
+following migration options:
 
 - You can migrate your `DataSource` to `PagingSource` but leave the rest of your Paging implementation unchanged.
 - You can migrate your `PagedList` and `PagedListAdapter` but still use the older `DataSource` API.
@@ -53,7 +47,7 @@ migration options:
 The sections on this page explain how to migrate Paging components on each layer
 of your app.
 
-### DataSource classes
+### `DataSource` classes
 
 This section describes all of the necessary changes to migrate an older Paging
 implementation to use `PagingSource`.
@@ -71,12 +65,10 @@ differentiate among load types in your `load()` method, check which
 subclass of `LoadParams` was passed in: `LoadParams.Refresh`,
 `LoadParams.Prepend`, or `LoadParams.Append`.
 
-To learn more about implementing `PagingSource`, see [Define a data
-source](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#data-source).
+To learn more about implementing `PagingSource`, see [Define a data source](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#data-source).
 
 > [!NOTE]
-> **Note:** If your current Paging implementation includes custom error handling, consider using the built-in error handling support in `PagingSource` instead. To learn more, see [Handle
-> errors](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#handle-errors).
+> **Note:** If your current Paging implementation includes custom error handling, consider using the built-in error handling support in `PagingSource` instead. To learn more, see [Handle errors](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#handle-errors).
 
 #### Refresh keys
 
@@ -150,7 +142,7 @@ Integer getRefreshKey(state: PagingState<Integer, User>) {
 
 #### List transformations
 
-In older versions of the Paging library, transformation of the paged data relies
+In lower versions of the Paging library, transformation of the paged data relies
 on the following methods:
 
 - `DataSource.map()`
@@ -166,19 +158,19 @@ you must move your transformation logic from the `DataSource` to the
 To learn more about applying transformations to paged data using Paging 3, see
 [Transform data streams](https://developer.android.com/topic/libraries/architecture/paging/v3-transform).
 
-### PagedList
+### `PagedList`
 
 This section describes all of the necessary changes to migrate an older Paging
 implementation to use `Pager` and `PagingData` in Paging 3.
 
-#### PagedListBuilder classes
+#### `PagedListBuilder` classes
 
 `PagingData` replaces the existing `PagedList` from Paging 2. To migrate to
 `PagingData`, you must update the following:
 
 - Paging configuration has moved from `PagedList.Config` to `PagingConfig`.
 - `LivePagedListBuilder` and `RxPagedListBuilder` have been combined into a single `Pager` class.
-- `Pager` exposes an observable `Flow<PagingData>` with its `.flow` property. RxJava and LiveData variants are also available as extension properties, which are callable from Java via static methods and are provided from the `paging-rxjava*` and `paging-runtime` modules respectively.
+- `Pager` exposes an observable `Flow<PagingData>` with its `.flow` property. RxJava and LiveData variants are also available as extension properties, which are callable from Java using static methods and are provided from the `paging-rxjava*` and `paging-runtime` modules respectively.
 
 ### Kotlin
 
@@ -219,56 +211,28 @@ PagingLiveData.cachedIn(PagingLiveData.getLiveData(pager), viewModelScope);
 ```
 
 To learn more about setting up a reactive stream of `PagingData` objects using
-Paging 3, see [Set up a stream of
-PagingData](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#pagingdata-stream).
+Paging 3, see [Set up a stream of PagingData](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#pagingdata-stream).
 
-#### BoundaryCallback for layered sources
+#### `BoundaryCallback` for layered sources
 
-In Paging 3,
-[`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator) replaces
-`PagedList.BoundaryCallback` as a handler for paging from network and database.
+In Paging 3, [`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator) replaces `PagedList.BoundaryCallback` as a
+handler for paging from network and database.
 
 To learn more about using `RemoteMediator` to page from network and database in
-Paging 3, see the [Android Paging
-codelab](https://codelabs.developers.google.com/codelabs/android-paging).
+Paging 3, see the [Android Paging codelab](https://codelabs.developers.google.com/codelabs/android-paging).
 
-### PagedListAdapter
+### `PagedListAdapter`
 
-This section describes all of the necessary changes to migrate an older Paging
-implementation to use the `PagingDataAdapter` or `AsyncPagingDataDiffer` classes
-from Paging 3.
+Paging 2 uses `PagedListAdapter` to bind a `PagedList` to a `RecyclerView`. In
+Paging 3, `PagingData` replaces `PagedList`. If you are migrating your app to
+use Jetpack Compose for its UI, you don't need an adapter to display paged data.
 
-Paging 3 provides `PagingDataAdapter` to handle the new `PagingData` reactive
-streams. Otherwise, `PagedListAdapter` and `PagingDataAdapter` have the same
-interface. To migrate from `PagedListAdapter` to `PagingDataAdapter`, change
-your implementation of `PagedListAdapter` to extend `PagingDataAdapter` instead.
+Instead, use the `paging-compose` artifact and its `collectAsLazyPagingItems`
+extension method to collect `PagingData` items and display them in `@Composable`
+functions like `LazyColumn`.
 
-To learn more about `PagingDataAdapter`, see [Define a RecyclerView
-adapter](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#recyclerview-adapter).
-
-#### AsyncPagedListDiffer
-
-If you currently use a custom `RecyclerView.Adapter` implementation with
-`AsyncPagedListDiffer`, migrate your implementation to use the
-`AsyncPagingDataDiffer` provided in Paging 3 instead:
-
-### Kotlin
-
-```kotlin
-AsyncPagingDataDiffer(diffCallback, listUpdateCallback)
-```
-
-### Java
-
-```java
-new AsyncPagingDataDiffer(diffCallback, listUpdateCallback);
-```
-
-### Java
-
-```java
-new AsyncPagingDataDiffer(diffCallback, listUpdateCallback);
-```
+For more information about using Paging 3 with Jetpack Compose, see [Overview of
+Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-compose).
 
 ## Additional resources
 
@@ -291,3 +255,4 @@ To learn more about the Paging library, see the following additional resources:
 - [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data)
 - [Gather paged data](https://developer.android.com/topic/libraries/architecture/paging/data)
 - [Page from network and database](https://developer.android.com/topic/libraries/architecture/paging/v3-network-db)
+- [Overview of Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-compose)

@@ -7556,8 +7556,8 @@
     },
     "topic/libraries/architecture/paging/v3-migration.md": {
       "original_url": "https://developer.android.com/topic/libraries/architecture/paging/v3-migration",
-      "hash": "653cfe2caa5239e8645afc068adca124b88be8a74a8f824dc90ac449ec029caf",
-      "last_updated": "2026-03-05T15:17:18.559198",
+      "hash": "f4b26e481d382aee2b881a711052f2133cfb93edd45d531ecb5f9254ccbb902a",
+      "last_updated": "2026-03-18T15:27:08.797715",
       "fetch_method": "md.txt"
     },
     "studio/debug/apk-debugger.md": {
@@ -8678,8 +8678,8 @@
     },
     "studio/releases/fixed-bugs/emulator/36.md": {
       "original_url": "https://developer.android.com/studio/releases/fixed-bugs/emulator/36",
-      "hash": "71a06aa2c4c10a03786dc63ebe119127dde55e174e333d05bfc77b1e43b386fd",
-      "last_updated": "2026-03-13T15:15:13.623288",
+      "hash": "50ff12c6b3877eccf7fe0d4084a05991391bef0f934bcb0e8db082d1d727d7d1",
+      "last_updated": "2026-03-18T15:27:11.021603",
       "fetch_method": "md.txt"
     },
     "training/multiscreen/screendensities.md": {
@@ -13748,8 +13748,8 @@
     },
     "develop/ui/views/layout/webapps/webview.md": {
       "original_url": "https://developer.android.com/develop/ui/views/layout/webapps/webview",
-      "hash": "539a2570f4eb7621df6eaacca5cacab248254dd29109c5620b8e3731ba830bd5",
-      "last_updated": "2026-02-26T15:18:36.784056",
+      "hash": "08ac2e96cd961f0626111e304ba994b9a7cdc5bd0b4b5fbe589f32e8e43e5b6f",
+      "last_updated": "2026-03-18T15:28:13.970563",
       "fetch_method": "md.txt"
     },
     "design/ui/wear/guides/m2-5/components/vignette.md": {
@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "138cd35b53e5d089c9f8a1602541f89346fba2f80adc5fbcbbfdceb44126df63",
-      "last_updated": "2026-03-17T15:24:02.157113",
+      "hash": "c353cb8d34ad2cacb7bbff16d27a1d9ef3cf780ea10d0192b602b5df4c870f87",
+      "last_updated": "2026-03-18T15:28:25.419279",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -14342,8 +14342,8 @@
     },
     "studio.md": {
       "original_url": "https://developer.android.com/studio",
-      "hash": "1d9082c8efb8e5594b19e0cb6acb4e1e9ad6983391f47fe989aa9c26e9891db3",
-      "last_updated": "2026-03-04T15:13:25.118879",
+      "hash": "523ff307fc30eb9dbc77338a97fef84f35f240d0581a8ce9ea9ec3fea6a5c6d0",
+      "last_updated": "2026-03-18T15:28:19.704930",
       "fetch_method": "md.txt"
     },
     "studio/releases/past-releases/as-3-3-0-release-notes.md": {
@@ -16388,8 +16388,8 @@
     },
     "studio/emulator_archive.md": {
       "original_url": "https://developer.android.com/studio/emulator_archive",
-      "hash": "72e1165aae7a1281e7318c688fb2d53e97d9aad6105f3bc3664aefdba87c94ac",
-      "last_updated": "2026-03-13T15:16:53.588973",
+      "hash": "c64e8ff7f88b17d09eaf882decf50b23796f872cd1a93f9d137a562f84de748c",
+      "last_updated": "2026-03-18T15:28:55.190679",
       "fetch_method": "md.txt"
     },
     "about/versions/11/behavior-changes-all.md": {
@@ -23888,8 +23888,8 @@
     },
     "studio/preview/features.md": {
       "original_url": "https://developer.android.com/studio/preview/features",
-      "hash": "cc81cef83889b3861a122b4c8ed5542343ce7f19998ea393c441ddcb7b69bac6",
-      "last_updated": "2026-03-14T15:09:31.665599",
+      "hash": "05effde0d1dd0aa7fba0935318338c18d0038b70c1e2a9e605ccf3cfbff327b5",
+      "last_updated": "2026-03-18T15:30:02.959096",
       "fetch_method": "md.txt"
     },
     "studio/releases/past-releases/as-3-1-0-release-notes.md": {
@@ -25730,8 +25730,8 @@
     },
     "develop/ui/compose/styles/state-animations.md": {
       "original_url": "https://developer.android.com/develop/ui/compose/styles/state-animations",
-      "hash": "984af4a788d2020bed607a74ba188a415949288b036710525d131e48023931be",
-      "last_updated": "2026-03-11T15:18:05.198138",
+      "hash": "224e6166b8e6cc71d451922c82ec0a8045f0eae69c426317df1e7f1df1eb8b09",
+      "last_updated": "2026-03-18T15:28:25.087176",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/styles/fundamentals.md": {
@@ -25841,7 +25841,43 @@
       "hash": "5bdcb9288618b040822d60ac8b30a9780c27f9246193d9665a1b648e654a7ef7",
       "last_updated": "2026-03-17T15:25:40.169006",
       "fetch_method": "md.txt"
+    },
+    "skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill.md": {
+      "original_url": "https://developer.android.com/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill",
+      "hash": "1f401cafd686f1242e70cb70fffccaefd5656a18c05cd0b823e95dad73582dcf",
+      "last_updated": "2026-03-18T15:26:05.812905",
+      "fetch_method": "html-scrape"
+    },
+    "topic/libraries/architecture/paging/v3-compose.md": {
+      "original_url": "https://developer.android.com/topic/libraries/architecture/paging/v3-compose",
+      "hash": "4ae598d3c67086c47b05f92919dfbf8e7a62959d79f94ba8c8d42e16b8a00a68",
+      "last_updated": "2026-03-18T15:27:18.626960",
+      "fetch_method": "md.txt"
+    },
+    "skills/navigation/jetpack-navigation-3/skill.md": {
+      "original_url": "https://developer.android.com/skills/navigation/jetpack-navigation-3/skill",
+      "hash": "a0f3e89d49d82f3933d5bdf3b22f450a73e1c2ae43dee763f05dba85a9f1d60a",
+      "last_updated": "2026-03-18T15:28:53.157632",
+      "fetch_method": "html-scrape"
+    },
+    "develop/ui/compose/touch-input/scroll/scroll-modifiers.md": {
+      "original_url": "https://developer.android.com/develop/ui/compose/touch-input/scroll/scroll-modifiers",
+      "hash": "ac69389183d8498b05e80b30bb6f2c7b3d40b6ebf31bf69198df31f760a516eb",
+      "last_updated": "2026-03-18T15:29:32.277435",
+      "fetch_method": "md.txt"
+    },
+    "develop/ui/views/layout/webapps/native-api-access-jsbridge.md": {
+      "original_url": "https://developer.android.com/develop/ui/views/layout/webapps/native-api-access-jsbridge",
+      "hash": "38a2358e3586395852d5e0a1ba21763e385669ed142abbdec0a60dea29e39170",
+      "last_updated": "2026-03-18T15:29:41.175623",
+      "fetch_method": "md.txt"
+    },
+    "develop/ui/compose/touch-input/scroll/nested-scroll-modifiers.md": {
+      "original_url": "https://developer.android.com/develop/ui/compose/touch-input/scroll/nested-scroll-modifiers",
+      "hash": "774c8d993e7e8ffe1593b4379ae6b6a37f1bf136ca605966696b8495913faaa8",
+      "last_updated": "2026-03-18T15:30:14.253861",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-03-17T15:25:47.463977"
+  "last_updated": "2026-03-18T15:30:18.126329"
 }

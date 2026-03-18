@@ -137,8 +137,9 @@ private fun GradientButton(
     content: @Composable RowScope.() -> Unit,
 ) {
     val interactionSource = interactionSource ?: remember { MutableInteractionSource() }
-    val styleState = remember(interactionSource) { MutableStyleState(interactionSource) }
-    styleState.isEnabled = enabled
+    val styleState = rememberUpdatedStyleState(interactionSource) {
+        it.isEnabled = enabled
+    }
     Row(
         modifier =
             modifier
