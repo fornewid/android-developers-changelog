@@ -46,6 +46,5 @@ There are different ways to run and configure your tests:
   To test how your app behaves when your user interacts with it, you can use
   tools such as [Espresso Test
   Recorder](https://developer.android.com/studio/test/other-testing-tools/espresso-test-recorder),
-  [App Crawler](https://developer.android.com/studio/test/other-testing-tools/app-crawler),
   [UI Automator](https://developer.android.com/training/testing/other-components/ui-automator), or
   [Monkey testing](https://developer.android.com/studio/test/other-testing-tools/monkey).

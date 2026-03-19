@@ -42,11 +42,11 @@ The device or emulator you run your trace on must also be at minimum API level
 
 Additionally, you need to add a new dependency on Compose Runtime Tracing:
 
-    implementation("androidx.compose.runtime:runtime-tracing:1.10.4")
+    implementation("androidx.compose.runtime:runtime-tracing:1.10.5")
 
 If you are using the [Compose BOM](https://developer.android.com/develop/ui/compose/bom), you don't have to specify the version:
 
-    val composeBom = platform("androidx.compose:compose-bom:2026.02.01")
+    val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
     implementation(composeBom)
     // ...
 

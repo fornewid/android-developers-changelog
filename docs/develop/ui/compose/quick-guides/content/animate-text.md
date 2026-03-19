@@ -24,7 +24,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/animate-text_36533594c991309af129575c6432116d235a7b05b70534b2d1b89cdbe1ded244.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/animate-text_7f7d48807914e7d1095832a1da5eb605f72c073ad650a896fe8e3904ff003070.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Animate text character-by-character
 

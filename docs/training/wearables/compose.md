@@ -124,7 +124,7 @@ dependencies:
 ```kotlin
 dependencies {
 
-    val composeBom = platform("androidx.compose:compose-bom:2026.02.01")
+    val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
 
     // General compose dependencies
     implementation(composeBom)

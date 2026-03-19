@@ -7,7 +7,9 @@ source: md.txt
 ![Tier 3 adaptive ready icon](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-3/tier_3_icon.png)
 
 TIER 3 --- Adaptive ready
-| **Objective:** Make your app [adaptive ready](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#adaptive_ready) by meeting the [Config:Changes](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#Config:Changes) and [Config:Combinations](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#Config:Combinations) configuration and continuity requirements of the [Adaptive app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) guidelines.
+
+> [!NOTE]
+> **Objective:** Make your app [adaptive ready](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#adaptive_ready) by meeting the [Config:Changes](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#Config:Changes) and [Config:Combinations](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#Config:Combinations) configuration and continuity requirements of the [Adaptive app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) guidelines.
 
 Configuration is a combination of device state and system state. Device state
 includes screen orientation, display size, folded or unfolded state of a
@@ -46,13 +48,14 @@ Specify the configuration changes your app handles by setting the
 [`android:configChanges`](https://developer.android.com/guide/topics/manifest/activity-element#config) attribute of the [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element) element in your
 app manifest.
 
-For example, enable your app to handle multi-window configuration changes:  
+For example, enable your app to handle multi-window configuration changes:
 
     <activity
       android:name=".MyActivity"
-      android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout" />
+      android:configChanges="orientation|screenSize|smallestScreenSize|>screenLayout" /
 
-| **Note:** Android handles any configuration changes you don't specify in `configChanges`; that is, the system destroys and recreates your app's activities.
+> [!NOTE]
+> **Note:** Android handles any configuration changes you don't specify in `configChanges`; that is, the system destroys and recreates your app's activities.
 
 ## State management
 
