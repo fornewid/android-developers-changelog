@@ -1,5 +1,208 @@
 [
   {
+    "date": "2026-03-19T15:19:15Z",
+    "commit_hash": "a4dd19b",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini\" target=\"_blank\">gemini.md</a>",
+        "path": "ai/gemini.md",
+        "summary": "The example code snippet link in the documentation has been updated. This change updates the link to point to the latest version of the code example on GitHub, ensuring users access the most up-to-date sample code for the Gemini integration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_gemini.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/datepickers\" target=\"_blank\">datepickers.md</a>",
+        "path": "develop/ui/compose/components/datepickers.md",
+        "summary": "The provided diff updates the link to a code snippet in the `DatePickers.kt` file within the Compose snippets repository. The change modifies the commit hash used in the URL to point to a different version of the snippet. This is likely due to an update in the codebase. This matters because it ensures that the documentation points to the correct and up-to-date version of the code example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_datepickers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/add-toggle-switch\" target=\"_blank\">add-toggle-switch.md</a>",
+        "path": "develop/ui/compose/quick-guides/content/add-toggle-switch.md",
+        "summary": "The documentation for adding a toggle switch in Compose UI has been updated. The changes involve updates to the iframe sources for the examples, likely to reflect changes in the underlying code or to fix broken links. This ensures that the examples and results shown in the documentation are up-to-date and functional, aiding developers in implementing toggle switches.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_add-toggle-switch.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/animate-text\" target=\"_blank\">animate-text.md</a>",
+        "path": "develop/ui/compose/quick-guides/content/animate-text.md",
+        "summary": "The `animate-text.md` file's iframe source URL has been updated. This change likely reflects an update to the interactive example or the underlying code it presents, ensuring the content remains current and functional.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_animate-text.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number\" target=\"_blank\">auto-format-phone-number.md</a>",
+        "path": "develop/ui/compose/quick-guides/content/auto-format-phone-number.md",
+        "summary": "The change involves updating the iframe source URL within the documentation. This update likely reflects a change in the underlying content or a version update of the referenced resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_auto-format-phone-number.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/create-bottom-sheet\" target=\"_blank\">create-bottom-sheet.md</a>",
+        "path": "develop/ui/compose/quick-guides/content/create-bottom-sheet.md",
+        "summary": "The documentation updates the embedded iframes in the 'create-bottom-sheet.md' file. The iframe src attributes have been modified, likely to reflect changes in the underlying resources or the way they are accessed. These changes are not substantive.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_create-bottom-sheet.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/create-card-as-container\" target=\"_blank\">create-card-as-container.md</a>",
+        "path": "develop/ui/compose/quick-guides/content/create-card-as-container.md",
+        "summary": "The change updates the iframe source URL for the embedded content within the documentation. This likely reflects an update to the underlying content or a change in its hosting location. This ensures the correct interactive elements are displayed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_create-card-as-container.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/create-chip\" target=\"_blank\">create-chip.md</a>",
+        "path": "develop/ui/compose/quick-guides/content/create-chip.md",
+        "summary": "The changes in this document involve updates to the iframe source URLs used for displaying interactive content. These changes are likely due to content updates or versioning of the interactive examples within the documentation, ensuring the examples remain current and functional.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_create-chip.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/display-paging-list\" target=\"_blank\">display-paging-list.md</a>",
+        "path": "develop/ui/compose/quick-guides/content/display-paging-list.md",
+        "summary": "The change updates the iframe source URL to a new version of the display-paging-list quick guide. This ensures that the documentation uses the latest code and examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_display-paging-list.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/lazily-load-list\" target=\"_blank\">lazily-load-list.md</a>",
+        "path": "develop/ui/compose/quick-guides/content/lazily-load-list.md",
+        "summary": "The change involves updating the iframe source URL within the documentation. This update likely reflects a change in the underlying content or a version update of the lazily-load-list example, ensuring the quick guide remains current and functional.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_lazily-load-list.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/support-multiple-links\" target=\"_blank\">support-multiple-links.md</a>",
+        "path": "develop/ui/compose/quick-guides/content/support-multiple-links.md",
+        "summary": "The change updates the embedded iframe source URL within the documentation. This modification ensures the documentation continues to correctly display and function, pointing to the most recent or relevant resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_support-multiple-links.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/quick-guides/content/validate-input\" target=\"_blank\">validate-input.md</a>",
+        "path": "develop/ui/compose/quick-guides/content/validate-input.md",
+        "summary": "The provided diff shows a change in the iframe source URL within the 'validate-input.md' documentation. This likely reflects an update to the content or a change in the way the embedded content is hosted. The update ensures the quick guide is up-to-date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_validate-input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/tooling/tracing\" target=\"_blank\">tracing.md</a>",
+        "path": "develop/ui/compose/tooling/tracing.md",
+        "summary": "The Compose Runtime Tracing dependency and Compose BOM version were updated. The dependency was updated from version 1.10.4 to 1.10.5, and the BOM was updated from 2026.02.01 to 2026.03.00. This matters because it ensures users are on the latest versions of the Compose libraries, incorporating potential bug fixes, performance improvements, and new features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_tracing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing\" target=\"_blank\">add-xr-to-existing.md</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-xr-to-existing.md",
+        "summary": "The documentation updated a URL in the code example for spatial audio. The link was updated from a specific commit hash to another commit hash within the Android snippets repository, likely to point to the latest version of the example code. This ensures users are directed to the current example, providing the most up-to-date and relevant information for implementing spatial audio features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_add-xr-to-existing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/metadata\" target=\"_blank\">Configure your app with metadata  |  App architecture  |  Android Developers</a>",
+        "path": "guide/navigation/navigation-3/metadata.md",
+        "summary": "This document introduces the use of metadata for sharing information between library components such as NavEntry, Scene, and NavDisplay in Navigation 3. It details how to provide and use metadata through the metadata DSL, including defining keys and building and reading metadata maps.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/scenes\" target=\"_blank\">Create custom layouts using Scenes  |  App architecture  |  Android Developers</a>",
+        "path": "guide/navigation/navigation-3/scenes.md",
+        "summary": "This new documentation introduces Scenes in Navigation 3, explaining how they enable custom layouts, adapt to different screen sizes, and manage complex UI flows using Scene strategies and NavDisplay.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-event\" target=\"_blank\">navigation-event.md</a>",
+        "path": "guide/navigation/navigation-event.md",
+        "summary": "This new documentation introduces the Navigation Event library, a Kotlin Multiplatform (KMP) solution for integrating system-level navigation events into Android applications. It focuses on a dispatcher-handler model for managing navigation directions and triggers across various platforms.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/configuration-and-continuity\" target=\"_blank\">configuration-and-continuity.md</a>",
+        "path": "guide/topics/large-screens/configuration-and-continuity.md",
+        "summary": "The document introduces a change in the formatting by adding a NOTE block for the Objective section and another NOTE block for the Note section. This change enhances readability and highlights important information.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_configuration-and-continuity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/manifest/permission-tree-element\" target=\"_blank\">permission-tree-element.md</a>",
+        "path": "guide/topics/manifest/permission-tree-element.md",
+        "summary": "The documentation for the `<permission-tree>` element has been updated to include more descriptive text for the `description` and `attributes` sections, providing clearer explanations and better formatting for improved readability. Additionally, URLs are now formatted correctly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_permission-tree-element.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/data/backup\" target=\"_blank\">backup.md</a>",
+        "path": "identity/data/backup.md",
+        "summary": "This document provides guidance on backing up app data, focusing on identity, app, and settings data. It recommends backing up key user data for a better user experience and outlines backup options, including Auto Backup and key-value backup.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_backup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/exoplayer/playlists\" target=\"_blank\">playlists.md</a>",
+        "path": "media/media3/exoplayer/playlists.md",
+        "summary": "The documentation for playlists.md was updated. The changes reflect an update to the link for the sample Kotlin code used in the example to demonstrate the use of setting a custom shuffle order.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_playlists.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/test\" target=\"_blank\">test.md</a>",
+        "path": "studio/test.md",
+        "summary": "The App Crawler link has been removed from the list of testing tools. This update streamlines the documentation by removing a specific tool, App Crawler, from the list of testing tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_test.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose\" target=\"_blank\">compose.md</a>",
+        "path": "training/wearables/compose.md",
+        "summary": "The Compose BOM (Bill of Materials) dependency version has been updated from 2026.02.01 to 2026.03.00. This is important to ensure the project uses the latest stable Compose libraries, which includes bug fixes, performance improvements, and potentially new features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/navigation\" target=\"_blank\">navigation.md</a>",
+        "path": "training/wearables/compose/navigation.md",
+        "summary": "The example code snippet URL within the navigation.md file has been updated. This change is important to ensure the documentation points to the most current version of the code, thus providing the correct implementation details.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/wff/transform/content\" target=\"_blank\">content.md</a>",
+        "path": "training/wearables/wff/transform/content.md",
+        "summary": "The content.md file was updated to reflect a change in the code snippet's URL. The URL now points to a different commit hash for the `watchface_dynamic_content.xml` file within the Android snippets repository. This ensures that the documentation references the most up-to-date version of the code example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/a4dd19b_content.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-18T15:30:18Z",
     "commit_hash": "17f7916",
     "entries": [
