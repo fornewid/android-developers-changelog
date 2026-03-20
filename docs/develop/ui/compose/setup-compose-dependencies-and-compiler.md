@@ -113,7 +113,7 @@ you need to your dependencies from the following block:
 
     dependencies {
 
-        def composeBom = platform('androidx.compose:compose-bom:2026.02.01')
+        def composeBom = platform('androidx.compose:compose-bom:2026.03.00')
         implementation composeBom
         androidTestImplementation composeBom
 
@@ -138,7 +138,7 @@ you need to your dependencies from the following block:
         implementation 'androidx.compose.material3.adaptive:adaptive'
 
         // Optional - Integration with activities
-        implementation 'androidx.activity:activity-compose:1.12.4'
+        implementation 'androidx.activity:activity-compose:1.13.0'
         // Optional - Integration with ViewModels
         implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0'
         // Optional - Integration with LiveData
@@ -152,7 +152,7 @@ you need to your dependencies from the following block:
 
     dependencies {
 
-        val composeBom = platform("androidx.compose:compose-bom:2026.02.01")
+        val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
         implementation(composeBom)
         androidTestImplementation(composeBom)
 
@@ -177,7 +177,7 @@ you need to your dependencies from the following block:
         implementation("androidx.compose.material3.adaptive:adaptive")
 
         // Optional - Integration with activities
-        implementation("androidx.activity:activity-compose:1.12.4")
+        implementation("androidx.activity:activity-compose:1.13.0")
         // Optional - Integration with ViewModels
         implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
         // Optional - Integration with LiveData

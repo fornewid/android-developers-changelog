@@ -6,9 +6,7 @@ source: md.txt
 
 # DataStore
 
-[User Guide](https://developer.android.com/datastore) [Codelab](https://codelabs.developers.google.com/codelabs/android-preferences-datastore) API Reference  
-[androidx.datastore](https://developer.android.com/reference/kotlin/androidx/datastore/package-summary)   
-Store data asynchronously, consistently, and transactionally, overcoming some of the drawbacks of SharedPreferences
+[User Guide](https://developer.android.com/datastore) [Codelab](https://codelabs.developers.google.com/codelabs/android-preferences-datastore) Store data asynchronously, consistently, and transactionally, overcoming some of the drawbacks of SharedPreferences
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
@@ -269,6 +267,41 @@ March 11, 2026
 **API Changes**
 
 - Introduced the new `androidx.datastore:datastore-tink` artifact for `DataStore` encryption support. ([Ic106d](https://android-review.googlesource.com/#/q/Ic106dfa3322d538294919a945086533b287e44a2), [b/167697691](https://issuetracker.google.com/issues/167697691))
+
+  To encrypt data using Tink, follow these steps:
+  1. Create a key using Tink APIs:
+
+         val keysetHandle =
+             AndroidKeysetManager.Builder()
+                 .withSharedPref(applicationContext, "keyset", "keyset_prefs")
+                 .withKeyTemplate(KeyTemplate.createFrom(PredefinedAeadParameters.AES256_GCM))
+                 .withMasterKeyUri("android-keystore://master_key")
+                 .build()
+                 .keysetHandle
+
+  2. Create an `AeadSerializer` that wraps an existing serializer:
+
+         val aeadSerializer = AeadSerializer(
+             // Use tink APIs to create an Aead object to encrypt/decrypt data.
+             aead =
+                 keysetHandle.getPrimitive(
+                     RegistryConfiguration.get(),
+                     Aead::class.java,
+                 ),
+             // AeadSerializer can wrap an existing serializer.
+             wrappedSerializer = ExistingSerializer,
+             // Specify a unique name to prevent a ciphertext swapping attack.
+             associatedData = "settings.json".encodeToByteArray(),
+         )
+
+  3. Use this `aeadSerializer` in place of your serializer when creating the datastore instance:
+
+         val dataStore = dataStore(
+             fileName = "settings.json",
+             serializer = aeadSerializer,
+             scope = scope,
+         )
+
 - Introduced `DataStore.Builder<T>` as the modern, scalable alternative to `DataStoreFactory`. ([I3b110](https://android-review.googlesource.com/#/q/I3b11004afdbb271da03aa410fb884191734bf182), [b/267785821](https://issuetracker.google.com/issues/267785821), [b/400507108](https://issuetracker.google.com/issues/400507108), [b/368385681](https://issuetracker.google.com/issues/368385681), [b/427722902](https://issuetracker.google.com/issues/427722902), [b/370838564](https://issuetracker.google.com/issues/370838564), [b/167697691](https://issuetracker.google.com/issues/167697691))
 
 ### Version 1.3.0-alpha06

@@ -34,10 +34,15 @@ In Jetpack Compose, you can access display-specific information using [`Composit
 
 You can use the [`Display`](https://developer.android.com/reference/kotlin/android/view/Display) class to get information such as display size, density, or flags. Use the [`DisplayManager`](https://developer.android.com/reference/kotlin/android/hardware/display/DisplayManager) system service to get the available displays. To identify external displays, filter out the `Display.DEFAULT_DISPLAY`, which is typically the built-in phone or tablet screen:
 
-    val displayManager = getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
-    val displays = displayManager.getDisplays()
-    // The default display is 0. External displays have other IDs.
-    val externalDisplays = displays.filter { it.displayId != Display.DEFAULT_DISPLAY }
+
+```kotlin
+val displayManager = getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
+val displays = displayManager.getDisplays()
+// The default display is 0. External displays have other IDs.
+val externalDisplays = displays.filter { it.displayId != Display.DEFAULT_DISPLAY }
+```
+
+<br />
 
 ## Manage activity launch and configuration
 
@@ -49,23 +54,28 @@ If the selected launch mode for an activity allows multiple instances, launching
 
 You can launch an activity on a particular display using [`ActivityOptions`](https://developer.android.com/reference/kotlin/android/app/ActivityOptions). Note that `launchDisplayId` requires Android 8 (API level 26) or higher.
 
-    // Get DisplayManager and find the first external display.
-    val displayManager = getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
-    val externalDisplayId = displayManager.displays
-        .firstOrNull { it.displayId != Display.DEFAULT_DISPLAY }
-        ?.displayId
 
-    // If an external display is found, launch the activity on it.
-    if (externalDisplayId != null) {
-        val intent = Intent(this, MySecondaryActivity::class.java)
-        val options = ActivityOptions.makeBasic()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            options.launchDisplayId = externalDisplayId
-        }
-        startActivity(intent, options.toBundle())
-    } else {
-        // Optionally, handle the case where no external display is connected.
+```kotlin
+// Get DisplayManager and find the first external display.
+val displayManager = getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
+val externalDisplayId = displayManager.displays
+    .firstOrNull { it.displayId != Display.DEFAULT_DISPLAY }
+    ?.displayId
+
+// If an external display is found, launch the activity on it.
+if (externalDisplayId != null) {
+    val intent = Intent(this, MySecondaryActivity::class.java)
+    val options = ActivityOptions.makeBasic()
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        options.launchDisplayId = externalDisplayId
     }
+    startActivity(intent, options.toBundle())
+} else {
+    // Optionally, handle the case where no external display is connected.
+}
+```
+
+<br />
 
 ## Avoid device allowlists
 

@@ -79,11 +79,11 @@ dependencies in your app's `build.gradle` file as follows:
 
 ```kotlin
 dependencies {
-   val composeBom = platform("androidx.compose:compose-bom:2026.02.01")
+   val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
    implementation(composeBom)
 
    // General compose dependencies.
-   implementation("androidx.activity:activity-compose:1.12.4")
+   implementation("androidx.activity:activity-compose:1.13.0")
 
    implementation("androidx.compose.ui:ui-tooling-preview")
    debugImplementation("androidx.compose.ui:ui-tooling")
@@ -97,11 +97,11 @@ dependencies {
 
 ```groovy
 dependencies {
-   def composeBom = platform('androidx.compose:compose-bom:2026.02.01')
+   def composeBom = platform('androidx.compose:compose-bom:2026.03.00')
    implementation composeBom
 
    // General compose dependencies.
-   implementation 'androidx.activity:activity-compose:1.12.4'
+   implementation 'androidx.activity:activity-compose:1.13.0'
 
    implementation 'androidx.compose.ui:ui-tooling-preview'
    debugImplementation 'androidx.compose.ui:ui-tooling'

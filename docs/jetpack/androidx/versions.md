@@ -6,8 +6,6 @@ source: md.txt
 
 *** ** * ** ***
 
-Overview \|[All](https://developer.android.com/jetpack/androidx/versions/all-channel) \|[Stable](https://developer.android.com/jetpack/androidx/versions/stable-channel) \|[RC](https://developer.android.com/jetpack/androidx/versions/rc-channel) \|[Beta](https://developer.android.com/jetpack/androidx/versions/beta-channel) \|[Alpha](https://developer.android.com/jetpack/androidx/versions/alpha-channel)
-
 Jetpack libraries ship separately from the Android OS, so updates to the
 libraries can happen independently and more frequently.
 
@@ -163,7 +161,7 @@ release notes to view the version updates for all of the artifacts.
 | [navigation](https://developer.android.com/jetpack/androidx/releases/navigation) | March 11, 2026 | [2.9.7](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.7) | - | - | [2.10.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha01) |
 | [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3) | March 11, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.1) | - | [1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-beta01) | - |
 | [navigationevent](https://developer.android.com/jetpack/androidx/releases/navigationevent) | February 25, 2026 | [1.0.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.2) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.0-alpha01) |
-| [paging (\*)](https://developer.android.com/jetpack/androidx/releases/paging) | March 11, 2026 | [3.4.1](https://developer.android.com/jetpack/androidx/releases/paging#3.4.1) | - | - | [3.5.0-alpha01](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0-alpha01) |
+| [paging (\*)](https://developer.android.com/jetpack/androidx/releases/paging) | March 11, 2026 | [3.4.2](https://developer.android.com/jetpack/androidx/releases/paging#3.4.2) | - | - | [3.5.0-alpha01](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0-alpha01) |
 | [palette](https://developer.android.com/jetpack/androidx/releases/palette) | September 21, 2018 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/palette#1.0.0) | - | - | - |
 | [pdf](https://developer.android.com/jetpack/androidx/releases/pdf) | March 11, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha15) |
 | [percentlayout](https://developer.android.com/jetpack/androidx/releases/percentlayout) | September 21, 2018 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/percentlayout#1.0.0) | - | - | - |

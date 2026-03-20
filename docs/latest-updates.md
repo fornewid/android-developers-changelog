@@ -162,9 +162,9 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
 
 Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) Canary
 
-### [Panda 3 \| 2025.3.3 Canary 4](https://developer.android.com/studio/preview)
+### [Panda 4 \| 2025.3.4 Canary 1](https://developer.android.com/studio/preview)
 
-March 12, 2026 Stable
+March 19, 2026 Stable
 
 ### [Panda 2 \| 2025.3.2](https://developer.android.com/studio/releases)
 

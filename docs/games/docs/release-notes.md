@@ -9,6 +9,12 @@ To get the latest product updates delivered to you, add the URL of this page to 
 [feed
 reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the feed URL directly: `https://developer.android.com/feeds/androidgames-release-notes.xml`.
 
+## March 16, 2026
+
+Feature Play Games Sidekick is Generally Available.
+
+Learn more: [Play Games Sidekick](https://developer.android.com/games/pgs/play-games-sidekick)
+
 ## January 16, 2026
 
 Feature Play Games Services v2 Native SDK (beta) is available for you to test.

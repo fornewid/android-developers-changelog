@@ -127,18 +127,18 @@ The following example from a `shortcuts.xml` file demonstrates a widget
 fulfillment configuration for a
 [`GET_EXERCISE_OBSERVATION`](https://developer.android.com/reference/app-actions/built-in-intents/health-and-fitness/get-exercise-observation) BII capability:
 
-    <capability android:name="actions.intent.GET_EXERCISE_OBSERVATION">
-      <app-widget
+    <capability android:name="actions.intent.GET_EXERCISE_OBSERVA>TIO<N"
+      app-widget
         android:identifier="GET_EXERCISE_OBSERVATION_1"
         android:targetClass="com.exampleapp.providers.exampleAppWidgetProvider"
-        android:targetPackage="com.exampleapp">
-        <parameter
-          android:name="exerciseObservation.aboutExercise.name"
-          android:key="exercisename">
-        </parameter>
-        <extra android:name="hasTts" android:value="true"/>
-      </app-widget>
-    </capability>
+        android:>targe<tPackage="com.exampleapp"
+        parameter
+          android:name="exerciseObservation.aboutEx>ercis<e.name&quo>t;
+      <    android:key="exercisename"
+        /par>ame<ter
+        ext>r<a android:n>ame="hasTts" android:value="true"/
+      /app-widget
+    /capability
 
 You can specify multiple `<app-widget>` elements or use a combination of
 `<app-widget>` and `<intent>` elements per capability. This approach lets you
@@ -381,22 +381,22 @@ definition to `AndroidManifest.xml`:
 
     <application>
       <receiver android:name="com.google.assistant.appactions.widgets.pinappwidget.PinAppWidgetBroadcastReceiver"
-        android:exported="false">
-        <intent-filter>
-          <action android:name="com.google.assistant.appactions.widgets.COMPLETE_PIN_APP_WIDGET" />
-        </intent-filter>
-      </receiver>
-      <service
+        android:export>ed=&q<uot;false&quo>t;
+        <intent-filter
+          action android:name="com.google.assistant.appactions.widgets.C>OMPLE<TE_PIN_APP_WID>GET<" /
+    >   < /intent-filter
+      /receiver
+      service
         android:name=
         "com.google.assistant.appactions.widgets.pinappwidget.PinAppWidgetService"
-        android:enabled="true"
-        android:exported="true">
-        <intent-filter>
-          <action
-            android:name="com.google.assistant.appactions.widgets.PIN_APP_WIDGET" />
-        </intent-filter>
-      </service>
-    </application>
+        android:en>abled<="true&q>uot;
+      <  android:exported="true"
+        intent-filter
+          action
+            android:nam>e=&qu<ot;com.google.>ass<istant.a>p<pactions.wid>gets.PIN_APP_WIDGET" /
+        /intent-filter
+      /service
+    /application
 
 ## Inventory availability
 
@@ -410,27 +410,27 @@ The following code from a sample `shortcuts.xml` file demonstrates a
 configured for inline inventory and widget fulfillment:
 
     <capability
-      android:name="actions.intent.START_EXERCISE">
-      <app-widget
+      android:name="actions.intent.START_EXER>CIS<E"
+      app-widget
         android:identifier="START_EXERCISE_1"
-        android:targetClass="com.example.exampleapp.StartExerciseAppWidgetProvider">
-        <parameter
+        android:targetClass="com.example.exampleapp.StartE>xerci<seAppWidgetProvider"
+        parameter
           android:name="exercise.name"
-          android:key="exerciseName"
-          app:shortcutMatchRequired="true">
-        </parameter>
-      </app-widget>
-    </capability>
+          android:key="exercis>eName<"
+       >   <app:shortcu>t<MatchRequir>ed<="true"
+        /parameter
+      /app-widge>t
+    /<capability
 
-    <shortcut android:shortcutId="RunningShortcut">
-      <intent
-        android:action="android.intent.action.VIEW"
-        android:targetClass="com.example.exampleapp.StartExcerciseActivity" />
-      <capability-binding
-        android:capability="actions.intent.START_EXERCISE"
+    shortcut android:shortcutId="RunningShortcut"
+      intent
+        android:action="android.intent.action.VIEW>&qu<ot;
+        android:targetClass="com.example.exampleapp.StartExcerciseActivity" /
+      capability-binding
+        android:capability="actions.>i<ntent.STA>RT_EXERCISE"
         android:parameter="exercise.name"
-        android:value="running;runs" />
-    </shortcut>
+        android:value="running;runs" /
+    /shortcut
 
 In the preceding sample, when a user triggers this capability by asking
 Assistant, *"Start running with ExampleApp,"* the option bundle for the
@@ -446,19 +446,19 @@ enabled for web inventory and widget fulfillment:
 
     <shortcuts>
       <capability
-        android:name="actions.intent.START_EXERCISE">
-        <app-widget
+        android:name="actions.intent.START_EXER>CISE&<quot;
+        app-widget
           android:identifier="START_EXERCISE_1"
-          android:targetClass="com.example.exampleapp.CreateTaxiAppWidgetProvider">
-          <parameter
+          android:targetClass="com.example.exampleapp.Cre>ateTaxi<AppWidgetProvider"
+          parameter
             android:name="exercise.name"
-            android:key="exerciseName"
-            android:mimeType="text/*">
-            <data android:pathPattern="https://exampleapp.com/exercise/.*" />
-          </parameter>
-        </app-widget>
-      </capability>
-    </shortcuts>
+            android:key="ex>erciseNam<e"
+            android:mimeType="text/*"
+            dat>a andro<id:pathPat>tern=<"https>://<exampleapp.>c<om/exercis>e/.*" /
+          /parameter
+        /app-widget
+      /capability
+    /shortcuts
 
 ## Test App Actions
 
@@ -511,25 +511,25 @@ The following code from a sample `shortcuts.xml` file demonstrates a
 
     <shortcuts>
       <capability
-        android:name="actions.intent.CREATE_TAXI_RESERVATION">
-        <!-- Widget with required parameter, specified using the "android:required" attribute. -->
-        <app-widget
+        android:name="actions.intent.CREATE_TAXI_RESERVA>TION&<quot;
+        !-- Widget with required parameter, specified using the "android:required>"<; attribute. --
+        app-widget
           android:identifier="CREATE_TAXI_RESERVATION_1"
-          android:targetClass="com.example.myapplication.CreateTaxiAppWidgetProvider">
-          <parameter
+          android:targetClass="com.example.myappli>cation.<CreateTaxiAppWidgetProvider"
+          parameter
             android:name="taxiReservation.dropoffLocation.name"
-            android:key="dropoff"
-            android:required="true">
-          </parameter>
-        </app-widget>
-        <!-- Fallback intent with no parameters required to successfully execute. -->
-        <intent
+            and>roid:ke<y="dr>opoff<"
+        >    a<ndroid:required="true"
+          /parameter
+        /app-widget
+        !-- F>allba<ck intent with no parameters required to successfully execute. --
+        intent
           android:identifier="CREATE_TAXI_RESERVATION_3"
-          android:action="myapplication.intent.CREATE_TAXI_RESERVATION_1"
-          android:targetClass="com.example.myapplication.TaxiReservationActivity">
-        </intent>
-      </capability>
-    </shortcuts>
+          android:action="myapplication.intent.CREATE_TAXI_RESERVA>TION_<1">
+      <    >android:<targetClas>s="com.example.myapplication.TaxiReservationActivity"
+        /intent
+      /capability
+    /shortcuts
 
 ## Google Play data disclosure
 

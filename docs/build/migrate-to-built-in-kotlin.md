@@ -363,8 +363,7 @@ If you are unable to migrate your project to use built-in Kotlin, set
 `android.builtInKotlin=false` in the `gradle.properties` file to temporarily
 disable it.
 When you do that, the build shows a warning reminding you to migrate to built-in
-Kotlin as you won't be able to disable built-in Kotlin in a future version of
-AGP 9.x before AGP 10.0.
+Kotlin as you won't be able to disable built-in Kotlin in AGP 10.0.
 
 > [!NOTE]
 > **Note:** You also need to set `android.newDsl=false` to opt out of the [new DSL](https://developer.android.com/r/tools/new-dsl) because the `kotlin-android` plugin is not compatible with it.
