@@ -1,0 +1,680 @@
+diff --git a/docs/privacy-and-security/security-config.md b/docs/privacy-and-security/security-config.md
+index 5888deb..5f93033 100644
+--- a/docs/privacy-and-security/security-config.md
++++ b/docs/privacy-and-security/security-config.md
+@@ -4,19 +4,25 @@ url: https://developer.android.com/privacy-and-security/security-config
+ source: md.txt
+ ---
+ 
+-# Network security configuration
+-
+-The Network Security Configuration feature lets you customize your app's network security settings in a safe, declarative[configuration file](https://developer.android.com/training/articles/security-config#FileFormat)without modifying app code. These settings can be configured for specific domains and for a specific app. The key capabilities of this feature are:
+-
+-- **Custom trust anchors:**Customize which Certificate Authorities (CA) are trusted for an app's secure connections. For example, trusting particular self-signed certificates or restricting the set of public CAs that the app trusts.
+-- **Debug-only overrides:**Safely debug secure connections in an app without added risk to the installed base.
+-- **Cleartext traffic opt-out:**Protect apps from accidental usage of cleartext (unencrypted) traffic.
+-- **Certificate transparency opt-in:**Restrict an app's secure connections to use provably logged certificates.
+-- **Certificate pinning:**Restrict an app's secure connection to particular certificates.
++The Network Security Configuration feature lets you customize your app's network
++security settings in a safe, declarative [configuration file](https://developer.android.com/training/articles/security-config#FileFormat)
++without modifying
++app code. These settings can be configured for specific domains and for a
++specific app. The key capabilities of this feature are:
++
++- **Custom trust anchors:** Customize which Certificate Authorities (CA) are trusted for an app's secure connections. For example, trusting particular self-signed certificates or restricting the set of public CAs that the app trusts.
++- **Debug-only overrides:** Safely debug secure connections in an app without added risk to the installed base.
++- **Cleartext traffic opt-out:** Protect apps from accidental usage of cleartext (unencrypted) traffic.
++- **Certificate transparency opt-in:** Restrict an app's secure connections to use provably logged certificates.
++- **Certificate pinning:** Restrict an app's secure connection to particular certificates.
+ 
+ ## Add a Network Security Configuration file
+ 
+-The Network Security Configuration feature uses an XML file where you specify the settings for your app. You must include an entry in your app's manifest to point to this file. The following code excerpt from a manifest demonstrates how to create this entry:  
++
++The Network Security Configuration feature uses an XML file where you specify
++the settings for your app. You must include an entry in your app's manifest
++to point to this file. The following code excerpt from a manifest
++demonstrates how to create this entry:
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -30,17 +36,29 @@ The Network Security Configuration feature uses an XML file where you specify th
+ 
+ ## Customize trusted CAs
+ 
+-You might want your app to trust a custom set of CAs instead of the platform default. The most common reasons for this are:
++
++You might want your app to trust a custom set of CAs instead of the platform
++default. The most common reasons for this are:
+ 
+ - Connecting to a host with a custom CA, such as a CA that is self-signed or is issued internally within a company.
+ - Limiting the set of CAs to only the CAs you trust instead of every pre-installed CA.
+ - Trusting additional CAs not included in the system.
+ 
+-By default, secure connections (using protocols like TLS and HTTPS) from all apps trust the pre-installed system CAs, and apps targeting Android 6.0 (API level 23) and lower also trust the user-added CA store by default. You can customize your app's connections using`base-config`(for app-wide customization) or`domain-config`(for per-domain customization).
++
++By default, secure connections (using protocols like TLS and HTTPS) from all
++apps trust the pre-installed system CAs, and apps targeting Android 6.0 (API
++level 23) and lower also trust the user-added CA store by default. You can
++customize your app's connections using `base-config` (for app-wide
++customization) or `domain-config` (for per-domain customization).
+ 
+ ### Configure a custom CA
+ 
+-You might want to connect to a host that uses a self-signed SSL certificate or to a host whose SSL certificate is issued by a non-public CA that you trust, such as your company's internal CA. The following code excerpt demonstrates how to configure your app for a custom CA in`res/xml/network_security_config.xml`:  
++
++You might want to connect to a host that uses a self-signed SSL
++certificate or to a host whose SSL certificate is issued by a non-public CA
++that you trust, such as your company's internal CA.
++The following code excerpt demonstrates how to configure your app for a custom CA
++in `res/xml/network_security_config.xml`:
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -54,13 +72,22 @@ You might want to connect to a host that uses a self-signed SSL certificate or t
+ </network-security-config>
+ ```
+ 
+-Add the self-signed or non-public CA certificate, in PEM or DER format, to`res/raw/my_ca`.
++
++Add the self-signed or non-public CA certificate, in PEM or DER format, to
++`res/raw/my_ca`.
+ 
+ ### Limit the set of trusted CAs
+ 
+-If you don't want your app to trust all CAs trusted by the system, you can instead specify a reduced set of CAs to trust. This protects the app from fraudulent certificates issued by any of the other CAs.
+ 
+-The configuration to limit the set of trusted CAs is similar to[trusting a custom CA](https://developer.android.com/privacy-and-security/security-config#ConfigCustom)for a specific domain except that multiple CAs are provided in the resource. The following code excerpt demonstrates how to limit your app's set of trusted CAs in`res/xml/network_security_config.xml`:  
++If you don't want your app to trust all CAs trusted by the system, you can
++instead specify a reduced set of CAs to trust. This protects the
++app from fraudulent certificates issued by any of the other CAs.
++
++
++The configuration to limit the set of trusted CAs is similar to [trusting a custom CA](https://developer.android.com/privacy-and-security/security-config#ConfigCustom) for a specific domain except
++that multiple CAs are provided in the resource.
++The following code excerpt demonstrates how to limit your app's set of trusted CAs
++in `res/xml/network_security_config.xml`:
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -75,11 +102,21 @@ The configuration to limit the set of trusted CAs is similar to[trusting a custo
+ </network-security-config>
+ ```
+ 
+-Add the trusted CAs, in PEM or DER format, to`res/raw/trusted_roots`. Note that if you use PEM format, the file must contain*only* PEM data and no extra text. You can also provide multiple[`<certificates>`](https://developer.android.com/privacy-and-security/security-config#certificates)elements instead of one.
++
++Add the trusted CAs, in PEM or DER format, to `res/raw/trusted_roots`.
++Note that if you use PEM format, the file must contain *only* PEM data
++and no extra text. You can also provide multiple
++[`<certificates>`](https://developer.android.com/privacy-and-security/security-config#certificates)
++elements instead of one.
+ 
+ ### Trust additional CAs
+ 
+-You might want your app to trust additional CAs that aren't trusted by the system, such as if the system doesn't yet include the CA or the CA doesn't meet the requirements for inclusion in the Android system. You can specify multiple certificate sources for a configuration in`res/xml/network_security_config.xml`using code like the following excerpt.  
++
++You might want your app to trust additional CAs that aren't trusted by the
++system, such as if the system doesn't yet include the CA or the CA doesn't
++meet the requirements for inclusion in the Android system. You can specify
++multiple certificate sources for a configuration in
++`res/xml/network_security_config.xml` using code like the following excerpt.
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -95,11 +132,23 @@ You might want your app to trust additional CAs that aren't trusted by the syste
+ 
+ ## Configure CAs for debugging
+ 
+-When debugging an app that connects over HTTPS, you may want to connect to a local development server that does not have the SSL certificate for your production server. To support this without any modification to your app's code, you can specify debug-only CAs, which are trusted*only* when[android:debuggable](https://developer.android.com/guide/topics/manifest/application-element#debug)is`true`, by using`debug-overrides`. Normally, IDEs and build tools set this flag automatically for non-release builds.
+ 
+-This is safer than the usual conditional code because, as a security precaution, app stores do not accept apps that are marked debuggable.
++When debugging an app that connects over HTTPS, you may want to
++connect to a local development server that does not have the SSL
++certificate for your production server. To support this without any
++modification to your app's code, you can specify debug-only CAs, which
++are trusted *only* when [android:debuggable](https://developer.android.com/guide/topics/manifest/application-element#debug)
++is `true`, by using `debug-overrides`. Normally, IDEs and build
++tools set this flag automatically for non-release builds.
++
+ 
+-The excerpt below shows how to specify debug-only CAs in`res/xml/network_security_config.xml`:  
++This is safer than the usual conditional code because, as a security
++precaution, app stores do not accept apps that are marked
++debuggable.
++
++
++The excerpt below shows how to specify debug-only CAs in
++`res/xml/network_security_config.xml`:
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -114,30 +163,60 @@ The excerpt below shows how to specify debug-only CAs in`res/xml/network_securit
+ 
+ ## Opt in to certificate transparency
+ 
+-**Note:**Certificate transparency support is only available from Android 16 (API level 36).
++**Note:**Certificate transparency support is only available from Android 16
++(API level 36).
++
+ 
+-Certificate Transparency (CT, RFC[6962](https://datatracker.ietf.org/doc/html/rfc6962/)) is an Internet standard designed to enhance the security of digital certificates. It requires CAs to submit all issued certificates to a public log that records them, increasing transparency and accountability in the certificate issuance process.
++Certificate Transparency (CT, RFC
++[6962](https://datatracker.ietf.org/doc/html/rfc6962/)) is an Internet standard
++designed to enhance the security of digital certificates. It requires CAs to submit all issued
++certificates to a public log that records them, increasing transparency and accountability in
++the certificate issuance process.
+ 
+-By maintaining a verifiable record of all certificates, CT makes it significantly harder for malicious actors to forge certificates or for CAs to mistakenly issue them. This helps protect users from man-in-the-middle attacks and other security threats. For more information, see the explanation on[transparency.dev](https://certificate.transparency.dev/). For more information about CT compliance on Android, see[Android's CT policy](https://developer.android.com/privacy-and-security/certificate-transparency-policy).
+ 
+-By default, certificates are accepted regardless of whether they are logged in a CT log. To ensure your app connects only to destinations with certificates logged in a CT log, you can[opt in to the feature](https://developer.android.com/privacy-and-security/security-config#certificateTransparency)either[globally](https://developer.android.com/privacy-and-security/security-config#base-config)or on a[per-domain basis](https://developer.android.com/privacy-and-security/security-config#domain-config).
++By maintaining a verifiable record of all certificates, CT makes it significantly harder for
++malicious actors to forge certificates or for CAs to mistakenly issue them. This helps protect
++users from man-in-the-middle attacks and other security threats. For more information, see the
++explanation on [transparency.dev](https://certificate.transparency.dev/). For more
++information about CT compliance on Android, see
++[Android's CT policy](https://developer.android.com/privacy-and-security/certificate-transparency-policy).
++
++
++By default, certificates are accepted regardless of whether they are logged in a CT log. To
++ensure your app connects only to destinations with certificates logged in a CT log, you can
++[opt in to the feature](https://developer.android.com/privacy-and-security/security-config#certificateTransparency) either
++[globally](https://developer.android.com/privacy-and-security/security-config#base-config) or on a [per-domain basis](https://developer.android.com/privacy-and-security/security-config#domain-config).
+ 
+ ## Cleartext traffic
+ 
+-Developers can opt in or out of cleartext traffic (using the unencrypted HTTP protocol instead of HTTPS) for their applications. See[NetworkSecurityPolicy.isCleartextTrafficPermitted()](https://developer.android.com/reference/android/security/NetworkSecurityPolicy#isCleartextTrafficPermitted())for more details.
++
++Developers can opt in or out of cleartext traffic (using the unencrypted HTTP
++protocol instead of HTTPS) for their applications.
++See `https://developer.android.com/reference/android/security/NetworkSecurityPolicy#isCleartextTrafficPermitted()`
++for more details.
++
+ 
+ The default behavior of cleartext traffic depends on the API level:
+ 
+-- Up to Android 8.1 (API level 27), cleartext support is enabled by default. Applications can[opt out of cleartext traffic](https://developer.android.com/privacy-and-security/security-config#CleartextTrafficOptOut)for additional security.
+-- Starting with Android 9 (API level 28), cleartext support is disabled by default. Applications that require cleartext traffic can[opt in to cleartext traffic](https://developer.android.com/privacy-and-security/security-config#CleartextTrafficOptIn).
++- Up to Android 8.1 (API level 27), cleartext support is enabled by default. Applications can [opt out of cleartext traffic](https://developer.android.com/privacy-and-security/security-config#CleartextTrafficOptOut) for additional security.
++- Starting with Android 9 (API level 28), cleartext support is disabled by default. Applications that require cleartext traffic can [opt in
++  to cleartext traffic](https://developer.android.com/privacy-and-security/security-config#CleartextTrafficOptIn).
+ 
+ ### Opt out of cleartext traffic
+ 
+-**Note:**The guidance in this section applies only to apps that target Android 8.1 (API level 27) or lower.
++**Note:**The guidance in this section applies only to apps
++that target Android 8.1 (API level 27) or lower.
++
++
++If you intend for your app to connect to destinations using only secure
++connections, you can opt out of supporting cleartext traffic to those destinations. This option
++helps prevent accidental regressions in apps due to changes in URLs provided by external
++sources such as backend servers.
+ 
+-If you intend for your app to connect to destinations using only secure connections, you can opt out of supporting cleartext traffic to those destinations. This option helps prevent accidental regressions in apps due to changes in URLs provided by external sources such as backend servers.
+ 
+-For example, you might want your app to ensure that connections to`secure.example.com`are always done over HTTPS to protect sensitive traffic from hostile networks.  
++For example, you might want your app to ensure that connections to
++`secure.example.com`
++are always done over HTTPS to protect sensitive traffic from hostile networks.
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -150,11 +229,16 @@ For example, you might want your app to ensure that connections to`secure.exampl
+ 
+ ### Opt in to cleartext traffic
+ 
+-**Note:**The guidance in this section applies only to apps that target Android 9 (API level 28) or higher.
++**Note:**The guidance in this section applies only to apps
++that target Android 9 (API level 28) or higher.
+ 
+-If your app needs to connect to destinations using cleartext traffic (HTTP), you can opt in to supporting cleartext to those destinations.
+ 
+-For example, you might want to allow your app to make insecure connections to`insecure.example.com`.  
++If your app needs to connect to destinations using cleartext traffic (HTTP),
++you can opt in to supporting cleartext to those destinations.
++
++
++For example, you might want to allow your app to make insecure connections to
++`insecure.example.com`.
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -165,7 +249,10 @@ For example, you might want to allow your app to make insecure connections to`in
+ </network-security-config>
+ ```
+ 
+-If your app needs to opt in to cleartext traffic to any domain, set`cleartextTrafficPermitted="true"`in the`base-config`. Note that this insecure configuration should be avoided whenever possible.  
++
++If your app needs to opt in to cleartext traffic to any domain, set
++`cleartextTrafficPermitted="true"` in the `base-config`.
++Note that this insecure configuration should be avoided whenever possible.
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -177,15 +264,35 @@ If your app needs to opt in to cleartext traffic to any domain, set`cleartextTra
+ 
+ ## Pin certificates
+ 
+-Normally, an app trusts all pre-installed CAs. If any of these CAs were to issue a fraudulent certificate, the app would be at risk from an on-path attacker. Some apps choose to limit the set of certificates they accept by either limiting the set of CAs they trust or by certificate pinning.
+ 
+-Certificate pinning is done by providing a set of certificates by hash of the public key (`SubjectPublicKeyInfo`of the X.509 certificate). A certificate chain is then valid only if the certificate chain contains at least one of the pinned public keys.
++Normally, an app trusts all pre-installed CAs. If any of these CAs were to
++issue a fraudulent certificate, the app would be at risk from an on-path attacker.
++Some apps choose to limit the set of certificates
++they accept by either limiting the set of CAs they trust or by certificate
++pinning.
+ 
+-Note that, when using certificate pinning, you should always include a backup key so that if you are forced to switch to new keys or change CAs (when pinning to a CA certificate or an intermediate of that CA), your app's connectivity is unaffected. Otherwise, you must push out an update to the app to restore connectivity.
+ 
+-Additionally, it is possible to set an expiration time for pins after which pinning is not performed. This helps prevent connectivity issues in apps which have not been updated. However, setting an expiration time on pins may enable attackers to bypass your pinned certificates.
++Certificate pinning is done by providing a set of certificates by hash of the
++public key (`SubjectPublicKeyInfo` of the X.509 certificate). A
++certificate chain is then valid only if the certificate chain contains at
++least one of the pinned public keys.
+ 
+-The excerpt below shows how to pin certificates in`res/xml/network_security_config.xml`:  
++
++Note that, when using certificate pinning, you should always include a backup
++key so that if you are forced to switch to new keys or change CAs (when
++pinning to a CA certificate or an intermediate of that CA), your
++app's connectivity is unaffected. Otherwise, you must push out
++an update to the app to restore connectivity.
++
++
++Additionally, it is possible to set an expiration time for pins after which
++pinning is not performed. This helps prevent connectivity issues in
++apps which have not been updated. However, setting an expiration time
++on pins may enable attackers to bypass your pinned certificates.
++
++
++The excerpt below shows how to pin certificates in
++`res/xml/network_security_config.xml`:
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -203,13 +310,27 @@ The excerpt below shows how to pin certificates in`res/xml/network_security_conf
+ 
+ ## Configuration inheritance behavior
+ 
+-Values not set in a specific configuration are inherited. This behavior allows more complex configurations while keeping the configuration file readable.
+ 
+-For example, values not set in a`domain-config`are taken from the parent`domain-config`, if nested, or from the`base-config`, if not. Values not set in the`base-config`use the platform default values.
++Values not set in a specific configuration are inherited. This behavior allows
++more complex configurations while keeping the configuration file readable.
++
+ 
+-For example, consider a case where all connections to subdomains of`example.com`must use a custom set of CAs. Additionally, cleartext traffic to these domains is permitted*except* when connecting to`secure.example.com`. By nesting the configuration for`secure.example.com`inside the configuration for`example.com`, the`trust-anchors`does not need to be duplicated.
++For example, values not set in a `domain-config`
++are taken from the parent `domain-config`, if nested, or from the
++`base-config`, if not. Values not set in the `base-config` use the
++platform default values.
+ 
+-The excerpt below shows how this nesting would look in`res/xml/network_security_config.xml`:  
++
++For example, consider a case where all connections to subdomains of `example.com`
++must use a custom set of CAs. Additionally, cleartext traffic to
++these domains is permitted *except* when connecting to `secure.example.com`.
++By nesting the configuration for `secure.example.com` inside the configuration
++for `example.com`, the
++`trust-anchors` does not need to be duplicated.
++
++
++The excerpt below shows how this nesting would look in
++`res/xml/network_security_config.xml`:
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -226,9 +347,33 @@ The excerpt below shows how this nesting would look in`res/xml/network_security_
+ </network-security-config>
+ ```
+ 
++## Localhost configuration
++
++
++Enforcing the network security features for localhost connections is generally unnecessary.
++For example, certificate transparency is rarely needed for localhost connections.
++
++
++From Android 17 (API level 37) and higher, if no configuration has been defined for localhost, an
++implicit configuration is included. By default, this configuration does the following:
++
++- Allows cleartext traffic.
++- Doesn't enforce certificate transparency (CT).
++- Doesn't enforce certificate pinning.
++- Delegates to `<base-config>` for trust anchors.
++
++
++A configuration is considered to be targeting localhost if the domain is:
++
++- `localhost`
++- `ip6-localhost` or
++- a numerical IP address and `InetAddress.isLoopback()` is `true` (for example, `127.0.0.1` or `[::1]`)
++
+ ## Configuration file format
+ 
+-The Network Security Configuration feature uses an XML file format. The overall structure of the file is shown in the following code sample:  
++
++The Network Security Configuration feature uses an XML file format.
++The overall structure of the file is shown in the following code sample:
+ 
+ ```xml
+ <?xml version="1.0" encoding="utf-8"?>
+@@ -262,18 +407,25 @@ The Network Security Configuration feature uses an XML file format. The overall
+ </network-security-config>
+ ```
+ 
+-The following sections describe the syntax and other details of the file format.
++
++The following sections describe the syntax and other details of the file
++format.
+ 
+ ### \<network-security-config\>
+ 
++
+ can contain:
+-:   0 or 1 of[<base-config>](https://developer.android.com/privacy-and-security/security-config#base-config)  
+-    Any number of[<domain-config>](https://developer.android.com/privacy-and-security/security-config#domain-config)  
+-    0 or 1 of[<debug-overrides>](https://developer.android.com/privacy-and-security/security-config#debug-overrides)
++:
++    0 or 1 of `https://developer.android.com/privacy-and-security/security-config#base-config`  
++
++    Any number of `https://developer.android.com/privacy-and-security/security-config#domain-config`  
++
++    0 or 1 of `https://developer.android.com/privacy-and-security/security-config#debug-overrides`
+ 
+ ### \<base-config\>
+ 
+-syntax:  
++
++syntax:
+ 
+ ```xml
+ <base-config cleartextTrafficPermitted=["true" | "false"]>
+@@ -281,15 +433,24 @@ syntax:
+ </base-config>
+ ```
+ 
++
+ can contain:
+-:   [<trust-anchors>](https://developer.android.com/privacy-and-security/security-config#trust-anchors)[<certificateTransparency>](https://developer.android.com/privacy-and-security/security-config#certificateTransparency)
++:
++    `https://developer.android.com/privacy-and-security/security-config#trust-anchors`
++    `https://developer.android.com/privacy-and-security/security-config#certificateTransparency`
++
+ 
+ description:
+-:   The default configuration used by all connections whose destination is not covered by a[`domain-config`](https://developer.android.com/privacy-and-security/security-config#domain-config).
++:
++    The default configuration used by all connections whose destination is not
++    covered by a [`domain-config`](https://developer.android.com/privacy-and-security/security-config#domain-config).
++
+ 
+     Any values that are not set use the platform default values.
+ 
+-    The default configuration for apps targeting Android 9 (API level 28) and higher is as follows:  
++
++    The default configuration for apps targeting Android 9 (API level 28) and higher is as follows:
++
+ 
+     ```xml
+     <base-config cleartextTrafficPermitted="false">
+@@ -299,7 +460,10 @@ description:
+     </base-config>
+     ```
+ 
+-    The default configuration for apps targeting Android 7.0 (API level 24) to Android 8.1 (API level 27) is as follows:  
++
++    The default configuration for apps targeting Android 7.0 (API level 24) to Android 8.1 (API level
++    27) is as follows:
++
+ 
+     ```xml
+     <base-config cleartextTrafficPermitted="true">
+@@ -309,7 +473,9 @@ description:
+     </base-config>
+     ```
+ 
+-    The default configuration for apps targeting Android 6.0 (API level 23) and lower is as follows:  
++
++    The default configuration for apps targeting Android 6.0 (API level 23) and lower is as follows:
++
+ 
+     ```xml
+     <base-config cleartextTrafficPermitted="true">
+@@ -320,6 +486,7 @@ description:
+     </base-config>
+     ```
+ 
++
+ ### \<domain-config\>
+ 
+ syntax:
+@@ -332,19 +499,28 @@ syntax:
+     ```
+ 
+ can contain:
+-:   1 or more[<domain>](https://developer.android.com/privacy-and-security/security-config#domain)  
+-    0 or 1[<certificateTransparency>](https://developer.android.com/privacy-and-security/security-config#certificateTransparency)  
+-    0 or 1[<trust-anchors>](https://developer.android.com/privacy-and-security/security-config#trust-anchors)  
+-    0 or 1[<pin-set>](https://developer.android.com/privacy-and-security/security-config#pin-set)  
+-    Any number of nested`<domain-config>`
++:
++    1 or more `https://developer.android.com/privacy-and-security/security-config#domain`
++
++    0 or 1 `https://developer.android.com/privacy-and-security/security-config#certificateTransparency`
++
++    0 or 1 `https://developer.android.com/privacy-and-security/security-config#trust-anchors`
++
++    0 or 1 `https://developer.android.com/privacy-and-security/security-config#pin-set`
++
++    Any number of nested `<domain-config>`
+ 
+ description:
+-:   Configuration used for connections to specific destinations, as defined by the`domain`elements.
++:   Configuration used for connections to specific destinations, as defined by
++    the `domain` elements.
+ 
+-    Note that if multiple`domain-config`elements cover a destination, the configuration with the most specific (longest) matching domain rule is used.
++    Note that if multiple `domain-config` elements cover a destination, the
++    configuration with the most specific (longest) matching domain rule is
++    used.
+ 
+ ### \<domain\>
+ 
++
+ syntax:
+ :
+ 
+@@ -352,11 +528,16 @@ syntax:
+     <domain includeSubdomains=["true" | "false"]>example.com</domain>
+     ```
+ 
++
+ attributes:
+ :
+ 
++
+     `includeSubdomains`
+-    :   If`"true"`, then this domain rule matches the domain and all subdomains, including subdomains of subdomains. Otherwise, the rule only applies to exact matches.
++    :
++        If `"true"`, then this domain rule matches the domain and all
++        subdomains, including subdomains of subdomains. Otherwise, the rule only
++        applies to exact matches.
+ 
+ ### \<certificateTransparency\>
+ 
+@@ -368,14 +549,23 @@ syntax:
+     ```
+ 
+ description:
+-:   If`true`, then the app will use the Certificate Transparency logs to validate certificates. When an app uses its own certificate (or the user store), it is likely that the certificate is not public and therefore not verifiable using certificate transparency. By default, the verification is disabled for these cases. It is still possible to force the verification using`<certificateTransparency enabled="true"/>`in the domain configuration. For each[<domain-config>](https://developer.android.com/privacy-and-security/security-config#domain-config), the evaluation follows this order:
+-
+-    1. If`certificateTransparency`is enabled, enable the verification.
+-    2. If any[<trust-anchors>](https://developer.android.com/privacy-and-security/security-config#trust-anchors)is`"user"`or inline (i.e.,`"@raw/cert.pem"`), disable the verification.
+-    3. Otherwise, rely on the[inherited configuration](https://developer.android.com/privacy-and-security/security-config#ConfigInheritance).
++:
++    If `true`, then the app will use the Certificate Transparency logs to validate
++    certificates. When an app uses its own certificate (or the user store), it is likely that
++    the certificate is not public and therefore not verifiable using certificate transparency. By
++    default, the verification is disabled for these cases. It is still possible to force the
++    verification using `<certificateTransparency enabled="true"/>` in the
++    domain configuration. For each
++    `https://developer.android.com/privacy-and-security/security-config#domain-config`, the evaluation follows
++    this order:
++
++    1. If `certificateTransparency` is enabled, enable the verification.
++    2. If any `https://developer.android.com/privacy-and-security/security-config#trust-anchors` is `"user"` or inline (i.e., `"@raw/cert.pem"`), disable the verification.
++    3. Otherwise, rely on the [inherited configuration](https://developer.android.com/privacy-and-security/security-config#ConfigInheritance).
+ 
+ ### \<debug-overrides\>
+ 
++
+ syntax:
+ :
+ 
+@@ -385,14 +575,25 @@ syntax:
+     </debug-overrides>
+     ```
+ 
++
+ can contain:
+-:   0 or 1[<trust-anchors>](https://developer.android.com/privacy-and-security/security-config#trust-anchors)
++:
++    0 or 1 `https://developer.android.com/privacy-and-security/security-config#trust-anchors`
++
+ 
+ description:
+-:   Overrides to be applied when[android:debuggable](https://developer.android.com/guide/topics/manifest/application-element#debug)is`"true"`, which is normally the case for non-release builds generated by IDEs and build tools. Trust anchors specified in`debug-overrides`are added to all other configurations, and certificate pinning is not performed when the server's certificate chain uses one of these debug-only trust anchors. If[android:debuggable](https://developer.android.com/guide/topics/manifest/application-element#debug)is`"false"`, then this section is completely ignored.
++:
++    Overrides to be applied when [android:debuggable](https://developer.android.com/guide/topics/manifest/application-element#debug)
++    is `"true"`, which is normally the case for non-release builds
++    generated by IDEs and build tools. Trust anchors specified in `debug-overrides`
++    are added to all other configurations, and certificate
++    pinning is not performed when the server's certificate chain uses one of
++    these debug-only trust anchors. If [android:debuggable](https://developer.android.com/guide/topics/manifest/application-element#debug)
++    is `"false"`, then this section is completely ignored.
+ 
+ ### \<trust-anchors\>
+ 
++
+ syntax:
+ :
+ 
+@@ -402,11 +603,15 @@ syntax:
+     </trust-anchors>
+     ```
+ 
++
+ can contain:
+-:   Any number of[<certificates>](https://developer.android.com/privacy-and-security/security-config#certificates)
++:
++    Any number of `https://developer.android.com/privacy-and-security/security-config#certificates`
++
+ 
+ description:
+-:   Set of trust anchors for secure connections.
++:
++    Set of trust anchors for secure connections.
+ 
+ ### \<certificates\>
+ 
+@@ -419,26 +624,34 @@ syntax:
+     ```
+ 
+ description:
+-:   Set of X.509 certificates for`trust-anchors`elements.
++:   Set of X.509 certificates for `trust-anchors` elements.
+ 
+ attributes:
+ :
+ 
+     `src`
+-    :   The source of CA certificates. Each certificate can be one of the following:
++    :
++        The source of CA certificates. Each certificate can be one of the following:
+ 
+-        - a raw resource ID pointing to a file containing X.509 certificates. Certificates must be encoded in DER or PEM format. In the case of PEM certificates, the file*must not*contain extra non-PEM data such as comments.
+-        - `"system"`for the pre-installed system CA certificates
+-        - `"user"`for user-added CA certificates
++        - a raw resource ID pointing to a file containing X.509 certificates. Certificates must be encoded in DER or PEM format. In the case of PEM certificates, the file *must not* contain extra non-PEM data such as comments.
++        - `"system"` for the pre-installed system CA certificates
++        - `"user"` for user-added CA certificates
+ 
+     `overridePins`
+ 
+-    :   Specifies if the CAs from this source bypass certificate pinning. If`"true"`, then pinning is not performed on certificate chains which are signed by one of the CAs from this source. This can be useful for debugging CAs or for testing man-in-the-middle attacks on your app's secure traffic.
++    :
++        Specifies if the CAs from this source bypass certificate pinning. If `"true"`,
++        then pinning is not performed on certificate chains which are
++        signed by one of the CAs from this source. This can be useful for debugging
++        CAs or for testing man-in-the-middle attacks on your app's secure traffic.
++
+ 
+-        Default is`"false"`unless specified in a`debug-overrides`element, in which case the default is`"true"`.
++        Default is `"false"` unless specified in a `debug-overrides`
++        element, in which case the default is `"true"`.
+ 
+ ### \<pin-set\>
+ 
++
+ syntax:
+ :
+ 
+@@ -448,22 +661,37 @@ syntax:
+     </pin-set>
+     ```
+ 
++
+ can contain:
+-:   Any number of[<pin>](https://developer.android.com/privacy-and-security/security-config#pin)
++:
++    Any number of `https://developer.android.com/privacy-and-security/security-config#pin`
++
+ 
+ description:
+-:   A set of public key pins. For a secure connection to be trusted, one of the public keys in the chain of trust must be in the set of pins. See[<pin>](https://developer.android.com/privacy-and-security/security-config#pin)for the format of pins.
++:
++    A set of public key pins. For a secure connection to be trusted, one of the
++    public keys in the chain of trust must be in the set of pins. See
++    `https://developer.android.com/privacy-and-security/security-config#pin` for the format of pins.
++
+ 
+ attributes:
+ :
+ 
++
+     `expiration`
+-    :   The date, in`yyyy-MM-dd`format, on which the pins expire, thus disabling pinning. If the attribute is not set, then the pins do not expire.
++    :
++        The date, in `yyyy-MM-dd` format, on which the pins expire, thus
++        disabling pinning. If the attribute is not set, then the pins do not
++        expire.
++
++
++        Expiration helps prevent connectivity issues in apps which do not get
++        updates to their pin set, such as when the user disables app updates.
+ 
+-        Expiration helps prevent connectivity issues in apps which do not get updates to their pin set, such as when the user disables app updates.
+ 
+ ### \<pin\>
+ 
++
+ syntax:
+ :
+ 
+@@ -472,8 +700,12 @@ syntax:
+         SubjectPublicKeyInfo (SPKI)</pin>
+     ```
+ 
++
+ attributes:
+ :
+ 
++
+     `digest`
+-    :   The digest algorithm used to generate the pin. Currently, only`"SHA-256"`is supported.
+\ No newline at end of file
++    :
++        The digest algorithm used to generate the pin. Currently, only
++        `"SHA-256"` is supported.
+\ No newline at end of file

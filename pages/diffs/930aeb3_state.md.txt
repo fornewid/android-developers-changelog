@@ -1,0 +1,55 @@
+diff --git a/docs/develop/ui/compose/state.md b/docs/develop/ui/compose/state.md
+index 6ecb2d8..13c1256 100644
+--- a/docs/develop/ui/compose/state.md
++++ b/docs/develop/ui/compose/state.md
+@@ -208,14 +208,14 @@ appropriate [artifact(s)](https://developer.android.com/jetpack/androidx/release
+ 
+     dependencies {
+           ...
+-          implementation("androidx.compose.runtime:runtime-livedata:1.10.4")
++          implementation("androidx.compose.runtime:runtime-livedata:1.10.5")
+     }
+ 
+ ### Groovy
+ 
+     dependencies {
+           ...
+-          implementation "androidx.compose.runtime:runtime-livedata:1.10.4"
++          implementation "androidx.compose.runtime:runtime-livedata:1.10.5"
+     }
+ 
+ - [`RxJava2`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava2/package-summary): [`subscribeAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava2/package-summary#extension-functions)
+@@ -230,14 +230,14 @@ appropriate [artifact(s)](https://developer.android.com/jetpack/androidx/release
+ 
+     dependencies {
+           ...
+-          implementation("androidx.compose.runtime:runtime-rxjava2:1.10.4")
++          implementation("androidx.compose.runtime:runtime-rxjava2:1.10.5")
+     }
+ 
+ ### Groovy
+ 
+     dependencies {
+           ...
+-          implementation "androidx.compose.runtime:runtime-rxjava2:1.10.4"
++          implementation "androidx.compose.runtime:runtime-rxjava2:1.10.5"
+     }
+ 
+ - [`RxJava3`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava3/package-summary): [`subscribeAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava3/package-summary#extension-functions)
+@@ -252,14 +252,14 @@ appropriate [artifact(s)](https://developer.android.com/jetpack/androidx/release
+ 
+     dependencies {
+           ...
+-          implementation("androidx.compose.runtime:runtime-rxjava3:1.10.4")
++          implementation("androidx.compose.runtime:runtime-rxjava3:1.10.5")
+     }
+ 
+ ### Groovy
+ 
+     dependencies {
+           ...
+-          implementation "androidx.compose.runtime:runtime-rxjava3:1.10.4"
++          implementation "androidx.compose.runtime:runtime-rxjava3:1.10.5"
+     }
+ 
+ > [!IMPORTANT]

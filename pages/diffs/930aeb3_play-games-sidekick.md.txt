@@ -1,0 +1,81 @@
+diff --git a/docs/games/pgs/play-games-sidekick.md b/docs/games/pgs/play-games-sidekick.md
+index c758d12..c8b658f 100644
+--- a/docs/games/pgs/play-games-sidekick.md
++++ b/docs/games/pgs/play-games-sidekick.md
+@@ -4,8 +4,8 @@ url: https://developer.android.com/games/pgs/play-games-sidekick
+ source: md.txt
+ ---
+ 
+-Play Games Sidekick is an overlay that helps you stay in your game
+-by delivering relevant content and offers directly to you.
++Play Games Sidekick is an overlay that helps you stay in your game by delivering
++relevant content and offers directly to you.
+ 
+ - **User retention** with Gemini Live and tips, so you don't need to leave the game for help or advice.
+ - **Increased monetization** with in-the-moment Points exchange, Play-funded offers, and Pass coupons.
+@@ -16,9 +16,9 @@ by delivering relevant content and offers directly to you.
+ 
+ ## Features
+ 
+-Available features on Sidekick will
+-vary by game, depending on your Google Play Games Services integration status and Play Points
+-enrollment. You can expect the following features:
++Available features on Sidekick will vary by game, depending on
++your Google Play Games Services integration status and Play Points enrollment. You can expect
++the following features:
+ 
+ - **Gaming utilities:** Screenshot, screen record, YouTube Livestream, and Do Not Disturb.
+ - **Game Tips:** Available in select languages.
+@@ -28,7 +28,8 @@ enrollment. You can expect the following features:
+ - **Play Points boosters and coupons:** Available to enrolled Play Points developers.
+ - **Play Pass benefits and offers.**
+ - **Quests:** [Quests](https://support.google.com/googleplay/answer/11534416) are available to enrolled Quest developers.
+-- **Official and Creator Videos:** Sidekick shows the videos that you add. For more information about how to add videos on Play Store and Sidekick, see [Showcase your app with YouTube videos on Google Play](https://support.google.com/googleplay/android-developer/answer/15501235).
++- **Official and Creator Videos:** Sidekick shows the videos that you add. For more information about how to add videos on Play Store and Sidekick, see [Showcase your app with YouTube videos on
++  Google Play](https://support.google.com/googleplay/android-developer/answer/15501235).
+ 
+ New features will continue to be added:
+ 
+@@ -55,8 +56,8 @@ Once you've tested with a smaller group of colleagues or trusted users, you can
+ expand your test to an open release.
+ 
+ 1. In the Play Console, [set up an internal or a closed testing](https://support.google.com/googleplay/android-developer/answer/9845334) release.
+-2. To add Play Games Sidekick to your app bundle, select **Add Play
+-   Games Sidekick to app bundles you upload** . For more information, see [Prepare and roll out a release](https://support.google.com/googleplay/android-developer/answer/9859348).
++2. To add Play Games Sidekick to your app bundle, select **Add Play Games
++   Sidekick to app bundles you upload** . For more information, see [Prepare and roll out a release](https://support.google.com/googleplay/android-developer/answer/9859348).
+ 
+ [![The Add Play Games Sidekick to app bundles you upload checkbox in the Play Console.](https://developer.android.com/static/images/games/pgs/closed_testing.png)](https://developer.android.com/static/images/games/pgs/closed_testing.png) The **Add Play Games Sidekick to app bundles you upload** checkbox (click to enlarge).
+ 
+@@ -68,8 +69,8 @@ steps to enable Play Store developer options on the device:
+ 1. Open Google Play Store app.
+ 2. Tap your profile icon and then tap **Settings**.
+ 3. Tap the **About** menu.
+-4. Tap the **Play Store version** 7 times until you see the message `You
+-   are now a developer!`. This enables developer options on your device.
++4. Tap the **Play Store version** 7 times until you see the message `You are
++   now a developer!`. This enables developer options on your device.
+ 5. Tap **General** and then tap **Developer options**.
+ 6. Turn on **Play Games Sidekick**.
+ 7. Go to your game to see Sidekick appear.
+@@ -92,6 +93,10 @@ follow these steps:
+    new app bundles you upload**.
+ 5. Select **Save changes**.
+ 
++If your app updates are infrequent, we may periodically update the Play Games
++Sidekick for you. You can opt out of Sidekick via the advanced settings in the
++Google Play Console at any time
++
+ ## Promote Sidekick to production
+ 
+ If you promote a release containing Sidekick to production, your
+@@ -104,8 +109,7 @@ guidelines](https://play.google.com/console/about/levelup/#user-experience-guide
+ 
+ ## Give feedback
+ 
+-For any feedback on Sidekick, use the [feedback
+-form](https://docs.google.com/forms/d/e/1FAIpQLScDNLDrD7a6ldsqnh5bafj-aID6rfIJsP4I4xt5dUSGo3_-1A/viewform).
++For any feedback on Sidekick, use the [feedback form](https://docs.google.com/forms/d/e/1FAIpQLScDNLDrD7a6ldsqnh5bafj-aID6rfIJsP4I4xt5dUSGo3_-1A/viewform).
+ 
+ ## Frequently asked questions
+ 

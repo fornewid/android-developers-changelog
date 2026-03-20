@@ -1,0 +1,275 @@
+diff --git a/docs/guide/fragments/animate.md b/docs/guide/fragments/animate.md
+index 9723966..e2cc82f 100644
+--- a/docs/guide/fragments/animate.md
++++ b/docs/guide/fragments/animate.md
+@@ -11,7 +11,9 @@ Animation Framework, which uses both
+ [`Animator`](https://developer.android.com/reference/android/animation/Animator). The
+ other is the [Transition Framework](https://developer.android.com/training/transitions), which includes
+ shared element transitions.
+-| **Note:** In this topic, we use the term *animation* to describe effects in the Animation Framework, and we use the term *transition* to describe effects in the Transition Framework. These two frameworks are mutually exclusive and should not be used at the same time.
++
++> [!NOTE]
++> **Note:** In this topic, we use the term *animation* to describe effects in the Animation Framework, and we use the term *transition* to describe effects in the Transition Framework. These two frameworks are mutually exclusive and should not be used at the same time.
+ 
+ You can specify custom effects for entering and exiting fragments and for
+ transitions of shared elements between fragments.
+@@ -32,25 +34,26 @@ as shown in figure 1.
+ ![Enter and exit animations. The current fragment fades out while
+ the next fragment slides in from the right.](https://developer.android.com/static/images/training/basics/fragments/enter-exit-animation.gif) **Figure 1.** Enter and exit animations. The current fragment fades out while the next fragment slides in from the right.
+ 
+-These animations can be defined in the `res/anim` directory:  
++These animations can be defined in the `res/anim` directory:
+ 
+     <!-- res/anim/fade_out.xml -->
+-    <?xml version="1.0" encoding="utf-8"?>
+-    <alpha xmlns:android="http://schemas.android.com/apk/res/android"
++    <?xml version="1.0" encodin>g<="utf-8"?
++    alpha xmlns:android="http://schemas.android.com/apk/res/android"
+         android:duration="@android:integer/config_shortAnimTime"
+         android:interpolator="@android:anim/decelerate_interpolator"
+-        android:fromAlpha="1"
+-        android:toAlpha="0" />
++     >   android:fromAlpha="1"
++        android:toAlpha="0" /
+ 
+     <!-- res/anim/slide_in.xml -->
+-    <?xml version="1.0" encoding="utf-8"?>
+-    <translate xmlns:android="http://schemas.android.com/apk/res/android"
++    <?xml version="1.0" encodin>g<="utf-8"?
++    translate xmlns:android="http://schemas.android.com/apk/res/android"
+         android:duration="@android:integer/config_shortAnimTime"
+         android:interpolator="@android:anim/decelerate_interpolator"
+-        android:fromXDelta="100%"
+-        android:toXDelta="0%" />
++        and>roid:fromXDelta="100%"
++        android:toXDelta="0%" /
+ 
+-| **Note:** It is strongly recommended to [use transitions](https://developer.android.com/guide/fragments/animate#set-transitions) for effects that involve more than one type of animation as there are known issues with using nested [`AnimationSet`](https://developer.android.com/reference/android/view/animation/AnimationSet) instances.
++> [!NOTE]
++> **Note:** It is strongly recommended to [use transitions](https://developer.android.com/guide/fragments/animate#set-transitions) for effects that involve more than one type of animation as there are known issues with using nested [`AnimationSet`](https://developer.android.com/reference/android/view/animation/AnimationSet) instances.
+ 
+ You can also specify animations for the enter and exit effects that are run
+ when popping the back stack, which can happen when the user taps the Up or
+@@ -61,26 +64,26 @@ fragment to fade in.
+ ![popEnter and popExit animations. The current fragment slides off
+ the screen to the right while the previous fragment fades in.](https://developer.android.com/static/images/training/basics/fragments/pop-animations.gif) **Figure 2.** `popEnter` and `popExit` animations. The current fragment slides off the screen to the right while the previous fragment fades in.
+ 
+-These animations can be defined as follows:  
++These animations can be defined as follows:
+ 
+     <!-- res/anim/slide_out.xml -->
+     <translate xmlns:android="http://schemas.android.com/apk/res/android"
+         android:duration="@android:integer/config_shortAnimTime"
+         android:interpolator="@android:anim/decelerate_interpolator"
+-        android:fromXDelta="0%"
+-        android:toXDelta="100%" />
++        android:fromXDelta=&quo>t;0%"
++        android:toXDelta="100%" /
+ 
+     <!-- res/anim/fade_in.xml -->
+     <alpha xmlns:android="http://schemas.android.com/apk/res/android"
+         android:duration="@android:integer/config_shortAnimTime"
+         android:interpolator="@android:anim/decelerate_interpolator"
+-        android:fromAlpha="0"
+-        android:toAlpha="1" />
++        android:fromAlpha>="0"
++        android:toAlpha="1" /
+ 
+ Once you've defined your animations, use them by calling
+ [`FragmentTransaction.setCustomAnimations()`](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction#setCustomAnimations(int,%20int)),
+ passing in your animation resources by their resource ID, as shown in the
+-following example:  
++following example:
+ 
+ ### Kotlin
+ 
+@@ -112,30 +115,32 @@ getSupportFragmentManager().beginTransaction()
+     .addToBackStack(null)
+     .commit();
+ ```
+-| **Note:** `FragmentTransaction.setCustomAnimations()` applies the custom animations to all future fragment operations in the `FragmentTransaction`. Previous operations in the transaction are unaffected.
++
++> [!NOTE]
++> **Note:** `FragmentTransaction.setCustomAnimations()` applies the custom animations to all future fragment operations in the `FragmentTransaction`. Previous operations in the transaction are unaffected.
+ 
+ ## Set transitions
+ 
+ You can also use transitions to define enter and exit effects. These
+ transitions can be defined in XML resource files. For example, you might
+ want the current fragment to fade out and the new fragment to slide in from the
+-right edge of the screen. These transitions can be defined as follows:  
++right edge of the screen. These transitions can be defined as follows:
+ 
+     <!-- res/transition/fade.xml -->
+     <fade xmlns:android="http://schemas.android.com/apk/res/android"
+-        android:duration="@android:integer/config_shortAnimTime"/>
++        android:duration="@android:integer/config_>shortAnimTime"/
+ 
+     <!-- res/transition/slide_right.xml -->
+     <slide xmlns:android="http://schemas.android.com/apk/res/android"
+         android:duration="@android:integer/config_shortAnimTime"
+-        android:slideEdge="right" />
++        android>:slideEdge="right" /
+ 
+ Once you've defined your transitions, apply them by calling
+ [`setEnterTransition()`](https://developer.android.com/reference/android/app/Fragment#setEnterTransition(android.transition.Transition))
+ on the entering fragment and
+ [`setExitTransition()`](https://developer.android.com/reference/android/app/Fragment#setExitTransition(android.transition.Transition))
+ on the exiting fragment, passing in your inflated transition resources
+-by their resource ID, as shown in the following example:  
++by their resource ID, as shown in the following example:
+ 
+ ### Kotlin
+ 
+@@ -208,7 +213,7 @@ transition name on shared elements in each fragment layout using
+ [`ViewCompat.setTransitionName()`](https://developer.android.com/reference/androidx/core/view/ViewCompat#setTransitionName(android.view.View,%20java.lang.String)),
+ which provides compatibility for API levels 14 and above.
+ As an example, the transition name for an `ImageView` in fragments A and B
+-can be assigned as follows:  
++can be assigned as follows:
+ 
+ ### Kotlin
+ 
+@@ -224,7 +229,7 @@ class FragmentA : Fragment() {
+ class FragmentB : Fragment() {
+     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+         ...
+-        val heroImageView = view.findViewById<ImageView>(R.id.hero_image)
++        val heroImageView = view.findViewB<yIdImageView>(R.id.hero_image)
+         ViewCompat.setTransitionName(heroImageView, "hero_image")
+     }
+ }
+@@ -251,7 +256,9 @@ public class FragmentB extends Fragment {
+     }
+ }
+ ```
+-| **Note:** For apps that support only API levels 21 and higher, you can alternatively use the [`android:transitionName`](https://developer.android.com/reference/android/view/View#attr_android:transitionName) attribute within your XML layout to assign transition names to specific views.
++
++> [!NOTE]
++> **Note:** For apps that support only API levels 21 and higher, you can alternatively use the [`android:transitionName`](https://developer.android.com/reference/android/view/View#attr_android:transitionName) attribute within your XML layout to assign transition names to specific views.
+ 
+ To include your shared elements in the fragment transition, your
+ `FragmentTransaction` must know how each shared element's views map from one
+@@ -259,7 +266,7 @@ fragment to the next. Add each of your shared elements to your
+ `FragmentTransaction` by calling
+ [`FragmentTransaction.addSharedElement()`](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction#addSharedElement(android.view.View,%20java.lang.String)),
+ passing in the view and the transition name of the corresponding view in the
+-next fragment, as shown in the following example:  
++next fragment, as shown in the following example:
+ 
+ ### Kotlin
+ 
+@@ -289,7 +296,7 @@ To specify how your shared elements transition from one fragment to the next,
+ you must set an *enter* transition on the fragment being
+ navigated to. Call
+ [`Fragment.setSharedElementEnterTransition()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#setSharedElementEnterTransition(java.lang.Object))
+-in the fragment's `onCreate()` method, as shown in the following example:  
++in the fragment's `onCreate()` method, as shown in the following example:
+ 
+ ### Kotlin
+ 
+@@ -317,7 +324,7 @@ public class FragmentB extends Fragment {
+ }
+ ```
+ 
+-The `shared_image` transition is defined as follows:  
++The `shared_image` transition is defined as follows:
+ 
+     <!-- res/transition/shared_image.xml -->
+     <transitionSet>
+@@ -370,7 +377,7 @@ To postpone a transition, you must first ensure that the fragment
+ transaction allows reordering of fragment state changes. To allow reordering
+ fragment state changes, call
+ [`FragmentTransaction.setReorderingAllowed()`](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction#setReorderingAllowed(boolean)),
+-as shown in the following example:  
++as shown in the following example:
+ 
+ ### Kotlin
+ 
+@@ -400,7 +407,7 @@ getSupportFragmentManager().beginTransaction()
+ 
+ To postpone the enter transition, call
+ [`Fragment.postponeEnterTransition()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#postponeEnterTransition())
+-in the entering fragment's `onViewCreated()` method:  
++in the entering fragment's `onViewCreated()` method:
+ 
+ ### Kotlin
+ 
+@@ -430,7 +437,7 @@ Once you've loaded the data and are ready to start the transition, call
+ The following example uses the
+ [Glide](https://bumptech.github.io/glide/) library to load an image
+ into a shared `ImageView`, postponing the corresponding transition until image
+-loading has completed.  
++loading has completed.
+ 
+ ### Kotlin
+ 
+@@ -442,12 +449,12 @@ class FragmentB : Fragment() {
+             .load(url)
+             .listener(object : RequestListener<Drawable> {
+                 override fun onLoadFailed(...): Boolean {
+-                    startPostponedEnterTransition()
++                 startPostponedEnterTransition()
+                     return false
+                 }
+ 
+                 override fun onResourceReady(...): Boolean {
+-                    startPostponedEnterTransition()
++                 startPostponedEnterTransition()
+                     return false
+                 }
+             })
+@@ -468,13 +475,13 @@ public class FragmentB extends Fragment {
+             .listener(new RequestListener<Drawable>() {
+                 @Override
+                 public boolean onLoadFailed(...) {
+-                    startPostponedEnterTransition();
++                 startPostponedEnterTransition();
+                     return false;
+                 }
+ 
+                 @Override
+                 public boolean onResourceReady(...) {
+-                    startPostponedEnterTransition();
++                 startPostponedEnterTransition();
+                     return false;
+                 }
+             })
+@@ -498,7 +505,7 @@ Postponed enter transitions should not start until all views in the entering
+ fragment have been measured and laid out. When using a
+ [`RecyclerView`](https://developer.android.com/guide/topics/ui/layout/recyclerview), you must wait
+ for any data to load and for the `RecyclerView` items to be ready to draw
+-before starting the transition. Here's an example:  
++before starting the transition. Here's an example:
+ 
+ ### Kotlin
+ 
+@@ -534,7 +541,7 @@ public class FragmentA extends Fragment {
+         viewModel.getData()
+             .observe(getViewLifecycleOwner(), new Observer<List<String>>() {
+                 @Override
+-                public void onChanged(List<String> list) {
++                public void onChange<d(ListString> list) {
+                     // Set the data on the RecyclerView adapter
+                     adapter.setData(it);
+                     // Start the transition once all views have been
+@@ -560,7 +567,9 @@ Notice that a
+ is set on the parent of the fragment view. This is to ensure that all of the
+ fragment's views have been measured and laid out and are therefore ready to
+ be drawn before beginning the postponed enter transition.
+-| **Note:** When using a shared element transition from a fragment using a `RecyclerView` to another fragment, you **must** still postpone the fragment using a `RecyclerView` to ensure that the returning shared element transition functions correctly when popping back to the `RecyclerView`.
++
++> [!NOTE]
++> **Note:** When using a shared element transition from a fragment using a `RecyclerView` to another fragment, you **must** still postpone the fragment using a `RecyclerView` to ensure that the returning shared element transition functions correctly when popping back to the `RecyclerView`.
+ 
+ Another point to consider when using shared element transitions with a
+ `RecyclerView` is that you cannot set the transition name in the
+@@ -571,7 +580,7 @@ transition animation uses the correct view.
+ You can give each item's shared element a unique transition name by
+ assigning them when the `ViewHolder` is bound. For example, if the data for
+ each item includes a unique ID, it could be used as the transition name, as
+-shown in the following example:  
++shown in the following example:
+ 
+ ### Kotlin
+ 

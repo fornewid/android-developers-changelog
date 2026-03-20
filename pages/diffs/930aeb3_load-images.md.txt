@@ -1,0 +1,31 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/load-images.md b/docs/develop/ui/compose/quick-guides/content/load-images.md
+index 5bbe2ab..35a0f47 100644
+--- a/docs/develop/ui/compose/quick-guides/content/load-images.md
++++ b/docs/develop/ui/compose/quick-guides/content/load-images.md
+@@ -30,7 +30,7 @@ content and to respond to user actions.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/load-images_a1e19bb9399af83328f4f119460605b05ca7b024e7aa299476e2a91b55b09539.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/load-images_504265100ae01120c9f8aa6e5287923881f65f7e4bc6b06f0aa1c8888205eb6f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Load the image
+ 
+@@ -68,7 +68,7 @@ this guidance to load images from the internet using Coil.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/load-images_331ebc57e656a7ad92549b590ed3e49228694c1d4c5f0e52419b3dc4167c538d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/load-images_1c216fc175161e3337ffd82a20103d4cfc3fb86e7b0ce87e4279be9802ea270c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ #### Load the image
+ 
+@@ -94,7 +94,7 @@ displays it once loaded.
+ 
+ #### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/load-images_461feebb02a68d4439700b6d42650b53231d42aa70d6e374e1eb3425e7ec956a.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/load-images_a172d89e175a6f158fbdb4b01c00fef52de06e00b7f640f452385b16c682179f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ #### Load the image
+ 

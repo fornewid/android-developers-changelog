@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/build-list-multiple-item-types.md b/docs/develop/ui/compose/quick-guides/content/build-list-multiple-item-types.md
+index 1e839fc..f0e60f1 100644
+--- a/docs/develop/ui/compose/quick-guides/content/build-list-multiple-item-types.md
++++ b/docs/develop/ui/compose/quick-guides/content/build-list-multiple-item-types.md
+@@ -20,7 +20,7 @@ higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/build-list-multiple-item-types_a1e19bb9399af83328f4f119460605b05ca7b024e7aa299476e2a91b55b09539.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/build-list-multiple-item-types_504265100ae01120c9f8aa6e5287923881f65f7e4bc6b06f0aa1c8888205eb6f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Add multiple item types
+ 

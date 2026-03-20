@@ -1,0 +1,199 @@
+diff --git a/docs/developer-verification/guides/android-developer-console.md b/docs/developer-verification/guides/android-developer-console.md
+index 6309532..11bcdcc 100644
+--- a/docs/developer-verification/guides/android-developer-console.md
++++ b/docs/developer-verification/guides/android-developer-console.md
+@@ -4,90 +4,91 @@ url: https://developer.android.com/developer-verification/guides/android-develop
+ source: md.txt
+ ---
+ 
+-## For developers on the new Android Developer Console
++If you distribute apps only outside of Google Play, use the Android Developer Console
++to manage your developer identity and register your app's package names. This
++guide explains how to verify your account and ensure your apps are installable
++on certified Android devices.
+ 
+-Play developers can also manage their off-Play package names through the
+-Android developer console if they choose.
++## Create an account
+ 
+-### Choose your account type
++To begin, [sign up for an Android Developer Console account](https://android.google.com/developerconsole/developers) using your
++Google Account. If you're a student or hobbyist, you can create a special
++account type that has fewer verification requirements and no
++fee.
+ 
+-When you create your ADC account, you will choose a distribution type that fits
+-your needs. This choice affects the verification requirements and any applicable
+-fees.
++## Choose how to distribute your apps
+ 
+-|---|---|---|---|
+-| Distribution type | Best for | Cost | Key features |
+-| Full distribution | Organizations and professional developers with wide distribution. | $25 | Unlimited apps and installs; requires full identity verification. |
+-| Limited distribution | Students, hobbyists, and other personal use. | Free | Capped number of apps and installs. |
++*Your apps can still be sideloaded. Your user's experience depends on the path you choose.*
+ 
+-### Complete identity verification
++## Complete identity verification
+ 
+-You must provide official documentation to verify your identity. The specific
+-requirements depend on whether you are registering as an individual or an
+-organization. If you have all of the required information ready, creating your
+-Android Developer Console account should take you about ten minutes.
++You must provide official documentation to verify your identity. The requirements vary based on whether you register as an individual or an organization. Completing this process typically takes about 10 minutes if you have all of the required information ready.
+ 
+-You'll need:
++#### Required information for all accounts
+ 
+-- Your legal name and address. These need to be verified by uploading official identity documents.
+-- A private email address and phone number for Google to contact you. These will need to be verified using a one-time password.
+-- Organizations need to provide their organization's website. This will need to be verified using Google Search Console.
+-- Organizations also need to provide their D-U-N-S number. This is a unique 9-digit identifier for organizations. The D-U-N-S number is associated with the organization's name and address.
++- **Legal name and address**: Individuals must submit a government-issued
++  photo ID and proof of address document as part of the verification program.
++  An example of acceptable ID and proof of address documents for individuals
++  in the United States are:
+ 
+-> [!NOTE]
+-> **Note:** If you are registering as an organization, you must provide a D-U-N-S number. This is a unique nine-digit identifier for businesses provided by Dun \& Bradstreet that is used globally to establish your business's legal identity. If your organization does not have one, you can get one at no cost from the Dun \& Bradstreet website.
+-
+-#### Acceptable documents
+-
+-**Organizations** are required to provide official organization documents based
+-on the organization's location. The following is an example of what
+-organizations in the United States must provide. The documents required in your
+-location may be different.
+-
+-Example of required documents:
+-
+-- Any document, notice, or letter either issued by the IRS or stamped by the IRS that states your Organization name. Some examples are CP575, 147C, CP299, 988, 937, 1050, 5822 etc.
+-- Forms submitted to the IRS will only be accepted if a copy of the form is available on the IRS website. Some examples are Forms 8871 and 990. See here (political organizations) and here (tax exempt organizations) for ways to search for your organization on the IRS website.
+-- Certificate of Business Incorporation issued by the state where you conduct business activities that states your Organization name
+-- Your most recent SEC filing (for example, 10-K, 10-Q or 8-K forms) that state the Organization name
+-- Business credit reports that state your Organization name from Experian, Equifax, or TransUnion
+-- Only for government departments and agencies: an official letter including full name, address and date
+-
+-**Individuals** must submit a government-issued photo ID and proof of address
+-document as part of the verification program. An example of acceptable ID
+-documents for individuals in the United States are:
+-
+-- Passport
+-- State identification
+-- Driving license
+-- Permanent resident card or Green card
+-- Address documents must list the individual's name and address as it appears on their profile. Acceptable address documents include:
+-- Government issued photo ID with address listed
+-- Utility bill for electricity, water, gas, internet, cable TV
+-- Insurance statement (home insurance, health insurance, and so on)
+-- Credit card or bank statement
++  - Passport
++  - State identification
++  - Driving license
++  - Permanent resident card or Green card
++  - Government issued photo ID with address listed
++  - Utility bill for electricity, water, gas, internet, cable TV
++  - Insurance statement (home insurance, health insurance, and so on)
++  - Credit card or bank statement
++- **Contact details**: A private email address and phone number, verified with
++  a one-time password (OTP).
++
++#### Additional requirements for organizations
++
++- **D-U-N-S number**: A unique 9-digit identifier for your organization provided by Dun \& Bradstreet that is used globally to establish your business's legal identity. If your organization does not have one, you can get one at no cost from the Dun \& Bradstreet website.
++- **Verified website**: Your organization's website must be verified using Google Search Console.
++- **Official organization documents** : The following are examples of what organizations in the United States must provide. The documents required in your location may be different.
++  - Any document, notice, or letter either issued by the IRS or stamped by the IRS that states your Organization name. Some examples are CP575, 147C, CP299, 988, 937, 1050, 5822 etc.
++  - Forms submitted to the IRS will only be accepted if a copy of the form is available on the IRS website. Some examples are Forms 8871 and 990.
++  - Certificate of Business Incorporation issued by the state where you conduct business activities that states your Organization name
++  - Your most recent SEC filing (for example, 10-K, 10-Q or 8-K forms) that state the Organization name
++  - Business credit reports that state your Organization name from Experian, Equifax, or TransUnion
++  - Only for government departments and agencies: an official letter including full name, address and date
+ 
+ ## Register your package names
+ 
+-If you distribute apps outside of Google Play, the registration process is
+-designed to verify the ownership of your app by using the app's private key.
++Once verified, you can register your app's package names on the **Packages**
++page. The registration process links your app to your verified developer
++identity. Complete the following in the Android Developer Console to register:
++
++1. **Enter the package name:** Provide the unique package name you want to register.
++2. **Add your key:** Enter the SHA-256 certificate fingerprint from your app's signing key pair. The status will then become ***In review***.
++3. **Prove ownership:** For existing package names, you must sign an APK with your private key and upload it. The Android Developer Console provides a snippet to add to the APK's asset folder for this challenge. Once registered, you will be notified by email and the package status in the Developer Console will update to ***Registered***.
+ 
+-- **For new package names**: You will be prompted to enter your package name and public SHA-256 certificate fingerprint.
+-- **For existing package names** : If the package name is already in use, you must prove ownership to register it. In most cases, this is a straightforward process:
+-  1. **Select your key**: Choose your public SHA-256 certificate fingerprint from a list of eligible keys.
+-  2. **Complete a cryptographic challenge**: You must sign a dummy APK with the corresponding private key and upload it to Android Developer Console. This formally verifies your ownership of the key used to sign your existing Android app.
++> [!NOTE]
++> **Note:** Developers who are not eligible to register a package name can request to share it through an appeal-like process by providing proof of ownership and a legitimate reason for use.
+ 
+-### Handling duplicate package names
++## Transfer your package names
+ 
+-While the Android operating system mandates unique package names on individual
+-devices, this rule does not extend across the entire Android ecosystem. This can
+-lead to a scenario where two different developers use the same package name.
++You can also transfer package names between developer accounts. Transfers are
++managed through the **Settings** page. The following are required to initiate a
++transfer:
+ 
+-Since package name duplication is undesirable, we have established rules to
+-determine which developer can register the package name. If you and another
+-developer use the same name, the developer with the higher share of installs
+-registers it. Other developers will then need to change their package name or
+-apply for an exception.
++- **Verified status:** Both the source and target accounts must be verified and in good standing.
++- **Registered key:** The package name must have a registered key and be installable.
++- **Required info:** You need the target developer ID, order IDs for both accounts, and a stated reason for the transfer.
++
++## Handle duplicate package names
++
++If multiple developers use the same package name, the right to register it is
++determined by package claim rules. The following rules aim to allocate the
++package name to the developer whose signing key accounts for over 50% of total
++known installs:
++
++- **Majority cluster**: If a developer's keys account for more than 50% of all installs, that developer holds priority for registration.
++- **Sizeable cluster**: If no single key has over 50% installs, any developer with a "sizeable cluster" (50 or more installs) can register the package name.
++- **First-come, first-serve basis**: If no sizeable cluster exists, any developer with a known key can register the package name on a first-come, first-served basis.
++
++The following examples demonstrate these rules:
+ 
+ **Priority for majority key holder**:
+ 
+@@ -100,8 +101,10 @@ different package name.
+ | A | com.test.1 | 11 | 1000 |
+ | B | com.test.1 | 12 | 100 |
+ 
+-*In this scenario, Developer A is eligible to register the package name.
+-Developer B would need to use another name or apply for an exception*.
++<br />
++
++In this scenario, Developer A is eligible to register the package name.
++Developer B would need to use another name or apply for an exception_.
+ 
+ **Eligibility for keys with 50+ installs**:
+ 
+@@ -116,9 +119,9 @@ package name.
+ | D | com.test.2 | 22 | 100 |
+ | E | com.test.2 | 23 | 10 |
+ 
+-*Here, no single key has a majority. Developers C and D, with 50 or more
++_Here, no single key has a majority. Developers C and D, with 50 or more
+ installs, can register the package name. Developer E would need to use a
+-different namerequest permission*.
++different namerequest permission.
+ 
+ **First-come, first-served for keys under 50 installs**:
+ 
+@@ -132,5 +135,5 @@ name for their packages (or request exceptions).
+ | F | com.test.3 | 31 | 10 |
+ | G | com.test.3 | 31 | 10 |
+ 
+-*In this scenario, all developers with keys are eligible. Once one developer
+-registers the package name, the other would need to request permission*.
+\ No newline at end of file
++In this scenario, all developers with keys are eligible. Once one developer
++registers the package name, the other would need to request permission_.
+\ No newline at end of file

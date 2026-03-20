@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/text/fonts.md b/docs/develop/ui/compose/text/fonts.md
+index 7ab5c30..22f0da3 100644
+--- a/docs/develop/ui/compose/text/fonts.md
++++ b/docs/develop/ui/compose/text/fonts.md
+@@ -94,7 +94,7 @@ To download a font programmatically from within your app, follow these steps:
+    ```groovy
+    dependencies {
+        ...
+-       implementation "androidx.compose.ui:ui-text-google-fonts:1.10.4"
++       implementation "androidx.compose.ui:ui-text-google-fonts:1.10.5"
+    }
+    ```
+ 
+@@ -103,7 +103,7 @@ To download a font programmatically from within your app, follow these steps:
+    ```kotlin
+    dependencies {
+        ...
+-       implementation("androidx.compose.ui:ui-text-google-fonts:1.10.4")
++       implementation("androidx.compose.ui:ui-text-google-fonts:1.10.5")
+    }
+    ```
+ 2. Initialize the [`GoogleFont.Provider`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/googlefonts/GoogleFont.Provider) with the credentials for Google Fonts:

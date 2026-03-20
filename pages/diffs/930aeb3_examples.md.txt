@@ -1,0 +1,35 @@
+diff --git a/docs/develop/ui/compose/styles/examples.md b/docs/develop/ui/compose/styles/examples.md
+index 47a092b..579bec3 100644
+--- a/docs/develop/ui/compose/styles/examples.md
++++ b/docs/develop/ui/compose/styles/examples.md
+@@ -27,16 +27,14 @@ fun BaseButton(
+     modifier: Modifier = Modifier,
+     style: Style = Style,
+     enabled: Boolean = true,
+-    interactionSource: MutableInteractionSource? = null,
++    interactionSource: MutableInteractionSource? = remember {
++        MutableInteractionSource()
++    },
+     content: @Composable RowScope.() -> Unit
+ ) {
+-    val effectiveInteractionSource = interactionSource ?: remember {
+-        MutableInteractionSource()
+-    }
+-    val styleState = remember(effectiveInteractionSource) {
+-        MutableStyleState(effectiveInteractionSource)
++    val styleState = rememberUpdatedStyleState(interactionSource) {
++        it.isEnabled = enabled
+     }
+-    styleState.isEnabled = enabled
+     Row(
+         modifier = modifier
+             .semantics(properties = {
+@@ -45,7 +43,7 @@ fun BaseButton(
+             .clickable(
+                 enabled = enabled,
+                 onClick = onClick,
+-                interactionSource = effectiveInteractionSource,
++                interactionSource = interactionSource,
+                 indication = null,
+             )
+             .styleable(styleState, baseButtonStyle, style),

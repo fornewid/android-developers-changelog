@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/views/notifications/metric-style.md b/docs/develop/ui/views/notifications/metric-style.md
+index a8eccc0..fdafaf1 100644
+--- a/docs/develop/ui/views/notifications/metric-style.md
++++ b/docs/develop/ui/views/notifications/metric-style.md
+@@ -6,7 +6,7 @@ source: md.txt
+ 
+ Android 17 introduces the `MetricStyle` notifications template to support
+ health and fitness apps, timers, and travel app use cases.
+-![Timer example using MetricStyle](https://developer.android.com/static/partners/android-17/images/timer.png) **Figure 1:** A `MetricStyle` notification template and Live Update for a clock app
++![Timer example using MetricStyle](https://developer.android.com/static/images/ui/notifications/timer.png) **Figure 1:** A `MetricStyle` notification template and Live Update for a clock app
+ 
+ ## Capabilities
+ 
+@@ -19,7 +19,7 @@ Metric style notifications have the following capabilities:
+   - Each `Notification.Metric` requires a label, value, and an optional unit.
+   - Expanded layout appearance varies depending on the number of metrics taken.
+ 
+-![The MetricStyle template in various states](https://developer.android.com/static/partners/android-17/images/metric-style.png) **Figure 2:** Examples of the `MetricStyle` template in various states. From left to right, always-on-display (AOD), promoted as a Live Update, default/expanded, and default/collapsed.
++![The MetricStyle template in various states](https://developer.android.com/static/images/ui/notifications/metric-style.png) **Figure 2:** Examples of the `MetricStyle` template in various states. From left to right, always-on-display (AOD), promoted as a Live Update, default/expanded, and default/collapsed.
+ 
+ ## Behavior
+ 
