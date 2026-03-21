@@ -79,6 +79,40 @@ nature of the text modification.
   `AccessibilityEvent.getTextChangeTypes()` to identify the nature of the
   modification and adjust their feedback strategies accordingly.
 
+## Privacy
+
+Android 17 includes the following changes to improve user privacy.
+
+### Local network permission required for apps targeting Android 17
+
+| Available to test? *(Required build)* | Yes *(Android 17 or later)* |
+| Requires changing `targetSDKVersion`? *(API level)* | Yes *(API Level `"CINNAMON_BUN"`) See the [manifest attribute documentation](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target) for more information about this value.* |
+|---|---|
+
+> [!IMPORTANT]
+> **Content included from the public site**   
+> The following documentation mirrors the [public
+> Android 17 site](https://developer.android.com/about/versions/17) on developer.android.com and is provided here for your convenience.
+
+Android 17 introduces the [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_LOCAL_NETWORK) runtime permission
+to protect users from unauthorized local network access. Because this falls
+under the existing `NEARBY_DEVICES` permission group, users who have already
+granted other `NEARBY_DEVICES` permissions aren't prompted again. This new
+requirement prevents malicious apps from exploiting unrestricted local network
+access for covert user tracking and fingerprinting. By declaring and requesting
+this permission, your app can discover and connect to devices on the local area
+network (LAN), such as smart home devices or casting receivers.
+
+Apps targeting Android 17 or higher now have two paths to
+maintain communication with LAN devices: Adopt system-mediated,
+privacy-preserving device pickers to skip the permission prompt, or explicitly
+request this new permission at runtime to maintain local network communication.
+
+For more information, see the [Local network permission](https://developer.android.com/privacy-and-security/local-network-permission) documentation.
+
+> [!NOTE]
+> **Note:** In Android 16, apps could opt in to local network permissions. Beginning with Android 17, enforcement is mandatory for apps that target Android 17 or higher.
+
 ## Security
 
 Android 17 makes the following improvements to device and app security.
@@ -95,22 +129,6 @@ Key impacts for developers include:
 
 - **BAL hardening \& improved opt-in:** We are refining Background Activity Launch (BAL) restrictions by extending protections to [`IntentSender`](https://developer.android.com/reference/android/content/IntentSender). Developers must migrate away from the legacy [`MODE_BACKGROUND_ACTIVITY_START_ALLOWED`](https://developer.android.com/reference/android/app/ActivityOptions#MODE_BACKGROUND_ACTIVITY_START_ALLOWED) constant. Instead, you should adopt granular controls like [`MODE_BACKGROUND_ACTIVITY_START_ALLOW_IF_VISIBLE`](https://developer.android.com/reference/android/app/ActivityOptions#MODE_BACKGROUND_ACTIVITY_START_ALLOW_IF_VISIBLE), which restricts activity starts to scenarios where the calling app is visible, significantly reducing the attack surface.
 - **Adoption tools:** Developers should utilize strict mode and updated lint checks to identify legacy patterns and ensure readiness for future target SDK requirements.
-
-### Localhost protections
-
-To improve platform security and user privacy, Android 17
-introduces a new install-time permission, `USE_LOOPBACK_INTERFACE`. This change
-restricts cross-app and cross-profile communication over the loopback interface
-(for example, `127.0.0.1` or `::1`), which was previously implicitly allowed
-with the `INTERNET` permission. For apps targeting
-Android 17 or higher, the following rules apply:
-
-- **Mutual consent required:** cross-app and cross-profile communication is now blocked by default. For a connection to succeed, both the sending app and the receiving app must explicitly declare the `USE_LOOPBACK_INTERFACE` permission in their manifests.
-- **Intra-app traffic exempt:** Loopback communication within the same app (*intra-app* communication) remains unaffected and does not require this new permission.
-- **Target SDK behavior:**
-  - App targets Android 17 or higher: The permission must be explicitly requested. If it is missing, socket operations (such as TCP connect or UDP send) fail, typically returning an `EPERM` (operation not permitted) error.
-  - App targets API level 36 or lower: The permission is treated as a split permission on `INTERNET`. Apps targeting lower API levels are auto-granted this permission if they hold `INTERNET`.
-- **Compatibility warning:** If a receiving app updates its target to Android 17 but fails to request this permission, incoming connections from other apps are be rejected, even if the sending app targets a lower API level.
 
 ### Enable CT by default
 

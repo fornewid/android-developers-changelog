@@ -10538,8 +10538,8 @@
     },
     "about/versions/17/behavior-changes-17.md": {
       "original_url": "https://developer.android.com/about/versions/17/behavior-changes-17",
-      "hash": "3648e599834679dbcc19544a3bcf944fb32d6f3657a54780918685917e469532",
-      "last_updated": "2026-03-14T15:07:51.564170",
+      "hash": "803ec50e8c2bd96aa3202c391be0c9daade1aa1fd51d1c988f8feb6484c302bd",
+      "last_updated": "2026-03-21T15:06:27.930221",
       "fetch_method": "md.txt"
     },
     "develop/ui/views/layout/webapps/jsengine.md": {
@@ -10604,8 +10604,8 @@
     },
     "guide/navigation/custom-back/support-animations.md": {
       "original_url": "https://developer.android.com/guide/navigation/custom-back/support-animations",
-      "hash": "94b49350d8cde15507e0079126a21348e7ddda75b1380f4663cc14a1881c382d",
-      "last_updated": "2026-03-04T15:12:49.915995",
+      "hash": "bb1ee812ac659a71a3397b18422be9dc153c6182b200c57431750321e99e07f2",
+      "last_updated": "2026-03-21T15:06:26.846102",
       "fetch_method": "md.txt"
     },
     "courses/quizzes/android-basics-compose-unit-3-pathway-2/android-basics-compose-unit-3-pathway-2.md": {
@@ -25904,9 +25904,9 @@
     },
     "guide/navigation/custom-back/support-animations-views.md": {
       "original_url": "https://developer.android.com/guide/navigation/custom-back/support-animations-views",
-      "hash": "c03472c619e25bdac6a90f42466a1212fd8faac35597d41765629bca20182bd8",
-      "last_updated": "2026-03-20T15:15:00.466201",
-      "fetch_method": "html-scrape"
+      "hash": "4ed47b644924688f38c06e8d47da2156b0892cafddce70de000fb9336f009b56",
+      "last_updated": "2026-03-21T15:05:31.906689",
+      "fetch_method": "md.txt"
     },
     "games/optimize/optimization-tips.md": {
       "original_url": "https://developer.android.com/games/optimize/optimization-tips",
@@ -25969,5 +25969,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-03-20T15:18:02.790648"
+  "last_updated": "2026-03-21T15:08:44.108464"
 }
