@@ -1,5 +1,35 @@
 [
   {
+    "date": "2026-03-21T15:08:44Z",
+    "commit_hash": "3716194",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/behavior-changes-17\" target=\"_blank\">Behavior changes: Apps targeting Android 17 or higher</a>",
+        "path": "about/versions/17/behavior-changes-17.md",
+        "summary": "Android 17 introduces changes related to user privacy and security. The major change involves the introduction of the `ACCESS_LOCAL_NETWORK` runtime permission, which is required for apps targeting Android 17 or higher to access the local network, enhancing user privacy by preventing unauthorized access. Another notable change is the refined Background Activity Launch (BAL) restrictions. These changes aim to enhance user security and privacy.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/3716194_behavior-changes-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/custom-back/support-animations-views\" target=\"_blank\">Add support for predictive back animations in Views</a>",
+        "path": "guide/navigation/custom-back/support-animations-views.md",
+        "summary": "This document provides guidance on adding custom transitions and animations for predictive back gestures using Views, focusing on using the Progress APIs with AndroidX Transitions. It explains how to use `TransitionManager#controlDelayedTransition` and the `OnBackPressedCallback` methods (`handleOnBackStarted`, `handleOnBackProgressed`, and `handleOnBackPressed`) to create and manage transitions during the predictive back gesture. It also includes code samples and considerations for implementing these transitions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/3716194_support-animations-views.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/custom-back/support-animations\" target=\"_blank\">Add support for predictive back animations</a>",
+        "path": "guide/navigation/custom-back/support-animations.md",
+        "summary": "The documentation was updated to reflect new support for predictive back gestures in Jetpack Compose using the `PredictiveBackHandler` API, and removed old information about using the Progress API with AndroidX transitions. The document also removed content about Material Component animations and other related code snippets and references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/3716194_support-animations.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-20T15:18:03Z",
     "commit_hash": "930aeb3",
     "entries": [
