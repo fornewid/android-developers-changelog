@@ -1,5 +1,49 @@
 [
   {
+    "date": "2026-03-23T15:24:45Z",
+    "commit_hash": "95f9e5c",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill\" target=\"_blank\">Migrate XML Views to Jetpack Compose</a>",
+        "path": "agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill.md",
+        "summary": "This document provides a guide for migrating existing Android XML-based views to Jetpack Compose, outlining the steps, common scenarios, and best practices for a smooth transition, including the usage of interoperability APIs.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/navigation/navigation-3/skill\" target=\"_blank\">Jetpack Navigation 3 Skill  |  App architecture  |  Android Developers</a>",
+        "path": "agents/skills/navigation/navigation-3/skill.md",
+        "summary": "This document introduces a new file providing documentation on Jetpack Navigation 3, offering a migration guide from Navigation 2, developer documentation, and code recipes for various navigation patterns.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/console/setup\" target=\"_blank\">Set up Google Play Games Services</a>",
+        "path": "games/pgs/console/setup.md",
+        "summary": "This document has been updated to reflect changes in Google Cloud and Google Play Console, including updated instructions and screenshots for setting up credentials, configuring the OAuth consent screen, and managing tester accounts. These changes provide more clarity and accuracy in the setup process for developers integrating Play Games Services.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/95f9e5c_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/errors\" target=\"_blank\">Handle BillingResult response codes</a>",
+        "path": "google/play/billing/errors.md",
+        "summary": "The documentation has been updated to improve readability and clarity.  The changes include minor formatting adjustments, text rewording, and the addition of a tip using a callout box.  No significant functional changes are present.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/95f9e5c_errors.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated with new nightly build information for Android Studio Panda 4, including updated dates and download links for Windows, Mac, and Linux, and a change to the zip file name and download links. This reflects the latest available nightly builds and ensures users have access to the most up-to-date versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/95f9e5c_nightly.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-21T15:08:44Z",
     "commit_hash": "3716194",
     "entries": [
