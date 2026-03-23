@@ -620,8 +620,8 @@
     },
     "games/pgs/console/setup.md": {
       "original_url": "https://developer.android.com/games/pgs/console/setup",
-      "hash": "04cedad4028bca469f4fed42a6009608da83966dcac8c8d6160484b663fd9de3",
-      "last_updated": "2026-02-27T15:13:12.210551",
+      "hash": "1d180f5fad1e9840576877cfc35099602d612625bb53e40ef2de3a5e65e9802e",
+      "last_updated": "2026-03-23T15:21:06.963064",
       "fetch_method": "md.txt"
     },
     "develop/devices/chromeos/learn/window-management.md": {
@@ -5354,8 +5354,8 @@
     },
     "google/play/billing/errors.md": {
       "original_url": "https://developer.android.com/google/play/billing/errors",
-      "hash": "4518ab79f3ed04d6588de9a79aa9a9168798c7040d7ba8fb677927929ecf1e79",
-      "last_updated": "2026-02-23T01:58:24.531532",
+      "hash": "bee5238f44b2acd6c24c5dd9f6bd7b20f6a68bee75caa60bb798d138a8b94a6c",
+      "last_updated": "2026-03-23T15:21:35.786674",
       "fetch_method": "md.txt"
     },
     "develop/ui/views/theming/darktheme.md": {
@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "19b2c6a766ade1a5029effd8d2475d910a194444ea7e819a8a4f0ddb2837cfcf",
-      "last_updated": "2026-03-20T15:16:35.604994",
+      "hash": "7de8ef93fdf47a01f66c89baef1324188322728ad4f9b17d089eaeba10e458e8",
+      "last_updated": "2026-03-23T15:23:09.151889",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -25967,7 +25967,19 @@
       "hash": "247cdf4a8c931eb5a6487b7657ae0d68ca362e78184a411d410c0316ef2f6811",
       "last_updated": "2026-03-20T15:17:53.690272",
       "fetch_method": "md.txt"
+    },
+    "agents/skills/navigation/navigation-3/skill.md": {
+      "original_url": "https://developer.android.com/agents/skills/navigation/navigation-3/skill",
+      "hash": "7c8807f2b94ac46c3a527a9104a76709512a46021e6047e42f9ce355a8784e91",
+      "last_updated": "2026-03-23T15:21:11.189131",
+      "fetch_method": "html-scrape"
+    },
+    "agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill.md": {
+      "original_url": "https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill",
+      "hash": "e17d6671f3a9a80ac07f966f796c5e2ae595dfd4828b87867a2762f4d8b81df3",
+      "last_updated": "2026-03-23T15:22:39.702667",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-03-21T15:08:44.108464"
+  "last_updated": "2026-03-23T15:24:45.603663"
 }
