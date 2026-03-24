@@ -6,13 +6,11 @@ source: md.txt
 
 # Media3
 
-[Code Sample](https://github.com/androidx/media/tree/main/demos) API Reference  
-[androidx.media3.common](https://developer.android.com/reference/kotlin/androidx/media3/common/package-summary)  
-Support libraries for media use cases.
+[Code Sample](https://github.com/androidx/media/tree/main/demos) Support libraries for media use cases.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 10, 2026 | [1.10.0-rc01](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc01) | - | - | [1.10.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-alpha01) |
+| March 16, 2026 | [1.9.2](https://developer.android.com/jetpack/androidx/releases/media3#1.9.2) | [1.10.0-rc02](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc02) | - | - |
 
 ## Declaring dependencies
 
@@ -195,6 +193,16 @@ Your feedback helps make Jetpack better. You can use the
 to questions, known issues and feature requests, and to file new issues.
 
 ## Version 1.10.0
+
+### 1.10.0-rc02
+
+March 16, 2026
+
+Version 1.10.0-rc02 contains the following
+[commits](https://github.com/androidx/media/commits/1.10.0-rc02).
+
+- Audio:
+  - Fix bug where playback gets stuck when playing a playlist of gapless audio in compressed offload mode.
 
 ### 1.10.0-rc01
 

@@ -1,36 +1,20 @@
 ---
-title: Jetpack Navigation 3 Skill  |  App architecture  |  Android Developers
+title: https://developer.android.com/agents/skills/navigation/navigation-3/skill
 url: https://developer.android.com/agents/skills/navigation/navigation-3/skill
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-# Jetpack Navigation 3 Skill Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 ## Migration guide
 
-* *[Navigation 2 to Navigation 3 migration guide](/agents/skills/navigation/navigation-3/migration-guide)*: Step-by-step guide to
-  migrate an Android application from Navigation 2 to Navigation 3, covering
-  dependency updates, route changes, state management, and UI component
-  replacements.
+- *[Navigation 2 to Navigation 3 migration guide](https://developer.android.com/guide/navigation/navigation-3/migration-guide)*: Step-by-step guide to migrate an Android application from Navigation 2 to Navigation 3, covering dependency updates, route changes, state management, and UI component replacements.
 
 ### Requirements
 
-* *[Guide: Migrate to type-safe navigation in Compose](https://developer.android.com/agents/skills/navigation/type-safe-destinations)*: Step-by-step
-  guide to migrating an Android application from string-based navigation to
-  **Type-Safe Navigation** in Jetpack Compose using Jetpack Navigation 2.
+- *[Guide: Migrate to type-safe navigation in Compose](https://developer.android.com/guide/navigation/type-safe-destinations)* : Step-by-step guide to migrating an Android application from string-based navigation to **Type-Safe Navigation** in Jetpack Compose using Jetpack Navigation 2.
 
 ## Developer documentation
 
-* \*[Navigation 3](/guide/navigation/navigation-3). Search documentation for more information on basics,
-  saving and managing navigation state, modularizing navigation code, creating
-  custom layouts using Scenes, animating between destinations, or applying
-  logic or wrappers to destinations.
+- \*[Navigation 3](https://developer.android.com/guide/navigation/navigation-3). Search documentation for more information on basics, saving and managing navigation state, modularizing navigation code, creating custom layouts using Scenes, animating between destinations, or applying logic or wrappers to destinations.
 
 ## Recipes
 
@@ -38,82 +22,60 @@ Code examples showcasing common patterns.
 
 ### Basic API usage
 
-* *[Basic](/guide/navigation/navigation-3/recipes/basic)*: Shows most basic API usage.
-* *[Saveable back stack](/guide/navigation/navigation-3/recipes/basicsaveable)*: Shows basic API usage with a persistent back
-  stack.
-* *[Entry provider DSL](/guide/navigation/navigation-3/recipes/basicdsl)*: Shows basic API usage using the entryProvider
-  DSL.
+- *[Basic](https://developer.android.com/guide/navigation/navigation-3/recipes/basic)*: Shows most basic API usage.
+- *[Saveable back stack](https://developer.android.com/guide/navigation/navigation-3/recipes/basicsaveable)*: Shows basic API usage with a persistent back stack.
+- *[Entry provider DSL](https://developer.android.com/guide/navigation/navigation-3/recipes/basicdsl)*: Shows basic API usage using the entryProvider DSL.
 
 ### Common UI
 
-* *[Common UI](/guide/navigation/navigation-3/recipes/common-ui)*: Demonstrates how to implement a common navigation UI
-  pattern with a bottom navigation bar and multiple back stacks, where each
-  tab in the navigation bar has its own navigation history.
+- *[Common UI](https://developer.android.com/guide/navigation/navigation-3/recipes/common-ui)*: Demonstrates how to implement a common navigation UI pattern with a bottom navigation bar and multiple back stacks, where each tab in the navigation bar has its own navigation history.
 
 ### Deep links
 
-* *[Basic](/guide/navigation/navigation-3/recipes/deeplinks-basic)*: Shows how to parse a deep link URL from an Android Intent
-  into a navigation key.
-* *[Advanced](/guide/navigation/navigation-3/recipes/deeplinks-advanced)*: Shows how to handle deep links with a synthetic back
-  stack and correct "Up" navigation behavior.
+- *[Basic](https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-basic)*: Shows how to parse a deep link URL from an Android Intent into a navigation key.
+- *[Advanced](https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-advanced)*: Shows how to handle deep links with a synthetic back stack and correct "Up" navigation behavior.
 
 ### Scenes
 
 #### Use built-in Scenes
 
-* *[Dialog](/guide/navigation/navigation-3/recipes/dialog)*: Shows how to create a Dialog.
+- *[Dialog](https://developer.android.com/guide/navigation/navigation-3/recipes/dialog)*: Shows how to create a Dialog.
 
 #### Create custom Scenes
 
-* *[BottomSheet](/guide/navigation/navigation-3/recipes/bottomsheet)*: Shows how to create a BottomSheet destination.
-* *[List-Detail Scene](/guide/navigation/navigation-3/recipes/scenes-listdetail)*: Demonstrates how to implement adaptive
-  list-detail layouts using the Navigation 3 Scenes API.
-* *[Two pane Scene](/guide/navigation/navigation-3/recipes/scenes-twopane)*: Demonstrates how to implement adaptive two-pane
-  layouts using the Navigation 3 Scenes API.
+- *[BottomSheet](https://developer.android.com/guide/navigation/navigation-3/recipes/bottomsheet)*: Shows how to create a BottomSheet destination.
+- *[List-Detail Scene](https://developer.android.com/guide/navigation/navigation-3/recipes/scenes-listdetail)*: Demonstrates how to implement adaptive list-detail layouts using the Navigation 3 Scenes API.
+- *[Two pane Scene](https://developer.android.com/guide/navigation/navigation-3/recipes/scenes-twopane)*: Demonstrates how to implement adaptive two-pane layouts using the Navigation 3 Scenes API.
 
 ### Material Adaptive
 
-* *[Material List-Detail](/guide/navigation/navigation-3/recipes/material-listdetail)*: Demonstrates how to implement an adaptive
-  list-detail layout using Material 3 Adaptive.
-* *[Material Supporting Pane](/guide/navigation/navigation-3/recipes/material-supportingpane)*: Demonstrates how to implement an adaptive
-  supporting pane layout using Material 3 Adaptive.
+- *[Material List-Detail](https://developer.android.com/guide/navigation/navigation-3/recipes/material-listdetail)*: Demonstrates how to implement an adaptive list-detail layout using Material 3 Adaptive.
+- *[Material Supporting Pane](https://developer.android.com/guide/navigation/navigation-3/recipes/material-supportingpane)*: Demonstrates how to implement an adaptive supporting pane layout using Material 3 Adaptive.
 
 ### Animations
 
-* *[Animations](/guide/navigation/navigation-3/recipes/animations)*: Shows how to override the default animations for all
-  destinations and a single destination.
+- *[Animations](https://developer.android.com/guide/navigation/navigation-3/recipes/animations)*: Shows how to override the default animations for all destinations and a single destination.
 
 ### Common back stack behavior
 
-* *[Multiple back stacks](/guide/navigation/navigation-3/recipes/multiple-backstacks)*: Shows how to create multiple top level
-  routes, each with its own back stack. Top level routes are displayed in a
-  navigation bar allowing users to switch between them. State is retained for
-  each top level route, and the navigation state persists config changes and
-  process death.
+- *[Multiple back stacks](https://developer.android.com/guide/navigation/navigation-3/recipes/multiple-backstacks)*: Shows how to create multiple top level routes, each with its own back stack. Top level routes are displayed in a navigation bar allowing users to switch between them. State is retained for each top level route, and the navigation state persists config changes and process death.
 
 ### Conditional navigation
 
-* *[Conditional navigation](/guide/navigation/navigation-3/recipes/conditional)*: Switch to a different navigation flow when
-  a condition is met. For example, for authentication or first-time user
-  onboarding.
+- *[Conditional navigation](https://developer.android.com/guide/navigation/navigation-3/recipes/conditional)*: Switch to a different navigation flow when a condition is met. For example, for authentication or first-time user onboarding.
 
 ### Architecture
 
-* *[Modularized navigation code (Hilt)](/guide/navigation/navigation-3/recipes/modular-hilt)*: Demonstrates how to decouple
-  navigation code into separate modules using Hilt or Dagger for DI.
-* *[Modularized navigation code (Koin)](/guide/navigation/navigation-3/recipes/modular-koin)*: Demonstrates how to decouple
-  navigation code into separate modules using Koin for DI.
+- *[Modularized navigation code (Hilt)](https://developer.android.com/guide/navigation/navigation-3/recipes/modular-hilt)*: Demonstrates how to decouple navigation code into separate modules using Hilt or Dagger for DI.
+- *[Modularized navigation code (Koin)](https://developer.android.com/guide/navigation/navigation-3/recipes/modular-koin)*: Demonstrates how to decouple navigation code into separate modules using Koin for DI.
 
 ### Working with ViewModel
 
 #### Passing navigation arguments
 
-* *[Basic ViewModel](/guide/navigation/navigation-3/recipes/passingarguments)*: Navigation arguments are passed to a `ViewModel`
-  constructed using `viewModel()`
+- *[Basic ViewModel](https://developer.android.com/guide/navigation/navigation-3/recipes/passingarguments)* : Navigation arguments are passed to a `ViewModel` constructed using `viewModel()`
 
 ### Returning results
 
-* *[Returning Results as Events](/guide/navigation/navigation-3/recipes/results-event)*: Returning results as events to
-  content in another `NavEntry`
-* *[Returning Results as State](/guide/navigation/navigation-3/recipes/results-state)*: Returning results as state stored in a
-  `CompositionLocal`
+- *[Returning Results as Events](https://developer.android.com/guide/navigation/navigation-3/recipes/results-event)* : Returning results as events to content in another `NavEntry`
+- *[Returning Results as State](https://developer.android.com/guide/navigation/navigation-3/recipes/results-state)* : Returning results as state stored in a `CompositionLocal`

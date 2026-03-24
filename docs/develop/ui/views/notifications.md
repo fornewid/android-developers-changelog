@@ -21,8 +21,15 @@ guide](https://developer.android.com/design/ui/mobile/guides/home-screen/notific
 
 Notifications automatically appear to users in different locations and formats.
 A notification appears as an icon in the status bar, a more detailed entry in
-the notification drawer, and a badge on the app's icon. Notifications also
-appear on paired wearables.
+the notification drawer, and a badge on the app's icon.
+
+## Cross-device behavior
+
+Notifications also appear on paired wearables by default. In scenarios where the
+notification content is only relevant to the source device, use
+[`setLocalOnly()`](https://developer.android.com/reference/android/app/Notification.Builder#setLocalOnly(boolean)). An example is a notification confirming that a media
+download has completed. For more guidance specific to Wear OS notifications, see
+[Wear OS notifications](https://developer.android.com/training/wearables/notifications) guidance.
 
 ### Status bar and notification drawer
 

@@ -27,7 +27,35 @@ PC.
 
 - Complete [Play Billing setup](https://developer.android.com/google/play/billing/getting-ready).
 
-## **Step 1**: Query for previous purchases \& purchases completed outside of your application
+## **Step 1**: Create BillingClient
+
+### **Since 26.3.312.0**
+
+> [!WARNING]
+> **Warning:** This is a build-breaking change because the previous default constructor has been removed, requiring all existing clients to update their code.
+
+For SDK version `26.3.312.0` and later, use
+[`BillingClientParameters`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/billing-client-params) to configure and
+instantiate a [`BillingClient`](https://developer.android.com/games/playgames/native-pc/reference/class/google/play/billing/billing-client#classgoogle_1_1play_1_1billing_1_1_billing_client_1ab37ad67715270323b393019d8c60573a). This lets you to enable
+specific features during initialization, such as pending purchases.
+
+    // Set up initialization parameters
+    BillingClientParams params;
+    params.enable_pending_purchases = true;
+
+    // Instantiate the BillingClient with parameters
+    BillingClient billing_client(params);
+
+### **Before 26.3.312.0**
+
+In SDK versions prior to `26.3.312.0`, the [BillingClient](https://developer.android.com/games/playgames/native-pc/reference/class/google/play/billing/billing-client#classgoogle_1_1play_1_1billing_1_1_billing_client_1ab37ad67715270323b393019d8c60573a)
+only supports instantiation using the default constructor. Advanced
+configuration options are not available in these versions.
+.
+
+    BillingClient billing_client;
+
+## **Step 2**: Query for previous purchases \& purchases completed outside of your application
 
 When your application starts up or when it re-enters the foreground,
 query for purchases. This is necessary to detect purchases that occurred outside
@@ -35,7 +63,7 @@ of your game or to unlock access to purchases previously made by the user.
 
 1. Query for purchases using [`BillingClient::QueryPurchases`](https://developer.android.com/games/playgames/native-pc/reference/class/google/play/billing/billing-client#querypurchases).
 
-2. Continue by [processing the purchases](https://developer.android.com/games/playgames/native-pc/billing#step-4).
+2. Continue by [processing the purchases](https://developer.android.com/games/playgames/native-pc/billing#process-purchase).
 
     // Query for purchases when:
     // - Application starts up
@@ -53,7 +81,7 @@ of your game or to unlock access to purchases previously made by the user.
       // Handle the error
     }
 
-## **Step 2**: Show products available to buy
+## **Step 3**: Show products available to buy
 
 You are ready to query for your available products and display them to your
 users. Querying for product details is an important step before displaying your
@@ -85,14 +113,14 @@ history, you must consume the product before they can buy it again.
        // Handle the error
     }
 
-## **Step 3**: Launch a purchase flow
+## **Step 4**: Launch a purchase flow
 
 When the user shows an intent to buy a product you have showed them you're ready
 to launch the purchase flow.
 
 1. Start by calling [`BillingClient::LaunchPurchaseFlow()`](https://developer.android.com/games/playgames/native-pc/reference/class/google/play/billing/billing-client#launchpurchaseflow). Pass in the [`offer_token`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-offer#offer_token) obtained when querying the product details.
 2. Once the purchase has been completed the continuation function will be called with the result.
-3. If successful, the continuation contains a [`ProductPurchaseDetails`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-purchase-details). Continue by [processing the purchase](https://developer.android.com/games/playgames/native-pc/billing#step-4).
+3. If successful, the continuation contains a [`ProductPurchaseDetails`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-purchase-details). Continue by [processing the purchase](https://developer.android.com/games/playgames/native-pc/billing#process-purchase).
 
     LaunchPurchaseFlowParams params { product_offer.offer_token };
 
@@ -114,7 +142,7 @@ to launch the purchase flow.
        // Handle any other error codes
     }
 
-## **Step 4**: Process a purchase
+## **Step 5**: Process a purchase
 
 > [!WARNING]
 > **Warning:** Failing to complete purchase processing within three days will result in the transaction being **automatically refunded** and the entitlement being voided. If you are using a tester account, it needs to process the purchase flow within 3 minutes.
@@ -341,7 +369,7 @@ verify using your public key as follows:
       return true;
     }
 
-## **Step 5**: Test your integration
+## **Step 6**: Test your integration
 
 You are now ready to test your integration with Play Billing. To test during the
 development phase, we recommend leveraging **license testers**. License testers

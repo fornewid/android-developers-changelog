@@ -6,8 +6,6 @@ source: md.txt
 
 *** ** * ** ***
 
-[Overview](https://developer.android.com/jetpack/androidx/versions) \|All \|[Stable](https://developer.android.com/jetpack/androidx/versions/stable-channel) \|[RC](https://developer.android.com/jetpack/androidx/versions/rc-channel) \|[Beta](https://developer.android.com/jetpack/androidx/versions/beta-channel) \|[Alpha](https://developer.android.com/jetpack/androidx/versions/alpha-channel)
-
 Each version of an AndroidX library passes through four release channels while
 being developed. This page lists the components in all four channels. To view
 the entire release history for a particular component back thru January 2018,
@@ -32,6 +30,10 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 ## Latest Release
 
 These Jetpack libraries have been recently updated.
+
+### March 16, 2026
+
+- [Media3 Version 1.10.0-rc02](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc02)
 
 ### March 11, 2026
 
@@ -71,6 +73,7 @@ These Jetpack libraries have been recently updated.
 - [Lifecycle Version 2.11.0-alpha02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha02)
 - [Navigation Version 2.10.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha01)
 - [Navigation3 Version 1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-beta01)
+- [Paging Version 3.4.2](https://developer.android.com/jetpack/androidx/releases/paging#3.4.2)
 - [Paging Version 3.5.0-alpha01](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0-alpha01)
 - [Pdf Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha15)
 - [Room3 Version 3.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha01)

@@ -29,14 +29,14 @@ user's device doesn't support the feature.
 
 | Feature flag | Data type | Related guides |
 |---|---|---|
-| `FEATURE_ACTIVITY_INTENSITY` | Activity intensity |   |
-| `FEATURE_EXTENDED_DEVICE_TYPES` | Extended device types | [Metadata requirements](https://developer.android.com/health-and-fitness/guides/health-connect/develop/metadata#device-type) |
-| `FEATURE_PERSONAL_HEALTH_RECORD` | Medical records | [Medical Records data format](https://developer.android.com/health-and-fitness/guides/medical-records/data-format) [Write medical data](https://developer.android.com/health-and-fitness/guides/medical-records/write-data) [Read medical data](https://developer.android.com/health-and-fitness/guides/medical-records/read-data) |
-| `FEATURE_MINDFULNESS_SESSION` | Mindfulness | [Track mindfulness](https://developer.android.com/health-and-fitness/guides/health-connect/develop/mindfulness) |
-| `FEATURE_PLANNED_EXERCISE` | Planned exercise | [Training plans](https://developer.android.com/health-and-fitness/guides/health-connect/develop/training-plans) |
-| `FEATURE_READ_HEALTH_DATA_IN_BACKGROUND` | Read data in background | [Background read example](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#background-read-example) |
-| `FEATURE_READ_HEALTH_DATA_HISTORY` | Read historical data | [Read data older than 30 days](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#read-older-data) |
-| `FEATURE_SKIN_TEMPERATURE` | Skin temperature | [Measure skin temperature](https://developer.android.com/health-and-fitness/guides/health-connect/develop/skin-temperature) |
+| `FEATURE_ACTIVITY_INTENSITY` | Activity intensity | [Workouts](https://developer.android.com/health-and-fitness/health-connect/experiences/workouts) |
+| `FEATURE_EXTENDED_DEVICE_TYPES` | Extended device types | [Metadata requirements](https://developer.android.com/health-and-fitness/health-connect/metadata#device-type) |
+| `FEATURE_PERSONAL_HEALTH_RECORD` | Medical records | [Medical Records data format](https://developer.android.com/health-and-fitness/health-connect/medical-records/data-format) [Write medical data](https://developer.android.com/health-and-fitness/health-connect/medical-records/write-data) [Read medical data](https://developer.android.com/health-and-fitness/health-connect/medical-records/read-data) |
+| `FEATURE_MINDFULNESS_SESSION` | Mindfulness | [Track mindfulness](https://developer.android.com/health-and-fitness/health-connect/features/mindfulness) |
+| `FEATURE_PLANNED_EXERCISE` | Planned exercise | [Workouts](https://developer.android.com/health-and-fitness/health-connect/experiences/workouts) [Training plans](https://developer.android.com/health-and-fitness/health-connect/features/training-plans) |
+| `FEATURE_READ_HEALTH_DATA_IN_BACKGROUND` | Read data in background | [Background read example](https://developer.android.com/health-and-fitness/health-connect/read-data#background-read-example) |
+| `FEATURE_READ_HEALTH_DATA_HISTORY` | Read historical data | [Read data older than 30 days](https://developer.android.com/health-and-fitness/health-connect/read-data#read-older-data) |
+| `FEATURE_SKIN_TEMPERATURE` | Skin temperature | [Vitals](https://developer.android.com/health-and-fitness/health-connect/experiences/vitals) [Measure skin temperature](https://developer.android.com/health-and-fitness/health-connect/features/skin-temperature) |
 [*Table: Health Connect feature availability flags*]
 
 <br />

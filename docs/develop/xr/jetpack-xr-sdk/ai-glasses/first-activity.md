@@ -87,6 +87,19 @@ class GlassesMainActivity : ComponentActivity() {
     private var displayController: ProjectedDisplayController? = null
     private var isVisualUiSupported by mutableStateOf(false)
     private var areVisualsOn by mutableStateOf(true)
+    private var isPermissionDenied by mutableStateOf(false)
+
+    // Register the permissions launcher using the ProjectedPermissionsResultContract.
+    private val requestPermissionLauncher: ActivityResultLauncher<List<ProjectedPermissionsRequestParams>> =
+        registerForActivityResult(ProjectedPermissionsResultContract()) { results ->
+            if (results[Manifest.permission.CAMERA] == true) {
+                isPermissionDenied = false
+                initializeGlassesFeatures()
+            } else {
+                // Handle permission denial.
+                isPermissionDenied = true
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,6 +111,26 @@ class GlassesMainActivity : ComponentActivity() {
             }
         })
 
+        if (hasCameraPermission()) {
+            initializeGlassesFeatures()
+        } else {
+            requestHardwarePermissions()
+        }
+
+        setContent {
+            GlimmerTheme {
+                HomeScreen(
+                    areVisualsOn = areVisualsOn,
+                    isVisualUiSupported = isVisualUiSupported,
+                    isPermissionDenied = isPermissionDenied,
+                    onRetryPermission = { requestHardwarePermissions() },
+                    onClose = { finish() }
+                )
+            }
+        }
+    }
+
+    private fun initializeGlassesFeatures() {
         lifecycleScope.launch {
             // Check device capabilities
             val projectedDeviceController = ProjectedDeviceController.create(this@GlassesMainActivity)
@@ -112,16 +145,19 @@ class GlassesMainActivity : ComponentActivity() {
             )
             lifecycle.addObserver(observer)
         }
+    }
 
-        setContent {
-            GlimmerTheme {
-                HomeScreen(
-                    areVisualsOn = areVisualsOn,
-                    isVisualUiSupported = isVisualUiSupported,
-                    onClose = { finish() }
-                )
-            }
-        }
+    private fun hasCameraPermission(): Boolean {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
+                PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun requestHardwarePermissions() {
+        val params = ProjectedPermissionsRequestParams(
+            permissions = listOf(Manifest.permission.CAMERA),
+            rationale = "Camera access is required to overlay digital content on your physical environment."
+        )
+        requestPermissionLauncher.launch(listOf(params))
     }
 }
 ```
@@ -148,6 +184,8 @@ define a composable that can display some text on the AI glasses' display:
 fun HomeScreen(
     areVisualsOn: Boolean,
     isVisualUiSupported: Boolean,
+    isPermissionDenied: Boolean,
+    onRetryPermission: () -> Unit,
     onClose: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -157,7 +195,15 @@ fun HomeScreen(
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        if (isVisualUiSupported) {
+        if (isPermissionDenied) {
+            Card(
+                title = { Text("Permission Required") },
+                action = { Button(onClick = onClose) { Text("Exit") } }
+            ) {
+                Text("Camera access is needed to use AI glasses features.")
+                Button(onClick = onRetryPermission) { Text("Retry") }
+            }
+        } else if (isVisualUiSupported) {
             Card(
                 title = { Text("Android XR") },
                 action = {

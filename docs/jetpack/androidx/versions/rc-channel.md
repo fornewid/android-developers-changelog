@@ -6,8 +6,6 @@ source: md.txt
 
 *** ** * ** ***
 
-[Overview](https://developer.android.com/jetpack/androidx/versions) \|[All](https://developer.android.com/jetpack/androidx/versions/all-channel) \|[Stable](https://developer.android.com/jetpack/androidx/versions/stable-channel) \|RC \|[Beta](https://developer.android.com/jetpack/androidx/versions/beta-channel) \|[Alpha](https://developer.android.com/jetpack/androidx/versions/alpha-channel)
-
 Each version of an AndroidX library passes through four release channels while
 being developed. This page lists the components that have been updated to a new
 release candidate (RC) version. To view the entire release history for a
@@ -17,6 +15,10 @@ prior to 2018.
 
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+
+### March 16, 2026
+
+- [Media3 Version 1.10.0-rc02](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc02)
 
 ### March 11, 2026
 
