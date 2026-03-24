@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/versions.md b/docs/jetpack/androidx/versions.md
+index 45297e5..9ea62ec 100644
+--- a/docs/jetpack/androidx/versions.md
++++ b/docs/jetpack/androidx/versions.md
+@@ -154,7 +154,7 @@ release notes to view the version updates for all of the artifacts.
+ | [loader](https://developer.android.com/jetpack/androidx/releases/loader) | October 9, 2019 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/loader#1.1.0) | - | - | - |
+ | [localbroadcastmanager](https://developer.android.com/jetpack/androidx/releases/localbroadcastmanager) | January 12, 2022 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/localbroadcastmanager#1.1.0) | - | - | - |
+ | [media](https://developer.android.com/jetpack/androidx/releases/media) | August 13, 2025 | [1.7.1](https://developer.android.com/jetpack/androidx/releases/media#1.7.1) | - | - | - |
+-| [media3](https://developer.android.com/jetpack/androidx/releases/media3) | March 10, 2026 | [1.10.0-rc01](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc01) | - | - | [1.10.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-alpha01) |
++| [media3](https://developer.android.com/jetpack/androidx/releases/media3) | March 16, 2026 | [1.9.2](https://developer.android.com/jetpack/androidx/releases/media3#1.9.2) | [1.10.0-rc02](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc02) | - | - |
+ | [mediarouter](https://developer.android.com/jetpack/androidx/releases/mediarouter) | February 11, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | - | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-alpha01) |
+ | [multidex](https://developer.android.com/jetpack/androidx/releases/multidex) | December 17, 2018 | [2.0.1](https://developer.android.com/jetpack/androidx/releases/multidex#2.0.1) | - | - | - |
+ | [metrics](https://developer.android.com/jetpack/androidx/releases/metrics) | October 8, 2025 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/metrics#1.0.0) | - | - | - |

@@ -1,5 +1,367 @@
 [
   {
+    "date": "2026-03-24T15:27:10Z",
+    "commit_hash": "932c10d",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/navigation/navigation-3/skill\" target=\"_blank\">Jetpack Navigation 3 Skill</a>",
+        "path": "agents/skills/navigation/navigation-3/skill.md",
+        "summary": "The documentation file has been updated to reflect the latest navigation links. All links to the documentation have been updated to the correct and current URL.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini/developer-api\" target=\"_blank\">Gemini Developer API</a>",
+        "path": "ai/gemini/developer-api.md",
+        "summary": "The Firebase BOM version has been updated from 34.10.0 to 34.11.0 in the dependency examples. This update likely includes bug fixes, performance improvements, or new features within the Firebase platform, potentially affecting the functionality and stability of applications that use it. Staying current with BOM updates is important for ensuring applications leverage the latest features and security enhancements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_developer-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini/live\" target=\"_blank\">Gemini Live API</a>",
+        "path": "ai/gemini/live.md",
+        "summary": "The Firebase BoM version in the Android project's dependencies has been updated from 34.10.0 to 34.11.0. This change ensures that the project uses the latest stable versions of Firebase libraries, potentially including bug fixes, performance improvements, and new features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_live.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/imagen\" target=\"_blank\">Generate images with Imagen</a>",
+        "path": "ai/imagen.md",
+        "summary": "The Firebase BOM version was updated from 34.10.0 to 34.11.0. This update incorporates potential bug fixes, performance improvements, and security enhancements for Firebase libraries used in the AI Logic library, improving stability and potentially adding new features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_imagen.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/vertex-ai-firebase\" target=\"_blank\">Vertex AI Gemini API</a>",
+        "path": "ai/vertex-ai-firebase.md",
+        "summary": "The Firebase Bill of Materials (BoM) dependency version has been updated from 34.10.0 to 34.11.0. This ensures the project uses the latest stable versions of Firebase libraries and potentially includes bug fixes, performance improvements, or new features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_vertex-ai-firebase.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/glance/create-app-widget\" target=\"_blank\">Create an app widget with Glance</a>",
+        "path": "develop/ui/compose/glance/create-app-widget.md",
+        "summary": "The documentation updates the link for Android snippets in the manifest and app widget provider info files. It also refines the description of the `Column` composable, clarifying the role of `GlanceModifier` in expanding size, vertical alignment to the top, and horizontal alignment to the center.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_create-app-widget.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/system/setup-e2e\" target=\"_blank\">Set up Edge-to-edge</a>",
+        "path": "develop/ui/compose/system/setup-e2e.md",
+        "summary": "The documentation for setting up edge-to-edge display has been updated. The link to the Android developer documentation was updated to reflect the latest changes related to Android 15 and edge-to-edge behavior.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_setup-e2e.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/notifications\" target=\"_blank\">About notifications</a>",
+        "path": "develop/ui/views/notifications.md",
+        "summary": "The documentation for Android notifications has been updated to include information on cross-device behavior, specifically focusing on how notifications are handled on paired wearables. It explains that notifications appear on wearables by default and provides guidance on using `setLocalOnly()` to restrict a notification to the source device when the content is only relevant there, along with a link to Wear OS notification guidance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_notifications.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity\" target=\"_blank\">Create your first activity for AI glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md",
+        "summary": "The changes introduce camera permission handling in the `GlassesMainActivity`. It now checks for camera permissions, requests them if missing, and provides UI feedback to the user if the permission is denied. This ensures the application functions correctly on AI glasses by managing camera access which is crucial for overlaying digital content onto the user's environment.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_first-activity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio\" target=\"_blank\">Camera • audio  |  App quality  |  Android Developers</a>",
+        "path": "docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio.md",
+        "summary": "This new documentation page provides guidelines for Android app developers to improve camera and audio experiences, especially on premium devices. It focuses on enabling seamless switching between built-in and external hardware and ensuring proper background audio playback.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop\" target=\"_blank\">Desktop  |  App quality  |  Android Developers</a>",
+        "path": "docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md",
+        "summary": "This new documentation page provides guidelines for optimizing Android apps for the desktop experience, focusing on user experience, input methods, multitasking, and other desktop-specific features.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/foldables\" target=\"_blank\">Foldables  |  App quality  |  Android Developers</a>",
+        "path": "docs/quality-guidelines/adaptive-app-quality/experiences/foldables.md",
+        "summary": "This new documentation page introduces guidelines for optimizing Android apps for foldable devices, focusing on supporting different postures, multitasking, and multi-instance scenarios to provide a premium user experience.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/stylus\" target=\"_blank\">Stylus  |  App quality  |  Android Developers</a>",
+        "path": "docs/quality-guidelines/adaptive-app-quality/experiences/stylus.md",
+        "summary": "This new documentation page provides guidelines and tests for Android app developers to implement stylus support, enhancing user experiences for drawing, writing, and content manipulation. It covers features like drawing, drag-and-drop, and advanced stylus capabilities such as low latency and pressure sensitivity.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-1\" target=\"_blank\">Tier 1 — Adaptive differentiated  |  App quality  |  Android Developers</a>",
+        "path": "docs/quality-guidelines/adaptive-app-quality/tier-1.md",
+        "summary": "This new documentation page introduces Tier 1 of the adaptive app quality guidelines, focusing on differentiated apps that fully utilize large screens and foldable form factors, offering a premium user experience.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-2\" target=\"_blank\">Tier 2 — Adaptive optimized  |  App quality  |  Android Developers</a>",
+        "path": "docs/quality-guidelines/adaptive-app-quality/tier-2.md",
+        "summary": "This new documentation page, \"Tier 2 — Adaptive optimized\", provides guidelines and tests for Android app developers to optimize their apps for various screen sizes and device states. It focuses on responsive layouts, UI element formatting, and input methods like keyboard, mouse, and trackpad support.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3\" target=\"_blank\">Tier 3 — Adaptive ready  |  App quality  |  Android Developers</a>",
+        "path": "docs/quality-guidelines/adaptive-app-quality/tier-3.md",
+        "summary": "This new documentation page, \"Tier 3 — Adaptive ready\", outlines the requirements for apps to be considered \"Adaptive ready\", ensuring they function correctly across various form factors and support external input devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive\" target=\"_blank\">ID map</a>",
+        "path": "docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive.md",
+        "summary": "This document provides a comprehensive mapping between the large screen app quality guidelines and the updated adaptive app quality guidelines, detailing the correlation of guideline and test IDs across different categories.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/archive/adaptive/id-map-transitional\" target=\"_blank\">ID map  |  App quality  |  Android Developers</a>",
+        "path": "docs/quality-guidelines/archive/adaptive/id-map-transitional.md",
+        "summary": "This new documentation page provides a mapping table for the renamed IDs between the original large screen app quality guidelines and the updated adaptive app quality guidelines, aiding in the transition and understanding of the new structure.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2026-03-20\" target=\"_blank\">Core app quality guidelines  |  App quality  |  Android Developers</a>",
+        "path": "docs/quality-guidelines/archive/core/core-app-quality-2026-03-20.md",
+        "summary": "This new documentation page provides core app quality guidelines, defining the minimum quality standards for Android applications, covering aspects from user experience and functionality to performance, stability, privacy, and security.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/billing\" target=\"_blank\">Integrate the Google Play for Native PC Billing Library into your app</a>",
+        "path": "games/playgames/native-pc/billing.md",
+        "summary": "This document introduces changes to the Play Billing integration guide, primarily focusing on updates related to the BillingClient instantiation and configuration. Key changes include the introduction of BillingClientParameters for SDK versions 26.3.312.0 and later, enabling features like pending purchases, and modifications to the step numbering in the guide. These changes require developers to update their code to align with the new BillingClient instantiation method and to reflect the updated purchase processing steps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_billing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/reference\" target=\"_blank\">Play Games PC SDK</a>",
+        "path": "games/playgames/native-pc/reference.md",
+        "summary": "The documentation for the Play Games PC SDK has been updated. The update includes addition of `BillingClientParams` struct, which is used to construct a `BillingClient`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_reference.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/custom-back\" target=\"_blank\">Provide custom back navigation</a>",
+        "path": "guide/navigation/custom-back.md",
+        "summary": "The documentation has been updated to include information on implementing custom back navigation in Jetpack Compose using `BackHandler` composable. It also refactors the section on implementing custom back navigation using Views to include more detail and formatting.  The guidance on using `OnBackPressedCallback` remains the primary method for handling custom back navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_custom-back.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens\" target=\"_blank\">Get started with large screens</a>",
+        "path": "guide/topics/large-screens.md",
+        "summary": "The documentation underwent minor revisions, primarily involving link updates and formatting adjustments. These changes improve the overall presentation and ensure the accuracy of the resources referenced within the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_large-screens.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/app-to-web\" target=\"_blank\">App to web  |  Large screens  |  Android Developers</a>",
+        "path": "guide/topics/large-screens/app-to-web.md",
+        "summary": "This new documentation page introduces the concept of seamlessly transitioning between an Android app and web content to maintain user flow, meeting the Adaptive app quality guidelines for large screens.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/camera-audio\" target=\"_blank\">Camera • audio  |  Large screens  |  Android Developers</a>",
+        "path": "guide/topics/large-screens/camera-audio.md",
+        "summary": "This new documentation page introduces guidelines for camera and audio support on large-screen Android devices, focusing on adaptive app quality. It emphasizes the importance of camera and audio switchers, as well as background audio playback, to enhance the user experience on devices with external hardware.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/cross-device\" target=\"_blank\">Cross device  |  Large screens  |  Android Developers</a>",
+        "path": "guide/topics/large-screens/cross-device.md",
+        "summary": "This new documentation page introduces the concept of cross-device functionality in Android, emphasizing how apps can provide a seamless user experience across different Android devices by meeting adaptive app quality guidelines.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/cursors\" target=\"_blank\">Cursors  |  Large screens  |  Android Developers</a>",
+        "path": "guide/topics/large-screens/cursors.md",
+        "summary": "This new documentation introduces the concept of custom cursors in Android apps, particularly for large screens, and explains how to implement them to enhance user interaction and app differentiation.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/foldables\" target=\"_blank\">Foldables  |  Large screens  |  Android Developers</a>",
+        "path": "guide/topics/large-screens/foldables.md",
+        "summary": "This new documentation introduces guidelines for adapting Android applications to foldable devices, focusing on features like adaptive layouts, camera support, and the use of Jetpack WindowManager APIs to optimize the user experience on foldable devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/offline-support\" target=\"_blank\">Offline support  |  Large screens  |  Android Developers</a>",
+        "path": "guide/topics/large-screens/offline-support.md",
+        "summary": "This new documentation page introduces offline support for large-screen Android apps, emphasizing the importance of providing functionality even without an active network connection. It guides developers on how to implement offline features to enhance user experience and meet adaptive app quality guidelines.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/printing-file-management\" target=\"_blank\">Printing and file management  |  Large screens  |  Android Developers</a>",
+        "path": "guide/topics/large-screens/printing-file-management.md",
+        "summary": "This new documentation page introduces guidelines for file management and printing functionalities, crucial for adaptive app quality, specifically for large-screen devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/tier-1-overview\" target=\"_blank\">Adaptive differentiated</a>",
+        "path": "guide/topics/large-screens/tier-1-overview.md",
+        "summary": "The documentation has been significantly updated to reflect a major restructuring of the content to focus on desktop experiences and also includes adding or updating the guidelines for user experience, keyboard/mouse/trackpad support, multitasking, drag and drop, and printing/file management. This shift emphasizes the importance of optimizing apps for larger screens and improving the user experience on devices with desktop capabilities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_tier-1-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/large-screens/user-experience\" target=\"_blank\">User experience  |  Large screens  |  Android Developers</a>",
+        "path": "guide/topics/large-screens/user-experience.md",
+        "summary": "This new documentation page introduces user experience guidelines for large screens, focusing on making apps adaptive and differentiated to bridge the gap between mobile and desktop experiences. It provides requirements and next steps to enhance the user interface and overall app quality on large-screen devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/data-types\" target=\"_blank\">Health Connect data types</a>",
+        "path": "health-and-fitness/health-connect/data-types.md",
+        "summary": "The documentation was updated to include developer experience guides for Sleep, Vitals, and Workouts, which show how to use relevant data types to build features.  Additionally, the table of data types was updated to include links to the relevant guides.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_data-types.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/health-and-fitness/health-connect/features/availability\" target=\"_blank\">Check for feature availability</a>",
+        "path": "health-and-fitness/health-connect/features/availability.md",
+        "summary": "The documentation for Health Connect feature availability flags has been updated to reflect the new paths to the linked guides. These updates ensure that the links point to the correct sections within the documentation, improving usability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_availability.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/datastore\" target=\"_blank\">DataStore</a>",
+        "path": "jetpack/androidx/releases/datastore.md",
+        "summary": "DataStore library version 1.2.1 was released, including minor infrastructure bug fixes. This update does not introduce any DataStore API or behavior changes from version 1.2.0.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_datastore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/media3\" target=\"_blank\">Media3</a>",
+        "path": "jetpack/androidx/releases/media3.md",
+        "summary": "This update introduces version 1.10.0-rc02 of Media3. It includes a fix for an issue where playback would stall when playing a playlist of gapless audio in compressed offload mode, specifically in the audio component.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_media3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">AndroidX releases</a>",
+        "path": "jetpack/androidx/versions.md",
+        "summary": "The `media3` library's latest version information has been updated. The latest release version is now `1.9.2`, and the release candidate version is `1.10.0-rc02`. This update informs developers about the most recent stable and upcoming versions of the media3 library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">Recent Release Notes</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "The documentation was updated to include a new release of Media3 Version 1.10.0-rc02 and Paging Version 3.4.2 in the all-channel list, indicating recent updates to Jetpack libraries. These updates provide developers with the latest stable or pre-release versions of these libraries, allowing them to integrate new features and improvements into their applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/rc-channel\" target=\"_blank\">RC Releases</a>",
+        "path": "jetpack/androidx/versions/rc-channel.md",
+        "summary": "The documentation has been updated to reflect the latest release candidate (RC) versions of AndroidX libraries. Specifically, Media3 version 1.10.0-rc02 has been added. These updates provide developers with the most recent pre-release versions of the libraries, allowing them to test and integrate new features before the stable releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_rc-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ndk/downloads\" target=\"_blank\">NDK Downloads</a>",
+        "path": "ndk/downloads.md",
+        "summary": "The documentation was updated to include the latest pre-release (beta) version of the NDK (r30 beta 1) alongside the latest stable and LTS versions. It also includes the terms and conditions for downloading the NDK beta.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_downloads.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/key-verifier\" target=\"_blank\">Enable private communication with Key Verifier</a>",
+        "path": "privacy-and-security/key-verifier.md",
+        "summary": "The Key Verifier documentation has been updated to introduce the Key Verifier SDK, which works with the Android System Key Verifier to enhance user privacy in end-to-end encrypted messaging applications. It highlights the key functions of the system, including key verification, various verification methods, key management, and the client SDK.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_key-verifier.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/key-verifier/key-verifier\" target=\"_blank\">Android System Key Verifier</a>",
+        "path": "privacy-and-security/key-verifier/key-verifier.md",
+        "summary": "This documentation introduces the Key Verifier for Android, a system service designed to provide a secure and unified method for users to verify the authenticity of contacts' public encryption keys within end-to-end encrypted (E2EE) applications.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/key-verifier/reference\" target=\"_blank\">Privacy</a>",
+        "path": "privacy-and-security/key-verifier/reference.md",
+        "summary": "This is a new documentation file providing reference information for the Key Verifier SDK, including classes, interfaces, exceptions, and annotations. It's designed to assist developers working with the Key Verifier on Android devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/emulator_archive\" target=\"_blank\">Emulator download archives</a>",
+        "path": "studio/emulator_archive.md",
+        "summary": "The `emulator_archive.md` file has been updated with a new iframe source URL. This change likely reflects an update to the embedded content, possibly to a new version of the Android emulator archive documentation or related interactive elements. This ensures users are viewing the most current information within the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_emulator_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated to reflect the new nightly build date: 2026-03-24. This change affects the download links and filenames for the Android Studio Panda 4 nightly builds.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/36\" target=\"_blank\">Android Emulator 36 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/36.md",
+        "summary": "This document outlines changes for Android Emulator versions 36.5.9 Beta and 36.5.8 Canary. The 36.5.9 Beta release includes minor fixes and improvements. These updates are important for developers to maintain a stable and efficient development environment.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_36.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/notifications/bridger\" target=\"_blank\">Bridging options for notifications</a>",
+        "path": "training/wearables/notifications/bridger.md",
+        "summary": "This document provides an overview of how notifications are bridged from a phone app to a Wear OS watch and how to manage duplicate notifications. It covers methods for avoiding duplication, including setting bridge tags, disabling bridging, using dismissal IDs for synchronization, and the use of local-only notifications. It also provides implementation considerations for bridged notifications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/932c10d_bridger.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-23T15:24:45Z",
     "commit_hash": "95f9e5c",
     "entries": [

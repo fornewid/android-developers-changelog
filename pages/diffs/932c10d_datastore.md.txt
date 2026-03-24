@@ -1,0 +1,17 @@
+diff --git a/docs/jetpack/androidx/releases/datastore.md b/docs/jetpack/androidx/releases/datastore.md
+index 179fe21..731675c 100644
+--- a/docs/jetpack/androidx/releases/datastore.md
++++ b/docs/jetpack/androidx/releases/datastore.md
+@@ -377,7 +377,11 @@ November 19, 2025
+ 
+ March 11, 2026
+ 
+-`androidx.datastore:datastore-*:1.2.1` is released. Version 1.2.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9c556fd714d249b153cbe3ddce61e9eb43f77ffc..03aea68c431abd3fa436e9f8fa9b9cda12f18334/datastore).
++`androidx.datastore:datastore-*:1.2.1` is released. Version 1.2.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9c556fd714d249b153cbe3ddce61e9eb43f77ffc..03aea68c431abd3fa436e9f8fa9b9cda12f18334).
++
++**No changes**
++
++- This release intorduces minor infrastructure bug fixes and does not introduce any DataStore API or behavior changes from version 1.2.0.
+ 
+ ### Version 1.2.0
+ 
