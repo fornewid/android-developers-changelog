@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/desktop/guides/interaction/cursors.md b/docs/design/ui/desktop/guides/interaction/cursors.md
+index d0c4f3b..4ee6478 100644
+--- a/docs/design/ui/desktop/guides/interaction/cursors.md
++++ b/docs/design/ui/desktop/guides/interaction/cursors.md
+@@ -83,4 +83,4 @@ by Android.
+ <br />
+ 
+ For design guidance, [cursor icons](https://m3.material.io/foundations/interaction/inputs#64b60907-0946-462c-adbf-99c96c3bf16c). For implementation details and how to
+-set different cursor types, [custom cursors](https://developer.android.com/guide/topics/large-screens/custom-cursors).
+\ No newline at end of file
++set different cursor types, [custom cursors](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Custom_Cursors).
+\ No newline at end of file

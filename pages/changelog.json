@@ -1,5 +1,210 @@
 [
   {
+    "date": "2026-03-25T15:28:01Z",
+    "commit_hash": "027c447",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/desktop/guides/interaction/cursors\" target=\"_blank\">Cursors</a>",
+        "path": "design/ui/desktop/guides/interaction/cursors.md",
+        "summary": "The link for custom cursors has been updated to point to the correct documentation. This change ensures users are directed to the appropriate resources for information on customizing cursor types within the Android development environment.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_cursors.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context\" target=\"_blank\">Use a projected context to access AI glasses hardware</a>",
+        "path": "develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md",
+        "summary": "This document provides updated code examples and improved clarity on accessing hardware, particularly the camera, in Android apps designed for AI glasses. The changes include enhanced code snippets demonstrating how to obtain projected contexts for both the glasses and the phone, along with best practices for camera initialization and usage with CameraX. Additionally, the revised content emphasizes error handling and lifecycle management for better app stability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_access-hardware-projected-context.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments\" target=\"_blank\">Add spatial environments to your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-environments.md",
+        "summary": "The example code URL in the documentation has been updated. This change ensures the code snippet links to the correct version of the 'Environments.kt' file, maintaining the accuracy of the provided example.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_add-environments.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-video\" target=\"_blank\">Add spatial video to your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-spatial-video.md",
+        "summary": "The provided code snippets, which demonstrate the usage of SurfaceEntity to play media on a hemisphere and sphere, have been updated. The changes involve modifying the links to the SpatialVideo.kt file to reflect the latest commit hash.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_add-spatial-video.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-subspace\" target=\"_blank\">Add a subspace to your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-subspace.md",
+        "summary": "The example code snippet's link in the 'add-subspace.md' documentation has been updated. This change is necessary to reflect the most current version of the code example on GitHub, ensuring users can access the correct reference for implementation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_add-subspace.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing\" target=\"_blank\">Bring your Android app into 3D with XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/add-xr-to-existing.md",
+        "summary": "The documentation has been updated to reflect a change in the URL used for referencing the `isSpatialAudioEnabled` property within the `SpatialCapabilities.kt` file in the Android snippets repository. This update ensures that the documentation points to the correct location of the code, which is important for developers who are following the examples and integrating spatial audio features into their applications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_add-xr-to-existing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity\" target=\"_blank\">Create your first activity for AI glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md",
+        "summary": "The documentation for the first activity has been updated to reflect the need to request hardware permissions for camera-related features on AI glasses. This includes registering a permissions launcher and checking for granted permissions before initializing glasses features, which is essential for accessing hardware and ensuring app functionality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_first-activity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/depth\" target=\"_blank\">Retrieve depth information in your app with ARCore for Jetpack XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore/depth.md",
+        "summary": "The documentation was updated to reflect a change in the snippet's GitHub URL. The change updates the specific commit hash used in the URL, ensuring the code examples point to the latest version of the relevant code snippet. This change ensures that developers are referencing the most up-to-date code examples for implementing depth map functionality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_depth.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions\" target=\"_blank\">Request hardware permissions for AI glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/request-hardware-permissions.md",
+        "summary": "The documentation for requesting hardware permissions in the Jetpack XR SDK has been updated to include more comprehensive examples using the `ProjectedPermissionsResultContract`.  The changes include example code on how to register the permissions launcher, create the request function, add a permission check, and implement permission request logic.  These updates provide clearer guidance on implementing permission requests for AI glasses, offering improved code clarity and practical implementation details.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_request-hardware-permissions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/distribute/play-policies\" target=\"_blank\">Google Play Policies</a>",
+        "path": "distribute/play-policies.md",
+        "summary": "The documentation updates the links to the Google Security blog posts and updates some of the content related to Google Play policies. These changes reflect the new and updated policies, including changes to the Photo and Video Permissions, Personal Loans, News, and Medical functionalities policies. These updates are crucial for developers to ensure their apps comply with the latest Google Play Store guidelines.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_play-policies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop\" target=\"_blank\">Desktop</a>",
+        "path": "docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md",
+        "summary": "This update modifies the links and formatting in the desktop.md documentation. Specifically, the title and URL are updated, and internal and external links are updated to the correct syntax. The content is reorganized using Markdown syntax for better readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_desktop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-1\" target=\"_blank\">Tier 1 — Adaptive differentiated</a>",
+        "path": "docs/quality-guidelines/adaptive-app-quality/tier-1.md",
+        "summary": "The document's title and URL were updated. Additionally, the links within the document were updated to use full URLs instead of relative paths, and the newlines were adjusted. These changes make the document more self-contained and accessible.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_tier-1.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/play-games-sidekick\" target=\"_blank\">Play Games Sidekick</a>",
+        "path": "games/pgs/play-games-sidekick.md",
+        "summary": "The documentation for Play Games Sidekick was updated. A note was added regarding performance verification on devices with 4-6 GB RAM and the future publication of minimum hardware specifications in July 2026. This information provides developers with more specific guidance on device compatibility and performance expectations for Sidekick.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_play-games-sidekick.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/checklist\" target=\"_blank\">Launch checklist</a>",
+        "path": "games/playgames/native-pc/checklist.md",
+        "summary": "This document introduces a checklist for developers to ensure their games meet the requirements and best practices for Google Play Games on PC, covering setup, API integration, billing, testing, and publishing.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/backend\" target=\"_blank\">Integrate Google Play with your server backend</a>",
+        "path": "google/play/billing/backend.md",
+        "summary": "The documentation for backend integration with Google Play Billing has been updated to include formatting improvements, clarify existing content, and add a recommendation for optimizing Real-time developer notifications (RTDN) processing by checking the uniqueness of message IDs. This ensures efficient API quota usage and avoids redundant backend processing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_backend.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/lifecycle\" target=\"_blank\">Purchase lifecycle and RTDNs</a>",
+        "path": "google/play/billing/lifecycle.md",
+        "summary": "The documentation updates improve readability and clarity. These changes include formatting adjustments for better code style, and more specific instructions for handling RTDN messages, including a note about checking the uniqueness of message IDs to prevent redundant processing. The update also adds better formatting for notes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_lifecycle.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/manage-catalog\" target=\"_blank\">Manage your product catalog</a>",
+        "path": "google/play/billing/manage-catalog.md",
+        "summary": "The documentation was updated to reflect the new format of the note boxes using the 'NOTE' directive. It also includes an important note regarding regional pricing and the use of parent region codes for location overrides. The document also clarifies the use of the `inappproducts` API for subscriptions and provides guidance on migrating to the new APIs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_manage-catalog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/price-changes\" target=\"_blank\">Change subscription prices</a>",
+        "path": "google/play/billing/price-changes.md",
+        "summary": "The documentation has been updated with the addition of a note about regional billing considerations and enhanced formatting, including the use of callout boxes for warnings and notes. The formatting of code snippets and references was also updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_price-changes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/rtdn-reference\" target=\"_blank\">Real-time developer notifications reference guide</a>",
+        "path": "google/play/billing/rtdn-reference.md",
+        "summary": "The documentation for Real-time developer notifications (RTDN) has been updated.  Changes include formatting adjustments, adding a note about the importance of checking the uniqueness of message IDs to avoid duplicate notifications and redundant API calls.  Also, changes include markdown table formatting updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_rtdn-reference.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/tv/continue-watching\" target=\"_blank\">Publish Continue Watching data</a>",
+        "path": "guide/playcore/engage/tv/continue-watching.md",
+        "summary": "The file was updated by removing unnecessary metadata. This change does not affect the technical content of the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_continue-watching.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/datastore\" target=\"_blank\">DataStore</a>",
+        "path": "jetpack/androidx/releases/datastore.md",
+        "summary": "This release includes minor infrastructure bug fixes and does not introduce any DataStore API or behavior changes from version 1.2.0.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_datastore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/inspector\" target=\"_blank\">Media3 Inspector</a>",
+        "path": "media/media3/inspector.md",
+        "summary": "The documentation for the `media3-inspector` module has been updated to include instructions for adding the `media3-inspector-frame` dependency and provides a table mapping Media3 APIs to equivalent platform APIs. This is important for users who need to extract video frames, and it helps users who are migrating from platform APIs to Media3 APIs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_inspector.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/inspector/extract-frames\" target=\"_blank\">Extract video frames</a>",
+        "path": "media/media3/inspector/extract-frames.md",
+        "summary": "The documentation for `FrameExtractor` was updated.  The changes include updating the package references within the documentation to reflect the correct package structure within the Media3 library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_extract-frames.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/install\" target=\"_blank\">Install Android Studio</a>",
+        "path": "studio/install.md",
+        "summary": "The installation instructions for Android Studio on ChromeOS have been updated. The changes replace the steps involving right-clicking the DEB package and using 'Install with Linux (Beta)' with moving the DEB package to Linux files and using the command-line to install Android Studio. This update streamlines the installation process and provides a more consistent approach across different ChromeOS versions and simplifies the steps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_install.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated with the new nightly build date and download links for Android Studio Panda 4. The changes reflect the release of the nightly build from 2026-03-24 to 2026-03-25.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/027c447_nightly.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-24T15:27:10Z",
     "commit_hash": "932c10d",
     "entries": [
