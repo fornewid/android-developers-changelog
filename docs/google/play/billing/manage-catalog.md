@@ -45,7 +45,9 @@ and deleting products, and managing prices and availability. Depending on how yo
 one-time product purchases, you will model consumable products (can be bought as
 many times as desired) or permanent entitlements (cannot be made twice by the
 same user). You can decide which one-time products should be consumable or not.
-| **Note:** You can continue to use the [`inappproducts`](https://developers.google.com/android-publisher/api-ref/rest/v3/inappproducts) service to manage your existing in-app products. While Google Play maintains backward compatibility for in-app products created with the inappproducts service, it's recommended to migrate them to the [one-time product model](https://support.google.com/googleplay/android-developer/answer/16430488).
+
+> [!NOTE]
+> **Note:** You can continue to use the [`inappproducts`](https://developers.google.com/android-publisher/api-ref/rest/v3/inappproducts) service to manage your existing in-app products. While Google Play maintains backward compatibility for in-app products created with the inappproducts service, it's recommended to migrate them to the [one-time product model](https://support.google.com/googleplay/android-developer/answer/16430488).
 
 ### Subscription products
 
@@ -56,7 +58,13 @@ addition to the [`monetization.subscriptions`](https://developers.google.com/and
 [`monetization.subscriptions.basePlans`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions.basePlans) and
 [`monetization.subscriptions.basePlans.offers`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions.basePlans.offers) to respectively manage
 subscriptions' base plans and offers.
-| **Note:** The inappproducts API includes some legacy features to manage subscriptions, as in the past all Google Play products were managed through this endpoint. You should **no longer** use this endpoint to manage subscription products, and you should [migrate](https://developer.android.com/google/play/billing/migrate-gpblv5#manage-subscription-product-catalog) any subscription publishing integrations to use the new [`monetization.subscriptions`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions) API. For more information on this deprecation, visit [our blog post](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.).
+
+> [!NOTE]
+> **Note:** When configuring regional pricing, ensure you use the **parent region
+> code** for territories that are handled as location overrides. For example, United States (US) includes territories such as Puerto Rico (PR), Guam (GU), and the US Virgin Islands (VI). Prices for these territories cannot be set independently and must be managed using the parent region's configuration.
+
+> [!NOTE]
+> **Note:** The inappproducts API includes some legacy features to manage subscriptions, as in the past all Google Play products were managed through this endpoint. You should **no longer** use this endpoint to manage subscription products, and you should [migrate](https://developer.android.com/google/play/billing/migrate-gpblv5#manage-subscription-product-catalog) any subscription publishing integrations to use the new [`monetization.subscriptions`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions) API. For more information on this deprecation, visit [our blog post](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.).
 
 ### Batch methods
 
@@ -141,7 +149,7 @@ appropriate waits. Every call made to Google Play Developer APIs will generate a
 response. In the event of a call failure, you will receive a failure response
 that includes an HTTP response status code and an `errors` object, providing
 further details about the error domain and a debug message. For example, if you
-surpass your daily limit, you may encounter an error similar to the following:  
+surpass your daily limit, you may encounter an error similar to the following:
 
     {
       "code" : 403,
@@ -210,7 +218,9 @@ and they are a good option when:
 
 In case of large catalogs, consider using batch methods with latency tolerant
 updates to achieve maximum throughput.
-| **Note:** While you may send updates to your Google Play product catalog immediately upon any changes, this does not necessarily mean the changes will be immediately available to your users in-app. There may still be some latency in the process due to network or backend processing delays. Similarly, while periodic updates are performed with some delay, they can still be designed to update your catalog frequently if needed, making your changes available to users with similar latency to on demand updates. Additionally, the `latencyTolerance` field in batch methods lets you choose between optimizing for fast update propagation or higher throughput. Ultimately, the choice between these two options should be based on your specific requirements and limitations.
+
+> [!NOTE]
+> **Note:** While you may send updates to your Google Play product catalog immediately upon any changes, this does not necessarily mean the changes will be immediately available to your users in-app. There may still be some latency in the process due to network or backend processing delays. Similarly, while periodic updates are performed with some delay, they can still be designed to update your catalog frequently if needed, making your changes available to users with similar latency to on demand updates. Additionally, the `latencyTolerance` field in batch methods lets you choose between optimizing for fast update propagation or higher throughput. Ultimately, the choice between these two options should be based on your specific requirements and limitations.
 
 ### Create your product catalog
 

@@ -4,10 +4,6 @@ url: https://developer.android.com/guide/playcore/engage/tv/continue-watching
 source: md.txt
 ---
 
-book_path: /distribute/other-docs/_book.yaml
-project_path: /distribute/other-docs/_project.yaml
-
-
 Continue Watching leverages the **Continuation cluster** to show unfinished
 videos, and next episodes to be watched from the same TV show, from multiple
 apps in one UI grouping. You can feature your entities in this continuation

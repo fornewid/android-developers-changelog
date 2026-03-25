@@ -83,4 +83,4 @@ by Android.
 <br />
 
 For design guidance, [cursor icons](https://m3.material.io/foundations/interaction/inputs#64b60907-0946-462c-adbf-99c96c3bf16c). For implementation details and how to
-set different cursor types, [custom cursors](https://developer.android.com/guide/topics/large-screens/custom-cursors).
+set different cursor types, [custom cursors](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Custom_Cursors).

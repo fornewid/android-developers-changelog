@@ -180,16 +180,11 @@ To install Android Studio on ChromeOS, follow these steps:
 
 1. Install [Linux for ChromeOS](https://support.google.com/chromebook/answer/9145439).
 2. Open the **Files** app and locate the DEB package in the **Downloads** folder under **My files**.
-3. Right-click the DEB package and select **Install with Linux (Beta)**.
-
-   ![The target file location for DEB package on ChromeOS.](https://developer.android.com/static/studio/images/studio-install-chromeos.png)
+3. Copy or move the DEB package to **Linux Files**.
+4. In the ChromeOS Linux terminal, run `sudo apt install
+   ./android-studio-panda2-cros.deb` (where the actual filename might differ based on the version of Android Studio you downloaded).
    - If you have installed Android Studio before, select whether you want to import previous Android Studio settings, then click **OK**.
-4. Complete the Android Studio **Setup Wizard**, which includes downloading the
-   Android SDK components that are required for development.
-
-5. Once the installation is complete, launch Android Studio from the Launcher
-   or from the ChromeOS Linux terminal. In the default installation directory
-   `/opt/android-studio/bin`, run `studio`.
+5. Once the installation is complete, launch Android Studio from the Launcher or from the ChromeOS Linux terminal. In the default installation directory `/opt/android-studio/bin`, run `studio`.
 
 Android Studio notifies you with a dialog when new tools and other APIs become
 available. To manually check for updates, click **Help \> Check for Update**.

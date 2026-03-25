@@ -39,8 +39,13 @@ New features will continue to be added:
 
 To access Sidekick, you need the following:
 
-- An Android mobile phone operating on Android 13 or higher.
+- A mobile phone running Android 13 or higher.
+
+  > [!NOTE]
+  > **Note:** Performance is being verified on devices with 4-6 GB RAM, and minimum hardware specifications will be published in July 2026.
+
 - You must have one [Gamer profile](https://play.google.com/games/profile).
+
 - The game must be installed from the Play Store.
 
 ## Try Sidekick

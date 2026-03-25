@@ -21,20 +21,28 @@ If your app's code is running from within your AI glasses activity, its own
 activity context is already a projected context. In this scenario, calls made
 within that activity can already access the glasses' hardware.
 
-## Get a projected context if your code is running in phone app component
+## Get a projected context for code running in a phone app component
 
 If a part of your app outside of your AI glasses activity (such as a phone
 activity or a service) needs to access the glasses' hardware, it must explicitly
 obtain a projected context. To do this, use the
 [`createProjectedDeviceContext()`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#createProjectedDeviceContext(android.content.Context)) method:
 
-    // From a phone Activity, get a context for the AI glasses
-    try {
-        val glassesContext = ProjectedContext.createProjectedDeviceContext(this)
-        // Now use glassesContext to access glasses' system services
+
+```kotlin
+@OptIn(ExperimentalProjectedApi::class)
+private fun getGlassesContext(context: Context): Context? {
+    return try {
+        // From a phone Activity or Service, get a context for the AI glasses.
+        ProjectedContext.createProjectedDeviceContext(context)
     } catch (e: IllegalStateException) {
-        // Projected device was not found
+        Log.e(TAG, "Failed to create projected device context", e)
+        null
     }
+}
+```
+
+<br />
 
 ### Check for validity
 
@@ -78,77 +86,88 @@ To capture an image with the AI glasses' camera, set up and bind the CameraX's
 [`ImageCapture`](https://developer.android.com/reference/kotlin/androidx/camera/core/ImageCapture) [use case](https://developer.android.com/media/camera/camerax#ease-of-use) to the glasses' camera using the correct
 context for your app:
 
-    private fun startCamera() {
-        // Get the CameraProvider using the projected context.
 
-        val cameraProviderFuture = ProcessCameraProvider.getInstance(
-            ProjectedContext.createProjectedDeviceContext(this)
+```kotlin
+private fun startCameraOnGlasses(activity: ComponentActivity) {
+    // 1. Get the CameraProvider using the projected context.
+    // When using the projected context, DEFAULT_BACK_CAMERA maps to the AI glasses' camera.
+    val projectedContext = try {
+        ProjectedContext.createProjectedDeviceContext(activity)
+    } catch (e: IllegalStateException) {
+        Log.e(TAG, "AI Glasses context could not be created", e)
+        return
+    }
+
+    val cameraProviderFuture = ProcessCameraProvider.getInstance(projectedContext)
+
+    cameraProviderFuture.addListener({
+        val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+        val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+
+        // 2. Check for the presence of a camera.
+        if (!cameraProvider.hasCamera(cameraSelector)) {
+            Log.w(TAG, "The selected camera is not available.")
+            return@addListener
+        }
+
+        // 3. Query supported streaming resolutions using Camera2 Interop.
+        val cameraInfo = cameraProvider.getCameraInfo(cameraSelector)
+        val camera2CameraInfo = Camera2CameraInfo.from(cameraInfo)
+        val cameraCharacteristics = camera2CameraInfo.getCameraCharacteristic(
+            CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP
         )
 
-        cameraProviderFuture.addListener({
-            // Used to bind the lifecycle of cameras to the lifecycle owner
-            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+        // 4. Define the resolution strategy.
+        val targetResolution = Size(1920, 1080)
+        val resolutionStrategy = ResolutionStrategy(
+            targetResolution,
+            ResolutionStrategy.FALLBACK_RULE_CLOSEST_LOWER
+        )
+        val resolutionSelector = ResolutionSelector.Builder()
+            .setResolutionStrategy(resolutionStrategy)
+            .build()
 
-            // Select the camera. When using the projected context, DEFAULT_BACK_CAMERA maps to the AI glasses' camera.
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-        
-            // Check for the presence of a camera before initializing the ImageCapture use case.
-           if (!cameraProvider.hasCamera(cameraSelector)) {
-                Log.w(TAG, "The selected camera is not available.")
-                return@addListener
-            }
+        // 5. If you have other continuous use cases bound, such as Preview or ImageAnalysis,
+        // you can use  Camera2 Interop's CaptureRequestOptions to set the FPS
+        val fpsRange = Range(30, 60)
+        val captureRequestOptions = CaptureRequestOptions.Builder()
+            .setCaptureRequestOption(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, fpsRange)
+            .build()
 
-            // Get supported streaming resolutions.
-            val cameraInfo = cameraProvider.getCameraInfo(cameraSelector)
-            val camera2CameraInfo = Camera2CameraInfo.from(cameraInfo)
-            val cameraCharacteristics = camera2CameraInfo.getCameraCharacteristic(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
+        // 6. Initialize the ImageCapture use case with options.
+        val imageCapture = ImageCapture.Builder()
+            // Optional: Configure resolution, format, etc.
+            .setResolutionSelector(resolutionSelector)
+            .build()
 
-            // Define the resolution strategy.
-            val targetResolution = Size(1920, 1080)
-            val resolutionStrategy = ResolutionStrategy(
-                targetResolution,
-                ResolutionStrategy.FALLBACK_RULE_CLOSEST_LOWER)
+        try {
+            // Unbind use cases before rebinding.
+            cameraProvider.unbindAll()
 
-            val resolutionSelector = ResolutionSelector.Builder()
-                .setResolutionStrategy(resolutionStrategy)
-                .build()
+            // Bind use cases to camera using the Activity as the LifecycleOwner.
+            cameraProvider.bindToLifecycle(
+                activity,
+                cameraSelector,
+                imageCapture
+            )
+        } catch (exc: Exception) {
+            Log.e(TAG, "Use case binding failed", exc)
+        }
+    }, ContextCompat.getMainExecutor(activity))
+}
+```
 
-            // If you have other continuous use cases bound, such as Preview or ImageAnalysis, you can use  Camera2 Interop's CaptureRequestOptions to set the FPS
-            val fpsRange = Range(30, 30)
-            val captureRequestOptions = CaptureRequestOptions.Builder()
-                    .setCaptureRequestOption(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE,fpsRange)
-                    .build()
-
-            // Initialize the ImageCapture use case.
-            val imageCapture = ImageCapture.Builder()
-                // Optional: Configure resolution, format, etc.
-                .setResolutionSelector(resolutionSelector)
-                .build()
-
-            try {
-                // Unbind use cases before rebinding
-                cameraProvider.unbindAll()
-
-                // 4. Bind use cases to camera
-                cameraProvider.bindToLifecycle(this as LifecycleOwner, cameraSelector, imageCapture)
-
-            } catch(exc: Exception) {
-                // This catches exceptions like IllegalStateException if use case binding fails
-                Log.e(TAG, "Use case binding failed", exc)
-            }
-
-        }, ContextCompat.getMainExecutor(this))
-    }
+<br />
 
 ### Key points about the code
 
 - Obtains an instance of the [`ProcessCameraProvider`](https://developer.android.com/reference/kotlin/androidx/camera/lifecycle/ProcessCameraProvider) using the [**projected device context**](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context#phone-activity-service).
 - Within the projected context's scope, the AI glasses' primary, outward-pointing camera maps to the `DEFAULT_BACK_CAMERA` when selecting a camera.
-- A pre-binding check uses [`cameraProvider.hasCamera(cameraSelector)`](https://developer.android.com/reference/kotlin/androidx/camera/lifecycle/ProcessCameraProvider#hasCamera(androidx.camera.core.CameraSelector)) to verify the selected camera is available on the device before proceeding.
+- A pre-binding check uses [`cameraProvider.hasCamera(cameraSelector)`](https://developer.android.com/reference/kotlin/androidx/camera/lifecycle/ProcessCameraProvider#hasCamera(androidx.camera.core.CameraSelector)) to verify that the selected camera is available on the device before proceeding.
 - Uses **Camera2 Interop** with [`Camera2CameraInfo`](https://developer.android.com/reference/kotlin/androidx/camera/camera2/interop/Camera2CameraInfo) to read the underlying [`CameraCharacteristics#SCALER_STREAM_CONFIGURATION_MAP`](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics#scaler_stream_configuration_map), which can be useful for advanced checks on supported resolutions.
 - A custom [`ResolutionSelector`](https://developer.android.com/reference/kotlin/androidx/camera/core/resolutionselector/ResolutionSelector) is built to precisely control the output image resolution for [`ImageCapture`](https://developer.android.com/reference/kotlin/androidx/camera/core/ImageCapture).
 - Creates an `ImageCapture` use case that is configured with a custom `ResolutionSelector`.
-- Binds the `ImageCapture` use case to the activity's lifecycle. This automatically manages the opening and closing of the camera based on the Activity's state (for example, stopping the camera when the activity is paused).
+- Binds the `ImageCapture` use case to the activity's lifecycle. This automatically manages the opening and closing of the camera based on the activity's state (for example, stopping the camera when the activity is paused).
 
 After the AI glasses' camera is set up, you can capture an image with the
 CameraX's `ImageCapture` class. Refer to the CameraX's documentation to learn
@@ -183,9 +202,21 @@ An AI glasses activity can also access the phone's hardware (such as the camera
 or microphone) by using [`createHostDeviceContext(context)`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#createHostDeviceContext(android.content.Context)) to get the host
 device's (phone) context:
 
-    // From an AI glasses Activity, get a context for the phone
-    val phoneContext = ProjectedContext.createHostDeviceContext(this)
-    // Now use phoneContext to access the phone's hardware
+
+```kotlin
+@OptIn(ExperimentalProjectedApi::class)
+private fun getPhoneContext(activity: ComponentActivity): Context? {
+    return try {
+        // From an AI glasses Activity, get a context for the phone.
+        ProjectedContext.createHostDeviceContext(activity)
+    } catch (e: IllegalStateException) {
+        Log.e(TAG, "Failed to create host device context", e)
+        null
+    }
+}
+```
+
+<br />
 
 When accessing hardware or resources that are specific to the host device
 (phone) in a hybrid app (an app containing both mobile and AI glasses

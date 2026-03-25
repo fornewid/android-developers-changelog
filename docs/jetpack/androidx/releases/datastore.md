@@ -381,7 +381,7 @@ March 11, 2026
 
 **No changes**
 
-- This release intorduces minor infrastructure bug fixes and does not introduce any DataStore API or behavior changes from version 1.2.0.
+- This release introduces minor infrastructure bug fixes and does not include any DataStore API or behavior changes from version 1.2.0.
 
 ### Version 1.2.0
 

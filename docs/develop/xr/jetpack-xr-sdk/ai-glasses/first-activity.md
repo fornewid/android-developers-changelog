@@ -166,11 +166,12 @@ class GlassesMainActivity : ComponentActivity() {
 
 ### Key points about the code
 
-- Opts in to using [experimental APIs](https://developer.android.com/reference/kotlin/androidx/annotation/experimental/Experimental) from the [Jetpack Projected](https://developer.android.com/jetpack/androidx/releases/xr-projected) library.
+- Opts in to using [opt-in APIs](https://developer.android.com/reference/kotlin/androidx/annotation/RequiresOptIn) from the [Jetpack Projected](https://developer.android.com/jetpack/androidx/releases/xr-projected) library.
 - `GlassesMainActivity` extends [`ComponentActivity`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity), just as you would expect in mobile development.
 - Because not all AI glasses have a display, checks whether the device has a display using [`ProjectedDeviceController`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController).
 - The `setContent` block within the `onCreate` function defines the root of the Composable UI tree for the activity. You'll implement the `HomeScreen` composable using [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
 - Initializes the UI during the activity's [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle)) method (see [projected activity lifecycle](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/support-different-types#activity-lifecycle)).
+- To prepare for camera-related features that [access the glasses hardware](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context), [requests hardware permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions) by registering a permissions launcher, defining the `hasCameraPermission` and `requestHardwarePermissions` functions, and checking whether permissions have been granted before calling `initializeGlassesFeatures`.
 
 ## Implement the composable
 
