@@ -1,0 +1,12 @@
+diff --git a/docs/developer-verification/guides.md b/docs/developer-verification/guides.md
+index 9f81c0c..04fcd90 100644
+--- a/docs/developer-verification/guides.md
++++ b/docs/developer-verification/guides.md
+@@ -82,5 +82,5 @@ situation.
+ |---|---|
+ | **If you distribute apps**... | **Next Steps** |
+ | **Only on Google Play** | Use your existing [Play Console account](https://developer.android.com/developer-verification/guides/google-play-console). |
+-| **Both on and off Google Play** | Use your existing [Play Console account](https://developer.android.com/developer-verification/guides/google-play-console). Play uses the information you've already shared to automatically register your apps. Use a new option to register apps you distribute outside of Play. You do not need to create an Android Developer Console account. |
++| **Both on and off Google Play** | Use your existing [Play Console account](https://developer.android.com/developer-verification/guides/google-play-console), where there will be new functionality to register your apps outside of Google Play and keys. |
+ | **Only outside of Google Play** | Create an account in the [Android Developer Console](https://developer.android.com/developer-verification/guides/android-developer-console). |
+\ No newline at end of file

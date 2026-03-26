@@ -1,0 +1,21 @@
+diff --git a/docs/jetpack.md b/docs/jetpack.md
+index f1f8991..2887223 100644
+--- a/docs/jetpack.md
++++ b/docs/jetpack.md
+@@ -174,7 +174,7 @@ Explore how modern Android architecture is implemented in a real world app [View
+ | [transition](https://developer.android.com/jetpack/androidx/releases/transition) | Animate motion in the UI with starting and ending layouts. |
+ | [tv](https://developer.android.com/jetpack/androidx/releases/tv) | Provides developers with Compose and Material design functionalities in order to write applications for TV |
+ | [tvprovider](https://developer.android.com/jetpack/androidx/releases/tvprovider) | Provide Android TV channels. |
+-| [text](https://developer.android.com/jetpack/androidx/releases/text) | TODO |
++| [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | TODO |
+ | [xr.arcore](https://developer.android.com/jetpack/androidx/releases/xr-arcore) | Bring digital content into the real world with perception capabilities. |
+ | [xr.compose](https://developer.android.com/jetpack/androidx/releases/xr-compose) | Declaratively build spatial UI layouts that take advantage of Android XR's spatial capabilities. |
+ | [xr.compose.material3](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3) | Build with Material components and layouts that adapt for XR |
+@@ -188,6 +188,7 @@ Explore how modern Android architecture is implemented in a real world app [View
+ | [viewpager2](https://developer.android.com/jetpack/androidx/releases/viewpager2) | Display Views or Fragments in a swipeable format. |
+ | [wear](https://developer.android.com/jetpack/androidx/releases/wear) | Create applications for Wear OS by Google smartwatches. |
+ | [wear.compose](https://developer.android.com/jetpack/androidx/releases/wear-compose) | Write Jetpack Compose applications for Wear OS devices by providing functionality to support different device sizes and navigation gestures. |
++| [wear.compose.remote](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote) | TODO |
+ | [wear.protolayout](https://developer.android.com/jetpack/androidx/releases/wear-protolayout) | This library allows defining a set of UI layouts and non-UI expressions to be rendered/evaluated on remote surfaces. |
+ | [wear.tiles](https://developer.android.com/jetpack/androidx/releases/wear-tiles) | Create applications for Wear OS by Google smartwatches. |
+ | [wear.watchface](https://developer.android.com/jetpack/androidx/releases/wear-watchface) | Create applications for Wear OS by Google smartwatches. |

@@ -1,0 +1,53 @@
+diff --git a/docs/jetpack/androidx/versions/alpha-channel.md b/docs/jetpack/androidx/versions/alpha-channel.md
+index 0f1f10a..225055c 100644
+--- a/docs/jetpack/androidx/versions/alpha-channel.md
++++ b/docs/jetpack/androidx/versions/alpha-channel.md
+@@ -6,8 +6,6 @@ source: md.txt
+ 
+ *** ** * ** ***
+ 
+-[Overview](https://developer.android.com/jetpack/androidx/versions) \|[All](https://developer.android.com/jetpack/androidx/versions/all-channel) \|[Stable](https://developer.android.com/jetpack/androidx/versions/stable-channel) \|[RC](https://developer.android.com/jetpack/androidx/versions/rc-channel) \|[Beta](https://developer.android.com/jetpack/androidx/versions/beta-channel) \|Alpha
+-
+ Each version of an AndroidX library passes through four release channels while
+ being developed. This page lists the components that have been updated to a new
+ alpha version. To view the entire release history for a particular component
+@@ -18,6 +16,39 @@ to 2018.
+ To view the current versions for every component,
+ see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+ 
++### March 25, 2026
++
++- [AppSearch Version 1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appsearch#1.2.0-alpha01)
++- [Benchmark Version 1.5.0-alpha05](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha05)
++- [Biometric Biometric-compose Version 1.4.0-alpha06](https://developer.android.com/jetpack/androidx/releases/biometric#1.4.0-alpha06)
++- [Compose Material 3 Version 1.5.0-alpha16](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha16)
++- [Compose Remote Version 1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha07)
++- [Core-telecom Version 1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0-alpha04)
++- [Wear Wear-core Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha06)
++- [Connect-client Connect-client-external-protobuf Connect-client-proto Version 1.2.0-alpha03](https://developer.android.com/jetpack/androidx/releases/health-connect#1.2.0-alpha03)
++- [Hilt Version 1.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0-alpha01)
++- [Javascriptengine Version 1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/javascriptengine#javascriptengine-1.1.0-alpha02)
++- [Lifecycle Version 2.11.0-alpha03](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha03)
++- [Navigation Version 2.10.0-alpha02](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha02)
++- [Pdf Version 1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha16)
++- [Room3 Version 3.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha02)
++- [Savedstate Version 1.5.0-alpha02](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0-alpha02)
++- [Security-state Version 1.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/security#security-state-1.1.0-alpha03)
++- [Security-state-provider Version 1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/security#security-state-provider-1.0.0-alpha03)
++- [Sqlite Version 2.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-alpha02)
++- [Text-vertical Version 1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha03)
++- [Tracing Version 2.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha04)
++- [Wear-core Version 1.1.0-alpha-01](https://developer.android.com/jetpack/androidx/releases/wear#wear-core-1.1.0-alpha-01)
++- [Remote-material3 Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#remote-material3-1.0.0-alpha01)
++- [Webkit Version 1.16.0-alpha04](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0-alpha04)
++- [Xr Arcore Version 1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha12)
++- [Xr Compose Version 1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha12)
++- [Xr Compose Material3 Version 1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha16)
++- [Xr Glimmer Version 1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha09)
++- [Xr Projected Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha06)
++- [Xr Runtime Version 1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha12)
++- [Xr Scenecore Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha13)
++
+ ### March 11, 2026
+ 
+ - [Annotation Version 1.10.0-alpha01](https://developer.android.com/jetpack/androidx/releases/annotation#1.10.0-alpha01)

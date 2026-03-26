@@ -1,0 +1,86 @@
+diff --git a/docs/training/wearables/compose/migrate-to-material3.md b/docs/training/wearables/compose/migrate-to-material3.md
+index 3a8f49a..b701567 100644
+--- a/docs/training/wearables/compose/migrate-to-material3.md
++++ b/docs/training/wearables/compose/migrate-to-material3.md
+@@ -36,19 +36,19 @@ M3 has a separate package and version to M2.5:
+ 
+ ### M3
+ 
+-    implementation("androidx.wear.compose:compose-material3:1.6.0-rc01")
++    implementation("androidx.wear.compose:compose-material3:1.6.0")
+ 
+ See the latest M3 versions on the [Wear Compose Material 3 releases page](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3).
+ 
+-Wear Compose Foundation library version 1.6.0-rc01 introduced
++Wear Compose Foundation library version 1.6.0 introduced
+ some new components that are designed to work with Material 3 components.
+ Similarly, `SwipeDismissableNavHost` from Wear Compose Navigation library has an
+ updated animation when running on Wear OS 6 (API level 36) or higher. When
+ updating to Wear Compose Material 3 version, we suggest to also update the Wear
+ Compose Foundation and Navigation libraries:
+ 
+-    implementation("androidx.wear.compose:compose-foundation:1.6.0-rc01")
+-    implementation("androidx.wear.compose:compose-navigation:1.6.0-rc01")
++    implementation("androidx.wear.compose:compose-foundation:1.6.0")
++    implementation("androidx.wear.compose:compose-navigation:1.6.0")
+ 
+ ## Theme
+ 
+@@ -338,7 +338,7 @@ Here is a full list of all the Material 3 components:
+ And finally a list of some relevant components from Wear Compose Foundation
+ library:
+ 
+-| Wear Compose Foundation 1.6.0-rc01 |   |
++| Wear Compose Foundation 1.6.0 |   |
+ |---|---|
+ | [androidx.wear.compose.foundation.hierarchicalFocusGroup](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/package-summary#(androidx.compose.ui.Modifier).hierarchicalFocusGroup(kotlin.Boolean)) | Used to annotate composables in an application, to keep track of the active part of the composition and coordinate focus. |
+ | [androidx.compose.foundation.pager.HorizontalPager](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/pager/package-summary#HorizontalPager(androidx.wear.compose.foundation.pager.PagerState,androidx.compose.ui.Modifier,androidx.compose.foundation.layout.PaddingValues,kotlin.Int,androidx.compose.foundation.gestures.TargetedFlingBehavior,kotlin.Boolean,androidx.wear.compose.foundation.GestureInclusion,kotlin.Boolean,kotlin.Function1,androidx.wear.compose.foundation.rotary.RotaryScrollableBehavior,kotlin.Function2)) | A horizontally scrolling pager, built on the Compose Foundation components with Wear-specific enhancements to improve performance and adherence to Wear OS guidelines. |
+@@ -473,7 +473,7 @@ fun MessageDetail(id: String) {
+         contentPadding = padding
+     ) { scaffoldPaddingValues ->
+         // Screen content goes here
+-        // ...https://github.com/android/snippets/blob/60ee5d9fa029bd30bfda2fc56353b16c8e5ece4a/wear/src/main/java/com/example/wear/snippets/m3/navigation/Navigation.kt#L64-L110
++        // ...https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/wear/src/main/java/com/example/wear/snippets/m3/navigation/Navigation.kt#L64-L110
+ ```
+ 
+ <br />
+@@ -612,14 +612,9 @@ For adding scaling and morphing animations, add the following to each list item:
+ 
+ ```kotlin
+ val columnState = rememberTransformingLazyColumnState()
+-val contentPadding = rememberResponsiveColumnPadding(
+-    first = ColumnItemType.ListHeader,
+-    last = ColumnItemType.Button,
+-)
+ val transformationSpec = rememberTransformationSpec()
+ ScreenScaffold(
+-    scrollState = columnState,
+-    contentPadding = contentPadding
++    scrollState = columnState
+ ) { contentPadding ->
+     TransformingLazyColumn(
+         state = columnState,
+@@ -627,7 +622,10 @@ ScreenScaffold(
+     ) {
+         item {
+             ListHeader(
+-                modifier = Modifier.fillMaxWidth().transformedHeight(this, transformationSpec),
++                modifier = Modifier
++                    .fillMaxWidth()
++                    .transformedHeight(this, transformationSpec)
++                    .minimumVerticalContentPadding(ListHeaderDefaults.minimumTopListContentPadding),
+                 transformation = SurfaceTransformation(transformationSpec)
+             ) {
+                 Text(text = "Header")
+@@ -636,7 +634,10 @@ ScreenScaffold(
+         // ... other items
+         item {
+             Button(
+-                modifier = Modifier.fillMaxWidth().transformedHeight(this, transformationSpec),
++                modifier = Modifier
++                    .fillMaxWidth()
++                    .transformedHeight(this, transformationSpec)
++                    .minimumVerticalContentPadding(ButtonDefaults.minimumVerticalListContentPadding),
+                 transformation = SurfaceTransformation(transformationSpec),
+                 onClick = { /* ... */ },
+                 icon = {

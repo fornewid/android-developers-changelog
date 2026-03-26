@@ -1,0 +1,21 @@
+diff --git a/docs/media/implement/editing-app.md b/docs/media/implement/editing-app.md
+index 73f25f5..b75b657 100644
+--- a/docs/media/implement/editing-app.md
++++ b/docs/media/implement/editing-app.md
+@@ -23,12 +23,12 @@ To get started, add a dependency on the Transformer, Effect, and Common modules
+ of Jetpack Media3:
+ 
+ ```groovy
+-implementation "androidx.media3:media3-transformer:1.9.2"
+-implementation "androidx.media3:media3-effect:1.9.2"
+-implementation "androidx.media3:media3-common:1.9.2"
++implementation "androidx.media3:media3-transformer:1.9.3"
++implementation "androidx.media3:media3-effect:1.9.3"
++implementation "androidx.media3:media3-common:1.9.3"
+ ```
+ 
+-Make sure to replace `1.9.2` with your preferred version of the
++Make sure to replace `1.9.3` with your preferred version of the
+ library. You can refer to the
+ [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)
+ to see the latest version.

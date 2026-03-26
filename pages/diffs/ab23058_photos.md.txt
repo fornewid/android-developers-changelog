@@ -1,0 +1,14 @@
+diff --git a/docs/training/wearables/wff/personalization/photos.md b/docs/training/wearables/wff/personalization/photos.md
+index a19c57a..2f813ce 100644
+--- a/docs/training/wearables/wff/personalization/photos.md
++++ b/docs/training/wearables/wff/personalization/photos.md
+@@ -33,6 +33,9 @@ The `configType` can be either `SINGLE` or `MULTIPLE` indicating whether the
+ user will be able to select a single image within the companion or a collection
+ of photos.
+ 
++> [!NOTE]
++> **Note:** Only one `PhotosConfiguration` can be defined within each watch face.
++
+ ## Support a single photo
+ 
+ For the single image case, the photo can be used within a `PartImage` element as

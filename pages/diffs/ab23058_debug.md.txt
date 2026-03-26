@@ -1,0 +1,15 @@
+diff --git a/docs/training/wearables/tiles/debug.md b/docs/training/wearables/tiles/debug.md
+index 80ca6f1..c3a2059 100644
+--- a/docs/training/wearables/tiles/debug.md
++++ b/docs/training/wearables/tiles/debug.md
+@@ -68,8 +68,8 @@ Include the following dependencies in your app's `build.gradle.kts` or
+ `build.gradle` file:
+ 
+     dependencies {
+-        implementation("androidx.wear.tiles:tiles-tooling-preview:1.6.0-rc02")
+-        debugImplementation("androidx.wear.tiles:tiles-tooling:1.6.0-rc02")
++        implementation("androidx.wear.tiles:tiles-tooling-preview:1.6.0")
++        debugImplementation("androidx.wear.tiles:tiles-tooling:1.6.0")
+         implementation("androidx.wear:wear-tooling-preview:1.0.0")
+     }
+ 

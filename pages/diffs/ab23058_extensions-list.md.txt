@@ -1,0 +1,22 @@
+diff --git a/docs/kotlin/ktx/extensions-list.md b/docs/kotlin/ktx/extensions-list.md
+index 1f16896..c0bee2a 100644
+--- a/docs/kotlin/ktx/extensions-list.md
++++ b/docs/kotlin/ktx/extensions-list.md
+@@ -1836,7 +1836,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.work:work-testing:2.11.1"
++    implementation "androidx.work:work-testing:2.11.2"
+ }
+ ```
+ 
+@@ -1844,7 +1844,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.work:work-testing:2.11.1")
++    implementation("androidx.work:work-testing:2.11.2")
+ }
+ ```
+ 

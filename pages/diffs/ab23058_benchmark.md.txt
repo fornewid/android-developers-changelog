@@ -1,0 +1,43 @@
+diff --git a/docs/jetpack/androidx/releases/benchmark.md b/docs/jetpack/androidx/releases/benchmark.md
+index eed5eb8..35a9ddd 100644
+--- a/docs/jetpack/androidx/releases/benchmark.md
++++ b/docs/jetpack/androidx/releases/benchmark.md
+@@ -6,16 +6,11 @@ source: md.txt
+ 
+ # Benchmark
+ 
+-[User Guide](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview) [Code Sample](https://github.com/android/performance-samples) [Codelab](https://developer.android.com/codelabs/android-macrobenchmark-inspect) API Reference  
+-[androidx.benchmark](https://developer.android.com/reference/kotlin/androidx/benchmark/package-summary)  
+-[androidx.benchmark.junit4](https://developer.android.com/reference/kotlin/androidx/benchmark/junit4/package-summary)  
+-[androidx.benchmark.macro](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/package-summary)  
+-[androidx.benchmark.macro.junit4](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/junit4/package-summary)  
+-Accurately measure your code's performance within Android Studio.
++[User Guide](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview) [Code Sample](https://github.com/android/performance-samples) [Codelab](https://developer.android.com/codelabs/android-macrobenchmark-inspect) Accurately measure your code's performance within Android Studio.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| March 11, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | - | - | [1.5.0-alpha04](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha04) |
++| March 25, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | - | - | [1.5.0-alpha05](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha05) |
+ 
+ ## Declaring dependencies
+ 
+@@ -143,6 +138,19 @@ for more information.
+ 
+ ## Version 1.5
+ 
++### Version 1.5.0-alpha05
++
++March 25, 2026
++
++`androidx.benchmark:benchmark-*:1.5.0-alpha05` is released. Version 1.5.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a/benchmark).
++
++**Bug Fixes**
++
++- Updated `ArtMetric` to account for top-level packages, especially important when using AGP/R8 9.1+, or `-repackageclasses` global option. Previously, `ArtMetric` would fail to detect these classloads in its `artClassLoad...` measurements. ([If8a35](https://android-review.googlesource.com/#/q/If8a35bdc3e37c707424413d935d1d051dade6eee), [b/487402058](https://issuetracker.google.com/issues/487402058))
++
++**New Features**
++- Added a new instrumentation argument `androidx.benchmark.requireLockedClocks` that allows enabling a check for whether the CPU clocks are locked for rooted devices. ([Id82e8](https://android-review.googlesource.com/#/q/Id82e868b44fb191152427f880e027585210b7472), [b/468039042](https://issuetracker.google.com/issues/468039042))
++
+ ### Version 1.5.0-alpha04
+ 
+ March 11, 2026

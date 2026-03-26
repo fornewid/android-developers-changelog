@@ -1,0 +1,18 @@
+diff --git a/docs/developer-verification/guides/android-developer-console.md b/docs/developer-verification/guides/android-developer-console.md
+index 11bcdcc..aacfcd6 100644
+--- a/docs/developer-verification/guides/android-developer-console.md
++++ b/docs/developer-verification/guides/android-developer-console.md
+@@ -11,10 +11,9 @@ on certified Android devices.
+ 
+ ## Create an account
+ 
+-To begin, [sign up for an Android Developer Console account](https://android.google.com/developerconsole/developers) using your
+-Google Account. If you're a student or hobbyist, you can create a special
+-account type that has fewer verification requirements and no
+-fee.
++When the Android Developer Console launches, you can sign up for an account
++using your Google Account. If you're a student or hobbyist, you can create a
++special account type that has fewer verification requirements and no fee.
+ 
+ ## Choose how to distribute your apps
+ 

@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/releases/test-uiautomator.md b/docs/jetpack/androidx/releases/test-uiautomator.md
+index 8b7f03d..363cbd6 100644
+--- a/docs/jetpack/androidx/releases/test-uiautomator.md
++++ b/docs/jetpack/androidx/releases/test-uiautomator.md
+@@ -6,8 +6,6 @@ source: md.txt
+ 
+ # Test Uiautomator
+ 
+-API Reference  
+-[androidx.test.uiautomator](https://developer.android.com/reference/kotlin/androidx/test/uiautomator/package-summary)  
+ Framework for cross app functional UI testing
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |

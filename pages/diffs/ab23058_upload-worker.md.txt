@@ -1,0 +1,22 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/upload-worker.md b/docs/topic/performance/tracing/profiling-manager/upload-worker.md
+index 3f91f20..f9a74b2 100644
+--- a/docs/topic/performance/tracing/profiling-manager/upload-worker.md
++++ b/docs/topic/performance/tracing/profiling-manager/upload-worker.md
+@@ -33,7 +33,7 @@ libraries to your `build.gradle.kts` file. `WorkManager` needs them.
+ 
+ ```kotlin
+    dependencies {
+-       implementation("androidx.work:work-runtime:2.11.1")
++       implementation("androidx.work:work-runtime:2.11.2")
+    }
+    
+ ```
+@@ -42,7 +42,7 @@ libraries to your `build.gradle.kts` file. `WorkManager` needs them.
+ 
+ ```groovy
+    dependencies {
+-       implementation 'androidx.work:work-runtime:2.11.1'
++       implementation 'androidx.work:work-runtime:2.11.2'
+    }
+    
+ ```
