@@ -16,22 +16,22 @@ your app's `build.gradle` file.
 ```groovy
 dependencies {
     // Use to implement support for wear tiles
-    implementation "androidx.wear.tiles:tiles:1.5.0"
+    implementation "androidx.wear.tiles:tiles:1.6.0"
 
     // Use to utilize standard components and layouts in your tiles
-    implementation "androidx.wear.protolayout:protolayout:1.3.0"
+    implementation "androidx.wear.protolayout:protolayout:1.4.0"
 
     // Use to utilize components and layouts with Material Design in your tiles
-    implementation "androidx.wear.protolayout:protolayout-material:1.3.0"
+    implementation "androidx.wear.protolayout:protolayout-material:1.4.0"
 
     // Use to include dynamic expressions in your tiles
-    implementation "androidx.wear.protolayout:protolayout-expression:1.3.0"
+    implementation "androidx.wear.protolayout:protolayout-expression:1.4.0"
 
     // Use to preview wear tiles in your own app
-    debugImplementation "androidx.wear.tiles:tiles-renderer:1.5.0"
+    debugImplementation "androidx.wear.tiles:tiles-renderer:1.6.0"
 
     // Use to fetch tiles from a tile provider in your tests
-    testImplementation "androidx.wear.tiles:tiles-testing:1.5.0"
+    testImplementation "androidx.wear.tiles:tiles-testing:1.6.0"
 }
 ```
 
@@ -40,22 +40,22 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement support for wear tiles
-    implementation("androidx.wear.tiles:tiles:1.5.0")
+    implementation("androidx.wear.tiles:tiles:1.6.0")
 
     // Use to utilize standard components and layouts in your tiles
-    implementation("androidx.wear.protolayout:protolayout:1.3.0")
+    implementation("androidx.wear.protolayout:protolayout:1.4.0")
 
     // Use to utilize components and layouts with Material Design in your tiles
-    implementation("androidx.wear.protolayout:protolayout-material:1.3.0")
+    implementation("androidx.wear.protolayout:protolayout-material:1.4.0")
 
     // Use to include dynamic expressions in your tiles
-    implementation("androidx.wear.protolayout:protolayout-expression:1.3.0")
+    implementation("androidx.wear.protolayout:protolayout-expression:1.4.0")
 
     // Use to preview wear tiles in your own app
-    debugImplementation("androidx.wear.tiles:tiles-renderer:1.5.0")
+    debugImplementation("androidx.wear.tiles:tiles-renderer:1.6.0")
 
     // Use to fetch tiles from a tile provider in your tests
-    testImplementation("androidx.wear.tiles:tiles-testing:1.5.0")
+    testImplementation("androidx.wear.tiles:tiles-testing:1.6.0")
 }
 ```
 

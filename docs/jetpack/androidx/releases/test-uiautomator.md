@@ -6,8 +6,6 @@ source: md.txt
 
 # Test Uiautomator
 
-API Reference  
-[androidx.test.uiautomator](https://developer.android.com/reference/kotlin/androidx/test/uiautomator/package-summary)  
 Framework for cross app functional UI testing
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |

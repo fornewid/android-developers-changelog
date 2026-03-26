@@ -12,33 +12,33 @@ To use the [Views-based UI module](https://developer.android.com/media/media3/ui
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-ui:1.9.2")
+    implementation("androidx.media3:media3-ui:1.9.3")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-ui:1.9.2"
+    implementation "androidx.media3:media3-ui:1.9.3"
 
 To depend on the [Jetpack Compose-based UI module](https://developer.android.com/media/media3/ui/compose/material3), add the following
 dependency:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-ui-compose:1.9.2")
+    implementation("androidx.media3:media3-ui-compose:1.9.3")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-ui-compose:1.9.2"
+    implementation "androidx.media3:media3-ui-compose:1.9.3"
 
 To depend on the [Jetpack Compose-based UI module with Material3](https://developer.android.com/media/media3/ui/compose/customization), add the
 following dependency:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-ui-compose-material3:1.9.2")
+    implementation("androidx.media3:media3-ui-compose-material3:1.9.3")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-ui-compose-material3:1.9.2"
+    implementation "androidx.media3:media3-ui-compose-material3:1.9.3"
 
 We highly encourage you to develop your app in a Compose-first fashion or
 [migrate from using Views](https://developer.android.com/develop/ui/compose/migrate).

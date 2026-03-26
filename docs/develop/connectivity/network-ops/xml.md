@@ -17,16 +17,16 @@ To learn more about creating web-based content in your Android app, see
 
 ## Choose a parser
 
-We recommend [XmlPullParser](https://developer.android.com/reference/org/xmlpull/v1/XmlPullParser), which is an efficient and
+We recommend `https://developer.android.com/reference/org/xmlpull/v1/XmlPullParser`, which is an efficient and
 maintainable way to parse XML on Android. Android has two
 implementations of this interface:
 
-- [`KXmlParser`](https://kxml.sourceforge.net/kxml2/javadoc/org/kxml2/io/KXmlParser.html), using [XmlPullParserFactory.newPullParser()](https://developer.android.com/reference/org/xmlpull/v1/XmlPullParserFactory#newPullParser())
-- `ExpatPullParser`, using [Xml.newPullParser()](https://developer.android.com/reference/android/util/Xml#newPullParser())
+- [`KXmlParser`](https://kxml.sourceforge.net/kxml2/javadoc/org/kxml2/io/KXmlParser.html), using `https://developer.android.com/reference/org/xmlpull/v1/XmlPullParserFactory#newPullParser()`
+- `ExpatPullParser`, using `https://developer.android.com/reference/android/util/Xml#newPullParser()`
 
 Either choice is fine. The
 example in this section uses `ExpatPullParser` and
-[Xml.newPullParser()](https://developer.android.com/reference/android/util/Xml#newPullParser()).
+`https://developer.android.com/reference/android/util/Xml#newPullParser()`.
 
 ## Analyze the feed
 
@@ -35,7 +35,7 @@ The parser extracts data for those fields and ignores the rest.
 
 See the following excerpt from a parsed feed in the sample app. Each
 post to [StackOverflow.com](http://stackoverflow.com) appears in the
-feed as an `entry` tag that contains several nested tags:  
+feed as an `entry` tag that contains several nested tags:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -78,10 +78,10 @@ extracts data for the `entry` tag and its nested tags
 
 The next step in parsing a feed is to
 instantiate a parser and kick off the parsing process. This snippet
-initializes a parser to not process namespaces and to use the provided [InputStream](https://developer.android.com/reference/java/io/InputStream) as its input. It starts the parsing process with a call to
-[nextTag()](https://developer.android.com/reference/org/xmlpull/v1/XmlPullParser#nextTag()) and invokes the
+initializes a parser to not process namespaces and to use the provided `https://developer.android.com/reference/java/io/InputStream` as its input. It starts the parsing process with a call to
+`https://developer.android.com/reference/org/xmlpull/v1/XmlPullParser#nextTag()` and invokes the
 `readFeed()` method, which extracts and processes the data the app is
-interested in:  
+interested in:
 
 ### Kotlin
 
@@ -133,10 +133,10 @@ The `readFeed()` method does the actual work of processing the
 feed. It looks for elements tagged "entry" as a starting point for recursively
 processing the feed. If a tag isn't an `entry` tag, it skips it. Once the whole
 feed is recursively processed, `readFeed()` returns a
-[List](https://developer.android.com/reference/java/util/List)
+`https://developer.android.com/reference/java/util/List`
 containing the entries (including nested data members) it
 extracted from the feed. This `List` is then returned by the
-parser.  
+parser.
 
 ### Kotlin
 
@@ -198,7 +198,7 @@ The steps for parsing an XML feed are as follows:
      - For the `entry` tag, the parser calls `readEntry()`. This method parses the entry's nested tags and returns an `Entry` object with the data members `title`, `link`, and `summary`.
    - A helper `skip()` method that's recursive. For more discussion of this topic, see [Skip tags you don't care about](https://developer.android.com/develop/connectivity/network-ops/xml#skip).
 
-This snippet shows how the parser parses entries, titles, links, and summaries.  
+This snippet shows how the parser parses entries, titles, links, and summaries.
 
 ### Kotlin
 
@@ -362,7 +362,7 @@ private String readText(XmlPullParser parser) throws IOException, XmlPullParserE
 
 ## Skip tags you don't care about
 
-The parser needs to skip tags it's not interested in. Here is the parser's `skip()` method:  
+The parser needs to skip tags it's not interested in. Here is the parser's `skip()` method:
 
 ### Kotlin
 
@@ -506,8 +506,8 @@ The `downloadXml` method calls the following methods in Kotlin:
 
 In the Java programming language, the process is as follows:
 
-- An [Executor](https://developer.android.com/reference/kotlin/java/util/concurrent/Executor) executes the method `loadXmlFromNetwork()` on a background thread. It passes the feed URL as a parameter. The method `loadXmlFromNetwork()` fetches and processes the feed. When it finishes, it passes back a result string.
-- A [Handler](https://developer.android.com/reference/android/os/Handler) calls [post](https://developer.android.com/reference/android/os/Handler#post(java.lang.Runnable)) to return to the main thread, takes the returned string, and displays it in the UI.
+- An `https://developer.android.com/reference/kotlin/java/util/concurrent/Executor` executes the method `loadXmlFromNetwork()` on a background thread. It passes the feed URL as a parameter. The method `loadXmlFromNetwork()` fetches and processes the feed. When it finishes, it passes back a result string.
+- A `https://developer.android.com/reference/android/os/Handler` calls `https://developer.android.com/reference/android/os/Handler#post(java.lang.Runnable)` to return to the main thread, takes the returned string, and displays it in the UI.
 
 ### Kotlin
 
@@ -564,8 +564,8 @@ private void downloadXml(String... urls) {
 The `loadXmlFromNetwork()` method that is invoked from
 `downloadXml` is shown in the next snippet. It does the following:
 
-1. Instantiates a `StackOverflowXmlParser`. It also creates variables for a [List](https://developer.android.com/reference/java/util/List) of `Entry` objects (`entries`) and for `title`, `url`, and `summary`, to hold the values extracted from the XML feed for those fields.
-2. Calls `downloadUrl()`, which fetches the feed and returns it as an [InputStream](https://developer.android.com/reference/java/io/InputStream).
+1. Instantiates a `StackOverflowXmlParser`. It also creates variables for a `https://developer.android.com/reference/java/util/List` of `Entry` objects (`entries`) and for `title`, `url`, and `summary`, to hold the values extracted from the XML feed for those fields.
+2. Calls `downloadUrl()`, which fetches the feed and returns it as an `https://developer.android.com/reference/java/io/InputStream`.
 3. Uses `StackOverflowXmlParser` to parse the `InputStream`. `StackOverflowXmlParser` populates a `List` of `entries` with data from the feed.
 4. Processes the `entries` `List` and combines the feed data with HTML markup.
 5. Returns an HTML string that is displayed in the main activity UI.

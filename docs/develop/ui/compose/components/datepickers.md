@@ -359,7 +359,7 @@ snippets app](https://github.com/android/snippets/tree/main/compose/snippets/src
             onDismiss = { showModal = false }
         )
     }
-// ...https://github.com/android/snippets/blob/60ee5d9fa029bd30bfda2fc56353b16c8e5ece4a/compose/snippets/src/main/java/com/example/compose/snippets/components/DatePickers.kt#L74-L163
+// ...https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/java/com/example/compose/snippets/components/DatePickers.kt#L74-L163
 ```
 
 <br />

@@ -1836,7 +1836,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.work:work-testing:2.11.1"
+    implementation "androidx.work:work-testing:2.11.2"
 }
 ```
 
@@ -1844,7 +1844,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.work:work-testing:2.11.1")
+    implementation("androidx.work:work-testing:2.11.2")
 }
 ```
 

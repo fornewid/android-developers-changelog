@@ -127,9 +127,8 @@ specific node on your glTF entity. Do this by calling
 
 
 ```kotlin
-gltfModelEntity.setMaterialOverride(
-    material = pbrMaterial,
-    nodeName = "Node Name"
+gltfModelNode.setMaterialOverride(
+    material = pbrMaterial
 )
 ```
 
@@ -141,9 +140,7 @@ your 3D Model to its default state:
 
 
 ```kotlin
-gltfModelEntity.clearMaterialOverride(
-    nodeName = "Node Name"
-)
+gltfModelNode.clearMaterialOverride()
 ```
 
 <br />

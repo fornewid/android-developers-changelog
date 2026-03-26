@@ -24,17 +24,17 @@ on the library in the `build.gradle` file of your app module:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-transformer:1.9.2")
-    implementation("androidx.media3:media3-effect:1.9.2")
-    implementation("androidx.media3:media3-common:1.9.2")
+    implementation("androidx.media3:media3-transformer:1.9.3")
+    implementation("androidx.media3:media3-effect:1.9.3")
+    implementation("androidx.media3:media3-common:1.9.3")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-transformer:1.9.2"
-    implementation "androidx.media3:media3-effect:1.9.2"
-    implementation "androidx.media3:media3-common:1.9.2"
+    implementation "androidx.media3:media3-transformer:1.9.3"
+    implementation "androidx.media3:media3-effect:1.9.3"
+    implementation "androidx.media3:media3-common:1.9.3"
 
-where 1.9.2 is your preferred version. The latest version can be
+where 1.9.3 is your preferred version. The latest version can be
 found by consulting the [release
 notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md).
 

@@ -11,10 +11,9 @@ on certified Android devices.
 
 ## Create an account
 
-To begin, [sign up for an Android Developer Console account](https://android.google.com/developerconsole/developers) using your
-Google Account. If you're a student or hobbyist, you can create a special
-account type that has fewer verification requirements and no
-fee.
+When the Android Developer Console launches, you can sign up for an account
+using your Google Account. If you're a student or hobbyist, you can create a
+special account type that has fewer verification requirements and no fee.
 
 ## Choose how to distribute your apps
 

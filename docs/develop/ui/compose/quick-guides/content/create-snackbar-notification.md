@@ -42,14 +42,14 @@ To implement a snackbar, you first create [`SnackbarHost`](https://developer.and
 This suspending function requires a `CoroutineScope` such as with using
 [`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#remembercoroutinescope) --- and can be called in response to UI events to
 show a [`Snackbar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#snackbar) within `Scaffold`.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_3aa557e5c4e41f12878f364dd30fc375ae3ff0eee0f5a2606d556df2c27a657e.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_a1e230f1df932a0865283047cda0fa847ce9c885394b465c4eedcd863e26765b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a snackbar with action
 
 You can provide an optional action and adjust the duration of the `Snackbar`.
 The `snackbarHostState.showSnackbar()` function accepts additional `actionLabel`
 and `duration` parameters, and returns a [`SnackbarResult`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarResult).
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_851f24e1a5c97b67bc192f7e12692e2de2370fdd0525b784a4c3685489741fe8.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_0d5a16ad28577fad20d2204b9723545619304aaff23af4db25ddd9de7d26c555.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 You can provide a custom `Snackbar` with the `snackbarHost` parameter. See the
 [`SnackbarHost` API reference docs](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#snackbarhost) for more information.

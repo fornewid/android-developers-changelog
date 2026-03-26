@@ -33,6 +33,9 @@ The `configType` can be either `SINGLE` or `MULTIPLE` indicating whether the
 user will be able to select a single image within the companion or a collection
 of photos.
 
+> [!NOTE]
+> **Note:** Only one `PhotosConfiguration` can be defined within each watch face.
+
 ## Support a single photo
 
 For the single image case, the photo can be used within a `PartImage` element as

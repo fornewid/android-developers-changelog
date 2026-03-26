@@ -8,9 +8,9 @@ syntax:
 :
 
     ```xml
-    <permission-tree android:icon=&quot;drawable resource"
-                   https://developer.android.com/guide/topics/manifest/permission-tree-element#labelandroid:label="string resource"
-         https://developer.android.com/guide/topics/manifest/permission-tree-element#nm  *      *and>roid:name="string" /
+    <permission-tree android:icon="drawable resource"
+                     android:label="string resource"
+                     android:name="string" />
     ```
 
 contained in:

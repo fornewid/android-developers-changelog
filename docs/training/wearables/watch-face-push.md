@@ -154,7 +154,7 @@ The validator is available in three forms:
 
 3. Run the validator:
 
-val validator = DwfValidatorFactory.create() val result = validator.validate(watchFaceFile, appPackageName) if (result.failures().isEmpty()) { val token = result.validationToken() println("Validation token: $token") // Validation success - continue with the token // ... } else { // There were failures, handle them accordingly - validation has failed. result.failures().forEach { failure -\> println("FAILURE: ${failure.name()}: ${failure.failureMessage()}") // ... } }[Main.kt](https://github.com/android/snippets/blob/60ee5d9fa029bd30bfda2fc56353b16c8e5ece4a/watchfacepush/validator/src/main/kotlin/com/example/validator/Main.kt#L39-L54)
+val validator = DwfValidatorFactory.create() val result = validator.validate(watchFaceFile, appPackageName) if (result.failures().isEmpty()) { val token = result.validationToken() println("Validation token: $token") // Validation success - continue with the token // ... } else { // There were failures, handle them accordingly - validation has failed. result.failures().forEach { failure -\> println("FAILURE: ${failure.name()}: ${failure.failureMessage()}") // ... } }[Main.kt](https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/watchfacepush/validator/src/main/kotlin/com/example/validator/Main.kt#L39-L54)
 
 For an example of using this library, see the [GitHub sample](https://github.com/android/wear-os-samples/tree/main/WatchFacePush). See also the
 [Portable Asset Compiler Kit (Pack)](https://github.com/google/pack) library, which is useful for building

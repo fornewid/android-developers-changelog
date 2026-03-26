@@ -4,7 +4,7 @@ url: https://developer.android.com/topic/performance/tracing/in-process-tracing
 source: md.txt
 ---
 
-The new [`androidx.tracing:tracing:2.0.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/tracing) library is a low-overhead
+The new [`androidx.tracing:tracing:2.0.0-alpha04`](https://developer.android.com/jetpack/androidx/releases/tracing) library is a low-overhead
 Kotlin API that allows capturing in-process trace events. These events can
 capture time slices and their context. The library additionally supports context
 propagation for Kotlin Coroutines.
@@ -31,20 +31,20 @@ To start tracing, you need to define the following dependencies in your
       sourceSets {
         androidMain {
           dependencies {
-            api("androidx.tracing:tracing-wire:2.0.0-alpha01")
+            api("androidx.tracing:tracing-wire:2.0.0-alpha04")
             // ...
           }
         }
         jvmMain {
           dependencies {
-            api("androidx.tracing:tracing-wire:2.0.0-alpha01")
+            api("androidx.tracing:tracing-wire:2.0.0-alpha04")
             // ...
           }
         }
       }
     }
 
-Declare a dependency on `androidx.tracing:tracing-wire:2.0.0-alpha01` if
+Declare a dependency on `androidx.tracing:tracing-wire:2.0.0-alpha04` if
 you are targeting an Android library, an Android application, or if you are
 targeting the JVM.
 
@@ -83,7 +83,7 @@ To get started, create an instance of a `TraceSink` and a `TraceDriver`.
         )
     }
     /**
-     * Creates a new instance of [androidx.tracing.TraceDriver].
+     * Creates a new instance of [androidx.tracing.wire.TraceDriver].
      */
     fun createTraceDriver(): TraceDriver {
         // We are using a factory function from androidx.tracing.wire here.
@@ -107,7 +107,7 @@ the entry point for all tracing APIs.
     fun main() {
         val driver = createTraceDriver()
         driver.use {
-            driver.tracer.trace(category = CATEGORY_MAIN, name = "basic") {
+            it.tracer.trace(category = CATEGORY_MAIN, name = "basic") {
                 Thread.sleep(100L)
             }
         }
@@ -129,7 +129,7 @@ overlapping events. Here is an example.
         val driver = createTraceDriver()
         val tracer = driver.tracer
         driver.use {
-            tracer.trace(
+            it.tracer.trace(
                 category = CATEGORY_MAIN,
                 name = "processImage",
             ) {
@@ -174,7 +174,7 @@ determining how long a function takes.
     fun main() {
         val driver = createTraceDriver()
         driver.use {
-            driver.tracer.trace(
+            it.tracer.trace(
                 category = CATEGORY_MAIN,
                 name = "basicWithContext",
                 // Add additional metadata
@@ -217,7 +217,7 @@ This is best explained by an example.
         val driver = createTraceDriver()
         val tracer = driver.tracer
         driver.use {
-            tracer.traceCoroutine(category = CATEGORY_MAIN, name = "main") {
+            it.tracer.traceCoroutine(category = CATEGORY_MAIN, name = "main") {
                 coroutineScope {
                     launch { taskOne(tracer) }
                     launch { taskTwo(tracer) }
@@ -245,7 +245,7 @@ suspended - because of the use of `delay`).
 > implementation of context propagation** if you choose.
 
 > [!NOTE]
-> **Note:** In `alpha01` context propagation uses Perfetto flows to represent the flow of execution. This is an imperfect representation, given it presents the developer with a `Thread` centric view. The `Tracer` therefore, keeps track of **when coroutines are suspended and resumed** . This is also why you might see multiple slices that correspond to a single `suspend` function, as it suspends and resumes.
+> **Note:** In `alpha04` context propagation uses Perfetto flows to represent the flow of execution. This is an imperfect representation, given it presents the developer with a `Thread` centric view. The `Tracer` therefore, keeps track of **when coroutines are suspended and resumed** . This is also why you might see multiple slices that correspond to a single `suspend` function, as it suspends and resumes.
 
 > [!NOTE]
 > **Note:** We are improving how context propagation can be visualized in Perfetto UI, to better represent fan-outs for example.
@@ -281,7 +281,7 @@ one to the other. Here is an example:
         val executor = Executors.newSingleThreadExecutor()
         val tracer = driver.tracer
         driver.use {
-            tracer.traceCoroutine(category = CATEGORY_MAIN, name = "main") {
+            it.tracer.traceCoroutine(category = CATEGORY_MAIN, name = "main") {
                 coroutineScope {
                     val deferred = CompletableDeferred<Unit>()
                     executorTask(
@@ -352,7 +352,7 @@ something like:
 
     fun onEvent(driver: TraceDriver, eventId: Long) {
         driver.use {
-            driver.tracer.trace(
+            it.tracer.trace(
                 category = CATEGORY_MAIN,
                 name = "step-1",
                 metadataBlock = {
@@ -394,7 +394,7 @@ a trace.
     fun main() {
         val driver = createTraceDriver()
         driver.use {
-            driver.tracer.trace(
+            it.tracer.trace(
                 category = CATEGORY_MAIN,
                 name = "callStackEntry",
                 metadataBlock = {

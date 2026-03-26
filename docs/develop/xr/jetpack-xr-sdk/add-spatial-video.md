@@ -184,7 +184,7 @@ val hemisphereStereoSurfaceEntity =
         pose = activitySpacePose,
         shape = SurfaceEntity.Shape.Hemisphere(1.0f),
     )
-// ... and use the surface for playing the media.https://github.com/android/snippets/blob/bdaf541760b985b9ea2f1565380ef294343f755b/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L61-L72
+// ... and use the surface for playing the media.https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L61-L72
 ```
 
 <br />
@@ -201,7 +201,7 @@ val sphereStereoSurfaceEntity =
         pose = activitySpacePose,
         shape = SurfaceEntity.Shape.Sphere(1.0f),
     )
-// ... and use the surface for playing the media.https://github.com/android/snippets/blob/bdaf541760b985b9ea2f1565380ef294343f755b/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L78-L88
+// ... and use the surface for playing the media.https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L78-L88
 ```
 
 <br />

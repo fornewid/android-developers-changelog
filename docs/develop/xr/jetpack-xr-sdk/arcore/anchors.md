@@ -59,7 +59,7 @@ makes the anchor follow the attached `Trackable` when it moves through space.
 
 
 ```kotlin
-when (val result = trackable.createAnchor(pose)) {
+when (val result = anchorable.createAnchor(pose)) {
     is AnchorCreateSuccess -> { /* anchor stored in `result.anchor`. */ }
     else -> { /* handle failure */ }
 }

@@ -35,14 +35,9 @@ The following code snippet shows how to create a list using [`TransformingLazyCo
 
 ```kotlin
 val columnState = rememberTransformingLazyColumnState()
-val contentPadding = rememberResponsiveColumnPadding(
-    first = ColumnItemType.ListHeader,
-    last = ColumnItemType.Button,
-)
 val transformationSpec = rememberTransformationSpec()
 ScreenScaffold(
-    scrollState = columnState,
-    contentPadding = contentPadding
+    scrollState = columnState
 ) { contentPadding ->
     TransformingLazyColumn(
         state = columnState,
@@ -50,7 +45,10 @@ ScreenScaffold(
     ) {
         item {
             ListHeader(
-                modifier = Modifier.fillMaxWidth().transformedHeight(this, transformationSpec),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .transformedHeight(this, transformationSpec)
+                    .minimumVerticalContentPadding(ListHeaderDefaults.minimumTopListContentPadding),
                 transformation = SurfaceTransformation(transformationSpec)
             ) {
                 Text(text = "Header")
@@ -59,7 +57,10 @@ ScreenScaffold(
         // ... other items
         item {
             Button(
-                modifier = Modifier.fillMaxWidth().transformedHeight(this, transformationSpec),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .transformedHeight(this, transformationSpec)
+                    .minimumVerticalContentPadding(ButtonDefaults.minimumVerticalListContentPadding),
                 transformation = SurfaceTransformation(transformationSpec),
                 onClick = { /* ... */ },
                 icon = {

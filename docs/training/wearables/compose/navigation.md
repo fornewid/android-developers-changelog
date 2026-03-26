@@ -27,7 +27,7 @@ Use the following dependency in your app module's build.gradle file:
 
 ```kotlin
 dependencies {
-    def wear_compose_version = "1.5.6"
+    def wear_compose_version = "1.6.0"
     implementation "androidx.wear.compose:compose-navigation:$wear_compose_version"
 }
 ```
@@ -115,7 +115,7 @@ fun MessageDetail(id: String) {
         contentPadding = padding
     ) { scaffoldPaddingValues ->
         // Screen content goes here
-        // ...https://github.com/android/snippets/blob/60ee5d9fa029bd30bfda2fc56353b16c8e5ece4a/wear/src/main/java/com/example/wear/snippets/m3/navigation/Navigation.kt#L64-L110
+        // ...https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/wear/src/main/java/com/example/wear/snippets/m3/navigation/Navigation.kt#L64-L110
 ```
 
 To learn more about Jetpack Navigation, see

@@ -104,7 +104,7 @@ val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
     .setCategory(NotificationCompat.CATEGORY_WORKOUT)
     .setContentIntent(pendingIntent)
     .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-    .setOngoing(true) // Important!https://github.com/android/snippets/blob/60ee5d9fa029bd30bfda2fc56353b16c8e5ece4a/wear/src/main/java/com/example/wear/snippets/alwayson/AlwaysOnService.kt#L148-L167
+    .setOngoing(true) // Important!https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/wear/src/main/java/com/example/wear/snippets/alwayson/AlwaysOnService.kt#L148-L167
 ```
 
 <br />

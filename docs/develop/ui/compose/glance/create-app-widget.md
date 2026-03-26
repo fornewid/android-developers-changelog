@@ -36,7 +36,7 @@ metadata in your app.
            <meta-data
                android:name="android.appwidget.provider"
                android:resource="@xml/my_app_widget_info" />
-       </receiver>https://github.com/android/snippets/blob/bdaf541760b985b9ea2f1565380ef294343f755b/compose/snippets/src/main/AndroidManifest.xml#L60-L68
+       </receiver>https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/AndroidManifest.xml#L60-L68
 
 ## Add the `AppWidgetProviderInfo` metadata
 
@@ -49,7 +49,7 @@ the library:
 
     <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
         android:initialLayout="@layout/glance_default_loading_layout">
-    </appwidget-provider>https://github.com/android/snippets/blob/bdaf541760b985b9ea2f1565380ef294343f755b/compose/snippets/src/main/res/xml/my_app_widget_info.xml#L18-L20
+    </appwidget-provider>https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/res/xml/my_app_widget_info.xml#L18-L20
 
 ## Define `GlanceAppWidget`
 

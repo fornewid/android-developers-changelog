@@ -28,14 +28,9 @@ of Wear OS screen sizes:
 
 ```kotlin
 val columnState = rememberTransformingLazyColumnState()
-val contentPadding = rememberResponsiveColumnPadding(
-    first = ColumnItemType.ListHeader,
-    last = ColumnItemType.Button,
-)
 val transformationSpec = rememberTransformationSpec()
 ScreenScaffold(
-    scrollState = columnState,
-    contentPadding = contentPadding
+    scrollState = columnState
 ) { contentPadding ->
     TransformingLazyColumn(
         state = columnState,
@@ -43,7 +38,10 @@ ScreenScaffold(
     ) {
         item {
             ListHeader(
-                modifier = Modifier.fillMaxWidth().transformedHeight(this, transformationSpec),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .transformedHeight(this, transformationSpec)
+                    .minimumVerticalContentPadding(ListHeaderDefaults.minimumTopListContentPadding),
                 transformation = SurfaceTransformation(transformationSpec)
             ) {
                 Text(text = "Header")
@@ -52,7 +50,10 @@ ScreenScaffold(
         // ... other items
         item {
             Button(
-                modifier = Modifier.fillMaxWidth().transformedHeight(this, transformationSpec),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .transformedHeight(this, transformationSpec)
+                    .minimumVerticalContentPadding(ButtonDefaults.minimumVerticalListContentPadding),
                 transformation = SurfaceTransformation(transformationSpec),
                 onClick = { /* ... */ },
                 icon = {
@@ -138,7 +139,7 @@ fun isLargeDisplay() =
     } else {
         // Show content only for smaller displays.
     }
-    // ...https://github.com/android/snippets/blob/2e71c4f00839800811b83aa43bf03a99b6f95b73/wear/src/main/java/com/example/wear/snippets/m3/list/List.kt#L140-L158
+    // ...https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/wear/src/main/java/com/example/wear/snippets/m3/list/List.kt#L134-L152
 ```
 
 The [design guidance](https://developer.android.com/design/ui/wear/guides/foundations/larger-screens-differentiated) illustrates more of these opportunities.

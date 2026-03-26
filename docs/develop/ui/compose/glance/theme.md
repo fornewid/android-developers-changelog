@@ -139,7 +139,7 @@ For example, the following snippet shows how to create a drawable (a shape):
     <shape xmlns:android="http://schemas.android.com/apk/res/android">
         <corners android:radius="16dp"/>
         <stroke android:color="@color/outline_color" android:width="1dp"/>
-    </shape>https://github.com/android/snippets/blob/60ee5d9fa029bd30bfda2fc56353b16c8e5ece4a/compose/snippets/src/main/res/drawable/button_outline.xml#L18-L21
+    </shape>https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/res/drawable/button_outline.xml#L18-L21
 
 Provide it to the target composable:
 

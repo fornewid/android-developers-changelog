@@ -547,7 +547,7 @@ To include this module, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.work:work-runtime-ktx:2.11.1"
+    implementation "androidx.work:work-runtime-ktx:2.11.2"
 }
 ```
 
@@ -555,7 +555,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.work:work-runtime-ktx:2.11.1")
+    implementation("androidx.work:work-runtime-ktx:2.11.2")
 }
 ```
 

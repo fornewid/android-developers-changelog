@@ -27,15 +27,15 @@ To get started, add a dependency on the ExoPlayer, UI, and Common modules of
 Jetpack Media3:
 
 ```groovy
-implementation "androidx.media3:media3-exoplayer:1.9.2"
-implementation "androidx.media3:media3-ui:1.9.2"
-implementation "androidx.media3:media3-common:1.9.2"
+implementation "androidx.media3:media3-exoplayer:1.9.3"
+implementation "androidx.media3:media3-ui:1.9.3"
+implementation "androidx.media3:media3-common:1.9.3"
 ```
 
 Depending on your use-case, you may also need additional modules from Media3,
 such as `exoplayer-dash` to play streams in the DASH format.
 
-Make sure to replace `1.9.2` with your preferred version of the
+Make sure to replace `1.9.3` with your preferred version of the
 library. You can refer to the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)
 to see the latest version.
 
@@ -127,7 +127,7 @@ screen devices.
 To use media sessions, add a dependency on the Media3 Session module:
 
 ```groovy
-implementation "androidx.media3:media3-session:1.9.2"
+implementation "androidx.media3:media3-session:1.9.3"
 ```
 
 ### Create a media session

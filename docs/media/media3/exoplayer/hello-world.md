@@ -32,19 +32,19 @@ you can add dependencies on the modules like this:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer:1.9.2")
-    implementation("androidx.media3:media3-exoplayer-dash:1.9.2")
-    implementation("androidx.media3:media3-ui:1.9.2")
-    implementation("androidx.media3:media3-ui-compose:1.9.2")
+    implementation("androidx.media3:media3-exoplayer:1.9.3")
+    implementation("androidx.media3:media3-exoplayer-dash:1.9.3")
+    implementation("androidx.media3:media3-ui:1.9.3")
+    implementation("androidx.media3:media3-ui-compose:1.9.3")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer:1.9.2"
-    implementation "androidx.media3:media3-exoplayer-dash:1.9.2"
-    implementation "androidx.media3:media3-ui:1.9.2"
-    implementation("androidx.media3:media3-ui-compose:1.9.2")
+    implementation "androidx.media3:media3-exoplayer:1.9.3"
+    implementation "androidx.media3:media3-exoplayer-dash:1.9.3"
+    implementation "androidx.media3:media3-ui:1.9.3"
+    implementation("androidx.media3:media3-ui-compose:1.9.3")
 
-where 1.9.2 is your preferred version (the latest version can be found by
+where 1.9.3 is your preferred version (the latest version can be found by
 consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)). All modules must be of the same version.
 
 AndroidX Media3 has library modules that depend on
@@ -120,7 +120,7 @@ For example, to bind the player to the view:
 
 ```kotlin
 // Bind the player to the view.
-playerView.player = playerhttps://github.com/androidx/media/blob/d13ce825de94dc3b4275336afe0484e2cf42cddb/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/HelloWorld.kt#L37-L38
+playerView.player = playerhttps://github.com/androidx/media/blob/1eafe45339d73111e88cf8524a9d919e0e59b2c8/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/HelloWorld.kt#L37-L38
 ```
 
 ### Java
