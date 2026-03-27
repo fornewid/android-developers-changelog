@@ -1,0 +1,22 @@
+diff --git a/docs/about/versions/17/features/contact-picker.md b/docs/about/versions/17/features/contact-picker.md
+index 3bf1019..59c12c2 100644
+--- a/docs/about/versions/17/features/contact-picker.md
++++ b/docs/about/versions/17/features/contact-picker.md
+@@ -6,7 +6,7 @@ source: md.txt
+ 
+ The Android Contact Picker is a standardized, browsable interface for users to
+ share contacts with your app. Available on devices running
+-Android 17 or higher, the picker offers a privacy-preserving
++Android 17 (API level 37) or higher, the picker offers a privacy-preserving
+ alternative to the broad `READ_CONTACTS` permission. Instead of requesting
+ access to the user's entire address book, your app specifies the data fields it
+ needs, such as phone numbers or email addresses, and the user selects specific
+@@ -155,7 +155,7 @@ You can query this URI using a standard `ContentResolver`. The resulting
+ 
+ ## Backward Compatibility
+ 
+-For apps targeting Android 17 and higher, the system
++For apps targeting Android 17 (API level 37) and higher, the system
+ automatically upgrades the existing `Intent.ACTION_PICK` intent to use the new
+ Contact Picker interface.
+ 

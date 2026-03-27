@@ -1,0 +1,21 @@
+diff --git a/docs/jetpack/androidx/versions/rc-channel.md b/docs/jetpack/androidx/versions/rc-channel.md
+index 3494d73..0cd7cf5 100644
+--- a/docs/jetpack/androidx/versions/rc-channel.md
++++ b/docs/jetpack/androidx/versions/rc-channel.md
+@@ -16,6 +16,16 @@ prior to 2018.
+ To view the current versions for every component,
+ see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+ 
++### March 26, 2026
++
++- [Media3 Version 1.10.0-rc03](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc03)
++
++### March 25, 2026
++
++- [Annotation Version 1.10.0-rc01](https://developer.android.com/jetpack/androidx/releases/annotation#1.10.0-rc01)
++- [Navigation3 Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-rc01)
++- [Wear Watchfacepush Version 1.0.0-rc02](https://developer.android.com/jetpack/androidx/releases/wear-watchfacepush#1.0.0-rc02)
++
+ ### March 16, 2026
+ 
+ - [Media3 Version 1.10.0-rc02](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc02)

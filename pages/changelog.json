@@ -1,5 +1,226 @@
 [
   {
+    "date": "2026-03-27T15:20:28Z",
+    "commit_hash": "972885a",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17\" target=\"_blank\">Android Developers</a>",
+        "path": "about/versions/17.md",
+        "summary": "The document has been updated to reflect the release of Android 17 Beta 3, replacing references to Beta 2. This includes updating the logo image, the beta version title, and the blog post link. These changes inform developers about the latest version for testing and feature exploration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/behavior-changes-17\" target=\"_blank\">Behavior changes: Apps targeting Android 17 or higher</a>",
+        "path": "about/versions/17/behavior-changes-17.md",
+        "summary": "This document outlines behavior changes introduced in Android 17, focusing on performance, security, and privacy. Key changes include a new lock-free implementation of MessageQueue, restrictions on `static final` fields, improvements to accessibility features, enforcement of local network permissions, a new setting for hiding passwords on physical devices, and security enhancements like enabling Certificate Transparency by default and extending Safer Dynamic Code Loading protection to native libraries. It also describes changes related to orientation and resizability restrictions for large screens.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_behavior-changes-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/changes/ff-restrictions-ignored\" target=\"_blank\">Restrictions on orientation and resizability are ignored</a>",
+        "path": "about/versions/17/changes/ff-restrictions-ignored.md",
+        "summary": "The documentation for ff-restrictions-ignored.md was updated to specify that orientation, resizability, and aspect ratio restrictions are ignored for apps targeting Android 17 (API level 37) or higher, on displays with a smallest width greater than 600dp. This clarifies the API level requirement for the described behavior.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_ff-restrictions-ignored.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/changes/messagequeue\" target=\"_blank\">MessageQueue behavior change guidance</a>",
+        "path": "about/versions/17/changes/messagequeue.md",
+        "summary": "This document describes changes to the `android.os.MessageQueue` implementation in Android 17. The update introduces a lock-free implementation for improved performance, which might affect apps that use reflection on `MessageQueue`. The document clarifies that the new behavior is enabled by default for apps targeting API level 37 and provides instructions on how to test and temporarily disable the new implementation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_messagequeue.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/download-ota\" target=\"_blank\">OTA images for Google Pixel</a>",
+        "path": "about/versions/17/download-ota.md",
+        "summary": "This document provides links to download the Android 17 Beta OTA images. The changes include updates to the release date, build numbers, security patch level, Google Play services version, and download links/checksums for various Pixel devices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_download-ota.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/download\" target=\"_blank\">Factory images for Google Pixel</a>",
+        "path": "about/versions/17/download.md",
+        "summary": "The download links and related information for Android 17 builds have been updated. Specifically, the build numbers, security patch levels, Google Play services versions, and download links for factory images have been refreshed for multiple Pixel devices. The flashing tool URL and the warning message regarding device resets have also been updated.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_download.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/features\" target=\"_blank\">Features and APIs</a>",
+        "path": "about/versions/17/features.md",
+        "summary": "Android 17 introduces two significant new features: PQC APK Signing and a Dedicated Assistant Volume Stream. PQC APK Signing enhances app security against potential quantum computing attacks by introducing a hybrid APK signature scheme. The Dedicated Assistant Volume Stream provides isolated volume control for Assistant apps, improving user experience and allowing for more flexible audio management.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/features/contact-picker\" target=\"_blank\">Contact picker</a>",
+        "path": "about/versions/17/features/contact-picker.md",
+        "summary": "The documentation for the Android Contact Picker has been updated to clarify that it's available on devices running Android 17 (API level 37) or higher. This change provides developers with clearer API level information and the version where the Contact Picker feature was introduced. The backward compatibility section was also updated to reflect the API level.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_contact-picker.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/gsi-release-notes\" target=\"_blank\">Android 17 GSI binaries and release notes</a>",
+        "path": "about/versions/17/gsi-release-notes.md",
+        "summary": "This update includes new download links for Android 17 GSI releases, using build CP21.260306.017, and updated download links and checksums for the latest GSI images. These changes provide the latest builds and security patches for GSI users.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_gsi-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/release-notes\" target=\"_blank\">Release notes</a>",
+        "path": "about/versions/17/release-notes.md",
+        "summary": "Android 17 Beta 3 introduces new features and enhancements across various areas, including media and camera, performance and battery, privacy and security, user experience and system UI, and core functionality. Key changes include improvements to the photo picker, RAW14 image format support, granular hearing aid audio routing, a system-provided location button, post-quantum cryptography support, widget support on external displays, and updates to OpenJDK. These updates are targeted at improving app development, user experience, and security.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/notifications/conversations\" target=\"_blank\">People and conversations</a>",
+        "path": "develop/ui/views/notifications/conversations.md",
+        "summary": "The documentation for conversation shortcuts has been updated. The link to the guidelines for getting the best ranking has been corrected to point to the direct share targets section, rather than the sharing section. This ensures developers are directed to the correct resources for optimizing their shortcuts' ranking within the Android system.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_conversations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/anchors\" target=\"_blank\">Create anchors with ARCore for Jetpack XR</a>",
+        "path": "develop/xr/jetpack-xr-sdk/arcore/anchors.md",
+        "summary": "The documentation was updated to reflect that anchors are now created relative to an `Anchorable` instead of a `Trackable`. An `Anchorable` is a `Trackable` that can have anchors attached to it. The change clarifies the relationship between anchors, trackables, and the entities they attach to, improving the accuracy and understanding of the concepts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_anchors.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/customize-3d-models\" target=\"_blank\">Customize 3D models in your app</a>",
+        "path": "develop/xr/jetpack-xr-sdk/customize-3d-models.md",
+        "summary": "The documentation has been updated to reflect the change of class names from `GltfModelEntity` to `GltfModelNode` and to improve the formatting and wording of the instructions. The documentation now correctly references the updated class and method references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_customize-3d-models.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/core-app-quality\" target=\"_blank\">Core app quality guidelines</a>",
+        "path": "docs/quality-guidelines/core-app-quality.md",
+        "summary": "The documentation has been significantly updated to improve clarity and organization. It now includes detailed tables outlining specific tests, descriptions, and IDs for various aspects of user experience, UI, visual quality, navigation, and accessibility. This structured approach enhances understanding and simplifies the process of app quality assessment.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_core-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/play-games-sidekick-sdk\" target=\"_blank\">Sidekick SDK</a>",
+        "path": "games/pgs/play-games-sidekick-sdk.md",
+        "summary": "This document introduces the Play Games Sidekick SDK, a library for developers using APK releases or incompatible anti-tampering solutions to access Sidekick features. It provides instructions on integrating the SDK into a project and configuring it for games running in multiple processes.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/play-games-sidekick\" target=\"_blank\">Play Games Sidekick</a>",
+        "path": "games/pgs/play-games-sidekick.md",
+        "summary": "The documentation was updated to clarify Sidekick's compatibility with APKs. Specifically, it instructs developers using APKs to add the Sidekick SDK as a dependency, and if they are using an incompatible anti-tampering product. This ensures Sidekick functions correctly regardless of the build type used (AAB or APK) and provides a clear resolution for developers using APKs who are encountering compatibility issues.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_play-games-sidekick.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/media3\" target=\"_blank\">Media3</a>",
+        "path": "jetpack/androidx/releases/media3.md",
+        "summary": "This update details the changes in Media3 release candidate 1.10.0-rc03. The release includes fixes for ExoPlayer, Session, and the RTSP extension, addressing issues related to ad initialization, media session artwork on API 29, and H.264/H.265 streaming. These changes improve stability and fix visual artifacts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_media3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/wear-compose-remote\" target=\"_blank\">wear compose remote</a>",
+        "path": "jetpack/androidx/releases/wear-compose-remote.md",
+        "summary": "The update changes the URLs for the CSS and image resources, as well as the Javascript file used by the page, which likely indicates a site-wide update to the asset versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_wear-compose-remote.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">AndroidX releases</a>",
+        "path": "jetpack/androidx/versions.md",
+        "summary": "The `media3` library's pre-release version has been updated from `1.10.0-rc02` to `1.10.0-rc03`. This indicates ongoing development and refinement of the media-related features in the Jetpack libraries. Developers should be aware of these updates to ensure they are using the latest improvements and bug fixes, but also be prepared for potential API changes in the pre-release version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">Recent Release Notes</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "The documentation was updated to include a new Media3 release candidate. This update provides developers with access to the latest features and improvements in the Media3 library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/rc-channel\" target=\"_blank\">RC Releases</a>",
+        "path": "jetpack/androidx/versions/rc-channel.md",
+        "summary": "The documentation has been updated to reflect the latest release candidate (RC) versions of several AndroidX libraries. Specifically, it includes updates for Media3, Annotation, Navigation3, and Wear Watchfacepush, highlighting the availability of new RC builds for testing and integration. This is important for developers to stay informed about the latest features, bug fixes, and improvements before the stable releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_rc-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "This update includes new releases for Android Studio, Compose libraries, CameraX and Wear libraries. Specifically, Android Studio Canary was updated, Compose libraries versions 1.10.6 and 1.11.0-beta02 were released, CameraX library was updated to version 1.6.0, and Wear libraries got updates. These updates provide developers with the latest tools and features for Android development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/transformer/supported-formats\" target=\"_blank\">Supported formats</a>",
+        "path": "media/media3/transformer/supported-formats.md",
+        "summary": "The documentation for supported media formats in the Transformer has been updated. The primary change involves clarifying the output format support and introducing the `InAppMp4Muxer` as the default, replacing `MediaMuxer`. It also mentions support for fragmented MP4 and other formats such as WebM, AAC, and Ogg, with instructions on how to use them with custom muxers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_supported-formats.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/archive\" target=\"_blank\">Android Studio download archives</a>",
+        "path": "studio/archive.md",
+        "summary": "The content of the iframe has been updated, likely reflecting a change in the archived Android Studio resources. This matters because it ensures users are directed to the correct and up-to-date archive resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated to reflect the latest nightly build, including the date and download links. The download date was updated from 2026-03-26 to 2026-03-27.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">Android Studio Preview</a>",
+        "path": "studio/preview.md",
+        "summary": "This document was updated to reflect the release of Android Studio Panda 4 Canary 2. This includes updates to download links and version numbers throughout the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.4\" target=\"_blank\">Android Studio Panda 4 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2025.3.4.md",
+        "summary": "This document outlines bug fixes included in Android Studio Panda 4 Canary releases, specifically version 2025.3.4. The update addresses issues related to the Android Gradle Plugin and Import/Sync functionalities, including fixes for dependency issues and synchronization errors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/972885a_2025.3.4.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-26T15:31:13Z",
     "commit_hash": "ab23058",
     "entries": [
