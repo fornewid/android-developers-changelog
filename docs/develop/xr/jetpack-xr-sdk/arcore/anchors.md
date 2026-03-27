@@ -50,12 +50,13 @@ when (val result = session.configure(newConfig)) {
 ## Anchor content to a fixed location in space
 
 An anchor is created using a [`Pose`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Pose), which can be interpreted relative to
-an existing [`Trackable`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Trackable) or not.
+an existing [`Anchorable`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchorable) or not. An `Anchorable` is a [`Trackable`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Trackable)
+that can have anchors attached to it.
 
-### Create an anchor relative to a Trackable
+### Create an anchor relative to an Anchorable
 
-When an anchor is created relative to a `Trackable`, such as a `Plane`, which
-makes the anchor follow the attached `Trackable` when it moves through space.
+When an anchor is created relative to an `Anchorable`, such as a `Plane`, which
+makes the anchor follow the attached `Anchorable` when it moves through space.
 
 
 ```kotlin
@@ -67,9 +68,9 @@ when (val result = anchorable.createAnchor(pose)) {
 
 <br />
 
-### Create an anchor without a Trackable
+### Create an anchor without an Anchorable
 
-To create an anchor that isn't attached to a `Trackable`:
+To create an anchor that isn't attached to an `Anchorable`:
 
 
 ```kotlin

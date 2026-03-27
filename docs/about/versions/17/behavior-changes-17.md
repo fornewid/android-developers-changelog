@@ -24,7 +24,7 @@ expand various core capabilities of the Android system.
 
 ### New lock-free implementation of MessageQueue
 
-Beginning with Android 17, apps targeting Android 17
+Beginning with Android 17, apps targeting Android 17 (API level 37)
 or higher receive a new lock-free implementation of
 [`android.os.MessageQueue`](https://developer.android.com/reference/android/os/MessageQueue). The new implementation improves performance and
 reduces missed frames, but may break clients that reflect on `MessageQueue`
@@ -36,7 +36,7 @@ behavior change guidance](https://developer.android.com/about/versions/17/change
 ### Static final fields are now unmodifiable
 
 Apps running on Android 17 or higher that target
-Android 17 or higher cannot change `static final` fields. If
+Android 17 (API level 37) or higher cannot change `static final` fields. If
 an app attempts to change a `static final` field by using reflection, it will
 cause an `IllegalAccessException`. Attempting to modify one of these fields
 through JNI APIs (such as `SetStaticLongField()`) will cause the app to crash.
@@ -69,7 +69,7 @@ nature of the text modification.
   `TextAttribute.isTextSuggestionSelected()`. These apps should then call
   `AccessibilityEvent.setTextChangeTypes()` when dispatching
   `TYPE_VIEW_TEXT_CHANGED` events. Apps targeting
-  Android 17 that use the standard `TextView` will have
+  Android 17 (API level 37) that use the standard `TextView` will have
   this feature enabled by default. (That is, `TextView` will handle retrieving
   data from the IME and setting text change types when sending events to
   accessibility services).
@@ -103,7 +103,7 @@ access for covert user tracking and fingerprinting. By declaring and requesting
 this permission, your app can discover and connect to devices on the local area
 network (LAN), such as smart home devices or casting receivers.
 
-Apps targeting Android 17 or higher now have two paths to
+Apps targeting Android 17 (API level 37) or higher now have two paths to
 maintain communication with LAN devices: Adopt system-mediated,
 privacy-preserving device pickers to skip the permission prompt, or explicitly
 request this new permission at runtime to maintain local network communication.
@@ -111,7 +111,24 @@ request this new permission at runtime to maintain local network communication.
 For more information, see the [Local network permission](https://developer.android.com/privacy-and-security/local-network-permission) documentation.
 
 > [!NOTE]
-> **Note:** In Android 16, apps could opt in to local network permissions. Beginning with Android 17, enforcement is mandatory for apps that target Android 17 or higher.
+> **Note:** In Android 16, apps could opt in to local network permissions. Beginning with Android 17, enforcement is mandatory for apps that target Android 17 (API level 37) or higher.
+
+### Hiding passwords from physical devices
+
+If an app targets Android 17 (API level 37) or higher and the user is using
+a physical input device (for example, an external keyboard), the Android
+operating system applies the new `show_passwords_physical` setting to all
+characters in the password field. By default, that setting hides all password
+characters.
+
+The Android system shows the last-typed password character to help the user see
+if they mistyped the password. However, this is much less necessary with larger
+external keyboards. In addition, devices with external keyboards often have
+larger displays, which increases the danger of someone seeing the typed
+password.
+
+If the user is using the device's touchscreen, the system applies the new
+`show_passwords_touch` setting.
 
 ## Security
 
@@ -132,13 +149,13 @@ Key impacts for developers include:
 
 ### Enable CT by default
 
-If an app targets Android 17 or higher,
+If an app targets Android 17 (API level 37) or higher,
 [certificate transparency (CT)](https://developer.android.com/privacy-and-security/security-config#CertificateTransparencySummary) is enabled by default. (On Android 16, CT is
 available but apps had to [opt in](https://developer.android.com/privacy-and-security/security-config#certificateTransparency).)
 
 ### Safer Native DCL---C
 
-If your app targets Android 17 or higher, the Safer Dynamic
+If your app targets Android 17 (API level 37) or higher, the Safer Dynamic
 Code Loading (DCL) protection introduced in Android 14 for DEX and JAR files now
 extends to native libraries.
 
@@ -161,7 +178,7 @@ aspect ratio, and resizability restrictions on large screens (sw \>=
 600dp)](https://developer.android.com/about/versions/16/behavior-changes-16#ignore-orientation) for apps targeting API level
 36 or higher. Developers have the option to opt out of these
 changes with SDK 36, but this opt-out will no longer be
-available for apps that target Android 17 or higher.
+available for apps that target Android 17 (API level 37) or higher.
 
 For more information, see [Restrictions on orientation and resizability are
 ignored](https://developer.android.com/about/versions/17/changes/ff-restrictions-ignored).

@@ -42,7 +42,7 @@ To access Sidekick, you need the following:
 - A mobile phone running Android 13 or higher.
 
   > [!NOTE]
-  > **Note:** Performance is being verified on devices with 4-6 GB RAM, and minimum hardware specifications will be published in July 2026.
+  > **Note:** Sidekick is available to devices with 6 GB RAM or higher. Performance testing continues on to enable more devices. Minimum hardware specifications will be published in July 2026.
 
 - You must have one [Gamer profile](https://play.google.com/games/profile).
 
@@ -131,17 +131,19 @@ added to your Android App Bundle.
 
 Sidekick is added to games when you upload a new
 [Android App Bundle](https://developer.android.com/guide/app-bundle).
-If you are uploading APKs and cannot enable AAB,
-[request support](https://docs.google.com/forms/d/1NPmZ04tyT97tb8q-NbElU_HJ3YuPWOkXvhwJB3mTmB8/viewform).
+
+If you are using APKs, add the
+[Sidekick SDK](https://developer.android.com/games/pgs/play-games-sidekick-sdk) as a dependency.
 
 #### My game uses an anti-tampering product. Is Sidekick compatible with my solution?
 
 We have been working with leading companies to ensure Sidekick
 compatibility.
-Integrating Sidekick introduces new native libraries that can create issues with
-anti-tampering features. While we've collaborated with security providers,
-thorough testing is essential, and we recommend working with your solution
-provider. If you have other questions,
+
+If you are using an incompatible anti-tampering product, add the
+[Sidekick SDK](https://developer.android.com/games/pgs/play-games-sidekick-sdk) as a dependency to your
+APK.
+If you have other questions,
 [request support](https://docs.google.com/forms/d/1NPmZ04tyT97tb8q-NbElU_HJ3YuPWOkXvhwJB3mTmB8/viewform).
 
 #### Why are achievements not appearing in Sidekick?

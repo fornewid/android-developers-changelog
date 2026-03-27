@@ -162,9 +162,9 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
 
 Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) Canary
 
-### [Panda 4 \| 2025.3.4 Canary 1](https://developer.android.com/studio/preview)
+### [Panda 4 \| 2025.3.4 Canary 2](https://developer.android.com/studio/preview)
 
-March 19, 2026 Stable
+March 26, 2026 Stable
 
 ### [Panda 2 \| 2025.3.2](https://developer.android.com/studio/releases)
 
@@ -221,13 +221,13 @@ subset of functionality, each with its own set of release notes.
 
 | Maven Group ID | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|---|
-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0-beta01) | - |
+| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0-beta02) | - |
 | [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | August 7, 2024 | [1.5.15](https://developer.android.com/jetpack/androidx/releases/compose-compiler#1.5.15) | - | - | - |
-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0-beta01) | - |
-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.0-beta01) | - |
-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | February 25, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha15](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha15) |
-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.0-beta01) | - |
-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.0-beta01) | - |
+| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0-beta02) | - |
+| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.0-beta02) | - |
+| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | March 25, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha16](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha16) |
+| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.0-beta02) | - |
+| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.0-beta02) | - |
 
 [View the Compose Library](https://developer.android.com/jetpack/androidx/releases/compose) <button class="devsite-dialog-close">Close</button>
 
@@ -238,20 +238,20 @@ This table lists all the artifacts in the `androidx.camera` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| camera-camera2 | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-core | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-compose | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-effects | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-extensions | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-camera2 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-core | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-compose | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-effects | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-extensions | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
 | camera-feature-combination-query | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
 | camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-lifecycle | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-mlkit-vision | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-view | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-lifecycle | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-mlkit-vision | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-view | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
 | camera-viewfinder | - | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.3.0-beta02) | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/camera#1.4.0-alpha07) |
-| camera-video | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-video | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
 
-This library was last updated on: March 11, 2026 [View the Camera Library](https://developer.android.com/jetpack/androidx/releases/camera) <button class="devsite-dialog-close">Close</button>
+This library was last updated on: March 25, 2026 [View the Camera Library](https://developer.android.com/jetpack/androidx/releases/camera) <button class="devsite-dialog-close">Close</button>
 
 ### Wear Maven Group versions
 
@@ -267,4 +267,4 @@ This table lists all the artifacts in the `androidx.wear` group.
 | wear-phone-interactions | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#1.1.0) | - | - | - |
 | wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#1.2.0) | - | - | - |
 
-This library was last updated on: February 25, 2026 [View the Wear Library](https://developer.android.com/jetpack/androidx/releases/wear) <button class="devsite-dialog-close">Close</button>
+This library was last updated on: March 25, 2026 [View the Wear Library](https://developer.android.com/jetpack/androidx/releases/wear) <button class="devsite-dialog-close">Close</button>

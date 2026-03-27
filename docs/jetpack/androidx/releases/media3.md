@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 16, 2026 | [1.9.3](https://developer.android.com/jetpack/androidx/releases/media3#1.9.3) | [1.10.0-rc02](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc02) | - | - |
+| March 26, 2026 | [1.9.3](https://developer.android.com/jetpack/androidx/releases/media3#1.9.3) | [1.10.0-rc03](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc03) | - | - |
 
 ## Declaring dependencies
 
@@ -193,6 +193,20 @@ Your feedback helps make Jetpack better. You can use the
 to questions, known issues and feature requests, and to file new issues.
 
 ## Version 1.10.0
+
+### 1.10.0-rc03
+
+March 26, 2026
+
+Version 1.10.0-rc03 contains the following
+[commits](https://github.com/androidx/media/commits/1.10.0-rc03).
+
+- ExoPlayer
+  - Fix bug where an uninitialized pre roll ad produced an ArrayIndexOutOfBoundsException (#3125).
+- Session:
+  - Workaround SysUI bug on API 29 where media session artwork in a particular size can crash SysUI and force the device to reboot (#3118).
+- RTSP extension:
+  - Fixed regression in H.264 and H.265 streaming that would incorrectly parse samples of the same access unit that spanned multiple RTP packets. This resulted in visual artifacts and corruption in the video (#3121).
 
 ### 1.10.0-rc02
 

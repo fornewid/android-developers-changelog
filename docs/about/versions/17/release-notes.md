@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/release-notes
 source: md.txt
 ---
 
+### Beta 3
+
+|---|---|
+| **Release date** | March 26, 2026 |
+| **Builds** | CP21.260306.017 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-03-05 |
+| **Google Play services** | 26.02.35 |
+
 ### Beta 2
 
 |---|---|
@@ -21,6 +30,54 @@ source: md.txt
 | **Emulator support** | x86 (64-bit), ARM (v8-A) |
 | **Security patch level** | 2026-01-05 |
 | **Google Play services** | 25.47.33 |
+
+### Android 17 Beta 3 (March 2026)
+
+[Android 17 has officially reached Platform Stability with Beta 3](https://android-developers.googleblog.com/2026/03/the-third-beta-of-android-17.html). The API
+surface is now locked, meaning it is time to perform final compatibility
+testing and publish your Android 17-targeted apps to the Google Play Store.
+
+If you develop an SDK, library, tool, or game engine, it is critical to release
+your updates now so downstream developers are not blocked from targeting the
+latest SDK features.
+
+Following is a summary of new capabilities, behavior changes,
+and enhancements introduced in Android 17 beta 3:
+
+#### Media and Camera Enhancements
+
+- **Photo Picker Customization:** You can now modify the grid view aspect ratio of the photo picker. Using the `https://developer.android.com/reference/android/widget/photopicker/PhotoPickerUiCustomizationParams` API, you can switch from the default 1:1 square to a 9:16 portrait display, allowing for better UI integration.
+- **RAW14 Image Format:** Professional camera apps can now capture 14-bit per pixel RAW images using the new `https://developer.android.com/reference/android/graphics/ImageFormat#RAW14` constant, allowing for maximum detail and color depth from compatible sensors.
+- **Vendor-Defined Camera Extensions:** Hardware partners can now define custom camera extension modes (e.g., 'Super Resolution' or AI enhancements). Query these via the `https://developer.android.com/reference/android/hardware/camera2/CameraExtensionCharacteristics#isExtensionSupported(int)` API.
+- **Camera Device Type APIs:** Identify whether a camera is built-in hardware, an external USB webcam, or a virtual camera.
+- **Bluetooth LE Audio Hearing Aids:** A new device category (`https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BLE_HEARING_AID`) allows apps to distinguish hearing aids from generic LE Audio headsets, enabling tailored UI iconography.
+- **Granular Hearing Aid Audio Routing:** Users can independently route system sounds (notifications, ringtones, alarms) to either connected hearing aids or the device speaker. This is handled at the system level and requires no API changes.
+- **Extended HE-AAC Software Encoder:** A new system-provided encoder (`c2.android.xheaac.encoder`) supports high and low bitrates for significantly better audio in low-bandwidth conditions, including mandatory support for loudness metadata to ensure consistent volume.
+
+#### Performance and Battery
+
+- **Reduced Wakelocks for Idle Alarms:** A new callback-based variant of `https://developer.android.com/reference/android/app/AlarmManager#setExactAndAllowWhileIdle(int,%20long,%20java.lang.String,%20java.util.concurrent.Executor,%20android.app.AlarmManager.OnAlarmListener)` accepts an `https://developer.android.com/reference/android/app/AlarmManager.OnAlarmListener` instead of a `https://developer.android.com/reference/android/app/PendingIntent`. This reduces power consumption and long partial wakelocks for apps (like medical monitors or messaging sockets) that need precise callbacks during Doze or Battery Saver modes.
+
+#### Privacy and Security
+
+- **System-Provided Location Button:** You can embed a secure, system-rendered location button via Jetpack. Tapping it grants your app precise location access for the current session only, without triggering a system dialog. Requires the `https://developer.android.com/reference/android/Manifest.permission#USE_LOCATION_BUTTON` permission.
+- **Discrete Password Visibility:** "Show passwords" settings are now split between touch inputs (briefly echoes the last character) and physical keyboards (hidden immediately by default). Standard framework components respect this automatically; custom fields should migrate to the `https://developer.android.com/reference/android/text/ShowSecretsSetting` API.
+- **Post-Quantum Cryptography (PQC) Hybrid Signing:** Android introduces the v3.2 APK Signature Scheme, combining classical signatures (RSA/Elliptic Curve) with ML-DSA signatures. This prepares apps for NIST standards and quantum computing advancements.
+
+#### User Experience and System UI
+
+- **Widget Support on External Displays:** Improved visual consistency for widgets across different pixel densities. `https://developer.android.com/reference/android/widget/RemoteViews#setViewPadding(int,%20float,%20float,%20float,%20float,%20int)` now accepts complex units (DP/SP), and widgets can retrieve specific `https://developer.android.com/reference/android/util/DisplayMetrics` via `https://developer.android.com/reference/android/appwidget/AppWidgetManager#OPTION_APPWIDGET_DISPLAY_ID`.
+- **Desktop Interactive Picture-in-Picture (iPiP):** Apps can request to be moved to a "pinned" windowing layer during desktop mode (default on external displays). These pinned windows remain interactive and always-on-top. Requires `https://developer.android.com/about/versions/17/android.Manifest.permission.USE_PINNED_WINDOWING_LAYER` and PiP permissions.
+- **Hidden Home Screen App Labels:** Users can now hide app labels on the home screen. Ensure your app icon is highly recognizable!
+- **Redesigned Screen Recording:** A new floating toolbar improves recording controls and capture settings for creators. The UI is automatically excluded from the final video.
+- **Bubbles:** The windowing mode feature introduced in Beta 2 is now fully enabled.
+
+#### Core Functionality \& Health
+
+- **VPN App Exclusion Settings:** VPN apps can use the `https://developer.android.com/reference/android/provider/Settings#ACTION_VPN_APP_EXCLUSION_SETTINGS` intent to launch a system-managed screen where users can select specific apps to bypass the VPN tunnel (split-tunneling).
+- **Dynamic System Font Fallback:** Android now supports runtime updates to the font fallback chain, delivering updated emojis and typography without a full OS update.
+- **OpenJDK 21 \& 25 Updates:** Integration of modern OpenJDK features, including updated Unicode support and enhanced SSL support for named groups in TLS.
+- **Health Connect Device Data Providers (DDPs):** Health Connect can now distinguish between data generated by apps and data originating directly from system-verified hardware (like Wear OS watches or the phone itself).
 
 ### Android 17 Beta 2 (February 2026)
 
@@ -55,7 +112,7 @@ system and apps running on it **might not always work as expected**.
 - **ICU 78:** Updated internationalization libraries support [Unicode 17](https://blog.unicode.org/2025/10/icu-78-released.html).
 - **SMS OTP Protection:** To prevent hijacking, Android 17 delays programmatic access to OTP messages by three hours for most apps. Developers should transition to [SMS Retriever](https://developer.android.com/identity/sms-retriever) or [SMS User Consent](https://developer.android.com/identity/sms-retriever/user-consent/overview) APIs.
 
-### Issues fixed in Beta 2
+### Top Issues fixed in Beta 2
 
 - *A platform stability regression in Android 16 that caused active apps to unexpectedly restart or refresh, preventing lost user progress and intermittent UI flickering during app usage. ([**Issue #440017096**](https://issuetracker.google.com/issues/440017096))*
 - *A UI layout regression in the Recent Apps screen for users with German-language settings. ([**Issue #476830557**](https://issuetracker.google.com/issues/476830557), [**Issue #486511401**](https://issuetracker.google.com/issues/486511401))*

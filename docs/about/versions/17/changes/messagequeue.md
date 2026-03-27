@@ -4,7 +4,7 @@ url: https://developer.android.com/about/versions/17/changes/messagequeue
 source: md.txt
 ---
 
-Beginning with Android 17, apps targeting Android 17
+Beginning with Android 17, apps targeting Android 17 (API level 37)
 or higher receive a new lock-free implementation of
 [`android.os.MessageQueue`](https://developer.android.com/reference/android/os/MessageQueue). The new implementation improves performance and
 reduces missed frames, but may break clients that reflect on `MessageQueue`
@@ -68,7 +68,7 @@ You can test your app with the behavior change on Android 17 without updating
 This command enables the lock-free `MessageQueue` in your app, if it's a
 debuggable build.
 
-If your app targets Android 17, the new behavior is enabled
+If your app targets Android 17 (API level 37), the new behavior is enabled
 by default. If you notice unexpected behavior or crashes after targeting this
 API level, you can temporarily disable the new implementation to verify if
 `MessageQueue` is the cause.

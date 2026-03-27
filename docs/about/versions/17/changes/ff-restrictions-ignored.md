@@ -13,7 +13,7 @@ today's multidevice world.
 
 ## Ignore orientation, resizability, and aspect ratio restrictions
 
-For apps targeting Android 17 or higher, orientation,
+For apps targeting Android 17 (API level 37) or higher, orientation,
 resizability, and aspect ratio restrictions no longer apply on displays whose
 smallest width is greater than 600dp. Apps fill the entire display window,
 regardless of aspect ratio or a user's preferred orientation, and pillarboxing
