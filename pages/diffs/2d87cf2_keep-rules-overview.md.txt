@@ -1,0 +1,15 @@
+diff --git a/docs/topic/performance/app-optimization/keep-rules-overview.md b/docs/topic/performance/app-optimization/keep-rules-overview.md
+index 4648b04..9999c8c 100644
+--- a/docs/topic/performance/app-optimization/keep-rules-overview.md
++++ b/docs/topic/performance/app-optimization/keep-rules-overview.md
+@@ -68,8 +68,8 @@ android {
+ android {
+     buildTypes {
+         release {
+-            minifyEnabled true
+-            shrinkResources true
++            minifyEnabled = true
++            shrinkResources = true
+ 
+             proguardFiles(
+                 // File with default rules provided by the Android Gradle Plugin

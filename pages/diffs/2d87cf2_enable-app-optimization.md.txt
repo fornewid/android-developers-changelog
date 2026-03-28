@@ -1,0 +1,17 @@
+diff --git a/docs/topic/performance/app-optimization/enable-app-optimization.md b/docs/topic/performance/app-optimization/enable-app-optimization.md
+index 92fdca6..f7ea0ea 100644
+--- a/docs/topic/performance/app-optimization/enable-app-optimization.md
++++ b/docs/topic/performance/app-optimization/enable-app-optimization.md
+@@ -93,10 +93,10 @@ android {
+         release {
+ 
+             // Enables code-related app optimization.
+-            minifyEnabled true
++            minifyEnabled = true
+ 
+             // Enables resource shrinking.
+-            shrinkResources true
++            shrinkResources = true
+ 
+             // Default file with automatically generated optimization rules.
+             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')

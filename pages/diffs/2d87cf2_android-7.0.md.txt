@@ -1,0 +1,13 @@
+diff --git a/docs/about/versions/nougat/android-7.0.md b/docs/about/versions/nougat/android-7.0.md
+index b2eea60..83665fb 100644
+--- a/docs/about/versions/nougat/android-7.0.md
++++ b/docs/about/versions/nougat/android-7.0.md
+@@ -658,7 +658,7 @@ traditional scheme, open the module-level `build.gradle` file, then
+ add the line `v2SigningEnabled false` to your release signing
+ configuration:
+ 
+-```text
++```
+   android {
+     ...
+     defaultConfig { ... }

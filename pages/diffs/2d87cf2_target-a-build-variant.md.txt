@@ -1,0 +1,22 @@
+diff --git a/docs/topic/performance/app-optimization/target-a-build-variant.md b/docs/topic/performance/app-optimization/target-a-build-variant.md
+index 732a0df..5ff5769 100644
+--- a/docs/topic/performance/app-optimization/target-a-build-variant.md
++++ b/docs/topic/performance/app-optimization/target-a-build-variant.md
+@@ -23,6 +23,7 @@ To create keep rules that are specific to a build variant, add the
+     buildTypes {
+         getByName("release") {
+             isMinifyEnabled = true
++            isShrinkResources = true
+             proguardFiles(
+                 getDefaultProguardFile("proguard-android-optimize.txt"),
+                 "proguard-rules.pro"
+@@ -46,7 +47,8 @@ To create keep rules that are specific to a build variant, add the
+         ...
+         buildTypes {
+             release {
+-                minifyEnabled true
++                minifyEnabled = true
++                shrinkResources = true
+                 proguardFiles
+                     getDefaultProguardFile('proguard-android-optimize.txt'),
+                     'proguard-rules.pro'

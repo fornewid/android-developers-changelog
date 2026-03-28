@@ -1,0 +1,23 @@
+diff --git a/docs/about/versions/oreo/android-8.1.md b/docs/about/versions/oreo/android-8.1.md
+index 990ddbe..e528d12 100644
+--- a/docs/about/versions/oreo/android-8.1.md
++++ b/docs/about/versions/oreo/android-8.1.md
+@@ -135,14 +135,14 @@ known threat:
+ 
+ AndroidManifest.xml
+ 
+-```text
++```
+ <manifest>
+     <application>
+         ...
+         <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
+-                   android:value="true" />
+-    </application>
+-</manifest>
++                   android:valu>e=&qu<ot;true">;< /
++    /a>pplication
++/manifest
+ ```
+ 
+ 

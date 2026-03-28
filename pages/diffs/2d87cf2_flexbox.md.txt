@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/flexbox.md b/docs/develop/ui/compose/layouts/adaptive/flexbox.md
+index 4f4c84e..ee72104 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/flexbox.md
++++ b/docs/develop/ui/compose/layouts/adaptive/flexbox.md
+@@ -5,7 +5,7 @@ source: md.txt
+ ---
+ 
+ > [!NOTE]
+-> **Note:** FlexBox is currently an experimental API and is likely to change in the future. File any issues on the [issue tracker](https://issuetracker.google.com/issues/new?component=1876021&title=%5BFlexBox%5D).
++> **Note:** FlexBox is an experimental API and is likely to change in the future. To use it, annotate your code with `@ExperimentalFlexBoxApi`. Please file any issues or feedback on the [issue tracker](https://issuetracker.google.com/issues/new?component=1876021&title=%5BFlexBox%5D).
+ 
+ [`FlexBox`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#FlexBox(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.FlexBoxConfig,kotlin.Function1)) is a container that lays out items in a single direction. It can
+ resize, wrap, align, and distribute space among items to optimally fill the
