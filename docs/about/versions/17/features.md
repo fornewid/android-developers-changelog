@@ -61,6 +61,15 @@ For example, for a specified `jobId`, the method might return
 the job was pending for 60000ms due to the charging constraint not being
 satisfied.
 
+### Reduce wake locks with listener support for allow-while-idle alarms
+
+Android 17
+introduces a new variant of [`AlarmManager.setExactAndAllowWhileIdle`](https://developer.android.com/reference/android/app/AlarmManager#setExactAndAllowWhileIdle(int,%20long,%20java.lang.String,%20java.util.concurrent.Executor,%20android.app.AlarmManager.OnAlarmListener)) that
+accepts an [`OnAlarmListener`](https://developer.android.com/reference/android/app/AlarmManager.OnAlarmListener) instead of a `PendingIntent`. This new
+callback-based mechanism is ideal for apps that currently rely on continuous
+wakelocks to perform periodic tasks, such as messaging apps maintaining socket
+connections.
+
 ## Privacy
 
 Android 17 includes the following new features to improve user privacy.
@@ -140,16 +149,6 @@ low-bandwidth satellite networks.
 Android 17 includes the following changes to improve user experience.
 
 ### Dedicated Assistant volume stream
-
-| Available to test? *(Required build)* | Yes *(Android 17 Beta 1 or later)* |
-| Requires changing `targetSDKVersion`? *(API level)* | No *(N/A)* |
-| Requires changing `compileSDKVersion`? *(API level)* | No *(N/A)* |
-|---|---|
-
-> [!IMPORTANT]
-> **Content included from the public site**   
-> The following documentation mirrors the [public
-> Android 17 site](https://developer.android.com/about/versions/17) on developer.android.com and is provided here for your convenience.
 
 Android 17 introduces a dedicated Assistant volume stream for Assistant apps,
 for playback with [`USAGE_ASSISTANT`](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_ASSISTANT). This change decouples Assistant audio

@@ -43,6 +43,13 @@ of the tools.
 
 ## Revisions
 
+#### 37.0.0 (Feb 2026)
+
+- **adb**
+  - The default mDNS backend is now `libadbmdns`. Library `openscreen` is still included as a failover but is deprecated.
+  - Libadbmdns now also return .local hostname as part of services metadata.
+  - Linux USB backend now uses netlink instead of an active loop to detect devices addition/deletion.
+
 #### 36.0.2 (Sep 2025)
 
 - **adb**

@@ -658,7 +658,7 @@ traditional scheme, open the module-level `build.gradle` file, then
 add the line `v2SigningEnabled false` to your release signing
 configuration:
 
-```text
+```
   android {
     ...
     defaultConfig { ... }

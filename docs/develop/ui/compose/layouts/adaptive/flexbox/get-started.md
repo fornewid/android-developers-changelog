@@ -12,7 +12,7 @@ This page describes how to implement basic `FlexBox` layouts.
    `lib.versions.toml`.
 
        [versions]
-       compose = "1.11.0-beta01"
+       compose = "1.11.0-beta02"
 
        [libraries]
        androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "compose" }
@@ -57,11 +57,13 @@ FlexBox(
         gap(8.dp)
     }
 ) {
+    // All boxes have an intrinsic width of 100.dp
+    // Some grow to fill any remaining space on the row.
     RedRoundedBox()
     BlueRoundedBox()
-    GreenRoundedBox(modifier = Modifier.width(350.dp).flex { grow(1.0f) })
-    OrangeRoundedBox(modifier = Modifier.width(200.dp).flex { grow(0.7f) })
-    PinkRoundedBox(modifier = Modifier.width(200.dp).flex { grow(0.3f) })
+    GreenRoundedBox(modifier = Modifier.flex { grow(1.0f) })
+    OrangeRoundedBox(modifier = Modifier.flex { grow(1.0f) })
+    PinkRoundedBox(modifier = Modifier.flex { grow(1.0f) })
 }
 ```
 

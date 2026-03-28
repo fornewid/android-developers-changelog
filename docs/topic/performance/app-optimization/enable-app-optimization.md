@@ -93,10 +93,10 @@ android {
         release {
 
             // Enables code-related app optimization.
-            minifyEnabled true
+            minifyEnabled = true
 
             // Enables resource shrinking.
-            shrinkResources true
+            shrinkResources = true
 
             // Default file with automatically generated optimization rules.
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')

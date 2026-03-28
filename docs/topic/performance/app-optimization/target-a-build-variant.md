@@ -23,6 +23,7 @@ To create keep rules that are specific to a build variant, add the
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -46,7 +47,8 @@ To create keep rules that are specific to a build variant, add the
         ...
         buildTypes {
             release {
-                minifyEnabled true
+                minifyEnabled = true
+                shrinkResources = true
                 proguardFiles
                     getDefaultProguardFile('proguard-android-optimize.txt'),
                     'proguard-rules.pro'

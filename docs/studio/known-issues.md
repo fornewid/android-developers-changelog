@@ -18,8 +18,20 @@ To experience the benefits of upcoming releases now, download and install
 
 ## Known Issues with Android Studio
 
-This section describes known issues that exist in the latest stable version of
-Android Studio.
+This section describes known issues that exist in Android Studio.
+
+### Android Studio Panda 3 not compatible with IntelliJ Develocity plugin 1.2.0
+
+When using the Develocity IDE plugin v1.2.0, starting with Android Studio Panda 3 Canary 1,
+the run action fails with the following error ([issue #492439205](https://issuetracker.google.com/492439205)):
+
+    Found interface com.android.tools.idea.gradle.project.build.invoker.GradleBuildInvoker$Request, but class was expected
+
+Develocity developers are [working on a fix](https://github.com/gradle/develocity-intellij-plugin/issues/7)
+for the new version.
+
+**Workaround**: Disabling the Develocity IDE plugin v1.2.0 solves the issue
+until this incompatibility is fixed in a new version of the plugin.
 
 ### Kotlin 2.0: Lambdas cannot be resolved in Layout Inspector
 

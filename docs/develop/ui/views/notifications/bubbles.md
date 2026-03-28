@@ -21,7 +21,7 @@ permission dialog offers two choices:
 - Block all bubbles from your app. Notifications aren't blocked, but they never appear as bubbles.
 - Allow all bubbles from your app. All notifications sent with `BubbleMetaData` appear as bubbles.
 
-## The bubble API
+## The notification Bubble API
 
 Bubbles are created using the notification API, so send your notification as
 normal. If you want your notification to display as a bubble, attach extra data

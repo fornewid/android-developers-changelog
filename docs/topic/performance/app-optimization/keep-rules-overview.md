@@ -68,8 +68,8 @@ android {
 android {
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled = true
+            shrinkResources = true
 
             proguardFiles(
                 // File with default rules provided by the Android Gradle Plugin

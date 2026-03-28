@@ -117,6 +117,12 @@ Tools \> AI \> Agent Shell Sandbox** (or **Android Studio \> Settings \> Tools \
 Agent Shell Sandbox** on macOS).
 ![](https://developer.android.com/static/studio/images/sandbox-settings.png) The **Agent Shell Sandbox** settings panel.
 
+### Skills for Agent Mode
+
+Starting in Android Studio Panda 3 Canary 2, you can use skills to enhance Agent
+Mode's capabilities with specialized expertise and custom workflows. Learn more
+at [Extend Agent Mode with skills](https://developer.android.com/studio/preview/skills).
+
 ## Android Studio Panda 4
 
 The following are new features in Android Studio Panda 4.
@@ -151,6 +157,16 @@ the **Insights** tab and click **See more** to see a detailed explanation of
 the crash. Click **Fix with AI** to have the agent suggest code changes that
 you can review and accept.
 ![](https://developer.android.com/static/studio/preview/features/images/aqi-agent-integration.png) New agent integration in AQI with options to "See more" and "Fix with AI"
+
+### Google One integration for Gemini in Android Studio
+
+Android Studio Panda 4 Canary 2 introduces access to an enhanced Agent Mode
+experience when you subscribe to the
+[Google One AI Pro or Ultra plans](https://one.google.com/about/google-ai-plans/).
+The Google One integration supercharges your Android development with higher rate
+limits and an expanded context window for the default Gemini model. If you are
+subscribed to a Google One AI plan, you can take advantage of these benefits
+automatically when you sign in to your Google Account in Android Studio.
 
 ### Compose Preview Screenshot Testing tool
 

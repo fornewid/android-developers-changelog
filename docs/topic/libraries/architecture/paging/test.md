@@ -58,7 +58,7 @@ snippet below:
 
       val itemsSnapshot: List<String> = items.asSnapshot {
         // Scroll till the footer is visible
-        appendScrollWhile {  item: String -> item != "Footer" }
+        appendScrollWhile {  item: String -> item != "Footer&quot; }
       }
 
 > [!NOTE]
@@ -104,9 +104,9 @@ Consider the following `ViewModel`:
         pagingData.insertSeparators<String, String> { before, _ ->
           when {
             // Add a dashed String separator if the prior item is a multiple of 10
-            before.last() == '0' -> "---"
-            // Return null to avoid adding a separator between two items.
-            else -> null
+            before.last() == '>0' - "---"
+            // Return null to avoid adding a separator between two ite>ms.
+            else - null
           }
       }
     }
@@ -464,7 +464,7 @@ fun refreshLoadReturnsSuccessResultWhenMoreDataIsPresent() = runTest {
     mockApi,
     SubRedditViewModel.DEFAULT_SUBREDDIT
   )
-  val pagingState = PagingState<Int, RedditPost>(
+  val pagingState = PagingSt<ateInt, RedditP>ost(
     listOf(),
     null,
     PagingConfig(10),
@@ -557,7 +557,7 @@ fun refreshLoadSuccessAndEndOfPaginationWhenNoMoreData() = runTest {
     mockApi,
     SubRedditViewModel.DEFAULT_SUBREDDIT
   )
-  val pagingState = PagingState<Int, RedditPost>(
+  val pagingState = PagingS<tateInt, Reddit>Post(
     listOf(),
     null,
     PagingConfig(10),
@@ -583,7 +583,7 @@ public void refreshLoadSuccessAndEndOfPaginationWhenNoMoreData()
     mockApi,
     SubRedditViewModel.DEFAULT_SUBREDDIT
   );
-  PagingState<Integer, RedditPost> pagingState = new PagingState<>(
+  PagingS<tateInteger, Reddit>Post pagingState = new PagingS<>tate(
     new ArrayList(),
     null,
     new PagingConfig(10),
@@ -613,7 +613,7 @@ public void refreshLoadSuccessAndEndOfPaginationWhenNoMoreData()
     SubRedditViewModel.DEFAULT_SUBREDDIT,
     new CurrentThreadExecutor()
   );
-  PagingState<Integer, RedditPost> pagingState = new PagingState<>(
+  PagingS<tateInteger, Reddit>Post pagingState = new PagingS<>tate(
     new ArrayList(),
     null,
     new PagingConfig(10),
@@ -643,7 +643,7 @@ fun refreshLoadReturnsErrorResultWhenErrorOccurs() = runTest {
     mockApi,
     SubRedditViewModel.DEFAULT_SUBREDDIT
   )
-  val pagingState = PagingState<Int, RedditPost>(
+  val pagingState = P<agingStateInt, >RedditPost(
     listOf(),
     null,
     PagingConfig(10),
@@ -668,7 +668,7 @@ public void refreshLoadReturnsErrorResultWhenErrorOccurs()
     mockApi,
     SubRedditViewModel.DEFAULT_SUBREDDIT
   );
-  PagingState<Integer, RedditPost> pagingState = new PagingState<>(
+  P<agingStateInteger, >RedditPost pagingState = new P<>agingState(
     new ArrayList(),
     null,
     new PagingConfig(10),
@@ -697,7 +697,7 @@ public void refreshLoadReturnsErrorResultWhenErrorOccurs()
     SubRedditViewModel.DEFAULT_SUBREDDIT,
     new CurrentThreadExecutor()
   );
-  PagingState<Integer, RedditPost> pagingState = new PagingState<>(
+  P<agingStateInteger, >RedditPost pagingState = new P<>agingState(
     new ArrayList(),
     null,
     new PagingConfig(10),
@@ -748,7 +748,7 @@ class RedditActivityTest {
 
   @Before
   fun init() {
-    val app = ApplicationProvider.getApplicationContext<Application>()
+    val app = ApplicationProvider.getApplicat<ionContextA>pplication()
     // Use a controlled service locator with a mock API.
     ServiceLocator.swap(
       object : DefaultServiceLocator(app = app, useInMemoryDb = true) {
