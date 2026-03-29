@@ -26012,8 +26012,8 @@
     },
     "docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md": {
       "original_url": "https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop",
-      "hash": "56e5cb0ca76af8e722ad938fc53734be7f1fbf9329990c7ec66b6cc78b50cc97",
-      "last_updated": "2026-03-25T15:24:31.516212",
+      "hash": "547214043eeb5f2d495c3559fc0736d127bf26ee9412c313cf04378a0ba5bc39",
+      "last_updated": "2026-03-29T15:08:21.315365",
       "fetch_method": "md.txt"
     },
     "docs/quality-guidelines/adaptive-app-quality/experiences/stylus.md": {
@@ -26114,8 +26114,8 @@
     },
     "jetpack/androidx/releases/wear-compose-remote.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/releases/wear-compose-remote",
-      "hash": "22989689f406ed76e9906b6710f3a31e7378a268ef5d918372bab393764bf7bf",
-      "last_updated": "2026-03-28T15:09:14.466115",
+      "hash": "56d0a717b280753461cde5454c29b9c6c9ef534e31f4ccc79313930c04ea1b72",
+      "last_updated": "2026-03-29T15:09:59.438000",
       "fetch_method": "md.txt"
     },
     "games/pgs/play-games-sidekick-sdk.md": {
@@ -26149,5 +26149,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-03-28T15:10:48.885475"
+  "last_updated": "2026-03-29T15:11:36.310679"
 }
