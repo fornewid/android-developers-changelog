@@ -1,0 +1,13 @@
+diff --git a/docs/docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md b/docs/docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md
+index 6080940..bd0c626 100644
+--- a/docs/docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md
++++ b/docs/docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md
+@@ -110,7 +110,7 @@ To verify that your app provides a premium, differentiated experience, complete
+ 
+ | Test ID | Guideline IDs | Description |
+ |---|---|---|
+-| T-Multitasking_PiP | [Multitasking_Scenarios](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multitasking_Scenarios) | Enter and exit picture-in-picture mode in portrait and landscape orientations and in multi‑window mode. In multi‑window mode, change the window size while picture‑in‑picture mode is active. In picture-in-picture mode, interact with any custom controls and verify their functionality. |
++| T-Multitasking_PiP | [Multitasking_Scenarios](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multitasking_Scenarios), [Multitasking_PiP](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multitasking_PiP) | Enter and exit picture-in-picture mode in portrait and landscape orientations and in multi‑window mode. In multi‑window mode, change the window size while picture‑in‑picture mode is active. In picture-in-picture mode, interact with any custom controls and verify their functionality. |
+ | T-Multitasking_Split-Screen | [Multitasking_Scenarios](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multitasking_Scenarios) | In multi-window mode, open another app from within the app and display both apps side by side. |
+ | T-Multitasking_Attachments | [Multitasking_Scenarios](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multitasking_Scenarios) | Open and close attachments and notifications in portrait and landscape orientations and in multi-window mode. |
+ | T-Multi-Instance | [Multi-Instance](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multi-Instance) | Launch multiple instances of the app in separate windows in portrait and landscape orientations and in multi-window mode. |

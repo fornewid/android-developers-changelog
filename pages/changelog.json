@@ -1,5 +1,27 @@
 [
   {
+    "date": "2026-03-29T15:11:37+00:00",
+    "commit_hash": "2f7ebed",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop\" target=\"_blank\">Desktop</a>",
+        "path": "docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md",
+        "summary": "The change updates the `T-Multitasking_PiP` test description to include an additional Guideline ID `Multitasking_PiP`. This ensures the test is correctly associated with all relevant guidelines, improving the accuracy and completeness of the testing process.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f7ebed_desktop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/wear-compose-remote\" target=\"_blank\">wear compose remote</a>",
+        "path": "jetpack/androidx/releases/wear-compose-remote.md",
+        "summary": "The change involves updating the 'nonce' attribute value in the script tag. This modification likely relates to Content Security Policy (CSP) security measures, ensuring the script's origin and execution are authorized.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/2f7ebed_wear-compose-remote.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-28T15:10:49Z",
     "commit_hash": "2d87cf2",
     "entries": [
