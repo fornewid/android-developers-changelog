@@ -1,0 +1,17 @@
+diff --git a/docs/about/versions/oreo/android-8.1.md b/docs/about/versions/oreo/android-8.1.md
+index e528d12..47781de 100644
+--- a/docs/about/versions/oreo/android-8.1.md
++++ b/docs/about/versions/oreo/android-8.1.md
+@@ -140,9 +140,9 @@ AndroidManifest.xml
+     <application>
+         ...
+         <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
+-                   android:valu>e=&qu<ot;true">;< /
+-    /a>pplication
+-/manifest
++                   android:value="true" />
++    </application>
++</manifest>
+ ```
+ 
+ 

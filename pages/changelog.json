@@ -1,5 +1,283 @@
 [
   {
+    "date": "2026-03-30T15:29:44+00:00",
+    "commit_hash": "21bb110",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/oreo/android-8.1\" target=\"_blank\">Android 8.1 Features and APIs</a>",
+        "path": "about/versions/oreo/android-8.1.md",
+        "summary": "The `android-8.1.md` documentation was updated to fix a typo in the code example. The `android:value` attribute in `meta-data` tag was corrected.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_android-8.1.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/assistant/cars\" target=\"_blank\">App Actions for Cars</a>",
+        "path": "develop/devices/assistant/cars.md",
+        "summary": "The documentation has been updated to fix some syntax errors and broken tags in the code snippets. The changes mainly involve correcting the XML tags and attributes within the `AndroidManifest.xml` and `shortcuts.xml` files. Additionally, the sample URIs in the code examples were also corrected.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_cars.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/devices/assistant/in-app-promo-sdk\" target=\"_blank\">Suggest shortcuts using the In-App Promo SDK</a>",
+        "path": "develop/devices/assistant/in-app-promo-sdk.md",
+        "summary": "The document was updated to correct a malformed XML tag within the manifest file example that caused the document to fail parsing. This ensures the sample code correctly declares the necessary dependencies for the in-app promo SDK, such as the Google app package, allowing developers to properly integrate the SDK into their apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_in-app-promo-sdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/kotlin\" target=\"_blank\">Kotlin for Jetpack Compose</a>",
+        "path": "develop/ui/compose/kotlin.md",
+        "summary": "The Kotlin documentation was updated to include external links to code snippets in GitHub, specifically referencing snippets related to loading data within a button and handling touch events for moving a box. These additions provide direct links to the source code examples, enhancing the documentation's utility for developers learning and using Compose in Kotlin.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_kotlin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/libraries\" target=\"_blank\">Compose and other libraries</a>",
+        "path": "develop/ui/compose/libraries.md",
+        "summary": "The documentation for Compose libraries has been updated to include links to specific lines of code in the Android snippets repository. These links provide direct references to code examples for `LazyPagingItems` and `Google Maps` integration, enhancing the learning experience.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_libraries.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose\" target=\"_blank\">Migrate XML Views to Jetpack Compose</a>",
+        "path": "develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose.md",
+        "summary": "The documentation has been significantly updated. The previous step-by-step migration guide has been replaced with links to a migration strategy, interoperability APIs, and other considerations. Additionally, there's a reference to samples demonstrating Jetpack Compose and View interoperability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_migrate-xml-views-to-jetpack-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/phases\" target=\"_blank\">Jetpack Compose phases</a>",
+        "path": "develop/ui/compose/phases.md",
+        "summary": "The documentation updates include references to snippets.kt in several code examples, demonstrating the phases of Compose UI and how state changes affect the UI. These changes illustrate how to use modifiers and state to control the UI's behavior across different phases (composition, layout, and draw), which helps developers understand best practices and optimize UI performance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_phases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/graphics/drawables\" target=\"_blank\">Drawables overview</a>",
+        "path": "develop/ui/views/graphics/drawables.md",
+        "summary": "The documentation has been updated to use markdown links for Android classes and methods, replacing the plain text URLs. Additionally, minor formatting and code snippet adjustments have been made.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_drawables.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl\" target=\"_blank\">OpenGL ES</a>",
+        "path": "develop/ui/views/graphics/opengl/about-opengl.md",
+        "summary": "The documentation updates fix a minor typo and correct formatting within the XML code snippets related to OpenGL ES version declarations and AEP requirements in the manifest. Additionally, the documentation corrects formatting issues within the version string examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_about-opengl.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/custom-views/create-view\" target=\"_blank\">Create a view class</a>",
+        "path": "develop/ui/views/layout/custom-views/create-view.md",
+        "summary": "The provided diff includes minor syntax changes in the attrs.xml and layout XML examples. These changes include correcting potential typo/formatting errors within the XML code snippets, such as replacing '&quot;' with the correct quote. The update improves readability and ensures the correctness of the example code. ",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_create-view.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts\" target=\"_blank\">Use Downloadable Fonts</a>",
+        "path": "develop/ui/views/text-and-emoji/downloadable-fonts.md",
+        "summary": "The documentation underwent several formatting changes in the XML code snippets. These changes primarily involve fixing potential HTML formatting issues. It does not introduce any new features or significantly alter the technical content of the document.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_downloadable-fonts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/input-events\" target=\"_blank\">Input events overview</a>",
+        "path": "develop/ui/views/touch-and-input/input-events.md",
+        "summary": "This document introduces event listeners and handlers for handling user interactions in Android. It explains how to capture events from UI elements, register listeners, and the significance of return values for certain event listener methods like `onLongClick`, `onKey`, and `onTouch`. Additionally, it includes guidance on handling hardware key events, input methods, and the order of event handling.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_input-events.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/style\" target=\"_blank\">Specify the input method type</a>",
+        "path": "develop/ui/views/touch-and-input/keyboard-input/style.md",
+        "summary": "The provided code snippets for `AutoCompleteTextView` in the documentation have been updated. Specifically, XML code samples now use \"`&lt;`\" and \"`&gt;`\" instead of \"<\" and \">\" to prevent HTML parsing errors. This change ensures that the code samples are correctly rendered and displayed within the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_style.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/touch-and-input/spell-checker-framework\" target=\"_blank\">Spell checker framework</a>",
+        "path": "develop/ui/views/touch-and-input/spell-checker-framework.md",
+        "summary": "The documentation for the spell-checker-framework.md file has been updated. The changes include reformatting the 'Note' section, updating the manifest and metadata file examples, and updating links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_spell-checker-framework.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/expansion-files\" target=\"_blank\">APK Expansion Files</a>",
+        "path": "google/play/expansion-files.md",
+        "summary": "The documentation was updated to reflect the new method of linking to Android developer documentation. Specifically, it has switched from a relative path to an absolute path for methods such as getObbDir(), and the service, broadcast receiver, alarm manager, and notification service.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_expansion-files.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/integrity/verdicts\" target=\"_blank\">Integrity verdicts</a>",
+        "path": "google/play/integrity/verdicts.md",
+        "summary": "This document describes changes to the Play Integrity verdicts documentation, clarifying existing information and adding details about device integrity labels, including those related to Google Play Games for PC and optional device information. It also refines code snippets for clarity and provides additional context on interpreting and using the verdicts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_verdicts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/on-device-ai\" target=\"_blank\">Play for On-device AI (beta)</a>",
+        "path": "google/play/on-device-ai.md",
+        "summary": "The documentation has been updated to fix some formatting issues and update outdated tags. It improves the readability and accuracy of the code examples provided in the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_on-device-ai.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/components/activities/activity-lifecycle\" target=\"_blank\">The activity lifecycle</a>",
+        "path": "guide/components/activities/activity-lifecycle.md",
+        "summary": "The change fixes a typo in the code example related to `onActivityResult`. The identifier `PICK_CONTACT_REQUEST` had a typo. This is important for code clarity and to ensure the sample code is correctly understood by developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_activity-lifecycle.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/components/loaders\" target=\"_blank\">Loaders</a>",
+        "path": "guide/components/loaders.md",
+        "summary": "The documentation updates fix minor typos and formatting issues within the code examples. Specifically, it corrected missing characters and broken tags in `onCreateLoader`, `onLoadFinished`, and `onLoaderReset` method definitions, as well as a syntax error within the `CursorLoader` instantiation, and code formatting. These changes ensure the code samples are valid and can be readily used.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_loaders.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/fragments/debugging\" target=\"_blank\">Debug your fragments</a>",
+        "path": "guide/fragments/debugging.md",
+        "summary": "This document provides an overview of debugging techniques for Android fragments, including FragmentManager logging and StrictMode. The changes refine the explanations of FragmentManager logging levels (DEBUG and VERBOSE), and the usage of StrictMode to detect and handle potential fragment-related issues.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_debugging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture\" target=\"_blank\">Add support for the predictive back gesture</a>",
+        "path": "guide/navigation/custom-back/predictive-back-gesture.md",
+        "summary": "The documentation for predictive back gesture was updated to fix code formatting and XML tags. These changes ensure the code examples are displayed correctly and the XML configuration is valid, improving readability and usability for developers implementing the predictive back gesture.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_predictive-back-gesture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/integrations/multi-module\" target=\"_blank\">Navigation best practices for multi-module projects</a>",
+        "path": "guide/navigation/integrations/multi-module.md",
+        "summary": "This document describes how to integrate Navigation best practices for multi-module Android projects. It explains how to combine smaller navigation graphs, including the use of `<include>` and the role of the `app` module in defining the complete navigation graph, referencing library graphs, and handling top-level navigation with `NavigationUI`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_multi-module.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/bottomsheet\" target=\"_blank\">Bottom Sheet Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/bottomsheet.md",
+        "summary": "The changes appear to be related to code modifications within the `BottomSheetActivity.kt` and `BottomSheetSceneStrategy.kt` files. Specifically, the diff highlights adjustments to the composable content of the bottom sheet, as well as modifications to the bottom sheet key and properties. These changes likely involve refinements to the bottom sheet's appearance, navigation, or interaction within the app.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_bottomsheet.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/multiple-backstacks\" target=\"_blank\">Multiple back stacks recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/multiple-backstacks.md",
+        "summary": "This diff modifies the `multiple-backstacks.md` and related code files to improve navigation and state management within a multi-backstack Android application. It updates type declarations, fixes minor code formatting and adds implementation details in `NavigationState.kt`, `MultipleStacksActivity.kt` and `Content.kt`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_multiple-backstacks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/results-state\" target=\"_blank\">Returning a Result (State-Based)</a>",
+        "path": "guide/navigation/navigation-3/recipes/results-state.md",
+        "summary": "The documentation has undergone several changes, including code adjustments in Person data class, HomeScreen, PersonDetailsScreen, ResultStateActivity, LocalResultStore, and ResultStore. These changes encompass modifications to the parameters, and implementation details for managing and storing results within the navigation context.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_results-state.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/dating\" target=\"_blank\">Engage SDK Dating: Third-party technical integration instructions</a>",
+        "path": "guide/playcore/engage/dating.md",
+        "summary": "This document provides instructions for developers to integrate dating content into a new on-device surface using the Engage SDK. The changes include formatting updates, minor terminology adjustments, and clarification of entity types and their attributes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_dating.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/providers/calendar-provider\" target=\"_blank\">Calendar provider overview</a>",
+        "path": "identity/providers/calendar-provider.md",
+        "summary": "The documentation for the Calendar Provider has been updated to use markdown links and formatting. It also updated some of the references in the text to use the correct documentation links. The changes improve readability and maintain consistency with current documentation practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_calendar-provider.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/wear-compose-remote\" target=\"_blank\">wear compose remote</a>",
+        "path": "jetpack/androidx/releases/wear-compose-remote.md",
+        "summary": "The change involves updating the nonce attribute in the script tag. This update likely addresses a security concern related to Content Security Policy (CSP) by providing a new, unique, and random value for the nonce.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_wear-compose-remote.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/security-config\" target=\"_blank\">Network security configuration</a>",
+        "path": "privacy-and-security/security-config.md",
+        "summary": "This update revises the documentation on Network Security Configuration. It clarifies the behavior of Certificate Transparency (CT) based on API level, adds details on opting out of CT, and refines explanations of cleartext traffic opt-in/out scenarios, along with minor wording improvements and formatting changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_security-config.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/security-gms-provider\" target=\"_blank\">Update your security provider to protect against SSL exploits</a>",
+        "path": "privacy-and-security/security-gms-provider.md",
+        "summary": "This document describes how to use the ProviderInstaller class to update the security provider on Android devices. It explains how to use both synchronous and asynchronous methods, and provides code examples. The document emphasizes the importance of keeping the security provider up-to-date to protect against vulnerabilities and secure network communications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_security-gms-provider.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "The documentation was updated to reflect the latest nightly build date, changing all instances of \"2026-03-27\" to \"2026-03-30\" for various download links and filenames. This ensures users are directed to the most recent nightly builds.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/cars/apps/automotive-os\" target=\"_blank\">Add support for Android Automotive OS to your templated app</a>",
+        "path": "training/cars/apps/automotive-os.md",
+        "summary": "This document has been updated to fix several code snippets and formatting issues. The changes improve code readability and clarity. These corrections enhance the developer experience by providing accurate and easily understandable code examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_automotive-os.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/discovery/searchable\" target=\"_blank\">Make TV apps searchable</a>",
+        "path": "training/tv/discovery/searchable.md",
+        "summary": "The documentation has been updated with minor corrections. Changes include fixes in code examples for `HashMap` instantiation, correcting array type definitions in Kotlin, and minor adjustments to XML tags for clarity. These changes ensure the code examples are accurate and the instructions are easier to follow.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_searchable.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/data/sync\" target=\"_blank\">Sync data</a>",
+        "path": "training/wearables/data/sync.md",
+        "summary": "The documentation for synchronizing data between Wear OS and phone devices has been updated. Key changes include clarifying when to use the Data Layer API, replacing specific language to align the content and adding updated Kotlin examples. The examples use an image resource (ic_walk) and include improved code formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/21bb110_sync.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-03-29T15:11:37+00:00",
     "commit_hash": "2f7ebed",
     "entries": [

@@ -1,0 +1,47 @@
+diff --git a/docs/develop/ui/views/layout/custom-views/create-view.md b/docs/develop/ui/views/layout/custom-views/create-view.md
+index 33dcf22..98aa64e 100644
+--- a/docs/develop/ui/views/layout/custom-views/create-view.md
++++ b/docs/develop/ui/views/layout/custom-views/create-view.md
+@@ -82,14 +82,14 @@ an example of a `attrs.xml` file:
+ 
+ ```xml
+ <resources>
+-   <declare-styleable name="PieChart">
+-       <attr name="showText" format="boolean" />
+-       <attr name="labelPosition" format="enum">
+-           <enum name="left" value="0"/>
+-           <enum name="right" value="1"/>
+-       </attr>
+-   </declare-styleable>
+-</resources>
++<   declare-styleable name="PieChart&q<uot;>
++       attr name="showText" f<ormat="boolean" />
++       attr name=&qu<ot;labelPosition" format="enum<">
++           enum name="<;left"<; value="0"<;/>
++           enum name="right" value="1"/>
++       /attr>
++   /declare-styleable>
++/resources>
+ ```
+ 
+ This code declares two custom attributes, `showText` and `labelPosition`,
+@@ -110,13 +110,13 @@ attributes defined for
+ 
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-   xmlns:custom="http://schemas.android.com/apk/res-auto">
+- <com.example.customviews.charting.PieChart
+-     custom:showText="true"
++<?xml version="1.0" encoding=<"utf-8"?>
++LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++   xmlns:custom="http:<//schemas.android.com/apk/res-auto">
++ com.example.customviews.charting.PieChart
++     custom:showTe<xt="true"
+      custom:labelPosition="left" />
+-</LinearLayout>
++/LinearLayout>
+ ```
+ 
+ To avoid having to repeat the long namespace URI, the sample uses an

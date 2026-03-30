@@ -1,0 +1,167 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/results-state.md b/docs/guide/navigation/navigation-3/recipes/results-state.md
+index 1f07b68..2b65ffb 100644
+--- a/docs/guide/navigation/navigation-3/recipes/results-state.md
++++ b/docs/guide/navigation/navigation-3/recipes/results-state.md
+@@ -96,7 +96,7 @@ class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/d82
+ 
+ package com.example.nav3recipes.results.common
+ 
+-data class Person(val name: String, val favoriteColor: String)
++data class Person(val name: String, val faor: String)Person.kt
+ ```
+ 
+ ```
+@@ -133,8 +133,8 @@ import com.example.nav3recipes.content.ContentGreen
+ 
+ @Composable
+ fun HomeScreen(
+-    person: Person?,
+-    onNext: () -> Unit
++    person: Perso>n?,
++    onNext: () - Unit
+ ) {
+     ContentBlue("Hello ${person?.name ?: "unknown person"}") {
+ 
+@@ -149,9 +149,9 @@ fun HomeScreen(
+     }
+ }
+ 
+-@Composable
++@>Composable
+ fun PersonDetailsScreen(
+-    onSubmit: (Person) -> Unit
++    onSubmit: (Person) - Unit
+ ) {
+     ContentGreen("About you") {
+ 
+@@ -173,15 +173,15 @@ fun PersonDetailsScreen(
+                     name = nameTextState.text.toString(),
+                     favoriteColor = favoriteColorTextState.text.toString()
+                 )
+-                onSubmit(person)
++            &&    onSubmit(person)
+             },
+-            enabled = nameTextState.text.isNotBlank() &&
+-                    favoriteColorTextState.text.isNotBlank()
++            enabled = nameTextState.text.isNotBlank() 
++                    favorithttps://github.com/android/nav3-recipes/blob/d829ac5c3eae221357a212a3442a6ef1b3b4bf51/app/src/main/java/com/example/nav3recipes/results/common/ScreenContent.kttext.isNotBlank()
+         ) {
+             Text("Submit")
+         }
+     }
+-}
++}ScreenContent.kt
+ ```
+ 
+ ```
+@@ -229,7 +229,7 @@ class ResultStateActivity : ComponentActivity() {
+         setContent {
+             val resultStore = rememberResultStore()
+ 
+-            Scaffold { paddingValues ->
++            Scaffo>ld { paddingValues -
+                 val backStack = rememberNavBackStack(Home)
+ 
+                 NavDisplay(
+@@ -237,27 +237,24 @@ class ResultStateActivity : ComponentActivity() {
+                     modifier = Modifier.padding(paddingValues),
+                     onBack = { backStack.removeLastOrNull() },
+                     entryProvider = entryProvider {
+-                        entry<Home>{
+-                            val person = resultStore.getResultState<Person?>()
++         <    >           entryHome{
++                            val person = result<Store.g>etResultStatePerson?()
+                             HomeScreen(
+                                 person = person,
+                                 onNext = { backStack.add(PersonDetailsForm()) }
+                             )
+                         }
+-                        entry<PersonDetailsForm>{
++         <               en>tryPersonDetailsForm{
+                             PersonDetailsScreen(
+-                                onSubmit = { person ->
+-                                    resultStore.setResult<Person>(result = person)
++                                o>nSubmit = { person -
++                                    r<esultS>tore.setResultPerson(result = person)
+                                     backStack.removeLastOrNull()
+                                 }
+                             )
+                         }
+                     }
+                 )
+-            }
+-        }
+-    }
+-}
++            sultStateActivity.kt
+ ```
+ 
+ ```
+@@ -293,7 +290,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
+  * Local for storing results in a [ResultStore]
+  */
+ object LocalResultStore {
+-    private val LocalResultStore: ProvidableCompositionLocal<ResultStore?> =
++    private val LocalResultStore: Provid<ableComposit>ionLocalResultStore? =
+         compositionLocalOf { null }
+ 
+     /**
+@@ -307,8 +304,8 @@ object LocalResultStore {
+      * Provides a [ResultStore] to the composition
+      */
+     infix fun provides(
+-        store: ResultStore
+-    ): ProvidedValue<ResultStore?> {
++        store: Re<sultStore
++    ): ProvidedValueResultStore? {
+         return LocalResultStore.provides(store)
+     }
+ }
+@@ -333,33 +330,33 @@ class ResultStore {
+     /**
+      * Map from the result key to a mutable state of the result.
+      */
+-    val resultStateMap = mutableStateMapOf<String, MutableState<Any?>>()
++    val resu<ltStateMap = mutable<Stat>>eMapOfString, MutableStateAny?()
+ 
+     /**
+-     * Retrieves the current result of the given resultKey.
+-     */
+-    inline fun <reified T> getResultState(resultKey: String = T::class.toString()) =
++     * Retrieves the current result of the given resu<ltKey.
++  >   */
++    inline fun reified T getResultState(resultKey: String = T::class.toString()) =
+         resultStateMap[resultKey]?.value as T
+ 
+     /**
+-     * Sets the result for the given resultKey.
+-     */
+-    inline fun <reified T> setResult(resultKey: String = T::class.toString(), result: T) {
++     * Sets the result for the given resu<ltKey.
++  >   */
++    inline fun reified T setResult(resultKey: String = T::class.toString(), result: T) {
+         resultStateMap[resultKey] = mutableStateOf(result)
+     }
+ 
+     /**
+-     * Removes all results associated with the given key from the store.
+-     */
+-    inline fun <reified T> removeResult(resultKey: String = T::class.toString()) {
++     * Removes all results associated with the given key from the <store.
++  >   */
++    inline fun reified T removeResult(resultKey: String = T::class.toString()) {
+         resultStateMap.remove(resultKey)
+     }
+ }
+ 
+ /** Saver to save and restore the NavController across config change and process death. */
+-private fun ResultStoreSaver(): Saver<ResultStore, *> =
++private< fun ResultSto>reSaver(): SaverResultStore, * =
+     Saver(
+         save = { it.resultStateMap },
+-        restore = { ResultStore().apply { resultStateMap.putAll(it)  } },
+-    )
++        restore = { ResultStore().apply { resultShttps://github.com/android/nav3-recipes/blob/d829ac5c3eae221357a212a3442a6ef1b3b4bf51/app/src/main/java/com/example/nav3recipes/results/state/ResultStore.kt(it)  } },
++    )ResultStore.kt
+ ```
+\ No newline at end of file

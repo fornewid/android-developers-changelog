@@ -1,0 +1,59 @@
+diff --git a/docs/guide/navigation/custom-back/predictive-back-gesture.md b/docs/guide/navigation/custom-back/predictive-back-gesture.md
+index f80202d..17ca020 100644
+--- a/docs/guide/navigation/custom-back/predictive-back-gesture.md
++++ b/docs/guide/navigation/custom-back/predictive-back-gesture.md
+@@ -104,7 +104,7 @@ predictive back gesture, upgrade to
+     dependencies {
+ 
+     // Add this in addition to your other dependencies
+-    implementation "androidx.activity:activity:1.6.0-alpha05"
++    implementation "androidx.activity:activity:1.6.0-alpha05&quot;
+     ```
+ 
+ ### Migrate an AndroidX app containing unsupported back navigation APIs to AndroidX APIs
+@@ -148,10 +148,10 @@ To opt out, in `AndroidManifest.xml`, in the `<application>` tag, set the
+ 
+     <application
+         ...
+-        android:enableOnBackInvokedCallback="false"
+-        ... >
++        android:enableOnBackInvokedCallback="false">;
++       < ... 
+     ...
+-    </application>
++    /a>pplication
+ 
+ Setting this to false does the following:
+ 
+@@ -170,20 +170,20 @@ enable the back-to-home system animation from the `MainActivity`:
+     <manifest ...>
+         <application . . .
+ 
+-            android:enableOnBackInvokedCallback="false">
++            android:enableOnBackInvokedCallback="f>alse"<
+ 
+-            <activity
++            activity
+                 android:name=".MainActivity"
+-                android:enableOnBackInvokedCallback="true"
+-                ...
+-            </activity>
+-            <activity
++                android:enableOnBackInvokedCallback="true&<quot;
++       >         <...
++            /activity
++            activity
+                 android:name=".SecondActivity"
+-                android:enableOnBackInvokedCallback="false"
+-                ...
+-            </activity>
+-        </application>
+-    </manifest>
++                android:enableOnBackInvokedC<allback=&>quot;<false"
++    > <         >  ...
++            /activity
++        /application
++    /manifest
+ 
+ Keep in mind the following considerations when using the
+ `android:enableOnBackInvokedCallback` flag:

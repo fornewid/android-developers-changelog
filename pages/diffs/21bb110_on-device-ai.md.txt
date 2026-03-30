@@ -1,0 +1,184 @@
+diff --git a/docs/google/play/on-device-ai.md b/docs/google/play/on-device-ai.md
+index 3e37aee..a736f18 100644
+--- a/docs/google/play/on-device-ai.md
++++ b/docs/google/play/on-device-ai.md
+@@ -120,7 +120,7 @@ Android Studio is not required for the following steps.
+        // In the settings.gradle file:
+        include ':app'
+        include ':ai-pack-name'
+-       include ':ai-pack2-name'
++       include &#39;:ai-pack2-name'
+ 
+ 5. Inside your AI pack, create a `src/main/assets/` directory.
+ 
+@@ -159,9 +159,9 @@ the Java AssetManager API to access AI packs served in this mode:
+ ```java
+ import android.content.res.AssetManager;
+ ...
+-Context context = createPackageContext("com.example.app", 0);
++Context context = createPackageContext(&quot;com.example.app", 0);
+ AssetManager assetManager = context.getAssets();
+-InputStream is = assetManager.open("model-name");
++InputStream is = assetManager.open(&quot;model-name");
+ ```
+ 
+ ### Configure fast-follow and on-demand delivery
+@@ -220,13 +220,13 @@ Map<String, AiPackState> AiPackStates#packStates()
+ The final request is shown by the following:
+ 
+ ```java
+-final String aiPackName = "myAiPackName";
++final String aiPackName = &quot;myAiPackName";
+ 
+ aiPackManager
+     .getPackStates(Collections.singletonList(aiPackName))
+-    .addOnCompleteListener(new OnCompleteListener<AiPackStates>() {
++    .addOnCompleteListener(new OnComple<teListenerAi>PackStates() {
+         @Override
+-        public void onComplete(Task<AiPackStates> task) {
++        public void onCom<plete(TaskAi>PackStates task) {
+             AiPackStates aiPackStates;
+             try {
+                 aiPackStates = task.getResult();
+@@ -503,15 +503,15 @@ custom device groups. For example, you could define a device group called
+ `qti_v79` that contains all devices with the Qualcomm SM8750 system on chip:
+ 
+     <config:device-targeting-config
+-        xmlns:config="http://schemas.android.com/apk/config">
++        xmlns:config="http://schemas.android.com/apk/co>nfig&q<uot;
+ 
+-        <config:device-group name="qti_v79">
+-            <config:device-selector>
+-                <config:system-on-chip manufacturer="QTI" model="SM8750"/>
+-            </config:device-selector>
+-        </config:device-group>
++        config:device-group name>="qt<i_v79"
++            co>nfig:device-s<elector
++                config:system-on-chip manufacturer=&>quot;QTI&<quot; model="SM875>0&quo<t;/
++            /config:>de<vice-selector
++        /config:devic>e-group
+ 
+-    </config:device-targeting-config>
++    /config:device-targeting-config
+ 
+ A **device group** is composed of up to 5 **device selectors**. A device is
+ included in a device group if it satisfies any of its device selectors.
+@@ -563,9 +563,9 @@ group is automatically generated and shouldn't be defined explicitly.
+ > selector creates a logical AND, for example:
+ >
+ > ```xml
+->     <config:device-selector ram-min-bytes="7000000000">
+->         <config:included-device-id brand="google" device="flame"/>
+->     </config:device-selector>
++>     <config:device-selector ram-min-bytes="700000>0000"<;
++>         config:included-device-id brand="google&q>uot; <device="flame">;/
++>     /config:device-selector
+ >   
+ > ```
+ >
+@@ -578,10 +578,10 @@ group is automatically generated and shouldn't be defined explicitly.
+ > selectors in a single device group, for example:
+ >
+ > ```xml
+->     <config:device-selector ram-min-bytes="7000000000"/>
+->     <config:device-selector>
+->           <config:included-device-id brand="google" device="flame"/>
+->     </config:device-selector>
++>     <config:device-selector ram-min-bytes="7000000>000&q<uot;/
++>     config:devic>e-selector
++> <          config:included-device-id brand="google&q>uot; <device="flame">;/
++>     /config:device-selector
+ >   
+ > ```
+ >
+@@ -593,30 +593,30 @@ group is automatically generated and shouldn't be defined explicitly.
+ Here is an example showing all possible device properties:
+ 
+     <config:device-targeting-config
+-        xmlns:config="http://schemas.android.com/apk/config">
+-
+-        <config:device-group name="myCustomGroup1">
+-          <config:device-selector ram-min-bytes="8000000000">
+-            <config:included-device-id brand="google" device="redfin"/>
+-            <config:included-device-id brand="google" device="sailfish"/>
+-            <config:included-device-id brand="good-brand"/>
+-            <config:excluded-device-id brand="google" device="caiman"/>
+-            <config:system-on-chip manufacturer="Sinclair" model="ZX80"/>
+-            <config:system-on-chip manufacturer="Commodore" model="C64"/>
+-          </config:device-selector>
+-          <config:device-selector ram-min-bytes="16000000000"/>
+-        </config:device-group>
+-
+-        <config:device-group name="myCustomGroup2">
+-          <config:device-selector ram-min-bytes="4000000000" ram-max-bytes="8000000000">
+-            <config:required-system-feature name="android.hardware.bluetooth"/>
+-            <config:required-system-feature name="android.hardware.location"/>
+-            <config:forbidden-system-feature name="android.hardware.camera"/>
+-            <config:forbidden-system-feature name="mindcontrol.laser"/>
+-          </config:device-selector>
+-        </config:device-group>
+-
+-    </config:device-targeting-config>
++        xmlns:config="http://schemas.android.com/apk/co>nfig&q<uot;
++
++        config:device-group name=">myCusto<mGroup1"
++          config:device-selector ram-mi>n-bytes=&<quot;8000000000"
++            config:included-device-id b>rand=&quo<t;google" device="redfin"/
++            config:in>cluded-de<vice-id brand="google" device=">;sailfish<"/
++            config:included-device-id brand="goo>d-brand&q<uot;/
++            config:excluded-device-id brand="google&>quot; dev<ice="caiman"/
++            config:system-on-chip manuf>acturer<="Sinclair" m>odel=&q<uot;ZX80"/
++            config:system-on-chip manuf>actur<er="Commodore&q>uot; m<odel="C64"/
++          /config:devic>e-selec<tor
++          config:device-selector ram-min-bytes="16000000000"/
++        >/config:d<evice-group
++
++        config:device-group name="myCustomGroup2&qu>ot;
++         < config:device-selector ram-min-bytes="4000000000" ram>-max-byte<s="8000000000"
++            config:required-system-feature> name=&qu<ot;android.hardware.bluetooth"/
++            config:requi>red-sys<tem-feature name=">andro<id.hardware.location>&q<uot;/
++            config:forbidden->system-feature name="android.hardware.camera"/
++            config:forbidden-system-feature name="mindcontrol.laser"/
++          /config:device-selector
++        /config:device-group
++
++    /config:device-targeting-config
+ 
+ #### Official device manufacturer and device model codes
+ 
+@@ -711,21 +711,21 @@ To deliver a feature module to devices that belong to either `myCustomGroup1` or
+ 
+     <manifest ...>
+       ...
+-      <dist:module dist:title="...">
+-        <dist:delivery>
+-          <dist:install-time>
+-            <dist:conditions>
+-              <dist:device-groups>
+-                <dist:device-group dist:name="myCustomGroup1"/>
+-                <dist:device-group dist:name="myCustomGroup2"/>
+-              </dist:device-groups>
+-              ...
+-            </dist:conditions>
+-          </dist:install-time>
+-        </dist:delivery>
+-      </dist:module>
++      <dist:module dist:title=">;...&<quot;
++        dis>t:deliv<ery
++          dist:in>stall-tim<e
++            dist:>conditions
++    <          dist:dev>ice-groups
++      <          dist:device-group dist:name="m>yCustomGroup1<"/
++                dist:device-group dist:na>me="my<CustomGroup2"/>
++              /dist:device<-groups
++            >  ...
++     <       /dis>t:conditions<
++          /dist:i>nst<all-time
++       > /dist:<delivery
++    >  /dist:module
+       ...
+-    </manifest>
++    /manifest
+ 
+ > [!NOTE]
+ > **Note:** Devices that are not targeted won't receive the feature module at all. This is different from [targeting for AI packs](https://developer.android.com/google/play/on-device-ai#targeting-for-ai-packs), where devices that are not targeted receive a default, empty variant of the AI pack.

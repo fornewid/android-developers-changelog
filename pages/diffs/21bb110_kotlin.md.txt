@@ -1,0 +1,23 @@
+diff --git a/docs/develop/ui/compose/kotlin.md b/docs/develop/ui/compose/kotlin.md
+index bd35621..b81b875 100644
+--- a/docs/develop/ui/compose/kotlin.md
++++ b/docs/develop/ui/compose/kotlin.md
+@@ -506,7 +506,7 @@ Button( // ...
+             viewModel.loadData()
+         }
+     }
+-) { /* ... */ }
++) { /* ... https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L309-L322s.kt
+ ```
+ 
+ <br />
+@@ -561,8 +561,7 @@ fun MoveBoxWhereTapped() {
+                 }
+                 .size(40.dp)
+                 .background(Color(0xff3c1361), CircleShape)
+-        )
+-    }
++     https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L327-L372nippets.kt
+ ```
+ 
+ <br />

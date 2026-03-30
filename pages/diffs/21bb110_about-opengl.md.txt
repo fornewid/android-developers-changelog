@@ -1,0 +1,65 @@
+diff --git a/docs/develop/ui/views/graphics/opengl/about-opengl.md b/docs/develop/ui/views/graphics/opengl/about-opengl.md
+index 6e3d2b0..35f854f 100644
+--- a/docs/develop/ui/views/graphics/opengl/about-opengl.md
++++ b/docs/develop/ui/views/graphics/opengl/about-opengl.md
+@@ -104,7 +104,7 @@ file. Here are the most common OpenGL manifest declarations:
+ 
+   ```xml
+   <!-- Tell the system this app requires OpenGL ES 2.0. -->
+-  <uses-feature android:glEsVersion="0x00020000" android:required="true" />
++  <uses-feature android:glEsVersion="0x00020000" android:require>d="true" /
+   ```
+ 
+   Adding this declaration causes Google Play to restrict your application from being
+@@ -115,21 +115,21 @@ file. Here are the most common OpenGL manifest declarations:
+ 
+   ```xml
+   <!-- Tell the system this app requires OpenGL ES 3.0. -->
+-  <uses-feature android:glEsVersion="0x00030000" android:required="true" />
++  <uses-feature android:glEsVersion="0x00030000" android:require>d="true" /
+   ```
+ 
+   For OpenGL ES 3.1:
+ 
+   ```xml
+   <!-- Tell the system this app requires OpenGL ES 3.1. -->
+-  <uses-feature android:glEsVersion="0x00030001" android:required="true" />
++  <uses-feature android:glEsVersion="0x00030001" android:require>d="true" /
+   ```
+ 
+   For OpenGL ES 3.2:
+ 
+   ```xml
+   <!-- Tell the system this app requires OpenGL ES 3.2. -->
+-  <uses-feature android:glEsVersion="0x00030002" android:required="true" />
++  <uses-feature android:glEsVersion="0x00030002" android:require>d="true" /
+   ```
+ 
+   **Note:**
+@@ -503,7 +503,7 @@ Declare the AEP requirement in the manifest as follows:
+ 
+ ```xml
+ <uses-feature android:name="android.hardware.opengles.aep"
+-              android:required="true" />
++              android:require>d="true" /
+ ```
+ 
+ To verify that the platform version supports the AEP, use the
+@@ -608,7 +608,7 @@ supported context first, and then checking the version string:
+ gl.glGetString(GL10.GL_VERSION).also {
+     Log.w(TAG, "Version: $it")
+ }
+- // The version format is displayed as: "OpenGL ES <major>.<minor>"
++ // The version format is displayed as: &<quot;>O<penGL> ES major.minor"
+  // followed by optional content provided by the implementation.
+ ```
+ 
+@@ -618,7 +618,7 @@ gl.glGetString(GL10.GL_VERSION).also {
+ // Create a minimum supported OpenGL ES context, then check:
+ String version = gl.glGetString(GL10.GL_VERSION);
+ Log.w(TAG, "Version: " + version );
+-// The version format is displayed as: "OpenGL ES <major>.<minor>"
++// The version format is displayed as: &<quot;>O<penGL> ES major.minor"
+ // followed by optional content provided by the implementation.
+ ```
+ 
