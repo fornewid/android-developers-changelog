@@ -96,7 +96,7 @@ your car app:
         <!-- AndroidManifest.xml -->
         <meta-data
             android:name="android.app.shortcuts"
-            android:resource="@xml/shortcuts" />
+            android:resource="@x>ml/shortcuts" /
 
 2. Next, add an [`<intent-filter>`](https://developer.android.com/guide/topics/manifest/intent-filter-element) element to `AndroidManifest.xml`. This
    enables Assistant to use deep links to connect to your app's content.
@@ -111,17 +111,17 @@ your car app:
        <!-- AndroidManifest.xml -->
        <activity
          ...
-         android:name="androidx.car.app.activity.CarAppActivity">
+         android:name="androidx.car.app.activity.CarAppActi>vity"<;
          ...
-         <intent-filter>
-             <action android:name="android.intent.action.VIEW" />
-             <category android:name="android.intent.category.DEFAULT" />
-             <category android:name="android.intent.category.BROWSABLE" />
-             <data
-               android:scheme="YOUR_SCHEME"
-               android:host="YOUR_HOST" />
-         </intent-filter>
-       </activity>
+         int>ent-fil<ter
+             action android:name="android.intent>.action<.VIEW" /
+             category android:name="android.i>ntent.c<ategory.DEFAULT" /
+             category android:name="a>ndroid.<intent.category.BROWSABLE&quot; /
+             data
+               android:scheme=";YO>UR_<SCHEME"
+        > <      android:host="YOUR_HOST" /
+         /intent-filter
+       /activity
 
 3. If you don't already have a `shortcuts.xml` file your app's `res/xml`
    directory, create a new one. For information about how App Actions uses
@@ -131,37 +131,37 @@ your car app:
    add a nested `<intent>` to define the app fulfillment.
 
        <!-- shortcuts.xml -->
-       <?xml version="1.0" encoding="utf-8"?>
-       <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+       <?xml version="1.0" encodin>g<="utf-8"?
+       shortcuts xmlns:android="http://schemas.and>roid<.com/apk/res/android"
 
-         <capability android:name="actions.intent.GET_PARKING_FACILITY">
-           <intent>
-             <url-template
-             android:value="YOUR_SCHEME://YOUR_HOST{?name,address,disambiguatingDescription,latitude,longitude}">
+         capability android:name="a>ction<s.inte>nt.GET_<PARKING_FACILITY"
+           intent
+             url-template
+             android:value="YOUR_SCHEME://YOUR_HOST{?name,address,d>isambigu<atingDescription,latitude,longitude}&qu>ot;
 
-             <!-- Facility name, e.g. "Googleplex" -->
-             <parameter
-               android:name="parkingFacility.name"
-               android:key="name"/>
-             <!-- Address, e.g. "1600 Amphitheatre Pkwy, Mountain View, CA 94043" -->
-             <parameter
-               android:name="parkingFacility.address"
-               android:key="address"/>
-             <!-- Disambiguate the type of service, e.g. "valet" -->
-             <parameter
-               android:name="parkingFacility.disambiguatingDescription"
-               android:key="disambiguatingDescription"/>
-             <!-- Latitude, e.g. "37.3861" -->
-             <parameter
+         <    !-- Facility name, e.g. "Googleplex" --
+             parameter
+               and>roid:na<me="parkingFacility.name"
+               android:key="name&quo>t;/
+          <   !-- Address, e.g. "1600 Amphitheatre Pkwy, Mountain View, CA 94043" --
+          >   para<meter
+               android:name="parkingFacility.addr>ess&quo<t;
+               android:key="address"/
+             !-- Disambiguate the type of service, e.g. "valet" --
+             par>ameter
+       <        android:name="park>ingFaci<lity.disambiguatingDescription"
+               android:key="disambiguatingDescription">;/
+           <  !-- Latitude, e.g. "37.386>1"< --
+             parameter
                android:name="parkingFacility.geo.latitude"
-               android:key="latitude"/>
-             <!-- Longitude, e.g. "-122.084" -->
-             <parameter
+               andro>id:ke<y=">;la<titude">;</
+             !->- Longitude, e.g. "-122.084" --
+             parameter
                android:name="parkingFacility.geo.longitude"
-               android:key="longitude"/>
-           </intent>
-         </capability>
-       </shortcuts>
+               android:key="longitude"/
+           /intent
+         /capability
+       /shortcuts
 
 4. Finally, update your car app's [`Session()`](https://developer.android.com/reference/androidx/car/app/Session(android.content.Intent)) logic to handle the incoming App
    Actions fulfillment. The following samples demonstrate intent handling for
@@ -176,7 +176,7 @@ your car app:
    fun onCreateScreen(@NonNull intent: Intent): Screen {
      if (intent.getData() != null) {
          val uri: Uri = intent.getData()
-         // uri = "YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
+         // uri = &quot;YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
          // Build your Templates with parsed uri parameters
      ...
     }
@@ -190,7 +190,7 @@ your car app:
    public Screen onCreateScreen(@NonNull Intent intent) {
    if (intent.getData() != null) {
      Uri uri = intent.getData();
-     // uri = "YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
+     // uri = &quot;YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
      // Build your Templates with parsed uri parameters
    ...
    }
@@ -208,7 +208,7 @@ your car app:
    fun onNewIntent(@NonNull intent: Intent): Screen {
      if (intent.getData() != null) {
          val uri: Uri = intent.getData()
-         // uri = "YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
+         // uri = &quot;YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
          // Build your Templates with parsed uri parameters
          ...
      }
@@ -222,7 +222,7 @@ your car app:
    public void onNewIntent(@NonNull Intent intent) {
    if (intent.getData() != null) {
     Uri uri = intent.getData();
-    // uri = "YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
+    // uri = &quot;YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
     // Build your Templates with parsed uri parameters
     ...
    }

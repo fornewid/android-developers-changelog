@@ -37,7 +37,8 @@ your manifest file.
 
 Define the service and session object with the following classes:
 
-| **Note:** Implement all aspects of spell checking asynchronously and in a thread-safe manner. A spell checker might be called simultaneously by different threads running on different cores. The `SpellCheckerService` and `SpellCheckerService.Session` take care of this automatically.
+> [!NOTE]
+> **Note:** Implement all aspects of spell checking asynchronously and in a thread-safe manner. A spell checker might be called simultaneously by different threads running on different cores. The `SpellCheckerService` and `SpellCheckerService.Session` take care of this automatically.
 
 ### Spell checker manifest and metadata
 
@@ -45,59 +46,59 @@ In addition to code, provide the appropriate manifest file and a metadata
 file for the spell checker.
 
 The manifest file defines the app, the service, and the activity for
-controlling settings, as shown in the following example:  
+controlling settings, as shown in the following example:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.samplespellcheckerservice" >
-    <application
-        android:label="@string/app_name" >
-        <service
-            android:label="@string/app_name"
+    package="com.example.android.samplespellc>hecke<rservice" 
+    application
+   @     android:labe>l="s<tring/app_name" 
+        servi@ce
+            android:label="string/app_name"
             android:name=".SampleSpellCheckerService"
-            android:permission="android.permission.BIND_TEXT_SERVICE" >
-            <intent-filter >
-                <action android:name="android.service.textservice.SpellCheckerService" />
-            </intent-filter>
+            android:>permission=&q<uot;android.pe>rmission.BIND_TEX<T_SERVICE" 
+            intent-filter 
+                action andr>oid:name=&quo<t;android.serv>ice.textservic<e.SpellCheckerService" /
+            /intent-filter
 
-            <meta-data
-                android:name="android.view.textservice.scs"
-                android:resource="@xml/spellchecker" />
-        </service>
+            meta-data
+                android:@name="android.>view.text<service.>scs"
+<                android:resource=&qu@ot;xml/spellchecker" /
+        /service
 
-        <activity
-            android:label="@string/sample_settings"
-            android:name="SpellCheckerSettingsActivity" >
-            <intent-filter >
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-    </application>
-</manifest>
+        activity
+            andro>id:label=&quo<t;string/sampl>e_settings"
+<            android:name="SpellCheckerSetting>sActivity&quo<t; 
+          >  intent-<filter 
+ >     <          act<ion andro>id:name="android.intent.action.MAIN" /
+            /intent-filter
+        /activity
+    /application
+/manifest
 ```
 
 Components that want to use the service must request the permission
-[BIND_TEXT_SERVICE](https://developer.android.com/reference/android/Manifest.permission#BIND_TEXT_SERVICE)
+`https://developer.android.com/reference/android/Manifest.permission#BIND_TEXT_SERVICE`
 to ensure that only the system binds to the service. The service's definition
 also specifies the `spellchecker.xml` metadata file, which is
 described in the next section.
 
 The metadata file `spellchecker.xml` contains the following
-XML:  
+XML:
 
 ```xml
 <spell-checker xmlns:android="http://schemas.android.com/apk/res/android"
-        android:label="@string/spellchecker_name"
-        android:settingsActivity="com.example.SpellCheckerSettingsActivity">
-    <subtype
-            android:label="@string/subtype_generic"
-            android:subtypeLocale="en”
-    />
-    <subtype
-            android:label="@string/subtype_generic"
-            android:subtypeLocale="fr”
-    />
-</spell-checker>
+        andro@id:label="string/spellchecker_name"
+        android:settingsActivity="com.example.Spel>lChec<kerSettingsActivity"
+    subty@pe
+            android:label="string/subtype_generic"
+    >     <   android:subtypeLocale="en”
+@    /
+    subtype
+            android:label="string/subtype_gen>e<ric"
+    >        android:subtypeLocale="fr”
+    /
+/spell-checker
 ```
 
 The metadata specifies the activity that the spell checker uses to control
@@ -107,8 +108,8 @@ subtypes define locales that the spell checker can handle.
 ## Access the spell checker service from a client
 
 apps that use
-[TextView](https://developer.android.com/reference/android/widget/TextView) and
-[EditText](https://developer.android.com/reference/android/widget/EditText)
+`https://developer.android.com/reference/android/widget/TextView` and
+`https://developer.android.com/reference/android/widget/EditText`
 views automatically benefit from spell checking, because `TextView`
 automatically uses a spell checker:
 ![An image showing how the spell checker is automatically enabled in EditText](https://developer.android.com/static/images/ui/spellchecker_edittext.png) **Figure 2.** Spell checking in an `EditText`.

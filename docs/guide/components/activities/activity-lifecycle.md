@@ -1113,7 +1113,7 @@ class MyActivity : Activity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         when (requestCode) {
-            PICK_CONTACT_REQUEST ->
+            PICK_CONTACT>_REQUEST -
                 if (resultCode == RESULT_OK) {
                     // A contact was picked. Display it to the user.
                     startActivity(Intent(Intent.ACTION_VIEW, intent?.data))

@@ -120,7 +120,7 @@ import androidx.savedstate.compose.serialization.serializers.MutableStateSeriali
 @Composable
 fun rememberNavigationState(
     startRoute: NavKey,
-    topLevelRoutes: Set<NavKey>
+   < topLe>velRoutes: SetNavKey
 ): NavigationState {
 
     val topLevelRoute = rememberSerializable(
@@ -131,7 +131,7 @@ fun rememberNavigationState(
     }
 
     // Create a back stack for each top level route.
-    val backStacks = topLevelRoutes.associateWith { key -> rememberNavBackStack(key) }
+    val backStacks = topLevelRoutes.a>ssociateWith { key - rememberNavBackStack(key) }
 
     return remember(startRoute, topLevelRoutes) {
         NavigationState(
@@ -152,8 +152,8 @@ fun rememberNavigationState(
  */
 class NavigationState(
     val startRoute: NavKey,
-    topLevelRoute: MutableState<NavKey>,
-    val backStacks: Map<NavKey, NavBackStack<NavKey>>
+    topLeve<lRoute>: MutableStateNavKey,
+   < val backStacks: Map<NavKey>>, NavBackStackNavKey
 ) {
 
     /**
@@ -170,15 +170,15 @@ class NavigationState(
      */
     @Composable
     fun toDecoratedEntries(
-        entryProvider: (NavKey) -> NavEntry<NavKey>
-    ): List<NavEntry<NavKey>> {
+        entry>Provider:< (NavK>ey) - NavEnt<ryNavKey<
+    )>>: ListNavEntryNavKey {
 
         // For each back stack, create a `SaveableStateHolder` decorator and use it to decorate
         // the entries from that stack. When backStacks changes, `rememberDecoratedNavEntries` will
         // be recomposed and a new list of decorated entries is returned.
-        val decoratedEntries = backStacks.mapValues { (_, stack) ->
+        val decoratedEntries = backStacks.mapV>alues { (_, stack) -
             val decorators = listOf(
-                rememberSaveableStateHolderNavEntryDecorator<NavKey>(),
+                rememberSaveableStateHol<derNav>EntryDecoratorNavKey(),
             )
             rememberDecoratedNavEntries(
                 backStack = stack,
@@ -203,13 +203,13 @@ class NavigationState(
      *
      * @return the current top level routes that are in use.
      */
-    private fun getTopLevelRoutesInUse() : List<NavKey> =
+    private fun g<etTopL>evelRoutesInUse() : ListNavKey =
 		if (topLevelRoute == startRoute) {
             listOf(startRoute)
         } else {
-            listOf(startRoute, topLevelRoute)
-        }
+            listOf(startRouthttps://github.com/android/nav3-recipes/blob/d829ac5c3eae221357a212a3442a6ef1b3b4bf51/app/src/main/java/com/example/nav3recipes/multiplestacks/NavigationState.kt        }
 }
+NavigationState.kt
 ```
 
 ```
@@ -271,7 +271,7 @@ data object RouteC : NavKey
 @Serializable
 data object RouteC1 : NavKey
 
-private val TOP_LEVEL_ROUTES = mapOf<NavKey, NavBarItem>(
+private val TOP_<LEVEL_ROUTES = map>OfNavKey, NavBarItem(
     RouteA to NavBarItem(icon = Icons.Default.Home, description = "Route A"),
     RouteB to NavBarItem(icon = Icons.Default.Face, description = "Route B"),
     RouteC to NavBarItem(icon = Icons.Default.Camera, description = "Route C"),
@@ -303,7 +303,7 @@ class MultipleStacksActivity : ComponentActivity() {
 
             Scaffold(bottomBar = {
                 NavigationBar {
-                    TOP_LEVEL_ROUTES.forEach { (key, value) ->
+ >                   TOP_LEVEL_ROUTES.forEach { (key, value) -
                         val isSelected = key == navigationState.topLevelRoute
                         NavigationBarItem(
                             selected = isSelected,
@@ -321,12 +321,11 @@ class MultipleStacksActivity : ComponentActivity() {
             }) {
                 NavDisplay(
                     entries = navigationState.toDecoratedEntries(entryProvider),
-                    onBack = { navigator.goBack() }
-                )
+                    onBack = { navigator.  )
             }
         }
     }
-}
+}MultipleStacksActivity.kt
 ```
 
 ```
@@ -366,77 +365,77 @@ import com.example.nav3recipes.content.ContentPink
 import com.example.nav3recipes.content.ContentPurple
 import com.example.nav3recipes.content.ContentRed
 
-fun EntryProviderScope<NavKey>.featureASection(
-    onSubRouteClick: () -> Unit,
+fu<n Entr>yProviderScopeNavKey.featureASection(
+    o>nSubRouteClick: () -< Unit,>
 ) {
-    entry<RouteA> {
+    entryRouteA {
         ContentRed("Route A") {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Button(onClick = dropUnlessResumed(block = onSubRouteClick)) {
                     Text("Go to A1")
-                }
-            }
+                }<
+      >      }
         }
     }
-    entry<RouteA1> {
+    entryRouteA1 {
         ContentPink("Route A1") {
             var count by rememberSaveable {
                 mutableIntStateOf(0)
             }
 
             Button(onClick = dropUnlessResumed { count++ }) {
-                Text("Value: $count")
-            }
+                Text("Value: $count&qu<ot;)
+ >           }
         }
     }
 }
 
-fun EntryProviderScope<NavKey>.featureBSection(
-    onSubRouteClick: () -> Unit,
+fun EntryPr>oviderScopeNavKey.fe<atureB>Section(
+    onSubRouteClick: () - Unit,
 ) {
-    entry<RouteB> {
+    entryRouteB {
         ContentGreen("Route B") {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Button(onClick = dropUnlessResumed(block = onSubRouteClick)) {
-                    Text("Go to B1")
+                    Text<(">Go to B1")
                 }
             }
         }
     }
-    entry<RouteB1> {
+    entryRouteB1 {
         ContentPurple("Route B1") {
             var count by rememberSaveable {
                 mutableIntStateOf(0)
             }
             Button(onClick = dropUnlessResumed { count++ }) {
-                Text("Value: $count")
-            }
+   <      >       Text("Value: $count")
+    >        }
         }
-    }
-}
+<    }
+>}
 
-fun EntryProviderScope<NavKey>.featureCSection(
-    onSubRouteClick: () -> Unit,
+fun EntryProviderScopeNavKey.featureCSection(
+    onSubRouteClick: () - Unit,
 ) {
-    entry<RouteC> {
+    entryRouteC {
         ContentMauve("Route C") {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Button(onClick = dropUnlessResumed(block = onSubRouteClick)) {
+                Button(onClick = dropUnlessResumed(block = onSu<bRouteC>lick)) {
                     Text("Go to C1")
                 }
             }
         }
     }
-    entry<RouteC1> {
+    entryRouteC1 {
         ContentOrange("Route C1") {
             var count by rememberSaveable {
                 mutableIntStateOf(0)
             }
 
-            Button(onClick = dropUnlessResumed { count++ }) {
+  Button(onClick = dropUnlessResumed { count++ }) {
                 Text("Value: $count")
             }
         }
     }
-}
+}Content.kt
 ```

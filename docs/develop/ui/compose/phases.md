@@ -137,8 +137,7 @@ of those equivalent access methods.
 val paddingState: MutableState<Dp> = remember { mutableStateOf(8.dp) }
 Text(
     text = "Hello",
-    modifier = Modifier.padding(paddingState.value)
-)
+    modifier = Modifier.padding(paddingStathttps://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/java/com/example/compose/snippets/phases/PhasesSnippets.kt#L49-L54nippets.kt
 ```
 
 <br />
@@ -149,8 +148,7 @@ Text(
 var padding: Dp by remember { mutableStateOf(8.dp) }
 Text(
     text = "Hello",
-    modifier = Modifier.padding(padding)
-)
+    modifier = Modifier.padding(nippets.kt
 ```
 
 <br />
@@ -199,8 +197,7 @@ Text(
     // The `padding` state is read in the composition phase
     // when the modifier is constructed.
     // Changes in `padding` will invoke recomposition.
-    modifier = Modifier.padding(padding)
-)
+    modifier = Modifier.padding(nippets.kt
 ```
 
 <br />
@@ -229,9 +226,7 @@ Text(
         // The `offsetX` state is read in the placement step
         // of the layout phase when the offset is calculated.
         // Changes in `offsetX` restart the layout.
-        IntOffset(offsetX.roundToPx(), 0)
-    }
-)
+        IntOffset(offsetX.roundToPx(), nippets.kt
 ```
 
 <br />
@@ -369,7 +364,7 @@ Box {
         contentDescription = "I'm above the text",
         modifier = Modifier
             .fillMaxWidth()
-            .onSizeChanged { size ->
+            .onSizeCh>anged { size -
                 // Don't do this
                 imageHeightPx = size.height
             }
@@ -378,10 +373,9 @@ Box {
     Text(
         text = "I'm below the image",
         modifier = Modifier.padding(
-            top = with(LocalDensity.current) { imageHeightPx.toDp() }
-        )
+            top = with(LocalDensity.current) { imageHeihttps://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/java/com/example/compose/snippets/phases/PhasesSnippets.kt#L181-L201      )
     )
-}
+}PhasesSnippets.kt
 ```
 
 <br />

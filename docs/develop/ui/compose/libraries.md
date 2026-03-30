@@ -401,9 +401,7 @@ fun MyScreen(flow: Flow<PagingData<String>>) {
         ) { index ->
             val item = lazyPagingItems[index]
             Text("Item is $item")
-        }
-    }
-}
+       https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/java/com/example/compose/snippets/interop/ComposeWithOtherLibraries.kt#L247-L259braries.kt
 ```
 
 <br />
@@ -431,10 +429,7 @@ fun MapsExample() {
         Marker(
             state = remember { MarkerState(position = singapore) },
             title = "Singapore",
-            snippet = "Marker in Singapore"
-        )
-    }
-}
+            snippet = "Marker in Singapore&quohttps://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/java/com/example/compose/snippets/interop/ComposeWithOtherLibraries.kt#L265-L281ithOtherLibraries.kt
 ```
 
 <br />

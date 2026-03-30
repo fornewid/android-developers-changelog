@@ -92,10 +92,10 @@ class BottomSheetActivity : ComponentActivity() {
                                 Text("Click to open bottom sheet")
                             }
                         }
-                    }
-                    entry<RouteB>(
-                        metadata = BottomSheetSceneStrategy.bottomSheet()
-                    ) { key ->
+                 <   }
+ >                   entryRouteB(
+                        metadata = BottomSheetSceneStrategy.bottomSheet()>
+                    ) { key -
                         ContentBlue(
                             title = "Route id: ${key.id}",
                             modifier = Modifier.clip(
@@ -103,11 +103,10 @@ class BottomSheetActivity : ComponentActivity() {
                             )
                         )
                     }
-                }
-            )
-        }
+                  }
     }
 }
+BottomSheetActivity.kt
 ```
 
 ```
@@ -188,8 +187,5 @@ class BottomSheetSceneStrategy<T : Any> : SceneStrategy<T> {
                 put(BottomSheetKey, modalBottomSheetProperties)
             }
 
-        object BottomSheetKey : NavMetadataKey<ModalBottomSheetProperties>
-    }
-
-}
+        object BottomSheetKey : NavM<etadataKeyModalBottomSheet>Propertiehttps://github.com/android/nav3-recipes/blob/d829ac5c3eae221357a212a3442a6ef1b3b4bf51/app/src/main/java/com/example/nav3recipes/bottomsheet/BottomSheetSceneStrategy.kttrategy.kt
 ```

@@ -4,8 +4,9 @@ url: https://developer.android.com/google/play/expansion-files
 source: md.txt
 ---
 
-| **Important:** From August 2021, new apps are required to publish with the [Android App Bundle](https://developer.android.com/guide/app-bundle) on Google Play. New apps larger than 200 MB are now supported by either [Play Feature Delivery](https://developer.android.com/guide/app-bundle/dynamic-delivery) or [Play Asset Delivery](https://developer.android.com/guide/app-bundle/asset-delivery). From June 2023, new and existing [TV apps are required to
-| be published as App Bundles](https://developer.android.com/docs/quality-guidelines/tv-app-quality#SC-E1).
+> [!NOTE]
+> **Important:** From August 2021, new apps are required to publish with the [Android App Bundle](https://developer.android.com/guide/app-bundle) on Google Play. New apps larger than 200 MB are now supported by either [Play Feature Delivery](https://developer.android.com/guide/app-bundle/dynamic-delivery) or [Play Asset Delivery](https://developer.android.com/guide/app-bundle/asset-delivery). From June 2023, new and existing [TV apps are required to
+> be published as App Bundles](https://developer.android.com/docs/quality-guidelines/tv-app-quality#SC-E1).
 
 Google Play requires that the compressed APK that users download be no more than 100MB.
 For most apps, this is plenty of space for all the app's code and assets.
@@ -59,7 +60,7 @@ main expansion file---you can use each file any way you want.
 Each expansion file you upload can be any format you choose (ZIP, PDF, MP4, etc.). You can also
 use the [JOBB](https://developer.android.com/tools/help/jobb) tool to encapsulate and encrypt a set
 of resource files and subsequent patches for that set. Regardless of the file type, Google Play
-considers them opaque binary blobs and renames the files using the following scheme:  
+considers them opaque binary blobs and renames the files using the following scheme:
 
 ```
 [main|patch].<expansion-version>.<package-name>.obb
@@ -84,7 +85,7 @@ There are three components to this scheme:
 :   Your app's Java-style package name.
 
 For example, suppose your APK version is 314159 and your package name is com.example.app. If you
-upload a main expansion file, the file is renamed to:  
+upload a main expansion file, the file is renamed to:
 
 ```
 main.314159.com.example.app.obb
@@ -97,15 +98,15 @@ shared storage location. To ensure proper behavior, you must not delete, move, o
 expansion files. In the event that your app must perform the download from Google Play
 itself, you must save the files to the exact same location.
 
-The [getObbDir()](https://developer.android.com/reference/android/content/Context#getObbDir()) method returns the specific location
-for your expansion files in the following form:  
+The `https://developer.android.com/reference/android/content/Context#getObbDir()` method returns the specific location
+for your expansion files in the following form:
 
 ```
 <shared-storage>/Android/obb/<package-name>/
 ```
 
-- `<shared-storage>` is the path to the shared storage space, available from [getExternalStorageDirectory()](https://developer.android.com/reference/android/os/Environment#getExternalStorageDirectory()).
-- `<package-name>` is your app's Java-style package name, available from [getPackageName()](https://developer.android.com/reference/android/content/Context#getPackageName()).
+- `<shared-storage>` is the path to the shared storage space, available from `https://developer.android.com/reference/android/os/Environment#getExternalStorageDirectory()`.
+- `<package-name>` is your app's Java-style package name, available from `https://developer.android.com/reference/android/content/Context#getPackageName()`.
 
 For each app, there are never more than two expansion files in this directory.
 One is the main expansion file and the other is the patch expansion file (if necessary). Previous
@@ -114,16 +115,16 @@ versions are overwritten when you update your app with new expansion files. Sinc
 permission. However, some implementations of Android 6.0 (API level 23) and later still require
 permission, so you will need to declare the
 `READ_EXTERNAL_STORAGE` permission in the app manifest and ask for permission at
-runtime as follows:  
+runtime as follows:
 
 ```xml
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORA>GE" /
 ```
 
 For Android version 6 and later, external storage permission needs to be requested at runtime.
 However, some implementations of Android do not require permission to read OBB files. The
 following code snippet shows how to check for read access before asking for external storage
-permission:  
+permission:
 
 ### Kotlin
 
@@ -168,7 +169,7 @@ File obb = new File(obb_filename);
 If you must unpack the contents of your expansion files, **do not** delete the
 `OBB` expansion files afterwards and **do not** save the unpacked data
 in the same directory. You should save your unpacked files in the directory
-specified by [getExternalFilesDir()](https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)). However,
+specified by `https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)`. However,
 if possible, it's best if you use an expansion file format that allows you to read directly from
 the file instead of requiring you to unpack the data. For example, we've provided a library
 project called the [APK Expansion Zip Library](https://developer.android.com/google/play/expansion-files#ZipLib) that reads your data directly
@@ -178,8 +179,8 @@ from the ZIP file.
 on the shared storage can be read by the user and other apps.
 
 **Tip:** If you're packaging media files into a ZIP, you can use media
-playback calls on the files with offset and length controls (such as [MediaPlayer.setDataSource()](https://developer.android.com/reference/android/media/MediaPlayer#setDataSource(java.io.FileDescriptor, long, long)) and
-[SoundPool.load()](https://developer.android.com/reference/android/media/SoundPool#load(java.io.FileDescriptor, long, long, int))) without the
+playback calls on the files with offset and length controls (such as `https://developer.android.com/reference/android/media/MediaPlayer#setDataSource(java.io.FileDescriptor, long, long)` and
+`https://developer.android.com/reference/android/media/SoundPool#load(java.io.FileDescriptor, long, long, int)`) without the
 need to unpack your ZIP. In order for this to work, you must not perform additional compression on
 the media files when creating the ZIP packages. For example, when using the `zip` tool,
 you should use the `-n` option to specify the file suffixes that should not be
@@ -256,7 +257,7 @@ app that uses expansion files, you must be aware of the following rules and limi
 5. If you use expansion files in combination with [multiple APKs](https://developer.android.com/google/play/publishing/multiple-apks) in order to provide different expansion files for different devices, you still must upload separate APKs for each device in order to provide a unique [`versionCode`](https://developer.android.com/guide/topics/manifest/manifest-element#vcode) value and declare different [filters](https://developer.android.com/google/play/filters) for each APK.
 6. You cannot issue an update to your app by changing the expansion files alone---**you must upload a new APK** to update your app. If your changes only concern the assets in your expansion files, you can update your APK simply by changing the [`versionCode`](https://developer.android.com/guide/topics/manifest/manifest-element#vcode) (and perhaps also the [`versionName`](https://developer.android.com/guide/topics/manifest/manifest-element#vname)).
 7. **Do not save other data into your `obb/`
-   directory** . If you must unpack some data, save it into the location specified by [getExternalFilesDir()](https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)).
+   directory** . If you must unpack some data, save it into the location specified by `https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)`.
 8. **Do not delete or rename the `.obb` expansion file** (unless you're performing an update). Doing so will cause Google Play (or your app itself) to repeatedly download the expansion file.
 9. When updating an expansion file manually, you must delete the previous expansion file.
 
@@ -330,7 +331,7 @@ connectivity loss, resumes the download when possible, and more.
 
 To implement expansion file downloads using the Downloader Library, all you need to do is:
 
-- Extend a special [Service](https://developer.android.com/reference/android/app/Service) subclass and [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) subclass that each require just a few lines of code from you.
+- Extend a special `https://developer.android.com/reference/android/app/Service` subclass and `https://developer.android.com/reference/android/content/BroadcastReceiver` subclass that each require just a few lines of code from you.
 - Add some logic to your main activity that checks whether the expansion files have already been downloaded and, if not, invokes the download process and displays a progress UI.
 - Implement a callback interface with a few methods in your main activity that receives updates about the download progress.
 
@@ -368,7 +369,7 @@ Verification Library to the Downloader Library's project properties.
 Or, from a command line, update your project to include the libraries:
 
 1. Change directories to the `<sdk>/tools/` directory.
-2. Execute `android update project` with the `--library` option to add both the LVL and the Downloader Library to your project. For example:  
+2. Execute `android update project` with the `--library` option to add both the LVL and the Downloader Library to your project. For example:
 
    ```
    android update project --path ~/Android/MyApp \
@@ -395,33 +396,33 @@ about [Using the APK Expansion Zip Library](https://developer.android.com/google
 
 In order to download the expansion files, the Downloader Library
 requires several permissions that you must declare in your app's manifest file. They
-are:  
+are:
 
 ```xml
 <manifest ...>
-    <!-- Required to access Google Play Licensing -->
-    <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
+ <   !-- Required to access Google Play Licensing --><;
+    uses-permission android:name="com.android.vending.CHECK_LICENS<E" />
 
-    <!-- Required to download files from Google Play -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    !-- Required to download files from G<oogle Play -->
+    uses-permission android:name="android.pe<rmission.INTERNET" />
 
-    <!-- Required to keep CPU alive while downloading files
-        (NOT to keep screen awake) -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    !-- Required to keep CPU alive while downloading files
+        <(NOT to keep screen awake) -->
+    uses-permission android:name=&<quot;android.permission.WAKE_LOCK" />
 
-    <!-- Required to poll the state of the network connection
+    !-- Required to poll the state of the network< connection
         and respond to changes -->
-    <uses-permission
-        android:name="android.permission.ACCESS_NETWORK_STATE" />
+    uses-permission
+        android:n<ame="android.permission.ACCESS_NETWORK_STATE"< />
 
-    <!-- Required to check whether Wi-Fi is enabled -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    !-- Required to check whether Wi-Fi is enabled -->
+    uses-<permission android:name="android.permission.ACCESS_WIFI_STATE"/><
 
-    <!-- Required to read and write the expansion files on shared storage -->
-    <uses-permission
+    !-- Required to read and write the expansion files on shared storage -->
+    uses-p<ermission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     ...
-</manifest>
+/manifest>
 ```
 
 **Note:** By default, the Downloader Library requires API
@@ -430,12 +431,12 @@ level 4, but the APK Expansion Zip Library requires API level 5.
 ### Implementing the downloader service
 
 In order to perform downloads in the background, the Downloader Library provides its
-own [Service](https://developer.android.com/reference/android/app/Service) subclass called `DownloaderService` that you should extend. In
+own `https://developer.android.com/reference/android/app/Service` subclass called `DownloaderService` that you should extend. In
 addition to downloading the expansion files for you, the `DownloaderService` also:
 
-- Registers a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) that listens for changes to the device's network connectivity (the [CONNECTIVITY_ACTION](https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION) broadcast) in order to pause the download when necessary (such as due to connectivity loss) and resume the download when possible (connectivity is acquired).
-- Schedules an [RTC_WAKEUP](https://developer.android.com/reference/android/app/AlarmManager#RTC_WAKEUP) alarm to retry the download for cases in which the service gets killed.
-- Builds a custom [Notification](https://developer.android.com/reference/android/app/Notification) that displays the download progress and any errors or state changes.
+- Registers a `https://developer.android.com/reference/android/content/BroadcastReceiver` that listens for changes to the device's network connectivity (the `https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION` broadcast) in order to pause the download when necessary (such as due to connectivity loss) and resume the download when possible (connectivity is acquired).
+- Schedules an `https://developer.android.com/reference/android/app/AlarmManager#RTC_WAKEUP` alarm to retry the download for cases in which the service gets killed.
+- Builds a custom `https://developer.android.com/reference/android/app/Notification` that displays the download progress and any errors or state changes.
 - Allows your app to manually pause and resume the download.
 - Verifies that the shared storage is mounted and available, that the files don't already exist, and that there is enough space, all before downloading the expansion files. Then notifies the user if any of these are not true.
 
@@ -447,15 +448,15 @@ All you need to do is create a class in your app that extends the `DownloaderSer
 
 `getSALT()`
 :   This must return an array of random bytes that the licensing `Policy` uses to
-    create an [`Obfuscator`](https://developer.android.com/google/play/licensing/adding-licensing#impl-Obfuscator). The salt ensures that your obfuscated [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences)
+    create an [`Obfuscator`](https://developer.android.com/google/play/licensing/adding-licensing#impl-Obfuscator). The salt ensures that your obfuscated `https://developer.android.com/reference/android/content/SharedPreferences`
     file in which your licensing data is saved will be unique and non-discoverable.
 
 `getAlarmReceiverClassName()`
-:   This must return the class name of the [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) in
+:   This must return the class name of the `https://developer.android.com/reference/android/content/BroadcastReceiver` in
     your app that should receive the alarm indicating that the download should be
     restarted (which might happen if the downloader service unexpectedly stops).
 
-For example, here's a complete implementation of `DownloaderService`:  
+For example, here's a complete implementation of `DownloaderService`:
 
 ### Kotlin
 
@@ -511,27 +512,27 @@ to be the public key belonging to your publisher account. You can find the key i
 Console under your profile information. This is necessary even when testing
 your downloads.
 
-Remember to declare the service in your manifest file:  
+Remember to declare the service in your manifest file:
 
 ```xml
 <app ...>
-    <service android:name=".SampleDownloaderService" />
+ <   service android:name=".SampleDownloaderService"<; />
     ...
-</app>
+/app>
 ```
 
 ### Implementing the alarm receiver
 
 In order to monitor the progress of the file downloads and restart the download if necessary, the
-`DownloaderService` schedules an [RTC_WAKEUP](https://developer.android.com/reference/android/app/AlarmManager#RTC_WAKEUP) alarm that
-delivers an [Intent](https://developer.android.com/reference/android/content/Intent) to a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) in your
-app. You must define the [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) to call an API
+`DownloaderService` schedules an `https://developer.android.com/reference/android/app/AlarmManager#RTC_WAKEUP` alarm that
+delivers an `https://developer.android.com/reference/android/content/Intent` to a `https://developer.android.com/reference/android/content/BroadcastReceiver` in your
+app. You must define the `https://developer.android.com/reference/android/content/BroadcastReceiver` to call an API
 from the Downloader Library that checks the status of the download and restarts
 it if necessary.
 
-You simply need to override the [onReceive()](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context, android.content.Intent)) method to call `DownloaderClientMarshaller.startDownloadServiceIfRequired()`.
+You simply need to override the `https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context, android.content.Intent)` method to call `DownloaderClientMarshaller.startDownloadServiceIfRequired()`.
 
-For example:  
+For example:
 
 ### Kotlin
 
@@ -571,13 +572,13 @@ public class SampleAlarmReceiver extends BroadcastReceiver {
 Notice that this is the class for which you must return the name
 in your service's `getAlarmReceiverClassName()` method (see the previous section).
 
-Remember to declare the receiver in your manifest file:  
+Remember to declare the receiver in your manifest file:
 
 ```xml
 <app ...>
-    <receiver android:name=".SampleAlarmReceiver" />
+ <   receiver android:name=".SampleAlarmReceiver"<; />
     ...
-</app>
+/app>
 ```
 
 ### Starting the download
@@ -597,8 +598,8 @@ procedures:
    - `doesFileExist(Context c, String fileName, long fileSize)`
 
    For example, the sample app provided in the Apk Expansion package calls the
-   following method in the activity's [onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method to check
-   whether the expansion files already exist on the device:  
+   following method in the activity's `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method to check
+   whether the expansion files already exist on the device:
 
    ### Kotlin
 
@@ -637,9 +638,9 @@ procedures:
    notificationClient, Class<?> serviceClass)`.
 
    The method takes the following parameters:
-   - `context`: Your app's [Context](https://developer.android.com/reference/android/content/Context).
-   - `notificationClient`: A [PendingIntent](https://developer.android.com/reference/android/app/PendingIntent) to start your main activity. This is used in the [Notification](https://developer.android.com/reference/android/app/Notification) that the `DownloaderService` creates to show the download progress. When the user selects the notification, the system invokes the [PendingIntent](https://developer.android.com/reference/android/app/PendingIntent) you supply here and should open the activity that shows the download progress (usually the same activity that started the download).
-   - `serviceClass`: The [Class](https://developer.android.com/reference/java/lang/Class) object for your implementation of `DownloaderService`, required to start the service and begin the download if necessary.
+   - `context`: Your app's `https://developer.android.com/reference/android/content/Context`.
+   - `notificationClient`: A `https://developer.android.com/reference/android/app/PendingIntent` to start your main activity. This is used in the `https://developer.android.com/reference/android/app/Notification` that the `DownloaderService` creates to show the download progress. When the user selects the notification, the system invokes the `https://developer.android.com/reference/android/app/PendingIntent` you supply here and should open the activity that shows the download progress (usually the same activity that started the download).
+   - `serviceClass`: The `https://developer.android.com/reference/java/lang/Class` object for your implementation of `DownloaderService`, required to start the service and begin the download if necessary.
 
    The method returns an integer that indicates
    whether or not the download is required. Possible values are:
@@ -652,7 +653,7 @@ procedures:
    the Downloader Library begins the download and you should update your activity UI to
    display the download progress (see the next step). If the response *is* `NO_DOWNLOAD_REQUIRED`, then the files are available and your app can start.
 
-   For example:  
+   For example:
 
    ### Kotlin
 
@@ -733,12 +734,12 @@ procedures:
    In order to instantiate your `IStub` by calling `CreateStub()`, you must pass it
    an implementation of the `IDownloaderClient` interface and your `DownloaderService`
    implementation. The next section about [Receiving download progress](https://developer.android.com/google/play/expansion-files#Progress) discusses
-   the `IDownloaderClient` interface, which you should usually implement in your [Activity](https://developer.android.com/reference/android/app/Activity) class so you can update the activity UI when the download state changes.
+   the `IDownloaderClient` interface, which you should usually implement in your `https://developer.android.com/reference/android/app/Activity` class so you can update the activity UI when the download state changes.
 
-   We recommend that you call `CreateStub()` to instantiate your `IStub` during your activity's [onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method, after `startDownloadServiceIfRequired()`
+   We recommend that you call `CreateStub()` to instantiate your `IStub` during your activity's `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method, after `startDownloadServiceIfRequired()`
    starts the download.
 
-   For example, in the previous code sample for [onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)), you can respond to the `startDownloadServiceIfRequired()` result like this:  
+   For example, in the previous code sample for `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)`, you can respond to the `startDownloadServiceIfRequired()` result like this:
 
    ### Kotlin
 
@@ -778,10 +779,10 @@ procedures:
            }
    ```
 
-   After the [onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method returns, your activity
-   receives a call to [onResume()](https://developer.android.com/reference/android/app/Activity#onResume()), which is where you should then
-   call `connect()` on the `IStub`, passing it your app's [Context](https://developer.android.com/reference/android/content/Context). Conversely, you should call
-   `disconnect()` in your activity's [onStop()](https://developer.android.com/reference/android/app/Activity#onStop()) callback.  
+   After the `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method returns, your activity
+   receives a call to `https://developer.android.com/reference/android/app/Activity#onResume()`, which is where you should then
+   call `connect()` on the `IStub`, passing it your app's `https://developer.android.com/reference/android/content/Context`. Conversely, you should call
+   `disconnect()` in your activity's `https://developer.android.com/reference/android/app/Activity#onStop()` callback.
 
    ### Kotlin
 
@@ -830,7 +831,7 @@ The required interface methods for `IDownloaderClient` are:
 
 `onServiceConnected(Messenger m)`
 :   After you instantiate the `IStub` in your activity, you'll receive a call to this
-    method, which passes a [Messenger](https://developer.android.com/reference/android/os/Messenger) object that's connected with your instance
+    method, which passes a `https://developer.android.com/reference/android/os/Messenger` object that's connected with your instance
     of `DownloaderService`. To send requests to the service, such as to pause and resume
     downloads, you must call `DownloaderServiceMarshaller.CreateProxy()` to receive the `IDownloaderService` interface connected to the service.
 
@@ -900,7 +901,7 @@ Some public methods for the `IDownloaderService` interface you might find useful
     current implementation supports one flag, `FLAGS_DOWNLOAD_OVER_CELLULAR`, but you can add
     others. By default, this flag is *not* enabled, so the user must be on Wi-Fi to download
     expansion files. You might want to provide a user preference to enable downloads over
-    the cellular network. In which case, you can call:  
+    the cellular network. In which case, you can call:
 
     ### Kotlin
 
@@ -954,24 +955,24 @@ storage is available for reading. There's a chance that the user has the storage
 computer over USB or has actually removed the SD card.
 
 **Note:** When your app starts, you should always check whether
-the external storage space is available and readable by calling [getExternalStorageState()](https://developer.android.com/reference/android/os/Environment#getExternalStorageState()). This returns one of several possible strings
+the external storage space is available and readable by calling `https://developer.android.com/reference/android/os/Environment#getExternalStorageState()`. This returns one of several possible strings
 that represent the state of the external storage. In order for it to be readable by your
-app, the return value must be [MEDIA_MOUNTED](https://developer.android.com/reference/android/os/Environment#MEDIA_MOUNTED).
+app, the return value must be `https://developer.android.com/reference/android/os/Environment#MEDIA_MOUNTED`.
 
 ### Getting the file names
 
 As described in the [overview](https://developer.android.com/google/play/expansion-files#Overview), your APK expansion files are saved
-using a specific file name format:  
+using a specific file name format:
 
 ```
 [main|patch].<expansion-version>.<package-name>.obb
 ```
 
 To get the location and names of your expansion files, you should use the
-[getExternalStorageDirectory()](https://developer.android.com/reference/android/os/Environment#getExternalStorageDirectory()) and [getPackageName()](https://developer.android.com/reference/android/content/Context#getPackageName()) methods to construct the path to your files.
+`https://developer.android.com/reference/android/os/Environment#getExternalStorageDirectory()` and `https://developer.android.com/reference/android/content/Context#getPackageName()` methods to construct the path to your files.
 
 Here's a method you can use in your app to get an array containing the complete path
-to both your expansion files:  
+to both your expansion files:
 
 ### Kotlin
 
@@ -986,14 +987,14 @@ fun getAPKExpansionFiles(ctx: Context, mainVersion: Int, patchVersion: Int): Arr
 
         // Check that expansion file path exists
         if (expPath.exists()) {
-            if (mainVersion > 0) {
+            if (mainVers>ion  0) {
                 val strMainPath = "$expPath${File.separator}main.$mainVersion.$packageName.obb"
                 val main = File(strMainPath)
                 if (main.isFile) {
                     ret += strMainPath
                 }
             }
-            if (patchVersion > 0) {
+            if >(patchVersion  0) {
                 val strPatchPath = "$expPath${File.separator}patch.$mainVersion.$packageName.obb"
                 val main = File(strPatchPath)
                 if (main.isFile) {
@@ -1015,7 +1016,7 @@ private final static String EXP_PATH = "/Android/obb/";
 static String[] getAPKExpansionFiles(Context ctx, int mainVersion,
       int patchVersion) {
     String packageName = ctx.getPackageName();
-    Vector<String> ret = new Vector<String>();
+<    Ve>ctorString ret = <new Ve>ctorString();
     if (Environment.getExternalStorageState()
           .equals(Environment.MEDIA_MOUNTED)) {
         // Build the full path to the app's expansion files
@@ -1024,15 +1025,15 @@ static String[] getAPKExpansionFiles(Context ctx, int mainVersion,
 
         // Check that expansion file path exists
         if (expPath.exists()) {
-            if ( mainVersion > 0 ) {
+            if >( mainVersion  0 ) {
                 String strMainPath = expPath + File.separator + "main." +
                         mainVersion + "." + packageName + ".obb";
                 File main = new File(strMainPath);
                 if ( main.isFile() ) {
                         ret.add(strMainPath);
                 }
-            }
-            if ( patchVersion > 0 ) {
+>            }
+            if ( patchVersion  0 ) {
                 String strPatchPath = expPath + File.separator + "patch." +
                         mainVersion + "." + packageName + ".obb";
                 File main = new File(strPatchPath);
@@ -1048,12 +1049,12 @@ static String[] getAPKExpansionFiles(Context ctx, int mainVersion,
 }
 ```
 
-You can call this method by passing it your app [Context](https://developer.android.com/reference/android/content/Context)
+You can call this method by passing it your app `https://developer.android.com/reference/android/content/Context`
 and the desired expansion file's version.
 
 There are many ways you could determine the expansion file version number. One simple way is to
-save the version in a [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences) file when the download begins, by
-querying the expansion file name with the `APKExpansionPolicy` class's `getExpansionFileName(int index)` method. You can then get the version code by reading the [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences) file when you want to access the expansion
+save the version in a `https://developer.android.com/reference/android/content/SharedPreferences` file when the download begins, by
+querying the expansion file name with the `APKExpansionPolicy` class's `getExpansionFileName(int index)` method. You can then get the version code by reading the `https://developer.android.com/reference/android/content/SharedPreferences` file when you want to access the expansion
 file.
 
 For more information about reading from the shared storage, see the [Data Storage](https://developer.android.com/guide/topics/data/data-storage#filesExternal)
@@ -1090,26 +1091,26 @@ The APK Expansion Zip Library includes the following classes and APIs:
     don't need to access most of them. A couple of important methods are:
 
     `getInputStream(String assetPath)`
-    :   Provides an [InputStream](https://developer.android.com/reference/java/io/InputStream) to read a file within the ZIP file. The
+    :   Provides an `https://developer.android.com/reference/java/io/InputStream` to read a file within the ZIP file. The
         `assetPath` must be the path to the desired file, relative to
         the root of the ZIP file contents.
 
     `getAssetFileDescriptor(String assetPath)`
-    :   Provides an [AssetFileDescriptor](https://developer.android.com/reference/android/content/res/AssetFileDescriptor) for a file within the
+    :   Provides an `https://developer.android.com/reference/android/content/res/AssetFileDescriptor` for a file within the
         ZIP file. The `assetPath` must be the path to the desired file, relative to
-        the root of the ZIP file contents. This is useful for certain Android APIs that require an [AssetFileDescriptor](https://developer.android.com/reference/android/content/res/AssetFileDescriptor), such as some [MediaPlayer](https://developer.android.com/reference/android/media/MediaPlayer) APIs.
+        the root of the ZIP file contents. This is useful for certain Android APIs that require an `https://developer.android.com/reference/android/content/res/AssetFileDescriptor`, such as some `https://developer.android.com/reference/android/media/MediaPlayer` APIs.
 
 `APEZProvider`
-:   Most apps don't need to use this class. This class defines a [ContentProvider](https://developer.android.com/reference/android/content/ContentProvider) that marshals the data from the ZIP files through a content
-    provider [Uri](https://developer.android.com/reference/android/net/Uri) in order to provide file access for certain Android APIs that
-    expect [Uri](https://developer.android.com/reference/android/net/Uri) access to media files. For example, this is useful if you want to
-    play a video with [VideoView.setVideoURI()](https://developer.android.com/reference/android/widget/VideoView#setVideoURI(android.net.Uri)).
+:   Most apps don't need to use this class. This class defines a `https://developer.android.com/reference/android/content/ContentProvider` that marshals the data from the ZIP files through a content
+    provider `https://developer.android.com/reference/android/net/Uri` in order to provide file access for certain Android APIs that
+    expect `https://developer.android.com/reference/android/net/Uri` access to media files. For example, this is useful if you want to
+    play a video with `https://developer.android.com/reference/android/widget/VideoView#setVideoURI(android.net.Uri)`.
 
 #### Skipping ZIP compression of media files
 
 If you're using your expansion files to store media files, a ZIP file still allows you to
-use Android media playback calls that provide offset and length controls (such as [MediaPlayer.setDataSource()](https://developer.android.com/reference/android/media/MediaPlayer#setDataSource(java.io.FileDescriptor, long, long)) and
-[SoundPool.load()](https://developer.android.com/reference/android/media/SoundPool#load(java.io.FileDescriptor, long, long, int))). In order for
+use Android media playback calls that provide offset and length controls (such as `https://developer.android.com/reference/android/media/MediaPlayer#setDataSource(java.io.FileDescriptor, long, long)` and
+`https://developer.android.com/reference/android/media/SoundPool#load(java.io.FileDescriptor, long, long, int)`). In order for
 this to work, you must not perform additional compression on the media files when creating the ZIP
 packages. For example, when using the `zip` tool, you should use the `-n`
 option to specify the file suffixes that should not be compressed:
@@ -1119,7 +1120,7 @@ option to specify the file suffixes that should not be compressed:
 #### Reading from a ZIP file
 
 When using the APK Expansion Zip Library, reading a file from your ZIP usually requires the
-following:  
+following:
 
 ### Kotlin
 
@@ -1151,7 +1152,7 @@ patch expansion file, by reading from a merged map of all the files from both fi
 need to provide the `getAPKExpansionFile()` method is your app `android.content.Context` and the version number for both the main expansion file and patch
 expansion file.
 
-If you'd rather read from a specific expansion file, you can use the `ZipResourceFile` constructor with the path to the desired expansion file:  
+If you'd rather read from a specific expansion file, you can use the `ZipResourceFile` constructor with the path to the desired expansion file:
 
 ### Kotlin
 
@@ -1210,7 +1211,7 @@ Here are some reminders about handling the expansion files:
 
 - **Do not delete or rename** the `.obb` expansion files (even if you unpack the data to a different location). Doing so will cause Google Play (or your app itself) to repeatedly download the expansion file.
 - **Do not save other data into your `obb/`
-  directory** . If you must unpack some data, save it into the location specified by [getExternalFilesDir()](https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)).
+  directory** . If you must unpack some data, save it into the location specified by `https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)`.
 
 ### Testing file downloads
 

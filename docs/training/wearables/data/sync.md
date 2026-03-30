@@ -5,7 +5,8 @@ source: md.txt
 ---
 
 This document describes how to synchronize data between a Wear OS device and a
-handheld device.
+phone. See the [overview guidance](https://developer.android.com/training/wearables/data/overview) for when to use the Data Layer
+API and when to use your infrastructure.
 
 ## Send and sync data directly from the network
 
@@ -19,8 +20,7 @@ A `DataClient` exposes an API for components to read or write to a `DataItem` or
 `Asset`.
 
 > [!NOTE]
-> **Note:** The class is meant to transfer data and not serve as a storage mechanism. Create your own copy of the data that your app can access, such as in a [Room
-> database](https://developer.android.com/training/data-storage/room).
+> **Note:** The class is meant to synchronize data and not serve as a storage mechanism. Create your own copy of the data that your app can access, such as in a [Room database](https://developer.android.com/training/data-storage/room).
 
 It's possible to set data items and assets while not connected to any devices.
 They're synchronized when the devices establish a network connection. This data
@@ -49,45 +49,39 @@ Implement the [`OnDataChangedListener`](https://developers.google.com/android/re
 of a `WearableListenerService` when you want to listen for changes only when the
 user is actively using your app.
 
-## Transfer data
+description: Transfer large binary objects, such as images, between Android phones and Wear OS watches using Assets in the Data Layer API.
+keywords_public: Wear OS, Data Layer API, Assets, Bluetooth data transfer, data synchronization, DataMap, PutDataRequest
 
-To send binary large objects over the Bluetooth transport, such as a voice recording
-from another device, you can attach an
-[`Asset`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Asset) to a data item and then put the data item into the replicated datastore.
+## Synchronize data
 
-> [!NOTE]
->
-> **Note:** The Data Layer API can send messages and synchronize data only with Android phones or
-> Wear OS watches. If a Wear OS device is paired with an iOS device, the Data Layer
-> API won't work.
->
->
-> For this reason, don't use the Data Layer API as the primary way to
-> communicate with a network. Instead, follow the same pattern in your Wear app as in a
-> mobile app---with some minor differences, as described in
-> [Network access and sync on Wear OS](https://developer.android.com/training/wearables/data-layer/network-access).
+To share large binary objects over the Bluetooth transport, such as a voice
+recording from another device, you can attach an [`Asset`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Asset) to a data
+item and then put the data item into the replicated datastore. However, if the exchange is a one-off exchange between two connected devices,
+consider whether a simpler [direct transfer](https://developer.android.com/training/wearables/data/transfer-data) is more appropriate.
 
-Assets automatically handle caching of data to prevent retransmission and
-to conserve Bluetooth bandwidth.
-A common pattern is for a handheld app to download an image, shrink it to an appropriate size
-for display on the wearable, and transmit it to the wearable app as an asset. The following examples
-demonstrate this pattern.
+**Note:** The Data Layer API can send messages and synchronize data only with
+phones that run Android or Wear OS watches. If a Wear OS device is paired with
+an iOS device, the Data Layer API won't work.
 
+For this reason, don't use the Data Layer API as the primary way to communicate
+with a network. Instead, follow the same pattern in your Wear OS app as in a
+phone app---with some minor differences, as described in [Network access and sync
+on Wear OS](https://developer.android.com/training/wearables/data-layer/network-access).
 
-**Note:** Although the size of data items is theoretically limited to 100 KB, in practice larger data items can be used. For
-larger data items, separate data by unique paths and avoid
-using a single path for all data. Transferring large assets affects the user experience in many
-cases, so test your apps to help ensure that they perform well when transferring large assets.
+Assets automatically handle caching of data to prevent retransmission and to
+conserve Bluetooth bandwidth. A common pattern is for a phone app to download an
+image, shrink it to an appropriate size for display on the watch, and share it
+to the watch app as an asset. The following examples demonstrate
+this pattern.
 
 ### Transfer an asset
 
 Create the asset using one of the `create...()` methods in the
-[`Asset`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Asset.html) class.
-Convert a bitmap to a byte stream and then call
-[`createFromBytes()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Asset.html#createFromBytes(byte[]))
-to create the asset, as shown in the following sample.
+[`Asset`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Asset.html) class. Convert a bitmap to a byte array and then call
+[`createFromBytes()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Asset.html#createFromBytes(byte%5B%5D)) to create the asset, as shown in the following
+sample.
 
-### Kotlin
+<br />
 
 ```kotlin
 private fun createAssetFromBitmap(bitmap: Bitmap): Asset =
@@ -97,84 +91,60 @@ private fun createAssetFromBitmap(bitmap: Bitmap): Asset =
     }
 ```
 
-### Java
-
-```java
-private static Asset createAssetFromBitmap(Bitmap bitmap) {
-    final ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteStream);
-    return Asset.createFromBytes(byteStream.toByteArray());
-}
-```
+<br />
 
 Next, attach the asset to a data item with the `putAsset()` method in
-[`DataMap`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataMap.html) or
-[`PutDataRequest`](https://developers.google.com/android/reference/com/google/android/gms/wearable/PutDataRequest.html). Then put the data item into the datastore using the
-[`putDataItem()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataApi.html#putDataItem(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.wearable.PutDataRequest)) method, as shown in the following samples.
+[`DataMap`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataMap.html) or [`PutDataRequest`](https://developers.google.com/android/reference/com/google/android/gms/wearable/PutDataRequest.html). Then put the data item into
+the datastore using the [`putDataItem()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataApi.html#putDataItem(com.google.android.gms.common.api.GoogleApiClient,%20com.google.android.gms.wearable.PutDataRequest)) method, as shown in the
+following samples.
 
 The following sample uses `PutDataRequest`:
 
-### Kotlin
+<br />
 
 ```kotlin
-val asset: Asset = BitmapFactory.decodeResource(resources, R.drawable.image).let { bitmap ->
-    createAssetFromBitmap(bitmap)
-}
-val request: PutDataRequest = PutDataRequest.create("/image").apply {
-    putAsset("profileImage", asset)
-}
-val putTask: Task<DataItem> = Wearable.getDataClient(context).putDataItem(request)
-```
+private fun Context.sendImagePutDataRequest(): Task<DataItem> {
 
-### Java
+    val asset: Asset = createAssetFromBitmap(BitmapFactory.decodeResource(resources, R.drawable.ic_walk))
+    val request: PutDataRequest = PutDataRequest.create("/image").apply {
+        putAsset("profileImage", asset)
+    }
+    val putTask: Task<DataItem> = Wearable.getDataClient(this).putDataItem(request)
 
-```java
-Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.image);
-Asset asset = createAssetFromBitmap(bitmap);
-PutDataRequest request = PutDataRequest.create("/image");
-request.putAsset("profileImage", asset);
-Task<DataItem> putTask = Wearable.getDataClient(context).putDataItem(request);
+    return putTask
+}
 ```
 
 <br />
 
 The following sample uses `PutDataMapRequest`:
 
-### Kotlin
+<br />
 
 ```kotlin
-val asset: Asset = BitmapFactory.decodeResource(resources, R.drawable.image).let { bitmap ->
-    createAssetFromBitmap(bitmap)
-}
-val request: PutDataRequest = PutDataMapRequest.create("/image").run {
-    dataMap.putAsset("profileImage", asset)
-    asPutDataRequest()
-}
-val putTask: Task<DataItem> = Wearable.getDataClient(context).putDataItem(request)
-```
+private fun Context.sendImagePutDataMapRequest(): Task<DataItem> {
 
-### Java
+    val asset: Asset = createAssetFromBitmap(BitmapFactory.decodeResource(resources, R.drawable.ic_walk))
+    val request: PutDataRequest = PutDataMapRequest.create("/image").run {
+        dataMap.putAsset("profileImage", asset)
+        asPutDataRequest()
+    }
+    val putTask: Task<DataItem> = Wearable.getDataClient(this).putDataItem(request)
 
-```java
-Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.image);
-Asset asset = createAssetFromBitmap(bitmap);
-PutDataMapRequest dataMap = PutDataMapRequest.create("/image");
-dataMap.getDataMap().putAsset("profileImage", asset);
-PutDataRequest request = dataMap.asPutDataRequest();
-Task<DataItem> putTask = Wearable.getDataClient(context).putDataItem(request);
+    return putTask
+}
 ```
 
 <br />
 
 > [!CAUTION]
-> **Caution:** Before using the Wearable Data Layer API, check that it's available on a device; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) class, as implemented in [Horologist](https://github.com/google/horologist/blob/release-0.5.x/datalayer/core/src/main/java/com/google/android/horologist/data/WearableApiAvailability.kt#L29).
+> **Caution:** Before using the Wearable Data Layer API, check that it's available; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) class, as shown in the [overview](https://developer.android.com/training/wearables/data/overview#client).
 
 ### Receive assets
 
-
-When an asset is created, you probably want to read and extract
-it on other side of the connection. Here's an example of how to implement the
-callback to detect an asset change and extract the asset:
+After you create an asset, you typically read and extract it on the other side
+of the connection. The following example shows how to implement the callback to detect an asset
+change and extract the asset:
 
 <br />
 

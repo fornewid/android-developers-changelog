@@ -157,29 +157,29 @@ provides suggestions from an array using
 1. Add the `AutoCompleteTextView` to your layout. Here's a layout with only the text field:
 
    ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <AutoCompleteTextView xmlns:android="http://schemas.android.com/apk/res/android"
-       android:id="@+id/autocomplete_country"
+   <?xml version="1.0" encoding=<"utf-8"?>
+   AutoCompleteTextView xmlns:android="http://schemas.android.com/apk/r@es/android"
+       android:id="+id/autocomplete_country"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content" />
    ```
 2. Define the array that contains all text suggestions. For example, here's an array of country names:
 
    ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <resources>
-       <string-array name="countries_array">
-           <item>Afghanistan</item>
-           <item>Albania</item>
-           <item>Algeria</item>
-           <item>American Samoa</item>
-           <item>Andorra</item>
-           <item>Angola</item>
-           <item>Anguilla</item>
-           <item>Antarctica</item>
+   <?xml version="1.0" encoding=<"utf-8&quo<t;?>
+   resources>
+       string-array name=&<quot;countries_a<rray">
+   <        item<>Afghanistan</item>
+     <      item>A<lbania/item>
+      <     item>Al<geria/item&g<t;
+           item<>America<n Samoa/item><;
+           ite<m>Andorra/it<em>
+           <item>Angola/item><
+           item&g<t;Anguilla/item>
+           item>Antarctica/item>
            ...
-       </string-array>
-   </resources>
+       /string-array>
+   /resources>
    ```
 3. In your `https://developer.android.com/reference/android/app/Activity` or `https://developer.android.com/reference/android/app/Fragment`, use the following code to specify the adapter that supplies the suggestions:
 
