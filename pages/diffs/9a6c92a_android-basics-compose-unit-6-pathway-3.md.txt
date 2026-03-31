@@ -1,0 +1,102 @@
+diff --git a/docs/courses/quizzes/android-basics-compose-unit-6-pathway-3/android-basics-compose-unit-6-pathway-3.md b/docs/courses/quizzes/android-basics-compose-unit-6-pathway-3/android-basics-compose-unit-6-pathway-3.md
+index dd93657..091589e 100644
+--- a/docs/courses/quizzes/android-basics-compose-unit-6-pathway-3/android-basics-compose-unit-6-pathway-3.md
++++ b/docs/courses/quizzes/android-basics-compose-unit-6-pathway-3/android-basics-compose-unit-6-pathway-3.md
+@@ -1,54 +1,62 @@
+ ---
+-title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-6-pathway-3/android-basics-compose-unit-6-pathway-3
++title: Store and access data using keys with DataStore  |  Android Developers
+ url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-6-pathway-3/android-basics-compose-unit-6-pathway-3
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Store and access data using keys with DataStore
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
+ 
+ # Store and access data using keys with DataStore
+ 
+-<br />
++Return to pathway
++
++
++
++1. ## The implementations of `DataStore` are:
++
++   Choose as many answers as you see fit.
++
++   Proto
++
++   Preferences
++
++   Room
++
++   SQLite
++2. ## The Preferences DataStore uses a predefined schema.
++
++   True
+ 
+-Return to pathway  
+-1.
++   False
++3. ## Which function does DataStore provide to modify the DataStore?
+ 
+-   ## The implementations of`DataStore`are:
++   preferencesDataStore()
+ 
+-   Choose as many answers as you see fit.  
+-   Proto  
+-   Preferences  
+-   Room  
+-   SQLite  
+-2.
++   updatePreferences()
+ 
+-   ## The Preferences DataStore uses a predefined schema.
++   edit()
+ 
+-   True  
+-   False  
+-3.
++   map()
++4. ## Preferences DataStore uses keys to access stored values.
+ 
+-   ## Which function does DataStore provide to modify the DataStore?
++   True
+ 
+-   preferencesDataStore()  
+-   updatePreferences()  
+-   edit()  
+-   map()  
+-4.
++   False
++5. ## Which exception can occur when you attempt to read from a Preferences DataStore?
+ 
+-   ## Preferences DataStore uses keys to access stored values.
++   IllegalArgumentException
+ 
+-   True  
+-   False  
+-5.
++   IOException
+ 
+-   ## Which exception can occur when you attempt to read from a Preferences DataStore?
++   IllegalStateException
+ 
+-   IllegalArgumentException  
+-   IOException  
+-   IllegalStateException  
+-   NumberFormatException  
++   NumberFormatException
+ 
+ Submit answers
+ 
+-*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error\_outline*
++An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

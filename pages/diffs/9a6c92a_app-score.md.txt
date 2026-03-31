@@ -1,0 +1,13 @@
+diff --git a/docs/topic/performance/app-score.md b/docs/topic/performance/app-score.md
+index 26be652..d4377b8 100644
+--- a/docs/topic/performance/app-score.md
++++ b/docs/topic/performance/app-score.md
+@@ -100,7 +100,7 @@ static App Performance Score.
+ | Compose adoption | App uses latest stable version of [Compose](https://developer.android.com/compose) |
+ | Monitoring and optimization | [`FullyDrawnReporter`](https://developer.android.com/reference/kotlin/androidx/activity/FullyDrawnReporter) or [`reportFullyDrawn`](https://developer.android.com/reference/android/app/Activity#reportFullyDrawn()) is used at an appropriate time |
+ 
+-<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_3ec0a43d964314b4650ab5c7747e18a4b336731bf434006da1719afa4c2d8dd0.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_f8657e903a8f4991184fbfcef56e33927260f123b999bf2ef660d8168fbd0361.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Tips for evaluating your app
+ 

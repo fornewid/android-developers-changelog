@@ -1,0 +1,40 @@
+diff --git a/docs/ndk/guides/libs.md b/docs/ndk/guides/libs.md
+index 0257d8b..cd68571 100644
+--- a/docs/ndk/guides/libs.md
++++ b/docs/ndk/guides/libs.md
+@@ -1,17 +1,28 @@
+ ---
+-title: https://developer.android.com/ndk/guides/libs
++title: Use existing libraries  |  Android NDK  |  Android Developers
+ url: https://developer.android.com/ndk/guides/libs
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Home](https://developer.android.com/)
++* [NDK](https://developer.android.com/ndk)
++* [Develop](https://developer.android.com/develop)
++* [Guides](https://developer.android.com/ndk/guides)
++
++# Use existing libraries Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ This section discusses the use of the libraries that the NDK provides.
+ 
+-> [!NOTE]
+-> **Note:** The guide on importing prebuilt libraries (those not included in the NDK) has been moved into the relevant sections for each build system. Refer to either the [CMake](https://developer.android.com/ndk/guides/cmake#prebuilts) or [ndk-build](https://developer.android.com/ndk/guides/prebuilts) guides as appropriate for your project.
++**Note:** The guide on importing prebuilt libraries (those not included in the NDK)
++has been moved into the relevant sections for each build system. Refer to either
++the [CMake](/ndk/guides/cmake#prebuilts) or [ndk-build](/ndk/guides/prebuilts)
++guides as appropriate for your project.
+ 
+-It explains the [C++ runtimes](https://developer.android.com/ndk/guides/cpp-support) available with the
++It explains the [C++ runtimes](/ndk/guides/cpp-support) available with the
+ NDK and provides information on [the other
+-libraries](https://developer.android.com/ndk/guides/stable_apis) that the NDK provides, such as [OpenGL
++libraries](/ndk/guides/stable_apis) that the NDK provides, such as [OpenGL
+ ES](https://www.khronos.org/opengles/) and [OpenSL
+ ES](https://www.khronos.org/opensles/), and the minimum Android API levels
+ required to support those libraries.
+\ No newline at end of file

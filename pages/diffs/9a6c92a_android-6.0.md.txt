@@ -1,0 +1,54 @@
+diff --git a/docs/about/versions/marshmallow/android-6.0.md b/docs/about/versions/marshmallow/android-6.0.md
+index 270bf76..051f063 100644
+--- a/docs/about/versions/marshmallow/android-6.0.md
++++ b/docs/about/versions/marshmallow/android-6.0.md
+@@ -53,7 +53,7 @@ To use this feature in your app, first add the
+ 
+ ```xml
+ <uses-permission
+-        android:name="android.permission.USE_FINGERPRI>NT" /
++        android:name="android.permission.USE_FINGERPRINT" />
+ ```
+ ![Mobile showing fingerprint authentication functionality](https://developer.android.com/static/images/android-6.0/fingerprint-screen.png)
+ 
+@@ -133,12 +133,12 @@ The following example shows how you might declare the
+ 
+ ```xml
+ <service android:name=".ChooserTargetService"
+-        andro@id:label="string/service_name"
+-        android:permission="android.permission.BIN>D_CHO<OSER_TARGET_S>ERVICE&qu<ot;
+-    intent-filter
+-        action android:name="android.serv>ice.c<hooser.Chooser>T<argetSer>vice" /
+-    /intent-filter
+-/service
++        android:label="@string/service_name"
++        android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
++    <intent-filter>
++        <action android:name="android.service.chooser.ChooserTargetService" />
++    </intent-filter>
++</service>
+ ```
+ 
+ For each activity that you want to expose to
+@@ -148,14 +148,14 @@ For each activity that you want to expose to
+ 
+ ```xml
+ <activity android:name=".MyShareActivity”
+-        android:la@bel="string/share_activ>ity_l<abel"
+-    intent-f<ilter>
+-        action android:name="androi>d.int<ent.action.SEND&<quot; /
+-    /intent-filter>
+-meta-data
++        android:label="@string/share_activity_label">
++    <intent-filter>
++        <action android:name="android.intent.action.SEND" />
++    </intent-filter>
++<meta-data
+         android:name="android.service.chooser.chooser_target_service"
+-      > < android:value=".ChooserTargetService" /
+-/activity>
++        android:value=".ChooserTargetService" />
++</activity>
+ ```
+ 
+ ## Voice Interactions

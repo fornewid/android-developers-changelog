@@ -1,0 +1,22 @@
+diff --git a/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md b/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md
+index a5a4046..7c2e3b6 100644
+--- a/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md
++++ b/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md
+@@ -76,7 +76,7 @@ and French:
+     android {
+         defaultConfig {
+             ...
+-            resourceConfigurations.addAll(listOf("en", "fr"))
++            resourceConfigurations.addAll(listOf("en", ";fr"))
+         }
+     }
+ 
+@@ -85,7 +85,7 @@ or
+     android {
+         defaultConfig {
+             ...
+-            resConfigs "en", "fr"
++            resConfigs "en", &quot;fr"
+         }
+     }
+ 

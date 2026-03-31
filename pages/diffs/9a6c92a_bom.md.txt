@@ -1,0 +1,186 @@
+diff --git a/docs/develop/ui/compose/bom.md b/docs/develop/ui/compose/bom.md
+index 2dfaf8e..8e0579b 100644
+--- a/docs/develop/ui/compose/bom.md
++++ b/docs/develop/ui/compose/bom.md
+@@ -1,9 +1,20 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/bom
++title: Use a Bill of Materials  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/bom
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Use a Bill of Materials Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ The Compose Bill of Materials (BOM) lets you manage all of your Compose library
+ versions by specifying only the BOM's version. The BOM itself has links to the
+ stable versions of the different Compose libraries, in such a way that they work
+@@ -14,7 +25,7 @@ new versions.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ dependencies {
+     // Specify the Compose BOM with a version definition
+     val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
+@@ -33,7 +44,7 @@ dependencies {
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ dependencies {
+     // Specify the Compose BOM with a version definition
+     Dependency composeBom = platform('androidx.compose:compose-bom:2026.03.00')
+@@ -51,7 +62,7 @@ dependencies {
+ ```
+ 
+ To find out which Compose library versions are mapped to a specific BOM version,
+-check out the [BOM to library version mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping).
++check out the [BOM to library version mapping](/develop/ui/compose/bom/bom-mapping).
+ 
+ ## Why isn't the Compose Compiler library included in the BOM?
+ 
+@@ -61,12 +72,12 @@ compiler plugin and released in a separate cadence from the rest of Compose.
+ 
+ As of Kotlin 2.0, the Compose appcompiler is managed alongside the Kotlin
+ compiler and uses the same version as the Kotlin compiler.
+-See [Compose Compiler Gradle plugin](https://developer.android.com/develop/ui/compose/compiler) for
++See [Compose Compiler Gradle plugin](/develop/ui/compose/compiler) for
+ configuration details.
+ 
+ In versions lower than Kotlin 2.0, consult the [Compose to Kotlin Compatibility
+-Map](https://developer.android.com/jetpack/androidx/releases/compose-kotlin) to identify a compiler version that's compatible
+-with your Kotlin version and see [Compose Compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) for
++Map](/jetpack/androidx/releases/compose-kotlin) to identify a compiler version that's compatible
++with your Kotlin version and see [Compose Compiler](/jetpack/androidx/releases/compose-compiler) for
+ guidance on configuring it.
+ 
+ ## How do I use a different library version than what's designated in the BOM?
+@@ -78,7 +89,7 @@ of the animation library, no matter what version is designated in the BOM:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ dependencies {
+     // Specify the Compose BOM with a version definition
+     val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
+@@ -93,7 +104,7 @@ dependencies {
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ dependencies {
+     // Specify the Compose BOM with a version definition
+     Dependency composeBom = platform("androidx.compose:compose-bom:2026.03.00")
+@@ -106,8 +117,9 @@ dependencies {
+ }
+ ```
+ 
+-> [!NOTE]
+-> **Note:** Overriding the BOM to use an alpha version of a Compose library will update your build to use the required dependencies of that alpha library (which in turn, could be alpha).
++**Note:** Overriding the BOM to use an alpha version of a Compose library will
++update your build to use the required dependencies of that alpha library (which
++in turn, could be alpha).
+ 
+ ## Does the BOM automatically add all the Compose libraries to my app?
+ 
+@@ -138,15 +150,17 @@ stable versions at the same time.
+ Yes. You can include the BOM itself in the version catalog, and omit the other
+ Compose library versions:
+ 
+-    [libraries]
+-    androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
+-    androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
++```
++[libraries]
++androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
++androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
++```
+ 
+ Don't forget to import the BOM in your module's `build.gradle`:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ dependencies {
+     val composeBom = platform(libs.androidx.compose.bom)
+     implementation(composeBom)
+@@ -158,7 +172,7 @@ dependencies {
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ dependencies {
+     Dependency composeBom = platform(libs.androidx.compose.bom)
+     implementation composeBom
+@@ -173,19 +187,25 @@ dependencies {
+ There are three available Compose BOMs. Each BOM is a point-in-time snapshot
+ of the latest-available versions of Compose libraries.
+ 
+-- Stable - contains latest stable versions of each library.
+-- Beta - contains latest beta, release candidate (RC), or stable versions of each library.
+-- Alpha - contains latest alpha, beta, RC, or stable versions of each library.
++* Stable - contains latest stable versions of each library.
++* Beta - contains latest beta, release candidate (RC), or stable versions of
++  each library.
++* Alpha - contains latest alpha, beta, RC, or stable versions of each library.
+ 
+ The Alpha and Beta versions of the BOM are specified by adding `-alpha` and
+ `-beta` to the BOM artifact name. The stable version has no suffix.
+ 
+-> [!NOTE]
+-> **Note:** The alpha and beta BOMs are provided for testing of upcoming features and bug fixes. They are not intended for production use. These BOMs do not *only* contain alpha and beta versions. If the latest stable version of a library is higher than the latest alpha, beta, or RC versions, that stable version will appear in the alpha and beta BOMs. If the latest version is a Beta or RC, that version will appear in the alpha and beta BOMs.
++**Note:** The alpha and beta BOMs are provided for testing of upcoming features and
++bug fixes. They are not intended for production use.
++These BOMs do not *only* contain alpha and beta versions.
++If the latest stable version of a library is higher than the latest alpha,
++beta, or RC versions, that stable version will appear in the alpha and beta
++BOMs. If the latest version is a Beta or RC, that version will appear in the
++alpha and beta BOMs.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ dependencies {
+     // Specify the Compose BOM with a version definition
+     val composeBom = platform("androidx.compose:compose-bom-alpha:2026.03.00")
+@@ -197,7 +217,7 @@ dependencies {
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ dependencies {
+     // Specify the Compose BOM with a version definition
+     Dependency composeBom = platform('androidx.compose:compose-bom-alpha:2026.03.00')
+@@ -213,7 +233,7 @@ You can file issues on our [issue tracker](https://issuetracker.google.com/issue
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Material Design 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3)
+-- [ConstraintLayout in Compose](https://developer.android.com/develop/ui/compose/layouts/constraintlayout)
+-- [Resources in Compose](https://developer.android.com/develop/ui/compose/resources)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Material Design 3 in Compose](/develop/ui/compose/designsystems/material3)
++* [ConstraintLayout in Compose](/develop/ui/compose/layouts/constraintlayout)
++* [Resources in Compose](/develop/ui/compose/resources)
+\ No newline at end of file

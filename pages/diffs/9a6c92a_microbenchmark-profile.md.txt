@@ -1,0 +1,163 @@
+diff --git a/docs/topic/performance/benchmarking/microbenchmark-profile.md b/docs/topic/performance/benchmarking/microbenchmark-profile.md
+index c246bb5..379b658 100644
+--- a/docs/topic/performance/benchmarking/microbenchmark-profile.md
++++ b/docs/topic/performance/benchmarking/microbenchmark-profile.md
+@@ -1,28 +1,37 @@
+ ---
+-title: https://developer.android.com/topic/performance/benchmarking/microbenchmark-profile
++title: Profile a Microbenchmark  |  App quality  |  Android Developers
+ url: https://developer.android.com/topic/performance/benchmarking/microbenchmark-profile
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App quality](https://developer.android.com/quality)
++* [Technical quality](https://developer.android.com/quality/technical)
++
++# Profile a Microbenchmark Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ By default, Microbenchmarks give you information about the timing and
+ allocations of the executed code. If you want to investigate why the measured
+-code is running slowly, inspect the method trace---captured by default on
+-[supported OS versions](https://developer.android.com/topic/performance/benchmarking/microbenchmark-profile#method-tracing-default-support)---or select other
++code is running slowly, inspect the method trace—captured by default on
++[supported OS versions](#method-tracing-default-support)—or select other
+ profiling configurations.
+ 
+ To select the profiler configuration, add the instrumentation runner argument
+ `androidx.benchmark.profiling.mode` with one of
+-[`MethodTracing`](https://developer.android.com/topic/performance/benchmarking/microbenchmark-profile#method-tracing) (default),
+-[`StackSampling`](https://developer.android.com/topic/performance/benchmarking/microbenchmark-profile#stack-sampling), or [`None`](https://developer.android.com/topic/performance/benchmarking/microbenchmark-profile#none) argument, as shown in the
++[`MethodTracing`](#method-tracing) (default),
++[`StackSampling`](#stack-sampling), or [`None`](#none) argument, as shown in the
+ following snippet.
+ 
+-For more information about the options, see [Record Java/Kotlin methods](https://developer.android.com/studio/profile/record-java-kotlin-methods).
++For more information about the options, see [Record Java/Kotlin methods](/studio/profile/record-java-kotlin-methods).
+ `MethodTracing` is the equivalent of tracing, and `StackSampling` is the
+ equivalent of sampling as defined in that document.
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ android {
+     defaultConfig {
+         // must be one of: 'None', 'StackSampling', or 'MethodTracing'
+@@ -33,7 +42,7 @@ android {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ android {
+     defaultConfig {
+         // must be one of: 'None', 'StackSampling', or 'MethodTracing'
+@@ -43,12 +52,14 @@ android {
+ ```
+ 
+ When you profile a benchmark, an output `.trace` file is copied to the host in
+-the directory [alongside JSON results](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#benchmark-results). To inspect profiling results in
++the directory [alongside JSON results](/topic/performance/benchmarking/microbenchmark-write#benchmark-results). To inspect profiling results in
+ Android Studio, select the **Method Trace** or **Stack Sampling Trace** link
+ in the microbenchmark results.
+ 
+-> [!NOTE]
+-> **Note:** The Microbenchmark library automatically captures system tracing, but with custom tracing sections disabled---it ignores calls to `Trace.beginSection and endSection`---to prevent interference from tracing overhead.
++**Note:** The Microbenchmark library automatically captures system tracing, but with
++custom tracing sections disabled—it ignores calls to
++`Trace.beginSection and endSection`—to prevent interference from tracing
++overhead.
+ 
+ ## MethodTracing
+ 
+@@ -60,7 +71,9 @@ Profiling occurs in sequence after code measurement, so your test outputs both
+ accurate timing and profiling results.
+ 
+ Method tracing is on by default.
+-**Note:** On some Android OS and ART versions, method tracing is off by default. In these cases, Android Studio outputs a warning.
++
++**Note:** On some Android OS and ART versions, method tracing is off by
++default. In these cases, Android Studio outputs a warning.
+ 
+ ## StackSampling
+ 
+@@ -72,32 +85,34 @@ short life cycles, use method tracing instead of sample tracing.
+ 
+ With stack sampling, the benchmark samples call stacks after the warmup is
+ complete. You can control sampling behavior such as the
+-[sample frequency](https://developer.android.com/topic/performance/benchmarking/microbenchmark-profile#profiling-samplefrequency)
+-and [duration of sampling](https://developer.android.com/topic/performance/benchmarking/microbenchmark-profile#profiling-sampleduration) using instrumentation
++[sample frequency](#profiling-samplefrequency)
++and [duration of sampling](#profiling-sampleduration) using instrumentation
+ arguments.
+ 
+-On Android 10 (API 29) and higher, stack sampling uses [Simpleperf](https://developer.android.com/ndk/guides/simpleperf) to sample
++On Android 10 (API 29) and higher, stack sampling uses [Simpleperf](/ndk/guides/simpleperf) to sample
+ app callstacks, including C++ code. On Android 9 (API 28) and lower, it uses
+-[`Debug.startMethodTracingSampling`](https://developer.android.com/reference/kotlin/android/os/Debug#startMethodTracingSampling(kotlin.String,%20kotlin.Int,%20kotlin.Int)) to capture stack samples.
++[`Debug.startMethodTracingSampling`](/reference/kotlin/android/os/Debug#startMethodTracingSampling(kotlin.String,%20kotlin.Int,%20kotlin.Int)) to capture stack samples.
+ 
+ You can configure this profiling mode by adding another instrumentation
+ arguments:
+ 
+-- `androidx.benchmark.profiling.sampleFrequency`
++* `androidx.benchmark.profiling.sampleFrequency`
+ 
+-  - Number of stack samples to capture per second.
+-  - Argument type: integer
+-  - Defaults to 1000 samples per second.
+-- `androidx.benchmark.profiling.sampleDurationSeconds`
++  + Number of stack samples to capture per second.
++  + Argument type: integer
++  + Defaults to 1000 samples per second.
++* `androidx.benchmark.profiling.sampleDurationSeconds`
+ 
+-  - Duration of benchmark to run.
+-  - Argument type: integer
+-  - Defaults to 5 seconds.
+-- `androidx.benchmark.profiling.skipWhenDurationRisksAnr`
++  + Duration of benchmark to run.
++  + Argument type: integer
++  + Defaults to 5 seconds.
++* `androidx.benchmark.profiling.skipWhenDurationRisksAnr`
+ 
+-  - Skips method tracing when it's likely to cause an ANR. You should keep this enabled for CI runs, since ANRs can cause problems during long CI runs.
+-  - Argument type: boolean
+-  - Defaults to `true`
++  + Skips method tracing when it's likely to cause an ANR. You should keep
++    this enabled for CI runs, since ANRs can cause problems during long CI
++    runs.
++  + Argument type: boolean
++  + Defaults to `true`
+ 
+ ## None
+ 
+@@ -106,6 +121,18 @@ allocations are still measured.
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Microbenchmark Instrumentation Arguments](https://developer.android.com/topic/performance/benchmarking/microbenchmark-instrumentation-args)
+-- [Run benchmarks in Continuous Integration](https://developer.android.com/topic/performance/benchmarking/benchmarking-in-ci)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Microbenchmark Instrumentation Arguments](/topic/performance/benchmarking/microbenchmark-instrumentation-args)
++* [Run benchmarks in Continuous Integration](/topic/performance/benchmarking/benchmarking-in-ci)
++
++[Previous
++
++arrow\_back
++
++Write a benchmark](/topic/performance/benchmarking/microbenchmark-write)
++
++[Next
++
++Microbenchmark instrumentation arguments
++
++arrow\_forward](/topic/performance/benchmarking/microbenchmark-instrumentation-args)
+\ No newline at end of file

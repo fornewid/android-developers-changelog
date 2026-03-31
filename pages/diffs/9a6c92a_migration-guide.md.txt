@@ -1,0 +1,37 @@
+diff --git a/docs/ndk/guides/neuralnetworks/migration-guide.md b/docs/ndk/guides/neuralnetworks/migration-guide.md
+index 832c7cd..d47096e 100644
+--- a/docs/ndk/guides/neuralnetworks/migration-guide.md
++++ b/docs/ndk/guides/neuralnetworks/migration-guide.md
+@@ -1,11 +1,20 @@
+ ---
+-title: https://developer.android.com/ndk/guides/neuralnetworks/migration-guide
++title: NNAPI Migration Guide  |  Android NDK  |  Android Developers
+ url: https://developer.android.com/ndk/guides/neuralnetworks/migration-guide
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Home](https://developer.android.com/)
++* [NDK](https://developer.android.com/ndk)
++* [Develop](https://developer.android.com/develop)
++* [Guides](https://developer.android.com/ndk/guides)
++
++# NNAPI Migration Guide Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ The Neural Networks API (NNAPI) is deprecated. It was
+-[introduced in Android 8.1](https://developer.android.com/about/versions/oreo/android-8.1#nnapi) to provide a unified interface for hardware
++[introduced in Android 8.1](/about/versions/oreo/android-8.1#nnapi) to provide a unified interface for hardware
+ accelerated inference for on-device machine learning,
+ and deprecated in Android 15.
+ 
+@@ -17,7 +26,7 @@ developers needed tools and infrastructure that update frequently.
+ To meet those needs, Google developed
+ [TensorFlow Lite in Play Services](https://www.tensorflow.org/lite/android/play_services),
+ providing an updatable TensorFlow runtime for custom on-device ML models,
+-and [AICore](https://developer.android.com/ml/aicore), which provide GenAI foundation models like
++and [AICore](/ml/aicore), which provide GenAI foundation models like
+ Gemini Nano directly on Android devices. To provide greater clarity on
+ the recommended paths for production ML on Android, NNAPI (Neural Networks API)
+ was deprecated.

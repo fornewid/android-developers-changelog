@@ -1,0 +1,37 @@
+diff --git a/docs/games/services/management/api/applications.md b/docs/games/services/management/api/applications.md
+index 351a9e0..c7b46db 100644
+--- a/docs/games/services/management/api/applications.md
++++ b/docs/games/services/management/api/applications.md
+@@ -1,14 +1,20 @@
+ ---
+-title: https://developer.android.com/games/services/management/api/applications
++title: Applications  |  API reference  |  Android Developers
+ url: https://developer.android.com/games/services/management/api/applications
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Applications
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [API reference](https://developer.android.com/reference)
++
++# Applications Stay organized with collections Save and categorize content based on your preferences.
++
++
+ 
+ A resource representing the metadata for an application.
+ 
+-For a list of[methods](https://developer.android.com/games/services/management/api/applications#methods)for this resource, see the end of this page.
++For a list of [methods](#methods) for this resource, see the end of this page.
+ 
+ ## Resource representations
+ 
+@@ -16,5 +22,5 @@ There is no persistent data associated with this resource.
+ 
+ ## Methods
+ 
+-[listHidden](https://developer.android.com/games/services/management/api/applications/listHidden)
++[listHidden](/games/services/management/api/applications/listHidden)
+ :   Get the list of players hidden from the given application. This method is only available to user accounts for your developer console.
+\ No newline at end of file

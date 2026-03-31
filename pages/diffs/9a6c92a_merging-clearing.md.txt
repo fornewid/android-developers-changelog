@@ -1,0 +1,37 @@
+diff --git a/docs/develop/ui/compose/accessibility/merging-clearing.md b/docs/develop/ui/compose/accessibility/merging-clearing.md
+index ca93d85..f58ce42 100644
+--- a/docs/develop/ui/compose/accessibility/merging-clearing.md
++++ b/docs/develop/ui/compose/accessibility/merging-clearing.md
+@@ -16,7 +16,7 @@ semantics.
+ 
+ ## Merge semantics
+ 
+-When you apply a [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) modifier to a parent composable, Compose
++When you apply a [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) modifier to a parent composable, Compose
+ automatically merges all children elements under it. To understand how
+ interactive Compose Material and Foundation components use merging strategies
+ by default, see the [Interactive elements](https://developer.android.com/develop/ui/compose/accessibility/api-defaults#interactive-elements) section.
+@@ -112,12 +112,12 @@ defy merging can help you debug some potentially unexpected behaviors.
+ Use merging when children elements constitute a logical and sensible group
+ under their parent. But if the nested children need manual adjusting or removal
+ of their own semantics, other APIs might better suit your needs (for example,
+-[`clearAndSetSemantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1))).
++[`clearAndSetSemantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/clearAndSetSemantics.modifier#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1))).
+ 
+ ## Clear and set semantics
+ 
+ If semantic information needs to be completely cleared or overwritten, a
+-powerful API to use is [`clearAndSetSemantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1)).
++powerful API to use is [`clearAndSetSemantics`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/clearAndSetSemantics.modifier#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1)).
+ 
+ When a component needs its own and its descendant semantics cleared, use this
+ API with an empty lambda. When its semantics must be overwritten, include your
+@@ -252,6 +252,6 @@ differentiate between the previous APIs:
+ ## Recommended for you
+ 
+ - Note: link text is displayed when JavaScript is off
+-- [Accessibility in Compose](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1))
++- [Accessibility in Compose](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/clearAndSetSemantics.modifier#(androidx.compose.ui.Modifier).clearAndSetSemantics(kotlin.Function1))
+ - \[Material Design 2 in Compose\]\[19\]
+ - [Testing your Compose layout](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).stateDescription())
+\ No newline at end of file

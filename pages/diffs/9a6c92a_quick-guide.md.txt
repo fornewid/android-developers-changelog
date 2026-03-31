@@ -1,0 +1,49 @@
+diff --git a/docs/develop/ui/compose/animation/quick-guide.md b/docs/develop/ui/compose/animation/quick-guide.md
+index 9ab3202..262dc9c 100644
+--- a/docs/develop/ui/compose/animation/quick-guide.md
++++ b/docs/develop/ui/compose/animation/quick-guide.md
+@@ -111,7 +111,7 @@ section](https://developer.android.com/develop/ui/compose/animation/quick-guide#
+ ![Green composable animating its size change smoothly.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_size.gif) **Figure 4.** Composable smoothly animating between a small and a larger size
+ 
+ Compose lets you animate the size of composables in a few different ways. Use
+-[`animateContentSize()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#(androidx.compose.ui.Modifier).animateContentSize(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function2)) for animations between composable size changes.
++[`animateContentSize()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/animateContentSize.modifier#(androidx.compose.ui.Modifier).animateContentSize(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function2)) for animations between composable size changes.
+ 
+ For example, if you have a box that contains text which can expand from one to
+ multiple lines you can use `Modifier.animateContentSize()` to achieve a smoother
+@@ -142,7 +142,7 @@ Box(
+ > [!NOTE]
+ > **Note:** [Ordering of the modifiers](https://developer.android.com/develop/ui/compose/modifiers#order-modifier-matters) matters here. Make sure to place it **before** any size modifiers.
+ 
+-You can also use [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent), with a [`SizeTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#SizeTransform(kotlin.Boolean,kotlin.Function2)) to describe
++You can also use [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent), with a [`SizeTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SizeTransform) to describe
+ how size changes should take place.
+ 
+ ### Animate position of composable
+@@ -326,7 +326,7 @@ Box(
+ 
+ <br />
+ 
+-Alternatively, use the [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable, and set the elevation property to
++Alternatively, use the [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable, and set the elevation property to
+ different values per state.
+ 
+ ### Animate text scale, translation or rotation
+@@ -397,7 +397,7 @@ BasicText(
+ 
+ ![Green screen saying](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_slower.gif) **Figure 11.** Using AnimatedContent to animate changes between different composables (slowed down)
+ 
+-Use [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#AnimatedContent(kotlin.Any,androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.Alignment,kotlin.Function2)) to animate between different composables, if you
++Use [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContent.composable) to animate between different composables, if you
+ just want a standard fade between composables, use `Crossfade`.
+ 
+ 
+@@ -617,7 +617,7 @@ LaunchedEffect("animationKey") {
+ 
+ <br />
+ 
+-You could use the [`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#updateTransition(kotlin.Any,kotlin.String)) API to use the same state to drive
++You could use the [`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable#updateTransition(kotlin.Any,kotlin.String)) API to use the same state to drive
+ many different property animations at the same time. The example below animates
+ two properties controlled by a state change, `rect` and `borderWidth`:
+ 

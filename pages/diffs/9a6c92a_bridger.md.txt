@@ -1,0 +1,201 @@
+diff --git a/docs/training/wearables/notifications/bridger.md b/docs/training/wearables/notifications/bridger.md
+index 3dfab7b..e3cc630 100644
+--- a/docs/training/wearables/notifications/bridger.md
++++ b/docs/training/wearables/notifications/bridger.md
+@@ -1,12 +1,21 @@
+ ---
+-title: https://developer.android.com/training/wearables/notifications/bridger
++title: Bridging options for notifications  |  Wear OS  |  Android Developers
+ url: https://developer.android.com/training/wearables/notifications/bridger
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Wear OS](https://developer.android.com/training/wearables)
++
++# Bridging options for notifications Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ By default, the system *bridges*, or shares, notifications from a phone app to
+ any paired watches. If you build a watch app and your app also exists on a
+-paired phone, users might receive duplicate notifications---one that the phone app
++paired phone, users might receive duplicate notifications—one that the phone app
+ generates and bridges, and one that the watch app generates. Wear OS includes
+ features to control how and when notifications are bridged.
+ 
+@@ -23,12 +32,10 @@ To bridge some of the notifications that your phone app creates to the watch
+ when your watch app is installed, set bridge tags.
+ 
+ Set a bridge tag on a notification by using the
+-[`setBridgeTag(String)`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.WearableExtender#setBridgeTag(java.lang.String))
++[`setBridgeTag(String)`](/reference/androidx/core/app/NotificationCompat.WearableExtender#setBridgeTag(java.lang.String))
+ method, as shown in the following code sample:
+ 
+-<br />
+-
+-```kotlin
++```
+ val notification = NotificationCompat.Builder(context, channelId)
+     // ... set other fields ...
+     .extend(
+@@ -36,9 +43,9 @@ val notification = NotificationCompat.Builder(context, channelId)
+             .setBridgeTag("tagOne")
+     )
+     .build()
+-```
+ 
+-<br />
++BridgingConfiguration.kt
++```
+ 
+ ### Disable bridging
+ 
+@@ -50,44 +57,42 @@ recommend that you selectively disable bridging.
+ You can dynamically disable bridging and, optionally, permit some notifications
+ through based on their tag. For example, to disable bridging for all
+ notifications except those tagged as `tagOne`, `tagTwo`, or `tagThree`, use the
+-[`BridgingConfig`](https://developer.android.com/reference/androidx/wear/phone/interactions/notifications/BridgingConfig)
++[`BridgingConfig`](/reference/androidx/wear/phone/interactions/notifications/BridgingConfig)
+ object as shown in the following example:
+ 
+-<br />
+-
+-```kotlin
++```
+ // In this example, bridging is only enabled for tagOne, tagTwo and tagThree.
+ BridgingManager.fromContext(context).setConfig(
+     BridgingConfig.Builder(context, isBridgingEnabled = false)
+         .addExcludedTags(listOf("tagOne", "tagTwo", "tagThree"))
+         .build()
+ )
+-```
+ 
+-<br />
++BridgingConfiguration.kt
++```
+ 
+ #### Disable bridging for all notifications (not recommended)
+ 
+-> [!NOTE]
+-> **Note:** We don't recommend disabling bridging for all notifications, because the bridging configuration set in the manifest takes effect as soon as a watch app is installed. This can lead to notifications being lost if the user needs to open and set up the watch app before receiving notifications.
++**Note:** We don't recommend disabling bridging for all notifications, because the
++bridging configuration set in the manifest takes effect as soon as a watch app
++is installed. This can lead to notifications being lost if the user needs to
++open and set up the watch app before receiving notifications.
+ 
+ To prevent bridging of all notifications from a phone app, use the
+ `<meta-data>` entry in the manifest file of the watch app, as shown in the
+ following example:
+ 
+-<br />
+-
+-```xml
++```
+ <!-- Beware, this can have unintended consequences before the user is signed-in -->
+ <meta-data
+     android:name="com.google.android.wearable.notificationBridgeMode"
+     android:value="NO_BRIDGING" />
+-```
+ 
+-<br />
++AndroidManifest.xml
++```
+ 
+-> [!NOTE]
+-> **Note:** Specifying a bridging configuration at runtime overrides a bridging-related setting in the Android manifest file.
++**Note:** Specifying a bridging configuration at runtime overrides a
++bridging-related setting in the Android manifest file.
+ 
+ ### Set a dismissal ID to sync similar notifications
+ 
+@@ -99,7 +104,7 @@ watch, you want both notifications to be dismissed when the user dismisses
+ either one of them.
+ 
+ In the
+-[`NotificationCompat.WearableExtender`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.WearableExtender),
++[`NotificationCompat.WearableExtender`](/reference/androidx/core/app/NotificationCompat.WearableExtender),
+ you can set a global unique ID so that when a user dismisses a notification,
+ other notifications with the same ID on paired watches are also dismissed.
+ 
+@@ -113,9 +118,7 @@ dismissal ID, use `getDismissalId()`.
+ In the following example, a globally unique ID is specified for a new
+ notification, so dismissals are synced:
+ 
+-<br />
+-
+-```kotlin
++```
+ val notification = NotificationCompat.Builder(context, channelId)
+     // ... set other fields ...
+     .extend(
+@@ -123,16 +126,16 @@ val notification = NotificationCompat.Builder(context, channelId)
+             .setDismissalId("abc123")
+     )
+     .build()
+-```
+ 
+-<br />
++BridgingConfiguration.kt
++```
+ 
+-> [!NOTE]
+-> **Note:** Dismissal IDs work if a watch is paired to an Android phone, but not if a watch is paired to an iPhone.
++**Note:** Dismissal IDs work if a watch is paired to an Android phone, but not if a
++watch is paired to an iPhone.
+ 
+ ## Local-only notifications
+ 
+-To prevent duplicate notifications, you can also use [`setLocalOnly()`](https://developer.android.com/reference/android/app/Notification.Builder#setLocalOnly(boolean)) to
++To prevent duplicate notifications, you can also use [`setLocalOnly()`](/reference/android/app/Notification.Builder#setLocalOnly(boolean)) to
+ make notifications local to the phone.
+ 
+ However, use this method only if the notification must appear *only* on the
+@@ -151,11 +154,15 @@ phone and the notification indicates that the download is complete.
+ 
+ The system doesn't bridge the following types of notifications:
+ 
+-- Local-only notifications set using [`Notification.Builder.setLocalOnly(boolean)`](https://developer.android.com/reference/android/app/Notification.Builder#setLocalOnly(boolean)).
+-- Ongoing notifications set using [`Notification.Builder.setOngoing(boolean)`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)) or [`Notification.FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification#FLAG_ONGOING_EVENT).
+-- Non-clearable notifications set using [`Notification.FLAG_NO_CLEAR`](https://developer.android.com/reference/android/app/Notification#FLAG_NO_CLEAR).
+-- Notifications where the counterpart wearable app has [disabled notification
+-  bridging](https://developer.android.com/training/wearables/notifications/bridger#disable-bridging).
++* Local-only notifications set using
++  [`Notification.Builder.setLocalOnly(boolean)`](/reference/android/app/Notification.Builder#setLocalOnly(boolean)).
++* Ongoing notifications set using
++  [`Notification.Builder.setOngoing(boolean)`](/reference/android/app/Notification.Builder#setOngoing(boolean))
++  or [`Notification.FLAG_ONGOING_EVENT`](/reference/android/app/Notification#FLAG_ONGOING_EVENT).
++* Non-clearable notifications set using
++  [`Notification.FLAG_NO_CLEAR`](/reference/android/app/Notification#FLAG_NO_CLEAR).
++* Notifications where the counterpart wearable app has [disabled notification
++  bridging](#disable-bridging).
+ 
+ ## Implementation considerations for bridged notifications
+ 
+@@ -164,10 +171,18 @@ you design your notifications, avoid unexpected behavior caused by
+ this latency. The following guidelines help ensure that your bridged
+ notifications work with asynchronous notifications:
+ 
+-- If you cancel a notification on the phone, it might take some time to cancel the corresponding notification on the watch. During this time, the user might send one of the pending intents on that notification. For this reason, continue to receive pending intents in your app from notifications it has canceled: when canceling notifications, keep those notifications' pending intent receivers valid.
+-- Don't cancel and retrigger an entire stack of notifications at one time. Only modify or remove the notifications that have actually been modified. This avoids the latency on updating the wearable device and reduces your app's impact on battery life.
++* If you cancel a notification on the phone, it might take some time to cancel
++  the corresponding notification on the watch. During this time, the user
++  might send one of the pending intents on that notification. For this reason,
++  continue to receive pending intents in your app from notifications it has
++  canceled: when canceling notifications, keep those notifications' pending
++  intent receivers valid.
++* Don't cancel and retrigger an entire stack of notifications at one time.
++  Only modify or remove the notifications that have actually been modified.
++  This avoids the latency on updating the wearable device and reduces your
++  app's impact on battery life.
+ 
+ ### Design considerations
+ 
+ Wear OS notifications have their own design guidelines. For more information,
+-see the [Wear OS Design Guidelines](https://developer.android.com/training/wearables/design).
+\ No newline at end of file
++see the [Wear OS Design Guidelines](/training/wearables/design).
+\ No newline at end of file

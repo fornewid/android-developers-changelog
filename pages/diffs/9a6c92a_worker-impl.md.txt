@@ -1,0 +1,244 @@
+diff --git a/docs/develop/background-work/background-tasks/testing/persistent/worker-impl.md b/docs/develop/background-work/background-tasks/testing/persistent/worker-impl.md
+index 87cb3d8..c715390 100644
+--- a/docs/develop/background-work/background-tasks/testing/persistent/worker-impl.md
++++ b/docs/develop/background-work/background-tasks/testing/persistent/worker-impl.md
+@@ -1,22 +1,33 @@
+ ---
+-title: https://developer.android.com/develop/background-work/background-tasks/testing/persistent/worker-impl
++title: Testing Worker implementation  |  Background work  |  Android Developers
+ url: https://developer.android.com/develop/background-work/background-tasks/testing/persistent/worker-impl
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-WorkManager provides APIs for testing [`Worker`](https://developer.android.com/reference/kotlin/androidx/work/Worker),
+-[`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker), and the
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [Background work](https://developer.android.com/develop/background-work)
++* [Guides](https://developer.android.com/develop/background-work/background-tasks)
++
++# Testing Worker implementation Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++WorkManager provides APIs for testing [`Worker`](/reference/kotlin/androidx/work/Worker),
++[`ListenableWorker`](/reference/androidx/work/ListenableWorker), and the
+ `ListenableWorker` variants
+-([`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker)
+-and [`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker)).
++([`CoroutineWorker`](/reference/kotlin/androidx/work/CoroutineWorker)
++and [`RxWorker`](/reference/androidx/work/RxWorker)).
+ 
+ ## Testing Workers
+ 
+-Let's say we have a `Worker` which looks like this:
++Let’s say we have a `Worker` which looks like this:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class SleepWorker(context: Context, parameters: WorkerParameters) :
+     Worker(context, parameters) {
+ 
+@@ -30,7 +41,7 @@ class SleepWorker(context: Context, parameters: WorkerParameters) :
+ 
+ ### Java
+ 
+-```java
++```
+ public class SleepWorker extends Worker {
+     public SleepWorker(
+             @NonNull Context context,
+@@ -51,13 +62,13 @@ return Result.success();
+ ```
+ 
+ To test this `Worker`, you can use
+-[`TestWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestWorkerBuilder). This
++[`TestWorkerBuilder`](/reference/androidx/work/testing/TestWorkerBuilder). This
+ builder helps build instances of `Worker` that can be used for the purpose of
+ testing business logic.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // Kotlin code uses the TestWorkerBuilder extension to build
+ // the Worker
+ @RunWith(AndroidJUnit4::class)
+@@ -86,7 +97,7 @@ class SleepWorkerTest {
+ 
+ ### Java
+ 
+-```java
++```
+ @RunWith(AndroidJUnit4.class)
+ public class SleepWorkerJavaTest {
+     private Context context;
+@@ -119,7 +130,7 @@ rather than it being a constant defined in the worker:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class SleepWorker(context: Context, parameters: WorkerParameters) :
+     Worker(context, parameters) {
+ 
+@@ -138,7 +149,7 @@ class SleepWorker(context: Context, parameters: WorkerParameters) :
+ 
+ ### Java
+ 
+-```java
++```
+ public class SleepWorker extends Worker {
+     public static final String SLEEP_DURATION = "SLEEP_DURATION";
+ 
+@@ -166,7 +177,7 @@ In `SleepWorkerTest`, you can provide that input data to your
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // Kotlin code uses the TestWorkerBuilder extension to build
+ // the Worker
+ @RunWith(AndroidJUnit4::class)
+@@ -196,7 +207,7 @@ class SleepWorkerTest {
+ 
+ ### Java
+ 
+-```java
++```
+ @RunWith(AndroidJUnit4.class)
+ public class SleepWorkerJavaTest {
+     private Context context;
+@@ -227,53 +238,57 @@ public class SleepWorkerJavaTest {
+ ```
+ 
+ For more details on the `TestWorkerBuilder` API, see the reference page for
+-[`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder),
++[`TestListenableWorkerBuilder`](/reference/androidx/work/testing/TestListenableWorkerBuilder),
+ the superclass of `TestWorkerBuilder`.
+ 
+ ## Testing ListenableWorker and its variants
+ 
+-To test a [`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker) or its
+-variants ([`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker)
+-and [`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker)), use
+-[`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder).
++To test a [`ListenableWorker`](/reference/androidx/work/ListenableWorker) or its
++variants ([`CoroutineWorker`](/reference/kotlin/androidx/work/CoroutineWorker)
++and [`RxWorker`](/reference/androidx/work/RxWorker)), use
++[`TestListenableWorkerBuilder`](/reference/androidx/work/testing/TestListenableWorkerBuilder).
+ The main difference between `TestWorkerBuilder` and a
+-[`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder)
++[`TestListenableWorkerBuilder`](/reference/androidx/work/testing/TestListenableWorkerBuilder)
+ is that `TestWorkerBuilder` lets you specify the background `Executor` used to
+ run the `Worker`, whereas `TestListenableWorkerBuilder` relies on the
+ threading logic of the `ListenableWorker` implementation.
+ 
+ For example, suppose we need to test a `CoroutineWorker` which looks like this:
+ 
+-    class SleepWorker(context: Context, parameters: WorkerParameters) :
+-        CoroutineWorker(context, parameters) {
+-        override suspend fun doWork(): Result {
+-            delay(1000L) // milliseconds
+-            return Result.success()
+-        }
++```
++class SleepWorker(context: Context, parameters: WorkerParameters) :
++    CoroutineWorker(context, parameters) {
++    override suspend fun doWork(): Result {
++        delay(1000L) // milliseconds
++        return Result.success()
+     }
++}
++```
+ 
+ To test `SleepWorker`, we first create an instance of the Worker using
+ `TestListenableWorkerBuilder` and then call its `doWork` function within a
+ coroutine.
+ 
+-    @RunWith(AndroidJUnit4::class)
+-    class SleepWorkerTest {
+-        private lateinit var context: Context
++```
++@RunWith(AndroidJUnit4::class)
++class SleepWorkerTest {
++    private lateinit var context: Context
+ 
+-        @Before
+-        fun setUp() {
+-            context = ApplicationProvider.getApplicationContext()
+-        }
++    @Before
++    fun setUp() {
++        context = ApplicationProvider.getApplicationContext()
++    }
+ 
+-        @Test
+-        fun testSleepWorker() {
+-            val worker = TestListenableWorkerBuilder<SleepWorker>(context).build()
+-            runBlocking {
+-                val result = worker.doWork()
+-                assertThat(result, `is`(Result.success()))
+-            }
++    @Test
++    fun testSleepWorker() {
++        val worker = TestListenableWorkerBuilder<SleepWorker>(context).build()
++        runBlocking {
++            val result = worker.doWork()
++            assertThat(result, `is`(Result.success()))
+         }
+     }
++}
++```
+ 
+ `runBlocking` makes sense as a coroutine builder for your tests so that any code
+ that would execute asynchronously is instead run in parallel.
+@@ -284,7 +299,7 @@ Consider a version of `SleepWorker` that uses RxJava instead of coroutines.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class SleepWorker(
+     context: Context,
+     parameters: WorkerParameters
+@@ -298,7 +313,7 @@ class SleepWorker(
+ 
+ ### Java
+ 
+-```java
++```
+ public class SleepWorker extends RxWorker {
+     public SleepWorker(@NonNull Context appContext, 
+ @NonNull WorkerParameters workerParams) {
+@@ -316,14 +331,14 @@ public class SleepWorker extends RxWorker {
+ 
+ A version of `SleepWorkerTest` that tests an `RxWorker` may look similar to the
+ version that tested a `CoroutineWorker`. You use the same
+-`TestListenableWorkerBuilder` but now call into `RxWorker`'s `createWork`
++`TestListenableWorkerBuilder` but now call into `RxWorker`’s `createWork`
+ function. `createWork` returns a `Single` that you can use to verify the
+ behavior of your worker. `TestListenableWorkerBuilder` handles any threading
+ complexities and executes your worker code in parallel.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ @RunWith(AndroidJUnit4::class)
+ class SleepWorkerTest {
+     private lateinit var context: Context
+@@ -345,7 +360,7 @@ class SleepWorkerTest {
+ 
+ ### Java
+ 
+-```java
++```
+ @RunWith(AndroidJUnit4.class)
+ public class SleepWorkerTest {
+     private Context context;

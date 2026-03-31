@@ -1,0 +1,13 @@
+diff --git a/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md b/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
+index 7764a8b..1d4c0ed 100644
+--- a/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
++++ b/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
+@@ -353,7 +353,7 @@ The system is able to detect TTID, display it in Logcat, and report it as part
+ of startup benchmarks. However, the system is unable to determine TTFD, and it's
+ the app's responsibility to report when it reaches a fully drawn interactive
+ state. You can do this by calling [`reportFullyDrawn()`](https://developer.android.com/reference/androidx/activity/ComponentActivity#reportFullyDrawn()), or
+-[`ReportDrawn`](https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary#ReportDrawn()) if you're using Jetpack Compose. If you have multiple
++[`ReportDrawn`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawn.composable#ReportDrawn()) if you're using Jetpack Compose. If you have multiple
+ background tasks that all need to complete before the app is considered fully
+ drawn, then you can use [`FullyDrawnReporter`](https://developer.android.com/reference/androidx/activity/FullyDrawnReporter), as described in [Improve
+ startup timing accuracy](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics#startup-accuracy).

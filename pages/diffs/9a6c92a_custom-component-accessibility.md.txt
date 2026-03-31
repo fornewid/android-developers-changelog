@@ -1,0 +1,54 @@
+diff --git a/docs/studio/prompt-gallery/prompts/custom-component-accessibility.md b/docs/studio/prompt-gallery/prompts/custom-component-accessibility.md
+index 0c32b13..8159f10 100644
+--- a/docs/studio/prompt-gallery/prompts/custom-component-accessibility.md
++++ b/docs/studio/prompt-gallery/prompts/custom-component-accessibility.md
+@@ -1,22 +1,35 @@
+ ---
+-title: https://developer.android.com/studio/prompt-gallery/prompts/custom-component-accessibility
++title: Custom component accessibility  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/studio/prompt-gallery/prompts/custom-component-accessibility
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Studio](https://developer.android.com/studio)
++* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
++
++# Custom component accessibility Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Make your UI accessible to screen readers.
+ 
+-*** ** * ** ***
++---
++
++```
++In this Kotlin file, I have a custom UI component (Compose or View).
++Add the necessary code to make it accessible to screen readers.
++Ensure proper use of accessibility events and provide relevant content descriptions or labels.
++Implement state descriptions if the component has different states.
++
++$CURRENT_FILE
++```
+ 
+-    In this Kotlin file, I have a custom UI component (Compose or View).
+-    Add the necessary code to make it accessible to screen readers.
+-    Ensure proper use of accessibility events and provide relevant content descriptions or labels.
+-    Implement state descriptions if the component has different states.
+ 
+-    $CURRENT_FILE
++To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.
++  
++To save and retrieve prompts in the Studio IDE, go to **Settings > Gemini > Prompt Library**.
+ 
+-> [!NOTE]
+-> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
+-> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
+ 
+-*** ** * ** ***
+\ No newline at end of file
++---
+\ No newline at end of file

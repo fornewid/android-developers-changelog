@@ -1,0 +1,162 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/auto-format-phone-number.md b/docs/develop/ui/compose/quick-guides/content/auto-format-phone-number.md
+index 61a61bf..47e4345 100644
+--- a/docs/develop/ui/compose/quick-guides/content/auto-format-phone-number.md
++++ b/docs/develop/ui/compose/quick-guides/content/auto-format-phone-number.md
+@@ -1,21 +1,32 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number
++title: Auto-format a phone number in a text field  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-<br />
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
++
++# Auto-format a phone number in a text field Stay organized with collections Save and categorize content based on your preferences.
++
++
+ 
+ You can auto format a phone number in a text field in your app, saving users
+ time by formatting the phone number as they input digits. Follow this guidance
+ to auto format a phone number:
+ 
+-- Create the text field.
+-- Auto-format a number in the text field.
++* Create the text field.
++* Auto-format a number in the text field.
+ 
+ ## Results
+ 
+-![An auto-formatted phone number in the text field](https://developer.android.com/static/develop/ui/compose/quick-guides/content/nanp_formatter.gif) **Figure 1.** An auto-formatted phone number in the text field.
++![An auto-formatted phone number in the text field](/static/develop/ui/compose/quick-guides/content/nanp_formatter.gif)
++
++
++**Figure 1.** An auto-formatted phone number in the text field.
+ 
+ ## Version compatibility
+ 
+@@ -24,17 +35,14 @@ higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/auto-format-phone-number_7f7d48807914e7d1095832a1da5eb605f72c073ad650a896fe8e3904ff003070.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+-
+ ## Create the text field
+ 
+-First, configure the [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)). This example shows a phone number
++First, configure the [`TextField`](/reference/kotlin/androidx/compose/material/TextField.composable#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)). This example shows a phone number
+ formatted per the North American Numbering Plan
+ (NANP).`NanpVisualTransformation` formats a raw string of numbers to NANP, eg.
+ 1234567890 to (123) 456-7890.
+ 
+-
+-```kotlin
++```
+ @Composable
+ fun PhoneNumber() {
+     var phoneNumber by rememberSaveable { mutableStateOf("") }
+@@ -55,22 +63,25 @@ fun PhoneNumber() {
+         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+     )
+ }
+-```
+ 
+-<br />
++TextSnippets.kt
++```
+ 
+ ### Key points about the code
+ 
+-- A `TextField` composable where the `onValueChange` uses a regular expression to remove all non-numeric characters and limits the length to a maximum of 10 characters before updating the `phoneNumber` state.
+-- The `TextField` has a custom [`VisualTransformation`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/VisualTransformation) instance set on the `visualTransformation` attribute. `NanpVisualTransformation`, the custom class instantiated here, is defined in the following section.
++* A `TextField` composable where the `onValueChange` uses a regular expression
++  to remove all non-numeric characters and limits the length to a maximum of
++  10 characters before updating the `phoneNumber` state.
++* The `TextField` has a custom [`VisualTransformation`](/reference/kotlin/androidx/compose/ui/text/input/VisualTransformation) instance set on the
++  `visualTransformation` attribute. `NanpVisualTransformation`, the custom
++  class instantiated here, is defined in the following section.
+ 
+ ## Auto-format a number in the text field
+ 
+ To format a raw string of numbers, use the implementation of the custom
+ `NanpVisualTransformation` class:
+ 
+-
+-```kotlin
++```
+ class NanpVisualTransformation : VisualTransformation {
+ 
+     override fun filter(text: AnnotatedString): TransformedText {
+@@ -111,30 +122,55 @@ class NanpVisualTransformation : VisualTransformation {
+             }
+     }
+ }
+-```
+ 
+-<br />
++TextSnippets.kt
++```
+ 
+ ### Key points about the code
+ 
+-- The `filter()` function inserts the non-numeric formatting characters at the appropriate places.
+-- The `phoneNumberOffsetTranslator` object contains two methods. One maps the offsets between the original string and the formatted one, and the other does the reverse mapping. These mappings enable the skipping of the formatting characters when the user changes the cursor location in the text field.
+-- The formatted string and `phoneNumberOffsetTranslator` are used as arguments for a `TransformedText` instance that is returned and used by the `TextField` to perform the formatting.
++* The `filter()` function inserts the non-numeric formatting characters at the
++  appropriate places.
++* The `phoneNumberOffsetTranslator` object contains two methods. One maps the
++  offsets between the original string and the formatted one, and the other
++  does the reverse mapping. These mappings enable the skipping of the
++  formatting characters when the user changes the cursor location in the text
++  field.
++* The formatted string and `phoneNumberOffsetTranslator` are used as arguments
++  for a `TransformedText` instance that is returned and used by the
++  `TextField` to perform the formatting.
+ 
+ ## Collections that contain this guide
+ 
+ This guide is part of these curated Quick Guide collections that cover
+ broader Android development goals:
+-![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
++
++![](/static/images/quick-guides/collection-illustration.png)
++
++![](/static/images/picto-icons/collection.svg)
+ 
+ ### Display text
+ 
+-Text is a central piece of any UI. Find out different ways you can present text in your app to provide a delightful user experience. [Quick guide collection](https://developer.android.com/develop/ui/compose/quick-guides/collections/display-text) ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
++Text is a central piece of any UI. Find out different ways
++you can present text in your app to provide a delightful user experience.
++
++[Quick guide collection](/develop/ui/compose/quick-guides/collections/display-text)
++
++![](/static/images/quick-guides/collection-illustration.png)
++
++![](/static/images/picto-icons/collection.svg)
+ 
+ ### Request user input
+ 
+-Learn how to implement ways for users to interact with your app by entering text and using other means of input. [Quick guide collection](https://developer.android.com/develop/ui/compose/quick-guides/collections/request-user-input) ![](https://developer.android.com/static/images/picto-icons/help.svg)
++Learn how to implement ways for users to interact
++with your app by entering text and using other means of input.
++
++[Quick guide collection](/develop/ui/compose/quick-guides/collections/request-user-input)
++
++![](/static/images/picto-icons/help.svg)
+ 
+ ## Have questions or feedback
+ 
+-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+\ No newline at end of file
++Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.
++
++[Go to FAQ](/quick-guides/faq)
++[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+\ No newline at end of file

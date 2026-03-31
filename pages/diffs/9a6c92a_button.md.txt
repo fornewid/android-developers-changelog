@@ -1,0 +1,187 @@
+diff --git a/docs/develop/ui/views/components/button.md b/docs/develop/ui/views/components/button.md
+index 40aa9ca..bab7260 100644
+--- a/docs/develop/ui/views/components/button.md
++++ b/docs/develop/ui/views/components/button.md
+@@ -1,22 +1,40 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/components/button
++title: Add buttons to your app  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/components/button
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose. [Button →](https://developer.android.com/develop/ui/compose/components/button) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Add buttons to your app Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++Try the Compose way
++
++Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose.
++
++[Button →](https://developer.android.com/develop/ui/compose/components/button)
++
++![](/static/images/android-compose-ui-logo.png)
+ 
+ A button consists of text or an icon, or both, that communicates what action occurs when the user
+ taps it.
+ 
+-> [!NOTE]
+-> **Note:** For a better UI and user experience, see the [Material Design button](https://m3.material.io/components/all-buttons) documentation.
++**Note:** For a better UI and user experience, see the
++[Material Design button](https://m3.material.io/components/all-buttons)
++documentation.
+ 
+ You can create a button in your layout in one of three ways, depending on
+ whether you want a button with text, an icon, or both:
+ 
+-```xml
+-  
++```
++  xml version="1.0" encoding="utf-8"?
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       android:layout_width="match_parent"
+@@ -49,23 +67,27 @@ whether you want a button with text, an icon, or both:
+ ```
+ 
+ The previous code generates something like this:
+-![An image showing three types of buttons](https://developer.android.com/static/images/ui/buttons.png) **Figure 1.** Three styles of buttons.
++
++![An image showing three types of buttons](/static/images/ui/buttons.png)
++
++
++**Figure 1.** Three styles of buttons.
+ 
+ ## Respond to click events
+ 
+ When the user taps a button, the
+-`https://developer.android.com/reference/android/widget/Button` object receives an
++`Button` object receives an
+ on-click event.
+ 
+ To declare the event handler programmatically, create an
+-`https://developer.android.com/reference/android/view/View.OnClickListener`
++`View.OnClickListener`
+ object and assign it to the button by calling
+-`https://developer.android.com/reference/android/view/View#setOnClickListener(android.view.View.OnClickListener)`,
++`setOnClickListener(View.OnClickListener)`,
+ as in the following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ findViewById<Button>(R.id.supabutton)
+   .setOnClickListener {
+       Log.d("BUTTONS", "User tapped the Supabutton")
+@@ -74,7 +96,7 @@ findViewById<Button>(R.id.supabutton)
+ 
+ ### Java
+ 
+-```java
++```
+ Button button = (Button) findViewById(R.id.supabutton);
+ button.setOnClickListener(new View.OnClickListener() {
+     public void onClick(View v) {
+@@ -85,16 +107,16 @@ button.setOnClickListener(new View.OnClickListener() {
+ 
+ ## Style your button
+ 
+-The appearance of your button---the background image and font---varies between devices,
++The appearance of your button—the background image and font—varies between devices,
+ because devices by different manufacturers often have different default styles for input
+ controls.
+ 
+ To customize individual buttons with a different background, specify the
+-`https://developer.android.com/reference/android/R.attr#background` attribute
++`android:background` attribute
+ with a drawable or color resource. Alternatively, you can apply a *style* for the button,
+ which works in similarly to HTML styles to define multiple style properties such as the background,
+ font, and size. For more information about applying styles, see
+-[Styles and themes](https://developer.android.com/guide/topics/ui/themes).
++[Styles and themes](/guide/topics/ui/themes).
+ 
+ ### Borderless button
+ 
+@@ -103,10 +125,10 @@ except that they have no borders or background but still change appearance durin
+ such as when tapped.
+ 
+ To create a borderless button, apply the
+-`https://developer.android.com/reference/android/R.attr#borderlessButtonStyle`
++`borderlessButtonStyle`
+ style to the button, as in the following example:
+ 
+-```xml
++```
+ <Button
+   android:id="@+id/supabutton"
+   style="?android:attr/borderlessButtonStyle"
+@@ -126,11 +148,16 @@ different button states.
+ 
+ To create a state list drawable for your button background, do the following:
+ 
+-1. Create three bitmaps for the button background that represent the default, tapped, and focused button states. To ensure that your images fit buttons of various sizes, create the bitmaps as [nine-patch](https://developer.android.com/guide/topics/graphics/2d-graphics#nine-patch) bitmaps.
+-2. Place the bitmaps into your project's `res/drawable/` directory. Name each bitmap to reflect the button state it represents, such as `button_default.9.png`, `button_pressed.9.png`, and `button_focused.9.png`.
+-3. Create a new XML file in the `res/drawable/` directory. Name it something like `button_custom.xml`. Insert XML like the following:
++1. Create three bitmaps for the button background that represent the default, tapped, and focused
++   button states. To ensure that your images fit buttons of various sizes, create the bitmaps as
++   [nine-patch](/guide/topics/graphics/2d-graphics#nine-patch) bitmaps.
++2. Place the bitmaps into your project's `res/drawable/` directory. Name each bitmap
++   to reflect the button state it represents, such as `button_default.9.png`,
++   `button_pressed.9.png`, and `button_focused.9.png`.
++3. Create a new XML file in the `res/drawable/` directory. Name it something like
++   `button_custom.xml`. Insert XML like the following:
+ 
+-   ```xml
++   ```
+    <?xml version="1.0" encoding="utf-8"?>
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:drawable="@drawable/button_pressed"
+@@ -143,18 +170,24 @@ To create a state list drawable for your button background, do the following:
+ 
+    This defines a single drawable resource that changes its image based on the current state of
+    the button.
+-   - The first `<item>` defines the bitmap to use when the button is tapped (activated).
+-   - The second `<item>` defines the bitmap to use when the button is focused, such as when the button is highlighted using the trackball or directional pad.
+-   - The third `<item>` defines the bitmap to use when the button is in the default state, neither tapped nor focused.
+ 
+-   > [!NOTE]
+-   > **Note:** The order of the `<item>` elements is important. When this drawable is referenced, the `<item>` elements are traversed in order to determine which one is appropriate for the current button state. Because the default bitmap is last, it is only applied when the conditions `android:state_pressed` and `android:state_focused` are evaluated as false.
++   * The first `<item>` defines the bitmap to use when the button is tapped
++     (activated).
++   * The second `<item>` defines the bitmap to use when the button is focused, such
++     as when the button is highlighted using the trackball or directional pad.
++   * The third `<item>` defines the bitmap to use when the button is in the default
++     state, neither tapped nor focused.
++   **Note:** The order of the `<item>` elements is important. When this drawable is
++   referenced, the `<item>` elements are traversed in order to determine which one is
++   appropriate for the current button state. Because the default bitmap is last, it is only applied
++   when the conditions `android:state_pressed` and `android:state_focused` are
++   evaluated as false.
+ 
+    This XML file represents a single drawable resource. When referenced by a `Button` for
+    its background, the image displayed changes based on the button's state.
+ 4. Apply the drawable XML file as the button background:
+ 
+-   ```xml
++   ```
+    <Button
+        android:id="@+id/button_send"
+        android:layout_width="wrap_content"
+@@ -166,4 +199,4 @@ To create a state list drawable for your button background, do the following:
+ 
+ For more information about this XML syntax, including how to define a button that is disabled,
+ hovered, or in another state, read about
+-`https://developer.android.com/guide/topics/resources/drawable-resource#StateList`.
+\ No newline at end of file
++`StateListDrawable`.
+\ No newline at end of file

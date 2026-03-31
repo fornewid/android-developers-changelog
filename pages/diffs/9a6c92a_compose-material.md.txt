@@ -1,0 +1,65 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material.md b/docs/jetpack/androidx/releases/compose-material.md
+index 9c86e74..3bbcc56 100644
+--- a/docs/jetpack/androidx/releases/compose-material.md
++++ b/docs/jetpack/androidx/releases/compose-material.md
+@@ -6,14 +6,11 @@ source: md.txt
+ 
+ # Compose Material
+ 
+-[User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) API Reference  
+-[androidx.compose.material](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary)  
+-[androidx.compose.material.icons](https://developer.android.com/reference/kotlin/androidx/compose/material/icons/package-summary)  
+-(*See the API reference docs for all compose packages*) Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io.
++[User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.0-beta01) | - |
++| March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.0-beta02) | - |
+ 
+ ## Structure
+ 
+@@ -46,7 +43,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.compose.material:material:1.10.5"
++    implementation "androidx.compose.material:material:1.10.6"
+ }
+ 
+ android {
+@@ -68,7 +65,7 @@ android {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.compose.material:material:1.10.5")
++    implementation("androidx.compose.material:material:1.10.6")
+ }
+ 
+ android {
+@@ -103,6 +100,12 @@ for more information.
+ 
+ ## Version 1.11
+ 
++### Version 1.11.0-beta02
++
++March 25, 2026
++
++`androidx.compose.material:material-*:1.11.0-beta02` is released. Version 1.11.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a15c668d4bb2e00cfa8ed1af96895a84c3e7e2d5..4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a/compose/material).
++
+ ### Version 1.11.0-beta01
+ 
+ March 11, 2026
+@@ -147,6 +150,12 @@ December 03, 2025
+ 
+ ## Version 1.10
+ 
++### Version 1.10.6
++
++March 25, 2026
++
++`androidx.compose.material:material-*:1.10.6` is released. Version 1.10.6 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e5be55ea7f9dceafc442ec739922936c1e056a33..deab088e55dabc3db4d0638d62ea3132fc51d69b/compose/material).
++
+ ### Version 1.10.5
+ 
+ March 11, 2026

@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/views/layout/webapps/in-app-browsing-embedded-web.md b/docs/develop/ui/views/layout/webapps/in-app-browsing-embedded-web.md
+index e373615..79bbcaf 100644
+--- a/docs/develop/ui/views/layout/webapps/in-app-browsing-embedded-web.md
++++ b/docs/develop/ui/views/layout/webapps/in-app-browsing-embedded-web.md
+@@ -83,7 +83,7 @@ others. For more information, see [Browser support](https://developer.chrome.com
+ You can use both Custom Tabs and WebView when building with Jetpack Compose:
+ 
+ - **Custom Tabs:** Since Custom Tabs use an [`Intent`](https://developer.android.com/reference/android/content/Intent), you can launch them from any [`Context`](https://developer.android.com/reference/android/content/Context) in your Compose functions, making for a seamless integration.
+-- **WebView:** Compose doesn't have a native WebView composable yet, so you'll need to use [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/package-summary#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) to embed a standard WebView into your layout.
++- **WebView:** Compose doesn't have a native WebView composable yet, so you'll need to use [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) to embed a standard WebView into your layout.
+ 
+ ### Additional resources
+ 

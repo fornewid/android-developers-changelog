@@ -1,0 +1,122 @@
+diff --git a/docs/design/ui/desktop/guides/interaction/pointer-interactions.md b/docs/design/ui/desktop/guides/interaction/pointer-interactions.md
+index abe644c..23aebfb 100644
+--- a/docs/design/ui/desktop/guides/interaction/pointer-interactions.md
++++ b/docs/design/ui/desktop/guides/interaction/pointer-interactions.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/design/ui/desktop/guides/interaction/pointer-interactions
++title: Pointer interactions  |  Desktop experience  |  Android Developers
+ url: https://developer.android.com/design/ui/desktop/guides/interaction/pointer-interactions
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [UI Design](https://developer.android.com/design/ui)
++* [Desktop experience](https://developer.android.com/design/ui/desktop)
++* [Guides](https://developer.android.com/design/ui/desktop/guides/foundations/design-principles)
++
++# Pointer interactions Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Desktop users rely on pointer devices, such as a mouse or touchpad, to interact
+ with your app. For an optimal desktop experience, support key pointer
+ events such as hover, scroll, primary click, and secondary click.
+@@ -29,7 +39,11 @@ menus to appear on a secondary click, such as a right-click on a mouse or a
+ two-finger tap on a touchpad. For an optimal desktop experience, configure
+ your app to trigger context menus on a secondary click, rather than requiring a
+ long click.
+-![Right-clicking a card to show a context menu for more options](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_ixd_secondary.webp) Right-clicking a card to show a context menu for more options.
++
++![Right-clicking a card to show a context menu for more options](/static/images/design/ui/desktop/guides/desktop_ixd_secondary.webp)
++
++
++Right-clicking a card to show a context menu for more options.
+ 
+ ## Hover
+ 
+@@ -39,7 +53,11 @@ more at [states](https://m3.material.io/foundations/interaction/states/overview)
+ 
+ Hover can also reveal supplementary information or actions, such as tooltips or
+ list actions nested in context menus or overflow menus.
+-![Here hover is used to show additional information in a tooltip and more interactions](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_ixd_supplement.webp) Here hover is used to show additional information in a tooltip and more interactions.
++
++![Here hover is used to show additional information in a tooltip and more interactions](/static/images/design/ui/desktop/guides/desktop_ixd_supplement.webp)
++
++
++Here hover is used to show additional information in a tooltip and more interactions.
+ 
+ ## Drag-and-drop
+ 
+@@ -47,23 +65,40 @@ On touchscreens, dragging requires a long-press because a one-finger swipe is
+ reserved for scrolling. Click-and-drag should be instantaneous with pointer
+ devices with dedicated scroll methods, such as a scroll wheel or two-finger
+ swipe on a touchpad.
+-![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_ixd_drag.webp) Draggable cards as an alternative interaction.
++
++![](/static/images/design/ui/desktop/guides/desktop_ixd_drag.webp)
++
++
++Draggable cards as an alternative interaction.
+ 
+ ## Selection
+ 
+ Streamline selection interactions for the desktop experience by
+ providing a dedicated click target.
+-![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_ixd_pointer_selection.webp) Instead of touch \& hold to reveal selection options, desktop allows for checkboxes on hover.
++
++![](/static/images/design/ui/desktop/guides/desktop_ixd_pointer_selection.webp)
++
++
++Instead of touch & hold to reveal selection options, desktop allows for checkboxes on hover.
+ 
+ ## Target size
+ 
+ When sizing UI elements for cursor interactions, avoid buttons that are overly
+ large or have intrinsic touch targets beyond the element's visual boundaries.
+-![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_ixd_target.webp) ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_ixd_target_adapt_do.webp)
++
++![](/static/images/design/ui/desktop/guides/desktop_ixd_target.webp)
++
++![](/static/images/design/ui/desktop/guides/desktop_ixd_target_adapt_do.webp)
++
++check\_circle
+ 
+ ### Do
+ 
+-Set a max width for buttons and their targets when using a pointer device. ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_ixd_target_adapt_dont.webp)
++Set a max width for buttons and their targets when using a pointer device.
++
++![](/static/images/design/ui/desktop/guides/desktop_ixd_target_adapt_dont.webp)
++
++cancel
+ 
+ ### Don't
+ 
+@@ -72,7 +107,20 @@ Allow buttons to expand full width or maintain intrinsic touch targets.
+ Pointer targets can be smaller than the standard 48 x 48 dp touch target, for
+ alternative cursor interactions, such as an archive on hover that appears
+ primarily after the item is selected.
+-![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop-ixd-target-size.webp)
++
++![](/static/images/design/ui/desktop/guides/desktop-ixd-target-size.webp)
+ 
+ For more on designing for inputs, learn more on [Material Design inputs](https://m3.material.io/foundations/interaction/inputs).
+-Learn how to [implement with Mouse and touchpad support](https://developer.android.com/develop/ui/compose/touch-input/input-compatibility-on-large-screens#mouse_and_touchpad).
+\ No newline at end of file
++Learn how to [implement with Mouse and touchpad support](/develop/ui/compose/touch-input/input-compatibility-on-large-screens#mouse_and_touchpad).
++
++[Previous
++
++arrow\_back
++
++Across form factors](/design/ui/desktop/guides/foundations/across-form-factors)
++
++[Next
++
++Cursors
++
++arrow\_forward](/design/ui/desktop/guides/interaction/cursors)
+\ No newline at end of file

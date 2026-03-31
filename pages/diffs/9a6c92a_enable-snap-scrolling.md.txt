@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/enable-snap-scrolling.md b/docs/develop/ui/compose/quick-guides/content/enable-snap-scrolling.md
+index 2ac82af..e1263ff 100644
+--- a/docs/develop/ui/compose/quick-guides/content/enable-snap-scrolling.md
++++ b/docs/develop/ui/compose/quick-guides/content/enable-snap-scrolling.md
+@@ -57,7 +57,7 @@ fun MessageList(modifier: Modifier = Modifier) {
+ 
+ ### Key points about the code
+ 
+-- Uses the [`listState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState) object to remember the scroll state of [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1)) to the selected position.
++- Uses the [`listState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState) object to remember the scroll state of [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable) to the selected position.
+ - Launches a coroutine to call [`listState.animateScrollToItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#animateScrollToItem(kotlin.Int,kotlin.Int)), which scrolls to the indexed item while animating the scrolling action.
+ 
+ ## Collections that contain this guide

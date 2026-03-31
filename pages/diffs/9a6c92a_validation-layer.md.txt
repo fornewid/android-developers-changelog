@@ -1,0 +1,206 @@
+diff --git a/docs/ndk/guides/graphics/validation-layer.md b/docs/ndk/guides/graphics/validation-layer.md
+index 0241c0b..8487dde 100644
+--- a/docs/ndk/guides/graphics/validation-layer.md
++++ b/docs/ndk/guides/graphics/validation-layer.md
+@@ -1,9 +1,18 @@
+ ---
+-title: https://developer.android.com/ndk/guides/graphics/validation-layer
++title: Vulkan validation layers on Android  |  Android NDK  |  Android Developers
+ url: https://developer.android.com/ndk/guides/graphics/validation-layer
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Home](https://developer.android.com/)
++* [NDK](https://developer.android.com/ndk)
++* [Develop](https://developer.android.com/develop)
++* [Guides](https://developer.android.com/ndk/guides)
++
++# Vulkan validation layers on Android Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Most explicit graphics APIs don't perform error-checking because doing so can
+ result in a performance penalty. Vulkan has *validation layers* that provide
+ error-checking during development, avoiding the performance penalty in the
+@@ -19,8 +28,9 @@ layer](https://vulkan.lunarg.com/doc/view/latest/windows/validation_layers.html)
+ `VK_LAYER_KHRONOS_validation`, to get all features from the previous
+ validation layers.
+ 
+-> [!NOTE]
+-> **Note:** The unified `VK_LAYER_KHRONOS_validation` layer is also supported on non-mobile devices so you can share the same validation code across all platforms.
++**Note:** The unified `VK_LAYER_KHRONOS_validation` layer is
++also supported on non-mobile devices so you can share the same validation
++code across all platforms.
+ 
+ ## Use validation layers packaged in your APK
+ 
+@@ -28,9 +38,9 @@ Packaging validation layers within your APK ensures optimal compatibility.
+ The validation layers are available as prebuilt binaries or are buildable from
+ source code.
+ 
+-> [!NOTE]
+-> **Note:** Android 9 (API level 28) and higher allows Vulkan to load layers that are located separately from your app's APK. See [Use external validation
+-> layers](https://developer.android.com/ndk/guides/graphics/validation-layer#vl-external) for more information.
++**Note:** Android 9 (API level 28) and higher allows Vulkan to load layers that are
++located separately from your app's APK. See [Use external validation
++layers](#vl-external) for more information.
+ 
+ ### Use prebuilt binaries
+ 
+@@ -95,11 +105,11 @@ The Vulkan API allows an app to enable layers during instance creation. Entry
+ points that a layer intercepts must have one of the following objects as the
+ first parameter:
+ 
+-- `VkInstance`
+-- `VkPhysicalDevice`
+-- `VkDevice`
+-- `VkCommandBuffer`
+-- `VkQueue`
++* `VkInstance`
++* `VkPhysicalDevice`
++* `VkDevice`
++* `VkCommandBuffer`
++* `VkQueue`
+ 
+ Call [`vkEnumerateInstanceLayerProperties()`](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkEnumerateInstanceLayerProperties.html)
+ to list the available layers and their properties. Vulkan enables layers when
+@@ -109,7 +119,7 @@ executes.
+ The following code snippet shows how an app can use the Vulkan API to
+ programmatically query and enable layers:
+ 
+-```c++
++```
+ // Enable just the Khronos validation layer.
+ static const char *layers[] = {"VK_LAYER_KHRONOS_validation"};
+ 
+@@ -172,7 +182,7 @@ or a loaded validation layer supports it. The following example shows how to
+ check whether the debug utils extension is supported and register a callback if
+ the extension is supported by either the device or validation layer.
+ 
+-```c++
++```
+ // Get the instance extension count.
+ uint32_t inst_ext_count = 0;
+ vkEnumerateInstanceExtensionProperties(nullptr, &inst_ext_count, nullptr);
+@@ -274,7 +284,7 @@ if (pfnDestroyDebugUtilsMessengerEXT) {
+ After your app registers and enables the callback, the system routes debugging
+ messages to it.
+ 
+-```c++
++```
+ #include <android/log.h>
+ 
+ VKAPI_ATTR VkBool32 VKAPI_CALL DebugUtilsMessenger(
+@@ -339,17 +349,15 @@ Android's security model and policies differ significantly from other
+ platforms. To load external validation layers, one of the following conditions
+ must be true:
+ 
+-- The target app is **debuggable**. This option results in more debug
++* The target app is **debuggable**. This option results in more debug
+   information, but might negatively affect the performance of your app.
+-
+-- The target app is run on a **userdebug** build of the operating system that
++* The target app is run on a **userdebug** build of the operating system that
+   grants root access.
+-
+-- Apps targeting Android 11 (API level 30) or higher only: Your target Android
++* Apps targeting Android 11 (API level 30) or higher only: Your target Android
+   manifest file includes the following
+-  [`meta-data`](https://developer.android.com/guide/topics/manifest/meta-data-element) element:
++  [`meta-data`](/guide/topics/manifest/meta-data-element) element:
+ 
+-  ```xml
++  ```
+   <meta-data android:name="com.android.graphics.injectLayers.enable"
+     android:value="true"/>
+   ```
+@@ -357,24 +365,24 @@ must be true:
+ ### Load an external validation layer
+ 
+ Devices running Android 9 (API level 28) and higher allow Vulkan to [load the
+-validation layer from your app's local storage](https://developer.android.com/ndk/guides/graphics/validation-layer#layers-local-storage). Starting
+-in Android 10 (API level 29), Vulkan can also load the validation layer [from a
+-separate APK](https://developer.android.com/ndk/guides/graphics/validation-layer#apk-containing-layers). You can choose whichever method you like
++validation layer from your app's local storage](#layers-local-storage). Starting
++in Android 10 (API level 29), Vulkan can also load the validation layer [from a
++separate APK](#apk-containing-layers). You can choose whichever method you like
+ as long as your Android version supports it.
+ 
+-#### Load a validation layer binary from your device's local storage
++#### Load a validation layer binary from your device’s local storage
+ 
+-Because Vulkan looks for the binary in your device's temporary data storage
++Because Vulkan looks for the binary in your device’s temporary data storage
+ directory, you must first push the binary to that directory using [Android Debug
+-Bridge (adb)](https://developer.android.com/studio/command-line/adb), as follows:
++Bridge (adb)](/studio/command-line/adb), as follows:
+ 
+-1. Use the [`adb push`](https://developer.android.com/studio/command-line/adb#copyfiles) command to load the
+-   layer binary into your app's data storage on the device:
++1. Use the [`adb push`](/studio/command-line/adb#copyfiles) command to load the
++   layer binary into your app’s data storage on the device:
+ 
+    ```
+    $ adb push libVkLayer_khronos_validation.so /data/local/tmp
+    ```
+-2. Use the [`adb shell`](https://developer.android.com/studio/command-line/adb#shellcommands) and `run-as`
++2. Use the [`adb shell`](/studio/command-line/adb#shellcommands) and `run-as`
+    commands to load the layer through your app process. That is, the binary
+    has the same device access that the app has without requiring root access.
+ 
+@@ -383,12 +391,12 @@ Bridge (adb)](https://developer.android.com/studio/command-line/adb), as follows
+      /data/local/tmp/libVkLayer_khronos_validation.so .
+    $ adb shell run-as com.example.myapp ls libVkLayer_khronos_validation.so
+    ```
+-3. [Enable the layer](https://developer.android.com/ndk/guides/graphics/validation-layer#enable-layers-outside-app).
++3. [Enable the layer](#enable-layers-outside-app).
+ 
+ #### Load a validation layer binary from another APK
+ 
+-You can use `adb` to [install an APK](https://developer.android.com/studio/command-line/adb#move) that
+-contains the layer and then [enable the layer](https://developer.android.com/ndk/guides/graphics/validation-layer#enable-layers-outside-app).
++You can use `adb` to [install an APK](/studio/command-line/adb#move) that
++contains the layer and then [enable the layer](#enable-layers-outside-app).
+ 
+ ```
+ adb install --abi abi path_to_apk
+@@ -406,8 +414,9 @@ The following steps describe how to enable layers on a per-app basis:
+ 
+ 1. Use adb shell settings to enable the layers:
+ 
+-       $ adb shell settings put global enable_gpu_debug_layers 1
+-
++   ```
++   $ adb shell settings put global enable_gpu_debug_layers 1
++   ```
+ 2. Specify the target application to enable the layers on:
+ 
+    ```
+@@ -423,8 +432,9 @@ The following steps describe how to enable layers on a per-app basis:
+    Since we have a single Khronos validation layer, the command will likely
+    look like:
+ 
+-       $ adb shell settings put global gpu_debug_layers VK_LAYER_KHRONOS_validation
+-
++   ```
++   $ adb shell settings put global gpu_debug_layers VK_LAYER_KHRONOS_validation
++   ```
+ 4. Specify one or more packages to search for layers inside of:
+ 
+    ```
+@@ -432,9 +442,11 @@ The following steps describe how to enable layers on a per-app basis:
+      gpu_debug_layer_app <package1:package2:packageN>
+    ```
+ 
+-> [!NOTE]
+-> **Note:** You can also enable the `enable_gpu_debug_layers` setting through the on-device developer options. After you enable developer options, open the **Settings** app on your test device, navigate to **Developer options \>
+-> Debugging** and make sure the option to **Enable GPU debug layers** is turned on.
++**Note:** You can also enable the `enable_gpu_debug_layers` setting through the
++on-device developer options. After you enable developer options, open the
++**Settings** app on your test device, navigate to **Developer options >
++Debugging** and make sure the option to **Enable GPU debug layers** is
++turned on.
+ 
+ You can check whether the settings are enabled using the following commands:
+ 

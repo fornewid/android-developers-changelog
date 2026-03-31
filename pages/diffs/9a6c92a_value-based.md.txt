@@ -1,0 +1,47 @@
+diff --git a/docs/develop/ui/compose/animation/value-based.md b/docs/develop/ui/compose/animation/value-based.md
+index 6e6aa2e..14481af 100644
+--- a/docs/develop/ui/compose/animation/value-based.md
++++ b/docs/develop/ui/compose/animation/value-based.md
+@@ -9,13 +9,13 @@ focusing on APIs that animate values based on their current and target states.
+ 
+ ## Animate a single value with `animate*AsState`
+ 
+-The [`animate*AsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#animateDpAsState(androidx.compose.ui.unit.Dp,androidx.compose.animation.core.AnimationSpec,kotlin.String,kotlin.Function1)) functions are straightforward animation APIs in
++The [`animate*AsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/animateDpAsState.composable#animateDpAsState(androidx.compose.ui.unit.Dp,androidx.compose.animation.core.AnimationSpec,kotlin.String,kotlin.Function1)) functions are straightforward animation APIs in
+ Compose for animating a single value. You provide only the target value
+ (or end value), and the API starts animation from the current value to the
+ specified value.
+ 
+ The following example animates alpha using this API. By wrapping the target
+-value in [`animateFloatAsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#animateFloatAsState(kotlin.Float,androidx.compose.animation.core.AnimationSpec,kotlin.Float,kotlin.String,kotlin.Function1)), the alpha value is now an animation value
++value in [`animateFloatAsState`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/animateFloatAsState.composable#animateFloatAsState(kotlin.Float,androidx.compose.animation.core.AnimationSpec,kotlin.Float,kotlin.String,kotlin.Function1)), the alpha value is now an animation value
+ between the provided values (`1f` or `0.5f` in this case).
+ 
+ 
+@@ -69,7 +69,7 @@ enum class BoxState {
+ 
+ <br />
+ 
+-[`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#updateTransition(kotlin.Any,kotlin.String)) creates and remembers an instance of `Transition` and
++[`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable#updateTransition(kotlin.Any,kotlin.String)) creates and remembers an instance of `Transition` and
+ updates its state.
+ 
+ 
+@@ -145,7 +145,7 @@ enters composition.
+ var currentState = remember { MutableTransitionState(BoxState.Collapsed) }
+ currentState.targetState = BoxState.Expanded
+ val transition = rememberTransition(currentState, label = "box state")
+-// ......https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/java/com/example/compose/snippets/animations/AnimationSnippets.kt#L467-L471
++// ......https://github.com/android/snippets/blob/2c9cbd0f626c5eefc018fffa17af55372333e2bb/compose/snippets/src/main/java/com/example/compose/snippets/animations/AnimationSnippets.kt#L467-L471
+ ```
+ 
+ <br />
+@@ -199,7 +199,7 @@ fun Dialer(dialerState: DialerState) {
+ 
+ ### Use transition with `AnimatedVisibility` and `AnimatedContent`
+ 
+-[`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#(androidx.compose.animation.core.Transition).AnimatedVisibility(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.Function1)) and [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#(androidx.compose.animation.core.Transition).AnimatedContent(androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.Alignment,kotlin.Function2)) are available as extension
++[`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable#(androidx.compose.animation.core.Transition).AnimatedVisibility(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.Function1)) and [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#(androidx.compose.animation.core.Transition).AnimatedContent(androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.Alignment,kotlin.Function2)) are available as extension
+ functions of `Transition`. The `targetState` for `Transition.AnimatedVisibility`
+ and `Transition.AnimatedContent` is derived from the `Transition`, and trigger
+ enter, exit, and `sizeTransform` animations as needed when the `Transition`'s

@@ -1,0 +1,166 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/components/chips.md b/docs/design/ui/wear/guides/m2-5/components/chips.md
+index 99714cf..f818f68 100644
+--- a/docs/design/ui/wear/guides/m2-5/components/chips.md
++++ b/docs/design/ui/wear/guides/m2-5/components/chips.md
+@@ -4,11 +4,9 @@ url: https://developer.android.com/design/ui/wear/guides/m2-5/components/chips
+ source: md.txt
+ ---
+ 
+-# Chips
+-
+ ![](https://developer.android.com/static/wear/images/chips/chips_hero.png.png)
+ 
+-The[Chip](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary#Chip(kotlin.Function0,androidx.wear.compose.material.ChipColors,androidx.wear.compose.material.ChipBorder,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.graphics.Shape,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.semantics.Role,kotlin.Function1))component is an interactive element that represents an input, attribute, or action.
++The [Chip](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/Chip.composable#Chip(kotlin.Function0,androidx.wear.compose.material.ChipColors,androidx.wear.compose.material.ChipBorder,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.graphics.Shape,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.semantics.Role,kotlin.Function1)) component is an interactive element that represents an input, attribute, or action.
+ 
+ ## Line Recommendations
+ 
+@@ -17,12 +15,14 @@ The[Chip](https://developer.android.com/reference/kotlin/androidx/wear/compose/m
+ **Minimum**
+ 
+ Primary Text \> 1 Lines  
+-Secondary Label \> 1 Lines  
++
++Secondary Label \> 1 Lines
+ ![](https://developer.android.com/static/wear/images/chips/buttons-large.png)
+ 
+ **Maximum**
+ 
+ Primary Text \> 2 Lines  
++
+ Secondary Label \> 3 Lines
+ 
+ <br />
+@@ -31,8 +31,7 @@ Secondary Label \> 3 Lines
+ 
+ ## Anatomy
+ 
+-![](https://developer.android.com/static/wear/images/chips/chips-anatomy.png)  
+-Chips can contain up to two text labels and an optional icon. At least one text label or an icon must be provided. Chips may truncate text if the text label is too long. The primary label is one line of text if the secondary label is present. The primary label can contain two lines of text if the secondary label is not present.  
++![](https://developer.android.com/static/wear/images/chips/chips-anatomy.png) Chips can contain up to two text labels and an optional icon. At least one text label or an icon must be provided. Chips may truncate text if the text label is too long. The primary label is one line of text if the secondary label is present. The primary label can contain two lines of text if the secondary label is not present.  
+ 
+ If there's only one label, it should be centered. If a secondary label or icon is present, the labels should be left-aligned.  
+ 
+@@ -47,21 +46,22 @@ D. Container**
+ 
+ ## **Chips Gradient**
+ 
+-![](https://developer.android.com/static/wear/images/chips/Colour_Gradient-1.png)  
+-**Standard Chip**
++![](https://developer.android.com/static/wear/images/chips/Colour_Gradient-1.png) **Standard Chip**
++
++Top/Left = 50% Primary   
+ 
+-Top/Left = 50% Primary  
+ Bottom/Right = 0% Surface  
++
+ (Gradient overlays on a background of Surface color)
+ 
+ <br />
+ 
+ <br />
+ 
+-![](https://developer.android.com/static/wear/images/chips/Colour_Gradient-2.png)  
+-**Image Chip**
++![](https://developer.android.com/static/wear/images/chips/Colour_Gradient-2.png) **Image Chip**
++
++Top/Left = 30% Primary   
+ 
+-Top/Left = 30% Primary  
+ 0, 0, 45° (Below Bottom/Right) = 20% On Surface Variant
+ 
+ <br />
+@@ -70,8 +70,7 @@ Top/Left = 30% Primary
+ 
+ ## Alternative Chip types
+ 
+-![](https://developer.android.com/static/wear/images/chips/chips-image.png)  
+-**Chip with background image**
++![](https://developer.android.com/static/wear/images/chips/chips-image.png) **Chip with background image**
+ 
+ Image chips contain actions which relate to a chosen image. Image chips work well to communicate a more specific look and feel.
+ 
+@@ -81,8 +80,7 @@ It is recommended that these Chips should have a fixed height of 52 dp.
+ 
+ <br />
+ 
+-![](https://developer.android.com/static/wear/images/chips/avatar-chip.png)  
+-**Avatar Chip**
++![](https://developer.android.com/static/wear/images/chips/avatar-chip.png) **Avatar Chip**
+ 
+ Use avatar chips for actions that are related to a chosen avatar. Avatar chips can also have icons used to make the avatar more easily recognizable, such as a contact ID photo. Avatar icons are 32x32 dp.
+ 
+@@ -92,10 +90,10 @@ Use avatar chips for actions that are related to a chosen avatar. Avatar chips c
+ 
+ ## Related components
+ 
+-![](https://developer.android.com/static/wear/images/chips/compact-chip.png)  
+-**Compact Chip**
++![](https://developer.android.com/static/wear/images/chips/compact-chip.png) **Compact Chip**
++
++The related component, CompactChip is a variant of the Chip component that appears smaller and is designed for use cases where there is less space.   
+ 
+-The related component, CompactChip is a variant of the Chip component that appears smaller and is designed for use cases where there is less space.  
+ 
+ Compact chips have a slot for an icon and a slot for a single line text label. Compact chips have a tappable area with a height of 48 dp.
+ 
+@@ -105,21 +103,24 @@ Compact chips have a slot for an icon and a slot for a single line text label. C
+ 
+ ## Hierarchy
+ 
+-![](https://developer.android.com/static/wear/images/chips/chips-button-hierarchy.png.png)  
+-Use different color fills to denote chip hierarchy. Design each screen to contain a single prominent chip for the primary action.  
++![](https://developer.android.com/static/wear/images/chips/chips-button-hierarchy.png.png) Use different color fills to denote chip hierarchy. Design each screen to contain a single prominent chip for the primary action.  
+ 
+ **High emphasis**   
+ 
++
+ Use high-emphasis chips for actions that are primary to the page. Use primary colors as the fill of a high emphasis chip.  
+ 
+ **Medium emphasis**   
+ 
++
+ Use medium emphasis chips for actions that are less important than the primary actions. Use secondary colors for the fill of a medium emphasis chip.  
+ 
++
+ Alternatively, use the custom OutlinedChip component. The outlined chip has a transparent background, a primary variant colored stroke of 60% opacity, and primary colored content.  
+ 
+ **Low emphasis**   
+ 
++
+ Low emphasis chips have a transparent fill and only a text label. Use low emphasis chips to indicate a child relationship to a primary or secondary chip.
+ 
+ <br />
+@@ -128,11 +129,10 @@ Low emphasis chips have a transparent fill and only a text label. Use low emphas
+ 
+ ### **Sizes**
+ 
+-![](https://developer.android.com/static/wear/images/chips/Default_Chip.png)![](https://developer.android.com/static/wear/images/chips/chips-compact.png)  
+-**Default Chip**
++![](https://developer.android.com/static/wear/images/chips/Default_Chip.png) ![](https://developer.android.com/static/wear/images/chips/chips-compact.png) **Default Chip**
+ 
+ Icon: 24 dp  
+-Height: 52 dp  
++Height: 52 dp
+ **Compact Chip**
+ 
+ Icon: 20 dp  
+@@ -151,13 +151,14 @@ See examples of chip usage such as standard chips in Settings and image chips in
+ 
+ ### **Adaptive layouts**
+ 
+-![](https://developer.android.com/static/wear/images/chips/chips-adaptive-layouts-usage.png)  
+-![](https://developer.android.com/static/wear/images/chips/chips-fills-width.png)  
+-**Responsive behavior**
++![](https://developer.android.com/static/wear/images/chips/chips-adaptive-layouts-usage.png)
++![](https://developer.android.com/static/wear/images/chips/chips-fills-width.png) **Responsive behavior**
++
++Chips stretch to fill the available width on larger displays.   
+ 
+-Chips stretch to fill the available width on larger displays.  
+ 
+ Icon (24 x 24 dp)  
++
+ Container (52 x XX dp)
+ 
+ <br />

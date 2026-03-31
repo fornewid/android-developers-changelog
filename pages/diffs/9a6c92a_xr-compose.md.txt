@@ -1,0 +1,81 @@
+diff --git a/docs/jetpack/androidx/releases/xr-compose.md b/docs/jetpack/androidx/releases/xr-compose.md
+index 79d5336..9d76522 100644
+--- a/docs/jetpack/androidx/releases/xr-compose.md
++++ b/docs/jetpack/androidx/releases/xr-compose.md
+@@ -6,18 +6,11 @@ source: md.txt
+ 
+ # Jetpack Compose for XR
+ 
+-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui) [Code Sample](https://github.com/android/xr-samples) [Codelab](https://github.com/android/xr-codelabs) API Reference  
+-[androidx.xr.compose.platform](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/package-summary)  
+-[androidx.xr.compose.spatial](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary)  
+-[androidx.xr.compose.subspace](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary)  
+-[androidx.xr.compose.subspace.layout](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/package-summary)  
+-[androidx.xr.compose.subspace.node](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/node/package-summary)  
+-[androidx.xr.compose.unit](https://developer.android.com/reference/kotlin/androidx/xr/compose/unit/package-summary)  
+-Declaratively build spatial UI layouts that take advantage of Android XR's spatial capabilities.
++[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui) [Code Sample](https://github.com/android/xr-samples) [Codelab](https://github.com/android/xr-codelabs) Declaratively build spatial UI layouts that take advantage of Android XR's spatial capabilities.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| February 25, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha11) |
++| March 25, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha12) |
+ 
+ ## Declaring dependencies
+ 
+@@ -32,10 +25,10 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.compose:compose:1.0.0-alpha11"
++    implementation "androidx.xr.compose:compose:1.0.0-alpha12"
+ 
+     // Use to write unit tests
+-    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha11"
++    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha12"
+ }
+ ```
+ 
+@@ -43,10 +36,10 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.compose:compose:1.0.0-alpha11")
++    implementation("androidx.xr.compose:compose:1.0.0-alpha12")
+ 
+     // Use to write unit tests
+-    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha11")
++    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha12")
+ }
+ ```
+ 
+@@ -67,6 +60,20 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha12
++
++March 25, 2026
++
++`androidx.xr.compose:compose:1.0.0-alpha12` and `androidx.xr.compose:compose-testing:1.0.0-alpha12` are released. Version 1.0.0-alpha12 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a34b6c25f6fbb862348d1696a3ac8806f66842c5..0121e6a2cc0e61e205e8b6dd6cbf762caa1dcb86/xr/compose).
++
++**API Changes**
++
++- Add the `SpatialGltfModel` API and the `SpatialGltfModelAnimation` APIs to render glTFs and control animations. Changed `SpatialGltfModelState` to be `AutoCloseable`, it will now need to be closed to free its resources. ([I11fde](https://android-review.googlesource.com/#/q/I11fde1dc7fbb60dc4929bf7f66358085b73d9853), [b/466065486](https://issuetracker.google.com/issues/466065486), [b/481379924](https://issuetracker.google.com/issues/481379924)). However, the `SpatialGltfModel` API is marked as restricted for this release pending additional testing. ([Ibf003](https://android-review.googlesource.com/#/q/Ibf003499d9a4c284ad6ad1abe3bff58e428ff87e), [b/466090694](https://issuetracker.google.com/issues/466090694))
++- Added a deprecated empty overload for `SubspaceModifier.rotate`. ([Idceb6](https://android-review.googlesource.com/#/q/Idceb66c6c14ec3525cdbb777325cee010f23de06))
++- Renamed `SpatialSmoothFeatheringEffect` function to `spatialSmoothFeatheringEffect` and moved it to a draw module. Updated `SpatialExternalSurface` default feathering value to null, which mimics the old ZeroFeatheringEffect functionality. ([I5fdaa](https://android-review.googlesource.com/#/q/I5fdaaf4c09671ad5443a7d51cf68307548547b91), [b/460426800](https://issuetracker.google.com/issues/460426800))
++- Removed `onPointSourceParamsAvailable`. A different audio spatialization API will be available in the near future. ([I86507](https://android-review.googlesource.com/#/q/I8650740c0468b4ce5a83f681d0b58cc91b48ad8a), [b/458513439](https://issuetracker.google.com/issues/458513439))
++- Added RTL behavior for offset subspace modifiers. Also added `absoluteOffset` to ignore layout direction. ([I30e4b](https://android-review.googlesource.com/#/q/I30e4b9dbabd510c8505de14621bc7b9a838dbe6f), [b/474409165](https://issuetracker.google.com/issues/474409165))
++
+ ### Version 1.0.0-alpha11
+ 
+ February 25, 2026
+@@ -334,7 +341,7 @@ December 12, 2024
+   - [Volume](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#Volume(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.String,kotlin.Function1)): Place SceneCore entities, such as 3D models, relative to your UI.
+ 
+ - Spatial Layout:
+-  You can create multiple spatial panels and place them within a Spatial Layout using [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,androidx.compose.ui.unit.Dp,kotlin.String,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.String,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.String,kotlin.Function1)), and [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)).
++  You can create multiple spatial panels and place them within a Spatial Layout using [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,androidx.compose.ui.unit.Dp,kotlin.String,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.String,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.String,kotlin.Function1)), and [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)).
+   Use `SubspaceModifier`s to customize your layout.
+ 
+ - Spatial UI components: These elements can be reused in your 2D UI, and their spatial attributes will only be visible when spatial capabilities are enabled.

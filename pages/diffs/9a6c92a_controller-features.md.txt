@@ -1,0 +1,340 @@
+diff --git a/docs/develop/ui/views/touch-and-input/game-controllers/controller-features.md b/docs/develop/ui/views/touch-and-input/game-controllers/controller-features.md
+index 2b51971..a8da971 100644
+--- a/docs/develop/ui/views/touch-and-input/game-controllers/controller-features.md
++++ b/docs/develop/ui/views/touch-and-input/game-controllers/controller-features.md
+@@ -1,9 +1,20 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/touch-and-input/game-controllers/controller-features
++title: Overview  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/touch-and-input/game-controllers/controller-features
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Overview Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ Game controllers are equipped with additional features that significantly
+ enhance player interaction and immersion. The haptics, motion sensors, and light
+ functionalities of Android game controllers are particularly instrumental in
+@@ -28,51 +39,56 @@ enriches the dynamics of the game. Haptics settings in Android game controllers
+ not only widen the creative possibilities for game developers but also provide
+ players with a gaming experience more realistic than ever before.
+ 
+-    fun triggerVibrationMultiChannel(
+-      deviceId: Int, leftIntensity: Int, leftDuration: Int,
+-      rightIntensity: Int, rightDuration: Int) {
+-      val inputDevice = InputDevice.getDevice(deviceId)
+-      val vibratorManager = inputDevice!!.vibratorManager
+-      if (vibratorManager != null) {
+-        val vibratorIds = vibratorManager.vibratorIds
+-        val vibratorCount = vibratorIds.size
+-        if (vibratorCount > 0) {
+-          // We have an assumption that game controllers have two vibrators
+-          // corresponding to a left motor and a right motor, and the left
+-          // motor will be first.
+-          updateVibrator(vibratorManager.getVibrator(vibratorIds[0]), leftIntensity, leftDuration)
+-          if (vibratorCount > 1) {
+-            updateVibrator(vibratorManager.getVibrator(vibratorIds[1]), rightIntensity, rightDuration)
+-          }
+-        }
++```
++fun triggerVibrationMultiChannel(
++  deviceId: Int, leftIntensity: Int, leftDuration: Int,
++  rightIntensity: Int, rightDuration: Int) {
++  val inputDevice = InputDevice.getDevice(deviceId)
++  val vibratorManager = inputDevice!!.vibratorManager
++  if (vibratorManager != null) {
++    val vibratorIds = vibratorManager.vibratorIds
++    val vibratorCount = vibratorIds.size
++    if (vibratorCount > 0) {
++      // We have an assumption that game controllers have two vibrators
++      // corresponding to a left motor and a right motor, and the left
++      // motor will be first.
++      updateVibrator(vibratorManager.getVibrator(vibratorIds[0]), leftIntensity, leftDuration)
++      if (vibratorCount > 1) {
++        updateVibrator(vibratorManager.getVibrator(vibratorIds[1]), rightIntensity, rightDuration)
+       }
+     }
+-
+-    fun updateVibrator(vibrator: Vibrator?, intensity: Int, duration: Int) {
+-      if (vibrator != null) {
+-        if (intensity == 0) {
+-          vibrator.cancel()
+-        } else if (duration > 0) {
+-          vibrator.vibrate(VibrationEffect.createOneShot(duration.toLong(), intensity))
+-        }
+-      }
++  }
++}
++
++fun updateVibrator(vibrator: Vibrator?, intensity: Int, duration: Int) {
++  if (vibrator != null) {
++    if (intensity == 0) {
++      vibrator.cancel()
++    } else if (duration > 0) {
++      vibrator.vibrate(VibrationEffect.createOneShot(duration.toLong(), intensity))
+     }
++  }
++}
++```
+ 
+ To use vibrate, it sets a feature and permission.
+ 
+-    <application ...>
+-      ...
+-      <uses-feature android:name="android.hardware.gamepad" android:required="true"/>
+-      <uses-permission android:name="android.permission.VIBRATE"/>
+-      ...
+-    </application>
++```
++<application ...>
++  ...
++  <uses-feature android:name="android.hardware.gamepad" android:required="true"/>
++  <uses-permission android:name="android.permission.VIBRATE"/>
++  ...
++</application>
++```
+ 
+-> [!NOTE]
+-> **Note:** When specifying `android:hardware:gamepad` support, don't set the `android:required` attribute to `true`. If you do this, users won't be able to install your app on the device.
++**Note:** When specifying `android:hardware:gamepad` support, don't set the
++`android:required` attribute to `true`. If you do this, users won't be able to
++install your app on the device.
+ 
+ For more information about
+-[`VibratorManager`](https://developer.android.com/reference/android/os/VibratorManager) and
+-[App manifest](https://developer.android.com/guide/topics/manifest/manifest-intro).
++[`VibratorManager`](/reference/android/os/VibratorManager) and
++[App manifest](/guide/topics/manifest/manifest-intro).
+ 
+ ## Motion sensors
+ 
+@@ -89,72 +105,74 @@ movements and orientations of users.
+ It needs to implement acceleration and gyroscope listener classes and register
+ these listeners with the controller's sensor manager.
+ 
+-    fun setIntegratedAccelerometerActive(deviceId: Int) {
+-      val device = InputDevice.getDevice(deviceId)
+-      val sensorManager = device?.sensorManager
+-      val accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+-      if (accelerometer != null) {
+-        val accelerometerListener =
+-          GameControllerAccelerometerListener(accelerometer)
+-        sensorManager.registerListener(
+-          accelerometerListener, accelerometer,
+-          SensorManager.SENSOR_DELAY_GAME
+-        )
+-      }
+-    }
+-
+-    fun setIntegratedGyroscopeActive(deviceId: Int) {
+-      val device = InputDevice.getDevice(deviceId)
+-      val sensorManager = device?.sensorManager
+-      val gyroscope = sensorManager?.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
+-      if (gyroscope != null) {
+-        val gyroscopeListener = GameControllerGyroscopeListener(gyroscope)
+-        sensorManager.registerListener(
+-          gyroscopeListener, gyroscope,
+-          SensorManager.SENSOR_DELAY_GAME
+-        )
+-      }
+-    }
+-
+-    class GameControllerAccelerometerListener(private val listenerAccelerometer: Sensor?) :
+-      SensorEventListener {
+-      override fun onSensorChanged(event: SensorEvent) {
+-        if (listenerAccelerometer != null) {
+-          synchronized(listenerAccelerometer) {
+-            if (event.sensor == listenerAccelerometer) {
+-              Log.d("Accelerometer",
+-                "onSensorChanged " + event.values[0] + ", "
+-                + event.values[1] + ", " + event.values[2])
+-            }
+-          }
++```
++fun setIntegratedAccelerometerActive(deviceId: Int) {
++  val device = InputDevice.getDevice(deviceId)
++  val sensorManager = device?.sensorManager
++  val accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
++  if (accelerometer != null) {
++    val accelerometerListener =
++      GameControllerAccelerometerListener(accelerometer)
++    sensorManager.registerListener(
++      accelerometerListener, accelerometer,
++      SensorManager.SENSOR_DELAY_GAME
++    )
++  }
++}
++
++fun setIntegratedGyroscopeActive(deviceId: Int) {
++  val device = InputDevice.getDevice(deviceId)
++  val sensorManager = device?.sensorManager
++  val gyroscope = sensorManager?.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
++  if (gyroscope != null) {
++    val gyroscopeListener = GameControllerGyroscopeListener(gyroscope)
++    sensorManager.registerListener(
++      gyroscopeListener, gyroscope,
++      SensorManager.SENSOR_DELAY_GAME
++    )
++  }
++}
++
++class GameControllerAccelerometerListener(private val listenerAccelerometer: Sensor?) :
++  SensorEventListener {
++  override fun onSensorChanged(event: SensorEvent) {
++    if (listenerAccelerometer != null) {
++      synchronized(listenerAccelerometer) {
++        if (event.sensor == listenerAccelerometer) {
++          Log.d("Accelerometer",
++            "onSensorChanged " + event.values[0] + ", "
++            + event.values[1] + ", " + event.values[2])
+         }
+       }
+-
+-      override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
+-      }
+     }
+-
+-    class GameControllerGyroscopeListener(private val listenerGyroscope: Sensor?) :
+-      SensorEventListener {
+-      override fun onSensorChanged(event: SensorEvent) {
+-        if (listenerGyroscope != null) {
+-          synchronized(listenerGyroscope) {
+-            if (event.sensor == listenerGyroscope) {
+-              Log.d("Gyroscope",
+-                "onSensorChanged " + event.values[0] + ", " +
+-                event.values[1] + ", " + event.values[2])
+-            }
+-          }
++  }
++
++  override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
++  }
++}
++
++class GameControllerGyroscopeListener(private val listenerGyroscope: Sensor?) :
++  SensorEventListener {
++  override fun onSensorChanged(event: SensorEvent) {
++    if (listenerGyroscope != null) {
++      synchronized(listenerGyroscope) {
++        if (event.sensor == listenerGyroscope) {
++          Log.d("Gyroscope",
++            "onSensorChanged " + event.values[0] + ", " +
++            event.values[1] + ", " + event.values[2])
+         }
+       }
+-
+-      override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
+-      }
+     }
++  }
++
++  override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
++  }
++}
++```
+ 
+ For more information about
+-[Motion sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_motion) and
+-[`SensorEventListener`](https://developer.android.com/reference/android/hardware/SensorEventListener).
++[Motion sensors](/develop/sensors-and-location/sensors/sensors_motion) and
++[`SensorEventListener`](/reference/android/hardware/SensorEventListener).
+ 
+ ## Lights
+ 
+@@ -170,50 +188,59 @@ heighten the suspense and enjoyment of the game, and help players immerse more
+ fully into the game world.
+ 
+ The light color features in Android game controllers serves more than a
+-mere decorative purpose---it plays a significant role in setting the mood of the
++mere decorative purpose—it plays a significant role in setting the mood of the
+ game and improving the user experience.
+ 
+-    fun changeControllerLightColor(deviceId: Int, color: Int) {
+-      val device = InputDevice.getDevice(deviceId)
+-      device?.let {
+-        if (it.sources and InputDevice.SOURCE_JOYSTICK == InputDevice.SOURCE_JOYSTICK) {
+-          val lightsManager = device.lightsManager
+-          lightsManager?.let { manager ->
+-            manager.lights.forEach { light ->
+-              val stateBuilder = LightState.Builder()
+-              stateBuilder.setColor(color)
+-              val requestBuilder = LightsRequest.Builder()
+-              requestBuilder.addLight(light, stateBuilder.build())
+-              val lightsSession = lightsManager.openSession()
+-              lightsSession.requestLights(requestBuilder.build())
+-            }
+-          }
++```
++fun changeControllerLightColor(deviceId: Int, color: Int) {
++  val device = InputDevice.getDevice(deviceId)
++  device?.let {
++    if (it.sources and InputDevice.SOURCE_JOYSTICK == InputDevice.SOURCE_JOYSTICK) {
++      val lightsManager = device.lightsManager
++      lightsManager?.let { manager ->
++        manager.lights.forEach { light ->
++          val stateBuilder = LightState.Builder()
++          stateBuilder.setColor(color)
++          val requestBuilder = LightsRequest.Builder()
++          requestBuilder.addLight(light, stateBuilder.build())
++          val lightsSession = lightsManager.openSession()
++          lightsSession.requestLights(requestBuilder.build())
+         }
+       }
+     }
++  }
++}
++```
+ 
+ To use vibrate, it sets a feature and permission.
+ 
+-    <application ...>
+-      ...
+-      <uses-feature android:name="android.hardware.gamepad" android:required="true"/>
+-      <uses-permission android:name="android.permission.LIGHTS" />
+-      ...
+-    </application>
++```
++<application ...>
++  ...
++  <uses-feature android:name="android.hardware.gamepad" android:required="true"/>
++  <uses-permission android:name="android.permission.LIGHTS" />
++  ...
++</application>
++```
+ 
+-> [!NOTE]
+-> **Note:** When specifying `android:hardware:gamepad` support, don't set the `android:required` attribute to `"true"`. If you do this, users won't be able to install your app on the device.
++**Note:** When specifying `android:hardware:gamepad` support, don't set the
++`android:required` attribute to `"true"`. If you do this, users won't be able to
++install your app on the device.
+ 
+ For more information about
+-[`LightsManager`](https://developer.android.com/reference/android/hardware/lights/LightsManager) and
+-[App manifest](https://developer.android.com/guide/topics/manifest/manifest-intro).
++[`LightsManager`](/reference/android/hardware/lights/LightsManager) and
++[App manifest](/guide/topics/manifest/manifest-intro).
+ 
+ ## Controller touchpad
+ 
+ Some game controllers include a touchpad which can be used for a variety of
+ in-game actions, such as navigating menus or controlling game characters in a
+ more intuitive way.
+-![Touchpad on the game controller.](https://developer.android.com/static/images/training/game-controller-touchpad.png) **Figure 1.** Touchpad on the game controller.
++
++![Touchpad on the game controller.](/static/images/training/game-controller-touchpad.png)
++
++
++**Figure 1.** Touchpad on the game controller.
+ 
+ Game controllers with integrated touchpads offer direct device control on
+ Android. Touching the touchpad generates an on-screen mouse pointer, allowing

@@ -1,0 +1,136 @@
+diff --git a/docs/develop/ui/views/layout/improving-layouts/reusing-layouts.md b/docs/develop/ui/views/layout/improving-layouts/reusing-layouts.md
+index 2f72e80..62a36c7 100644
+--- a/docs/develop/ui/views/layout/improving-layouts/reusing-layouts.md
++++ b/docs/develop/ui/views/layout/improving-layouts/reusing-layouts.md
+@@ -1,21 +1,37 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/layout/improving-layouts/reusing-layouts
++title: Reuse layouts with <include>  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/layout/improving-layouts/reusing-layouts
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose. [Slot-based layouts →](https://developer.android.com/develop/ui/compose/layouts/basics#slot-based-layouts) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Reuse layouts with <include> Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++Try the Compose way
++
++Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose.
++
++[Slot-based layouts →](https://developer.android.com/develop/ui/compose/layouts/basics#slot-based-layouts)
++
++![](/static/images/android-compose-ui-logo.png)
+ 
+ Although Android offers a variety of widgets to provide small, reusable, interactive elements,
+ you might also need to reuse larger components that require a special layout. To efficiently reuse
+ complete layouts, use the `<include>` and `<merge>` tags to embed
+ one layout inside another.
+ 
+-This lets you create complex layouts---such as a yes or no button panel or a custom progress
++This lets you create complex layouts—such as a yes or no button panel or a custom progress
+ bar with description text. And it means that you can extract any elements of your application that
+ are common across multiple layouts, manage them separately, and include them in each layout. While
+ you can create individual UI components by writing a custom
+-`https://developer.android.com/reference/android/view/View`, you can do it more easily by
++`View`, you can do it more easily by
+ reusing a layout file.
+ 
+ ## Create a reusable layout
+@@ -24,7 +40,7 @@ Start by creating a new XML file and defining the layout you want to be able to
+ example, here's a layout that defines a title bar to include in each activity
+ (`titlebar.xml`):
+ 
+-```xml
++```
+ <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+@@ -40,15 +56,20 @@ example, here's a layout that defines a title bar to include in each activity
+ 
+ The root `View` must be exactly how you want it to appear in each
+ layout where you plan to add this layout.
+-| **Note:** The [`tools:showIn`](https://developer.android.com/studio/write/tool-attributes#toolsshowin) attribute in the preceding XML file is a special attribute that is used only at design time in Android Studio and is removed during compilation. It specifies a layout that *includes* this file, so you can preview and edit this file as it appears while embedded in a parent layout.
+ 
+-## Use the \<include\> tag
++**Note:** The
++[`tools:showIn`](/studio/write/tool-attributes#toolsshowin) attribute
++in the preceding XML file is a special attribute that is used only at design time in Android
++Studio and is removed during compilation. It specifies a layout that *includes* this file,
++so you can preview and edit this file as it appears while embedded in a parent layout.
++
++## Use the <include> tag
+ 
+ Inside the layout where you want to add the reusable component, add the
+ `<include>` tag. For example, here's a layout that includes the title bar from
+ the preceding example:
+ 
+-```xml
++```
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:orientation="vertical"
+     android:layout_width="match_parent"
+@@ -66,11 +87,11 @@ the preceding example:
+ </LinearLayout>
+ ```
+ 
+-You can also override all the layout parameters---any `android:layout_*`
+-attributes---of the included layout's root view by specifying them in the
++You can also override all the layout parameters—any `android:layout_*`
++attributes—of the included layout's root view by specifying them in the
+ `<include>` tag. This is shown in the following example:
+ 
+-```xml
++```
+ <include android:id="@+id/news_title"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+@@ -81,14 +102,14 @@ However, if you want to override layout attributes using the `<include>` tag,
+ also override `android:layout_height` and `android:layout_width` to make the
+ other layout attributes take effect.
+ 
+-## Use the \<merge\> tag
++## Use the <merge> tag
+ 
+ The `<merge>` tag helps eliminate redundant view groups in your view hierarchy
+ when including one layout within another. One use case of `<merge>` is when you
+ implement a custom view by extending a `ViewGroup`.
+ 
+ For example, if your main layout is a vertical
+-`https://developer.android.com/reference/android/widget/LinearLayout` in which two
++`LinearLayout` in which two
+ consecutive views can be reused in multiple layouts, then the reusable layout where you place the
+ two views requires its own root view. However, using another `LinearLayout` as the root
+ for the reusable layout results in a vertical `LinearLayout` inside a vertical
+@@ -99,7 +120,7 @@ Instead, you can extend a `LinearLayout` to create a custom view and use a layou
+ to describe its child views. The top tag in the XML is `<merge>`, rather than
+ `LinearLayout`, as shown in the following example:
+ 
+-```xml
++```
+ <merge xmlns:android="http://schemas.android.com/apk/res/android">
+ 
+     <Button
+@@ -115,9 +136,9 @@ to describe its child views. The top tag in the XML is `<merge>`, rather than
+ </merge>
+ ```
+ 
+-When you include this layout in another layout---using the `<include>`
+-tag---the system ignores the `<merge>` element and places the two buttons
++When you include this layout in another layout—using the `<include>`
++tag—the system ignores the `<merge>` element and places the two buttons
+ directly in the layout, in place of the `<include>` tag.
+ 
+ For more information about `<include>`, see
+-[Layout resource](https://developer.android.com/guide/topics/resources/layout-resource#include-element).
+\ No newline at end of file
++[Layout resource](/guide/topics/resources/layout-resource#include-element).
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/graphics/draw/shadows.md b/docs/develop/ui/compose/graphics/draw/shadows.md
+index e77fe56..a914f88 100644
+--- a/docs/develop/ui/compose/graphics/draw/shadows.md
++++ b/docs/develop/ui/compose/graphics/draw/shadows.md
+@@ -305,7 +305,7 @@ fun AnimatedColoredShadows() {
+ ### Key points about the code
+ 
+ - Declares the start and end states for the parameters to animate upon press with `transition.animateColor` and `transition.animateFloat`.
+-- Uses [`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#updateTransition(kotlin.Any,kotlin.String)) and provides it with the chosen `targetState (targetState = isPressed)` to verify all animations are synchronized. Whenever `isPressed` changes, the transition object automatically manages the animation of all child properties from their current values to the new target values.
++- Uses [`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable#updateTransition(kotlin.Any,kotlin.String)) and provides it with the chosen `targetState (targetState = isPressed)` to verify all animations are synchronized. Whenever `isPressed` changes, the transition object automatically manages the animation of all child properties from their current values to the new target values.
+ - Defines the `buttonPressAnimation` specification, which controls the timing and easing of the transition. It specifies a [`tween`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#tween(kotlin.Int,kotlin.Int,androidx.compose.animation.core.Easing)) (short for in-between) with a duration of 400 milliseconds and an `EaseInOut` curve, which means the animation starts slow, speeds up in the middle, and slows down at the end.
+ - Defines a `Box` with a chain of modifier functions that apply all the animated properties to create the visual element, including the following:
+   - [.`clickable()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)): A modifier that makes the `Box` interactive.

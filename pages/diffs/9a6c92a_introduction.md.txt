@@ -1,0 +1,154 @@
+diff --git a/docs/develop/ui/compose/animation/introduction.md b/docs/develop/ui/compose/animation/introduction.md
+index 625330e..1aed3f9 100644
+--- a/docs/develop/ui/compose/animation/introduction.md
++++ b/docs/develop/ui/compose/animation/introduction.md
+@@ -1,71 +1,106 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/animation/introduction
++title: Animations in Compose  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/animation/introduction
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Animations in Compose
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+ 
+-### [Animations in Compose](http://developer.android.com/develop/ui/compose/animation/quick-guide)
++Stay organized with collections
+ 
+-Animations are essential in a modern mobile app in order to realize a smooth and understandable user experience.  
+-[Quick guide](http://developer.android.com/develop/ui/compose/animation/quick-guide)
++Save and categorize content based on your preferences.
++
++
++
++
++### [Animations in Compose](https://developer.android.com/develop/ui/compose/animation/quick-guide)
++
++Animations are essential in a modern mobile app in order to realize a smooth and understandable user experience.
++
++[Quick guide](https://developer.android.com/develop/ui/compose/animation/quick-guide)
+ 
+ ## Animation modifiers and composables
+ 
+-[![](http://developer.android.com/static/develop/ui/compose/images/animations/animated_visibility_column.gif)](http://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility)  
++[![](https://developer.android.com/static/develop/ui/compose/images/animations/animated_visibility_column.gif)](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility)
++
++### [Animate appearance and disappearance](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility)
+ 
+-### [Animate appearance and disappearance](http://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility)
++The `AnimatedVisibility` composable allows you to hide or show content easily.
+ 
+-The`AnimatedVisibility`composable allows you to hide or show content easily.  
+-[Learn more](http://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility)  
+-[![](http://developer.android.com/static/develop/ui/compose/images/animations/animated_content_size.gif)](http://developer.android.com/develop/ui/compose/animation/composables-modifiers#animateContentSize)  
++[Learn more](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedvisibility)
+ 
+-### [Animate content size changes](http://developer.android.com/develop/ui/compose/animation/composables-modifiers#animateContentSize)
++[![](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_size.gif)](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animateContentSize)
+ 
+-Use`animateContentSize()`to achieve automatic size change animations.  
+-[Learn more](http://developer.android.com/develop/ui/compose/animation/composables-modifiers#animateContentSize)  
+-[![](http://developer.android.com/static/develop/ui/compose/images/animations/animated_content_slower.gif)](http://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent)  
++### [Animate content size changes](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animateContentSize)
+ 
+-### [Animate between different composables](http://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent)
++Use `animateContentSize()` to achieve automatic size change animations.
+ 
+-Use`AnimatedContent`to animate between composables that have different content.  
+-[Learn more](http://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent)
++[Learn more](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animateContentSize)
++
++[![](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_slower.gif)](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent)
++
++### [Animate between different composables](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent)
++
++Use `AnimatedContent` to animate between composables that have different content.
++
++[Learn more](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent)
+ 
+ ## Value-based animations
+ 
+-[![](http://developer.android.com/static/develop/ui/compose/images/animations/animated_padding.gif)](http://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state)  
++[![](https://developer.android.com/static/develop/ui/compose/images/animations/animated_padding.gif)](https://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state)
++
++### [Animate a single value](https://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state)
++
++Use `animate*AsState` functions to animate an individual property, such as opacity.
++
++[Learn more](https://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state)
++
++[![](https://developer.android.com/static/develop/ui/compose/images/animations/multiple_properties.gif)](https://developer.android.com/develop/ui/compose/animation/quick-guide#concurrent-animations)
++
++### [Animate multiple values together](https://developer.android.com/develop/ui/compose/animation/quick-guide#concurrent-animations)
++
++Use `Transition` to animate multiple values at once.
++
++[Learn more](https://developer.android.com/develop/ui/compose/animation/quick-guide#concurrent-animations)
++
++[![](https://developer.android.com/static/develop/ui/compose/images/animations/animated_forever.gif)](https://developer.android.com/develop/ui/compose/animation/value-based#rememberinfinitetransition)
++
++### [Animate properties indefinitely](https://developer.android.com/develop/ui/compose/animation/value-based#rememberinfinitetransition)
++
++Use `InfiniteTransition` to animate properties continuously.
++
++[Learn more](https://developer.android.com/develop/ui/compose/animation/value-based#rememberinfinitetransition)
++
++[![](https://developer.android.com/static/images/picto-icons/interoperable.svg)](https://developer.android.com/develop/ui/compose/animation/customize)
++
++### [Customize your animations](https://developer.android.com/develop/ui/compose/animation/customize)
++
++Learn how to customize your animations duration, easing curve and spring configuration.
+ 
+-### [Animate a single value](http://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state)
++[Customize](https://developer.android.com/develop/ui/compose/animation/customize)
+ 
+-Use`animate*AsState`functions to animate an individual property, such as opacity.  
+-[Learn more](http://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state)  
+-[![](http://developer.android.com/static/develop/ui/compose/images/animations/multiple_properties.gif)](http://developer.android.com/develop/ui/compose/animation/quick-guide#concurrent-animations)  
++[![](https://developer.android.com/static/images/picto-icons/bug-2.svg)](https://developer.android.com/develop/ui/compose/animation/testing)
+ 
+-### [Animate multiple values together](http://developer.android.com/develop/ui/compose/animation/quick-guide#concurrent-animations)
++### [Test animations](https://developer.android.com/develop/ui/compose/animation/testing)
+ 
+-Use`Transition`to animate multiple values at once.  
+-[Learn more](http://developer.android.com/develop/ui/compose/animation/quick-guide#concurrent-animations)  
+-[![](http://developer.android.com/static/develop/ui/compose/images/animations/animated_forever.gif)](http://developer.android.com/develop/ui/compose/animation/value-based#rememberinfinitetransition)  
++Learn how to write tests for your animations.
+ 
+-### [Animate properties indefinitely](http://developer.android.com/develop/ui/compose/animation/value-based#rememberinfinitetransition)
++[Testing](https://developer.android.com/develop/ui/compose/animation/testing)
+ 
+-Use`InfiniteTransition`to animate properties continuously.  
+-[Learn more](http://developer.android.com/develop/ui/compose/animation/value-based#rememberinfinitetransition)[![](http://developer.android.com/static/images/picto-icons/interoperable.svg)](http://developer.android.com/develop/ui/compose/animation/customize)  
++[![](https://developer.android.com/static/images/picto-icons/spanner.svg)](https://developer.android.com/develop/ui/compose/animation/tooling)
+ 
+-### [Customize your animations](http://developer.android.com/develop/ui/compose/animation/customize)
++### [Android Studio Tooling](https://developer.android.com/develop/ui/compose/animation/tooling)
+ 
+-Learn how to customize your animations duration, easing curve and spring configuration.  
+-[Customize](http://developer.android.com/develop/ui/compose/animation/customize)  
+-[![](http://developer.android.com/static/images/picto-icons/bug-2.svg)](http://developer.android.com/develop/ui/compose/animation/testing)  
++Learn all about how to preview your animations in Android Studio.
+ 
+-### [Test animations](http://developer.android.com/develop/ui/compose/animation/testing)
++[Tooling](https://developer.android.com/develop/ui/compose/animation/tooling)
+ 
+-Learn how to write tests for your animations.  
+-[Testing](http://developer.android.com/develop/ui/compose/animation/testing)  
+-[![](http://developer.android.com/static/images/picto-icons/spanner.svg)](http://developer.android.com/develop/ui/compose/animation/tooling)  
++[Next
+ 
+-### [Android Studio Tooling](http://developer.android.com/develop/ui/compose/animation/tooling)
++Choose an animation API
+ 
+-Learn all about how to preview your animations in Android Studio.  
+-[Tooling](http://developer.android.com/develop/ui/compose/animation/tooling)
+\ No newline at end of file
++arrow\_forward](/develop/ui/compose/animation/choose-api)
+\ No newline at end of file

@@ -1,0 +1,270 @@
+diff --git a/docs/develop/ui/views/layout/webapps/managing-webview.md b/docs/develop/ui/views/layout/webapps/managing-webview.md
+index 10214f3..8abbb0c 100644
+--- a/docs/develop/ui/views/layout/webapps/managing-webview.md
++++ b/docs/develop/ui/views/layout/webapps/managing-webview.md
+@@ -1,11 +1,22 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/layout/webapps/managing-webview
++title: Manage WebView objects  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/layout/webapps/managing-webview
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Manage WebView objects Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ Android provides several APIs to help you manage the
+-`https://developer.android.com/reference/android/webkit/WebView`
++`WebView`
+ objects that display web content in your app.
+ 
+ This page describes how to use these APIs to work with `WebView`
+@@ -15,9 +26,9 @@ objects more effectively, improving your app's stability and security.
+ 
+ Starting in Android 7.0 (API level 24), users can choose among several
+ different packages for displaying web content in a `WebView` object.
+-The [AndroidX.webkit](https://developer.android.com/reference/androidx/webkit/package-summary)
++The [AndroidX.webkit](/reference/androidx/webkit/package-summary)
+ library includes the
+-`https://developer.android.com/reference/androidx/webkit/WebViewCompat#getCurrentWebViewPackage(android.content.Context)`
++`getCurrentWebViewPackage()`
+ method for fetching information related to the package that is displaying web
+ content in your app. This method is useful when analyzing errors that occur only
+ when your app tries to display web content using a particular package's
+@@ -27,18 +38,22 @@ To use this method, add the logic shown in the following code snippet:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val webViewPackageInfo = WebViewCompat.getCurrentWebViewPackage(appContext)
+ Log.d("MY_APP_TAG", "WebView version: ${webViewPackageInfo.versionName}")
+ ```
+ 
+ ### Java
+ 
+-```java
++```
+ PackageInfo webViewPackageInfo = WebViewCompat.getCurrentWebViewPackage(appContext);
+ Log.d("MY_APP_TAG", "WebView version: " + webViewPackageInfo.versionName);
+ ```
+-| **Note:** The `getCurrentWebViewPackage()` method can return `null` if the device is set up incorrectly; doesn't support using `WebView`, such as a Wear OS device; or lacks an updatable `WebView` implementation.
++
++**Note:** The `getCurrentWebViewPackage()` method can return
++`null` if the device is set up incorrectly; doesn't support using
++`WebView`, such as a Wear OS device; or lacks an updatable
++`WebView` implementation.
+ 
+ ## Google Safe Browsing Service
+ 
+@@ -51,15 +66,18 @@ potentially unsafe website.
+ Although the default value of `EnableSafeBrowsing` is true, there
+ are cases when you might want to only enable Safe Browsing conditionally or
+ disable it. Android 8.0 (API level 26) and later supports using
+-[`setSafeBrowsingEnabled()`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setSafeBrowsingEnabled(android.webkit.WebSettings,%20boolean))
++[`setSafeBrowsingEnabled()`](/reference/androidx/webkit/WebSettingsCompat#setSafeBrowsingEnabled(android.webkit.WebSettings,%20boolean))
+ to toggle Safe Browsing for an individual `WebView` object.
+ 
+ If you want all `WebView` objects to opt out of Safe Browsing
+ checks, add the following `<meta-data>` element to your app's
+ manifest file:
+-| **Note:** The safe browsing manifest opt out doesn't apply to `WebView` within the [SDK Runtime.](https://developer.android.com/design-for-safety/privacy-sandbox/sdk-runtime)
+ 
+-```xml
++**Note:** The safe browsing manifest opt out doesn't apply to
++`WebView` within the
++[SDK Runtime.](/design-for-safety/privacy-sandbox/sdk-runtime)
++
++```
+ <manifest>
+     <application>
+         <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
+@@ -68,7 +86,10 @@ manifest file:
+     </application>
+ </manifest>
+ ```
+-| **Caution:** We recommend keeping Google Safe Browsing enabled at all times and designing your app around any constraints this causes.
++
++
++**Caution:** We recommend keeping Google Safe Browsing enabled at all
++times and designing your app around any constraints this causes.
+ 
+ ### Define programmatic actions
+ 
+@@ -82,21 +103,26 @@ If you target Android 8.1 (API level 27) or later, you can define
+ programmatically how your app responds to a known threat in the following
+ ways:
+ 
+-- You can control whether your app reports known threats to Safe Browsing.
+-- You can make your app automatically perform a particular action---such as going back to safety---each time it encounters a URL that's classified as a known threat.
++* You can control whether your app reports known threats to Safe
++  Browsing.
++* You can make your app automatically perform a particular action—such
++  as going back to safety—each time it encounters a URL that's
++  classified as a known threat.
+ 
+-| **Note:** For optimal protection against known threats, wait until you initialize Safe Browsing before you invoke a `WebView` object's `https://developer.android.com/reference/android/webkit/WebView#loadUrl(java.lang.String)` method.
++**Note:** For optimal protection against known threats, wait until you
++initialize Safe Browsing before you invoke a `WebView` object's
++`loadUrl()`
++method.
+ 
+ The following code snippets show how to instruct your app's instances of
+ `WebView` to always go back to safety after encountering a known
+ threat:
+ 
+-
+ MyWebActivity.java
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private lateinit var superSafeWebView: WebView
+ private var safeBrowsingIsInitialized: Boolean = false
+ 
+@@ -122,7 +148,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
+ 
+ ### Java
+ 
+-```java
++```
+ private WebView superSafeWebView;
+ private boolean safeBrowsingIsInitialized;
+ 
+@@ -150,12 +176,11 @@ protected void onCreate(Bundle savedInstanceState) {
+ }
+ ```
+ 
+-
+ MyWebViewClient.java
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class MyWebViewClient : WebViewClientCompat() {
+     // Automatically go "back to safety" when attempting to load a website that
+     // Google identifies as a known threat. An instance of WebView calls this
+@@ -179,7 +204,7 @@ class MyWebViewClient : WebViewClientCompat() {
+ 
+ ### Java
+ 
+-```java
++```
+ public class MyWebViewClient extends WebViewClientCompat {
+     // Automatically go "back to safety" when attempting to load a website that
+     // Google identifies as a known threat. An instance of WebView calls this
+@@ -214,7 +239,7 @@ for each app that instantiates a `WebView`. You can opt out of this
+ feature by creating the following tag in the manifest's
+ `<application>` element:
+ 
+-```xml
++```
+ <manifest>
+     <application>
+     ...
+@@ -227,7 +252,7 @@ feature by creating the following tag in the manifest's
+ Data is only uploaded from an app if the user consents **and**
+ the app doesn't opt out. For more information on opting out of diagnostic data
+ reporting, see [User privacy in WebView
+-reporting](https://developer.android.com/develop/ui/views/layout/webapps/webview-privacy).
++reporting](/develop/ui/views/layout/webapps/webview-privacy).
+ 
+ ## Termination Handling API
+ 
+@@ -236,7 +261,13 @@ The Termination Handling API handles cases where the renderer process for a
+ object goes away, either because the system kills the renderer to reclaim
+ necessary memory or because the renderer process crashes. By using this API, you
+ let your app continue executing, even though the renderer process goes away.
+-| **Caution:** If your app continues executing after the renderer process goes away, the associated instance of `WebView` can't be reused, even if the renderer process is killed or crashes. Your app must remove the instance from the view hierarchy and destroy the instance to continue executing. Your app must then create a new instance of `WebView` to continue rendering web pages.
++
++**Caution:** If your app continues executing after the renderer process
++goes away, the associated instance of `WebView` can't be reused,
++even if the renderer process is killed or crashes. Your app must remove the
++instance from the view hierarchy and destroy the instance to continue
++executing. Your app must then create a new instance of `WebView`
++to continue rendering web pages.
+ 
+ If a renderer crashes while loading a particular web page, attempting to
+ load that same page again can cause a new `WebView` object to
+@@ -247,8 +278,7 @@ The following code snippet illustrates how to use this API within an
+ 
+ ### Kotlin
+ 
+-```kotlin
+-    
++```
+ inner class MyRendererTrackingWebViewClient : WebViewClient() {
+     private var mWebView: WebView? = null
+ 
+@@ -289,7 +319,7 @@ inner class MyRendererTrackingWebViewClient : WebViewClient() {
+ 
+ ### Java
+ 
+-```java
++```
+ public class MyRendererTrackingWebViewClient extends WebViewClient {
+     private WebView mWebView;
+ 
+@@ -335,7 +365,7 @@ public class MyRendererTrackingWebViewClient extends WebViewClient {
+ 
+ When `WebView` objects
+ [operate in
+-multiprocess mode](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all), you have some flexibility in how your app handles
++multiprocess mode](/about/versions/oreo/android-8.0-changes#security-all), you have some flexibility in how your app handles
+ out-of-memory situations. You can use the Renderer Importance API, introduced in
+ Android 8.0, to set a priority policy for the renderer assigned to a particular
+ `WebView` object. In particular, you might want the main part of your
+@@ -349,29 +379,33 @@ process associated with your app's `WebView` objects:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val myWebView: WebView = ...
+ myWebView.setRendererPriorityPolicy(RENDERER_PRIORITY_BOUND, true)
+ ```
+ 
+ ### Java
+ 
+-```java
++```
+ WebView myWebView;
+ myWebView.setRendererPriorityPolicy(RENDERER_PRIORITY_BOUND, true);
+ ```
+ 
+-In this particular snippet, the renderer's priority is the same as---or
+-is bound to---the default priority for the app. The `true`
++In this particular snippet, the renderer's priority is the same as—or
++is bound to—the default priority for the app. The `true`
+ argument decreases the renderer's priority to
+-`https://developer.android.com/reference/android/webkit/WebView#RENDERER_PRIORITY_WAIVED`
++`RENDERER_PRIORITY_WAIVED`
+ when the associated `WebView` object is no longer visible. In other
+ words, a `true` argument indicates that your app doesn't care whether
+ the system keeps the renderer process alive. In fact, this lower priority level
+ makes it likely that the renderer process is killed in out-of-memory
+ situations.
+-| **Warning:** To maintain app stability, don't change the renderer priority policy for a `WebView` object unless you also use the [Termination Handling API](https://developer.android.com/develop/ui/views/layout/webapps/managing-webview#termination-handle) to specify how the `WebView` reacts when its associated renderer goes away.
++
++**Warning:** To maintain app stability, don't change the renderer
++priority policy for a `WebView` object unless you also use the
++[Termination Handling API](#termination-handle) to specify how
++the `WebView` reacts when its associated renderer goes away.
+ 
+ To learn more about how the system handles low-memory situations, see
+ [Processes and app
+-lifecycle](https://developer.android.com/guide/topics/processes/process-lifecycle).
+\ No newline at end of file
++lifecycle](/guide/topics/processes/process-lifecycle).
+\ No newline at end of file

@@ -1,0 +1,127 @@
+diff --git a/docs/google/play/expansion-files.md b/docs/google/play/expansion-files.md
+index 2e6c161..d08c80c 100644
+--- a/docs/google/play/expansion-files.md
++++ b/docs/google/play/expansion-files.md
+@@ -118,7 +118,7 @@ permission, so you will need to declare the
+ runtime as follows:
+ 
+ ```xml
+-<uses-permission android:name="android.permission.READ_EXTERNAL_STORA>GE" /
++<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+ ```
+ 
+ For Android version 6 and later, external storage permission needs to be requested at runtime.
+@@ -400,29 +400,29 @@ are:
+ 
+ ```xml
+ <manifest ...>
+- <   !-- Required to access Google Play Licensing --><;
+-    uses-permission android:name="com.android.vending.CHECK_LICENS<E" />
++    <!-- Required to access Google Play Licensing -->
++    <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
+ 
+-    !-- Required to download files from G<oogle Play -->
+-    uses-permission android:name="android.pe<rmission.INTERNET" />
++    <!-- Required to download files from Google Play -->
++    <uses-permission android:name="android.permission.INTERNET" />
+ 
+-    !-- Required to keep CPU alive while downloading files
+-        <(NOT to keep screen awake) -->
+-    uses-permission android:name=&<quot;android.permission.WAKE_LOCK" />
++    <!-- Required to keep CPU alive while downloading files
++        (NOT to keep screen awake) -->
++    <uses-permission android:name="android.permission.WAKE_LOCK" />
+ 
+-    !-- Required to poll the state of the network< connection
++    <!-- Required to poll the state of the network connection
+         and respond to changes -->
+-    uses-permission
+-        android:n<ame="android.permission.ACCESS_NETWORK_STATE"< />
++    <uses-permission
++        android:name="android.permission.ACCESS_NETWORK_STATE" />
+ 
+-    !-- Required to check whether Wi-Fi is enabled -->
+-    uses-<permission android:name="android.permission.ACCESS_WIFI_STATE"/><
++    <!-- Required to check whether Wi-Fi is enabled -->
++    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+ 
+-    !-- Required to read and write the expansion files on shared storage -->
+-    uses-p<ermission
++    <!-- Required to read and write the expansion files on shared storage -->
++    <uses-permission
+         android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+     ...
+-/manifest>
++</manifest>
+ ```
+ 
+ **Note:** By default, the Downloader Library requires API
+@@ -516,9 +516,9 @@ Remember to declare the service in your manifest file:
+ 
+ ```xml
+ <app ...>
+- <   service android:name=".SampleDownloaderService"<; />
++    <service android:name=".SampleDownloaderService" />
+     ...
+-/app>
++</app>
+ ```
+ 
+ ### Implementing the alarm receiver
+@@ -576,9 +576,9 @@ Remember to declare the receiver in your manifest file:
+ 
+ ```xml
+ <app ...>
+- <   receiver android:name=".SampleAlarmReceiver"<; />
++    <receiver android:name=".SampleAlarmReceiver" />
+     ...
+-/app>
++</app>
+ ```
+ 
+ ### Starting the download
+@@ -987,14 +987,14 @@ fun getAPKExpansionFiles(ctx: Context, mainVersion: Int, patchVersion: Int): Arr
+ 
+         // Check that expansion file path exists
+         if (expPath.exists()) {
+-            if (mainVers>ion  0) {
++            if (mainVersion > 0) {
+                 val strMainPath = "$expPath${File.separator}main.$mainVersion.$packageName.obb"
+                 val main = File(strMainPath)
+                 if (main.isFile) {
+                     ret += strMainPath
+                 }
+             }
+-            if >(patchVersion  0) {
++            if (patchVersion > 0) {
+                 val strPatchPath = "$expPath${File.separator}patch.$mainVersion.$packageName.obb"
+                 val main = File(strPatchPath)
+                 if (main.isFile) {
+@@ -1016,7 +1016,7 @@ private final static String EXP_PATH = "/Android/obb/";
+ static String[] getAPKExpansionFiles(Context ctx, int mainVersion,
+       int patchVersion) {
+     String packageName = ctx.getPackageName();
+-<    Ve>ctorString ret = <new Ve>ctorString();
++    Vector<String> ret = new Vector<String>();
+     if (Environment.getExternalStorageState()
+           .equals(Environment.MEDIA_MOUNTED)) {
+         // Build the full path to the app's expansion files
+@@ -1025,15 +1025,15 @@ static String[] getAPKExpansionFiles(Context ctx, int mainVersion,
+ 
+         // Check that expansion file path exists
+         if (expPath.exists()) {
+-            if >( mainVersion  0 ) {
++            if ( mainVersion > 0 ) {
+                 String strMainPath = expPath + File.separator + "main." +
+                         mainVersion + "." + packageName + ".obb";
+                 File main = new File(strMainPath);
+                 if ( main.isFile() ) {
+                         ret.add(strMainPath);
+                 }
+->            }
+-            if ( patchVersion  0 ) {
++            }
++            if ( patchVersion > 0 ) {
+                 String strPatchPath = expPath + File.separator + "patch." +
+                         mainVersion + "." + packageName + ".obb";
+                 File main = new File(strPatchPath);

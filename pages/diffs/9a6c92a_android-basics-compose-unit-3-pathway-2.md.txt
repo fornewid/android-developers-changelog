@@ -1,0 +1,150 @@
+diff --git a/docs/courses/quizzes/android-basics-compose-unit-3-pathway-2/android-basics-compose-unit-3-pathway-2.md b/docs/courses/quizzes/android-basics-compose-unit-3-pathway-2/android-basics-compose-unit-3-pathway-2.md
+index e618540..f274ad5 100644
+--- a/docs/courses/quizzes/android-basics-compose-unit-3-pathway-2/android-basics-compose-unit-3-pathway-2.md
++++ b/docs/courses/quizzes/android-basics-compose-unit-3-pathway-2/android-basics-compose-unit-3-pathway-2.md
+@@ -1,79 +1,91 @@
+ ---
+-title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-3-pathway-2/android-basics-compose-unit-3-pathway-2
++title: Build a scrollable list  |  Android Developers
+ url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-3-pathway-2/android-basics-compose-unit-3-pathway-2
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Build a scrollable list
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
+ 
+ # Build a scrollable list
+ 
+-<br />
++Return to pathway
++
++
++
++1. ## Adaptive launcher icons for Android apps consist of a foreground and background vector drawable.
++
++   True
++
++   False
++2. ## When building a UI that requires a scrolling list with a variable number of items, which Composable should you use?
++
++   `Column`
++
++   `Row`
++
++   `LazyColumn`
++
++   `Card`
++3. ## What file type is used for the launcher icon foreground and background vectors?
++
++   .txt
++
++   .jpg
++
++   .png
++
++   .xml
++4. ## Which Composable should you use to create a vertically scrollable grid with an undetermined number of items?
++
++   `LazyColumn`
++
++   `LazyVerticalGrid`
++
++   `LazyHorizontalGrid`
+ 
+-Return to pathway  
+-1.
++   `Row`
++5. ## The `Column` composable is not a good option for a list of items of unknown quantity because \_\_\_.
+ 
+-   ## Adaptive launcher icons for Android apps consist of a foreground and background vector drawable.
++   It can only hold a small, finite number of predefined items
+ 
+-   True  
+-   False  
+-2.
++   It arranges items vertically
+ 
+-   ## When building a UI that requires a scrolling list with a variable number of items, which Composable should you use?
++   It provides scrolling by default without any additional code
+ 
+-   `Column`  
+-   `Row`  
+-   `LazyColumn`  
+-   `Card`  
+-3.
++   It can add content on demand
++6. ## The \_\_\_ method is used to add content to a `LazyColumn` Composable.
+ 
+-   ## What file type is used for the launcher icon foreground and background vectors?
++   `painterResource()`
+ 
+-   .txt  
+-   .jpg  
+-   .png  
+-   .xml  
+-4.
++   `Modifier.padding()`
+ 
+-   ## Which Composable should you use to create a vertically scrollable grid with an undetermined number of items?
++   `items()`
+ 
+-   `LazyColumn`  
+-   `LazyVerticalGrid`  
+-   `LazyHorizontalGrid`  
+-   `Row`  
+-5.
++   `onCreate()`
++7. ## Which Composable arranges items horizontally?
+ 
+-   ## The`Column`composable is not a good option for a list of items of unknown quantity because ___.
++   `Column`
+ 
+-   It can only hold a small, finite number of predefined items  
+-   It arranges items vertically  
+-   It provides scrolling by default without any additional code  
+-   It can add content on demand  
+-6.
++   `Card`
+ 
+-   ## The ___ method is used to add content to a`LazyColumn`Composable.
++   `Image`
+ 
+-   `painterResource()`  
+-   `Modifier.padding()`  
+-   `items()`  
+-   `onCreate()`  
+-7.
++   `Row`
++8. ## Which Composable arranges items vertically?
+ 
+-   ## Which Composable arranges items horizontally?
++   `Column`
+ 
+-   `Column`  
+-   `Card`  
+-   `Image`  
+-   `Row`  
+-8.
++   `Card`
+ 
+-   ## Which Composable arranges items vertically?
++   `Image`
+ 
+-   `Column`  
+-   `Card`  
+-   `Image`  
+-   `Row`  
++   `Row`
+ 
+ Submit answers
+ 
+-*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error\_outline*
++An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

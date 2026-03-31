@@ -1,0 +1,19 @@
+diff --git a/docs/studio/releases/patch-releases.md b/docs/studio/releases/patch-releases.md
+index 5f63fab..9d21c24 100644
+--- a/docs/studio/releases/patch-releases.md
++++ b/docs/studio/releases/patch-releases.md
+@@ -1,7 +1,9 @@
+ ---
+-title: https://developer.android.com/studio/releases/patch-releases
++title: Android Developers
+ url: https://developer.android.com/studio/releases/patch-releases
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-<br />
+\ No newline at end of file
++Stay organized with collections
++
++Save and categorize content based on your preferences.
+\ No newline at end of file

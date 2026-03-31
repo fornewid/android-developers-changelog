@@ -1,0 +1,50 @@
+diff --git a/docs/ndk/guides/graphics/extensions.md b/docs/ndk/guides/graphics/extensions.md
+index 47e6d52..1de376c 100644
+--- a/docs/ndk/guides/graphics/extensions.md
++++ b/docs/ndk/guides/graphics/extensions.md
+@@ -1,9 +1,18 @@
+ ---
+-title: https://developer.android.com/ndk/guides/graphics/extensions
++title: Vulkan extensions on Android  |  Android NDK  |  Android Developers
+ url: https://developer.android.com/ndk/guides/graphics/extensions
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Home](https://developer.android.com/)
++* [NDK](https://developer.android.com/ndk)
++* [Develop](https://developer.android.com/develop)
++* [Guides](https://developer.android.com/ndk/guides)
++
++# Vulkan extensions on Android Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Android devices may fully or partially support
+ [Vulkan extensions](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#extended-functionality-extensions)
+ that provide additional functionality.
+@@ -20,12 +29,13 @@ The following table summarizes the list of Vulkan extensions
+ that Android supports, the minimum OS version for the extension support, and the extension type.
+ 
+ | OS Version | Vulkan Extension | Extension Type |
+-|---|---|---|
+-| Android 8.0 (API level 26) | `https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_incremental_present` | Device |
+-| Android 8.0 (API level 26) | `https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_shared_presentable_image` | Device |
+-| Android 8.0 (API level 26) | `https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_surface_capabilities2` | Instance |
+-| Android 8.0 (API level 26) | `https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_hdr_metadata` | Device |
+-| Android 8.0 (API level 26) | `https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_swapchain_colorspace` | Instance |
+-| Android 8.0 (API level 26) | `https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_GOOGLE_display_timing` | Device |
+-| Android 7.0 (API level 24) | `https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_android_surface` | Instance |
+-| Android 7.0 (API level 24) | `https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface` | Instance |
+\ No newline at end of file
++| --- | --- | --- |
++| Android 8.0 (API level 26) | `VK_KHR_incremental_present` | Device |
++| `VK_KHR_shared_presentable_image` | Device |
++| `VK_KHR_get_surface_capabilities2` | Instance |
++| `VK_EXT_hdr_metadata` | Device |
++| `VK_EXT_swapchain_colorspace` | Instance |
++| `VK_GOOGLE_display_timing` | Device |
++| Android 7.0 (API level 24) | `VK_KHR_android_surface` | Instance |
++| `VK_KHR_surface` | Instance |
++|
+\ No newline at end of file

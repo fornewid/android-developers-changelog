@@ -1,0 +1,79 @@
+diff --git a/docs/design/ui/tv/guides/components/featured-carousel.md b/docs/design/ui/tv/guides/components/featured-carousel.md
+index 985790e..ea727a1 100644
+--- a/docs/design/ui/tv/guides/components/featured-carousel.md
++++ b/docs/design/ui/tv/guides/components/featured-carousel.md
+@@ -4,16 +4,16 @@ url: https://developer.android.com/design/ui/tv/guides/components/featured-carou
+ source: md.txt
+ ---
+ 
+-# Featured carousels showcase a selection of content relevant to the user.
++Featured carousels showcase a selection of content relevant to the user.
+ 
+ ![Cover](https://developer.android.com/static/design/ui/tv/guides/components/images/covers/cover-featured-carousel.webp)
+ 
+ ## Resources
+ 
+-|      Type      |                                                                                                                                                                Link                                                                                                                                                                 |  Status   |
+-|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+-| Design         | [Design source (Figma)](https://goo.gle/tv-desing-kit)                                                                                                                                                                                                                                                                              | Available |
+-| Implementation | [Jetpack Compose](https://developer.android.com/reference/kotlin/androidx/tv/material3/package-summary#Carousel(kotlin.Int,androidx.compose.ui.Modifier,androidx.tv.material3.CarouselState,kotlin.Long,androidx.compose.animation.ContentTransform,androidx.compose.animation.ContentTransform,kotlin.Function1,kotlin.Function2)) | Available |
++| Type | Link | Status |
++|---|---|---|
++| Design | [Design source (Figma)](https://goo.gle/tv-desing-kit) | Available |
++| Implementation | [Jetpack Compose](https://developer.android.com/reference/kotlin/androidx/tv/material3/Carousel.composable#Carousel(kotlin.Int,androidx.compose.ui.Modifier,androidx.tv.material3.CarouselState,kotlin.Long,androidx.compose.animation.ContentTransform,androidx.compose.animation.ContentTransform,kotlin.Function1,kotlin.Function2)) | Available |
+ 
+ ## Highlights
+ 
+@@ -106,23 +106,23 @@ There are two different ways of integrating featured carousels:
+ 
+ ## Usage
+ 
+-Use featured carousels to showcase and promote a curated selection of content in an engaging, visually appealing, and simple to navigate format.
++Use featured carousels to showcase and promote a curated selection
++of content in an engaging, visually appealing, and simple to navigate format.
+ 
+ ### Images in backgrounds
+ 
+-Images in backgrounds play a crucial role in enhancing user engagement in a streaming app featured carousel.
++Images in backgrounds play a crucial role in enhancing user engagement
++in a streaming app featured carousel.
+ 
+ ### High quality imagery
+ 
+-Use high-resolution images that are visually appealing and relevant to the content of the focused card.  
+-![](https://developer.android.com/static/design/ui/tv/guides/components/images/carousel/card-fc-text-do.webp)  
+-check_circle
++Use high-resolution images that are visually appealing and relevant
++to the content of the focused card.
++![](https://developer.android.com/static/design/ui/tv/guides/components/images/carousel/card-fc-text-do.webp)
+ 
+ ### Do
+ 
+-Keep images clean, visually appealing, and relevant to the content block.  
+-![](https://developer.android.com/static/design/ui/tv/guides/components/images/carousel/card-fc-text-dont.webp)  
+-cancel
++Keep images clean, visually appealing, and relevant to the content block. ![](https://developer.android.com/static/design/ui/tv/guides/components/images/carousel/card-fc-text-dont.webp)
+ 
+ ### Don't
+ 
+@@ -130,15 +130,14 @@ Avoid using images with text in the background.
+ 
+ ### Obvious visual hierarchy
+ 
+-Ensure that the background does not distract from the focused card's content by using a scrim over the image; this helps the user maintain focus on the card's title, description, and call-to-action button.  
+-![](https://developer.android.com/static/design/ui/tv/guides/components/images/carousel/visual-hierarchy-do.webp)  
+-check_circle
++Ensure that the background does not distract from the focused card's
++content by using a scrim over the image; this helps the user maintain
++focus on the card's title, description, and call-to-action button.
++![](https://developer.android.com/static/design/ui/tv/guides/components/images/carousel/visual-hierarchy-do.webp)
+ 
+ ### Do
+ 
+-Use a scrim to improve readability and content digestion.  
+-![](https://developer.android.com/static/design/ui/tv/guides/components/images/carousel/visual-hierarchy-dont.webp)  
+-cancel
++Use a scrim to improve readability and content digestion. ![](https://developer.android.com/static/design/ui/tv/guides/components/images/carousel/visual-hierarchy-dont.webp)
+ 
+ ### Don't
+ 

@@ -1,0 +1,78 @@
+diff --git a/docs/guide/components/loaders.md b/docs/guide/components/loaders.md
+index 07d4b6e..33394c4 100644
+--- a/docs/guide/components/loaders.md
++++ b/docs/guide/components/loaders.md
+@@ -439,7 +439,7 @@ class CursorLoaderListFragment :
+         Log.i("FragmentComplexList", "Item clicked: $id")
+     }
+ 
+-    override fun on<Create>Loader(id: Int, args: Bundle?): LoaderCursor {
++    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+         // This is called when a new Loader needs to be created.  This
+         // sample only has one Loader, so we don't care about the ID.
+         // First, pick the base URI to use depending on whether we are
+@@ -454,8 +454,8 @@ class CursorLoaderListFragment :
+         // creating a Cursor for the data being displayed.
+         val select: String = "((${Contacts.DISPLAY_NAME} NOTNULL) AND (" +
+                 "${Contacts.HAS_PHONE_NUMBER}=1) AND (" +
+-                "${Contacts.DISP>LAY_NAME} != ''))"
+-        return (activity as? Context)?.let { context -
++                "${Contacts.DISPLAY_NAME} != ''))"
++        return (activity as? Context)?.let { context ->
+             CursorLoader(
+                     context,
+                     baseUri,
+@@ -464,16 +464,16 @@ class CursorLoaderListFragment :
+                     null,
+                     "${Contacts.DISPLAY_NAME} COLLATE LOCALIZED ASC"
+             )
+-        } ?: <throw >Exception("Activity cannot be null")
++        } ?: throw Exception("Activity cannot be null")
+     }
+ 
+-    override fun onLoadFinished(loader: LoaderCursor, data: Cursor) {
++    override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor) {
+         // Swap the new cursor in.  (The framework will take care of closing the
+-        // old curs<or onc>e we return.)
++        // old cursor once we return.)
+         mAdapter.swapCursor(data)
+     }
+ 
+-    override fun onLoaderReset(loader: LoaderCursor) {
++    override fun onLoaderReset(loader: Loader<Cursor>) {
+         // This is called when the last Cursor provided to onLoadFinished()
+         // above is about to be closed.  We need to make sure we are no
+         // longer using it.
+@@ -556,9 +556,9 @@ public static class CursorLoaderListFragment extends ListFragment
+         Contacts.CONTACT_STATUS,
+         Contacts.CONTACT_PRESENCE,
+         Contacts.PHOTO_ID,
+-     <   Con>tacts.LOOKUP_KEY,
++        Contacts.LOOKUP_KEY,
+     };
+-    public LoaderCursor onCreateLoader(int id, Bundle args) {
++    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+         // This is called when a new Loader needs to be created.  This
+         // sample only has one Loader, so we don't care about the ID.
+         // First, pick the base URI to use depending on whether we are
+@@ -578,16 +578,16 @@ public static class CursorLoaderListFragment extends ListFragment
+                 + Contacts.DISPLAY_NAME + " != '' ))";
+         return new CursorLoader(getActivity(), baseUri,
+                 CONTACTS_SUMMARY_PROJECTION, select, null,
+-           <     C>ontacts.DISPLAY_NAME + " COLLATE LOCALIZED ASC");
++                Contacts.DISPLAY_NAME + " COLLATE LOCALIZED ASC");
+     }
+ 
+-    public void onLoadFinished(LoaderCursor loader, Cursor data) {
++    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+         // Swap the new cursor in.  (The framework will take care of closing the
+-       < // ol>d cursor once we return.)
++        // old cursor once we return.)
+         mAdapter.swapCursor(data);
+     }
+ 
+-    public void onLoaderReset(LoaderCursor loader) {
++    public void onLoaderReset(Loader<Cursor> loader) {
+         // This is called when the last Cursor provided to onLoadFinished()
+         // above is about to be closed.  We need to make sure we are no
+         // longer using it.

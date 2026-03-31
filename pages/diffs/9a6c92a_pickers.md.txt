@@ -1,0 +1,136 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/components/pickers.md b/docs/design/ui/wear/guides/m2-5/components/pickers.md
+index 421a5e0..2544129 100644
+--- a/docs/design/ui/wear/guides/m2-5/components/pickers.md
++++ b/docs/design/ui/wear/guides/m2-5/components/pickers.md
+@@ -4,13 +4,10 @@ url: https://developer.android.com/design/ui/wear/guides/m2-5/components/pickers
+ source: md.txt
+ ---
+ 
+-# Pickers
+-
+ ![](https://developer.android.com/static/wear/images/pickers/picker-hero.png)
+ 
+-The[Picker](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary#Picker(androidx.wear.compose.material.PickerState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function1,androidx.wear.compose.material.ScalingParams,androidx.compose.ui.unit.Dp,kotlin.Float,androidx.compose.ui.graphics.Color,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Function2))helps users select and set specific data.  
+-![](https://developer.android.com/static/wear/images/pickers/picker-single-column.png)  
+-**Picker**
++The [Picker](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/Picker.composable#Picker(androidx.wear.compose.material.PickerState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function1,androidx.wear.compose.material.ScalingParams,androidx.compose.ui.unit.Dp,kotlin.Float,androidx.compose.ui.graphics.Color,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Function2)) helps users select and set specific data.
++![](https://developer.android.com/static/wear/images/pickers/picker-single-column.png) **Picker**
+ 
+ Pickers should be used to let users choose amongst a finite number of items.  
+ 
+@@ -22,22 +19,25 @@ By default items will be looped infinitely in both directions. Consider disablin
+ 
+ ## Anatomy
+ 
+-![](https://developer.android.com/static/wear/images/pickers/picker-anatomy.png)  
+-**Anatomy**
++![](https://developer.android.com/static/wear/images/pickers/picker-anatomy.png) **Anatomy**
+ 
+ A. Inactive Column  
++
+ B. Colon Breaker  
++
+ C. Picker Column  
++
+ D. Top Content  
++
+ E. Middle Content  
++
+ F. Bottom Content
+ 
+ <br />
+ 
+ <br />
+ 
+-![](https://developer.android.com/static/wear/images/pickers/picker-anatomy-widths.png)  
+-**Widths and heights**
++![](https://developer.android.com/static/wear/images/pickers/picker-anatomy-widths.png) **Widths and heights**
+ 
+ The Picker Group fills the available height and width. There are four layout options for the picker columns. Each layout is centred and fills the available height. Column widths are defined by the width needed to accommodate the number of digits needed in the font, Date-picker is the exception, horizontally it fills the screen and bleeds off the edge.
+ 
+@@ -55,9 +55,10 @@ See the following examples of Date and Time Pickers
+ 
+ ![](https://developer.android.com/static/wear/images/pickers/picker-usage.png)
+ 
+-For a prebuilt date and time picker implementation, check out the[Horologist Library](https://github.com/google/horologist#-composables)on GitHub.  
++For a prebuilt date and time picker implementation, check out the [Horologist Library](https://github.com/google/horologist#-composables) on GitHub.   
++
+ 
+-If you want to create a similar experience, where users choose a multi-part value across multiple pickers, use the built-in[PickerGroup](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary#PickerGroup(kotlin.Array,androidx.compose.ui.Modifier,androidx.wear.compose.material.PickerGroupState,kotlin.Function1,kotlin.Boolean,kotlin.Boolean,androidx.wear.compose.material.TouchExplorationStateProvider,kotlin.Function1))component. This object uses a focus coordinator object to assign focus to the correct Picker element.
++If you want to create a similar experience, where users choose a multi-part value across multiple pickers, use the built-in [PickerGroup](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/PickerGroup.composable#PickerGroup(kotlin.Array,androidx.compose.ui.Modifier,androidx.wear.compose.material.PickerGroupState,kotlin.Function1,kotlin.Boolean,kotlin.Boolean,androidx.wear.compose.material.TouchExplorationStateProvider,kotlin.Function1)) component. This object uses a focus coordinator object to assign focus to the correct Picker element.
+ 
+ ## Adaptive layouts
+ 
+@@ -79,11 +80,10 @@ If you want to create a similar experience, where users choose a multi-part valu
+ 
+ Past the 225+ Breakpoint, the Picker element's font size changes. Top and Bottom copy within the lazy scrolling column adjusts (A), as does the Middle copy. Below are some examples of this:
+ 
+-**Two column layout**  
+-![](https://developer.android.com/static/wear/images/pickers/picker-textsize-two-column-pre225.png)![](https://developer.android.com/static/wear/images/pickers/picker-textsize-two-column-post225.png)  
+-**Below the 225 dp breakpoint**
++**Two column layout**
++![](https://developer.android.com/static/wear/images/pickers/picker-textsize-two-column-pre225.png) ![](https://developer.android.com/static/wear/images/pickers/picker-textsize-two-column-post225.png) **Below the 225 dp breakpoint**
+ 
+-Font: Display 2  
++Font: Display 2
+ **Above 225 dp breakpoint**
+ 
+ Font: Display 1
+@@ -92,11 +92,10 @@ Font: Display 1
+ 
+ <br />
+ 
+-**Three column layout**  
+-![](https://developer.android.com/static/wear/images/pickers/picker-textsize-three-column-pre225.png)![](https://developer.android.com/static/wear/images/pickers/picker-textsize-three-column-post225.png)  
+-**Below the 225 dp breakpoint**
++**Three column layout**
++![](https://developer.android.com/static/wear/images/pickers/picker-textsize-three-column-pre225.png) ![](https://developer.android.com/static/wear/images/pickers/picker-textsize-three-column-post225.png) **Below the 225 dp breakpoint**
+ 
+-Font: Display 3  
++Font: Display 3
+ **Above the 225 dp breakpoint**
+ 
+ Font: Display 2
+@@ -107,11 +106,10 @@ Font: Display 2
+ 
+ ## **Gradient size increase**
+ 
+-The gradient on the Picker column is defined in height by the available space. Both Top and Bottom Gradients are set at a third (33%) of the available height. This means at each available screen size, the gradient scales proportionally. Sitting independent of the column layout.  
+-![](https://developer.android.com/static/wear/images/pickers/picker-gradientsize-pre225.png)![](https://developer.android.com/static/wear/images/pickers/picker-gradientsize-post225.png)  
+-**Below the 225 dp breakpoint**
++The gradient on the Picker column is defined in height by the available space. Both Top and Bottom Gradients are set at a third (33%) of the available height. This means at each available screen size, the gradient scales proportionally. Sitting independent of the column layout.
++![](https://developer.android.com/static/wear/images/pickers/picker-gradientsize-pre225.png) ![](https://developer.android.com/static/wear/images/pickers/picker-gradientsize-post225.png) **Below the 225 dp breakpoint**
+ 
+-Size: 33% of column height  
++Size: 33% of column height
+ **Above the 225 dp breakpoint**
+ 
+ Size: 33% of column height
+@@ -124,11 +122,10 @@ Size: 33% of column height
+ 
+ Column spacing scales past the 225+ Breakpoint, either starting at 2 dp or 4 dp and growing to 6 dp. This depends on which layout you've selected; either 2 or 3 column layouts
+ 
+-**Two column layout**  
+-![](https://developer.android.com/static/wear/images/pickers/picker-columnspacing-two-column-pre225.png)![](https://developer.android.com/static/wear/images/pickers/picker-columnspacing-two-column-post225.png)  
+-**Below the 225 dp breakpoint**
++**Two column layout**
++![](https://developer.android.com/static/wear/images/pickers/picker-columnspacing-two-column-pre225.png) ![](https://developer.android.com/static/wear/images/pickers/picker-columnspacing-two-column-post225.png) **Below the 225 dp breakpoint**
+ 
+-4 dp column gap  
++4 dp column gap
+ **Above the 225 dp breakpoint**
+ 
+ 6 dp column gap
+@@ -139,10 +136,9 @@ Column spacing scales past the 225+ Breakpoint, either starting at 2 dp or 4 dp
+ 
+ ### **Three column layout**
+ 
+-![](https://developer.android.com/static/wear/images/pickers/picker-columnspacing-three-column-pre225.png)![](https://developer.android.com/static/wear/images/pickers/picker-columnspacing-three-column-post225.png)  
+-**Below the 225 dp breakpoint**
++![](https://developer.android.com/static/wear/images/pickers/picker-columnspacing-three-column-pre225.png) ![](https://developer.android.com/static/wear/images/pickers/picker-columnspacing-three-column-post225.png) **Below the 225 dp breakpoint**
+ 
+-2 dp column gap  
++2 dp column gap
+ **Above the 225 dp breakpoint**
+ 
+ 6 dp column gap

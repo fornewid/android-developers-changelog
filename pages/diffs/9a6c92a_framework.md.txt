@@ -1,0 +1,26 @@
+diff --git a/docs/guide/appendix/faq/framework.md b/docs/guide/appendix/faq/framework.md
+index c19780e..4ba5427 100644
+--- a/docs/guide/appendix/faq/framework.md
++++ b/docs/guide/appendix/faq/framework.md
+@@ -1,9 +1,15 @@
+ ---
+-title: https://developer.android.com/guide/appendix/faq/framework
++title: Android Developers
+ url: https://developer.android.com/guide/appendix/faq/framework
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Android Developers
++* [Android Developers](https://developer.android.com/)
+ 
+-You should have already been redirected by your browser. Please follow[this link](https://developer.android.com/resources/faq/framework).
+\ No newline at end of file
++# Android Developers Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++You should have already been redirected by your browser. Please follow
++[this link](/resources/faq/framework).
+\ No newline at end of file

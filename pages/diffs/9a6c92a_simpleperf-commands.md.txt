@@ -1,0 +1,24 @@
+diff --git a/docs/ndk/guides/simpleperf-commands.md b/docs/ndk/guides/simpleperf-commands.md
+index 0da5e91..9908c0f 100644
+--- a/docs/ndk/guides/simpleperf-commands.md
++++ b/docs/ndk/guides/simpleperf-commands.md
+@@ -1,9 +1,16 @@
+ ---
+-title: https://developer.android.com/ndk/guides/simpleperf-commands
++title: Simpleperf command and options reference  |  Android NDK  |  Android Developers
+ url: https://developer.android.com/ndk/guides/simpleperf-commands
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Home](https://developer.android.com/)
++* [NDK](https://developer.android.com/ndk)
++
++# Simpleperf command and options reference Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Full
+ [Simpleperf reference documentation](https://android.googlesource.com/platform/system/extras/+/master/simpleperf/doc/README.md)
+ is available.
+\ No newline at end of file

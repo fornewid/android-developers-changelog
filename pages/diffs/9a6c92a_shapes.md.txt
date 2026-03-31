@@ -1,0 +1,123 @@
+diff --git a/docs/develop/ui/views/graphics/opengl/shapes.md b/docs/develop/ui/views/graphics/opengl/shapes.md
+index ccbfede..87f6f58 100644
+--- a/docs/develop/ui/views/graphics/opengl/shapes.md
++++ b/docs/develop/ui/views/graphics/opengl/shapes.md
+@@ -1,22 +1,38 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/graphics/opengl/shapes
++title: Define shapes  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/graphics/opengl/shapes
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Define shapes
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+ 
+-Being able to define shapes to be drawn in the context of an OpenGL ES view is the first step in creating high-end graphics for your app. Drawing with OpenGL ES can be a little tricky without knowing a few basic things about how OpenGL ES expects you to define graphic objects.
++# Define shapes Stay organized with collections Save and categorize content based on your preferences.
+ 
+-This lesson explains the OpenGL ES coordinate system relative to an Android device screen, the basics of defining a shape, shape faces, as well as defining a triangle and a square.
++
++
++
++Being able to define shapes to be drawn in the context of an OpenGL ES view is the first step in
++creating high-end graphics for your app. Drawing with OpenGL ES can be a little tricky without
++knowing a few basic things about how OpenGL ES expects you to define graphic objects.
++
++This lesson explains the OpenGL ES coordinate system relative to an Android device screen, the
++basics of defining a shape, shape faces, as well as defining a triangle and a square.
+ 
+ ## Define a triangle
+ 
+-OpenGL ES allows you to define drawn objects using coordinates in three-dimensional space. So, before you can draw a triangle, you must define its coordinates. In OpenGL, the typical way to do this is to define a vertex array of floating point numbers for the coordinates. For maximum efficiency, you write these coordinates into a[ByteBuffer](https://developer.android.com/reference/java/nio/ByteBuffer), that is passed into the OpenGL ES graphics pipeline for processing.  
++OpenGL ES allows you to define drawn objects using coordinates in three-dimensional space. So,
++before you can draw a triangle, you must define its coordinates. In OpenGL, the typical way to do
++this is to define a vertex array of floating point numbers for the coordinates. For maximum
++efficiency, you write these coordinates into a `ByteBuffer`, that is passed into the
++OpenGL ES graphics pipeline for processing.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // number of coordinates per vertex in this array
+ const val COORDS_PER_VERTEX = 3
+ var triangleCoords = floatArrayOf(     // in counterclockwise order:
+@@ -49,7 +65,7 @@ class Triangle {
+ 
+ ### Java
+ 
+-```java
++```
+ public class Triangle {
+ 
+     private FloatBuffer vertexBuffer;
+@@ -83,22 +99,37 @@ public class Triangle {
+ }
+ ```
+ 
+-By default, OpenGL ES assumes a coordinate system where \[0,0,0\] (X,Y,Z) specifies the center of the[GLSurfaceView](https://developer.android.com/reference/android/opengl/GLSurfaceView)frame, \[1,1,0\] is the top right corner of the frame and \[-1,-1,0\] is bottom left corner of the frame. For an illustration of this coordinate system, see the[OpenGL ES developer guide](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl#coordinate-mapping).
++By default, OpenGL ES assumes a coordinate system where [0,0,0] (X,Y,Z) specifies the center of
++the `GLSurfaceView` frame,
++[1,1,0] is the top right corner of the frame and
++[-1,-1,0] is bottom left corner of the frame. For an illustration of this coordinate system, see the
++[OpenGL ES developer
++guide](/develop/ui/views/graphics/opengl/about-opengl#coordinate-mapping).
+ 
+-Note that the coordinates of this shape are defined in a counterclockwise order. The drawing order is important because it defines which side is the front face of the shape, which you typically want to have drawn, and the back face, which you can choose to not draw using the OpenGL ES cull face feature. For more information about faces and culling, see the[OpenGL ES](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl#faces-winding)developer guide.
++Note that the coordinates of this shape are defined in a counterclockwise order. The drawing
++order is important because it defines which side is the front face of the shape, which you typically
++want to have drawn, and the back face, which you can choose to not draw using the OpenGL ES cull
++face feature. For more information about faces and culling, see the
++[OpenGL ES](/develop/ui/views/graphics/opengl/about-opengl#faces-winding) developer guide.
+ 
+ ## Define a square
+ 
+-Defining triangles is pretty easy in OpenGL, but what if you want to get a just a little more complex? Say, a square? There are a number of ways to do this, but a typical path to drawing such a shape in OpenGL ES is to use two triangles drawn together:
+-![](https://developer.android.com/static/images/opengl/ccw-square.png)
++Defining triangles is pretty easy in OpenGL, but what if you want to get a just a little more
++complex? Say, a square? There are a number of ways to do this, but a typical path to drawing such a
++shape in OpenGL ES is to use two triangles drawn together:
++
++![](/static/images/opengl/ccw-square.png)
+ 
+-**Figure 1.**Drawing a square using two triangles.
++**Figure 1.** Drawing a square using two triangles.
+ 
+-Again, you should define the vertices in a counterclockwise order for both triangles that represent this shape, and put the values in a[ByteBuffer](https://developer.android.com/reference/java/nio/ByteBuffer). In order to avoid defining the two coordinates shared by each triangle twice, use a drawing list to tell the OpenGL ES graphics pipeline how to draw these vertices. Here's the code for this shape:  
++Again, you should define the vertices in a counterclockwise order for both triangles that
++represent this shape, and put the values in a `ByteBuffer`. In order to avoid
++defining the two coordinates shared by each triangle twice, use a drawing list to tell the
++OpenGL ES graphics pipeline how to draw these vertices. Here’s the code for this shape:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // number of coordinates per vertex in this array
+ const val COORDS_PER_VERTEX = 3
+ var squareCoords = floatArrayOf(
+@@ -138,7 +169,7 @@ class Square2 {
+ 
+ ### Java
+ 
+-```java
++```
+ public class Square {
+ 
+     private FloatBuffer vertexBuffer;
+@@ -176,4 +207,6 @@ public class Square {
+ }
+ ```
+ 
+-This example gives you a peek at what it takes to create more complex shapes with OpenGL. In general, you use collections of triangles to draw objects. In the next lesson, you learn how to draw these shapes on screen.
+\ No newline at end of file
++This example gives you a peek at what it takes to create more complex shapes with OpenGL. In
++general, you use collections of triangles to draw objects. In the next lesson, you learn how to draw
++these shapes on screen.
+\ No newline at end of file

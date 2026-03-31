@@ -1,0 +1,177 @@
+diff --git a/docs/courses/quizzes/android-basics-compose-unit-1-pathway-3/android-basics-compose-unit-1-pathway-3.md b/docs/courses/quizzes/android-basics-compose-unit-1-pathway-3/android-basics-compose-unit-1-pathway-3.md
+index cbc91a0..e4068c3 100644
+--- a/docs/courses/quizzes/android-basics-compose-unit-1-pathway-3/android-basics-compose-unit-1-pathway-3.md
++++ b/docs/courses/quizzes/android-basics-compose-unit-1-pathway-3/android-basics-compose-unit-1-pathway-3.md
+@@ -1,94 +1,107 @@
+ ---
+-title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-1-pathway-3/android-basics-compose-unit-1-pathway-3
++title: Build a basic layout  |  Android Developers
+ url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-1-pathway-3/android-basics-compose-unit-1-pathway-3
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Build a basic layout
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
+ 
+ # Build a basic layout
+ 
+-<br />
++Return to pathway
++
++
++
++1. ## What is Jetpack Compose?
++
++   A Modern toolkit to develop Android UI
++
++   Toolkit to design libraries
++
++   Database Interface
++
++   Plugin to build APK
++2. ## Composable functions are the basic building block of Compose.
++
++   True
++
++   False
++3. ## What annotation is used to annotate a Composable function?
++
++   `@Annotation`
++
++   `@ComposableFunction`
++
++   `@Composable`
++
++   `@Preview`
++4. ## The basic standard layout elements in Compose are:
++
++   Choose as many answers as you see fit.
++
++   Column
++
++   Row
++
++   Text
++
++   Box
++5. ## What is the tool window for importing, creating, managing, and using resources in your app?
++
++   Application Manager
+ 
+-Return to pathway  
+-1.
++   Resource Manager
+ 
+-   ## What is Jetpack Compose?
++   Resource Tool
+ 
+-   A Modern toolkit to develop Android UI  
+-   Toolkit to design libraries  
+-   Database Interface  
+-   Plugin to build APK  
+-2.
++   Layout Manager
++6. ## Which class is an automatically generated class by Android that contains the IDs of all resources in the project.
+ 
+-   ## Composable functions are the basic building block of Compose.
++   The `Android` class
+ 
+-   True  
+-   False  
+-3.
++   The `Resource` class
+ 
+-   ## What annotation is used to annotate a Composable function?
++   The `R` Class
+ 
+-   `@Annotation`  
+-   `@ComposableFunction`  
+-   `@Composable`  
+-   `@Preview`  
+-4.
++   The `ResourceID` class
++7. ## Which function is used is to load a drawable image resource.
+ 
+-   ## The basic standard layout elements in Compose are:
++   The `stringResource()` function
+ 
+-   Choose as many answers as you see fit.  
+-   Column  
+-   Row  
+-   Text  
+-   Box  
+-5.
++   The `painterResource()` function
+ 
+-   ## What is the tool window for importing, creating, managing, and using resources in your app?
++   The `ImageResource()` function
+ 
+-   Application Manager  
+-   Resource Manager  
+-   Resource Tool  
+-   Layout Manager  
+-6.
++   The `loadResource()` function
++8. ## What is the function parameter used to add accessibility text, used by talkback?
+ 
+-   ## Which class is an automatically generated class by Android that contains the IDs of all resources in the project.
++   `accessibilityText`
+ 
+-   The`Android`class  
+-   The`Resource`class  
+-   The`R`Class  
+-   The`ResourceID`class  
+-7.
++   `contentText`
+ 
+-   ## Which function is used is to load a drawable image resource.
++   `accessibilityDescription`
+ 
+-   The`stringResource()`function  
+-   The`painterResource()`function  
+-   The`ImageResource()`function  
+-   The`loadResource()`function  
+-8.
++   `contentDescription`
++9. ## The Box layout stacks the UI elements on top of one another.
+ 
+-   ## What is the function parameter used to add accessibility text, used by talkback?
++   True
+ 
+-   `accessibilityText`  
+-   `contentText`  
+-   `accessibilityDescription`  
+-   `contentDescription`  
+-9.
++   False
++10. ## What parameter is used to align the child element to the beginning of the parent?
+ 
+-   ## The Box layout stacks the UI elements on top of one another.
++    `Alignment.End`
+ 
+-   True  
+-   False  
+-10.
++    `Alignment.Begin`
+ 
+-    ## What parameter is used to align the child element to the beginning of the parent?
++    `Alignment.Start`
+ 
+-    `Alignment.End`  
+-    `Alignment.Begin`  
+-    `Alignment.Start`  
+-    `Alignment.Top`  
++    `Alignment.Top`
+ 
+ Submit answers
+ 
+-*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error\_outline*
++An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

@@ -1,0 +1,363 @@
+diff --git a/docs/topic/libraries/architecture/paging/v3-paged-data.md b/docs/topic/libraries/architecture/paging/v3-paged-data.md
+index 343e919..ffb7bd8 100644
+--- a/docs/topic/libraries/architecture/paging/v3-paged-data.md
++++ b/docs/topic/libraries/architecture/paging/v3-paged-data.md
+@@ -1,20 +1,28 @@
+ ---
+-title: https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data
++title: Load and display paged data  |  App architecture  |  Android Developers
+ url: https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
++
++# Load and display paged data Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ The Paging library provides powerful capabilities for loading and displaying
+ paged data from a larger dataset. This guide demonstrates how to use the Paging
+ library to set up a stream of paged data from a network data source and display
+-it in a [`RecyclerView`](https://developer.android.com/guide/topics/ui/layout/recyclerview).
++it in a [`RecyclerView`](/guide/topics/ui/layout/recyclerview).
+ 
+ ## Define a data source
+ 
+ The first step is to define a
+-[`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) implementation
++[`PagingSource`](/reference/kotlin/androidx/paging/PagingSource) implementation
+ to identify the data source. The `PagingSource` API class includes the
+-[`load()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource#load)
++[`load()`](/reference/kotlin/androidx/paging/PagingSource#load)
+ method, which you override to indicate how to retrieve paged data from the
+ corresponding data source.
+ 
+@@ -22,12 +30,16 @@ Use the `PagingSource` class directly to use Kotlin coroutines for async
+ loading. The Paging library also provides classes to support other async
+ frameworks:
+ 
+-- To use RxJava, implement [`RxPagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/rxjava2/RxPagingSource) instead.
+-- To use `ListenableFuture` from Guava, implement [`ListenableFuturePagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/ListenableFuturePagingSource) instead.
++* To use RxJava, implement
++  [`RxPagingSource`](/reference/kotlin/androidx/paging/rxjava2/RxPagingSource)
++  instead.
++* To use `ListenableFuture` from Guava, implement
++  [`ListenableFuturePagingSource`](/reference/kotlin/androidx/paging/ListenableFuturePagingSource)
++  instead.
+ 
+-> [!NOTE]
+-> **Note:** To use the Paging library with RxJava or Guava, you must include [additional
+-> dependencies](https://developer.android.com/topic/libraries/architecture/paging/v3-overview#setup).
++**Note:** To use the Paging library with RxJava or Guava, you must include
++[additional
++dependencies](/topic/libraries/architecture/paging/v3-overview#setup).
+ 
+ ### Select key and value types
+ 
+@@ -41,13 +53,13 @@ select `Int` as the `Key` type and `User` as the `Value` type.
+ ### Define the PagingSource
+ 
+ The following example implements a
+-[`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) that loads
++[`PagingSource`](/reference/kotlin/androidx/paging/PagingSource) that loads
+ pages of items by page number. The `Key` type is `Int` and the `Value` type is
+ `User`.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class ExamplePagingSource(
+     val backend: ExampleBackendService,
+     val query: String
+@@ -88,7 +100,7 @@ class ExamplePagingSource(
+ 
+ ### Java
+ 
+-```java
++```
+ class ExamplePagingSource extends RxPagingSource<Integer, User> {
+   @NonNull
+   private ExampleBackendService mBackend;
+@@ -164,7 +176,7 @@ class ExamplePagingSource extends RxPagingSource<Integer, User> {
+ 
+ ### Java
+ 
+-```java
++```
+ class ExamplePagingSource extends ListenableFuturePagingSource<Integer, User> {
+   @NonNull
+   private ExampleBackendService mBackend;
+@@ -249,29 +261,33 @@ A typical `PagingSource` implementation passes parameters provided in its
+ constructor to the `load()` method to load appropriate data for a query. In the
+ example above, those parameters are:
+ 
+-- `backend`: an instance of the backend service that provides the data
+-- `query`: the search query to send to the service indicated by `backend`
++* `backend`: an instance of the backend service that provides the data
++* `query`: the search query to send to the service indicated by `backend`
+ 
+-The [`LoadParams`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.LoadParams)
++The [`LoadParams`](/reference/kotlin/androidx/paging/PagingSource.LoadParams)
+ object contains information about the load operation to be performed. This
+ includes the key to be loaded and the number of items to be loaded.
+ 
+-The [`LoadResult`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.LoadResult)
++The [`LoadResult`](/reference/kotlin/androidx/paging/PagingSource.LoadResult)
+ object contains the result of the load operation. `LoadResult` is a sealed class
+ that takes one of two forms, depending on whether the `load()` call succeeded:
+ 
+-- If the load is successful, return a `LoadResult.Page` object.
+-- If the load is not successful, return a `LoadResult.Error` object.
++* If the load is successful, return a `LoadResult.Page` object.
++* If the load is not successful, return a `LoadResult.Error` object.
+ 
+ The following figure illustrates how the `load()` function in this example
+ receives the key for each load and provides the key for the subsequent load.
++
+ ![On each load() call, the ExamplePagingSource takes in the current key
+-and returns the next key to load.](https://developer.android.com/static/topic/libraries/architecture/images/paging3-source-load.svg) **Figure 1.** Diagram showing how `load()` uses and updates the key.
++    and returns the next key to load.](/static/topic/libraries/architecture/images/paging3-source-load.svg)
++
++
++**Figure 1.** Diagram showing how `load()` uses and updates the key.
+ 
+ The `PagingSource` implementation must also implement a
+-[`getRefreshKey()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource#getrefreshkey)
++[`getRefreshKey()`](/reference/kotlin/androidx/paging/PagingSource#getrefreshkey)
+ method that takes a
+-[`PagingState`](https://developer.android.com/reference/kotlin/androidx/paging/PagingState) object as a
++[`PagingState`](/reference/kotlin/androidx/paging/PagingState) object as a
+ parameter. It returns the key to pass into the `load()` method when the data is
+ refreshed or invalidated after the initial load. The Paging Library calls this
+ method automatically on subsequent refreshes of the data.
+@@ -287,7 +303,7 @@ from the previous example by adding the following to the `load()` method:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ catch (e: IOException) {
+   // IOException for network failures.
+   return LoadResult.Error(e)
+@@ -299,7 +315,7 @@ catch (e: IOException) {
+ 
+ ### Java
+ 
+-```java
++```
+ return backend.searchUsers(searchTerm, nextPageNumber)
+   .subscribeOn(Schedulers.io())
+   .map(this::toLoadResult)
+@@ -308,7 +324,7 @@ return backend.searchUsers(searchTerm, nextPageNumber)
+ 
+ ### Java
+ 
+-```java
++```
+ ListenableFuture<LoadResult<Integer, User>> pageFuture = Futures.transform(
+   backend.searchUsers(query, nextPageNumber), this::toLoadResult,
+   bgExecutor);
+@@ -327,28 +343,28 @@ For more information on handling Retrofit errors, see the samples in the
+ `PagingSource` collects and delivers `LoadResult.Error` objects to the UI so
+ that you can act on them. For more information on exposing the loading state
+ in the UI, see [Manage and present loading
+-states](https://developer.android.com/topic/libraries/architecture/paging/load-state).
++states](/topic/libraries/architecture/paging/load-state).
+ 
+ ## Set up a stream of PagingData
+ 
+ Next, you need a stream of paged data from the `PagingSource` implementation.
+ Set up the data stream in your `ViewModel`. The
+-[`Pager`](https://developer.android.com/reference/kotlin/androidx/paging/Pager) class provides methods that
++[`Pager`](/reference/kotlin/androidx/paging/Pager) class provides methods that
+ expose a reactive stream of
+-[`PagingData`](https://developer.android.com/reference/kotlin/androidx/paging/PagingData) objects from a
++[`PagingData`](/reference/kotlin/androidx/paging/PagingData) objects from a
+ `PagingSource`. The Paging library supports using several stream types,
+ including `Flow`, `LiveData`, and the `Flowable` and `Observable` types from
+ RxJava.
+ 
+ When you create a `Pager` instance to set up your reactive stream, you must
+ provide the instance with a
+-[`PagingConfig`](https://developer.android.com/reference/kotlin/androidx/paging/PagingConfig) configuration
++[`PagingConfig`](/reference/kotlin/androidx/paging/PagingConfig) configuration
+ object and a function that tells `Pager` how to get an instance of your
+ `PagingSource` implementation:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val flow = Pager(
+   // Configure how data is loaded by passing additional properties to
+   // PagingConfig, such as prefetchDistance.
+@@ -361,7 +377,7 @@ val flow = Pager(
+ 
+ ### Java
+ 
+-```java
++```
+ // CoroutineScope helper provided by the lifecycle-viewmodel-ktx artifact.
+ CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(viewModel);
+ Pager<Integer, User> pager = Pager<>(
+@@ -374,7 +390,7 @@ PagingRx.cachedIn(flowable, viewModelScope);
+ 
+ ### Java
+ 
+-```java
++```
+ // CoroutineScope helper provided by the lifecycle-viewmodel-ktx artifact.
+ CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(viewModel);
+ Pager<Integer, User> pager = Pager<>(
+@@ -390,9 +406,9 @@ provided by the lifecycle `lifecycle-viewmodel-ktx` artifact.
+ 
+ The `Pager` object calls the `load()` method from the `PagingSource` object,
+ providing it with the
+-[`LoadParams`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.LoadParams) object
++[`LoadParams`](/reference/kotlin/androidx/paging/PagingSource.LoadParams) object
+ and receiving the
+-[`LoadResult`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.LoadResult) object
++[`LoadResult`](/reference/kotlin/androidx/paging/PagingSource.LoadResult) object
+ in return.
+ 
+ ## Define a RecyclerView adapter
+@@ -404,11 +420,11 @@ purpose.
+ Define a class that extends `PagingDataAdapter`. In the example,
+ `UserAdapter` extends `PagingDataAdapter` to provide a `RecyclerView`
+ adapter for list items of type `User` and using `UserViewHolder` as a [view
+-holder](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.ViewHolder):
++holder](/reference/kotlin/androidx/recyclerview/widget/RecyclerView.ViewHolder):
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class UserAdapter(diffCallback: DiffUtil.ItemCallback<User>) :
+   PagingDataAdapter<User, UserViewHolder>(diffCallback) {
+   override fun onCreateViewHolder(
+@@ -429,7 +445,7 @@ class UserAdapter(diffCallback: DiffUtil.ItemCallback<User>) :
+ 
+ ### Java
+ 
+-```java
++```
+ class UserAdapter extends PagingDataAdapter<User, UserViewHolder> {
+   UserAdapter(@NotNull DiffUtil.ItemCallback<User> diffCallback) {
+     super(diffCallback);
+@@ -453,7 +469,7 @@ class UserAdapter extends PagingDataAdapter<User, UserViewHolder> {
+ 
+ ### Java
+ 
+-```java
++```
+ class UserAdapter extends PagingDataAdapter<User, UserViewHolder> {
+   UserAdapter(@NotNull DiffUtil.ItemCallback<User> diffCallback) {
+     super(diffCallback);
+@@ -477,13 +493,13 @@ class UserAdapter extends PagingDataAdapter<User, UserViewHolder> {
+ 
+ Your adapter must also define the `onCreateViewHolder()` and
+ `onBindViewHolder()` methods and specify a
+-[`DiffUtil.ItemCallback`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/DiffUtil.ItemCallback).
++[`DiffUtil.ItemCallback`](/reference/kotlin/androidx/recyclerview/widget/DiffUtil.ItemCallback).
+ This works the same as it normally does when defining `RecyclerView` list
+ adapters:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ object UserComparator : DiffUtil.ItemCallback<User>() {
+   override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
+     // Id is unique.
+@@ -498,7 +514,7 @@ object UserComparator : DiffUtil.ItemCallback<User>() {
+ 
+ ### Java
+ 
+-```java
++```
+ class UserComparator extends DiffUtil.ItemCallback<User> {
+   @Override
+   public boolean areItemsTheSame(@NonNull User oldItem,
+@@ -517,7 +533,7 @@ class UserComparator extends DiffUtil.ItemCallback<User> {
+ 
+ ### Java
+ 
+-```java
++```
+ class UserComparator extends DiffUtil.ItemCallback<User> {
+   @Override
+   public boolean areItemsTheSame(@NonNull User oldItem,
+@@ -545,12 +561,15 @@ Perform the following steps in your activity's `onCreate` or fragment's
+ `onViewCreated` method:
+ 
+ 1. Create an instance of your `PagingDataAdapter` class.
+-2. Pass the `PagingDataAdapter` instance to the [`RecyclerView`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView) list that you want to display your paged data.
+-3. Observe the `PagingData` stream and pass each generated value to your adapter's `submitData()` method.
++2. Pass the `PagingDataAdapter` instance to the
++   [`RecyclerView`](/reference/kotlin/androidx/recyclerview/widget/RecyclerView)
++   list that you want to display your paged data.
++3. Observe the `PagingData` stream and pass each generated value to your
++   adapter's `submitData()` method.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val viewModel by viewModels<ExampleViewModel>()
+ 
+ val pagingAdapter = UserAdapter(UserComparator)
+@@ -568,7 +587,7 @@ lifecycleScope.launch {
+ 
+ ### Java
+ 
+-```java
++```
+ ExampleViewModel viewModel = new ViewModelProvider(this)
+   .get(ExampleViewModel.class);
+ 
+@@ -586,7 +605,7 @@ viewModel.flowable
+ 
+ ### Java
+ 
+-```java
++```
+ ExampleViewModel viewModel = new ViewModelProvider(this)
+   .get(ExampleViewModel.class);
+ 
+@@ -604,8 +623,10 @@ viewModel.liveData.observe(this, pagingData ->
+ The `RecyclerView` list now displays the paged data from the data source and
+ automatically loads another page when necessary.
+ 
+-> [!CAUTION]
+-> **Caution:** The `submitData()` method suspends and does not return until either the `PagingSource` is invalidated or the adapter's refresh method is called. This means that code after the `submitData()` call might execute much later than you intend.
++**Caution:** The `submitData()` method suspends and does not return until either the
++`PagingSource` is invalidated or the adapter's refresh method is called. This
++means that code after the `submitData()` call might execute much later than you
++intend.
+ 
+ ## Additional resources
+ 
+@@ -613,11 +634,11 @@ To learn more about the Paging library, see the following additional resources:
+ 
+ ### Codelabs
+ 
+-- [Android Paging Advanced codelab](https://codelabs.developers.google.com/codelabs/android-paging)
++* [Android Paging Advanced codelab](https://codelabs.developers.google.com/codelabs/android-paging)
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Page from network and database](https://developer.android.com/topic/libraries/architecture/paging/v3-network-db)
+-- [Migrate to Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-migration)
+-- [Paging library overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Page from network and database](/topic/libraries/architecture/paging/v3-network-db)
++* [Migrate to Paging 3](/topic/libraries/architecture/paging/v3-migration)
++* [Paging library overview](/topic/libraries/architecture/paging/v3-overview)
+\ No newline at end of file

@@ -1,0 +1,443 @@
+diff --git a/docs/topic/performance/benchmarking/microbenchmark-write.md b/docs/topic/performance/benchmarking/microbenchmark-write.md
+index 552da64..4a6fda8 100644
+--- a/docs/topic/performance/benchmarking/microbenchmark-write.md
++++ b/docs/topic/performance/benchmarking/microbenchmark-write.md
+@@ -1,13 +1,22 @@
+ ---
+-title: https://developer.android.com/topic/performance/benchmarking/microbenchmark-write
++title: Write a Microbenchmark  |  App quality  |  Android Developers
+ url: https://developer.android.com/topic/performance/benchmarking/microbenchmark-write
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App quality](https://developer.android.com/quality)
++* [Technical quality](https://developer.android.com/quality/technical)
++
++# Write a Microbenchmark Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ To learn how to use the Microbenchmark library by adding changes to your
+-application code, see the [Quickstart](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#quickstart) section. To learn how to
++application code, see the [Quickstart](#quickstart) section. To learn how to
+ complete a full setup with more complicated changes to your codebase, see the
+-[Full project setup](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#full-setup) section.
++[Full project setup](#full-setup) section.
+ 
+ ## Quickstart
+ 
+@@ -22,7 +31,7 @@ To perform one-off benchmarking, do the following:
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+    dependencies {
+        implementation("androidx.benchmark:benchmark-junit4:1.2.4")
+    }
+@@ -30,7 +39,7 @@ To perform one-off benchmarking, do the following:
+ 
+    ### Groovy
+ 
+-   ```groovy
++   ```
+    dependencies {
+        implementation 'androidx.benchmark:benchmark-junit4:1.2.4'
+    }
+@@ -38,18 +47,13 @@ To perform one-off benchmarking, do the following:
+ 
+    Use an `implementation` dependency instead of an `androidTestImplementation`
+    dependency. If you use `androidTestImplementation`, the benchmarks fail to
+-   run because the library [manifest](https://developer.android.com/guide/topics/manifest/manifest-intro) isn't merged into the app
++   run because the library [manifest](/guide/topics/manifest/manifest-intro) isn't merged into the app
+    manifest.
+-
+-   <br />
+-
+-   <br />
+-
+ 2. Update the `debug` build type so that it isn't debuggable:
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+    android {
+        ...
+        buildTypes {
+@@ -62,7 +66,7 @@ To perform one-off benchmarking, do the following:
+ 
+    ### Groovy
+ 
+-   ```groovy
++   ```
+    android {
+        ...
+        buildTypes {
+@@ -72,11 +76,11 @@ To perform one-off benchmarking, do the following:
+        }
+    }
+    ```
+-3. Change the `testInstrumentationRunner` to be [`AndroidBenchmarkRunner`](https://developer.android.com/reference/kotlin/androidx/benchmark/junit4/AndroidBenchmarkRunner):
++3. Change the `testInstrumentationRunner` to be [`AndroidBenchmarkRunner`](/reference/kotlin/androidx/benchmark/junit4/AndroidBenchmarkRunner):
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+    android {
+        ...
+        defaultConfig {
+@@ -87,7 +91,7 @@ To perform one-off benchmarking, do the following:
+ 
+    ### Groovy
+ 
+-   ```groovy
++   ```
+    android {
+        ...
+        defaultConfig {
+@@ -95,16 +99,16 @@ To perform one-off benchmarking, do the following:
+        }
+    }
+    ```
+-4. Add an instance of [`BenchmarkRule`](https://developer.android.com/reference/kotlin/androidx/benchmark/junit4/BenchmarkRule) in a test file in the
+-   [`androidTest`](https://developer.android.com/studio/test/test-in-android-studio#test_types_and_locations) directory to add your benchmark. For more information
+-   about writing benchmarks, see [Create a Microbenchmark class](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#create-microbenchmark).
++4. Add an instance of [`BenchmarkRule`](/reference/kotlin/androidx/benchmark/junit4/BenchmarkRule) in a test file in the
++   [`androidTest`](/studio/test/test-in-android-studio#test_types_and_locations) directory to add your benchmark. For more information
++   about writing benchmarks, see [Create a Microbenchmark class](#create-microbenchmark).
+ 
+    The following code snippet shows how to add a benchmark to an Instrumented
+    test:
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+    @RunWith(AndroidJUnit4::class)
+    class SampleBenchmark {
+        @get:Rule
+@@ -117,11 +121,13 @@ To perform one-off benchmarking, do the following:
+            }
+        }
+    }
++
++   SampleBenchmark.kt
+    ```
+ 
+    ### Java
+ 
+-   ```java
++   ```
+    @RunWith(AndroidJUnit4.class)
+    class SampleBenchmark {
+        @Rule
+@@ -137,49 +143,59 @@ To perform one-off benchmarking, do the following:
+    }
+    ```
+ 
+-To learn how to write a benchmark, skip to [Create a Microbenchmark class](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#create-microbenchmark).
++To learn how to write a benchmark, skip to [Create a Microbenchmark class](#create-microbenchmark).
+ 
+ ## Full project setup
+ 
+ To set up regular benchmarking rather than one-off benchmarking, isolate
+ benchmarks into their own module. This helps ensure that their configuration,
+-such as setting [`debuggable`](https://developer.android.com/guide/topics/manifest/application-element#debug) to `false`, is separate from regular tests.
++such as setting [`debuggable`](/guide/topics/manifest/application-element#debug) to `false`, is separate from regular tests.
+ 
+-> [!NOTE]
+-> **Note:** If you don't separate your tests and benchmarks and you set `debuggable=false` for the module, you can't use the debugger and profiling tools with your tests.
++**Note:** If you don't separate your tests and benchmarks and you set
++`debuggable=false` for the module, you can't use the debugger and profiling
++tools with your tests.
+ 
+ Because Microbenchmark runs your code directly, place the code you want to
+ benchmark into a separate Gradle module and set dependency on that module as
+ shown in figure 1.
+-![app structure](https://developer.android.com/static/topic/performance/images/benchmark_images/microbenchmark_modules.png) **Figure 1.** App structure with `:app`, `:microbenchmark`, and `:benchmarkable` Gradle modules, which lets Microbenchmarks benchmark code in the `:benchmarkable` module.
++
++![app structure](/static/topic/performance/images/benchmark_images/microbenchmark_modules.png)
++
++
++**Figure 1.** App structure with `:app`,
++`:microbenchmark`, and `:benchmarkable` Gradle
++modules, which lets Microbenchmarks benchmark code in the
++`:benchmarkable` module.
+ 
+ To add a new Gradle module, you can use the module wizard in Android Studio. The
+ wizard creates a module that is pre-configured for benchmarking, with a
+ benchmark directory added and `debuggable` set to `false`.
+ 
+-> [!NOTE]
+-> **Note:** To enable [minification](https://developer.android.com/build/shrink-code) in library modules set `android.buildTypes.release.androidTest.enableMinification` to `true` in your `build.gradle.kts` or `build.gradle` file. Microbenchmarking with minification requires AGP 8.3 or higher.
++**Note:** To enable [minification](/build/shrink-code) in library modules set
++`android.buildTypes.release.androidTest.enableMinification` to `true` in your
++`build.gradle.kts` or `build.gradle` file. Microbenchmarking with minification
++requires AGP 8.3 or higher.
+ 
+ 1. Right-click your project or module in the **Project** panel in Android
+-   Studio and click **New \> Module**.
+-
++   Studio and click **New > Module**.
+ 2. Select **Benchmark** in the **Templates** pane.
+-
+ 3. Select **Microbenchmark** as the benchmark module type.
+-
+ 4. Type "microbenchmark" for the module name.
+-
+ 5. Click **Finish**.
+ 
+-![Configure new library module](https://developer.android.com/static/topic/performance/images/benchmark_images/microbenchmark_module_giraffe.png) **Figure 2.** Add a new Gradle module in Android Studio Bumblebee.
++![Configure new library module](/static/topic/performance/images/benchmark_images/microbenchmark_module_giraffe.png)
++
++
++**Figure 2.** Add a new Gradle module in Android Studio
++Bumblebee.
+ 
+ After the module is created, change its `build.gradle` or `build.gradle.kts`
+-file and add [`androidTestImplementation`](https://developer.android.com/training/testing/instrumented-tests#set-testing) to the module containing code to
++file and add [`androidTestImplementation`](/training/testing/instrumented-tests#set-testing) to the module containing code to
+ benchmark:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ dependencies {
+     // The module name might be different.
+     androidTestImplementation(project(":benchmarkable"))
+@@ -188,7 +204,7 @@ dependencies {
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ dependencies {
+     // The module name might be different.
+     androidTestImplementation project(':benchmarkable')
+@@ -198,15 +214,15 @@ dependencies {
+ ## Create a Microbenchmark class
+ 
+ Benchmarks are standard instrumentation tests. To create a benchmark, use the
+-[`BenchmarkRule`](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#create-microbenchmark) class provided by the library. To benchmark activities, use
+-[`ActivityScenario`](https://developer.android.com/reference/androidx/test/core/app/ActivityScenario) or [`ActivityScenarioRule`](https://developer.android.com/reference/androidx/test/ext/junit/rules/ActivityScenarioRule). To benchmark UI code,
+-use [`@UiThreadTest`](https://developer.android.com/reference/androidx/test/annotation/UiThreadTest).
++[`BenchmarkRule`](#create-microbenchmark) class provided by the library. To benchmark activities, use
++[`ActivityScenario`](/reference/androidx/test/core/app/ActivityScenario) or [`ActivityScenarioRule`](/reference/androidx/test/ext/junit/rules/ActivityScenarioRule). To benchmark UI code,
++use [`@UiThreadTest`](/reference/androidx/test/annotation/UiThreadTest).
+ 
+ The following code shows a sample benchmark:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ @RunWith(AndroidJUnit4::class)
+ class SampleBenchmark {
+     @get:Rule
+@@ -219,12 +235,13 @@ class SampleBenchmark {
+         }
+     }
+ }
+-    
++
++SampleBenchmark.kt
+ ```
+ 
+ ### Java
+ 
+-```java
++```
+ @RunWith(AndroidJUnit4.class)
+ class SampleBenchmark {
+     @Rule
+@@ -238,18 +255,17 @@ class SampleBenchmark {
+         }
+     }
+ }
+-    
+ ```
+ 
+ ### Disable timing for setup
+ 
+ You can disable timing for sections of code you don't want to measure with the
+-[`runWithTimingDisabled{}`](https://developer.android.com/reference/kotlin/androidx/benchmark/junit4/BenchmarkRule.Scope#runWithTimingDisabled(kotlin.Function0)) block. These sections usually represent some
++[`runWithTimingDisabled{}`](/reference/kotlin/androidx/benchmark/junit4/BenchmarkRule.Scope#runWithTimingDisabled(kotlin.Function0)) block. These sections usually represent some
+ code which you need to run on each iteration of the benchmark.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // using random with the same seed, so that it generates the same data every run
+ private val random = Random(0)
+ 
+@@ -270,12 +286,13 @@ fun benchmark_quickSort() {
+     // assert only once not to add overhead to the benchmarks
+     assertTrue(listToSort.isSorted)
+ }
+-    
++
++SortingBenchmarks.kt
+ ```
+ 
+ ### Java
+ 
+-```java
++```
+ private final int[] unsorted = new int[10000];
+ 
+ public SampleBenchmark() {
+@@ -308,10 +325,9 @@ public void benchmark_quickSort() {
+     // Assert only once, not to add overhead to the benchmarks.
+     assertTrue(SortingAlgorithmsKt.isSorted(listToSort));
+ }
+-    
+ ```
+ 
+-Try to minimize the amount of work done inside the [`measureRepeated`](https://developer.android.com/reference/kotlin/androidx/benchmark/junit4/BenchmarkRule#(androidx.benchmark.junit4.BenchmarkRule).measureRepeated(kotlin.Function1)) block
++Try to minimize the amount of work done inside the [`measureRepeated`](/reference/kotlin/androidx/benchmark/junit4/BenchmarkRule#(androidx.benchmark.junit4.BenchmarkRule).measureRepeated(kotlin.Function1)) block
+ and inside `runWithTimingDisabled`. The `measureRepeated` block is run multiple
+ times and it can affect the overall time needed to run the benchmark. If you
+ need to verify some results of a benchmark, you can assert the last result
+@@ -321,28 +337,43 @@ instead of doing it every iteration of the benchmark.
+ 
+ In Android Studio, run your benchmark as you do with any `@Test` using the
+ gutter action next to your test class or method, as shown in figure 3.
+-![Run Microbenchmark](https://developer.android.com/static/topic/performance/images/benchmark_images/microbenchmark_run.png) **Figure 3.** Run Microbenchmark test using the gutter action next to a test class.
+ 
+-Alternatively, from the command line, run the [`connectedCheck`](https://developer.android.com/studio/test/command-line) to run all
++![Run Microbenchmark](/static/topic/performance/images/benchmark_images/microbenchmark_run.png)
++
++
++**Figure 3.** Run Microbenchmark test using the gutter action
++next to a test class.
++
++Alternatively, from the command line, run the [`connectedCheck`](/studio/test/command-line) to run all
+ of the tests from specified Gradle module:
+ 
+-    ./gradlew benchmark:connectedCheck
++```
++./gradlew benchmark:connectedCheck
++```
+ 
+ Or a single test:
+ 
+-    ./gradlew benchmark:connectedCheck -P android.testInstrumentationRunnerArguments.class=com.example.benchmark.SampleBenchmark#benchmarkSomeWork
++```
++./gradlew benchmark:connectedCheck -P android.testInstrumentationRunnerArguments.class=com.example.benchmark.SampleBenchmark#benchmarkSomeWork
++```
+ 
+ ### Benchmark results
+ 
+ After a successful Microbenchmark run, metrics are displayed directly in Android
+ Studio and a full benchmark report with additional metrics and device
+ information is available in JSON format.
+-![Microbenchmark results](https://developer.android.com/static/topic/performance/images/benchmark_images/microbenchmark_results.png) **Figure 4.** Microbenchmark results.
++
++![Microbenchmark results](/static/topic/performance/images/benchmark_images/microbenchmark_results.png)
++
++
++**Figure 4.** Microbenchmark results.
+ 
+ JSON reports and any profiling traces are also automatically copied from device
+ to host. These are written on the host machine in the following location:
+ 
+-    project_root/module/build/outputs/connected_android_test_additional_output/debugAndroidTest/connected/device_id/
++```
++project_root/module/build/outputs/connected_android_test_additional_output/debugAndroidTest/connected/device_id/
++```
+ 
+ By default, the JSON report is written to disk on-device in the test APK's
+ external shared media folder, which is typically located in
+@@ -353,26 +384,26 @@ external shared media folder, which is typically located in
+ The library detects the following conditions to ensure your project and
+ environment are set up for release-accurate performance:
+ 
+-- Debuggable is set to `false`.
+-- A physical device is being used---emulators aren't supported.
+-- Clocks are locked if the device is rooted.
+-- Sufficient battery level on device of at least 25%.
++* Debuggable is set to `false`.
++* A physical device is being used—emulators aren't supported.
++* Clocks are locked if the device is rooted.
++* Sufficient battery level on device of at least 25%.
+ 
+ If any of the preceding checks fail, the benchmark reports an error to
+ discourage inaccurate measurements.
+ 
+ To suppress specific error types as warnings and prevent them from halting the
+ benchmark, pass the error type in a comma-separated list to the instrumentation
+-argument [`androidx.benchmark.suppressErrors`](https://developer.android.com/studio/profile/microbenchmark-instrumentation-args#suppresserrors).
++argument [`androidx.benchmark.suppressErrors`](/studio/profile/microbenchmark-instrumentation-args#suppresserrors).
+ 
+ You can set this from your Gradle script, as shown in the following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ android {
+     defaultConfig {
+-       ...
++       …
+       testInstrumentationRunnerArguments["androidx.benchmark.suppressErrors"] = "DEBUGGABLE,LOW-BATTERY"
+     }
+ }
+@@ -380,20 +411,20 @@ android {
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ android {
+     defaultConfig {
+-       ...
++       …
+       testInstrumentationRunnerArguments["androidx.benchmark.suppressErrors"] = "DEBUGGABLE,LOW-BATTERY"
+     }
+ }
+ ```
+ 
+-<br />
+-
+ You can also suppress errors from the command line:
+ 
+-    $ ./gradlew :benchmark:connectedCheck -P andoidtestInstrumentationRunnerArguments.androidx.benchmark.supperssErrors=DEBUGGABLE,LOW-BATTERY
++```
++$ ./gradlew :benchmark:connectedCheck -P andoidtestInstrumentationRunnerArguments.androidx.benchmark.supperssErrors=DEBUGGABLE,LOW-BATTERY
++```
+ 
+ Suppressing errors lets the benchmark run in an incorrectly configured state,
+ and the output of the benchmark is intentionally renamed by prepending test
+@@ -402,7 +433,19 @@ suppression in the preceding snippet prepends test names with `DEBUGGABLE_`.
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Write a Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)
+-- [Build Microbenchmarks without Gradle](https://developer.android.com/topic/performance/benchmarking/microbenchmark-without-gradle)
+-- [Create Baseline Profiles {:#creating-profile-rules}](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Write a Macrobenchmark](/topic/performance/benchmarking/macrobenchmark-overview)
++* [Build Microbenchmarks without Gradle](/topic/performance/benchmarking/microbenchmark-without-gradle)
++* [Create Baseline Profiles {:#creating-profile-rules}](/topic/performance/baselineprofiles/create-baselineprofile)
++
++[Previous
++
++arrow\_back
++
++About Microbenchmark](/topic/performance/benchmarking/microbenchmark-overview)
++
++[Next
++
++Profile a benchmark
++
++arrow\_forward](/topic/performance/benchmarking/microbenchmark-profile)
+\ No newline at end of file

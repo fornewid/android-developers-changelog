@@ -1,0 +1,73 @@
+diff --git a/docs/jetpack/androidx/releases/compose-animation.md b/docs/jetpack/androidx/releases/compose-animation.md
+index fcbe87b..216757f 100644
+--- a/docs/jetpack/androidx/releases/compose-animation.md
++++ b/docs/jetpack/androidx/releases/compose-animation.md
+@@ -6,15 +6,11 @@ source: md.txt
+ 
+ # Compose Animation
+ 
+-[User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) API Reference  
+-[androidx.compose.animation](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary)  
+-[androidx.compose.animation.core](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary)  
+-[androidx.compose.animation.graphics](https://developer.android.com/reference/kotlin/androidx/compose/animation/graphics/res/package-summary)  
+-(*See the API reference docs for all compose packages*) Build animations in their Jetpack Compose applications to enrich the user experience.
++[User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) Build animations in their Jetpack Compose applications to enrich the user experience.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| March 11, 2026 | [1.10.5](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.5) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0-beta01) | - |
++| March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0-beta02) | - |
+ 
+ ## Structure
+ 
+@@ -47,7 +43,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.compose.animation:animation:1.10.5"
++    implementation "androidx.compose.animation:animation:1.10.6"
+ }
+ 
+ android {
+@@ -69,7 +65,7 @@ android {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.compose.animation:animation:1.10.5")
++    implementation("androidx.compose.animation:animation:1.10.6")
+ }
+ 
+ android {
+@@ -104,6 +100,19 @@ for more information.
+ 
+ ## Version 1.11
+ 
++### Version 1.11.0-beta02
++
++March 25, 2026
++
++`androidx.compose.animation:animation-*:1.11.0-beta02` is released. Version 1.11.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a15c668d4bb2e00cfa8ed1af96895a84c3e7e2d5..4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a/compose/animation).
++
++**Bug Fixes**
++
++- `SeekableTransitionState` now properly handles off-thread state changes. Previously, if the state was modified off the UI thread using `Snapshot.withMutableSnapshot()`, the transition incorrectly tried to handle the update off of the UI thread.([0aba38](https://android-review.googlesource.com/#/q/0aba38e))
++- Validate duration in `InfiniteRepeatableSpec` to prevent 0-duration cycles ([151b6d](https://android-review.googlesource.com/#/q/151b6d9))
++- Respect `visibilityThreshold` in custom `AnimationSpec` for `animateFloatAsState` ([3a1cdc](https://android-review.googlesource.com/#/q/3a1cdc0))
++- Fixed the corner case interruption handling when a child exit animation finishes while the parent transition is still running in `AnimatedContent`. ([ad9b4f](https://android-review.googlesource.com/#/q/ad9b4f2))
++
+ ### Version 1.11.0-beta01
+ 
+ March 11, 2026
+@@ -172,6 +181,12 @@ December 03, 2025
+ 
+ ## Version 1.10
+ 
++### Version 1.10.6
++
++March 25, 2026
++
++`androidx.compose.animation:animation-*:1.10.6` is released. Version 1.10.6 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e5be55ea7f9dceafc442ec739922936c1e056a33..deab088e55dabc3db4d0638d62ea3132fc51d69b/compose/animation).
++
+ ### Version 1.10.5
+ 
+ March 11, 2026

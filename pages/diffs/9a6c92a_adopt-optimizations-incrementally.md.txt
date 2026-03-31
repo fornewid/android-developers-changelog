@@ -1,0 +1,125 @@
+diff --git a/docs/topic/performance/app-optimization/adopt-optimizations-incrementally.md b/docs/topic/performance/app-optimization/adopt-optimizations-incrementally.md
+index bc6c6cc..648ea69 100644
+--- a/docs/topic/performance/app-optimization/adopt-optimizations-incrementally.md
++++ b/docs/topic/performance/app-optimization/adopt-optimizations-incrementally.md
+@@ -1,12 +1,21 @@
+ ---
+-title: https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally
++title: Adopt optimizations incrementally  |  App quality  |  Android Developers
+ url: https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App quality](https://developer.android.com/quality)
++* [Technical quality](https://developer.android.com/quality/technical)
++
++# Adopt optimizations incrementally Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ By default, R8 makes a lot of optimizations to improve performance and size, but
+ the optimizations might not work for your app immediately. If you're turning on
+-R8 (or enabling [full mode](https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally#use-compat)) in a big app for the first time, try
++R8 (or enabling [full mode](#use-compat)) in a big app for the first time, try
+ to adopt optimizations incrementally: temporarily turn off obfuscation and
+ enable R8 for portions of code at a time, rather than for all the code in your
+ app. We recommend taking this incremental approach during local development, but
+@@ -20,9 +29,10 @@ R8 does many types of optimizations including removing code, rewriting code, and
+ removing resources. Here are some high-level descriptions of the optimization
+ types:
+ 
+-- Code shrinking (or tree shaking): removes unreferenced code
+-- Obfuscation (or identifier minification): shortens the names of classes and methods
+-- Optimization: rewrites code, for example inlining
++* Code shrinking (or tree shaking): removes unreferenced code
++* Obfuscation (or identifier minification): shortens the names of classes and
++  methods
++* Optimization: rewrites code, for example inlining
+ 
+ To reduce the chance of errors, you can start by enabling only some of these
+ optimizations.
+@@ -37,8 +47,10 @@ To enable tree shaking only, add the following to your
+ `proguard-rules.pro` file to turn off the other types of optimizations. Turning
+ off obfuscation is key because it makes stack traces much easier to read.
+ 
+-    -dontobfuscate // Use temporarily to turn off identifier minification
+-    -dontoptimize // Use temporarily to turn off optimization
++```
++-dontobfuscate // Use temporarily to turn off identifier minification
++-dontoptimize // Use temporarily to turn off optimization
++```
+ 
+ In the end, you wouldn't want to ship this configuration, since it drastically
+ limits the ability for R8 to optimize code, but it's a great starting point when
+@@ -50,12 +62,14 @@ By default, R8 runs in [*full mode*](https://r8.googlesource.com/r8/+/refs/heads
+ improved performance and size savings, but you can temporarily disable it and
+ use *compat mode* instead when enabling minification for the first time.
+ 
+-> [!NOTE]
+-> **Note:** R8 runs in compat mode by default for Android Gradle plugin versions 7.0 and lower.
++**Note:** R8 runs in compat mode by default for Android Gradle plugin versions 7.0
++and lower.
+ 
+ To use compat mode, use the following setting in your `gradle.properties` file:
+ 
+-    android.enableR8.fullMode = false // Use temporarily to disable full mode
++```
++android.enableR8.fullMode = false // Use temporarily to disable full mode
++```
+ 
+ ### Enable the rest of the optimizations
+ 
+@@ -65,7 +79,7 @@ Note that obfuscation can make debugging more difficult, which is why we
+ recommend addressing tree shaking issues first.
+ 
+ For more information about deobfuscating stack traces, see
+-[Recover the original stack trace](https://developer.android.com/topic/performance/app-optimization/test-and-troubleshoot-the-optimization#recover-original-stack-trace).
++[Recover the original stack trace](/topic/performance/app-optimization/test-and-troubleshoot-the-optimization#recover-original-stack-trace).
+ 
+ ## Limit the optimization scope
+ 
+@@ -83,12 +97,14 @@ later; this is generally a stop-gap solution to work around problem areas.
+ 
+ For example, if part of your app uses Gson heavily and is causing problems with
+ optimization, the ideal fix is to add more
+-[targeted keep rules](https://developer.android.com/topic/performance/app-optimization/add-keep-rules) or move to a codegen solution. But
++[targeted keep rules](/topic/performance/app-optimization/add-keep-rules) or move to a codegen solution. But
+ to unblock optimizing the rest of the app, you can place the code defining your
+ Gson types in a dedicated subpackage, and add a rule like this to your
+ `proguard-rules.pro` file:
+ 
+-    -keep class com.myapp.json.** { *; }
++```
++-keep class com.myapp.json.** { *; }
++```
+ 
+ If some library you're using has [reflection](https://en.wikipedia.org/wiki/Reflective_programming) into internal
+ components, you can similarly add a keep rule for the entire library. You'll
+@@ -96,15 +112,20 @@ need to inspect the library's code or JAR/AAR to find the appropriate package to
+ keep. Again, this isn't recommended to maintain long term, but can unblock the
+ optimization of the rest of the app:
+ 
+-    -keep class com.somelibrary.** { *; }
++```
++-keep class com.somelibrary.** { *; }
++```
+ 
+-> [!NOTE]
+-> **Note:** Never write a keep rule that keeps all of your app, for example -`keep **` or -`keep com.myapp.**`. These rules prevent optimization across such a wide portion of the app that you'll pay the build cost of R8 with effectively none of the benefit. Instead, always start with library- or package- based keep rules, and try to remove them gradually over time.
++**Note:** Never write a keep rule that keeps all of your app, for example -`keep **`
++or -`keep com.myapp.**`. These rules prevent optimization across such a wide
++portion of the app that you'll pay the build cost of R8 with effectively none of
++the benefit. Instead, always start with library- or package- based keep rules,
++and try to remove them gradually over time.
+ 
+ ### Remove package-wide keep rules
+ 
+ Once your app functions correctly with package-wide keep rules, you should go
+-back and either add [targeted keep rules](https://developer.android.com/topic/performance/app-optimization/add-keep-rules), or remove the
++back and either add [targeted keep rules](/topic/performance/app-optimization/add-keep-rules), or remove the
+ reflection usage or library which necessitates the keep rule in the first place.
+ 
+ For example, keeping all rules which extend a certain class is extremely common

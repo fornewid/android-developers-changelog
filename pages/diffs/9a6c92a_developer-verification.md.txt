@@ -1,0 +1,40 @@
+diff --git a/docs/developer-verification.md b/docs/developer-verification.md
+index a9d6107..003eec9 100644
+--- a/docs/developer-verification.md
++++ b/docs/developer-verification.md
+@@ -35,12 +35,14 @@ developer to be installed on [certified Android devices](https://www.android.com
+ 
+ ### Full distribution
+ 
+-Best for organizations and professional developers with wide distribution. This account offers unlimited apps and installs. If you publish apps only outside of Google Play, create an [Android Developer Console](https://developer.android.com/developer-verification/guides/android-developer-console) account to verify your identity and register package names. ![](https://developer.android.com/static/images/picto-icons/chevron-simple.svg)
++Best for organizations and professional developers with wide distribution. This account offers unlimited apps and installs. If you publish apps only outside of Google Play, create an [Android Developer Console](https://android.google.com/developerconsole/developers) account to verify your identity and register package names.   
++
++Need a quick refresher? [Read our Android Developer Console PDF](https://developer.android.com/static/developer-verification/guides/pdf-guides/adc-guide.pdf) or [web guide](https://developer.android.com/developer-verification/guides/android-developer-console). ![](https://developer.android.com/static/images/picto-icons/chevron-simple.svg)
+ 
+ ### Limited distribution
+ 
+ We're committed to keeping Android an open platform for you to learn, experiment, and build for fun. If you are a developer who doesn't distribute apps widely, we recognize that your needs may be different from commercial developers and have provided this free account for you. To maintain ecosystem security, apps can be installed on up to 20 devices that end-users have explicitly authorized.  
+-To maintain ecosystem security, apps can be installed on up to 20 devices that end-users have explicitly authorized. [Learn more](https://developer.android.com/developer-verification/guides/limited-distribution) and [sign up for early access](https://google.qualtrics.com/jfe/form/SV_4N7NGE06NjJJdl4). ![](http://developer.android.com/static/images/picto-icons/play.svg)
++[Learn more](https://developer.android.com/developer-verification/guides/limited-distribution) and [sign up for early access](https://google.qualtrics.com/jfe/form/SV_4N7NGE06NjJJdl4). ![](http://developer.android.com/static/images/logos/google-play.svg)
+ 
+ ## For Google Play developers
+ 
+@@ -87,11 +89,15 @@ We're announcing the changes early and proactively getting developer feedback to
+ 
+ ## Latest News
+ 
+-[![](http://developer.android.com/static/images/developer-verification/v3-opt-b.png)](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) Blog
++[![](http://developer.android.com/static/developer-verification/assets/blogicon.png)](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) Blog
++
++### [Rolling out to all developers on Play and Android consoles](https://android-developers.googleblog.com/2026/03/android-developer-verification.html)
++
++Over the next few weeks, we're opening the verification process to everyone through Android Developer Console and the Play Console. [![](http://developer.android.com/static/images/developer-verification/v3-opt-b.png)](https://support.google.com/googleplay/android-developer/thread/419196358/android-developer-verification-balancing-openness-and-choice-with-safety) Blog
+ 
+-### [Balancing openness and choice with safety](https://android-developers.googleblog.com/2026/03/android-developer-verification.html)
++### [Balancing openness and choice with safety](https://support.google.com/googleplay/android-developer/thread/419196358/android-developer-verification-balancing-openness-and-choice-with-safety)
+ 
+-our advanced flow to ensure power users can sideload apps from unverified developers. [![](http://developer.android.com/static/images/developer-verification/sideloading-thumbnail2.png)](https://www.youtube.com/shorts/WcPElxbOeXY) YouTube
++Preview our advanced flow to ensure power users can sideload apps from unverified developers. [![](http://developer.android.com/static/images/developer-verification/sideloading-thumbnail2.png)](https://www.youtube.com/shorts/WcPElxbOeXY) YouTube
+ 
+ ### [Preview how users can sideload your apps](https://www.youtube.com/shorts/WcPElxbOeXY)
+ 

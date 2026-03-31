@@ -1,0 +1,104 @@
+diff --git a/docs/develop/ui/compose/system/pip-remote-actions.md b/docs/develop/ui/compose/system/pip-remote-actions.md
+index 6bd5c34..e5ccf0e 100644
+--- a/docs/develop/ui/compose/system/pip-remote-actions.md
++++ b/docs/develop/ui/compose/system/pip-remote-actions.md
+@@ -1,18 +1,28 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/system/pip-remote-actions
++title: Add remote actions to PiP  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/system/pip-remote-actions
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Add remote actions to PiP Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ If you want to add controls (play, pause, etc.) to your PiP window, create a
+-[`RemoteAction`](https://developer.android.com/reference/android/app/RemoteAction) for each control you want to add.
++[`RemoteAction`](/reference/android/app/RemoteAction) for each control you want to add.
+ 
+-> [!NOTE]
+-> **Note:** If you are using a [`MediaSession`](https://developer.android.com/guide/topics/media/media3), there will be default actions added to the window that you don't need to implement yourself.
++**Note:** If you are using a [`MediaSession`](/guide/topics/media/media3), there will be default actions
++added to the window that you don't need to implement yourself.
+ 
+ 1. Add constants for your broadcast controls:
+ 
+-   ```kotlin
++   ```
+    // Constant for broadcast receiver
+    const val ACTION_BROADCAST_CONTROL = "broadcast_control"
+ 
+@@ -20,11 +30,16 @@ If you want to add controls (play, pause, etc.) to your PiP window, create a
+    const val EXTRA_CONTROL_TYPE = "control_type"
+    const val EXTRA_CONTROL_PLAY = 1
+    const val EXTRA_CONTROL_PAUSE = 2
++
++   PictureInPictureSnippets.kt
+    ```
+-2. Create a list of [`RemoteActions`](https://developer.android.com/reference/android/app/RemoteAction) for the controls in your PiP window.
+-3. Next, add a [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) and override `onReceive()` to set the actions of each button. Use a [`DisposableEffect`](https://developer.android.com/develop/ui/compose/side-effects#disposableeffect) to register the receiver and the remote actions. When the player is disposed, unregister the receiver.
++2. Create a list of [`RemoteActions`](/reference/android/app/RemoteAction) for the controls in your PiP window.
++3. Next, add a [`BroadcastReceiver`](/reference/android/content/BroadcastReceiver) and override `onReceive()` to set the
++   actions of each button. Use a [`DisposableEffect`](/develop/ui/compose/side-effects#disposableeffect) to register the
++   receiver and the remote actions. When the player is disposed, unregister the
++   receiver.
+ 
+-   ```kotlin
++   ```
+    @RequiresApi(Build.VERSION_CODES.O)
+    @Composable
+    fun PlayerBroadcastReceiver(player: Player?) {
+@@ -59,10 +74,13 @@ If you want to add controls (play, pause, etc.) to your PiP window, create a
+            }
+        }
+    }
++
++   PictureInPictureSnippets.kt
+    ```
+-4. Pass in a list of your remote actions to the [`PictureInPictureParams.Builder`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder):
++4. Pass in a list of your remote actions to the
++   [`PictureInPictureParams.Builder`](/reference/android/app/PictureInPictureParams.Builder):
+ 
+-   ```kotlin
++   ```
+    val context = LocalContext.current
+ 
+    val pipModifier = modifier.onGloballyPositioned { layoutCoordinates ->
+@@ -85,9 +103,24 @@ If you want to add controls (play, pause, etc.) to your PiP window, create a
+        context.findActivity().setPictureInPictureParams(builder.build())
+    }
+    VideoPlayer(modifier = pipModifier)
++
++   PictureInPictureSnippets.kt
+    ```
+ 
+ ## Next steps
+ 
+-- See the [Socialite](https://github.com/android/socialite) app to see the best practices of Compose PiP in action.
+-- See the [PiP design guidance](https://developer.android.com/design/ui/mobile/guides/home-screen/picture-in-picture) for more information.
+\ No newline at end of file
++* See the [Socialite](https://github.com/android/socialite) app to see the best practices of
++  Compose PiP in action.
++* See the [PiP design guidance](/design/ui/mobile/guides/home-screen/picture-in-picture) for more information.
++
++[Previous
++
++arrow\_back
++
++Add PiP through a button](/develop/ui/compose/system/pip-add)
++
++[Next
++
++About predictive back
++
++arrow\_forward](/develop/ui/compose/system/predictive-back)
+\ No newline at end of file

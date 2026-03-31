@@ -1,0 +1,481 @@
+diff --git a/docs/develop/background-work/services/aidl.md b/docs/develop/background-work/services/aidl.md
+index b77aef2..92157f5 100644
+--- a/docs/develop/background-work/services/aidl.md
++++ b/docs/develop/background-work/services/aidl.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/develop/background-work/services/aidl
++title: Android Interface Definition Language (AIDL)  |  Background work  |  Android Developers
+ url: https://developer.android.com/develop/background-work/services/aidl
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [Background work](https://developer.android.com/develop/background-work)
++* [Guides](https://developer.android.com/develop/background-work/background-tasks)
++
++# Android Interface Definition Language (AIDL) Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ The Android Interface Definition Language (AIDL) is similar to other
+ [IDLs](https://en.wikipedia.org/wiki/Interface_description_language):
+ it lets you define the programming interface that both
+@@ -19,10 +29,10 @@ do that marshalling is tedious to write, so Android handles it for you with AIDL
+ different applications access your service for IPC and you want to handle multithreading in your
+ service. If you don't need to perform concurrent IPC across
+ different applications, create your interface by [implementing a
+-`Binder`](https://developer.android.com/guide/components/bound-services#Binder).
++`Binder`](/guide/components/bound-services#Binder).
+ If you want to perform IPC but *don't* need to handle multithreading,
+-implement your interface [using a `Messenger`](https://developer.android.com/guide/components/bound-services#Messenger).
+-Regardless, be sure that you understand [bound services](https://developer.android.com/guide/components/bound-services) before
++implement your interface [using a `Messenger`](/guide/components/bound-services#Messenger).
++Regardless, be sure that you understand [bound services](/guide/components/bound-services) before
+ implementing an AIDL.
+ 
+ Before you begin designing your AIDL interface, be aware that calls to an AIDL interface are
+@@ -30,10 +40,22 @@ direct function calls. Don't make assumptions about the thread in which the call
+ occurs. What happens is different depending on whether the call is from a thread in the
+ local process or a remote process:
+ 
+-- Calls made from the local process execute in the same thread that is making the call. If this is your main UI thread, that thread continues to execute in the AIDL interface. If it is another thread, that is the one that executes your code in the service. Thus, if only local threads are accessing the service, you can completely control which threads are executing in it. But if that is the case, don't use AIDL at all; instead, create the interface by [implementing a
+-  `Binder`](https://developer.android.com/guide/components/bound-services#Binder).
+-- Calls from a remote process are dispatched from a thread pool the platform maintains inside your own process. Be prepared for incoming calls from unknown threads, with multiple calls happening at the same time. In other words, an implementation of an AIDL interface must be completely thread-safe. Calls made from one thread on the same remote object arrive *in order* on the receiver end.
+-- The `oneway` keyword modifies the behavior of remote calls. When it is used, a remote call does not block. It sends the transaction data and immediately returns. The implementation of the interface eventually receives this as a regular call from the `https://developer.android.com/reference/android/os/Binder` thread pool as a normal remote call. If `oneway` is used with a local call, there is no impact, and the call is still synchronous.
++* Calls made from the local process execute in the same thread that is making the call. If
++  this is your main UI thread, that thread continues to execute in the AIDL interface. If it is
++  another thread, that is the one that executes your code in the service. Thus, if only local
++  threads are accessing the service, you can completely control which threads are executing in it. But
++  if that is the case, don't use AIDL at all; instead, create the
++  interface by [implementing a
++  `Binder`](/guide/components/bound-services#Binder).
++* Calls from a remote process are dispatched from a thread pool the platform maintains inside
++  your own process. Be prepared for incoming calls from unknown threads, with multiple calls
++  happening at the same time. In other words, an implementation of an AIDL interface must be
++  completely thread-safe. Calls made from one thread on the same remote object
++  arrive *in order* on the receiver end.
++* The `oneway` keyword modifies the behavior of remote calls. When it is used, a remote call does
++  not block. It sends the transaction data and immediately returns.
++  The implementation of the interface eventually receives this as a regular call from the `Binder` thread pool as a normal remote call. If `oneway` is used with a local call,
++  there is no impact, and the call is still synchronous.
+ 
+ ## Defining an AIDL interface
+ 
+@@ -42,7 +64,7 @@ programming language syntax, then save it in the source code, in the `src/` dire
+ the application hosting the service and any other application that binds to the service.
+ 
+ When you build each application that contains the `.aidl` file, the Android SDK tools
+-generate an `https://developer.android.com/reference/android/os/IBinder` interface based on the `.aidl` file and save it in
++generate an `IBinder` interface based on the `.aidl` file and save it in
+ the project's `gen/` directory. The service must implement the `IBinder`
+ interface as appropriate. The client applications can then bind to the service and call methods from
+ the `IBinder` to perform IPC.
+@@ -50,18 +72,18 @@ the `IBinder` to perform IPC.
+ To create a bounded service using AIDL, follow these steps, which are described
+ in the sections that follow:
+ 
+-1. [Create the `.aidl` file](https://developer.android.com/develop/background-work/services/aidl#Create)
++1. [Create the `.aidl` file](#Create)
+ 
+    This file defines the programming interface with method signatures.
+-2. [Implement the interface](https://developer.android.com/develop/background-work/services/aidl#Implement)
++2. [Implement the interface](#Implement)
+ 
+    The Android SDK tools generate an interface in the Java programming language based on your
+    `.aidl` file. This interface has an inner abstract class named `Stub` that extends
+-   `https://developer.android.com/reference/android/os/Binder` and implements methods from your AIDL interface. You must extend the
++   `Binder` and implements methods from your AIDL interface. You must extend the
+    `Stub` class and implement the methods.
+-3. [Expose the interface to clients](https://developer.android.com/develop/background-work/services/aidl#Expose)
++3. [Expose the interface to clients](#Expose)
+ 
+-   Implement a `https://developer.android.com/reference/android/app/Service` and override `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)` to return your implementation of the `Stub`
++   Implement a `Service` and override `onBind()` to return your implementation of the `Stub`
+    class.
+ 
+ **Caution:** Any changes that you make to your AIDL interface after
+@@ -82,46 +104,54 @@ signatures.
+ 
+ By default, AIDL supports the following data types:
+ 
+-- All primitive types, with the exception of `short`, in the Java programming language (such as `int`, `long`,`char`, `boolean`, and so on)
+-- Arrays of any types, such as `int[]` or `MyParcelable[]`
+-- `https://developer.android.com/reference/java/lang/String`
+-- `https://developer.android.com/reference/java/lang/CharSequence`
+-- `https://developer.android.com/reference/java/util/List`
++* All primitive types, with the exception of `short`, in the Java programming language (such as `int`,
++  `long`,`char`, `boolean`, and so on)
++* Arrays of any types, such as `int[]` or `MyParcelable[]`
++* `String`
++* `CharSequence`
++* `List`
+ 
+   All elements in the `List` must be one of the supported data types in this
+   list or one of the other AIDL-generated interfaces or parcelables you declare. A
+   `List` can optionally be used as a parameterized type class, such as
+   `List<String>`.
+-  The actual concrete class that the other side receives is always an `https://developer.android.com/reference/java/util/ArrayList`, although the
++  The actual concrete class that the other side receives is always an `ArrayList`, although the
+   method is generated to use the `List` interface.
+-- `https://developer.android.com/reference/java/util/Map`
++* `Map`
+ 
+   All elements in the `Map` must be one of the supported data types in this
+   list or one of the other AIDL-generated interfaces or parcelables you declare. Parameterized type maps,
+   such as those of the form
+   `Map<String,Integer>`, aren't supported. The actual concrete class that the other side
+-  receives is always a `https://developer.android.com/reference/java/util/HashMap`,
++  receives is always a `HashMap`,
+   although the method is generated to use the `Map` interface. Consider using
+-  a `https://developer.android.com/reference/android/os/Bundle` as an alternative to `Map`.
++  a `Bundle` as an alternative to `Map`.
+ 
+ You must include an `import` statement for each additional type not listed previously,
+ even if they are defined in the same package as your interface.
+ 
+ When defining your service interface, be aware that:
+ 
+-- Methods can take zero or more parameters and can return a value or void.
+-- All non-primitive parameters require a directional tag indicating which way the data goes: `in`, `out`, or `inout` (see the example below).
++* Methods can take zero or more parameters and can return a value or void.
++* All non-primitive parameters require a directional tag indicating which way the data goes:
++  `in`, `out`, or `inout` (see the example below).
+ 
+   Primitives, `String`, `IBinder`, and AIDL-generated
+   interfaces are `in` by default and can't be otherwise.
+ 
+   **Caution:** Limit the direction to what is truly
+   needed, because marshalling parameters is expensive.
+-- All code comments included in the `.aidl` file are included in the generated `https://developer.android.com/reference/android/os/IBinder` interface except comments before the import and package statements.
+-- String and int constants can be defined in the AIDL interface, such as `const int VERSION = 1;`.
+-- Method calls are dispatched by a [`transact()`
+-  code](https://developer.android.com/reference/android/os/IBinder#transact(int,%20android.os.Parcel,%20android.os.Parcel,%20int)), which normally is based on a method index in the interface. Because this makes versioning difficult, you can manually assign the transaction code to a method: `void method() = 10;`.
+-- Nullable arguments and return types must be annotated using `@nullable`.
++* All code comments included in the `.aidl` file are included in the
++  generated `IBinder`
++  interface except comments before the import and package
++  statements.
++* String and int constants can be defined in the AIDL interface, such as `const int VERSION = 1;`.
++* Method calls are dispatched by a
++  [`transact()`
++  code](/reference/android/os/IBinder#transact(int,%20android.os.Parcel,%20android.os.Parcel,%20int)), which normally is based on a method index in the interface. Because this
++  makes versioning difficult, you
++  can manually assign the transaction code to a method: `void method() = 10;`.
++* Nullable arguments and return types must be annotated using `@nullable`.
+ 
+ Here is an example `.aidl` file:
+ 
+@@ -145,7 +175,7 @@ interface IRemoteService {
+ ```
+ 
+ Save your `.aidl` file in your project's `src/` directory. When you
+-build your application, the SDK tools generate the `https://developer.android.com/reference/android/os/IBinder` interface file in your
++build your application, the SDK tools generate the `IBinder` interface file in your
+ project's `gen/` directory. The generated file's name matches the `.aidl` file's name, but
+ with a `.java` extension. For example, `IRemoteService.aidl` results in `IRemoteService.java`.
+ 
+@@ -162,11 +192,11 @@ named after your `.aidl` file. The generated interface includes a subclass named
+ that is an abstract implementation of its parent interface, such as `YourInterface.Stub`, and declares all the methods from the `.aidl` file.
+ 
+ **Note:** `Stub` also
+-defines a few helper methods, most notably `asInterface()`, which takes an `https://developer.android.com/reference/android/os/IBinder`, usually the one passed to a client's `https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName, android.os.IBinder)` callback method, and
++defines a few helper methods, most notably `asInterface()`, which takes an `IBinder`, usually the one passed to a client's `onServiceConnected()` callback method, and
+ returns an instance of the stub interface. For more details about how to make this cast, see the section [Calling an IPC
+-method](https://developer.android.com/develop/background-work/services/aidl#Calling).
++method](#Calling).
+ 
+-To implement the interface generated from the `.aidl`, extend the generated `https://developer.android.com/reference/android/os/Binder`
++To implement the interface generated from the `.aidl`, extend the generated `Binder`
+ interface, such as `YourInterface.Stub`, and implement the methods
+ inherited from the `.aidl` file.
+ 
+@@ -175,7 +205,7 @@ Here is an example implementation of an interface called `IRemoteService`, defin
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private val binder = object : IRemoteService.Stub() {
+ 
+     override fun getPid(): Int =
+@@ -196,7 +226,7 @@ private val binder = object : IRemoteService.Stub() {
+ 
+ ### Java
+ 
+-```java
++```
+ private final IRemoteService.Stub binder = new IRemoteService.Stub() {
+     public int getPid(){
+         return Process.myPid();
+@@ -208,27 +238,33 @@ private final IRemoteService.Stub binder = new IRemoteService.Stub() {
+ };
+ ```
+ 
+-Now the `binder` is an instance of the `Stub` class (a `https://developer.android.com/reference/android/os/Binder`),
++Now the `binder` is an instance of the `Stub` class (a `Binder`),
+ which defines the IPC interface for the service. In the next step, this instance is exposed to
+ clients so they can interact with the service.
+ 
+ Be aware of a few rules when implementing your AIDL interface:
+ 
+-- Incoming calls are not guaranteed to execute on the main thread, so you need to think about multithreading from the start and properly build your service to be thread-safe.
+-- By default, IPC calls are synchronous. If you know that the service takes more than a few milliseconds to complete a request, don't call it from the activity's main thread. It might hang the application, resulting in Android displaying an "Application is Not Responding" dialog. Call it from a separate thread in the client.
+-- Only the exception types listed under the reference documentation for [`Parcel.writeException()`](https://developer.android.com/reference/android/os/Parcel#writeException(java.lang.Exception)) are sent back to the caller.
++* Incoming calls are not guaranteed to execute on the main thread, so you need to think
++  about multithreading from the start and properly build your service to be thread-safe.
++* By default, IPC calls are synchronous. If you know that the service takes more than a few
++  milliseconds to complete a request, don't call it from the activity's main thread.
++  It might hang the application, resulting in Android displaying an "Application is Not Responding"
++  dialog. Call it from a separate thread in the client.
++* Only the exception types listed under the reference documentation for
++  [`Parcel.writeException()`](/reference/android/os/Parcel#writeException(java.lang.Exception))
++  are sent back to the caller.
+ 
+ ### Expose the interface to clients
+ 
+ Once you've implemented the interface for your service, you need to expose it to
+ clients so they can bind to it. To expose the interface
+-for your service, extend `https://developer.android.com/reference/android/app/Service` and implement `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)` to return an instance of your class that implements
++for your service, extend `Service` and implement `onBind()` to return an instance of your class that implements
+ the generated `Stub`, as discussed in the preceding section. Here's an example
+ service that exposes the `IRemoteService` example interface to clients.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class RemoteService : Service() {
+ 
+     override fun onCreate() {
+@@ -262,7 +298,7 @@ class RemoteService : Service() {
+ 
+ ### Java
+ 
+-```java
++```
+ public class RemoteService extends Service {
+     @Override
+     public void onCreate() {
+@@ -287,8 +323,8 @@ public class RemoteService extends Service {
+ }
+ ```
+ 
+-Now, when a client, such as an activity, calls `https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)` to connect to this service, the client's `https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName, android.os.IBinder)` callback receives the
+-`binder` instance returned by the service's `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)`
++Now, when a client, such as an activity, calls `bindService()` to connect to this service, the client's `onServiceConnected()` callback receives the
++`binder` instance returned by the service's `onBind()`
+ method.
+ 
+ The client must also have access to the interface class. So if the client and service are in
+@@ -296,14 +332,14 @@ separate applications, then the client's application must have a copy of the `.a
+ in its `src/` directory, which generates the `android.os.Binder`
+ interface, providing the client access to the AIDL methods.
+ 
+-When the client receives the `https://developer.android.com/reference/android/os/IBinder`
++When the client receives the `IBinder`
+ in the `onServiceConnected()` callback, it must call
+ `YourServiceInterface.Stub.asInterface(service)` to cast the returned
+ parameter to `YourServiceInterface` type:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ var iRemoteService: IRemoteService? = null
+ 
+ val mConnection = object : ServiceConnection {
+@@ -325,7 +361,7 @@ val mConnection = object : ServiceConnection {
+ 
+ ### Java
+ 
+-```java
++```
+ IRemoteService iRemoteService;
+ private ServiceConnection mConnection = new ServiceConnection() {
+     // Called when the connection with the service is established.
+@@ -350,7 +386,7 @@ For more sample code, see the
+ ## Passing objects over IPC
+ 
+ In Android 10 (API level 29 or higher), you can define
+-`https://developer.android.com/reference/android/os/Parcelable` objects directly in
++`Parcelable` objects directly in
+ AIDL. Types that are supported as AIDL interface arguments and other parcelables are also
+ supported here. This avoids the additional work to manually write marshalling code and a custom
+ class. However, this also creates a bare struct. If custom accessors or other functionality is
+@@ -385,9 +421,12 @@ To create a custom class that supports `Parcelable`, do the
+ following:
+ 
+ 1. Make your class implement the `Parcelable` interface.
+-2. Implement `https://developer.android.com/reference/android/os/Parcelable#writeToParcel(android.os.Parcel, int)`, which takes the current state of the object and writes it to a `https://developer.android.com/reference/android/os/Parcel`.
+-3. Add a static field called `CREATOR` to your class that is an object implementing the `https://developer.android.com/reference/android/os/Parcelable.Creator` interface.
+-4. Finally, create an `.aidl` file that declares your parcelable class, as shown for the following `Rect.aidl` file.
++2. Implement `writeToParcel`, which takes the
++   current state of the object and writes it to a `Parcel`.
++3. Add a static field called `CREATOR` to your class that is an object implementing
++   the `Parcelable.Creator` interface.
++4. Finally, create an `.aidl` file that declares your parcelable class, as shown for the following
++   `Rect.aidl` file.
+ 
+    If you are using a custom build process, do *not* add the `.aidl` file to your
+    build. Similar to a header file in the C language, this `.aidl` file isn't compiled.
+@@ -406,12 +445,12 @@ package android.graphics;
+ parcelable Rect;
+ ```
+ 
+-And here is an example of how the `https://developer.android.com/reference/android/graphics/Rect` class implements the
++And here is an example of how the `Rect` class implements the
+ `Parcelable` protocol.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ import android.os.Parcel
+ import android.os.Parcelable
+ 
+@@ -457,7 +496,7 @@ class Rect() : Parcelable {
+ 
+ ### Java
+ 
+-```java
++```
+ import android.os.Parcel;
+ import android.os.Parcelable;
+ 
+@@ -505,20 +544,23 @@ public final class Rect implements Parcelable {
+ ```
+ 
+ The marshalling in the `Rect` class is straightforward. Take a look at the other
+-methods on `https://developer.android.com/reference/android/os/Parcel` to see the other kinds of values you can write
++methods on `Parcel` to see the other kinds of values you can write
+ to a `Parcel`.
+ 
+ **Warning:** Remember the security implications of receiving
+-data from other processes. In this case, the `Rect` reads four numbers from the `https://developer.android.com/reference/android/os/Parcel`, but it is up to you to ensure that these are within the acceptable range of
+-values for whatever the caller is trying to do. For more information about how to keep your application secure from malware, see [Security tips](https://developer.android.com/guide/topics/security/security).
++data from other processes. In this case, the `Rect` reads four numbers from the `Parcel`, but it is up to you to ensure that these are within the acceptable range of
++values for whatever the caller is trying to do. For more information about how to keep your application secure from malware, see [Security tips](/guide/topics/security/security).
+ 
+ ## Methods with Bundle arguments containing Parcelables
+ 
+-If a method accepts a `Bundle` object that is expected to contain parcelables, make sure that you set the classloader of the `Bundle` by calling `https://developer.android.com/reference/android/os/Bundle#setClassLoader(java.lang.ClassLoader)` before attempting to read from the `Bundle`. Otherwise, you run into `https://developer.android.com/reference/java/lang/ClassNotFoundException` even though the parcelable is correctly defined in your application.
++If a method accepts a `Bundle` object that is expected to contain
++parcelables, make sure that you set the classloader of the `Bundle` by
++calling `Bundle.setClassLoader(ClassLoader)` before attempting to read
++from the `Bundle`. Otherwise, you run into `ClassNotFoundException` even though the parcelable is correctly defined in your application.
+ 
+ For example, consider the following sample `.aidl` file:
+ 
+-```java
++```
+ // IRectInsideBundle.aidl
+ package com.example.android;
+ 
+@@ -528,11 +570,13 @@ interface IRectInsideBundle {
+     void saveRect(in Bundle bundle);
+ }
+ ```
+-As shown in the following implementation, the `ClassLoader` is explicitly set in the `Bundle` before reading `Rect`:
++
++As shown in the following implementation, the `ClassLoader` is
++explicitly set in the `Bundle` before reading `Rect`:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private val binder = object : IRectInsideBundle.Stub() {
+     override fun saveRect(bundle: Bundle) {
+       bundle.classLoader = classLoader
+@@ -544,7 +588,7 @@ private val binder = object : IRectInsideBundle.Stub() {
+ 
+ ### Java
+ 
+-```java
++```
+ private final IRectInsideBundle.Stub binder = new IRectInsideBundle.Stub() {
+     public void saveRect(Bundle bundle){
+         bundle.setClassLoader(getClass().getClassLoader());
+@@ -560,26 +604,35 @@ To call a remote interface defined with AIDL, take the following steps in
+ your calling class:
+ 
+ 1. Include the `.aidl` file in the project `src/` directory.
+-2. Declare an instance of the `https://developer.android.com/reference/android/os/IBinder` interface, which is generated based on the AIDL.
+-3. Implement `https://developer.android.com/reference/android/content/ServiceConnection`.
+-4. Call `https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)`, passing in your `ServiceConnection` implementation.
+-5. In your implementation of `https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName, android.os.IBinder)`, you receive an `https://developer.android.com/reference/android/os/IBinder` instance, called `service`. Call `YourInterfaceName.Stub.asInterface((IBinder)service)` to cast the returned parameter to the `YourInterface` type.
+-6. Call the methods that you defined on your interface. Always trap `https://developer.android.com/reference/android/os/DeadObjectException` exceptions, which are thrown when the connection breaks. Also, trap `https://developer.android.com/reference/java/lang/SecurityException` exceptions, which are thrown when the two processes involved in the IPC method call have conflicting AIDL definitions.
+-7. To disconnect, call `https://developer.android.com/reference/android/content/Context#unbindService(android.content.ServiceConnection)` with the instance of your interface.
++2. Declare an instance of the `IBinder` interface, which is generated based on the
++   AIDL.
++3. Implement `ServiceConnection`.
++4. Call `Context.bindService()`,
++   passing in your `ServiceConnection` implementation.
++5. In your implementation of `onServiceConnected()`,
++   you receive an `IBinder`
++   instance, called `service`. Call
++   `YourInterfaceName.Stub.asInterface((IBinder)service)` to
++   cast the returned parameter to the `YourInterface` type.
++6. Call the methods that you defined on your interface. Always trap
++   `DeadObjectException` exceptions, which are thrown when
++   the connection breaks. Also, trap `SecurityException` exceptions, which are thrown when the two processes involved in the IPC method call have conflicting AIDL definitions.
++7. To disconnect, call `Context.unbindService()` with the instance of your interface.
+ 
+ Bear these points in mind when calling an IPC service:
+ 
+-- Objects are reference counted across processes.
+-- You can send anonymous objects as method arguments.
++* Objects are reference counted across processes.
++* You can send anonymous objects
++  as method arguments.
+ 
+-For more information about binding to a service, read the [Bound services overview](https://developer.android.com/guide/components/bound-services#Binding).
++For more information about binding to a service, read the [Bound services overview](/guide/components/bound-services#Binding).
+ 
+ Here is some sample code that demonstrates calling an AIDL-created service, taken
+ from the Remote Service sample in the ApiDemos project.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private const val BUMP_MSG = 1
+ 
+ class Binding : Activity() {
+@@ -723,9 +776,9 @@ class Binding : Activity() {
+         }
+     }
+ 
+-    // ---
++    // ----------------------------------------------------------------------
+     // Code showing how to deal with callbacks.
+-    // ---
++    // ----------------------------------------------------------------------
+ 
+     /**
+      * This implementation is used to receive callbacks from the remote
+@@ -783,7 +836,7 @@ class Binding : Activity() {
+ 
+ ### Java
+ 
+-```java
++```
+ public static class Binding extends Activity {
+     /** The primary interface we are calling on the service. */
+     IRemoteService mService = null;
+@@ -952,9 +1005,9 @@ public static class Binding extends Activity {
+         }
+     };
+ 
+-    // ---
++    // ----------------------------------------------------------------------
+     // Code showing how to deal with callbacks.
+-    // ---
++    // ----------------------------------------------------------------------
+ 
+     /**
+      * This implementation is used to receive callbacks from the remote

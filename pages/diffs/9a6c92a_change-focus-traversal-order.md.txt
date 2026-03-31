@@ -1,0 +1,31 @@
+diff --git a/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md b/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md
+index 0778b56..01b1d25 100644
+--- a/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md
++++ b/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md
+@@ -22,7 +22,7 @@ val (first, second, third, fourth) = remember { FocusRequester.createRefs() }
+ 
+ <br />
+ 
+-Then, use the [`focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) modifier to associate each of them with a
++Then, use the [`focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/focusRequester.modifier#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) modifier to associate each of them with a
+ composable:
+ 
+ 
+@@ -42,7 +42,7 @@ Column {
+ 
+ <br />
+ 
+-You can now use the [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.Modifier).focusProperties(kotlin.Function1)) modifier to specify a custom traversal order:
++You can now use the [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/focusProperties.modifier#(androidx.compose.ui.Modifier).focusProperties(kotlin.Function1)) modifier to specify a custom traversal order:
+ 
+ 
+ ```kotlin
+@@ -94,7 +94,7 @@ Column {
+ It is also possible to add fine-grained control over the focus traversal order
+ for two-dimensional navigation with the arrow keys. For each element, you can
+ override the default navigation destination for each of the directions by adding
+-the [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.Modifier).focusProperties(kotlin.Function1)) modifier and specifying the item that would come up,
++the [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/focusProperties.modifier#(androidx.compose.ui.Modifier).focusProperties(kotlin.Function1)) modifier and specifying the item that would come up,
+ down, or any other direction:
+ 
+ 

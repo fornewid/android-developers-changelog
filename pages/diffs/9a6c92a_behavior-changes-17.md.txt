@@ -1,0 +1,13 @@
+diff --git a/docs/about/versions/17/behavior-changes-17.md b/docs/about/versions/17/behavior-changes-17.md
+index 910c6d5..995d0b4 100644
+--- a/docs/about/versions/17/behavior-changes-17.md
++++ b/docs/about/versions/17/behavior-changes-17.md
+@@ -86,7 +86,7 @@ Android 17 includes the following changes to improve user privacy.
+ ### Local network permission required for apps targeting Android 17
+ 
+ | Available to test? *(Required build)* | Yes *(Android 17 or later)* |
+-| Requires changing `targetSDKVersion`? *(API level)* | Yes *(API Level `"CINNAMON_BUN"`) See the [manifest attribute documentation](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target) for more information about this value.* |
++| Requires changing `targetSDKVersion`? *(API level)* | Yes *(API Level 37) See the [manifest attribute documentation](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target) for more information about this value.* |
+ |---|---|
+ 
+ > [!IMPORTANT]

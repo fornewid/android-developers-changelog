@@ -1,0 +1,42 @@
+diff --git a/docs/media/media3/exoplayer/hello-world.md b/docs/media/media3/exoplayer/hello-world.md
+index b1bc8c6..099073c 100644
+--- a/docs/media/media3/exoplayer/hello-world.md
++++ b/docs/media/media3/exoplayer/hello-world.md
+@@ -32,19 +32,19 @@ you can add dependencies on the modules like this:
+ 
+ ### Kotlin
+ 
+-    implementation("androidx.media3:media3-exoplayer:1.9.3")
+-    implementation("androidx.media3:media3-exoplayer-dash:1.9.3")
+-    implementation("androidx.media3:media3-ui:1.9.3")
+-    implementation("androidx.media3:media3-ui-compose:1.9.3")
++    implementation("androidx.media3:media3-exoplayer:1.10.0")
++    implementation("androidx.media3:media3-exoplayer-dash:1.10.0")
++    implementation("androidx.media3:media3-ui:1.10.0")
++    implementation("androidx.media3:media3-ui-compose:1.10.0")
+ 
+ ### Groovy
+ 
+-    implementation "androidx.media3:media3-exoplayer:1.9.3"
+-    implementation "androidx.media3:media3-exoplayer-dash:1.9.3"
+-    implementation "androidx.media3:media3-ui:1.9.3"
+-    implementation("androidx.media3:media3-ui-compose:1.9.3")
++    implementation "androidx.media3:media3-exoplayer:1.10.0"
++    implementation "androidx.media3:media3-exoplayer-dash:1.10.0"
++    implementation "androidx.media3:media3-ui:1.10.0"
++    implementation("androidx.media3:media3-ui-compose:1.10.0")
+ 
+-where 1.9.3 is your preferred version (the latest version can be found by
++where 1.10.0 is your preferred version (the latest version can be found by
+ consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)). All modules must be of the same version.
+ 
+ AndroidX Media3 has library modules that depend on
+@@ -120,7 +120,7 @@ For example, to bind the player to the view:
+ 
+ ```kotlin
+ // Bind the player to the view.
+-playerView.player = playerhttps://github.com/androidx/media/blob/c87af1e45eadbb820c90d876649bd6445a6a9b7c/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/HelloWorld.kt#L37-L38
++playerView.player = playerhttps://github.com/androidx/media/blob/a95f7a9010143eff13010385bd353945915b4178/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/HelloWorld.kt#L37-L38
+ ```
+ 
+ ### Java

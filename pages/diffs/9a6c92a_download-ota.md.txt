@@ -1,0 +1,13 @@
+diff --git a/docs/about/versions/17/download-ota.md b/docs/about/versions/17/download-ota.md
+index 01c18d3..f38a41e 100644
+--- a/docs/about/versions/17/download-ota.md
++++ b/docs/about/versions/17/download-ota.md
+@@ -33,7 +33,7 @@ OTA images are available for the following Pixel devices:
+ - Pixel 10 Pro XL
+ - Pixel 10 Pro Fold
+ 
+-After you've installed a Developer Preview build to your Pixel device, you'll automatically be offered over-the-air (OTA) updates of later preview builds.
++After you've installed a beta build to your Pixel device, your device is automatically enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) and offered continuous over-the-air (OTA) updates to the latest beta builds (including QPRs) until you choose to unenroll that device from the program.
+ 
+ We also deliver flashable images at each milestone, so you can choose the
+ approach that works best for your test environment.
