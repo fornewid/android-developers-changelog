@@ -1,12 +1,21 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-event/dispatcher
+title: Set up a dispatcher  |  App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-event/dispatcher
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Set up a dispatcher Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 To implement a robust navigation system, your app needs a centralized way to
 handle back gestures and other navigation signals. This page describes how to
-use [`NavigationEventDispatcher`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher) to coordinate and distribute these
+use [`NavigationEventDispatcher`](/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher) to coordinate and distribute these
 navigation events across your application.
 
 ## Declare a `NavigationEventDispatcher`
@@ -18,34 +27,32 @@ registered listeners within your app. Components can subscribe to these events
 to react to navigation changes or other system-driven navigation actions.
 
 You should provide `NavigationEventDispatcher` instances through a
-[`NavigationEventDispatcherOwner`](https://developer.android.com/reference/androidx/navigationevent/NavigationEventDispatcherOwner). This ensures that different parts of your
+[`NavigationEventDispatcherOwner`](/reference/androidx/navigationevent/NavigationEventDispatcherOwner). This ensures that different parts of your
 app can access the same dispatcher and observe navigation events in a consistent
 and coordinated way.
 
-
-```kotlin
+```
 class MyComponent: NavigationEventDispatcherOwner {
     override val navigationEventDispatcher: NavigationEventDispatcher =
         NavigationEventDispatcher()
 }
-```
 
-<br />
+NavEventSnippets.kt
+```
 
 If you are inside of a `ComponentActivity`, instead of implementing your own
 dispatcher, you can retrieve the one provided for you.
 
-
-```kotlin
+```
 class MyCustomActivity : ComponentActivity() {
     fun addMyHandler() {
         // navigationEventDispatcher provided by the ComponentActivity
         navigationEventDispatcher.addHandler(myNavigationEventHandler)
     }
 }
-```
 
-<br />
+NavEventSnippets.kt
+```
 
 ## Add a `NavigationEventInput`
 
@@ -59,8 +66,7 @@ to the `NavigationEventDispatcher`.
 
 The following example is a custom implementation of a `NavigationEventInput`:
 
-
-```kotlin
+```
 public class MyInput : NavigationEventInput() {
     @MainThread
     public fun backStarted(event: NavigationEvent) {
@@ -82,21 +88,20 @@ public class MyInput : NavigationEventInput() {
         dispatchOnBackCompleted()
     }
 }
-```
 
-<br />
+NavEventSnippets.kt
+```
 
 Next, provide that input to your dispatcher:
 
-
-```kotlin
+```
 navigationEventDispatcher.addInput(MyInput())
+
+NavEventSnippets.kt
 ```
 
-<br />
-
-> [!NOTE]
-> **Note:** To provide a simple input, use the [`DirectNavigationEventInput`](https://developer.android.com/reference/androidx/navigationevent/DirectNavigationEventInput) class.
+**Note:** To provide a simple input, use the [`DirectNavigationEventInput`](/reference/androidx/navigationevent/DirectNavigationEventInput)
+class.
 
 ## Clean up resources with `dispose()`
 
@@ -105,12 +110,11 @@ To prevent memory leaks in a dynamic UI, every created
 hierarchy using the `dispose()` method when the component it is tied to is
 destroyed:
 
-
-```kotlin
-navigationEventDispatcher.dispose()
 ```
+navigationEventDispatcher.dispose()
 
-<br />
+NavEventSnippets.kt
+```
 
 The `dispose()` method ensures a *cascading cleanup* by iteratively removing
 the dispatcher and all of its descendants (children and grandchildren),
@@ -138,3 +142,9 @@ or disable an entire subtree of handlers at once.
 When a parent dispatcher is disabled (`isEnabled = false`), all handlers
 associated with that parent and any of its children will be ignored, regardless
 of their individual enabled state.
+
+[Previous
+
+arrow\_back
+
+Handle back gestures and animations](/guide/navigation/navigation-event/handle-back)

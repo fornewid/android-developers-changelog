@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/develop/ui/compose/designsystems/custom
+title: Custom design systems in Compose  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/designsystems/custom
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Custom design systems in Compose Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 While Material is our recommended design system and Jetpack Compose ships an
 implementation of Material, you are not forced to use it. Material is built
@@ -11,16 +22,19 @@ the same manner.
 
 There are several approaches you might take:
 
-- [Extend `MaterialTheme`](https://developer.android.com/develop/ui/compose/designsystems/custom#extending-material) with additional theming values.
-- [Replace one or more Material systems](https://developer.android.com/develop/ui/compose/designsystems/custom#replacing-systems) --- `Colors`, `Typography`, or `Shapes` --- with custom implementations while keeping the others.
-- [Implement a fully custom design system](https://developer.android.com/develop/ui/compose/designsystems/custom#implementing-fully-custom) to replace `MaterialTheme`.
+* [Extend `MaterialTheme`](#extending-material) with additional theming
+  values.
+* [Replace one or more Material systems](#replacing-systems) — `Colors`,
+  `Typography`, or `Shapes` — with custom implementations while keeping
+  the others.
+* [Implement a fully custom design system](#implementing-fully-custom) to replace `MaterialTheme`.
 
 You may also want to continue using Material components with a custom design
 system. It's possible to do this but there are things to keep in mind to suit
 the approach you've taken.
 
 To learn more about the lower-level constructs and APIs used by `MaterialTheme`
-and custom design systems, check out the [Anatomy of a theme in Compose](https://developer.android.com/develop/ui/compose/designsystems/anatomy) guide.
+and custom design systems, check out the [Anatomy of a theme in Compose](/develop/ui/compose/designsystems/anatomy) guide.
 
 ## Extend Material Theming
 
@@ -30,8 +44,7 @@ to make it straightforward and type-safe to follow the Material guidelines.
 However, it's possible to extend the color, typography, and shape sets with
 additional values. The simplest approach is to add extension properties:
 
-
-```kotlin
+```
 // Use with MaterialTheme.colorScheme.snackbarAction
 val ColorScheme.snackbarAction: Color
     @Composable
@@ -44,28 +57,28 @@ val Typography.textFieldInput: TextStyle
 // Use with MaterialTheme.shapes.card
 val Shapes.card: Shape
     get() = RoundedCornerShape(size = 20.dp)
-```
 
-<br />
+CustomDesignSystem.kt
+```
 
 This provides consistency with `MaterialTheme` usage APIs. An example of this
 defined by Compose itself is
-[`surfaceColorAtElevation`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#(androidx.compose.material3.ColorScheme).surfaceColorAtElevation(androidx.compose.ui.unit.Dp)),
+[`surfaceColorAtElevation`](/reference/kotlin/androidx/compose/material3/package-summary#(androidx.compose.material3.ColorScheme).surfaceColorAtElevation(androidx.compose.ui.unit.Dp)),
 which determines the surface color that should be used depending on the
 elevation.
 
-> [!NOTE]
-> **Note:** This approach is only recommended for straightforward theming value additions, or for values that are the same in different themes. If you have multiple themes, it's better to define a class with new properties instead.
+**Note:** This approach is only recommended for straightforward theming value
+additions, or for values that are the same in different themes. If you have
+multiple themes, it's better to define a class with new properties instead.
 
 Another approach is to define an extended theme that "wraps" `MaterialTheme` and
 its values.
 
-Suppose you want to add two additional colors --- `caution` and `onCaution`, a
-yellow color used for actions that are semi-dangerous --- whilst keeping the
+Suppose you want to add two additional colors — `caution` and `onCaution`, a
+yellow color used for actions that are semi-dangerous — whilst keeping the
 existing Material colors:
 
-
-```kotlin
+```
 @Immutable
 data class ExtendedColors(
     val caution: Color,
@@ -102,9 +115,9 @@ object ExtendedTheme {
         @Composable
         get() = LocalExtendedColors.current
 }
-```
 
-<br />
+CustomDesignSystem.kt
+```
 
 This is similar to `MaterialTheme` usage APIs. It also supports multiple themes
 as you can nest `ExtendedTheme`s in the same way as `MaterialTheme`.
@@ -118,8 +131,7 @@ If you want to use extended values in components, wrap them in your own
 composable functions, directly setting the values you want to alter, and
 exposing others as parameters to the containing composable:
 
-
-```kotlin
+```
 @Composable
 fun ExtendedButton(
     onClick: () -> Unit,
@@ -137,15 +149,14 @@ fun ExtendedButton(
         content = content
     )
 }
-```
 
-<br />
+CustomDesignSystem.kt
+```
 
 You would then replace usages of `Button` with `ExtendedButton` where
 appropriate.
 
-
-```kotlin
+```
 @Composable
 fun ExtendedApp() {
     ExtendedTheme {
@@ -155,21 +166,20 @@ fun ExtendedApp() {
         }
     }
 }
-```
 
-<br />
+CustomDesignSystem.kt
+```
 
 ## Replace Material subsystems
 
 Instead of extending Material Theming, you may want to replace one or more
-systems --- `Colors`, `Typography`, or `Shapes` --- with a custom implementation,
+systems — `Colors`, `Typography`, or `Shapes` — with a custom implementation,
 while maintaining the others.
 
 Suppose you want to replace the type and shape systems while keeping the color
 system:
 
-
-```kotlin
+```
 @Immutable
 data class ReplacementTypography(
     val body: TextStyle,
@@ -228,9 +238,9 @@ object ReplacementTheme {
         @Composable
         get() = LocalReplacementShapes.current
 }
-```
 
-<br />
+CustomDesignSystem.kt
+```
 
 ### Use Material components
 
@@ -241,11 +251,12 @@ If you want to use replacement values in components, wrap them in your own
 composable functions, directly setting the values for the relevant system, and
 exposing others as parameters to the containing composable.
 
-> [!NOTE]
-> **Note:** Not all values may be exposed as parameters in Material composables, in particular with `CompositionLocal` composables (such as `LocalTextStyle`). In such cases you may need to wrap `content` lambdas in provider functions (like `ProvideTextStyle`).
+**Note:** Not all values may be exposed as parameters in Material composables, in
+particular with `CompositionLocal` composables (such as `LocalTextStyle`). In
+such cases you may need to wrap `content` lambdas in provider functions
+(like `ProvideTextStyle`).
 
-
-```kotlin
+```
 @Composable
 fun ReplacementButton(
     onClick: () -> Unit,
@@ -265,15 +276,14 @@ fun ReplacementButton(
         }
     )
 }
-```
 
-<br />
+CustomDesignSystem.kt
+```
 
 You would then replace usages of `Button` with `ReplacementButton` where
 appropriate.
 
-
-```kotlin
+```
 @Composable
 fun ReplacementApp() {
     ReplacementTheme {
@@ -283,35 +293,35 @@ fun ReplacementApp() {
         }
     }
 }
-```
 
-<br />
+CustomDesignSystem.kt
+```
 
 ## Implement a fully custom design system
 
 You may want to replace Material Theming with a fully custom design system.
 Consider that `MaterialTheme` provides the following systems:
 
-- `Colors`, `Typography`, and `Shapes`: Material Theming systems
-- `TextSelectionColors`: Colors used for text selection by `Text` and `TextField`
-- `Ripple` and `RippleTheme`: Material implementation of `Indication`
+* `Colors`, `Typography`, and `Shapes`: Material Theming systems
+* `TextSelectionColors`: Colors used for text selection by `Text` and
+  `TextField`
+* `Ripple` and `RippleTheme`: Material implementation of `Indication`
 
 If you want to continue using Material components, you must replace some of
 these systems in your custom themes or handle the systems in your
 components to avoid unwanted behavior.
 
 However, design systems are not limited to the concepts Material relies on. You
-can modify existing systems and introduce entirely new ones --- with new classes
-and types --- to make other concepts compatible with themes.
+can modify existing systems and introduce entirely new ones — with new classes
+and types — to make other concepts compatible with themes.
 
 In the following code, we model a custom color system that includes gradients
 (`List<Color>`), include a type system, introduce a new elevation system,
 and exclude other systems provided by `MaterialTheme`:
 
-![Screenshot of a mobile app UI demonstrating a custom design system with elements using gradients for colors, custom typography, and elevation.](https://developer.android.com/static/develop/ui/compose/images/themes/custom-color-gradients.png)
+![Screenshot of a mobile app UI demonstrating a custom design system with elements using gradients for colors, custom typography, and elevation.](/static/develop/ui/compose/images/themes/custom-color-gradients.png)
 
-
-```kotlin
+```
 @Immutable
 data class CustomColors(
     val content: Color,
@@ -389,9 +399,9 @@ object CustomTheme {
         @Composable
         get() = LocalCustomElevation.current
 }
-```
 
-<br />
+CustomDesignSystem.kt
+```
 
 ### Use Material components
 
@@ -406,8 +416,7 @@ We recommend that you access values you set from your custom theme.
 Alternatively, if your theme doesn't provide `Color`, `TextStyle`, `Shape`, or
 other systems, you can hardcode them.
 
-
-```kotlin
+```
 @Composable
 fun CustomButton(
     onClick: () -> Unit,
@@ -444,22 +453,23 @@ fun CustomButton(
 }
 
 val ButtonShape = RoundedCornerShape(percent = 50)
+
+CustomDesignSystem.kt
 ```
 
-<br />
+**Note:** `Button` uses `rememberRipple()` internally to provide a `Ripple`
+`Indication`. It's a good idea to check the source code when implementing other
+custom components that wrap existing components.
 
-> [!NOTE]
-> **Note:** `Button` uses `rememberRipple()` internally to provide a `Ripple` `Indication`. It's a good idea to check the source code when implementing other custom components that wrap existing components.
-
-If you've introduced new class types --- such as `List<Color>` to represent
-gradients --- then it may be better to implement components from scratch instead
+If you've introduced new class types — such as `List<Color>` to represent
+gradients — then it may be better to implement components from scratch instead
 of wrapping them. For an example, take a look at
 [`JetsnackButton`](https://github.com/android/compose-samples/blob/main/Jetsnack/app/src/main/java/com/example/jetsnack/ui/components/Button.kt)
 from the Jetsnack sample.
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [Material Design 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3)
-- [Migrate from Material 2 to Material 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material2-material3)
-- [Anatomy of a theme in Compose](https://developer.android.com/develop/ui/compose/designsystems/anatomy)
+* Note: link text is displayed when JavaScript is off
+* [Material Design 3 in Compose](/develop/ui/compose/designsystems/material3)
+* [Migrate from Material 2 to Material 3 in Compose](/develop/ui/compose/designsystems/material2-material3)
+* [Anatomy of a theme in Compose](/develop/ui/compose/designsystems/anatomy)

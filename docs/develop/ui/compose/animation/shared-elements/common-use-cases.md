@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/develop/ui/compose/animation/shared-elements/common-use-cases
+title: Common shared element use cases  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/animation/shared-elements/common-use-cases
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Common shared element use cases Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 When animating shared elements, there are some particular use cases that have
 specific recommendations.
@@ -19,8 +30,7 @@ as the placeholder until it loads the new image.
 
 The typical usage for `AsyncImage` is as follows:
 
-
-```kotlin
+```
 AsyncImage(
     model = ImageRequest.Builder(LocalContext.current)
         .data("your-image-url")
@@ -39,9 +49,9 @@ AsyncImage(
             animatedVisibilityScope = this
         )
 )
-```
 
-<br />
+SharedElementCommonUseCaseSnippets.kt
+```
 
 ## Text
 
@@ -50,8 +60,7 @@ ScaleToBounds()`. This transition makes the size
 change relatively fluid. The `contentScale` parameter can be tweaked to animate
 a specific font weight or style.
 
-
-```kotlin
+```
 Text(
     text = "This is an example of how to share text",
     modifier = Modifier
@@ -66,10 +75,22 @@ Text(
             resizeMode = SharedTransitionScope.ResizeMode.scaleToBounds()
         )
 )
-```
 
-<br />
+SharedElementCommonUseCaseSnippets.kt
+```
 
 `TextAlign` changes are **not** animated by default. Instead, use
 `Modifier.wrapContentSize()` or `Modifier.wrapContentWidth()` over using different
 `TextAlign` for shared transitions.
+
+[Previous
+
+arrow\_back
+
+Customize](/develop/ui/compose/animation/shared-elements/customize)
+
+[Next
+
+With navigation
+
+arrow\_forward](/develop/ui/compose/animation/shared-elements/navigation)

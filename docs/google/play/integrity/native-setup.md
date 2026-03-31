@@ -1,15 +1,24 @@
 ---
-title: https://developer.android.com/google/play/integrity/native-setup
+title: Native setup  |  Play Integrity  |  Android Developers
 url: https://developer.android.com/google/play/integrity/native-setup
-source: md.txt
+source: html-scrape
 ---
+
+**Let Play resolve integrity issues for you:** Show a single in-app Play prompt to resolve a broad range of verdict issues and client-side errors. With [Play remediation dialogs](/google/play/integrity/remediation), you can get more users back to a good state and simplify your API integration. [Learn more](https://android-developers.googleblog.com/2025/10/stronger-threat-detection-simpler.html)
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Play Integrity](https://developer.android.com/google/play/integrity)
+
+# Native setup Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 This guide shows you how to set up your native Android project to use the Play
 Integrity API from C or C++. Before you can make calls to the API, you must
 first integrate the Play Core Native SDK by configuring your development
 environment and updating your `build.gradle` and `CMakeLists.txt` files as shown
-in the following section. For more details see our [Native API Reference](https://developer.android.com/reference/native/play/core/group/integrity).
-
+in the following section. For more details see our [Native API Reference](/reference/native/play/core/group/integrity).
 
 ## Download Play Core Native SDK
 
@@ -21,34 +30,39 @@ Last modified: September 24, 2020
 
 1. By using the Play Core Software Development Kit, you agree to these terms in addition to the [Google APIs Terms of Service](https://developers.google.com/terms) ("API ToS"). If these terms are ever in conflict, these terms will take precedence over the API ToS. Please read these terms and the API ToS carefully.
 2. For purposes of these terms, "APIs" means Google's APIs, other developer services, and associated software, including any Redistributable Code.
-3. "Redistributable Code" means Google-provided object code or header files that call the APIs.
+3. “Redistributable Code” means Google-provided object code or header files that call the APIs.
 4. Subject to these terms and the terms of the API ToS, you may copy and distribute Redistributable Code solely for inclusion as part of your API Client. Google and its licensors own all right, title and interest, including any and all intellectual property and other proprietary rights, in and to Redistributable Code. You will not modify, translate, or create derivative works of Redistributable Code.
 5. Google may make changes to these terms at any time with notice and the opportunity to decline further use of the Play Core Software Development Kit. Google will post notice of modifications to the terms at <https://developer.android.com/guide/playcore/license>. Changes will not be retroactive.
-I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Play Core Native SDK </button> [Download Play Core Native SDK](https://dl.google.com/games/play/core/play-core-native-sdk-1.16.0.zip)
+
+I have read and agree with the above terms and conditions
+
+Download Play Core Native SDK
+[Download Play Core Native SDK](https://dl.google.com/games/play/core/play-core-native-sdk-1.16.0.zip)
 
 *play-core-native-sdk-1.16.0.zip*
 
 1. Do either of the following:
 
-   - Install [Android Studio](https://developer.android.com/studio) version 4.0 or higher. Use the SDK Manager UI to install Android SDK Platform version 10.0 (API level 29).
-   - Install the [Android SDK command-line tools](https://developer.android.com/studio#command-tools) and use [`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager) to install Android SDK Platform version 10.0 (API level 29).
+   * Install [Android Studio](/studio) version 4.0 or higher. Use the SDK
+     Manager UI to install Android SDK Platform version 10.0 (API level 29).
+   * Install the [Android SDK command-line tools](/studio#command-tools)
+     and use [`sdkmanager`](/studio/command-line/sdkmanager) to install
+     Android SDK Platform version 10.0 (API level 29).
 2. Prepare Android Studio for native development by using the
-   [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) to install the latest
+   [SDK Manager](/studio/intro/update#sdk-manager) to install the latest
    CMake and Android Native Development Kit (NDK). For more information on
    creating or importing native projects, see
-   [Getting Started with the NDK](https://developer.android.com/ndk/guides).
-
+   [Getting Started with the NDK](/ndk/guides).
 3. Download the zip file and extract it alongside your project.
 
    | Download Link | Size | SHA-256 Checksum |
-   |---|---|---|
-   | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Play Core Native SDK" data-action="download" data-label="play_core_native_sdk_zip" data-modal-dialog-id="play_core_native_sdk_zip">play-core-native-sdk-1.16.0.zip</button> | 54.8 MiB | 008b8fedc6179a6dc6ccc21af75591afc7036f78f3d5559d844f1b923934fef0 |
-
-4. Update your app's `build.gradle` file as shown below:
+   | --- | --- | --- |
+   | play-core-native-sdk-1.16.0.zip | 54.8 MiB | 008b8fedc6179a6dc6ccc21af75591afc7036f78f3d5559d844f1b923934fef0 |
+4. Update your app’s `build.gradle` file as shown below:
 
    ### Groovy
 
-   ```groovy
+   ```
        // App build.gradle
 
        plugins {
@@ -105,12 +119,11 @@ I have read and agree with the above terms and conditions <button class="button 
            implementation files("$playcoreDir/playcore-native-metadata.jar")
            ...
        }
-       
    ```
 
    ### Kotlin
 
-   ```kotlin
+   ```
    // App build.gradle
 
    plugins {
@@ -168,7 +181,7 @@ I have read and agree with the above terms and conditions <button class="button 
        ...
    }
    ```
-5. Update your app's `CMakeLists.txt` files as shown below:
+5. Update your app’s `CMakeLists.txt` files as shown below:
 
    ```
    cmake_minimum_required(VERSION 3.6)
@@ -198,15 +211,15 @@ I have read and agree with the above terms and conditions <button class="button 
 The Play Core Native SDK may collect version related data to allow Google to
 improve the product, including:
 
-- App's package name
-- App's package version
-- Play Core Native SDK's version
+* App’s package name
+* App’s package version
+* Play Core Native SDK's version
 
-This data will be collected when you upload [your app package](https://developer.android.com/studio/publish/upload-bundle)
+This data will be collected when you upload [your app package](/studio/publish/upload-bundle)
 to the Play Console. To opt-out of this data collection process, remove the
 `$playcoreDir/playcore-native-metadata.jar` import in the build.gradle file.
 
 Note, this data collection related to your use of the Play Core Native SDK and
-Google's use of the collected data is separate and independent of Google's
+Google’s use of the collected data is separate and independent of Google’s
 collection of library dependencies declared in Gradle when you upload your app
 package to the Play Console.

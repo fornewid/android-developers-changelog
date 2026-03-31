@@ -1,14 +1,24 @@
 ---
-title: https://developer.android.com/kotlin/interop
+title: Kotlin-Java interop guide  |  Android Developers
 url: https://developer.android.com/kotlin/interop
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Get started](https://developer.android.com/get-started/overview)
+* [Kotlin](https://developer.android.com/kotlin)
+* [Guides](https://developer.android.com/kotlin/first)
+
+# Kotlin-Java interop guide Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 This document is a set of rules for authoring public APIs in Java and Kotlin
 with the intent that the code will feel idiomatic when consumed from the other
 language.
 
-[Last update: 2024-07-29](https://developer.android.com/kotlin/guides-changelog)
+[Last update: 2024-07-29](/kotlin/guides-changelog)
 
 ## Java (for Kotlin consumption)
 
@@ -21,8 +31,10 @@ Kotlin. [Soft keywords](https://kotlinlang.org/docs/reference/keyword-reference.
 
 For example, Mockito's `when` function requires backticks when used from Kotlin:
 
-    val callable = Mockito.mock(Callable::class.java)
-    Mockito.`when`(callable.call()).thenReturn(/* ... */)
+```
+val callable = Mockito.mock(Callable::class.java)
+Mockito.`when`(callable.call()).thenReturn(/* … */)
+```
 
 ### Avoid `Any` extension names
 
@@ -48,19 +60,25 @@ Parameter types eligible for [SAM conversion](https://kotlinlang.org/docs/refere
 
 For example, RxJava 2's `Flowable.create()` method signature is defined as:
 
-    public static <T> Flowable<T> create(
-        FlowableOnSubscribe<T> source,
-        BackpressureStrategy mode) { /* ... */ }
+```
+public static <T> Flowable<T> create(
+    FlowableOnSubscribe<T> source,
+    BackpressureStrategy mode) { /* … */ }
+```
 
 Because FlowableOnSubscribe is eligible for SAM conversion, function calls of
 this method from Kotlin look like this:
 
-    Flowable.create({ /* ... */ }, BackpressureStrategy.LATEST)
+```
+Flowable.create({ /* … */ }, BackpressureStrategy.LATEST)
+```
 
 If the parameters were reversed in the method signature, though, function calls
 could use the trailing-lambda syntax:
 
-    Flowable.create(BackpressureStrategy.LATEST) { /* ... */ }
+```
+Flowable.create(BackpressureStrategy.LATEST) { /* … */ }
+```
 
 ### Property prefixes
 
@@ -70,25 +88,33 @@ prefixing must be used.
 Accessor methods require a `get` prefix or for boolean-returning methods an `is`
 prefix can be used.
 
-    public final class User {
-      public String getName() { /* ... */ }
-      public boolean isActive() { /* ... */ }
-    }
+```
+public final class User {
+  public String getName() { /* … */ }
+  public boolean isActive() { /* … */ }
+}
+```
 
-    val name = user.name // Invokes user.getName()
-    val active = user.isActive // Invokes user.isActive()
+```
+val name = user.name // Invokes user.getName()
+val active = user.isActive // Invokes user.isActive()
+```
 
 Associated mutator methods require a `set` prefix.
 
-    public final class User {
-      public String getName() { /* ... */ }
-      public void setName(String name) { /* ... */ }
-      public boolean isActive() { /* ... */ }
-      public void setActive(boolean active) { /* ... */ }
-    }
+```
+public final class User {
+  public String getName() { /* … */ }
+  public void setName(String name) { /* … */ }
+  public boolean isActive() { /* … */ }
+  public void setActive(boolean active) { /* … */ }
+}
+```
 
-    user.name = "Bob" // Invokes user.setName(String)
-    user.isActive = true // Invokes user.setActive(boolean)
+```
+user.name = "Bob" // Invokes user.setName(String)
+user.isActive = true // Invokes user.setActive(boolean)
+```
 
 If you want methods exposed as properties, don't use non-standard prefixes like
 `has`, `set` or non-`get`-prefixed accessors. Methods with non-standard prefixes
@@ -101,19 +127,23 @@ Be mindful of method names that allow special call-site syntax (such as
 [operator overloading](https://kotlinlang.org/docs/reference/operator-overloading.html)) in Kotlin). Ensure that methods names as
 such make sense to use with the shortened syntax.
 
-    public final class IntBox {
-      private final int value;
-      public IntBox(int value) {
-        this.value = value;
-      }
-      public IntBox plus(IntBox other) {
-        return new IntBox(value + other.value);
-      }
-    }
+```
+public final class IntBox {
+  private final int value;
+  public IntBox(int value) {
+    this.value = value;
+  }
+  public IntBox plus(IntBox other) {
+    return new IntBox(value + other.value);
+  }
+}
+```
 
-    val one = IntBox(1)
-    val two = IntBox(2)
-    val three = one + two // Invokes one.plus(two)
+```
+val one = IntBox(1)
+val two = IntBox(2)
+val three = one + two // Invokes one.plus(two)
+```
 
 ## Kotlin (for Java consumption)
 
@@ -148,42 +178,54 @@ which allows idiomatic usage from Kotlin.
 
 Consider this Kotlin definition:
 
-    fun interface GreeterCallback {
-      fun greetName(String name)
-    }
+```
+fun interface GreeterCallback {
+  fun greetName(String name)
+}
 
-    fun sayHi(greeter: GreeterCallback) = /* ... */
+fun sayHi(greeter: GreeterCallback) = /* … */
+```
 
 When invoked from Kotlin:
 
-    sayHi { println("Hello, $it!") }
+```
+sayHi { println("Hello, $it!") }
+```
 
 When invoked from Java:
 
-    sayHi(name -> System.out.println("Hello, " + name + "!"));
+```
+sayHi(name -> System.out.println("Hello, " + name + "!"));
+```
 
 Even when the function type does not return a `Unit` it might still be a good
 idea to make it a named interface to allow callers to implement it with a named
 class and not just lambdas (in both Kotlin and Java).
 
-    class MyGreeterCallback : GreeterCallback {
-      override fun greetName(name: String) {
-        println("Hello, $name!");
-      }
-    }
+```
+class MyGreeterCallback : GreeterCallback {
+  override fun greetName(name: String) {
+    println("Hello, $name!");
+  }
+}
+```
 
 #### Avoid function types that return `Unit`
 
 Consider this Kotlin definition:
 
-    fun sayHi(greeter: (String) -> Unit) = /* ... */
+```
+fun sayHi(greeter: (String) -> Unit) = /* … */
+```
 
 It requires Java callers to return `Unit.INSTANCE`:
 
-    sayHi(name -> {
-      System.out.println("Hello, " + name + "!");
-      return Unit.INSTANCE;
-    });
+```
+sayHi(name -> {
+  System.out.println("Hello, " + name + "!");
+  return Unit.INSTANCE;
+});
+```
 
 #### Avoid functional interfaces when the implementation is meant to have state
 
@@ -195,20 +237,24 @@ syntax, which allows it to have state, providing a hint to the caller.
 
 Consider this Kotlin definition:
 
-    // No "fun" prefix.
-    interface Counter {
-      fun increment()
-    }
+```
+// No "fun" prefix.
+interface Counter {
+  fun increment()
+}
+```
 
 It prevents lambda syntax in Kotlin, requiring this longer version:
 
-    runCounter(object : Counter {
-      private var increments = 0 // State
+```
+runCounter(object : Counter {
+  private var increments = 0 // State
 
-      override fun increment() {
-        increments++
-      }
-    })
+  override fun increment() {
+    increments++
+  }
+})
+```
 
 ### Avoid `Nothing` generics
 
@@ -241,35 +287,43 @@ on a static `Companion` field.
 
 *Incorrect: no annotation*
 
-    class KotlinClass {
-        companion object {
-            fun doWork() {
-                /* ... */
-            }
+```
+class KotlinClass {
+    companion object {
+        fun doWork() {
+            /* … */
         }
     }
+}
+```
 
-    public final class JavaClass {
-        public static void main(String... args) {
-            KotlinClass.Companion.doWork();
-        }
+```
+public final class JavaClass {
+    public static void main(String... args) {
+        KotlinClass.Companion.doWork();
     }
+}
+```
 
 *Correct:* `@JvmStatic` *annotation*
 
-    class KotlinClass {
-        companion object {
-            @JvmStatic fun doWork() {
-                /* ... */
-            }
+```
+class KotlinClass {
+    companion object {
+        @JvmStatic fun doWork() {
+            /* … */
         }
     }
+}
+```
 
-    public final class JavaClass {
-        public static void main(String... args) {
-            KotlinClass.doWork();
-        }
+```
+public final class JavaClass {
+    public static void main(String... args) {
+        KotlinClass.doWork();
     }
+}
+```
 
 ### Companion constants
 
@@ -283,51 +337,63 @@ which is still incorrect.
 
 *Incorrect: no annotation*
 
-    class KotlinClass {
-        companion object {
-            const val INTEGER_ONE = 1
-            val BIG_INTEGER_ONE = BigInteger.ONE
-        }
+```
+class KotlinClass {
+    companion object {
+        const val INTEGER_ONE = 1
+        val BIG_INTEGER_ONE = BigInteger.ONE
     }
+}
+```
 
-    public final class JavaClass {
-        public static void main(String... args) {
-            System.out.println(KotlinClass.INTEGER_ONE);
-            System.out.println(KotlinClass.Companion.getBIG_INTEGER_ONE());
-        }
+```
+public final class JavaClass {
+    public static void main(String... args) {
+        System.out.println(KotlinClass.INTEGER_ONE);
+        System.out.println(KotlinClass.Companion.getBIG_INTEGER_ONE());
     }
+}
+```
 
 *Incorrect:* `@JvmStatic` *annotation*
 
-    class KotlinClass {
-        companion object {
-            const val INTEGER_ONE = 1
-            @JvmStatic val BIG_INTEGER_ONE = BigInteger.ONE
-        }
+```
+class KotlinClass {
+    companion object {
+        const val INTEGER_ONE = 1
+        @JvmStatic val BIG_INTEGER_ONE = BigInteger.ONE
     }
+}
+```
 
-    public final class JavaClass {
-        public static void main(String... args) {
-            System.out.println(KotlinClass.INTEGER_ONE);
-            System.out.println(KotlinClass.getBIG_INTEGER_ONE());
-        }
+```
+public final class JavaClass {
+    public static void main(String... args) {
+        System.out.println(KotlinClass.INTEGER_ONE);
+        System.out.println(KotlinClass.getBIG_INTEGER_ONE());
     }
+}
+```
 
 *Correct:* `@JvmField` *annotation*
 
-    class KotlinClass {
-        companion object {
-            const val INTEGER_ONE = 1
-            @JvmField val BIG_INTEGER_ONE = BigInteger.ONE
-        }
+```
+class KotlinClass {
+    companion object {
+        const val INTEGER_ONE = 1
+        @JvmField val BIG_INTEGER_ONE = BigInteger.ONE
     }
+}
+```
 
-    public final class JavaClass {
-        public static void main(String... args) {
-            System.out.println(KotlinClass.INTEGER_ONE);
-            System.out.println(KotlinClass.BIG_INTEGER_ONE);
-        }
+```
+public final class JavaClass {
+    public static void main(String... args) {
+        System.out.println(KotlinClass.INTEGER_ONE);
+        System.out.println(KotlinClass.BIG_INTEGER_ONE);
     }
+}
+```
 
 ### Idiomatic naming
 
@@ -339,25 +405,31 @@ naming.
 This most frequently occurs for extension functions and extension properties
 because the location of the receiver type is different.
 
-    sealed class Optional<T : Any>
-    data class Some<T : Any>(val value: T): Optional<T>()
-    object None : Optional<Nothing>()
+```
+sealed class Optional<T : Any>
+data class Some<T : Any>(val value: T): Optional<T>()
+object None : Optional<Nothing>()
 
-    @JvmName("ofNullable")
-    fun <T> T?.asOptional() = if (this == null) None else Some(this)
+@JvmName("ofNullable")
+fun <T> T?.asOptional() = if (this == null) None else Some(this)
+```
 
-    // FROM KOTLIN:
-    fun main(vararg args: String) {
-        val nullableString: String? = "foo"
-        val optionalString = nullableString.asOptional()
-    }
+```
+// FROM KOTLIN:
+fun main(vararg args: String) {
+    val nullableString: String? = "foo"
+    val optionalString = nullableString.asOptional()
+}
+```
 
-    // FROM JAVA:
-    public static void main(String... args) {
-        String nullableString = "Foo";
-        Optional<String> optionalString =
-              Optionals.ofNullable(nullableString);
-    }
+```
+// FROM JAVA:
+public static void main(String... args) {
+    String nullableString = "Foo";
+    Optional<String> optionalString =
+          Optionals.ofNullable(nullableString);
+}
+```
 
 ### Function overloads for defaults
 
@@ -369,46 +441,55 @@ When using `@JvmOverloads`, inspect the generated methods to ensure they each
 make sense. If they don't, perform one or both of the following refactorings
 until satisfied:
 
-- Change the parameter order to prefer those with defaults being towards the end.
-- Move the defaults into manual function overloads.
+* Change the parameter order to prefer those with defaults being towards the
+  end.
+* Move the defaults into manual function overloads.
 
 *Incorrect: No* `@JvmOverloads`
 
-    class Greeting {
-        fun sayHello(prefix: String = "Mr.", name: String) {
-            println("Hello, $prefix $name")
-        }
+```
+class Greeting {
+    fun sayHello(prefix: String = "Mr.", name: String) {
+        println("Hello, $prefix $name")
     }
+}
+```
 
-    public class JavaClass {
-        public static void main(String... args) {
-            Greeting greeting = new Greeting();
-            greeting.sayHello("Mr.", "Bob");
-        }
+```
+public class JavaClass {
+    public static void main(String... args) {
+        Greeting greeting = new Greeting();
+        greeting.sayHello("Mr.", "Bob");
     }
+}
+```
 
 *Correct:* `@JvmOverloads` *annotation.*
 
-    class Greeting {
-        @JvmOverloads
-        fun sayHello(prefix: String = "Mr.", name: String) {
-            println("Hello, $prefix $name")
-        }
+```
+class Greeting {
+    @JvmOverloads
+    fun sayHello(prefix: String = "Mr.", name: String) {
+        println("Hello, $prefix $name")
     }
+}
+```
 
-    public class JavaClass {
-        public static void main(String... args) {
-            Greeting greeting = new Greeting();
-            greeting.sayHello("Bob");
-        }
+```
+public class JavaClass {
+    public static void main(String... args) {
+        Greeting greeting = new Greeting();
+        greeting.sayHello("Bob");
     }
+}
+```
 
 ## Lint Checks
 
 ### Requirements
 
-- **Android Studio version:** 3.2 Canary 10 or later
-- **Android Gradle Plugin version:** 3.2 or later
+* **Android Studio version:** 3.2 Canary 10 or later
+* **Android Gradle Plugin version:** 3.2 or later
 
 ### Supported Checks
 
@@ -416,23 +497,22 @@ There are now Android Lint checks that will help you detect and flag some of the
 interoperability issues described previously. Only issues in Java (for Kotlin
 consumption) are detected. Specifically, the supported checks are:
 
-- Unknown Nullness
-- Property Access
-- No Hard Kotlin keywords
-- Lambda Parameters Last
+* Unknown Nullness
+* Property Access
+* No Hard Kotlin keywords
+* Lambda Parameters Last
 
 ### Android Studio
 
-To enable these checks, go to **File \> Preferences \> Editor \> Inspections** and
+To enable these checks, go to **File > Preferences > Editor > Inspections** and
 check the rules that you want to enable under Kotlin Interoperability:
 
-![](https://developer.android.com/static/kotlin/images/kotlin_interop_checks_settings.png)
-
+![](/static/kotlin/images/kotlin_interop_checks_settings.png)
 
 **Figure 1.** Kotlin interoperability settings in Android Studio.
 
 Once you have checked the rules you would like to enable, the new checks will
-run when you run your code inspections (**Analyze \> Inspect Code...**)
+run when you run your code inspections (**Analyze > Inspect Code…**)
 
 ### Command-line builds
 
@@ -441,7 +521,7 @@ your `build.gradle` file:
 
 ### Groovy
 
-```groovy
+```
 android {
 
     ...
@@ -454,7 +534,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
     ...
 

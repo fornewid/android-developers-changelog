@@ -36,7 +36,7 @@ the following table.
 For example, you can copy the text in the card to the clipboard
 in the following snippet and paste the copied text to the `TextField`.
 You display the menu to paste the text by a
-touch \& hold on the `TextField`, or by tapping the cursor handle.  
+touch \& hold on the `TextField`, or by tapping the cursor handle.
 
     val textFieldState = rememberTextFieldState()
 
@@ -60,7 +60,7 @@ You can copy texts to the clipboard with [`ClipboardManager`](https://developer.
 Its [setText()](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager#setText(androidx.compose.ui.text.AnnotatedString)) method copies
 the passed String object to the clipboard.
 The following snippet copies "Hello, clipboard"
-to the clipboard when the user clicks the button.  
+to the clipboard when the user clicks the button.
 
     // Retrieve a ClipboardManager object
     val clipboardManager = LocalClipboardManager.current
@@ -82,7 +82,7 @@ It contains a [`ClipData`](https://developer.android.com/reference/android/conte
 create a `ClipData` object from a String object.
 You can set the created `ClipEntry` object to clipboard
 by calling the [setClip()](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager#setClip(androidx.compose.ui.platform.ClipEntry)) method
-over the `ClipboardManager` object.  
+over the `ClipboardManager` object.
 
     // Retrieve a ClipboardManager object
     val clipboardManager = LocalClipboardManager.current
@@ -97,7 +97,8 @@ over the `ClipboardManager` object.
        Text("Click to copy a text")
     }
 
-| **Note:** The clipboard can have only one `ClipEntry`.
+> [!NOTE]
+> **Note:** The clipboard can have only one `ClipEntry`.
 
 ### Paste with ClipboardManager
 
@@ -107,7 +108,7 @@ over the `ClipboardManager`.
 Its `getText()` method returns an `AnnotatedString` object
 when a text is copied in the clipboard.
 The following snippet appends text in the clipboard
-to the text in the `TextField`.  
+to the text in the `TextField`.
 
     var textFieldState = rememberTextFieldState()
 
@@ -143,7 +144,7 @@ Your app can't copy rich content directly to the clipboard.
 Instead, your app passes a `URI` object to the clipboard
 and provides access to the content with a [`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider).
 The following code snippet shows how to copy a JPEG image to clipboard.
-Refer to [Copy data streams](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#Streams) for details.  
+Refer to [Copy data streams](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#Streams) for details.
 
     // Get a reference to the context
     val context = LocalContext.current
@@ -167,9 +168,9 @@ Refer to [Copy data streams](https://developer.android.com/develop/ui/views/touc
 ## Paste a rich content
 
 With the [`contentReceiver`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).contentReceiver(androidx.compose.foundation.content.ReceiveContentListener)) modifier, you can handle pasting rich content
-to [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/package-summary#BasicTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.input.TextFieldDecorator,androidx.compose.foundation.ScrollState)) in the modified component.
+to [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.input.TextFieldDecorator,androidx.compose.foundation.ScrollState)) in the modified component.
 The following code snippet adds the pasted URI of an image data
-to a list of [`Uri`](https://developer.android.com/reference/android/net/Uri) objects.  
+to a list of [`Uri`](https://developer.android.com/reference/android/net/Uri) objects.
 
     // A URI list of images
     val imageList by remember{ mutableListOf<Uri>() }
@@ -230,7 +231,7 @@ The [`TransferableContent.hasMediaType()`](https://developer.android.com/referen
 whether the `TransferableContent` object can provide an item
 with the media type.
 For example, the following method call returns `true`
-if the `TransferableContent` object can provide an image.  
+if the `TransferableContent` object can provide an image.
 
     transferableContent.hasMediaType(MediaType.Image)
 
@@ -268,7 +269,7 @@ in the UI (figure 2).
 ![Copied text preview flagging sensitive content.](https://developer.android.com/static/images/about/versions/13/sensitive-content-after.png) **Figure 2.** Copied text preview with a sensitive content flag.
 
 You must add a flag to [`ClipDescription`](https://developer.android.com/reference/android/content/ClipDescription) in `ClipData`
-before calling `setClip()` method over the `ClipboardManager` object:  
+before calling `setClip()` method over the `ClipboardManager` object:
 
     // If your app is compiled with the API level 33 SDK or higher.
     clipData.apply {

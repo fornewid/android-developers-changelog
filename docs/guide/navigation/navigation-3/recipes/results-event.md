@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/results-event
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/results-event
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Returning a Result (Event-Based)
 
@@ -13,11 +22,18 @@ This recipe demonstrates how to return a result from one screen to a previous sc
 This example uses a `ResultEventBus` to facilitate communication between the screens.
 
 1. **`ResultEventBus`**: A simple event bus is created and made available to the composables.
-2. **Sending the result** : The screen that produces the result calls `resultBus.sendResult(person)` to send the data back as a one-time event.
-3. **Receiving the result** : The screen that needs the result uses a `ResultEffect` composable to listen for results of a specific type. When a result is received, the effect's lambda is triggered.
+2. **Sending the result**: The screen that produces the result calls `resultBus.sendResult(person)` to send the data back as a one-time event.
+3. **Receiving the result**: The screen that needs the result uses a `ResultEffect` composable to listen for results of a specific type. When a result is received, the effect's lambda is triggered.
 
 This approach is useful for results that are transient and should be handled as one-time events.
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/event)
+
+[![](/static/images/picto-icons/code.svg)
+
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/event)
 
 ```
 /*
@@ -46,6 +62,8 @@ import androidx.lifecycle.ViewModel
 class HomeViewModel : ViewModel() {
     var person by mutableStateOf<Person?>(null)
 }
+
+HomeViewModel.kt
 ```
 
 ```
@@ -74,7 +92,11 @@ import kotlinx.serialization.Serializable
 data object Home : NavKey
 
 @Serializable
-class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/d829ac5c3eae221357a212a3442a6ef1b3b4bf51/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
+class PersonDetailsForm : NavKey
+
+NavKeys
+
+.kt
 ```
 
 ```
@@ -97,6 +119,8 @@ class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/d82
 package com.example.nav3recipes.results.common
 
 data class Person(val name: String, val favoriteColor: String)
+
+Person.kt
 ```
 
 ```
@@ -182,6 +206,8 @@ fun PersonDetailsScreen(
         }
     }
 }
+
+ScreenContent.kt
 ```
 
 ```
@@ -228,6 +254,8 @@ inline fun <reified T> ResultEffect(
         }
     }
 }
+
+ResultEffect.kt
 ```
 
 ```
@@ -311,6 +339,8 @@ class ResultEventActivity : ComponentActivity() {
         }
     }
 }
+
+ResultEventActivity.kt
 ```
 
 ```
@@ -399,4 +429,6 @@ class ResultEventBus {
         channelMap.remove(resultKey)
     }
 }
+
+ResultEventBus.kt
 ```

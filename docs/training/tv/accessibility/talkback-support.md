@@ -1,14 +1,23 @@
 ---
-title: https://developer.android.com/training/tv/accessibility/talkback-support
+title: Support TalkBack in TV apps  |  Android TV  |  Android Developers
 url: https://developer.android.com/training/tv/accessibility/talkback-support
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android TV](https://developer.android.com/training/tv)
+
+# Support TalkBack in TV apps Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 TV apps sometimes have use cases that make it difficult for users who rely on
-[TalkBack](https://developer.android.com/guide/topics/ui/accessibility/testing#talkback) to use the app. To provide a better TalkBack experience for these
+[TalkBack](/guide/topics/ui/accessibility/testing#talkback) to use the app. To provide a better TalkBack experience for these
 users, review each of the sections in this guide and implement changes in your
 app where necessary. If your app uses custom views, you should also refer to the
-[corresponding guide](https://developer.android.com/training/tv/accessibility/custom-views) that describes how to support accessibility with custom
+[corresponding guide](/training/tv/accessibility/custom-views) that describes how to support accessibility with custom
 views.
 
 ## Handle nested views
@@ -16,13 +25,13 @@ views.
 Nested views can be hard for TalkBack users to navigate. Whenever possible, make
 either the parent or the child view focusable by TalkBack, but not both.
 
-To make a view focusable by TalkBack, set the [`focusable`](https://developer.android.com/reference/android/view/View#attr_android:focusable) and the
-[`focusableInTouchMode`](https://developer.android.com/reference/android/view/View#attr_android:focusableInTouchMode) attribute to `true`. This step is necessary because
+To make a view focusable by TalkBack, set the [`focusable`](/reference/android/view/View#attr_android:focusable) and the
+[`focusableInTouchMode`](/reference/android/view/View#attr_android:focusableInTouchMode) attribute to `true`. This step is necessary because
 some TV devices might enter and exit touch mode while TalkBack is active.
 
-To make a view non-focusable, it is sufficient to set the [`focusable`](https://developer.android.com/reference/android/view/View#attr_android:focusable)
+To make a view non-focusable, it is sufficient to set the [`focusable`](/reference/android/view/View#attr_android:focusable)
 attribute to `false`. However, if the view is actionable (that is, its
-corresponding `AccessibilityNodeInfo` has [`ACTION_CLICK`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo.AccessibilityAction#ACTION_CLICK)), it might still
+corresponding `AccessibilityNodeInfo` has [`ACTION_CLICK`](/reference/android/view/accessibility/AccessibilityNodeInfo.AccessibilityAction#ACTION_CLICK)), it might still
 be focusable.
 
 ## Change descriptions for Actions
@@ -33,7 +42,7 @@ provide a more accurate description, you can change it:
 
 ### Kotlin
 
-```kotlin
+```
 findViewById<View>(R.id.custom_actionable_view).accessibilityDelegate = object : View.AccessibilityDelegate() {
   override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) {
     super.onInitializeAccessibilityNodeInfo(host, info)
@@ -49,7 +58,7 @@ findViewById<View>(R.id.custom_actionable_view).accessibilityDelegate = object :
 
 ### Java
 
-```java
+```
 findViewById(R.id.custom_actionable_view).setAccessibilityDelegate(new AccessibilityDelegate() {
   @Override
   public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
@@ -64,17 +73,17 @@ findViewById(R.id.custom_actionable_view).setAccessibilityDelegate(new Accessibi
 ## Add support for sliders
 
 TalkBack on TV has special support for sliders. To enable slider mode, add
-[`ACTION_SET_PROGRESS`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo.AccessibilityAction#ACTION_SET_PROGRESS) to a view together with a [`RangeInfo`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo.RangeInfo) object.
+[`ACTION_SET_PROGRESS`](/reference/android/view/accessibility/AccessibilityNodeInfo.AccessibilityAction#ACTION_SET_PROGRESS) to a view together with a [`RangeInfo`](/reference/android/view/accessibility/AccessibilityNodeInfo.RangeInfo) object.
 
 The user enters the slider mode by pressing the center button of the TV remote.
-In this mode, the arrow buttons generate [`ACTION_SCROLL_FORWARD`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo.AccessibilityAction#ACTION_SCROLL_FORWARD) and
-[`ACTION_SCROLL_BACKWARD`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo.AccessibilityAction#ACTION_SCROLL_BACKWARD) accessibility actions.
+In this mode, the arrow buttons generate [`ACTION_SCROLL_FORWARD`](/reference/android/view/accessibility/AccessibilityNodeInfo.AccessibilityAction#ACTION_SCROLL_FORWARD) and
+[`ACTION_SCROLL_BACKWARD`](/reference/android/view/accessibility/AccessibilityNodeInfo.AccessibilityAction#ACTION_SCROLL_BACKWARD) accessibility actions.
 
 The following example implements a volume slider with levels from 1 to 10:
 
 ### Kotlin
 
-```kotlin
+```
 /**
  *   This example only provides slider functionality for TalkBack users. Additional logic should
  *   be added for other users. Such logic may reuse the increase and decrease methods.
@@ -147,7 +156,7 @@ class VolumeSlider(context: Context?, attrs: AttributeSet?) : LinearLayout(conte
 
 ### Java
 
-```java
+```
 /**
  *   This example only provides slider functionality for TalkBack users. Additional logic should
  *   be added for other users. Such logic can reuse the increase and decrease methods.
@@ -215,3 +224,15 @@ public class VolumeSlider extends LinearLayout {
   }
 }
 ```
+
+[Previous
+
+arrow\_back
+
+TalkBack evaluation examples](/training/tv/accessibility/talkback)
+
+[Next
+
+Adopt system caption settings
+
+arrow\_forward](/training/tv/accessibility/system-caption-settings)

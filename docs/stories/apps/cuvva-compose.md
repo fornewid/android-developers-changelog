@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/stories/apps/cuvva-compose
+title: Cuvva builds faster and with higher quality with Compose  |  Developer stories  |  Android Developers
 url: https://developer.android.com/stories/apps/cuvva-compose
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Developer stories](https://developer.android.com/stories)
+
+# Cuvva builds faster and with higher quality with Compose Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 [Cuvva](https://www.cuvva.com/) is making insurance radically better
 by giving you a truly flexible way to manage your cover, all from your phone.
@@ -16,32 +24,32 @@ Android.
 
 The Cuvva team created new design components from scratch, then used the
 interoperability APIs to place Composables inside existing layouts and, with
-time, replace View-based screens and build new screens with Compose. *"We found
+time, replace View-based screens and build new screens with Compose. *“We found
 that Compose lets us create new design components from scratch **much more
 rapidly** and spend less time trying to work around state management or
 fragmentation. Once we had built up a large enough library of these components,
 shipping a new screen became very fast, and it has definitely helped us to be
-more productive."*
+more productive.”*
 
 ## Results
 
-Compose allowed them to build a higher quality app faster: *"The speed at which
+Compose allowed them to build a higher quality app faster: *“The speed at which
 Compose allows us to put together a new feature means **we can iterate more
 rapidly, providing a higher-quality experience** for our customers faster than
-before."*
+before.“*
 
 With Compose the number of lines you need to write, and therefore read,
-understand, and maintain, decreases: *"we were very pleased to see how few lines
+understand, and maintain, decreases: *“we were very pleased to see how few lines
 were required to create lists or animations in our app. Compose has definitely
-**dramatically reduced the number of lines of code** required to build our UI."*
+**dramatically reduced the number of lines of code** required to build our UI.”*
 
-Custom components are easier to implement: *"We created a circular dial
+Custom components are easier to implement: *“We created a circular dial
 component which is used to show customers their driving score. **Animating** its
 progress and colours with Compose was **far easier and a lot more fun** than it
-would have been previously. Doing anything custom, whether that's new
+would have been previously. Doing anything custom, whether that’s new
 components or changing the behaviour of existing ones, is far easier in
-Compose."*
+Compose.”*
 
 ## Get started
 
-Learn more about [Compose](https://developer.android.com/jetpack/compose).
+Learn more about [Compose](/jetpack/compose).

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Foldable devices enable a unique user experiences, transitioning smoothly
 between compact phone-sized screens and expansive tablet-like displays.
 Foldables introduce unique physical states, or postures, such as tabletop and

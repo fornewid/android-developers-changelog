@@ -54,7 +54,7 @@ private fun Offset.toIntOffset() = IntOffset(x.roundToInt(), y.roundToInt())
 Another frequent pattern is we need to synchronize animation values with values
 coming from touch events, such as drag. In the example below, we see "swipe to
 dismiss" implemented as a `Modifier` (rather than using the
-[`SwipeToDismiss`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#SwipeToDismiss(androidx.compose.material.DismissState,%20androidx.compose.ui.Modifier,%20kotlin.collections.Set,%20kotlin.Function1,%20kotlin.Function1,%20kotlin.Function1))
+[`SwipeToDismiss`](https://developer.android.com/reference/kotlin/androidx/compose/material/SwipeToDismiss.composable)
 composable). The horizontal offset of the element is represented as an
 `Animatable`. This API has a characteristic useful in gesture animation. Its
 value can be changed by touch events as well as the animation. When we receive a

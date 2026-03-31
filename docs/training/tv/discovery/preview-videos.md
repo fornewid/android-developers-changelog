@@ -1,34 +1,55 @@
 ---
-title: https://developer.android.com/training/tv/discovery/preview-videos
+title: Preview videos  |  Android TV  |  Android Developers
 url: https://developer.android.com/training/tv/discovery/preview-videos
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android TV](https://developer.android.com/training/tv)
+
+# Preview videos Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 A preview video is a great way to encourage users to deep-link into your TV app.
 Previews can range from short clips to full movie trailers.
 
 When you create a preview, consider these guidelines:
 
-- Do not show ads in a preview. If you stitch ads on the client side, do not stitch them into preview videos. If you stich ads on the server side, provide an ad-free video for previews.
-- For best quality, preview videos should be 16:9 or 4:3. See [Video program attributes](https://developer.android.com/training/tv/discovery/video-programs#preview_images) for the recommended sizes of preview videos.
-- When the preview video and the poster art have different aspect ratios, the home screen resizes the poster view to the video's aspect ratio before playing the preview. The video is not letterboxed. For example, if the poster art ratio is [`ASPECT_RATIO_MOVIE_POSTER`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#aspect_ratio_movie_poster) (1:1.441) but the video ratio is 16:9, the poster view transforms to a 16:9 region.
-- When you create a preview, its content can be publicly accessible or protected under DRM. Different procedures apply in each case. This page describes both.
+* Do not show ads in a preview. If you stitch ads on the client side,
+  do not stitch them into preview videos. If you stich ads on the server side,
+  provide an ad-free video for previews.
+* For best quality, preview videos should be 16:9 or 4:3. See
+  [Video program attributes](/training/tv/discovery/video-programs#preview_images)
+  for the recommended sizes of preview videos.
+* When the preview video and the poster art have different aspect ratios, the
+  home screen resizes the poster view to the video's aspect ratio before playing the preview.
+  The video is not letterboxed. For example, if
+  the poster art ratio is
+  [`ASPECT_RATIO_MOVIE_POSTER`](/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#aspect_ratio_movie_poster) (1:1.441)
+  but the video ratio is 16:9, the poster view transforms to a 16:9 region.
+* When you create a preview, its content can be publicly accessible or
+  protected under DRM. Different procedures apply in each case. This page
+  describes both.
 
 ## Play the preview on the home screen
 
 If you create a preview using any of the [video types](http://google.github.io/ExoPlayer/supported-formats.html)
-supported by [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer)
+supported by [ExoPlayer](/guide/topics/media/exoplayer)
 and the preview is publicly accessible, you can play the preview directly on the home screen.
 
-When you build a [PreviewProgram](https://developer.android.com/training/tv/discovery/recommendations-channel#programs)
+When you build a [PreviewProgram](/training/tv/discovery/recommendations-channel#programs)
 use `setPreviewVideoUri()` with a publicly accessible HTTPS
 URL as shown in the example below. The preview can be either
-[video](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setpreviewvideouri) or
-[audio](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setpreviewaudiouri).
+[video](/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setpreviewvideouri) or
+[audio](/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setpreviewaudiouri).
 
 ### Kotlin
 
-```kotlin
+```
 val previewVideoUrl = Uri.parse("https://www.example.com/preview.mp4")
 val builder = PreviewProgram.Builder()
 builder.setChannelId(channelId)
@@ -38,7 +59,7 @@ builder.setChannelId(channelId)
 
 ### Java
 
-```java
+```
 Uri previewVideoUrl = Uri.parse("https://www.example.com/preview.mp4");
 PreviewProgram.Builder builder = new PreviewProgram.Builder();
 builder.setChannelId(channelId)
@@ -49,25 +70,25 @@ builder.setChannelId(channelId)
 ## Render the preview on a surface
 
 If your video is DRM-protected or in a media type not supported by
-[ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer), use a `https://developer.android.com/reference/android/media/tv/TvInputService`.
-The Android TV home screen passes a `https://developer.android.com/reference/android/view/Surface` to your service
-by calling `https://developer.android.com/reference/android/media/tv/TvInputService.Session#onSetSurface(android.view.Surface)`. Your app draws video directly on this surface from `https://developer.android.com/reference/android/media/tv/TvInputService.Session#onTune(android.net.Uri)`.
+[ExoPlayer](/guide/topics/media/exoplayer), use a `TvInputService`.
+The Android TV home screen passes a `Surface` to your service
+by calling `onSetSurface()`. Your app draws video directly on this surface from `onTune()`.
 
 Direct surface rendering lets your app control what is rendered and how it is
 rendered. You can overlay metadata such as channel attribution.
 
 ### Declare your TvInputService in the manifest
 
-Your app must provide an implementation of `https://developer.android.com/reference/android/media/tv/TvInputService`
+Your app must provide an implementation of `TvInputService`
 so the home screen can render your preview.
 
 In your service declaration, include an intent filter that specifies
-`https://developer.android.com/reference/android/media/tv/TvInputService` as the action to perform with the
+`TvInputService` as the action to perform with the
 intent. Also declare the service metadata as a separate XML resource. The
 service declaration, intent filter, and service metadata declaration are shown
 in the following example:
 
-```xml
+```
 <service android:name=".rich.PreviewInputService"
     android:permission="android.permission.BIND_TV_INPUT">
     <!-- Required filter used by the system to launch our account service. -->
@@ -88,10 +109,12 @@ manifest. Using the manifest entries from the previous example, you would
 create an XML file at `res/xml/previewinputservice.xml`, with an empty
 `tv-input` tag:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <tv-input/>
+```
+<?xml version="1.0" encoding="utf-8"?>
+<tv-input/>
+```
 
-[TV Input Framework](https://developer.android.com/training/tv/tif) must have this tag. However,
+[TV Input Framework](/training/tv/tif) must have this tag. However,
 it's only used to configure live channels. Since you are rendering a video,
 the tag should be empty.
 
@@ -103,11 +126,11 @@ The URI should end with the identifier that your app uses for the content, so yo
 can retrieve the content later in the `TvInputService`.
 
 If your identifier is type `Long`, use
-[TvContractCompat.buildPreviewProgramUri()](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat#buildPreviewProgramUri(long)):
+[TvContractCompat.buildPreviewProgramUri()](/reference/androidx/tvprovider/media/tv/TvContractCompat#buildPreviewProgramUri(long)):
 
 ### Kotlin
 
-```kotlin
+```
 val id: Long = 1L // content identifier
 val componentName = new ComponentName(context, PreviewVideoInputService.class)
 val previewProgramVideoUri = TvContractCompat.buildPreviewProgramUri(id)
@@ -118,7 +141,7 @@ val previewProgramVideoUri = TvContractCompat.buildPreviewProgramUri(id)
 
 ### Java
 
-```java
+```
 Long id = 1L; // content identifier
 ComponentName componentName = new ComponentName(context, PreviewVideoInputService.class);
 previewProgramVideoUri = TvContractCompat.buildPreviewProgramUri(id)
@@ -128,11 +151,11 @@ previewProgramVideoUri = TvContractCompat.buildPreviewProgramUri(id)
 ```
 
 If your identifier is not type `Long`, build the URI using
-`https://developer.android.com/reference/android/net/Uri#withAppendedPath(android.net.Uri, java.lang.String)`:
+`Uri.withAppendedPath()`:
 
 ### Kotlin
 
-```kotlin
+```
 val previewProgramVideoUri = Uri.withAppendedPath(PreviewPrograms.CONTENT_URI, "content-identifier")
        .buildUpon()
        .appendQueryParameter("input", TvContractCompat.buildInputId(componentName))
@@ -141,7 +164,7 @@ val previewProgramVideoUri = Uri.withAppendedPath(PreviewPrograms.CONTENT_URI, "
 
 ### Java
 
-```java
+```
 previewProgramVideoUri = Uri.withAppendedPath(PreviewPrograms.CONTENT_URI, "content-identifier")
        .buildUpon()
        .appendQueryParameter("input", TvContractCompat.buildInputId(componentName))
@@ -149,7 +172,7 @@ previewProgramVideoUri = Uri.withAppendedPath(PreviewPrograms.CONTENT_URI, "cont
 ```
 
 Your app calls
-`https://developer.android.com/reference/android/media/tv/TvInputService.Session#onTune(android.net.Uri)`
+`onTune(Uri videoUri)`
 to make Android TV start the preview video.
 
 ### Create a service
@@ -160,7 +183,7 @@ but your code can use any available video player.
 
 ### Kotlin
 
-```kotlin
+```
 import android.content.Context
 import android.media.MediaPlayer
 import android.media.tv.TvInputService
@@ -236,7 +259,7 @@ class PreviewVideoInputService : TvInputService() {
 
 ### Java
 
-```java
+```
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.media.tv.TvInputService;
@@ -325,3 +348,15 @@ public class PreviewVideoInputService extends TvInputService {
     }
 }
 ```
+
+[Previous
+
+arrow\_back
+
+Guidelines for TV providers](/training/tv/discovery/guidelines-tv-providers)
+
+[Next
+
+Recommendations in Android N and earlier
+
+arrow\_forward](/training/tv/discovery/recommendations-row)

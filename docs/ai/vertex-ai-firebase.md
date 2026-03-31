@@ -1,15 +1,24 @@
 ---
-title: https://developer.android.com/ai/vertex-ai-firebase
+title: Vertex AI Gemini API  |  Android Developers
 url: https://developer.android.com/ai/vertex-ai-firebase
-source: md.txt
+source: html-scrape
 ---
 
-> [!NOTE]
-> **Note:** if you previously integrated Vertex AI in Firebase (with Gradle `import
-> com.google.firebase:vertex-ai`) you can continue using Vertex AI as an API provider with the Firebase AI Logic SDK.
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [AI](https://developer.android.com/ai)
+* [Guides](https://developer.android.com/ai/overview)
 
-If you are new to the Gemini API, the [Gemini Developer API](https://developer.android.com/ai/gemini-developer-api) is the
-recommended [API provider](https://developer.android.com/ai/gemini#api-providers) for Android Developers. But if you have specific
+# Vertex AI Gemini API Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+**Note:** if you previously integrated Vertex AI in Firebase (with Gradle `import
+com.google.firebase:vertex-ai`) you can continue using Vertex AI as an API
+provider with the Firebase AI Logic SDK.
+
+If you are new to the Gemini API, the [Gemini Developer API](/ai/gemini-developer-api) is the
+recommended [API provider](/ai/gemini#api-providers) for Android Developers. But if you have specific
 data [location requirements](https://cloud.google.com/compute/docs/regions-zones) or you are already embedded in the
 Vertex AI or Google Cloud environment, you can use the Vertex AI Gemini API.
 
@@ -34,39 +43,42 @@ Firebase and the SDK in your app.
 
 Add the following Gradle dependency to your app module:
 
-    dependencies {
-      // ... other androidx dependencies
+```
+dependencies {
+  // ... other androidx dependencies
 
-      // Import the BoM for the Firebase platform
-      implementation(platform("com.google.firebase:firebase-bom:34.11.0"))
+  // Import the BoM for the Firebase platform
+  implementation(platform("com.google.firebase:firebase-bom:34.11.0"))
 
-      // Add the dependency for the Firebase AI Logic library. When using the BoM,
-      // you don't specify versions in Firebase library dependencies
-      implementation("com.google.firebase:firebase-ai")
-    }
+  // Add the dependency for the Firebase AI Logic library. When using the BoM,
+  // you don't specify versions in Firebase library dependencies
+  implementation("com.google.firebase:firebase-ai")
+}
+```
 
 ### Initialize the generative model
 
 Start by instantiating a `GenerativeModel` and specifying the model name:
 
-
 ### Kotlin
 
-```kotlin
+```
 val model = Firebase.ai(backend = GenerativeBackend.vertexAI())
     .generativeModel("gemini-2.5-flash")
+
+VertexAiGeminiApi.kt
 ```
 
 ### Java
 
-```java
+```
 GenerativeModel firebaseAI = FirebaseAI.getInstance(GenerativeBackend.vertexAI())
         .generativeModel("gemini-2.5-flash");
 
 GenerativeModelFutures model = GenerativeModelFutures.from(firebaseAI);
-```
 
-<br />
+VertexAiGeminiApiJava.java
+```
 
 In the Firebase documentation, you can learn more about the [available
 models](https://firebase.google.com/docs/vertex-ai/gemini-models) for use with the Gemini Developer API. You can also learn
@@ -76,21 +88,22 @@ about [configuring model parameters](https://firebase.google.com/docs/vertex-ai/
 
 To generate a text response, call `generateContent()` with your prompt.
 
-
 ### Kotlin
 
-```kotlin
+```
 suspend fun generateText(model: GenerativeModel) {
     // Note: generateContent() is a suspend function, which integrates well
     // with existing Kotlin code.
     val response = model.generateContent("Write a story about a magic backpack.")
     // ...
 }
+
+VertexAiGeminiApi.kt
 ```
 
 ### Java
 
-```java
+```
 Content prompt = new Content.Builder()
         .addText("Write a story about a magic backpack.")
         .build();
@@ -108,12 +121,12 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
         t.printStackTrace();
     }
 }, executor);
-```
 
-<br />
+VertexAiGeminiApiJava.java
+```
 
 Similar to the Gemini Developer API, you can also pass images, audio, video, and
 files with your text prompt. For details, see [Interact with the Gemini Developer
-API from your app](https://developer.android.com/ai/gemini/developer-api#interact-gemini).
+API from your app](/ai/gemini/developer-api#interact-gemini).
 
 To learn more about Firebase AI Logic SDK, read the [Firebase documentation](https://firebase.google.com/docs/vertex-ai/get-started?platform=android).

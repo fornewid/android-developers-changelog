@@ -1,15 +1,26 @@
 ---
-title: https://developer.android.com/guide/topics/large-screens/configuration-and-continuity
+title: Configuration and continuity  |  Large screens  |  Android Developers
 url: https://developer.android.com/guide/topics/large-screens/configuration-and-continuity
-source: md.txt
+source: html-scrape
 ---
 
-![Tier 3 adaptive ready icon](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-3/tier_3_icon.png)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Large screens](https://developer.android.com/guide/topics/large-screens)
+* [Guides](https://developer.android.com/guide/topics/large-screens/tier-3-overview)
 
-TIER 3 --- Adaptive ready
+# Configuration and continuity Stay organized with collections Save and categorize content based on your preferences.
 
-> [!NOTE]
-> **Objective:** Make your app [adaptive ready](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#adaptive_ready) by meeting the [Config:Changes](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#Config:Changes) and [Config:Combinations](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#Config:Combinations) configuration and continuity requirements of the [Adaptive app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) guidelines.
+
+
+![Tier 3 adaptive ready icon](/static/images/docs/quality-guidelines/tier-3/tier_3_icon.png)
+
+TIER 3 — Adaptive ready
+
+**Objective:** Make your app [adaptive ready](/docs/quality-guidelines/adaptive-app-quality/tier-3) by meeting the
+[Config\_Changes](/docs/quality-guidelines/adaptive-app-quality/tier-3#Config_Changes) and [Config\_Combinations](/docs/quality-guidelines/adaptive-app-quality/tier-3#Config_Combinations) configuration and continuity
+requirements of the [Adaptive app quality guidelines](/docs/quality-guidelines/adaptive-app-quality).
 
 Configuration is a combination of device state and system state. Device state
 includes screen orientation, display size, folded or unfolded state of a
@@ -17,15 +28,15 @@ foldable device, external keyboard availability, attached displays. System state
 includes display modes, such as multi-window and multi-display, and user-defined
 settings, such as font size and locale.
 
-Configuration changes are device or system state changes---a rotated device,
+Configuration changes are device or system state changes—a rotated device,
 resized app window, unfolded device, connected peripheral, or updated user
 setting.
 
 Large screen devices undergo all the same configuration changes as small screen
 phones, but large screens also have unique configuration changes such as:
 
-- Device folding and unfolding
-- Resizing of free-form, desktop-type windows in multi-window mode
+* Device folding and unfolding
+* Resizing of free-form, desktop-type windows in multi-window mode
 
 ## Activity recreation
 
@@ -45,17 +56,20 @@ configuration changes rather than letting Android destroy and recreate your
 app's activities.
 
 Specify the configuration changes your app handles by setting the
-[`android:configChanges`](https://developer.android.com/guide/topics/manifest/activity-element#config) attribute of the [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element) element in your
+[`android:configChanges`](/guide/topics/manifest/activity-element#config) attribute of the [`<activity>`](/guide/topics/manifest/activity-element) element in your
 app manifest.
 
 For example, enable your app to handle multi-window configuration changes:
 
-    <activity
-      android:name=".MyActivity"
-      android:configChanges="orientation|screenSize|smallestScreenSize|>screenLayout" /
+```
+<activity
+  android:name=".MyActivity"
+  android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout" />
+```
 
-> [!NOTE]
-> **Note:** Android handles any configuration changes you don't specify in `configChanges`; that is, the system destroys and recreates your app's activities.
+**Note:** Android handles any configuration changes you don't specify in
+`configChanges`; that is, the system destroys and recreates your app's
+activities.
 
 ## State management
 
@@ -70,5 +84,5 @@ happens during media playback or data entry, respectively.
 For more information about how to handle configuration changes and maintain app
 continuity, see the following developer guides:
 
-- [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes)
-- [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states)
+* [Handle configuration changes](/guide/topics/resources/runtime-changes)
+* [Save UI states](/topic/libraries/architecture/saving-states)

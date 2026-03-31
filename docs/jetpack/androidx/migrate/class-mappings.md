@@ -1,20 +1,29 @@
 ---
-title: https://developer.android.com/jetpack/androidx/migrate/class-mappings
+title: Class Mappings  |  Jetpack  |  Android Developers
 url: https://developer.android.com/jetpack/androidx/migrate/class-mappings
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Get started](https://developer.android.com/get-started/overview)
+* [Jetpack](https://developer.android.com/jetpack)
+* [Guides](https://developer.android.com/jetpack/getting-started)
+
+# Class Mappings Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The following table lists the current mappings from the old support library packages to the
 new `androidx` packages.
 You can also download these mappings in
-[CSV format](https://developer.android.com/static/topic/libraries/support-library/downloads/androidx-class-mapping.csv).
+[CSV format](/static/topic/libraries/support-library/downloads/androidx-class-mapping.csv).
 
 ## android.arch
 
 ### android.arch.core
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | core.executor.AppToolkitTaskExecutor | androidx.arch.core.executor.AppToolkitTaskExecutor |
 | core.executor.ArchTaskExecutor | androidx.arch.core.executor.ArchTaskExecutor |
 | core.executor.DefaultTaskExecutor | androidx.arch.core.executor.DefaultTaskExecutor |
@@ -27,18 +36,18 @@ You can also download these mappings in
 | core.internal.SafeIterableMap | androidx.arch.core.internal.SafeIterableMap |
 | core.util.Function | androidx.arch.core.util.Function |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.arch.lifecycle
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | lifecycle.AndroidViewModel | androidx.lifecycle.AndroidViewModel |
 | lifecycle.ClassesInfoCache | androidx.lifecycle.ClassesInfoCache |
 | lifecycle.CompositeGeneratedAdaptersObserver | androidx.lifecycle.CompositeGeneratedAdaptersObserver |
 | lifecycle.ComputableLiveData | androidx.lifecycle.ComputableLiveData |
 | lifecycle.DefaultLifecycleObserver | androidx.lifecycle.DefaultLifecycleObserver |
-| lifecycle.Elements_extKt | androidx.lifecycle.Elements_extKt |
+| lifecycle.Elements\_extKt | androidx.lifecycle.Elements\_extKt |
 | lifecycle.EmptyActivityLifecycleCallbacks | androidx.lifecycle.EmptyActivityLifecycleCallbacks |
 | lifecycle.ErrorMessages | androidx.lifecycle.ErrorMessages |
 | lifecycle.FullLifecycleObserver | androidx.lifecycle.FullLifecycleObserver |
@@ -46,7 +55,7 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | lifecycle.GeneratedAdapter | androidx.lifecycle.GeneratedAdapter |
 | lifecycle.GenericLifecycleObserver | androidx.lifecycle.GenericLifecycleObserver |
 | lifecycle.HolderFragment | androidx.lifecycle.HolderFragment |
-| lifecycle.Input_collectorKt | androidx.lifecycle.Input_collectorKt |
+| lifecycle.Input\_collectorKt | androidx.lifecycle.Input\_collectorKt |
 | lifecycle.Lifecycle | androidx.lifecycle.Lifecycle |
 | lifecycle.LifecycleDispatcher | androidx.lifecycle.LifecycleDispatcher |
 | lifecycle.LifecycleObserver | androidx.lifecycle.LifecycleObserver |
@@ -87,12 +96,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | lifecycle.ViewModelStores | androidx.lifecycle.ViewModelStores |
 | lifecycle.WriterKt | androidx.lifecycle.WriterKt |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.arch.paging
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | paging.AsyncPagedListDiffer | androidx.paging.AsyncPagedListDiffer |
 | paging.ContiguousDataSource | androidx.paging.ContiguousDataSource |
 | paging.ContiguousPagedList | androidx.paging.ContiguousPagedList |
@@ -116,12 +125,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | paging.WrapperPageKeyedDataSource | androidx.paging.WrapperPageKeyedDataSource |
 | paging.WrapperPositionalDataSource | androidx.paging.WrapperPositionalDataSource |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.arch.persistence
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | persistence.db.framework.FrameworkSQLiteDatabase | androidx.sqlite.db.framework.FrameworkSQLiteDatabase |
 | persistence.db.framework.FrameworkSQLiteOpenHelper | androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper |
 | persistence.db.framework.FrameworkSQLiteOpenHelperFactory | androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory |
@@ -147,10 +156,10 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | persistence.room.ext.AndroidTypeNames | androidx.room.ext.AndroidTypeNames |
 | persistence.room.ext.ArchTypeNames | androidx.room.ext.ArchTypeNames |
 | persistence.room.ext.CommonTypeNames | androidx.room.ext.CommonTypeNames |
-| persistence.room.ext.Element_extKt | androidx.room.ext.Element_extKt |
+| persistence.room.ext.Element\_extKt | androidx.room.ext.Element\_extKt |
 | persistence.room.ext.GuavaBaseTypeNames | androidx.room.ext.GuavaBaseTypeNames |
 | persistence.room.ext.GuavaUtilConcurrentTypeNames | androidx.room.ext.GuavaUtilConcurrentTypeNames |
-| persistence.room.ext.Javapoet_extKt | androidx.room.ext.Javapoet_extKt |
+| persistence.room.ext.Javapoet\_extKt | androidx.room.ext.Javapoet\_extKt |
 | persistence.room.ext.KotlinMetadataProcessor | androidx.room.ext.KotlinMetadataProcessor |
 | persistence.room.ext.LifecyclesTypeNames | androidx.room.ext.LifecyclesTypeNames |
 | persistence.room.ext.PagingTypeNames | androidx.room.ext.PagingTypeNames |
@@ -345,12 +354,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | persistence.room.writer.SQLiteOpenHelperWriter | androidx.room.writer.SQLiteOpenHelperWriter |
 | persistence.room.writer.TableInfoValidationWriter | androidx.room.writer.TableInfoValidationWriter |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.databinding
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.databinding.adapters.AbsListViewBindingAdapter | androidx.databinding.adapters.AbsListViewBindingAdapter |
 | android.databinding.adapters.AbsSeekBarBindingAdapter | androidx.databinding.adapters.AbsSeekBarBindingAdapter |
 | android.databinding.adapters.AbsSpinnerBindingAdapter | androidx.databinding.adapters.AbsSpinnerBindingAdapter |
@@ -432,14 +441,14 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.databinding.ViewDataBinding | androidx.databinding.ViewDataBinding |
 | android.databinding.ViewStubProxy | androidx.databinding.ViewStubProxy |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.support
 
 ### android.support.animation
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.animation.AnimationHandler | androidx.dynamicanimation.animation.AnimationHandler |
 | android.support.animation.DynamicAnimation | androidx.dynamicanimation.animation.DynamicAnimation |
 | android.support.animation.FlingAnimation | androidx.dynamicanimation.animation.FlingAnimation |
@@ -449,12 +458,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.animation.SpringAnimation | androidx.dynamicanimation.animation.SpringAnimation |
 | android.support.animation.SpringForce | androidx.dynamicanimation.animation.SpringForce |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.annotation
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.annotation.AnimatorRes | androidx.annotation.AnimatorRes |
 | android.support.annotation.AnimRes | androidx.annotation.AnimRes |
 | android.support.annotation.AnyRes | androidx.annotation.AnyRes |
@@ -507,29 +516,29 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.annotation.WorkerThread | androidx.annotation.WorkerThread |
 | android.support.annotation.XmlRes | androidx.annotation.XmlRes |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.app
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.app.recommendation.ContentRecommendation | androidx.recommendation.app.ContentRecommendation |
 | android.support.app.recommendation.RecommendationExtender | androidx.recommendation.app.RecommendationExtender |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.compat
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.compat.R | androidx.core.R |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.constraint
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.constraint.Barrier | androidx.constraintlayout.widget.Barrier |
 | android.support.constraint.ConstraintHelper | androidx.constraintlayout.widget.ConstraintHelper |
 | android.support.constraint.ConstraintLayout | androidx.constraintlayout.widget.ConstraintLayout |
@@ -567,31 +576,31 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.constraint.solver.widgets.Snapshot | androidx.constraintlayout.solver.widgets.Snapshot |
 | android.support.constraint.solver.widgets.WidgetContainer | androidx.constraintlayout.solver.widgets.WidgetContainer |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.content
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.content.ContentPager | androidx.contentpager.content.ContentPager |
 | android.support.content.InMemoryCursor | androidx.contentpager.content.InMemoryCursor |
 | android.support.content.LoaderQueryRunner | androidx.contentpager.content.LoaderQueryRunner |
 | android.support.content.Query | androidx.contentpager.content.Query |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.coordinatorlayout
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.coordinatorlayout.R | androidx.coordinatorlayout.R |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.customtabs
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.customtabs.CustomTabsCallback | androidx.browser.customtabs.CustomTabsCallback |
 | android.support.customtabs.CustomTabsClient | androidx.browser.customtabs.CustomTabsClient |
 | android.support.customtabs.CustomTabsIntent | androidx.browser.customtabs.CustomTabsIntent |
@@ -607,12 +616,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.customtabs.R | androidx.browser.R |
 | android.support.customtabs.TrustedWebUtils | androidx.browser.customtabs.TrustedWebUtils |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.design
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.design.animation.AnimationUtils | com.google.android.material.animation.AnimationUtils |
 | android.support.design.animation.AnimatorSetCompat | com.google.android.material.animation.AnimatorSetCompat |
 | android.support.design.animation.ArgbEvaluatorCompat | com.google.android.material.animation.ArgbEvaluatorCompat |
@@ -730,12 +739,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.design.widget.ViewUtilsLollipop | com.google.android.material.appbar.ViewUtilsLollipop |
 | android.support.design.widget.VisibilityAwareImageButton | com.google.android.material.internal.VisibilityAwareImageButton |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.graphics
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.graphics.drawable.AndroidResources | androidx.vectordrawable.graphics.drawable.AndroidResources |
 | android.support.graphics.drawable.Animatable2Compat | androidx.vectordrawable.graphics.drawable.Animatable2Compat |
 | android.support.graphics.drawable.AnimatedVectorDrawableCompat | androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat |
@@ -746,12 +755,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.graphics.drawable.VectorDrawableCommon | androidx.vectordrawable.graphics.drawable.VectorDrawableCommon |
 | android.support.graphics.drawable.VectorDrawableCompat | androidx.vectordrawable.graphics.drawable.VectorDrawableCompat |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.media
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.media.ExifInterface | androidx.exifinterface.media.ExifInterface |
 | android.support.media.tv.BasePreviewProgram | androidx.tvprovider.media.tv.BasePreviewProgram |
 | android.support.media.tv.BaseProgram | androidx.tvprovider.media.tv.BaseProgram |
@@ -772,45 +781,45 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.media2.MediaSession2 | android.support.media2.MediaSession2 |
 | android.support.mediacompat.R | androidx.media.R |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.multidex
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.multidex.MultiDex | androidx.multidex.MultiDex |
 | android.support.multidex.MultiDexApplication | androidx.multidex.MultiDexApplication |
 | android.support.multidex.MultiDexExtractor | androidx.multidex.MultiDexExtractor |
 | android.support.multidex.ZipUtil | androidx.multidex.ZipUtil |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.percent
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.percent.PercentFrameLayout | androidx.percentlayout.widget.PercentFrameLayout |
 | android.support.percent.PercentLayoutHelper | androidx.percentlayout.widget.PercentLayoutHelper |
 | android.support.percent.PercentRelativeLayout | androidx.percentlayout.widget.PercentRelativeLayout |
 | android.support.percent.R | androidx.percentlayout.R |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.support.test
 
 ### android.support.test.annotation
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.test.annotation.Beta | androidx.test.annotation.Beta |
 | android.support.test.annotation.UiThreadTest | androidx.test.annotation.UiThreadTest |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.test.espresso
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.test.espresso.accessibility.AccessibilityChecks | androidx.test.espresso.accessibility.AccessibilityChecks |
 | android.support.test.espresso.action.AdapterDataLoaderAction | androidx.test.espresso.action.AdapterDataLoaderAction |
 | android.support.test.espresso.action.AdapterDataLoaderActionRemoteMsg | androidx.test.espresso.action.AdapterDataLoaderActionRemoteMsg |
@@ -863,7 +872,7 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.test.espresso.base.EventInjectionStrategy | androidx.test.espresso.base.EventInjectionStrategy |
 | android.support.test.espresso.base.EventInjector | androidx.test.espresso.base.EventInjector |
 | android.support.test.espresso.base.IdleNotifier | androidx.test.espresso.base.IdleNotifier |
-| android.support.test.espresso.base.IdlingResourceRegistry_Factory | androidx.test.espresso.base.IdlingResourceRegistry_Factory |
+| android.support.test.espresso.base.IdlingResourceRegistry\_Factory | androidx.test.espresso.base.IdlingResourceRegistry\_Factory |
 | android.support.test.espresso.base.IdlingResourceRegistry | androidx.test.espresso.base.IdlingResourceRegistry |
 | android.support.test.espresso.base.IdlingUiController | androidx.test.espresso.base.IdlingUiController |
 | android.support.test.espresso.base.InputManagerEventInjectionStrategy | androidx.test.espresso.base.InputManagerEventInjectionStrategy |
@@ -873,19 +882,19 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.test.espresso.base.MainThread | androidx.test.espresso.base.MainThread |
 | android.support.test.espresso.base.NoopIdleNotificationCallbackIdleNotifierProvider | androidx.test.espresso.base.NoopIdleNotificationCallbackIdleNotifierProvider |
 | android.support.test.espresso.base.NoopRunnableIdleNotifier | androidx.test.espresso.base.NoopRunnableIdleNotifier |
-| android.support.test.espresso.base.RootsOracle_Factory | androidx.test.espresso.base.RootsOracle_Factory |
+| android.support.test.espresso.base.RootsOracle\_Factory | androidx.test.espresso.base.RootsOracle\_Factory |
 | android.support.test.espresso.base.RootsOracle | androidx.test.espresso.base.RootsOracle |
-| android.support.test.espresso.base.RootViewPicker_Factory | androidx.test.espresso.base.RootViewPicker_Factory |
-| android.support.test.espresso.base.RootViewPicker_RootResultFetcher_Factory | androidx.test.espresso.base.RootViewPicker_RootResultFetcher_Factory |
+| android.support.test.espresso.base.RootViewPicker\_Factory | androidx.test.espresso.base.RootViewPicker\_Factory |
+| android.support.test.espresso.base.RootViewPicker\_RootResultFetcher\_Factory | androidx.test.espresso.base.RootViewPicker\_RootResultFetcher\_Factory |
 | android.support.test.espresso.base.RootViewPicker | androidx.test.espresso.base.RootViewPicker |
 | android.support.test.espresso.base.RootViewPickerScope | androidx.test.espresso.base.RootViewPickerScope |
 | android.support.test.espresso.base.SdkAsyncTask | androidx.test.espresso.base.SdkAsyncTask |
-| android.support.test.espresso.base.ThreadPoolExecutorExtractor_Factory | androidx.test.espresso.base.ThreadPoolExecutorExtractor_Factory |
+| android.support.test.espresso.base.ThreadPoolExecutorExtractor\_Factory | androidx.test.espresso.base.ThreadPoolExecutorExtractor\_Factory |
 | android.support.test.espresso.base.ThreadPoolExecutorExtractor | androidx.test.espresso.base.ThreadPoolExecutorExtractor |
-| android.support.test.espresso.base.UiControllerImpl_Factory | androidx.test.espresso.base.UiControllerImpl_Factory |
+| android.support.test.espresso.base.UiControllerImpl\_Factory | androidx.test.espresso.base.UiControllerImpl\_Factory |
 | android.support.test.espresso.base.UiControllerImpl | androidx.test.espresso.base.UiControllerImpl |
 | android.support.test.espresso.base.UiControllerModule | androidx.test.espresso.base.UiControllerModule |
-| android.support.test.espresso.base.ViewFinderImpl_Factory | androidx.test.espresso.base.ViewFinderImpl_Factory |
+| android.support.test.espresso.base.ViewFinderImpl\_Factory | androidx.test.espresso.base.ViewFinderImpl\_Factory |
 | android.support.test.espresso.base.ViewFinderImpl | androidx.test.espresso.base.ViewFinderImpl |
 | android.support.test.espresso.base.WindowManagerEventInjectionStrategy | androidx.test.espresso.base.WindowManagerEventInjectionStrategy |
 | android.support.test.espresso.BaseLayerComponent | androidx.test.espresso.BaseLayerComponent |
@@ -995,15 +1004,15 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.test.espresso.ViewAction | androidx.test.espresso.ViewAction |
 | android.support.test.espresso.ViewAssertion | androidx.test.espresso.ViewAssertion |
 | android.support.test.espresso.ViewFinder | androidx.test.espresso.ViewFinder |
-| android.support.test.espresso.ViewInteraction_Factory | androidx.test.espresso.ViewInteraction_Factory |
+| android.support.test.espresso.ViewInteraction\_Factory | androidx.test.espresso.ViewInteraction\_Factory |
 | android.support.test.espresso.ViewInteraction | androidx.test.espresso.ViewInteraction |
 | android.support.test.espresso.ViewInteractionComponent | androidx.test.espresso.ViewInteractionComponent |
-| android.support.test.espresso.ViewInteractionModule_ProvideNeedsActivityFactory | androidx.test.espresso.ViewInteractionModule_ProvideNeedsActivityFactory |
-| android.support.test.espresso.ViewInteractionModule_ProvideRemoteInteractionFactory | androidx.test.espresso.ViewInteractionModule_ProvideRemoteInteractionFactory |
-| android.support.test.espresso.ViewInteractionModule_ProvideRootMatcherFactory | androidx.test.espresso.ViewInteractionModule_ProvideRootMatcherFactory |
-| android.support.test.espresso.ViewInteractionModule_ProvideRootViewFactory | androidx.test.espresso.ViewInteractionModule_ProvideRootViewFactory |
-| android.support.test.espresso.ViewInteractionModule_ProvideViewFinderFactory | androidx.test.espresso.ViewInteractionModule_ProvideViewFinderFactory |
-| android.support.test.espresso.ViewInteractionModule_ProvideViewMatcherFactory | androidx.test.espresso.ViewInteractionModule_ProvideViewMatcherFactory |
+| android.support.test.espresso.ViewInteractionModule\_ProvideNeedsActivityFactory | androidx.test.espresso.ViewInteractionModule\_ProvideNeedsActivityFactory |
+| android.support.test.espresso.ViewInteractionModule\_ProvideRemoteInteractionFactory | androidx.test.espresso.ViewInteractionModule\_ProvideRemoteInteractionFactory |
+| android.support.test.espresso.ViewInteractionModule\_ProvideRootMatcherFactory | androidx.test.espresso.ViewInteractionModule\_ProvideRootMatcherFactory |
+| android.support.test.espresso.ViewInteractionModule\_ProvideRootViewFactory | androidx.test.espresso.ViewInteractionModule\_ProvideRootViewFactory |
+| android.support.test.espresso.ViewInteractionModule\_ProvideViewFinderFactory | androidx.test.espresso.ViewInteractionModule\_ProvideViewFinderFactory |
+| android.support.test.espresso.ViewInteractionModule\_ProvideViewMatcherFactory | androidx.test.espresso.ViewInteractionModule\_ProvideViewMatcherFactory |
 | android.support.test.espresso.ViewInteractionModule | androidx.test.espresso.ViewInteractionModule |
 | android.support.test.espresso.web.action.AtomAction | androidx.test.espresso.web.action.AtomAction |
 | android.support.test.espresso.web.action.AtomActionRemoteMessage | androidx.test.espresso.web.action.AtomActionRemoteMessage |
@@ -1048,12 +1057,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.test.espresso.web.webdriver.RemoteWebDriverAtoms | androidx.test.espresso.web.webdriver.RemoteWebDriverAtoms |
 | android.support.test.espresso.web.webdriver.WebDriverAtomScripts | androidx.test.espresso.web.webdriver.WebDriverAtomScripts |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.test.filters
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.test.filters.FlakyTest | androidx.test.filters.FlakyTest |
 | android.support.test.filters.LargeTest | androidx.test.filters.LargeTest |
 | android.support.test.filters.MediumTest | androidx.test.filters.MediumTest |
@@ -1062,32 +1071,32 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.test.filters.SmallTest | androidx.test.filters.SmallTest |
 | android.support.test.filters.Suppress | androidx.test.filters.Suppress |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.test.InstrumentRegistry
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.test.InstrumentationRegistry | androidx.test.InstrumentationRegistry |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.test.jank
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.test.jank.GfxMonitor | androidx.test.jank.GfxMonitor |
 | android.support.test.jank.JankTest | androidx.test.jank.JankTest |
 | android.support.test.jank.JankTestBase | androidx.test.jank.JankTestBase |
 | android.support.test.jank.WindowAnimationFrameStatsMonitor | androidx.test.jank.WindowAnimationFrameStatsMonitor |
 | android.support.test.jank.WindowContentFrameStatsMonitor | androidx.test.jank.WindowContentFrameStatsMonitor |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.test.orchestrato
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.test.orchestrator.callback.OrchestratorCallback | androidx.test.orchestrator.callback.OrchestratorCallback |
 | android.support.test.orchestrator.instrumentationlistener.OrchestratedInstrumentationListener | androidx.test.orchestrator.instrumentationlistener.OrchestratedInstrumentationListener |
 | android.support.test.orchestrator.junit.BundleJUnitUtils | androidx.test.orchestrator.junit.BundleJUnitUtils |
@@ -1101,12 +1110,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.test.orchestrator.listeners.result.TestResult | androidx.test.orchestrator.listeners.result.TestResult |
 | android.support.test.orchestrator.listeners.result.TestRunResult | androidx.test.orchestrator.listeners.result.TestRunResult |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.test.rule
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.test.rule.ActivityTestRule | androidx.test.rule.ActivityTestRule |
 | android.support.test.rule.DisableOnAndroidDebug | androidx.test.rule.DisableOnAndroidDebug |
 | android.support.test.rule.GrantPermissionRule | androidx.test.rule.GrantPermissionRule |
@@ -1119,12 +1128,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.test.rule.ServiceTestRule | androidx.test.rule.ServiceTestRule |
 | android.support.test.rule.UiThreadTestRule | androidx.test.rule.UiThreadTestRule |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.test.runner
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.test.runner.AndroidJUnit4 | androidx.test.runner.AndroidJUnit4 |
 | android.support.test.runner.AndroidJUnitRunner | androidx.test.runner.AndroidJUnitRunner |
 | android.support.test.runner.intent.IntentCallback | androidx.test.runner.intent.IntentCallback |
@@ -1156,12 +1165,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.test.runner.screenshot.UiAutomationWrapper | androidx.test.runner.screenshot.UiAutomationWrapper |
 | android.support.test.runner.UsageTrackerFacilitator | androidx.test.runner.UsageTrackerFacilitator |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ### android.support.test.uiautomator
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.test.uiautomator.AccessibilityNodeInfoDumper | androidx.test.uiautomator.AccessibilityNodeInfoDumper |
 | android.support.test.uiautomator.AccessibilityNodeInfoHelper | androidx.test.uiautomator.AccessibilityNodeInfoHelper |
 | android.support.test.uiautomator.By | androidx.test.uiautomator.By |
@@ -1196,12 +1205,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.test.uiautomator.Until | androidx.test.uiautomator.Until |
 | android.support.test.uiautomator.WaitMixin | androidx.test.uiautomator.WaitMixin |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.support.text
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.text.emoji.bundled.BundledEmojiCompatConfig | androidx.emoji.bundled.BundledEmojiCompatConfig |
 | android.support.text.emoji.EmojiCompat | androidx.emoji.text.EmojiCompat |
 | android.support.text.emoji.EmojiMetadata | androidx.emoji.text.EmojiMetadata |
@@ -1232,12 +1241,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.text.emoji.widget.ExtractButtonCompat | androidx.emoji.widget.ExtractButtonCompat |
 | android.support.text.emoji.widget.SpannableBuilder | androidx.emoji.widget.SpannableBuilder |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.support.transition
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.transition.AnimatorUtils | androidx.transition.AnimatorUtils |
 | android.support.transition.ArcMotion | androidx.transition.ArcMotion |
 | android.support.transition.AutoTransition | androidx.transition.AutoTransition |
@@ -1298,12 +1307,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.transition.WindowIdApi18 | androidx.transition.WindowIdApi18 |
 | android.support.transition.WindowIdImpl | androidx.transition.WindowIdImpl |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.support.v13
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.v13.app.ActivityCompat | androidx.legacy.app.ActivityCompat |
 | android.support.v13.app.FragmentCompat | androidx.legacy.app.FragmentCompat |
 | android.support.v13.app.FragmentPagerAdapter | androidx.legacy.app.FragmentPagerAdapter |
@@ -1316,12 +1325,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.v13.view.inputmethod.InputContentInfoCompat | androidx.core.view.inputmethod.InputContentInfoCompat |
 | android.support.v13.view.ViewCompat | androidx.legacy.view.ViewCompat |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.support.v14
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.v14.preference.EditTextPreferenceDialogFragment | androidx.preference.EditTextPreferenceDialogFragment |
 | android.support.v14.preference.ListPreferenceDialogFragment | androidx.preference.ListPreferenceDialogFragment |
 | android.support.v14.preference.MultiSelectListPreference | androidx.preference.MultiSelectListPreference |
@@ -1330,12 +1339,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.v14.preference.PreferenceFragment | androidx.preference.PreferenceFragment |
 | android.support.v14.preference.SwitchPreference | androidx.preference.SwitchPreference |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.support.v17
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.v17.internal.widget.OutlineOnlyWithChildrenFrameLayout | androidx.leanback.preference.internal.OutlineOnlyWithChildrenFrameLayout |
 | android.support.v17.leanback.animation.LogAccelerateInterpolator | androidx.leanback.animation.LogAccelerateInterpolator |
 | android.support.v17.leanback.animation.LogDecelerateInterpolator | androidx.leanback.animation.LogDecelerateInterpolator |
@@ -1569,12 +1578,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.v17.preference.LeanbackSettingsRootView | androidx.leanback.preference.LeanbackSettingsRootView |
 | android.support.v17.preference.R | androidx.leanback.preference.R |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.support.v4
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat | androidx.core.accessibilityservice.AccessibilityServiceInfoCompat |
 | android.support.v4.app.ActionBarDrawerToggle | androidx.legacy.app.ActionBarDrawerToggle |
 | android.support.v4.app.ActivityCompat | androidx.core.app.ActivityCompat |
@@ -1874,12 +1883,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.v4.widget.ViewDragHelper | androidx.customview.widget.ViewDragHelper |
 | android.support.v4.widget.ViewGroupUtils | androidx.coordinatorlayout.widget.ViewGroupUtils |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.support.v7
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.v7.app.ActionBar | androidx.appcompat.app.ActionBar |
 | android.support.v7.app.ActionBarDrawerToggle | androidx.appcompat.app.ActionBarDrawerToggle |
 | android.support.v7.app.ActionBarDrawerToggleHoneycomb | androidx.appcompat.app.ActionBarDrawerToggleHoneycomb |
@@ -2133,12 +2142,12 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.v7.widget.ViewUtils | androidx.appcompat.widget.ViewUtils |
 | android.support.v7.widget.WithHint | androidx.appcompat.widget.WithHint |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.support.wear
 
 | Support Library class | AndroidX class |
-|---|---|
+| --- | --- |
 | android.support.wear.activity.ConfirmationActivity | androidx.wear.activity.ConfirmationActivity |
 | android.support.wear.ambient.AmbientDelegate | androidx.wear.ambient.AmbientDelegate |
 | android.support.wear.ambient.AmbientMode | androidx.wear.ambient.AmbientMode |
@@ -2182,24 +2191,24 @@ Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappi
 | android.support.wear.widget.WearableLinearLayoutManager | androidx.wear.widget.WearableLinearLayoutManager |
 | android.support.wear.widget.WearableRecyclerView | androidx.wear.widget.WearableRecyclerView |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)
 
 ## android.test.espresso
 
 | Support Library class | AndroidX class |
-|---|---|
-| android.test.espresso.base.BaseLayerModule_FailureHandlerHolder_Factory | androidx.test.espresso.base.BaseLayerModule_FailureHandlerHolder_Factory |
-| android.test.espresso.base.BaseLayerModule_ProvideActiveRootListerFactory | androidx.test.espresso.base.BaseLayerModule_ProvideActiveRootListerFactory |
-| android.test.espresso.base.BaseLayerModule_ProvideCompatAsyncTaskMonitorFactory | androidx.test.espresso.base.BaseLayerModule_ProvideCompatAsyncTaskMonitorFactory |
-| android.test.espresso.base.BaseLayerModule_ProvideDynamicNotiferFactory | androidx.test.espresso.base.BaseLayerModule_ProvideDynamicNotiferFactory |
-| android.test.espresso.base.BaseLayerModule_ProvideEventInjectorFactory | androidx.test.espresso.base.BaseLayerModule_ProvideEventInjectorFactory |
-| android.test.espresso.base.BaseLayerModule_ProvideFailureHanderFactory | androidx.test.espresso.base.BaseLayerModule_ProvideFailureHanderFactory |
-| android.test.espresso.base.BaseLayerModule_ProvideFailureHandlerFactory | androidx.test.espresso.base.BaseLayerModule_ProvideFailureHandlerFactory |
-| android.test.espresso.base.BaseLayerModule_ProvideLifecycleMonitorFactory | androidx.test.espresso.base.BaseLayerModule_ProvideLifecycleMonitorFactory |
-| android.test.espresso.base.BaseLayerModule_ProvideMainLooperFactory | androidx.test.espresso.base.BaseLayerModule_ProvideMainLooperFactory |
-| android.test.espresso.base.BaseLayerModule_ProvideMainThreadExecutorFactory | androidx.test.espresso.base.BaseLayerModule_ProvideMainThreadExecutorFactory |
-| android.test.espresso.base.BaseLayerModule_ProvideRemoteExecutorFactory | androidx.test.espresso.base.BaseLayerModule_ProvideRemoteExecutorFactory |
-| android.test.espresso.base.BaseLayerModule_ProvideSdkAsyncTaskMonitorFactory | androidx.test.espresso.base.BaseLayerModule_ProvideSdkAsyncTaskMonitorFactory |
-| android.test.espresso.base.BaseLayerModule_ProvideTargetContextFactory | androidx.test.espresso.base.BaseLayerModule_ProvideTargetContextFactory |
+| --- | --- |
+| android.test.espresso.base.BaseLayerModule\_FailureHandlerHolder\_Factory | androidx.test.espresso.base.BaseLayerModule\_FailureHandlerHolder\_Factory |
+| android.test.espresso.base.BaseLayerModule\_ProvideActiveRootListerFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideActiveRootListerFactory |
+| android.test.espresso.base.BaseLayerModule\_ProvideCompatAsyncTaskMonitorFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideCompatAsyncTaskMonitorFactory |
+| android.test.espresso.base.BaseLayerModule\_ProvideDynamicNotiferFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideDynamicNotiferFactory |
+| android.test.espresso.base.BaseLayerModule\_ProvideEventInjectorFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideEventInjectorFactory |
+| android.test.espresso.base.BaseLayerModule\_ProvideFailureHanderFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideFailureHanderFactory |
+| android.test.espresso.base.BaseLayerModule\_ProvideFailureHandlerFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideFailureHandlerFactory |
+| android.test.espresso.base.BaseLayerModule\_ProvideLifecycleMonitorFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideLifecycleMonitorFactory |
+| android.test.espresso.base.BaseLayerModule\_ProvideMainLooperFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideMainLooperFactory |
+| android.test.espresso.base.BaseLayerModule\_ProvideMainThreadExecutorFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideMainThreadExecutorFactory |
+| android.test.espresso.base.BaseLayerModule\_ProvideRemoteExecutorFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideRemoteExecutorFactory |
+| android.test.espresso.base.BaseLayerModule\_ProvideSdkAsyncTaskMonitorFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideSdkAsyncTaskMonitorFactory |
+| android.test.espresso.base.BaseLayerModule\_ProvideTargetContextFactory | androidx.test.espresso.base.BaseLayerModule\_ProvideTargetContextFactory |
 
-Back to [top](https://developer.android.com/jetpack/androidx/migrate/class-mappings#top)
+Back to [top](#top)

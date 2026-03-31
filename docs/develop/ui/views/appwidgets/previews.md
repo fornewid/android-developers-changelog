@@ -47,7 +47,7 @@ required for `setWidgetPreview` to show as a method in this snippet.
         ),
         AppWidgetProviderInfo.WIDGET_CATEGORY_HOME_SCREEN,
         RemoteViews("com.example", R.layout.widget_preview)
-    )https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/views/src/main/java/com/example/example/snippet/views/appwidget/AppWidgetSnippets.kt#L42-L49
+    )https://github.com/android/snippets/blob/2c9cbd0f626c5eefc018fffa17af55372333e2bb/views/src/main/java/com/example/example/snippet/views/appwidget/AppWidgetSnippets.kt#L42-L49
 
 ## Add scalable widget previews
 

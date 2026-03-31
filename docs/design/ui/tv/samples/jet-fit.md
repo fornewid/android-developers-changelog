@@ -1,198 +1,143 @@
 ---
-title: https://developer.android.com/design/ui/tv/samples/jet-fit
+title: Jet Fit  |  TV  |  Android Developers
 url: https://developer.android.com/design/ui/tv/samples/jet-fit
-source: md.txt
+source: html-scrape
 ---
 
-# Jet Fit
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [UI Design](https://developer.android.com/design/ui)
+* [TV](https://developer.android.com/design/ui/tv)
+* [Samples](https://developer.android.com/design/ui/tv/samples/overview)
 
-Convert your living room into a gym and reach your fitness goals with on-demand workout classes, tailored training plans, and virtual coaching, all available at your fingertips.
+# Jet Fit Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+Convert your living room into a gym and reach your fitness goals with on-demand
+workout classes, tailored training plans, and virtual coaching, all
+available at your fingertips.
 
 ## Resources
 
-|  Type  |                             Link                              |  Status   |
-|--------|---------------------------------------------------------------|-----------|
-| Design | [Design source (Figma)](https://goo.gle/jet-fit-figma)        | Available |
-| Design | [IBM Plex Sans (Google Fonts)](https://goo.gle/jet-fit-fonts) | Available |
+| Type | Link | Status |
+| --- | --- | --- |
+| Design | [Design source (Figma)](https://goo.gle/jet-fit-figma) | Available |
+| [IBM Plex Sans (Google Fonts)](https://goo.gle/jet-fit-fonts) | Available |
 
 ## Theme
 
-<br />
+**Color theme**
 
-**Color theme**  
-![Color theme](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/color.webp)
+![Color theme](/static/design/ui/tv/samples/images/jet-fit/color.webp)
 
-<br />
+**Typography**
 
-<br />
+![Typography](/static/design/ui/tv/samples/images/jet-fit/typography.webp)
 
-**Typography**  
-![Typography](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/typography.webp)
+**Shape**
 
-<br />
+![Shape](/static/design/ui/tv/samples/images/jet-fit/shape.webp)
 
-<br />
+**Focus**
 
-**Shape**  
-![Shape](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/shape.webp)
-
-<br />
-
-<br />
-
-**Focus**  
-![Focus](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/focus-theme.webp)
-
-<br />
+![Focus](/static/design/ui/tv/samples/images/jet-fit/focus-theme.webp)
 
 ## Home
 
-<br />
+**Home**
 
-**Home**  
-![Home](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/home-01.webp)
+![Home](/static/design/ui/tv/samples/images/jet-fit/home-01.webp)
 
-<br />
+**Home alternative**
 
-<br />
+![Home alternative](/static/design/ui/tv/samples/images/jet-fit/home-02.webp)
 
-**Home alternative**  
-![Home alternative](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/home-02.webp)
+**Home navigation**
 
-<br />
+![Home navigation](/static/design/ui/tv/samples/images/jet-fit/home-nav.webp)
 
-<br />
+**Subscription**
 
-**Home navigation**  
-![Home navigation](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/home-nav.webp)
-
-<br />
-
-<br />
-
-**Subscription**  
-![Subscription](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/subscription.webp)
-
-<br />
+![Subscription](/static/design/ui/tv/samples/images/jet-fit/subscription.webp)
 
 ## Train
 
-<br />
+**Browse workouts**
 
-**Browse workouts**  
-![Browse workouts](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/training.webp)
+![Browse workouts](/static/design/ui/tv/samples/images/jet-fit/training.webp)
 
-<br />
+**Filters**
 
-<br />
+![Filters](/static/design/ui/tv/samples/images/jet-fit/filters.webp)
 
-**Filters**  
-![Filters](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/filters.webp)
+**Sort options**
 
-<br />
-
-<br />
-
-**Sort options**  
-![Sort options](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/sort-options.webp)
-
-<br />
+![Sort options](/static/design/ui/tv/samples/images/jet-fit/sort-options.webp)
 
 ## Entity details
 
-<br />
+**Challenge**
 
-**Challenge**  
-![Challenge](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/challenge.webp)
+![Challenge](/static/design/ui/tv/samples/images/jet-fit/challenge.webp)
 
-<br />
+**Challenge tabs**
 
-<br />
+![Challenge tabs](/static/design/ui/tv/samples/images/jet-fit/challenge-tabs.webp)
 
-**Challenge tabs**  
-![Challenge tabs](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/challenge-tabs.webp)
+**Challenge details**
 
-<br />
+![Challenge details](/static/design/ui/tv/samples/images/jet-fit/workout.webp)
 
-<br />
+**Workout routine**
 
-**Challenge details**  
-![Challenge details](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/workout.webp)
+![Workout routine](/static/design/ui/tv/samples/images/jet-fit/routine.webp)
 
-<br />
+**Workout series**
 
-<br />
-
-**Workout routine**  
-![Workout routine](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/routine.webp)
-
-<br />
-
-<br />
-
-**Workout series**  
-![Workout series](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/series.webp)
-
-<br />
+![Workout series](/static/design/ui/tv/samples/images/jet-fit/series.webp)
 
 ## Library
 
-<br />
+**Favorites**
 
-**Favorites**  
-![Favorites](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/favorites.webp)
+![Favorites](/static/design/ui/tv/samples/images/jet-fit/favorites.webp)
 
-<br />
+**Favorite details**
 
-<br />
+![Favorite details](/static/design/ui/tv/samples/images/jet-fit/favorites-details.webp)
 
-**Favorite details**  
-![Favorite details](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/favorites-details.webp)
+**More options**
 
-<br />
-
-<br />
-
-**More options**  
-![More options](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/more-options.webp)
-
-<br />
+![More options](/static/design/ui/tv/samples/images/jet-fit/more-options.webp)
 
 ## Playback
 
-<br />
+**Video player**
 
-**Video player**  
-![Video player](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/video-player.webp)
+![Video player](/static/design/ui/tv/samples/images/jet-fit/video-player.webp)
 
-<br />
+**Audio player**
 
-<br />
-
-**Audio player**  
-![Audio player](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/audio-player.webp)
-
-<br />
+![Audio player](/static/design/ui/tv/samples/images/jet-fit/audio-player.webp)
 
 ## Settings
 
-<br />
+**Units preferences**
 
-**Units preferences**  
-![Units preferences](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/settings-1.webp)
+![Units preferences](/static/design/ui/tv/samples/images/jet-fit/settings-1.webp)
 
-<br />
+**Language preferences**
 
-<br />
+![Language preferences](/static/design/ui/tv/samples/images/jet-fit/settings-2.webp)
 
-**Language preferences**  
-![Language preferences](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/settings-2.webp)
+**Subtitles**
 
-<br />
+![Subtitles](/static/design/ui/tv/samples/images/jet-fit/settings-4.webp)
 
-<br />
+[Previous
 
-**Subtitles**  
-![Subtitles](https://developer.android.com/static/design/ui/tv/samples/images/jet-fit/settings-4.webp)
+arrow\_back
 
-<br />
+Jet Stream](/design/ui/tv/samples/jet-stream)

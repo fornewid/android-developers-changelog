@@ -6,10 +6,7 @@ source: md.txt
 
 # Fragment
 
-[User Guide](https://developer.android.com/guide/components/fragments) [Code Sample](https://github.com/android/user-interface-samples) API Reference  
-[androidx.fragment.app](https://developer.android.com/reference/kotlin/androidx/fragment/app/package-summary)  
-[androidx.fragment.app.testing](https://developer.android.com/reference/kotlin/androidx/fragment/app/testing/package-summary)  
-Segment your app into multiple, independent screens that are hosted within an Activity.
+[User Guide](https://developer.android.com/guide/components/fragments) [Code Sample](https://github.com/android/user-interface-samples) Segment your app into multiple, independent screens that are hosted within an Activity.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
@@ -222,7 +219,7 @@ April 3, 2024
 
 **New Features**
 
-- The new `AndroidFragment` `Composable` allows adding fragments into the Compose hierarchy via the fragment class name. It automatically handles the saving and restoring of the Fragment's state. This can be used as a direct replacement for the [AndroidViewBinding](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/package-summary#AndroidViewBinding(kotlin.Function3,androidx.compose.ui.Modifier,kotlin.Function1)) `Composable`.([b/312895363](https://issuetracker.google.com/issues/312895363), [Icf841](https://android-review.googlesource.com/#/q/Icf84199bbe487b2a2b6a95d2b6e09415f810e77a))
+- The new `AndroidFragment` `Composable` allows adding fragments into the Compose hierarchy via the fragment class name. It automatically handles the saving and restoring of the Fragment's state. This can be used as a direct replacement for the [AndroidViewBinding](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidViewBinding.composable#AndroidViewBinding(kotlin.Function3,androidx.compose.ui.Modifier,kotlin.Function1)) `Composable`.([b/312895363](https://issuetracker.google.com/issues/312895363), [Icf841](https://android-review.googlesource.com/#/q/Icf84199bbe487b2a2b6a95d2b6e09415f810e77a))
 
 **Documentation Changes**
 
@@ -451,13 +448,16 @@ August 9, 2023
 June 7, 2023
 
 `androidx.fragment:fragment-*:1.7.0-alpha01` is released. This version is developed in an internal branch.
-| **Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher.
+
+> [!NOTE]
+> **Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher.
 
 **New Features**
 
 - Fragments now provide support for Predictive in-app back when using `Animator`. This allows you to use the back gesture to see the previous fragment with your custom Animator before deciding to either commit the transaction via the completed gesture or cancel. You can also disable this new behavior by using the experimental `enablePredictiveBack()`and passing in `false`.
 
-| **Note:** If using the [Navigation Component](https://developer.android.com/guide/navigation), you must upgrade to [Navigation `2.6.0`](https://developer.android.com/jetpack/androidx/releases/navigation#2.6.0) to allow `FragmentManager` to intercept the system back gesture and run the Predictive Back animation.
+> [!NOTE]
+> **Note:** If using the [Navigation Component](https://developer.android.com/guide/navigation), you must upgrade to [Navigation `2.6.0`](https://developer.android.com/jetpack/androidx/releases/navigation#2.6.0) to allow `FragmentManager` to intercept the system back gesture and run the Predictive Back animation.
 
 ## Version 1.6
 
@@ -1152,7 +1152,8 @@ The `FragmentStrictMode` APIs provide *runtime* checks that allow you to verify 
 
 ## Version 1.3
 
-| **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 1.3.6
 
@@ -1582,7 +1583,8 @@ March 4, 2020
 
 ## Version 1.2.5
 
-| **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 1.2.5
 
@@ -1597,7 +1599,8 @@ June 10, 2020
 
 ## Version 1.2.4
 
-| **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 1.2.4
 
@@ -1612,7 +1615,8 @@ April 1, 2020
 
 ## Version 1.2.3
 
-| **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 1.2.3
 
@@ -1629,7 +1633,8 @@ March 18, 2020
 
 ## Version 1.2.2
 
-| **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 1.2.2
 
@@ -1655,7 +1660,8 @@ February 19, 2020
 
 ## Version 1.2.1
 
-| **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 1.2.1
 
@@ -1677,7 +1683,8 @@ February 5, 2020
 
 ## Version 1.2.0
 
-| **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> [!NOTE]
+> **Note:** The Kotlin dependant libraries of this version (`fragment-ktx`,`fragment-testing`) target Java 8 programming language bytecode. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 ### Version 1.2.0
 

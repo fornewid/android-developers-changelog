@@ -66,7 +66,7 @@ In many cases, you can just use [Compose's standard layout
 elements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary).
 
 Use
-[`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1))
+[`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1))
 to place items vertically on the screen.
 
 
@@ -85,7 +85,7 @@ fun ArtistCardColumn() {
 ![Two text elements arranged in a column layout, so the text is readable](https://developer.android.com/static/develop/ui/compose/images/layout-text-in-column.png)
 
 Similarly, use
-[`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1))
+[`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1))
 to place items horizontally on the screen. Both `Column` and `Row` support
 configuring the alignment of the elements they contain.
 
@@ -107,7 +107,7 @@ fun ArtistCardRow(artist: Artist) {
 
 ![Shows a more complex layout, with a small graphic next to a column of text elements](https://developer.android.com/static/develop/ui/compose/images/layout-text-with-picture.png)
 
-Use [`Box`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Box(androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Boolean,kotlin.Function1)) to put elements on top of another. `Box` also supports configuring specific alignment of the elements it contains.
+Use [`Box`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Box.composable#Box(androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Boolean,kotlin.Function1)) to put elements on top of another. `Box` also supports configuring specific alignment of the elements it contains.
 
 
 ```kotlin
@@ -333,7 +333,7 @@ For example, `TopAppBar` allows you to provide the content for `title`,
 `navigationIcon`, and `actions`.
 
 For example,
-[`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
+[`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
 allows you to implement a UI with the basic Material Design layout structure.
 `Scaffold`provides slots for the most common top-level Material components,
 such as [`TopAppBar`](https://material.io/components/app-bars-top),

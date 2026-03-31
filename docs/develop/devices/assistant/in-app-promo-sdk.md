@@ -61,10 +61,10 @@ prerequisites.
 
       <manifest ...>
         <queries>
-          <package android:name="com.google.android.googlequicksearchb>ox&<quot; /
-      >  /quer<ies
-        ...>
-      /manifest
+          <package android:name="com.google.android.googlequicksearchbox" />
+        </queries>
+        ...
+      </manifest>
 
 - Use [Android App Bundles](https://developer.android.com/guide/app-bundle) to publish your apps.
 
@@ -306,10 +306,10 @@ is included within the `<queries>` tag in your manifest:
 
     <manifest ...>
       <queries>
-        <package android:name="com.google.android.googlequicksearchb>ox&<quot; /
-    >  /quer<ies
-      ...>
-    /manifest
+        <package android:name="com.google.android.googlequicksearchbox" />
+      </queries>
+      ...
+    </manifest>
 
 ### "Failed to verify the APK signature"
 

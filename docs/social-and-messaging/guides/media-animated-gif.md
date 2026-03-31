@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/social-and-messaging/guides/media-animated-gif
+title: Display animated GIFs  |  Android social  |  Android Developers
 url: https://developer.android.com/social-and-messaging/guides/media-animated-gif
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Social & Messaging Dev Center](https://developer.android.com/social-and-messaging)
+* [Guides](https://developer.android.com/social-and-messaging/guides)
+
+# Display animated GIFs Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Animated GIFs enhance communication and self expression, adding a dynamic and
 engaging element to conversations that allow users to convey emotions,
@@ -20,34 +29,42 @@ code demonstrates how to implement animated GIF playback using the
 
 **Add the Coil dependency for GIF:**
 
-    implementation("io.coil-kt:coil-gif:2.6.0")
+```
+implementation("io.coil-kt:coil-gif:2.6.0")
+```
 
 **Create the GIF-enabled loader** using both the platform ImageDecoder, added
 in Android 9 (API level 28), as well as Coil's GifDecoder for backwards compatibility:
 
-    val gifEnabledLoader = ImageLoader.Builder(this)
-        .components {
-            if ( SDK_INT >= 28 ) {
-                add(ImageDecoderDecoder.Factory())
-            } else {
-                add(GifDecoder.Factory())
-            }
-        }.build()
+```
+val gifEnabledLoader = ImageLoader.Builder(this)
+    .components {
+        if ( SDK_INT >= 28 ) {
+            add(ImageDecoderDecoder.Factory())
+        } else {
+            add(GifDecoder.Factory())
+        }
+    }.build()
+```
 
 **Use the gifEnabledLoader in your Coil AsyncImage composable:**
 
-    AsyncImage(
-        imageLoader = gifEnabledLoader,
-        ...
-    )
+```
+AsyncImage(
+    imageLoader = gifEnabledLoader,
+    ...
+)
+```
 
 ## Display an animated GIF using Android platform support
 
-    AsyncImage(
-         model = request,
-         imageLoader = videoEnabledLoader,
-         contentDescription = null
-     )
+```
+AsyncImage(
+     model = request,
+     imageLoader = videoEnabledLoader,
+     contentDescription = null
+ )
+```
 
 Android 9+ (API level 28) has built-in support for animated GIF files. With a
 little help from an [Accompanist library](https://medium.com/androiddevelopers/jetpack-compose-accompanist-an-faq-b55117b02712), Jetpack Compose can
@@ -55,32 +72,38 @@ play these animations with just a few lines of code.
 
 **Add the Accompanist library dependency to support drawable painters:**
 
-    implementation("com.google.accompanist:accompanist-drawablepainter:0.35.0-alpha")
+```
+implementation("com.google.accompanist:accompanist-drawablepainter:0.35.0-alpha")
+```
 
-**Create a method that loads the animated GIF** into an [AnimatedImageDrawable](https://developer.android.com/reference/android/graphics/drawable/AnimatedImageDrawable)
-using [ImageDecoder](https://developer.android.com/reference/android/graphics/ImageDecoder):
+**Create a method that loads the animated GIF** into an [AnimatedImageDrawable](/reference/android/graphics/drawable/AnimatedImageDrawable)
+using [ImageDecoder](/reference/android/graphics/ImageDecoder):
 
-    private fun createAnimatedImageDrawableFromImageDecoder(context: Context, uri: Uri): AnimatedImageDrawable {
-        val source = ImageDecoder.createSource(context.contentResolver, uri)
-        val drawable = ImageDecoder.decodeDrawable(source)
-        return drawable as AnimatedImageDrawable
-    }
+```
+private fun createAnimatedImageDrawableFromImageDecoder(context: Context, uri: Uri): AnimatedImageDrawable {
+    val source = ImageDecoder.createSource(context.contentResolver, uri)
+    val drawable = ImageDecoder.decodeDrawable(source)
+    return drawable as AnimatedImageDrawable
+}
+```
 
 **Use the [rememberDrawablePainter](https://google.github.io/accompanist/api/drawablepainter/com.google.accompanist.drawablepainter/remember-drawable-painter.html) with the**
 **`AnimatedImageDrawable`**:
 
-    Image(
-        painter = rememberDrawablePainter(
-            drawable = createAnimatedImageDrawableFromImageDecoder(applicationContext, mediaUri)),
-         contentDescription = "animated gif"
-    )
+```
+Image(
+    painter = rememberDrawablePainter(
+        drawable = createAnimatedImageDrawableFromImageDecoder(applicationContext, mediaUri)),
+     contentDescription = "animated gif"
+)
+```
 
 ### Support GIF files from image keyboards and other rich content
 
 Animated GIF files are popular features in many Android keyboards, including
 Gboard from Google. The current recommended way to support any kind of
 sticker or animation, whether it comes from the input method or from another
-app, is to use an [`OnReceiveContentListener`](https://developer.android.com/reference/androidx/core/view/OnReceiveContentListener).
+app, is to use an [`OnReceiveContentListener`](/reference/androidx/core/view/OnReceiveContentListener).
 
-See [Receive rich content](https://developer.android.com/develop/ui/views/receive-rich-content) to learn more about how to implement support for
+See [Receive rich content](/develop/ui/views/receive-rich-content) to learn more about how to implement support for
 receiving GIF animations and other rich media in your app.

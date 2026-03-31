@@ -1,41 +1,51 @@
 ---
-title: https://developer.android.com/games/pgs/terms
+title: Terms of Service for Google Play Games Services  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/pgs/terms
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+# Terms of Service for Google Play Games Services Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 Last modified: June 26th, 2020
-By using this API, you consent to be bound by these terms in addition to the [Google APIs Terms of Service](http://developers.google.com/terms) ("API ToS").
 
-1.
+By using this API, you consent to be bound by these terms in
+addition to the
+[Google APIs Terms of Service](http://developers.google.com/terms)
+("API ToS").
 
-   ## Developer Content Policies
+1. ## Developer Content Policies
 
    To use Google Play Games Services, you must comply with the
    [Google Play Developer Policies](https://play.google.com/about/developer-content-policy/#!?modal_active=none).
-2.
-
-   ## Gameplay Information
+2. ## Gameplay Information
 
    You must not permit your API Client to: (1) submit to Google any false gameplay
    information (such as invalid scores for a user in a leaderboard, or an achievement that
    a user did not earn); (2) send or accept an invite to, or take a turn in, a multiplayer
    game (including automatching requests) without an explicit approval from a user; or (3)
    send, request, or accept an in-game gift, without an explicit approval from a user.
-3.
-
-   ## Privacy and Data Protection
+3. ## Privacy and Data Protection
 
    Google Play Games Services makes certain user data available to you solely to provide
    and improve your games. By using Google Play Games Services, you agree to the
    [Google Controller-Controller Data Protection Terms](https://privacy.google.com/businesses/gdprcontrollerterms/). In addition, you must not use
    data from Google Play Games Services for advertising purposes.
 
-   If you use the Google Play Games Services to access an end user's friend data, you may
-   not store or retain an end user's friends data received from your use of the APIs
+   If you use the Google Play Games Services to access an end user’s friend data, you may
+   not store or retain an end user’s friends data received from your use of the APIs
    (including any derived data) for more than 30 calendar days. After 30 calendar days, you
    must either delete or refresh the stored data via a new call to the APIs. You may use an
-   end user's friends data that you received from your use of the APIs (including any
+   end user’s friends data that you received from your use of the APIs (including any
    derived data) only for the purpose of displaying a friends list to the end user within
    the game or enabling related friends functionality visible to the end user and not for
    any other purpose (including improving your apps or services, research, advertising, or
@@ -48,16 +58,13 @@ By using this API, you consent to be bound by these terms in addition to the [Go
    submitted to Google and associated with their Play Games identity and viewable within
    different Google products.
 
-   You must not permit your API Client to reveal the user's Google identity to other
+   You must not permit your API Client to reveal the user’s Google identity to other
    users in multiplayer matches where players are automatically matched using Google Play
    Games Services.
-4.
-
-   ## Submission of Content
+4. ## Submission of Content
 
    The "Submission of Content" provision in Section 5 of the API ToS is deleted in its
    entirety and replaced with the following:
-
 
    "Some of our APIs allow the submission of content, and except as expressly provided in
    these Terms, Google does not acquire any ownership of any intellectual property rights
@@ -79,9 +86,7 @@ By using this API, you consent to be bound by these terms in addition to the [Go
    Nothing in this Section 5 is intended to grant Google a license to make the API
    Client available on our properties following your notice of termination as set forth
    in Section 8 of the API ToS.
-5.
-
-   ## Indemnification
+5. ## Indemnification
 
    The "Indemnification" provision in Section 9 of the API ToS is deleted in its entirety
    and replaced with the following:
@@ -89,15 +94,27 @@ By using this API, you consent to be bound by these terms in addition to the [Go
    "You agree to hold harmless and indemnify Google and its subsidiaries, affiliates,
    officers, agents, employees, and partners from and against any third party claim
    arising from or in any way related to:
-   - your misuse of Google Play Games Services
-   - your violation of these Terms; or
-   - any third party's misuse of Google Play Games Services or actions that would constitute a violation of these terms provided that you enabled such third party to access the APIs or failed to take reasonable steps to prevent such third party from accessing the APIs, including any liability or expense arising from all claims, losses, damages (actual and consequential), suits, judgments, litigation costs and attorneys' fees, of every kind and nature. In such a case, Google will provide you with written notice of such claim, suit, or action."
-6.
 
-   ## Object Code License
+   * your misuse of Google Play Games Services
+   * your violation of these Terms; or
+   * any third party's misuse of Google Play Games Services or actions that would
+     constitute a violation of these terms provided that you enabled such third party to
+     access the APIs or failed to take reasonable steps to prevent such third party from
+     accessing the APIs, including any liability or expense arising from all claims, losses,
+     damages (actual and consequential), suits, judgments, litigation costs and attorneys'
+     fees, of every kind and nature. In such a case, Google will provide you with written
+     notice of such claim, suit, or action."
+6. ## Object Code License
 
    Any Google-provided object code that calls the APIs is part of the APIs. Subject to these
    terms, you may copy and distribute this code solely for inclusion as part of your API
    Client. Google and its licensors own all right, title and interest, including all
    intellectual property and other proprietary rights, in and to this code. You will not
    modify, translate, or create derivative works of the code.
+
+
+
+
+
+
+Send feedback

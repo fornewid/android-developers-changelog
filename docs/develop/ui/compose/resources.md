@@ -191,7 +191,7 @@ theme contains the same icons, but with a distinct visual style. You should
 typically choose one theme and use it across your application for consistency.
 
 To draw an icon, you can use the
-[`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#Icon(androidx.compose.ui.graphics.vector.ImageVector,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color))
+[`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material/Icon.composable#Icon(androidx.compose.ui.graphics.vector.ImageVector,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color))
 composable which applies tint and provides layout size matching the icon.
 
 

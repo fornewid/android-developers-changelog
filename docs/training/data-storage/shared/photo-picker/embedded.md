@@ -1,10 +1,19 @@
 ---
-title: https://developer.android.com/training/data-storage/shared/photo-picker/embedded
+title: Embedded photo picker  |  App data and files  |  Android Developers
 url: https://developer.android.com/training/data-storage/shared/photo-picker/embedded
-source: md.txt
+source: html-scrape
 ---
 
-![Animation showing the continuous photo picker selection process](https://developer.android.com/static/training/data-storage/shared/photo-picker/assets/continuous2.gif)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [App data and files](https://developer.android.com/training/data-storage)
+
+# Embedded photo picker Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+![Animation showing the continuous photo picker selection process](/static/training/data-storage/shared/photo-picker/assets/continuous2.gif)
 
 The embedded photo picker is a different form of photo picking experience,
 allowing it to be interacted directly within apps's user interfaces. It offers
@@ -28,20 +37,22 @@ The embedded photo picker is supported on devices running Android 14 (API level
 34) with SDK Extensions version 15 or higher.
 
 Devices that don't match these capabilities can rely on the [classic photo
-picker or the backported version](https://developer.android.com/training/data-storage/shared/photopicker#device-availability) using Google Play services.
+picker or the backported version](/training/data-storage/shared/photopicker#device-availability) using Google Play services.
 
 ## Jetpack library dependency
 
 Include the Jetpack photo picker library as a dependency:
 
-    // For apps using Jetpack Compose
-    implementation("androidx.photopicker:photopicker-compose:1.0.0-alpha01")
+```
+// For apps using Jetpack Compose
+implementation("androidx.photopicker:photopicker-compose:1.0.0-alpha01")
 
-    // For apps using Views
-    implementation("androidx.photopicker:photopicker:1.0.0-alpha01")
+// For apps using Views
+implementation("androidx.photopicker:photopicker:1.0.0-alpha01")
+```
 
-You can integrate the embedded photo picker using [Jetpack Compose](https://developer.android.com/training/data-storage/shared/photo-picker/embedded#compose)
-(recommended) or [Views](https://developer.android.com/training/data-storage/shared/photo-picker/embedded#views).
+You can integrate the embedded photo picker using [Jetpack Compose](#compose)
+(recommended) or [Views](#views).
 
 ## Jetpack Compose integration
 
@@ -52,26 +63,28 @@ manages the connection to the `EmbeddedPhotoPicker` service, handles user
 interactions, and communicates selected media URIs to the calling application
 with few parameters to work:
 
-    val coroutineScope = rememberCoroutineScope()
-    val pickerState = rememberEmbeddedPhotoPickerState()
+```
+val coroutineScope = rememberCoroutineScope()
+val pickerState = rememberEmbeddedPhotoPickerState()
 
-    EmbeddedPhotoPicker(
-        state = pickerState,
-        onUriPermissionGranted = { uris ->
-            _attachments.value += uris
-        },
-        onUriPermissionRevoked = { uris ->
-            _attachments.value -= uris
-        },
-        onSelectionComplete = {
-            // Hide the embedded photo picker as the user is done with the
-            // photo/video selection
-        },
-    )
+EmbeddedPhotoPicker(
+    state = pickerState,
+    onUriPermissionGranted = { uris ->
+        _attachments.value += uris
+    },
+    onUriPermissionRevoked = { uris ->
+        _attachments.value -= uris
+    },
+    onSelectionComplete = {
+        // Hide the embedded photo picker as the user is done with the
+        // photo/video selection
+    },
+)
+```
 
 ## Continuous selection
 
-![Animation showing the continuous photo picker selection process](https://developer.android.com/static/training/data-storage/shared/photo-picker/assets/continuous2.gif)
+![Animation showing the continuous photo picker selection process](/static/training/data-storage/shared/photo-picker/assets/continuous2.gif)
 
 The embedded photo picker allows users to continuously select and deselect items
 from the photo library without closing the picker. The items selected and
@@ -84,12 +97,14 @@ from the app's UI. Updating your own app UI state manually is necessary, as
 calling these methods won't notify your app of any newly-revoked URIs through
 the `onUriPermissionRevoked` callback.
 
-    coroutineScope.launch {
-        // Signal unselected media to the picker
-        pickerState.deselectUris(uris)
-        // Remove them from the list of selected media to be reflected in the app's UI
-        _attachments.value -= uris
-    }
+```
+coroutineScope.launch {
+    // Signal unselected media to the picker
+    pickerState.deselectUris(uris)
+    // Remove them from the list of selected media to be reflected in the app's UI
+    _attachments.value -= uris
+}
+```
 
 ## Personalize the photo picker
 
@@ -106,16 +121,18 @@ the photo picker. All other colors will be set based on Android material
 guidelines. To personalise the accent color of the picker, define the
 `EmbeddedPhotoPickerFeatureInfo` option:
 
-    val info = EmbeddedPhotoPickerFeatureInfo.Builder().setAccentColor(0xFF0000).build()
+```
+val info = EmbeddedPhotoPickerFeatureInfo.Builder().setAccentColor(0xFF0000).build()
 
-    EmbeddedPhotoPicker(
-        embeddedPhotoPickerFeatureInfo = info,
-        ...
-    )
+EmbeddedPhotoPicker(
+    embeddedPhotoPickerFeatureInfo = info,
+    ...
+)
+```
 
 | Without setting accent color | With accent color (peak) | With accent color (expanded) |
-|---|---|---|
-| ![Photo picker screenshot without setting accent color](https://developer.android.com/static/training/data-storage/shared/photo-picker/assets/without-accent.png) | ![Photo picker screenshot with accent color (peak)](https://developer.android.com/static/training/data-storage/shared/photo-picker/assets/with-accent-peak.png) | ![Photo picker screenshot with accent color (expanded)](https://developer.android.com/static/training/data-storage/shared/photo-picker/assets/with-accent-expanded2.png) |
+| --- | --- | --- |
+| Photo picker screenshot without setting accent color | Photo picker screenshot with accent color (peak) | Photo picker screenshot with accent color (expanded) |
 
 The accent color must be fully opaque. The alpha (transparency) value is
 ignored. Only colors with a luminance (brightness) value between 0.05 and 0.9
@@ -126,95 +143,104 @@ are permitted.
 By default, the size of the embedded picker isn't limited but you can specify a
 modifier to limit it:
 
-    EmbeddedPhotoPicker(
-        modifier = Modifier.height(500.dp),
-        ...
-    )
+```
+EmbeddedPhotoPicker(
+    modifier = Modifier.height(500.dp),
+    ...
+)
+```
 
 | Without limit (expanded) | With 500 dp limit (expanded) |
-|---|---|
-| ![Photo picker screenshot](https://developer.android.com/static/training/data-storage/shared/photo-picker/assets/without-limit-expanded2.png) | ![Photo picker screenshot](https://developer.android.com/static/training/data-storage/shared/photo-picker/assets/with-500dp-limit-expanded.png) |
+| --- | --- |
+| Photo picker screenshot | Photo picker screenshot |
 
 ## Views integration
 
 To add the embedded photo picker using Views, add an entry to your layout file:
 
-    <view class="androidx.photopicker.EmbeddedPhotoPickerView"
-        android:id="@+id/photopicker"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+```
+<view class="androidx.photopicker.EmbeddedPhotoPickerView"
+    android:id="@+id/photopicker"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+```
 
 Then, initialize the photo picker in your activity's `onCreate` method by doing
 the following:
 
 1. Obtain a reference to your `EmbeddedPhotoPickerView` from the layout
 2. Add the `EmbeddedPhotoPickerStateChangeListener` to handle selection events
-3. Configure the photo picker with `EmbeddedPhotoPickerFeatureInfo`, including any custom settings like accent color
+3. Configure the photo picker with `EmbeddedPhotoPickerFeatureInfo`, including
+   any custom settings like accent color
 
-    // Keep track of the selected media
-    private val _attachments = MutableStateFlow(emptyList<Uri>())
-    val attachments = _attachments.asStateFlow()
+```
+// Keep track of the selected media
+private val _attachments = MutableStateFlow(emptyList<Uri>())
+val attachments = _attachments.asStateFlow()
 
-    private lateinit var picker: EmbeddedPhotoPickerView
-    private var openSession: EmbeddedPhotoPickerSession? = null
+private lateinit var picker: EmbeddedPhotoPickerView
+private var openSession: EmbeddedPhotoPickerSession? = null
 
-    val pickerListener = object : EmbeddedPhotoPickerStateChangeListener {
-        override fun onSessionOpened(newSession: EmbeddedPhotoPickerSession) {
-            // Keep reference to the session to notify the embedded picker of user
-            // interactions on the calling app
-            openSession = newSession
-        }
-
-        override fun onSessionError(throwable: Throwable) {}
-
-        override fun onUriPermissionGranted(uris: List<Uri>) {
-            // Add newly selected media to our tracked list
-            _attachments += uris
-        }
-
-        override fun onUriPermissionRevoked(uris: List<Uri>) {
-            // Remove newly unselected media from our tracked list
-            _attachments -= uris
-        }
-
-        override fun onSelectionComplete() {
-            // Hide the embedded photo picker as the user is done with the
-            // photo/video selection
-        }
+val pickerListener = object : EmbeddedPhotoPickerStateChangeListener {
+    override fun onSessionOpened(newSession: EmbeddedPhotoPickerSession) {
+        // Keep reference to the session to notify the embedded picker of user
+        // interactions on the calling app
+        openSession = newSession
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onSessionError(throwable: Throwable) {}
 
-        setContentView(R.layout.main_view)
-        picker = findViewById(R.id.photopicker)
-
-        // Attach the embedded picker event listener to update the app's UI
-        picker.addEmbeddedPhotoPickerStateChangeListener(pickerListener)
-
-        // Customize embedded picker's features: accent color, max selectable items,
-        // pre-selected URIs, filter out mime types
-        picker.setEmbeddedPhotoPickerFeatureInfo(
-            // Set a custom accent color
-            EmbeddedPhotoPickerFeatureInfo.Builder().setAccentColor(0xFF0000).build()
-        )
+    override fun onUriPermissionGranted(uris: List<Uri>) {
+        // Add newly selected media to our tracked list
+        _attachments += uris
     }
+
+    override fun onUriPermissionRevoked(uris: List<Uri>) {
+        // Remove newly unselected media from our tracked list
+        _attachments -= uris
+    }
+
+    override fun onSelectionComplete() {
+        // Hide the embedded photo picker as the user is done with the
+        // photo/video selection
+    }
+}
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+
+    setContentView(R.layout.main_view)
+    picker = findViewById(R.id.photopicker)
+
+    // Attach the embedded picker event listener to update the app's UI
+    picker.addEmbeddedPhotoPickerStateChangeListener(pickerListener)
+
+    // Customize embedded picker's features: accent color, max selectable items,
+    // pre-selected URIs, filter out mime types
+    picker.setEmbeddedPhotoPickerFeatureInfo(
+        // Set a custom accent color
+        EmbeddedPhotoPickerFeatureInfo.Builder().setAccentColor(0xFF0000).build()
+    )
+}
+```
 
 You can call with the different methods of `EmbeddedPhotoPickerSession` to
 interact with the embedded picker:
 
-    // Notify the embedded picker of a configuration change
-    openSession.notifyConfigurationChanged(newConfig)
+```
+// Notify the embedded picker of a configuration change
+openSession.notifyConfigurationChanged(newConfig)
 
-    // Update the embedded picker to expand following a user interaction
-    openSession.notifyPhotoPickerExpanded(/* expanded: */ true)
+// Update the embedded picker to expand following a user interaction
+openSession.notifyPhotoPickerExpanded(/* expanded: */ true)
 
-    // Resize the embedded picker
-    openSession.notifyResized(/* width: */ 512, /* height: */ 256)
+// Resize the embedded picker
+openSession.notifyResized(/* width: */ 512, /* height: */ 256)
 
-    // Show/hide the embedded picker (after a form has been submitted)
-    openSession.notifyVisibilityChanged(/* visible: */ false)
+// Show/hide the embedded picker (after a form has been submitted)
+openSession.notifyVisibilityChanged(/* visible: */ false)
 
-    // Remove unselected media from the embedded picker after they have been
-    // unselected from the host app's UI
-    openSession.requestRevokeUriPermission(removedUris)
+// Remove unselected media from the embedded picker after they have been
+// unselected from the host app's UI
+openSession.requestRevokeUriPermission(removedUris)
+```

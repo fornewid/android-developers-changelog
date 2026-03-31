@@ -1,12 +1,22 @@
 ---
-title: https://developer.android.com/games/engines/cocos/cocos-aab
+title: Publish your game with Android App Bundle in Cocos Creator  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/engines/cocos/cocos-aab
-source: md.txt
+source: html-scrape
 ---
 
-# Publish your game with Android App Bundle in Cocos Creator
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
 
-An [Android App Bundle](https://developer.android.com/guide/app-bundle) is a publishing format that includes
+Send feedback
+
+# Publish your game with Android App Bundle in Cocos Creator Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+An [Android App Bundle](/guide/app-bundle) is a publishing format that includes
 all your app's compiled code and resources, and defers APK generation and
 signing to Google Play.
 
@@ -20,4 +30,11 @@ users get smaller, more-optimized downloads.
 
 In Cocos Creator, just check the **Generate App Bundle (Google Play)** option in
 the Android Build panel. Your game will then be published with the AAB format.
-![abb.png](https://developer.android.com/static/images/games/engines/cocos/abb.png)
+![abb.png](/static/images/games/engines/cocos/abb.png)
+
+
+
+
+
+
+Send feedback

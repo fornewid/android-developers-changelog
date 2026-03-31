@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/develop/ui/views/layout/webapps/debug-chrome-devtools
+title: Debug using Chrome DevTools  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/layout/webapps/debug-chrome-devtools
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Debug using Chrome DevTools Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 You can use the DevTools built into the Chrome browser running on your
 development machine to remotely inspect and debug the WebViews running in your
@@ -16,9 +26,11 @@ To learn more about DevTools, see [Overview of Chrome DevTools](https://develope
 Your app's WebView won't enable connections from Chrome DevTools by default.
 You must enable WebView debugging in your application's code.
 
-1. Make sure you are set up to [run your app on a hardware](https://developer.android.com/studio/run/device) or [virtual
-   device](https://developer.android.com/studio/run/emulator).
-2. Enable WebView debugging in your application code by calling [`setWebContentsDebuggingEnabled`](https://developer.android.com/reference/android/webkit/WebView#setWebContentsDebuggingEnabled(boolean)). This is usually done in the `Activity` or `Application` class where the WebView is initialized.
+1. Make sure you are set up to [run your app on a hardware](/studio/run/device) or [virtual
+   device](/studio/run/emulator).
+2. Enable WebView debugging in your application code by calling
+   [`setWebContentsDebuggingEnabled`](/reference/android/webkit/WebView#setWebContentsDebuggingEnabled(boolean)). This is usually done in the `Activity`
+   or `Application` class where the WebView is initialized.
 
 We recommend wrapping `setWebContentsDebuggingEnabled` in a conditional check so
 that debugging is enabled only in development builds, not in production. This
@@ -31,20 +43,24 @@ the following example:
 
 ### Kotlin
 
-    if (applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE != 0) {
-         WebView.setWebContentsDebuggingEnabled(true)
-    }
+```
+if (applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE != 0) {
+     WebView.setWebContentsDebuggingEnabled(true)
+}
+```
 
 ### Java
 
-    if (0 != (getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE)) {
-         WebView.setWebContentsDebuggingEnabled(true);
-    }
+```
+if (0 != (getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE)) {
+     WebView.setWebContentsDebuggingEnabled(true);
+}
+```
 
 ## Start debugging your WebView
 
 After you have enabled WebView debugging in your application code and your app
-is running on a physical device or the [Android Emulator](https://developer.android.com/studio/run/emulator), connect Chrome
+is running on a physical device or the [Android Emulator](/studio/run/emulator), connect Chrome
 DevTools to your WebView:
 
 1. Open Chrome on your development machine.
@@ -52,7 +68,10 @@ DevTools to your WebView:
 3. On the `chrome://inspect` page, make sure **Discover USB devices** is
    checked. Find your device in the **Remote Target** section.
 
-   ![Chrome DevTools inspect page showing remote targets available for debugging](https://developer.android.com/static/develop/ui/views/layout/webapps/images/chrome-devtools-remote-target.png) **Figure 1.** Chrome DevTools inspect page showing remote targets available for debugging.
+   ![Chrome DevTools inspect page showing remote targets available for debugging](/static/develop/ui/views/layout/webapps/images/chrome-devtools-remote-target.png)
+
+
+   **Figure 1.** Chrome DevTools inspect page showing remote targets available for debugging.
 4. Under your device's name, Chrome lists all debug-enabled WebViews running
    on that device, usually identified by **WebView in** followed by the app's
    package name. Find the WebView you want to debug, and click the **inspect**
@@ -62,6 +81,6 @@ You will see a new DevTools instance open that you can use to inspect your
 WebView.
 
 If you're serving content from a local web server on your development machine,
-see [Access a local development server from WebView](https://developer.android.com/develop/ui/views/layout/webapps/access-local-server) to learn how to connect
+see [Access a local development server from WebView](/develop/ui/views/layout/webapps/access-local-server) to learn how to connect
 to it from your device or emulator. For troubleshooting, see [Remote debug
 Android devices](https://developer.chrome.com/docs/devtools/remote-debugging#troubleshooting) and [Remote debugging WebViews](https://developer.chrome.com/docs/devtools/remote-debugging/webviews#troubleshooting).

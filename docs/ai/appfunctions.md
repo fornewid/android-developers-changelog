@@ -72,11 +72,19 @@ follows:
 The AppFunctions Jetpack library simplifies exposing your app's functionality.
 With the annotation processor, developers annotate the functions they want
 to expose. Callers can then discover and invoke these indexed functions using
-`AppFunctionManager`.
+[`AppFunctionManager`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager).
+
+Before invoking a function, callers should verify that the device supports
+the AppFunctions feature by attempting to retrieve an instance of
+`AppFunctionManager`. Once supported, callers can verify whether a specific
+function is enabled within a target app using
+[`isAppFunctionEnabled(packageName, functionId)`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager#isAppFunctionEnabled(kotlin.String)). Querying the status of
+functions in other packages requires the
+[`android.permission.EXECUTE_APP_FUNCTIONS permission`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager#isAppFunctionEnabled(kotlin.String,kotlin.String)).
 
 Your app is not required to verify whether the AppFunction feature is supported;
 this is automatically handled within the Jetpack library. For example,
-[AppFunctionManager](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManagerCompat) can verify whether or not the feature is supported.
+[AppFunctionManager](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager) can verify whether or not the feature is supported.
 
 Here's an example of AppFunctions for a note-taking app with
 capabilities to create, edit, and list notes.

@@ -7,7 +7,7 @@ source: md.txt
 There are three ways you can adopt Styles throughout your app:
 
 1. Use directly on existing components that expose a [`Style`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/style/Style) parameter.
-2. Apply a style with [`Modifier.styleable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/style/package-summary#(androidx.compose.ui.Modifier).styleable(androidx.compose.foundation.style.StyleState,androidx.compose.foundation.style.Style)) on layout composables that don't accept a `Style` parameter.
+2. Apply a style with [`Modifier.styleable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/style/styleable.modifier#(androidx.compose.ui.Modifier).styleable(androidx.compose.foundation.style.StyleState,androidx.compose.foundation.style.Style)) on layout composables that don't accept a `Style` parameter.
 3. In your own custom design system, use `Modifier.styleable{}` and expose a style parameter on your own components.
 
 ## Available properties on Styles

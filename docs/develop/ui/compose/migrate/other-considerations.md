@@ -203,7 +203,7 @@ is closer to the root of the UI hierarchy.
 ### Compose as the source of truth
 
 Use the
-[`SideEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#SideEffect(kotlin.Function0))
+[`SideEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/SideEffect.composable#SideEffect(kotlin.Function0))
 composable to publish Compose state to non-Compose code. In this case, the
 source of truth is kept in a composable, which sends state updates.
 

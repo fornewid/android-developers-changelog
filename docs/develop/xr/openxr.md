@@ -1,17 +1,42 @@
 ---
-title: https://developer.android.com/develop/xr/openxr
+title: Develop with OpenXR  |  Android XR for OpenXR  |  Android Developers
 url: https://developer.android.com/develop/xr/openxr
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+The Android XR SDK has  [reached Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android XR](https://developer.android.com/develop/xr)
+* [OpenXR](https://developer.android.com/develop/xr/openxr)
+* [Guides](https://developer.android.com/develop/xr/get-started)
+
+# Develop with OpenXR Stay organized with collections Save and categorize content based on your preferences.
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
-<br />
 
-![The OpenXR text logo](https://developer.android.com/static/images/develop/xr/openxr.svg)
+Applicable XR devices
+
+This guidance helps you build experiences for these types of XR devices.
+
+[Learn about XR device types →](/develop/xr/devices)
+
+![](/static/images/develop/xr/xr-headsets-icon.svg)
+
+
+XR Headsets
+
+![](/static/images/develop/xr/xr-glasses-icon.svg)
+
+
+Wired XR Glasses
+
+[Learn about XR device types →](/develop/xr/devices)
+
+![The OpenXR text logo](/static/images/develop/xr/openxr.svg)
 
 Android XR supports apps built with [OpenXR](https://www.khronos.org/openxr/) through its support
 for the [OpenXR 1.1 specification and select vendor extensions](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html).
@@ -25,7 +50,7 @@ advantage of the unique capabilities of XR devices, using OpenXR. These features
 include the following.
 
 Trackables
-:   Supports *plane detection* , which is the ability to identify and
+:   Supports *plane detection*, which is the ability to identify and
     track flat surfaces within the environment, enabling the placement of
     virtual objects in relation to the real world and *Anchors* which are
     virtual points of reference that can be attached to real-world objects or
@@ -128,9 +153,9 @@ Performance metrics
 :   Provides Android XR performance metrics at runtime of
     the current XR device, compositor, and XR app. This includes CPU
     frametime, GPU frame time, GPU utilization, CPU frequency, frames per second
-    and [more](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_performance_metrics).
+    and [more](/develop/xr/openxr/extensions/XR_ANDROID_performance_metrics).
 
-See the [OpenXR Feature Overview](https://developer.android.com/develop/xr/openxr/extensions) for a full list of supported features and
+See the [OpenXR Feature Overview](/develop/xr/openxr/extensions) for a full list of supported features and
 extensions.
 
 ## Supported engines
@@ -141,12 +166,13 @@ The following engines are supported for OpenXR development with Android XR.
 
 Android XR's Unity support, built on top of OpenXR, lets developers create
 experiences using Unity 6. Learn more about building XR apps with Unity in the
-[Unity overview](https://developer.android.com/develop/xr/unity).
+[Unity overview](/develop/xr/unity).
 
-> [!NOTE]
-> **Note:** The [Android XR emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses) is not supported for Unity or OpenXR apps.
+**Note:** The [Android XR emulator](/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses) is not supported for Unity or
+OpenXR apps.
 
-*** ** * ** ***
+
+---
 
 OpenXR™ and the OpenXR logo are trademarks owned
 by The Khronos Group Inc. and are registered as a trademark in China,

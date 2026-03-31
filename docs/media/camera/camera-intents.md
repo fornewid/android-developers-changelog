@@ -1,10 +1,20 @@
 ---
-title: https://developer.android.com/media/camera/camera-intents
+title: Camera intents  |  Android media  |  Android Developers
 url: https://developer.android.com/media/camera/camera-intents
-source: md.txt
+source: html-scrape
 ---
 
-To perform basic camera actions like capturing a photo or video using the device's default camera application, you do not need to integrate with a [Camera library](https://developer.android.com/training/camera/choose-camera-library). Instead, use an [`Intent`](https://developer.android.com/reference/android/content/Intent).
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Camera intents Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+To perform basic camera actions like capturing a photo or video using the device's default camera application, you do not need to integrate with a [Camera library](/training/camera/choose-camera-library). Instead, use an [`Intent`](https://developer.android.com/reference/android/content/Intent).
 
 ## Take a photo with a camera app
 
@@ -14,7 +24,7 @@ Here's a function that invokes an `Intent` to capture a photo.
 
 ### Kotlin
 
-```kotlin
+```
 val REQUEST_IMAGE_CAPTURE = 1
  
 private fun dispatchTakePictureIntent() {
@@ -29,7 +39,7 @@ private fun dispatchTakePictureIntent() {
 
 ### Java
 
-```java
+```
 static final int REQUEST_IMAGE_CAPTURE = 1;
  
 private void dispatchTakePictureIntent() {
@@ -48,7 +58,7 @@ You can also invoke an `Intent` to capture a video.
 
 ### Kotlin
 
-```kotlin
+```
 val REQUEST_VIDEO_CAPTURE = 1
  
 private fun dispatchTakeVideoIntent() {
@@ -64,7 +74,7 @@ private fun dispatchTakeVideoIntent() {
 
 ### Java
 
-```java
+```
 static final int REQUEST_VIDEO_CAPTURE = 1;
  
 private void dispatchTakeVideoIntent() {
@@ -84,6 +94,6 @@ The `startActivityForResult()` method is protected by a condition that calls `re
 
 For basic camera actions, use an `Intent`. Otherwise, it is recommended to use the Camera2 and CameraX libraries for anything more complex than basic image or video capture.
 
-- [CameraX camera package](https://developer.android.com/training/camerax)
-- [Camera2 camera package](https://developer.android.com/training/camera2)
-- [Camera sample projects](https://github.com/android/camera-samples)
+* [CameraX camera package](https://developer.android.com/training/camerax)
+* [Camera2 camera package](https://developer.android.com/training/camera2)
+* [Camera sample projects](https://github.com/android/camera-samples)

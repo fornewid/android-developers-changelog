@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/topic/performance/benchmarking/microbenchmark-without-gradle
+title: Build Microbenchmarks without Gradle  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/benchmarking/microbenchmark-without-gradle
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App quality](https://developer.android.com/quality)
+* [Technical quality](https://developer.android.com/quality/technical)
+
+# Build Microbenchmarks without Gradle Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 This page describes configuring a non-Gradle build system when using the
 Microbenchmark library.
@@ -14,10 +23,10 @@ as [Bazel](https://bazel.build) or
 
 ## Instrumentation
 
-Use [`AndroidBenchmarkRunner`](https://developer.android.com/reference/kotlin/androidx/benchmark/junit4/AndroidBenchmarkRunner) or a subclass as your instrumentation runner
+Use [`AndroidBenchmarkRunner`](/reference/kotlin/androidx/benchmark/junit4/AndroidBenchmarkRunner) or a subclass as your instrumentation runner
 by specifying it in the instrumentation block of the test manifest:
 
-```xml
+```
 <manifest
     package="com.example.library.test" ...>
 
@@ -26,7 +35,7 @@ by specifying it in the instrumentation block of the test manifest:
 </manifest>
 ```
 
-To get accurate measurements, benchmarks must not be [debuggable](https://developer.android.com/guide/topics/manifest/application-element#debug). If you
+To get accurate measurements, benchmarks must not be [debuggable](/guide/topics/manifest/application-element#debug). If you
 don't set the debuggable flag correctly, the library throws an error, rather
 than reporting invalid results. You might need to toggle this setting during
 local runs for use with Android Studio profilers, which require
@@ -37,11 +46,11 @@ APK, or with one test APK instrumenting another APK.
 
 ### Self-instrumenting APKs
 
-With a self-instrumenting APK---as output by Gradle for an [`androidTest`](https://developer.android.com/reference/tools/gradle-api/8.3/null/com/android/build/api/variant/AndroidTest)
-directory from `com.android.library`---you must disable debuggable in the single
+With a self-instrumenting APK—as output by Gradle for an [`androidTest`](/reference/tools/gradle-api/8.3/null/com/android/build/api/variant/AndroidTest)
+directory from `com.android.library`—you must disable debuggable in the single
 APK's Android manifest:
 
-```xml
+```
 <manifest
     package="com.example.library.test" ...>
 
@@ -55,11 +64,11 @@ APK's Android manifest:
 
 ### App APK instrumented by test APK
 
-If your build outputs two APKs---an app APK and test APK, as output by Gradle for
-the `androidTest` directory from the `com.android.app` package---you must set the app APK to
+If your build outputs two APKs—an app APK and test APK, as output by Gradle for
+the `androidTest` directory from the `com.android.app` package—you must set the app APK to
 `debuggable=false`. The test APK's debuggable flag is ignored by the Android OS.
 
-```xml
+```
 <!-- Test manifest. -->
 <manifest
     package="com.example.android.app.test" ...>
@@ -88,7 +97,9 @@ without minification breaking calls from benchmarks into app code.
 We recommend compiling your microbenchmark APK before running tests, using the
 following command:
 
-    adb shell cmd package compile -f -m speed com.example.benchmark
+```
+adb shell cmd package compile -f -m speed com.example.benchmark
+```
 
 ## Minification and optimization
 
@@ -113,13 +124,21 @@ built locally, might be built with coverage enabled.
 You can run your tests from the command line and specify the classes to run
 with, as shown in the following example:
 
-    adb shell am instrument -w com.example.benchmark/androidx.benchmark.junit4.AndroidBenchmarkRunner
+```
+adb shell am instrument -w com.example.benchmark/androidx.benchmark.junit4.AndroidBenchmarkRunner
+```
 
 To configure the Microbenchmark library at runtime without Gradle, see
-[Microbenchmark instrumentation arguments](https://developer.android.com/studio/profile/microbenchmark-instrumentation-args).
+[Microbenchmark instrumentation arguments](/studio/profile/microbenchmark-instrumentation-args).
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [Write a Microbenchmark](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write)
-- [Create Baseline Profiles {:#creating-profile-rules}](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile)
+* Note: link text is displayed when JavaScript is off
+* [Write a Microbenchmark](/topic/performance/benchmarking/microbenchmark-write)
+* [Create Baseline Profiles {:#creating-profile-rules}](/topic/performance/baselineprofiles/create-baselineprofile)
+
+[Previous
+
+arrow\_back
+
+Microbenchmark and Hilt](/topic/performance/benchmarking/microbenchmark-and-hilt)

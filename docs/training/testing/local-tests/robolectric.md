@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/training/testing/local-tests/robolectric
+title: Robolectric strategies  |  Test your app on Android  |  Android Developers
 url: https://developer.android.com/training/testing/local-tests/robolectric
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Test your app on Android](https://developer.android.com/training/testing)
+
+# Robolectric strategies Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 [Robolectric](https://robolectric.org/) is an open-source framework maintained by Google
 that lets you run tests in a simulated Android environment inside a JVM, without
@@ -34,57 +42,63 @@ You can also use Robolectric's fakes (called shadows) as dependencies for unit
 tests. For example, if your class uses a Bundle or you need to fake a
 [Bluetooth](https://github.com/robolectric/robolectric/blob/ae831fccdc10b5808c274fbe519a5a8deae33424/shadows/framework/src/main/java/org/robolectric/shadows/BluetoothConnectionManager.java#L12) connection.
 
-In general, if you implement a [testable architecture](https://developer.android.com/training/testing/fundamentals#architecture) you shouldn't need to
+In general, if you implement a [testable architecture](/training/testing/fundamentals#architecture) you shouldn't need to
 use Robolectric for unit testing as your code should be testable in isolation,
 with no dependencies on the Android framework.
 
-> [!IMPORTANT]
-> **Key Point:** In most cases, only use Robolectric for unit testing as a last resort: with legacy code or when using APIs that depend on Android classes. When possible, refactor your code so that it's testable without Robolectric shadows, or test the feature using a different type of test, such as a UI test.
+**Key Point:** In most cases, only use Robolectric for unit testing as a last
+resort: with legacy code or when using APIs that depend on Android classes. When
+possible, refactor your code so that it's testable without Robolectric shadows,
+or test the feature using a different type of test, such as a UI test.
 
 ### UI testing
 
-Robolectric can also run [UI tests](https://developer.android.com/training/testing/ui-tests) such as Espresso or Compose tests. You
-can convert an [instrumented](https://developer.android.com/training/testing/instrumented-tests) test to Robolectric by moving it to the `test`
+Robolectric can also run [UI tests](/training/testing/ui-tests) such as Espresso or Compose tests. You
+can convert an [instrumented](/training/testing/instrumented-tests) test to Robolectric by moving it to the `test`
 source set and setting up the Robolectric dependencies.
 
-    android {
-      testOptions {
-        unitTests {
-          isIncludeAndroidResources = true
-        }
-      }
+```
+android {
+  testOptions {
+    unitTests {
+      isIncludeAndroidResources = true
     }
+  }
+}
 
-    dependencies {
-      testImplementation("junit:junit:4.13.2")
-      testImplementation("org.robolectric:robolectric:4.13")
-    }
+dependencies {
+  testImplementation("junit:junit:4.13.2")
+  testImplementation("org.robolectric:robolectric:4.13")
+}
+```
 
 Any UI test present in the `test` source set runs with Robolectric.
 
-    import androidx.test.espresso.Espresso.onView
+```
+import androidx.test.espresso.Espresso.onView
 
-    @RunWith(AndroidJUnit4::class)
-    class AddContactActivityTest {
-        @Test
-        fun inputTextShouldBeRetainedAfterActivityRecreation() {
-            // GIVEN
-            val contactName = "Test User"
-            val scenario = ActivityScenario.launchActivity<AddContactActivity>()
+@RunWith(AndroidJUnit4::class)
+class AddContactActivityTest {
+    @Test
+    fun inputTextShouldBeRetainedAfterActivityRecreation() {
+        // GIVEN
+        val contactName = "Test User"
+        val scenario = ActivityScenario.launchActivity<AddContactActivity>()
 
-            // WHEN
-            // Enter contact name
-            onView(withId(R.id.contact_name_text))
-                .perform(typeText(contactName))
-            // Destroy and recreate Activity
-            scenario.recreate()
+        // WHEN
+        // Enter contact name
+        onView(withId(R.id.contact_name_text))
+            .perform(typeText(contactName))
+        // Destroy and recreate Activity
+        scenario.recreate()
 
-            // THEN
-            // Check contact name was preserved.
-            onView(withId(R.id.contact_name_text))
-                .check(matches(withText(contactName)))
-         }
-    }
+        // THEN
+        // Check contact name was preserved.
+        onView(withId(R.id.contact_name_text))
+            .check(matches(withText(contactName)))
+     }
+}
+```
 
 Most UI tests don't interact with the framework and you can run them on
 Robolectric. You can run behavior tests on Robolectric as the fidelity needed
@@ -97,8 +111,12 @@ the fidelity is lower as different devices render screens slightly differently.
 You must decide whether Robolectric's implementation is good enough for each use
 case, but here are some recommendations:
 
-- Use Robolectric for isolated UI behavior tests for components, feature or application tests. In general these tests check the state management and behavior of the UIs and don't interact with external dependencies.
-- Use Robolectric to take screenshots when the pixel accuracy is not critical. For example, to test how a component reacts to different font sizes or themes.
+* Use Robolectric for isolated UI behavior tests for components, feature or
+  application tests. In general these tests check the state management and
+  behavior of the UIs and don't interact with external dependencies.
+* Use Robolectric to take screenshots when the pixel accuracy is not critical.
+  For example, to test how a component reacts to different font sizes or
+  themes.
 
 **Note**: Robolectric can take screenshots natively, but you need a third-party
 library to perform screenshot testing with it.

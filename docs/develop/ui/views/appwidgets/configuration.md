@@ -1,41 +1,56 @@
 ---
-title: https://developer.android.com/develop/ui/views/appwidgets/configuration
+title: Enable users to configure app widgets  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/appwidgets/configuration
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Enable users to configure app widgets Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 App widgets can be configurable. For example, a clock widget can let users
 configure which time zone to display.
 
-If you want to let users configure your widget's settings, create a widget
-configuration [`Activity`](https://developer.android.com/reference/android/app/Activity). This activity is
+If you want to let users configure your widget’s settings, create a widget
+configuration [`Activity`](/reference/android/app/Activity). This activity is
 automatically launched by the app widget host either when the widget is created
-or later, depending on the [configuration options](https://developer.android.com/develop/ui/views/appwidgets/configuration#widget-config-options) you
+or later, depending on the [configuration options](#widget-config-options) you
 specify.
 
 ## Declare the configuration activity
 
 Declare the configuration activity as a normal activity in the Android manifest
 file. The app widget host launches it with the
-[`ACTION_APPWIDGET_CONFIGURE`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#ACTION_APPWIDGET_CONFIGURE)
+[`ACTION_APPWIDGET_CONFIGURE`](/reference/android/appwidget/AppWidgetManager#ACTION_APPWIDGET_CONFIGURE)
 action, so the activity needs to accept this intent. For example:
 
-    <activity android:name=".ExampleAppWidgetConfigurationActivity">
-        <intent-filter>
-            <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
-        </intent-filter>
-    </activity>
+```
+<activity android:name=".ExampleAppWidgetConfigurationActivity">
+    <intent-filter>
+        <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+    </intent-filter>
+</activity>
+```
 
 Declare the activity in the `AppWidgetProviderInfo.xml` file with the
 `android:configure` attribute. See more information about
-[declaring this file](https://developer.android.com/guide/topics/appwidgets#AppWidgetProviderInfo). Here's an example of
+[declaring this file](/guide/topics/appwidgets#AppWidgetProviderInfo). Here’s an example of
 how to declare the configuration activity:
 
-    <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-        ...
-        android:configure="com.example.android.ExampleAppWidgetConfigurationActivity"
-        ... >
-    </appwidget-provider>
+```
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    ...
+    android:configure="com.example.android.ExampleAppWidgetConfigurationActivity"
+    ... >
+</appwidget-provider>
+```
 
 The activity is declared with a fully qualified namespace, because the launcher
 references it from outside your package scope.
@@ -47,8 +62,19 @@ implement the actual activity.
 
 There are two important points to remember when you implement the activity:
 
-- The app widget host calls the configuration activity, and the configuration activity must always return a result. The result must include the App Widget ID passed by the intent that launched the activity---saved in the intent extras as [`EXTRA_APPWIDGET_ID`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#EXTRA_APPWIDGET_ID).
-- The system doesn't send the [`ACTION_APPWIDGET_UPDATE`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#ACTION_APPWIDGET_UPDATE) broadcast when a configuration activity is launched, which means it doesn't call the [`onUpdate()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider#onUpdate(android.content.Context,%20android.appwidget.AppWidgetManager,%20int[])) method when the widget is created. It's the responsibility of the configuration activity to request an update from the `AppWidgetManager` when creating the widget for the first time. However, `onUpdate()` is called for subsequent updates---it is only skipped the first time.
+* The app widget host calls the configuration activity, and the configuration
+  activity must always return a result. The result must include the App Widget
+  ID passed by the intent that launched the activity—saved in the intent
+  extras as
+  [`EXTRA_APPWIDGET_ID`](/reference/android/appwidget/AppWidgetManager#EXTRA_APPWIDGET_ID).
+* The system doesn't send the
+  [`ACTION_APPWIDGET_UPDATE`](/reference/android/appwidget/AppWidgetManager#ACTION_APPWIDGET_UPDATE)
+  broadcast when a configuration activity is launched, which means it doesn't
+  call the [`onUpdate()`](/reference/android/appwidget/AppWidgetProvider#onUpdate(android.content.Context,%20android.appwidget.AppWidgetManager,%20int[])) method when the widget is created.
+  It's the responsibility of the configuration activity to request an update from
+  the `AppWidgetManager` when creating the widget for the first time. However,
+  `onUpdate()` is called for subsequent updates—it is only skipped the
+  first time.
 
 See the code snippets in the following section for an example of how to return a
 result from the configuration and update the widget.
@@ -58,7 +84,7 @@ result from the configuration and update the widget.
 When a widget uses a configuration activity, it's the responsibility of
 the activity to update the widget when configuration is complete. You can do so
 by requesting an update directly from the
-[`AppWidgetManager`](https://developer.android.com/reference/android/appwidget/AppWidgetManager).
+[`AppWidgetManager`](/reference/android/appwidget/AppWidgetManager).
 
 Here's a summary of the procedure to properly update the widget and close the
 configuration activity:
@@ -67,7 +93,7 @@ configuration activity:
 
    ### Kotlin
 
-   ```kotlin
+   ```
    val appWidgetId = intent?.extras?.getInt(
            AppWidgetManager.EXTRA_APPWIDGET_ID,
            AppWidgetManager.INVALID_APPWIDGET_ID
@@ -76,7 +102,7 @@ configuration activity:
 
    ### Java
 
-   ```java
+   ```
    Intent intent = getIntent();
    Bundle extras = intent.getExtras();
    int appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
@@ -94,47 +120,46 @@ configuration activity:
 
    ### Kotlin
 
-   ```kotlin
+   ```
    val resultValue = Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
    setResult(Activity.RESULT_CANCELED, resultValue)
    ```
 
    ### Java
 
-   ```java
+   ```
    int resultValue = new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
    setResult(Activity.RESULT_CANCELED, resultValue);
    ```
-3. Configure the widget according to the user's preferences.
-
+3. Configure the widget according to the user’s preferences.
 4. When the configuration is complete, get an instance of the
-   `AppWidgetManager` by calling [`getInstance(Context)`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#getInstance(android.content.Context)):
+   `AppWidgetManager` by calling [`getInstance(Context)`](/reference/android/appwidget/AppWidgetManager#getInstance(android.content.Context)):
 
    ### Kotlin
 
-   ```kotlin
+   ```
    val appWidgetManager = AppWidgetManager.getInstance(context)
    ```
 
    ### Java
 
-   ```java
+   ```
    AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
    ```
 5. Update the widget with a
-   [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews) layout by calling
-   [`updateAppWidget(int,RemoteViews)`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#updateAppWidget(int,%20android.widget.RemoteViews)):
+   [`RemoteViews`](/reference/android/widget/RemoteViews) layout by calling
+   [`updateAppWidget(int,RemoteViews)`](/reference/android/appwidget/AppWidgetManager#updateAppWidget(int,%20android.widget.RemoteViews)):
 
    ### Kotlin
 
-   ```kotlin
+   ```
    val views = RemoteViews(context.packageName, R.layout.example_appwidget)
    appWidgetManager.updateAppWidget(appWidgetId, views)
    ```
 
    ### Java
 
-   ```java
+   ```
    RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.example_appwidget);
    appWidgetManager.updateAppWidget(appWidgetId, views);
    ```
@@ -143,7 +168,7 @@ configuration activity:
 
    ### Kotlin
 
-   ```kotlin
+   ```
    val resultValue = Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
    setResult(Activity.RESULT_OK, resultValue)
    finish()
@@ -151,7 +176,7 @@ configuration activity:
 
    ### Java
 
-   ```java
+   ```
    Intent resultValue = new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
    setResult(RESULT_OK, resultValue);
    finish();
@@ -168,47 +193,56 @@ immediately after the user adds the widget to their home screen. However, you
 can specify options that let you enable users to reconfigure existing widgets or
 skip initial widget configuration by providing a default widget configuration.
 
-> [!NOTE]
-> **Note:** These options are only available starting in Android 12 (API level 31). You can specify them for previous versions of Android, but the system ignores them and follows the default behavior.
+**Note:** These options are only available starting in Android 12 (API level 31). You
+can specify them for previous versions of Android, but the system
+ignores them and follows the default behavior.
 
 ### Enable users to reconfigure placed widgets
 
 To let users reconfigure existing widgets, specify the
-[`reconfigurable`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#WIDGET_FEATURE_RECONFIGURABLE)
+[`reconfigurable`](/reference/android/appwidget/AppWidgetProviderInfo#WIDGET_FEATURE_RECONFIGURABLE)
 flag in the
-[`widgetFeatures`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#widgetFeatures)
+[`widgetFeatures`](/reference/android/appwidget/AppWidgetProviderInfo#widgetFeatures)
 attribute of `appwidget-provider`. See the guide to [declaring the
-`AppWidgetProviderInfo.xml` file](https://developer.android.com/guide/topics/appwidgets#AppWidgetProviderInfo) for more
+`AppWidgetProviderInfo.xml` file](/guide/topics/appwidgets#AppWidgetProviderInfo) for more
 information. For example:
 
-    <appwidget-provider
-        android:configure="com.myapp.ExampleAppWidgetConfigurationActivity"
-        android:widgetFeatures="reconfigurable">
-    </appwidget-provider>
+```
+<appwidget-provider
+    android:configure="com.myapp.ExampleAppWidgetConfigurationActivity"
+    android:widgetFeatures="reconfigurable">
+</appwidget-provider>
+```
 
-Users can reconfigure their widget by touching \& holding the widget and tapping
+Users can reconfigure their widget by touching & holding the widget and tapping
 the **Reconfigure** button, which is labeled
 1 in figure 1.
-![Button appears in bottom-right corner](https://developer.android.com/static/images/appwidgets/widget-reconfigure-button.png) **Figure 1.** Widget **Reconfigure** button.
 
-> [!NOTE]
-> **Note:** The `reconfigurable` flag was introduced in Android 9 (API level 28), but it was not widely supported until Android 12.
+![Button appears in bottom-right corner](/static/images/appwidgets/widget-reconfigure-button.png)
+
+
+**Figure 1.** Widget **Reconfigure** button.
+
+**Note:** The `reconfigurable` flag was introduced in Android 9 (API level 28), but
+it was not widely supported until Android 12.
 
 ### Use the widget's default configuration
 
 You can provide a more seamless widget experience by letting users skip the
 initial configuration step. To do this, specify both the
-[`configuration_optional`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#WIDGET_FEATURE_CONFIGURATION_OPTIONAL)
+[`configuration_optional`](/reference/android/appwidget/AppWidgetProviderInfo#WIDGET_FEATURE_CONFIGURATION_OPTIONAL)
 and `reconfigurable` flags in the `widgetFeatures` field. This bypasses
 launching the configuration activity after a user adds the widget. As mentioned
-previously, the user can still [reconfigure the widget](https://developer.android.com/develop/ui/views/appwidgets/configuration#reconfigure-widgets)
+previously, the user can still [reconfigure the widget](#reconfigure-widgets)
 afterward. For example, a clock widget can bypass the initial configuration and
 show the device time zone by default.
 
 Here is an example of how to mark your configuration activity as both
 reconfigurable and optional:
 
-    <appwidget-provider
-        android:configure="com.myapp.ExampleAppWidgetConfigurationActivity"
-        android:widgetFeatures="reconfigurable|configuration_optional">
-    </appwidget-provider>
+```
+<appwidget-provider
+    android:configure="com.myapp.ExampleAppWidgetConfigurationActivity"
+    android:widgetFeatures="reconfigurable|configuration_optional">
+</appwidget-provider>
+```

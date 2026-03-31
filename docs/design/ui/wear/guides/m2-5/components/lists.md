@@ -4,13 +4,11 @@ url: https://developer.android.com/design/ui/wear/guides/m2-5/components/lists
 source: md.txt
 ---
 
-# Lists
-
 ![](https://developer.android.com/static/wear/images/lists/lists-hero.png)
 
-Lists are continuous, vertical indexes of elements. Use[ScalingLazyColumn](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary#ScalingLazyColumn(androidx.compose.ui.Modifier,androidx.wear.compose.material.ScalingLazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.wear.compose.material.ScalingParams,androidx.wear.compose.material.ScalingLazyListAnchorType,androidx.wear.compose.material.AutoCenteringParams,kotlin.Function1))to create lists on Wear OS.  
-![](https://developer.android.com/static/wear/images/lists/lists-ScalingLazyColumn.png)  
-`ScalingLazyColumn`is a customization of`LazyColumn`that's built specifically for Wear OS. Lists offer scaling and transparency, which allows content to shrink and fade at the top and bottom of the screen to help users see what to focus on. Lists are anchored on the center of the screen, which gives additional emphasis to the items in the middle of the list.  
+Lists are continuous, vertical indexes of elements. Use [ScalingLazyColumn](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/ScalingLazyColumn.composable#ScalingLazyColumn(androidx.compose.ui.Modifier,androidx.wear.compose.material.ScalingLazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.wear.compose.material.ScalingParams,androidx.wear.compose.material.ScalingLazyListAnchorType,androidx.wear.compose.material.AutoCenteringParams,kotlin.Function1)) to create lists on Wear OS.
+![](https://developer.android.com/static/wear/images/lists/lists-ScalingLazyColumn.png) `ScalingLazyColumn` is a customization of `LazyColumn` that's built specifically for Wear OS. Lists offer scaling and transparency, which allows content to shrink and fade at the top and bottom of the screen to help users see what to focus on. Lists are anchored on the center of the screen, which gives additional emphasis to the items in the middle of the list.  
+
 
 Lists can contain items of fixed or variable height. List content should have margin enough to accommodate for circular screens.
 
@@ -20,9 +18,8 @@ Lists can contain items of fixed or variable height. List content should have ma
 
 ## Padding
 
-Standardized Paddings are used when creating a list depending on the element. If further vertical padding is needed for more complex lists, spacing is set in multiples of 4 dp for consistency.  
-![](https://developer.android.com/static/wear/images/lists/lists-sections.png)  
-**Between sections**
+Standardized Paddings are used when creating a list depending on the element. If further vertical padding is needed for more complex lists, spacing is set in multiples of 4 dp for consistency.
+![](https://developer.android.com/static/wear/images/lists/lists-sections.png) **Between sections**
 
 Padding between top, middle and bottom section should be set to 16 dp.
 
@@ -30,8 +27,7 @@ Padding between top, middle and bottom section should be set to 16 dp.
 
 <br />
 
-![](https://developer.android.com/static/wear/images/lists/lists-titles-content.png)  
-**Between titles and content**
+![](https://developer.android.com/static/wear/images/lists/lists-titles-content.png) **Between titles and content**
 
 Padding between top, middle and bottom section should be set to 12 dp.
 
@@ -39,8 +35,7 @@ Padding between top, middle and bottom section should be set to 12 dp.
 
 <br />
 
-![](https://developer.android.com/static/wear/images/lists/lists-slots.png)  
-**Between slots**
+![](https://developer.android.com/static/wear/images/lists/lists-slots.png) **Between slots**
 
 Padding between slots in the middle section should be set to 16 dp.
 
@@ -48,8 +43,7 @@ Padding between slots in the middle section should be set to 16 dp.
 
 <br />
 
-![](https://developer.android.com/static/wear/images/lists/lists-groups.png)  
-**Between groups**
+![](https://developer.android.com/static/wear/images/lists/lists-groups.png) **Between groups**
 
 Padding between groups within a slot should be set to 8 dp.
 
@@ -57,8 +51,7 @@ Padding between groups within a slot should be set to 8 dp.
 
 <br />
 
-![](https://developer.android.com/static/wear/images/lists/lists-elements.png)  
-**Between elements**
+![](https://developer.android.com/static/wear/images/lists/lists-elements.png) **Between elements**
 
 Padding between elements within a group should be set to 4 dp.
 
@@ -70,9 +63,11 @@ Padding between elements within a group should be set to 4 dp.
 
 To give emphasis to a list item when scrolling, use snapping. Use snapping when items are tall but not taller than the screen.
 
-Snapping behavior comes in two forms.`ItemCenter`uses the center of the item as a reference point.`ItemStart`uses the edge of the item as a reference point. Use the first to center one item on the screen, use the second to center two items on the screen. Set this behavior using the[anchorType](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/ScalingLazyListAnchorType)parameter.
+Snapping behavior comes in two forms. `ItemCenter` uses the center of the item as a reference point. `ItemStart` uses the edge of the item as a reference point. Use the first to center one item on the screen, use the second to center two items on the screen. Set this behavior using the [anchorType](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/ScalingLazyListAnchorType) parameter.
 
-For further control over the snapping behavior in a list, set`flingBehavior`to`ScalingLazyColumnDefaults.snapFlingBehavior`and`rotaryScrollableBehavior`to`RotaryScrollableDefaults.snapBehavior`.
+For further control over the snapping behavior in a list, set
+`flingBehavior` to `ScalingLazyColumnDefaults.snapFlingBehavior`
+and `rotaryScrollableBehavior` to `RotaryScrollableDefaults.snapBehavior`.
 
 <br />
 
@@ -86,11 +81,11 @@ See the following examples of how to use lists on watches.
 
 ## Adaptive layouts
 
-The following images show several examples of adaptive layouts. For implementation guidance, visit the[develop for different screen sizes](https://developer.android.com/training/wearables/compose/screen-size)page.
+The following images show several examples of adaptive layouts. For
+implementation guidance, visit the [develop for different screen sizes](https://developer.android.com/training/wearables/compose/screen-size) page.
 
-![](https://developer.android.com/static/wear/images/lists/lists-adaptive-layouts-usage.png)  
-![](https://developer.android.com/static/wear/images/lists/lists-anatomy-large-screens.png)  
-**Responsive behavior**
+![](https://developer.android.com/static/wear/images/lists/lists-adaptive-layouts-usage.png)
+![](https://developer.android.com/static/wear/images/lists/lists-anatomy-large-screens.png) **Responsive behavior**
 
 Lists components stretch to fill the available width on larger displays.
 

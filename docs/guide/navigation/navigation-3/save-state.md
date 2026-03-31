@@ -14,7 +14,7 @@ including configuration changes and process death, is crucial for a good user
 experience. In Navigation 3, you own your back stack, so there aren't strict
 guidelines on how you should create or save it. However, Navigation 3 does offer
 a convenience method that provides you with a saveable back stack:
-[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary#rememberNavBackStack(kotlin.Array)).
+[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/rememberNavBackStack.composable#rememberNavBackStack(kotlin.Array)).
 
 ### Use `rememberNavBackStack`
 
@@ -75,8 +75,8 @@ To use [`NavEntryDecorator`](https://developer.android.com/guide/navigation/navi
 these steps:
 
 1. Add the `androidx.lifecycle:lifecycle-viewmodel-navigation3` dependency to your `app/build.gradle.kts` file.
-2. Add the default [`rememberSaveableStateHolderNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary#rememberSaveableStateHolderNavEntryDecorator(androidx.compose.runtime.saveable.SaveableStateHolder)) to the list of `entryDecorators` when constructing a `NavDisplay`.
-3. Add [`rememberViewModelStoreNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/navigation3/package-summary#rememberViewModelStoreNavEntryDecorator(androidx.lifecycle.ViewModelStoreOwner,kotlin.Function0)) to the list of `entryDecorators`.
+2. Add the default [`rememberSaveableStateHolderNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/rememberSaveableStateHolderNavEntryDecorator.composable#rememberSaveableStateHolderNavEntryDecorator(androidx.compose.runtime.saveable.SaveableStateHolder)) to the list of `entryDecorators` when constructing a `NavDisplay`.
+3. Add [`rememberViewModelStoreNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/navigation3/rememberViewModelStoreNavEntryDecorator.composable#rememberViewModelStoreNavEntryDecorator(androidx.lifecycle.ViewModelStoreOwner,kotlin.Function0)) to the list of `entryDecorators`.
 
 
 ```kotlin

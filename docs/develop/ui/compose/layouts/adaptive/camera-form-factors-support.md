@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android apps run on more form factors than just phones held in portrait mode.
 With the introduction of desktop windowing, connected displays,
 and foldable devices, your camera app must adapt to dynamic window sizes,
@@ -95,7 +94,7 @@ collection of device-specific edge cases.
 ### Compose
 
 With Jetpack Compose, use the dedicated [androidx.camera:camera-compose](/reference/kotlin/androidx/camera/compose/package-summary)
-library. The library provides the [`CameraXViewfinder`](/reference/kotlin/androidx/camera/compose/package-summary#CameraXViewfinder(androidx.camera.core.SurfaceRequest,androidx.compose.ui.Modifier,androidx.camera.viewfinder.core.ImplementationMode,androidx.camera.viewfinder.compose.MutableCoordinateTransformer,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale)) composable, which is
+library. The library provides the [`CameraXViewfinder`](/reference/kotlin/androidx/camera/compose/CameraXViewfinder.composable) composable, which is
 specifically designed to handle the complex geometry of resizing, rotation,
 and aspect ratios within the Compose lifecycle.
 

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 WPS Office: Building continuity with Android foldables
 
 Foldable devices are capable of a variety of postures and folded states,

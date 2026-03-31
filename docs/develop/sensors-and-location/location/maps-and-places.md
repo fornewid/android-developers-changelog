@@ -1,10 +1,20 @@
 ---
-title: https://developer.android.com/develop/sensors-and-location/location/maps-and-places
+title: Maps and places  |  Sensors and location  |  Android Developers
 url: https://developer.android.com/develop/sensors-and-location/location/maps-and-places
-source: md.txt
+source: html-scrape
 ---
 
-![](https://developer.android.com/static/images/google/gps-maps.png)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Sensors and location](https://developer.android.com/develop/sensors-and-location)
+
+# Maps and places Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+![](/static/images/google/gps-maps.png)
 
 Allow your users to explore the world with rich maps provided by Google.
 Identify locations with custom markers, augment the map data with image
@@ -53,3 +63,9 @@ Help your users find businesses, restaurants, and other points of interest based
 on their current location. Use the [Places SDK for Android](https://developers.google.com/maps/documentation/places/android-sdk)
 to provide convenient, relevant information like contact information and
 business hours when your users need it.
+
+[Previous
+
+arrow\_back
+
+Migrate to Google Play services location and context APIs](/develop/sensors-and-location/location/migration)

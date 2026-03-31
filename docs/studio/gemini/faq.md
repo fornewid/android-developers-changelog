@@ -1,17 +1,26 @@
 ---
-title: https://developer.android.com/studio/gemini/faq
+title: FAQ  |  Android Studio  |  Android Developers
 url: https://developer.android.com/studio/gemini/faq
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
+
+# FAQ Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 This page lists some frequently asked questions about Gemini in Android Studio
-and how it works. For more resources, see the [troubleshooting guide](https://developer.android.com/studio/gemini/troubleshooting). If
-you still have questions, [send feedback](https://developer.android.com/studio/report-bugs).
+and how it works. For more resources, see the [troubleshooting guide](/studio/gemini/troubleshooting). If
+you still have questions, [send feedback](/studio/report-bugs).
 
 ## Does Gemini send my code to Google's servers?
 
 Learn about what data is shared and how you can control your privacy settings at
-[Data and privacy](https://developer.android.com/studio/gemini/data-and-privacy).
+[Data and privacy](/studio/gemini/data-and-privacy).
 
 ## Does Gemini give accurate and safe responses?
 
@@ -20,7 +29,7 @@ early days, and Gemini is an experiment. Some of the responses might be
 inaccurate, so double-check information in the responses. With your feedback,
 Gemini is improving. While Gemini has built-in safety controls and clear
 mechanisms for feedback in line with our
-[AI Principles](https://developer.android.com/studio/gemini/data-and-privacy), be aware that it might display
+[AI Principles](/studio/gemini/data-and-privacy), be aware that it might display
 inaccurate information or offensive statements.
 
 Because AI is an evolving technology, it can generate output that sounds
@@ -46,7 +55,7 @@ before relying on it.
 Gemini uses the chat history for additional context when responding to your
 prompts. If your chat history is no longer relevant to what you're currently
 trying to achieve, reset the chat history by clicking
-**Clear Conversation History** ![](https://developer.android.com/static/studio/images/gemini-reset-chat.png)
+**Clear Conversation History** ![](/static/studio/images/gemini-reset-chat.png)
 in the Gemini pane.
 
 ## Why do I get a "code is blocked" error message?
@@ -80,12 +89,12 @@ a click.
 
 ## What are some tips for using Gemini?
 
-- Be clear and concise when you ask your question.
-- Use simple language that Gemini can understand.
-- If Gemini does not understand your question, try rephrasing it.
-- Review Gemini suggestions before using them.
+* Be clear and concise when you ask your question.
+* Use simple language that Gemini can understand.
+* If Gemini does not understand your question, try rephrasing it.
+* Review Gemini suggestions before using them.
 
-For more details, see [Best practices](https://developer.android.com/studio/gemini/best-practices).
+For more details, see [Best practices](/studio/gemini/best-practices).
 
 ## How can I report feedback about Gemini?
 

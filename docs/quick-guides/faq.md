@@ -1,26 +1,34 @@
 ---
-title: https://developer.android.com/quick-guides/faq
+title: About Quick Guides  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/quick-guides/faq
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
+
+# About Quick Guides Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Quick guides are a new type of documentation designed to help you meet your
 goals in a fast and focused way. Quick guides:
 
-- Take a code-first approach whenever possible.
-- Use video to explain concepts and show how things work.
-- Are designed to be used in around 7 minutes or less.
+* Take a code-first approach whenever possible.
+* Use video to explain concepts and show how things work.
+* Are designed to be used in around 7 minutes or less.
 
 ## About collections
 
 Collections bring together related Quick Guides to help you see the bigger
 picture. For example, you might use a collection to:
 
-- Understand topics that are closely related to your core goal.
-- Help you discover how to implement additional use cases adjacent to your goal.
-- Find background information or explore concepts more deeply.
+* Understand topics that are closely related to your core goal.
+* Help you discover how to implement additional use cases adjacent to your goal.
+* Find background information or explore concepts more deeply.
 
 You might find the same Quick Guide in more than one collection. That's part of
 the information design; for example, a topic about how to hide password text
@@ -50,6 +58,6 @@ button. Then, you can enter search keywords to further refine the results.
 
 Note that you cannot combine results by clicking **Search by category** and
 **Filter by guide type** buttons. For example, if you click **Collections only**
-and then click **Animation** , the results show what you would see if
+and then click **Animation**, the results show what you would see if
 you had clicked only **Animation**; no filter is applied. Remember: you can
 enter keywords in the search box to refine your filtered results.

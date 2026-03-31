@@ -322,9 +322,9 @@ public class MainActivity extends Activity
       // Google Play services isn't available.
       onProviderInstallerNotAvailable();
     }
-  }@
+  }
 
-  Override
+  @Override
   protected void onActivityResult(int requestCode, int resultCode,
       Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
@@ -340,8 +340,8 @@ public class MainActivity extends Activity
   /**
   * On resume, check whether a flag indicates that the provider needs to be
   * reinstalled.
-  *@/
-  Override
+  */
+  @Override
   protected void onPostResume() {
     super.onPostResume();
     if (retryProviderInstall) {

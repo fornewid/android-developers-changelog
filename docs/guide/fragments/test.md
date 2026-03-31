@@ -21,13 +21,15 @@ To help set up the conditions for performing these tests, the AndroidX
 [`FragmentScenario`](https://developer.android.com/reference/kotlin/androidx/fragment/app/testing/FragmentScenario)
 class to create fragments and change their
 [`Lifecycle.State`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.State).
-| **Note:** To successfully run tests that contain `FragmentScenario` objects, run each of the API's methods in your test's instrumentation thread. To learn more about different threads used in Android tests, see [Understand threads in tests](https://developer.android.com/training/testing/fundamentals#threads).
+
+> [!NOTE]
+> **Note:** To successfully run tests that contain `FragmentScenario` objects, run each of the API's methods in your test's instrumentation thread. To learn more about different threads used in Android tests, see [Understand threads in tests](https://developer.android.com/training/testing/fundamentals#threads).
 
 ## Declaring dependencies
 
 To use `FragmentScenario` define the `fragment-testing-manifest` artifact in your
 app's `build.gradle` file using `debugImplementation`, and the `fragment-testing` artifact using `androidTestImplementation` as shown in the
-following example:  
+following example:
 
 ### Groovy
 
@@ -52,7 +54,9 @@ dependencies {
     androidTestImplementation("androidx.fragment:fragment-testing:$fragment_version")
 }
 ```
-| **Note:** `debugImplementation` is used here so that the empty activity definition that `FragmentScenario` relies on is accessible by the test target process.
+
+> [!NOTE]
+> **Note:** `debugImplementation` is used here so that the empty activity definition that `FragmentScenario` relies on is accessible by the test target process.
 
 Testing examples on this page use assertions from the
 [Espresso](https://developer.android.com/training/testing/espresso) and
@@ -76,9 +80,11 @@ information about its UI elements using [Espresso UI
 tests](https://developer.android.com/training/testing/espresso).
 
 The following code examples show how to launch your fragment using each method:
-| **Note:** Your fragment might require a theme that the test activity doesn't use by default. You can provide your own theme as an additional argument to `launch()` and `launchInContainer()`.
 
-**launchInContainer() example**  
+> [!NOTE]
+> **Note:** Your fragment might require a theme that the test activity doesn't use by default. You can provide your own theme as an additional argument to `launch()` and `launchInContainer()`.
+
+**launchInContainer() example**
 
     @RunWith(AndroidJUnit4::class)
     class MyTestSuite {
@@ -90,7 +96,7 @@ The following code examples show how to launch your fragment using each method:
         }
     }
 
-**launch() example**  
+**launch() example**
 
     @RunWith(AndroidJUnit4::class)
     class MyTestSuite {
@@ -106,7 +112,7 @@ The following code examples show how to launch your fragment using each method:
 
 If your fragments have dependencies, you can provide test versions of
 these dependencies by providing a custom `FragmentFactory` to the
-`launchInContainer()` or `launch()` methods.  
+`launchInContainer()` or `launch()` methods.
 
     @RunWith(AndroidJUnit4::class)
     class MyTestSuite {
@@ -138,10 +144,12 @@ This method supports the following states as arguments: `CREATED`,
 `STARTED`, `RESUMED`, and `DESTROYED`. This method simulates a situation
 where the fragment or activity containing your fragment changes its
 state for any reason.
-| **Note:** If you transition a fragment to the `DESTROYED` state, you can't drive the fragment to another state, and you can't attach the fragment to a different activity.
+
+> [!NOTE]
+> **Note:** If you transition a fragment to the `DESTROYED` state, you can't drive the fragment to another state, and you can't attach the fragment to a different activity.
 
 The following example launches a test fragment in the `INITIALIZED` state and
-then moves it to the `RESUMED` state:  
+then moves it to the `RESUMED` state:
 
     @RunWith(AndroidJUnit4::class)
     class MyTestSuite {
@@ -157,14 +165,15 @@ then moves it to the `RESUMED` state:
         }
     }
 
-| **Caution:** If you try to transition your fragment under test to its current state, `FragmentScenario` ignores the request without throwing an exception. In particular, the API allows you to transition your fragment to the `DESTROYED` state multiple times consecutively.
+> [!CAUTION]
+> **Caution:** If you try to transition your fragment under test to its current state, `FragmentScenario` ignores the request without throwing an exception. In particular, the API allows you to transition your fragment to the `DESTROYED` state multiple times consecutively.
 
 ## Recreate the fragment
 
 If your app is running on a device which is low on resources, the system
 might destroy the activity containing your fragment. This situation
 requires your app to recreate the fragment when the user returns to it.
-To simulate this situation, call `recreate()`:  
+To simulate this situation, call `recreate()`:
 
     @RunWith(AndroidJUnit4::class)
     class MyTestSuite {
@@ -184,7 +193,7 @@ returns to the lifecycle state that it was in before it was destroyed.
 
 To trigger UI actions in your fragment under test, use
 [Espresso view matchers](https://developer.android.com/reference/kotlin/androidx/test/espresso/matcher/ViewMatchers)
-to interact with elements in your view:  
+to interact with elements in your view:
 
     @RunWith(AndroidJUnit4::class)
     class MyTestSuite {
@@ -201,7 +210,7 @@ to a selection in the options menu, you can do so safely by getting a
 reference to the fragment using
 [`FragmentScenario.onFragment()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/testing/FragmentScenario#onFragment(androidx.fragment.app.testing.FragmentScenario.FragmentAction%3CF%3E))
 and passing in a
-[`FragmentAction`](https://developer.android.com/reference/kotlin/androidx/fragment/app/testing/FragmentScenario.FragmentAction):  
+[`FragmentAction`](https://developer.android.com/reference/kotlin/androidx/fragment/app/testing/FragmentScenario.FragmentAction):
 
     @RunWith(AndroidJUnit4::class)
     class MyTestSuite {
@@ -213,7 +222,8 @@ and passing in a
         }
     }
 
-| **Note:** Don't keep references to the fragment that is passed into `onFragment()`. These references consume system resources, and the references themselves might be stale, since the framework can recreate the fragment.
+> [!NOTE]
+> **Note:** Don't keep references to the fragment that is passed into `onFragment()`. These references consume system resources, and the references themselves might be stale, since the framework can recreate the fragment.
 
 ## Test dialog actions
 
@@ -223,7 +233,7 @@ have UI elements, their layout is populated in a separate window, rather
 than in the activity itself. For this reason, use
 `FragmentScenario.launch()` to test dialog fragments.
 
-The following example tests the dialog dismissal process:  
+The following example tests the dialog dismissal process:
 
     @RunWith(AndroidJUnit4::class)
     class MyTestSuite {

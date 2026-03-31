@@ -1,17 +1,37 @@
 ---
-title: https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware
+title: Access AI glasses hardware  |  Android XR for Jetpack XR SDK  |  Android Developers
 url: https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+The Android XR SDK has  [reached Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android XR](https://developer.android.com/develop/xr)
+* [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk)
+* [Guides](https://developer.android.com/develop/xr/get-started)
+
+# Access AI glasses hardware Stay organized with collections Save and categorize content based on your preferences.
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
-<br />
 
-After you've learned the basics for [creating an activity for AI glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity),
+Applicable XR devices
+
+This guidance helps you build experiences for these types of XR devices.
+
+[Learn about XR device types →](/develop/xr/devices)
+
+![](/static/images/develop/xr/ai-glasses-icon.svg)
+
+
+AI Glasses
+
+[Learn about XR device types →](/develop/xr/devices)
+
+After you've learned the basics for [creating an activity for AI glasses](/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity),
 you can take advantage of the unique hardware available on the glasses, such as
 the camera and microphone. Accessing AI glasses hardware lets you build more
 immersive and integrated experiences.
@@ -23,9 +43,15 @@ camera, offering a first-person point of view.
 
 This guide explains the following areas:
 
-- [Requesting hardware permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions)
-- [Using a projected context to access AI glasses hardware](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context)
+* [Requesting hardware permissions](/develop/xr/jetpack-xr-sdk/request-hardware-permissions)
+* [Using a projected context to access AI glasses hardware](/develop/xr/jetpack-xr-sdk/access-hardware-projected-context)
 
 This guide assumes you're familiar with the following concepts:
 
-- [Permissions](https://developer.android.com/guide/topics/permissions/overview)
+* [Permissions](/guide/topics/permissions/overview)
+
+[Next
+
+Request hardware permissions
+
+arrow\_forward](/develop/xr/jetpack-xr-sdk/request-hardware-permissions)

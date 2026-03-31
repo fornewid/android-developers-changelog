@@ -10,7 +10,7 @@ Compose, like
 [`AdView`](https://developers.google.com/android/reference/com/google/android/gms/ads/AdView).
 This approach also lets you reuse custom views you may have designed.
 
-To include a view element or hierarchy, use the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/package-summary#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1))
+To include a view element or hierarchy, use the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1))
 composable. `AndroidView` is passed a lambda that returns a
 [`View`](https://developer.android.com/reference/android/view/View). `AndroidView` also provides an `update`
 callback that is called when the view is inflated. The `AndroidView` recomposes

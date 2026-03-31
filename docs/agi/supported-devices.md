@@ -1,13 +1,23 @@
 ---
-title: https://developer.android.com/agi/supported-devices
+title: AGI supported devices  |  Android Developers
 url: https://developer.android.com/agi/supported-devices
-source: md.txt
+source: html-scrape
 ---
+
+Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.withgoogle.com/) on March 15!
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Guides](https://developer.android.com/games/guides)
+
+# AGI supported devices Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 This page contains a growing list of Android devices that are supported by AGI.
 
 AGI requires support from the Android OS, OEM drivers, and the hardware for GPU
-profiling. AGI runs a [validation check](https://developer.android.com/agi/start#device-validation) the first
+profiling. AGI runs a [validation check](/agi/start#device-validation) the first
 time you connect a new device to check for profiling support. The devices listed
 below and new devices with Android 12 (except some Android-Go devices) are
 expected to pass this validation check.
@@ -20,7 +30,7 @@ Android emulators are not supported. The following Android devices (when running
 Android 11 or higher) are supported by AGI:
 
 | Device name | GPU name |
-|---|---|
+| --- | --- |
 | Google Pixel 4 (standard and XL) | Qualcomm® Adreno™ 640 |
 | Google Pixel 4a | Qualcomm® Adreno™ 618 |
 | Google Pixel 4a 5G | Qualcomm® Adreno™ 620 |
@@ -39,4 +49,4 @@ Android 11 or higher) are supported by AGI:
 | OnePlus 9R | Qualcomm® Adreno™ 650 |
 
 For information about device validation, see the
-[AGI quickstart](https://developer.android.com/agi/start#device-validation).
+[AGI quickstart](/agi/start#device-validation).

@@ -1,11 +1,22 @@
 ---
-title: https://developer.android.com/develop/ui/views/graphics/webgpu
+title: WebGPU for Android  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/graphics/webgpu
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# WebGPU for Android Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 The Android Jetpack
-[WebGPU library](https://developer.android.com/reference/kotlin/androidx/webgpu/package-summary)
+[WebGPU library](/reference/kotlin/androidx/webgpu/package-summary)
 provides idiomatic Kotlin bindings for the
 [WebGPU standard](https://www.w3.org/TR/webgpu/), enabling
 high-performance, modern 3D graphics and compute capabilities within your
@@ -18,20 +29,28 @@ ergonomic way.
 
 ## Why WebGPU?
 
-- **Streamlined Usability** : While Vulkan is the primary low-level graphics API on Android. WebGPU offers a modern, higher-level API that is **more approachable and significantly less verbose to use compared to Vulkan**.
-- **Batching and Serialization** WebGPU records multiple commands into **Command Buffers**, part of its design to minimize protocol chattiness. This also minimizes the need to call external methods when using Kotlin bindings.
-- **Universal Support**: WebGPU shader code (WGSL) can be directly shared across WebGPU implementations across platforms, including the web.
-- **Optimized Compute**: Seamless, copy-free buffer sharing between compute and graphics tasks enhances performance and simplifies development compared to legacy APIs.
+* **Streamlined Usability**: While Vulkan is the primary low-level graphics API
+  on Android. WebGPU offers a modern, higher-level API that is
+  **more approachable and significantly less verbose to use compared to Vulkan**.
+* **Batching and Serialization** WebGPU records multiple commands into
+  **Command Buffers**, part of its design to minimize protocol chattiness.
+  This also minimizes the need to call external methods when using Kotlin
+  bindings.
+* **Universal Support**: WebGPU shader code (WGSL) can be directly shared across
+  WebGPU implementations across platforms, including the web.
+* **Optimized Compute**: Seamless, copy-free buffer sharing between compute and
+  graphics tasks enhances performance and simplifies development compared to
+  legacy APIs.
 
 ## Who this library is for
 
 This library is designed for building high-performance applications that require
 direct access to the GPU:
 
-- Image and video processing filters
-- Data visualizations
-- Machine Learning inference
-- Games and simulations
+* Image and video processing filters
+* Data visualizations
+* Machine Learning inference
+* Games and simulations
 
 **Non-Goals**: This is a graphics API, not a game engine. You are responsible
 for managing your own render loop, camera matrices, and scene graph.
@@ -41,7 +60,8 @@ for managing your own render loop, camera matrices, and scene graph.
 Understanding the foundational WebGPU objects and how they interact is essential
 to WebGPU development.
 
-|---|---|
+|  |  |
+| --- | --- |
 | **Concept** | **Description** |
 | **Instance** | The entry point to WebGPU, granting access to Adapters and Surfaces |
 | **Adapter** | Represents a specific GPU on the device |

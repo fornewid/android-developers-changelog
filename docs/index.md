@@ -1,83 +1,152 @@
 ---
-title: https://developer.android.com/
+title: Android Mobile App Developer Tools - Android Developers
 url: https://developer.android.com/
-source: md.txt
+source: html-scrape
 ---
 
-![](https://developer.android.com/static/images/home/level-up-logo.png)
+* [Android Developers](https://developer.android.com/)
 
-### Level Up your game:
-Test Sidekick and prepare for upcoming milestones
+Stay organized with collections
 
-Discover the latest updates for the Google Play Games Level Up program, including new tools to optimize your game's reach, Sidekick testing, and a roadmap checklist to help secure your Level Up benefits. [Learn more](https://android-developers.googleblog.com/2026/03/level-up-your-game.html)
-- [![](https://developer.android.com/static/images/logos/android.svg)
-  Download Android Studio](https://developer.android.com/studio)
-- [![](https://developer.android.com/static/images/picto-icons/game-console.svg)
-  Launch Play Console](https://play.google.com/apps/publish)
-- [![](https://developer.android.com/static/images/picto-icons/stars.svg)
-  View Latest Updates](https://developer.android.com/latest-updates)
-[![](http://developer.android.com/static/images/home/promo-ecosystem-blog.png)](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html) Featured
+Save and categorize content based on your preferences.
 
-### [Keeping Google Play \& Android app ecosystems safe in 2025](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html)
 
-Safety is at the heart of everything we do. We want developers to thrive and users to feel confident downloading apps. By investing in world-class defenses, we're stopping threats before they reach our digital world and providing stronger protections for your business. [Read more](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html) [![](http://developer.android.com/static/images/bench/hero.png)](http://developer.android.com/bench) Featured
 
-### [Elevating AI assistance with LLM benchmarking](http://developer.android.com/bench)
+![](/static/images/home/level-up-logo.png)
 
-Check out Android Bench, our official benchmark of LLMs for Android development. [View leaderboard](http://developer.android.com/bench)
+### Level Up your game: Test Sidekick and prepare for upcoming milestones
+
+Discover the latest updates for the Google Play Games Level Up program, including new
+tools to optimize your game's reach, Sidekick testing, and a roadmap checklist to help
+secure your Level Up benefits.
+
+[Learn more](https://android-developers.googleblog.com/2026/03/level-up-your-game.html)
+
+* [![](/static/images/logos/android.svg)
+  Download Android Studio
+  get\_app](/studio)
+* [![](/static/images/picto-icons/game-console.svg)
+  Launch Play Console
+  launch](https://play.google.com/apps/publish)
+* [![](/static/images/picto-icons/stars.svg)
+  View Latest Updates](/latest-updates)
+
+[![](https://developer.android.com/static/images/home/promo-ecosystem-blog.png)](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html)
+
+Featured
+
+### [Keeping Google Play & Android app ecosystems safe in 2025](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html)
+
+Safety is at the heart of everything we do. We want developers to thrive and users to feel confident downloading apps. By investing in world-class defenses, we're stopping threats before they reach our digital world and providing stronger protections for your business.
+
+[Read more](https://security.googleblog.com/2026/02/keeping-google-play-android-app-ecosystem-safe-2025.html)
+
+[![](https://developer.android.com/static/images/bench/hero.png)](https://developer.android.com/bench)
+
+Featured
+
+### [Elevating AI assistance with LLM benchmarking](https://developer.android.com/bench)
+
+Check out Android Bench, our official benchmark of LLMs for Android development.
+
+[View leaderboard](https://developer.android.com/bench)
 
 ## Developer centers
 
-[![](http://developer.android.com/static/images/home/productivity.svg)](http://developer.android.com/productivity) New
+[![](https://developer.android.com/static/images/home/productivity.svg)](https://developer.android.com/productivity)
 
-### [Productivity apps](http://developer.android.com/productivity)
+New
 
-Level up your productivity app with media, adaptive layouts, and more. [Learn more](http://developer.android.com/productivity) [![](http://developer.android.com/static/images/home/social-messaging-hero.svg)](http://developer.android.com/social-and-messaging) Featured
+### [Productivity apps](https://developer.android.com/productivity)
 
-### [Social \& messaging apps](http://developer.android.com/social-and-messaging)
+Level up your productivity app with media, adaptive layouts, and more.
 
-Use Android's unique capabilities to supercharge your app's social and messaging features. [Learn more](http://developer.android.com/social-and-messaging) [![](http://developer.android.com/static/images/cluster-illustrations/enhance-media-16-9.svg)](http://developer.android.com/media) Featured
+[Learn more](https://developer.android.com/productivity)
 
-### [Camera \& media apps](http://developer.android.com/media)
+[![](https://developer.android.com/static/images/home/social-messaging-hero.svg)](https://developer.android.com/social-and-messaging)
 
-Learn how to build and extend engaging media experiences to users across Android's multidevice ecosystem. [Learn more](http://developer.android.com/media) [![](http://developer.android.com/static/images/picto-icons/health-premium-experience.svg)](http://developer.android.com/health-and-fitness) Featured
+Featured
 
-### [Health \& fitness apps](http://developer.android.com/health-and-fitness)
+### [Social & messaging apps](https://developer.android.com/social-and-messaging)
 
-Take your health and fitness app to the next level using Health Services with Health Connect. [Learn more](http://developer.android.com/health-and-fitness) ![](http://developer.android.com/static/images/logos/android.svg)
+Use Android's unique capabilities to supercharge your app's social and messaging features.
+
+[Learn more](https://developer.android.com/social-and-messaging)
+
+[![](https://developer.android.com/static/images/cluster-illustrations/enhance-media-16-9.svg)](https://developer.android.com/media)
+
+Featured
+
+### [Camera & media apps](https://developer.android.com/media)
+
+Learn how to build and extend engaging media experiences to users across Android's multidevice ecosystem.
+
+[Learn more](https://developer.android.com/media)
+
+[![](https://developer.android.com/static/images/picto-icons/health-premium-experience.svg)](https://developer.android.com/health-and-fitness)
+
+Featured
+
+### [Health & fitness apps](https://developer.android.com/health-and-fitness)
+
+Take your health and fitness app to the next level using Health Services with Health Connect.
+
+[Learn more](https://developer.android.com/health-and-fitness)
+
+![](https://developer.android.com/static/images/logos/android.svg)
 
 ## Platform updates
 
-Keep up to date with what's going on with the Android platform. [Go to Android Platform](http://developer.android.com/about) ![](http://developer.android.com/static/images/spot-icons/tools-update.svg)
+Keep up to date with what's going on with the Android platform.
+
+[Go to Android Platform](https://developer.android.com/about)
+
+![](https://developer.android.com/static/images/spot-icons/tools-update.svg)
 
 ## Tools updates
 
-The latest on tools that help you build the highest quality Android apps for every Android device. [Go to Android Studio](http://developer.android.com/studio)
+The latest on tools that help you build the highest quality Android apps for every Android device.
+
+[Go to Android Studio](https://developer.android.com/studio)
 
 ## Explore more
 
-[![](http://developer.android.com/static/images/cluster-illustrations/developer-guidance.svg)](http://developer.android.com/guide)
+[![](https://developer.android.com/static/images/cluster-illustrations/developer-guidance.svg)](https://developer.android.com/guide)
 
-### [Developer guides](http://developer.android.com/guide)
+### [Developer guides](https://developer.android.com/guide)
 
-Find training classes that describe how to accomplish a specific task with code samples you can re-use in your app. [![](http://developer.android.com/static/images/cluster-illustrations/samples.svg)](http://developer.android.com/samples)
+Find training classes that describe how to accomplish a specific task with code samples you can re-use in your app.
 
-### [Sample code](http://developer.android.com/samples)
+[![](https://developer.android.com/static/images/cluster-illustrations/samples.svg)](https://developer.android.com/samples)
 
-Jump-start your development using these sample projects. [![](http://developer.android.com/static/images/cluster-illustrations/quality-guidelines.svg)](http://developer.android.com/quality)
+### [Sample code](https://developer.android.com/samples)
 
-### [Quality guidelines](http://developer.android.com/quality)
+Jump-start your development using these sample projects.
 
-Build a high quality app with these design and behavior guidelines. [![](http://developer.android.com/static/images/cluster-illustrations/launch-app.svg)](http://developer.android.com/distribute)
+[![](https://developer.android.com/static/images/cluster-illustrations/quality-guidelines.svg)](https://developer.android.com/quality)
 
-### [Distribute your app](http://developer.android.com/distribute)
+### [Quality guidelines](https://developer.android.com/quality)
 
-Learn how to launch and distribute your apps and games successfully. ![](http://developer.android.com/static/images/picto-icons/lightbulb.svg)
+Build a high quality app with these design and behavior guidelines.
+
+[![](https://developer.android.com/static/images/cluster-illustrations/launch-app.svg)](https://developer.android.com/distribute)
+
+### [Distribute your app](https://developer.android.com/distribute)
+
+Learn how to launch and distribute your apps and games successfully.
+
+![](https://developer.android.com/static/images/picto-icons/lightbulb.svg)
 
 ## Latest news
 
-Keep up to date with what's going on in Android. [View all news](http://developer.android.com/news) ![](http://developer.android.com/static/images/picto-icons/eye.svg)
+Keep up to date with what's going on in Android.
+
+[View all news](https://developer.android.com/news)
+
+![](https://developer.android.com/static/images/picto-icons/eye.svg)
 
 ## Latest videos
 
-Get the latest Android news, best practices, live videos, demonstrations, tutorials. [View all videos](https://www.youtube.com/user/androiddevelopers/)
+Get the latest Android news, best practices, live videos, demonstrations, tutorials.
+
+[View all videos](https://www.youtube.com/user/androiddevelopers/)

@@ -58,7 +58,7 @@ implementation 'androidx.compose.material3.adaptive:adaptive-navigation'
 ```
 
 - adaptive: Low-level building blocks such as [`HingeInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/HingeInfo) and [`Posture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture)
-- adaptive-layout: Adaptive layouts such as `ListDetailPaneScaffold` and [`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/package-summary#SupportingPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldValue,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1))
+- adaptive-layout: Adaptive layouts such as `ListDetailPaneScaffold` and [`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable)
 - adaptive-navigation: Composables for navigating within and between panes, as well as adaptive layouts that support navigation by default such as `NavigableListDetailPaneScaffold` and `NavigableSupportingPaneScaffold`
 
 Ensure your project includes [compose-material3-adaptive version 1.1.0-beta1](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.1.0-beta01)

@@ -1,12 +1,23 @@
 ---
-title: https://developer.android.com/develop/ui/compose/side-effects
+title: Side-effects in Compose  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/side-effects
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Side-effects in Compose Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Compose applications using various Effect APIs for more predictable behavior and
 proper lifecycle management.
-keywords_public: Android, Jetpack Compose, Side Effects,
+keywords\_public: Android, Jetpack Compose, Side Effects,
 LaunchedEffect, rememberCoroutineScope, rememberUpdatedState, DisposableEffect,
 SideEffect, produceState, derivedStateOf, snapshotFlow, Compose State,
 Coroutines
@@ -16,7 +27,7 @@ scope of a composable function.
 Due to composables' lifecycle and properties such as unpredictable
 recompositions, executing recompositions of composables in different orders, or
 recompositions that can be discarded, composables [should ideally be side-effect
-free](https://developer.android.com/develop/ui/compose/mental-model).
+free](/develop/ui/compose/mental-model).
 
 However, sometimes side-effects are necessary, for example, to trigger a one-off
 event such as showing a snackbar or navigate to another screen given a certain
@@ -26,41 +37,41 @@ you'll learn about the different side-effect APIs Jetpack Compose offers.
 
 ## State and effect use cases
 
-As covered in the [Thinking in Compose](https://developer.android.com/develop/ui/compose/mental-model)
+As covered in the [Thinking in Compose](/develop/ui/compose/mental-model)
 documentation, composables should be side-effect free. When you need to make
 changes to the state of the app (as described in the [Managing
-state documentation](https://developer.android.com/develop/ui/compose/state) doc), **you should use the Effect
+state documentation](/develop/ui/compose/state) doc), **you should use the Effect
 APIs so that those side effects are executed in a predictable manner**.
 
-> [!IMPORTANT]
-> **Key Term:** An **effect** is a composable function that doesn't emit UI and causes side effects to run when a composition completes.
+**Key Term:** An **effect** is a composable function that doesn't emit UI and causes
+side effects to run when a composition completes.
 
 Due to the different possibilities effects open up in Compose, they can be
 easily overused. Make sure that the work you do in them is UI related and
 doesn't break **unidirectional data flow** as explained in the [Managing state
-documentation](https://developer.android.com/develop/ui/compose/state#unidirectional-data-flow-in-jetpack-compose).
+documentation](/develop/ui/compose/state#unidirectional-data-flow-in-jetpack-compose).
 
-> [!NOTE]
-> **Note:** A responsive UI is inherently asynchronous, and Jetpack Compose solves this by embracing coroutines at the API level instead of using callbacks. To learn more about coroutines, check out the [Kotlin coroutines on
-> Android](https://developer.android.com/kotlin/coroutines) guide.
+**Note:** A responsive UI is inherently asynchronous, and Jetpack Compose solves
+this by embracing coroutines at the API level instead of using callbacks. To
+learn more about coroutines, check out the [Kotlin coroutines on
+Android](/kotlin/coroutines) guide.
 
 ### `LaunchedEffect`: run suspend functions in the scope of a composable
 
 To perform work over the life of a composable and have the ability to call
 suspend functions, use the
-[`LaunchedEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#LaunchedEffect(kotlin.Any,kotlin.coroutines.SuspendFunction1))
+[`LaunchedEffect`](/reference/kotlin/androidx/compose/runtime/LaunchedEffect.composable#LaunchedEffect(kotlin.Any,kotlin.coroutines.SuspendFunction1))
 composable. When `LaunchedEffect` enters the Composition, it launches a
 coroutine with the block of code passed as a parameter. The coroutine will be
 cancelled if `LaunchedEffect` leaves the composition. If `LaunchedEffect` is
 recomposed with different keys (see the [Restarting
-Effects](https://developer.android.com/develop/ui/compose/side-effects#restarting-effects) section below), the existing coroutine will be
+Effects](#restarting-effects) section below), the existing coroutine will be
 cancelled and the new suspend function will be launched in a new coroutine.
 
 For example, here is an animation that pulses the alpha value with a
 configurable delay:
 
-
-```kotlin
+```
 // Allow the pulse rate to be configured, so it can be sped up if the user is running
 // out of time
 var pulseRateMs by remember { mutableLongStateOf(3000L) }
@@ -72,9 +83,9 @@ LaunchedEffect(pulseRateMs) { // Restart the effect when the pulse rate changes
         alpha.animateTo(1f)
     }
 }
-```
 
-<br />
+SideEffectsSnippets.kt
+```
 
 In the code above, the animation uses the suspending function
 [`delay`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html)
@@ -89,7 +100,7 @@ As `LaunchedEffect` is a composable function, it can only be used inside other
 composable functions. In order to launch a coroutine outside of a composable,
 but scoped so that it will be automatically canceled once it leaves the
 composition, use
-[`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#rememberCoroutineScope(kotlin.Function0)).
+[`rememberCoroutineScope`](/reference/kotlin/androidx/compose/runtime/rememberCoroutineScope.composable#rememberCoroutineScope(kotlin.Function0)).
 Also use `rememberCoroutineScope` whenever you need to control the lifecycle of
 one or more coroutines manually, for example, cancelling an animation when a
 user event happens.
@@ -101,8 +112,7 @@ scope will be cancelled when the call leaves the Composition.
 Following the previous example, you could use this code to show a `Snackbar`
 when the user taps on a `Button`:
 
-
-```kotlin
+```
 @Composable
 fun MoviesScreen(snackbarHostState: SnackbarHostState) {
 
@@ -128,9 +138,9 @@ fun MoviesScreen(snackbarHostState: SnackbarHostState) {
         }
     }
 }
-```
 
-<br />
+SideEffectsSnippets.kt
+```
 
 ### `rememberUpdatedState`: reference a value in an effect that shouldn't restart if the value changes
 
@@ -146,8 +156,7 @@ For example, suppose your app has a `LandingScreen` that disappears after some
 time. Even if `LandingScreen` is recomposed, the effect that waits for some time
 and notifies that the time passed shouldn't be restarted:
 
-
-```kotlin
+```
 @Composable
 fun LandingScreen(onTimeout: () -> Unit) {
 
@@ -164,9 +173,9 @@ fun LandingScreen(onTimeout: () -> Unit) {
 
     /* Landing screen content */
 }
-```
 
-<br />
+SideEffectsSnippets.kt
+```
 
 To create an effect that matches the lifecycle of the call site, a
 never-changing constant like `Unit` or `true` is passed as a parameter. In the
@@ -176,26 +185,26 @@ with, `onTimeout` needs to be wrapped with the `rememberUpdatedState` function.
 The returned `State`, `currentOnTimeout` in the code, should be used in the
 effect.
 
-> [!WARNING]
-> **Warning:** `LaunchedEffect(true)` is as suspicious as a `while(true)`. Even though there are valid use cases for it, *always* pause and make sure that's what you need.
+**Warning:** `LaunchedEffect(true)` is as suspicious as a `while(true)`. Even though
+there are valid use cases for it, *always* pause and make sure that's what you
+need.
 
 ### `DisposableEffect`: effects that require cleanup
 
 For side effects that need to be *cleaned up* after the keys change or if the
 composable leaves the Composition, use
-[`DisposableEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#DisposableEffect(kotlin.Any,kotlin.Function1)).
+[`DisposableEffect`](/reference/kotlin/androidx/compose/runtime/DisposableEffect.composable#DisposableEffect(kotlin.Any,kotlin.Function1)).
 If the `DisposableEffect` keys change, the composable needs to *dispose* (do
 the cleanup for) its current effect, and reset by calling the effect again.
 
 As an example, you might want to send analytics events based on
-[`Lifecycle` events](https://developer.android.com/topic/libraries/architecture/lifecycle#lc)
+[`Lifecycle` events](/topic/libraries/architecture/lifecycle#lc)
 by using a
-[`LifecycleObserver`](https://developer.android.com/reference/androidx/lifecycle/LifecycleObserver).
+[`LifecycleObserver`](/reference/androidx/lifecycle/LifecycleObserver).
 To listen for those events in Compose, use a `DisposableEffect` to register and
 unregister the observer when needed.
 
-
-```kotlin
+```
 @Composable
 fun HomeScreen(
     lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current,
@@ -229,9 +238,9 @@ fun HomeScreen(
 
     /* Home screen content */
 }
-```
 
-<br />
+SideEffectsSnippets.kt
+```
 
 In the code above, the effect will add the `observer` to the
 `lifecycleOwner`. If `lifecycleOwner` changes, the effect is disposed and
@@ -240,13 +249,13 @@ restarted with the new `lifecycleOwner`.
 A `DisposableEffect` must include an `onDispose` clause as the final statement
 in its block of code. Otherwise, the IDE displays a build-time error.
 
-> [!NOTE]
-> **Note:** Having an empty block in `onDispose` is not a good practice. Always reconsider to see if there's an effect that fits your use case better.
+**Note:** Having an empty block in `onDispose` is not a good practice. Always
+reconsider to see if there's an effect that fits your use case better.
 
 ### `SideEffect`: publish Compose state to non-Compose code
 
 To share Compose state with objects not managed by compose, use the
-[`SideEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#SideEffect(kotlin.Function0))
+[`SideEffect`](/reference/kotlin/androidx/compose/runtime/SideEffect.composable#SideEffect(kotlin.Function0))
 composable. Using a `SideEffect` guarantees that the effect executes after every
 successful recomposition. On the other hand, it is incorrect to
 perform an effect before a successful recomposition is guaranteed, which is the
@@ -257,8 +266,7 @@ population by attaching custom metadata ("user properties" in this example)
 to all subsequent analytics events. To communicate the user type of the
 current user to your analytics library, use `SideEffect` to update its value.
 
-
-```kotlin
+```
 @Composable
 fun rememberFirebaseAnalytics(user: User): FirebaseAnalytics {
     val analytics: FirebaseAnalytics = remember {
@@ -273,15 +281,15 @@ fun rememberFirebaseAnalytics(user: User): FirebaseAnalytics {
     }
     return analytics
 }
-```
 
-<br />
+SideEffectsSnippets.kt
+```
 
 ### `produceState`: convert non-Compose state into Compose state
 
-[`produceState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#produceState(kotlin.Any,kotlin.coroutines.SuspendFunction1))
+[`produceState`](/reference/kotlin/androidx/compose/runtime/produceState.composable#produceState(kotlin.Any,kotlin.coroutines.SuspendFunction1))
 launches a coroutine scoped to the Composition that can push values into a
-returned [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State). Use it to
+returned [`State`](/reference/kotlin/androidx/compose/runtime/State). Use it to
 convert non-Compose state into Compose state, for example bringing external
 subscription-driven state such as `Flow`, `LiveData`, or `RxJava` into the
 Composition.
@@ -293,15 +301,14 @@ setting the same value won't trigger a recomposition.
 Even though `produceState` creates a coroutine, it can also be used to observe
 non-suspending sources of data. To remove the subscription to that source, use
 the
-[`awaitDispose`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/ProduceStateScope#awaitDispose(kotlin.Function0))
+[`awaitDispose`](/reference/kotlin/androidx/compose/runtime/ProduceStateScope#awaitDispose(kotlin.Function0))
 function.
 
 The following example shows how to use `produceState` to load an image from the
 network. The `loadNetworkImage` composable function returns a `State` that can
 be used in other composables.
 
-
-```kotlin
+```
 @Composable
 fun loadNetworkImage(
     url: String,
@@ -323,32 +330,32 @@ fun loadNetworkImage(
         }
     }
 }
+
+SideEffectsSnippets.kt
 ```
 
-<br />
+**Note:** Composables with a return type should be named the way you'd name a normal
+Kotlin function, starting with a lowercase letter.
 
-> [!NOTE]
-> **Note:** Composables with a return type should be named the way you'd name a normal Kotlin function, starting with a lowercase letter.
 
-> [!IMPORTANT]
-> **Key Point:** Under the hood, `produceState` makes use of
-> other effects! It holds a `result` variable using
-> `remember { mutableStateOf(initialValue) }`, and triggers the
-> `producer` block in a `LaunchedEffect`. Whenever
-> `value` is updated in the `producer` block, the
-> `result` state is updated to the new value.
->
-> You can easily create your own effects building on top of the existing
-> APIs.
+**Key Point:** Under the hood, `produceState` makes use of
+other effects! It holds a `result` variable using
+`remember { mutableStateOf(initialValue) }`, and triggers the
+`producer` block in a `LaunchedEffect`. Whenever
+`value` is updated in the `producer` block, the
+`result` state is updated to the new value.
+
+You can easily create your own effects building on top of the existing
+APIs.
 
 ### `derivedStateOf`: convert one or multiple state objects into another state
 
-In Compose, [recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition) occurs
+In Compose, [recomposition](/develop/ui/compose/mental-model#recomposition) occurs
 each time an observed state object or composable input changes. A state object
 or input may be changing more often than the UI actually needs to update,
 leading to unnecessary recomposition.
 
-You should use the [`derivedStateOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#derivedStateOf(kotlin.Function0))
+You should use the [`derivedStateOf`](/reference/kotlin/androidx/compose/runtime/package-summary#derivedStateOf(kotlin.Function0))
 function when your inputs to a composable are changing more often than you need
 to recompose. This often occurs when something is frequently changing, such as
 a scroll position, but the composable only needs to react to it once it crosses
@@ -358,15 +365,14 @@ similarly to the Kotlin Flows
 [`distinctUntilChanged()`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/distinct-until-changed.html#:%7E:text=Returns%20flow%20where%20all%20subsequent,a%20StateFlow%20has%20no%20effect.)
 operator.
 
-> [!CAUTION]
-> **Caution:** `derivedStateOf` is expensive, and you should only use it to avoid unnecessary recomposition when a result hasn't changed.
+**Caution:** `derivedStateOf` is expensive, and you should only use it to avoid
+unnecessary recomposition when a result hasn't changed.
 
 #### Correct usage
 
 The following snippet shows an appropriate use case for `derivedStateOf`:
 
-
-```kotlin
+```
 @Composable
 // When the messages parameter changes, the MessageList
 // composable recomposes. derivedStateOf does not
@@ -393,9 +399,9 @@ fun MessageList(messages: List<Message>) {
         }
     }
 }
-```
 
-<br />
+SideEffectsSnippets.kt
+```
 
 In this snippet, `firstVisibleItemIndex` changes any time the first visible item
 changes. As you scroll, the value becomes `0`, `1`, `2`, `3`, `4`, `5`, etc.
@@ -409,20 +415,19 @@ A common mistake is to assume that, when you combine two Compose state objects,
 you should use `derivedStateOf` because you are "deriving state". However, this
 is purely overhead and not required, as shown in the following snippet:
 
-> [!WARNING]
-> **Warning:** The following snippet shows an incorrect usage of `derivedStateOf`. Do not use this code in your project.
+**Warning:** The following snippet shows an incorrect usage of `derivedStateOf`. Do
+not use this code in your project.
 
-
-```kotlin
+```
 // DO NOT USE. Incorrect usage of derivedStateOf.
 var firstName by remember { mutableStateOf("") }
 var lastName by remember { mutableStateOf("") }
 
 val fullNameBad by remember { derivedStateOf { "$firstName $lastName" } } // This is bad!!!
-val fullNameCorrect = "$firstName $lastName" // This is correcthttps://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/java/com/example/compose/snippets/sideeffects/SideEffectsSnippets.kt#L262-L267
-```
+val fullNameCorrect = "$firstName $lastName" // This is correct
 
-<br />
+SideEffectsSnippets.kt
+```
 
 In this snippet, `fullName` needs to update just as often as `firstName` and
 `lastName`. Therefore, no excess recomposition is occurring, and using
@@ -430,8 +435,8 @@ In this snippet, `fullName` needs to update just as often as `firstName` and
 
 ### `snapshotFlow`: convert Compose's State into Flows
 
-Use [`snapshotFlow`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#snapshotFlow(kotlin.Function0))
-to convert [`State<T>`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State)
+Use [`snapshotFlow`](/reference/kotlin/androidx/compose/runtime/package-summary#snapshotFlow(kotlin.Function0))
+to convert [`State<T>`](/reference/kotlin/androidx/compose/runtime/State)
 objects into a cold Flow. `snapshotFlow` runs its block when collected and emits
 the result of the `State` objects read in it. When one of the `State` objects
 read inside the `snapshotFlow` block mutates, the Flow will emit the new value
@@ -442,8 +447,7 @@ the previous emitted value (this behavior is similar to that of
 The following example shows a side effect that records when the user scrolls
 past the first item in a list to analytics:
 
-
-```kotlin
+```
 val listState = rememberLazyListState()
 
 LazyColumn(state = listState) {
@@ -459,9 +463,9 @@ LaunchedEffect(listState) {
             MyAnalyticsService.sendScrolledPastFirstItemEvent()
         }
 }
-```
 
-<br />
+SideEffectsSnippets.kt
+```
 
 In the code above, `listState.firstVisibleItemIndex` is converted to a Flow that
 can benefit from the power of Flow's operators.
@@ -474,31 +478,32 @@ cancel the running effect and start a new one with the new keys.
 
 The typical form for these APIs is:
 
-    EffectName(restartIfThisKeyChanges, orThisKey, orThisKey, ...) { block }
+```
+EffectName(restartIfThisKeyChanges, orThisKey, orThisKey, ...) { block }
+```
 
 Due to the subtleties of this behavior, problems can occur if the parameters
 used to restart the effect are not the right ones:
 
-- Restarting effects less than they should could cause bugs in your app.
-- Restarting effects more than they should could be inefficient.
+* Restarting effects less than they should could cause bugs in your app.
+* Restarting effects more than they should could be inefficient.
 
 As a rule of thumb, mutable and immutable variables used in the effect block of
 code should be added as parameters to the effect composable. Apart from those,
 more parameters can be added to force restarting the effect. If the change of
 a variable shouldn't cause the effect to restart, the variable should be wrapped
-in [`rememberUpdatedState`](https://developer.android.com/develop/ui/compose/side-effects#rememberupdatedstate). If the variable never
+in [`rememberUpdatedState`](#rememberupdatedstate). If the variable never
 changes because it's wrapped in a `remember` with no keys, you don't need to
 pass the variable as a key to the effect.
 
-> [!IMPORTANT]
-> **Key Point:** Variables used in an effect should be added as a parameter of the effect composable, or use `rememberUpdatedState`.
+**Key Point:** Variables used in an effect should be added as a parameter of the
+effect composable, or use `rememberUpdatedState`.
 
 In the `DisposableEffect` code shown above, the effect takes as a parameter the
 `lifecycleOwner` used in its block, because any change to them should cause the
 effect to restart.
 
-
-```kotlin
+```
 @Composable
 fun HomeScreen(
     lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current,
@@ -520,9 +525,9 @@ fun HomeScreen(
         }
     }
 }
-```
 
-<br />
+SideEffectsSnippets.kt
+```
 
 `currentOnStart` and `currentOnStop` are not needed as `DisposableEffect`
 keys, because their value never change in Composition due to the usage of
@@ -534,13 +539,13 @@ used from that point onward.
 ### Constants as keys
 
 You can use a constant like `true` as an effect key to
-make it **follow the lifecycle of the call site** . There are valid use cases for
+make it **follow the lifecycle of the call site**. There are valid use cases for
 it, like the `LaunchedEffect` example shown above. However, before doing that,
 think twice and make sure that's what you need.
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state)
-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
-- [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose)
+* Note: link text is displayed when JavaScript is off
+* [State and Jetpack Compose](/develop/ui/compose/state)
+* [Kotlin for Jetpack Compose](/develop/ui/compose/kotlin)
+* [Using Views in Compose](/develop/ui/compose/migrate/interoperability-apis/views-in-compose)

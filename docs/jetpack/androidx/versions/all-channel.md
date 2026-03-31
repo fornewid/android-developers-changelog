@@ -33,6 +33,7 @@ These Jetpack libraries have been recently updated.
 
 ### March 26, 2026
 
+- [Media3 Version 1.10.0](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0)
 - [Media3 Version 1.10.0-rc03](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc03)
 
 ### March 25, 2026

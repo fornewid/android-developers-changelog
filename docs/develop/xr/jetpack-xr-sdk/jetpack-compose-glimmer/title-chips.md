@@ -11,7 +11,7 @@ Applicable XR devices This guidance helps you build experiences for these types 
 
 <br />
 
-In Jetpack Compose Glimmer, the [`TitleChip`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/package-summary#TitleChip(androidx.compose.ui.Modifier,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1)) component is designed to
+In Jetpack Compose Glimmer, the [`TitleChip`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/TitleChip.composable#TitleChip(androidx.compose.ui.Modifier,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1)) component is designed to
 provide brief, non-interactive label for associated content, such as a Card. Use
 title chips to display concise information like a short title, a name, or a
 status. Since title chips are not focusable or interactive, they serve a purely
@@ -49,4 +49,4 @@ the composable. The following code shows how to use a title chip with a card:
 
 ### Key points about the code
 
-- The [`Spacer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Spacer(androidx.compose.ui.Modifier)) has a fixed height to provide the correct vertical spacing, defined by [`TitleChipDefaults.AssociatedContentSpacing`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/TitleChipDefaults#AssociatedContentSpacing()), between the two components.
+- The [`Spacer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Spacer.composable#Spacer(androidx.compose.ui.Modifier)) has a fixed height to provide the correct vertical spacing, defined by [`TitleChipDefaults.AssociatedContentSpacing`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/TitleChipDefaults#AssociatedContentSpacing()), between the two components.

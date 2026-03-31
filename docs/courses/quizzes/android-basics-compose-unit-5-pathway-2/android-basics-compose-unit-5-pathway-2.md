@@ -1,92 +1,103 @@
 ---
-title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-5-pathway-2/android-basics-compose-unit-5-pathway-2
+title: Load and display images from the internet  |  Android Developers
 url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-5-pathway-2/android-basics-compose-unit-5-pathway-2
-source: md.txt
+source: html-scrape
 ---
 
-# Load and display images from the internet
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Load and display images from the internet
 
-<br />
+Return to pathway
 
-Return to pathway  
-1.
 
-   ## Which of the following is not a common HTTP operation/method:
 
-   GET  
-   POST  
-   DELETE  
-   SET  
-2.
+1. ## Which of the following is not a common HTTP operation/method:
 
-   ## The response from a REST web service is commonly formatted in one of the common data transfer formats like XML or JSON.
+   GET
 
-   True  
-   False  
-3.
+   POST
 
-   ## Which of the following is not true for the Retrofit library:
+   DELETE
 
-   It is a client library.  
-   It enables your app to make requests to a REST web service.  
-   It converts Kotlin objects to JSON objects.  
-   It is a third-party library.  
-4.
+   SET
+2. ## The response from a REST web service is commonly formatted in one of the common data transfer formats like XML or JSON.
 
-   ## Which of the following applies to a Singleton pattern:
+   True
 
-   `object`declarations are used to declare singleton objects in Kotlin.  
-   Ensures that one, and only one, instance of an object is created  
-   Has one global point of access to that object.  
-   All of the above  
-5.
+   False
+3. ## Which of the following is not true for the Retrofit library:
 
-   ## Each JSON object contains the following:
+   It is a client library.
 
-   A set of key-value pairs separated by a colon.  
-   A set of key-value pairs separated by a comma.  
-   A set of key-value pairs separated by a semi colon.  
-   None of the above  
-6.
+   It enables your app to make requests to a REST web service.
 
-   ## Following Android's recommended app architecture guidelines, an app should have which of the following:
+   It converts Kotlin objects to JSON objects.
 
-   A UI Layer  
-   A Domain Layer  
-   A Data Layer  
-   A Business Layer  
-7.
+   It is a third-party library.
+4. ## Which of the following applies to a Singleton pattern:
 
-   ## The advantages of using Dependency Injection (DI) in your app include which of the following:
+   `object` declarations are used to declare singleton objects in Kotlin.
 
-   Choose as many answers as you see fit.  
-   Helps with the reusability of code  
-   Makes refactoring easier  
-   Helps with testing  
-   Makes your app run faster  
-8.
+   Ensures that one, and only one, instance of an object is created
 
-   ## If your app has more than one type of data source, they should all be stored in the same repository for ease of use.
+   Has one global point of access to that object.
 
-   True  
-   False  
-9.
+   All of the above
+5. ## Each JSON object contains the following:
 
-   ## Which of the following is used to replace the`Main`dispatcher with a`TestDispatcher`in a local unit test:
+   A set of key-value pairs separated by a colon.
 
-   `runTest`  
-   `runBlocking`  
-   `Distpatchers.resetMain()`  
-   `Dispatchers.setMain()`  
-10.
+   A set of key-value pairs separated by a comma.
 
-    ## The`runTest()`function can be used to test`suspend`functions.
+   A set of key-value pairs separated by a semi colon.
 
-    True  
-    False  
+   None of the above
+6. ## Following Android’s recommended app architecture guidelines, an app should have which of the following:
+
+   A UI Layer
+
+   A Domain Layer
+
+   A Data Layer
+
+   A Business Layer
+7. ## The advantages of using Dependency Injection (DI) in your app include which of the following:
+
+   Choose as many answers as you see fit.
+
+   Helps with the reusability of code
+
+   Makes refactoring easier
+
+   Helps with testing
+
+   Makes your app run faster
+8. ## If your app has more than one type of data source, they should all be stored in the same repository for ease of use.
+
+   True
+
+   False
+9. ## Which of the following is used to replace the `Main` dispatcher with a `TestDispatcher` in a local unit test:
+
+   `runTest`
+
+   `runBlocking`
+
+   `Distpatchers.resetMain()`
+
+   `Dispatchers.setMain()`
+10. ## The `runTest()` function can be used to test `suspend` functions.
+
+    True
+
+    False
 
 Submit answers
 
-*error_outline*An error occurred when grading the quiz. Please try again.
+*error\_outline*
+An error occurred when grading the quiz. Please try again.

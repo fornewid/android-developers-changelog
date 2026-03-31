@@ -43,7 +43,7 @@ been optimized for XR.
 
 Jetpack Compose for XR introduces new components that manage XR enhancements so
 that you don't have to. For example, you can use [`SpatialPopup`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialPopup(androidx.compose.ui.Alignment,androidx.compose.ui.unit.IntOffset,kotlin.Function0,androidx.xr.compose.spatial.SpatialPopupProperties,kotlin.Function0)) and
-[`SpatialDialog`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)) to replace their 2D counterparts. These components appear
+[`SpatialDialog`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/SpatialDialog.composable#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)) to replace their 2D counterparts. These components appear
 as typical 2D UI when spatial UI isn't available, and they show your app's
 spatial UI when they can. Using them is as straightforward as making a one-line
 change to replace the corresponding 2D UI element.
@@ -210,8 +210,8 @@ You can either use a single spatial panel for your app's UI, or you can migrate
 your 2D UI to multiple spatial panels. If you choose to use multiple panels for
 your app's UI, you can position and rotate panels (analogous to laying out your
 UI in 2D). You'll start with a clear design vision for what you want to
-accomplish, and then you can use Spatial UI Layout APIs ([`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)),
-[`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)),
+accomplish, and then you can use Spatial UI Layout APIs ([`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)),
+[`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)),
 [`SpatialAlignment`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SpatialAlignment)) and subspace modifiers to position and rotate panels.
 There are some key patterns that you'll want to avoid as you implement multiple
 panels.
@@ -285,7 +285,7 @@ if (LocalSpatialCapabilities.current.isSpatialUiEnabled) {
 }
 
 // Similar check for audio
-val spatialAudioEnabled = LocalSpatialCapabilities.current.isSpatialAudioEnabledhttps://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/xr/src/main/java/com/example/xr/compose/SpatialCapabilities.kt#L37-L44
+val spatialAudioEnabled = LocalSpatialCapabilities.current.isSpatialAudioEnabledhttps://github.com/android/snippets/blob/2c9cbd0f626c5eefc018fffa17af55372333e2bb/xr/src/main/java/com/example/xr/compose/SpatialCapabilities.kt#L37-L44
 ```
 
 <br />

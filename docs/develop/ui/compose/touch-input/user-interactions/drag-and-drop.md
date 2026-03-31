@@ -6,8 +6,8 @@ source: md.txt
 
 Jetpack Compose supports drag and drop with two modifiers:
 
-- [`dragAndDropSource`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/package-summary#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.Function1)): Specifies a composable as the starting point of the drag gesture
-- [`dragAndDropTarget`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/package-summary#(androidx.compose.ui.Modifier).dragAndDropTarget(kotlin.Function1,androidx.compose.ui.draganddrop.DragAndDropTarget)): Specifies a composable that accepts the dropped data
+- [`dragAndDropSource`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/dragAndDropSource.modifier#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.Function1)): Specifies a composable as the starting point of the drag gesture
+- [`dragAndDropTarget`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/dragAndDropTarget.modifier#(androidx.compose.ui.Modifier).dragAndDropTarget(kotlin.Function1,androidx.compose.ui.draganddrop.DragAndDropTarget)): Specifies a composable that accepts the dropped data
 
 For example, to enable users to drag an image in your app, create an image
 composable and add the `dragAndDropSource` modifier. To set up a drop target,

@@ -1,11 +1,21 @@
 ---
-title: https://developer.android.com/google/play/age-signals/test-age-signals-api
+title: Test your Play Age Signals API (beta) integration  |  Android Developers
 url: https://developer.android.com/google/play/age-signals/test-age-signals-api
-source: md.txt
+source: html-scrape
 ---
 
+On March 17, 2026, the Play Age Signals API starts rolling out responses for users in Brazil in [preparation for requirements under Digital ECA](https://support.google.com/googleplay/android-developer/answer/6223646#digital_eca_requirements). Ongoing updates will be provided in advance of [age verification bills](http://support.google.com/googleplay/android-developer/answer/16569691) in US states, which are slated to go into effect in Utah and Louisiana in May and July 2026 respectively. API responses for users in Texas not live due to a Federal District Court preliminary injunction.
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Play Age Signals](https://developer.android.com/google/play/age-signals)
+
+# Test your Play Age Signals API (beta) integration Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 To test your Play Age Signals API (beta) integration with your app, use the
-[FakeAgeSignalsManager](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/testing/FakeAgeSignalsManager) implementation available in the age signals artifact.
+[FakeAgeSignalsManager](/google/play/age-signals/reference/com/google/android/play/agesignals/testing/FakeAgeSignalsManager) implementation available in the age signals artifact.
 The `FakeAgeSignalsManager` implementation lets you simulate the API's behavior.
 
 The `FakeAgeSignalsManager` is intended solely for unit or integration tests to
@@ -16,7 +26,7 @@ The following example simulates the response for a verified adult:
 
 ### Kotlin
 
-```kotlin
+```
 val fakeVerifiedUser =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.VERIFIED)
@@ -31,7 +41,7 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
 
 ### Java
 
-```java
+```
 AgeSignalsResult fakeVerifiedUser =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.VERIFIED)
@@ -48,7 +58,7 @@ and 17 years old:
 
 ### Kotlin
 
-```kotlin
+```
 val fakeSupervisedUser =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED)
@@ -65,7 +75,7 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
 
 ### Java
 
-```java
+```
 AgeSignalsResult fakeSupervisedUser =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED)
@@ -85,7 +95,7 @@ age range of 13 to 15:
 
 ### Kotlin
 
-```kotlin
+```
 val fakeDeclaredUserWithCustomAgeRange =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.DECLARED)
@@ -102,7 +112,7 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
 
 ### Java
 
-```java
+```
 AgeSignalsResult fakeDeclaredUserWithCustomAgeRange =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.DECLARED)
@@ -124,7 +134,7 @@ significant change having been approved:
 
 ### Kotlin
 
-```kotlin
+```
 val fakeSupervisedApprovalPendingUser =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_PENDING)
@@ -141,7 +151,7 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
 
 ### Java
 
-```java
+```
 AgeSignalsResult fakeSupervisedApprovalPendingUser =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_PENDING)
@@ -164,7 +174,7 @@ from 2025-02-01:
 
 ### Kotlin
 
-```kotlin
+```
 val fakeSupervisedApprovalPendingUser =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_PENDING)
@@ -184,7 +194,7 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
 
 ### Java
 
-```java
+```
 AgeSignalsResult fakeSupervisedApprovalPendingUser =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_PENDING)
@@ -208,7 +218,7 @@ approved up to and including the significant change that was effective from
 
 ### Kotlin
 
-```kotlin
+```
 val fakeSupervisedApprovalDeniedUser =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_DENIED)
@@ -228,7 +238,7 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
 
 ### Java
 
-```java
+```
 AgeSignalsResult fakeSupervisedApprovalDeniedUser =
     AgeSignalsResult.builder()
         .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_DENIED)
@@ -249,7 +259,7 @@ The following example simulates the response for an unknown user status:
 
 ### Kotlin
 
-```kotlin
+```
 val fakeUnknownUser =
     AgeSignalsResult.builder().setUserStatus(AgeSignalsVerificationStatus.UNKNOWN).build()
 val manager = FakeAgeSignalsManager()
@@ -261,7 +271,7 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
 
 ### Java
 
-```java
+```
 AgeSignalsResult fakeUnknownUser =
     AgeSignalsResult.builder().setUserStatus(AgeSignalsVerificationStatus.UNKNOWN).build();
 FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
@@ -275,7 +285,7 @@ The following example simulates the response for a `null` user status value:
 
 ### Kotlin
 
-```kotlin
+```
 val fakeNullUserStatus =
     AgeSignalsResult.builder()
         .setUserStatus(null)
@@ -289,7 +299,7 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
 
 ### Java
 
-```java
+```
 AgeSignalsResult fakeNullUserStatus =
     AgeSignalsResult.builder()
         .setUserStatus(null)
@@ -306,7 +316,7 @@ The following example simulates the response with a network error code:
 
 ### Kotlin
 
-```kotlin
+```
 val manager = FakeAgeSignalsManager()
 manager.setNextAgeSignalsException(
   AgeSignalsException(AgeSignalsErrorCode.NETWORK_ERROR)
@@ -318,7 +328,7 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
 
 ### Java
 
-```java
+```
 FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
 manager.setNextAgeSignalsException(
     new AgeSignalsException(AgeSignalsErrorCode.NETWORK_ERROR));
@@ -326,3 +336,15 @@ manager.checkAgeSignals(AgeSignalsRequest.builder().build())
     .addOnSuccessListener(/* handle success case */)
     .addOnFailureListener(/* handle failure case */);
 ```
+
+[Previous
+
+arrow\_back
+
+Review revoked approvals](/google/play/age-signals/revoked-app-approval)
+
+[Next
+
+Release notes
+
+arrow\_forward](/google/play/age-signals/release-notes)

@@ -1,25 +1,36 @@
 ---
-title: https://developer.android.com/media/media3/exoplayer/rtsp
+title: RTSP  |  Android media  |  Android Developers
 url: https://developer.android.com/media/media3/exoplayer/rtsp
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# RTSP Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 ExoPlayer supports both live and on demand RTSP. Supported sample formats and
 network types are listed below.
 
 ### Supported sample formats
 
-- H264 (the SDP media description must include SPS/PPS data in the fmtp attribute for decoder initialization).
-- AAC (with ADTS bitstream).
-- AC3.
+* H264 (the SDP media description must include SPS/PPS data in the fmtp
+  attribute for decoder initialization).
+* AAC (with ADTS bitstream).
+* AC3.
 
-> [!NOTE]
-> **Note:** Please comment on [this issue](https://github.com/google/ExoPlayer/issues/9210) to request support for additional sample formats.
+**Note:** Please comment on [this issue](https://github.com/google/ExoPlayer/issues/9210)
+to request support for additional sample formats.
 
 ### Supported network types
 
-- RTP over UDP unicast (multicast is not supported).
-- Interleaved RTSP, RTP over RTSP using TCP.
+* RTP over UDP unicast (multicast is not supported).
+* Interleaved RTSP, RTP over RTSP using TCP.
 
 ## Using MediaItem
 
@@ -27,38 +38,43 @@ To play an RTSP stream, you need to depend on the RTSP module.
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer-rtsp:1.9.3")
+```
+implementation("androidx.media3:media3-exoplayer-rtsp:1.10.0")
+```
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer-rtsp:1.9.3"
+```
+implementation "androidx.media3:media3-exoplayer-rtsp:1.10.0"
+```
 
 You can then create a `MediaItem` for an RTSP URI and pass it to the player.
 
-
 ### Kotlin
 
-```kotlin
+```
 // Create a player instance.
 val player = ExoPlayer.Builder(context).build()
 // Set the media item to be played.
 player.setMediaItem(MediaItem.fromUri(rtspUri))
 // Prepare the player.
 player.prepare()
+
+Rtsp.kt
 ```
 
 ### Java
 
-```java
+```
 // Create a player instance.
 ExoPlayer player = new ExoPlayer.Builder(context).build();
 // Set the media item to be played.
 player.setMediaItem(MediaItem.fromUri(rtspUri));
 // Prepare the player.
 player.prepare();
-```
 
-<br />
+Rtsp.java
+```
 
 ### Authentication
 
@@ -72,10 +88,9 @@ authentication info. Specifically, the URI should be of the form
 For more customization options, you can create an `RtspMediaSource` and pass it
 directly to the player instead of a `MediaItem`.
 
-
 ### Kotlin
 
-```kotlin
+```
 // Create an RTSP media source pointing to an RTSP uri.
 val mediaSource: MediaSource =
   RtspMediaSource.Factory().createMediaSource(MediaItem.fromUri(rtspUri))
@@ -85,11 +100,13 @@ val player = ExoPlayer.Builder(context).build()
 player.setMediaSource(mediaSource)
 // Prepare the player.
 player.prepare()
+
+Rtsp.kt
 ```
 
 ### Java
 
-```java
+```
 // Create an RTSP media source pointing to an RTSP uri.
 MediaSource mediaSource =
     new RtspMediaSource.Factory().createMediaSource(MediaItem.fromUri(rtspUri));
@@ -99,9 +116,9 @@ ExoPlayer player = new ExoPlayer.Builder(context).build();
 player.setMediaSource(mediaSource);
 // Prepare the player.
 player.prepare();
-```
 
-<br />
+Rtsp.java
+```
 
 ## Using RTSP behind a NAT (RTP/TCP support)
 
@@ -139,27 +156,28 @@ By default, `RtspMediaSource` will use Java's standard socket factory
 This behavior can be overridden using
 `RtspMediaSource.Factory.setSocketFactory()`.
 
-
 ### Kotlin
 
-```kotlin
+```
 // Create an RTSP media source pointing to an RTSP uri and override the socket
 // factory.
 val mediaSource: MediaSource =
   RtspMediaSource.Factory()
     .setSocketFactory(socketFactory)
     .createMediaSource(MediaItem.fromUri(rtspUri))
+
+Rtsp.kt
 ```
 
 ### Java
 
-```java
+```
 // Create an RTSP media source pointing to an RTSP uri and override the socket
 // factory.
 MediaSource mediaSource =
     new RtspMediaSource.Factory()
         .setSocketFactory(socketFactory)
         .createMediaSource(MediaItem.fromUri(rtspUri));
-```
 
-<br />
+Rtsp.java
+```

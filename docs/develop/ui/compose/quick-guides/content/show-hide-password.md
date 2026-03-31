@@ -82,7 +82,7 @@ fun PasswordTextField() {
 ### Key points about the code
 
 - Maintains the password visibility state in`showPassword`.
-- Uses a [`BasicSecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/package-summary#BasicSecureTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,kotlin.Function2,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,androidx.compose.foundation.text.input.TextFieldDecorator,androidx.compose.foundation.text.input.TextObfuscationMode,kotlin.Char)) composable for password entry.
+- Uses a [`BasicSecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicSecureTextField.composable) composable for password entry.
 - Has a clickable trailing icon, which toggles the value of `showPassword`.
 - Defines the [`textObfuscationMode`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextObfuscationMode) attribute and the visible/not-visible state of the trailing icon by the state of `showPassword`.
 

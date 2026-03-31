@@ -35,7 +35,7 @@ The following image demonstrates the three states of a checkbox.
 
 ## Implementation
 
-You can use the [`Checkbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composable to create a checkbox in your app.
+You can use the [`Checkbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Checkbox.composable#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composable to create a checkbox in your app.
 There are just a few key parameters to keep in mind:
 
 - `checked`: The boolean that captures whether the checkbox is checked or unchecked.
@@ -154,8 +154,8 @@ The following are several points you should note from this example:
   - `childCheckedStates`: A list of booleans using `mutableStateOf()` to track the checked state of each child checkbox.
   - `parentState`: A [`ToggleableState`](https://developer.android.com/reference/kotlin/androidx/compose/ui/state/ToggleableState?_gl=1*1nllj9c*_up*MQ..*_ga*MTQ4MjE3NjI1Ny4xNzE1MzM1Nzc0*_ga_6HH9YJMN9M*MTcxNTMzNTc3NC4xLjAuMTcxNTMzNTc3NC4wLjAuMA..) whose value derives from the child checkboxes' states.
 - **UI components** :
-  - [`TriStateCheckbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#TriStateCheckbox(androidx.compose.ui.state.ToggleableState,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)): Is necessary for the parent checkbox as it has a `state` param that lets you set it to indeterminate.
-  - [`Checkbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)): Used for each child checkbox with its state linked to the corresponding element in `childCheckedStates`.
+  - [`TriStateCheckbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TriStateCheckbox.composable#TriStateCheckbox(androidx.compose.ui.state.ToggleableState,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)): Is necessary for the parent checkbox as it has a `state` param that lets you set it to indeterminate.
+  - [`Checkbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Checkbox.composable#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)): Used for each child checkbox with its state linked to the corresponding element in `childCheckedStates`.
   - `Text`: Displays labels and messages ("Select all", "Option X", "All options selected").
 - **Logic** :
   - The parent checkbox's `onClick` updates all child checkboxes to the opposite of the current parent state.

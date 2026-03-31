@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/training/wearables/wff/personalization
+title: Support personalization  |  Wear OS  |  Android Developers
 url: https://developer.android.com/training/wearables/wff/personalization
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Wear OS](https://developer.android.com/training/wearables)
+
+# Support personalization Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Once you have a basic watch face put together, letting the user customize both
 the appearance of the watch face and the information shown on it, helps make the watch

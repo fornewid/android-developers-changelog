@@ -172,7 +172,7 @@ list of movies, ideally we would similarly reorder the instances in the
 Composition tree instead of recomposing each `MovieOverview` composable with a
 different movie instance. Compose provides a way for you to tell the runtime
 what values you want to use to identify a given part of the tree: the
-[`key`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#key(kotlin.Array,kotlin.Function0))
+[`key`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/key.composable#key(kotlin.Array,kotlin.Function0))
 composable.
 
 By wrapping a block of code with a call to the key composable with one or more

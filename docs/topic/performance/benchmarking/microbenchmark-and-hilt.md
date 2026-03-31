@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/topic/performance/benchmarking/microbenchmark-and-hilt
+title: Microbenchmark and Hilt  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/benchmarking/microbenchmark-and-hilt
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App quality](https://developer.android.com/quality)
+* [Technical quality](https://developer.android.com/quality/technical)
+
+# Microbenchmark and Hilt Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Many apps use Hilt to inject different behaviors to different build variants.
 This can be particularly useful when Microbenchmarking your app because it lets
@@ -11,7 +20,7 @@ code snippet shows a repository that fetches and sorts a list of names:
 
 ### Kotlin
 
-```kotlin
+```
 class PeopleRepository @Inject constructor(
     @Kotlin private val dataSource: NetworkDataSource,
     @Dispatcher(DispatcherEnum.IO) private val dispatcher: CoroutineDispatcher
@@ -34,7 +43,7 @@ class PeopleRepository @Inject constructor(
 
 ### Java
 
-```java
+```
 public class PeopleRepository {
 
     private final MutableLiveData<List<Person>> peopleLiveData = new MutableLiveData<>();
@@ -88,7 +97,7 @@ benchmarking:
 
 ### Kotlin
 
-```kotlin
+```
 class FakeNetworkDataSource @Inject constructor(
     private val people: List<Person>
 ) : NetworkDataSource {
@@ -98,7 +107,7 @@ class FakeNetworkDataSource @Inject constructor(
 
 ### Java
 
-```java
+```
 public class FakeNetworkDataSource implements NetworkDataSource{
 
     private List<Person> people;
@@ -121,7 +130,7 @@ provider is used:
 
 ### Kotlin
 
-```kotlin
+```
 @Module
 @InstallIn(SingletonComponent::class)
 object FakekNetworkModule {
@@ -144,7 +153,7 @@ object FakekNetworkModule {
 
 ### Java
 
-```java
+```
 @Module
 @InstallIn(SingletonComponent.class)
 public class FakeNetworkModule {
@@ -180,13 +189,13 @@ when `getPeople()` is called during benchmarking.
 Some apps already use fakes on debug builds to remove any backend dependencies.
 However, you need to benchmark on a build as close to the release build as
 possible. The rest of this document uses a multi-module, multi-variant structure
-as described in [Full project setup](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#full-setup).
+as described in [Full project setup](/topic/performance/benchmarking/microbenchmark-write#full-setup).
 
 There are three modules:
 
-- `benchmarkable`: contains the code to benchmark.
-- `benchmark`: contains the benchmark code.
-- `app`: contains the remaining app code.
+* `benchmarkable`: contains the code to benchmark.
+* `benchmark`: contains the benchmark code.
+* `app`: contains the remaining app code.
 
 Each of the preceding modules has a build variant named `benchmark` along with
 the usual `debug` and `release` variants.
@@ -203,7 +212,7 @@ of the `benchmarkable` module containing the fake implementation is as follows:
 
 ### Kotlin
 
-```kotlin
+```
 android {
     ...
     buildTypes {
@@ -230,7 +239,7 @@ android {
 
 ### Groovy
 
-```groovy
+```
 android {
     ...
     buildTypes {
@@ -259,7 +268,7 @@ for the tests to run in that supports Hilt as follows:
 
 ### Kotlin
 
-```kotlin
+```
 class HiltBenchmarkRunner : AndroidBenchmarkRunner() {
 
     override fun newApplication(
@@ -274,7 +283,7 @@ class HiltBenchmarkRunner : AndroidBenchmarkRunner() {
 
 ### Java
 
-```java
+```
 public class JavaHiltBenchmarkRunner extends AndroidBenchmarkRunner {
 
     @Override
@@ -294,7 +303,7 @@ configuration:
 
 ### Kotlin
 
-```kotlin
+```
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.benchmark)
@@ -345,7 +354,7 @@ dependencies {
 
 ### Groovy
 
-```groovy
+```
 plugins {
     alias libs.plugins.android.library
     alias libs.plugins.benchmark
@@ -396,11 +405,11 @@ dependencies {
 
 The preceding example does the following:
 
-- Applies the necessary gradle plugins to the build.
-- Specifies that the custom test runner is used to run the tests.
-- Specifies that the `benchmark` variant is the test type for this module.
-- Adds the `benchmark` variant.
-- Adds the required dependencies.
+* Applies the necessary gradle plugins to the build.
+* Specifies that the custom test runner is used to run the tests.
+* Specifies that the `benchmark` variant is the test type for this module.
+* Adds the `benchmark` variant.
+* Adds the required dependencies.
 
 You need to change the `testBuildType` to ensure that Gradle creates the
 `connectedBenchmarkAndroidTest` task, which performs the benchmarking.
@@ -411,7 +420,7 @@ The benchmark is implemented as follows:
 
 ### Kotlin
 
-```kotlin
+```
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
 class PeopleRepositoryBenchmark {
@@ -459,7 +468,7 @@ class PeopleRepositoryBenchmark {
 
 ### Java
 
-```java
+```
 @RunWith(AndroidJUnit4.class)
 @HiltAndroidTest
 public class PeopleRepositoryBenchmark {
@@ -518,7 +527,7 @@ dependency injection on the benchmark test class. You must invoke the
 [`inject()`](https://dagger.dev/api/latest/dagger/hilt/android/testing/HiltAndroidRule.html#inject()) method of the Hilt rule in a `@Before` function to perform the
 injection before running any individual tests.
 
-The benchmark itself pauses timing while the [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata) observer is
+The benchmark itself pauses timing while the [`LiveData`](/topic/libraries/architecture/livedata) observer is
 registered. Then it uses a latch to wait until the `LiveData` is updated before
 finishing. As the sorting is run in the time between when
 `peopleRepository.update()` is called and when `LiveData` receives an update,
@@ -528,9 +537,11 @@ the duration of the sorting is included in the benchmark timing.
 
 Run the benchmark with `./gradlew :benchmark:connectedBenchmarkAndroidTest`
 to perform the benchmark over many iterations and to print the timing data to
-[Logcat](https://developer.android.com/studio/debug/logcat):
+[Logcat](/studio/debug/logcat):
 
-    PeopleRepositoryBenchmark.log[Metric (timeNs) results: median 613408.3952380952, min 451949.30476190476, max 1412143.5142857144, standardDeviation: 273221.2328680522...
+```
+PeopleRepositoryBenchmark.log[Metric (timeNs) results: median 613408.3952380952, min 451949.30476190476, max 1412143.5142857144, standardDeviation: 273221.2328680522...
+```
 
 The preceding example shows the benchmark result between 0.6ms and 1.4ms to run
 the sorting algorithm on a list of 1,000 items. However, if you include the
@@ -541,3 +552,15 @@ the sorting from the network call.
 You can always refactor code to make it easier to run the sorting in
 isolation, but if you're already using Hilt, you can use it to inject fakes for
 benchmarking instead.
+
+[Previous
+
+arrow\_back
+
+Microbenchmark instrumentation arguments](/topic/performance/benchmarking/microbenchmark-instrumentation-args)
+
+[Next
+
+Building without Gradle
+
+arrow\_forward](/topic/performance/benchmarking/microbenchmark-without-gradle)

@@ -67,7 +67,7 @@ such as deciding whether to use a specific canonical layout to take advantage of
 additional screen space.
 
 Compute the current [`WindowSizeClass`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass) using the
-[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#currentWindowAdaptiveInfo(kotlin.Boolean)) top‑level function of the
+[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfo.composable#currentWindowAdaptiveInfo(kotlin.Boolean)) top‑level function of the
 [`androidx.compose.material3.adaptive`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary) library. The function returns an
 instance of [`WindowAdaptiveInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo), which contains [`windowSizeClass`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo#windowSizeClass()). To
 support large and extra-large breakpoints, add the `supportLargeAndXLargeWidth`
@@ -77,7 +77,7 @@ updates whenever the window size class changes:
 
 
 ```kotlin
-val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClasshttps://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/compose/snippets/src/main/java/com/example/compose/snippets/layouts/AdaptiveLayoutSnippets.kt#L85-L85
+val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClasshttps://github.com/android/snippets/blob/2c9cbd0f626c5eefc018fffa17af55372333e2bb/compose/snippets/src/main/java/com/example/compose/snippets/layouts/AdaptiveLayoutSnippets.kt#L85-L85
 ```
 
 <br />

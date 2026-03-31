@@ -7,9 +7,9 @@ source: md.txt
 > [!WARNING]
 > **Warning:** It is recommended to use other layouts to achieve the same concepts. In each area below, there is a recommendation for the equivalent in Compose that does not use ConstraintLayout.
 
-[`ConstraintLayout`](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/package-summary#ConstraintLayout(androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.animation.core.AnimationSpec,kotlin.Function0,kotlin.Function1)) is a layout that lets you place composables relative to
+[`ConstraintLayout`](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/ConstraintLayout.composable#ConstraintLayout(androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.animation.core.AnimationSpec,kotlin.Function0,kotlin.Function1)) is a layout that lets you place composables relative to
 other composables on the screen. It is an alternative to using multiple nested
-`Row`, `Column`, `Box`, and [other custom layout elements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)).
+`Row`, `Column`, `Box`, and [other custom layout elements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)).
 
 In the View system, `ConstraintLayout` was the recommended way to create large
 and complex layouts, as a flat view hierarchy was better for performance than
@@ -87,7 +87,7 @@ configuration, or animate between two constraint sets.
 For cases like these, you can use `ConstraintLayout` in a different way:
 
 1. Pass in a [`ConstraintSet`](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/ConstraintSet) as a parameter to `ConstraintLayout`.
-2. Assign references created in the `ConstraintSet` to composables using the [`layoutId`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/package-summary#(androidx.compose.ui.Modifier).layoutId(kotlin.Any)) modifier.
+2. Assign references created in the `ConstraintSet` to composables using the [`layoutId`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/layoutId.modifier#(androidx.compose.ui.Modifier).layoutId(kotlin.Any)) modifier.
 
 
 ```kotlin

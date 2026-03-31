@@ -1,27 +1,44 @@
 ---
-title: https://developer.android.com/develop/ui/views/graphics/drawables
+title: Drawables overview  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/graphics/drawables
-source: md.txt
+source: html-scrape
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to display graphics in Compose. [Loading Images →](https://developer.android.com/jetpack/compose/graphics/images/loading) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
 
-When you need to display static images in your app, you can use the `https://developer.android.com/reference/android/graphics/drawable/Drawable` class and its subclasses to draw shapes and
-images. A `https://developer.android.com/reference/android/graphics/drawable/Drawable` is a general abstraction for
+# Drawables overview Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+Try the Compose way
+
+Jetpack Compose is the recommended UI toolkit for Android. Learn how to display graphics in Compose.
+
+[Loading Images →](https://developer.android.com/jetpack/compose/graphics/images/loading)
+
+![](/static/images/android-compose-ui-logo.png)
+
+When you need to display static images in your app, you can use the `Drawable` class and its subclasses to draw shapes and
+images. A `Drawable` is a general abstraction for
 *something that can be drawn*. The various subclasses help with specific image
 scenarios, and you can extend them to define your own drawable objects
 that behave in unique ways.
 
-There are two ways to define and instantiate a `https://developer.android.com/reference/android/graphics/drawable/Drawable` besides using the class constructors:
+There are two ways to define and instantiate a `Drawable` besides using the class constructors:
 
-- Inflate an image resource (a bitmap file) saved in your project.
-- Inflate an XML resource that defines the drawable properties.
+* Inflate an image resource (a bitmap file) saved in your project.
+* Inflate an XML resource that defines the drawable properties.
 
 **Note:**
 You might instead prefer using a vector drawable, which defines an image with a set of
 points, lines, and curves, along with associated color information. This allows vector drawables
 to be scaled for different sizes without a loss of quality. For more information, see [Vector
-drawables overview](https://developer.android.com/guide/topics/graphics/vector-drawable-resources).
+drawables overview](/guide/topics/graphics/vector-drawable-resources).
 
 ## Create drawables from resource images
 
@@ -47,12 +64,12 @@ image as a bitstream in order to convert it to a bitmap, put your images in the
 `res/raw/` folder instead, where the `aapt` tool doesn't
 modify them.
 
-The following code snippet demonstrates how to build an `https://developer.android.com/reference/android/widget/ImageView` that uses
+The following code snippet demonstrates how to build an `ImageView` that uses
 an image created from a drawable resource and adds it to the layout:
 
 ### Kotlin
 
-```kotlin
+```
 private lateinit var constraintLayout: ConstraintLayout
 
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,7 +101,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ### Java
 
-```java
+```
 ConstraintLayout constraintLayout;
 
 protected void onCreate(Bundle savedInstanceState) {
@@ -110,52 +127,52 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-In other cases, you may want to handle your image resource as a `https://developer.android.com/reference/android/graphics/drawable/Drawable` object, as shown in the following
+In other cases, you may want to handle your image resource as a `Drawable` object, as shown in the following
 example:
 
 ### Kotlin
 
-```kotlin
+```
 val myImage: Drawable = ResourcesCompat.getDrawable(context.resources, R.drawable.my_image, null)
 ```
 
 ### Java
 
-```java
+```
 Resources res = context.getResources();
 Drawable myImage = ResourcesCompat.getDrawable(res, R.drawable.my_image, null);
 ```
 
 **Warning:** Each unique resource in your project
 can maintain only one state, no matter how many different objects you
-instantiate for it. For example, if you instantiate two `https://developer.android.com/reference/android/graphics/drawable/Drawable` objects from the same image resource and
+instantiate for it. For example, if you instantiate two `Drawable` objects from the same image resource and
 change a property (such as the alpha) for one object, then it also affects
 the other. When dealing with multiple instances of an image resource, instead
 of directly transforming the `Drawable` object you should perform a
 [tween
-animation](https://developer.android.com/guide/topics/graphics/view-animation#tween-animation).
+animation](/guide/topics/graphics/view-animation#tween-animation).
 
-The XML snippet below shows how to add a drawable resource to an `https://developer.android.com/reference/android/widget/ImageView` in the XML layout:
+The XML snippet below shows how to add a drawable resource to an `ImageView` in the XML layout:
 
-```xml
+```
 <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/my_image"
-        android:contentDescrip>tion="@string/my_image_desc" /
+        android:contentDescription="@string/my_image_desc" />
 ```
 
-For more information about using project resources, see [Resources and assets](https://developer.android.com/guide/topics/resources).
+For more information about using project resources, see [Resources and assets](/guide/topics/resources).
 
 **Note:** When using image resources as the source of your drawables,
 be sure the images are the appropriate size for various pixel densities. If the
 images are not correct they will be scaled up to fit, which can cause artifacting in your drawables.
 For more information, read [Support different
-pixel densities](https://developer.android.com/training/multiscreen/screendensities).
+pixel densities](/training/multiscreen/screendensities).
 
 ## Create drawables from XML resources
 
-If there is a `https://developer.android.com/reference/android/graphics/drawable/Drawable`
+If there is a `Drawable`
 object that you'd like to create, which isn't initially dependent on variables defined by your
 code or user interaction, then defining the `Drawable` in XML is a good option. Even
 if you expect your `Drawable` to change its properties during the user's interaction
@@ -165,36 +182,37 @@ the object has been instantiated.
 After you've defined your `Drawable` in XML, save the file in the
 `res/drawable/` directory of your project. The following example shows the XML that
 defines a
-`https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable`
+`TransitionDrawable`
 resource, which inherits from `Drawable`:
 
-```xml
+```
 <!-- res/drawable/expand_collapse.xml -->
-<transition xmlns:android="http://schemas.android.com/apk/res/and>roid&<quot;
-    item android:@drawable="drawable>/imag<e_expand"/
-    ite@m android:drawable=">d<rawable/ima>ge_collapse"/
-/transition
+<transition xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/image_expand"/>
+    <item android:drawable="@drawable/image_collapse"/>
+</transition>
 ```
 
 Then, retrieve and instantiate the object by calling
-`https://developer.android.com/reference/android/content/res/Resources#getDrawable(int)`
+`Resources#getDrawable()`
 and passing the resource ID of your XML file. Any
-`https://developer.android.com/reference/android/graphics/drawable/Drawable` subclass
+`Drawable` subclass
 that supports the `inflate()` method can be defined in XML and instantiated
 by your app.
 
-> [!IMPORTANT]
-> **Important:** Custom classes that extend subclasses of `Drawable` must override the `https://developer.android.com/reference/android/graphics/drawable/Drawable#getConstantState()` method. See the key point in [Custom drawables](https://developer.android.com/develop/ui/views/graphics/drawables#Custom) below.
+**Important:** Custom classes that extend subclasses of `Drawable` must override the
+`getConstantState()`
+method. See the key point in [Custom drawables](#Custom) below.
 
 Each drawable class that supports XML inflation utilizes specific XML attributes
 that help define the object properties. The following code instantiates the
-`https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable`
+`TransitionDrawable`
 and sets it as the content of an
-`https://developer.android.com/reference/android/widget/ImageView` object:
+`ImageView` object:
 
 ### Kotlin
 
-```kotlin
+```
 val transition= ResourcesCompat.getDrawable(
         context.resources,
         R.drawable.expand_collapse,
@@ -216,7 +234,7 @@ transition.startTransition(1000)
 
 ### Java
 
-```java
+```
 Resources res = context.getResources();
 TransitionDrawable transition =
     (TransitionDrawable) ResourcesCompat.getDrawable(res, R.drawable.expand_collapse, null);
@@ -239,25 +257,25 @@ listed above.
 
 ## Shape drawables
 
-A `https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable` object can be a good option
+A `ShapeDrawable` object can be a good option
 when you want to dynamically draw a two-dimensional graphic. You can
 programmatically draw primitive shapes on a `ShapeDrawable` object
 and apply the styles that your app needs.
 
-`https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable` is a subclass of `https://developer.android.com/reference/android/graphics/drawable/Drawable`. For this reason, you can use a
+`ShapeDrawable` is a subclass of `Drawable`. For this reason, you can use a
 `ShapeDrawable` wherever a `Drawable` is expected. For
 example, you can use a `ShapeDrawable` object to set the background
-of a view by passing it to the `https://developer.android.com/reference/android/view/View#setBackgroundDrawable(android.graphics.drawable.Drawable)` method of the view. You can also draw your shape as its
+of a view by passing it to the `setBackgroundDrawable()` method of the view. You can also draw your shape as its
 own custom view and add it to a layout in your app.
 
-Because `https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable` has its own `https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable#draw(android.graphics.Canvas)` method, you can create a
-subclass of `https://developer.android.com/reference/android/view/View` that draws the `ShapeDrawable`
-object during the `https://developer.android.com/reference/android/view/View#onDraw(android.graphics.Canvas)` event, as shown in
+Because `ShapeDrawable` has its own `draw()` method, you can create a
+subclass of `View` that draws the `ShapeDrawable`
+object during the `onDraw()` event, as shown in
 the following code example:
 
 ### Kotlin
 
-```kotlin
+```
 class CustomDrawableView(context: Context) : View(context) {
     private val drawable: ShapeDrawable = run {
         val x = 10
@@ -282,7 +300,7 @@ class CustomDrawableView(context: Context) : View(context) {
 
 ### Java
 
-```java
+```
 public class CustomDrawableView extends View {
   private ShapeDrawable drawable;
 
@@ -316,7 +334,7 @@ example:
 
 ### Kotlin
 
-```kotlin
+```
 private lateinit var customDrawableView: CustomDrawableView
 
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -329,7 +347,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ### Java
 
-```java
+```
 CustomDrawableView customDrawableView;
 
 protected void onCreate(Bundle savedInstanceState) {
@@ -341,33 +359,33 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 If you want to use the custom view in the XML layout instead, then the
-`CustomDrawableView` class must override the `https://developer.android.com/reference/android/view/View#View(android.content.Context, android.util.AttributeSet)` constructor, which is called when the class is
+`CustomDrawableView` class must override the `View(Context, AttributeSet)` constructor, which is called when the class is
 inflated from XML. The following example shows how to declare the
 `CustomDrawableView` in the XML layout:
 
-```xml
+```
 <com.example.shapedrawable.CustomDrawableView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_con>tent"
-        /
+        android:layout_height="wrap_content"
+        />
 ```
 
-The `https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable` class, like many other
-drawable types in the `https://developer.android.com/reference/android/graphics/drawable/package-summary` package, allows you to
+The `ShapeDrawable` class, like many other
+drawable types in the `android.graphics.drawable` package, allows you to
 define various properties of the object by using public methods. Some example
 properties you might want to adjust include alpha transparency, color filter,
 dither, opacity, and color.
 
 You can also define primitive drawable shapes using XML resources. For more
-information, see [Shape drawable](https://developer.android.com/guide/topics/resources/drawable-resource#Shape) in [Drawable resource types](https://developer.android.com/guide/topics/resources/drawable-resource).
+information, see [Shape drawable](/guide/topics/resources/drawable-resource#Shape) in [Drawable resource types](/guide/topics/resources/drawable-resource).
 
 ## NinePatch drawables
 
-A `https://developer.android.com/reference/android/graphics/drawable/NinePatchDrawable` graphic is a
+A `NinePatchDrawable` graphic is a
 stretchable bitmap image that you can use as the background of a view. Android
 automatically resizes the graphic to accommodate the contents of the view. An
 example use of a NinePatch image is the background used by standard Android
-buttons---buttons must stretch to accommodate strings of various lengths. A
+buttons—buttons must stretch to accommodate strings of various lengths. A
 NinePatch graphic is a standard PNG image that includes an extra 1-pixel border.
 It must be saved with the `9.png` extension in the
 `res/drawable/` directory of your project.
@@ -381,7 +399,7 @@ the largest section always remains the largest.
 
 You can also define an optional drawable section of the image (effectively,
 the padding lines) by drawing a line on the right and a line on the bottom. If a
-`https://developer.android.com/reference/android/view/View` object sets the NinePatch graphic as its background
+`View` object sets the NinePatch graphic as its background
 and then specifies the view's text, it stretches itself so that all the text
 occupies only the area designated by the right and bottom lines (if included).
 If the padding lines aren't included, Android uses the left and top lines to
@@ -393,8 +411,9 @@ image. The bottom and right lines define the relative area within the image that
 the contents of the view are allowed to occupy.
 
 Figure 1 shows an example of a NinePatch graphic used to define a button:
+
 ![Image of stretchable area
-and padding box](https://developer.android.com/static/images/ninepatch_raw.png)
+and padding box](/static/images/ninepatch_raw.png)
 
 **Figure 1:** Example of a NinePatch graphic
 that defines a button
@@ -406,7 +425,7 @@ in order to stretch the image. The pink rectangle in the bottom image identifies
 the region in which the contents of the view are allowed. If the contents don't
 fit in this region, then the image is stretched to make them fit.
 
-The [Draw 9-patch](https://developer.android.com/tools/help/draw9patch) tool offers an
+The [Draw 9-patch](/tools/help/draw9patch) tool offers an
 extremely handy way to create your NinePatch images, using a WYSIWYG graphics
 editor. It even raises warnings if the region you've defined for the stretchable
 area is at risk of producing drawing artifacts as a result of the pixel
@@ -416,24 +435,24 @@ The following sample layout XML demonstrates how to add a NinePatch graphic
 to a couple of buttons. The NinePatch image is saved to
 `res/drawable/my_button_background.9.png`.
 
-```xml
+```
 <Button android:id="@+id/tiny"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:text="Tiny"
-        android:textSize=">8s<p"
-        android:background="@drawable/my_button_background"/
+        android:textSize="8sp"
+        android:background="@drawable/my_button_background"/>
 
-Button android:id="@+id/big"
+<Button android:id="@+id/big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
- >       android:text="Biiiiiiig text!"
+        android:text="Biiiiiiig text!"
         android:textSize="30sp"
-        android:background="@drawable/my_button_background"/
+        android:background="@drawable/my_button_background"/>
 ```
 
 Note that the `layout_width` and `layout_height`
@@ -443,26 +462,27 @@ around the text.
 Figure 2 shows the two buttons rendered from the XML and NinePatch image
 shown above. Notice how the width and height of the button varies with the text,
 and the background image stretches to accommodate it.
+
 ![Image of tiny and
-normal-sized buttons](https://developer.android.com/static/images/ninepatch_examples.png)
+normal-sized buttons](/static/images/ninepatch_examples.png)
 
 **Figure 2:** Buttons rendered using an XML
 resource and a NinePatch graphic
 
 ## Custom drawables
 
-When you want to create some custom drawings, you can do so by extending the `https://developer.android.com/reference/android/graphics/drawable/Drawable` class (or any of its subclasses).
+When you want to create some custom drawings, you can do so by extending the `Drawable` class (or any of its subclasses).
 
-The most important method to implement is `https://developer.android.com/reference/android/graphics/drawable/Drawable#draw(android.graphics.Canvas)`
-because this provides the `https://developer.android.com/reference/android/graphics/Canvas` object you must use to provide
+The most important method to implement is `draw(Canvas)`
+because this provides the `Canvas` object you must use to provide
 your drawing instructions.
 
-The following code shows a simple subclass of `https://developer.android.com/reference/android/graphics/drawable/Drawable`
+The following code shows a simple subclass of `Drawable`
 that draws a circle:
 
 ### Kotlin
 
-```kotlin
+```
 class MyDrawable : Drawable() {
     private val redPaint: Paint = Paint().apply { setARGB(255, 255, 0, 0) }
 
@@ -492,7 +512,7 @@ class MyDrawable : Drawable() {
 
 ### Java
 
-```java
+```
 public class MyDrawable extends Drawable {
     private final Paint redPaint;
 
@@ -532,11 +552,11 @@ public class MyDrawable extends Drawable {
 ```
 
 Then you can add your drawable wherever you'd like, such as to an
-`https://developer.android.com/reference/android/widget/ImageView` as shown here:
+`ImageView` as shown here:
 
 ### Kotlin
 
-```kotlin
+```
 val myDrawing = MyDrawable()
 val image: ImageView = findViewById(R.id.imageView)
 image.setImageDrawable(myDrawing)
@@ -545,7 +565,7 @@ image.contentDescription = resources.getString(R.string.my_image_desc)
 
 ### Java
 
-```java
+```
 MyDrawable mydrawing = new MyDrawable();
 ImageView image = findViewById(R.id.imageView);
 image.setImageDrawable(mydrawing);
@@ -555,22 +575,35 @@ image.setContentDescription(getResources().getString(R.string.my_image_desc));
 On Android 7.0 (API level 24) and higher, you can also define instances of your custom drawable
 with XML in the following ways:
 
-- Using the fully-qualified class name as the XML element name. For this approach, the custom drawable class must be a public top-level class:
+* Using the fully-qualified class name as the XML element name. For this approach, the custom
+  drawable class must be a public top-level class:
 
-  ```xml
-  <com.myapp.MyDrawable xmlns:android="http://schemas.android.com/apk/res/android"
-      android:color=&qu>ot;#ffff0000" /
   ```
-- Using `drawable` as the XML tag name and specifying the fully-qualified class name from the class attribute. This approach may be used for both public top-level classes and public static inner classes:
+  <com.myapp.MyDrawable xmlns:android="http://schemas.android.com/apk/res/android"
+      android:color="#ffff0000" />
+  ```
+* Using `drawable` as the XML tag name and specifying the fully-qualified class
+  name from the class attribute. This approach may be used for both public top-level classes and
+  public static inner classes:
 
-  ```xml
+  ```
   <drawable xmlns:android="http://schemas.android.com/apk/res/android"
       class="com.myapp.MyTopLevelClass$MyDrawable"
-      android>:color="#ffff0000" /
+      android:color="#ffff0000" />
   ```
 
-> [!IMPORTANT]
-> **Key point:** Custom classes that extend subclasses of `Drawable` (such as `https://developer.android.com/reference/android/graphics/drawable/ColorDrawable`) must override the `https://developer.android.com/reference/android/graphics/drawable/Drawable#getConstantState()` method and return null (or an appropriate `https://developer.android.com/reference/android/graphics/drawable/Drawable.ConstantState`) to ensure that all inflated instances of the custom class are the correct type. The first call to `Resources#getDrawable()` to inflate a custom class always correctly creates an instance that is the custom type (for example, `MyColorDrawable`). However, subsequent calls create instances that are the parent type (for example, `ColorDrawable`) if `getConstantState()` is not overridden. Custom classes that directly subclass `Drawable` do not need to override `getConstantState()`.
+**Key point:** Custom classes that extend subclasses of `Drawable` (such
+as `ColorDrawable`)
+must override the
+`getConstantState()`
+method and return null (or an appropriate
+`Drawable.ConstantState`)
+to ensure that all inflated instances of the custom class are the correct type. The first call
+to `Resources#getDrawable()` to inflate a custom class always correctly creates an
+instance that is the custom type (for example, `MyColorDrawable`). However, subsequent
+calls create instances that are the parent type (for example, `ColorDrawable`) if
+`getConstantState()` is not overridden. Custom classes that directly subclass
+`Drawable` do not need to override `getConstantState()`.
 
 ## Add tint to drawables
 
@@ -579,14 +612,14 @@ alpha masks. You can tint them with color resources or theme attributes that res
 resources (for example, `?android:attr/colorPrimary`). Usually, you create these assets
 only once and color them automatically to match your theme.
 
-You can apply a tint to `https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable`, `https://developer.android.com/reference/android/graphics/drawable/NinePatchDrawable` or `https://developer.android.com/reference/android/graphics/drawable/VectorDrawable`
+You can apply a tint to `BitmapDrawable`, `NinePatchDrawable` or `VectorDrawable`
 objects with the `setTint()` method. You can
 also set the tint color and mode in your layouts with the `android:tint` and
 `android:tintMode` attributes.
 
 ## Extract prominent colors from an image
 
-The Android Support Library includes the `https://developer.android.com/reference/androidx/palette/graphics/Palette` class, which lets you extract prominent colors from an image.
-You can load your drawables as a `https://developer.android.com/reference/android/graphics/Bitmap` and pass it to `https://developer.android.com/reference/androidx/palette/graphics/Palette` to access its colors.
+The Android Support Library includes the `Palette` class, which lets you extract prominent colors from an image.
+You can load your drawables as a `Bitmap` and pass it to `Palette` to access its colors.
 For more information, read [Selecting colors with
-the Palette API](https://developer.android.com/training/material/palette-colors).
+the Palette API](/training/material/palette-colors).

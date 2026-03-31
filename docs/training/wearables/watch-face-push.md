@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/training/wearables/watch-face-push
+title: Watch Face Push  |  Wear OS  |  Android Developers
 url: https://developer.android.com/training/wearables/watch-face-push
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Wear OS](https://developer.android.com/training/wearables)
+
+# Watch Face Push Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Wear OS 6 introduces a new API, Watch Face Push, which creates opportunities for
 more advanced watch face publishing use cases.
@@ -22,9 +32,9 @@ While the Watch Face Push API can potentially be used in a number of ways, the
 following table guides you through the main use cases:
 
 | Use case | Recommended solution | Complexity |
-|---|---|---|
-| I want to create individual watch faces and publish them. | Use Watch Face Format, either directly or through a tool such as Watch Face Designer or Watch Face Studio, and publish them on Google Play. | Low |
-| I want to create a phone app that allows users to select watch faces from a curated collection, or design and customize watch faces for installation directly on their Wear OS watch. | Create an app, for both watch and phone, using the Watch Face Push API on the watch. | High |
+| --- | --- | --- |
+| I want to create individual watch faces and publish them. | Use Watch Face Format, either directly or through a tool such as Watch Face Designer or Watch Face Studio, and publish them on Google Play. | Low |
+| I want to create a phone app that allows users to select watch faces from a curated collection, or design and customize watch faces for installation directly on their Wear OS watch. | Create an app, for both watch and phone, using the Watch Face Push API on the watch. | High |
 
 ## Purpose
 
@@ -35,7 +45,7 @@ faces onto their connected watch.
 
 ## Considerations
 
-For details on building your watch faces, consult the [Watch Face Format](https://developer.android.com/training/wearables/wff)
+For details on building your watch faces, consult the [Watch Face Format](/training/wearables/wff)
 guidance: Watch faces deployed using Watch Face Push are regular Watch Face
 Format watch faces.
 
@@ -54,9 +64,9 @@ Push API.
 For example, for an app with package name `com.example.mymarketplace`, the
 following are valid watch face package names:
 
-- `com.example.mymarketplace.watchfacepush.watchface1`
-- `com.example.mymarketplace.watchfacepush.watchface2`
-- `com.example.mymarketplace.watchfacepush.another_watchface`
+* `com.example.mymarketplace.watchfacepush.watchface1`
+* `com.example.mymarketplace.watchfacepush.watchface2`
+* `com.example.mymarketplace.watchfacepush.another_watchface`
 
 The API rejects watch faces that don't conform with this convention.
 
@@ -69,20 +79,20 @@ Face Push validation (see below).
 
 Each watch face APK must contain only the following files/paths:
 
-- `/AndroidManifest.xml`
-- `/resources.arsc`
-- `/res/**`
-- `/META-INF/**`
+* `/AndroidManifest.xml`
+* `/resources.arsc`
+* `/res/**`
+* `/META-INF/**`
 
 Additionally, the `AndroidManifest.xml` file must contain only the following
 tags:
 
-- `<manifest>`
-- `<uses-feature>`
-- `<uses-sdk>`
-- `<application>`
-- `<property>`
-- `<meta-data>`
+* `<manifest>`
+* `<uses-feature>`
+* `<uses-sdk>`
+* `<application>`
+* `<property>`
+* `<meta-data>`
 
 Finally, the package must specify a `minSdk` of at least `33`, and the
 `<application>` tag must specify the attribute `android:hasCode="false"`.
@@ -96,8 +106,10 @@ and performant.
 Watch Face Push uses the following validation checks to verify the quality of
 each watch face:
 
-1. All watch faces installed or updated through the Watch Face Push API must pass the Watch Face Push validation tool.
-2. Use only the official validation tool to generate *validation tokens* for use with the API.
+1. All watch faces installed or updated through the Watch Face Push API must
+   pass the Watch Face Push validation tool.
+2. Use only the official validation tool to generate *validation tokens* for
+   use with the API.
 3. The validation tool must be up-to-date when you run the validation.
 4. You don't need to re-validate an APK that has not changed. Tokens don't
    expire, even when the version of the validation tool used is superseded.
@@ -109,18 +121,20 @@ each watch face:
 
 The validator is available in three forms:
 
-- A CLI tool
-- A library for use with the JVM
-- A library for use on Android
+* A CLI tool
+* A library for use with the JVM
+* A library for use on Android
 
 #### Command-line validator usage
 
 1. Obtain the validator from Google's [Maven repository](https://maven.google.com/web/index.html#com.google.android.wearable.watchface.validator:validator-push-cli).
 2. Run the tool as follows:
 
-       java -jar validator-push-cli-1.0.0-alpha10.jar \
-           --apk_path=<your watch face>.apk \
-           --package_name=<your marketplace package name>
+   ```
+   java -jar validator-push-cli-1.0.0-alpha10.jar \
+       --apk_path=<your watch face>.apk \
+       --package_name=<your marketplace package name>
+   ```
 
    If successful, the output includes a *validation token*, which you must
    supply to the Watch Face Push API when adding or updating a watch face.
@@ -133,28 +147,45 @@ The validator is available in three forms:
 1. Include the Google and Jitpack repositories. Both are required in order to
    use the validator library.
 
-       repositories {
-           ...
-           google()
-           maven {
-               url = uri("https://jitpack.io")
-               content {
-                   includeGroup("com.github.xgouchet")
-               }
+   ```
+   repositories {
+       ...
+       google()
+       maven {
+           url = uri("https://jitpack.io")
+           content {
+               includeGroup("com.github.xgouchet")
            }
        }
-
+   }
+   ```
 2. Include the validator dependency in your project:
 
-       // For use on JVM
-       implementation("com.google.android.wearable.watchface.validator:validator-push:1.0.0-alpha10")
+   ```
+   // For use on JVM
+   implementation("com.google.android.wearable.watchface.validator:validator-push:1.0.0-alpha10")
 
-       // For use on Android
-       implementation("com.google.android.wearable.watchface.validator:validator-push-android:1.0.0-alpha10")
-
+   // For use on Android
+   implementation("com.google.android.wearable.watchface.validator:validator-push-android:1.0.0-alpha10")
+   ```
 3. Run the validator:
 
-val validator = DwfValidatorFactory.create() val result = validator.validate(watchFaceFile, appPackageName) if (result.failures().isEmpty()) { val token = result.validationToken() println("Validation token: $token") // Validation success - continue with the token // ... } else { // There were failures, handle them accordingly - validation has failed. result.failures().forEach { failure -\> println("FAILURE: ${failure.name()}: ${failure.failureMessage()}") // ... } }[Main.kt](https://github.com/android/snippets/blob/16115b74846a014a3c04eddeb884bcf4cd36c0c5/watchfacepush/validator/src/main/kotlin/com/example/validator/Main.kt#L39-L54)
+val validator = DwfValidatorFactory.create()
+val result = validator.validate(watchFaceFile, appPackageName)
+if (result.failures().isEmpty()) {
+val token = result.validationToken()
+println("Validation token: $token")
+// Validation success - continue with the token
+// ...
+} else {
+// There were failures, handle them accordingly - validation has failed.
+result.failures().forEach { failure ->
+println("FAILURE: ${failure.name()}: ${failure.failureMessage()}")
+// ...
+}
+}
+
+[Main.kt](https://github.com/android/snippets/blob/2c9cbd0f626c5eefc018fffa17af55372333e2bb/watchfacepush/validator/src/main/kotlin/com/example/validator/Main.kt#L39-L54)
 
 For an example of using this library, see the [GitHub sample](https://github.com/android/wear-os-samples/tree/main/WatchFacePush). See also the
 [Portable Asset Compiler Kit (Pack)](https://github.com/google/pack) library, which is useful for building
@@ -169,16 +200,22 @@ over Bluetooth, which can be slow.
 An overly large APK could take a considerable time to transmit, which is both a
 poor user experience and also draining on battery.
 
-- Use appropriate libraries such as [`pngquant`](https://pngquant.org/) to keep image file sizes to a minimum
-  - Include this in your watch face collection build process
-  - Check dimensions of the image are appropriate for the scale at which you use it.
-  - Crop images are appropriately to remove any surrounding background.
-- Reduce the size of font files
-  - For example, if you use a particular font only to show the time, in the format `HH:MM`, you can use a tool such as [`pyftsubset`](https://fonttools.readthedocs.io/en/stable/subset/) to limit the font file to only contain the necessary glyphs. This can dramatically reduce the size of the resulting font file and APK. [See
+* Use appropriate libraries such as [`pngquant`](https://pngquant.org/) to keep
+  image file sizes to a minimum
+  + Include this in your watch face collection build process
+  + Check dimensions of the image are appropriate for the scale at which
+    you use it.
+  + Crop images are appropriately to remove any surrounding
+    background.
+* Reduce the size of font files
+  + For example, if you use a particular font only to show the time, in the
+    format `HH:MM`, you can use a tool such as [`pyftsubset`](https://fonttools.readthedocs.io/en/stable/subset/)
+    to limit the font file to only contain the necessary glyphs. This can
+    dramatically reduce the size of the resulting font file and APK. [See
     this blog post for details on minimizing font file
     size](https://markoskon.com/creating-font-subsets/), for other cases.
 
-Refer to the [Optimize memory usage guidance](https://developer.android.com/training/wearables/wff/memory-usage#methods) for further suggestions on
+Refer to the [Optimize memory usage guidance](/training/wearables/wff/memory-usage#methods) for further suggestions on
 keeping APK size to a minimum.
 
 ### APK signing
@@ -191,24 +228,38 @@ watch faces.
 
 Consider the four main components of the system:
 
-1. **Cloud-based storage** : In the canonical Marketplace app, you build and store your watch faces in the Cloud, ready for your users to use. The watch faces have the following properties:
+1. **Cloud-based storage**: In the canonical Marketplace app, you build and
+   store your watch faces in the Cloud, ready for your users to use. The watch faces have the following properties:
    1. They are prebuilt as regular Watch Face Format APKs.
-   2. Each APK contains only a single Watch Face Format--based watch face.
+   2. Each APK contains only a single Watch Face Format–based watch face.
    3. They are validated with the Watch Face Push validation process and stored with the associated validation token.
    4. Your phone app can retrieve them as needed.
-2. **Phone app** : The phone app is the main way in which your users interact with your system. It allows them to:
+2. **Phone app**: The phone app is the main way in which your users interact
+   with your system. It allows them to:
    1. Browse and search your catalog of watch faces
    2. Install or replace a watch face on the watch
-3. **Watch app** : The watch app may typically not have a significant user interface. It is primarily a bridge between the phone app and the Watch Face Push APIs, with the following functionality:
+3. **Watch app**: The watch app may typically not have a significant user
+   interface. It is primarily a bridge between the phone app and the Watch Face
+   Push APIs, with the following functionality:
    1. Using the Watch Face Push API to install/update or replace watch faces
    2. Requesting necessary permissions and prompting the user
    3. Providing a default watch face
    4. Providing a minimal cache of watch faces
-4. **Phone-watch communications** : The phone and watch app communication is pivotal to the success of the overall experience. Use Wear OS Data Layer APIs, which allow:
-   1. **Installation detection** : Using Capabilities and the [`CapabilityClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/CapabilityClient), the phone app can [detect the
-      absence of the watch app](https://developer.android.com/training/wearables/apps/standalone-apps#detecting-your-app), and the other way around. You can then launch an intent to the Play store to install the missing form factor.
-   2. **State management** : Using the [`DataClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient) or [`MessageClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/MessageClient) you keep the phone in sync with the state of the watch, for example, synchronizing the state of the active watch face.
-   3. **APK transmission** : Using [`ChannelClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/ChannelClient) or [`MessageClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/MessageClient), send APKs from the phone to the watch
-   4. **Remote invocation** : Using [`Messageclient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/MessageClient), the phone can instruct the watch to call the Watch Face Push API, for example, to install a watch face.
+4. **Phone-watch communications**: The phone and watch app communication is
+   pivotal to the success of the overall experience. Use Wear OS Data Layer
+   APIs, which allow:
+   1. **Installation detection**: Using Capabilities and the
+      [`CapabilityClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/CapabilityClient), the phone app can [detect the
+      absence of the watch app](/training/wearables/apps/standalone-apps#detecting-your-app), and the other way around. You can then
+      launch an intent to the Play store to install the missing form factor.
+   2. **State management**: Using the [`DataClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient) or
+      [`MessageClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/MessageClient) you keep the phone in sync with the
+      state of the watch, for example, synchronizing the state of the active
+      watch face.
+   3. **APK transmission**: Using [`ChannelClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/ChannelClient) or
+      [`MessageClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/MessageClient), send APKs from the phone to the watch
+   4. **Remote invocation**: Using [`Messageclient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/MessageClient), the phone
+      can instruct the watch to call the Watch Face Push API, for example, to
+      install a watch face.
 
-Refer to [the Data Layer API guidance](https://developer.android.com/training/wearables/data/overview) for further details.
+Refer to [the Data Layer API guidance](/training/wearables/data/overview) for further details.

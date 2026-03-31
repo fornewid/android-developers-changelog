@@ -1,10 +1,19 @@
 ---
-title: https://developer.android.com/studio/write/lint
+title: Improve your code with lint checks  |  Android Studio  |  Android Developers
 url: https://developer.android.com/studio/write/lint
-source: md.txt
+source: html-scrape
 ---
 
-In addition to [building tests](https://developer.android.com/studio/test/test-in-android-studio)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [IDE guides](https://developer.android.com/studio/intro)
+
+# Improve your code with lint checks Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+In addition to [building tests](/studio/test/test-in-android-studio)
 to make sure your app meets its functional requirements, it's
 important that you also run the code through the lint tool to help ensure your code has no structural
 problems. The lint tool helps find poorly structured code that can impact the
@@ -18,7 +27,7 @@ that are not supported by the target API versions, might lead to code failing to
 Lint can help you clean up these issues.
 
 To improve linting performance, you can also
-[add annotations to your code](https://developer.android.com/studio/write/annotations).
+[add annotations to your code](/studio/write/annotations).
 
 ## Overview
 
@@ -30,27 +39,32 @@ critical improvements that need to be made. You can also lower the severity leve
 ignore issues that are not relevant to your project or raise the severity level to
 highlight specific problems.
 
-
 The lint tool checks your Android project source files for potential bugs and
 optimization improvements for correctness, security, performance, usability,
 accessibility, and internationalization. When using Android Studio,
 configured lint and IDE inspections run when you build your app. However,
-you can [run inspections manually](https://developer.android.com/studio/write/lint#manuallyRunInspections) or
-[run lint from the command line](https://developer.android.com/studio/write/lint#commandline), as described on this page.
+you can [run inspections manually](#manuallyRunInspections) or
+[run lint from the command line](#commandline), as described on this page.
 
 The built-in lint tool checks your code while you're using
 Android Studio. You can view warnings and errors in two ways:
 
-- As pop-up text in the editor window. When lint finds a problem, it highlights the problematic code in yellow. For more serious issues, it underlines the code in red.
-- In the lint **Inspection Results** window when you click **Code \> Inspect Code**.
+* As pop-up text in the editor window. When lint finds a problem, it highlights
+  the problematic code in yellow. For more serious issues, it underlines the code in red.
+* In the lint **Inspection Results** window when you click **Code > Inspect Code**.
 
 **Note:** When your code is compiled in Android Studio, additional
 [IntelliJ code inspections](https://www.jetbrains.com/help/idea/2025.3/code-inspection.html) run to streamline code
-review. Keep [Android Studio](https://developer.android.com/studio) as up-to-date as possible to ensure
+review. Keep [Android Studio](/studio) as up-to-date as possible to ensure
 the latest lint rules and inspections are available.
 
 Figure 1 shows how the lint tool processes app source files.
-![Code scanning workflow with the lint tool.](https://developer.android.com/static/studio/images/write/lint.png) **Figure 1.** Code scanning workflow with the lint tool.
+
+![Code scanning workflow with the lint tool.](/static/studio/images/write/lint.png)
+
+
+**Figure 1.** Code scanning workflow with the lint
+tool.
 
 **App source files**
 :   The source files consist of files that make up your Android project, including Kotlin, Java, and
@@ -71,7 +85,7 @@ Figure 1 shows how the lint tool processes app source files.
 :   You can view the results from lint either in the console or the **Inspection Results**
     window in Android Studio. If you run `lint` from the command line, the results are
     written to the `build/` folder. For further details, see the section about
-    [running inspections manually](https://developer.android.com/studio/write/lint#manuallyRunInspections).
+    [running inspections manually](#manuallyRunInspections).
 
 ## Run lint from the command line
 
@@ -79,15 +93,15 @@ If you're using Android Studio or Gradle, use the [Gradle wrapper](https://docs.
 entering one of the following commands from the root directory of your project:
 
 **Note:** Keep the
-[Android Gradle plugin](https://developer.android.com/build/releases/gradle-plugin) as up-to-date as possible to
+[Android Gradle plugin](/build/releases/gradle-plugin) as up-to-date as possible to
 use the latest lint rules.
 
-- On Windows:
+* On Windows:
 
   ```
   gradlew lint
   ```
-- On Linux or macOS:
+* On Linux or macOS:
 
   ```
   ./gradlew lint
@@ -103,11 +117,14 @@ Wrote HTML report to file:<path-to-project>/app/build/reports/lint-results-debug
 When the lint tool completes its checks, it provides paths to the XML and HTML
 versions of the lint report. You can then navigate to the HTML report and open it in your browser,
 as shown in figure 2.
-![Sample HTML lint report](https://developer.android.com/static/studio/images/write/html_lint_report.png) **Figure 2.** Sample HTML lint report.
 
+![Sample HTML lint report](/static/studio/images/write/html_lint_report.png)
+
+
+**Figure 2.** Sample HTML lint report.
 
 If your project includes [build
-variants](https://developer.android.com/studio/build/build-variants), lint checks only the default variant. If you want to run lint on a different
+variants](/studio/build/build-variants), lint checks only the default variant. If you want to run lint on a different
 variant, you must capitalize the variant name and prefix it with `lint`.
 
 ```
@@ -116,17 +133,16 @@ variant, you must capitalize the variant name and prefix it with `lint`.
 
 **Note:** Lint isn't automatically run as part of your build. We strongly
 recommend that you explicitly run lint as part of a
-[continuous integration build](https://developer.android.com/training/testing/continuous-integration)
+[continuous integration build](/training/testing/continuous-integration)
 so that you see the latest lint checks when building your existing source code.
 
-
 To learn more about running
-Gradle tasks from the command line, read [Build your app from the command line](https://developer.android.com/studio/build/building-cmdline).
+Gradle tasks from the command line, read [Build your app from the command line](/studio/build/building-cmdline).
 
 ### Run lint using the standalone tool
 
 If you're not using Android Studio or Gradle,
-install the [Android SDK command-line tools](https://developer.android.com/studio/command-line#tools-sdk)
+install the [Android SDK command-line tools](/studio/command-line#tools-sdk)
 to use the standalone lint tool. Locate the lint tool
 at `android_sdk/cmdline-tools/version/bin/lint`.
 
@@ -145,7 +161,7 @@ For example, you can issue the following command to scan the files under the
 tells lint to only scan for XML attributes that are missing the Android namespace prefix.
 
 ```
-lint --check MissingPrefix myproject 
+lint --check MissingPrefix myproject
 ```
 
 To see the full list of flags and command-line arguments supported by the tool, use the
@@ -178,8 +194,8 @@ The example output lists four warnings and no errors.
 
 Two warnings relate to the project's `AndroidManifest.xml` file:
 
-- `ManifestOrder`
-- `UsesMinSdkAttributes`
+* `ManifestOrder`
+* `UsesMinSdkAttributes`
 
 One warning relates to the `Preferences.xml` layout file: `UnusedResources`.
 
@@ -196,22 +212,22 @@ lower severity level.
 
 The severity levels are:
 
-- `enable`
-- `disable` or `ignore`
-- `informational`
-- `warning`
-- `error`
-- `fatal`
+* `enable`
+* `disable` or `ignore`
+* `informational`
+* `warning`
+* `error`
+* `fatal`
 
 You can configure lint checking for different levels:
 
-- Globally (entire project)
-- Project module
-- Production module
-- Test module
-- Open files
-- Class hierarchy
-- Version Control System (VCS) scopes
+* Globally (entire project)
+* Project module
+* Production module
+* Test module
+* Open files
+* Class hierarchy
+* Version Control System (VCS) scopes
 
 ### Configure the lint file
 
@@ -222,7 +238,7 @@ The `lint.xml` file consists of an enclosing `<lint>` parent tag that
 contains one or more children `<issue>` elements. Lint defines a unique
 `id` attribute value for each `<issue>`:
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
     <!-- list of issues to configure -->
@@ -234,13 +250,13 @@ set the severity attribute in the `<issue>` tag.
 
 **Tip:** For a full list of lint-supported issues and their corresponding
 issue IDs, run the `lint --list` command. The `--list` option must be run
-from the [standalone lint tool](https://developer.android.com/studio/write/lint#standalone-lint).
+from the [standalone lint tool](#standalone-lint).
 
 #### Sample lint.xml file
 
 The following example shows the contents of a `lint.xml` file:
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
     <!-- Disable the IconMissingDensityFolder check in this project -->
@@ -272,8 +288,9 @@ in the files specified in the enclosed `<ignore ... />` declarations.
 You can turn off lint checking for your Kotlin, Java, and XML source files
 in the **Preferences** dialog:
 
-1. Select **File \> Settings** (on Windows) or **Android Studio \> Preferences** (on macOS or Linux).
-2. Select **Editor \> Inspections**.
+1. Select **File > Settings** (on Windows) or **Android Studio > Preferences**
+   (on macOS or Linux).
+2. Select **Editor > Inspections**.
 3. To disable, deselect the appropriate source file.
 
 You can set these either for the IDE or for individual projects by
@@ -290,7 +307,7 @@ issue in the `onCreate` method. The lint tool continues to check for the
 
 ### Kotlin
 
-```kotlin
+```
 @SuppressLint("NewApi")
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -299,7 +316,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ### Java
 
-```java
+```
 @SuppressLint("NewApi")
 @Override
 public void onCreate(Bundle savedInstanceState) {
@@ -312,13 +329,12 @@ off `NewApi` checks on any Composable.
 
 ### Kotlin
 
-```kotlin
+```
   @SuppressLint("NewApi")
   @Composable
   fun MyComposable{
     ...
   }
-  
 ```
 
 The following example shows how to turn off lint checking for the `ParserError`
@@ -326,14 +342,14 @@ issue in the `FeedProvider` class:
 
 ### Kotlin
 
-```kotlin
+```
 @SuppressLint("ParserError")
 class FeedProvider : ContentProvider() {
 ```
 
 ### Java
 
-```java
+```
 @SuppressLint("ParserError")
 public class FeedProvider extends ContentProvider {
 ```
@@ -342,13 +358,13 @@ To suppress checking for all lint issues in the file, use the `all` keyword:
 
 ### Kotlin
 
-```kotlin
+```
 @SuppressLint("all")
 ```
 
 ### Java
 
-```java
+```
 @SuppressLint("all")
 ```
 
@@ -360,7 +376,7 @@ Use the `tools:ignore` attribute to turn off lint checking for specific
 sections of your XML files. Put the following namespace value in the `lint.xml` file
 so the lint tool recognizes the attribute:
 
-```xml
+```
 namespace xmlns:tools="http://schemas.android.com/tools"
 ```
 
@@ -370,7 +386,7 @@ layout file. The `ignore` attribute is inherited by the children elements of the
 element where the attribute is declared. In this example, the lint check is also disabled for the
 child `<TextView>` element:
 
-```xml
+```
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -384,23 +400,22 @@ child `<TextView>` element:
 To disable more than one issue, list the issues to disable in a comma-separated string. For
 example:
 
-```xml
+```
 tools:ignore="NewApi,StringFormatInvalid"
 ```
 
 To suppress checking for all lint issues in the XML element, use the `all`
 keyword:
 
-```xml
+```
 tools:ignore="all"
 ```
 
 ## Configure lint options with Gradle
 
-
 The Android Gradle plugin lets you configure certain lint options,
 such as which checks to run or ignore, using the
-[`lint{}`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/dsl/Lint) block in your module-level
+[`lint{}`](/reference/tools/gradle-api/7.0/com/android/build/api/dsl/Lint) block in your module-level
 `build.gradle` file.
 
 The following code snippet shows some of
@@ -408,7 +423,7 @@ the properties you can configure:
 
 ### Kotlin
 
-```kotlin
+```
 android {
     ...
     lint {
@@ -437,7 +452,7 @@ android {
 
 ### Groovy
 
-```groovy
+```
 android {
     ...
     lint {
@@ -464,26 +479,23 @@ android {
 ...
 ```
 
-
 All lint methods that override the given severity level of an issue respect the
 order of configuration. For example, setting an issue as fatal in
-[`finalizeDsl()`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/extension/AndroidComponentsExtension#finalizedsl_1)
+[`finalizeDsl()`](/reference/tools/gradle-api/7.0/com/android/build/api/extension/AndroidComponentsExtension#finalizedsl_1)
 overrides disabling it in the main DSL.
 
 ## Create a warnings baseline
-
 
 You can take a snapshot of your project's current set of warnings, then use the snapshot
 as a baseline for future inspection runs so that only new issues are reported.
 The baseline snapshot lets you start using lint to fail the build without having
 to go back and address all existing issues first.
 
-
 To create a baseline snapshot, modify your project's `build.gradle` file as follows:
 
 ### Kotlin
 
-```kotlin
+```
 android {
     lint {
         baseline = file("lint-baseline.xml")
@@ -493,7 +505,7 @@ android {
 
 ### Groovy
 
-```groovy
+```
 android {
     lintOptions {
         baseline file("lint-baseline.xml")
@@ -501,13 +513,11 @@ android {
 }
 ```
 
-
 When you first add this line, the `lint-baseline.xml` file is created to establish
 your baseline. From then on, the tools only read the file to determine the baseline. If you want
 to create a new baseline, manually delete the file and run lint again to re-create it.
 
-
-Then, run lint from the IDE by selecting **Code \> Inspect Code** or from the command line
+Then, run lint from the IDE by selecting **Code > Inspect Code** or from the command line
 as follows. The output prints the location of the `lint-baseline.xml` file. The
 file location for your setup might be different from what is shown here:
 
@@ -518,7 +528,6 @@ Wrote XML report to file:///app/lint-baseline.xml
 Created baseline file /app/lint-baseline.xml
 ```
 
-
 Running `lint` records all the
 current issues in the `lint-baseline.xml` file. The set of current issues is
 called the *baseline*. You can check the `lint-baseline.xml`
@@ -526,13 +535,12 @@ file into version control if you want to share it with others.
 
 ### Customize the baseline
 
-
 If you want to add only certain issue types to the baseline, specify the
 issues to add by editing your project's `build.gradle` file as follows:
 
 ### Kotlin
 
-```kotlin
+```
 android {
     lint {
         checkOnly += "NewApi" + "HandlerLeak"
@@ -543,7 +551,7 @@ android {
 
 ### Groovy
 
-```groovy
+```
 android {
     lintOptions {
         checkOnly 'NewApi', 'HandlerLeak'
@@ -552,19 +560,16 @@ android {
 }
 ```
 
-
 If you add any new warnings to the codebase after you create
 the baseline, lint lists only
 the newly introduced bugs.
 
 ### Baseline warning
 
-
 When a baseline is in effect, you get an informational warning that tells you that one or more
 issues were filtered out because they are listed in the baseline. This
 warning helps you remember that you have configured a baseline and that you need to fix all of the issues at
 some point.
-
 
 This informational warning also keeps track of issues that are no longer reported. This information lets
 you know if you have actually fixed issues, so you can optionally re-create the baseline to prevent
@@ -578,27 +583,33 @@ but you do want to fix issues locally while you touch the code.
 
 ## Run inspections manually
 
-
 To manually run configured lint and other IDE inspections, select
-**Code \> Inspect Code** . The results of the inspection appear in the
+**Code > Inspect Code**. The results of the inspection appear in the
 **Inspection Results** window.
 
 ### Set the inspection scope and profile
 
-
 Select the files you want to analyze (the inspection *scope*) and the
 inspections you want to run (the inspection *profile*) as follows:
 
-1. In the **Android** view, open your project and select the project, folder, or file that you want to analyze.
-2. From the menu bar, select **Code \> Inspect Code**.
+1. In the **Android** view, open your project and select the project, folder, or
+   file that you want to analyze.
+2. From the menu bar, select **Code > Inspect Code**.
 3. In the **Specify Inspection Scope** dialog, review the settings.
 
-   ![Review the inspection scope settings](https://developer.android.com/static/studio/images/write/specify_inspection_scope_2x.png) **Figure 3.** Review the inspection scope settings.
+   ![Review the inspection scope settings](/static/studio/images/write/specify_inspection_scope_2x.png)
+
+
+   **Figure 3.** Review the inspection scope settings.
 
    The options that appear in the **Specify Inspection Scope** dialog varies
    depending on whether you selected a project, folder, or file:
-   - When you select one project, file, or directory, the **Specify Inspection Scope** dialog displays the path to the project, file, or directory you selected.
-   - When you select more than one project, file, or directory, the **Specify Inspection
+
+   * When you select one project, file, or directory, the
+     **Specify Inspection Scope**
+     dialog displays the path to the project, file, or
+     directory you selected.
+   * When you select more than one project, file, or directory, the **Specify Inspection
      Scope** dialog displays a selected radio button for **Selected files**.
 
    To change what to inspect, select
@@ -610,7 +621,12 @@ inspections you want to run (the inspection *profile*) as follows:
 
    Figure 4 shows lint and other IDE inspection
    results from the **Inspect Code** run:
-   ![Select an issue to see its resolution.](https://developer.android.com/static/studio/images/write/inspectandfix_2x.png) **Figure 4.** Results from the inspection. Select an issue to see the resolution.
+
+   ![Select an issue to see its resolution.](/static/studio/images/write/inspectandfix_2x.png)
+
+
+   **Figure 4.** Results from the inspection. Select an issue
+   to see the resolution.
 6. In the **Inspection Results** pane, view the inspection results by expanding and selecting
    error categories, types, or issues.
 
@@ -623,41 +639,53 @@ inspections you want to run (the inspection *profile*) as follows:
    the context menu.
 
    Depending on the context, you can:
-   - Jump to source.
-   - Exclude and include selected items.
-   - Suppress problems.
-   - Edit settings.
-   - Manage inspection alerts.
-   - Rerun an inspection.
 
+   * Jump to source.
+   * Exclude and include selected items.
+   * Suppress problems.
+   * Edit settings.
+   * Manage inspection alerts.
+   * Rerun an inspection.
 
 For descriptions of the toolbar buttons, context menu items, and inspection
 report fields, see [Inspection Results tool window](https://www.jetbrains.com/help/idea/2025.3/inspection-tool-window.html).
 
 ### Use a custom scope
 
-
 Use one of the custom scopes provided in Android Studio as follows:
 
 1. In the **Specify Inspection Scope** dialog, select **Custom scope**.
 2. Click the **Custom scope** list to display your options:
 
-   ![Choose Inspection Scope you want to use](https://developer.android.com/static/studio/images/write/chooseinspectionscope_2x.png) **Figure 5.** Select which custom scope you want to use.
-   - **All Places:** All files.
-   - **Project Files:** All the files in the current project.
-   - **Project Source Files:** Only the source files in the current project.
-   - **Project Production Files:** Only the production files in the current project.
-   - **Project Test Files:** Only the test files in the current project.
-   - **Scratches and Consoles:** Only the scratch files and consoles you have open in the current project.
-   - **Recently Viewed Files:** Only recently viewed files in the current project.
-   - **Current File:** Only the current file in your current project. Appears when you have a file or folder selected.
-   - **Selected Directory:** Only the current folder in your current project. Appears when you have a folder selected.
-   - **Class Hierarchy:** When you select this option and click **OK** , a dialog appears with all of the classes in the current project. In the dialog, use the **Search by Name** field to filter and select the classes to inspect. If you don't filter the classes list, code inspection inspects all of the classes.
-3. If you have a VCS configured for the project, there are also options to restrict the search to only files that have been modified.
-4. Click **OK.**
+   ![Choose Inspection Scope you want to use](/static/studio/images/write/chooseinspectionscope_2x.png)
+
+
+   **Figure 5.** Select which custom scope you want to
+   use.
+
+   * **All Places:** All files.
+   * **Project Files:** All the files in the current project.
+   * **Project Source Files:** Only the source files in the current project.
+   * **Project Production Files:** Only the production files in the current project.
+   * **Project Test Files:** Only the test files in the current project.
+   * **Scratches and Consoles:** Only the scratch files and consoles you have open in the
+     current project.
+   * **Recently Viewed Files:** Only recently viewed files in the current project.
+   * **Current File:** Only the current file in your current project. Appears when you have
+     a file or folder selected.
+   * **Selected Directory:** Only the current folder in your current project. Appears when you
+     have a folder selected.
+   * **Class Hierarchy:** When you select this option and click **OK**, a dialog appears
+     with all of the classes in the current project. In the dialog, use the **Search by Name**
+     field to filter and select the classes to inspect. If you don't filter the classes list,
+     code inspection inspects all of the classes.
+
+If you have a VCS configured for the project, there are also options to restrict the search
+to only files that have been modified.
+
+3. Click **OK.**
 
 ### Create a custom scope
-
 
 When you want to inspect a selection of files and directories that isn't covered by any of the
 available custom scopes, you can create a custom scope:
@@ -665,27 +693,38 @@ available custom scopes, you can create a custom scope:
 1. In the **Specify Inspection Scope** dialog, select **Custom scope**.
 2. Click the three dots after the **Custom Scope** list.
 
-   ![Specify Inspection Scope dialog](https://developer.android.com/static/studio/images/write/customscope-more_2x.png) **Figure 6.** Specify Inspection Scope dialog.
+   ![Specify Inspection Scope dialog](/static/studio/images/write/customscope-more_2x.png)
 
+
+   **Figure 6.** Specify Inspection Scope dialog.
 
    The **Scopes** dialog appears.
-   ![Create a custom scope](https://developer.android.com/static/studio/images/write/scopes_2x.png) **Figure 7.** Create a custom scope.
-3. Click the ![](https://developer.android.com/static/studio/images/buttons/ic_plus.png) button in the top-left corner of the dialog to define a new scope.
-4. In the **Add Scope** list that appears, select **Local** .
 
+   ![Create a custom scope](/static/studio/images/write/scopes_2x.png)
+
+
+   **Figure 7.** Create a custom scope.
+3. Click the ![](/static/studio/images/buttons/ic_plus.png)
+   button in the top-left corner of the dialog to define a new scope.
+4. In the **Add Scope** list that appears, select **Local**.
 
    Both the local and shared scopes are used within the project for the **Inspect Code**
    feature. A **Shared** scope can also be used with other project features that have a scope
    field. For example, when you click **Edit Settings**
-   ![](https://developer.android.com/static/studio/images/buttons/dialog-wrench.png) to change the
-   settings for **Find Usages** , the resulting dialog has a **Scope** field where you can
+   ![](/static/studio/images/buttons/dialog-wrench.png) to change the
+   settings for **Find Usages**, the resulting dialog has a **Scope** field where you can
    select a shared scope.
-   ![Select a shared scope from the Find Usages dialog](https://developer.android.com/static/studio/images/write/sharedscope_2x.png) **Figure 8.** Select a shared scope from the **Find Usages** dialog.
-5. Give the scope a name and click **OK** .
+
+   ![Select a shared scope from the Find Usages dialog](/static/studio/images/write/sharedscope_2x.png)
+
+
+   **Figure 8.** Select a shared scope from the
+   **Find Usages** dialog.
+5. Give the scope a name and click **OK**.
 
    The right pane of the **Scopes** dialog
    populates with options that let you define the custom scope.
-6. From the list, select **Project** .
+6. From the list, select **Project**.
 
    A list of available projects appears.
 
@@ -694,22 +733,37 @@ available custom scopes, you can create a custom scope:
 7. Expand the project folders, select what you want to add to the custom scope, and select
    whether to include or exclude it.
 
-   ![Define a custom scope](https://developer.android.com/static/studio/images/write/customscope_2x.png) **Figure 9.** Define a custom scope.
-   - **Include**: Include this folder and its files, but don't include any of its subfolders.
-   - **Include Recursively**: Include this folder and its files as well as its subfolders and their files.
-   - **Exclude**: Exclude this folder and its files, but don't exclude any of its subfolders.
-   - **Exclude Recursively**: Exclude this folder and its files as well as its subfolders and their files.
+   ![Define a custom scope](/static/studio/images/write/customscope_2x.png)
+
+
+   **Figure 9.** Define a custom scope.
+
+   * **Include**: Include this folder and its files, but don't include any of its
+     subfolders.
+   * **Include Recursively**: Include this folder and its files as well as its subfolders and their
+     files.
+   * **Exclude**: Exclude this folder and its files, but don't exclude any of its
+     subfolders.
+   * **Exclude Recursively**: Exclude this folder and its files as well as its subfolders and their
+     files.
 
    Figure 10 shows that the **main** folder is included, and that the **java**
    and **res** folders are included recursively. Blue indicates a partially included folder, and green
    indicates recursively included folders and files.
-   ![Example pattern for a custom scope](https://developer.android.com/static/studio/images/write/includepattern_2x.png) **Figure 10.** Example pattern for a custom scope.
-   - If you select the **java** folder and click **Exclude Recursively** , the green highlighting goes away on the **java** folder and all the folders and files under it.
-   - If you select the green-highlighted **MainActivity.kt** file and click **Exclude** , **MainActivity.kt** is no longer highlighted green, but everything else under the **java** folder remains green.
+
+   ![Example pattern for a custom scope](/static/studio/images/write/includepattern_2x.png)
+
+
+   **Figure 10.** Example pattern for a custom scope.
+
+   * If you select the **java** folder and click **Exclude Recursively**, the green
+     highlighting goes away on the **java** folder and all the folders and files under it.
+   * If you select the green-highlighted **MainActivity.kt** file and
+     click **Exclude**, **MainActivity.kt** is no longer highlighted green, but
+     everything else under the **java** folder remains green.
 8. Click **OK**. The custom scope appears at the bottom of the list.
 
 ### Review and edit inspection profiles
-
 
 Android Studio has a selection of lint and other inspection profiles that are updated
 through
@@ -718,16 +772,19 @@ and
 scopes. You can also activate and deactivate entire groups of profiles or individual profiles
 within a group.
 
-
 To access the **Inspections** settings:
 
-1. Select **File \> Settings.** (on Windows) or **Android Studio \> Preferences** (on macOS or Linux).
-2. Select **Editor \> Inspections**.
-3.
-   The **Inspections** pane shows a list of the supported inspections and their
+1. Select **File > Settings.** (on Windows) or **Android Studio > Preferences**
+   (on macOS or Linux).
+2. Select **Editor > Inspections**.
+3. The **Inspections** pane shows a list of the supported inspections and their
    descriptions.
 
-   ![Supported inspections and their descriptions](https://developer.android.com/static/studio/images/write/inspectionprofiles_2x.png) **Figure 11.** Supported inspections and their descriptions.
+   ![Supported inspections and their descriptions](/static/studio/images/write/inspectionprofiles_2x.png)
+
+
+   **Figure 11.** Supported inspections and their
+   descriptions.
 4. Select the **Profile** list to toggle between **Default** (Android Studio) and
    **Project Default** (the active project) inspections.
 
@@ -738,5 +795,6 @@ To access the **Inspections** settings:
 
    When you select a profile category, you can
    edit all the inspections in that category as a single inspection.
-6. Select the **Show Schema Actions** ![Show Schema Actions icon](https://developer.android.com/static/studio/images/buttons/device-settings-icon.png) list to copy, rename, add descriptions to, export, and import inspections.
+6. Select the **Show Schema Actions** ![Show Schema Actions icon](/static/studio/images/buttons/device-settings-icon.png) list to copy, rename, add
+   descriptions to, export, and import inspections.
 7. When you're done, click **OK**.

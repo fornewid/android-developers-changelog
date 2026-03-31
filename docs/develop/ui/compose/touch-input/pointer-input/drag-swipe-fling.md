@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 The
-[`draggable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.Modifier).draggable(androidx.compose.foundation.gestures.DraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.coroutines.SuspendFunction2,kotlin.coroutines.SuspendFunction2,kotlin.Boolean))
+[`draggable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/draggable.modifier#(androidx.compose.ui.Modifier).draggable(androidx.compose.foundation.gestures.DraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.coroutines.SuspendFunction2,kotlin.coroutines.SuspendFunction2,kotlin.Boolean))
 modifier is the high-level entry point to drag gestures in a single orientation,
 and reports the drag distance in pixels.
 
@@ -73,23 +73,23 @@ private fun DraggableTextLowLevel() {
 ## Swiping
 
 The
-[`swipeable`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#(androidx.compose.ui.Modifier).swipeable(androidx.compose.material.SwipeableState,kotlin.collections.Map,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function2,androidx.compose.material.ResistanceConfig,androidx.compose.ui.unit.Dp))
+[`swipeable`](https://developer.android.com/reference/kotlin/androidx/compose/material/swipeable.modifier#(androidx.compose.ui.Modifier).swipeable(androidx.compose.material.SwipeableState,kotlin.collections.Map,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function2,androidx.compose.material.ResistanceConfig,androidx.compose.ui.unit.Dp))
 modifier lets you drag elements which, when released, animate towards typically
 two or more anchor points defined in an orientation. A common usage for this is
 to implement a 'swipe-to-dismiss' pattern.
 
 > [!CAUTION]
-> **Caution:** The [`swipeable`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#(androidx.compose.ui.Modifier).swipeable(androidx.compose.material.SwipeableState,kotlin.collections.Map,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function2,androidx.compose.material.ResistanceConfig,androidx.compose.ui.unit.Dp)) APIs have been replaced by Foundation's [`anchoredDraggable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.Modifier).anchoredDraggable(androidx.compose.foundation.gestures.AnchoredDraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource)) APIs in Jetpack Compose 1.6.0-alpha01.
+> **Caution:** The [`swipeable`](https://developer.android.com/reference/kotlin/androidx/compose/material/swipeable.modifier#(androidx.compose.ui.Modifier).swipeable(androidx.compose.material.SwipeableState,kotlin.collections.Map,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function2,androidx.compose.material.ResistanceConfig,androidx.compose.ui.unit.Dp)) APIs have been replaced by Foundation's [`anchoredDraggable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.Modifier).anchoredDraggable(androidx.compose.foundation.gestures.AnchoredDraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource)) APIs in Jetpack Compose 1.6.0-alpha01.
 
 It's important to note that this modifier does not move the element, it only
 detects the gesture. You need to hold the state and represent it on screen by,
 for example, moving the element via the
-[`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp))
+[`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp))
 modifier.
 
 The swipeable state is required in the `swipeable` modifier, and can be created
 and remembered with
-[`rememberSwipeableState()`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#rememberSwipeableState(kotlin.Any,androidx.compose.animation.core.AnimationSpec,kotlin.Function1)).
+[`rememberSwipeableState()`](https://developer.android.com/reference/kotlin/androidx/compose/material/rememberSwipeableState.composable#rememberSwipeableState(kotlin.Any,androidx.compose.animation.core.AnimationSpec,kotlin.Function1)).
 This state also provides a set of useful methods to programmatically animate to
 anchors (see
 [`snapTo`](https://developer.android.com/reference/kotlin/androidx/compose/material/SwipeableState#snapTo(kotlin.Any)),

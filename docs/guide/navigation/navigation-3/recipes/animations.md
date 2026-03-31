@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/animations
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/animations
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Animations Recipe
 
@@ -15,7 +24,14 @@ The `NavDisplay` composable takes `transitionSpec`, `popTransitionSpec`, and `pr
 In this example, we use `slideInHorizontally` and `slideOutHorizontally` to create a sliding animation for forward and backward navigation.
 
 It is also possible to override these animations for a specific destination by providing a different `transitionSpec` and `popTransitionSpec` to the `entry` composable. In this recipe, `ScreenC` has a custom vertical slide animation.
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/animations)
+
+[![](/static/images/picto-icons/code.svg)
+
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/animations)
 
 ```
 package com.example.nav3recipes.animations
@@ -150,4 +166,6 @@ class AnimatedActivity : ComponentActivity() {
         }
     }
 }
+
+AnimatedActivity.kt
 ```

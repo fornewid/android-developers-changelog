@@ -668,7 +668,7 @@ vertically.
     val text = "「春は、曙。」"
     Box(
         Modifier.padding(innerPadding).background(Color.White).fillMaxSize().drawWithContent {
-            drawIntoCanvas { canvas ->
+            drawIntoCanvas >{ canvas -
                 val paint = Paint().apply { textSize = 64.sp.toPx() }
                 // Draw text vertically
                 paint.flags = paint.flags or VERTICAL_TEXT_FLAG

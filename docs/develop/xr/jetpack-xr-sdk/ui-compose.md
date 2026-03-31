@@ -37,8 +37,8 @@ non-XR devices, any code within that subspace is ignored.
 
 There are a few ways to create a subspace:
 
-- [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Boolean,kotlin.Function1)): This composable creates a new, independent Spatial UI hierarchy. It does not inherit the spatial position, orientation, or scale of any parent `Subspace` it is nested within. `Subspace` is automatically bound by the system's recommended content box.
-- [`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#PlanarEmbeddedSubspace(kotlin.Function1)): This composable can be placed within your app's UI hierarchy, allowing you to maintain layouts for 2D and spatial UI. `PlanarEmbeddedSubspace` respects the constraints and positioning of its parent. The 3D content placed inside it is then positioned relative to this 2D-defined area.
+- [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Boolean,kotlin.Function1)): This composable creates a new, independent Spatial UI hierarchy. It does not inherit the spatial position, orientation, or scale of any parent `Subspace` it is nested within. `Subspace` is automatically bound by the system's recommended content box.
+- [`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable#PlanarEmbeddedSubspace(kotlin.Function1)): This composable can be placed within your app's UI hierarchy, allowing you to maintain layouts for 2D and spatial UI. `PlanarEmbeddedSubspace` respects the constraints and positioning of its parent. The 3D content placed inside it is then positioned relative to this 2D-defined area.
 
 For more information, see [Add a subspace to your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-subspace).
 
@@ -195,8 +195,8 @@ fun OrbiterExample() {
 ## Add multiple spatial panels to a spatial layout
 
 You can create multiple spatial panels and place them within a spatial layout
-using [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)), and
-[`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)).
+using [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)), and
+[`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)).
 
 ![Example of multiple spatial panels in a spatial layout](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/develop-ui/develop-ui-xr-spatial-panels.jpg)
 
@@ -264,14 +264,14 @@ fun SpatialPanelContent(text: String) {
 
 ### Key points about the code
 
-- [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)), and [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)) are all subspace composables and must be placed within a subspace.
+- [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)), and [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)) are all subspace composables and must be placed within a subspace.
 - Use [`SubspaceModifier`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier) to customize your layout.
 - For layouts with multiple panels in a row, we recommend setting a curve radius of 825dp using a `SubspaceModifier` so the panels will surround your user. See our [design guidance](https://developer.android.com/design/ui/xr/guides/spatial-ui#spatial-panels) for details.
 
 ## Use a SceneCoreEntity to place entities in your layout
 
 To place a 3D object in your layout, you'll need to use a subspace composable
-called a [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)). Here's an example of how to do that.
+called a [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SceneCoreEntity.composable#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)). Here's an example of how to do that.
 
 
 ```kotlin
@@ -449,17 +449,17 @@ use these elements.
 
 | **UI Component** | **When spatialization is enabled** | **In 2D environment** |
 |---|---|---|
-| `SpatialDialog` | Panel will push slightly back in z-depth to display an elevated dialog | Falls back to 2D [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/package-summary#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)). |
-| `SpatialPopup` | Panel will push slightly back in z-depth to display an elevated popup | Falls back to a 2D [`Popup`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/package-summary#Popup(androidx.compose.ui.window.PopupPositionProvider,kotlin.Function0,androidx.compose.ui.window.PopupProperties,kotlin.Function0)). |
+| `SpatialDialog` | Panel will push slightly back in z-depth to display an elevated dialog | Falls back to 2D [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)). |
+| `SpatialPopup` | Panel will push slightly back in z-depth to display an elevated popup | Falls back to a 2D [`Popup`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Popup.composable#Popup(androidx.compose.ui.window.PopupPositionProvider,kotlin.Function0,androidx.compose.ui.window.PopupProperties,kotlin.Function0)). |
 | `SpatialElevation` | `SpatialElevationLevel` can be set to add elevation. | Shows without spatial elevation. |
 
 ### SpatialDialog
 
 This is an example of a dialog that opens after a short delay. When
-[`SpatialDialog`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)) is used, the dialog appears at the same z-depth as the
+[`SpatialDialog`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/SpatialDialog.composable#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)) is used, the dialog appears at the same z-depth as the
 spatial panel, and the panel is pushed back by 125dp when spatialization is
 enabled. `SpatialDialog` can also be used when spatialization isn't enabled, in
-which case `SpatialDialog` falls back to its 2D counterpart, [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/package-summary#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)).
+which case `SpatialDialog` falls back to its 2D counterpart, [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)).
 
 
 ```kotlin
@@ -495,7 +495,7 @@ fun DelayedDialog() {
 
 ### Key points about the code
 
-- This is an example of [`SpatialDialog`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)). Using [`SpatialPopup`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialPopup(androidx.compose.ui.Alignment,androidx.compose.ui.unit.IntOffset,kotlin.Function0,androidx.xr.compose.spatial.SpatialPopupProperties,kotlin.Function0)) and [`SpatialElevation`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialElevation(androidx.xr.compose.spatial.SpatialElevationLevel,kotlin.Function0)) is very similar. See our [API reference](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary) for more detail.
+- This is an example of [`SpatialDialog`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/SpatialDialog.composable#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)). Using [`SpatialPopup`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialPopup(androidx.compose.ui.Alignment,androidx.compose.ui.unit.IntOffset,kotlin.Function0,androidx.xr.compose.spatial.SpatialPopupProperties,kotlin.Function0)) and [`SpatialElevation`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialElevation(androidx.xr.compose.spatial.SpatialElevationLevel,kotlin.Function0)) is very similar. See our [API reference](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary) for more detail.
 
 ## Create custom panels and layouts
 

@@ -1,23 +1,39 @@
 ---
-title: https://developer.android.com/develop/ui/views/layout/insets/rounded-corners
+title: Insets: Apply rounded corners  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/layout/insets/rounded-corners
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Insets: Apply rounded corners Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 Starting in Android 12 (API level 31), you can use
-[`RoundedCorner`](https://developer.android.com/reference/android/view/RoundedCorner) and
+[`RoundedCorner`](/reference/android/view/RoundedCorner) and
 [`WindowInsets.getRoundedCorner(int
-position)`](https://developer.android.com/reference/android/view/WindowInsets#getRoundedCorner(int)) to get
+position)`](/reference/android/view/WindowInsets#getRoundedCorner(int)) to get
 the radius and center point for rounded corners of the device screen. These APIs
 keep your app's UI elements from being truncated on screens with rounded
 corners. The framework provides the
-[`getPrivacyIndicatorBounds()`](https://developer.android.com/reference/android/view/WindowInsets#getPrivacyIndicatorBounds())
+[`getPrivacyIndicatorBounds()`](/reference/android/view/WindowInsets#getPrivacyIndicatorBounds())
 API, which returns the bounded rectangle of any visible [microphone and camera
-indicators](https://developer.android.com/about/versions/12/behavior-changes-all#mic-camera-indicators).
+indicators](/about/versions/12/behavior-changes-all#mic-camera-indicators).
 
 When implemented in your app, these APIs have no effect on devices with
 non-rounded screens.
-![Image showing a rounded corners with radii and a center point](https://developer.android.com/static/guide/topics/ui/images/look-and-feel/rounded-corners-radius.png) **Figure 1.** Rounded corners with radii and a center point.
+
+![Image showing a rounded corners with radii and a center point](/static/guide/topics/ui/images/look-and-feel/rounded-corners-radius.png)
+
+
+**Figure 1.** Rounded corners with radii and a center
+point.
 
 To implement this feature, get the `RoundedCorner` info using
 `WindowInsets.getRoundedCorner(int position)` relative to the bounds of the
@@ -31,7 +47,7 @@ case, it is the top-right rounded corner.
 
 ### Kotlin
 
-```kotlin
+```
 // Get the top-right rounded corner from WindowInsets.
 val insets = rootWindowInsets
 val topRight = insets.getRoundedCorner(RoundedCorner.POSITION_TOP_RIGHT) ?: return
@@ -63,7 +79,7 @@ closeButton.layoutParams = lp
 
 ### Java
 
-```java
+```
 // Get the top-right rounded corner from WindowInsets.
 final WindowInsets insets = getRootWindowInsets();
 final RoundedCorner topRight = insets.getRoundedCorner(POSITION_TOP_RIGHT);
@@ -101,7 +117,12 @@ closeButton.setLayoutParams(lp);
 If your UI fills the entire display, round corners can cause issues with content
 clipping. For example, figure 2 shows an icon in the corner of the display with
 the layout being drawn behind the system bars:
-![An icon being clipped by rounded corners](https://developer.android.com/static/develop/ui/views/theming/images/rounded-corners-none.png) **Figure 2.** An icon being clipped by rounded corners.
+
+![An icon being clipped by rounded corners](/static/develop/ui/views/theming/images/rounded-corners-none.png)
+
+
+**Figure 2.** An icon being clipped by rounded
+corners.
 
 You can avoid this by checking for rounded corners and applying padding to keep
 your app's content out of the device's corners, as shown in the following
@@ -109,7 +130,7 @@ example:
 
 ### Kotlin
 
-```kotlin
+```
 class InsetsLayout(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs) {
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -175,7 +196,7 @@ class InsetsLayout(context: Context, attrs: AttributeSet) : FrameLayout(context,
 
 ### Java
 
-```java
+```
 public class InsetsLayout extends FrameLayout {
     public InsetsLayout(@NonNull Context context) {
         super(context);
@@ -261,7 +282,12 @@ public class InsetsLayout extends FrameLayout {
 This layout determines whether the UI extends to the area of the rounded corners
 and adds padding where it does. Figure 3 has the "Show layout bounds" developer
 option enabled to show the padding being applied more clearly:
-![An icon with padding applied to move it away from the corner.](https://developer.android.com/static/develop/ui/views/theming/images/rounded-corners-both.png) **Figure 3.** An icon with padding applied to move it away from the corner.
+
+![An icon with padding applied to move it away from the corner.](/static/develop/ui/views/theming/images/rounded-corners-both.png)
+
+
+**Figure 3.** An icon with padding applied to move it away
+from the corner.
 
 To make this determination, this layout calculates two rectangles: `safeArea` is
 the area within the radii of the round corners, and `layoutBounds` is the size
@@ -274,4 +300,9 @@ padding when the layout doesn't extend to the edges of the display. Figure 4
 shows the layout when it isn't drawn behind the navigation bar. In this case,
 the layout doesn't extend down far enough to be within the rounded corners, as
 they fit within the area occupied by the navigation bar. No padding is required.
-![A layout that doesn't draw behind the system and navigation bars.](https://developer.android.com/static/develop/ui/views/theming/images/rounded-corners-neither.png) **Figure 4.** A layout that doesn't draw behind the system and navigation bars.
+
+![A layout that doesn't draw behind the system and navigation bars.](/static/develop/ui/views/theming/images/rounded-corners-neither.png)
+
+
+**Figure 4.** A layout that doesn't draw behind the system
+and navigation bars.

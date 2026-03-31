@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/develop/connectivity/bluetooth/ble-audio/audio-recording
+title: Audio recording  |  Connectivity  |  Android Developers
 url: https://developer.android.com/develop/connectivity/bluetooth/ble-audio/audio-recording
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Connectivity](https://developer.android.com/develop/connectivity)
+* [Guides](https://developer.android.com/develop/connectivity/overview)
+
+# Audio recording Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Bluetooth audio profiles based on Bluetooth Low Energy (BLE) Audio
 allow bidirectional streaming of high quality audio (for example, stereo audio
@@ -12,7 +22,7 @@ Isochronous Channel (ISO). ISO is similar to the Synchronous Connection-Oriented
 reservation is no longer capped at 64 Kbps and can be dynamically adjusted.
 
 Bluetooth audio input can use the latest
-[AudioManager API](https://developer.android.com/reference/android/media/AudioManager) for nearly all use
+[AudioManager API](/reference/android/media/AudioManager) for nearly all use
 cases, excluding phone calls. This guide covers how to record stereo audio from
 BLE Audio hearables.
 
@@ -20,37 +30,41 @@ BLE Audio hearables.
 
 First, configure your application to target the correct SDK in `build.gradle`:
 
-    targetSdkVersion 31
+```
+targetSdkVersion 31
+```
 
 ## Register audio callback
 
 Create an
-[`AudioDeviceCallback`](https://developer.android.com/reference/android/media/AudioManager#registerAudioDeviceCallback(android.media.AudioDeviceCallback,%20android.os.Handler))
+[`AudioDeviceCallback`](/reference/android/media/AudioManager#registerAudioDeviceCallback(android.media.AudioDeviceCallback,%20android.os.Handler))
 that lets your application know of any changes to connected or disconnected
 `AudioDevices`.
 
-    final AudioDeviceCallback audioDeviceCallback = new AudioDeviceCallback() {
-      @Override
-      public void onAudioDevicesAdded(AudioDeviceInfo[] addedDevices) {
-        };
-      @Override
-      public void onAudioDevicesRemoved(AudioDeviceInfo[] removedDevices) {
-        // Handle device removal
-      };
+```
+final AudioDeviceCallback audioDeviceCallback = new AudioDeviceCallback() {
+  @Override
+  public void onAudioDevicesAdded(AudioDeviceInfo[] addedDevices) {
     };
+  @Override
+  public void onAudioDevicesRemoved(AudioDeviceInfo[] removedDevices) {
+    // Handle device removal
+  };
+};
 
-    audioManager.registerAudioDeviceCallback(audioDeviceCallback);
+audioManager.registerAudioDeviceCallback(audioDeviceCallback);
+```
 
 ## Find BLE Audio Device
 
 Get a list of all connected audio devices with input supported, then use
-[`getType()`](https://developer.android.com/reference/android/media/AudioDeviceInfo#getType()) to see if
+[`getType()`](/reference/android/media/AudioDeviceInfo#getType()) to see if
 the device is a headset using
-[`AudioDeviceInfo.TYPE_BLE_HEADSET`](https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BLE_HEADSET).
+[`AudioDeviceInfo.TYPE_BLE_HEADSET`](/reference/android/media/AudioDeviceInfo#TYPE_BLE_HEADSET).
 
 ### Kotlin
 
-```kotlin
+```
 val allDeviceInfo = audioManager.getDevices(GET_DEVICES_INPUTS)
 var bleInputDevice: AudioDeviceInfo? = null
   for (device in allDeviceInfo) {
@@ -63,7 +77,7 @@ var bleInputDevice: AudioDeviceInfo? = null
 
 ### Java
 
-```java
+```
 AudioDeviceInfo[] allDeviceInfo = audioManager.getDevices(GET_DEVICES_INPUTS);
 AudioDeviceInfo bleInputDevice = null;
 for (AudioDeviceInfo device : allDeviceInfo) {
@@ -81,7 +95,7 @@ device has two or more channels. If the device only has one channel, set the cha
 
 ### Kotlin
 
-```kotlin
+```
 var channelMask: Int = AudioFormat.CHANNEL_IN_MONO
 if (audioDevice.channelCounts.size >= 2) {
   channelMask = AudioFormat.CHANNEL_IN_STEREO
@@ -90,7 +104,7 @@ if (audioDevice.channelCounts.size >= 2) {
 
 ### Java
 
-```java
+```
 if (bleInputDevice.getChannelCounts() >= 2) {
   channelMask = AudioFormat.CHANNEL_IN_STEREO;
 };
@@ -103,7 +117,7 @@ Use the channel mask to select stereo or mono configuration.
 
 ### Kotlin
 
-```kotlin
+```
 val recorder = AudioRecord.Builder()
   .setAudioSource(MediaRecorder.AudioSource.MIC)
   .setAudioFormat(AudioFormat.Builder()
@@ -117,7 +131,7 @@ val recorder = AudioRecord.Builder()
 
 ### Java
 
-```java
+```
 AudioRecord recorder = new AudioRecord.Builder()
   .setAudioSource(MediaRecorder.AudioSource.MIC)
   .setAudioFormat(new AudioFormat.Builder()
@@ -136,17 +150,16 @@ you wish to record with.
 
 ### Kotlin
 
-```kotlin
+```
 recorder.preferredDevice = audioDevice
 ```
 
 ### Java
 
-```java
+```
 recorder.setPreferredDevice(bleInputDevice);
 ```
 
-> [!NOTE]
-> **Note:** The user can manually override this preference in device settings.
+**Note:** The user can manually override this preference in device settings.
 
-Now, you can record audio as outlined in [the MediaRecorder guide](https://developer.android.com/guide/topics/media/mediarecorder).
+Now, you can record audio as outlined in [the MediaRecorder guide](/guide/topics/media/mediarecorder).

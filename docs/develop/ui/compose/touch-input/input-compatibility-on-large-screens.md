@@ -29,7 +29,7 @@ for users with accessibility needs.
 
 For many apps, arrow key and <kbd>Tab</kbd> key navigation are handled
 automatically by the Android framework. For example, some composables are
-focusable by default, such as a [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) or a composable with the
+focusable by default, such as a [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) or a composable with the
 [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) modifier; keyboard navigation should generally work without any
 additional code. To enable keyboard navigation for custom composables that are
 not focusable by default, add the [`focusable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).focusable(kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource)) modifier:
@@ -89,7 +89,7 @@ needs.
 For text input that would be handled by an on screen virtual keyboard ([IME](https://developer.android.com/guide/topics/text/creating-input-method)),
 such as for
 
-a [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors))
+a [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors))
 
 , apps should behave as expected on large screen devices with no additional
 development work. For keystrokes that cannot be anticipated by the framework,
@@ -101,7 +101,7 @@ media apps that start and stop playback with the <kbd>Spacebar</kbd>, and games
 that control movement with the <kbd>w</kbd>, <kbd>a</kbd>, <kbd>s</kbd>, and
 <kbd>d</kbd> keys.
 
-You can handle individual keystrokes with the [`onKeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/package-summary#(androidx.compose.ui.Modifier).onKeyEvent(kotlin.Function1)) modifier, which
+You can handle individual keystrokes with the [`onKeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/onKeyEvent.modifier#(androidx.compose.ui.Modifier).onKeyEvent(kotlin.Function1)) modifier, which
 accepts a lambda that's called when the modified component receives a key event.
 The [`KeyEvent#type`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent#(androidx.compose.ui.input.key.KeyEvent).type()) property enables you to determine whether the event is a
 key press ([`KeyDown`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEventType#KeyDown())) or key release ([`KeyUp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEventType#KeyUp())):
@@ -146,7 +146,7 @@ key is pressed or whether the user is holding a key down can listen for the
 `onKeyDown` event and handle repeated `onKeyDown` events themselves.
 
 > [!NOTE]
-> **Note:** Depending on your app's needs, you can override `onKeyUp()` for the entire activity, or you can handle individual keystrokes with the [`onKeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/package-summary#(androidx.compose.ui.Modifier).onKeyEvent(kotlin.Function1)) modifier. With `onKeyEvent`, an app can, for example, listen for the <kbd>Enter</kbd> key in a specific `TextField` to implement *send* functionality only when the user is typing in a chat box.
+> **Note:** Depending on your app's needs, you can override `onKeyUp()` for the entire activity, or you can handle individual keystrokes with the [`onKeyEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/onKeyEvent.modifier#(androidx.compose.ui.Modifier).onKeyEvent(kotlin.Function1)) modifier. With `onKeyEvent`, an app can, for example, listen for the <kbd>Enter</kbd> key in a specific `TextField` to implement *send* functionality only when the user is typing in a chat box.
 
 For more information, see [Handle keyboard actions](https://developer.android.com/develop/ui/compose/touch-input/keyboard-input/commands).
 
@@ -386,7 +386,7 @@ Drop](https://medium.com/androiddevelopers/android-on-chrome-os-implementing-dra
 
 Apps that do advanced handling of mouse and touchpad input should implement a
 
-[`pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,androidx.compose.ui.input.pointer.PointerInputEventHandler)) modifier to obtain a [`PointerEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/PointerEvent):
+[`pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/pointerInput.modifier#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,androidx.compose.ui.input.pointer.PointerInputEventHandler)) modifier to obtain a [`PointerEvent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/PointerEvent):
 
 
 ```kotlin

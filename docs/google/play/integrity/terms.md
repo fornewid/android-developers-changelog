@@ -1,36 +1,60 @@
 ---
-title: https://developer.android.com/google/play/integrity/terms
+title: Terms of Service and data safety  |  Play Integrity  |  Android Developers
 url: https://developer.android.com/google/play/integrity/terms
-source: md.txt
+source: html-scrape
 ---
+
+**Let Play resolve integrity issues for you:** Show a single in-app Play prompt to resolve a broad range of verdict issues and client-side errors. With [Play remediation dialogs](/google/play/integrity/remediation), you can get more users back to a good state and simplify your API integration. [Learn more](https://android-developers.googleblog.com/2025/10/stronger-threat-detection-simpler.html)
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Play Integrity](https://developer.android.com/google/play/integrity)
+
+# Terms of Service and data safety Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Before you use or access the Play Integrity API, do the following:
 
-1. Read the [Play Integrity API Terms of Service](https://developer.android.com/google/play/integrity/terms#tos).
-2. Stay up to date with [announcements](https://developer.android.com/google/play/integrity/terms#announcements).
-3. Understand [how the API handles data](https://developer.android.com/google/play/integrity/terms#data-safety).
+1. Read the [Play Integrity API Terms of Service](#tos).
+2. Stay up to date with [announcements](#announcements).
+3. Understand [how the API handles data](#data-safety).
 
 ## Terms of Service
 
 Last modified: May 20, 2024
 
-1. By using the Play Integrity API, you agree to these terms in addition to the [Google APIs Terms of Service](https://developers.google.com/terms) ("API ToS"). The Play Integrity API is provided to protect app security and to mitigate abuse, fraud, and unauthorized access.
-2. By using the Play Integrity API, your app or SDK will have access to certain features and be granted quota limits based on the eligibility criteria described in the [Play Integrity API
-   documentation](http://g.co/play/integrityapi). Eligibility criteria are subject to change.
-   1. Google Play reserves the right to remove feature access and reduce quota if your app or SDK does not meet, or stops meeting, the eligibility criteria.
-   2. The approval of additional features or increased quota is non-transferable and will only apply to the specified app or SDK.
+1. By using the Play Integrity API, you agree to these terms in addition to the
+   [Google APIs Terms of Service](https://developers.google.com/terms)
+   ("API ToS"). The Play Integrity API is provided to protect app security and
+   to mitigate abuse, fraud, and unauthorized access.
+2. By using the Play Integrity API, your app or SDK will have access to certain
+   features and be granted quota limits based on the eligibility criteria
+   described in the [Play Integrity API
+   documentation](http://g.co/play/integrityapi). Eligibility criteria are
+   subject to change.
+   1. Google Play reserves the right to remove feature access and reduce quota
+      if your app or SDK does not meet, or stops meeting, the eligibility
+      criteria.
+   2. The approval of additional features or increased quota is
+      non-transferable and will only apply to the specified app or SDK.
 3. You may not use the Play Integrity API to fingerprint or track individual users or devices.
-4. Google may make changes to these terms at any time with notice and the opportunity to decline further use of the Play Integrity API. Google will post notice of modifications to the terms at `https://developer.android.com/google/play/integrity/terms#tos`. Changes will not be retroactive.
+4. Google may make changes to these terms at any time with notice and the
+   opportunity to decline further use of the Play Integrity API. Google will
+   post notice of modifications to the terms at
+   `https://developer.android.com/google/play/integrity/terms#tos`.
+   Changes will not be retroactive.
 
 ## Announcements and service status
 
 Stay up to date with announcements and updates relating to the Play Integrity
 API through the following communication channels:
 
-|---|---|
-| Important announcements | Mandatory service announcements about the Play Integrity API will be communicated over email to user accounts with the following roles in the Play Console and the Cloud Console: - **Google Play Console**: Account owners and release managers of apps that have set up Play Integrity API. - **Google Cloud Console** : Project owners and [Essential Contacts](https://docs.cloud.google.com/resource-manager/docs/managing-notification-contacts) for technical and product updates of projects that have enabled Play Integrity API. |
+|  |  |
+| --- | --- |
+| Important announcements | Mandatory service announcements about the Play Integrity API will be communicated over email to user accounts with the following roles in the Play Console and the Cloud Console:   * **Google Play Console**: Account owners and release managers of apps   that have set up Play Integrity API. * **Google Cloud Console**: Project owners and   [Essential   Contacts](https://docs.cloud.google.com/resource-manager/docs/managing-notification-contacts) for technical and product updates of projects that have enabled   Play Integrity   API. |
 | Service issues or disruptions | Service issues and disruptions will be posted to [status.play.google.com](https://status.play.google.com). You can subscribe to Atom feeds at the bottom of this page. |
-| Marketing and other communications | Other communications relating to the Play Integrity API such as marketing messages about new features, invitations to give feedback, and recommendations will be communicated through standard Google Play developer communication channels including: - [Play Integrity API release notes](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes) - [Play Console release notes](https://play.google.com/console/about/whats-new/) - Play Console notifications to account owners and release managers - Play Console recommended actions - [Play developer newsletters](https://developer.android.com/newsletter) - [Android Developers Blog](https://android-developers.googleblog.com/) and social channels |
+| Marketing and other communications | Other communications relating to the Play Integrity API such as marketing messages about new features, invitations to give feedback, and recommendations will be communicated through standard Google Play developer communication channels including:   * [Play   Integrity API release notes](/google/play/integrity/reference/com/google/android/play/core/release-notes) * [Play Console   release notes](https://play.google.com/console/about/whats-new/) * Play Console notifications to account owners and release managers * Play Console recommended actions * [Play developer newsletters](/newsletter) * [Android Developers   Blog](https://android-developers.googleblog.com/) and social channels |
 
 ## Data safety
 
@@ -47,8 +71,9 @@ Service](https://play.google.com/intl/en-US_us/about/play-terms/index.html). The
 information below describes how the Play Integrity API handles data to process
 specific requests from your app.
 
-|---|---|
-| Data collected on usage | Always collected: - App-provided information in the request including the `requestHash` and `nonce` fields - App metadata including package name, version number, and signing certificate - The app's [Google Play license status](https://developer.android.com/google/play/integrity/verdicts#account-details-field) for the signed in user accounts on the device - Device information including a key attestation certificate and a device attestation token generated by Google Play services Only collected when the requesting app is opted in to receiving [environment details](https://developer.android.com/google/play/integrity/verdicts#environment-details-field): - App activity information used to determine if apps are running that can capture the screen or control the device - Device information used to determine the status of Google Play Protect |
+|  |  |
+| --- | --- |
+| Data collected on usage | Always collected:   * App-provided information in the request including the   `requestHash` and `nonce` fields * App metadata including package name, version number, and signing   certificate * The app's   [Google Play   license status](/google/play/integrity/verdicts#account-details-field) for the signed in user accounts on the device * Device information including a key attestation certificate and a device   attestation token generated by Google Play services  Only collected when the requesting app is opted in to receiving [environment details](/google/play/integrity/verdicts#environment-details-field):  * App activity information used to determine if apps are running that can   capture the screen or control the device * Device information used to determine the status of Google Play   Protect |
 | Purpose of data collection | The data collected is used to verify the application integrity, the licensing status, environment details, and the device integrity. |
 | Data encryption | Data is encrypted. |
 | Data sharing | Data is not transferred to any third parties. |
@@ -58,3 +83,9 @@ While we aim to be as transparent as possible, you are solely responsible for
 deciding how to respond to
 [Google Play's data safety section form](https://support.google.com/googleplay/android-developer/answer/10787469)
 regarding your app's user data collection, sharing, and security practices.
+
+[Previous
+
+arrow\_back
+
+Additional tools and support](/google/play/integrity/additional-tools)

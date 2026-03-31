@@ -4,7 +4,8 @@ url: https://developer.android.com/develop/ui/compose/touch-input/pointer-input/
 source: md.txt
 ---
 
-| **Warning:** This page and the snippets it contains are outdated.
+> [!WARNING]
+> **Warning:** This page and the snippets it contains are outdated.
 
 [`Swipeable`](https://developer.android.com/reference/kotlin/androidx/compose/material/SwipeableState) is a Compose Material API that helps you build components that
 can be swiped between discrete states, such as bottom sheets, drawers, or
@@ -17,7 +18,9 @@ as bottom sheets, drawers, or swipe-to-dismiss.
 Material's `Swipeable` APIs have been deprecated in favor of Foundation's
 `AnchoredDraggable` and will be removed in a future release. This guide
 describes how to migrate from `Swipeable` APIs to `AnchoredDraggable`.
-| **Note:** `AnchoredDraggable` is an experimental API. Experimental APIs may change in future.
+
+> [!NOTE]
+> **Note:** `AnchoredDraggable` is an experimental API. Experimental APIs may change in future.
 
 ## Migrate `SwipeableState` to `AnchoredDraggableState`
 
@@ -77,11 +80,12 @@ inconsistencies or possible bugs early on.
         }
     }
 
-| **Note:** Overflow support for `AnchoredDraggable` is currently being implemented. See [b/288084801](https://issuetracker.google.com/288084801) for the latest status.
+> [!NOTE]
+> **Note:** Overflow support for `AnchoredDraggable` is currently being implemented. See [b/288084801](https://issuetracker.google.com/288084801) for the latest status.
 
 ## Migrate `Modifier.swipeable` to `Modifier.anchoredDraggable`
 
-[`Modifier.anchoredDraggable()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.Modifier).anchoredDraggable(androidx.compose.foundation.gestures.AnchoredDraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource)) replaces [`Modifier.swipeable`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#(androidx.compose.ui.Modifier).swipeable(androidx.compose.material.SwipeableState,kotlin.collections.Map,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function2,androidx.compose.material.ResistanceConfig,androidx.compose.ui.unit.Dp))(). Some
+[`Modifier.anchoredDraggable()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.Modifier).anchoredDraggable(androidx.compose.foundation.gestures.AnchoredDraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource)) replaces [`Modifier.swipeable`](https://developer.android.com/reference/kotlin/androidx/compose/material/swipeable.modifier#(androidx.compose.ui.Modifier).swipeable(androidx.compose.material.SwipeableState,kotlin.collections.Map,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function2,androidx.compose.material.ResistanceConfig,androidx.compose.ui.unit.Dp))(). Some
 of `Modifier.swipeable()`'s parameters have moved to `AnchoredDraggableState`
 directly, as described in the following sections.
 

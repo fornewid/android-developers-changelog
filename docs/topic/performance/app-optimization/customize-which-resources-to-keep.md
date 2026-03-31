@@ -76,7 +76,7 @@ and French:
     android {
         defaultConfig {
             ...
-            resourceConfigurations.addAll(listOf("en", "fr"))
+            resourceConfigurations.addAll(listOf("en", ";fr"))
         }
     }
 
@@ -85,7 +85,7 @@ or
     android {
         defaultConfig {
             ...
-            resConfigs "en", "fr"
+            resConfigs "en", &quot;fr"
         }
     }
 

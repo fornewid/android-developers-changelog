@@ -1,23 +1,31 @@
 ---
-title: https://developer.android.com/guide/fragments/debugging
+title: Debug your fragments  |  App architecture  |  Android Developers
 url: https://developer.android.com/guide/fragments/debugging
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Debug your fragments Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 This guide covers tools that you can use to debug your
-[fragments](https://developer.android.com/guide/fragments).
+[fragments](/guide/fragments).
 
 ## FragmentManager logging
 
-[`FragmentManager`](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentManager)
+[`FragmentManager`](/reference/kotlin/androidx/fragment/app/FragmentManager)
 can emit various messages to
-[Logcat](https://developer.android.com/studio/debug/am-logcat). This is disabled by default,
+[Logcat](/studio/debug/am-logcat). This is disabled by default,
 but sometimes these log messages can help you troubleshoot
 issues with your fragments. `FragmentManager` emits the most meaningful output
-at the `DEBUG` and `VERBOSE` [log levels](https://developer.android.com/studio/debug/logcat#read-logs).
+at the `DEBUG` and `VERBOSE` [log levels](/studio/debug/logcat#read-logs).
 
 You can enable logging using the following
-[`adb shell`](https://developer.android.com/studio/command-line/adb#shellcommands) command:
+[`adb shell`](/studio/command-line/adb#shellcommands) command:
 
 ```
 adb shell setprop log.tag.FragmentManager DEBUG
@@ -30,22 +38,24 @@ adb shell setprop log.tag.FragmentManager VERBOSE
 ```
 
 If you enable verbose logging, you can then apply a [log level
-filter](https://developer.android.com/studio/debug/logcat#key-value-search) in the Logcat window. However, this
+filter](/studio/debug/logcat#key-value-search) in the Logcat window. However, this
 filters all logs, not just the `FragmentManager` logs. It's usually best to
 enable `FragmentManager` logging only at the log level that you need.
 
 ### DEBUG logging
 
 At the `DEBUG` level, `FragmentManager` generally emits log messages relating to
-lifecycle state changes. Each log entry contains the [`toString()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#toString())
-dump from the [`Fragment`](https://developer.android.com/reference/androidx/fragment/app/Fragment).
+lifecycle state changes. Each log entry contains the [`toString()`](/reference/androidx/fragment/app/Fragment#toString())
+dump from the [`Fragment`](/reference/androidx/fragment/app/Fragment).
 A log entry consists of the following information:
 
-- The simple class name of the `Fragment` instance.
-- The [identity hash code](https://developer.android.com/reference/java/lang/System#identityHashCode(java.lang.Object)) of the `Fragment` instance.
-- The fragment manager's unique ID of the `Fragment` instance. This is stable across configuration changes and process death and recreation.
-- The ID of the container that the `Fragment` is added to, but only if set.
-- The `Fragment` tag, but only if set.
+* The simple class name of the `Fragment` instance.
+* The [identity hash code](/reference/java/lang/System#identityHashCode(java.lang.Object))
+  of the `Fragment` instance.
+* The fragment manager's unique ID of the `Fragment` instance. This is stable
+  across configuration changes and process death and recreation.
+* The ID of the container that the `Fragment` is added to, but only if set.
+* The `Fragment` tag, but only if set.
 
 The following is a sample `DEBUG` log entry:
 
@@ -53,11 +63,12 @@ The following is a sample `DEBUG` log entry:
 D/FragmentManager: moveto ATTACHED: NavHostFragment{92d8f1d} (fd92599e-c349-4660-b2d6-0ece9ec72f7b id=0x7f080116)
 ```
 
-- The `Fragment` class is `NavHostFragment`.
-- The identity hash code is `92d8f1d`.
-- The unique ID is `fd92599e-c349-4660-b2d6-0ece9ec72f7b`.
-- The container ID is `0x7f080116`.
-- The tag is omitted because none was set. When present, it follows the ID in the format `tag=tag_value`.
+* The `Fragment` class is `NavHostFragment`.
+* The identity hash code is `92d8f1d`.
+* The unique ID is `fd92599e-c349-4660-b2d6-0ece9ec72f7b`.
+* The container ID is `0x7f080116`.
+* The tag is omitted because none was set. When present, it follows
+  the ID in the format `tag=tag_value`.
 
 For brevity and readability, the UUIDs are shortened in the following
 examples.
@@ -215,27 +226,27 @@ debugging some issues.
 ## StrictMode for fragments
 
 Version 1.4.0 and higher of the
-[Jetpack Fragment](https://developer.android.com/jetpack/androidx/releases/fragment) library includes
+[Jetpack Fragment](/jetpack/androidx/releases/fragment) library includes
 StrictMode for fragments. It can catch some common issues that may cause your
 app to behave in unexpected ways. For more information about working with
-`StrictMode`, see [StrictMode](https://developer.android.com/reference/android/os/StrictMode).
+`StrictMode`, see [StrictMode](/reference/android/os/StrictMode).
 
 A custom
-[`Policy`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy)
+[`Policy`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy)
 defines which violations are detected and specifies what penalty is applied
 when violations are detected.
 
-> [!NOTE]
-> **Note:** when you enable [`FragmentManager` `DEBUG` logging](https://developer.android.com/guide/fragments/debugging#debug-logging), all StrictMode violations are logged, no matter what policy you are using.
+**Note:** when you enable [`FragmentManager` `DEBUG` logging](#debug-logging), all
+StrictMode violations are logged, no matter what policy you are using.
 
 To apply a custom StrictMode policy, assign it to the
-[`FragmentManager`](https://developer.android.com/reference/androidx/fragment/app/FragmentManager).
+[`FragmentManager`](/reference/androidx/fragment/app/FragmentManager).
 Do this as early as possible. In this case, you do it in an
 `init` block or in the Java constructor:
 
 ### Kotlin
 
-```kotlin
+```
 class ExampleActivity : AppCompatActivity() {
 
     init {
@@ -260,7 +271,7 @@ class ExampleActivity : AppCompatActivity() {
 
 ### Java
 
-```java
+```
 class ExampleActivity extends AppCompatActivity() {
 
     ExampleActivity() {
@@ -289,11 +300,11 @@ class ExampleActivity extends AppCompatActivity() {
 For cases where you need to know the `Context` to determine whether to
 enable StrictMode, such as from the value of a boolean resource, you can
 defer assigning a StrictMode policy to the `FragmentManager` using an
-[`OnContextAvailableListener`](https://developer.android.com/reference/androidx/activity/contextaware/OnContextAvailableListener):
+[`OnContextAvailableListener`](/reference/androidx/activity/contextaware/OnContextAvailableListener):
 
 ### Kotlin
 
-```kotlin
+```
 class ExampleActivity : AppCompatActivity() {
 
     init {
@@ -320,7 +331,7 @@ class ExampleActivity : AppCompatActivity() {
 
 ### Java
 
-```java
+```
 class ExampleActivity extends AppCompatActivity() {
 
     ExampleActivity() {
@@ -350,12 +361,12 @@ class ExampleActivity extends AppCompatActivity() {
 
 The latest point at which you can configure StrictMode to catch all possible
 violations is in
-[`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)),
+[`onCreate()`](/reference/android/app/Activity#onCreate(android.os.Bundle)),
 before the call to `super.onCreate()`:
 
 ### Kotlin
 
-```kotlin
+```
 class ExampleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -376,7 +387,7 @@ class ExampleActivity : AppCompatActivity() {
 
 ### Java
 
-```java
+```
 class ExampleActivity extends AppCompatActivity() {
 
     @Override
@@ -409,17 +420,21 @@ types. This is useful for cases where a third-party library component might
 contain StrictMode violations.
 
 In such cases, you can temporarily add those violations to the allowlist of
-your StrictMode for components that you don't own until the library
+your StrictMode for components that you don’t own until the library
 fixes their violation.
 
 For details about how to configure other violations, see the documentation for
-[`FragmentStrictMode.Policy.Builder`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder).
+[`FragmentStrictMode.Policy.Builder`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder).
 
 There are three penalty types.
 
-- [`penaltyLog()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#penaltylog) dumps details of violations to Logcat.
-- [`penaltyDeath()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#penaltyDeath()) terminates the app when violations are detected.
-- [`penaltyListener()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#penaltylistener) lets you add a custom listener that is called whenever violations are detected.
+* [`penaltyLog()`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#penaltylog)
+  dumps details of violations to Logcat.
+* [`penaltyDeath()`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#penaltyDeath())
+  terminates the app when violations are detected.
+* [`penaltyListener()`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#penaltylistener)
+  lets you add a custom listener that is called whenever violations are
+  detected.
 
 You can apply any combination of penalties in your `Policy`. If your policy does
 not explicitly specify a penalty, a default of `penaltyLog()` is applied. If you
@@ -432,13 +447,13 @@ non-fatal violation catching in release builds and log them to a crash reporting
 library. This strategy can detect violations otherwise missed.
 
 To set a global StrictMode policy, set a default policy that applies to all
-[`FragmentManager`](https://developer.android.com/reference/androidx/fragment/app/FragmentManager) instances using the
-[`FragmentStrictMode.setDefaultPolicy()`](https://developer.android.com/reference/androidx/fragment/app/strictmode/FragmentStrictMode#setDefaultPolicy(androidx.fragment.app.strictmode.FragmentStrictMode.Policy))
+[`FragmentManager`](/reference/androidx/fragment/app/FragmentManager) instances using the
+[`FragmentStrictMode.setDefaultPolicy()`](/reference/androidx/fragment/app/strictmode/FragmentStrictMode#setDefaultPolicy(androidx.fragment.app.strictmode.FragmentStrictMode.Policy))
 method:
 
 ### Kotlin
 
-```kotlin
+```
 class MyApplication : Application() {
 
     override fun onCreate() {
@@ -470,7 +485,7 @@ class MyApplication : Application() {
 
 ### Java
 
-```java
+```
 public class MyApplication extends Application {
 
     @Override
@@ -503,9 +518,9 @@ The following sections describe types of violations and possible workarounds.
 ### Fragment reuse
 
 The fragment reuse violation is enabled using
-[`detectFragmentReuse()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectFragmentReuse())
+[`detectFragmentReuse()`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectFragmentReuse())
 and throws a
-[`FragmentReuseViolation`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentReuseViolation).
+[`FragmentReuseViolation`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentReuseViolation).
 
 This violation indicates the reuse of a `Fragment` instance after its removal
 from `FragmentManager`. This reuse can cause issues because the `Fragment` might
@@ -516,9 +531,9 @@ new instance each time, it is always in the initial state when added to
 ### Fragment tag usage
 
 The fragment tag usage violation is enabled using
-[`detectFragmentTagUsage()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectFragmentTagUsage())
+[`detectFragmentTagUsage()`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectFragmentTagUsage())
 and throws a
-[`FragmentTagUsageViolation`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentTagUsageViolation).
+[`FragmentTagUsageViolation`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentTagUsageViolation).
 
 This violation indicates that a `Fragment` is inflated using the `<fragment>`
 tag in an XML layout. To resolve this, inflate your `Fragment` inside
@@ -530,65 +545,65 @@ expected if you use the `<fragment>` tag instead.
 ### Retain instance usage
 
 The retain instance usage violation is enabled using
-[`detectRetainInstanceUsage()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectRetainInstanceUsage())
+[`detectRetainInstanceUsage()`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectRetainInstanceUsage())
 and throws a
-[`RetainInstanceUsageViolation`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/RetainInstanceUsageViolation).
+[`RetainInstanceUsageViolation`](/reference/kotlin/androidx/fragment/app/strictmode/RetainInstanceUsageViolation).
 
 This violation indicates the usage of a retained `Fragment`, specifically, if
 there are calls to
-[`setRetainInstance()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#setRetainInstance(boolean))
+[`setRetainInstance()`](/reference/kotlin/androidx/fragment/app/Fragment#setRetainInstance(boolean))
 or
-[`getRetainInstance()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#getRetainInstance()),
+[`getRetainInstance()`](/reference/kotlin/androidx/fragment/app/Fragment#getRetainInstance()),
 which are both deprecated.
 
 Instead of using these methods to manage retained `Fragment` instances
 yourself, store state in a
-[`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel)
+[`ViewModel`](/reference/androidx/lifecycle/ViewModel)
 that handles this for you.
 
 ### Set user visible hint
 
 The set user visible hint violation is enabled using
-[`detectSetUserVisibleHint()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectSetUserVisibleHint())
+[`detectSetUserVisibleHint()`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectSetUserVisibleHint())
 and throws a
-[`SetUserVisibleHintViolation`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/SetUserVisibleHintViolation).
+[`SetUserVisibleHintViolation`](/reference/kotlin/androidx/fragment/app/strictmode/SetUserVisibleHintViolation).
 
 This violation indicates a call to
-[`setUserVisibleHint()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#setuservisiblehint),
+[`setUserVisibleHint()`](/reference/kotlin/androidx/fragment/app/Fragment#setuservisiblehint),
 which is deprecated.
 
 If you are manually calling this method, then call
-[`setMaxLifecycle()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentTransaction#setMaxLifecycle(androidx.fragment.app.Fragment,%20androidx.lifecycle.Lifecycle.State))
+[`setMaxLifecycle()`](/reference/kotlin/androidx/fragment/app/FragmentTransaction#setMaxLifecycle(androidx.fragment.app.Fragment,%20androidx.lifecycle.Lifecycle.State))
 instead. If you override this method, move the behavior to
-[`onResume()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#onResume())
+[`onResume()`](/reference/kotlin/androidx/fragment/app/Fragment#onResume())
 when passing in `true` and
-[`onPause()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#onPause())
+[`onPause()`](/reference/androidx/fragment/app/Fragment#onPause())
 when passing in `false`.
 
 ### Target fragment usage
 
 The target fragment usage violation is enabled using
-[`detectTargetFragmentUsage()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectTargetFragmentUsage())
+[`detectTargetFragmentUsage()`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectTargetFragmentUsage())
 and throws a
-[`TargetFragmentUsageViolation`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/TargetFragmentUsageViolation).
+[`TargetFragmentUsageViolation`](/reference/kotlin/androidx/fragment/app/strictmode/TargetFragmentUsageViolation).
 
 This violation indicates a call to
-[`setTargetFragment()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#setTargetFragment(androidx.fragment.app.Fragment,int)),
-[`getTargetFragment()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#getTargetFragment()),
-or [`getTargetRequestCode()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#getTargetRequestCode()),
+[`setTargetFragment()`](/reference/kotlin/androidx/fragment/app/Fragment#setTargetFragment(androidx.fragment.app.Fragment,int)),
+[`getTargetFragment()`](/reference/kotlin/androidx/fragment/app/Fragment#getTargetFragment()),
+or [`getTargetRequestCode()`](/reference/kotlin/androidx/fragment/app/Fragment#getTargetRequestCode()),
 which are all deprecated. Instead of using these methods, register a
 `FragmentResultListener`. For more information about passing results, see [Pass results between
-fragments](https://developer.android.com/guide/fragments/communicate#pass-between-fragments).
+fragments](/guide/fragments/communicate#pass-between-fragments).
 
 ### Wrong fragment container
 
 The wrong fragment container violation is enabled using
-[`detectWrongFragmentContainer()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectWrongFragmentContainer())
+[`detectWrongFragmentContainer()`](/reference/kotlin/androidx/fragment/app/strictmode/FragmentStrictMode.Policy.Builder#detectWrongFragmentContainer())
 and throws a
-[`WrongFragmentContainerViolation`](https://developer.android.com/reference/kotlin/androidx/fragment/app/strictmode/WrongFragmentContainerViolation).
+[`WrongFragmentContainerViolation`](/reference/kotlin/androidx/fragment/app/strictmode/WrongFragmentContainerViolation).
 
 This violation indicates the addition of a `Fragment` to a container other than
-`FragmentContainerView`. As with [`Fragment` tag usage](https://developer.android.com/guide/fragments/debugging#fragment-tag-usage),
+`FragmentContainerView`. As with [`Fragment` tag usage](#fragment-tag-usage),
 fragment transactions might not work as expected unless hosted inside a
 `FragmentContainerView`. Using a container view also helps address an issue in the `View` API that
 causes fragments using exit animations to be drawn on top of all other

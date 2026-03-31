@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Create a flexible layout that helps users browse, sort, filter and select their
 favorite movies, music, or TV shows across all screens.
 

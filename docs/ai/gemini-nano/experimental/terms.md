@@ -1,18 +1,27 @@
 ---
-title: https://developer.android.com/ai/gemini-nano/experimental/terms
+title: Access to Experiment with Gemini Nano Program Additional Terms of Service  |  AI  |  Android Developers
 url: https://developer.android.com/ai/gemini-nano/experimental/terms
-source: md.txt
+source: html-scrape
 ---
 
-> [!CAUTION]
-> **Caution:** The experimental Google AI Edge SDK is deprecated. We recommend using the [ML Kit Prompt API](https://developers.google.com/ml-kit/genai/prompt/android) to send custom prompts to Gemini Nano.
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [AI](https://developer.android.com/ai)
+* [Guides](https://developer.android.com/ai/overview)
+
+# Access to Experiment with Gemini Nano Program Additional Terms of Service Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+**Caution:** The experimental Google AI Edge SDK is deprecated. We recommend
+using the [ML Kit Prompt API](https://developers.google.com/ml-kit/genai/prompt/android) to send custom prompts to Gemini Nano.
 
 *Last modified: September 26th, 2024*
 
 To participate and use Google products and services in the Access to Experiment
 with Gemini Nano Program and the other Google developer services that reference
 these terms (collectively, the "APIs" or "Services"), you must accept (1) the
-[Google APIs Terms of Service](https://developers.google.com/terms) (the "API **Terms"** ), and (2)
+[Google APIs Terms of Service](https://developers.google.com/terms) (the "API **Terms"**), and (2)
 these **Access to Experiment with Gemini Nano Program** Additional Terms of
 Service (the "Additional **Terms"**). Terms that are not defined in these
 Additional Terms have the meanings given in the API Terms.

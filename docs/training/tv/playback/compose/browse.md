@@ -128,13 +128,13 @@ as the following snippet:
 
 In the example described earlier, all movies are displayed equally.
 They have the same area, no visual difference between them.
-You can highlight some of them with [`Carousel`](https://developer.android.com/reference/kotlin/androidx/tv/material3/package-summary#Carousel(kotlin.Int,androidx.compose.ui.Modifier,androidx.tv.material3.CarouselState,kotlin.Long,androidx.compose.animation.ContentTransform,androidx.compose.animation.ContentTransform,kotlin.Function1,kotlin.Function2)).
+You can highlight some of them with [`Carousel`](https://developer.android.com/reference/kotlin/androidx/tv/material3/Carousel.composable#Carousel(kotlin.Int,androidx.compose.ui.Modifier,androidx.tv.material3.CarouselState,kotlin.Long,androidx.compose.animation.ContentTransform,androidx.compose.animation.ContentTransform,kotlin.Function1,kotlin.Function2)).
 
 Carousel displays the information in a set of items that can slide, fade, or
 move into view. You use the component to highlight featured content, such as
 newly available movies or new episodes of TV programs.
 
-[`Carousel`](https://developer.android.com/reference/kotlin/androidx/tv/material3/package-summary#Carousel(kotlin.Int,androidx.compose.ui.Modifier,androidx.tv.material3.CarouselState,kotlin.Long,androidx.compose.animation.ContentTransform,androidx.compose.animation.ContentTransform,kotlin.Function1,kotlin.Function2))
+[`Carousel`](https://developer.android.com/reference/kotlin/androidx/tv/material3/Carousel.composable#Carousel(kotlin.Int,androidx.compose.ui.Modifier,androidx.tv.material3.CarouselState,kotlin.Long,androidx.compose.animation.ContentTransform,androidx.compose.animation.ContentTransform,kotlin.Function1,kotlin.Function2))
 expects you to at least specify the number of items that Carousel has and how to
 draw each item. The first one can be specified with `itemCount`. The second one
 can be passed as a lambda. The index number of the displayed item is

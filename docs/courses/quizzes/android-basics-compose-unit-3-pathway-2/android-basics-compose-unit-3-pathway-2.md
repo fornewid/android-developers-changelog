@@ -1,79 +1,91 @@
 ---
-title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-3-pathway-2/android-basics-compose-unit-3-pathway-2
+title: Build a scrollable list  |  Android Developers
 url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-3-pathway-2/android-basics-compose-unit-3-pathway-2
-source: md.txt
+source: html-scrape
 ---
 
-# Build a scrollable list
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Build a scrollable list
 
-<br />
+Return to pathway
 
-Return to pathway  
-1.
 
-   ## Adaptive launcher icons for Android apps consist of a foreground and background vector drawable.
 
-   True  
-   False  
-2.
+1. ## Adaptive launcher icons for Android apps consist of a foreground and background vector drawable.
 
-   ## When building a UI that requires a scrolling list with a variable number of items, which Composable should you use?
+   True
 
-   `Column`  
-   `Row`  
-   `LazyColumn`  
-   `Card`  
-3.
+   False
+2. ## When building a UI that requires a scrolling list with a variable number of items, which Composable should you use?
 
-   ## What file type is used for the launcher icon foreground and background vectors?
+   `Column`
 
-   .txt  
-   .jpg  
-   .png  
-   .xml  
-4.
+   `Row`
 
-   ## Which Composable should you use to create a vertically scrollable grid with an undetermined number of items?
+   `LazyColumn`
 
-   `LazyColumn`  
-   `LazyVerticalGrid`  
-   `LazyHorizontalGrid`  
-   `Row`  
-5.
+   `Card`
+3. ## What file type is used for the launcher icon foreground and background vectors?
 
-   ## The`Column`composable is not a good option for a list of items of unknown quantity because ___.
+   .txt
 
-   It can only hold a small, finite number of predefined items  
-   It arranges items vertically  
-   It provides scrolling by default without any additional code  
-   It can add content on demand  
-6.
+   .jpg
 
-   ## The ___ method is used to add content to a`LazyColumn`Composable.
+   .png
 
-   `painterResource()`  
-   `Modifier.padding()`  
-   `items()`  
-   `onCreate()`  
-7.
+   .xml
+4. ## Which Composable should you use to create a vertically scrollable grid with an undetermined number of items?
 
-   ## Which Composable arranges items horizontally?
+   `LazyColumn`
 
-   `Column`  
-   `Card`  
-   `Image`  
-   `Row`  
-8.
+   `LazyVerticalGrid`
 
-   ## Which Composable arranges items vertically?
+   `LazyHorizontalGrid`
 
-   `Column`  
-   `Card`  
-   `Image`  
-   `Row`  
+   `Row`
+5. ## The `Column` composable is not a good option for a list of items of unknown quantity because \_\_\_.
+
+   It can only hold a small, finite number of predefined items
+
+   It arranges items vertically
+
+   It provides scrolling by default without any additional code
+
+   It can add content on demand
+6. ## The \_\_\_ method is used to add content to a `LazyColumn` Composable.
+
+   `painterResource()`
+
+   `Modifier.padding()`
+
+   `items()`
+
+   `onCreate()`
+7. ## Which Composable arranges items horizontally?
+
+   `Column`
+
+   `Card`
+
+   `Image`
+
+   `Row`
+8. ## Which Composable arranges items vertically?
+
+   `Column`
+
+   `Card`
+
+   `Image`
+
+   `Row`
 
 Submit answers
 
-*error_outline*An error occurred when grading the quiz. Please try again.
+*error\_outline*
+An error occurred when grading the quiz. Please try again.

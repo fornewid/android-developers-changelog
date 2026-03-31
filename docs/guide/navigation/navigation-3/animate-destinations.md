@@ -1,42 +1,68 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/animate-destinations
+title: Animate between destinations  |  App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/animate-destinations
-source: md.txt
+source: html-scrape
 ---
 
-[`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/package-summary#NavDisplay(kotlin.collections.List,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Function0,kotlin.collections.List,androidx.navigation3.scene.SceneStrategy,androidx.compose.animation.SharedTransitionScope,androidx.compose.animation.SizeTransform,kotlin.Function1,kotlin.Function1,kotlin.Function2,kotlin.Function1)) provides built-in animation capabilities to create smooth
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Animate between destinations Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+[`NavDisplay`](/reference/kotlin/androidx/navigation3/ui/package-summary#NavDisplay(kotlin.collections.List,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Function0,kotlin.collections.List,androidx.navigation3.scene.SceneStrategy,androidx.compose.animation.SharedTransitionScope,androidx.compose.animation.SizeTransform,kotlin.Function1,kotlin.Function1,kotlin.Function2,kotlin.Function1)) provides built-in animation capabilities to create smooth
 visual transitions as users navigate through your app. You can customize these
-animations globally for the `NavDisplay` or on a per-`NavEntry` basis using
+animations globally for the `NavDisplay` or at the [`Scene`](/reference/kotlin/androidx/navigation3/scene/Scene) level using
 metadata.
+
+## Understand built-in animation capabilities
+
+`NavDisplay` uses the [`ContentTransform`](/reference/kotlin/androidx/compose/animation/ContentTransform) API to define how content animates
+during navigation. `NavDisplay` automatically animates transitions between
+scenes when a key derived from the class of the current scene and its `key`
+property changes. When this key changes, `NavDisplay` uses the
+`ContentTransform` for the type of transition—forward, back, or predictive
+back—from the appropriate scene in the transition. If that `ContentTransform`
+isn't defined, `NavDisplay` falls back to using its corresponding [default
+transition](#override-default).
+
+**Note:** If your app doesn't [create custom layouts using scenes](/guide/navigation/navigation-3/scenes#understand-scenes), `NavDisplay`
+defaults to using a `SinglePaneSceneStrategy`, which creates a `SinglePaneScene`
+for each entry on the back stack.
 
 ## Override default transitions
 
-`NavDisplay` uses `ContentTransform`s to define how content animates during
-navigation. You can override the default animation behaviors by providing
-transition parameters to `NavDisplay`.
+You can override the default animation behaviors by providing transition
+parameters to `NavDisplay`.
 
-- `transitionSpec`: This parameter defines the `ContentTransform` to apply when content is added to the back stack (i.e., when navigating forward).
-- `popTransitionSpec`: This parameter defines the `ContentTransform` to apply when content is removed from the back stack (i.e., when navigating back).
-- `predictivePopTransitionSpec`: This parameter defines the `ContentTransform` to apply when content is popped using a predictive back gesture.
+* `transitionSpec`: This parameter defines the `ContentTransform` to apply
+  when content is added to the back stack (i.e., when navigating forward).
+* `popTransitionSpec`: This parameter defines the `ContentTransform` to
+  apply when content is removed from the back stack (i.e., when navigating
+  back).
+* `predictivePopTransitionSpec`: This parameter defines the
+  `ContentTransform` to apply when content is popped using a predictive back
+  gesture.
 
-## Override transitions at the individual `NavEntry` level
+## Override transitions at the `Scene` level
 
-You can also define custom animations for specific [`NavEntry`s](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntry) using their
-metadata. `NavDisplay` recognizes special metadata keys to apply per-entry
-transitions:
+You can use [metadata](/guide/navigation/navigation-3/metadata#provide-scene) to define custom animations for individual scenes
+using the following [metadata keys](/guide/navigation/navigation-3/metadata#define-keys) defined by `NavDisplay`:
 
-- `NavDisplay.transitionSpec`: Use this helper function to define the forward navigation animation.
-- `NavDisplay.popTransitionSpec`: Use this helper function to define the backward navigation animation for a specific `NavEntry`.
-- `NavDisplay.predictivePopTransitionSpec`: Use this helper function to define the animation for predictive back gestures for a specific `NavEntry`.
+* [`NavDisplay.TransitionKey`](/reference/kotlin/androidx/navigation3/ui/NavDisplay.TransitionKey): The forward navigation animation.
+* [`NavDisplay.PopTransitionKey`](/reference/kotlin/androidx/navigation3/ui/NavDisplay.PopTransitionKey): The backward navigation animation.
+* [`NavDisplay.PredictivePopTransitionKey`](/reference/kotlin/androidx/navigation3/ui/NavDisplay.PredictivePopTransitionKey): The predictive back animation.
 
-These per-entry metadata transitions override the `NavDisplay`'s global
-transitions of the same name.
+When provided, these scene-level transitions are used instead of the
+corresponding defaults set on the `NavDisplay`.
 
 The following snippet demonstrates both global `NavDisplay` transitions and an
 override at the individual `NavEntry` level:
 
-
-```kotlin
+```
 @Serializable
 data object ScreenA : NavKey
 
@@ -125,8 +151,35 @@ class AnimatedNavDisplayActivity : ComponentActivity() {
         }
     }
 }
+
+AnimationSnippets.kt
 ```
 
-<br />
+[
+
+](/static/images/topic/libraries/architecture/animate-destinations.mp4)
+
 
 **Figure 1**. App with custom animations.
+
+## Transition nav entries between scenes
+
+In apps that [create custom layouts using scenes](/guide/navigation/navigation-3/scenes#understand-scenes), it's possible for a
+`NavEntry` to be included in the `entries` property of both scenes during a
+transition. Internally, `NavDisplay` verifies that every entry is displayed in
+at most one scene at any time, which can result in jumpy transitions when the
+scene rendering a `NavEntry` changes. To smoothly animate entries between
+scenes, you can wrap your `NavDisplay` in a [`SharedTransitionLayout`](/reference/kotlin/androidx/compose/animation/SharedTransitionLayout) and
+provide the [`SharedTransitionScope`](/reference/kotlin/androidx/compose/animation/SharedTransitionScope) to the `NavDisplay` as shown in the
+following example:
+
+```
+SharedTransitionLayout {
+    NavDisplay(
+        // ...
+        sharedTransitionScope = this
+    )
+}
+
+AnimationSnippets.kt
+```

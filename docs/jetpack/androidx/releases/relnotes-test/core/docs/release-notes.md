@@ -1,14 +1,24 @@
 ---
-title: https://developer.android.com/jetpack/androidx/releases/relnotes-test/core/docs/release-notes
+title: AndroidX Core library release notes  |  Core areas  |  Android Developers
 url: https://developer.android.com/jetpack/androidx/releases/relnotes-test/core/docs/release-notes
-source: md.txt
+source: html-scrape
 ---
 
-# AndroidX Core library release notes
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
 
-This page documents production updates to AndroidX Core library. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecation.
+# AndroidX Core library release notes Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+This page documents production updates to AndroidX Core library.
+Check this page for announcements about new or updated features, bug fixes,
+known issues, and deprecation.
 
 ## September 06, 2023
 
-Many compat methods added for SDK 34 parity with TextView, AccessibilityNodeInfo, etc.  
-New`LocalePreferences`APIs to help developers to easily access locale data or user's locale preferences.
+Many compat methods added for SDK 34 parity with TextView, AccessibilityNodeInfo, etc.
+
+New `LocalePreferences` APIs to help developers to easily access locale data or user's locale preferences.

@@ -229,7 +229,7 @@ Consider the following when using the traversal APIs:
 
 - `isTraversalGroup = true` should be set on the parent containing the grouped elements.
 - `traversalIndex` should be set on a child component that contains semantics and will be selected by accessibility services.
-- Ensure that all the elements you're investigating are at the same [`zIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/package-summary#(androidx.compose.ui.Modifier).zIndex(kotlin.Float)) level, as that also affects semantics and traversal order.
+- Ensure that all the elements you're investigating are at the same [`zIndex`](https://developer.android.com/reference/kotlin/androidx/compose/ui/zIndex.modifier#(androidx.compose.ui.Modifier).zIndex(kotlin.Float)) level, as that also affects semantics and traversal order.
 - Ensure that no semantics are unnecessarily merged, as this may affect which components traversal indices are applied to.
 
 ## Recommended for you

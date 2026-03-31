@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 In Navigation 3, you use metadata to share arbitrary information between
 different library components such as [`NavEntry`](/reference/kotlin/androidx/navigation3/runtime/NavEntry), [`Scene`](/reference/kotlin/androidx/navigation3/scene/Scene), and
 [`NavDisplay`](/reference/kotlin/androidx/navigation3/ui/package-summary#top-level-functions-summary). At its most basic, metadata is a `Map<String, Any>`.

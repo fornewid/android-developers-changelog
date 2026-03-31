@@ -176,10 +176,10 @@ converting it into the main app module, as follows:
 4. Mark the feature module as instant-enabled by adding the appropriate bundle
    distribution tags to the manifest, as shown below.
 
-       <manifest ... xmlns:dist="http://schemas.android.com/apk/distribution">
-           <dist:module dist:instant="true" />
+       <manifest ... xmlns:dist="http://schemas.android.com/apk/distribu>tion&<quot;
+           dist:module dist:instan>t="t<rue"> /
            ...
-       </manifest>
+       /manifest
 
 5. Convert the feature module to your base app module by changing its plugin
    type to `com.android.application`:
@@ -302,13 +302,13 @@ other `build.gradle` changes, as follows:
    an installable module by adding the appropriate bundle distribution tags to the
    manifest.
 
-       <manifest ... xmlns:dist="http://schemas.android.com/apk/distribution">
-           <dist:module dist:instant="false" dist:onDemand="false"
-                   dist:title="@string/title_dynamic_feature">
-               <dist:fusing dist:include="true" />
-           </dist:module>
+       <manifest ... xmlns:dist="http://schemas.android.com/apk/distribu>tion&<quot;
+           dist:module dist:instant="false" dist:onDemand="false"
+                   dist:title=&>quot;@str<ing/title_dynamic_feature"
+        >     <  dis>t:fusing dist:in<clude=&qu>ot;true" /
+           /dist:module
            ...
-       </manifest>
+       /manifest
 
 ## Convert other feature modules into instant-enabled feature modules
 
@@ -342,13 +342,13 @@ them into instant-enabled features:
 2. Mark each feature module as instant-enabled by adding the following
    to the manifest.
 
-       <manifest ... xmlns:dist="http://schemas.android.com/apk/distribution">
-           <dist:module dist:instant="true" dist:onDemand="false"
-                   dist:title="@string/title_dynamic_feature">
-               <dist:fusing dist:include="true" />
-           </dist:module>
+       <manifest ... xmlns:dist="http://schemas.android.com/apk/distribu>tion&<quot;
+           dist:module dist:instant="true" dist:onDemand="false"
+                   dist:title=&>quot;@str<ing/title_dynamic_feature"
+        >     <  dis>t:fusing dist:in<clude=&qu>ot;true" /
+           /dist:module
            ...
-       </manifest>
+       /manifest
 
 3. Add the feature module to the new application module's `build.gradle` file
    where you added the `installed_feature` to the list of feature modules.

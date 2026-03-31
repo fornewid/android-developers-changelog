@@ -1,34 +1,43 @@
 ---
-title: https://developer.android.com/media/implement/editing-app
+title: Create a basic video editing app using Media3 Transformer  |  Android media  |  Android Developers
 url: https://developer.android.com/media/implement/editing-app
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Create a basic video editing app using Media3 Transformer Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The Transformer APIs in Jetpack Media3 are designed to make media editing
 performant and reliable. Transformer supports a number of operations,
 including:
 
-- Modifying a video with trimming, scaling, and rotating
-- Adding effects like overlays and filters
-- Processing special formats like HDR and slow-motion video
-- Exporting a media item after applying edits
+* Modifying a video with trimming, scaling, and rotating
+* Adding effects like overlays and filters
+* Processing special formats like HDR and slow-motion video
+* Exporting a media item after applying edits
 
 This page walks you through some of the key use cases covered by
 Transformer. For more details you can head to our full guides on
-[Media3 Transformer](https://developer.android.com/guide/topics/media/transformer).
+[Media3 Transformer](/guide/topics/media/transformer).
 
 ## Get started
 
 To get started, add a dependency on the Transformer, Effect, and Common modules
 of Jetpack Media3:
 
-```groovy
-implementation "androidx.media3:media3-transformer:1.9.3"
-implementation "androidx.media3:media3-effect:1.9.3"
-implementation "androidx.media3:media3-common:1.9.3"
+```
+implementation "androidx.media3:media3-transformer:1.10.0"
+implementation "androidx.media3:media3-effect:1.10.0"
+implementation "androidx.media3:media3-common:1.10.0"
 ```
 
-Make sure to replace `1.9.3` with your preferred version of the
+Make sure to replace `1.10.0` with your preferred version of the
 library. You can refer to the
 [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)
 to see the latest version.
@@ -36,10 +45,10 @@ to see the latest version.
 ### Important classes
 
 | Class | Purpose |
-|---|---|
-| `https://developer.android.com/reference/androidx/media3/transformer/Transformer` | Start and stop transformations and check for progress updates on a running transformation. |
-| `https://developer.android.com/reference/androidx/media3/transformer/EditedMediaItem` | Represents a media item to process and the edits to apply to it. |
-| `https://developer.android.com/reference/androidx/media3/transformer/Effects` | A collection of audio and video effects. |
+| --- | --- |
+| `Transformer` | Start and stop transformations and check for progress updates on a running transformation. |
+| `EditedMediaItem` | Represents a media item to process and the edits to apply to it. |
+| `Effects` | A collection of audio and video effects. |
 
 ## Configure the output
 
@@ -54,7 +63,7 @@ output H.265/AVC video and AAC audio:
 
 ### Kotlin
 
-```kotlin
+```
 val transformer = Transformer.Builder(context)
     .setVideoMimeType(MimeTypes.VIDEO_H265)
     .setAudioMimeType(MimeTypes.AUDIO_AAC)
@@ -63,7 +72,7 @@ val transformer = Transformer.Builder(context)
 
 ### Java
 
-```java
+```
 Transformer transformer = new Transformer.Builder(context)
     .setVideoMimeType(MimeTypes.VIDEO_H265)
     .setAudioMimeType(MimeTypes.AUDIO_AAC)
@@ -83,11 +92,11 @@ different modes for how Transformer processes the HDR information. You probably
 want to use either `HDR_MODE_KEEP_HDR` or
 `HDR_MODE_TONE_MAP_HDR_TO_SDR_USING_OPEN_GL`.
 
-|   | `HDR_MODE_KEEP_HDR` | `HDR_MODE_TONE_MAP_HDR_TO_SDR_USING_OPEN_GL` |
-|---|---|---|
+|  | `HDR_MODE_KEEP_HDR` | `HDR_MODE_TONE_MAP_HDR_TO_SDR_USING_OPEN_GL` |
+| --- | --- | --- |
 | Description | Preserve the HDR data, meaning that the HDR output format is the same as the HDR input format. | Tonemap HDR input to SDR using an OpenGL tone-mapper, meaning that the output format will be in SDR. |
-| Support | Supported on API levels 31+ for devices that include an encoder with the [`FEATURE_HdrEditing`](https://developer.android.com/reference/android/media/MediaCodecInfo.CodecCapabilities#FEATURE_HdrEditing) capability. | Supported on API levels 29+. |
-| Errors | If not supported, attempts to use `HDR_MODE_TONE_MAP_HDR_TO_SDR_USING_OPEN_GL` instead. | If not supported, throws an [`ExportException`](https://developer.android.com/reference/androidx/media3/transformer/ExportException). |
+| Support | Supported on API levels 31+ for devices that include an encoder with the [`FEATURE_HdrEditing`](/reference/android/media/MediaCodecInfo.CodecCapabilities#FEATURE_HdrEditing) capability. | Supported on API levels 29+. |
+| Errors | If not supported, attempts to use `HDR_MODE_TONE_MAP_HDR_TO_SDR_USING_OPEN_GL` instead. | If not supported, throws an [`ExportException`](/reference/androidx/media3/transformer/ExportException). |
 
 On devices that support the required encoding capabilities and run Android 13
 (API level 33) or higher, `Transformer` objects let you edit HDR videos.
@@ -96,7 +105,7 @@ as shown in the following code:
 
 ### Kotlin
 
-```kotlin
+```
 val composition = Composition.Builder(
     ImmutableList.of(videoSequence))
     .setHdrMode(HDR_MODE_KEEP_HDR)
@@ -105,7 +114,7 @@ val composition = Composition.Builder(
 
 ### Java
 
-```java
+```
 Composition composition = new Composition.Builder(
     ImmutableList.of(videoSequence))
     .setHdrMode(Composition.HDR_MODE_KEEP_HDR)
@@ -114,7 +123,7 @@ Composition composition = new Composition.Builder(
 
 ## Prepare a media item
 
-A [`MediaItem`](https://developer.android.com/guide/topics/media/exoplayer/media-items) represents an audio
+A [`MediaItem`](/guide/topics/media/exoplayer/media-items) represents an audio
 or video item in your app. An `EditedMediaItem` collects a `MediaItem` along
 with the transformations to apply to it.
 
@@ -125,7 +134,7 @@ positions by adding a `ClippingConfiguration` to the `MediaItem`.
 
 ### Kotlin
 
-```kotlin
+```
 val clippingConfiguration = MediaItem.ClippingConfiguration.Builder()
     .setStartPositionMs(10_000) // start at 10 seconds
     .setEndPositionMs(20_000) // end at 20 seconds
@@ -138,7 +147,7 @@ val mediaItem = MediaItem.Builder()
 
 ### Java
 
-```java
+```
 ClippingConfiguration clippingConfiguration = new MediaItem.ClippingConfiguration.Builder()
     .setStartPositionMs(10_000) // start at 10 seconds
     .setEndPositionMs(20_000) // end at 20 seconds
@@ -155,16 +164,16 @@ Media3 includes a number of built-in video effects for common transformations,
 for example:
 
 | Class | Effect |
-|---|---|
-| [`Presentation`](https://developer.android.com/reference/androidx/media3/effect/Presentation) | Scale the media item by resolution or aspect ratio |
-| [`ScaleAndRotateTransformation`](https://developer.android.com/reference/androidx/media3/effect/ScaleAndRotateTransformation) | Scale the media item by a multiplier and/or rotate the media item |
-| [`Crop`](https://developer.android.com/reference/androidx/media3/effect/Crop) | Crop the media item to a smaller or larger frame |
-| [`OverlayEffect`](https://developer.android.com/reference/androidx/media3/effect/OverlayEffect) | Add a [text](https://developer.android.com/reference/androidx/media3/effect/TextOverlay) or [image](https://developer.android.com/reference/androidx/media3/effect/DrawableOverlay) overlay on top of the media item |
+| --- | --- |
+| [`Presentation`](/reference/androidx/media3/effect/Presentation) | Scale the media item by resolution or aspect ratio |
+| [`ScaleAndRotateTransformation`](/reference/androidx/media3/effect/ScaleAndRotateTransformation) | Scale the media item by a multiplier and/or rotate the media item |
+| [`Crop`](/reference/androidx/media3/effect/Crop) | Crop the media item to a smaller or larger frame |
+| [`OverlayEffect`](/reference/androidx/media3/effect/OverlayEffect) | Add a [text](/reference/androidx/media3/effect/TextOverlay) or [image](/reference/androidx/media3/effect/DrawableOverlay) overlay on top of the media item |
 
 For audio effects, you can add a sequence of
-[`AudioProcessor`](https://developer.android.com/reference/androidx/media3/common/audio/AudioProcessor)
+[`AudioProcessor`](/reference/androidx/media3/common/audio/AudioProcessor)
 instances that will transform the raw (PCM) audio data. For example, you can use
-a [`ChannelMixingAudioProcessor`](https://developer.android.com/reference/androidx/media3/common/audio/ChannelMixingAudioProcessor)
+a [`ChannelMixingAudioProcessor`](/reference/androidx/media3/common/audio/ChannelMixingAudioProcessor)
 to mix and scale audio channels.
 
 To use these effects, create an instance of the effect or audio processor, build
@@ -173,7 +182,7 @@ the media item, then add the `Effects` object to an `EditedMediaItem`.
 
 ### Kotlin
 
-```kotlin
+```
 val channelMixingProcessor = ChannelMixingAudioProcessor()
 val rotateEffect = ScaleAndRotateTransformation.Builder().setRotationDegrees(60f).build()
 val cropEffect = Crop(-0.5f, 0.5f, -0.5f, 0.5f)
@@ -187,7 +196,7 @@ val editedMediaItem = EditedMediaItem.Builder(mediaItem)
 
 ### Java
 
-```java
+```
 ChannelMixingAudioProcessor channelMixingProcessor = new ChannelMixingAudioProcessor();
 ScaleAndRotateTransformation rotateEffect = new ScaleAndRotateTransformation.Builder()
     .setRotationDegrees(60f)
@@ -213,7 +222,7 @@ second of playback:
 
 ### Kotlin
 
-```kotlin
+```
 val zoomEffect = MatrixTransformation { presentationTimeUs ->
     val transformationMatrix = Matrix()
     // Set the scaling factor based on the playback position
@@ -229,7 +238,7 @@ val editedMediaItem = EditedMediaItem.Builder(inputMediaItem)
 
 ### Java
 
-```java
+```
 MatrixTransformation zoomEffect = presentationTimeUs -> {
     Matrix transformationMatrix = new Matrix();
     // Set the scaling factor based on the playback position
@@ -244,7 +253,7 @@ EditedMediaItem editedMediaItem = new EditedMediaItem.Builder(inputMediaItem)
 ```
 
 To further customize the behavior of an effect, implement a
-[`GlShaderProgram`](https://developer.android.com/reference/androidx/media3/effect/GlShaderProgram). The
+[`GlShaderProgram`](/reference/androidx/media3/effect/GlShaderProgram). The
 `queueInputFrame()` method is used to process input frames. For example, to
 leverage the machine learning capabilities of
 [MediaPipe](https://developers.google.com/mediapipe), you can use a
@@ -254,14 +263,14 @@ to send each frame through a MediaPipe graph. See an example of this in the
 
 ### Preview effects
 
-With [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer), you can preview the effects
+With [ExoPlayer](/guide/topics/media/exoplayer), you can preview the effects
 added to a media item before starting the export process. Using the same
 `Effects` object as for the `EditedMediaItem`, call `setVideoEffects()` on your
 ExoPlayer instance.
 
 ### Kotlin
 
-```kotlin
+```
 val player = ExoPlayer.builder(context)
     .build()
     .also { exoPlayer ->
@@ -273,7 +282,7 @@ val player = ExoPlayer.builder(context)
 
 ### Java
 
-```java
+```
 ExoPlayer player = new ExoPlayer.builder(context).build();
 player.setMediaItem(inputMediaItem);
 player.setVideoEffects(effects);
@@ -282,13 +291,13 @@ exoPlayer.prepare();
 
 You can also preview audio effects with ExoPlayer. When building your
 `ExoPlayer` instance, pass in a custom `RenderersFactory` that configures the
-player's audio renderers to output audio to an `AudioSink` that uses your
+player’s audio renderers to output audio to an `AudioSink` that uses your
 `AudioProcessor` sequence. In the example below, we do this by overriding the
 `buildAudioSink()` method of a `DefaultRenderersFactory`.
 
 ### Kotlin
 
-```kotlin
+```
 val player = ExoPlayer.Builder(context, object : DefaultRenderersFactory(context) {
     override fun buildAudioSink(
         context: Context,
@@ -312,7 +321,7 @@ val player = ExoPlayer.Builder(context, object : DefaultRenderersFactory(context
 
 ### Java
 
-```java
+```
 ExoPlayer player = new ExoPlayer.Builder(context, new DefaultRenderersFactory(context) {
         @Nullable
         @Override
@@ -342,7 +351,7 @@ resulting media item.
 
 ### Kotlin
 
-```kotlin
+```
 val transformer = Transformer.Builder(context)
     .addListener(listener)
     .build()
@@ -351,7 +360,7 @@ transformer.start(editedMediaItem, outputPath)
 
 ### Java
 
-```java
+```
 Transformer transformer = new Transformer.Builder(context)
     .addListener(listener)
     .build();
@@ -359,17 +368,17 @@ transformer.start(editedMediaItem, outputPath);
 ```
 
 You can similarly cancel the export process if needed with
-[`Transformer.cancel()`](https://developer.android.com/reference/androidx/media3/transformer/Transformer#cancel()).
+[`Transformer.cancel()`](/reference/androidx/media3/transformer/Transformer#cancel()).
 
 ### Check for progress updates
 
 `Transformer.start` returns immediately and runs asynchronously. To query the
 current progress of a transformation, call
-[`Transformer.getProgress()`](https://developer.android.com/reference/androidx/media3/transformer/Transformer#getProgress(androidx.media3.transformer.ProgressHolder)).
+[`Transformer.getProgress()`](/reference/androidx/media3/transformer/Transformer#getProgress(androidx.media3.transformer.ProgressHolder)).
 This method takes a `ProgressHolder`, and if the progress state is available,
 that is, if the method returns `PROGRESS_STATE_AVAILABLE`, then the provided
 `ProgressHolder` will be updated with the current progress percentage.
 
 You can also attach a
-[listener](https://developer.android.com/reference/androidx/media3/transformer/Transformer.Listener)
+[listener](/reference/androidx/media3/transformer/Transformer.Listener)
 to your `Transformer` to be notified about completion or error events.

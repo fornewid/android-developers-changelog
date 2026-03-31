@@ -60,7 +60,7 @@ components and content density for the current device state.
 
 The following example uses the Material 3 adaptive library to determine how much
 space the app has available by first invoking the
-[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#currentWindowAdaptiveInfo(kotlin.Boolean)) function, then using the corresponding
+[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfo.composable#currentWindowAdaptiveInfo(kotlin.Boolean)) function, then using the corresponding
 layouts for the three window size classes:
 
     val adaptiveInfo = currentWindowAdaptiveInfo()

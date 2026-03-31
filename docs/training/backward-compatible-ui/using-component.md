@@ -1,20 +1,29 @@
 ---
-title: https://developer.android.com/training/backward-compatible-ui/using-component
+title: Use the version-aware component  |  Views  |  Android Developers
 url: https://developer.android.com/training/backward-compatible-ui/using-component
-source: md.txt
+source: html-scrape
 ---
 
-# Use the version-aware component
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
 
-Now that you have two implementations of`TabHelper`and`CompatTab`---one for Android 3.0 and later and one for earlier versions of the platform---it's time to do something with these implementations. This lesson discusses creating the logic for switching between these implementations, creating version-aware layouts, and finally using the backward-compatible UI component.
+# Use the version-aware component Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+Now that you have two implementations of `TabHelper` and `CompatTab`—one for Android 3.0 and later and one for earlier versions of the platform—it's time to do something with these implementations. This lesson discusses creating the logic for switching between these implementations, creating version-aware layouts, and finally using the backward-compatible UI component.
 
 ## Add the switching logic
 
-The`TabHelper`abstract class acts as a[factory](https://en.wikipedia.org/wiki/Factory_(software_concept))for creating version-appropriate`TabHelper`and`CompatTab`instances, based on the current device's platform version:  
+The `TabHelper` abstract class acts as a [factory](https://en.wikipedia.org/wiki/Factory_(software_concept)) for creating version-appropriate `TabHelper` and `CompatTab` instances, based on the current device's platform version:
 
 ### Kotlin
 
-```kotlin
+```
 sealed class TabHelper(protected val mActivity: FragmentActivity, protected val tag: String) {
 
     abstract fun setUp()
@@ -43,7 +52,7 @@ sealed class TabHelper(protected val mActivity: FragmentActivity, protected val 
 
 ### Java
 
-```java
+```
 public abstract class TabHelper {
     ...
     // Usage is TabHelper.createInstance(activity)
@@ -69,11 +78,11 @@ public abstract class TabHelper {
 
 ## Create a version-aware activity layout
 
-The next step is to provide layouts for your activity that can support the two tab implementations. For the older implementation (`TabHelperEclair`), you need to ensure that your activity layout contains a[TabWidget](https://developer.android.com/reference/android/widget/TabWidget)and[TabHost](https://developer.android.com/reference/android/widget/TabHost), along with a container for tab contents:
+The next step is to provide layouts for your activity that can support the two tab implementations. For the older implementation (`TabHelperEclair`), you need to ensure that your activity layout contains a `TabWidget` and `TabHost`, along with a container for tab contents:
 
-**res/layout/main.xml:**  
+**res/layout/main.xml:**
 
-```xml
+```
 <!-- This layout is for API level 5-10 only. -->
 <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/tabhost"
@@ -101,26 +110,26 @@ The next step is to provide layouts for your activity that can support the two t
 </TabHost>
 ```
 
-For the`TabHelperHoneycomb`implementation, all you need is a[FrameLayout](https://developer.android.com/reference/android/widget/FrameLayout)to contain the tab contents, since the tab indicators are provided by the[ActionBar](https://developer.android.com/reference/android/app/ActionBar):
+For the `TabHelperHoneycomb` implementation, all you need is a `FrameLayout` to contain the tab contents, since the tab indicators are provided by the `ActionBar`:
 
-**res/layout-v11/main.xml:**  
+**res/layout-v11/main.xml:**
 
-```xml
+```
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/tabcontent"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
 ```
 
-At runtime, Android will decide which version of the`main.xml`layout to inflate depending on the platform version. This is the same logic shown in the previous section to determine which`TabHelper`implementation to use.
+At runtime, Android will decide which version of the `main.xml` layout to inflate depending on the platform version. This is the same logic shown in the previous section to determine which `TabHelper` implementation to use.
 
 ## Use TabHelper in your activity
 
-In your activity's[onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle))method, you can obtain a`TabHelper`object and add tabs with the following code:  
+In your activity's `onCreate()` method, you can obtain a `TabHelper` object and add tabs with the following code:
 
 ### Kotlin
 
-```kotlin
+```
 override fun onCreate(savedInstanceState: Bundle?) {
     ...
     setContentView(R.layout.main)
@@ -145,7 +154,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ### Java
 
-```java
+```
 @Override
 public void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.main);
@@ -165,9 +174,17 @@ public void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-When running the application, this code inflates the correct activity layout and instantiates either a`TabHelperHoneycomb`or`TabHelperEclair`object. The concrete class that's actually used is opaque to the activity, since they share the common`TabHelper`interface.
+When running the application, this code inflates the correct activity layout and instantiates either a `TabHelperHoneycomb` or `TabHelperEclair` object. The concrete class that's actually used is opaque to the activity, since they share the common `TabHelper` interface.
 
 Below are two screenshots of this implementation running on an Android 2.3 and Android 4.0 device.
-![Example screenshot of tabs running on an Android 2.3 device (using TabHelperEclair).](https://developer.android.com/static/images/training/backward-compatible-ui-gb.png)![Example screenshots of tabs running on an Android 4.0 device (using TabHelperHoneycomb).](https://developer.android.com/static/images/training/backward-compatible-ui-ics.png)
 
-**Figure 1.** Example screenshots of backward-compatible tabs running on an Android 2.3 device (using`TabHelperEclair`) and an Android 4.0 device (using`TabHelperHoneycomb`).
+![Example screenshot of tabs running on an Android 2.3 device (using TabHelperEclair).](/static/images/training/backward-compatible-ui-gb.png)
+![Example screenshots of tabs running on an Android 4.0 device (using TabHelperHoneycomb).](/static/images/training/backward-compatible-ui-ics.png)
+
+**Figure 1.** Example screenshots of backward-compatible tabs running on an Android 2.3 device (using `TabHelperEclair`) and an Android 4.0 device (using `TabHelperHoneycomb`).
+
+[Previous
+
+arrow\_back
+
+Create an implementation with older APIs](/training/backward-compatible-ui/older-implementation)

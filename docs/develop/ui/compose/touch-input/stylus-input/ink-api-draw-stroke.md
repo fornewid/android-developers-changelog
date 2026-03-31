@@ -4,9 +4,13 @@ url: https://developer.android.com/develop/ui/compose/touch-input/stylus-input/i
 source: md.txt
 ---
 
-To help you author strokes in an idiomatic Compose way, the Ink API provides Compose interoperability modules for authoring, brush, and geometry.
+To help you author strokes in an idiomatic Compose way, the Ink API provides
+Compose interoperability modules for authoring, brush, and geometry.
 
-To draw a stroke in Compose, use the[`InProgressStrokes`](https://developer.android.com/reference/kotlin/androidx/ink/authoring/compose/package-summary#InProgressStrokes(androidx.ink.brush.Brush,kotlin.Function0,androidx.compose.ui.graphics.Matrix,androidx.compose.ui.graphics.Matrix,androidx.compose.ui.graphics.Path,androidx.ink.brush.TextureBitmapStore,kotlin.Function1))composable that requires a default brush instance, a way to override the default brush, and a callback that handles finished strokes.
+To draw a stroke in Compose, use the
+[`InProgressStrokes`](https://developer.android.com/reference/kotlin/androidx/ink/authoring/compose/InProgressStrokes.composable#InProgressStrokes(androidx.ink.brush.Brush,kotlin.Function0,androidx.compose.ui.graphics.Matrix,androidx.compose.ui.graphics.Matrix,androidx.compose.ui.graphics.Path,androidx.ink.brush.TextureBitmapStore,kotlin.Function1)) composable that requires a
+default brush instance, a way to override the default brush, and a callback
+that handles finished strokes.
 
 1. Set up UI component
 
@@ -18,9 +22,11 @@ To draw a stroke in Compose, use the[`InProgressStrokes`](https://developer.andr
 
 2. Handle finished strokes
 
-   When wet strokes become dry, they are passed to the application through the`onStrokesFinished`callback argument of`InProgressStrokes`.
+   When wet strokes become dry, they are passed to the application through the
+   `onStrokesFinished` callback argument of `InProgressStrokes`.
 
-   Your app must pass the finished strokes to another Composable within the same UI thread to commit them to the screen.  
+   Your app must pass the finished strokes to another Composable within the same
+   UI thread to commit them to the screen.
 
        @Composable
        fun DrawingScreen(

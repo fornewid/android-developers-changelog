@@ -13,9 +13,9 @@ For more details, see the [Material 3 supporting pane guidelines](https://m3.mat
 
 ## Implement a supporting pane with a scaffold
 
-[`NavigableSupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/package-summary#NavigableSupportingPaneScaffold(androidx.compose.material3.adaptive.navigation.ThreePaneScaffoldNavigator,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.material3.adaptive.navigation.BackNavigationBehavior,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) is a composable that simplifies
+[`NavigableSupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/NavigableSupportingPaneScaffold.composable#NavigableSupportingPaneScaffold(androidx.compose.material3.adaptive.navigation.ThreePaneScaffoldNavigator,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.material3.adaptive.navigation.BackNavigationBehavior,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) is a composable that simplifies
 implementing a supporting pane layout in Jetpack Compose. It wraps
-[`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/package-summary#SupportingPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldValue,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) and adds built-in navigation and predictive back
+[`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable#SupportingPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldValue,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) and adds built-in navigation and predictive back
 handling.
 
 A supporting pane scaffold supports up to three panes:
@@ -55,7 +55,7 @@ app or module:
 - **adaptive** : Low-level building blocks such as [`HingeInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/HingeInfo) and
   [`Posture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture)
 
-- **adaptive-layout** : Adaptive layouts such as [`ListDetailPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/package-summary#ListDetailPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldState,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState))
+- **adaptive-layout** : Adaptive layouts such as [`ListDetailPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ListDetailPaneScaffold.composable#ListDetailPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldState,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState))
   and `SupportingPaneScaffold`
 
 - **adaptive-navigation** : Composables for navigating within and between
@@ -79,7 +79,7 @@ enabled by default.
 
 In small windows, only one pane displays at a time, so use a
 [`ThreePaneScaffoldNavigator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/ThreePaneScaffoldNavigator) to move to and from panes. Create an instance
-of the navigator with [`rememberSupportingPaneScaffoldNavigator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/package-summary#rememberSupportingPaneScaffoldNavigator(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldAdaptStrategies,kotlin.Boolean)).
+of the navigator with [`rememberSupportingPaneScaffoldNavigator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/rememberSupportingPaneScaffoldNavigator.composable#rememberSupportingPaneScaffoldNavigator(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldAdaptStrategies,kotlin.Boolean)).
 
 
 ```kotlin

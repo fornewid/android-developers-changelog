@@ -47,11 +47,11 @@ To play an HLS stream, you need to depend on the HLS module.
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer-hls:1.9.3")
+    implementation("androidx.media3:media3-exoplayer-hls:1.10.0")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer-hls:1.9.3"
+    implementation "androidx.media3:media3-exoplayer-hls:1.10.0"
 
 You can then create a `MediaItem` for an HLS playlist URI and pass it to the
 player.

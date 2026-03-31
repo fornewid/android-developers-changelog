@@ -1,44 +1,70 @@
 ---
-title: https://developer.android.com/develop/ui/compose/quick-guides/collections/optimize-for-large-screens
+title: Optimize for large screens  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/quick-guides/collections/optimize-for-large-screens
-source: md.txt
+source: html-scrape
 ---
 
-## Quick Guides Collection
-Optimize for large screens
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
 
-Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices.[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/reject-stylus-palm-touches)  
+Stay organized with collections
 
-### [Reject stylus palm touches](http://developer.android.com/develop/ui/compose/quick-guides/content/reject-stylus-palm-touches)
+Save and categorize content based on your preferences.
 
-Enable your app to identify and reject palm touches during stylus input.  
-[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/reject-stylus-palm-touches)  
-[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/manage-recyclerview-state)  
 
-### [Manage RecyclerView state](http://developer.android.com/develop/ui/compose/quick-guides/content/manage-recyclerview-state)
 
-Maintain RecyclerView state during configuration changes.  
-[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/manage-recyclerview-state)  
-[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones)  
+## Quick Guides Collection Optimize for large screens
 
-### [Restrict app orientation on phones and foldable outer screens but not on larger diplays](http://developer.android.com/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones)
+Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices.
 
-Manage your app's orientation for the best user experience on phones and large screen devices.  
-[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones)  
-[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/manage-webview-state)  
+[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/reject-stylus-palm-touches)
 
-### [Manage WebView state](http://developer.android.com/develop/ui/compose/quick-guides/content/manage-webview-state)
+### [Reject stylus palm touches](https://developer.android.com/develop/ui/compose/quick-guides/content/reject-stylus-palm-touches)
 
-Manage your WebView state across configuration changes.  
-[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/manage-webview-state)  
-[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/manage-detachable-keyboards)  
+Enable your app to identify and reject palm touches during stylus input.
 
-### [Manage detachable keyboard configuration changes](http://developer.android.com/develop/ui/compose/quick-guides/content/manage-detachable-keyboards)
+[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/reject-stylus-palm-touches)
 
-Learn how to manage detachable keyboard configuration changes.  
-[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/manage-detachable-keyboards)![](http://developer.android.com/static/images/picto-icons/help.svg)  
+[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/manage-recyclerview-state)
+
+### [Manage RecyclerView state](https://developer.android.com/develop/ui/compose/quick-guides/content/manage-recyclerview-state)
+
+Maintain RecyclerView state during configuration changes.
+
+[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/manage-recyclerview-state)
+
+[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones)
+
+### [Restrict app orientation on phones and foldable outer screens but not on larger diplays](https://developer.android.com/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones)
+
+Manage your app's orientation for the best user experience on phones and large screen devices.
+
+[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones)
+
+[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/manage-webview-state)
+
+### [Manage WebView state](https://developer.android.com/develop/ui/compose/quick-guides/content/manage-webview-state)
+
+Manage your WebView state across configuration changes.
+
+[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/manage-webview-state)
+
+[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/manage-detachable-keyboards)
+
+### [Manage detachable keyboard configuration changes](https://developer.android.com/develop/ui/compose/quick-guides/content/manage-detachable-keyboards)
+
+Learn how to manage detachable keyboard configuration changes.
+
+[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/manage-detachable-keyboards)
+
+![](https://developer.android.com/static/images/picto-icons/help.svg)
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.  
-[Go to FAQ](http://developer.android.com/quick-guides/faq)[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.
+
+[Go to FAQ](https://developer.android.com/quick-guides/faq)
+[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

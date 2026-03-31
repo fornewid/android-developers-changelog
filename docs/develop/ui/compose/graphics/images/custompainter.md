@@ -101,7 +101,7 @@ Image(
 The output of combining the two images with a custom painter can be seen below:
 ![Custom Painter that overlays two images on top of each other](https://developer.android.com/static/develop/ui/compose/images/graphics-rainbowoverlay.jpg) **Figure 1**: Custom Painter that overlays two images on top of each other
 
-A custom painter can also be used with the [`Modifier.paint(customPainter)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/package-summary#(androidx.compose.ui.Modifier).paint(androidx.compose.ui.graphics.painter.Painter,kotlin.Boolean,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter))
+A custom painter can also be used with the [`Modifier.paint(customPainter)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/paint.modifier#(androidx.compose.ui.Modifier).paint(androidx.compose.ui.graphics.painter.Painter,kotlin.Boolean,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter))
 to draw the content to a composable as follows:
 
 

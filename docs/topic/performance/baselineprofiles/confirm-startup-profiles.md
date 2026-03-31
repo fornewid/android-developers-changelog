@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/topic/performance/baselineprofiles/confirm-startup-profiles
+title: Confirm Startup Profiles optimization  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/baselineprofiles/confirm-startup-profiles
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App quality](https://developer.android.com/quality)
+* [Technical quality](https://developer.android.com/quality/technical)
+
+# Confirm Startup Profiles optimization Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 You can check that your Startup Profiles are working using either Android Studio
 or looking at the R8 build metadata.
@@ -22,7 +32,7 @@ you apply the Startup Profile:
 
 ### Kotlin
 
-```kotlin
+```
 pluginManagement {
     buildscript {
         repositories {
@@ -40,7 +50,7 @@ pluginManagement {
 
 ### Groovy
 
-```groovy
+```
 pluginManagement {
     buildscript {
         repositories {
@@ -59,19 +69,20 @@ pluginManagement {
 Make sure you add `--info` after
 `assembleRelease` in the following command when building with Gradle.
 
-    ./gradlew assembleRelease --info
+```
+./gradlew assembleRelease --info
+```
 
 The diagnostic is then printed to the terminal.
 
-If your app or any libraries reference any [desugared APIs](https://developer.android.com/studio/write/java8-support#library-desugaring), the bundled
+If your app or any libraries reference any [desugared APIs](/studio/write/java8-support#library-desugaring), the bundled
 compatibility implementations of these classes are always contained in the last
 DEX file. This desugared last DEX file doesn't participate in DEX layout
 optimizations.
 
 ## Confirm with bundle metadata
 
-> [!NOTE]
-> **Note:** This workflow has only been tested on Linux.
+**Note:** This workflow has only been tested on Linux.
 
 Starting with AGP 8.8, R8 outputs metadata in your Android App Bundle (AAB) that
 you can use to check if the DEX layout optimization was successful. To check if
@@ -79,41 +90,56 @@ the optimization worked, do the following:
 
 1. Build your app's AAB:
 
-       ./gradlew app:bundleRelease
-
+   ```
+   ./gradlew app:bundleRelease
+   ```
 2. Check that there's at least one DEX file that contains the text
    `"startup": true`.
 
    1. Open the metadata:
 
-          unzip -j -o path-to-aab BUNDLE-METADATA/com.android.tools/r8.json && jq .dexFiles r8.json
+      ```
+      unzip -j -o path-to-aab BUNDLE-METADATA/com.android.tools/r8.json && jq .dexFiles r8.json
+      ```
 
       The path to your AAB might be something like
       `app/build/outputs/bundle/release/app-release.aab`.
    2. Check the output, which should look something like this:
 
-              inflating: r8.json
-          [
-            {
-              "checksum": "f0b4b0ddb295812607f44efe03cf7a830056ccfddbdb81db3760d2281940e951",
-              "startup": true
-            }
-          ]
+      ```
+          inflating: r8.json
+      [
+        {
+          "checksum": "f0b4b0ddb295812607f44efe03cf7a830056ccfddbdb81db3760d2281940e951",
+          "startup": true
+        }
+      ]
+      ```
 
    If you only see `"startup": false` in the metadata, you need to
-   [enable startup profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations#create-startup) and ensure that your startup
+   [enable startup profiles](/topic/performance/baselineprofiles/dex-layout-optimizations#create-startup) and ensure that your startup
    profile isn't obfuscated.
 3. Check that the SHA-256 values from the metadata match those from the AAB. To
    get the SHA-256 values for all your DEX files run the following:
 
-       unzip -o path-to-aab */dex/*.dex && sha256sum */dex/*
+   ```
+   unzip -o path-to-aab */dex/*.dex && sha256sum */dex/*
+   ```
 
    The output should look something like this:
 
-       Archive: app/build/outputs/bundle/release/myapp-release.aab
-         inflating: base/dex/classes.dex
-       f0b4b0ddb295812607f44efe03cf7a830056ccfddbdb81db3760d2281940e951  base/dex/classes.dex
+   ```
+   Archive: app/build/outputs/bundle/release/myapp-release.aab
+     inflating: base/dex/classes.dex
+   f0b4b0ddb295812607f44efe03cf7a830056ccfddbdb81db3760d2281940e951  base/dex/classes.dex
+   ```
 
    Compare the hash values to the "checksum" values from step 1. If the SHA-256
    values don't match, there might be a compilation step interfering with R8's
    ability to output DEX files.
+
+[Previous
+
+arrow\_back
+
+Create Startup Profiles](/topic/performance/startupprofiles/dex-layout-optimizations)

@@ -1,26 +1,39 @@
 ---
-title: https://developer.android.com/media/media3/transformer/troubleshooting
+title: Troubleshooting  |  Android media  |  Android Developers
 url: https://developer.android.com/media/media3/transformer/troubleshooting
-source: md.txt
+source: html-scrape
 ---
 
-- [Why can't I access local files in the demo app?](https://developer.android.com/media/media3/transformer/troubleshooting#local-files)
-- [Why does exporting fail on a specific device?](https://developer.android.com/media/media3/transformer/troubleshooting#device-specific)
-- [Does Transformer support transforming (or recording) remote media](https://developer.android.com/media/media3/transformer/troubleshooting#remote-media)
-- [Does Transformer support 8k input?](https://developer.android.com/media/media3/transformer/troubleshooting#8k-media)
-- [How does Transformer relate to platform compatible media transcoding?](https://developer.android.com/media/media3/transformer/troubleshooting#compatible-transcoding)
-- [How can I reduce export latency or increase throughput?](https://developer.android.com/media/media3/transformer/troubleshooting#throughput)
+Media3 Transformer is actively under development and we are looking to hear from you! We welcome your feedback, feature requests and bug reports in the [issue tracker](https://github.com/androidx/media/issues). Follow the [ExoPlayer blog](https://medium.com/google-exoplayer) for the latest updates.
 
-*** ** * ** ***
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Troubleshooting Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+* [Why can't I access local files in the demo app?](#local-files)
+* [Why does exporting fail on a specific device?](#device-specific)
+* [Does Transformer support transforming (or recording) remote media](#remote-media)
+* [Does Transformer support 8k input?](#8k-media)
+* [How does Transformer relate to platform compatible media transcoding?](#compatible-transcoding)
+* [How can I reduce export latency or increase throughput?](#throughput)
+
+---
 
 #### Why can't I access local files in the demo app?
 
-[Scoped storage enforcement](https://developer.android.com/about/versions/11/privacy/storage) from Android 11
+[Scoped storage enforcement](/about/versions/11/privacy/storage) from Android 11
 (API level 30) prevents direct file system access. For manual testing during
 development, it's possible to access local files by adding the manage external
 storage permission in the demo app manifest:
 
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+```
+<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+```
 
 Then grant the permission via adb:
 
@@ -46,27 +59,29 @@ remote media for too long triggers checks in the muxer that are intended to
 identify that the pipeline is stuck. You can override the default behavior by
 setting `maxDelayBetweenMuxerSamplesMs` on `Transformer.Builder`:
 
-
 ### Kotlin
 
-```kotlin
+```
 Transformer.Builder(context).setMaxDelayBetweenMuxerSamplesMs(C.TIME_UNSET).build()
+
+Troubleshooting.kt
 ```
 
 ### Java
 
-```java
-new Transformer.Builder(context).setMaxDelayBetweenMuxerSamplesMs(C.TIME_UNSET).build();
 ```
+new Transformer.Builder(context).setMaxDelayBetweenMuxerSamplesMs(C.TIME_UNSET).build();
 
-<br />
+Troubleshooting.java
+```
 
 Passing in `C.TIME_UNSET` removes the timeout entirely, but if your app runs on
 chipsets where `MediaCodec` can get stuck you may want to set a larger non-zero
 timeout.
 
-> [!CAUTION]
-> **[Known Issue #10943:](https://github.com/google/ExoPlayer/issues/10943)** Feature request to officially support transforming remote live streams with unknown duration using protocols like DASH and HLS.
+**[Known Issue #10943:](https://github.com/google/ExoPlayer/issues/10943)**
+Feature request to officially support transforming remote live streams with
+unknown duration using protocols like DASH and HLS.
 
 #### Does Transformer support 8k input?
 
@@ -78,7 +93,7 @@ the available hardware codec or RAM resources.
 
 #### How does Transformer relate to platform compatible media transcoding?
 
-[Compatible media transcoding](https://developer.android.com/guide/topics/media-apps/video-app/compatible-media-transcoding)
+[Compatible media transcoding](/guide/topics/media-apps/video-app/compatible-media-transcoding)
 is an Android platform feature from Android 12 (API level 31) that converts
 media up to one minute in length into formats supported by the app. If you
 opt-in to using this feature, reading a media file in an incompatible format
@@ -86,7 +101,7 @@ causes it to be transcoded on demand, and the result is cached for later read
 operations.
 
 Transformer also supports [format
-conversion](https://developer.android.com/guide/topics/media/transformer/transformations#transcode), but
+conversion](/guide/topics/media/transformer/transformations?#transcode), but
 it's available as a support library and the app has full control over the
 transcoding operation.
 

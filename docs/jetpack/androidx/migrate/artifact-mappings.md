@@ -1,18 +1,27 @@
 ---
-title: https://developer.android.com/jetpack/androidx/migrate/artifact-mappings
+title: Artifact Mappings  |  Jetpack  |  Android Developers
 url: https://developer.android.com/jetpack/androidx/migrate/artifact-mappings
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Get started](https://developer.android.com/get-started/overview)
+* [Jetpack](https://developer.android.com/jetpack)
+* [Guides](https://developer.android.com/jetpack/getting-started)
+
+# Artifact Mappings Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The following table lists the current mappings from old support library artifacts to `androidx`.
 You can also download these mappings in
-[CSV format](https://developer.android.com/static/topic/libraries/support-library/downloads/androidx-artifact-mapping.csv).
+[CSV format](/static/topic/libraries/support-library/downloads/androidx-artifact-mapping.csv).
 
 For the latest versions of the Jetpack libraries, see the [versions
-page](https://developer.android.com/jetpack/androidx/versions).
+page](/jetpack/androidx/versions).
 
 | Old build artifact | AndroidX build artifact |
-|---|---|
+| --- | --- |
 | android.arch.core:common | androidx.arch.core:core-common |
 | android.arch.core:core | androidx.arch.core:core |
 | android.arch.core:core-testing | androidx.arch.core:core-testing |

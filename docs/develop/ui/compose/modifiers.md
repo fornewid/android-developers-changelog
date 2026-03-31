@@ -129,7 +129,7 @@ layouts.
 ### `padding` and `size`
 
 By default, layouts provided in Compose wrap their children. However,
-you can set a size by using the [`size`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.ui.Modifier).size(androidx.compose.ui.unit.Dp)) modifier:
+you can set a size by using the [`size`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/size.modifier#(androidx.compose.ui.Modifier).size(androidx.compose.ui.unit.Dp)) modifier:
 
 
 ```kotlin
@@ -202,7 +202,7 @@ fun ArtistCard(/*...*/) {
 
 ![The image height is as big as its parent](https://developer.android.com/static/develop/ui/compose/images/layout-fillmaxheight.png)
 
-To add padding all around an element, set a [`padding`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.ui.Modifier).padding(androidx.compose.ui.unit.Dp)) modifier.
+To add padding all around an element, set a [`padding`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/padding.modifier#(androidx.compose.ui.Modifier).padding(androidx.compose.ui.unit.Dp)) modifier.
 
 If you want to add padding above a text baseline such that you achieve a
 specific distance from the top of the layout to the baseline, use the
@@ -231,7 +231,7 @@ fun ArtistCard(artist: Artist) {
 ### Offset
 
 To position a layout relative to its original position, add the
-[`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) modifier and set the offset in the **x** and **y** axis.
+[`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) modifier and set the offset in the **x** and **y** axis.
 Offsets can be positive as well as non-positive. The difference between
 `padding` and `offset` is that adding an `offset` to a composable does not
 change its measurements:
@@ -264,8 +264,8 @@ If you need to set an offset without considering layout direction, see the
 modifier, in which a positive offset value always shifts the element to the
 right.
 
-The `offset` modifier provides two overloads - [`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) that takes the
-offsets as parameters and [`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.ui.Modifier).offset(kotlin.Function1)) that takes in a lambda.
+The `offset` modifier provides two overloads - [`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier#(androidx.compose.ui.Modifier).offset(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) that takes the
+offsets as parameters and [`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/offset.modifier#(androidx.compose.ui.Modifier).offset(kotlin.Function1)) that takes in a lambda.
 For more in depth information on when to use each of these and how to optimize
 for performance, read through the
 [Compose performance - Defer reads as long as possible](https://developer.android.com/develop/ui/compose/performance#defer-reads) section.

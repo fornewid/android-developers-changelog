@@ -1,18 +1,27 @@
 ---
-title: https://developer.android.com/training/dependency-injection/dagger-multi-module
+title: Using Dagger in multi-module apps  |  App architecture  |  Android Developers
 url: https://developer.android.com/training/dependency-injection/dagger-multi-module
-source: md.txt
+source: html-scrape
 ---
 
-> [!NOTE]
-> **Note:** In this page, references to modules refer to Gradle modules and not to Dagger modules.
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Using Dagger in multi-module apps Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+**Note:** In this page, references to modules refer to Gradle modules and
+not to Dagger modules.
 
 A project with multiple Gradle modules is known as a multi-module project.
 In a multi-module project that ships as a single APK with no feature
 modules, it's common to have an `app` module that can depend on most
 modules of your project and a `base` or `core` module that the rest of the
 modules usually depend on. The `app` module typically contains your
-[`Application`](https://developer.android.com/reference/android/app/Application) class, whereas the `base`
+[`Application`](/reference/android/app/Application) class, whereas the `base`
 module contains all common classes shared across all modules in your project.
 
 The `app` module is a good place to declare your application component (for
@@ -28,7 +37,8 @@ An example could be a `UserComponent` with user-specific configuration
 
 In the different modules of your project, you can define at least one
 subcomponent that has logic specific to that module as seen in figure 1.
-![](https://developer.android.com/static/images/training/dependency-injection/5-graph-modules.png)
+
+![](/static/images/training/dependency-injection/5-graph-modules.png)
 
 **Figure 1.** Example of a Dagger graph in a
 multi-module project
@@ -53,9 +63,8 @@ new module.
 As a best practice, you would generally create a component in a
 module in the following cases:
 
-- You need to perform field injection, as with `LoginActivityComponent`.
-
-- You need to scope objects, as with `LoginComponent`.
+* You need to perform field injection, as with `LoginActivityComponent`.
+* You need to scope objects, as with `LoginComponent`.
 
 If neither of these casses apply and you need to tell Dagger how to provide
 objects from that module, create and expose a Dagger module with `@Provides` or
@@ -63,7 +72,7 @@ objects from that module, create and expose a Dagger module with `@Provides` or
 
 ## Implementation with Dagger subcomponents
 
-The [Using Dagger in Android apps](https://developer.android.com/training/dependency-injection/dagger-android#dagger-subcomponents) doc page covers how to create and use
+The [Using Dagger in Android apps](/training/dependency-injection/dagger-android#dagger-subcomponents) doc page covers how to create and use
 subcomponents. However, you cannot use the same code because
 feature modules don't know about the `app` module. As an example, if you think
 about a typical Login flow and the code we have in the previous page, it doesn't
@@ -71,7 +80,7 @@ compile any more:
 
 ### Kotlin
 
-```kotlin
+```
 class LoginActivity: Activity() {
   ...
 
@@ -89,7 +98,7 @@ class LoginActivity: Activity() {
 
 ### Java
 
-```java
+```
 public class LoginActivity extends Activity {
     ...
 
@@ -117,7 +126,7 @@ that provides a `LoginComponent` in the `login` module for the Login flow:
 
 ### Kotlin
 
-```kotlin
+```
 interface LoginComponentProvider {
     fun provideLoginComponent(): LoginComponent
 }
@@ -125,7 +134,7 @@ interface LoginComponentProvider {
 
 ### Java
 
-```java
+```
 public interface LoginComponentProvider {
    public LoginComponent provideLoginComponent();
 }
@@ -136,7 +145,7 @@ defined above:
 
 ### Kotlin
 
-```kotlin
+```
 class LoginActivity: Activity() {
   ...
 
@@ -152,7 +161,7 @@ class LoginActivity: Activity() {
 
 ### Java
 
-```java
+```
 public class LoginActivity extends Activity {
     ...
 
@@ -173,7 +182,7 @@ required methods:
 
 ### Kotlin
 
-```kotlin
+```
 class MyApplication: Application(), LoginComponentProvider {
   // Reference to the application graph that is used across the whole app
   val appComponent = DaggerApplicationComponent.create()
@@ -186,7 +195,7 @@ class MyApplication: Application(), LoginComponentProvider {
 
 ### Java
 
-```java
+```
 public class MyApplication extends Application implements LoginComponentProvider {
   // Reference to the application graph that is used across the whole app
   ApplicationComponent appComponent = DaggerApplicationComponent.create();
@@ -204,18 +213,19 @@ modules depend on each other.
 
 ## Component dependencies with feature modules
 
-With [feature modules](https://developer.android.com/studio/projects/dynamic-delivery#customize_delivery), the way modules usually depend
+With [feature modules](/studio/projects/dynamic-delivery#customize_delivery), the way modules usually depend
 on each other is inverted. Instead of the `app` module including feature
 modules, the feature modules depend on the `app` module. See figure 2
 for a representation of how modules are structured.
-![](https://developer.android.com/static/images/training/dependency-injection/5-graph-dynamic-modules.png)
+
+![](/static/images/training/dependency-injection/5-graph-dynamic-modules.png)
 
 **Figure 2.** Example of a Dagger graph in a
 project with feature modules
 
 In Dagger, components need to know about their subcomponents. This information
 is included in a Dagger module added to the parent component (like the
-`SubcomponentsModule` module in [Using Dagger in Android apps](https://developer.android.com/training/dependency-injection/dagger-android#dagger-subcomponents)).
+`SubcomponentsModule` module in [Using Dagger in Android apps](/training/dependency-injection/dagger-android#dagger-subcomponents)).
 
 Unfortunately, with the reversed dependency between the app and the
 feature module, the subcomponent is not visible from the `app` module because
@@ -230,8 +240,11 @@ that, there is no parent-child relationship; now **components** depend on others
 to get certain **dependencies**. Components need to expose types from the graph
 for dependent components to consume them.
 
-> [!NOTE]
-> **Note:** This issue happens whenever you want to create a subcomponent of `ApplicationComponent`. If you need to create a regular gradle module that depends on a feature module and needs to create a component that depends on a component defined in that feature module, you can use subcomponents as usual.
+**Note:** This issue happens whenever you want to create a
+subcomponent of `ApplicationComponent`. If you need to create a regular gradle
+module that depends on a feature module and needs to create a component
+that depends on a component defined in that feature module, you
+can use subcomponents as usual.
 
 For example: a feature module called `login` wants to build a
 `LoginComponent` that depends on the `AppComponent` available in the
@@ -242,7 +255,7 @@ the `app` Gradle module:
 
 ### Kotlin
 
-```kotlin
+```
 // UserRepository's dependencies
 class UserLocalDataSource @Inject constructor() { ... }
 class UserRemoteDataSource @Inject constructor() { ... }
@@ -261,7 +274,7 @@ interface AppComponent { ... }
 
 ### Java
 
-```java
+```
 // UserRepository's dependencies
 public class UserLocalDataSource {
 
@@ -299,7 +312,7 @@ In your `login` gradle module that includes the `app` gradle module, you have a
 
 ### Kotlin
 
-```kotlin
+```
 // LoginViewModel depends on UserRepository that is scoped to AppComponent
 class LoginViewModel @Inject constructor(
     private val userRepository: UserRepository
@@ -308,7 +321,7 @@ class LoginViewModel @Inject constructor(
 
 ### Java
 
-```java
+```
 // LoginViewModel depends on UserRepository that is scoped to AppComponent
 public class LoginViewModel {
 
@@ -327,7 +340,7 @@ scoped to `AppComponent`. Let's create a `LoginComponent` that depends on
 
 ### Kotlin
 
-```kotlin
+```
 // Use the dependencies attribute in the Component annotation to specify the
 // dependencies of this Component
 @Component(dependencies = [AppComponent::class])
@@ -338,7 +351,7 @@ interface LoginComponent {
 
 ### Java
 
-```java
+```
 // Use the dependencies attribute in the Component annotation to specify the
 // dependencies of this Component
 @Component(dependencies = AppComponent.class)
@@ -352,15 +365,15 @@ public interface LoginComponent {
 dependencies parameter of the component annotation. Because `LoginActivity` will
 be injected by Dagger, add the `inject()` method to the interface.
 
-> [!NOTE]
-> **Note:** `LoginComponent` is annotated with `@Component` and not with `@Subcomponent` as you did in the [Using Dagger in an Android app page](https://developer.android.com/training/dependency-injection/dagger-android#dagger-subcomponents).
+**Note:** `LoginComponent` is annotated with `@Component` and not with
+`@Subcomponent` as you did in the [Using Dagger in an Android app page](/training/dependency-injection/dagger-android#dagger-subcomponents).
 
 When creating a `LoginComponent`, an instance of `AppComponent` needs to be
 passed in. Use the component factory to do it:
 
 ### Kotlin
 
-```kotlin
+```
 @Component(dependencies = [AppComponent::class])
 interface LoginComponent {
 
@@ -377,7 +390,7 @@ interface LoginComponent {
 
 ### Java
 
-```java
+```
 @Component(dependencies = AppComponent.class)
 public interface LoginComponent {
 
@@ -397,7 +410,7 @@ Now, `LoginActivity` can create an instance of `LoginComponent` and call the
 
 ### Kotlin
 
-```kotlin
+```
 class LoginActivity: Activity() {
 
     // You want Dagger to provide an instance of LoginViewModel from the Login graph
@@ -420,7 +433,7 @@ class LoginActivity: Activity() {
 
 ### Java
 
-```java
+```
 public class LoginActivity extends Activity {
 
     // You want Dagger to provide an instance of LoginViewModel from the Login graph
@@ -449,7 +462,7 @@ its interface:
 
 ### Kotlin
 
-```kotlin
+```
 @Singleton
 @Component
 interface AppComponent {
@@ -459,7 +472,7 @@ interface AppComponent {
 
 ### Java
 
-```java
+```
 @Singleton
 @Component
 public interface AppComponent {
@@ -476,7 +489,7 @@ you did previously using the custom `@ActivityScope` annotation.
 
 ### Kotlin
 
-```kotlin
+```
 @ActivityScope
 @Component(dependencies = [AppComponent::class])
 interface LoginComponent { ... }
@@ -489,7 +502,7 @@ class LoginViewModel @Inject constructor(
 
 ### Java
 
-```java
+```
 @ActivityScope
 @Component(dependencies = AppComponent.class)
 public interface LoginComponent { ... }
@@ -506,22 +519,20 @@ public class LoginViewModel {
 }
 ```
 
-> [!NOTE]
-> **Note:** Not exposing all the types that a dependent component needs from a component will result in a Dagger compile time error because it cannot provide certain types for the dependent component.
+**Note:** Not exposing all the types that a dependent component needs from a
+component will result in a Dagger compile time error because it cannot provide
+certain types for the dependent component.
 
 ## Best practices
 
-- The `ApplicationComponent` should always be in the `app` module.
-
-- Create Dagger components in modules if you need to perform field injection
+* The `ApplicationComponent` should always be in the `app` module.
+* Create Dagger components in modules if you need to perform field injection
   in that module or you need to scope objects for a specific flow of
   your application.
-
-- For Gradle modules that are meant to be utilities or helpers and don't need
+* For Gradle modules that are meant to be utilities or helpers and don't need
   to build a graph (that's why you'd need a Dagger component), create and expose
   public Dagger modules with @Provides and @Binds methods of those classes that
   don't support constructor injection.
-
-- To use Dagger in an Android app with feature modules, use component
+* To use Dagger in an Android app with feature modules, use component
   dependencies to be able to access dependencies provided by the
   `ApplicationComponent` defined in the `app` module.

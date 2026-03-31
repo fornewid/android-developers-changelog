@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/system/predictive-back-pro
 source: md.txt
 ---
 
-The [`PredictiveBackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary#PredictiveBackHandler(kotlin.Boolean,kotlin.coroutines.SuspendFunction1)) composable in Jetpack Compose lets you
+The [`PredictiveBackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/PredictiveBackHandler.composable#PredictiveBackHandler(kotlin.Boolean,kotlin.coroutines.SuspendFunction1)) composable in Jetpack Compose lets you
 intercept the back gesture and access its progress. You can react to the user's
 back gesture in real-time, creating custom animations or behaviors based on how
 far the user swipes.

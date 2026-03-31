@@ -1,21 +1,34 @@
 ---
-title: https://developer.android.com/studio/prompt-gallery/prompts/suggest-new-features
+title: Suggest new features  |  Android Studio  |  Android Developers
 url: https://developer.android.com/studio/prompt-gallery/prompts/suggest-new-features
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
+
+# Suggest new features Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Add a feature that is beneficial for large screens.
 
-*** ** * ** ***
+---
 
-    This file below is for a tablet app.
-    Add support for a feature that is particularly beneficial on large screens, such as drag-and-drop, split-screen multi-window support, or enhanced multitasking features.
-    Clearly document the new functionality.
+```
+This file below is for a tablet app.
+Add support for a feature that is particularly beneficial on large screens, such as drag-and-drop, split-screen multi-window support, or enhanced multitasking features.
+Clearly document the new functionality.
 
-    $CURRENT_FILE
+$CURRENT_FILE
+```
 
-> [!NOTE]
-> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
-> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
 
-*** ** * ** ***
+To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.
+  
+To save and retrieve prompts in the Studio IDE, go to **Settings > Gemini > Prompt Library**.
+
+
+---

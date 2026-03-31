@@ -1,13 +1,25 @@
 ---
-title: https://developer.android.com/games/pgs/play-games-sidekick-sdk
+title: Sidekick SDK  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/pgs/play-games-sidekick-sdk
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+# Sidekick SDK Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The Sidekick SDK is available to developers who:
 
-- Publish releases as an APK, rather than an Android App Bundle (AAB).
-- Need access to Sidekick, but use an incompatible anti-tampering solution. If you have other questions, [request support](https://docs.google.com/forms/d/1NPmZ04tyT97tb8q-NbElU_HJ3YuPWOkXvhwJB3mTmB8/viewform).
+* Publish releases as an APK, rather than an Android App Bundle (AAB).
+* Need access to Sidekick, but use an incompatible
+  anti-tampering solution. If you have other questions, [request support](https://docs.google.com/forms/d/1NPmZ04tyT97tb8q-NbElU_HJ3YuPWOkXvhwJB3mTmB8/viewform).
 
 To add Sidekick SDK, add the `com.google.android.play:sidekick`
 to your dependencies. Make sure that you include Google's Maven
@@ -16,17 +28,21 @@ repositories.
 
 For example, in your module's `build.gradle.kts` file, add the following:
 
-    dependencyResolutionManagement {
-      repositories {
-        google()
-        // Other repositories
-      }
-    }
+```
+dependencyResolutionManagement {
+  repositories {
+    google()
+    // Other repositories
+  }
+}
+```
 
-    dependencies {
-      // Other dependencies
-      implementation("com.google.android.play:sidekick:*")
-    }
+```
+dependencies {
+  // Other dependencies
+  implementation("com.google.android.play:sidekick:*")
+}
+```
 
 ### Games using multiple processes
 
@@ -35,7 +51,7 @@ attribute in your `AndroidManifest.xml`'s `<application>` tags), you must update
 the manifest by adding the following content providers. No other code changes
 are needed.
 
-```xml
+```
 <application>
   [...]
   <provider
@@ -53,3 +69,8 @@ are needed.
   [...] <!-- Up to 5 processes ($Process1, $Process2, ..., $Process5) -->
 </application>
 ```
+
+
+
+
+Send feedback

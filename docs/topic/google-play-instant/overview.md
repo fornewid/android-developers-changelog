@@ -1,11 +1,19 @@
 ---
-title: https://developer.android.com/topic/google-play-instant/overview
+title: Overview of Google Play Instant  |  Other Play guides  |  Android Developers
 url: https://developer.android.com/topic/google-play-instant/overview
-source: md.txt
+source: html-scrape
 ---
 
-> [!IMPORTANT]
-> **Important:** Starting in August 2021, all new instant experiences and updates to existing experiences must publish with instant-enabled app bundles on Google Play.
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Other Play guides](https://developer.android.com/guide/app-bundle)
+
+# Overview of Google Play Instant Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+**Important:** Starting in August 2021, all new instant experiences and updates to
+existing experiences must publish with instant-enabled app bundles on Google Play.
 
 **Warning:** Google Play Instant will no longer be available. Starting December 2025,
 Instant Apps cannot be published through Google Play, and all
@@ -22,13 +30,14 @@ to redirect them to specific journeys or features when relevant.
 
 Google Play Instant enables native apps and games to launch on devices
 running Android 5.0 (API level 21) or higher without being installed. You can build these
-types of experiences, called *instant apps* and *instant games* , using Android
+types of experiences, called *instant apps* and *instant games*, using Android
 Studio. By allowing users to run an instant app or instant game, known as
 providing an *instant experience*, you improve your app or game's discovery,
 which helps drive more active users or installations.
 
-> [!NOTE]
-> **Note:** Instant apps and games can use only a subset of APIs within the Android SDK and the Android NDK. When creating an instant experience, make sure you [request only supported permissions](https://developer.android.com/topic/google-play-instant/getting-started/instant-enabled-app-bundle#request-supported-permissions).
+**Note:** Instant apps and games can use only a subset of APIs within the Android
+SDK and the Android NDK. When
+creating an instant experience, make sure you [request only supported permissions](/topic/google-play-instant/getting-started/instant-enabled-app-bundle#request-supported-permissions).
 
 This guide presents an overview of the Google Play Instant experience.
 
@@ -44,7 +53,18 @@ device then runs the app or game.
 
 Instant experiences fall into two categories: "Try" experiences in the Play
 Store and "Instant play" games in the Google Play Games app.
-![The 'Try Now' button appears next to the 'Install' button](https://developer.android.com/static/topic/google-play-instant/images/gpi-try-now.png) **Figure 1.** The **Try Now** button that appears on an instant-enabled app or game's page on Google Play ![The 'Instant play' button appears in the Google Play Games app](https://developer.android.com/static/topic/google-play-instant/images/play-instant-games-full-experience.png) **Figure 2.** The **Instant play** button appears on a full experience game in the [Google Play Games app](https://play.google.com/store/apps/details?id=com.google.android.play.games)
+
+![The 'Try Now' button appears next to the 'Install' button](/static/topic/google-play-instant/images/gpi-try-now.png)
+
+
+**Figure 1.** The **Try Now** button that appears on an
+instant-enabled app or game's page on Google Play
+
+![The 'Instant play' button appears in the Google Play Games app](/static/topic/google-play-instant/images/play-instant-games-full-experience.png)
+
+
+**Figure 2.** The **Instant play** button appears on a full experience
+game in the [Google Play Games app](https://play.google.com/store/apps/details?id=com.google.android.play.games)
 
 ### Instant "Try" experience in the Play Store
 
@@ -55,7 +75,7 @@ to build the first level of their game as an instant experience and then prompt
 users to install the full game.
 
 Google Play Instant also allows you to [display a
-prompt](https://developer.android.com/topic/google-play-instant/getting-started/instant-enabled-app-bundle#install-prompt)
+prompt](/topic/google-play-instant/getting-started/instant-enabled-app-bundle#install-prompt)
 within your instant experience, inviting users to install the full experience on
 their device.
 
@@ -66,22 +86,23 @@ featured prominently on the homepage of the
 [Google Play Games app](https://play.google.com/store/apps/details?id=com.google.android.play.games). These "Instant play" games are *full experience* games, not trial versions. Players tap
 on the **Instant play** button (as shown in Figure 2) to play the full game
 without installing it first. To learn more, see
-[Instant play games](https://developer.android.com/topic/google-play-instant/instant-play-games).
+[Instant play games](/topic/google-play-instant/instant-play-games).
 
 ## Enable instant experiences by reducing app or game size
 
-Your app or game must be under 15 MB to enable these instant experiences,
+Your app or game must be under 15 MB to enable these instant experiences,
 but the smaller you make it, the better it will be for users.
 
 Reducing the size of your instant app or game has a number of benefits including:
 
-- Higher user engagement or installations and business success
-- Enabling all instant surfaces including the **Try now** button in the Play Store
-- "Instant play" homepage featuring in the Google Play Games app
+* Higher user engagement or installations and business success
+* Enabling all instant surfaces including the **Try now** button in the Play
+  Store
+* "Instant play" homepage featuring in the Google Play Games app
 
 To learn how you can reduce the size of your app or game, see [Reduce the size
 of your instant app or
-game](https://developer.android.com/topic/google-play-instant/guides/reduce-module-size).
+game](/topic/google-play-instant/guides/reduce-module-size).
 
 ## Considerations
 
@@ -93,10 +114,10 @@ read the section for that element.
 
 If your existing app already uses deep links or Android App Links, see the guide
 on how to [create app links for your instant
-experience](https://developer.android.com/training/app-links/instant-app-links).
+experience](/training/app-links/instant-app-links).
 
-> [!NOTE]
-> **Note:** Users can opt out of opening links within apps. A menu in the device's system settings called **Instant apps** provides this option.
+**Note:** Users can opt out of opening links within apps. A menu in the device's
+system settings called **Instant apps** provides this option.
 
 ### Multiple entry points
 
@@ -109,19 +130,21 @@ to try out different aspects of gameplay.
 To create these different entry points, configure a different entry point
 for each experience that you'd like to provide. To learn more, see [Provide
 multiple entry points into an instant
-experience](https://developer.android.com/topic/google-play-instant/guides/multiple-entry-points).
+experience](/topic/google-play-instant/guides/multiple-entry-points).
 
-> [!CAUTION]
-> **Caution:** Don't use a central routing activity in your instant experience. Instead, provide multiple entry points so that the Android framework does the routing for you. This approach enables you to achieve more modularization in your app or game.
+**Caution:** Don't use a central routing activity in your instant experience.
+Instead, provide multiple entry points so that the Android framework does the
+routing for you. This approach enables you to achieve more modularization in
+your app or game.
 
 ## Learn more
 
 To learn more about Google Play Instant, see the following resources:
 
-- [List of known
-  issues](https://issuetracker.google.com/issues?q=status:open+componentid:316045)
-- [StackOverflow component for instant apps](https://stackoverflow.com/questions/tagged/android-instant-apps)
-- [Developer stories](https://developer.android.com/stories/instant-apps)
+* [List of known
+  issues](https://issuetracker.google.com/issues?q=status%3Aopen+componentid%3A316045)
+* [StackOverflow component for instant apps](https://stackoverflow.com/questions/tagged/android-instant-apps)
+* [Developer stories](/stories/instant-apps)
 
 ## Additional resources
 
@@ -130,7 +153,7 @@ resources.
 
 ### Training
 
-- Google I/O 2018: [The future of apps on Android and Google Play: modular,
+* Google I/O 2018: [The future of apps on Android and Google Play: modular,
   instant, and dynamic](https://www.youtube.com/watch?v=0raqVydJmNE&t=1057s)
-- Google I/O 2018: [How game developers are providing
+* Google I/O 2018: [How game developers are providing
   success](https://youtu.be/LN1YQeo6yNk)

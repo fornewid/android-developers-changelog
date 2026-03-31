@@ -86,7 +86,7 @@ Android 17 includes the following changes to improve user privacy.
 ### Local network permission required for apps targeting Android 17
 
 | Available to test? *(Required build)* | Yes *(Android 17 or later)* |
-| Requires changing `targetSDKVersion`? *(API level)* | Yes *(API Level `"CINNAMON_BUN"`) See the [manifest attribute documentation](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target) for more information about this value.* |
+| Requires changing `targetSDKVersion`? *(API level)* | Yes *(API Level 37) See the [manifest attribute documentation](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target) for more information about this value.* |
 |---|---|
 
 > [!IMPORTANT]

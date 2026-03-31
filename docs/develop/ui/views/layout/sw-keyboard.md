@@ -1,36 +1,56 @@
 ---
-title: https://developer.android.com/develop/ui/views/layout/sw-keyboard
+title: Control and animate the software keyboard  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/layout/sw-keyboard
-source: md.txt
+source: html-scrape
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with the keyboard in Compose. [Software keyboard in Compose →](https://developer.android.com/develop/ui/compose/system/keyboard-animations) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
 
-<br />
+# Control and animate the software keyboard Stay organized with collections Save and categorize content based on your preferences.
 
-Using [`WindowInsetsCompat`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat),
+
+
+Try the Compose way
+
+Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with the keyboard in Compose.
+
+[Software keyboard in Compose →](https://developer.android.com/develop/ui/compose/system/keyboard-animations)
+
+![](/static/images/android-compose-ui-logo.png)
+
+Using [`WindowInsetsCompat`](/reference/androidx/core/view/WindowInsetsCompat),
 your app can query and control the on-screen keyboard (also called the
 [IME](https://en.wikipedia.org/wiki/Input_method)) similar to the
 way it interacts with the system bars. Your app can also use
-[`WindowInsetsAnimationCompat`](https://developer.android.com/reference/androidx/core/view/WindowInsetsAnimationCompat)
+[`WindowInsetsAnimationCompat`](/reference/androidx/core/view/WindowInsetsAnimationCompat)
 to create seamless transitions when the software keyboard is opened or closed.
-**Figure 1.** Two examples of the software keyboard open-closed transition.
+
+[
+](/static/images/guide/navigation/software-keyboard-1.mp4)
+
+
+**Figure 1.** Two examples of the software keyboard
+open-closed transition.
 
 ## Prerequisites
 
 Before setting up control and animation for the software keyboard, configure
-your app to [display edge-to-edge](https://developer.android.com/training/gestures/edge-to-edge). This lets
-it handle [system window insets](https://developer.android.com/develop/ui/views/layout/insets) such as the
+your app to [display edge-to-edge](/training/gestures/edge-to-edge). This lets
+it handle [system window insets](/develop/ui/views/layout/insets) such as the
 system bars and the on-screen keyboard.
 
 ## Check keyboard software visibility
 
-Use [`WindowInsets`](https://developer.android.com/reference/android/view/WindowInsets) to check the software
+Use [`WindowInsets`](/reference/android/view/WindowInsets) to check the software
 keyboard visibility.
 
 ### Kotlin
 
-```kotlin
+```
 val insets = ViewCompat.getRootWindowInsets(view) ?: return
 val imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime())
 val imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
@@ -38,19 +58,19 @@ val imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
 
 ### Java
 
-```java
+```
 WindowInsetsCompat insets = ViewCompat.getRootWindowInsets(view);
 boolean imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime());
 int imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
 ```
 
 Alternatively, you can use
-[`ViewCompat.setOnApplyWindowInsetsListener`](https://developer.android.com/reference/androidx/core/view/ViewCompat#setOnApplyWindowInsetsListener(android.view.View,%20androidx.core.view.OnApplyWindowInsetsListener))
+[`ViewCompat.setOnApplyWindowInsetsListener`](/reference/androidx/core/view/ViewCompat#setOnApplyWindowInsetsListener(android.view.View,%20androidx.core.view.OnApplyWindowInsetsListener))
 to observe changes to software keyboard visibility.
 
 ### Kotlin
 
-```kotlin
+```
 ViewCompat.setOnApplyWindowInsetsListener(view) { _, insets ->
   val imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime())
   val imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
@@ -60,7 +80,7 @@ ViewCompat.setOnApplyWindowInsetsListener(view) { _, insets ->
 
 ### Java
 
-```java
+```
 ViewCompat.setOnApplyWindowInsetsListener(view, (v, insets) -> {
   boolean imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime());
   int imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
@@ -68,35 +88,41 @@ ViewCompat.setOnApplyWindowInsetsListener(view, (v, insets) -> {
 });
 ```
 
-> [!NOTE]
-> **Note:** To achieve the best backward compatibility with this AndroidX implementation, set `android:windowSoftInputMode="adjustResize"` to the activity in your `AndroidManifest.xml` file.
+**Note:** To achieve the best backward compatibility with this AndroidX
+implementation, set `android:windowSoftInputMode="adjustResize"` to the activity
+in your `AndroidManifest.xml` file.
 
 ## Synchronize animation with the software keyboard
 
 A user tapping a text input field causes the keyboard to slide into place from
 the bottom of the screen, as shown in the following example:
+
+[
+](/static/images/guide/navigation/software-keyboard-2.mp4)
+
+
 **Figure 2.** Synchronized keyboard animation.
 
-- The example labeled "Unsynchronized" in figure 2 shows the default behavior
+* The example labeled "Unsynchronized" in figure 2 shows the default behavior
   in Android 10 (API level 29), in which the text field and content of the app
   snap into place instead of synchronizing with the keyboard's
-  animation---behavior that can be visually jarring.
-
-- In Android 11 (API level 30) and higher, you can use
+  animation—behavior that can be visually jarring.
+* In Android 11 (API level 30) and higher, you can use
   `WindowInsetsAnimationCompat` to synchronize the transition of the app with
   the keyboard sliding up and down from the bottom of the screen. This looks
   smoother, as shown in the example labeled "Synchronized" in figure 2.
 
-> [!NOTE]
-> **Note:** Don't consume `WindowInsets` in `setWindowInsetsApplyListener` for any parent [`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup) objects. Instead, let `WindowInsetsAnimatorCompat` handle them on Android 10 and lower.
+**Note:** Don't consume `WindowInsets` in `setWindowInsetsApplyListener` for any
+parent [`ViewGroup`](/reference/android/view/ViewGroup) objects. Instead, let
+`WindowInsetsAnimatorCompat` handle them on Android 10 and lower.
 
 Configure
-[`WindowInsetsAnimationCompat.Callback`](https://developer.android.com/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback)
+[`WindowInsetsAnimationCompat.Callback`](/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback)
 with the view to be synchronized with the keyboard animation.
 
 ### Kotlin
 
-```kotlin
+```
 ViewCompat.setWindowInsetsAnimationCallback(
   view,
   object : WindowInsetsAnimationCompat.Callback(DISPATCH_MODE_STOP) {
@@ -107,7 +133,7 @@ ViewCompat.setWindowInsetsAnimationCallback(
 
 ### Java
 
-```java
+```
 ViewCompat.setWindowInsetsAnimationCallback(
     view,
     new WindowInsetsAnimationCompat.Callback(
@@ -119,23 +145,28 @@ ViewCompat.setWindowInsetsAnimationCallback(
 
 There are several methods to override in `WindowInsetsAnimationCompat.Callback`,
 namely
-[`onPrepare()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback#onPrepare(androidx.core.view.WindowInsetsAnimationCompat)),
-[`onStart()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback#onStart(androidx.core.view.WindowInsetsAnimationCompat,%20androidx.core.view.WindowInsetsAnimationCompat.BoundsCompat)),
-[`onProgress()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback#onProgress(androidx.core.view.WindowInsetsCompat,%20java.util.List%3Candroidx.core.view.WindowInsetsAnimationCompat%3E)),
+[`onPrepare()`](/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback#onPrepare(androidx.core.view.WindowInsetsAnimationCompat)),
+[`onStart()`](/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback#onStart(androidx.core.view.WindowInsetsAnimationCompat,%20androidx.core.view.WindowInsetsAnimationCompat.BoundsCompat)),
+[`onProgress()`](/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback#onProgress(androidx.core.view.WindowInsetsCompat,%20java.util.List%3Candroidx.core.view.WindowInsetsAnimationCompat%3E)),
 and
-[`onEnd()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback#onEnd(androidx.core.view.WindowInsetsAnimationCompat)).
+[`onEnd()`](/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback#onEnd(androidx.core.view.WindowInsetsAnimationCompat)).
 Start with calling `onPrepare()` before any of the layout changes.
 
 `onPrepare` is called when an insets animation is starting and before the views
 are re-laid out due to an animation. You can use it to save the start state,
 which in this case is the bottom coordinate of the view.
-![An image showing the start state bottom coordinate of the root view.](https://developer.android.com/static/images/guide/navigation/software-keyboard-3.png) **Figure 3.** Using `onPrepare()` to record the start state.
+
+![An image showing the start state bottom coordinate of the root view.](/static/images/guide/navigation/software-keyboard-3.png)
+
+
+**Figure 3.** Using `onPrepare()` to
+record the start state.
 
 The following snippet shows a sample call to `onPrepare`:
 
 ### Kotlin
 
-```kotlin
+```
 var startBottom = 0f
 
 override fun onPrepare(
@@ -147,7 +178,7 @@ override fun onPrepare(
 
 ### Java
 
-```java
+```
 float startBottom;
 
 @Override
@@ -163,13 +194,18 @@ the view properties to the end state of the layout changes. If you have an
 `OnApplyWindowInsetsListener` callback set to any of the views, it is already
 called at this point. This is a good time to save the end state of the view
 properties.
-![An image showing the end state bottom coordinate of the view](https://developer.android.com/static/images/guide/navigation/software-keyboard-4.png) **Figure 4.** Using `onStart()` to record the end state.
+
+![An image showing the end state bottom coordinate of the view](/static/images/guide/navigation/software-keyboard-4.png)
+
+
+**Figure 4.** Using `onStart()` to record
+the end state.
 
 The following snippet shows a sample call to `onStart`:
 
 ### Kotlin
 
-```kotlin
+```
 var endBottom = 0f
 
 override fun onStart(
@@ -185,7 +221,7 @@ override fun onStart(
 
 ### Java
 
-```java
+```
 float endBottom;
 
 @NonNull
@@ -207,13 +243,19 @@ synchronization with the keyboard.
 All the layout changes are complete at this point. For example, if you use
 `View.translationY` to shift the view, the value gradually decreases for every
 call of this method and eventually reaches `0` to the original layout position.
-**Figure 5.** Using `onProgress()` to synchronize the animations.
+
+[
+](/static/images/guide/navigation/software-keyboard-5.mp4)
+
+
+**Figure 5.** Using `onProgress()` to
+synchronize the animations.
 
 The following snippet shows a sample call to `onProgress`:
 
 ### Kotlin
 
-```kotlin
+```
 override fun onProgress(
   insets: WindowInsetsCompat,
   runningAnimations: MutableList<WindowInsetsAnimationCompat>
@@ -233,7 +275,7 @@ override fun onProgress(
 
 ### Java
 
-```java
+```
 @NonNull
 @Override
 public WindowInsetsCompat onProgress(
@@ -263,4 +305,5 @@ is over. This is a good time to clean up any temporary changes.
 
 ## Additional resources
 
-- [WindowInsetsAnimation](https://github.com/android/user-interface-samples/tree/main/WindowInsetsAnimation) on GitHub.
+* [WindowInsetsAnimation](https://github.com/android/user-interface-samples/tree/main/WindowInsetsAnimation)
+  on GitHub.
