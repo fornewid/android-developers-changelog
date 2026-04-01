@@ -1,18 +1,8 @@
 ---
-title: Discover devices on a network using Data Layer APIs  |  Wear OS  |  Android Developers
+title: https://developer.android.com/training/wearables/data/discover-devices
 url: https://developer.android.com/training/wearables/data/discover-devices
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Wear OS](https://developer.android.com/training/wearables)
-
-# Discover devices on a network using Data Layer APIs Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Devices may establish a connection to the internet either
 directly using a Wi-Fi or cellular connection, or indirectly through a paired
@@ -32,14 +22,9 @@ Bluetooth, without using the cloud.
 Under certain circumstances, devices may require up to 4 minutes to re-establish
 a connection. These scenarios include the following:
 
-* **Wear OS device inactivity:** If a Wear OS device is removed from the
-  user's wrist or otherwise isn't actively used for an extended period, the
-  reconnection time might be extended.
-* **Doze state:** A handheld's [power-saving Doze state](/training/monitoring-device-state/doze-standby#understand_doze) can limit
-  background processes, potentially increasing the device's reconnection time.
-* **User interaction:** If the user starts interacting with both a handheld
-  device and a Wear OS device at approximately the same time, it often
-  expedites the reconnection process.
+- **Wear OS device inactivity:** If a Wear OS device is removed from the user's wrist or otherwise isn't actively used for an extended period, the reconnection time might be extended.
+- **Doze state:** A handheld's [power-saving Doze state](https://developer.android.com/training/monitoring-device-state/doze-standby#understand_doze) can limit background processes, potentially increasing the device's reconnection time.
+- **User interaction:** If the user starts interacting with both a handheld device and a Wear OS device at approximately the same time, it often expedites the reconnection process.
 
 ## Discover all devices using a node client
 
@@ -55,7 +40,7 @@ don't have your app installed.
 
 A `CapabilityClient` object provides information about which devices on the
 Wear OS network support specific app capabilities. A *capability* is a feature
-that an app either [defines at build time](/training/wearables/data/messages#advertise-capabilities) or
+that an app either [defines at build time](https://developer.android.com/training/wearables/data/messages#advertise-capabilities) or
 [configures dynamically at runtime](https://developers.google.com/android/reference/com/google/android/gms/wearable/CapabilityClient#addLocalCapability(java.lang.String)).
 
 For example, a mobile Android app could advertise that it supports remote

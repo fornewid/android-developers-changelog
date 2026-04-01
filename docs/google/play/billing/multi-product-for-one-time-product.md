@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 This document describes how you can integrate your app with the
 multi-product feature of Play Billing Library (PBL).
 
@@ -158,6 +159,8 @@ For dashboards in the Play Console:
 * Order management reflects multi-product OTP purchases, and show
   itemized lists of what was purchased. From order management, you may
   revoke, cancel or fully refund a user's purchase.
+
+
 
 
 

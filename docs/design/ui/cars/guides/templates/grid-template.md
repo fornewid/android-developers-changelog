@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The Grid template presents items in a grid layout and is useful when users rely
 primarily on images to make their selections.
 

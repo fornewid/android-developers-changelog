@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Android deep links let you bring users directly into your app content from links
 they have tapped, such as from web browsing, search, notifications and more.
 

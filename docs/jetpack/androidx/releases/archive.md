@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 AndroidX was originally developed by three separate teams. This section
 contains the original release notes from each of the three areas:
 

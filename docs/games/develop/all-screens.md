@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 When developing a game for Android, it's important to anticipate the variety of
 possible player experiences and remain adaptive to a player's real-time
 interaction needs. By supporting different player experiences, you increase
@@ -409,6 +410,8 @@ You can perform tests using a variety of tools that the platform supports:
 * [ChromeOS Performance
   Analyzer](https://www.chromium.org/chromium-os/testing/perf-data),
   available when running ChromeOS M75 or higher.
+
+
 
 
 

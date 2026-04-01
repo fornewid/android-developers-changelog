@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![Tier 3 adaptive ready icon](/static/images/docs/quality-guidelines/tier-3/tier_3_icon.png)
 
 TIER 3 — Adaptive ready

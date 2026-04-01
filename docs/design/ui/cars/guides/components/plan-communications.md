@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 There are multiple ways for your app to communicate with drivers. Learn which
 method is best for each use case so you can choose the right one every time.
 

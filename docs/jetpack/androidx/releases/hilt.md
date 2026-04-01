@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Hilt
 
 [User Guide](/training/dependency-injection/hilt-android)  [Code Sample](https://github.com/android/architecture-samples/tree/views-hilt)  [Codelab](https://codelabs.developers.google.com/codelabs/android-hilt/#0)

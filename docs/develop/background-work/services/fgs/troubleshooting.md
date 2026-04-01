@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This page discusses some common reasons foreground services can fail and helps
 you identify what's causing the problem.
 

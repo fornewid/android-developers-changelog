@@ -14,6 +14,7 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
+
 Android GPU Inspector (AGI) can sample GPU performance counters from Arm® Mali™,
 Imagination® PowerVR™, and Qualcomm® Adreno™ GPUs. You can use this data to
 identify bottlenecks in your app's GPU usage.

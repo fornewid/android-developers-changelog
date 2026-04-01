@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Compose tests are synchronized by default with your UI. When you call an
 assertion or an action with the [`ComposeTestRule`](/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule), the test is synchronized
 beforehand, waiting until the UI tree is idle.

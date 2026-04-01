@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android offers a rich user experience that's optimized for apps running on large screen devices,
 such as high-definition televisions. Apps on TV offer new opportunities to delight your users
 from the comfort of their couch.

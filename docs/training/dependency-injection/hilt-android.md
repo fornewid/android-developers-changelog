@@ -1,23 +1,31 @@
 ---
-title: https://developer.android.com/training/dependency-injection/hilt-android
+title: Dependency injection with Hilt  |  App architecture  |  Android Developers
 url: https://developer.android.com/training/dependency-injection/hilt-android
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Dependency injection with Hilt Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Hilt is a dependency injection library for Android that reduces the boilerplate
 of doing manual dependency injection in your project. Doing [manual dependency
-injection](https://developer.android.com/training/dependency-injection/manual) requires you to construct
+injection](/training/dependency-injection/manual) requires you to construct
 every class and its dependencies by hand, and to use containers to reuse and
 manage dependencies.
 
 Hilt provides a standard way to use DI in your application by providing
 containers for every Android class in your project and managing their lifecycles
 automatically. Hilt is built on top of the popular DI library
-[Dagger](https://developer.android.com/training/dependency-injection/dagger-basics) to benefit from the
+[Dagger](/training/dependency-injection/dagger-basics) to benefit from the
 compile-time correctness, runtime performance, scalability, and [Android Studio
 support](https://medium.com/androiddevelopers/dagger-navigation-support-in-android-studio-49aa5d149ec9)
 that Dagger provides. For more information, see [Hilt and
-Dagger](https://developer.android.com/training/dependency-injection/hilt-android#hilt-and-dagger).
+Dagger](#hilt-and-dagger).
 
 This guide explains the basic concepts of Hilt and its generated containers. It
 also includes a demonstration of how to bootstrap an existing app to use Hilt.
@@ -29,7 +37,7 @@ First, add the `hilt-android-gradle-plugin` plugin to your project's root
 
 ### Groovy
 
-```groovy
+```
 plugins {
   ...
   id 'com.google.dagger.hilt.android' version '2.57.1' apply false
@@ -38,7 +46,7 @@ plugins {
 
 ### Kotlin
 
-```kotlin
+```
 plugins {
   ...
   id("com.google.dagger.hilt.android") version "2.57.1" apply false
@@ -50,7 +58,7 @@ Then, apply the Gradle plugin and add these dependencies in your
 
 ### Groovy
 
-```groovy
+```
 ...
 plugins {
   id 'com.google.devtools.ksp'
@@ -69,7 +77,7 @@ dependencies {
 
 ### Kotlin
 
-```kotlin
+```
 plugins {
   id("com.google.devtools.ksp")
   id("com.google.dagger.hilt.android")
@@ -85,16 +93,15 @@ dependencies {
 }
 ```
 
-> [!NOTE]
-> **Note:** Projects that use both Hilt and [data
-> binding](https://developer.android.com/topic/libraries/data-binding) require Android Studio 4.0 or higher.
+**Note:** Projects that use both Hilt and [data
+binding](/topic/libraries/data-binding) require Android Studio 4.0 or higher.
 
-Hilt uses [Java 8 features](https://developer.android.com/studio/write/java8-support). To enable Java 8 in
+Hilt uses [Java 8 features](/studio/write/java8-support). To enable Java 8 in
 your project, add the following to the `app/build.gradle` file:
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   compileOptions {
@@ -106,7 +113,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   compileOptions {
@@ -119,7 +126,7 @@ android {
 ## Hilt application class
 
 All apps that use Hilt must contain an
-[`Application`](https://developer.android.com/reference/android/app/Application) class that is annotated with
+[`Application`](/reference/android/app/Application) class that is annotated with
 `@HiltAndroidApp`.
 
 `@HiltAndroidApp` triggers Hilt's code generation, including a base class for
@@ -127,14 +134,14 @@ your application that serves as the application-level dependency container.
 
 ### Kotlin
 
-```kotlin
+```
 @HiltAndroidApp
 class ExampleApplication : Application() { ... }
 ```
 
 ### Java
 
-```java
+```
 @HiltAndroidApp
 public class ExampleApplication extends Application { ... }
 ```
@@ -152,51 +159,55 @@ that have the `@AndroidEntryPoint` annotation:
 
 ### Kotlin
 
-```kotlin
+```
 @AndroidEntryPoint
 class ExampleActivity : AppCompatActivity() { ... }
 ```
 
 ### Java
 
-```java
+```
 @AndroidEntryPoint
 public class ExampleActivity extends AppCompatActivity { ... }
 ```
 
 Hilt currently supports the following Android classes:
 
-- `Application` (by using `@HiltAndroidApp`)
-- `ViewModel` (by using `@HiltViewModel`)
-- `Activity`
-- `Fragment`
-- `View`
-- `Service`
-- `BroadcastReceiver`
+* `Application` (by using `@HiltAndroidApp`)
+* `ViewModel` (by using `@HiltViewModel`)
+* `Activity`
+* `Fragment`
+* `View`
+* `Service`
+* `BroadcastReceiver`
 
 If you annotate an Android class with `@AndroidEntryPoint`, then you also must
 annotate Android classes that depend on it. For example, if you annotate a
 fragment, then you must also annotate any activities where you use that
 fragment.
 
-> [!NOTE]
-> **Note:** The following exceptions apply to Hilt support for Android classes:
->
-> - Hilt only supports activities that extend [`ComponentActivity`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity), such as [`AppCompatActivity`](https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatActivity).
-> - Hilt only supports fragments that extend `androidx.Fragment`.
-> - Hilt does not support retained fragments.
+**Note:** The following exceptions apply to Hilt support for Android
+classes:
+
+* Hilt only supports activities that extend
+  [`ComponentActivity`](/reference/kotlin/androidx/activity/ComponentActivity),
+  such as
+  [`AppCompatActivity`](/reference/kotlin/androidx/appcompat/app/AppCompatActivity).
+* Hilt only supports fragments that extend
+  `androidx.Fragment`.
+* Hilt does not support retained fragments.
 
 `@AndroidEntryPoint` generates an individual Hilt component for each Android
 class in your project. These components can receive dependencies from their
 respective parent classes as described in [Component
-hierarchy](https://developer.android.com/training/dependency-injection/hilt-android#component-hierarchy).
+hierarchy](#component-hierarchy).
 
 To obtain dependencies from a component, use the `@Inject` annotation to perform
 field injection:
 
 ### Kotlin
 
-```kotlin
+```
 @AndroidEntryPoint
 class ExampleActivity : AppCompatActivity() {
 
@@ -207,7 +218,7 @@ class ExampleActivity : AppCompatActivity() {
 
 ### Java
 
-```java
+```
 @AndroidEntryPoint
 public class ExampleActivity extends AppCompatActivity {
 
@@ -217,15 +228,15 @@ public class ExampleActivity extends AppCompatActivity {
 }
 ```
 
-> [!NOTE]
-> **Note:** Fields injected by Hilt cannot be private. Attempting to inject a private field with Hilt results in a compilation error.
+**Note:** Fields injected by Hilt cannot be private. Attempting to inject a private
+field with Hilt results in a compilation error.
 
 Classes that Hilt injects can have other base classes that also use injection.
 Those classes don't need the `@AndroidEntryPoint` annotation if they're
 abstract.
 
 To learn more about which lifecycle callback an Android class gets injected in,
-see [Component lifetimes](https://developer.android.com/training/dependency-injection/hilt-android#component-lifetimes).
+see [Component lifetimes](#component-lifetimes).
 
 ## Define Hilt bindings
 
@@ -233,13 +244,13 @@ To perform field injection, Hilt needs to know how to provide instances of the
 necessary dependencies from the corresponding component. A *binding* contains
 the information necessary to provide instances of a type as a dependency.
 
-One way to provide binding information to Hilt is *constructor injection* . Use
+One way to provide binding information to Hilt is *constructor injection*. Use
 the `@Inject` annotation on the constructor of a class to tell Hilt how to
 provide instances of that class:
 
 ### Kotlin
 
-```kotlin
+```
 class AnalyticsAdapter @Inject constructor(
   private val service: AnalyticsService
 ) { ... }
@@ -247,7 +258,7 @@ class AnalyticsAdapter @Inject constructor(
 
 ### Java
 
-```java
+```
 public class AnalyticsAdapter {
 
   private final AnalyticsService service;
@@ -265,11 +276,14 @@ that class. In the example, `AnalyticsAdapter` has `AnalyticsService` as a
 dependency. Therefore, Hilt must also know how to provide instances of
 `AnalyticsService`.
 
-> [!NOTE]
-> **Note:** At build time, Hilt generates [Dagger](https://developer.android.com/training/dependency-injection/dagger-basics) components for Android classes. Then, Dagger walks through your code and performs the following steps:
->
-> - Builds and validates dependency graphs, ensuring that there are no unsatisfied dependencies and no dependency cycles.
-> - Generates the classes that it uses at runtime to create the actual objects and their dependencies.
+**Note:** At build time, Hilt generates [Dagger](/training/dependency-injection/dagger-basics) components for
+Android classes. Then, Dagger walks through your code and performs the
+following steps:
+
+* Builds and validates dependency graphs, ensuring that there are no
+  unsatisfied dependencies and no dependency cycles.
+* Generates the classes that it uses at runtime to create the actual
+  objects and their dependencies.
 
 ## Hilt modules
 
@@ -280,21 +294,22 @@ external library. In these cases, you can provide Hilt with binding information
 by using *Hilt modules*.
 
 A Hilt module is a class that is annotated with `@Module`. Like a [Dagger
-module](https://developer.android.com/training/dependency-injection/dagger-android#dagger-modules), it
+module](/training/dependency-injection/dagger-android#dagger-modules), it
 informs Hilt how to provide instances of certain types. Unlike Dagger modules,
 you must annotate Hilt modules with `@InstallIn` to tell Hilt which Android
 class each module will be used or installed in.
 
-> [!NOTE]
-> **Note:** Hilt modules are different from [Gradle
-> modules](https://developer.android.com/studio/projects#ApplicationModules).
+**Note:** Hilt modules are different from [Gradle
+modules](/studio/projects#ApplicationModules).
 
 Dependencies that you provide in Hilt modules are available in all generated
 components that are associated with the Android class where you install the
 Hilt module.
 
-> [!NOTE]
-> **Note:** Because Hilt's code generation needs access to all of the Gradle modules that use Hilt, the Gradle module that compiles your `Application` class also needs to have all of your Hilt modules and constructor-injected classes in its transitive dependencies.
+**Note:** Because Hilt's code generation needs access to all of the Gradle modules
+that use Hilt, the Gradle module that compiles your `Application` class also
+needs to have all of your Hilt modules and constructor-injected classes in its
+transitive dependencies.
 
 ### Inject interface instances with @Binds
 
@@ -308,12 +323,13 @@ provide an instance of an interface.
 
 The annotated function provides the following information to Hilt:
 
-- The function return type tells Hilt what interface the function provides instances of.
-- The function parameter tells Hilt which implementation to provide.
+* The function return type tells Hilt what interface the function provides
+  instances of.
+* The function parameter tells Hilt which implementation to provide.
 
 ### Kotlin
 
-```kotlin
+```
 interface AnalyticsService {
   fun analyticsMethods()
 }
@@ -337,7 +353,7 @@ abstract class AnalyticsModule {
 
 ### Java
 
-```java
+```
 public interface AnalyticsService {
   void analyticsMethods();
 }
@@ -375,7 +391,7 @@ Constructor injection is also not possible if you don't own the class because it
 comes from an external library (classes like
 [Retrofit](https://square.github.io/retrofit/),
 [`OkHttpClient`](https://square.github.io/okhttp/),
-or [Room databases](https://developer.android.com/topic/libraries/architecture/room)), or if instances must
+or [Room databases](/topic/libraries/architecture/room)), or if instances must
 be created with the [builder
 pattern](https://en.wikipedia.org/wiki/Builder_pattern).
 
@@ -385,13 +401,16 @@ function inside a Hilt module and annotating that function with `@Provides`.
 
 The annotated function supplies the following information to Hilt:
 
-- The function return type tells Hilt what type the function provides instances of.
-- The function parameters tell Hilt the dependencies of the corresponding type.
-- The function body tells Hilt how to provide an instance of the corresponding type. Hilt executes the function body every time it needs to provide an instance of that type.
+* The function return type tells Hilt what type the function provides instances
+  of.
+* The function parameters tell Hilt the dependencies of the corresponding type.
+* The function body tells Hilt how to provide an instance of the corresponding
+  type. Hilt executes the function body every time it needs to provide an
+  instance of that type.
 
 ### Kotlin
 
-```kotlin
+```
 @Module
 @InstallIn(ActivityComponent::class)
 object AnalyticsModule {
@@ -410,7 +429,7 @@ object AnalyticsModule {
 
 ### Java
 
-```java
+```
 @Module
 @InstallIn(ActivityComponent.class)
 public class AnalyticsModule {
@@ -448,7 +467,7 @@ First, define the qualifiers that you will use to annotate the `@Binds` or
 
 ### Kotlin
 
-```kotlin
+```
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class AuthInterceptorOkHttpClient
@@ -460,7 +479,7 @@ annotation class OtherInterceptorOkHttpClient
 
 ### Java
 
-```java
+```
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 private @interface AuthInterceptorOkHttpClient {}
@@ -477,7 +496,7 @@ different bindings:
 
 ### Kotlin
 
-```kotlin
+```
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
@@ -506,7 +525,7 @@ object NetworkModule {
 
 ### Java
 
-```java
+```
 @Module
 @InstallIn(ActivityComponent.class)
 public class NetworkModule {
@@ -538,7 +557,7 @@ parameter with the corresponding qualifier:
 
 ### Kotlin
 
-```kotlin
+```
 // As a dependency of another class.
 @Module
 @InstallIn(ActivityComponent::class)
@@ -572,7 +591,7 @@ class ExampleActivity: AppCompatActivity() {
 
 ### Java
 
-```java
+```
 // As a dependency of another class.
 @Module
 @InstallIn(ActivityComponent.class)
@@ -629,7 +648,7 @@ context to `AnalyticsAdapter`:
 
 ### Kotlin
 
-```kotlin
+```
 class AnalyticsAdapter @Inject constructor(
     @ActivityContext private val context: Context,
     private val service: AnalyticsService
@@ -638,7 +657,7 @@ class AnalyticsAdapter @Inject constructor(
 
 ### Java
 
-```java
+```
 public class AnalyticsAdapter {
 
   private final Context context;
@@ -656,7 +675,7 @@ public class AnalyticsAdapter {
 ```
 
 For other predefined bindings available in Hilt, see [Component default
-bindings](https://developer.android.com/training/dependency-injection/hilt-android#component-default).
+bindings](#component-default).
 
 ## Generated components for Android classes
 
@@ -671,7 +690,7 @@ modules.
 Hilt provides the following components:
 
 | Hilt component | Injector for |
-|---|---|
+| --- | --- |
 | `SingletonComponent` | `Application` |
 | `ActivityRetainedComponent` | N/A |
 | `ViewModelComponent` | `ViewModel` |
@@ -681,8 +700,8 @@ Hilt provides the following components:
 | `ViewWithFragmentComponent` | `View` annotated with `@WithFragmentBindings` |
 | `ServiceComponent` | `Service` |
 
-> [!NOTE]
-> **Note:** Hilt doesn't generate a component for broadcast receivers because Hilt injects broadcast receivers directly from `SingletonComponent`.
+**Note:** Hilt doesn't generate a component for broadcast receivers because Hilt
+injects broadcast receivers directly from `SingletonComponent`.
 
 ### Component lifetimes
 
@@ -690,7 +709,7 @@ Hilt automatically creates and destroys instances of generated component classes
 following the lifecycle of the corresponding Android classes.
 
 | Generated component | Created at | Destroyed at |
-|---|---|---|
+| --- | --- | --- |
 | `SingletonComponent` | `Application#onCreate()` | `Application` destroyed |
 | `ActivityRetainedComponent` | `Activity#onCreate()` | `Activity#onDestroy()` |
 | `ViewModelComponent` | `ViewModel` created | `ViewModel` destroyed |
@@ -700,8 +719,9 @@ following the lifecycle of the corresponding Android classes.
 | `ViewWithFragmentComponent` | `View#super()` | `View` destroyed |
 | `ServiceComponent` | `Service#onCreate()` | `Service#onDestroy()` |
 
-> [!NOTE]
-> **Note:** `ActivityRetainedComponent` lives across configuration changes, so it is created at the first `Activity#onCreate()` and destroyed at the last `Activity#onDestroy()`.
+**Note:** `ActivityRetainedComponent` lives across configuration changes, so it is
+created at the first `Activity#onCreate()` and destroyed at the
+last `Activity#onDestroy()`.
 
 ### Component scopes
 
@@ -719,7 +739,7 @@ binding is scoped to, and all requests for that binding share the same instance.
 The table below lists scope annotations for each generated component:
 
 | Android class | Generated component | Scope |
-|---|---|---|
+| --- | --- | --- |
 | `Application` | `SingletonComponent` | `@Singleton` |
 | `Activity` | `ActivityRetainedComponent` | `@ActivityRetainedScoped` |
 | `ViewModel` | `ViewModelComponent` | `@ViewModelScoped` |
@@ -735,7 +755,7 @@ throughout the life of the corresponding activity:
 
 ### Kotlin
 
-```kotlin
+```
 @ActivityScoped
 class AnalyticsAdapter @Inject constructor(
   private val service: AnalyticsService
@@ -744,7 +764,7 @@ class AnalyticsAdapter @Inject constructor(
 
 ### Java
 
-```java
+```
 @ActivityScoped
 public class AnalyticsAdapter {
 
@@ -758,11 +778,15 @@ public class AnalyticsAdapter {
 }
 ```
 
-> [!NOTE]
-> **Note:** Scoping a binding to a component can be costly because the provided object stays in memory until that component is destroyed. Minimize the use of scoped bindings in your application. It is appropriate to use component-scoped bindings for bindings with an internal state that requires that same instance to be used within a certain scope, for bindings that need synchronization, or for bindings that you have measured to be expensive to create.
+**Note:** Scoping a binding to a component can be costly because the provided object
+stays in memory until that component is destroyed. Minimize the use of scoped
+bindings in your application. It is appropriate to use component-scoped
+bindings for bindings with an internal state that requires that same instance
+to be used within a certain scope, for bindings that need synchronization,
+or for bindings that you have measured to be expensive to create.
 
 Suppose that `AnalyticsService` has an internal state that requires the same
-instance to be used every time---not only in `ExampleActivity`, but anywhere in
+instance to be used every time—not only in `ExampleActivity`, but anywhere in
 the app. In this case, it is appropriate to scope `AnalyticsService` to the
 `SingletonComponent`. The result is that whenever the component needs to
 provide an instance of `AnalyticsService`, it provides the same instance every
@@ -775,7 +799,7 @@ installed, so in this example you must install `AnalyticsService` in
 
 ### Kotlin
 
-```kotlin
+```
 // If AnalyticsService is an interface.
 @Module
 @InstallIn(SingletonComponent::class)
@@ -806,7 +830,7 @@ object AnalyticsModule {
 
 ### Java
 
-```java
+```
 // If AnalyticsService is an interface.
 @Module
 @InstallIn(SingletonComponent.class)
@@ -838,23 +862,31 @@ public class AnalyticsModule {
 To learn more about Hilt component scopes, see [Scoping in Android and
 Hilt](https://medium.com/androiddevelopers/scoping-in-android-and-hilt-c2e5222317c0).
 
-> [!NOTE]
-> **Note:** For more information about the differences between scoping with `@ActivityRetainedScoped` or `@ViewModelScoped`, see the `@ViewModelScoped` section in the [Hilt and Jetpack integrations
-> doc](https://developer.android.com/training/dependency-injection/hilt-jetpack#viewmodelscoped).
+**Note:** For more information about the differences between scoping with
+`@ActivityRetainedScoped` or `@ViewModelScoped`, see the `@ViewModelScoped`
+section in the [Hilt and Jetpack integrations
+doc](/training/dependency-injection/hilt-jetpack#viewmodelscoped).
 
 ### Component hierarchy
 
 Installing a module into a component allows its bindings to be accessed as a
 dependency of other bindings in that component or in any child component below
 it in the component hierarchy:
-![ViewWithFragmentComponent is under FragmentComponent. FragmentComponent
-and ViewComponent are under ActivityComponent. ActivityComponent is under
-ActivityRetainedComponent. ViewModelComponent is under
-ActivityRetainedComponent. ActivityRetainedComponent and ServiceComponent
-are under SingletonComponent.](https://developer.android.com/static/images/training/dependency-injection/hilt-hierarchy.svg) **Figure 1.** Hierarchy of the components that Hilt generates.
 
-> [!NOTE]
-> **Note:** By default, if you perform field injection in a view, `ViewComponent` can use bindings that are defined in the `ActivityComponent`. If you also need to use bindings that are defined in `FragmentComponent` and the view is part of a fragment, use the `@WithFragmentBindings` annotation with `@AndroidEntryPoint`.
+![ViewWithFragmentComponent is under FragmentComponent. FragmentComponent
+    and ViewComponent are under ActivityComponent. ActivityComponent is under
+    ActivityRetainedComponent. ViewModelComponent is under
+    ActivityRetainedComponent. ActivityRetainedComponent and ServiceComponent
+    are under SingletonComponent.](/static/images/training/dependency-injection/hilt-hierarchy.svg)
+
+
+**Figure 1.** Hierarchy of the components that Hilt
+generates.
+
+**Note:** By default, if you perform field injection in a view, `ViewComponent` can
+use bindings that are defined in the `ActivityComponent`. If you also need to
+use bindings that are defined in `FragmentComponent` and the view is part of a
+fragment, use the `@WithFragmentBindings` annotation with `@AndroidEntryPoint`.
 
 ### Component default bindings
 
@@ -865,7 +897,7 @@ This is because Hilt uses a single activity component definition to inject all
 activities. Each activity has a different instance of this component.
 
 | Android component | Default bindings |
-|---|---|
+| --- | --- |
 | `SingletonComponent` | `Application` |
 | `ActivityRetainedComponent` | `Application` |
 | `ViewModelComponent` | `SavedStateHandle` |
@@ -880,7 +912,7 @@ For example:
 
 ### Kotlin
 
-```kotlin
+```
 class AnalyticsServiceImpl @Inject constructor(
   @ApplicationContext context: Context
 ) : AnalyticsService { ... }
@@ -893,7 +925,7 @@ class AnalyticsServiceImpl @Inject constructor(
 
 ### Java
 
-```java
+```
 public class AnalyticsServiceImpl implements AnalyticsService {
 
   private final Context context;
@@ -921,7 +953,7 @@ example:
 
 ### Kotlin
 
-```kotlin
+```
 class AnalyticsAdapter @Inject constructor(
   @ActivityContext context: Context
 ) { ... }
@@ -934,7 +966,7 @@ class AnalyticsAdapter @Inject constructor(
 
 ### Java
 
-```java
+```
 public class AnalyticsAdapter {
 
   private final Context context;
@@ -969,7 +1001,7 @@ objects that Hilt manages. Entry points allow Hilt to use code that Hilt does
 not manage to provide dependencies within the dependency graph.
 
 For example, Hilt doesn't directly support [content
-providers](https://developer.android.com/guide/topics/providers/content-providers). If you want a content
+providers](/guide/topics/providers/content-providers). If you want a content
 provider to use Hilt to get some dependencies, you need to define an interface
 that is annotated with `@EntryPoint` for each binding type that you want and
 include qualifiers. Then add `@InstallIn` to specify the component in which to
@@ -977,7 +1009,7 @@ install the entry point as follows:
 
 ### Kotlin
 
-```kotlin
+```
 class ExampleContentProvider : ContentProvider() {
 
   @EntryPoint
@@ -992,7 +1024,7 @@ class ExampleContentProvider : ContentProvider() {
 
 ### Java
 
-```java
+```
 public class ExampleContentProvider extends ContentProvider {
 
   @EntryPoint
@@ -1013,7 +1045,7 @@ method both match the Android class in the `@InstallIn` annotation on the
 
 ### Kotlin
 
-```kotlin
+```
 class ExampleContentProvider: ContentProvider() {
     ...
 
@@ -1030,7 +1062,7 @@ class ExampleContentProvider: ContentProvider() {
 
 ### Java
 
-```java
+```
 public class ExampleContentProvider extends ContentProvider {
 
   @Override
@@ -1056,9 +1088,11 @@ into an Android application.
 
 With respect to Dagger, the goals of Hilt are as follows:
 
-- To simplify Dagger-related infrastructure for Android apps.
-- To create a standard set of components and scopes to ease setup, readability, and code sharing between apps.
-- To provide an easy way to provision different bindings to various build types, such as testing, debug, or release.
+* To simplify Dagger-related infrastructure for Android apps.
+* To create a standard set of components and scopes to ease setup, readability,
+  and code sharing between apps.
+* To provide an easy way to provision different bindings to various build types,
+  such as testing, debug, or release.
 
 Because the Android operating system instantiates many of its own framework
 classes, using Dagger in an Android app requires you to write a substantial
@@ -1066,10 +1100,14 @@ amount of boilerplate. Hilt reduces the boilerplate code that is involved in
 using Dagger in an Android application. Hilt automatically generates and
 provides the following:
 
-- **Components for integrating Android framework classes** with Dagger that you would otherwise need to create by hand.
-- **Scope annotations** to use with the components that Hilt generates automatically.
-- **Predefined bindings** to represent Android classes such as `Application` or `Activity`.
-- **Predefined qualifiers** to represent `@ApplicationContext` and `@ActivityContext`.
+* **Components for integrating Android framework classes** with Dagger that you
+  would otherwise need to create by hand.
+* **Scope annotations** to use with the components that Hilt generates
+  automatically.
+* **Predefined bindings** to represent Android classes such as `Application` or
+  `Activity`.
+* **Predefined qualifiers** to represent `@ApplicationContext` and
+  `@ActivityContext`.
 
 Dagger and Hilt code can coexist in the same codebase. However, in most cases it
 is best to use Hilt to manage all of your usage of Dagger on Android. To migrate
@@ -1086,18 +1124,18 @@ To learn more about Hilt, see the following additional resources.
 
 ### Codelabs
 
-- [Using Hilt in your Android
+* [Using Hilt in your Android
   app](https://codelabs.developers.google.com/codelabs/android-hilt/)
-- [Migrating your Dagger app to
+* [Migrating your Dagger app to
   Hilt](https://codelabs.developers.google.com/codelabs/android-dagger-to-hilt/)
 
 ### Blogs
 
-- [Dependency Injection on Android with
+* [Dependency Injection on Android with
   Hilt](https://medium.com/androiddevelopers/dependency-injection-on-android-with-hilt-67b6031e62d)
-- [Scoping in Android and
+* [Scoping in Android and
   Hilt](https://medium.com/androiddevelopers/scoping-in-android-and-hilt-c2e5222317c0)
-- [Adding components to the Hilt
+* [Adding components to the Hilt
   hierarchy](https://medium.com/androiddevelopers/hilt-adding-components-to-the-hierarchy-96f207d6d92d)
-- [Migrating the Google I/O app to
+* [Migrating the Google I/O app to
   Hilt](https://medium.com/androiddevelopers/migrating-the-google-i-o-app-to-hilt-f3edf03affe5)

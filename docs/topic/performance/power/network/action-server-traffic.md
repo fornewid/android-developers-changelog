@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 Network traffic sent by server programs to your app can be challenging to
 optimize. A solution to this problem is for your app to periodically poll the
 server to check for updates. This approach can waste network connection and

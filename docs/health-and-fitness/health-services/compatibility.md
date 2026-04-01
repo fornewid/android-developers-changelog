@@ -1,20 +1,8 @@
 ---
-title: Enhance app compatibility across Wear OS devices  |  Android health & fitness  |  Android Developers
+title: https://developer.android.com/health-and-fitness/health-services/compatibility
 url: https://developer.android.com/health-and-fitness/health-services/compatibility
-source: html-scrape
+source: md.txt
 ---
-
-Starting in 2026, we'll be transitioning away from Google Fit APIs. For more information on the Google Fit migration, see the [Migration Guide](/health-and-fitness/guides/health-connect/migrate/migration-guide).
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Health & fitness dev center](https://developer.android.com/health-and-fitness)
-* [Fitness Guides](https://developer.android.com/health-and-fitness/fitness)
-
-# Enhance app compatibility across Wear OS devices Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 The Wear Health Services API (WHS) is a mandatory component for all devices
 running Wear OS 3 and higher, as it provides a consistent integration surface
@@ -37,7 +25,7 @@ clients within Wear Health Services.
 ## Exercise client
 
 The following sections describe the expected behaviors and data types of the
-[`ExerciseClient`](/reference/kotlin/androidx/health/services/client/ExerciseClient).
+[`ExerciseClient`](https://developer.android.com/reference/kotlin/androidx/health/services/client/ExerciseClient).
 
 ### Expected behaviors
 
@@ -49,11 +37,8 @@ availability on a given device.
 Most exercise data types are sampled and delivered at one second intervals,
 with some exceptions:
 
-* In some situations, some exercise data types are updated more than once per
-  second. For example, when the user is running, the step count is updated more
-  than once per second.
-* For some data types, an update is delivered only if the current value is
-  different from the previous value.
+- In some situations, some exercise data types are updated more than once per second. For example, when the user is running, the step count is updated more than once per second.
+- For some data types, an update is delivered only if the current value is different from the previous value.
 
 Data delivery can be either streaming or batched. Data is streamed while the
 application processor is on, which is typically when the display is on and
@@ -83,50 +68,46 @@ types that are supported in `ExerciseClient`.
 
 The following exercise data types are available on all devices.
 
-* Sample data types have a corresponding \_STATS Data Type that returns minimum,
-  maximum, and average values from the exercise. For example, PACE stats can be
-  pulled with the PACE\_STATS Data Type.
-* Interval data types have a corresponding \_TOTAL Data Type that returns the
-  cumulative value from the exercise. For example, DISTANCE stats can be pulled
-  with the DISTANCE\_TOTAL Data Type.
+- Sample data types have a corresponding _STATS Data Type that returns minimum, maximum, and average values from the exercise. For example, PACE stats can be pulled with the PACE_STATS Data Type.
+- Interval data types have a corresponding _TOTAL Data Type that returns the cumulative value from the exercise. For example, DISTANCE stats can be pulled with the DISTANCE_TOTAL Data Type.
 
-*Table 1: Exercise data types available on all devices*
-
+|---|---|---|
 | **Metric** | **Expected data** | **Notes on expected behaviors** |
-| HEART\_RATE\_BPM | Beats per minute [DataType: Double] | All devices sample heart rate once per second during an exercise. Some devices report a BPM value every second. Some devices only report BPM when it has changed since the previous value. Don't expect to receive a BPM value at each one second interval on all devices. |
-| LOCATION | Latitude and longitude [DataType: Double] | Location data is based on watch GPS only. Don't expect location data to come from Fused Location Provider or other Android services). Each data point also includes an accuracy value (also known as a horizontal position error) and availability. |
-| STEPS | [Data type: Long] | Step count is a running total over the duration of the exercise, not including time when exercise is paused |
-| DISTANCE | Meters [Data type: Double] | Computed from GPS-based location when available, and from steps otherwise. Total refers to the total over the duration of the exercise, not including the time when the exercise is paused. |
-| SPEED | [meters / second] [Data type: Double] | Returns minimum, maximum, and average values. These are over the duration of the exercise, not including the time when the exercise is paused. |
-| PACE | [seconds / meter] [Data type: Double] | Default value is 0 if the speed is 0. Averages are over the duration of the exercise, not including the time when the exercise is paused. |
-| ELEVATION\_GAIN | Meters. [Data type: Double] | Positive changes in elevation. The total is reported over the duration of the exercise, not including the time when the exercise is paused. |
-| TOTAL\_CALORIES | kCal [Data type: Double] | Active calories burned added to the Basal Metabolic Rate. The calories emitted here take into account the user's height, weight, age and gender as specified in system settings. Calories don't take into account any user profile data collected in your app. The total reported is over the duration of the exercise, not including the time when the exercise is paused. |
+| HEART_RATE_BPM | Beats per minute \[DataType: Double\] | All devices sample heart rate once per second during an exercise. Some devices report a BPM value every second. Some devices only report BPM when it has changed since the previous value. Don't expect to receive a BPM value at each one second interval on all devices. |
+| LOCATION | Latitude and longitude \[DataType: Double\] | Location data is based on watch GPS only. Don't expect location data to come from Fused Location Provider or other Android services). Each data point also includes an accuracy value (also known as a horizontal position error) and availability. |
+| STEPS | \[Data type: Long\] | Step count is a running total over the duration of the exercise, not including time when exercise is paused |
+| DISTANCE | Meters \[Data type: Double\] | Computed from GPS-based location when available, and from steps otherwise. Total refers to the total over the duration of the exercise, not including the time when the exercise is paused. |
+| SPEED | \[meters / second\] \[Data type: Double\] | Returns minimum, maximum, and average values. These are over the duration of the exercise, not including the time when the exercise is paused. |
+| PACE | \[seconds / meter\] \[Data type: Double\] | Default value is 0 if the speed is 0. Averages are over the duration of the exercise, not including the time when the exercise is paused. |
+| ELEVATION_GAIN | Meters. \[Data type: Double\] | Positive changes in elevation. The total is reported over the duration of the exercise, not including the time when the exercise is paused. |
+| TOTAL_CALORIES | kCal \[Data type: Double\] | Active calories burned added to the Basal Metabolic Rate. The calories emitted here take into account the user's height, weight, age and gender as specified in system settings. Calories don't take into account any user profile data collected in your app. The total reported is over the duration of the exercise, not including the time when the exercise is paused. |
+[*Table 1: Exercise data types available on all devices*]
 
 ### Optional exercise data types
 
 The following list of data types is available only on certain devices. See the
-Jetpack reference for a full list of [`DataTypes`](/reference/kotlin/androidx/health/services/client/data/DataType). If a `DataType` is not in
+Jetpack reference for a full list of [`DataTypes`](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/DataType). If a `DataType` is not in
 the preceding "required/guaranteed" list, then it is optional.
 
 See the following examples of optional data types. This list is not exhaustive:
 
-*Table 2: Examples of optional exercise data types*
-
+|---|---|---|
 | **Metric** | **Expected data** | **Notes on expected behaviors** |
-| ABSOLUTE\_ELEVATION | [Data type: Double] |  |
-| ELEVATION\_LOSS | Meters [Data type: Double] | Negative changes in elevation. The value is positive. For example, an elevation loss of 1m is returned as 1, not -1. |
-| STEPS\_PER\_MINUTE | [Data type: Long] |  |
-| WHEELCHAIR\_PUSHES | [Data type: Long] | A count of wheelchair pushes for use in wheelchair-based exercises. |
-| REP\_COUNT | [Data type: Long] |  |
-| SWIM\_STROKE\_COUNT | [Data type: Long] |  |
-| SWIM\_LAP\_COUNT | [Data type: Long] |  |
+| ABSOLUTE_ELEVATION | \[Data type: Double\] |   |
+| ELEVATION_LOSS | Meters \[Data type: Double\] | Negative changes in elevation. The value is positive. For example, an elevation loss of 1m is returned as 1, not -1. |
+| STEPS_PER_MINUTE | \[Data type: Long\] |   |
+| WHEELCHAIR_PUSHES | \[Data type: Long\] | A count of wheelchair pushes for use in wheelchair-based exercises. |
+| REP_COUNT | \[Data type: Long\] |   |
+| SWIM_STROKE_COUNT | \[Data type: Long\] |   |
+| SWIM_LAP_COUNT | \[Data type: Long\] |   |
+[*Table 2: Examples of optional exercise data types*]
 
 ### Data types per exercise
 
 Different data types are returned for each exercise type. The data types that
 are returned are consistent with the needs of the exercise. For example, the
 BIKING Exercise Type doesn't return the STEPS Data Type. Use the
-[`Capabilities`](/reference/kotlin/androidx/health/services/client/ExerciseClient#capabilities()) method at runtime to determine which data types are
+[`Capabilities`](https://developer.android.com/reference/kotlin/androidx/health/services/client/ExerciseClient#capabilities()) method at runtime to determine which data types are
 supported on the user's device.
 
 At a minimum, **all exercise types return heart rate and calorie data**. Other
@@ -135,17 +116,16 @@ the exercise.
 
 Here are a few examples:
 
-* Exercises such as meditation or pilates support only heart rate and calories
-* Exercises such as basketball or badminton support heart rate, calories,
-  distance, and steps.
-* Exercises such as walking and running support heart rate, calories, distance,
-  steps, speed, and pace
-* Swimming supports heart rate, calories, distance, and swim laps
+- Exercises such as meditation or pilates support only heart rate and calories
+- Exercises such as basketball or badminton support heart rate, calories, distance, and steps.
+- Exercises such as walking and running support heart rate, calories, distance, steps, speed, and pace
+- Swimming supports heart rate, calories, distance, and swim laps
 
 ## Passive Monitoring Client
 
 The following Data Types are *required* for all devices running Wear OS to
 support apps that passively monitor health and fitness data such as heart rate   
+
 and step count. Each of these Data Types must be derived solely from data
 generated by sensors on the watch.
 
@@ -162,34 +142,34 @@ types.
 
 ### Passive monitoring data types
 
-*Table 3: Required passive monitoring data types for Wear OS devices*
-
+|---|---|---|
 | **Metric** | **Expected data** | **Notes** |
-| HEART\_RATE\_BPM | Beats per minute [Data type: Double] | Devices may return heart rate readings at different intervals. Some devices may take reading every second. Other devices may take a reading every ten minutes. These intervals are not made available to apps. Apps should adapt gracefully to different sampling intervals. |
-| STEPS\_DAILY/STEPS | [Data type: Long] | Daily steps is the total number of steps taken since the last reset, which is triggered by WHS at midnight. This includes any steps taken while an active exercise is paused. Steps is a granular delta since the last check. |
-| DISTANCE\_DAILY/DISTANCE | meters [Data type: Double] | Computed from Accelerometer/Steps. Don't calculate during GPS to ensure that users who have turned off location services can still receive accurate step counts. |
-| SPEED | [meters / second] [Data type: Double] |  |
-| CALORIES\_DAILY | kCal [Data type: Double] | Calories for the day, including active calories and BMR. The calorie figure that is emitted here takes into account the user's height, weight, age and gender as specified in system settings. Calories are not adjusted according to any user profile data collected in your app. |
-| RUNNING\_STEPS (optional) | [Data type: Long] | Delta of steps both during an exercise and otherwise. Track both at the same time. |
-| WALKING\_STEPS (optional) | [Data type: Long] |  |
-| ELEVATION\_GAIN | meters [Data type: Double] | Includes only the positive deltas in elevation |
-| ELEVATION\_LOSS | meters [Data type: Double] | Includes only the negative deltas in elevation |
-| FLOORS\_DAILY | [Data type: Double] | Can be represented as "partial" floors |
+| HEART_RATE_BPM | Beats per minute \[Data type: Double\] | Devices may return heart rate readings at different intervals. Some devices may take reading every second. Other devices may take a reading every ten minutes. These intervals are not made available to apps. Apps should adapt gracefully to different sampling intervals. |
+| STEPS_DAILY/STEPS | \[Data type: Long\] | Daily steps is the total number of steps taken since the last reset, which is triggered by WHS at midnight. This includes any steps taken while an active exercise is paused. Steps is a granular delta since the last check. |
+| DISTANCE_DAILY/DISTANCE | meters \[Data type: Double\] | Computed from Accelerometer/Steps. Don't calculate during GPS to ensure that users who have turned off location services can still receive accurate step counts. |
+| SPEED | \[meters / second\] \[Data type: Double\] |   |
+| CALORIES_DAILY | kCal \[Data type: Double\] | Calories for the day, including active calories and BMR. The calorie figure that is emitted here takes into account the user's height, weight, age and gender as specified in system settings. Calories are not adjusted according to any user profile data collected in your app. |
+| RUNNING_STEPS (optional) | \[Data type: Long\] | Delta of steps both during an exercise and otherwise. Track both at the same time. |
+| WALKING_STEPS (optional) | \[Data type: Long\] |   |
+| ELEVATION_GAIN | meters \[Data type: Double\] | Includes only the positive deltas in elevation |
+| ELEVATION_LOSS | meters \[Data type: Double\] | Includes only the negative deltas in elevation |
+| FLOORS_DAILY | \[Data type: Double\] | Can be represented as "partial" floors |
+[*Table 3: Required passive monitoring data types for Wear OS devices*]
 
 ### Passive monitoring daily goals
 
-*Table 4: Passive monitoring daily goals metrics*
-
+|---|---|---|
 | **Metric** | **Expected data** | **Notes** |
-| STEPS\_DAILY | [Data type: Long] | Daily steps, including any steps taken while an active exercise is paused, is the total number of steps taken since the last reset. WHS resets at midnight. |
-| FLOORS\_DAILY | [Data type: Double] | Can be represented as "partial" floors of stairs. |
-| CALORIES\_DAILY | kCal [Data type: Double] | Calories for the day, which includes active calories and BMR. |
-| DISTANCE\_DAILY | meters [Data type: Double] | Computed from accelerometer or step count. Don't calculate this using the GPS so that users who have turned off location services can still receive accurate step counts. |
-| DAILY\_ELEVATION\_GAIN | meters [Data type: Double] | Includes only the positive deltas in elevation |
+| STEPS_DAILY | \[Data type: Long\] | Daily steps, including any steps taken while an active exercise is paused, is the total number of steps taken since the last reset. WHS resets at midnight. |
+| FLOORS_DAILY | \[Data type: Double\] | Can be represented as "partial" floors of stairs. |
+| CALORIES_DAILY | kCal \[Data type: Double\] | Calories for the day, which includes active calories and BMR. |
+| DISTANCE_DAILY | meters \[Data type: Double\] | Computed from accelerometer or step count. Don't calculate this using the GPS so that users who have turned off location services can still receive accurate step counts. |
+| DAILY_ELEVATION_GAIN | meters \[Data type: Double\] | Includes only the positive deltas in elevation |
+[*Table 4: Passive monitoring daily goals metrics*]
 
 ## MeasureClient
 
-Use [`MeasureClient`](/reference/kotlin/androidx/health/services/client/MeasureClient)
+Use [`MeasureClient`](https://developer.android.com/reference/kotlin/androidx/health/services/client/MeasureClient)
 to measure the heart rate at a given moment.
 
 ### Expected behaviors
@@ -202,10 +182,10 @@ info.
 
 ### Data types
 
-*Table 5: `MeasureClient` data types*
-
+|---|---|---|
 | **Metric** | **Expected data** | **Notes** |
-| HEART\_RATE\_BPM | Beats per minute [Data type: Double] | Also includes availability |
+| HEART_RATE_BPM | Beats per minute \[Data type: Double\] | Also includes availability |
+[*Table 5: `MeasureClient` data types*]
 
 ## Supported features
 
@@ -218,15 +198,15 @@ across all devices, and others exist only on some devices.
 
 All devices support the following common triggers:
 
-* Daily goals for distance and steps
-* Exercise goals for steps, distance, and duration.
+- Daily goals for distance and steps
+- Exercise goals for steps, distance, and duration.
 
 Other devices may support more advanced event triggers. Some examples include
 the following:
 
-* Counting laps when swimming
-* Exercise goals for calories burned
-* Exercise goals for instantaneous speed
+- Counting laps when swimming
+- Exercise goals for calories burned
+- Exercise goals for instantaneous speed
 
 ### States
 
@@ -245,6 +225,6 @@ detecting falls.
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Active data and exercises](/training/wearables/health-services/active)
-* [Health Services on Wear OS](/training/wearables/health-services)
+- Note: link text is displayed when JavaScript is off
+- [Active data and exercises](https://developer.android.com/training/wearables/health-services/active)
+- [Health Services on Wear OS](https://developer.android.com/training/wearables/health-services)

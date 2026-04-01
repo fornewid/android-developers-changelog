@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Android-powered devices with SIM cards and eSIMs use the following IDs in the telephony
 APIs, including
 [`TelephonyManager`](/reference/android/telephony/TelephonyManager) and

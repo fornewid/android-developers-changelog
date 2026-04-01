@@ -1,10 +1,23 @@
 ---
-title: https://developer.android.com/games/develop/multiplatform/overview
+title: Make your game great on different form factors  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/develop/multiplatform/overview
-source: md.txt
+source: html-scrape
 ---
 
-# Make your game great on different form factors
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 ### Make your game great on all form factors
 
@@ -18,28 +31,29 @@ Form factor is the physical size and shape of a device, such as a tablet in port
 
 Android devices are available in a variety of form factors and window sizes. Common categories you should care about include the following:
 
-- Mobile phones (including Android Auto)
-- Tablets
-- Foldable devices
-- Google Play Games on PC
-- Chromebooks, including clamshell, convertible, and detachables
-- Android TVs
-- Android Automotive OS cars
-- Google Play Instant
+* Mobile phones (including Android Auto)
+* Tablets
+* Foldable devices
+* Google Play Games on PC
+* Chromebooks, including clamshell, convertible, and detachables
+* Android TVs
+* Android Automotive OS cars
+* Google Play Instant
 
 Games that already perform well on Android mobile devices can be optimized and expanded to other form factors to maximize player reach.
-![](http://developer.android.com/static/images/games/CheckIconNew.png)  
+
+![](https://developer.android.com/static/images/games/CheckIconNew.png)
 
 ## Get Started
 
 Resource type
 
-### [Make your game compatible with all form factors](http://developer.android.com/games/develop/multiplatform/make-your-game-compatible-with-all-form-factors)
+### [Make your game compatible with all form factors](https://developer.android.com/games/develop/multiplatform/make-your-game-compatible-with-all-form-factors)
 
 Resource type
 
-### [Support large screen resizability](http://developer.android.com/games/develop/multiplatform/support-large-screen-resizability)
+### [Support large screen resizability](https://developer.android.com/games/develop/multiplatform/support-large-screen-resizability)
 
 Resource type
 
-### [Enable natural input on all form factors](http://developer.android.com/games/develop/multiplatform/enable-natural-input-on-all-form-factors)
+### [Enable natural input on all form factors](https://developer.android.com/games/develop/multiplatform/enable-natural-input-on-all-form-factors)

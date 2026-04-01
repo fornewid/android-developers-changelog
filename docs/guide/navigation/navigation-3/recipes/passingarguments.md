@@ -13,6 +13,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Passing Arguments to ViewModels (Hilt)
 
 This recipe demonstrates how to pass navigation arguments (keys) to a `ViewModel` using Hilt for dependency injection.

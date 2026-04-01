@@ -1,15 +1,25 @@
 ---
-title: https://developer.android.com/develop/connectivity/wifi/passpoint
+title: Passpoint  |  Connectivity  |  Android Developers
 url: https://developer.android.com/develop/connectivity/wifi/passpoint
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Connectivity](https://developer.android.com/develop/connectivity)
+* [Guides](https://developer.android.com/develop/connectivity/overview)
+
+# Passpoint Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Passpoint is a Wi-Fi Alliance (WFA) protocol that enables mobile devices to
 discover and authenticate to Wi-Fi hotspots that provide internet access.
 
 For information on the Wi-Fi suggestion API for Passpoint, see [Wi-Fi suggestion
-API for internet connectivity](https://developer.android.com/develop/connectivity/wifi-suggest) and
-[`WifiNetworkSuggestion.Builder`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSuggestion.Builder#setPasspointConfig(android.net.wifi.hotspot2.PasspointConfiguration)).
+API for internet connectivity](/develop/connectivity/wifi-suggest) and
+[`WifiNetworkSuggestion.Builder`](/reference/android/net/wifi/WifiNetworkSuggestion.Builder#setPasspointConfig(android.net.wifi.hotspot2.PasspointConfiguration)).
 
 For details about how Passpoint is implemented in Android, see [Passpoint
 (Hotspot 2.0)](https://source.android.com/devices/tech/connect/wifi-passpoint).

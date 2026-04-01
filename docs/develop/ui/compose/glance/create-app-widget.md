@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The following sections describe how to create a simple app widget with Glance.
 
 **Key Point:** Glance provides a modern approach to build app widgets using Compose,

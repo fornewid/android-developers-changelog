@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 This document describes how to synchronize data between a Wear OS device and a
 phone. See the [overview guidance](/training/wearables/data/overview) for when to use the Data Layer
 API and when to use your infrastructure.

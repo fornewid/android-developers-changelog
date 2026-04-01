@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This page describes some functional limitations of the Styles API.
 
 ## Functional limitations

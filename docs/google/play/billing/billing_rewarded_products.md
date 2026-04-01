@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 **Warning:** Rewarded products are no longer supported. For more information, see
 [Create a rewarded product](https://support.google.com/googleplay/android-developer/answer/9155268).
 
@@ -231,6 +232,8 @@ user access to a rewarded product:
 
 **Figure 1.** Steps for completing a rewarded product purchase
 using Google Play Billing
+
+
 
 
 

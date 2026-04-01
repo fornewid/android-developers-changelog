@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android devices come in a variety of form factors—phones, tablets, foldables,
 ChromeOS devices—which have a wide range of screen sizes. Android supports many
 display modes, including multi-window, multi-display, free-form, and

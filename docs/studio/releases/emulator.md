@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 [Android Emulator](/studio/run/emulator) is included with Android Studio.
 
 Versions of the emulator prior to 25.3.0 were distributed as part of the Android

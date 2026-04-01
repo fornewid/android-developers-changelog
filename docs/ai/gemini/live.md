@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 For applications that require real-time and low latency voice support, such as
 chatbots or agentic interactions, the **Gemini Live API** provides an optimized
 way to stream both input and output for a Gemini model. By using Firebase AI
@@ -72,11 +73,14 @@ you don't specify a voice, the default is `Puck`.
 ```
 // Initialize the `LiveModel`
 val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
-       modelName = "gemini-2.5-flash-native-audio-preview-12-2025",
-       generationConfig = liveGenerationConfig {
-          responseModality = ResponseModality.AUDIO
-          speechConfig = SpeechConfig(voice = Voice("FENRIR"))
-       })
+    modelName = "gemini-2.5-flash-native-audio-preview-12-2025",
+    generationConfig = liveGenerationConfig {
+        responseModality = ResponseModality.AUDIO
+        speechConfig = SpeechConfig(voice = Voice("FENRIR"))
+    }
+)
+
+GeminiLive.kt
 ```
 
 ### Java
@@ -103,16 +107,19 @@ instruction:
 
 ```
 val systemInstruction = content {
-            text("You are a helpful assistant, you main role is [...]")}
+    text("You are a helpful assistant, you main role is [...]")
+}
 
 val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
-       modelName = "gemini-2.5-flash-native-audio-preview-12-2025",
-       generationConfig = liveGenerationConfig {
-          responseModality = ResponseModality.AUDIO
-          speechConfig = SpeechConfig(voice= Voice("FENRIR"))
-       },
-       systemInstruction = systemInstruction,
+    modelName = "gemini-2.5-flash-native-audio-preview-12-2025",
+    generationConfig = liveGenerationConfig {
+        responseModality = ResponseModality.AUDIO
+        speechConfig = SpeechConfig(voice = Voice("FENRIR"))
+    },
+    systemInstruction = systemInstruction,
 )
+
+GeminiLive.kt
 ```
 
 ### Java
@@ -154,6 +161,8 @@ model:
 ```
 val session = model.connect()
 session.startAudioConversation()
+
+GeminiLive.kt
 ```
 
 ### Java
@@ -219,16 +228,19 @@ name and a short description in plain English of the function and its parameter:
 ```
 val itemList = mutableListOf<String>()
 
-fun addList(item: String){
-   itemList.add(item)
+fun addList(item: String) {
+    itemList.add(item)
 }
 
 val addListFunctionDeclaration = FunctionDeclaration(
-        name = "addList",
-        description = "Function adding an item the list",
-        parameters = mapOf("item" to Schema.string("A short string
-            describing the item to add to the list"))
-        )
+    name = "addList",
+    description = "Function adding an item the list",
+    parameters = mapOf(
+        "item" to Schema.string("A short string describing the item to add to the list")
+    )
+)
+
+GeminiLive.kt
 ```
 
 ### Java
@@ -256,14 +268,16 @@ instantiate it:
 val addListTool = Tool.functionDeclarations(listOf(addListFunctionDeclaration))
 
 val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
-       modelName = "gemini-2.5-flash-native-audio-preview-12-2025",
-       generationConfig = liveGenerationConfig {
-          responseModality = ResponseModality.AUDIO
-          speechConfig = SpeechConfig(voice= Voice("FENRIR"))
-       },
-       systemInstruction = systemInstruction,
-       tools = listOf(addListTool)
+    modelName = "gemini-2.5-flash-native-audio-preview-12-2025",
+    generationConfig = liveGenerationConfig {
+        responseModality = ResponseModality.AUDIO
+        speechConfig = SpeechConfig(voice = Voice("FENRIR"))
+    },
+    systemInstruction = systemInstruction,
+    tools = listOf(addListTool)
 )
+
+GeminiLive.kt
 ```
 
 ### Java
@@ -320,6 +334,8 @@ fun functionCallHandler(functionCall: FunctionCallPart): FunctionResponsePart {
         }
     }
 }
+
+GeminiLive.kt
 ```
 
 ### Java

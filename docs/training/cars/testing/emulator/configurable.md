@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To help emulate some of the configurations seen across OEMs, certain [hardware
 profiles](/training/cars/testing/emulator#bundled-profiles) support runtime configurability.
 

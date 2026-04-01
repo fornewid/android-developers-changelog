@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Enterprise
 
 [User Guide](/work/overview)  [Code Sample](https://github.com/android/enterprise-samples)

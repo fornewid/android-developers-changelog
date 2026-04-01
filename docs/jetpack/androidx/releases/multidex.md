@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Multidex
 
 Deploy applications with multiple dex files on pre-Android 5 devices.

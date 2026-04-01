@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Starting in Android 11 Beta 2, the system supports a subset of
 functionality described by
 [RFC7710bis](https://tools.ietf.org/html/draft-ietf-capport-rfc7710bis)

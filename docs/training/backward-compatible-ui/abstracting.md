@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Suppose you want to use [action bar tabs](/guide/topics/ui/actionbar#Tabs) as the primary form of top-level navigation in your application. Unfortunately, the `ActionBar` APIs are only available in Android 3.0 or later (API level 11+). Thus, if you want to distribute your application to devices running earlier versions of the platform, you need to provide an implementation that supports the newer API while providing a fallback mechanism that uses older APIs.
 
 In this class, you build a tabbed user interface (UI) component that uses abstract classes with version-specific implementations to provide backward-compatibility. This lesson describes how to create an abstraction layer for the new tab APIs as the first step toward building the tab component.

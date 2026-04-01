@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Baseline Profiles improve code execution speed by up to 30% by avoiding
 interpreter and just-in-time (JIT) [compilation
 steps](https://source.android.com/docs/core/runtime/jit-compiler#architectural-overview)

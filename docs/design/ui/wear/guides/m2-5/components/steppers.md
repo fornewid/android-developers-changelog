@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![](/static/wear/images/steppers/steppers-hero.png)
 
 The [Stepper](/reference/kotlin/androidx/wear/compose/material/package-summary#Stepper(kotlin.Float,kotlin.Function1,kotlin.Int,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.ranges.ClosedFloatingPointRange,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) allow users to make a selection from a range of values.

@@ -16,7 +16,6 @@ The Android XR SDK is now available in Developer Preview. We want your feedback!
 
 
 
-
 Android XR supports apps in different stages of development. It's built to
 minimize the effort it takes for a developer to create an app for multiple
 platforms and form factors.

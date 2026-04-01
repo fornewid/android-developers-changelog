@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 Android Gradle plugin 9.0 is a major release that brings API and behavior
 changes.
 

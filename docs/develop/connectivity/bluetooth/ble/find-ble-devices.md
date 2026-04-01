@@ -1,19 +1,32 @@
 ---
-title: https://developer.android.com/develop/connectivity/bluetooth/ble/find-ble-devices
+title: Find BLE devices  |  Connectivity  |  Android Developers
 url: https://developer.android.com/develop/connectivity/bluetooth/ble/find-ble-devices
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Connectivity](https://developer.android.com/develop/connectivity)
+* [Guides](https://developer.android.com/develop/connectivity/overview)
+
+# Find BLE devices Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 To find BLE devices, you use the
-[`startScan()`](https://developer.android.com/reference/android/bluetooth/le/BluetoothLeScanner#startScan(android.bluetooth.le.ScanCallback))
+[`startScan()`](/reference/android/bluetooth/le/BluetoothLeScanner#startScan(android.bluetooth.le.ScanCallback))
 method. This method takes a
-[`ScanCallback`](https://developer.android.com/reference/android/bluetooth/le/ScanCallback) as a parameter.
+[`ScanCallback`](/reference/android/bluetooth/le/ScanCallback) as a parameter.
 You must implement this callback, because that is how scan results are returned.
 Because scanning is battery-intensive, you should observe the following
 guidelines:
 
-- As soon as you find the desired device, stop scanning.
-- Never scan on a loop, and always set a time limit on your scan. A device that was previously available may have moved out of range, and continuing to scan drains the battery.
+* As soon as you find the desired device, stop scanning.
+* Never scan on a loop, and always set a time limit on your scan. A device that
+  was previously available may have moved out of range, and continuing to scan
+  drains the battery.
 
 In the following example, the BLE app provides an activity
 (`DeviceScanActivity`) to scan for available Bluetooth LE devices and display
@@ -22,7 +35,7 @@ scan:
 
 ### Kotlin
 
-```kotlin
+```
 private val bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
 private var scanning = false
 private val handler = Handler()
@@ -47,7 +60,7 @@ private fun scanLeDevice() {
 
 ### Java
 
-```java
+```
 private BluetoothLeScanner bluetoothLeScanner = bluetoothAdapter.getBluetoothLeScanner();
 private boolean scanning;
 private Handler handler = new Handler();
@@ -75,25 +88,30 @@ private void scanLeDevice() {
 }
 ```
 
-> [!NOTE]
-> **Note:** The [`BluetoothLeScanner`](https://developer.android.com/reference/android/bluetooth/le/BluetoothLeScanner) is only available from the [`BluetoothAdapter`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter) if Bluetooth is currently enabled on the device. If Bluetooth is not enabled, then [`getBluetoothLeScanner()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#getBluetoothLeScanner()) returns null.
+**Note:** The
+[`BluetoothLeScanner`](/reference/android/bluetooth/le/BluetoothLeScanner) is
+only available from the
+[`BluetoothAdapter`](/reference/android/bluetooth/BluetoothAdapter) if Bluetooth
+is currently enabled on the device. If Bluetooth is not enabled, then
+[`getBluetoothLeScanner()`](/reference/android/bluetooth/BluetoothAdapter#getBluetoothLeScanner())
+returns null.
 
 To scan for only specific types of peripherals, you can instead call
-[`startScan(List<ScanFilter>, ScanSettings, ScanCallback)`](https://developer.android.com/reference/android/bluetooth/le/BluetoothLeScanner#startScan(java.util.List%3Candroid.bluetooth.le.ScanFilter%3E,%20android.bluetooth.le.ScanSettings,%20android.bluetooth.le.ScanCallback)),
-providing a list of [`ScanFilter`](https://developer.android.com/reference/android/bluetooth/le/ScanFilter)
+[`startScan(List<ScanFilter>, ScanSettings, ScanCallback)`](/reference/android/bluetooth/le/BluetoothLeScanner#startScan(java.util.List%3Candroid.bluetooth.le.ScanFilter%3E,%20android.bluetooth.le.ScanSettings,%20android.bluetooth.le.ScanCallback)),
+providing a list of [`ScanFilter`](/reference/android/bluetooth/le/ScanFilter)
 objects that restrict the devices that the scan looks for and a
-[`ScanSettings`](https://developer.android.com/reference/android/bluetooth/le/ScanSettings) object that
+[`ScanSettings`](/reference/android/bluetooth/le/ScanSettings) object that
 specifies parameters about the scan.
 
 The following code sample is an implementation of
-[`ScanCallback`](https://developer.android.com/reference/android/bluetooth/le/ScanCallback),
+[`ScanCallback`](/reference/android/bluetooth/le/ScanCallback),
 which is the interface used to deliver BLE scan results. When results are found,
 they are added to a list adapter in the `DeviceScanActivity` to display to the
 user.
 
 ### Kotlin
 
-```kotlin
+```
 private val leDeviceListAdapter = LeDeviceListAdapter()
 // Device scan callback.
 private val leScanCallback: ScanCallback = object : ScanCallback() {
@@ -107,7 +125,7 @@ private val leScanCallback: ScanCallback = object : ScanCallback() {
 
 ### Java
 
-```java
+```
 private LeDeviceListAdapter leDeviceListAdapter = new LeDeviceListAdapter();
 
 // Device scan callback.
@@ -122,5 +140,7 @@ private ScanCallback leScanCallback =
         };
 ```
 
-> [!NOTE]
-> **Note:** You can only scan for Bluetooth LE devices *or* scan for classic Bluetooth devices, as described in [Bluetooth overview](https://developer.android.com/develop/connectivity/bluetooth). You can't scan for both Bluetooth LE and classic devices at the same time.
+**Note:** You can only scan for Bluetooth LE devices *or* scan for classic Bluetooth
+devices, as described in
+[Bluetooth overview](/develop/connectivity/bluetooth). You can't scan for both
+Bluetooth LE and classic devices at the same time.

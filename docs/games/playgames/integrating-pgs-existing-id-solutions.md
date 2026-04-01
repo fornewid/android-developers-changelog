@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This page explains how to integrate
 Play Games Services Sign In with your existing identity or cloud save
 solution. Even though these recommendations are optional, they can help you
@@ -229,8 +228,6 @@ accounts.
 ![Recall Same Device Flow](/static/images/games/playgames/pgs-recall-same-device-flow.png)
 A multi-account player can use your recall implementation to quickly switch
 between their game accounts too.
-
-
 
 
 

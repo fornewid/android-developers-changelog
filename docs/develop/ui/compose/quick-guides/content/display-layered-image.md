@@ -1,22 +1,34 @@
 ---
-title: https://developer.android.com/develop/ui/compose/quick-guides/content/display-layered-image
+title: Display layered images on a canvas  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/quick-guides/content/display-layered-image
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
+
+# Display layered images on a canvas Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 You can blend or overlay source images to display layered images on a canvas.
 For example, you can replicate how the Android Framework generates app icons by
 combining separate background and foreground drawables. To display layered
 images, you must do the following:
 
-- Layer images on a canvas.
-- Overlay the source.
+* Layer images on a canvas.
+* Overlay the source.
 
 ## Results
 
-![Custom Painter that overlays two images on top of each other](https://developer.android.com/static/develop/ui/compose/images/graphics-rainbowoverlay.jpg) **Figure 1** : An `Image` that uses a custom `Painter` to overlay a semi-transparent rainbow image over the image of a dog.
+![Custom Painter that overlays two images on top of each other](/static/develop/ui/compose/images/graphics-rainbowoverlay.jpg)
+
+
+**Figure 1**: An `Image` that uses a custom `Painter` to overlay a semi-transparent rainbow image over the image of a dog.
 
 ## Version compatibility
 
@@ -25,15 +37,12 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-layered-image_504265100ae01120c9f8aa6e5287923881f65f7e4bc6b06f0aa1c8888205eb6f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
-
 ## Layer images on a canvas
 
 The following code layers two source images on top of each other, rendering a
 blended image on the canvas:
 
-
-```kotlin
+```
 class OverlayImagePainter constructor(
     private val image: ImageBitmap,
     private val imageOverlay: ImageBitmap,
@@ -84,23 +93,29 @@ class OverlayImagePainter constructor(
         return srcSize
     }
 }
-```
 
-<br />
+CustomPainterSnippets.kt
+```
 
 ### Key points about the code
 
-- Uses `OverlayImagePainter`, which is a custom [`Painter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/painter/Painter) implementation that you can use to overlay images over the source image. The blend mode controls how the images are combined. The first image is not overwriting anything else, so no blend mode is needed. The `Overlay` blend mode of the second image overwrites the areas of the first image that are covered by the second image.
-- `DrawScope.onDraw()` is overridden and the two images are overlaid in this function.
-- `intrinsicSize` is overridden to correctly report the intrinsic size of the combined image.
+* Uses `OverlayImagePainter`, which is a custom [`Painter`](/reference/kotlin/androidx/compose/ui/graphics/painter/Painter) implementation
+  that you can use to overlay images over the source image. The blend mode
+  controls how the images are combined. The first image is not overwriting
+  anything else, so no blend mode is needed. The `Overlay` blend mode of the
+  second image overwrites the areas of the first image that are covered by the
+  second image.
+* `DrawScope.onDraw()` is overridden and the two images are overlaid in this
+  function.
+* `intrinsicSize` is overridden to correctly report the intrinsic size of the
+  combined image.
 
 ## Overlay source image
 
 With this custom painter `Painter`, you can overlay an image on top of the
 source image as follows:
 
-
-```kotlin
+```
 val rainbowImage = ImageBitmap.imageResource(id = R.drawable.rainbow)
 val dogImage = ImageBitmap.imageResource(id = R.drawable.dog)
 val customPainter = remember {
@@ -112,25 +127,38 @@ Image(
     contentScale = ContentScale.Crop,
     modifier = Modifier.wrapContentSize()
 )
-```
 
-<br />
+CustomPainterSnippets.kt
+```
 
 ### Key points about the code
 
-- The images to be combined are each loaded as [`ImageBitmap`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap) instances before being combined using `OverlayImagePainter`.
-- The combined images are rendered by an [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable#Image(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter,androidx.compose.ui.graphics.FilterQuality)) composable that uses the custom painter to combine the source images when rendering.
+* The images to be combined are each loaded as [`ImageBitmap`](/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap) instances
+  before being combined using `OverlayImagePainter`.
+* The combined images are rendered by an [`Image`](/reference/kotlin/androidx/compose/foundation/Image.composable#Image(androidx.compose.ui.graphics.ImageBitmap,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter,androidx.compose.ui.graphics.FilterQuality)) composable that uses the
+  custom painter to combine the source images when rendering.
 
 ## Collections that contain this guide
 
 This guide is part of these curated Quick Guide collections that cover
 broader Android development goals:
-![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+
+![](/static/images/quick-guides/collection-illustration.png)
+
+![](/static/images/picto-icons/collection.svg)
 
 ### Display images
 
-Discover techniques for using bright, engaging visuals to give your Android app a beautiful look and feel. [Quick guide collection](https://developer.android.com/develop/ui/compose/quick-guides/collections/display-images) ![](https://developer.android.com/static/images/picto-icons/help.svg)
+Discover techniques for using bright, engaging visuals to
+give your Android app a beautiful look and feel.
+
+[Quick guide collection](/develop/ui/compose/quick-guides/collections/display-images)
+
+![](/static/images/picto-icons/help.svg)
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.
+
+[Go to FAQ](/quick-guides/faq)
+[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

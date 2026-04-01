@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Layouts in views
 
 Try the Compose way

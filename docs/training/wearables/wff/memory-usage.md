@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Wear OS improves battery life by tracking memory use. Watch faces using the
 Watch Face Format have memory limits, as per the [Wear OS app quality
 guidelines](/docs/quality-guidelines/wear-app-quality#memory-usage):

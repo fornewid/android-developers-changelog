@@ -1,48 +1,57 @@
 ---
-title: https://developer.android.com/games/pgs/cpp/achievements
+title: Achievements  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/pgs/cpp/achievements
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+# Achievements Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 This document describes how to use Google Play Games Services achievements in C++ games. This
 document assumes you have set up your project as described in [Set Up
-Google Play Games Services](https://developer.android.com/games/pgs/console/setup). You can find the achievements API in the
-[`PgsAchievementsClient`](https://developer.android.com/games/services/cpp/v2/api/group/play-games#pgsachievementsclient).
+Google Play Games Services](/games/pgs/console/setup). You can find the achievements API in the
+[`PgsAchievementsClient`](/games/services/cpp/v2/api/group/play-games#pgsachievementsclient).
 
 ## Before you begin
 
 If you haven't already done so, you might find it helpful to review the
-[achievements game concepts](https://developer.android.com/games/pgs/achievements).
+[achievements game concepts](/games/pgs/achievements).
 
 Before you start to code using the achievements API:
 
-- Follow the instructions for installing and setting up your app to use
+* Follow the instructions for installing and setting up your app to use
   Play Games Services in the
-  [Set Up Google Play Games Services](https://developer.android.com/games/pgs/console/setup) guide.
-
-- Define the achievements that you want your game to unlock or display, by
-  following the instructions in the [Google Play Console guide](https://developer.android.com/games/pgs/achievements#creating_an_achievement).
-
-- Familiarize yourself with the recommendations described in
-  [Quality Checklist](https://developer.android.com/games/pgs/quality).
+  [Set Up Google Play Games Services](/games/pgs/console/setup) guide.
+* Define the achievements that you want your game to unlock or display, by
+  following the instructions in the [Google Play Console guide](/games/pgs/achievements#creating_an_achievement).
+* Familiarize yourself with the recommendations described in
+  [Quality Checklist](/games/pgs/quality).
 
 ## Get an achievements client
 
 To start using the achievements API, your game must first obtain an
-[`PgsAchievementsClient`](https://developer.android.com/games/services/cpp/v2/api/group/play-games#pgsachievementsclient)
+[`PgsAchievementsClient`](/games/services/cpp/v2/api/group/play-games#pgsachievementsclient)
 object. You can do this by calling the
-[`PgsAchievementsClient_create`](https://developer.android.com/games/services/cpp/v2/api/group/play-games#pgsachievementsclient_create)
+[`PgsAchievementsClient_create`](/games/services/cpp/v2/api/group/play-games#pgsachievementsclient_create)
 method and passing in the activity.
 
 ## Unlock achievements
 
 To unlock an achievement, call the
-[`PgsAchievementsClient_unlock`](https://developer.android.com/games/services/cpp/v2/api/group/achievements#pgsachievementsclient_unlock)
+[`PgsAchievementsClient_unlock`](/games/services/cpp/v2/api/group/achievements#pgsachievementsclient_unlock)
 method and pass in the `PgsAchievementsClient` and achievement ID.
 
 The following code snippet shows how your app can unlock achievements:
 
-```c++
+```
 // Example Usage
 void TriggerUnlock(PgsGamesClient* gamesClient) {
     // You must obtain the achievements client from the main games client
@@ -56,13 +65,13 @@ void TriggerUnlock(PgsGamesClient* gamesClient) {
 ```
 
 If the achievement is of the *incremental* type (that is, several steps are
-required to unlock it), call [`PgsAchievementsClient_increment`](https://developer.android.com/games/services/cpp/v2/api/group/achievements#pgsachievementsclient_increment)
+required to unlock it), call [`PgsAchievementsClient_increment`](/games/services/cpp/v2/api/group/achievements#pgsachievementsclient_increment)
 instead.
 
 The following code snippet shows how your app can increment the player's
 achievement:
 
-```c++
+```
 void IncrementMyAchievement(PgsAchievementsClient* client,
      const char* achievementId, uint32_t steps) {
     if (client == nullptr) {
@@ -105,18 +114,18 @@ steps.
 A good practice is to define the achievement IDs in the `strings.xml` file, so
 your game can reference the achievements by resource ID. When making calls to
 update and load achievements, make sure to also follow these
-[best practices](https://developer.android.com/games/pgs/quality) to avoid exceeding your API
+[best practices](/games/pgs/quality) to avoid exceeding your API
 quota.
 
 ## Display achievements
 
 To show a player's achievements, call
-[`PgsAchievementsClient_showAchievementsUI`](https://developer.android.com/games/services/cpp/v2/api/group/achievements#pgsachievementsclient_showachievementsui).
+[`PgsAchievementsClient_showAchievementsUI`](/games/services/cpp/v2/api/group/achievements#pgsachievementsclient_showachievementsui).
 
 The following code snippet shows how your app can display the default
 achievement user interface.
 
-```c++
+```
 void OnShowAchievementsUICallback(void* context, PgsError error) {
     if (error == PgsError_Success) {
         // The UI was displayed and closed successfully by the user.
@@ -145,4 +154,13 @@ void ShowMyAchievements(PgsAchievementsClient* achievementsClient) {
 ```
 
 The following image shows an example of the default achievements UI:
-![Example of the default achievements UI](https://developer.android.com/static/images/games/pgs/achievements_android.png) Example of the default achievements UI.
+
+![Example of the default achievements UI](/static/images/games/pgs/achievements_android.png)
+
+
+Example of the default achievements UI.
+
+
+
+
+Send feedback

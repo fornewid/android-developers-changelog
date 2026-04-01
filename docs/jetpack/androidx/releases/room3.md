@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Room 3.0
 
 The Room persistence library provides

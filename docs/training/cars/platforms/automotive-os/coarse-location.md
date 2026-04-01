@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To respect user privacy, app developers are encouraged to only request coarse
 location permissions. Apps that need an approximate coarse position typically
 use the fused network location (FLP) because it's fast and consumes less power.

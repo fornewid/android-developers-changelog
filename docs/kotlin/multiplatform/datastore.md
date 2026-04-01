@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The DataStore library stores data asynchronously, consistently, and
 transactionally, overcoming some of the drawbacks of SharedPreferences. This
 page focuses on creating DataStore in Kotlin Multiplatform (KMP) projects. For

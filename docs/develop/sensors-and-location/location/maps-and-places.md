@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ![](/static/images/google/gps-maps.png)
 
 Allow your users to explore the world with rich maps provided by Google.

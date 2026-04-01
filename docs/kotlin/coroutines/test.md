@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Unit testing code that uses [coroutines](/kotlin/coroutines) requires some extra attention, as their execution can be asynchronous and happen across multiple threads. This guide covers how suspending functions can be tested, the testing constructs you need to be familiar with, and how to make your code that uses coroutines testable.
 
 The APIs used in this guide are part of the [kotlinx.coroutines.test](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/) library. Make sure to [add the artifact](https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-test#using-in-your-project) as a test dependency to your project to have access to these APIs.

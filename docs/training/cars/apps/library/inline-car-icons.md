@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You can add icons inline with text to enrich your app's visual appeal using
 [`CarIconSpan`](/reference/kotlin/androidx/car/app/model/CarIconSpan). See the documentation for [`CarIconSpan.create`](/reference/kotlin/androidx/car/app/model/CarIconSpan#create) for more
 information on creating these spans. See [Spantastic text styling with Spans](https://medium.com/androiddevelopers/spantastic-text-styling-with-spans-17b0c16b4568)

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Create a bottom app bar to help users navigate and access functions in your app.
 Follow this guidance to add a bottom app bar to your app by using the
 [`BottomAppBar`](/reference/com/google/android/material/bottomappbar/BottomAppBar) composable.

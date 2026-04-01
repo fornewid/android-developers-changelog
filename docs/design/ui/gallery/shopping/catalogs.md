@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Create enticing product collections in a large display space that enables
 detailed imagery and compelling copy for motivated buying. Promote products by
 using outsized dimensions and prominent positioning to focus attention and

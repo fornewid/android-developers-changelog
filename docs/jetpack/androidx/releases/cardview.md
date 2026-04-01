@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Cardview
 
 [User Guide](/guide/topics/ui/layout/cardview)  [Code Sample](https://github.com/android/views-widgets-samples)

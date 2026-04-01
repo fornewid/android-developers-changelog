@@ -1,29 +1,35 @@
 ---
-title: https://developer.android.com/about/versions/android-3.0-highlights
+title: Honeycomb  |  Android Developers
 url: https://developer.android.com/about/versions/android-3.0-highlights
-source: md.txt
+source: html-scrape
 ---
 
-# Honeycomb
+* [Android Developers](https://developer.android.com/)
+
+# Honeycomb Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Welcome to Android 3.0!
 
-The Android 3.0 platform introduces many new and exciting features for users and developers. This document provides a glimpse of some of the new features and technologies, as delivered in Android 3.0. For a more detailed look at new developer APIs, see the[Android 3.0 Platform](https://developer.android.com/about/versions/android-3.0)document.
+The Android 3.0 platform introduces many new and exciting features for users and developers.
+This document provides a glimpse of some of the new features and technologies, as delivered in
+Android 3.0. For a more detailed look at new developer APIs, see the [Android 3.0 Platform](/about/versions/android-3.0) document.
 
-- [New User Features](https://developer.android.com/about/versions/android-3.0-highlights#UserFeatures)
-- [New Developer Features](https://developer.android.com/about/versions/android-3.0-highlights#DeveloperApis)
+* [New User Features](#UserFeatures)
+* [New Developer Features](#DeveloperApis)
 
 ## New User Features
 
-[![](https://developer.android.com/static/sdk/images/3.0/home_hero1.png)](https://developer.android.com/static/sdk/images/3.0/home_hero1_full.png)
+[![](/static/sdk/images/3.0/home_hero1.png)](/static/sdk/images/3.0/home_hero1_full.png)
 
 ### New UI designed from the ground up for tablets
 
-Android 3.0 is a new version of the Android platform that is specifically optimized for devices with larger screen sizes, particularly tablets. It introduces a brand new, truly virtual and "holographic" UI design, as well as an elegant, content-focused interaction model.
+Android 3.0 is a new version of the Android platform that is specifically optimized for devices with larger screen sizes, particularly tablets. It introduces a brand new, truly virtual and “holographic” UI design, as well as an elegant, content-focused interaction model.
 
-Android 3.0 builds on the things people love most about Android --- refined multitasking, rich notifications, Home screen customization, widgets, and more --- and transforms them with a vibrant, 3D experience and deeper interactivity, making them familiar but even better than before.
+Android 3.0 builds on the things people love most about Android — refined multitasking, rich notifications, Home screen customization, widgets, and more — and transforms them with a vibrant, 3D experience and deeper interactivity, making them familiar but even better than before.
 
-The new UI brings fresh paradigms for interaction, navigation, and customization and makes them available to all applications --- even those built for earlier versions of the platform. Applications written for Android 3.0 are able to use an extended set of UI objects, powerful graphics, and media capabilities to engage users in new ways.
+The new UI brings fresh paradigms for interaction, navigation, and customization and makes them available to all applications — even those built for earlier versions of the platform. Applications written for Android 3.0 are able to use an extended set of UI objects, powerful graphics, and media capabilities to engage users in new ways.
 
 **System Bar, for global status and notifications**
 
@@ -31,13 +37,15 @@ Across the system and in all applications, users have quick access to notificati
 
 **Action Bar, for application control**
 
-In every application, users have access to contextual options, navigation, widgets, or other types of content in an Action Bar, displayed at the top of the screen. The Action Bar is always present when an application is in use, although its content, theme, and other properties are managed by the application rather than the system. The Action Bar is another key touchpoint for users, especially with action items and an overflow dropdown menu, which users frequently access in a similar manner in most applications.  
-[![](https://developer.android.com/static/sdk/images/3.0/homescreen_cust_port.png)](https://developer.android.com/static/sdk/images/3.0/homescreen_cust_port_full.png)
+In every application, users have access to contextual options, navigation, widgets, or other types of content in an Action Bar, displayed at the top of the screen. The Action Bar is always present when an application is in use, although its content, theme, and other properties are managed by the application rather than the system. The Action Bar is another key touchpoint for users, especially with action items and an overflow dropdown menu, which users frequently access in a similar manner in most applications.
+
+[![](/static/sdk/images/3.0/homescreen_cust_port.png)](/static/sdk/images/3.0/homescreen_cust_port_full.png)
 
 **Customizable Home screens**
 
-Five customizable Home screens give users instant access to all parts of the system from any context. Each screen offers a large grid that maintains spatial arrangement in all orientations. Users can select and manipulate Home screen widgets, app shortcuts, and wallpapers using a dedicated visual layout mode. Visual cues and drop shadows improve visibility when adjusting the layout of shortcuts and widgets. Each Home screen also offers a familiar launcher for access to all installed applications, as well as a Search box for universal search of apps, contacts, media files, web content, and more.  
-[![](https://developer.android.com/static/sdk/images/3.0/tasks.png)](https://developer.android.com/static/sdk/images/3.0/tasks_full.png)
+Five customizable Home screens give users instant access to all parts of the system from any context. Each screen offers a large grid that maintains spatial arrangement in all orientations. Users can select and manipulate Home screen widgets, app shortcuts, and wallpapers using a dedicated visual layout mode. Visual cues and drop shadows improve visibility when adjusting the layout of shortcuts and widgets. Each Home screen also offers a familiar launcher for access to all installed applications, as well as a Search box for universal search of apps, contacts, media files, web content, and more.
+
+[![](/static/sdk/images/3.0/tasks.png)](/static/sdk/images/3.0/tasks_full.png)
 
 **Recent Apps, for easy visual multitasking**
 
@@ -45,8 +53,9 @@ Multitasking is a key strength of Android and it is central to the Android 3.0 e
 
 ### Redesigned keyboard
 
-The Android soft keyboard is redesigned to make entering text fast and accurate on larger screen sizes. The keys are reshaped and repositioned for improved targeting, and new keys have been added, such as a Tab key, to provide richer and more efficient text input. Users can touch-hold keys to access menus of special characters and switch text/voice input modes from a button in the System Bar.  
-[![](https://developer.android.com/static/sdk/images/3.0/copy.png)](https://developer.android.com/static/sdk/images/3.0/copy_full.png)
+The Android soft keyboard is redesigned to make entering text fast and accurate on larger screen sizes. The keys are reshaped and repositioned for improved targeting, and new keys have been added, such as a Tab key, to provide richer and more efficient text input. Users can touch-hold keys to access menus of special characters and switch text/voice input modes from a button in the System Bar.
+
+[![](/static/sdk/images/3.0/copy.png)](/static/sdk/images/3.0/copy_full.png)
 
 ### Improved text selection, copy and paste
 
@@ -58,15 +67,14 @@ Android 3.0 includes new connectivity features that add versatility and convenie
 
 ### Updated set of standard apps
 
-[![](https://developer.android.com/static/sdk/images/3.0/browser.png)](https://developer.android.com/static/sdk/images/3.0/browser_full.png)  
-[:camera:](https://developer.android.com/static/sdk/images/3.0/camera_full.png)
+[![](/static/sdk/images/3.0/browser.png)](/static/sdk/images/3.0/browser_full.png)  
+[![](/static/sdk/images/3.0/camera.png)](/static/sdk/images/3.0/camera_full.png)
 
 The Android 3.0 platform includes an updated set of standard applications that are designed for use on larger screen devices. The sections below highlight some of the new features.
+
 **Browser**
 
-<br />
-
-The browser includes new features that let users navigate and organize more efficiently. Multiple tabs replace browser windows and a new "incognito" mode allows anonymous browsing. Bookmarks and history are presented and managed in a single unified view. Users can now choose to automatically sign into Google sites on the browser with a supplied account and sync bookmarks with Google Chrome. New multitouch support is now available to JavaScript and plugins. Users can enjoy a better browsing experience at non-mobile sites through an improved zoom and viewport model, overflow scrolling, support for fixed positioning, and more.
+The browser includes new features that let users navigate and organize more efficiently. Multiple tabs replace browser windows and a new “incognito” mode allows anonymous browsing. Bookmarks and history are presented and managed in a single unified view. Users can now choose to automatically sign into Google sites on the browser with a supplied account and sync bookmarks with Google Chrome. New multitouch support is now available to JavaScript and plugins. Users can enjoy a better browsing experience at non-mobile sites through an improved zoom and viewport model, overflow scrolling, support for fixed positioning, and more.
 
 **Camera and Gallery**
 
@@ -84,16 +92,16 @@ The Email application uses a new two-pane UI to make viewing and organizing mess
 
 The Android 3.0 platform is designed specially to meet the unique needs of applications on devices with larger screen sizes. It offers all of the tools developers need to create incredible visual and interaction experiences on these devices.
 
-- [New UI framework for creating great tablet apps](https://developer.android.com/about/versions/android-3.0-highlights#ui)
-- [High-performance 2D and 3D graphics](https://developer.android.com/about/versions/android-3.0-highlights#graphics)
-- [Support for multicore processor architectures](https://developer.android.com/about/versions/android-3.0-highlights#multicore)
-- [Rich multimedia and connectivity](https://developer.android.com/about/versions/android-3.0-highlights#multimedia)
-- [Enhancements for enterprise](https://developer.android.com/about/versions/android-3.0-highlights#enterprise)
-- [Compatibility with existing apps](https://developer.android.com/about/versions/android-3.0-highlights#compatibility)
+* [New UI framework for creating great tablet apps](#ui)
+* [High-performance 2D and 3D graphics](#graphics)
+* [Support for multicore processor architectures](#multicore)
+* [Rich multimedia and connectivity](#multimedia)
+* [Enhancements for enterprise](#enterprise)
+* [Compatibility with existing apps](#compatibility)
 
 ### New UI Framework for creating great tablet apps
 
-[![](https://developer.android.com/static/sdk/images/3.0/contacts.png)](https://developer.android.com/static/sdk/images/3.0/contacts_full.png)
+[![](/static/sdk/images/3.0/contacts.png)](/static/sdk/images/3.0/contacts_full.png)
 
 **Activity fragments, for greater control of content and design flexibility**
 
@@ -101,8 +109,9 @@ Starting with Android 3.0, developers can break the Activities of their applicat
 
 **Redesigned UI widgets**
 
-Android 3.0 offers an updated set of UI widgets that developers can use to quickly add new types of content to their applications. The new UI widgets are redesigned for use on larger screens such as tablets and incorporate the new holographic UI theme. Several new widget types are available, including a 3D stack, search box, a date/time picker, number picker, calendar, popup menu, and others. Most of the redesigned UI widgets can now be used as remote views in application widgets displayed on the home screen. Applications written for earlier versions can inherit the new Widget designs and themes.  
-[![](https://developer.android.com/static/sdk/images/3.0/widgets.png)](https://developer.android.com/static/sdk/images/3.0/widgets.png)
+Android 3.0 offers an updated set of UI widgets that developers can use to quickly add new types of content to their applications. The new UI widgets are redesigned for use on larger screens such as tablets and incorporate the new holographic UI theme. Several new widget types are available, including a 3D stack, search box, a date/time picker, number picker, calendar, popup menu, and others. Most of the redesigned UI widgets can now be used as remote views in application widgets displayed on the home screen. Applications written for earlier versions can inherit the new Widget designs and themes.
+
+[![](/static/sdk/images/3.0/widgets.png)](/static/sdk/images/3.0/widgets.png)
 
 **Expanded Home screen widgets**
 
@@ -114,8 +123,9 @@ The platform provides each application with its own instance of the Action Bar a
 
 **Richer notifications**
 
-Notifications are a key part of the Android user experience because they let applications show key updates and status information to users in real time. Android 3.0 extends this capability, letting developers include richer content and control more properties. A new builder class lets developers quickly create notifications that include large and small icons, a title, a priority flag, and any properties already available in previous versions. Notifications can offer more types of content by building on the expanded set of UI Widgets that are now available as remote Views.  
-[![](https://developer.android.com/static/sdk/images/3.0/mail_drag.png)](https://developer.android.com/static/sdk/images/3.0/mail_drag_full.png)
+Notifications are a key part of the Android user experience because they let applications show key updates and status information to users in real time. Android 3.0 extends this capability, letting developers include richer content and control more properties. A new builder class lets developers quickly create notifications that include large and small icons, a title, a priority flag, and any properties already available in previous versions. Notifications can offer more types of content by building on the expanded set of UI Widgets that are now available as remote Views.
+
+[![](/static/sdk/images/3.0/mail_drag.png)](/static/sdk/images/3.0/mail_drag_full.png)
 
 **Multiselect, clipboard, and drag-and-drop**
 

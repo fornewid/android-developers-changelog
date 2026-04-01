@@ -1,24 +1,14 @@
 ---
-title: Adaptive differentiated  |  Large screens  |  Android Developers
+title: https://developer.android.com/guide/topics/large-screens/tier-1-overview
 url: https://developer.android.com/guide/topics/large-screens/tier-1-overview
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Large screens](https://developer.android.com/guide/topics/large-screens)
-* [Guides](https://developer.android.com/guide/topics/large-screens/tier-3-overview)
+![Tier 1 adaptive differentiated icon](https://developer.android.com/static/images/docs/quality-guidelines/tier-1/tier_1_icon.png)
 
-# Adaptive differentiated Stay organized with collections Save and categorize content based on your preferences.
+TIER 1 --- The top-quality tier of the [Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-1).
 
-
-
-![Tier 1 adaptive differentiated icon](/static/images/docs/quality-guidelines/tier-1/tier_1_icon.png)
-
-TIER 1 — The top-quality tier of the [Adaptive app quality guidelines](/docs/quality-guidelines/adaptive-app-quality/tier-1).
-
-![Depiction of three tiers with the top tier, tier 1, highlighted.](/static/images/docs/quality-guidelines/tier-1/tier_1_header.png)
+![Depiction of three tiers with the top tier, tier 1, highlighted.](https://developer.android.com/static/images/docs/quality-guidelines/tier-1/tier_1_header.png)
 
 APPS DIFFERENTIATED FOR LARGE SCREENS create a user experience not possible on
 small screen devices.
@@ -33,50 +23,43 @@ device.
 
 ## Do's and don'ts
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/tier_1_do.png)
-
-check\_circle
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/tier_1_do.png)
 
 ### Do
 
-* Think big
-* Design custom layouts and behaviors
-* Make your app different from anything else
-
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/tier_1_dont.png)
-
-cancel
+- Think big
+- Design custom layouts and behaviors
+- Make your app different from anything else
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/tier_1_dont.png)
 
 ### Don't
 
-* Settle for less
-* Design for just one or two device types
-* Let your app be unremarkable
+- Settle for less
+- Design for just one or two device types
+- Let your app be unremarkable
 
 ## Guidelines
 
 Differentiate your app by following the Tier 1 guidelines.
 
----
+*** ** * ** ***
 
 ### Desktop
 
 Deliver a desktop experience on Android by supporting connected displays,
 peripheral devices, and desktop functionality.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/user_experience_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/user_experience_icon.svg)
-
-#### [User experience](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_user_experience)
+#### [User experience](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_user_experience)
 
 A top-quality user experience bridges the gap between mobile convenience and desktop power, enabling users to remain focused and productive.
-
 Guidelines:
 
-* [Scrollbar\_Display](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Scrollbar_Display)
-* [Hover\_Parity](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Hover_Parity)
-* [Desktop\_Menus](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Desktop_Menus)
-* [UI\_Config](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#UI_Config)
-* [Request\_Fullscreen\_Mode](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Request_Fullscreen_Mode)
+- [Scrollbar_Display](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Scrollbar_Display)
+- [Hover_Parity](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Hover_Parity)
+- [Desktop_Menus](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Desktop_Menus)
+- [UI_Config](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#UI_Config)
+- [Request_Fullscreen_Mode](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Request_Fullscreen_Mode)
 
 #### What
 
@@ -88,20 +71,18 @@ Expansive, configurable screen space and precision input provide a focused and a
 
 #### How
 
-For more about creating refined user experiences, see the [User experience](/guide/topics/large-screens/user-experience) overview.
+For more about creating refined user experiences, see the [User experience](https://developer.android.com/guide/topics/large-screens/user-experience) overview.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/pointer_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/pointer_icon.svg)
-
-#### [Keyboard, mouse, and trackpad](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_keyboard_mouse_trackpad)
+#### [Keyboard, mouse, and trackpad](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_keyboard_mouse_trackpad)
 
 Provide full support for external input devices.
-
 Guidelines:
 
-* [Keyboard\_Navigation](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Keyboard_Navigation)
-* [Keyboard\_Parity](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Keyboard_Parity)
-* [Input\_Combinations](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Input_Combinations)
-* [Triple\_Click](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Triple_Click)
+- [Keyboard_Navigation](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Keyboard_Navigation)
+- [Keyboard_Parity](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Keyboard_Parity)
+- [Input_Combinations](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Input_Combinations)
+- [Triple_Click](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Triple_Click)
 
 #### What
 
@@ -113,19 +94,17 @@ Give users all the input capabilities possible with keyboard, mouse, and trackpa
 
 #### How
 
-To learn how to support advanced input capabilities, see the [Keyboard, mouse, and trackpad](/guide/topics/large-screens/keyboard-mouse-and-trackpad-tier-1) overview.
+To learn how to support advanced input capabilities, see the [Keyboard, mouse, and trackpad](https://developer.android.com/guide/topics/large-screens/keyboard-mouse-and-trackpad-tier-1) overview.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/multitasking_multi-instance_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/multitasking_multi-instance_icon.svg)
-
-#### [Multitasking and multi-instance](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_multitasking_multi-instance)
+#### [Multitasking and multi-instance](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_multitasking_multi-instance)
 
 Make users more productive with multitasking on large screens.
-
 Guidelines:
 
-* [Multitasking\_Scenarios](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multitasking_Scenarios)
-* [Multitasking\_PiP](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multitasking_PiP)
-* [Multi-Instance](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multi-Instance)
+- [Multitasking_Scenarios](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multitasking_Scenarios)
+- [Multitasking_PiP](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multitasking_PiP)
+- [Multi-Instance](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multi-Instance)
 
 #### What
 
@@ -137,15 +116,14 @@ Large screens provide plenty of display space for users to work with multiple ap
 
 #### How
 
-Learn how to include your app in multitasking in the [Multi-tasking and multi-instance](/guide/topics/large-screens/multitasking-and-multi-instance) overview.
+Learn how to include your app in multitasking in the [Multi-tasking and multi-instance](https://developer.android.com/guide/topics/large-screens/multitasking-and-multi-instance) overview.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/drag_and_drop_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/drag_and_drop_icon.svg)
+#### [Drag and drop](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_drag_drop)
 
-#### [Drag and drop](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_drag_drop)
+The desktop environment is perfect for drag and drop interactions---within an app or, on Android 7.0 (API level 24) and higher, between apps in multi‑window mode.
 
-The desktop environment is perfect for drag and drop interactions—within an app or, on Android 7.0 (API level 24) and higher, between apps in multi‑window mode.
-
-Guidelines — [Drag\_Drop\_Support](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Drag_Drop_Support)
+Guidelines --- [Drag_Drop_Support](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Drag_Drop_Support)
 
 #### What
 
@@ -157,20 +135,18 @@ Increase user productivity and engagement by adding drag and drop capabilities t
 
 #### How
 
-See the [Drag and drop](/guide/topics/large-screens/drag-and-drop) overview.
+See the [Drag and drop](https://developer.android.com/guide/topics/large-screens/drag-and-drop) overview.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/printing_and_file_management_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/printing_and_file_management_icon.svg)
-
-#### [Printing and file management](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_printing_and_file_management)
+#### [Printing and file management](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_printing_and_file_management)
 
 Desktop users rely on efficient file access and the ability to produce printed or electronic documents.
-
 Guidelines:
 
-* [Printing\_Support](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Printing_Support)
-* [File\_Management\_Basics](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#File_Management_Basics)
-* [File\_Picker](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#File_Picker)
-* [File\_Handlers](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#File_Handlers)
+- [Printing_Support](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Printing_Support)
+- [File_Management_Basics](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#File_Management_Basics)
+- [File_Picker](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#File_Picker)
+- [File_Handlers](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#File_Handlers)
 
 #### What
 
@@ -182,15 +158,14 @@ Desktop productivity requires powerful, convenient file access and management al
 
 #### How
 
-Learn how to work with files in the [Printing and file management](/guide/topics/large-screens/printing-file-management) overview.
+Learn how to work with files in the [Printing and file management](https://developer.android.com/guide/topics/large-screens/printing-file-management) overview.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/cursors_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/cursors_icon.svg)
-
-#### [Cursors](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_cursors)
+#### [Cursors](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_cursors)
 
 Provide context and precision control for mouse, trackpad, and stylus interactions.
 
-Guidelines — [Custom\_Cursors](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Custom_Cursors) and [Cursor\_Target\_Size](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Cursor_Target_Size)
+Guidelines --- [Custom_Cursors](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Custom_Cursors) and [Cursor_Target_Size](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Cursor_Target_Size)
 
 #### What
 
@@ -202,15 +177,14 @@ Differentiated cursors provide immediate feedback on how users can interact with
 
 #### How
 
-See the [Cursors](/guide/topics/large-screens/custom-cursors) overview.
+See the [Cursors](https://developer.android.com/guide/topics/large-screens/custom-cursors) overview.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/cross-device_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/cross-device_icon.svg)
-
-#### [Cross device](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_cross-device)
+#### [Cross device](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_cross-device)
 
 Continuity from device to device allows users to work seamlessly across their Android ecosystem.
 
-Guidelines — [Cross\_Device\_Handoff](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Cross_Device_Handoff)
+Guidelines --- [Cross_Device_Handoff](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Cross_Device_Handoff)
 
 #### What
 
@@ -222,15 +196,14 @@ Users often work with multiple devices and expect a continuous, uninterrupted wo
 
 #### How
 
-Learn about cross-device development in the [Cross device](/guide/topics/large-screens/cross-device) overview.
+Learn about cross-device development in the [Cross device](https://developer.android.com/guide/topics/large-screens/cross-device) overview.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/offline_support_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/offline_support_icon.svg)
-
-#### [Offline support](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_offline_support)
+#### [Offline support](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_offline_support)
 
 Reliable offline functionality ensures productivity regardless of network availability.
 
-Guidelines — [Offline\_Support](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Offline_Support)
+Guidelines --- [Offline_Support](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Offline_Support)
 
 #### What
 
@@ -242,15 +215,14 @@ Users expect to remain productive regardless of the quality or availability of t
 
 #### How
 
-Learn about building for app usage offline in the [Offline support](/guide/topics/large-screens/offline-support) overview.
+Learn about building for app usage offline in the [Offline support](https://developer.android.com/guide/topics/large-screens/offline-support) overview.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/app_to_web_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/app_to_web_icon.svg)
-
-#### [App to web](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_app_to_web)
+#### [App to web](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_app_to_web)
 
 Smooth transitions between app and web content maintain user flow and application context.
 
-Guidelines — [Web\_Transition](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Web_Transition)
+Guidelines --- [Web_Transition](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Web_Transition)
 
 #### What
 
@@ -262,22 +234,21 @@ Proper handling of deep links and web content avoids a fragmented user experienc
 
 #### How
 
-Learn about handling web content in the [App to web](/guide/topics/large-screens/app-to-web) overview.
+Learn about handling web content in the [App to web](https://developer.android.com/guide/topics/large-screens/app-to-web) overview.
 
----
+*** ** * ** ***
 
 ### Foldables
 
 Differentiate your app by supporting the unique features of premium foldable
 devices.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/foldables_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/foldables_icon.svg)
-
-#### [Foldable postures and states](/docs/quality-guidelines/adaptive-app-quality/experiences/foldables#t1_postures_states)
+#### [Foldable postures and states](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/foldables#t1_postures_states)
 
 Large screen foldable devices are like a phone and tablet in one. Folding features such as tabletop posture and book posture offer new user experience possibilities.
 
-Guidelines — [Foldables\_Postures](/docs/quality-guidelines/adaptive-app-quality/experiences/foldables#Foldables_Postures) and [Foldables\_Camera](/docs/quality-guidelines/adaptive-app-quality/experiences/foldables#Foldables_Camera)
+Guidelines --- [Foldables_Postures](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/foldables#Foldables_Postures) and [Foldables_Camera](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/foldables#Foldables_Camera)
 
 #### What
 
@@ -289,21 +260,20 @@ Differentiate your app by supporting the unique features of foldable devices.
 
 #### How
 
-Unfold the facts in the [Foldables](/guide/topics/large-screens/foldables) overview.
+Unfold the facts in the [Foldables](https://developer.android.com/guide/topics/large-screens/foldables) overview.
 
----
+*** ** * ** ***
 
 ### Camera • audio
 
 Enable engaging media experiences.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/camera_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/camera_icon.svg)
-
-#### [Camera](/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#t1_camera)
+#### [Camera](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#t1_camera)
 
 Support for external cameras enables a professional photography and video experience.
 
-Guidelines — [Camera\_Switcher](/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#Camera_Switcher)
+Guidelines --- [Camera_Switcher](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#Camera_Switcher)
 
 #### What
 
@@ -315,15 +285,14 @@ Large screen users often connect cameras for meetings or content production.
 
 #### How
 
-Learn more about camera support in the [Camera • audio](/guide/topics/large-screens/camera-audio) overview.
+Learn more about camera support in the [Camera • audio](https://developer.android.com/guide/topics/large-screens/camera-audio) overview.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/speaker_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/speaker_icon.svg)
-
-#### [Audio](/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#t1_audio)
+#### [Audio](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#t1_audio)
 
 Premium listening experiences are defined by a choice of available devices and uninterrupted playback and control across all windowing and device states.
 
-Guidelines — [Audio\_Switcher](/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#Audio_Switcher) and [Audio\_Background\_Playback](/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#Audio_Background_Playback)
+Guidelines --- [Audio_Switcher](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#Audio_Switcher) and [Audio_Background_Playback](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#Audio_Background_Playback)
 
 #### What
 
@@ -335,26 +304,24 @@ Users expect audio apps to support peripheral devices and continue playing as us
 
 #### How
 
-See the [Camera • audio](/guide/topics/large-screens/camera-audio) overview.
+See the [Camera • audio](https://developer.android.com/guide/topics/large-screens/camera-audio) overview.
 
----
+*** ** * ** ***
 
 ### Stylus
 
 Support the natural feel of stylus interactions for creativity and productivity
 tasks.
+![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/stylus_advanced_icon.svg)
 
-![](/static/images/guide/topics/large-screens/quality-guidelines/tier-1/stylus_advanced_icon.svg)
-
-#### [Stylus support](/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#t1_stylus)
+#### [Stylus support](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#t1_stylus)
 
 Top-tier apps support stylus-equipped devices. A stylus enables users to draw, write, erase, and work with your app using a variety of touch and gesture interactions.
-
 Guidelines:
 
-* [Stylus\_Draw\_Write](/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#Stylus_Draw_Write)
-* [Stylus\_Drag\_Drop](/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#Stylus_Drag_Drop)
-* [Stylus\_Enhanced](/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#Stylus_Enhanced)
+- [Stylus_Draw_Write](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#Stylus_Draw_Write)
+- [Stylus_Drag_Drop](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#Stylus_Drag_Drop)
+- [Stylus_Enhanced](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#Stylus_Enhanced)
 
 #### What
 
@@ -366,4 +333,4 @@ Provide an exceptional user experience on premium devices. Enhance user producti
 
 #### How
 
-For guidance about advanced stylus support, see the [Stylus](/guide/topics/large-screens/stylus-tier-1) overview.
+For guidance about advanced stylus support, see the [Stylus](https://developer.android.com/guide/topics/large-screens/stylus-tier-1) overview.

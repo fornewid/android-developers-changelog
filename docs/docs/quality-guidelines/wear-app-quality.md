@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The checklists on this page show various requirements to help you assess the
 quality of your Wear OS app and follow the
 [Principles of Wear OS development](/training/wearables/principles). Each requirement has a unique ID which

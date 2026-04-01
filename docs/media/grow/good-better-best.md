@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This article charts the optimal progression of a media app from a likely
 starting place to best-in-class. It's designed to
 help you think about scaling your app over time, and what features to implement

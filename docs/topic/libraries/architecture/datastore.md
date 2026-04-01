@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # DataStore   Part of [Android Jetpack](/jetpack).
 
 Try with Kotlin Multiplatform

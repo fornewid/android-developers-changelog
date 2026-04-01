@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
-
 The memory bandwidth of texture data can be a potential bottleneck for your
 app's GPU performance. There are some counters in an **AGI System Profile** that can help diagnose texture memory bandwidth issues.
 

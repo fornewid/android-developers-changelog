@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 To provide more transparency into how your app and its dependencies access
 private data from users, Android 11 introduces [data access
 auditing](/guide/topics/data/audit-access). By having insights from this

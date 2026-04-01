@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 State in an app is any value that can change over time. This is a very broad
 definition and encompasses everything from a Room database to a variable in a
 class.

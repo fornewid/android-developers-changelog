@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Try the Compose way
 
 Jetpack Compose on Wear OS is the recommended UI toolkit for Wear OS.

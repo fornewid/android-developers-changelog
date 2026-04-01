@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Compose Material 3
 
 [User Guide](/jetpack/compose/tutorial)  [Code Sample](https://github.com/android/compose-samples)

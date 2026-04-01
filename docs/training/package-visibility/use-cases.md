@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This document presents several common use cases in which an app interacts with
 other apps. Each section provides guidance on how to accomplish the app’s
 functionality with limited package visibility, which you need to consider if

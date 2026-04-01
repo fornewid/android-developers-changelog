@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 `bmgr` is a shell tool you can use to interact with the Backup Manager on Android
 devices version 2.2 (API Level 8) or higher. The tool provides commands to initiate backup and
 restore operations so that you don't need to repeatedly wipe data or take similar intrusive steps

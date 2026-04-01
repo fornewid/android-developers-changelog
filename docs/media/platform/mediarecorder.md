@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android multimedia framework includes support for capturing and encoding a variety of common
 audio and video formats. You can use the `MediaRecorder` APIs if supported
 by the device hardware.

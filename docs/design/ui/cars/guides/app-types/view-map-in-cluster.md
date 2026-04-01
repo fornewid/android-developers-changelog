@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Another helpful way to minimize distraction for drivers is to display a map in
 the instrument cluster, behind the steering wheel. The
 [cluster display option](/design/ui/cars/guides/templates/navigation-template#cluster) for the [navigation template](/design/ui/cars/guides/templates/navigation-template)

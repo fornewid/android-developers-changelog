@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Navigation describes the way users move around your app. Users interact with UI
 elements, usually by tapping or clicking on them, and the app responds by
 displaying new content. If the user wants to go back to the previous content,

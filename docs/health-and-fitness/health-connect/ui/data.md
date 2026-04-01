@@ -1,29 +1,17 @@
 ---
-title: Data display and attribution  |  Android health & fitness  |  Android Developers
+title: https://developer.android.com/health-and-fitness/health-connect/ui/data
 url: https://developer.android.com/health-and-fitness/health-connect/ui/data
-source: html-scrape
+source: md.txt
 ---
-
-Starting in 2026, we'll be transitioning away from Google Fit APIs. For more information on the Google Fit migration, see the [Migration Guide](/health-and-fitness/guides/health-connect/migrate/migration-guide).
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Health & fitness dev center](https://developer.android.com/health-and-fitness)
-* [Health Connect Guides](https://developer.android.com/health-and-fitness/health-connect)
-
-# Data display and attribution Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 To assure users that their data is being read correctly, clearly show how your
 app obtains data, which comes from the
-[`packageName` property of the `DataOrigin` class](/reference/kotlin/androidx/health/connect/client/records/metadata/DataOrigin#packageName()).
+[`packageName` property of the `DataOrigin` class](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/DataOrigin#packageName()).
 
 There are two ways to achieve this:
 
-1. [Basic attribution](#basic)
-2. [Attribution with education](#education)
+1. [Basic attribution](https://developer.android.com/health-and-fitness/health-connect/ui/data#basic)
+2. [Attribution with education](https://developer.android.com/health-and-fitness/health-connect/ui/data#education)
 
 ## Basic attribution
 
@@ -39,30 +27,24 @@ and provides clarity about where health information originated.
 You don't need to request any sensitive permission, such as
 `QUERY_ALL_PACKAGES`, in order to retrieve this information. The following
 example demonstrates how to retrieve the app label and icon for a given package
-from the `PackageManager`:
+from the `PackageManager`:  
 
-```
-fun getAppLabelAndIcon(context: Context, packageName: String): Pair<CharSequence?, Drawable?>{
-    return try {
-      val pm = context.packageManager
-      val appInfo = pm.getApplicationInfo(packageName, 0)
-      val label = pm.getApplicationLabel(appInfo)
-      val icon = pm.getApplicationIcon(appInfo)
-      label to icon
-    } catch (e: PackageManager.NameNotFoundException){
-      null to null
+    fun getAppLabelAndIcon(context: Context, packageName: String): Pair<CharSequence?, Drawable?>{
+        return try {
+          val pm = context.packageManager
+          val appInfo = pm.getApplicationInfo(packageName, 0)
+          val label = pm.getApplicationLabel(appInfo)
+          val icon = pm.getApplicationIcon(appInfo)
+          label to icon
+        } catch (e: PackageManager.NameNotFoundException){
+          null to null
+        }
     }
-}
-```
 
 This utility helps verify proper attribution by displaying both the app name
 and icon alongside the data.
 See the implementation in the [HealthConnectManager.kt sample](https://github.com/android/health-samples/blob/main/health-connect/HealthConnectSample/app/src/main/java/com/example/healthconnectsample/data/HealthConnectManager.kt#L89).
-
-![Basic attribution for reading data](/static/health-and-fitness/health-connect/images/hc_basic_attribution.png)
-
-
-**Figure 1**: Basic attribution for reading data
+![Basic attribution for reading data](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_basic_attribution.png) **Figure 1**: Basic attribution for reading data
 
 ## Attribution with education
 
@@ -70,15 +52,11 @@ Your app should help users obtain information about where data
 originates from, with a direct link to the "App permissions" screen in
 Health Connect. This type of attribution is suitable for the following screens:
 Activity details, Reports and insights.
-
-![Attribution in activity details and report screens in the partner app](/static/health-and-fitness/health-connect/images/hc_education_variation.png)
-![Attribution in insight screens in the partner app](/static/health-and-fitness/health-connect/images/hc_education_variation_3.png)
-
+![Attribution in activity details and report screens in the partner app](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_education_variation.png) ![Attribution in insight screens in the partner app](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_education_variation_3.png)
 **Figure 2**: Attribution with education variations
 
-![Attribution in activity details and report screens in the partner app](/static/health-and-fitness/health-connect/images/hc_education_variation.png)
-
-![Attribution in insight screens in the partner app](/static/health-and-fitness/health-connect/images/hc_education_variation_3.png)
+![Attribution in activity details and report screens in the partner app](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_education_variation.png)
+![Attribution in insight screens in the partner app](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_education_variation_3.png)
 
 ## Data Sync
 
@@ -86,14 +64,4 @@ If there's enough latency when syncing your app with Health Connect, show this
 notification in your app during sync. This informs the user that the process may
 take a while to finish. If you use notifications for syncing, they should be set
 to a low priority by default.
-
-![Data sync status shown](/static/health-and-fitness/health-connect/images/hc_data_sync.png)
-
-
-**Figure 3**: Data sync status shown
-
-[Previous
-
-arrow\_back
-
-Permissions and data access](/health-and-fitness/health-connect/ui/permissions)
+![Data sync status shown](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_data_sync.png) **Figure 3**: Data sync status shown

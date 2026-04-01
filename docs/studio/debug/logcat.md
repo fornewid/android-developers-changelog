@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The **Logcat** window in Android Studio helps you debug your app by
 displaying logs from your device in real time—for example, messages that you
 added to your app with the [`Log`](/reference/android/util/Log) class, messages

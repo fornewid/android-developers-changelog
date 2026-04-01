@@ -1,11 +1,20 @@
 ---
-title: https://developer.android.com/ai/appfunctions
+title: Overview of AppFunctions  |  AI  |  Android Developers
 url: https://developer.android.com/ai/appfunctions
-source: md.txt
+source: html-scrape
 ---
 
-> [!WARNING]
-> **Experimental:** AppFunctions is in an experimental preview as we refine the API surface, and is subject to change.
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [AI](https://developer.android.com/ai)
+* [Guides](https://developer.android.com/ai/overview)
+
+# Overview of AppFunctions Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+**Experimental:** AppFunctions is in an experimental preview as we refine the API
+surface, and is subject to change.
 
 AppFunctions allow your Android app to share specific pieces of functionality
 that the system and various AI agents and assistants can discover and invoke. By
@@ -19,7 +28,7 @@ connect to server-side tools, AppFunctions provide the same mechanism for
 Android apps. This enables you to expose your app's capabilities as
 orchestratable "tools" that authorized apps (callers) can discover and
 execute to fulfill user intents. Callers must have the
-[`EXECUTE_APP_FUNCTIONS`](https://developer.android.com/reference/android/Manifest.permission#EXECUTE_APP_FUNCTIONS) permission to discover and execute AppFunctions,
+[`EXECUTE_APP_FUNCTIONS`](/reference/android/Manifest.permission#EXECUTE_APP_FUNCTIONS) permission to discover and execute AppFunctions,
 and can include agents, apps, and AI assistants like Gemini.
 
 AppFunctions work with devices running Android 16 or higher.
@@ -34,26 +43,36 @@ step-by-step, manual navigation with your UI.
 The following scenarios illustrate how AppFunctions can be used to drive
 experiences within a variety of app categories:
 
-- **Task management and productivity**
-  - **User request** : "*Remind me to pick up my package at work today at 5 PM*".
-  - **AppFunction action**: The caller identifies the relevant task management app and invokes a function to create a task, automatically populating the title, time, and location fields based on the user's prompt.
-- **Media and entertainment**
-  - **User request** : "*Create a new playlist with the top jazz albums from this
+* **Task management and productivity**
+  + **User request**: "*Remind me to pick up my package at work today at 5 PM*".
+  + **AppFunction action**: The caller identifies the relevant task management
+    app and invokes a function to create a task, automatically populating the
+    title, time, and location fields based on the user's prompt.
+* **Media and entertainment**
+  + **User request**: "*Create a new playlist with the top jazz albums from this
     year*".
-  - **AppFunction action**: The caller executes a playlist creation function within a music app, passing context like "top jazz albums for 2026" as the query to generate and launch the content immediately.
-- **Cross-app workflows**
-  - **User request** : "*Find the noodle recipe from Lisa's email and add the
+  + **AppFunction action**: The caller executes a playlist creation function
+    within a music app, passing context like "top jazz albums for 2026" as the
+    query to generate and launch the content immediately.
+* **Cross-app workflows**
+  + **User request**: "*Find the noodle recipe from Lisa's email and add the
     ingredients to my shopping list*".
-  - **AppFunction action**: This request uses functions from multiple apps. First, the caller uses an email app's search function to retrieve the content. Then, it extracts the relevant ingredients and invokes a shopping list app's function to populate the user's list.
-- **Calendar and scheduling**
-  - **User request** : "*Add Mom's birthday party to my calendar for next Monday
+  + **AppFunction action**: This request uses functions from multiple apps.
+    First, the caller uses an email app's search function to retrieve the
+    content. Then, it extracts the relevant ingredients and invokes a shopping
+    list app's function to populate the user's list.
+* **Calendar and scheduling**
+  + **User request**: "*Add Mom's birthday party to my calendar for next Monday
     at 6 PM*".
-  - **AppFunction action**: The approved agentic app invokes the calendar app's "create event" function, parsing the relevant context like "next Monday" and "6 PM" to create the entry without the user needing to manually open the calendar.
+  + **AppFunction action**: The approved agentic app invokes the calendar app's
+    "create event" function, parsing the relevant context like "next Monday" and
+    "6 PM" to create the entry without the user needing to manually open the
+    calendar.
 
 ## How AppFunctions work
 
-**AppFunctions** is an [Android 16 platform feature](https://developer.android.com/reference/android/app/appfunctions/package-summary) and an accompanying
-[Jetpack library](https://developer.android.com/jetpack/androidx/releases/appfunctions) that allows apps to expose specific functions for callers,
+**AppFunctions** is an [Android 16 platform feature](/reference/android/app/appfunctions/package-summary) and an accompanying
+[Jetpack library](/jetpack/androidx/releases/appfunctions) that allows apps to expose specific functions for callers,
 such as agent apps, to access and execute on device.
 
 The following diagram illustrates the typical flow of how AppFunctions are
@@ -62,35 +81,44 @@ consider both server-side remote MCP tools and local AppFunctions together when
 handling user requests. The detailed flow for using local AppFunctions is as
 follows:
 
-- **AppFunction declaration**: The Android app is built to expose its AppFunctions, such as "Create Note" or "Send Message".
-- **Schema generation**: The AppFunctions Jetpack library generates an XML schema file that lists all the declared AppFunctions in the app. This file is used by the Android OS to index the available AppFunctions.
-- **Metadata retrieval**: The agent can retrieve AppFunction metadata by querying it.
-- **AppFunction selection and execution**: Based on user prompts, the agent will select and execute the appropriate AppFunction with the appropriate parameters.
+* **AppFunction declaration**: The Android app is built to expose its
+  AppFunctions, such as "Create Note" or "Send Message".
+* **Schema generation**: The AppFunctions Jetpack library generates an XML
+  schema file that lists all the declared AppFunctions in the app. This file is
+  used by the Android OS to index the available AppFunctions.
+* **Metadata retrieval**: The agent can retrieve AppFunction metadata by
+  querying it.
+* **AppFunction selection and execution**: Based on user prompts, the agent will
+  select and execute the appropriate AppFunction with the appropriate
+  parameters.
 
-![Diagram showing the typical flow of AppFunctions from app exposure to agent execution.](https://developer.android.com/static/ai/assets/images/appfunctions.svg) **Figure 1**: The typical flow of how AppFunctions are exposed and subsequently executed by an agent.
+![Diagram showing the typical flow of AppFunctions from app exposure to agent execution.](/static/ai/assets/images/appfunctions.svg)
+
+
+**Figure 1**: The typical flow of how AppFunctions are exposed and
+subsequently executed by an agent.
 
 The AppFunctions Jetpack library simplifies exposing your app's functionality.
 With the annotation processor, developers annotate the functions they want
 to expose. Callers can then discover and invoke these indexed functions using
-[`AppFunctionManager`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager).
+[`AppFunctionManager`](/reference/androidx/appfunctions/AppFunctionManager).
 
 Before invoking a function, callers should verify that the device supports
 the AppFunctions feature by attempting to retrieve an instance of
 `AppFunctionManager`. Once supported, callers can verify whether a specific
 function is enabled within a target app using
-[`isAppFunctionEnabled(packageName, functionId)`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager#isAppFunctionEnabled(kotlin.String)). Querying the status of
+[`isAppFunctionEnabled(packageName, functionId)`](/reference/androidx/appfunctions/AppFunctionManager#isAppFunctionEnabled(kotlin.String)). Querying the status of
 functions in other packages requires the
-[`android.permission.EXECUTE_APP_FUNCTIONS permission`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager#isAppFunctionEnabled(kotlin.String,kotlin.String)).
+[`android.permission.EXECUTE_APP_FUNCTIONS permission`](/reference/androidx/appfunctions/AppFunctionManager#isAppFunctionEnabled(kotlin.String,kotlin.String)).
 
 Your app is not required to verify whether the AppFunction feature is supported;
 this is automatically handled within the Jetpack library. For example,
-[AppFunctionManager](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager) can verify whether or not the feature is supported.
+[AppFunctionManager](/reference/androidx/appfunctions/AppFunctionManager) can verify whether or not the feature is supported.
 
 Here's an example of AppFunctions for a note-taking app with
 capabilities to create, edit, and list notes.
 
-
-```kotlin
+```
 /**
  * A note app's [AppFunction]s.
  */
@@ -154,6 +182,6 @@ data class Note(
     /** The note's content */
     val content: String
 )
-```
 
-<br />
+AppFunctionsApiSnippets.kt
+```

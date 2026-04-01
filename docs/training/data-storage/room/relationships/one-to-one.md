@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 A *one-to-one relationship* between two entities is a relationship where each
 instance of the parent entity corresponds to exactly one instance of the child
 entity, and the reverse is also true.

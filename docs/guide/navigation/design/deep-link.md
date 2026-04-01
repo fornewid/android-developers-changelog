@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 In Android, a deep link is a link that takes you directly to a specific
 destination within an app.
 

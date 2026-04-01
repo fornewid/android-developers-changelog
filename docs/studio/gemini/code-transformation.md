@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You can prompt Gemini from the code editor for code suggestions to modify,
 optimize, or add code to your app as follows:
 

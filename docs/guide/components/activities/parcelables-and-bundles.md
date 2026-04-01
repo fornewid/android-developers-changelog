@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 `Parcelable` and `Bundle` objects are intended to be
 used across process boundaries such as with IPC/Binder
 transactions, between activities with intents, and to store transient state across configuration

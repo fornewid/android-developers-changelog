@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Espresso-Web is an entry point to work with Android WebView UI components.
 Espresso-Web reuses Atoms from the popular [WebDriver API](http://www.seleniumhq.org/docs/03_webdriver.jsp) to examine and control the behavior of a WebView.
 

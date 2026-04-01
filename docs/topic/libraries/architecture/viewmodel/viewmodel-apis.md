@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # ViewModel Scoping APIs   Part of [Android Jetpack](/jetpack).
 
 Scope is key to using ViewModels effectively. Each ViewModel is scoped to an

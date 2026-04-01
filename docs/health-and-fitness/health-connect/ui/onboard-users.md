@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Many apps have a custom onboarding flow such as feature education or asking user
 consent. To enable Health Connect to launch your onboarding flow, add the
 following to your manifest:

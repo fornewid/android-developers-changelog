@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 syntax:
 :   ```
     <application android:allowTaskReparenting=["true" | "false"]

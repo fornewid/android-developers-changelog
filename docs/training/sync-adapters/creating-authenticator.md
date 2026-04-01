@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The sync adapter framework assumes that your sync adapter transfers data between device storage
 associated with an account and server storage that requires login access. For this reason, the
 framework expects you to provide a component called an authenticator as part of your sync

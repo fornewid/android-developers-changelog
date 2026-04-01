@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Dependency injection (DI) is a technique widely used in programming and well
 suited to Android development. By following the principles of DI, you lay the
 groundwork for good app architecture.

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 17 introduces great new features and APIs for developers. The following
 sections summarize these features to help you get started with the related APIs.
 

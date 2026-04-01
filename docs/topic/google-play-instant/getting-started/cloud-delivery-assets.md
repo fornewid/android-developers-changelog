@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/topic/google-play-instant/getting-started/cloud-delivery-assets
+title: Implement cloud delivery of assets  |  Other Play guides  |  Android Developers
 url: https://developer.android.com/topic/google-play-instant/getting-started/cloud-delivery-assets
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Other Play guides](https://developer.android.com/guide/app-bundle)
+
+# Implement cloud delivery of assets Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 **Warning:** Google Play Instant will no longer be available. Starting December 2025,
 Instant Apps cannot be published through Google Play, and all
@@ -18,7 +26,7 @@ their regular app or game, using [deeplinks](https://support.google.com/googlepl
 to redirect them to specific journeys or features when relevant.
 
 When shrinking your app to fit the size requirements, first try the
-[standard APK size optimization techniques](https://developer.android.com/topic/google-play-instant/getting-started/game-instant-app#apk-size-reduction).
+[standard APK size optimization techniques](/topic/google-play-instant/getting-started/game-instant-app#apk-size-reduction).
 If you need to shrink the size down further, you might need to rely on cloud
 delivery of assets. This document describes how to prepare assets for cloud
 delivery and the support options from various game engines. While the guidance
@@ -36,14 +44,14 @@ categories: needed always, needed at launch, and needed later.
 
 Some assets are difficult to separate into smaller blocks or are required to be bundled in the base APK.
 Examples include your game code and its library or engine dependencies. While
-[Google Play Core supports app bundles for code](https://developer.android.com/guide/app-bundle/playcore),
-many engines don't support code downloaded later.
+[Google Play Core supports app bundles for code](/guide/app-bundle/playcore),
+many engines don’t support code downloaded later.
 
 ### Needed at launch
 
 After the game starts, the user should be able to play immediately. Google Play Instant
 requires that users can start playing your game in less than 15 seconds over an
-LTE or 4G connection (see the [Google Play Instant checklist](https://developer.android.com/topic/google-play-instant/tech-requirements#total-download-size)).
+LTE or 4G connection (see the [Google Play Instant checklist](/topic/google-play-instant/tech-requirements#total-download-size)).
 Therefore, limit any secondary download after launch to be
 only as large as necessary to support the initial experience. For example,
 a fast-follow download immediately after launch might include the first game
@@ -58,7 +66,7 @@ as small as possible.
 
 ## Engine support
 
-Cloud asset delivery is the primary way to enable your game to go beyond the 15 MB limit for Instant play games.
+Cloud asset delivery is the primary way to enable your game to go beyond the 15 MB limit for Instant play games.
 Support for downloading assets will vary based on game engine. See the most
 common cases below, as well as options for hosting assets.
 
@@ -70,22 +78,22 @@ first launch.
 
 If you publish your app as an app bundle (which is the preferred method), you
 can use
-[feature modules](https://developer.android.com/guide/app-bundle/dynamic-delivery#customize_delivery)
+[feature modules](/guide/app-bundle/dynamic-delivery#customize_delivery)
 to fetch additional resources beyond the base APK. For your instant app, each
 feature module must set `dist:instant="true"` in the manifest. The
 `dist:on-demand` property should not be used; it is primarily used for on-demand
 modules in installed APKs. Additionally, each feature module must be under
-the instant APK limit of 15 MB, regardless of
+the instant APK limit of 15 MB, regardless of
 whether or not the module contains code. Failure to keep each module under this
 limit will prevent publishing to alpha or release tracks. Once properly
-configured, you can [fetch feature modules at runtime](https://developer.android.com/guide/playcore#request)
+configured, you can [fetch feature modules at runtime](/guide/playcore#request)
 using the PlayCore library.
 
 ### Cocos Creator
 
 Cocos has supported cloud delivery of assets since
 [version v2.0.4](https://docs.cocos.com/creator/manual/en/publish/publish-android-instant.html).
-Cocos downloads assets on demand, rendering placeholders if assets haven't been
+Cocos downloads assets on demand, rendering placeholders if assets haven’t been
 downloaded in time. Cocos generates asset files that must be hosted with some
 online service as Cocos does not provide one of its own.
 
@@ -114,9 +122,9 @@ be enough for your needs as well.
 
 ## Hosting assets
 
-Unless you're using Google Play [app bundles](https://developer.android.com/guide/app-bundle/playcore) to
-download your assets through Play, you'll need to host your assets elsewhere.
-You're free to host them with any service you'd like as long as it has a
+Unless you're using Google Play [app bundles](/guide/app-bundle/playcore) to
+download your assets through Play, you’ll need to host your assets elsewhere.
+You're free to host them with any service you’d like as long as it has a
 reasonable global distribution and availability. Google Play Games app users play
 around the world, so cloud-hosted assets need to be served to them quickly in
 any location.

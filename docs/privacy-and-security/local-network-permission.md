@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Devices on a Local Area Network (LAN) can be accessed by any app that has the
 `INTERNET` permission.
 This makes it easy for apps to connect to local devices, but also carries

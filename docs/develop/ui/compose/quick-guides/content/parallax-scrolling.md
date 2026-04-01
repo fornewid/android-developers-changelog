@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Parallax scrolling is a technique in which the background content and foreground
 content scroll at different speeds. You can implement this technique to enhance
 your app's UI, creating a more dynamic experience as your users scroll.

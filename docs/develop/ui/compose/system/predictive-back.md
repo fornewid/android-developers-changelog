@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Predictive back, a gesture navigation feature, lets users preview where the
 back swipe takes them. Predictive back seamlessly integrates with Compose to
 enhance your app's navigation experience. Users enjoy smoother and more

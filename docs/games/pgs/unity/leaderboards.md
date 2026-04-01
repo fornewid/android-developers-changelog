@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This topics describes how to use Play Games Services leaderboards in Unity
 games.
 
@@ -214,6 +215,8 @@ of the player profile are subject to privacy settings of the players.
             });
     }
 ```
+
+
 
 
 

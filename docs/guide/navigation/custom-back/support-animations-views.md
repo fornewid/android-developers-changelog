@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 You can create custom in-app property animations and transitions, custom
 cross-activity animations, and custom cross-fragment animations with predictive
 back gestures using Views or Compose. To try the Compose way, see

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Craft effective widget layouts by first identifying your core content. Your
 layout dictates how information and interactive elements are organized within
 your widget. Android offers several prebuilt layouts for toolbars, text, list

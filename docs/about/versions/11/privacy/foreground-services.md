@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 11 changes when foreground services can
 access the device's location, camera, and microphone. This helps protect
 sensitive user data.

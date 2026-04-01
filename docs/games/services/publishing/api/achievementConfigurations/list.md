@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Requires [authorization](#auth)**
 
 Returns a list of the achievement configurations in this application.

@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Core
 
 [Code Sample](https://github.com/android/user-interface-samples/tree/main/Notifications)

@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/training/testing/espresso/setup
+title: Espresso setup instructions  |  Test your app on Android  |  Android Developers
 url: https://developer.android.com/training/testing/espresso/setup
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Test your app on Android](https://developer.android.com/training/testing)
+
+# Espresso setup instructions Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 This guide covers installing Espresso using the SDK Manager and building it
 using Gradle. Android Studio is recommended.
@@ -11,22 +20,22 @@ using Gradle. Android Studio is recommended.
 
 To avoid flakiness, we highly recommend that you turn off system animations on
 the virtual or physical devices used for testing. On your device, under
-**Settings \> Developer options**, disable the following 3 settings:
+**Settings > Developer options**, disable the following 3 settings:
 
-- Window animation scale
-- Transition animation scale
-- Animator duration scale
+* Window animation scale
+* Transition animation scale
+* Animator duration scale
 
 ## Add Espresso dependencies
 
 To add Espresso dependencies to your project, complete the following steps:
 
-1. Open your app's `build.gradle` file. This is usually not the top-level `build.gradle` file but `app/build.gradle`.
+1. Open your app’s `build.gradle` file. This is usually not the top-level `build.gradle` file but `app/build.gradle`.
 2. Add the following lines inside dependencies:
 
 ### Groovy
 
-```groovy
+```
 androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 androidTestImplementation 'androidx.test:runner:1.6.1'
 androidTestImplementation 'androidx.test:rules:1.6.1'
@@ -34,13 +43,13 @@ androidTestImplementation 'androidx.test:rules:1.6.1'
 
 ### Kotlin
 
-```kotlin
+```
 androidTestImplementation('androidx.test.espresso:espresso-core:3.6.1')
 androidTestImplementation('androidx.test:runner:1.6.1')
 androidTestImplementation('androidx.test:rules:1.6.1')
 ```
 
-[View the complete set of Gradle dependencies](https://developer.android.com/studio/build/dependencies).
+[View the complete set of Gradle dependencies](/studio/build/dependencies).
 
 ## Set the instrumentation runner
 
@@ -49,13 +58,13 @@ Add to the same `build.gradle` file the following line in
 
 ### Groovy
 
-```groovy
+```
 testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 ```
 
 ### Kotlin
 
-```kotlin
+```
 testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 ```
 
@@ -63,7 +72,7 @@ testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
 ### Groovy
 
-```groovy
+```
 plugins {
   id 'com.android.application'
 }
@@ -90,7 +99,7 @@ dependencies {
 
 ### Kotlin
 
-```kotlin
+```
 plugins {
     id("com.android.application")
 }
@@ -126,7 +135,7 @@ of usage.
 If you do not wish to upload this data, you can opt out by including the
 `disableAnalytics` argument in your instrumentation command:
 
-```bash
+```
 adb shell am instrument -e disableAnalytics true
 ```
 
@@ -139,7 +148,7 @@ Example JUnit4 test using Rules:
 
 ### Kotlin
 
-```kotlin
+```
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class HelloWorldEspressoTest {
@@ -155,7 +164,7 @@ class HelloWorldEspressoTest {
 
 ### Java
 
-```java
+```
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class HelloWorldEspressoTest {
@@ -179,7 +188,7 @@ You can run your tests in Android Studio or from the command line.
 
 To create a test configuration in Android Studio, complete the following steps:
 
-1. Open **Run \> Edit Configurations**.
+1. Open **Run > Edit Configurations**.
 2. Add a new Android Tests configuration.
 3. Choose a module.
 4. Add a specific instrumentation runner: `androidx.test.runner.AndroidJUnitRunner`
@@ -189,6 +198,6 @@ To create a test configuration in Android Studio, complete the following steps:
 
 Execute the following Gradle command:
 
-```bash
+```
 ./gradlew connectedAndroidTest
 ```

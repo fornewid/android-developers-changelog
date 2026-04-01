@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Apps often have a need to offer one or more of their files to another app. For example, an image
 gallery may want to offer files to image editors, or a file management app may want to allow
 users to copy and paste files between areas in external storage. One way a sending app can

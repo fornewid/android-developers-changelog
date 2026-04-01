@@ -1,21 +1,12 @@
 ---
-title: Profile-guided Optimization  |  Android NDK  |  Android Developers
+title: https://developer.android.com/ndk/guides/pgo
 url: https://developer.android.com/ndk/guides/pgo
-source: html-scrape
+source: md.txt
 ---
-
-* [Home](https://developer.android.com/)
-* [NDK](https://developer.android.com/ndk)
-* [Develop](https://developer.android.com/develop)
-* [Guides](https://developer.android.com/ndk/guides)
-
-# Profile-guided Optimization Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 [Profile-guided optimization (PGO)](https://clang.llvm.org/docs/UsersManual.html#profile-guided-optimization)
 is a well known compiler optimization
-technique. In PGO, runtime profiles from a program’s executions are used by the
+technique. In PGO, runtime profiles from a program's executions are used by the
 compiler to make optimal choices about inlining and code layout. This leads to
 improved performance and reduced code size.
 
@@ -56,42 +47,32 @@ default build.
 Next, run the instrumented app on the device and generate profiles.
 Profiles are collected in memory when the instrumented binary is run and get
 written to a file at exit. However, functions registered with `atexit` are not
-called in an Android app — the app just gets killed.
+called in an Android app --- the app just gets killed.
 
 The application/workload has to do extra work to set a path for the profile file
 and then explicitly trigger a profile write.
 
-* To set the profile file path, call
-  `__llvm_profile_set_filename(PROFILE_DIR "/default-%m.profraw`. `%m` is useful
-  when there are multiple shared libraries. `%m` expands to a unique module
-  signature for that library, resulting in a separate profile per library. See
-  [here](https://clang.llvm.org/docs/SourceBasedCodeCoverage.html#running-the-instrumented-program)
-  for other useful pattern specifiers. `PROFILE_DIR` is a directory that is
-  writable from the app. See the [demo](#putting_it_all_together)
-  for detecting this directory at runtime.
-* To explicitly trigger a profile write, call the `__llvm_profile_write_file`
-  function.
+- To set the profile file path, call `__llvm_profile_set_filename(PROFILE_DIR "/default-%m.profraw`. `%m` is useful when there are multiple shared libraries. `%m` expands to a unique module signature for that library, resulting in a separate profile per library. See [here](https://clang.llvm.org/docs/SourceBasedCodeCoverage.html#running-the-instrumented-program) for other useful pattern specifiers. `PROFILE_DIR` is a directory that is writable from the app. See the [demo](https://developer.android.com/ndk/guides/pgo#putting_it_all_together) for detecting this directory at runtime.
+- To explicitly trigger a profile write, call the `__llvm_profile_write_file` function.
 
-```
-extern "C" {
-extern int __llvm_profile_set_filename(const char*);
-extern int __llvm_profile_write_file(void);
-}
+    extern "C" {
+    extern int __llvm_profile_set_filename(const char*);
+    extern int __llvm_profile_write_file(void);
+    }
 
-#define PROFILE_DIR "<location-writable-from-app>"
-void workload() {
-  // ...
-  // run workload
-  // ...
+    #define PROFILE_DIR "<location-writable-from-app>"
+    void workload() {
+      // ...
+      // run workload
+      // ...
 
-  // set path and write profiles after workload execution
-  __llvm_profile_set_filename(PROFILE_DIR "/default-%m.profraw");
-  __llvm_profile_write_file();
-  return;
-}
-```
+      // set path and write profiles after workload execution
+      __llvm_profile_set_filename(PROFILE_DIR "/default-%m.profraw");
+      __llvm_profile_write_file();
+      return;
+    }
 
-NB: Generating the profile file is simpler if the workload is a standalone binary —
+NB: Generating the profile file is simpler if the workload is a standalone binary ---
 just set the `LLVM_PROFILE_FILE` environment variable to `%t/default-%m.profraw`
 before running the binary.
 
@@ -102,11 +83,9 @@ the device using `adb pull`. After fetch, use the `llvm-profdata` utility in
 the NDK to convert from `.profraw` to `.profdata`, which can then be passed to the
 compiler.
 
-```
-$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-profdata \
-    merge --output=pgo_profile.profdata \
-    <list-of-profraw-files>
-```
+    $NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-profdata \
+        merge --output=pgo_profile.profdata \
+        <list-of-profraw-files>
 
 Use the `llvm-profdata` and `clang` from the same NDK release to avoid version
 mismatch of the profile file formats.
@@ -115,7 +94,7 @@ mismatch of the profile file formats.
 
 Use the profile from the previous step during a release build of your
 application by passing `-fprofile-use=<>.profdata` to the compiler and linker. The
-profiles can be used even as the code evolves — the Clang compiler can tolerate
+profiles can be used even as the code evolves --- the Clang compiler can tolerate
 slight mismatch between the source and the profiles.
 
 NB: In general, for most libraries, the profiles are common across architectures.
@@ -130,17 +109,8 @@ should be used for each such configuration.
 shows an end-to-end demo for using PGO from an app. It provides additional
 details that were skimmed over in this doc.
 
-* The [CMake build
-  rules](https://github.com/DanAlbert/ndk-samples/blob/pgo/pgo/app/src/main/cpp/CMakeLists.txt)
-  show how to setup a CMake variable that builds native code with instrumentation.
-  When the build variable is not set, native code is optimized using previously
-  generated PGO profiles.
-* In an instrumented build,
-  [pgodemo.cpp](https://github.com/DanAlbert/ndk-samples/blob/pgo/pgo/app/src/main/cpp/pgodemo.cpp)
-  writes the profiles are workload execution.
-* A writable location for the profiles is obtained at runtime in
-  [MainActivity.kt](https://github.com/DanAlbert/ndk-samples/blob/pgo/pgo/app/src/main/java/com/example/pgodemo/MainActivity.kt)
-  using `applicationContext.cacheDir.toString()`.
-* To pull profiles from the device without requiring `adb root`, use the `adb`
-  recipe
-  [here](https://github.com/DanAlbert/ndk-samples/blob/pgo/pgo/app/src/main/cpp/CMakeLists.txt#L11).
+- The [CMake build
+  rules](https://github.com/DanAlbert/ndk-samples/blob/pgo/pgo/app/src/main/cpp/CMakeLists.txt) show how to setup a CMake variable that builds native code with instrumentation. When the build variable is not set, native code is optimized using previously generated PGO profiles.
+- In an instrumented build, [pgodemo.cpp](https://github.com/DanAlbert/ndk-samples/blob/pgo/pgo/app/src/main/cpp/pgodemo.cpp) writes the profiles are workload execution.
+- A writable location for the profiles is obtained at runtime in [MainActivity.kt](https://github.com/DanAlbert/ndk-samples/blob/pgo/pgo/app/src/main/java/com/example/pgodemo/MainActivity.kt) using `applicationContext.cacheDir.toString()`.
+- To pull profiles from the device without requiring `adb root`, use the `adb` recipe [here](https://github.com/DanAlbert/ndk-samples/blob/pgo/pgo/app/src/main/cpp/CMakeLists.txt#L11).

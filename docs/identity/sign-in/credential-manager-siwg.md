@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Credential Manager's Sign in with Google implementation lets you configure
 sign-up and sign-in experiences. Credential Manager abstracts authentication
 complexity, while ensuring secure profile sharing and a consistent sign-up flow

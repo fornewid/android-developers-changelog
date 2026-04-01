@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This page outlines release changes to the Android Game Development Extension.
 
 **Note:** Let us know how the Android Game Development Extension is working for you by filling out
@@ -1550,8 +1549,6 @@ Visual Studio before updating to this version.
 | feature | Build and run your project on physical devices or emulators. |
 | feature | Debug your native code using the built-in VS debugger via LLDB. |
 | feature | Integration with Incredibuild. |
-
-
 
 
 

@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 App metadata bundles provide developers with a transparent way to include
 information about them (the developer), the app, and if and how they collect,
 share, and protect user data. The Google Play Store requires developers to

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 ![Android 13 makes Android even better on large
 screens](/static/images/about/versions/13/13-devices-screens.svg)
 

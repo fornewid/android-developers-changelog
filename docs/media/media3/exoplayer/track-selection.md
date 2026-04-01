@@ -1,12 +1,21 @@
 ---
-title: https://developer.android.com/media/media3/exoplayer/track-selection
+title: Track selection  |  Android media  |  Android Developers
 url: https://developer.android.com/media/media3/exoplayer/track-selection
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Track selection Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 When a media item contains multiple tracks, track selection is the process that
 determines which of them are chosen for playback. The track selection process is
-configured by [`TrackSelectionParameters`](https://developer.android.com/reference/androidx/media3/common/TrackSelectionParameters), which allows many different
+configured by [`TrackSelectionParameters`](/reference/androidx/media3/common/TrackSelectionParameters), which allows many different
 constraints and overrides influencing track selection to be specified.
 
 ## Querying the available tracks
@@ -14,14 +23,16 @@ constraints and overrides influencing track selection to be specified.
 You can listen to `Player.Listener.onTracksChanged` to be notified about changes
 to tracks, including:
 
-- The available tracks becoming known when preparation of the media item being played completes. Note that the player needs to prepare a media item to know what tracks it contains.
-- The available tracks changing due to playback transitioning from one media item to another.
-- Changes to the selected tracks.
-
+* The available tracks becoming known when preparation of the media item being
+  played completes. Note that the player needs to prepare a media item to know
+  what tracks it contains.
+* The available tracks changing due to playback transitioning from one media
+  item to another.
+* Changes to the selected tracks.
 
 ### Kotlin
 
-```kotlin
+```
 player.addListener(
   object : Player.Listener {
     override fun onTracksChanged(tracks: Tracks) {
@@ -29,11 +40,13 @@ player.addListener(
     }
   }
 )
+
+TrackSelection.kt
 ```
 
 ### Java
 
-```java
+```
 player.addListener(
     new Player.Listener() {
       @Override
@@ -41,9 +54,9 @@ player.addListener(
         // Update UI using current tracks.
       }
     });
-```
 
-<br />
+TrackSelection.java
+```
 
 You can also query the current tracks by calling `player.getCurrentTracks()`.
 The returned `Tracks` contains a list of `Tracks.Group` objects, where tracks
@@ -64,10 +77,9 @@ rate, channel count and so on can be grouped. This also applies to text tracks.
 Each `Group` can be queried to determine which tracks are supported for
 playback, which are currently selected, and what `Format` each track uses:
 
-
 ### Kotlin
 
-```kotlin
+```
 for (trackGroup in tracks.groups) {
   // Group level information.
   val trackType = trackGroup.type
@@ -80,11 +92,13 @@ for (trackGroup in tracks.groups) {
     val trackFormat = trackGroup.getTrackFormat(i)
   }
 }
+
+TrackSelection.kt
 ```
 
 ### Java
 
-```java
+```
 for (Tracks.Group trackGroup : tracks.getGroups()) {
   // Group level information.
   @C.TrackType int trackType = trackGroup.getType();
@@ -97,12 +111,20 @@ for (Tracks.Group trackGroup : tracks.getGroups()) {
     Format trackFormat = trackGroup.getTrackFormat(i);
   }
 }
+
+TrackSelection.java
 ```
 
-<br />
-
-- A track is *supported* if the `Player` is able to decode and render its samples. Note that even if multiple track groups of the same type (for example multiple audio track groups) are supported, it only means that they are supported individually and the player is not necessarily able to play them at the same time.
-- A track is *selected* if it has been chosen for playback given the current `TrackSelectionParameters`. If multiple tracks within one track group are selected, the player uses these tracks for adaptive playback (for example, multiple video tracks with different bitrates). Note that only one of these tracks will be played at any one time.
+* A track is *supported* if the `Player` is able to decode and render its
+  samples. Note that even if multiple track groups of the same type (for example
+  multiple audio track groups) are supported, it only means that they are
+  supported individually and the player is not necessarily able to play them at
+  the same time.
+* A track is *selected* if it has been chosen for playback given the current
+  `TrackSelectionParameters`. If multiple tracks within one track group are
+  selected, the player uses these tracks for adaptive playback (for example,
+  multiple video tracks with different bitrates). Note that only one of these
+  tracks will be played at any one time.
 
 ## Modifying track selection parameters
 
@@ -112,21 +134,22 @@ playback. The following example demonstrates how to obtain the current
 `TrackSelectionParameters` from the player, modify them, and update the `Player`
 with the modified result:
 
-
 ### Kotlin
 
-```kotlin
+```
 player.trackSelectionParameters =
   player.trackSelectionParameters
     .buildUpon()
     .setMaxVideoSizeSd()
     .setPreferredAudioLanguage("hu")
     .build()
+
+TrackSelection.kt
 ```
 
 ### Java
 
-```java
+```
 player.setTrackSelectionParameters(
     player
         .getTrackSelectionParameters()
@@ -134,9 +157,9 @@ player.setTrackSelectionParameters(
         .setMaxVideoSizeSd()
         .setPreferredAudioLanguage("hu")
         .build());
-```
 
-<br />
+TrackSelection.java
+```
 
 ### Constraint-based track selection
 
@@ -144,11 +167,11 @@ Most options in `TrackSelectionParameters` allow you to specify constraints,
 which are independent of the tracks that are actually available. Available
 constraints include:
 
-- Maximum and minimum video width, height, frame rate, and bitrate.
-- Maximum audio channel count and bitrate.
-- Preferred MIME types for video and audio.
-- Preferred audio languages and role flags.
-- Preferred text languages and role flags.
+* Maximum and minimum video width, height, frame rate, and bitrate.
+* Maximum audio channel count and bitrate.
+* Preferred MIME types for video and audio.
+* Preferred audio languages and role flags.
+* Preferred text languages and role flags.
 
 ExoPlayer uses sensible defaults for these constraints, for example restricting
 video resolution to the display size and preferring the audio language that
@@ -157,8 +180,15 @@ matches the user's system Locale setting.
 There are several benefits to using constraint-based track selection rather than
 selecting specific tracks from those that are available:
 
-- You can specify constraints before knowing what tracks a media item provides. This means that constraints can be specified before the player has prepared a media item, whereas selecting specific tracks requires application code to wait until the available tracks become known.
-- Constraints are applied for all media items in a playlist, even when those items have different available tracks. For example, a preferred audio language constraint will be automatically applied for all media items, even if the `Format` of the track in that language varies from one media item to the next. This is not the case when selecting specific tracks, as described below.
+* You can specify constraints before knowing what tracks a media item provides.
+  This means that constraints can be specified before the player has prepared a
+  media item, whereas selecting specific tracks requires application code to
+  wait until the available tracks become known.
+* Constraints are applied for all media items in a playlist, even when those
+  items have different available tracks. For example, a preferred audio language
+  constraint will be automatically applied for all media items, even if the
+  `Format` of the track in that language varies from one media item to the next.
+  This is not the case when selecting specific tracks, as described below.
 
 ### Selecting specific tracks
 
@@ -168,10 +198,9 @@ the player's currently available tracks should be queried using
 they can be set on `TrackSelectionParameters` using a `TrackSelectionOverride`.
 For example, to select the first track from a specific `audioTrackGroup`:
 
-
 ### Kotlin
 
-```kotlin
+```
 player.trackSelectionParameters =
   player.trackSelectionParameters
     .buildUpon()
@@ -179,11 +208,13 @@ player.trackSelectionParameters =
       TrackSelectionOverride(audioTrackGroup.mediaTrackGroup, /* trackIndex= */ 0)
     )
     .build()
+
+TrackSelection.kt
 ```
 
 ### Java
 
-```java
+```
 player.setTrackSelectionParameters(
     player
         .getTrackSelectionParameters()
@@ -192,9 +223,9 @@ player.setTrackSelectionParameters(
             new TrackSelectionOverride(
                 audioTrackGroup.getMediaTrackGroup(), /* trackIndex= */ 0))
         .build());
-```
 
-<br />
+TrackSelection.java
+```
 
 A `TrackSelectionOverride` will only apply to media items that contain a
 `TrackGroup` exactly matching the one specified in the override. Hence an
@@ -207,37 +238,37 @@ Track types like video, audio or text, can be disabled completely using
 `TrackSelectionParameters.Builder.setTrackTypeDisabled`. A disabled track type
 will be disabled for all media items:
 
-
 ### Kotlin
 
-```kotlin
+```
 player.trackSelectionParameters =
   player.trackSelectionParameters
     .buildUpon()
     .setTrackTypeDisabled(C.TRACK_TYPE_VIDEO, /* disabled= */ true)
     .build()
+
+TrackSelection.kt
 ```
 
 ### Java
 
-```java
+```
 player.setTrackSelectionParameters(
     player
         .getTrackSelectionParameters()
         .buildUpon()
         .setTrackTypeDisabled(C.TRACK_TYPE_VIDEO, /* disabled= */ true)
         .build());
-```
 
-<br />
+TrackSelection.java
+```
 
 Alternatively, it's possible to prevent the selection of tracks from a specific
 `TrackGroup` by specifying an empty override for that group:
 
-
 ### Kotlin
 
-```kotlin
+```
 player.trackSelectionParameters =
   player.trackSelectionParameters
     .buildUpon()
@@ -245,11 +276,13 @@ player.trackSelectionParameters =
       TrackSelectionOverride(disabledTrackGroup.mediaTrackGroup, /* trackIndices= */ listOf())
     )
     .build()
+
+TrackSelection.kt
 ```
 
 ### Java
 
-```java
+```
 player.setTrackSelectionParameters(
     player
         .getTrackSelectionParameters()
@@ -259,9 +292,9 @@ player.setTrackSelectionParameters(
                 disabledTrackGroup.getMediaTrackGroup(),
                 /* trackIndices= */ ImmutableList.of()))
         .build());
-```
 
-<br />
+TrackSelection.java
+```
 
 ## Customizing the track selector
 
@@ -269,50 +302,52 @@ Track selection is the responsibility of a `TrackSelector`, an instance
 of which can be provided whenever an `ExoPlayer` is built and later obtained
 with `ExoPlayer.getTrackSelector()`.
 
-
 ### Kotlin
 
-```kotlin
+```
 val trackSelector = DefaultTrackSelector(context)
 val player = ExoPlayer.Builder(context).setTrackSelector(trackSelector).build()
+
+TrackSelection.kt
 ```
 
 ### Java
 
-```java
+```
 DefaultTrackSelector trackSelector = new DefaultTrackSelector(context);
 ExoPlayer player = new ExoPlayer.Builder(context).setTrackSelector(trackSelector).build();
-```
 
-<br />
+TrackSelection.java
+```
 
 `DefaultTrackSelector` is a flexible `TrackSelector` suitable for most use
 cases. It uses the `TrackSelectionParameters` set in the `Player`, but also
 provides some advanced customization options that can be specified in the
 `DefaultTrackSelector.ParametersBuilder`:
 
-
 ### Kotlin
 
-```kotlin
+```
 trackSelector.setParameters(
   trackSelector.buildUponParameters().setAllowVideoMixedMimeTypeAdaptiveness(true)
 )
+
+TrackSelection.kt
 ```
 
 ### Java
 
-```java
+```
 trackSelector.setParameters(
     trackSelector.buildUponParameters().setAllowVideoMixedMimeTypeAdaptiveness(true));
-```
 
-<br />
+TrackSelection.java
+```
 
 ### Tunneling
 
 Tunneling may help with efficient video playback of high-resolution streams on
-some TV devices. See the [battery consumption](https://developer.android.com/media/media3/exoplayer/battery-consumption) page for further notes and
+some TV devices. See the [battery consumption](/media/media3/exoplayer/battery-consumption) page for further notes and
 details.
 
 You can set a preference for tunneled playback to enable it in cases where the
@@ -322,17 +357,16 @@ combination of renderers and selected tracks supports it. To do this, use
 ### Audio Offload
 
 Audio offload may help to save power, in particular for longer playbacks with
-the screen turned off. See the [battery consumption](https://developer.android.com/media/media3/exoplayer/battery-consumption) page for further notes
+the screen turned off. See the [battery consumption](/media/media3/exoplayer/battery-consumption) page for further notes
 and details.
 
 You can set preferences for offloaded audio playback to enable it in cases where
 the combination of renderers and selected tracks supports it. To do this,
-specify [`AudioOffloadModePreferences`](https://developer.android.com/reference/androidx/media3/common/TrackSelectionParameters.AudioOffloadPreferences) in your `TrackSelectionParameters`.
-
+specify [`AudioOffloadModePreferences`](/reference/androidx/media3/common/TrackSelectionParameters.AudioOffloadPreferences) in your `TrackSelectionParameters`.
 
 ### Kotlin
 
-```kotlin
+```
 val audioOffloadPreferences =
   AudioOffloadPreferences.Builder()
     .setAudioOffloadMode(AudioOffloadPreferences.AUDIO_OFFLOAD_MODE_ENABLED)
@@ -344,11 +378,13 @@ player.trackSelectionParameters =
     .buildUpon()
     .setAudioOffloadPreferences(audioOffloadPreferences)
     .build()
+
+TrackSelection.kt
 ```
 
 ### Java
 
-```java
+```
 AudioOffloadPreferences audioOffloadPreferences =
     new AudioOffloadPreferences.Builder()
         .setAudioOffloadMode(AudioOffloadPreferences.AUDIO_OFFLOAD_MODE_ENABLED)
@@ -361,6 +397,6 @@ player.setTrackSelectionParameters(
         .buildUpon()
         .setAudioOffloadPreferences(audioOffloadPreferences)
         .build());
-```
 
-<br />
+TrackSelection.java
+```

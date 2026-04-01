@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The system automatically makes some apps visible so that your app
 can interact with them without needing to declare the
 [`<queries>`](/guide/topics/manifest/queries-element) element. This behavior

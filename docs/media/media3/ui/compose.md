@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ## Add the dependency
 
 The Media3 library includes two Jetpack Compose-based UI modules. You don't have

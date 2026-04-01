@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Drop-down menus let users click an icon, text field, or other component, and
 then select from a list of options on a temporary surface. This guide describes
 how to create both basic menus and more complex menus with dividers and icons.

@@ -17,7 +17,6 @@ Learn more about the user-facing changes in this [Help Center article](https://
 
 
 
-
 Wear OS apps that use standard views benefit from automatic hardware-accelerated
 graphics rendering. But watch faces are usually implemented using
 canvases, so they don't automatically get hardware acceleration.

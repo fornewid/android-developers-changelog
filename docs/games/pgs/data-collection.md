@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/games/pgs/data-collection
+title: Prepare for Google Play's data disclosure requirements  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/pgs/data-collection
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+# Prepare for Google Play's data disclosure requirements Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 In May 2021, Google Play
 [announced the new Data safety section](https://android-developers.googleblog.com/2021/05/new-safety-section-in-google-play-will.html),
@@ -23,7 +34,7 @@ sharing, and security practices.
 ## How to use the information on this page
 
 This page lists the end-user data collected by only the latest version of the
-[Play Games Services SDKs](https://developer.android.com/games/pgs/downloads).
+[Play Games Services SDKs](/games/pgs/downloads).
 
 We provide information about data collected automatically and data collected
 depending on your usage. Automatic collection means that the SDK collects
@@ -40,10 +51,11 @@ data.
 
 ## Overview of data encryption, data sharing, and data deletion for Play Games Services SDKs
 
-|---|---|
+|  |  |
+| --- | --- |
 | **Data encryption** | For the collected end-user data listed on this page, Play Games Services encrypts the data in transit using HTTPS. |
-| **Data sharing** | Game Services data is exposed using a 3rd-party API. Your Play Games Services enabled game can only read/write the authenticated player's data for that game. It cannot access games service data for another game a user plays. When a user logs into your game using Play Games Services, their gamer identity is shared with your Play Games Services enabled game. Users choose whether their profile is for "Friends only," for "Everyone," or "Only you." When users choose the "Friends only" visibility, only users added as friends can see game data for the profile. If public, all other users can see game data for the profile. If private, other users can only see that the display name is in use, but not any game/gameplay data. Users can also choose whether Play Games Services enabled games can access their friends lists (includes only the display name, not the email address) automatically or only when prompted by a game. |
-| **Data deletion** | Users can delete their account and all associated games data collected by Google through their [Play Games profile](https://play.google.com/games/profile) or [Google MyAccount](https://myaccount.google.com). If Google collects Play Games Services data for an individual game, users can delete the data through their [Play Games profile](https://play.google.com/games/profile). |
+| **Data sharing** | Game Services data is exposed using a 3rd-party API. Your Play Games Services enabled game can only read/write the authenticated player's data for that game. It cannot access games service data for another game a user plays. When a user logs into your game using Play Games Services, their gamer identity is shared with your Play Games Services enabled game.  Users choose whether their profile is for "Friends only," for "Everyone," or “Only you.” When users choose the "Friends only" visibility, only users added as friends can see game data for the profile. If public, all other users can see game data for the profile. If private, other users can only see that the display name is in use, but not any game/gameplay data.  Users can also choose whether Play Games Services enabled games can access their friends lists (includes only the display name, not the email address) automatically or only when prompted by a game. |
+| **Data deletion** | Users can delete their account and all associated games data collected by Google through their [Play Games profile](https://play.google.com/games/profile) or [Google MyAccount](https://myaccount.google.com).  If Google collects Play Games Services data for an individual game, users can delete the data through their [Play Games profile](https://play.google.com/games/profile). |
 
 ## Play Games Services SDKs
 
@@ -51,9 +63,7 @@ data.
 
 The Play Games Services SDKs collect the following data automatically.
 
-| Data | Default behavior |
-|---|---|
-| Game Service | Collects the following Games account data when a user creates and updates their games account: - Gamer Identity (Gamertag, avatar) |
+Data | Default behavior || Game Service | Collects the following Games account data when a user creates and updates their games account:   * Gamer Identity (Gamertag, avatar) |
 | Analytics | Collects analytics data to improve the stability of our SDKs and make product improvements. |
 | Diagnostics | Collects diagnostics data to improve the stability of our SDKs and make product improvements. |
 
@@ -65,9 +75,12 @@ in your data disclosure. The following table lists examples of end-user data
 that can be collected depending on your usage, but make sure to account for any
 data collected by your specific usage.
 
-| Data | Details |
-|---|---|
-| Game Service | Cumulative data generated by users during gameplay and stored on Google's servers for game analytics. The player data to collect is defined by your app. This might include metrics such as how often users do the following (examples only): - Use a particular item - Reach a certain level - Perform a specific game action |
-| Game Service | Service data when a user progresses through a game. For example: - Unlocked achievements - Games scores - Engagement and spend statistics - Social connections (Friend connections, requests, nicknames for friends) |
-| Metagame data | Metagame data when a user progresses through a game. For example: - Title - Level - Experience points - Experience points history - Experience points per category |
-| Saved Games | Save game data when a user progresses through a game: - Saved game progress - Saved game screenshot |
+Data | Details || Game Service | Cumulative data generated by users during gameplay and stored on Google's servers for game analytics. The player data to collect is defined by your app. This might include metrics such as how often users do the following (examples only):   * Use a particular item * Reach a certain level * Perform a specific game action |
+| Game Service | Service data when a user progresses through a game. For example:   * Unlocked achievements * Games scores * Engagement and spend statistics * Social connections (Friend connections, requests, nicknames for   friends) |
+| Metagame data | Metagame data when a user progresses through a game. For example:   * Title * Level * Experience points * Experience points history * Experience points per category |
+| Saved Games | Save game data when a user progresses through a game:   * Saved game progress * Saved game screenshot |
+
+
+
+
+Send feedback

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This page describes how to configure your text layout with parameters like
 `maxLines` and `overflow`.
 

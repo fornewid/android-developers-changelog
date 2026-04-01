@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 A [`DialogFragment`](/reference/androidx/fragment/app/DialogFragment) is a
 special fragment subclass that is designed for creating and hosting
 [dialogs](/guide/topics/ui/dialogs). Although you don't need to

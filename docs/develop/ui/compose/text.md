@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Text is a central piece of any UI, and Jetpack Compose makes it easier to
 display or write text. Compose leverages composition of its building blocks,
 meaning you don’t need to overwrite properties and methods or extend big classes

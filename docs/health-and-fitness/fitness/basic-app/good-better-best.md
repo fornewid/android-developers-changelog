@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
+
 This document charts the optimal progression of a health and fitness app from a
 likely starting place to best-in-class. It's designed to help you think about
 scaling your app over time, and what features to implement. While every health

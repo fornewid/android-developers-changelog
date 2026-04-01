@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android Automotive OS allows users to install apps in the car. To reach
 users on this platform, you need to distribute a driver-optimized app that is
 compatible with Android Automotive OS. You can re-use almost all of the code and

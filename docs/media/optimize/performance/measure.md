@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 In Android 8.0 (API level 26) and later, the `getMetrics()` method is available
 for some media classes. It returns a
 `PersistableBundle`

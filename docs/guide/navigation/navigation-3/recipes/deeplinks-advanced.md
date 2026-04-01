@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Deep Link Advanced Recipe
 
 This recipe demonstrates how to apply the principles of navigation in the context of deep links by

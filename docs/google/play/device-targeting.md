@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Device targeting gives you finer control over which parts of your app bundle are
 delivered to specific devices. For example, you could ensure that a large asset
 is only delivered to devices with high RAM, or you could deliver different

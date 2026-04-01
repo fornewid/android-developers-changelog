@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 An offline-first app is an app that is able to perform all, or a critical subset
 of its core functionality without access to the internet. That is, it can
 perform some or all of its business logic offline.

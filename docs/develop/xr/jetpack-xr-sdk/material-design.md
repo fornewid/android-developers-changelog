@@ -134,5 +134,5 @@ Spatialized (XR-adapted) SupportingPaneScaffold
 
 ## See also
 
-- [Develop UI with Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui)
+- [Develop UI with Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose)
 - [Spatial UI design guidelines](https://developer.android.com/design/ui/xr/guides/spatial-ui)

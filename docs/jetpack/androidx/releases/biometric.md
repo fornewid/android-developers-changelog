@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Biometric
 
 [User Guide](/training/sign-in/biometric-auth)  [Code Sample](https://github.com/android/security-samples)

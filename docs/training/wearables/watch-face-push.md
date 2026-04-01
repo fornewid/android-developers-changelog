@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Wear OS 6 introduces a new API, Watch Face Push, which creates opportunities for
 more advanced watch face publishing use cases.
 

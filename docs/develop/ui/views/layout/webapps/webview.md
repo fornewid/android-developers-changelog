@@ -10,6 +10,7 @@ source: html-scrape
 
 
 
+
 Use [`WebView`](/reference/android/webkit/WebView) to deliver a web application or a web page as a part of a
 client app. The `WebView` class is an extension of Android's [`View`](/reference/android/view/View)
 class that lets you display web pages as a part of your activity layout. It

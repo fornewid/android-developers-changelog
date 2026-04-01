@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Navigation is user interaction with an application's UI to access content
 destinations. Android's [principles of navigation](/guide/navigation/navigation-principles) provide guidelines that
 help you create consistent, intuitive app navigation.

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Wear OS follows Material Design’s principles for iconography.
 
 ![](/static/wear/images/design/icon_1.png)

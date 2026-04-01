@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android SDK Platform-Tools is a component for the Android SDK.
 It includes tools that interface with the Android platform, primarily
 [`adb`](/tools/adb) and

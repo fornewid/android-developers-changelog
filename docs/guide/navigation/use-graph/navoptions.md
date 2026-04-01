@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 When you define an action in the navigation graph using the Kotlin DSL,
 Navigation generates a corresponding [`NavAction`](/reference/androidx/navigation/NavAction) class, which contains the
 configurations defined for that action, including the following:

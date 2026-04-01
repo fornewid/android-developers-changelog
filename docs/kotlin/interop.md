@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This document is a set of rules for authoring public APIs in Java and Kotlin
 with the intent that the code will feel idiomatic when consumed from the other
 language.

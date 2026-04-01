@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android Studio 3.0 and higher lets you profile and debug APKs that have
 [debugging enabled](/studio/debug#enable-debug) without having
 to build them from an Android Studio project.

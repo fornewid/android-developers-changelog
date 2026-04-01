@@ -1,52 +1,41 @@
 ---
-title: Retrieving metadata  |  Android media  |  Android Developers
+title: https://developer.android.com/media/media3/exoplayer/retrieving-metadata
 url: https://developer.android.com/media/media3/exoplayer/retrieving-metadata
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Retrieving metadata Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 ## During playback
 
 The metadata of the media can be retrieved during playback in multiple ways. The
 most straightforward is to listen for the
 `Player.Listener#onMediaMetadataChanged` event; this will provide a
-[`MediaMetadata`](/reference/androidx/media3/common/MediaMetadata) object for use, which has fields such as `title` and
+[`MediaMetadata`](https://developer.android.com/reference/androidx/media3/common/MediaMetadata) object for use, which has fields such as `title` and
 `albumArtist`. Alternatively, calling `Player#getMediaMetadata` returns the same
 object.
 
+
 ### Kotlin
 
-```
+```kotlin
 override fun onMediaMetadataChanged(mediaMetadata: MediaMetadata) {
   mediaMetadata.title?.let(::handleTitle)
 }
-
-RetrievingMetadata.kt
 ```
 
 ### Java
 
-```
+```java
 @Override
 public void onMediaMetadataChanged(MediaMetadata mediaMetadata) {
   if (mediaMetadata.title != null) {
     handleTitle(mediaMetadata.title);
   }
 }
-
-RetrievingMetadata.java
 ```
 
-If your app needs access to specific [`Metadata.Entry`](/reference/androidx/media3/common/Metadata.Entry) objects, then it
+<br />
+
+If your app needs access to specific [`Metadata.Entry`](https://developer.android.com/reference/androidx/media3/common/Metadata.Entry) objects, then it
 should listen to `Player.Listener#onMetadata` (for dynamic metadata delivered
 during playback). Alternatively, if there is a need to look at static metadata,
 this can be accessed through the `TrackSelections#getFormat`.
@@ -55,12 +44,13 @@ this can be accessed through the `TrackSelections#getFormat`.
 ## Without playback
 
 If playback is not needed, it is more efficient to use the
-[`MetadataRetriever`](/reference/androidx/media3/inspector/MetadataRetriever) to extract the metadata because it avoids having to
+[`MetadataRetriever`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever) to extract the metadata because it avoids having to
 create and prepare a player.
+
 
 ### Kotlin
 
-```
+```kotlin
 suspend fun retrieveMetadata(context: Context, mediaItem: MediaItem) {
   try {
     // 1. Build the retriever.
@@ -77,13 +67,11 @@ suspend fun retrieveMetadata(context: Context, mediaItem: MediaItem) {
     handleFailure(e)
   }
 }
-
-RetrieveMetadata.kt
 ```
 
 ### Java
 
-```
+```java
 public void retrieveMetadata(Context context, MediaItem mediaItem) {
   // 1. Build the retriever.
   // `MetadataRetriever` implements `AutoCloseable`, so use try-with-resources
@@ -115,27 +103,26 @@ public void retrieveMetadata(Context context, MediaItem mediaItem) {
         directExecutor());
   }
 }
-
-RetrieveMetadata.java
 ```
+
+<br />
 
 ## Motion photos
 
-**Note:** For motion photo **playback**, see
-[Media Items](/media/media3/exoplayer/images#motion-photos) and for motion
-photo **format support**, see
-[Supported formats](/media/media3/exoplayer/supported-formats#images).
+> [!NOTE]
+> **Note:** For motion photo **playback** , see [Media Items](https://developer.android.com/media/media3/exoplayer/images#motion-photos) and for motion photo **format support** , see [Supported formats](https://developer.android.com/media/media3/exoplayer/supported-formats#images).
 
 It is also possible to extract motion photo metadata, including the offsets and
 lengths of the image and video parts of the file.
 
 For motion photos, the `TrackGroupArray` obtained with the `MetadataRetriever`
 contains a `TrackGroup` with a single `Format` enclosing a
-[`MotionPhotoMetadata`](/reference/androidx/media3/extractor/metadata/MotionPhotoMetadata) metadata entry.
+[`MotionPhotoMetadata`](https://developer.android.com/reference/androidx/media3/extractor/metadata/MotionPhotoMetadata) metadata entry.
+
 
 ### Kotlin
 
-```
+```kotlin
 0.until(trackGroups.length)
   .asSequence()
   .mapNotNull { trackGroups[it].getFormat(0).metadata }
@@ -143,13 +130,11 @@ contains a `TrackGroup` with a single `Format` enclosing a
   .map { metadata -> metadata[0] }
   .filterIsInstance<MotionPhotoMetadata>()
   .forEach(::handleMotionPhotoMetadata)
-
-RetrievingMetadata.kt
 ```
 
 ### Java
 
-```
+```java
 for (int i = 0; i < trackGroups.length; i++) {
   TrackGroup trackGroup = trackGroups.get(i);
   Metadata metadata = trackGroup.getFormat(0).metadata;
@@ -161,6 +146,6 @@ for (int i = 0; i < trackGroups.length; i++) {
     }
   }
 }
-
-RetrievingMetadata.java
 ```
+
+<br />

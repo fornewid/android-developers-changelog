@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The functionality that works well as an on demand module are those that aren't
 needed by the majority of your users at install time. The following are a
 few examples for app features that would appropriate on demand modules:

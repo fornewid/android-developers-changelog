@@ -17,7 +17,6 @@ Learn more about the user-facing changes in this [Help Center article](https://
 
 
 
-
 Custom watch faces leverage a dynamic, digital canvas that can include colors, animations, and
 contextual information.
 

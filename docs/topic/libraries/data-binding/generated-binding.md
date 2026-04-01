@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The Data Binding Library generates binding classes you can use to access the
 layout's variables and views. This documentation shows how to create and
 customize generated binding classes.

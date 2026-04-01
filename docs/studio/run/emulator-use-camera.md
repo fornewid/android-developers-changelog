@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The emulator supports the use of basic camera functionality on your virtual
 device for earlier Android versions. Android 11 and higher supports the
 following additional Android Emulator camera capabilities:

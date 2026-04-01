@@ -1,18 +1,8 @@
 ---
-title: Kotlin for Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/kotlin
 url: https://developer.android.com/develop/ui/compose/kotlin
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Kotlin for Jetpack Compose Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Jetpack Compose is built around Kotlin. In some cases, Kotlin provides special
 idioms that make it easier to write good Compose code. If you think in another
@@ -29,36 +19,35 @@ used if the caller doesn't explicitly pass those values. This feature reduces
 the need for overloaded functions.
 
 For example, suppose you want to write a function that draws a square. That
-function might have a single required parameter, **sideLength**, specifying the length
-of each side. It might have several optional parameters, like **thickness**,
+function might have a single required parameter, **sideLength** , specifying the length
+of each side. It might have several optional parameters, like **thickness** ,
 **edgeColor** and so on; if the caller doesn't specify those, the
 function uses default values. In other languages, you might expect to write
 several functions:
 
-```
+```java
 // We don't need to do this in Kotlin!
 void drawSquare(int sideLength) { }
 
 void drawSquare(int sideLength, int thickness) { }
 
 void drawSquare(int sideLength, int thickness, Color edgeColor) { }
-
-JavaSnippets.java
 ```
 
 In Kotlin, you can write a single function and specify the default values for
 the arguments:
 
-```
+
+```kotlin
 fun drawSquare(
     sideLength: Int,
     thickness: Int = 2,
     edgeColor: Color = Color.Black
 ) {
 }
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 Besides saving you from having to write multiple redundant functions, this
 feature makes your code much clearer to read. If the caller doesn't specify a
@@ -67,37 +56,38 @@ value. In addition, the named parameters make it much easier to see what's going
 on. If you look at the code and see a function call like this, you might not
 know what the parameters mean without checking the `drawSquare()` code:
 
-```
+```java
 drawSquare(30, 5, Color.Red);
-
-JavaSnippets.java
 ```
 
 By contrast, this code is self-documenting:
 
-```
-drawSquare(sideLength = 30, thickness = 5, edgeColor = Color.Red)
 
-KotlinSnippets.kt
+```kotlin
+drawSquare(sideLength = 30, thickness = 5, edgeColor = Color.Red)
 ```
+
+<br />
 
 Most Compose libraries use default arguments, and it's a good practice to do the
 same for the composable functions that you write. This practice makes your
 composables customizable, but still makes the default behavior simple to invoke.
 So, for example, you might create a simple text element like this:
 
-```
-Text(text = "Hello, Android!")
 
-KotlinSnippets.kt
+```kotlin
+Text(text = "Hello, Android!")
 ```
+
+<br />
 
 That code has the same effect as the following, much more verbose code, in which
 more of the
-[`Text`](/reference/kotlin/androidx/compose/material/Text.composable)
+[`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable)
 parameters are set explicitly:
 
-```
+
+```kotlin
 Text(
     text = "Hello, Android!",
     color = Color.Unspecified,
@@ -105,9 +95,9 @@ Text(
     letterSpacing = TextUnit.Unspecified,
     overflow = TextOverflow.Clip
 )
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 Not only is the first code snippet much simpler and easier to read, it's also
 self-documenting. By specifying only the `text` parameter, you document that for
@@ -122,21 +112,22 @@ Kotlin supports [*higher-order
 functions*](https://kotlinlang.org/docs/reference/lambdas.html), functions that
 receive other functions as parameters. Compose builds upon this approach. For
 example, the
-[`Button`](/reference/kotlin/androidx/compose/material/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.ButtonElevation,androidx.compose.ui.graphics.Shape,androidx.compose.foundation.BorderStroke,androidx.compose.material.ButtonColors,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1))
+[`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.ButtonElevation,androidx.compose.ui.graphics.Shape,androidx.compose.foundation.BorderStroke,androidx.compose.material.ButtonColors,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1))
 composable function provides an `onClick` lambda parameter. The value
 of that parameter is a function, which the button calls when the user clicks it:
 
-```
+
+```kotlin
 Button(
     // ...
     onClick = myClickFunction
 )
-// ...
-
-KotlinSnippets.kt
+// ...https://github.com/android/snippets/blob/2c9cbd0f626c5eefc018fffa17af55372333e2bb/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L99-L105
 ```
 
-Higher-order functions pair naturally with *lambda expressions*, expressions
+<br />
+
+Higher-order functions pair naturally with *lambda expressions* , expressions
 which evaluate to a function. If you only need the function once, you don't have
 to define it elsewhere to pass it to the higher-order function. Instead, you can
 just define the function right there with a lambda expression. The previous example
@@ -144,7 +135,8 @@ assumes that `myClickFunction()` is defined elsewhere. But if you only use that
 function here, it's simpler to just define the function inline with a lambda
 expression:
 
-```
+
+```kotlin
 Button(
     // ...
     onClick = {
@@ -152,9 +144,9 @@ Button(
         // do something else
     }
 ) { /* ... */ }
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 ### Trailing lambdas
 
@@ -167,13 +159,14 @@ afterwards. This is a common situation in Compose, so you need to be familiar
 with how the code looks.
 
 For example, the last parameter to all layouts, such as the
-[`Column()`](/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1))
+[`Column()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1))
 composable function, is `content`, a function which emits the child UI
 elements. Suppose you wanted to create a column containing three text elements,
 and you need to apply some formatting. This code would work, but it's very
 cumbersome:
 
-```
+
+```kotlin
 Column(
     modifier = Modifier.padding(16.dp),
     content = {
@@ -182,42 +175,44 @@ Column(
         Text("Last text")
     }
 )
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 Because the `content` parameter is the last one in the function signature, and
 we're passing its value as a lambda expression, we can pull it out of the
 parentheses:
 
-```
+
+```kotlin
 Column(modifier = Modifier.padding(16.dp)) {
     Text("Some text")
     Text("Some more text")
     Text("Last text")
 }
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 The two examples have exactly the same meaning. The braces define the lambda
 expression that is passed to the `content` parameter.
 
-In fact, if the *only* parameter you're passing is that trailing lambda—that is,
+In fact, if the *only* parameter you're passing is that trailing lambda---that is,
 if the final parameter is a lambda, and you aren't passing any other
-parameters—you can omit the parentheses altogether. So, for example, suppose you
+parameters---you can omit the parentheses altogether. So, for example, suppose you
 didn't need to pass a modifier to the `Column`. You could write the code like
 this:
 
-```
+
+```kotlin
 Column {
     Text("Some text")
     Text("Some more text")
     Text("Last text")
 }
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 This syntax is quite common in Compose, especially for layout elements like
 `Column`. The last parameter is a lambda expression defining the element's
@@ -235,7 +230,8 @@ This enables `Row` to expose functionality which is only valid within a `Row`.
 The example below demonstrates how `Row` has exposed a row-specific value for
 the `align` modifier:
 
-```
+
+```kotlin
 Row {
     Text(
         text = "Hello world",
@@ -246,15 +242,16 @@ Row {
         modifier = Modifier.align(Alignment.CenterVertically)
     )
 }
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 Some APIs accept lambdas which are called in *receiver scope*. Those lambdas
 have access to properties and functions that are defined elsewhere, based on the
 parameter declaration:
 
-```
+
+```kotlin
 Box(
     modifier = Modifier.drawBehind {
         // This method accepts a lambda of type DrawScope.() -> Unit
@@ -266,9 +263,9 @@ Box(
         )
     }
 )
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 For more information, see [function literals with
 receiver](https://kotlinlang.org/docs/reference/lambdas.html#function-literals-with-receiver)
@@ -282,24 +279,26 @@ These properties are called as if they were fields, but their value is
 determined dynamically by evaluating an expression. You can recognize these
 properties by their use of the `by` syntax:
 
-```
+
+```kotlin
 class DelegatingClass {
     var name: String by nameGetterFunction()
 
     // ...
 }
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 Other code can access the property with code like this:
 
-```
+
+```kotlin
 val myDC = DelegatingClass()
 println("The name property is: " + myDC.name)
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 When `println()` executes, `nameGetterFunction()` is called to return the value
 of the string.
@@ -307,19 +306,18 @@ of the string.
 These delegated properties are particularly useful when you're working with
 state-backed properties:
 
-```
+
+```kotlin
 var showDialog by remember { mutableStateOf(false) }
 
 // Updating the var automatically triggers a state change
-showDialog = true
-
-KotlinSnippets
-
-.kt
+showDialog = truehttps://github.com/android/snippets/blob/2c9cbd0f626c5eefc018fffa17af55372333e2bb/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L201-L204
 ```
 
-**Note:** Learn more about `remember` and `mutableStateOf` in the
-[State in Jetpack Compose documentation](/develop/ui/compose/state).
+<br />
+
+> [!NOTE]
+> **Note:** Learn more about `remember` and `mutableStateOf` in the [State in Jetpack Compose documentation](https://developer.android.com/develop/ui/compose/state).
 
 ## Destructuring data classes
 
@@ -329,30 +327,31 @@ access the data with a [destructuring
 declaration](https://kotlinlang.org/docs/reference/multi-declarations.html). For
 example, suppose you define a `Person` class:
 
-```
-data class Person(val name: String, val age: Int)
 
-KotlinSnippets.kt
+```kotlin
+data class Person(val name: String, val age: Int)
 ```
+
+<br />
 
 If you have an object of that type, you can access its values with code like
 this:
 
-```
+
+```kotlin
 val mary = Person(name = "Mary", age = 35)
 
 // ...
 
-val (name, age) = mary
-
-KotlinSnippets
-
-.kt
+val (name, age) = maryhttps://github.com/android/snippets/blob/2c9cbd0f626c5eefc018fffa17af55372333e2bb/compose/snippets/src/main/java/com/example/compose/snippets/kotlin/KotlinSnippets.kt#L214-L218
 ```
+
+<br />
 
 You'll often see that kind of code in Compose functions:
 
-```
+
+```kotlin
 Row {
 
     val (image, title, subtitle) = createRefs()
@@ -363,9 +362,9 @@ Row {
 
     // ...
 }
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 Data classes provide a lot of other useful functionality. For example, when you
 define a data class, the compiler automatically defines useful functions like
@@ -374,10 +373,10 @@ classes](https://kotlinlang.org/docs/reference/data-classes.html) documentation.
 
 ## Singleton objects
 
-Kotlin makes it easy to declare *singletons*, classes which always have one and
+Kotlin makes it easy to declare *singletons* , classes which always have one and
 only one instance. These singletons are declared with the [`object` keyword](https://kotlinlang.org/docs/reference/object-declarations.html#object-declarations).
 Compose often makes use of such objects. For example,
-[`MaterialTheme`](/reference/kotlin/androidx/compose/material/MaterialTheme) is
+[`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/MaterialTheme) is
 defined as a singleton object; the `MaterialTheme.colors`, `shapes`, and
 `typography` properties all contain the values for the current theme.
 
@@ -388,10 +387,11 @@ with type-safe builders. DSLs allow building complex hierarchical data
 structures in a more maintainable and readable way.
 
 Jetpack Compose uses DSLs for some APIs such as
-[`LazyRow`](/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable)
-and [`LazyColumn`](/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable).
+[`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable)
+and [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable).
 
-```
+
+```kotlin
 @Composable
 fun MessageList(messages: List<Message>) {
     LazyColumn {
@@ -406,19 +406,20 @@ fun MessageList(messages: List<Message>) {
         }
     }
 }
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 Kotlin guarantees type-safe builders using
 [function literals with receiver](https://kotlinlang.org/docs/lambdas.html#function-literals-with-receiver).
-If we take the [`Canvas`](/reference/kotlin/androidx/compose/foundation/Canvas.composable#Canvas(androidx.compose.ui.Modifier,kotlin.Function1))
+If we take the [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Canvas.composable#Canvas(androidx.compose.ui.Modifier,kotlin.Function1))
 composable as example, it takes as a parameter a function with
-[`DrawScope`](/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope)
+[`DrawScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope)
 as the receiver, `onDraw: DrawScope.() -> Unit`, allowing the block of code to
 call member functions defined in `DrawScope`.
 
-```
+
+```kotlin
 Canvas(Modifier.size(120.dp)) {
     // Draw grey background, drawRect function is provided by the receiver
     drawRect(color = Color.Gray)
@@ -439,9 +440,9 @@ Canvas(Modifier.size(120.dp)) {
         }
     }
 }
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 Learn more about type-safe builders and DSLs in
 [Kotlin's documentation](https://kotlinlang.org/docs/type-safe-builders.html).
@@ -454,13 +455,14 @@ responsive UI is inherently asynchronous, and Jetpack Compose solves this by
 embracing coroutines at the API level instead of using callbacks.
 
 Jetpack Compose offers APIs that make using coroutines safe within the UI layer.
-The [`rememberCoroutineScope`](/reference/kotlin/androidx/compose/runtime/rememberCoroutineScope.composable#rememberCoroutineScope(kotlin.Function0))
+The [`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rememberCoroutineScope.composable#rememberCoroutineScope(kotlin.Function0))
 function returns a [`CoroutineScope`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/) with which you can create coroutines in event handlers and call
 Compose suspend APIs. See the example below using the
-[`ScrollState`](/reference/kotlin/androidx/compose/foundation/ScrollState)'s
+[`ScrollState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/ScrollState)'s
 `animateScrollTo` API.
 
-```
+
+```kotlin
 // Create a CoroutineScope that follows this composable's lifecycle
 val composableScope = rememberCoroutineScope()
 Button(
@@ -474,9 +476,9 @@ Button(
         }
     }
 ) { /* ... */ }
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 Coroutines execute the block of code *sequentially* by default. A running
 coroutine that calls a suspend function *suspends* its execution until the
@@ -489,7 +491,8 @@ To execute code concurrently, new coroutines need to be created. In the example
 above, to parallelize scrolling to the top of the screen and loading data from
 `viewModel`, two coroutines are needed.
 
-```
+
+```kotlin
 // Create a CoroutineScope that follows this composable's lifecycle
 val composableScope = rememberCoroutineScope()
 Button( // ...
@@ -504,15 +507,16 @@ Button( // ...
         }
     }
 ) { /* ... */ }
-
-KotlinSnippets.kt
 ```
+
+<br />
 
 Coroutines make it easier to combine asynchronous APIs. In the following
 example, we combine the `pointerInput` modifier with the animation APIs to
 animate the position of an element when the user taps on the screen.
 
-```
+
+```kotlin
 @Composable
 fun MoveBoxWhereTapped() {
     // Creates an `Animatable` to animate Offset and `remember` it.
@@ -559,16 +563,16 @@ fun MoveBoxWhereTapped() {
                 .background(Color(0xff3c1361), CircleShape)
         )
     }
-
-KotlinSnippets.kt
 ```
 
+<br />
+
 To learn more about Coroutines, check out the
-[Kotlin coroutines on Android](/kotlin/coroutines) guide.
+[Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines) guide.
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Material Components and layouts](/develop/ui/compose/layouts/material)
-* [Side-effects in Compose](/develop/ui/compose/side-effects)
-* [Compose layout basics](/develop/ui/compose/layouts/basics)
+- Note: link text is displayed when JavaScript is off
+- [Material Components and layouts](https://developer.android.com/develop/ui/compose/layouts/material)
+- [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects)
+- [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics)

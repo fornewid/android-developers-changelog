@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The Android home screen, available on most Android-powered devices, lets the
 user embed [app widgets](/guide/topics/appwidgets/overview) (or *widgets*) for
 quick access to content. If you're building a home screen replacement or a

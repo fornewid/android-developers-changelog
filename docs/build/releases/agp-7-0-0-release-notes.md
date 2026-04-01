@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Gradle Plugin 7.0.0 (July 2021)
 
 Android Gradle plugin 7.0.0 is a major release that includes a variety of new

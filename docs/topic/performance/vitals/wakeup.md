@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Wakeups are a mechanism in the
 [`AlarmManager`](/reference/android/app/AlarmManager) API that
 lets developers set an alarm to wake up a device at a specified time. Your app

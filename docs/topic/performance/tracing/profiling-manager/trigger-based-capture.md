@@ -90,6 +90,8 @@ fun recordWithTrigger() {
     profilingManager.registerForAllProfilingResults(mainExecutor, resultCallback)
     profilingManager.addProfilingTriggers(triggers)
 
+}
+
 ProfilingManagerKotlinSnippets.kt
 ```
 
@@ -127,6 +129,8 @@ public void recordWithTrigger() {
       };
   profilingManager.registerForAllProfilingResults(mainExecutor, resultCallback);
   profilingManager.addProfilingTriggers(triggers);
+
+}
 
 ProfilingManagerJavaSnippets.java
 ```

@@ -1,14 +1,20 @@
 ---
-title: https://developer.android.com/stories/games/rv-appstudios-pad
+title: RV AppStudios improves user retention with Google Play Asset Delivery  |  Developer stories  |  Android Developers
 url: https://developer.android.com/stories/games/rv-appstudios-pad
-source: md.txt
+source: html-scrape
 ---
 
-# RV AppStudios improves user retention with Google Play Asset Delivery
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Developer stories](https://developer.android.com/stories)
+
+# RV AppStudios improves user retention with Google Play Asset Delivery Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 ## Background
 
-![Puzzle Kids game](https://developer.android.com/static/images/cards/distribute/stories/puzzle-kids-framed.png)
+![Puzzle Kids game](/static/images/cards/distribute/stories/puzzle-kids-framed.png)
 
 US-based developer
 [RV AppStudios](https://play.google.com/store/apps/dev?id=7430005971129979939)
@@ -47,11 +53,11 @@ Kids, the team utilizes the On-Demand delivery mode for their 17 asset packs.
 
 Just over 23MB of assets are delivered as players progress through the levels
 in Puzzle Kids. Using Play Asset Delivery's On-Demand mode, they saw a **4.7%
-increase in 15-day retention and 21% reduction in crashes \& ANRs**. Overall,
+increase in 15-day retention and 21% reduction in crashes & ANRs**. Overall,
 these changes helped improve the user experience by offering more stable,
 transparent, and secure downloads, while also saving costs for RV AppStudios.
 
 ## Get started
 
 Get started today by learning more about
-[Play Asset Delivery](https://developer.android.com/guide/app-bundle/asset-delivery).
+[Play Asset Delivery](/guide/app-bundle/asset-delivery).

@@ -1,30 +1,16 @@
 ---
-title: Advanced stylus features  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/advanced-stylus-features
 url: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/advanced-stylus-features
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with a stylus in Compose. [Advanced stylus features →](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/advanced-stylus-features) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
-# Advanced stylus features Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-Try the Compose way
-
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with a stylus in Compose.
-
-[Advanced stylus features →](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/advanced-stylus-features)
-
-![](/static/images/android-compose-ui-logo.png)
+<br />
 
 Android and ChromeOS provide a variety of APIs to help you build apps that offer
 users an exceptional stylus experience. The
-[`MotionEvent`](/reference/kotlin/android/view/MotionEvent) class exposes
+[`MotionEvent`](https://developer.android.com/reference/kotlin/android/view/MotionEvent) class exposes
 information about stylus interaction with the screen, including stylus pressure,
 orientation, tilt, hover, and palm detection. Low-latency graphics and motion
 prediction libraries enhance stylus on‑screen rendering to provide a
@@ -38,42 +24,32 @@ also exposes pressure, orientation, tilt, and hover data.
 
 ### Event data
 
-To access `MotionEvent` data, set up an [`onTouchListener`](/reference/kotlin/android/view/View.OnTouchListener) callback:
+To access `MotionEvent` data, set up an [`onTouchListener`](https://developer.android.com/reference/kotlin/android/view/View.OnTouchListener) callback:
 
 ### Kotlin
 
-```
-val onTouchListener = View.OnTouchListener { view, event ->
-  // Process motion event.
-}
-```
+    val onTouchListener = View.OnTouchListener { view, event ->
+      // Process motion event.
+    }
 
 ### Java
 
-```
-View.OnTouchListener listener = (view, event) -> {
-  // Process motion event.
-};
-```
+    View.OnTouchListener listener = (view, event) -> {
+      // Process motion event.
+    };
 
 The listener receives `MotionEvent` objects from the system, so your app can
 process them.
 
-**Note:** `MotionEvent` objects are dispatched every time the stylus moves on
-screen. Optimize your app's motion event handling code as much as possible. For
-example, avoid heap allocation by forgoing the creation of new objects or the
-use of lambdas.
+> [!NOTE]
+> **Note:** `MotionEvent` objects are dispatched every time the stylus moves on screen. Optimize your app's motion event handling code as much as possible. For example, avoid heap allocation by forgoing the creation of new objects or the use of lambdas.
 
 A `MotionEvent` object provides data related to the following aspects of a UI
 event:
 
-* Actions: Physical interaction with the device—touching the screen,
-  moving a pointer over the screen surface, hovering a pointer over the screen
-  surface
-* Pointers: Identifiers of objects interacting with the screen—finger,
-  stylus, mouse
-* Axis: Type of data—x and y coordinates, pressure, tilt, orientation,
-  and hover (distance)
+- Actions: Physical interaction with the device---touching the screen, moving a pointer over the screen surface, hovering a pointer over the screen surface
+- Pointers: Identifiers of objects interacting with the screen---finger, stylus, mouse
+- Axis: Type of data---x and y coordinates, pressure, tilt, orientation, and hover (distance)
 
 ### Actions
 
@@ -84,11 +60,11 @@ performing.
 events. The most important actions for stylus include the following:
 
 | Action | Description |
-| --- | --- |
-| ACTION\_DOWN ACTION\_POINTER\_DOWN | Pointer has made contact with the screen. |
-| ACTION\_MOVE | Pointer is moving on the screen. |
-| ACTION\_UP ACTION\_POINTER\_UP | Pointer is not in contact with the screen anymore |
-| ACTION\_CANCEL | When previous or current motion set should be canceled. |
+|---|---|
+| ACTION_DOWN ACTION_POINTER_DOWN | Pointer has made contact with the screen. |
+| ACTION_MOVE | Pointer is moving on the screen. |
+| ACTION_UP ACTION_POINTER_UP | Pointer is not in contact with the screen anymore |
+| ACTION_CANCEL | When previous or current motion set should be canceled. |
 
 Your app can perform tasks like starting a new stroke when `ACTION_DOWN`
 happens, drawing the stroke with `ACTION_MOVE,` and finishing the stroke when
@@ -105,57 +81,55 @@ index enables you to get axis information for a specific pointer, like the
 position of the first finger touching the screen or the second.
 
 Pointer indexes range from zero to the number of pointers returned by
-[`MotionEvent#pointerCount()`](/reference/kotlin/android/view/MotionEvent#getpointercount)
+[`MotionEvent#pointerCount()`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#getpointercount)
 minus 1.
 
 Axis values of the pointers can be accessed with the [`getAxisValue(axis,
-pointerIndex)`](/reference/kotlin/android/view/MotionEvent#getaxisvalue) method.
+pointerIndex)`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#getaxisvalue) method.
 When the pointer index is omitted, the system returns the value for the first
 pointer, pointer zero (0).
 
 `MotionEvent` objects contain information about the type of pointer in use. You
 can get the pointer type by iterating through the pointer indexes and calling
 the
-[`getToolType(pointerIndex)`](/reference/kotlin/android/view/MotionEvent#gettooltype)
+[`getToolType(pointerIndex)`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#gettooltype)
 method.
 
-**Note:** A pointer is a way to interact with the screen—finger, stylus,
-capacitive stylus, mouse. Since most screens support multi-touch, a
-`MotionEvent` object can contain multiple pointers (one for each object in
-contact with the screen).
+> [!NOTE]
+> **Note:** A pointer is a way to interact with the screen---finger, stylus, capacitive stylus, mouse. Since most screens support multi-touch, a `MotionEvent` object can contain multiple pointers (one for each object in contact with the screen).
 
 To learn more about pointers, see [Handle multi-touch
-gestures](/develop/ui/views/touch-and-input/gestures/multi).
+gestures](https://developer.android.com/develop/ui/views/touch-and-input/gestures/multi).
 
 ### Stylus inputs
 
 You can filter for stylus inputs with
-[`TOOL_TYPE_STYLUS`](/reference/kotlin/android/view/MotionEvent#tool_type_stylus):
+[`TOOL_TYPE_STYLUS`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#tool_type_stylus):
 
 ### Kotlin
 
-```
+```kotlin
 val isStylus = TOOL_TYPE_STYLUS == event.getToolType(pointerIndex)
 ```
 
 ### Java
 
-```
+```java
 boolean isStylus = TOOL_TYPE_STYLUS == event.getToolType(pointerIndex);
 ```
 
 The stylus can also report that it is used as an eraser with
-[`TOOL_TYPE_ERASER`](/reference/kotlin/android/view/MotionEvent#tool_type_eraser):
+[`TOOL_TYPE_ERASER`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#tool_type_eraser):
 
 ### Kotlin
 
-```
+```kotlin
 val isEraser = TOOL_TYPE_ERASER == event.getToolType(pointerIndex)
 ```
 
 ### Java
 
-```
+```java
 boolean isEraser = TOOL_TYPE_ERASER == event.getToolType(pointerIndex);
 ```
 
@@ -165,63 +139,56 @@ boolean isEraser = TOOL_TYPE_ERASER == event.getToolType(pointerIndex);
 y coordinates, pressure, orientation, tilt, and hover.
 
 To enable access to this data, the `MotionEvent` API provides
-[`getAxisValue(int)`](/reference/kotlin/android/view/MotionEvent#getaxisvalue),
+[`getAxisValue(int)`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#getaxisvalue),
 where the parameter is any of the following axis identifiers:
 
 | Axis | Return value of `getAxisValue()` |
-| --- | --- |
-| [`AXIS_X`](/reference/kotlin/android/view/MotionEvent#axis_x) | X coordinate of a motion event. |
-| [`AXIS_Y`](/reference/kotlin/android/view/MotionEvent#axis_y) | Y coordinate of a motion event. |
-| [`AXIS_PRESSURE`](/reference/kotlin/android/view/MotionEvent#axis_pressure) | For a touchscreen or touchpad, the pressure applied by a finger, stylus, or other pointer. For a mouse or trackball, 1 if the primary button is pressed, 0 otherwise. |
-| [`AXIS_ORIENTATION`](/reference/kotlin/android/view/MotionEvent#axis_pressure) | For a touchscreen or touchpad, the orientation of a finger, stylus, or other pointer relative to the vertical plane of the device. |
-| [`AXIS_TILT`](/reference/kotlin/android/view/MotionEvent#axis_tilt) | The tilt angle of the stylus in radians. |
-| [`AXIS_DISTANCE`](/reference/kotlin/android/view/MotionEvent#axis_distance) | The distance of the stylus from the screen. |
+|---|---|
+| [`AXIS_X`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#axis_x) | X coordinate of a motion event. |
+| [`AXIS_Y`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#axis_y) | Y coordinate of a motion event. |
+| [`AXIS_PRESSURE`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#axis_pressure) | For a touchscreen or touchpad, the pressure applied by a finger, stylus, or other pointer. For a mouse or trackball, 1 if the primary button is pressed, 0 otherwise. |
+| [`AXIS_ORIENTATION`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#axis_pressure) | For a touchscreen or touchpad, the orientation of a finger, stylus, or other pointer relative to the vertical plane of the device. |
+| [`AXIS_TILT`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#axis_tilt) | The tilt angle of the stylus in radians. |
+| [`AXIS_DISTANCE`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#axis_distance) | The distance of the stylus from the screen. |
 
 For example, `MotionEvent.getAxisValue(AXIS_X)` returns the x coordinate for the
 first pointer.
 
-**Note:** Each object interacting with the screen in the case of multi-touch has its
-own axis data.
+> [!NOTE]
+> **Note:** Each object interacting with the screen in the case of multi-touch has its own axis data.
 
 See also [Handle multi-touch
-gestures](/develop/ui/views/touch-and-input/gestures/multi).
+gestures](https://developer.android.com/develop/ui/views/touch-and-input/gestures/multi).
 
 #### Position
 
 You can retrieve the x and y coordinates of a pointer with the following calls:
 
-* `MotionEvent#getAxisValue(AXIS_X)` or [`MotionEvent#getX()`](/reference/kotlin/android/view/MotionEvent#getx_1)
-* `MotionEvent#getAxisValue(AXIS_Y)` or [`MotionEvent#getY()`](/reference/kotlin/android/view/MotionEvent#gety)
+- `MotionEvent#getAxisValue(AXIS_X)` or [`MotionEvent#getX()`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#getx_1)
+- `MotionEvent#getAxisValue(AXIS_Y)` or [`MotionEvent#getY()`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#gety)
 
-![Stylus drawing on screen with x and y coordinates mapped.](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_x_y_coordinates.png)
-
-
-**Figure 1.** X and y screen coordinates of a stylus pointer.
+![Stylus drawing on screen with x and y coordinates mapped.](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_x_y_coordinates.png) **Figure 1.** X and y screen coordinates of a stylus pointer.
 
 #### Pressure
 
 You can retrieve the pointer pressure with
 `MotionEvent#getAxisValue(AXIS_PRESSURE)` or, for the first pointer,
-[`MotionEvent#getPressure()`](/reference/kotlin/android/view/MotionEvent#getpressure).
+[`MotionEvent#getPressure()`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#getpressure).
 
 The pressure value for touchscreens or touchpads is a value between 0 (no
 pressure) and 1, but higher values can be returned depending on the screen
 calibration.
+![Stylus stroke that represents a continuum of low to high pressure. The stroke is narrow and faint on the left, indicating low pressure. The stroke becomes wider and darker from left to right until it is widest and darkest on the far right, indicating highest pressure.](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_pressure.png) **Figure 2.** Pressure representation---low pressure on left, high pressure on right.
 
-![Stylus stroke that represents a continuum of low to high pressure. The stroke is narrow and faint on the left, indicating low pressure. The stroke becomes wider and darker from left to right until it is widest and darkest on the far right, indicating highest pressure.](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_pressure.png)
-
-
-**Figure 2.** Pressure representation—low pressure on left, high pressure on right.
-
-**Note:** Make sure you verify the value is between 0 and 1 and normalize the value
-if it is greater than 1.
+> [!NOTE]
+> **Note:** Make sure you verify the value is between 0 and 1 and normalize the value if it is greater than 1.
 
 #### Orientation
 
 Orientation indicates which direction the stylus is pointing.
 
 Pointer orientation can be retrieved using `getAxisValue(AXIS_ORIENTATION)` or
-[`getOrientation()`](/reference/kotlin/android/view/MotionEvent#getorientation)
+[`getOrientation()`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#getorientation)
 (for the first pointer).
 
 For a stylus, the orientation is returned as a radian value between 0 to pi (𝛑)
@@ -230,11 +197,7 @@ clockwise or 0 to -pi counterclockwise.
 Orientation enables you to implement a real-life brush. For example, if the
 stylus represents a flat brush, the width of the flat brush depends on the
 stylus orientation.
-
-![](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_orientation.png)
-
-
-**Figure 3.** Stylus pointing to the left about minus .57 radians.
+![](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_orientation.png) **Figure 3.** Stylus pointing to the left about minus .57 radians.
 
 #### Tilt
 
@@ -248,14 +211,10 @@ the first pointer).
 
 Tilt can be used to reproduce as close as possible real-life tools, like
 mimicking shading with a tilted pencil.
+![Stylus inclined about 40 degrees from the screen surface.](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_tilt.png) **Figure 4.** Stylus tilted at about .785 radians, or 45 degrees from perpendicular.
 
-![Stylus inclined about 40 degrees from the screen surface.](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_tilt.png)
-
-
-**Figure 4.** Stylus tilted at about .785 radians, or 45 degrees from perpendicular.
-
-**Note:** Because of the physical constraints of the stylus, it is nearly impossible
-to achieve a value of 𝛑/2 (flat).
+> [!NOTE]
+> **Note:** Because of the physical constraints of the stylus, it is nearly impossible to achieve a value of 𝛑/2 (flat).
 
 #### Hover
 
@@ -268,16 +227,10 @@ vary, don't rely on precise values for app-critical functionality.
 
 Stylus hover can be used to preview the size of the brush or indicate that a
 button is going to be selected.
+![](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_hover.png) **Figure 5.** Stylus hovering over a screen. App reacts even though stylus doesn't touch the screen surface. **Note:** Compose provides modifiers that affect the interactive state of UI elements:
 
-![](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_hover.png)
-
-
-**Figure 5.** Stylus hovering over a screen. App reacts even though stylus doesn't touch the screen surface.
-
-**Note:** Compose provides modifiers that affect the interactive state of UI elements:
-
-* [`hoverable`](/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).hoverable(androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean)): Configure component to be hoverable using pointer enter and exit events.
-* [`indication`](/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).indication(androidx.compose.foundation.interaction.InteractionSource,androidx.compose.foundation.Indication)): Draws visual effects for this component when interactions occur.
+- [`hoverable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).hoverable(androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean)): Configure component to be hoverable using pointer enter and exit events.
+- [`indication`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).indication(androidx.compose.foundation.interaction.InteractionSource,androidx.compose.foundation.Indication)): Draws visual effects for this component when interactions occur.
 
 ## Palm rejection, navigation, and unwanted inputs
 
@@ -290,15 +243,15 @@ As a result, you must keep a history of user inputs so that the unwanted touches
 can be removed from the screen and the legitimate user inputs can be
 re-rendered.
 
-### ACTION\_CANCEL and FLAG\_CANCELED
+### ACTION_CANCEL and FLAG_CANCELED
 
-[`ACTION_CANCEL`](/reference/kotlin/android/view/MotionEvent#action_cancel) and
-[`FLAG_CANCELED`](/reference/kotlin/android/view/MotionEvent#flag_canceled) are
+[`ACTION_CANCEL`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#action_cancel) and
+[`FLAG_CANCELED`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#flag_canceled) are
 both designed to inform you that the previous `MotionEvent` set should be
 canceled from the last `ACTION_DOWN`, so you can, for example, undo the last
 stroke for a drawing app for a given pointer.
 
-#### ACTION\_CANCEL
+#### ACTION_CANCEL
 
 Added in Android 1.0 (API level 1)
 
@@ -306,17 +259,17 @@ Added in Android 1.0 (API level 1)
 
 `ACTION_CANCEL` is triggered when any of the following is detected:
 
-* Navigation gestures
-* Palm rejection
+- Navigation gestures
+- Palm rejection
 
 When `ACTION_CANCEL` is triggered, you should identify the active pointer with
-`getPointerId(getActionIndex())`. Then remove the stroke created with that pointer from the input history, and re-render the scene.
+`https://developer.android.com/reference/kotlin/android/view/MotionEvent#getpointerid(https://developer.android.com/reference/kotlin/android/view/MotionEvent#getactionindex)`. Then remove the stroke created with that pointer from the input history, and re-render the scene.
 
-#### FLAG\_CANCELED
+#### FLAG_CANCELED
 
 Added in Android 13 (API level 33)
 
-[`FLAG_CANCELED`](/reference/kotlin/android/view/MotionEvent#flag_canceled)
+[`FLAG_CANCELED`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#flag_canceled)
 indicates that the pointer going up was an unintentional user touch. The flag is
 typically set when the user accidentally touches the screen, such as by gripping
 the device or placing the palm of the hand on the screen.
@@ -325,13 +278,13 @@ You access the flag value as follows:
 
 ### Kotlin
 
-```
+```kotlin
 val cancel = (event.flags and FLAG_CANCELED) == FLAG_CANCELED
 ```
 
 ### Java
 
-```
+```java
 boolean cancel = (event.getFlags() & FLAG_CANCELED) == FLAG_CANCELED;
 ```
 
@@ -339,14 +292,7 @@ If the flag is set, you need to undo the last `MotionEvent` set, from the last
 `ACTION_DOWN` from this pointer.
 
 Like `ACTION_CANCEL`, the pointer can be found with `getPointerId(actionIndex)`.
-
-[
-
-Your browser doesn't support the video tag.
-](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_motion_event_set.mp4)
-
-
-**Figure 6.** Stylus stroke and palm touch create `MotionEvent` sets. Palm touch is canceled, and display is re-rendered.
+Your browser doesn't support the video tag. **Figure 6.** Stylus stroke and palm touch create `MotionEvent` sets. Palm touch is canceled, and display is re-rendered.
 
 ### Full screen, edge-to-edge, and navigation gestures
 
@@ -354,33 +300,28 @@ If an app is full screen and has actionable elements near the edge, such as the
 canvas of a drawing or note-taking app, swiping from the bottom of the screen to
 display the navigation or move the app to the background might result in an
 unwanted touch on the canvas.
-
-[
-
-Your browser doesn't support the video tag.
-](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/swipe_gesture.mp4)
-
-
-**Figure 7.** Swipe gesture to move an app to the background.
+Your browser doesn't support the video tag. **Figure 7.** Swipe gesture to move an app to the background.
 
 To prevent gestures from triggering unwanted touches in your app, you can take
-advantage of [insets](/reference/kotlin/android/graphics/Insets) and
+advantage of [insets](https://developer.android.com/reference/kotlin/android/graphics/Insets) and
 `ACTION_CANCEL`.
 
-See also the [Palm rejection, navigation, and unwanted inputs](#palm_rejection)
+See also the [Palm rejection, navigation, and unwanted inputs](https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/advanced-stylus-features#palm_rejection)
 section.
 
 Use the
-[`setSystemBarsBehavior()`](/reference/kotlin/android/view/WindowInsetsController#setsystembarsbehavior)
+[`setSystemBarsBehavior()`](https://developer.android.com/reference/kotlin/android/view/WindowInsetsController#setsystembarsbehavior)
 method and
-[`BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE`](/reference/kotlin/android/view/WindowInsetsController#behavior_show_transient_bars_by_swipe)
+[`BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE`](https://developer.android.com/reference/kotlin/android/view/WindowInsetsController#behavior_show_transient_bars_by_swipe)
 of
-[`WindowInsetsController`](/reference/kotlin/android/view/WindowInsetsController)
+[`WindowInsetsController`](https://developer.android.com/reference/kotlin/android/view/WindowInsetsController)
 to prevent navigation gestures from causing unwanted touch events:
+
+<br />
 
 ### Kotlin
 
-```
+```kotlin
 // Configure the behavior of the hidden system bars.
 windowInsetsController.systemBarsBehavior =
     WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
@@ -388,7 +329,7 @@ windowInsetsController.systemBarsBehavior =
 
 ### Java
 
-```
+```java
 // Configure the behavior of the hidden system bars.
 windowInsetsController.setSystemBarsBehavior(
     WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
@@ -397,9 +338,9 @@ windowInsetsController.setSystemBarsBehavior(
 
 To learn more about inset and gesture management, see:
 
-* [Hide system bars for immersive mode](/develop/ui/views/layout/immersive)
-* [Ensure compatibility with gesture navigation](/develop/ui/views/touch-and-input/gestures/gesturenav)
-* [Display content edge-to-edge in your app](/develop/ui/views/layout/edge-to-edge)
+- [Hide system bars for immersive mode](https://developer.android.com/develop/ui/views/layout/immersive)
+- [Ensure compatibility with gesture navigation](https://developer.android.com/develop/ui/views/touch-and-input/gestures/gesturenav)
+- [Display content edge-to-edge in your app](https://developer.android.com/develop/ui/views/layout/edge-to-edge)
 
 ## Low latency
 
@@ -408,35 +349,28 @@ and render user input.
 
 Latency = hardware and OS input processing + app processing + system compositing
 
-* hardware rendering
+- hardware rendering
 
-![Latency causes the rendered stroke to lag behind the stylus position. The gap between the stroke rendered and the stylus position represents the latency.](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_latency.png)
-
-
-**Figure 8.** Latency causes the rendered stroke to lag behind the stylus position.
+![Latency causes the rendered stroke to lag behind the stylus position. The gap between the stroke rendered and the stylus position represents the latency.](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_latency.png) **Figure 8.** Latency causes the rendered stroke to lag behind the stylus position.
 
 ### Source of latency
 
-* Registering stylus with touchscreen (hardware): Initial wireless connection
-  when the stylus and OS communicate to be registered and synced.
-* Touch sampling rate (hardware): The number of times per second a touchscreen
-  checks whether a pointer is touching the surface, ranging from 60 to 1000Hz.
-* Input processing (app): Applying color, graphic effects, and transformation
-  on user input.
-* Graphic rendering (OS + hardware): Buffer swapping, hardware processing.
+- Registering stylus with touchscreen (hardware): Initial wireless connection when the stylus and OS communicate to be registered and synced.
+- Touch sampling rate (hardware): The number of times per second a touchscreen checks whether a pointer is touching the surface, ranging from 60 to 1000Hz.
+- Input processing (app): Applying color, graphic effects, and transformation on user input.
+- Graphic rendering (OS + hardware): Buffer swapping, hardware processing.
 
 ### Low-latency graphics
 
-The [Jetpack low-latency graphics library](/jetpack/androidx/releases/graphics)
+The [Jetpack low-latency graphics library](https://developer.android.com/jetpack/androidx/releases/graphics)
 reduces the processing time between user input and on-screen rendering.
 
 The library reduces processing time by avoiding multi-buffer rendering and
 leveraging a front-buffer rendering technique, which means writing directly to
 the screen.
 
-**Note:** Multi-buffer and front-buffer rendering are available for developers
-implementing rendering with
-[OpenGL](https://en.wikipedia.org/wiki/OpenGL).
+> [!NOTE]
+> **Note:** Multi-buffer and front-buffer rendering are available for developers implementing rendering with [OpenGL](https://en.wikipedia.org/wiki/OpenGL).
 
 #### Front-buffer rendering
 
@@ -445,23 +379,13 @@ apps can get to drawing directly to the screen. The low-latency library enables
 apps to render directly to the front buffer. This improves performance by
 preventing buffer swapping, which can happen for regular multi-buffer rendering
 or double-buffer rendering (the most common case).
-
-![App writes to screen buffer and reads from screen buffer.](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/front_buffer_rendering.png)
-
-
-**Figure 9.** Front-buffer rendering.
-
-
-![App writes to multi-buffer, which swaps with screen buffer. App reads from screen buffer.](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/multi-buffer_rendering.png)
-
-
-**Figure 10.** Multi-buffer rendering.
+![App writes to screen buffer and reads from screen buffer.](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/front_buffer_rendering.png) **Figure 9.** Front-buffer rendering. ![App writes to multi-buffer, which swaps with screen buffer. App reads from screen buffer.](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/multi-buffer_rendering.png) **Figure 10.** Multi-buffer rendering.
 
 While front-buffer rendering is a great technique to render a small area of the
 screen, it is not designed to be used for refreshing the entire screen. With
 front-buffer rendering, the app is rendering content into a buffer from which
 the display is reading. As a result, there is the possibility of rendering
-artifacts or [tearing](#tearing) (see below).
+artifacts or [tearing](https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/advanced-stylus-features#tearing)(see below).
 
 The low-latency library is available from Android 10 (API level 29) and higher
 and on ChromeOS devices running Android 10 (API level 29) and higher.
@@ -472,20 +396,18 @@ The low-latency library provides the components for front-buffer rendering
 implementation. The library is added as a dependency in the app's module
 `build.gradle` file:
 
-```
-dependencies {
-    implementation "androidx.graphics:graphics-core:1.0.0-alpha03"
-}
-```
+    dependencies {
+        implementation "androidx.graphics:graphics-core:1.0.0-alpha03"
+    }
 
 #### GLFrontBufferRenderer callbacks
 
 The low-latency library includes the
-[`GLFrontBufferRenderer.Callback`](/reference/kotlin/androidx/graphics/lowlatency/GLFrontBufferedRenderer.Callback)
+[`GLFrontBufferRenderer.Callback`](https://developer.android.com/reference/kotlin/androidx/graphics/lowlatency/GLFrontBufferedRenderer.Callback)
 interface, which defines the following methods:
 
-* [`onDrawFrontBufferedLayer()`](/reference/kotlin/androidx/graphics/lowlatency/GLFrontBufferedRenderer.Callback#onDrawFrontBufferedLayer(androidx.graphics.opengl.egl.EGLManager,androidx.graphics.lowlatency.BufferInfo,kotlin.FloatArray,kotlin.Any))
-  + [`onDrawDoubleBufferedLayer()`](/reference/kotlin/androidx/graphics/lowlatency/GLFrontBufferedRenderer.Callback#onDrawDoubleBufferedLayer(androidx.graphics.opengl.egl.EGLManager,androidx.graphics.lowlatency.BufferInfo,kotlin.FloatArray,kotlin.collections.Collection))
+- [`onDrawFrontBufferedLayer()`](https://developer.android.com/reference/kotlin/androidx/graphics/lowlatency/GLFrontBufferedRenderer.Callback#onDrawFrontBufferedLayer(androidx.graphics.opengl.egl.EGLManager,androidx.graphics.lowlatency.BufferInfo,kotlin.FloatArray,kotlin.Any))
+  - [`onDrawDoubleBufferedLayer()`](https://developer.android.com/reference/kotlin/androidx/graphics/lowlatency/GLFrontBufferedRenderer.Callback#onDrawDoubleBufferedLayer(androidx.graphics.opengl.egl.EGLManager,androidx.graphics.lowlatency.BufferInfo,kotlin.FloatArray,kotlin.collections.Collection))
 
 The low-latency library is not opinionated about the type of data you use with
 `GLFrontBufferRenderer`.
@@ -500,9 +422,11 @@ override `onDrawFrontBufferedLayer()` and `onDrawDoubleBufferedLayer()`.
 `GLFrontBufferedRenderer` uses the callbacks to render your data in the most
 optimized way possible.
 
+<br />
+
 ### Kotlin
 
-```
+```kotlin
 val callback = object: GLFrontBufferedRenderer.Callback<DATA_TYPE> {
    override fun onDrawFrontBufferedLayer(
        eglManager: EGLManager,
@@ -525,7 +449,7 @@ val callback = object: GLFrontBufferedRenderer.Callback<DATA_TYPE> {
 
 ### Java
 
-```
+```java
 GLFrontBufferedRenderer.Callback<DATA_TYPE> callbacks =
     new GLFrontBufferedRenderer.Callback<DATA_TYPE>() {
         @Override
@@ -554,13 +478,13 @@ to the front and double buffer using your callbacks:
 
 ### Kotlin
 
-```
+```kotlin
 var glFrontBufferRenderer = GLFrontBufferedRenderer<DATA_TYPE>(surfaceView, callbacks)
 ```
 
 ### Java
 
-```
+```java
 GLFrontBufferedRenderer<DATA_TYPE> glFrontBufferRenderer =
     new GLFrontBufferedRenderer<DATA_TYPE>(surfaceView, callbacks);
 ```
@@ -568,11 +492,11 @@ GLFrontBufferedRenderer<DATA_TYPE> glFrontBufferRenderer =
 ##### Rendering
 
 Front-buffer rendering starts when you call the
-[`renderFrontBufferedLayer()`](/reference/kotlin/androidx/graphics/lowlatency/GLFrontBufferedRenderer#renderFrontBufferedLayer(kotlin.Any))
+[`renderFrontBufferedLayer()`](https://developer.android.com/reference/kotlin/androidx/graphics/lowlatency/GLFrontBufferedRenderer#renderFrontBufferedLayer(kotlin.Any))
 method, which triggers the `onDrawFrontBufferedLayer()` callback.
 
 Double-buffer rendering resumes when you call the
-[`commit()`](/reference/kotlin/androidx/graphics/lowlatency/GLFrontBufferedRenderer#commit())
+[`commit()`](https://developer.android.com/reference/kotlin/androidx/graphics/lowlatency/GLFrontBufferedRenderer#commit())
 function, which triggers the `onDrawMultiDoubleBufferedLayer()` callback.
 
 In the example that follows, the process renders to the front buffer (fast
@@ -581,13 +505,15 @@ the pointer around (`ACTION_MOVE`). The process renders to the double buffer
 when the pointer leaves the surface of the screen (`ACTION_UP`).
 
 You can use
-[`requestUnbufferedDispatch()`](/reference/kotlin/android/view/View#requestunbuffereddispatch)
+[`requestUnbufferedDispatch()`](https://developer.android.com/reference/kotlin/android/view/View#requestunbuffereddispatch)
 to ask that the input system doesn't batch motion events but instead delivers
 them as soon as they're available:
 
+<br />
+
 ### Kotlin
 
-```
+```kotlin
 when (motionEvent.action) {
    MotionEvent.ACTION_DOWN -> {
        // Deliver input events as soon as they arrive.
@@ -612,7 +538,7 @@ when (motionEvent.action) {
 
 ### Java
 
-```
+```java
 switch (motionEvent.getAction()) {
    case MotionEvent.ACTION_DOWN: {
        // Deliver input events as soon as they arrive.
@@ -645,7 +571,6 @@ switch (motionEvent.getAction()) {
 ✓ Do
 
 Small portions of the screen, handwriting, drawing, sketching.
-
 ✗ Don't
 
 Fullscreen update, panning, zooming. Can result in tearing.
@@ -655,16 +580,12 @@ Fullscreen update, panning, zooming. Can result in tearing.
 Tearing happens when the screen refreshes while the screen buffer is being
 modified at the same time. A part of the screen shows new data, while another
 shows old data.
-
-![Upper and lower parts of Android image are misaligned due to tearing as screen refreshes.](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/tearing.png)
-
-
-**Figure 11.** Tearing as screen is refreshed from top to bottom.
+![Upper and lower parts of Android image are misaligned due to tearing as screen refreshes.](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/tearing.png) **Figure 11.** Tearing as screen is refreshed from top to bottom.
 
 ### Motion prediction
 
 The [Jetpack motion prediction
-library](/reference/androidx/input/motionprediction/package-summary) reduces
+library](https://developer.android.com/reference/androidx/input/motionprediction/package-summary) reduces
 perceived latency by estimating the user's stroke path and providing temporary,
 artificial points to the renderer.
 
@@ -679,45 +600,37 @@ data once it is received.
 
 The motion prediction library is available from Android 4.4 (API level 19) and
 higher and on ChromeOS devices running Android 9 (API level 28) and higher.
-
-![Latency causes the rendered stroke to lag behind the stylus position. The gap between the stroke and stylus is filled with prediction points. The remaining gap is the perceived latency.](/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_reduced_latency.png)
-
-
-**Figure 12.** Latency reduced by motion prediction.
+![Latency causes the rendered stroke to lag behind the stylus position. The gap between the stroke and stylus is filled with prediction points. The remaining gap is the perceived latency.](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/advanced-stylus/stylus_reduced_latency.png) **Figure 12.** Latency reduced by motion prediction.
 
 #### Dependencies
 
 The motion prediction library provides the implementation of prediction. The
 library is added as a dependency in the app's module `build.gradle` file:
 
-```
-dependencies {
-    implementation "androidx.input:input-motionprediction:1.0.0-beta01"
-}
-```
+    dependencies {
+        implementation "androidx.input:input-motionprediction:1.0.0-beta01"
+    }
 
 #### Implementation
 
 The motion prediction library includes the
-[`MotionEventPredictor`](/reference/kotlin/androidx/input/motionprediction/MotionEventPredictor)
+[`MotionEventPredictor`](https://developer.android.com/reference/kotlin/androidx/input/motionprediction/MotionEventPredictor)
 interface, which defines the following methods:
 
-* [`record()`](/reference/kotlin/androidx/input/motionprediction/MotionEventPredictor#record(android.view.MotionEvent)):
-  Stores `MotionEvent` objects as a record of the user's actions
-* [`predict()`](/reference/kotlin/androidx/input/motionprediction/MotionEventPredictor#predict()):
-  Returns a predicted `MotionEvent`
+- [`record()`](https://developer.android.com/reference/kotlin/androidx/input/motionprediction/MotionEventPredictor#record(android.view.MotionEvent)): Stores `MotionEvent` objects as a record of the user's actions
+- [`predict()`](https://developer.android.com/reference/kotlin/androidx/input/motionprediction/MotionEventPredictor#predict()): Returns a predicted `MotionEvent`
 
 ##### Declare an instance of `MotionEventPredictor`
 
 ### Kotlin
 
-```
+```kotlin
 var motionEventPredictor = MotionEventPredictor.newInstance(view)
 ```
 
 ### Java
 
-```
+```java
 MotionEventPredictor motionEventPredictor = MotionEventPredictor.newInstance(surfaceView);
 ```
 
@@ -725,21 +638,23 @@ MotionEventPredictor motionEventPredictor = MotionEventPredictor.newInstance(sur
 
 ### Kotlin
 
-```
+```kotlin
 motionEventPredictor.record(motionEvent)
 ```
 
 ### Java
 
-```
+```java
 motionEventPredictor.record(motionEvent);
 ```
 
 ##### Predict
 
+<br />
+
 ### Kotlin
 
-```
+```kotlin
 when (motionEvent.action) {
    MotionEvent.ACTION_MOVE -> {
        val predictedMotionEvent = motionEventPredictor?.predict()
@@ -752,7 +667,7 @@ when (motionEvent.action) {
 
 ### Java
 
-```
+```java
 switch (motionEvent.getAction()) {
    case MotionEvent.ACTION_MOVE: {
        MotionEvent predictedMotionEvent = motionEventPredictor.predict();
@@ -764,15 +679,14 @@ switch (motionEvent.getAction()) {
 }
 ```
 
-**Note:** The `MotionEvent` object returned by the `predict()` method contains all
-data including x and y coordinates, pressure, orientation and tilt.
+> [!NOTE]
+> **Note:** The `MotionEvent` object returned by the `predict()` method contains all data including x and y coordinates, pressure, orientation and tilt.
 
 #### Motion prediction do's and don'ts
 
 ✓ Do
 
 Remove prediction points when a new predicted point is added.
-
 ✗ Don't
 
 Don't use prediction points for final rendering.
@@ -785,10 +699,10 @@ To register an app as a note-taking app on ChromeOS, see [Input
 compatibility](https://chromeos.dev/en/android/input-compatibility#note-taking-apps).
 
 To register an app as a note-taking on Android, see [Create a note-taking
-app](/guide/topics/large-screens/create-a-note-taking-app#app_manifest).
+app](https://developer.android.com/guide/topics/large-screens/create-a-note-taking-app#app_manifest).
 
 Android 14 (API level 34), introduced the
-[`ACTION_CREATE_NOTE`](/reference/android/content/Intent#ACTION_CREATE_NOTE)
+[`ACTION_CREATE_NOTE`](https://developer.android.com/reference/android/content/Intent#ACTION_CREATE_NOTE)
 intent, which enables your app to start a note-taking activity on the lock
 screen.
 
@@ -816,10 +730,12 @@ to learn more.
 
 ### Developer guides
 
-* [Create a note-taking app](/develop/ui/views/touch-and-input/stylus-input/create-a-note-taking-app)
+- [Create a note-taking app](https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/create-a-note-taking-app)
 
-* [Recognizing digital ink with ML Kit on Android](https://developers.google.com/ml-kit/vision/digital-ink-recognition/android)
+<!-- -->
+
+- [Recognizing digital ink with ML Kit on Android](https://developers.google.com/ml-kit/vision/digital-ink-recognition/android)
 
 ### Codelabs
 
-* [Enhance stylus support in an Android app](/codelabs/large-screens/advanced-stylus-support)
+- [Enhance stylus support in an Android app](https://developer.android.com/codelabs/large-screens/advanced-stylus-support)

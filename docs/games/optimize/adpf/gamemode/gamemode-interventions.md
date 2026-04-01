@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 *Game Mode interventions* are
 game-specific optimizations set by original equipment manufacturers (OEMs)
 to improve the performance of games that are no longer being updated by
@@ -169,8 +168,6 @@ For more information about measuring and optimizing game performance:
   optimize frame rate and graphics across Android devices at scale.
 * [Power Profiler](/studio/profile/power-profiler) - find where your app uses
   more energy than necessary.
-
-
 
 
 

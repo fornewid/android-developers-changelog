@@ -1,24 +1,33 @@
 ---
-title: https://developer.android.com/topic/performance/benchmarking/macrobenchmark-control-app
+title: Control your app from Macrobenchmark  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/benchmarking/macrobenchmark-control-app
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App quality](https://developer.android.com/quality)
+* [Technical quality](https://developer.android.com/quality/technical)
+
+# Control your app from Macrobenchmark Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Unlike most Android UI tests, Macrobenchmark tests run in a separate process
 from the app itself. This is necessary to enable things like stopping the
 app process and compiling from DEX bytecode to machine code.
 
-You can drive your app's state using the [UIAutomator library](https://developer.android.com/training/testing/ui-automator) or other
+You can drive your app's state using the [UIAutomator library](/training/testing/ui-automator) or other
 mechanisms that can control the target app from the test process.
-You can't use [Espresso](https://developer.android.com/training/testing/espresso) or [`ActivityScenario`](https://developer.android.com/reference/androidx/test/core/app/ActivityScenario) for
+You can't use [Espresso](/training/testing/espresso) or [`ActivityScenario`](/reference/androidx/test/core/app/ActivityScenario) for
 Macrobenchmark because they expect to run in a shared process with the app.
 
-The following example finds a [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) using its resource ID and
+The following example finds a [`RecyclerView`](/reference/androidx/recyclerview/widget/RecyclerView) using its resource ID and
 scrolls down several times:
 
 ### Kotlin
 
-```kotlin
+```
 @Test
 fun scrollList() {
     benchmarkRule.measureRepeated(
@@ -38,11 +47,13 @@ fun scrollList() {
 
     }
 }
+
+FrameTimingBenchmark.kt
 ```
 
 ### Java
 
-```java
+```
 @Test
 public void scrollList() {
     benchmarkRule.measureRepeated(
@@ -75,16 +86,16 @@ public void scrollList() {
 Your benchmark doesn't have to scroll the UI. Instead, it can run an
 animation, for example. It also doesn't need to use UI Automator
 specifically. It collects performance metrics as long as frames are being
-produced by the view system, including frames produced by [Jetpack Compose](https://developer.android.com/jetpack/compose).
+produced by the view system, including frames produced by [Jetpack Compose](/jetpack/compose).
 
-> [!NOTE]
-> **Note:** When accessing UI objects, specify the `packageName`, because the tests run in a separate process.
+**Note:** When accessing UI objects, specify the `packageName`, because the tests
+run in a separate process.
 
 ## Navigate to internal parts of the app
 
 Sometimes you want to benchmark parts of your app that aren't directly
 accessible from outside. This might be, for example, accessing inner Activities
-that are marked with [`exported=false`](https://developer.android.com/guide/topics/manifest/activity-element#exported), navigating to a [`Fragment`](https://developer.android.com/reference/android/app/Fragment), or swiping
+that are marked with [`exported=false`](/guide/topics/manifest/activity-element#exported), navigating to a [`Fragment`](/reference/android/app/Fragment), or swiping
 some part of your UI away. The benchmarks need to manually navigate to these
 parts of the app like a user.
 
@@ -94,7 +105,7 @@ only the UI manipulation you want to actually benchmark:
 
 ### Kotlin
 
-```kotlin
+```
 @Test
 fun nonExportedActivityScrollList() {
     benchmarkRule.measureRepeated(
@@ -115,11 +126,13 @@ private fun setupBenchmark(): MacrobenchmarkScope.() -> Unit = {
         waitForStableInActiveWindow()
     }
 }
+
+NonExportedActivityBenchmark.kt
 ```
 
 ### Java
 
-```java
+```
 @Test
 public void scrollList() {
     benchmarkRule.measureRepeated(
@@ -153,7 +166,19 @@ public void scrollList() {
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [Writing a Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)
-- [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics)
-- [Microbenchmark](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview)
+* Note: link text is displayed when JavaScript is off
+* [Writing a Macrobenchmark](/topic/performance/benchmarking/macrobenchmark-overview)
+* [Capture Macrobenchmark metrics](/topic/performance/benchmarking/macrobenchmark-metrics)
+* [Microbenchmark](/topic/performance/benchmarking/microbenchmark-overview)
+
+[Previous
+
+arrow\_back
+
+Capture the metrics](/topic/performance/benchmarking/macrobenchmark-metrics)
+
+[Next
+
+Adding instrumentation arguments
+
+arrow\_forward](/topic/performance/benchmarking/macrobenchmark-instrumentation-args)

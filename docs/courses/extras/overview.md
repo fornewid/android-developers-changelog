@@ -1,9 +1,15 @@
 ---
-title: https://developer.android.com/courses/extras/overview
+title: Course extras overview  |  Training Courses  |  Android Developers
 url: https://developer.android.com/courses/extras/overview
-source: md.txt
+source: html-scrape
 ---
 
-# Course extras overview
+* [Android Developers](https://developer.android.com/)
+* [Training](https://developer.android.com/courses)
 
-This section includes information that supplements the courses designed by the Google Developers Training team.
+# Course extras overview Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+This section includes information that supplements
+the courses designed by the Google Developers Training team.

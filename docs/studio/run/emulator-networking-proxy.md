@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 On the Android Emulator, you can use a proxy to debug application traffic or to
 access the internet from behind a corporate firewall. The emulator offers two
 distinct proxy mechanisms to support these different use cases: the Android

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android uses intents and their associated extras to let users share information quickly and
 easily using their favorite apps.
 

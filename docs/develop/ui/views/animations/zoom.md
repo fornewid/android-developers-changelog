@@ -1,10 +1,27 @@
 ---
-title: https://developer.android.com/develop/ui/views/animations/zoom
+title: Enlarge a view using a zoom animation  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/animations/zoom
-source: md.txt
+source: html-scrape
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose. [Shared element transitions →](https://developer.android.com/develop/ui/compose/animation/shared-elements) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Enlarge a view using a zoom animation Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+Try the Compose way
+
+Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose.
+
+[Shared element transitions →](https://developer.android.com/develop/ui/compose/animation/shared-elements)
+
+![](/static/images/android-compose-ui-logo.png)
 
 This guide demonstrates how to implement a tap-to-zoom animation. Tap-to-zoom lets apps, such as
 photo galleries, animate a view from a thumbnail to fill the screen.
@@ -12,6 +29,11 @@ photo galleries, animate a view from a thumbnail to fill the screen.
 Here's what a tap-to-zoom animation looks like when it expands a thumbnail to fill the
 screen:
 
+[
+
+
+
+](/static/develop/ui/views/animations/anim_zoom.mp4)
 
 For a full working example, see the `UIAnimation` class from the
 [WearSpeakerSample](https://github.com/android/wear-os-samples/tree/main/WearSpeakerSample)
@@ -21,58 +43,60 @@ project on GitHub.
 
 Create a layout file that contains the small and large version of the content you want to zoom.
 The following example creates an
-`https://developer.android.com/reference/android/widget/ImageButton` for a tappable
+`ImageButton` for a tappable
 image thumbnail and an
-`https://developer.android.com/reference/android/widget/ImageView` that displays the
+`ImageView` that displays the
 enlarged view of the image:
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/container"
+```
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/thumb_button_1"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginRight="1dp"
+            android:src="@drawable/thumb1"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/description_image_1" />
+
+    </LinearLayout>
+
+    <!-- This initially hidden ImageView holds the zoomed version of
+         the preceding images. Without transformations applied, it fills the entire
+         screen. To achieve the zoom animation, this view's bounds are animated
+         from the bounds of the preceding thumbnail button to its final laid-out
+         bounds.
+         -->
+
+    <ImageView
+        android:id="@+id/expanded_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:contentDescription="@string/description_zoom_touch_close" />
 
-        <LinearLayout android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <ImageButton
-                android:id="@+id/thumb_button_1"
-                android:layout_width="100dp"
-                android:layout_height="75dp"
-                android:layout_marginRight="1dp"
-                android:src="@drawable/thumb1"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/description_image_1" />
-
-        </LinearLayout>
-
-        <!-- This initially hidden ImageView holds the zoomed version of
-             the preceding images. Without transformations applied, it fills the entire
-             screen. To achieve the zoom animation, this view's bounds are animated
-             from the bounds of the preceding thumbnail button to its final laid-out
-             bounds.
-             -->
-
-        <ImageView
-            android:id="@+id/expanded_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible"
-            android:contentDescription="@string/description_zoom_touch_close" />
-
-    </FrameLayout>
+</FrameLayout>
+```
 
 ## Set up the zoom animation
 
 Once you apply your layout, set up the event handlers that trigger the zoom animation. The
 following example adds a
-`https://developer.android.com/reference/android/view/View.OnClickListener` to
+`View.OnClickListener` to
 the `ImageButton` to execute the zoom animation when the user taps the image button:
 
 ### Kotlin
 
-```kotlin
+```
 class ZoomActivity : FragmentActivity() {
 
     // Hold a reference to the current animator so that it can be canceled
@@ -102,7 +126,7 @@ class ZoomActivity : FragmentActivity() {
 
 ### Java
 
-```java
+```
 public class ZoomActivity extends FragmentActivity {
     // Hold a reference to the current animator so that it can be canceled
     // mid-way.
@@ -140,7 +164,7 @@ Animate from the normal-sized view to the zoomed view when appropriate. In gener
 animate from the bounds of the normal-sized view to the bounds of the larger-sized view. The
 following methods show how to implement a zoom animation that zooms from a thumbnail to an enlarged
 view. To do so, assign the high-res image to the hidden "zoomed-in" (enlarged)
-`https://developer.android.com/reference/android/widget/ImageView`.
+`ImageView`.
 
 The following example loads a large image resource on the UI thread for simplicity. Load it in a
 separate thread to prevent blocking on the UI thread, and then set the bitmap on the UI thread.
@@ -149,7 +173,7 @@ ending bounds for the `ImageView`.
 
 ### Kotlin
 
-```kotlin
+```
     private fun zoomImageFromThumb(thumbView: View, imageResId: Int) {
         // If there's an animation in progress, cancel it immediately and
         // proceed with this one.
@@ -210,7 +234,7 @@ ending bounds for the `ImageView`.
 
 ### Java
 
-```java
+```
     private void zoomImageFromThumb(final View thumbView, int imageResId) {
         // If there's an animation in progress, cancel it immediately and
         // proceed with this one.
@@ -271,18 +295,18 @@ ending bounds for the `ImageView`.
 ```
 
 Animate the four positioning and sizing
-properties---`https://developer.android.com/reference/android/view/View#X`,
-`https://developer.android.com/reference/android/view/View#Y`,
-`https://developer.android.com/reference/android/view/View#SCALE_X`,
+properties—`X`,
+`Y`,
+`SCALE_X`,
 and
-`https://developer.android.com/reference/android/view/View#SCALE_Y`---simultaneously,
+`SCALE_Y`—simultaneously,
 from the starting bounds to the ending bounds. Add these four animations to an
-`https://developer.android.com/reference/android/animation/AnimatorSet`
+`AnimatorSet`
 so that they start at the same time.
 
 ### Kotlin
 
-```kotlin
+```
     private fun animateZoomToLargeImage(startBounds: RectF, finalBounds: RectF, startScale: Float) {
         binding.expandedImage.visibility = View.VISIBLE
 
@@ -325,7 +349,7 @@ so that they start at the same time.
 
 ### Java
 
-```java
+```
     private void animateZoomToLargeImage(Rect startBounds, Rect finalBounds, Float startScale) {
 
         binding.expandedImage.setVisibility(View.VISIBLE);
@@ -369,11 +393,11 @@ so that they start at the same time.
 Zoom out by running a similar animation in reverse when the user taps the screen while the image
 is zoomed in. Add a `View.OnClickListener` to the `ImageView`. When tapped,
 the `ImageView` minimizes to the size of the image thumbnail and sets its visibility to
-`https://developer.android.com/reference/android/view/View#GONE` to hide it.
+`GONE` to hide it.
 
 ### Kotlin
 
-```kotlin
+```
     private fun setDismissLargeImageAnimation(thumbView: View, startBounds: RectF, startScale: Float) {
         // When the zoomed-in image is tapped, it zooms down to the original
         // bounds and shows the thumbnail instead of the expanded image.
@@ -412,7 +436,7 @@ the `ImageView` minimizes to the size of the image thumbnail and sets its visibi
 
 ### Java
 
-```java
+```
     private void setDismissLargeImageAnimation(View thumbView, Rect startBounds, Float startScale) {
         // When the zoomed-in image is tapped, it zooms down to the original
         // bounds and shows the thumbnail instead of the expanded image.

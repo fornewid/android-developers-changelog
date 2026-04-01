@@ -16,6 +16,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Get a user-resettable advertising ID Part of [Android Jetpack](/jetpack).
 
 **Note:** If you plan to publish and distribute your app using Google Play, use the

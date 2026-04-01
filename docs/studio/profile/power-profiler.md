@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Starting in Android Studio Hedgehog, the Power Profiler shows power consumption
 on devices. You can view this new data in the On Device Power Rails Monitor (ODPM).
 It segments the information by subsystems called "Power Rails". See [Profileable

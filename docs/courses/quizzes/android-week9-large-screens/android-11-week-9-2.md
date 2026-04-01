@@ -1,57 +1,48 @@
 ---
-title: Android 11—Week 9—Large screens quiz  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-week9-large-screens/android-11-week-9-2
 url: https://developer.android.com/courses/quizzes/android-week9-large-screens/android-11-week-9-2
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Android 11—Week 9—Large screens quiz
 
-Return to pathway
+# Android 11---Week 9---Large screens quiz
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Which of the following is a new feature for ChromeOS developers?
+   ## Which of the following is a new feature for ChromeOS developers?
 
-   Customizable linux terminal
+   Customizable linux terminal  
+   Android emulator support  
+   Improved activity template in Android studio  
+   All of the above  
+   None of the above  
+2.
 
-   Android emulator support
+   ## Fill-in-the-blanks
 
-   Improved activity template in Android studio
+   Enter one or more words to complete the sentence.  
+   Enabling ___ debugging allows deployment of an Android app directly to the Android environment on ChromeOS.  
+3.
 
-   All of the above
+   ## Which of the following can give a reading of the current angle value in degrees for foldable devices?
 
-   None of the above
-2. ## Fill-in-the-blanks
+   Angle tracker  
+   Custom fold  
+   Fold sensor  
+   Hinge sensor  
+4.
 
-   Enter one or more words to complete the sentence.
+   ## Which of the following is not a recommendation for app continuity for different screen sizes, including larger screens and foldables?
 
-   Enabling \_\_\_ debugging allows deployment of an Android app directly to the Android environment on ChromeOS.
-3. ## Which of the following can give a reading of the current angle value in degrees for foldable devices?
-
-   Angle tracker
-
-   Custom fold
-
-   Fold sensor
-
-   Hinge sensor
-4. ## Which of the following is not a recommendation for app continuity for different screen sizes, including larger screens and foldables?
-
-   React to window and device state changes seamlessly
-
-   Support different window sizes and orientations
-
-   Handle screen size changes gracefully
-
-   Not maintaining user state and behavior when the changes occur
+   React to window and device state changes seamlessly  
+   Support different window sizes and orientations  
+   Handle screen size changes gracefully  
+   Not maintaining user state and behavior when the changes occur  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

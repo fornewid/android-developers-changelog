@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/develop/ui/views/haptics/haptics-principles
+title: Haptics design principles  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/haptics/haptics-principles
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Haptics design principles Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 When it comes to haptic feedback on mobile devices, less is more. Too much
 vibration can be annoying and even numbing to the hands, as the device is
@@ -12,30 +22,28 @@ haptics. However, well crafted haptics provide valuable sensory feedback that
 provide users with a richer engagement with their device.
 
 This page explains use cases for using haptics, introduces
-[classifications](https://developer.android.com/develop/ui/views/haptics/haptics-principles#haptics_classifications) for haptic effects, and also covers
-basic [guidelines](https://developer.android.com/develop/ui/views/haptics/haptics-principles#haptics_design_guidelines) for apps.
+[classifications](#haptics_classifications) for haptic effects, and also covers
+basic [guidelines](#haptics_design_guidelines) for apps.
 
 ## Use cases for adding haptics to your app
 
 Here are some reasons for incorporating haptics into your app.
 
-- **To notify the user of an event that needs their attention.** Examples
+* **To notify the user of an event that needs their attention.** Examples
   include an incoming phone call or text message, or an upcoming meeting on
   the calendar.
-
-- **To confirm a state change in the device following a user action.**
+* **To confirm a state change in the device following a user action.**
   Examples include click feedback for a button press, unlocking a phone,
   fingerprint acceptance or rejection, or activating the camera.
-
-- **To delight the user with effects.** Such effects could enhance an ongoing
+* **To delight the user with effects.** Such effects could enhance an ongoing
   user action or emulate physical interaction. Examples include scroll
   feedback, a slider snapping into place, or haptic effects in sync with
   animations, sounds, videos, and games.
 
 ## Haptics classifications
 
-The haptic principles presented here are designed around *clear haptics* ,
-*rich haptics* , and *buzzy haptics*.
+The haptic principles presented here are designed around *clear haptics*,
+*rich haptics*, and *buzzy haptics*.
 
 ### Clear haptics
 
@@ -44,9 +52,9 @@ event, such as button presses. These effects often aim to imitate a
 corresponding real-world mechanical action, like those felt when pressing on a
 physical button.
 
-Android has predefined clear haptic effects in [`VibrationEffect`](https://developer.android.com/reference/android/os/VibrationEffect). However,
+Android has predefined clear haptic effects in [`VibrationEffect`](/reference/android/os/VibrationEffect). However,
 in general apps should use action-oriented constants from
-[`HapticFeedbackConstants`](https://developer.android.com/reference/android/view/HapticFeedbackConstants) to ensure consistency of effect and action across
+[`HapticFeedbackConstants`](/reference/android/view/HapticFeedbackConstants) to ensure consistency of effect and action across
 the device.
 
 The other advantage of action-oriented constants is that the platform can
@@ -61,17 +69,18 @@ that are more expressive.
 
 Rich haptics generally require haptic actuators that have a wider frequency
 bandwidth, enabling greater expressiveness and range. Rich haptics can also be
-produced by sequencing clear haptics [primitives](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#primitives) in varied amplitudes and
+produced by sequencing clear haptics [primitives](/develop/ui/views/haptics/custom-haptic-effects#primitives) in varied amplitudes and
 intervals.
 
 Examples of rich haptic effects are:
 
-- A "fluttery" sensation, similar to a butterfly flapping its wings on your fingertip
-- The texture of a surface felt by a finger dragging or swiping across it
-- The sensations of wobbliness and instability, or heaviness and reverberation
+* A "fluttery" sensation, similar to a butterfly flapping its wings on your
+  fingertip
+* The texture of a surface felt by a finger dragging or swiping across it
+* The sensations of wobbliness and instability, or heaviness and reverberation
 
-> [!CAUTION]
-> **Caution:** Rich haptics are supported by fewer devices, so it's important to have a fallback strategy.
+**Caution:** Rich haptics are supported by fewer devices, so it’s important to have
+a fallback strategy.
 
 ### Buzzy haptics
 
@@ -82,34 +91,36 @@ before the vibration stops completely.
 
 Examples of buzzy haptic sensations are:
 
-- Operating a jackhammer
-- Riding a motorcycle
-- In mobile devices, a long-winded, ringing vibration after a key press
+* Operating a jackhammer
+* Riding a motorcycle
+* In mobile devices, a long-winded, ringing vibration after a key press
 
 Dating back to pagers and feature phones, low-end mobile phones with
 low-performance haptic actuators or drivers tended to produce buzzy long
 vibrations for notification purposes.
 
-> [!IMPORTANT]
-> **Important:** Given the choice of buzzy haptics or no haptics for touch feedback, choose no haptics. Some situations where an event is always intended to grab the users attention, such as an incoming notification or call, may be appropriate for applying a buzzy fallback.
+**Important:** Given the choice of buzzy haptics or no haptics for touch feedback,
+choose no haptics. Some situations where an event is always intended to grab the
+users attention, such as an incoming notification or call, may be appropriate
+for applying a buzzy fallback.
 
 ## Haptics design guidelines
 
 At a high level, the design guidelines can be summarized as:
 
-- Favor rich and clear haptics over buzzy haptics.
-- Be consistent, both with the system and the app design.
-- Be mindful of frequency of use, and importance.
+* Favor rich and clear haptics over buzzy haptics.
+* Be consistent, both with the system and the app design.
+* Be mindful of frequency of use, and importance.
 
 ### Prioritize predefined haptic constants and effects
 
 If your action is covered by a predefined action present in
-[`HapticFeedbackConstants`](https://developer.android.com/reference/android/view/HapticFeedbackConstants), use that constant. This ensures a consistent
+[`HapticFeedbackConstants`](/reference/android/view/HapticFeedbackConstants), use that constant. This ensures a consistent
 user interaction experience, which is particularly valuable as an accessibility
 consideration.
 
-If you're creating your own effect, consider using the [`VibrationEffect`](https://developer.android.com/reference/android/os/VibrationEffect)
-predefined effects and the [`VibrationEffect.Composition`](https://developer.android.com/reference/android/os/VibrationEffect.Composition) primitives. They
+If you're creating your own effect, consider using the [`VibrationEffect`](/reference/android/os/VibrationEffect)
+predefined effects and the [`VibrationEffect.Composition`](/reference/android/os/VibrationEffect.Composition) primitives. They
 are more likely to give a consistent quality experience across devices that
 support them.
 
@@ -117,13 +128,11 @@ support them.
 
 Haptic effects shouldn't overwhelm the user or feel gratuitous.
 
-- Haptic effects applied to very frequent events, like scrolling or moving a
+* Haptic effects applied to very frequent events, like scrolling or moving a
   text handle, should be very subtle to provide a pleasant overall experience.
-
-- More important events, like refreshing a page or submitting a form, should
+* More important events, like refreshing a page or submitting a form, should
   be stronger than changing a toggle or scrolling on a list, for example.
-
-- Combine both concepts to create effects that become stronger as the
+* Combine both concepts to create effects that become stronger as the
   interaction reaches a target, for example gradually increasing the amplitude
   of a sequence of ticks with dragging, dropping or snapping actions.
 
@@ -135,7 +144,7 @@ make sure the same effect is applied to all similar interactions. This helps
 users to associate a meaning to a particular haptic feedback.
 
 Also be consistent with the Android system by using the same
-[`HapticFeedbackConstants`](https://developer.android.com/reference/android/view/HapticFeedbackConstants) for well defined interactions, like time pickers or
+[`HapticFeedbackConstants`](/reference/android/view/HapticFeedbackConstants) for well defined interactions, like time pickers or
 virtual keyboards.
 
 ### Design visual and audio experience together with haptics
@@ -154,9 +163,9 @@ In some cases, the user may perceive the haptic actuator to be broken.
 ### Avoid legacy one-shot vibrations for haptic feedback
 
 Avoid using the legacy [one-shot
-vibrations](https://developer.android.com/develop/ui/views/haptics/haptics-apis#on_off_vibrations), like the
-ones defined by [`VibrationEffect.createOneShot`](https://developer.android.com/reference/android/os/VibrationEffect#createOneShot(long,%20int)) or performed with the APIs
-[`Vibrator.vibrate(long)`](https://developer.android.com/reference/android/os/Vibrator#vibrate(long)) and [`Vibrator.vibrate(long[], int)`](https://developer.android.com/reference/android/os/Vibrator#vibrate(long%5B%5D,%20int)).
+vibrations](/develop/ui/views/haptics/haptics-apis#on_off_vibrations), like the
+ones defined by [`VibrationEffect.createOneShot`](/reference/android/os/VibrationEffect#createOneShot(long,%20int)) or performed with the APIs
+[`Vibrator.vibrate(long)`](/reference/android/os/Vibrator#vibrate(long)) and [`Vibrator.vibrate(long[], int)`](/reference/android/os/Vibrator#vibrate(long%5B%5D,%20int)).
 
 These vibrations might feel buzzy when they last for a long period after the
 input waveform has ended, especially on devices with a low-performance haptic

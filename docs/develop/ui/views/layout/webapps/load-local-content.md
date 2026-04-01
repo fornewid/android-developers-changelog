@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 You can provide web-based content—such as HTML, JavaScript, and
 CSS—for your app to use that you statically compile into the app rather
 than fetch over the internet.

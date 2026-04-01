@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 [Unity Adaptive Performance](https://docs.unity3d.com/Packages/com.unity.adaptiveperformance@5.0/manual/installing-and-configuring.html)
 is a tool for game developers who want to optimize their games on mobile
 devices, particularly for the diverse Android ecosystem. Adaptive Performance

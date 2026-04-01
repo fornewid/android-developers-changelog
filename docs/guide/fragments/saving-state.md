@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Various Android system operations can affect the state of your fragment.
 To ensure the user's state is saved, the Android framework automatically
 saves and restores the fragments and the back stack. Therefore, you need

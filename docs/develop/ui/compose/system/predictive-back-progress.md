@@ -1,10 +1,21 @@
 ---
-title: https://developer.android.com/develop/ui/compose/system/predictive-back-progress
+title: Access progress manually  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/system/predictive-back-progress
-source: md.txt
+source: html-scrape
 ---
 
-The [`PredictiveBackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/PredictiveBackHandler.composable#PredictiveBackHandler(kotlin.Boolean,kotlin.coroutines.SuspendFunction1)) composable in Jetpack Compose lets you
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Access progress manually Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+The [`PredictiveBackHandler`](/reference/kotlin/androidx/activity/compose/PredictiveBackHandler.composable#PredictiveBackHandler(kotlin.Boolean,kotlin.coroutines.SuspendFunction1)) composable in Jetpack Compose lets you
 intercept the back gesture and access its progress. You can react to the user's
 back gesture in real-time, creating custom animations or behaviors based on how
 far the user swipes.
@@ -16,13 +27,13 @@ To use the `PredictiveBackHandler`, ensure you are using
 representing the progress of the back gesture. Each event contains information
 such as:
 
-- `progress`: A float value between 0 and 1 indicating the progress of the back gesture (0 = gesture started, 1 = gesture completed).
-- `touchX` and `touchY`: The X and Y coordinates of the touch event.
+* `progress`: A float value between 0 and 1 indicating the progress of the back
+  gesture (0 = gesture started, 1 = gesture completed).
+* `touchX` and `touchY`: The X and Y coordinates of the touch event.
 
 The following snippet shows basic usage of `PredictiveBackHandler`:
 
-
-```kotlin
+```
 PredictiveBackHandler(true) { progress: Flow<BackEventCompat> ->
     // code for gesture back started
     try {
@@ -38,18 +49,36 @@ PredictiveBackHandler(true) { progress: Flow<BackEventCompat> ->
         throw e
     }
 }
-```
 
-<br />
+PredictiveBackSnippets.kt
+```
 
 ## Example: Integrate with a navigation drawer
 
 This example demonstrates how to implement a custom in-app animation using `PredictiveBackHandler` to create a smooth interaction with a navigation
 drawer in response to back gestures in [JetLagged](https://github.com/android/compose-samples/blob/main/JetLagged/app/src/main/java/com/example/jetlagged/JetLaggedDrawer.kt):
+
+[
+
+](/static/develop/ui/compose/images/system/pb-jetlagged-navDrawer.mp4)
+
 **Figure 5.** Navigation drawer with predictive back support.
 
 In this example, `PredictiveBackHandler` is used to:
 
-- Track the progress of the back gesture.
-- Update the `translationX` of the drawer based on the gesture progress.
-- Use a `velocityTracker` to smoothly open or close the drawer based on the gesture velocity when the gesture is completed or canceled.
+* Track the progress of the back gesture.
+* Update the `translationX` of the drawer based on the gesture progress.
+* Use a `velocityTracker` to smoothly open or close the drawer based on the
+  gesture velocity when the gesture is completed or canceled.
+
+[Previous
+
+arrow\_back
+
+Set up predictive back](/develop/ui/compose/system/predictive-back-setup)
+
+[Next
+
+Test predictive back
+
+arrow\_forward](/develop/ui/compose/system/predictive-back-test)

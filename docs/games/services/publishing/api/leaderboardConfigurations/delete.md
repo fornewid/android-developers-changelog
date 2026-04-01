@@ -1,12 +1,19 @@
 ---
-title: https://developer.android.com/games/services/publishing/api/leaderboardConfigurations/delete
+title: LeaderboardConfigurations: delete  |  API reference  |  Android Developers
 url: https://developer.android.com/games/services/publishing/api/leaderboardConfigurations/delete
-source: md.txt
+source: html-scrape
 ---
 
-# LeaderboardConfigurations: delete
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [API reference](https://developer.android.com/reference)
 
-**Requires[authorization](https://developer.android.com/games/services/publishing/api/leaderboardConfigurations/delete#auth)**
+# LeaderboardConfigurations: delete Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+**Requires [authorization](#auth)**
 
 Delete the leaderboard configuration with the given ID.
 
@@ -20,17 +27,17 @@ DELETE https://www.googleapis.com/games/v1configuration/leaderboards/leaderboard
 
 ### Parameters
 
-| Parameter name  |  Value   |        Description         |
-|-----------------|----------|----------------------------|
-| **Path parameters**                                   |||
+| Parameter name | Value | Description |
+| --- | --- | --- |
+| **Path parameters** | | |
 | `leaderboardId` | `string` | The ID of the leaderboard. |
 
 ### Authorization
 
-This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
+This request requires authorization with the following scope ([read more about authentication and authorization](/accounts/docs/OAuth2)).
 
-|                       Scope                        |
-|----------------------------------------------------|
+| Scope |
+| --- |
 | `https://www.googleapis.com/auth/androidpublisher` |
 
 ### Request body

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Insets provide information about the system UI to ensure that your app draws in
 the correct area and your UI isn't obscured by the system UI. Learn how insets
 communicate to your app where system decorations are placed, and how Compose

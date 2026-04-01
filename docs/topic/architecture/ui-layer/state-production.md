@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Modern UIs are rarely static. The state of the UI changes when the user
 interacts with the UI or when the app needs to display new data.
 

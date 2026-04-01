@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 ## Samples
 
 ### Hello Vulkan
@@ -116,6 +117,8 @@ The 2023 edition of the Vulkanised covers plenty of interesting progress for
 Vulkan on mobile chips as well. The full agenda with the videos and decks can be
 found in [Vulkanised 2023 Agenda](https://vulkan.org/events/vulkanised-2023#agenda),
 and the recorded sessions are on this [YouTube Playlist](https://www.youtube.com/watch?v=lOKIeIr77Ow&list=PLMLurvdlOpWOluO2PqfGO7XBU8FBlpDug).
+
+
 
 
 

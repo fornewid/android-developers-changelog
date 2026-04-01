@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 R8 provides global options that either modify R8's optimizations throughout the
 app or affect every keep rule. These options are maintained in the
 `proguard-rules.pro` file, along with keep rules. A few of these global options

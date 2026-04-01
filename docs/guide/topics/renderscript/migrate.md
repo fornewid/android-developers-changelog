@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 RenderScript APIs are deprecated starting in Android 12. Device and component
 manufacturers have already stopped providing hardware acceleration support,
 and RenderScript support is expected to be removed entirely in a future release.

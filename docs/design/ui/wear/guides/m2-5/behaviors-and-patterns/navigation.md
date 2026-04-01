@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Screen gestures are a primary means of navigation in Wear OS apps. Users
 navigate by scrolling, swiping, and tapping the screen. For more information
 about implementing swipe to dismiss using Compose for Wear OS, see

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You can use the [Android Emulator](/studio/run/emulator) to test how your
 app runs on Android Automotive OS.
 

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 On Android 12 (API level 31) and higher, the system can automatically convert
 videos recorded in formats such as HEVC (H.265) to AVC (H.264) when the videos
 are opened by an app that does not support HEVC. This feature allows video

@@ -1,30 +1,43 @@
 ---
-title: https://developer.android.com/media/media3/session/serve-content
+title: Serve content with a MediaLibraryService  |  Android media  |  Android Developers
 url: https://developer.android.com/media/media3/session/serve-content
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Serve content with a MediaLibraryService Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Media apps often contain collections of media items, organized in a hierarchy.
 For example, songs in an album or TV episodes in a playlist. This hierarchy of
 media items is known as a media library.
-![Examples of media content arranged in a hierarchy](https://developer.android.com/static/guide/topics/media/images/media-library-examples.svg) **Figure 1**: Examples of media item hierarchies that form a media library.
+
+![Examples of media content arranged in a hierarchy](/static/guide/topics/media/images/media-library-examples.svg)
+
+
+**Figure 1**: Examples of media item hierarchies that form a
+media library.
 
 A `MediaLibraryService` provides a standardized API to serve and access your
 media library. This can be helpful, for example, when adding support for
-[Android Auto](https://developer.android.com/training/cars/media) to your media app, which provides its own
+[Android Auto](/training/cars/media) to your media app, which provides its own
 driver-safe UI for your media library.
 
 ## Build a `MediaLibraryService`
 
 Implementing a `MediaLibraryService` is similar to
-[implementing a `MediaSessionService`](https://developer.android.com/guide/topics/media/session/mediasessionservice#provide-access),
+[implementing a `MediaSessionService`](/guide/topics/media/session/mediasessionservice#provide-access),
 except that in the `onGetSession()` method, you should
 return a `MediaLibrarySession` instead of a `MediaSession`.
 
-
 ### Kotlin
 
-```kotlin
+```
 class PlaybackService : MediaLibraryService() {
   private var mediaLibrarySession: MediaLibrarySession? = null
   private val callback: MediaLibrarySession.Callback =
@@ -54,11 +67,13 @@ class PlaybackService : MediaLibraryService() {
     super.onDestroy()
   }
 }
+
+ServeContent.kt
 ```
 
 ### Java
 
-```java
+```
 class PlaybackService extends MediaLibraryService {
   MediaLibrarySession mediaLibrarySession = null;
   MediaLibrarySession.Callback callback = new MediaLibrarySession.Callback() {
@@ -90,45 +105,55 @@ class PlaybackService extends MediaLibraryService {
     super.onDestroy();
   }
 }
+
+ServeContent.java
 ```
-Remember to declare your `Service` and required permissions in the manifest file as well:
 
-<br />
+Remember to declare your `Service` and required permissions in the manifest file
+as well:
 
-    <service
-        android:name=".PlaybackService"
-        android:foregroundServiceType="mediaPlayback"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="androidx.media3.session.MediaSessionService"/>
-            <action android:name="android.media.browse.MediaBrowserService"/>
-        </intent-filter>
-    </service>
+```
+<service
+    android:name=".PlaybackService"
+    android:foregroundServiceType="mediaPlayback"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="androidx.media3.session.MediaSessionService"/>
+        <action android:name="android.media.browse.MediaBrowserService"/>
+    </intent-filter>
+</service>
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+```
 
-> [!NOTE]
-> **Note:** For compatibility with clients using the platform media session APIs, it is recommended to include `<action android:name="android.media.browse.MediaBrowserService"/>` in the `intent-filter` element.
+**Note:** For compatibility with clients using the platform media session
+APIs, it is recommended to include
+`<action android:name="android.media.browse.MediaBrowserService"/>`
+in the `intent-filter` element.
 
 ## Use a `MediaLibrarySession`
 
 The `MediaLibraryService` API expects your media library to be structured in a
 tree format, with a single root node and children nodes that may be
-[playable](https://developer.android.com/reference/kotlin/androidx/media3/common/MediaMetadata#isPlayable())
-or further [browsable](https://developer.android.com/reference/kotlin/androidx/media3/common/MediaMetadata#isBrowsable()).
+[playable](/reference/kotlin/androidx/media3/common/MediaMetadata#isPlayable())
+or further [browsable](/reference/kotlin/androidx/media3/common/MediaMetadata#isBrowsable()).
 
-A [`MediaLibrarySession`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession)
+A [`MediaLibrarySession`](/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession)
 extends the `MediaSession` API to add content browsing APIs. Compared to the
-[`MediaSession` callback](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback),
-the [`MediaLibrarySession` callback](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback)
+[`MediaSession` callback](/reference/androidx/media3/session/MediaSession.Callback),
+the [`MediaLibrarySession` callback](/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback)
 adds methods such as:
 
-- [`onGetLibraryRoot()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetLibraryRoot(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests the root `MediaItem` of a content tree
-- [`onGetChildren()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetChildren(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests the children of a `MediaItem` in the content tree
-- [`onGetSearchResult()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetSearchResult(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests search results from the content tree for a given query
+* [`onGetLibraryRoot()`](/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetLibraryRoot(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,androidx.media3.session.MediaLibraryService.LibraryParams))
+  for when a client requests the root `MediaItem` of a content tree
+* [`onGetChildren()`](/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetChildren(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams))
+  for when a client requests the children of a `MediaItem` in the content tree
+* [`onGetSearchResult()`](/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetSearchResult(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams))
+  for when a client requests search results from the content tree for a given
+  query
 
-Relevant callback methods will include a [`LibraryParams`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.LibraryParams)
+Relevant callback methods will include a [`LibraryParams`](/reference/androidx/media3/session/MediaLibraryService.LibraryParams)
 object with additional signals about the type of content tree that a client app
 is interested in.
 
@@ -144,10 +169,9 @@ command for the item to the session in a convenient way.
 When building the session, a session app declares the set of command buttons
 that a session can handle as custom commands:
 
-
 ### Kotlin
 
-```kotlin
+```
 val allCommandButtons =
   listOf(
     CommandButton.Builder(CommandButton.ICON_PLAYLIST_ADD)
@@ -166,11 +190,13 @@ val session =
   MediaSession.Builder(context, player)
     .setCommandButtonsForMediaItems(allCommandButtons)
     .build()
+
+ServeContent.kt
 ```
 
 ### Java
 
-```java
+```
 ImmutableList<CommandButton> allCommandButtons =
     ImmutableList.of(
         new CommandButton.Builder(CommandButton.ICON_PLAYLIST_ADD)
@@ -188,21 +214,22 @@ MediaSession session =
     new MediaSession.Builder(context, player)
         .setCommandButtonsForMediaItems(allCommandButtons)
         .build();
+
+ServeContent.java
 ```
 
-<br />
-
-> [!NOTE]
-> **Note:** The [Android media controls](https://developer.android.com/media/implement/surfaces/mobile#config-action-buttons) that are available through the media notification aren't using command buttons for media items. Use [media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) to declare preferences for these media controls.
+**Note:** The [Android media controls](/media/implement/surfaces/mobile#config-action-buttons) that are available
+through the media notification aren't using command buttons for media items. Use
+[media button preferences](/media/media3/session/control-playback#commands) to declare preferences for
+these media controls.
 
 When building a media item, a session app can add a set of supported command IDs
 that reference session commands of command buttons that have been setup when
 building the session:
 
-
 ### Kotlin
 
-```kotlin
+```
 val mediaItem =
   MediaItem.Builder()
     .setMediaMetadata(
@@ -211,11 +238,13 @@ val mediaItem =
         .build()
     )
     .build()
+
+ServeContent.kt
 ```
 
 ### Java
 
-```java
+```
 MediaItem mediaItem =
     new MediaItem.Builder()
         .setMediaMetadata(
@@ -223,12 +252,12 @@ MediaItem mediaItem =
                 .setSupportedCommands(ImmutableList.of(COMMAND_PLAYLIST_ADD, COMMAND_RADIO))
                 .build())
         .build();
+
+ServeContent.java
 ```
 
-<br />
-
-> [!NOTE]
-> **Note:** A controller only sees the command buttons for which the session has also made the corresponding [session command available to the controller](https://developer.android.com/media/media3/session/control-playback#available-commands).
+**Note:** A controller only sees the command buttons for which the session has also
+made the corresponding [session command available to the controller](/media/media3/session/control-playback#available-commands).
 
 When a controller or browser connects or calls another method of the session
 `Callback`, the session app can inspect the `ControllerInfo` passed to the
@@ -237,10 +266,9 @@ can display. The `ControllerInfo` passed into a callback method provides a
 getter to access this value conveniently. By default the value is set to 0 which
 indicates that the browser or controller doesn't support this feature:
 
-
 ### Kotlin
 
-```kotlin
+```
 override fun onGetItem(
   session: MediaLibrarySession,
   browser: MediaSession.ControllerInfo,
@@ -253,11 +281,13 @@ override fun onGetItem(
 
   return settableFuture
 }
+
+ServeContent.kt
 ```
 
 ### Java
 
-```java
+```
 @Override
 public ListenableFuture<LibraryResult<MediaItem>> onGetItem(
     MediaLibraryService.MediaLibrarySession session,
@@ -270,18 +300,17 @@ public ListenableFuture<LibraryResult<MediaItem>> onGetItem(
 
   return settableFuture;
 }
-```
 
-<br />
+ServeContent.java
+```
 
 When handling a custom action that has been sent for a media item, the session
 app can get the media item ID from the arguments `Bundle` passed into
 `onCustomCommand`:
 
-
 ### Kotlin
 
-```kotlin
+```
 override fun onCustomCommand(
   session: MediaSession,
   controller: MediaSession.ControllerInfo,
@@ -293,11 +322,13 @@ override fun onCustomCommand(
     handleCustomCommandForMediaItem(controller, customCommand, mediaItemId, args)
   else handleCustomCommand(controller, customCommand, args)
 }
+
+ServeContent.kt
 ```
 
 ### Java
 
-```java
+```
 @Override
 public ListenableFuture<SessionResult> onCustomCommand(
     MediaSession session,
@@ -309,9 +340,9 @@ public ListenableFuture<SessionResult> onCustomCommand(
       ? handleCustomCommandForMediaItem(controller, customCommand, mediaItemId, args)
       : handleCustomCommand(controller, customCommand, args);
 }
-```
 
-<br />
+ServeContent.java
+```
 
 ### Use command buttons as a browser or controller
 
@@ -319,67 +350,71 @@ On the `MediaController` side, an app can declare the maximum number of command
 buttons it supports for a media item when building the `MediaController` or
 `MediaBrowser`:
 
-
 ### Kotlin
 
-```kotlin
+```
 val browserFuture =
   MediaBrowser.Builder(context, sessionToken).setMaxCommandsForMediaItems(3).buildAsync()
+
+ServeContent.kt
 ```
 
 ### Java
 
-```java
+```
 ListenableFuture<MediaBrowser> browserFuture =
     new MediaBrowser.Builder(context, sessionToken).setMaxCommandsForMediaItems(3).buildAsync();
+
+ServeContent.java
 ```
 
-<br />
-
-> [!NOTE]
-> **Note:** By default, the number of commands is set to 0 (zero) which advises the session app to not advertise command buttons for that browser or controller.
+**Note:** By default, the number of commands is set to 0 (zero) which advises the
+session app to not advertise command buttons for that browser or controller.
 
 When connected to the session, the controller app can receive the
 command buttons that are supported by the media item and for which the
-controller has the [available command granted by the session app](https://developer.android.com/media/media3/session/control-playback#available-commands):
-
+controller has the [available command granted by the session app](/media/media3/session/control-playback#available-commands):
 
 ### Kotlin
 
-```kotlin
+```
 val commandButtonsForMediaItem = controller.getCommandButtonsForMediaItem(mediaItem)
+
+ServeContent.kt
 ```
 
 ### Java
 
-```java
+```
 ImmutableList<CommandButton> commandButtonsForMediaItem =
     controller.getCommandButtonsForMediaItem(mediaItem);
+
+ServeContent.java
 ```
 
-<br />
-
-> [!NOTE]
-> **Note:** The returned command buttons are the intersection of all buttons that have been set up by the session, the supported commands set on the media item and the available commands of the controller.
-
+**Note:** The returned command buttons are the intersection of all buttons that have
+been set up by the session, the supported commands set on the media item and the
+available commands of the controller.
 
 ### Kotlin
 
-```kotlin
+```
 val future =
   controller.sendCustomCommand(
     requireNotNull(addToPlaylistButton.sessionCommand),
     mediaItem,
     Bundle.EMPTY,
   )
+
+ServeContent.kt
 ```
 
 ### Java
 
-```java
+```
 ListenableFuture<SessionResult> future =
     controller.sendCustomCommand(
         checkNotNull(addToPlaylistButton.sessionCommand), mediaItem, Bundle.EMPTY);
-```
 
-<br />
+ServeContent.java
+```

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ## Introduction
 
 This document defines the behavior of a new file format that encodes a

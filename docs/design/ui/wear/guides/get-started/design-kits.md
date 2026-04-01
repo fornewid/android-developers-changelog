@@ -1,25 +1,39 @@
 ---
-title: https://developer.android.com/design/ui/wear/guides/get-started/design-kits
+title: Figma Design Kits  |  Wear  |  Android Developers
 url: https://developer.android.com/design/ui/wear/guides/get-started/design-kits
-source: md.txt
+source: html-scrape
 ---
 
-# Figma Design Kits
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [UI Design](https://developer.android.com/design/ui)
+* [Wear](https://developer.android.com/design/ui/wear)
+* [Guides](https://developer.android.com/design/ui/wear/guides/get-started)
 
-Use Figma design kits to create your own wearable apps, tiles, media screens, and flows. These kits include components, styles, variables, and layouts to kickstart your designs.
+# Figma Design Kits Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+Use Figma design kits to create your own wearable apps, tiles, media screens,
+and flows. These kits include components, styles, variables, and layouts to
+kickstart your designs.
 
 To get started, open a given kit in Figma.
 
 ## Design kit for apps
 
-Use the design kit for apps to create your own Wear OS apps that support Material 3 Expressive. This kit includes components, styles, and layouts to kickstart your designs. Reference and[open the apps kit directly in Figma](https://www.figma.com/community/file/1506418396052412186)to get started.  
-![apps-design-kit.png](https://developer.android.com/static/wear/images/design/design-kit-apps.svg)
+Use the design kit for apps to create your own Wear OS apps that support
+Material 3 Expressive. This kit includes components, styles, and layouts to
+kickstart your designs. Reference and [open the apps kit directly in
+Figma](https://www.figma.com/community/file/1506418396052412186) to get started.
 
-<br />
+![apps-design-kit.png](/static/wear/images/design/design-kit-apps.svg)
 
 ## Design kit for tiles
 
-Use the design kit for tiles to create your own Wear OS tiles that support Material 3 Expressive. This kit includes components, styles, and layouts to kickstart your designs. Reference and[open the tiles kit directly in Figma](https://www.figma.com/community/file/1507852095734722321)to get started.  
-![tiles-design-kit.png](https://developer.android.com/static/wear/images/design/design-kit-tiles.svg)
+Use the design kit for tiles to create your own Wear OS tiles that support
+Material 3 Expressive. This kit includes components, styles, and layouts to
+kickstart your designs. Reference and [open the tiles kit directly in
+Figma](https://www.figma.com/community/file/1507852095734722321) to get started.
 
-<br />
+![tiles-design-kit.png](/static/wear/images/design/design-kit-tiles.svg)

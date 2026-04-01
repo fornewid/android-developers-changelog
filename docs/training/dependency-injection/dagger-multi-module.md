@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Note:** In this page, references to modules refer to Gradle modules and
 not to Dagger modules.
 

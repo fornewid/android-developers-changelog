@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Rows are customizable components used to build various list types, like lists
 with data or images. They are supported by templates and can display a small
 amount of text along with other elements.

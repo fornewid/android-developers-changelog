@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 In the live TV experience, the user changes channels and is presented with
 channel and program information briefly before the information disappears. Other types of information,
 such as messages ("DO NOT ATTEMPT AT HOME"), subtitles, or ads may need to persist. As with any TV

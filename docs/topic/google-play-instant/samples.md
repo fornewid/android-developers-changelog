@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/topic/google-play-instant/samples
+title: Code samples  |  Other Play guides  |  Android Developers
 url: https://developer.android.com/topic/google-play-instant/samples
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Other Play guides](https://developer.android.com/guide/app-bundle)
+
+# Code samples Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 **Warning:** Google Play Instant will no longer be available. Starting December 2025,
 Instant Apps cannot be published through Google Play, and all
@@ -20,8 +28,8 @@ to redirect them to specific journeys or features when relevant.
 Use the code samples to learn about Google Play Instant capabilities and
 APIs.
 
-> [!NOTE]
-> **Note:** These downloadable projects are designed for use with Gradle, Instant Apps Development SDK 1.1.0, and Android Studio 3.0.
+**Note:** These downloadable projects are designed for use with Gradle,
+Instant Apps Development SDK 1.1.0, and Android Studio 3.0.
 
 [Get the samples on
 GitHub](https://github.com/android/app-bundle/tree/main/InstantApps)

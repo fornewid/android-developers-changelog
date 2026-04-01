@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 ![Tools, stars, planet](/static/images/games/custom-game-engine.svg)
 If you're using C or C++ to develop or customize a game engine, the following
 requirements are critical to integrating Android support into your game engine.
@@ -126,6 +127,8 @@ Players download your game with various Android devices in different countries,
 network conditions, and data plans. Learn how to use Google Play to
 [deliver app bundles and asset packs](/guide/playcore/asset-delivery)
 for large games with the benefits of a content delivery network.
+
+
 
 
 

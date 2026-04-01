@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 The Android Game Development Kit (AGDK) is a full range of tools and libraries
 to help you develop, optimize, launch, and iterate on high quality Android
 games. AGDK brings together new and existing libraries, tools and functionality.
@@ -2308,8 +2307,6 @@ for
 Linux](https://dl.google.com/developers/android/games/sdk/gamesdk.zip)
 
 *gamesdk.zip*
-
-
 
 
 

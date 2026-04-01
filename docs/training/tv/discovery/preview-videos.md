@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 A preview video is a great way to encourage users to deep-link into your TV app.
 Previews can range from short clips to full movie trailers.
 

@@ -1,48 +1,58 @@
 ---
-title: https://developer.android.com/training/tv/playback/leanback/details
+title: Build a details view  |  Android TV  |  Android Developers
 url: https://developer.android.com/training/tv/playback/leanback/details
-source: md.txt
+source: html-scrape
 ---
 
-Build better with Compose  
-Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS.  
-[Compose for TV →](https://developer.android.com/training/tv/playback/compose)  
-![](https://developer.android.com/static/images/android-compose-tv-logo.png)
-| **Warning:** The Leanback library is deprecated. Use [Jetpack Compose for
-| Android TV OS](https://developer.android.com/training/tv/playback/compose) instead.
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android TV](https://developer.android.com/training/tv)
 
+# Build a details view Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+Build better with Compose
+
+Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS.
+
+[Compose for TV →](https://developer.android.com/training/tv/playback/compose)
+
+![](/static/images/android-compose-tv-logo.png)
+
+**Warning:** The Leanback library is deprecated. Use [Jetpack Compose for
+Android TV OS](/training/tv/playback/compose) instead.
 
 The media browsing interface classes provided by the deprecated
-[androidx.leanback library](https://developer.android.com/training/tv/get-started/create#leanback) include classes for displaying additional information about a media
+[androidx.leanback library](/training/tv/get-started/create#leanback) include classes for displaying additional information about a media
 item, such as a description or reviews. They also include classes for taking action on that item,
 such as purchasing it or playing its content.
 
-
 This guide discusses how to create a presenter class for media item details and how to extend
-the [DetailsSupportFragment](https://developer.android.com/reference/androidx/leanback/app/DetailsSupportFragment) class to implement a details view
+the `DetailsSupportFragment` class to implement a details view
 for a media item when the user selects it.
 
-
 **Note:** The implementation example shown here uses an additional activity to
-contain the [DetailsSupportFragment](https://developer.android.com/reference/androidx/leanback/app/DetailsSupportFragment). However, it's possible to
-avoid creating a second activity by replacing the [BrowseSupportFragment](https://developer.android.com/reference/androidx/leanback/app/BrowseSupportFragment) with a [DetailsSupportFragment](https://developer.android.com/reference/androidx/leanback/app/DetailsSupportFragment) within the *same* activity using
-fragment transactions. For more information on using fragment transactions, see [Create a fragment](https://developer.android.com/training/basics/fragments/fragment-ui).
+contain the `DetailsSupportFragment`. However, it's possible to
+avoid creating a second activity by replacing the `BrowseSupportFragment` with a `DetailsSupportFragment` within the *same* activity using
+fragment transactions. For more information on using fragment transactions, see [Create a fragment](/training/basics/fragments/fragment-ui).
 
 ## Build a details presenter
-
 
 In the media browsing framework provided by the Leanback UI toolkit, you use presenter
 objects to control the display of data on screen, including media item details.
 For this purpose, the framework
-provides the [AbstractDetailsDescriptionPresenter](https://developer.android.com/reference/androidx/leanback/widget/AbstractDetailsDescriptionPresenter)
+provides the `AbstractDetailsDescriptionPresenter`
 class, which is a nearly complete implementation of the presenter for media item
-details. All you have to do is implement the [onBindDescription()](https://developer.android.com/reference/androidx/leanback/widget/AbstractDetailsDescriptionPresenter#onBindDescription(androidx.leanback.widget.AbstractDetailsDescriptionPresenter.ViewHolder,java.lang.Object)))
+details. All you have to do is implement the `onBindDescription()`
 method to bind the view fields to your data objects, as shown in the
-following code sample:  
+following code sample:
 
 ### Kotlin
 
-```kotlin
+```
 class DetailsDescriptionPresenter : AbstractDetailsDescriptionPresenter() {
 
     override fun onBindDescription(viewHolder: AbstractDetailsDescriptionPresenter.ViewHolder, itemData: Any) {
@@ -67,7 +77,7 @@ class DetailsDescriptionPresenter : AbstractDetailsDescriptionPresenter() {
 
 ### Java
 
-```java
+```
 public class DetailsDescriptionPresenter
         extends AbstractDetailsDescriptionPresenter {
 
@@ -92,20 +102,18 @@ public class DetailsDescriptionPresenter
 
 ## Extend the details fragment
 
-
-When using the [DetailsSupportFragment](https://developer.android.com/reference/androidx/leanback/app/DetailsSupportFragment) class for displaying
+When using the `DetailsSupportFragment` class for displaying
 your media item details, extend that class to provide additional content, such as a preview
 image and actions for the media item. You can also provide additional content, such as a list of
 related media items.
 
-
 The following example code demonstrates how to use the presenter class shown in the
 previous section to add a preview image and actions for the media item being viewed. This example
-also shows the addition of a related media items row, which appears below the details listing.  
+also shows the addition of a related media items row, which appears below the details listing.
 
 ### Kotlin
 
-```kotlin
+```
 private const val TAG = "MediaItemDetailsFragment"
 
 class MediaItemDetailsFragment : DetailsSupportFragment() {
@@ -154,7 +162,7 @@ class MediaItemDetailsFragment : DetailsSupportFragment() {
 
 ### Java
 
-```java
+```
 public class MediaItemDetailsFragment extends DetailsSupportFragment {
     private static final String TAG = "MediaItemDetailsFragment";
     private ArrayObjectAdapter rowsAdapter;
@@ -205,19 +213,17 @@ public class MediaItemDetailsFragment extends DetailsSupportFragment {
 
 ### Create a details activity
 
-
-Fragments like the [DetailsSupportFragment](https://developer.android.com/reference/androidx/leanback/app/DetailsSupportFragment) must be contained
+Fragments like the `DetailsSupportFragment` must be contained
 within an activity to be used for display. Creating an activity for your details
-view---separate from the browse activity---lets you invoke your details view using an
-[Intent](https://developer.android.com/reference/android/content/Intent). This
+view—separate from the browse activity—lets you invoke your details view using an
+`Intent`. This
 section explains how to build an activity to contain your implementation of the detail view for
 your media items.
 
-
 Create the details activity by building a layout that references your implementation of
-the `DetailsSupportFragment`:  
+the `DetailsSupportFragment`:
 
-```xml
+```
 <!-- file: res/layout/details.xml -->
 
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -228,12 +234,11 @@ the `DetailsSupportFragment`:
 />
 ```
 
-
-Next, create an activity class that uses the layout shown in the previous code example:  
+Next, create an activity class that uses the layout shown in the previous code example:
 
 ### Kotlin
 
-```kotlin
+```
 class DetailsActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -245,7 +250,7 @@ class DetailsActivity : FragmentActivity() {
 
 ### Java
 
-```java
+```
 public class DetailsActivity extends FragmentActivity
 {
     @Override
@@ -256,11 +261,10 @@ public class DetailsActivity extends FragmentActivity
 }
 ```
 
-
 Finally, add this new activity to the manifest. Remember to apply the Leanback theme to ensure
-that the user interface is consistent with the media browse activity.  
+that the user interface is consistent with the media browse activity.
 
-```xml
+```
 <application>
   ...
   <activity android:name=".DetailsActivity"
@@ -272,21 +276,19 @@ that the user interface is consistent with the media browse activity.
 
 ### Define a listener for clicked items
 
-
-After you implement the [DetailsSupportFragment](https://developer.android.com/reference/androidx/leanback/app/DetailsSupportFragment),
+After you implement the `DetailsSupportFragment`,
 modify your main media browsing view to move to your details view when a user clicks a media
 item. To enable this behavior, add an
-[OnItemViewClickedListener](https://developer.android.com/reference/androidx/leanback/widget/OnItemViewClickedListener) object to the
-[BrowseSupportFragment](https://developer.android.com/reference/androidx/leanback/app/BrowseSupportFragment) that fires an intent to start the item
+`OnItemViewClickedListener` object to the
+`BrowseSupportFragment` that fires an intent to start the item
 details activity.
 
-
 The following example shows how to implement a listener to start the details view when a user
-clicks a media item in the main media browsing activity:  
+clicks a media item in the main media browsing activity:
 
 ### Kotlin
 
-```kotlin
+```
 class BrowseMediaActivity : FragmentActivity() {
     ...
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -309,7 +311,7 @@ class BrowseMediaActivity : FragmentActivity() {
 
 ### Java
 
-```java
+```
 public class BrowseMediaActivity extends FragmentActivity {
     ...
     @Override
@@ -334,3 +336,15 @@ public class BrowseMediaActivity extends FragmentActivity {
     }
 }
 ```
+
+[Previous
+
+arrow\_back
+
+Provide a card view](/training/tv/playback/leanback/card)
+
+[Next
+
+Use transport controls
+
+arrow\_forward](/training/tv/playback/leanback/transport-controls)

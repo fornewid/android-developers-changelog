@@ -89,9 +89,9 @@ We're announcing the changes early and proactively getting developer feedback to
 
 ## Latest News
 
-[![](http://developer.android.com/static/developer-verification/assets/blogicon.png)](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) Blog
+[![](http://developer.android.com/static/developer-verification/assets/blogicon.png)](https://android-developers.googleblog.com/2026/03/android-developer-verification-rolling-out-to-all-developers.html) Blog
 
-### [Rolling out to all developers on Play and Android consoles](https://android-developers.googleblog.com/2026/03/android-developer-verification.html)
+### [Rolling out to all developers on Play and Android consoles](https://android-developers.googleblog.com/2026/03/android-developer-verification-rolling-out-to-all-developers.html)
 
 Over the next few weeks, we're opening the verification process to everyone through Android Developer Console and the Play Console. [![](http://developer.android.com/static/images/developer-verification/v3-opt-b.png)](https://support.google.com/googleplay/android-developer/thread/419196358/android-developer-verification-balancing-openness-and-choice-with-safety) Blog
 

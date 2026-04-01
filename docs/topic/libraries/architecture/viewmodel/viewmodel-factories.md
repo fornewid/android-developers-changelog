@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Create ViewModels with dependencies   Part of [Android Jetpack](/jetpack).
 
 Following [dependency injection's](/dependency-injection) best practices, ViewModels can

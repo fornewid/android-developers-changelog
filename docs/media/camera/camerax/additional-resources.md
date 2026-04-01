@@ -8,7 +8,6 @@ source: html-scrape
 
 
 
-
 ## Sample
 
 - [Sunflower](https://github.com/android/sunflower), a gardening app illustrating Android development

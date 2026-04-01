@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/media/media3/exoplayer/battery-consumption
+title: Battery consumption  |  Android media  |  Android Developers
 url: https://developer.android.com/media/media3/exoplayer/battery-consumption
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Battery consumption Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 ## How important is battery consumption due to media playback?
 
@@ -35,14 +44,18 @@ significant impact on power consumption. `SurfaceView` is more power efficient,
 with `TextureView` increasing total power draw during video playback by as much
 as 30% on some devices. `SurfaceView` should therefore be preferred where
 possible. Read more about choosing between `SurfaceView` and `TextureView`
-[on the Surface page](https://developer.android.com/media/media3/ui/surface).
+[on the Surface page](/media/media3/ui/surface).
 
-On some TVs, using [video tunneling](https://developer.android.com/media/media3/exoplayer/track-selection#tunneling) may provide a more efficient path for
+On some TVs, using [video tunneling](/media/media3/exoplayer/track-selection#tunneling) may provide a more efficient path for
 high-resolution video playback where the regular playback path is not performant
 enough for smooth playback.
 
-> [!NOTE]
-> **Note:** Tunneling moves all video decoding and release timing to a dedicated hardware processor. However, be aware that the implementation is device-specific. Performance and reliability can vary greatly between devices. It's highly advisable to test your media streams on the specific TV devices where you intend to enable tunneling to verify it is reliable enough for your use case.
+**Note:** Tunneling moves all video decoding and release timing to a dedicated
+hardware processor. However, be aware that the implementation is
+device-specific. Performance and reliability can vary greatly between devices.
+It's highly advisable to test your media streams on the specific TV devices
+where you intend to enable tunneling to verify it is reliable enough for your
+use case.
 
 ### Audio playback
 
@@ -50,8 +63,11 @@ For short audio playbacks or playbacks when the screen is on, audio does not
 have a significant impact on power.
 
 For long playbacks with the screen off, it's possible to save power by using
-ExoPlayer's audio offload mode. See the [`track selection guide`](https://developer.android.com/media/media3/exoplayer/track-selection#audioOffload) for more
+ExoPlayer's audio offload mode. See the [`track selection guide`](/media/media3/exoplayer/track-selection#audioOffload) for more
 details on how to enable it.
 
-> [!NOTE]
-> **Note:** Audio offload allows audio processing to be offloaded from the CPU to a dedicated signal processor. Device and format support varies, so it's advisable to thoroughly test audio offload with your media on your target devices. Offload also limits the ability to apply audio effects, like speed changes and silence skipping.
+**Note:** Audio offload allows audio processing to be offloaded from the CPU to a
+dedicated signal processor. Device and format support varies, so it's advisable
+to thoroughly test audio offload with your media on your target devices. Offload
+also limits the ability to apply audio effects, like speed changes and silence
+skipping.

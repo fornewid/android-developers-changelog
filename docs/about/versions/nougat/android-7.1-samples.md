@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The following code samples are provided for Android 7.1 (API 25). To
 download the samples in Android Studio, select the **File > New > Import Sample** menu
 option.

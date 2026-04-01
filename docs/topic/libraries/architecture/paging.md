@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Paging 2 library overview   Part of [Android Jetpack](/jetpack).
 
 The Paging Library helps you load and display small chunks of data at a time.

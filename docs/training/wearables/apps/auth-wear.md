@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/training/wearables/apps/auth-wear
+title: Authentication on wearables: Credential Manager  |  Wear OS  |  Android Developers
 url: https://developer.android.com/training/wearables/apps/auth-wear
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Wear OS](https://developer.android.com/training/wearables)
+
+# Authentication on wearables: Credential Manager Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Wear OS apps can run standalone, without a companion app. This means that
 a Wear OS app needs to manage authentication on its own when accessing
@@ -13,7 +23,7 @@ This guide provides directions for the recommended authentication method for
 Wear OS apps, Credential Manager.
 
 To learn more about how to design a good sign-in experience, view the
-[Sign-in UX guide](https://developer.android.com/design/ui/wear/guides/behaviors-and-patterns/sign-in).
+[Sign-in UX guide](/design/ui/wear/guides/behaviors-and-patterns/sign-in).
 
 ## Preliminary considerations
 
@@ -31,17 +41,16 @@ features.
 
 ### Some devices might stay unlocked longer
 
-On supported devices that run Wear OS 5 or higher, the system detects whether
+On supported devices that run Wear OS 5 or higher, the system detects whether
 the user is wearing the device on their wrist. If the user turns off wrist
 detection and then takes the device off of their wrist, the system keeps the
 device unlocked for a longer period of time than it would otherwise.
 
-If your app requires a higher level of security---such as when displaying
-potentially sensitive or private data---first check whether wrist detection is
+If your app requires a higher level of security—such as when displaying
+potentially sensitive or private data—first check whether wrist detection is
 enabled:
 
-
-```kotlin
+```
 fun isWristDetectionAutoLockingEnabled(context: Context): Boolean {
     // Use the keyguard manager to check for the presence of a lock mechanism
     val keyguardManager = context.getSystemService<KeyguardManager>()
@@ -55,16 +64,16 @@ fun isWristDetectionAutoLockingEnabled(context: Context): Boolean {
 
     return isSecured && isWristDetectionOn
 }
-```
 
-<br />
+WristDetectionUtility.kt
+```
 
 If the return value of this method is `false`, prompt the user to sign into an
 account in your app before displaying user-specific content.
 
 ## Credential Manager
 
-[Credential Manager](https://developer.android.com/reference/android/credentials/CredentialManager) is the recommended API for
+[Credential Manager](/reference/android/credentials/CredentialManager) is the recommended API for
 authentication on Wear OS.
 It provides a more secure environment for users to sign in to Wear OS
 applications in a standalone setting, without needing a connected paired phone
@@ -74,13 +83,13 @@ This document outlines the information developers need to implement a
 Credential Manager
 solution with the standard authentication mechanisms it hosts, which are:
 
-- Passkeys
-- Passwords
-- Federated Identities (such as Sign in with Google)
+* Passkeys
+* Passwords
+* Federated Identities (such as Sign in with Google)
 
 This guide also provides directions for how to migrate the other acceptable Wear
-OS authentication methods ([Data Layer Token Sharing](https://developer.android.com/training/wearables/apps/auth-wear#tokens) and
-[OAuth](https://developer.android.com/training/wearables/apps/auth-wear#oath)) as backups for Credential Manager, and special directions for
+OS authentication methods ([Data Layer Token Sharing](#tokens) and
+[OAuth](#oath)) as backups for Credential Manager, and special directions for
 handling the transition from the now-deprecated standalone Google Sign in Button
 to the embedded Credential Manager version.
 
@@ -89,29 +98,37 @@ to the embedded Credential Manager version.
 Developers should be mindful of the following limitations and differences on
 Wear OS:
 
-- Credential Manager is available on Wear OS 3 and higher.
-- Credentials cannot be created on Wear OS
-- Neither "restore credentials" nor hybrid sign-in flows are supported.
-- Only Credential Providers with Wear OS integrations can be reused from mobile.
+* Credential Manager is available on Wear OS 3 and higher.
+* Credentials cannot be created on Wear OS
+* Neither "restore credentials" nor hybrid sign-in flows are supported.
+* Only Credential Providers with Wear OS integrations can be reused from
+  mobile.
 
 ### Passkeys on Wear OS
 
 Developers are strongly encouraged to implement passkeys in their Wear OS
 Credential Manager implementations.
 Passkeys are the new industry standard for end-user authentication, and they
-carry several significant [benefits](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys) for users.
+carry several significant [benefits](/design/ui/mobile/guides/patterns/passkeys) for users.
 
 #### Passkeys are easier
 
-- Users can select an account to sign in with. They don't need to type a username.
-- Users can authenticate using device's screen lock.
-- After a passkey is created and registered, the user can seamlessly switch to a new device and immediately use it without needing to re-enroll.
+* Users can select an account to sign in with.
+  They don't need to type a username.
+* Users can authenticate using device's screen lock.
+* After a passkey is created and registered, the user can seamlessly switch to
+  a new device and immediately use it without needing to re-enroll.
 
 #### Passkeys are safer
 
-- Developers only save a public key to the server instead of saving a password, meaning there's far less value for a bad actor to hack into servers, and far less cleanup to do in the event of a breach.
-- Passkeys provide phishing-resistant protection. Passkeys work only on their registered websites and apps; a user cannot be tricked into authenticating on a deceptive site because the browser or OS handles verification.
-- Passkeys reduce the need of sending SMS, making authentication more cost-effective.
+* Developers only save a public key to the server instead of saving a
+  password, meaning there's far less value for a bad actor to hack into servers,
+  and far less cleanup to do in the event of a breach.
+* Passkeys provide phishing-resistant protection. Passkeys work only on their
+  registered websites and apps; a user cannot be tricked into authenticating on
+  a deceptive site because the browser or OS handles verification.
+* Passkeys reduce the need of sending SMS, making authentication more
+  cost-effective.
 
 ### Implement passkeys
 
@@ -122,30 +139,33 @@ Includes setup and guidance for all implementation types.
 1. Set the target API level to 35 in your application module's build.gradle
    file:
 
-       android {
-           defaultConfig {
-               targetSdk(35)
-           }
+   ```
+   android {
+       defaultConfig {
+           targetSdk(35)
        }
-
+   }
+   ```
 2. Add the following lines to the build.gradle file for your app or module,
    using the latest stable version from the
-   [`androidx.credentials` releases](https://developer.android.com/jetpack/androidx/releases/credentials)
+   [`androidx.credentials` releases](/jetpack/androidx/releases/credentials)
    reference.
 
-       androidx.credentials:credentials:1.5.0
-       androidx.credentials:credentials-play-services-auth:1.5.0
+   ```
+   androidx.credentials:credentials:1.5.0
+   androidx.credentials:credentials-play-services-auth:1.5.0
+   ```
 
 ### Built-in authentication methods
 
 As Credential Manager is a unified API, the implementation steps for Wear OS
 are the same as any other device type.
 
-Use the [mobile directions](https://developer.android.com/identity/sign-in/credential-manager#configure)
+Use the [mobile directions](/identity/sign-in/credential-manager#configure)
 to get started and to implement passkeys and passwords support.
 
 The steps to
-[add Sign in With Google support to Credential Manager](https://developer.android.com/identity/sign-in/credential-manager-siwg#trigger-siwg)
+[add Sign in With Google support to Credential Manager](/identity/sign-in/credential-manager-siwg#trigger-siwg)
 are geared toward mobile development, but the steps are the same on Wear OS.
 
 Note that since credentials cannot be created on Wear OS, you don't need to
@@ -160,12 +180,11 @@ included in your UX flow of Credential Manager as fallbacks in case users
 dismiss the Credential Manager screen.
 
 To handle the user action of dismissing the Credential Manager screen, catch a
-[`NoCredentialException`](https://developer.android.com/reference/androidx/credentials/exceptions/NoCredentialException) as part of your
-[`GetCredential`](https://developer.android.com/reference/androidx/credentials/CredentialManager#getCredential(android.content.Context,androidx.credentials.GetCredentialRequest))
+[`NoCredentialException`](/reference/androidx/credentials/exceptions/NoCredentialException) as part of your
+[`GetCredential`](/reference/androidx/credentials/CredentialManager#getCredential(android.content.Context,androidx.credentials.GetCredentialRequest))
 logic, and navigate to your own custom auth UI.
 
-
-```kotlin
+```
 try {
     val getCredentialResponse: GetCredentialResponse =
         credentialManager.getCredential(activity, createGetCredentialRequest())
@@ -173,12 +192,12 @@ try {
 } catch (_: GetCredentialCancellationException) {
     navigateToSecondaryAuthentication()
 }
+
+CredentialManager.kt
 ```
 
-<br />
-
 Your custom auth UI can then provide any of the other acceptable authentication
-methods that are described in the [sign-in UX guide](https://developer.android.com/design/ui/wear/guides/behaviors-and-patterns/sign-in).
+methods that are described in the [sign-in UX guide](/design/ui/wear/guides/behaviors-and-patterns/sign-in).
 
 #### Data layer token sharing
 
@@ -191,6 +210,7 @@ This type of authentication typically doesn't require any action from the user.
 However, avoid performing authentication without informing the user that they
 are being signed in. You can inform the user using a dismissible screen
 that shows them their account is being transferred from mobile.
+
 > **Important:**
 > Your Wear OS app must offer at least one other authentication method, because
 > this
@@ -202,23 +222,21 @@ that shows them their account is being transferred from mobile.
 Pass tokens using the data layer from the mobile app, as shown in the following
 example:
 
-
-```kotlin
+```
 val token = "..." // Auth token to transmit to the Wear OS device.
 val putDataReq: PutDataRequest = PutDataMapRequest.create("/auth").run {
     dataMap.putString("token", token)
     asPutDataRequest()
 }
 val putDataTask: Task<DataItem> = Wearable.getDataClient(this).putDataItem(putDataReq)
-```
 
-<br />
+DataLayerActivity.kt
+```
 
 Listen for data change events on the Wear OS app, as shown in the following
 example:
 
-
-```kotlin
+```
 class AuthDataListenerService : WearableListenerService() {
     override fun onDataChanged(dataEvents: DataEventBuffer) {
         dataEvents.forEach { event ->
@@ -240,50 +258,52 @@ class AuthDataListenerService : WearableListenerService() {
     /** placeholder sign in handler. */
     fun handleSignInSequence(token: String?) {}
 }
+
+DataLayerService.kt
 ```
 
-<br />
-
 For more information on using the Wearable Data Layer, see
-[Send and sync data on Wear OS](https://developer.android.com/training/wearables/data-layer).
+[Send and sync data on Wear OS](/training/wearables/data-layer).
 
 #### Use OAuth 2.0
 
 Wear OS supports two OAuth 2.0-based flows, which are described in the sections
 that follow:
 
-- Authorization Code Grant with Proof Key for Code Exchange (PKCE), as defined in [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)
-- Device Authorization Grant (DAG), as defined in [RFC 8628](https://datatracker.ietf.org/doc/html/rfc8628)
+* Authorization Code Grant with Proof Key for Code Exchange (PKCE), as defined
+  in [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)
+* Device Authorization Grant (DAG), as defined in [RFC 8628](https://datatracker.ietf.org/doc/html/rfc8628)
 
-> [!NOTE]
-> **Note:** To minimize the chance that your app shuts down when the Wear OS device goes into ambient mode, enable Always-on by implementing [`AmbientLifecycleObserver`](https://developer.android.com/reference/kotlin/androidx/wear/ambient/AmbientLifecycleObserver) for your app. For more information about best practices in ambient mode, see [Always-on apps and system ambient mode](https://developer.android.com/training/wearables/always-on).
+**Note:** To minimize the chance that your app shuts down when the Wear OS device
+goes into ambient mode, enable Always-on by implementing
+[`AmbientLifecycleObserver`](/reference/kotlin/androidx/wear/ambient/AmbientLifecycleObserver) for your app.
+For more information about best practices in ambient mode, see
+[Always-on apps and system ambient mode](/training/wearables/always-on).
 
 ##### Proof Key for Code Exchange (PKCE)
 
-To effectively use PKCE, use [`RemoteAuthClient`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/authentication/RemoteAuthClient).
+To effectively use PKCE, use [`RemoteAuthClient`](/reference/kotlin/androidx/wear/phone/interactions/authentication/RemoteAuthClient).
 Then, to perform an auth request from your Wear OS app to an OAuth provider,
-create an [`OAuthRequest`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/authentication/OAuthRequest) object. This object consists
+create an [`OAuthRequest`](/reference/kotlin/androidx/wear/phone/interactions/authentication/OAuthRequest) object. This object consists
 of a URL to your OAuth endpoint for getting a token and a
-[`CodeChallenge`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/authentication/CodeChallenge) object.
+[`CodeChallenge`](/reference/kotlin/androidx/wear/phone/interactions/authentication/CodeChallenge) object.
 
 The following code shows an example of creating an auth request:
 
-
-```kotlin
+```
 val oauthRequest = OAuthRequest.Builder(context)
     .setAuthProviderUrl(uri)
     .setCodeChallenge(codeChallenge)
     .setClientId(CLIENT_ID)
     .build()
+
+OAuthPKCE.kt
 ```
 
-<br />
-
 After you build the auth request, send it to the companion app using the
-[`sendAuthorizationRequest()`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/authentication/RemoteAuthClient#sendAuthorizationRequest(androidx.wear.phone.interactions.authentication.OAuthRequest,java.util.concurrent.Executor,androidx.wear.phone.interactions.authentication.RemoteAuthClient.Callback)) method:
+[`sendAuthorizationRequest()`](/reference/kotlin/androidx/wear/phone/interactions/authentication/RemoteAuthClient#sendAuthorizationRequest(androidx.wear.phone.interactions.authentication.OAuthRequest,java.util.concurrent.Executor,androidx.wear.phone.interactions.authentication.RemoteAuthClient.Callback)) method:
 
-
-```kotlin
+```
 RemoteAuthClient.create(context).sendAuthorizationRequest(
     request = oauthRequest,
     executor = { command -> command?.run() },
@@ -301,9 +321,9 @@ RemoteAuthClient.create(context).sendAuthorizationRequest(
         }
     }
 )
-```
 
-<br />
+OAuthPKCE.kt
+```
 
 This request triggers a call to the companion app, which then presents an
 authorization UI in a web browser on the user's mobile phone. The OAuth 2.0
@@ -318,8 +338,10 @@ request, the response contains an error message.
 The response is in the form of a query string and looks like one of the
 following examples:
 
-      https://wear.googleapis.com/3p_auth/com.your.package.name?code=xyz
-      https://wear.googleapis-cn.com/3p_auth/com.your.package.name?code=xyz
+```
+  https://wear.googleapis.com/3p_auth/com.your.package.name?code=xyz
+  https://wear.googleapis-cn.com/3p_auth/com.your.package.name?code=xyz
+```
 
 This loads a page that directs the user to the companion app. The companion app
 verifies the response URL and relays the response to your Wear OS app.
@@ -327,8 +349,8 @@ using the `onAuthorizationResponse` API.
 
 The watch app can then exchange the authorization code for an access token.
 
-> [!NOTE]
-> **Note:** Once the `OAuthRequest` is built, you can find your redirect URL by accessing [`redirectUrl`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/authentication/OAuthRequest#redirectUrl()).
+**Note:** Once the `OAuthRequest` is built, you can find your redirect URL by
+accessing [`redirectUrl`](/reference/kotlin/androidx/wear/phone/interactions/authentication/OAuthRequest#redirectUrl()).
 
 ##### Device Authorization Grant
 
@@ -337,11 +359,10 @@ another device. Then the authorization server asks them to approve or deny the
 request.
 
 To make this process easier, use a
-[`RemoteActivityHelper`](https://developer.android.com/reference/androidx/wear/remote/interactions/RemoteActivityHelper) to open a web page on
+[`RemoteActivityHelper`](/reference/androidx/wear/remote/interactions/RemoteActivityHelper) to open a web page on
 the user's paired mobile device, as shown in the following example:
 
-
-```kotlin
+```
 // Request access from the authorization server and receive Device Authorization Response.
 private fun verifyDeviceAuthGrant(verificationUri: String) {
     RemoteActivityHelper(context).startRemoteActivity(
@@ -352,9 +373,9 @@ private fun verifyDeviceAuthGrant(verificationUri: String) {
         null
     )
 }
-```
 
-<br />
+OAuthDAG.kt
+```
 
 If you have an iOS app, use [universal links](https://developer.apple.com/ios/universal-links/) to intercept this
 intent in your app instead of relying on the browser to authorize the token.

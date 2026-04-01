@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
-
 The **Texture** pane shows the content of the texture that has been selected in [textures view](https://gpuinspector.dev/docs/).
 
 If the texture has a mip-map chain, you can change the displayed mip-map level with the slider at the bottom (not pictured). By default, the highest resolution level, level 0, will be displayed.

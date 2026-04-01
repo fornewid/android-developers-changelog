@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To securely offer a file from your app to another app, you need to configure your app to offer
 a secure handle to the file, in the form of a content URI. The Android
 `FileProvider` component generates content URIs for

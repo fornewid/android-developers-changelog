@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 With the Play Games PC SDK you can access Google Play services to build and
 monetize your game on PCs. Sell digital content using Play Billing, seamlessly
 sign-in using Play Games, and verify your users have a valid entitlement to your

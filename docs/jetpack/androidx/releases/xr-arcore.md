@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # ARCore for Jetpack XR
 
 [User Guide](/develop/xr/jetpack-xr-sdk/work-with-arcore)

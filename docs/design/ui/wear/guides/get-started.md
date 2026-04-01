@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Material 3 Expressive is the latest design system for our smallest
 screen: the watch. Optimized for the round form factor, it brings a design
 update which emphasizes premium and a greater level of expression. Design and

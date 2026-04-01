@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The following are new features in Android Studio Meerkat Feature Drop.
 
 ## Themed icon support

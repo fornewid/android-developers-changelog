@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Apps published on Google Play need to support
 [64-bit architectures](https://android-developers.googleblog.com/2017/12/improving-app-security-and-performance.html). Adding a 64-bit version of your app
 provides performance improvements and sets you up for devices with 64-bit-only
@@ -909,6 +910,8 @@ Download Android 13 factory system image (64-bit-only)
 [Download Android 13 factory system image (64-bit-only)](https://dl.google.com/developers/android/tm/images/factory/raven_64-t3b3.230413.009-factory-b0ef544e.zip)
 
 *raven\_64-t3b3.230413.009-factory-b0ef544e.zip*
+
+
 
 
 

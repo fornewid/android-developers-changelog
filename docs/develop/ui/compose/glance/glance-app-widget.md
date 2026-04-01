@@ -1,18 +1,8 @@
 ---
-title: Manage and update GlanceAppWidget  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/glance/glance-app-widget
 url: https://developer.android.com/develop/ui/compose/glance/glance-app-widget
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Manage and update GlanceAppWidget Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 The following sections describe how to update `GlanceAppWidget` and manage its
 state.
@@ -22,18 +12,13 @@ state.
 The provided `GlanceAppWidget` class is instantiated whenever the widget is
 created or requires an update, so it should be *stateless and passive*.
 
-**Key Point:** App widgets live in a different process. While the defined UI content
-(meaning the underlying `RemoteViews`) is restored by the system, any state kept
-in-memory, for example in the app's scope, can be destroyed at any time.
+> [!IMPORTANT]
+> **Key Point:** App widgets live in a different process. While the defined UI content (meaning the underlying `RemoteViews`) is restored by the system, any state kept in-memory, for example in the app's scope, can be destroyed at any time.
 
 The concept of state can be divided into the following:
 
-* **Application state**: The state or content of the app that is required by the
-  widget. For example, a list of stored destinations (i.e., database) defined by
-  the user.
-* **Glance state**: The specific state that is only relevant to the app widget
-  and does not necessarily modify or affect the app's state. For example, a
-  checkbox was selected in the widget or a counter was increased.
+- **Application state**: The state or content of the app that is required by the widget. For example, a list of stored destinations (i.e., database) defined by the user.
+- **Glance state**: The specific state that is only relevant to the app widget and does not necessarily modify or affect the app's state. For example, a checkbox was selected in the widget or a counter was increased.
 
 ### Use application state
 
@@ -45,7 +30,8 @@ For example, the following code retrieves the destinations from the in-memory
 cache from the repository layer, provides the stored list of destinations, and
 displays a different UI depending on its state:
 
-```
+
+```kotlin
 class DestinationAppWidget : GlanceAppWidget() {
 
     // ...
@@ -71,20 +57,20 @@ class DestinationAppWidget : GlanceAppWidget() {
         }
     }
 }
-
-GlanceSnippets.kt
 ```
 
-Whenever the state or the data changes, it is the app's responsibility to notify
-and update the widget. See [Update GlanceAppWidget](/develop/ui/compose/glance/glance-app-widget#update-glance-appwidget) for more information.
+<br />
 
-**Note:** See the [Optimizations for updating widget content](/guide/topics/appwidgets/advanced#update-widgets) section in the app
-widgets guide to understand how and when to update.
+Whenever the state or the data changes, it is the app's responsibility to notify
+and update the widget. See [Update GlanceAppWidget](https://developer.android.com/develop/ui/compose/glance/glance-app-widget#update-glance-appwidget) for more information.
+
+> [!NOTE]
+> **Note:** See the [Optimizations for updating widget content](https://developer.android.com/guide/topics/appwidgets/advanced#update-widgets) section in the app widgets guide to understand how and when to update.
 
 ## Update `GlanceAppWidget`
 
 You can request to update your widget content using `GlanceAppWidget`. As
-explained in the [Manage `GlanceAppWidget` state](#manage-state) section, app
+explained in the [Manage `GlanceAppWidget` state](https://developer.android.com/develop/ui/compose/glance/glance-app-widget#manage-state) section, app
 widgets are hosted in a different process. Glance translates the content into
 actual `RemoteViews` and sends them to the host. To update the content, Glance
 must recreate the `RemoteViews` and send them again.
@@ -92,28 +78,31 @@ must recreate the `RemoteViews` and send them again.
 To send the update, call the `update` method of the `GlanceAppWidget` instance,
 providing the `context` and the `glanceId`:
 
-```
-MyAppWidget().update(context, glanceId)
 
-GlanceSnippets.kt
+```kotlin
+MyAppWidget().update(context, glanceId)
 ```
+
+<br />
 
 To obtain the `glanceId`, query the `GlanceAppWidgetManager`:
 
-```
+
+```kotlin
 val manager = GlanceAppWidgetManager(context)
 val widget = GlanceSizeModeWidget()
 val glanceIds = manager.getGlanceIds(widget.javaClass)
 glanceIds.forEach { glanceId ->
     widget.update(context, glanceId)
 }
-
-GlanceSnippets.kt
 ```
+
+<br />
 
 Alternatively, use one of the `GlanceAppWidget update` extensions:
 
-```
+
+```kotlin
 // Updates all placed instances of MyAppWidget
 MyAppWidget().updateAll(context)
 
@@ -122,15 +111,16 @@ MyAppWidget().updateAll(context)
 MyAppWidget().updateIf<State>(context) { state ->
     state == State.Completed
 }
-
-GlanceSnippets.kt
 ```
+
+<br />
 
 These methods can be called from any part of your application. Because they are
 `suspend` functions, we recommend launching them outside of the main thread
 scope. In the following example, they are launched in a `CoroutineWorker`:
 
-```
+
+```kotlin
 class DataSyncWorker(
     val context: Context,
     val params: WorkerParameters,
@@ -142,11 +132,11 @@ class DataSyncWorker(
         return Result.success()
     }
 }
-
-GlanceSnippets.kt
 ```
 
-See [Kotlin Coroutines on Android](/kotlin/coroutines) for more details on coroutines.
+<br />
+
+See [Kotlin Coroutines on Android](https://developer.android.com/kotlin/coroutines) for more details on coroutines.
 
 ### When to update widgets
 
@@ -154,37 +144,21 @@ Update widgets either immediately or periodically.
 
 Your widget can update immediately when your app is awake. For example:
 
-* When a user interacts with a widget, triggering an action, a lambda call, or
-  an intent to launch an activity.
-* When your user interacts with your app in the foreground, or while the app is
-  already updating in response to a Firebase Cloud Messaging (FCM) message or a
-  broadcast.
+- When a user interacts with a widget, triggering an action, a lambda call, or an intent to launch an activity.
+- When your user interacts with your app in the foreground, or while the app is already updating in response to a Firebase Cloud Messaging (FCM) message or a broadcast.
 
-In these cases, call the [`update`](/reference/kotlin/androidx/glance/appwidget/GlanceAppWidget#update(android.content.Context,androidx.glance.GlanceId)) method as described in this guide.
+In these cases, call the [`update`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidget#update(android.content.Context,androidx.glance.GlanceId)) method as described in this guide.
 
 Your widget can update periodically when your app isn't awake. For example:
 
-* Use [`updatePeriodMillis`](/reference/android/appwidget/AppWidgetProviderInfo#updatePeriodMillis) to update the widget up to once every 30
-  minutes.
-* Use `WorkManager` to schedule more frequent updates, such as every 15 minutes.
-* Update the widget in response to a broadcast.
+- Use [`updatePeriodMillis`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#updatePeriodMillis) to update the widget up to once every 30 minutes.
+- Use `WorkManager` to schedule more frequent updates, such as every 15 minutes.
+- Update the widget in response to a broadcast.
 
-**Important:** Avoid updating your widget every minute when the app isn't awake, as
-frequent updates drain your users' battery.
+> [!IMPORTANT]
+> **Important:** Avoid updating your widget every minute when the app isn't awake, as frequent updates drain your users' battery.
 
 ## Resources
 
-* [Create a widget with Glance](/codelabs/glance) (Codelab)
-* [Building for the Future of Android: Widgets chapter](https://www.youtube.com/watch?v=YKPqjsYBFvI&t=487s) (Video)
-
-[Previous
-
-arrow\_back
-
-Track metrics for your widget](/develop/ui/compose/glance/metrics)
-
-[Next
-
-Build UI with Glance
-
-arrow\_forward](/develop/ui/compose/glance/build-ui)
+- [Create a widget with Glance](https://developer.android.com/codelabs/glance) (Codelab)
+- [Building for the Future of Android: Widgets chapter](https://www.youtube.com/watch?v=YKPqjsYBFvI&t=487s) (Video)

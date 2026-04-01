@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This page describes how to set up Google Play Games Services for your Android game using
 Google Play Console. The Play Console provides a centralized
 place for you to manage game services and configure the metadata used to
@@ -409,8 +408,6 @@ For additional tips, see the
 Once you complete the initial setup tasks, you can
 [enable Play Games Services features](/games/pgs/console/enable-features) for
 your game, such as saved games, leaderboards, and achievements.
-
-
 
 
 

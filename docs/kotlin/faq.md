@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 #### Why did Android make Kotlin a first-class supported language?
 
 Kotlin is an Android-compatible language that is concise, expressive, and

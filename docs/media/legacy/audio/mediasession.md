@@ -15,7 +15,6 @@ These guides discuss the MediaCompat APIs, which are no longer updated. We stron
 
 
 
-
 Your media session callbacks call methods in several APIs to control the player, manage the audio focus,
 and communicate with the media session and media browser service. Note that the
 `MediaSession` logic that responds to callbacks must be consistent. The behavior

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Foreground services let you asynchronously perform operations that are
 noticeable to the user. Foreground services show a [status bar
 notification](/develop/ui/views/notifications), to make users aware that your

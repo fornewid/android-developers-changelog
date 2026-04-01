@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android Studio supports a variety of XML attributes in the `tools` namespace
 that enable design-time features, such as which layout to show in a fragment, or
 compile-time behaviors, such as which shrinking mode to apply to your XML

@@ -1,60 +1,53 @@
 ---
-title: Modern Android App Architecture quiz  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-architecture/architecture-layers
 url: https://developer.android.com/courses/quizzes/android-architecture/architecture-layers
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Modern Android App Architecture quiz
 
-Return to pathway
+# Modern Android App Architecture quiz
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## The \_\_\_ is the combination of UI elements and UI state.
+   ## The ___ is the combination of UI elements and UI state.
 
-   ViewModel
+   ViewModel  
+   Architecture of an app  
+   UI  
+   Unidirectional Data Flow pattern  
+2.
 
-   Architecture of an app
+   ## Which of the following are Jetpack libraries that could be used in the data layer? Select all that apply.
 
-   UI
+   Choose as many answers as you see fit.  
+   Room  
+   ViewModel  
+   DataStore  
+   Navigation  
+3.
 
-   Unidirectional Data Flow pattern
-2. ## Which of the following are Jetpack libraries that could be used in the data layer? Select all that apply.
+   ## True or false? All UI events coming from the ViewModel should be modeled as state.
 
-   Choose as many answers as you see fit.
+   True  
+   False  
+4.
 
-   Room
+   ## True or false? The UI behavior logic or UI logic should be present in a ViewModel.
 
-   ViewModel
+   True  
+   False  
+5.
 
-   DataStore
+   ## The ___ layer avoids code duplication and encourages splitting responsibility to avoid large classes.
 
-   Navigation
-3. ## True or false? All UI events coming from the ViewModel should be modeled as state.
-
-   True
-
-   False
-4. ## True or false? The UI behavior logic or UI logic should be present in a ViewModel.
-
-   True
-
-   False
-5. ## The \_\_\_ layer avoids code duplication and encourages splitting responsibility to avoid large classes.
-
-   UI
-
-   Domain
-
-   Data
+   UI  
+   Domain  
+   Data  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

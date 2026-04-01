@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 When you're altering the frequency of your background updates to reduce the effect of those
 updates on battery life, checking the current battery level and charging state is a good place to
 start.

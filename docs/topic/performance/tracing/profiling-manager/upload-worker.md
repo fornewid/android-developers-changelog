@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 ProfilingManager saves traces locally on the device. While you can retrieve
 these files using ADB for local debugging, collecting field data requires
 uploading them to a server.

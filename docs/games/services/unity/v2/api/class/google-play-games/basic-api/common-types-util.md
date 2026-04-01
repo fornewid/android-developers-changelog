@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/common-types-util
+title: GooglePlayGames.BasicApi.CommonTypesUtil Class Reference  |  API reference  |  Android Developers
 url: https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/common-types-util
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [API reference](https://developer.android.com/reference)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # GooglePlayGames.BasicApi.CommonTypesUtil
 
@@ -12,24 +22,21 @@ Utility class for common types.
 
 This class checks if a response status is a success or not.
 
-<br />
-
-| Details ||
-|---|---|
-| Parameters | |---|---| | `status` | The response status to check. | |
+Details | || Parameters | |  |  | | --- | --- | | `status` | The response status to check. | |
 | **Returns** | True if the status is a success, false otherwise. |
 
-| ### Public static functions ||
-|---|---|
-| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/common-types-util#class_google_play_games_1_1_basic_api_1_1_common_types_util_1a9be4fcd2f485cd75b77fb75a2acdad90(https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1afc173c0f78ea77552386c8f699526dea status)` | `bool` Checks if a response status is a success or not. |
+| Public static functions | |
+| --- | --- |
+| `StatusIsSuccess(ResponseStatus status)` | `bool`  Checks if a response status is a success or not. |
 
 ## Public static functions
 
 ### StatusIsSuccess
 
-```c#
+```
 bool StatusIsSuccess(
   ResponseStatus status
 )
 ```
+
 Checks if a response status is a success or not.

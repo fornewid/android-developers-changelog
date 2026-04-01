@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Learn about the lifecycle of requests created using Cronet and how to manage
 them using the callback methods provided by the library.
 

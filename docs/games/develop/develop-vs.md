@@ -13,6 +13,7 @@ Send feedback
 
 
 
+
 [Android Game Development Extension](/games/agde) (AGDE) for Visual Studio
 allows you to target Android as a platform for your Visual Studio
 projects. AGDE supports a full range of development activities: project
@@ -76,6 +77,8 @@ AGDE requires an Intel or AMD PC running Microsoft Windows with the following so
 
 (Links to download)
 (Links to AGDE guide)
+
+
 
 
 

@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/ai/gemini-nano/ml-kit-genai
+title: ML Kit GenAI APIs  |  Android Developers
 url: https://developer.android.com/ai/gemini-nano/ml-kit-genai
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [AI](https://developer.android.com/ai)
+* [Guides](https://developer.android.com/ai/overview)
+
+# ML Kit GenAI APIs Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 ML Kit's GenAI APIs harness the power of Gemini Nano to help your apps perform
 tasks. These APIs provide out-of-the-box quality for popular use cases through
@@ -19,9 +28,13 @@ client and their app's user experience.**
 
 The ML Kit GenAI APIs support the following features:
 
-- [**Summarization**](https://developers.google.com/ml-kit/genai/summarization/android): Summarize articles or conversations as a bulleted list.
-- [**Proofreading**](https://developers.google.com/ml-kit/genai/proofreading/android): Proofread short chat messages.
-- [**Rewrite**](https://developers.google.com/ml-kit/genai/rewriting/android): Rewrite short chat messages in different tones or styles.
-- [**Image description**](https://developers.google.com/ml-kit/genai/image-description/android): Generate a short description of a given image.
-- [**Speech Recognition**](https://developers.google.com/ml-kit/genai/speech-recognition/android): Transcribe spoken audio to text.
-- [**Prompt**](https://developers.google.com/ml-kit/genai/prompt/android): Generate text content based on a custom text-only or multimodal prompt.
+* [**Summarization**](https://developers.google.com/ml-kit/genai/summarization/android): Summarize articles or conversations as a
+  bulleted list.
+* [**Proofreading**](https://developers.google.com/ml-kit/genai/proofreading/android): Proofread short chat messages.
+* [**Rewrite**](https://developers.google.com/ml-kit/genai/rewriting/android): Rewrite short chat messages in different tones
+  or styles.
+* [**Image description**](https://developers.google.com/ml-kit/genai/image-description/android): Generate a short description of a
+  given image.
+* [**Speech Recognition**](https://developers.google.com/ml-kit/genai/speech-recognition/android): Transcribe spoken audio to text.
+* [**Prompt**](https://developers.google.com/ml-kit/genai/prompt/android): Generate text content based on a custom
+  text-only or multimodal prompt.

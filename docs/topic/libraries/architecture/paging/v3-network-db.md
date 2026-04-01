@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Provide an improved user experience by making sure that your app can be used
 when network connections are unreliable or when the user is offline. One way to
 do this is to page from the network and from a local database at the same time.

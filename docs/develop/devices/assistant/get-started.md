@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 App Actions let users launch functionality in your Android app by asking
 Google Assistant or by using Android shortcuts suggested by Assistant. These
 are the primary steps to extend your Android app with App Actions:

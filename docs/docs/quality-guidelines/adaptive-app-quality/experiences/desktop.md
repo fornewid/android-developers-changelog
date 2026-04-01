@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The desktop experience—common on Chromebooks and connected
 displays—enables precise input and advanced multitasking. The desktop
 environment allows users to work across multiple windows and instances,

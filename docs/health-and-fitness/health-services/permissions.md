@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Health Services on Wear OS uses the following distinct permissions:
 
 * [`READ_HEART_RATE`](/reference/android/health/connect/HealthPermissions#READ_HEART_RATE) for reading heart rate information.

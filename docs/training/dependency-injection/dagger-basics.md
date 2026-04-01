@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Manual dependency injection or service
 locators in an Android app can be problematic depending on the size of your
 project. You can limit your project's complexity as it scales up by using

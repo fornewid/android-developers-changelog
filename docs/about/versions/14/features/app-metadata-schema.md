@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Starting in Android 14, the Android package installer can ingest metadata about
 an app, such as data safety practices, for use in Android platform features such
 as the updated Location permission prompt.

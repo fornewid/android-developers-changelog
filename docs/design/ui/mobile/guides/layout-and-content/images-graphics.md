@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/images/design/ui/mobile/graphics_11.png)
 
 While your app could contain only text and color, you might want to add more

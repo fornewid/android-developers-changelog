@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 App architecture is the foundation of a high-quality Android application. A
 well-defined architecture enables you to create a scalable, maintainable app
 that can adapt to the ever-expanding ecosystem of Android devices, including

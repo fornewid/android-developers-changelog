@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Engage SDK includes a set of sample apps that demonstrate how to integrate
 the SDK in your app to publish different types of content. These apps are a
 great way to learn how to use the SDK, to get started with the integration in

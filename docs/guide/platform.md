@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android is an open source, Linux-based software stack created for a wide
 array of devices and form factors. Figure 1 shows the major
 components of the Android platform.

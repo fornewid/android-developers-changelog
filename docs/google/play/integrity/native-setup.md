@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 This guide shows you how to set up your native Android project to use the Play
 Integrity API from C or C++. Before you can make calls to the API, you must
 first integrate the Play Core Native SDK by configuring your development

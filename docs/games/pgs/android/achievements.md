@@ -1,12 +1,23 @@
 ---
-title: https://developer.android.com/games/pgs/android/achievements
+title: Achievements for Android games  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/pgs/android/achievements
-source: md.txt
+source: html-scrape
 ---
 
-> [!NOTE]
-> **Note:** This guide is for the Play Games Services v2 SDK. For information about the previous version of this SDK, see the [Play Games Services v1
-> documentation](https://developer.android.com/games/pgs/v1/android/achievements).
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+# Achievements for Android games Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+**Note:** This guide is for the Play Games Services v2 SDK. For information about
+the previous version of this SDK, see the [Play Games Services v1
+documentation](/games/pgs/v1/android/achievements).
 
 This guide shows you how to use the achievements APIs in an Android application
 to unlock and display achievements in your game. The APIs can be found
@@ -17,22 +28,19 @@ packages.
 ## Before you begin
 
 If you haven't already done so, you might find it helpful to review the
-[achievements game concepts](https://developer.android.com/games/pgs/achievements).
+[achievements game concepts](/games/pgs/achievements).
 
 Before you start to code using the achievements API:
 
-- Follow the instructions for installing and setting up your app to use
+* Follow the instructions for installing and setting up your app to use
   Google Play Games Services in the
   [Set Up Google Play Services SDK](https://developers.google.com/android/guides/setup) guide.
-
-- Define the achievements that you want your game to unlock or display, by
-  following the instructions in the [Google Play Console guide](https://developer.android.com/games/pgs/achievements#creating_an_achievement).
-
-- Download and review the achievements code samples in the
+* Define the achievements that you want your game to unlock or display, by
+  following the instructions in the [Google Play Console guide](/games/pgs/achievements#creating_an_achievement).
+* Download and review the achievements code samples in the
   [Android samples page](https://github.com/playgameservices/android-basic-samples).
-
-- Familiarize yourself with the recommendations described in
-  [Quality Checklist](https://developer.android.com/games/pgs/quality).
+* Familiarize yourself with the recommendations described in
+  [Quality Checklist](/games/pgs/quality).
 
 ## Get an achievements client
 
@@ -42,8 +50,12 @@ object. You can do this by calling the
 [`Games.getAchievementClient()`](https://developers.google.com/android/reference/com/google/android/gms/games/AchievementsClient#public-abstract-taskintent-getachievementsintent)
 method and passing in the activity.
 
-> [!NOTE]
-> **Note:** The [`AchievementsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/AchievementsClient) class makes use of the Google Play services [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) class to return results asynchronously. To learn more about using tasks to manage threaded work, see the [Tasks API developer guide](https://developers.google.com/android/guides/tasks).
+**Note:** The [`AchievementsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/AchievementsClient)
+class makes use of the Google Play services
+[`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task)
+class to return results asynchronously. To learn more about using tasks
+to manage threaded work, see the
+[Tasks API developer guide](https://developers.google.com/android/guides/tasks).
 
 ## Unlock achievements
 
@@ -61,7 +73,7 @@ If the achievement is of the *incremental* type (that is, several steps are
 required to unlock it), call [`AchievementsClient.increment()`](https://developers.google.com/android/reference/com/google/android/gms/games/AchievementsClient#increment(java.lang.String,%20int))
 instead.
 
-The following code snippet shows how your app can increment the player's
+The following code snippet shows how your app can increment the player’s
 achievement:
 
 ```
@@ -75,7 +87,7 @@ steps.
 A good practice is to define the achievement IDs in the `strings.xml` file, so
 your game can reference the achievements by resource ID. When making calls to
 update and load achievements, make sure to also follow these
-[best practices](https://developer.android.com/games/pgs/quality) to avoid exceeding your API
+[best practices](/games/pgs/quality) to avoid exceeding your API
 quota.
 
 ## Display achievements
@@ -112,4 +124,10 @@ The following image shows an example of the default achievements UI.
 The **Suggested** row shows the most common revealed achievement, which is the
 one
 the player hasn't unlocked yet but the highest percentage of other players have.
-![](https://developer.android.com/static/images/games/pgs/achievements_android.png)
+
+![](/static/images/games/pgs/achievements_android.png)
+
+
+
+
+Send feedback

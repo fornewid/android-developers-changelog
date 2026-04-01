@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To grant access to your library, you need to choose a repository.
 This page guides you through the considerations related to choosing a
 repository type and shows how to create a publication using the

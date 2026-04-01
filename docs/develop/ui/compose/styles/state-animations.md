@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Styles API offers a declarative and streamlined approach to managing UI
 changes during interaction states like `hovered`, `focused`, and `pressed`. With
 this API, you can significantly decrease the boilerplate code typically required

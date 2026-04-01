@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **OWASP category:** [MASVS-CRYPTO: Cryptography](https://mas.owasp.org/MASVS/06-MASVS-CRYPTO)
 
 ## Overview

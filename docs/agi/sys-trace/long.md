@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
-
 Estimating CPU and GPU frame processing times (frame times) is essential for
 understanding your app's performance and locating bottlenecks. When you
 profile an app with AGI, System Profiler provides trace data that you can use

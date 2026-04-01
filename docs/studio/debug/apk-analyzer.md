@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android Studio includes an APK Analyzer that provides immediate insight into the
 composition of your APK or Android App Bundle after the build process completes.
 Using the APK Analyzer can reduce the time you spend debugging issues with DEX

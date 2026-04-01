@@ -1,22 +1,10 @@
 ---
-title: Track sleep sessions  |  Android health & fitness  |  Android Developers
+title: https://developer.android.com/health-and-fitness/health-connect/features/sleep-sessions
 url: https://developer.android.com/health-and-fitness/health-connect/features/sleep-sessions
-source: html-scrape
+source: md.txt
 ---
 
-Starting in 2026, we'll be transitioning away from Google Fit APIs. For more information on the Google Fit migration, see the [Migration Guide](/health-and-fitness/guides/health-connect/migrate/migration-guide).
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Health & fitness dev center](https://developer.android.com/health-and-fitness)
-* [Health Connect Guides](https://developer.android.com/health-and-fitness/health-connect)
-
-# Track sleep sessions Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-> This guide is compatible with Health Connect version [1.1.0-alpha11](/jetpack/androidx/releases/health-connect#1.1.0-alpha11).
+> This guide is compatible with Health Connect version [1.1.0-alpha11](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha11).
 
 Health Connect provides a *sleep session* data type, to store information about
 a user's sleep, such as a nightly session or daytime nap.
@@ -41,12 +29,12 @@ associated data consists of independent records, each with its own UUID.
 
 Before attempting to use Health Connect, your app should verify that Health Connect is available
 on the user's device. Health Connect might not be pre-installed on all devices or could be disabled.
-You can check for availability using the `HealthConnectClient.getSdkStatus()`
+You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)`
 method.
 
 #### How to check for Health Connect availability
 
-```
+```kotlin
 fun checkHealthConnectAvailability(context: Context) {
     val providerPackageName = "com.google.android.apps.healthdata" // Or get from HealthConnectClient.DEFAULT_PROVIDER_PACKAGE_NAME
     val availabilityStatus = HealthConnectClient.getSdkStatus(context, providerPackageName)
@@ -87,8 +75,8 @@ There is no feature availability flag for this data type.
 
 Access to sleep session is protected by the following permissions:
 
-* `android.permission.health.READ_SLEEP`
-* `android.permission.health.WRITE_SLEEP`
+- `android.permission.health.READ_SLEEP`
+- `android.permission.health.WRITE_SLEEP`
 
 To add sleep session capability to your app, start by requesting
 permissions for the `SleepSession` data type.
@@ -96,23 +84,19 @@ permissions for the `SleepSession` data type.
 Here's the permission you need to declare to be able to write
 sleep session:
 
-```
-<application>
-  <uses-permission
-android:name="android.permission.health.WRITE_SLEEP" />
-...
-</application>
-```
+    <application>
+      <uses-permission
+    android:name="android.permission.health.WRITE_SLEEP" />
+    ...
+    </application>
 
 To read sleep session, you need to request the following permissions:
 
-```
-<application>
-  <uses-permission
-android:name="android.permission.health.READ_SLEEP" />
-...
-</application>
-```
+    <application>
+      <uses-permission
+    android:name="android.permission.health.READ_SLEEP" />
+    ...
+    </application>
 
 ### Request permissions from the user
 
@@ -123,41 +107,37 @@ To do so, create a set of permissions for the required data types.
 Make sure that the permissions in the set are declared in your Android
 manifest first.
 
-```
-// Create a set of permissions for required data types
-val PERMISSIONS =
-    setOf(
-  HealthPermission.getReadPermission(SleepSessionRecord::class),
-  HealthPermission.getWritePermission(SleepSessionRecord::class)
-)
-```
+    // Create a set of permissions for required data types
+    val PERMISSIONS =
+        setOf(
+      HealthPermission.getReadPermission(SleepSessionRecord::class),
+      HealthPermission.getWritePermission(SleepSessionRecord::class)
+    )
 
-Use [`getGrantedPermissions`](/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
+Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
 required permissions granted. If not, use
-[`createRequestPermissionResultContract`](/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
+[`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
 those permissions. This displays the Health Connect permissions screen.
 
-```
-// Create the permissions launcher
-val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
+    // Create the permissions launcher
+    val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
 
-val requestPermissions = registerForActivityResult(requestPermissionActivityContract) { granted ->
-  if (granted.containsAll(PERMISSIONS)) {
-    // Permissions successfully granted
-  } else {
-    // Lack of required permissions
-  }
-}
+    val requestPermissions = registerForActivityResult(requestPermissionActivityContract) { granted ->
+      if (granted.containsAll(PERMISSIONS)) {
+        // Permissions successfully granted
+      } else {
+        // Lack of required permissions
+      }
+    }
 
-suspend fun checkPermissionsAndRun(healthConnectClient: HealthConnectClient) {
-  val granted = healthConnectClient.permissionController.getGrantedPermissions()
-  if (granted.containsAll(PERMISSIONS)) {
-    // Permissions already granted; proceed with inserting or reading data
-  } else {
-    requestPermissions.launch(PERMISSIONS)
-  }
-}
-```
+    suspend fun checkPermissionsAndRun(healthConnectClient: HealthConnectClient) {
+      val granted = healthConnectClient.permissionController.getGrantedPermissions()
+      if (granted.containsAll(PERMISSIONS)) {
+        // Permissions already granted; proceed with inserting or reading data
+      } else {
+        requestPermissions.launch(PERMISSIONS)
+      }
+    }
 
 Because users can grant or revoke permissions at any time, your app needs to
 check for permissions every time before using them and handle scenarios where
@@ -165,54 +145,53 @@ permission is lost.
 
 ## Supported aggregations
 
+<br />
+
 The following aggregate values are available for
 `SleepSessionRecord`:
 
-* [`SLEEP_DURATION_TOTAL`](/reference/kotlin/androidx/health/connect/client/records/SleepSessionRecord#SLEEP_DURATION_TOTAL())
+- [`SLEEP_DURATION_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SleepSessionRecord#SLEEP_DURATION_TOTAL())
+
+<br />
 
 ## General guidance
 
 Here are some best practice guidelines on how to work with sleep sessions in
 Health Connect.
 
-* Sessions should be used to add data from a specific sleep session,
-  for sleep:
+- Sessions should be used to add data from a specific sleep session, for sleep:
 
-```
-suspend fun writeSleepSession(healthConnectClient: HealthConnectClient) {
-    healthConnectClient.insertRecords(
-        listOf(
-            SleepSessionRecord(
-                startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
-                startZoneOffset = ZoneOffset.of("-08:00"),
-                endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
-                endZoneOffset = ZoneOffset.of("-08:00"),
-                title = "My Sleep"
-            ),
+    suspend fun writeSleepSession(healthConnectClient: HealthConnectClient) {
+        healthConnectClient.insertRecords(
+            listOf(
+                SleepSessionRecord(
+                    startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
+                    startZoneOffset = ZoneOffset.of("-08:00"),
+                    endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
+                    endZoneOffset = ZoneOffset.of("-08:00"),
+                    title = "My Sleep"
+                ),
+            )
         )
-    )
-}
-```
+    }
 
-* Subtype data needs to be aligned in a session with sequential timestamps
-  that don't overlap. Gaps are allowed, however.
-* Subtype data doesn't contain a UUID, but associated data has distinct UUIDs.
-* Sessions are useful if the user wants data to be associated with (and
-  tracked as part of) a session, rather than recorded continuously.
+- Subtype data needs to be aligned in a session with sequential timestamps that don't overlap. Gaps are allowed, however.
+- Subtype data doesn't contain a UUID, but associated data has distinct UUIDs.
+- Sessions are useful if the user wants data to be associated with (and tracked as part of) a session, rather than recorded continuously.
 
 ## Sleep sessions
 
 You can read or write sleep data in Health Connect. Sleep data is displayed as a
 session, and can be divided into 8 distinct sleep stages:
 
-* `UNKNOWN`: Unspecified or unknown if the user is sleeping.
-* `AWAKE`: The user is awake within a sleep cycle, not during the day.
-* `SLEEPING`: Generic or non-granular sleep description.
-* `OUT_OF_BED`: The user gets out of bed in the middle of a sleep session.
-* `AWAKE_IN_BED`: The user is awake in bed.
-* `LIGHT`: The user is in a light sleep cycle.
-* `DEEP`: The user is in a deep sleep cycle.
-* `REM`: The user is in a REM sleep cycle.
+- `UNKNOWN`: Unspecified or unknown if the user is sleeping.
+- `AWAKE`: The user is awake within a sleep cycle, not during the day.
+- `SLEEPING`: Generic or non-granular sleep description.
+- `OUT_OF_BED`: The user gets out of bed in the middle of a sleep session.
+- `AWAKE_IN_BED`: The user is awake in bed.
+- `LIGHT`: The user is in a light sleep cycle.
+- `DEEP`: The user is in a deep sleep cycle.
+- `REM`: The user is in a REM sleep cycle.
 
 These values represent the type of sleep a user experiences within a time range.
 Writing sleep stages is optional, but recommended if available.
@@ -222,95 +201,86 @@ Writing sleep stages is optional, but recommended if available.
 The `SleepSessionRecord` data type has two parts:
 
 1. The overall session, spanning the entire duration of sleep.
-2. Individual stages during the sleep session such as light sleep or deep
-   sleep.
+2. Individual stages during the sleep session such as light sleep or deep sleep.
 
 Here's how you insert a sleep session without stages:
 
-```
-SleepSessionRecord(
-      title = "weekend sleep",
-      startTime = startTime,
-      endTime = endTime,
-      startZoneOffset = ZoneOffset.UTC,
-      endZoneOffset = ZoneOffset.UTC,
-)
-```
+    SleepSessionRecord(
+          title = "weekend sleep",
+          startTime = startTime,
+          endTime = endTime,
+          startZoneOffset = ZoneOffset.UTC,
+          endZoneOffset = ZoneOffset.UTC,
+    )
 
 Here's how to add stages that cover the entire period of a sleep session:
 
-```
-val stages = listOf(
-    SleepSessionRecord.Stage(
-        startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
-        endTime = Instant.parse("2022-05-11T01:00:00.000Z"),
-        stage = SleepSessionRecord.STAGE_TYPE_SLEEPING,
-    ),
-    SleepSessionRecord.Stage(
-        startTime = Instant.parse("2022-05-11T01:00:00.000Z"),
-        endTime = Instant.parse("2022-05-11T02:30:00.000Z"),
-        stage = SleepSessionRecord.STAGE_TYPE_LIGHT,
-    ),
-    SleepSessionRecord.Stage(
-        startTime = Instant.parse("2022-05-11T02:30:00.000Z"),
-        endTime = Instant.parse("2022-05-11T05:00:00.000Z"),
-        stage = SleepSessionRecord.STAGE_TYPE_DEEP,
-    ),
-    SleepSessionRecord.Stage(
-        startTime = Instant.parse("2022-05-11T05:00:00.000Z"),
-        endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
-        stage = SleepSessionRecord.STAGE_TYPE_REM,
-    ),
-)
+    val stages = listOf(
+        SleepSessionRecord.Stage(
+            startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
+            endTime = Instant.parse("2022-05-11T01:00:00.000Z"),
+            stage = SleepSessionRecord.STAGE_TYPE_SLEEPING,
+        ),
+        SleepSessionRecord.Stage(
+            startTime = Instant.parse("2022-05-11T01:00:00.000Z"),
+            endTime = Instant.parse("2022-05-11T02:30:00.000Z"),
+            stage = SleepSessionRecord.STAGE_TYPE_LIGHT,
+        ),
+        SleepSessionRecord.Stage(
+            startTime = Instant.parse("2022-05-11T02:30:00.000Z"),
+            endTime = Instant.parse("2022-05-11T05:00:00.000Z"),
+            stage = SleepSessionRecord.STAGE_TYPE_DEEP,
+        ),
+        SleepSessionRecord.Stage(
+            startTime = Instant.parse("2022-05-11T05:00:00.000Z"),
+            endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
+            stage = SleepSessionRecord.STAGE_TYPE_REM,
+        ),
+    )
 
-SleepSessionRecord(
-        title = "weekend sleep",
-        startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
-        endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
-        startZoneOffset = ZoneOffset.of("-08:00"),
-        endZoneOffset = ZoneOffset.of("-08:00"),
-        stages = stages,
-)
-```
+    SleepSessionRecord(
+            title = "weekend sleep",
+            startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
+            endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
+            startZoneOffset = ZoneOffset.of("-08:00"),
+            endZoneOffset = ZoneOffset.of("-08:00"),
+            stages = stages,
+    )
 
 ### Read a sleep session
 
 For every sleep session returned, you should check whether sleep stage data is
 also present:
 
-```
-suspend fun readSleepSessions(
-    healthConnectClient: HealthConnectClient,
-    startTime: Instant,
-    endTime: Instant
-) {
-    val response =
-        healthConnectClient.readRecords(
-            ReadRecordsRequest(
-                SleepSessionRecord::class,
-                timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+    suspend fun readSleepSessions(
+        healthConnectClient: HealthConnectClient,
+        startTime: Instant,
+        endTime: Instant
+    ) {
+        val response =
+            healthConnectClient.readRecords(
+                ReadRecordsRequest(
+                    SleepSessionRecord::class,
+                    timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+                )
             )
-        )
-    for (sleepRecord in response.records) {
-        // Retrieve relevant sleep stages from each sleep record
-        val sleepStages = sleepRecord.stages
+        for (sleepRecord in response.records) {
+            // Retrieve relevant sleep stages from each sleep record
+            val sleepStages = sleepRecord.stages
+        }
     }
-}
-```
 
 ### Delete a sleep session
 
 This is how to delete a session. For this example, we've used a sleep session:
 
-```
-suspend fun deleteSleepSession(
-    healthConnectClient: HealthConnectClient,
-    sleepRecord: SleepSessionRecord,
-) {
-    val timeRangeFilter = TimeRangeFilter.between(sleepRecord.startTime, sleepRecord.endTime)
-    healthConnectClient.deleteRecords(SleepSessionRecord::class, timeRangeFilter)
-}
-```
+    suspend fun deleteSleepSession(
+        healthConnectClient: HealthConnectClient,
+        sleepRecord: SleepSessionRecord,
+    ) {
+        val timeRangeFilter = TimeRangeFilter.between(sleepRecord.startTime, sleepRecord.endTime)
+        healthConnectClient.deleteRecords(SleepSessionRecord::class, timeRangeFilter)
+    }
 
-**Note:** Deleting a session does not automatically delete data associated with that
-session.
+> [!NOTE]
+> **Note:** Deleting a session does not automatically delete data associated with that session.

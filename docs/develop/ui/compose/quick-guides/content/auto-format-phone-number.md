@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 You can auto format a phone number in a text field in your app, saving users
 time by formatting the phone number as they input digits. Follow this guidance
 to auto format a phone number:

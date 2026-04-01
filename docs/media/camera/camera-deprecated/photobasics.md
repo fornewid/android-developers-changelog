@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **Note:** This page refers to the
 [Camera](/reference/android/hardware/Camera) class, which is deprecated. We
 recommend using [CameraX](/media/camera/camerax) or, for specific use cases,

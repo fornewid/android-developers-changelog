@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # AppSearch
 
 [User Guide](/guide/topics/search/appsearch)  [Code Sample](https://github.com/android/search-samples/tree/main/AppSearchSample)

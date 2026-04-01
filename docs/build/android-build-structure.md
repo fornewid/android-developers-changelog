@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android projects contain many build-related files and directory structures to
 organize your application source and resources. Before diving into the
 configuration details, we'll take a look at the overall structure and the basics

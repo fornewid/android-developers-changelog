@@ -1,31 +1,20 @@
 ---
-title: Android Development with Kotlin  |  Android Developers
+title: https://developer.android.com/courses/android-development-with-kotlin/unit-4
 url: https://developer.android.com/courses/android-development-with-kotlin/unit-4
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
+# Android Development with Kotlin
 
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-![](https://developer.android.com/static/courses/images/android-icon.png)
-
-[Android Development with Kotlin](https://developer.android.com/courses/android-development-with-kotlin/course)
+![](http://developer.android.com/static/courses/images/android-icon.png)  
+[Android Development with Kotlin](http://developer.android.com/courses/android-development-with-kotlin/course)
 
 ### Unit 4: Android app design
 
-Learn best practices, guidelines, and tools for effective Android app design.
-
-Pathway 1
-
-![](https://developers.google.com/profile/badges/playlists/android/android-development-with-kotlin-13/android-development-with-kotlin-13.svg)
+Learn best practices, guidelines, and tools for effective Android app design.Pathway 1  
+![](https://developers.google.com/profile/badges/playlists/android/android-development-with-kotlin-13/android-development-with-kotlin-13.svg)  
 
 ### [Lesson 13: App UI design](https://developer.android.com/courses/pathways/android-development-with-kotlin-13)
 
-Learn UI best practices and how to make your app follow the Material Design guidelines.
-
+Learn UI best practices and how to make your app follow the Material Design guidelines.  
 [Explore](https://developer.android.com/courses/pathways/android-development-with-kotlin-13)

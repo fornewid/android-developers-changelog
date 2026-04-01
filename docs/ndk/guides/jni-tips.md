@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/ndk/guides/jni-tips
+title: JNI tips  |  Android NDK  |  Android Developers
 url: https://developer.android.com/ndk/guides/jni-tips
-source: md.txt
+source: html-scrape
 ---
+
+* [Home](https://developer.android.com/)
+* [NDK](https://developer.android.com/ndk)
+* [Develop](https://developer.android.com/develop)
+* [Guides](https://developer.android.com/ndk/guides)
+
+# JNI tips Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 JNI is the Java Native Interface. It defines a way for the bytecode that Android compiles from
 managed code (written in the Java or Kotlin programming languages) to interact with native code
@@ -13,7 +23,7 @@ libraries, and while cumbersome at times is reasonably efficient.
 a similar manner as the Java programming language, you can apply the guidance on this page to both
 the Kotlin and Java programming languages in terms of JNI architecture and its associated costs.
 To learn more, see
-[Kotlin and Android](https://developer.android.com/kotlin).
+[Kotlin and Android](/kotlin).
 
 If you're not already familiar with it, read through the
 [Java Native Interface Specification](http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html)
@@ -22,24 +32,32 @@ aspects of the interface aren't immediately obvious on
 first reading, so you may find the next few sections handy.
 
 To browse global JNI references and see where global JNI references are created and deleted, use
-the **JNI heap** view in the [Memory Profiler](https://developer.android.com/studio/profile/memory-profiler#jni-references)
+the **JNI heap** view in the [Memory Profiler](/studio/profile/memory-profiler#jni-references)
 in Android Studio 3.2 and higher.
 
-
 ## General tips
-
-<br />
 
 Try to minimize the footprint of your JNI layer. There are several dimensions to consider here.
 Your JNI solution should try to follow these guidelines (listed below by order of importance,
 beginning with the most important):
 
-- **Minimize marshalling of resources across the JNI layer.** Marshalling across the JNI layer has non-trivial costs. Try to design an interface that minimizes the amount of data you need to marshall and the frequency with which you must marshall data.
-- **Avoid asynchronous communication between code written in a managed programming
-  language and code written in C++ when possible**. This will keep your JNI interface easier to maintain. You can typically simplify asynchronous UI updates by keeping the async update in the same language as the UI. For example, instead of invoking a C++ function from the UI thread in the Java code via JNI, it's better to do a callback between two threads in the Java programming language, with one of them making a blocking C++ call and then notifying the UI thread when the blocking call is complete.
-- **Minimize the number of threads that need to touch or be touched by JNI.** If you do need to utilize thread pools in both the Java and C++ languages, try to keep JNI communication between the pool owners rather than between individual worker threads.
-- **Keep your interface code in a low number of easily identified C++ and Java source
-  locations to facilitate future refactors.** Consider using a JNI auto-generation library as appropriate.
+* **Minimize marshalling of resources across the JNI layer.** Marshalling across
+  the JNI layer has non-trivial costs. Try to design an interface that minimizes the amount of
+  data you need to marshall and the frequency with which you must marshall data.
+* **Avoid asynchronous communication between code written in a managed programming
+  language and code written in C++ when possible**.
+  This will keep your JNI interface easier to maintain. You can typically simplify asynchronous
+  UI updates by keeping the async update in the same language as the UI. For example, instead of
+  invoking a C++ function from the UI thread in the Java code via JNI, it's better
+  to do a callback between two threads in the Java programming language, with one of them
+  making a blocking C++ call and then notifying the UI thread when the blocking call is
+  complete.
+* **Minimize the number of threads that need to touch or be touched by JNI.**
+  If you do need to utilize thread pools in both the Java and C++ languages, try to keep JNI
+  communication between the pool owners rather than between individual worker threads.
+* **Keep your interface code in a low number of easily identified C++ and Java source
+  locations to facilitate future refactors.** Consider using a JNI auto-generation
+  library as appropriate.
 
 ## JavaVM and JNIEnv
 
@@ -52,9 +70,9 @@ but Android only allows one.
 
 The JNIEnv provides most of the JNI functions. Your native functions all receive a JNIEnv as
 the first argument, except for `@CriticalNative` methods,
-see [faster native calls](https://developer.android.com/ndk/guides/jni-tips#fast_critical_native).
+see [faster native calls](#fast_critical_native).
 
-The JNIEnv is used for thread-local storage. For this reason, **you cannot share a JNIEnv between threads** .
+The JNIEnv is used for thread-local storage. For this reason, **you cannot share a JNIEnv between threads**.
 If a piece of code has no other way to get its JNIEnv, you should share
 the JavaVM, and use `GetEnv` to discover the thread's JNIEnv. (Assuming it has one; see `AttachCurrentThread` below.)
 
@@ -65,10 +83,7 @@ include JNIEnv arguments in header files included by both languages. (Put anothe
 header file requires `#ifdef __cplusplus`, you may have to do some extra work if anything in
 that header refers to JNIEnv.)
 
-
 ## Threads
-
-<br />
 
 All threads are Linux threads, scheduled by the kernel. They're usually
 started from managed code (using `Thread.start()`),
@@ -96,7 +111,7 @@ garbage collection is in progress, or the debugger has issued a suspend
 request, Android will pause the thread the next time it makes a JNI call.
 
 Threads attached through JNI **must call
-`DetachCurrentThread()` before they exit** .
+`DetachCurrentThread()` before they exit**.
 If coding this directly is awkward, in Android 2.0 (Eclair) and higher you
 can use `pthread_key_create()` to define a destructor
 function that will be called before the thread exits, and
@@ -105,16 +120,14 @@ key with `pthread_setspecific()` to store the JNIEnv in
 thread-local-storage; that way it'll be passed into your destructor as
 the argument.)
 
-
 ## jclass, jmethodID, and jfieldID
-
-<br />
 
 If you want to access an object's field from native code, you would do the following:
 
-- Get the class object reference for the class with `FindClass`
-- Get the field ID for the field with `GetFieldID`
-- Get the contents of the field with something appropriate, such as `GetIntField`
+* Get the class object reference for the class with `FindClass`
+* Get the field ID for the field with `GetFieldID`
+* Get the contents of the field with something appropriate, such as
+  `GetIntField`
 
 Similarly, to call a method, you'd first get a class object reference and then a method ID. The IDs are often just
 pointers to internal runtime data structures. Looking them up may require several string
@@ -138,7 +151,7 @@ the IDs is to add a piece of code that looks like this to the appropriate class:
 
 ### Kotlin
 
-```kotlin
+```
 companion object {
     /*
      * We use a static class initializer to allow the native code to cache some
@@ -155,7 +168,7 @@ companion object {
 
 ### Java
 
-```java
+```
     /*
      * We use a class initializer to allow the native code to cache some
      * field offsets. This native function looks up and caches interesting
@@ -172,10 +185,7 @@ Create a `nativeClassInit` method in your C/C++ code that performs the ID lookup
 will be executed once, when the class is initialized. If the class is ever unloaded and
 then reloaded, it will be executed again.
 
-
 ## Local and global references
-
-<br />
 
 Every argument passed to a native method, and almost every object returned
 by a JNI function is a "local reference". This means that it's valid for the
@@ -246,35 +256,32 @@ Be careful using global references. Global references can be unavoidable, but th
 to debug and can cause difficult-to-diagnose memory (mis)behaviors. All else being equal, a
 solution with fewer global references is probably better.
 
-
 ## UTF-8 and UTF-16 strings
-
-<br />
 
 The Java programming language uses UTF-16. For convenience, JNI provides methods that work with
 [Modified UTF-8](https://en.wikipedia.org/wiki/UTF-8#Modified_UTF-8) as well. The
-modified encoding is useful for C code because it encodes \\u0000 as 0xc0 0x80 instead of 0x00.
+modified encoding is useful for C code because it encodes \u0000 as 0xc0 0x80 instead of 0x00.
 The nice thing about this is that you can count on having C-style zero-terminated strings,
 suitable for use with standard libc string functions. The down side is that you cannot pass
 arbitrary UTF-8 data to JNI and expect it to work correctly.
 
 To get the UTF-16 representation of a `String`, use `GetStringChars`.
-Note that **UTF-16 strings are not zero-terminated**, and \\u0000 is allowed,
+Note that **UTF-16 strings are not zero-terminated**, and \u0000 is allowed,
 so you need to hang on to the string length as well as the jchar pointer.
 
-**Don't forget to `Release` the strings you `Get`** . The
+**Don't forget to `Release` the strings you `Get`**. The
 string functions return `jchar*` or `jbyte*`, which
 are C-style pointers to primitive data rather than local references. They
 are guaranteed valid until `Release` is called, which means they are not
 released when the native method returns.
 
-**Data passed to NewStringUTF must be in Modified UTF-8 format** . A
+**Data passed to NewStringUTF must be in Modified UTF-8 format**. A
 common mistake is reading character data from a file or network stream
 and handing it to `NewStringUTF` without filtering it.
 Unless you know the data is valid MUTF-8 (or 7-bit ASCII, which is a compatible subset),
 you need to strip out invalid characters or convert them to proper Modified UTF-8 form.
 If you don't, the UTF-16 conversion is likely to provide unexpected results.
-CheckJNI---which is on by default for emulators---scans strings
+CheckJNI—which is on by default for emulators—scans strings
 and aborts the VM if it receives invalid input.
 
 Before Android 8, it was usually faster to operate with UTF-16 strings as Android
@@ -290,7 +297,7 @@ are short, it is possible to avoid the allocation and deallocation in most cases
 using a stack-allocated buffer and `GetStringRegion` or
 `GetStringUTFRegion`. For example:
 
-```c++
+```
     constexpr size_t kStackBufferSize = 64u;
     jchar stack_buffer[kStackBufferSize];
     std::unique_ptr<jchar[]> heap_buffer;
@@ -304,10 +311,7 @@ using a stack-allocated buffer and `GetStringRegion` or
     process_data(buffer, length);
 ```
 
-
 ## Primitive arrays
-
-<br />
 
 JNI provides functions for accessing the contents of array objects.
 While arrays of objects must be accessed one entry at a time, arrays of
@@ -332,19 +336,16 @@ The `Release` call takes a `mode` argument that can
 have one of three values. The actions performed by the runtime depend upon
 whether it returned a pointer to the actual data or a copy of it:
 
-- `0`
-  - Actual: the array object is un-pinned.
-  - Copy: data is copied back. The buffer with the copy is freed.
-- `JNI_COMMIT`
-  - Actual: does nothing.
-  - Copy: data is copied back. The buffer with the copy **is not freed**.
-- `JNI_ABORT`
-  - Actual: the array object is un-pinned. Earlier writes are **not** aborted.
-  - Copy: the buffer with the copy is freed; any changes to it are lost.
+* `0`
+  + Actual: the array object is un-pinned.+ Copy: data is copied back. The buffer with the copy is freed.* `JNI_COMMIT`
+    + Actual: does nothing.+ Copy: data is copied back. The buffer with the copy
+        **is not freed**.* `JNI_ABORT`
+      + Actual: the array object is un-pinned. Earlier
+        writes are **not** aborted.+ Copy: the buffer with the copy is freed; any changes to it are lost.
 
 One reason for checking the `isCopy` flag is to know if
 you need to call `Release` with `JNI_COMMIT`
-after making changes to an array --- if you're alternating between making
+after making changes to an array — if you're alternating between making
 changes and executing code that uses the contents of the array, you may be
 able to
 skip the no-op commit. Another possible reason for checking the flag is for
@@ -363,16 +364,13 @@ Also note that the `JNI_COMMIT` flag does **not** release the array,
 and you will need to call `Release` again with a different flag
 eventually.
 
-
 ## Region calls
-
-<br />
 
 There is an alternative to calls like `Get<Type>ArrayElements`
 and `GetStringChars` that may be very helpful when all you want
 to do is copy data in or out. Consider the following:
 
-```c++
+```
     jbyte* data = env->GetByteArrayElements(array, NULL);
     if (data != NULL) {
         memcpy(buffer, data, len);
@@ -389,25 +387,21 @@ The code copies the data (for perhaps a second time), then calls `Release`; in t
 
 One can accomplish the same thing more simply:
 
-```c++
+```
     env->GetByteArrayRegion(array, 0, len, buffer);
 ```
 
 This has several advantages:
 
-- Requires one JNI call instead of 2, reducing overhead.
-- Doesn't require pinning or extra data copies.
-- Reduces the risk of programmer error --- no risk of forgetting to call `Release` after something fails.
+* Requires one JNI call instead of 2, reducing overhead.* Doesn't require pinning or extra data copies.* Reduces the risk of programmer error — no risk of forgetting
+      to call `Release` after something fails.
 
 Similarly, you can use the `Set<Type>ArrayRegion` call
 to copy data into an array, and `GetStringRegion` or
 `GetStringUTFRegion` to copy characters out of a
 `String`.
 
-
 ## Exceptions
-
-<br />
 
 **You must not call most JNI functions while an exception is pending.**
 Your code is expected to notice the exception (via the function's return value,
@@ -417,21 +411,7 @@ or clear the exception and handle it.
 The only JNI functions that you are allowed to call while an exception is
 pending are:
 
-- `DeleteGlobalRef`
-- `DeleteLocalRef`
-- `DeleteWeakGlobalRef`
-- `ExceptionCheck`
-- `ExceptionClear`
-- `ExceptionDescribe`
-- `ExceptionOccurred`
-- `MonitorExit`
-- `PopLocalFrame`
-- `PushLocalFrame`
-- `Release<PrimitiveType>ArrayElements`
-- `ReleasePrimitiveArrayCritical`
-- `ReleaseStringChars`
-- `ReleaseStringCritical`
-- `ReleaseStringUTFChars`
+* `DeleteGlobalRef`* `DeleteLocalRef`* `DeleteWeakGlobalRef`* `ExceptionCheck`* `ExceptionClear`* `ExceptionDescribe`* `ExceptionOccurred`* `MonitorExit`* `PopLocalFrame`* `PushLocalFrame`* `Release<PrimitiveType>ArrayElements`* `ReleasePrimitiveArrayCritical`* `ReleaseStringChars`* `ReleaseStringCritical`* `ReleaseStringUTFChars`
 
 Many JNI calls can throw an exception, but often provide a simpler way
 of checking for failure. For example, if `NewString` returns
@@ -459,44 +439,41 @@ find the `Throwable` class, look up the method ID for
 is non-NULL use `GetStringUTFChars` to get something you can
 hand to `printf(3)` or equivalent.
 
-
 ## Extended checking
-
-<br />
 
 JNI does very little error checking. Errors usually result in a crash. Android also offers a mode called CheckJNI, where the JavaVM and JNIEnv function table pointers are switched to tables of functions that perform an extended series of checks before calling the standard implementation.
 
 The additional checks include:
 
-- Arrays: attempting to allocate a negative-sized array.
-- Bad pointers: passing a bad jarray/jclass/jobject/jstring to a JNI call, or passing a NULL pointer to a JNI call with a non-nullable argument.
-- Class names: passing anything but the "java/lang/String" style of class name to a JNI call.
-- Critical calls: making a JNI call between a "critical" get and its corresponding release.
-- Direct ByteBuffers: passing bad arguments to `NewDirectByteBuffer`.
-- Exceptions: making a JNI call while there's an exception pending.
-- JNIEnv\*s: using a JNIEnv\* from the wrong thread.
-- jfieldIDs: using a NULL jfieldID, or using a jfieldID to set a field to a value of the wrong type (trying to assign a StringBuilder to a String field, say), or using a jfieldID for a static field to set an instance field or vice versa, or using a jfieldID from one class with instances of another class.
-- jmethodIDs: using the wrong kind of jmethodID when making a `Call*Method` JNI call: incorrect return type, static/non-static mismatch, wrong type for 'this' (for non-static calls) or wrong class (for static calls).
-- References: using `DeleteGlobalRef`/`DeleteLocalRef` on the wrong kind of reference.
-- Release modes: passing a bad release mode to a release call (something other than `0`, `JNI_ABORT`, or `JNI_COMMIT`).
-- Type safety: returning an incompatible type from your native method (returning a StringBuilder from a method declared to return a String, say).
-- UTF-8: passing an invalid [Modified UTF-8](https://en.wikipedia.org/wiki/UTF-8#Modified_UTF-8) byte sequence to a JNI call.
+* Arrays: attempting to allocate a negative-sized array.
+* Bad pointers: passing a bad jarray/jclass/jobject/jstring to a JNI call, or passing a NULL pointer to a JNI call with a non-nullable argument.
+* Class names: passing anything but the “java/lang/String” style of class name to a JNI call.
+* Critical calls: making a JNI call between a “critical” get and its corresponding release.
+* Direct ByteBuffers: passing bad arguments to `NewDirectByteBuffer`.
+* Exceptions: making a JNI call while there’s an exception pending.
+* JNIEnv\*s: using a JNIEnv\* from the wrong thread.
+* jfieldIDs: using a NULL jfieldID, or using a jfieldID to set a field to a value of the wrong type (trying to assign a StringBuilder to a String field, say), or using a jfieldID for a static field to set an instance field or vice versa, or using a jfieldID from one class with instances of another class.
+* jmethodIDs: using the wrong kind of jmethodID when making a `Call*Method` JNI call: incorrect return type, static/non-static mismatch, wrong type for ‘this’ (for non-static calls) or wrong class (for static calls).
+* References: using `DeleteGlobalRef`/`DeleteLocalRef` on the wrong kind of reference.
+* Release modes: passing a bad release mode to a release call (something other than `0`, `JNI_ABORT`, or `JNI_COMMIT`).
+* Type safety: returning an incompatible type from your native method (returning a StringBuilder from a method declared to return a String, say).
+* UTF-8: passing an invalid [Modified UTF-8](https://en.wikipedia.org/wiki/UTF-8#Modified_UTF-8) byte sequence to a JNI call.
 
 (Accessibility of methods and fields is still not checked: access restrictions don't apply to native code.)
 
 There are several ways to enable CheckJNI.
 
-If you're using the emulator, CheckJNI is on by default.
+If you’re using the emulator, CheckJNI is on by default.
 
 If you have a rooted device, you can use the following sequence of commands to restart the runtime with CheckJNI enabled:
 
-```bash
+```
 adb shell stop
 adb shell setprop dalvik.vm.checkjni true
 adb shell start
 ```
 
-In either of these cases, you'll see something like this in your logcat output when the runtime starts:
+In either of these cases, you’ll see something like this in your logcat output when the runtime starts:
 
 ```
 D AndroidRuntime: CheckJNI is ON
@@ -504,11 +481,11 @@ D AndroidRuntime: CheckJNI is ON
 
 If you have a regular device, you can use the following command:
 
-```bash
+```
 adb shell setprop debug.checkjni 1
 ```
 
-This won't affect already-running apps, but any app launched from that point on will have CheckJNI enabled. (Change the property to any other value or simply rebooting will disable CheckJNI again.) In this case, you'll see something like this in your logcat output the next time an app starts:
+This won’t affect already-running apps, but any app launched from that point on will have CheckJNI enabled. (Change the property to any other value or simply rebooting will disable CheckJNI again.) In this case, you’ll see something like this in your logcat output the next time an app starts:
 
 ```
 D Late-enabling CheckJNI
@@ -518,13 +495,10 @@ You can also set the `android:debuggable` attribute in your application's manife
 turn on CheckJNI just for your app. Note that the Android build tools will do this automatically for
 certain build types.
 
-
 ## Native libraries
 
-<br />
-
 You can load native code from shared libraries with the standard
-[`System.loadLibrary`](https://developer.android.com/reference/java/lang/System#loadLibrary(java.lang.String)).
+[`System.loadLibrary`](/reference/java/lang/System#loadLibrary(java.lang.String)).
 
 In practice, older versions of Android had bugs in PackageManager that caused installation and
 update of native libraries to be unreliable. The [ReLinker](https://github.com/KeepSafe/ReLinker)
@@ -546,9 +520,12 @@ look them up dynamically with `dlsym()`. Most apps should call
 native methods with an explicit mapping. It takes a little bit more
 up-front work to write that code, but has the following advantages:
 
-1. Mistakes are caught early. An incorrectly named function will cause an error during library load.
-2. The only symbol that typically must be exported is `JNI_OnLoad()`. Some use cases may additionally need `ANativeActivity_OnCreate()` or similar.
-3. Android Studio can warn you and auto-fix common mistakes in class names and function signatures.
+1. Mistakes are caught early. An incorrectly named function will cause an error
+   during library load.
+2. The only symbol that typically must be exported is `JNI_OnLoad()`. Some use
+   cases may additionally need `ANativeActivity_OnCreate()` or similar.
+3. Android Studio can warn you and auto-fix common mistakes in class names and
+   function signatures.
 
 In contrast, the advantage of letting the runtime discover your functions via
 `dlsym()` is that it's slightly less code to write, and cheaper in the case
@@ -556,15 +533,19 @@ where your JNI functions are usually never called.
 
 To use `RegisterNatives`:
 
-- Provide a `JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)` function.
-- In your `JNI_OnLoad`, register all of your native methods using `RegisterNatives`.
-- Build with a [version script](https://developer.android.com/ndk/guides/symbol-visibility) (preferred) or use `-fvisibility=hidden` so that only your `JNI_OnLoad` is exported from your library. This produces faster and smaller code, and avoids potential collisions with other libraries loaded into your app (but it creates less useful stack traces if your app crashes in native code).
+* Provide a `JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)` function.
+* In your `JNI_OnLoad`, register all of your native methods using `RegisterNatives`.
+* Build with a [version script](/ndk/guides/symbol-visibility) (preferred) or use
+  `-fvisibility=hidden` so that only your `JNI_OnLoad`
+  is exported from your library. This produces faster and smaller code, and avoids potential
+  collisions with other libraries loaded into your app (but it creates less useful stack traces
+  if your app crashes in native code).
 
 The static initializer should look like this:
 
 ### Kotlin
 
-```kotlin
+```
 companion object {
     init {
         System.loadLibrary("fubar")
@@ -574,7 +555,7 @@ companion object {
 
 ### Java
 
-```java
+```
 static {
     System.loadLibrary("fubar");
 }
@@ -583,7 +564,7 @@ static {
 The `JNI_OnLoad` function should look something like this if
 written in C++:
 
-```c++
+```
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
     JNIEnv* env;
     if (vm->GetEnv(reinterpret_cast<void**>(&env), JNI_VERSION_1_6) != JNI_OK) {
@@ -618,21 +599,17 @@ Java stack, or if there isn't one (because the call is from a native thread that
 it uses the "system" class loader. The system class loader does not know about your application's
 classes, so you won't be able to look up your own classes with `FindClass` in that
 context. This makes `JNI_OnLoad` a convenient place to look up and cache classes: once
-you have a valid `jclass` [global reference](https://developer.android.com/ndk/guides/jni-tips#local_and_global_references)
+you have a valid `jclass` [global reference](#local_and_global_references)
 you can use it from any attached thread.
-
 
 ## Faster native calls with `@FastNative` and `@CriticalNative`
 
-<br />
-
 Native methods can be annotated with
-[`@FastNative`](https://developer.android.com/reference/dalvik/annotation/optimization/FastNative) or
-[`@CriticalNative`](https://developer.android.com/reference/dalvik/annotation/optimization/CriticalNative)
+[`@FastNative`](/reference/dalvik/annotation/optimization/FastNative) or
+[`@CriticalNative`](/reference/dalvik/annotation/optimization/CriticalNative)
 (but not both) to speed up transitions between managed and native code. However, these annotations
 come with certain changes in behavior that need to be carefully considered before use. While we
 briefly mention these changes below, please refer to the documentation for the details.
-
 
 The `@CriticalNative` annotation can be applied only to native methods that do not
 use managed objects (in parameters or return values, or as an implicit `this`), and this
@@ -644,7 +621,6 @@ collection cannot suspend the thread for essential work and may become blocked. 
 annotations for long-running methods, including usually-fast, but generally unbounded, methods.
 In particular, the code should not perform significant I/O operations or acquire native locks that
 can be held for a long time.
-
 
 These annotations were implemented for system use since
 [Android 8](https://source.android.com/docs/core/dalvik/improvements#faster-native-methods)
@@ -659,7 +635,7 @@ For performance critical methods that need these annotations, it is strongly rec
 explicitly register the method(s) with JNI `RegisterNatives` instead of relying on the
 name-based "discovery" of native methods. To get optimal app startup performance, it is recommended
 to include callers of `@FastNative` or `@CriticalNative` methods in the
-[baseline profile](https://developer.android.com/topic/performance/baselineprofiles/overview). Since Android 12,
+[baseline profile](/topic/performance/baselineprofiles/overview). Since Android 12,
 a call to a `@CriticalNative` native method from a compiled managed method is almost as
 cheap as a non-inline call in C/C++ as long as all arguments fit into registers (for example up to
 8 integral and up to 8 floating point arguments on arm64).
@@ -669,7 +645,7 @@ fail and another one that handles the slow cases. For example:
 
 ### Kotlin
 
-```kotlin
+```
 fun writeInt(nativeHandle: Long, value: Int) {
     // A fast buffered write with a `@CriticalNative` method should succeed most of the time.
     if (!nativeTryBufferedWriteInt(nativeHandle, value)) {
@@ -687,7 +663,7 @@ external fun nativeWriteInt(nativeHandle: Long, value: Int)
 
 ### Java
 
-```java
+```
 void writeInt(long nativeHandle, int value) {
     // A fast buffered write with a `@CriticalNative` method should succeed most of the time.
     if (!nativeTryBufferedWriteInt(nativeHandle, value)) {
@@ -703,39 +679,35 @@ static native boolean nativeTryBufferedWriteInt(long nativeHandle, int value);
 static native void nativeWriteInt(long nativeHandle, int value);
 ```
 
-
 ## 64-bit considerations
-
-<br />
 
 To support architectures that use 64-bit pointers, use a `long` field rather than an
 `int` when storing a pointer to a native structure in a Java field.
 
-
 ## Unsupported features/backwards compatibility
-
-<br />
 
 All JNI 1.6 features are supported, with the following exception:
 
-- `DefineClass` is not implemented. Android does not use Java bytecodes or class files, so passing in binary class data doesn't work.
+* `DefineClass` is not implemented. Android does not use
+  Java bytecodes or class files, so passing in binary class data
+  doesn't work.
 
 For backward compatibility with older Android releases, you may need to
 be aware of:
 
-- **Dynamic lookup of native functions**
+* **Dynamic lookup of native functions**
 
   Until Android 2.0 (Eclair), the '$' character was not properly
-  converted to "_00024" during searches for method names. Working
+  converted to "\_00024" during searches for method names. Working
   around this requires using explicit registration or moving the
   native methods out of inner classes.
-- **Detaching threads**
+* **Detaching threads**
 
   Until Android 2.0 (Eclair), it was not possible to use a `pthread_key_create`
   destructor function to avoid the "thread must be detached before
   exit" check. (The runtime also uses a pthread key destructor function,
   so it'd be a race to see which gets called first.)
-- **Weak global references**
+* **Weak global references**
 
   Until Android 2.2 (Froyo), weak global references were not implemented.
   Older versions will vigorously reject attempts to use them. You can use
@@ -749,7 +721,7 @@ be aware of:
 
   From Android 4.0 (Ice Cream Sandwich) on, weak global references can be
   used like any other JNI references.
-- **Local references**
+* **Local references**
 
   Until Android 4.0 (Ice Cream Sandwich), local references were
   actually direct pointers. Ice Cream Sandwich added the indirection
@@ -757,10 +729,10 @@ be aware of:
   of JNI bugs are undetectable on older releases. See
   [JNI Local Reference Changes in ICS](http://android-developers.blogspot.com/2011/11/jni-local-reference-changes-in-ics.html) for more details.
 
-  In Android versions prior to [Android 8.0](https://developer.android.com/about/versions/oreo), the
+  In Android versions prior to [Android 8.0](/about/versions/oreo), the
   number of local references is capped at a version-specific limit. Beginning in Android 8.0,
   Android supports unlimited local references.
-- **Determining reference type with `GetObjectRefType`**
+* **Determining reference type with `GetObjectRefType`**
 
   Until Android 4.0 (Ice Cream Sandwich), as a consequence of the use of
   direct pointers (see above), it was impossible to implement
@@ -773,7 +745,7 @@ be aware of:
   to be the same as the jclass passed as an implicit argument to your static
   native method, you'd get `JNILocalRefType` rather than
   `JNIGlobalRefType`.
-- **`@FastNative` and `@CriticalNative`**
+* **`@FastNative` and `@CriticalNative`**
 
   Up to Android 7, these optimization annotations were ignored. The ABI
   mismatch for `@CriticalNative` would lead to wrong argument
@@ -784,17 +756,14 @@ be aware of:
   contains known bugs in Android 11. Using these optimizations without
   explicit registration with JNI `RegisterNatives` is likely to
   lead to crashes on Android 8-11.
-- **`FindClass` throws `ClassNotFoundException`**
+* **`FindClass` throws `ClassNotFoundException`**
 
   For backward compatibility, Android throws `ClassNotFoundException`
   instead of `NoClassDefFoundError` when a class isn't found by
   `FindClass`. This behavior is consistent with the Java reflection API
   `Class.forName(name)`.
 
-
 ## FAQ: Why do I get `UnsatisfiedLinkError`?
-
-<br />
 
 When working on native code it's not uncommon to see a failure like this:
 
@@ -802,14 +771,16 @@ When working on native code it's not uncommon to see a failure like this:
 java.lang.UnsatisfiedLinkError: Library foo not found
 ```
 
-In some cases it means what it says --- the library wasn't found. In
+In some cases it means what it says — the library wasn't found. In
 other cases the library exists but couldn't be opened by `dlopen(3)`, and
 the details of the failure can be found in the exception's detail message.
 
 Common reasons why you might encounter "library not found" exceptions:
 
-- The library doesn't exist or isn't accessible to the app. Use `adb shell ls -l <path>` to check its presence and permissions.
-- The library wasn't built with the NDK. This can result in dependencies on functions or libraries that don't exist on the device.
+* The library doesn't exist or isn't accessible to the app. Use
+  `adb shell ls -l <path>` to check its presence
+  and permissions.* The library wasn't built with the NDK. This can result in
+    dependencies on functions or libraries that don't exist on the device.
 
 Another class of `UnsatisfiedLinkError` failures looks like:
 
@@ -828,14 +799,29 @@ W/dalvikvm(  880): No implementation found for native LFoo;.myfunc ()V
 This means that the runtime tried to find a matching method but was
 unsuccessful. Some common reasons for this are:
 
-- The library isn't getting loaded. Check the logcat output for messages about library loading.
-- The method isn't being found due to a name or signature mismatch. This is commonly caused by:
-  - For lazy method lookup, failing to declare C++ functions with `extern "C"` and appropriate visibility (`JNIEXPORT`). Note that prior to Ice Cream Sandwich, the JNIEXPORT macro was incorrect, so using a new GCC with an old `jni.h` won't work. You can use `arm-eabi-nm` to see the symbols as they appear in the library; if they look mangled (something like `_Z15Java_Foo_myfuncP7_JNIEnvP7_jclass` rather than `Java_Foo_myfunc`), or if the symbol type is a lowercase 't' rather than an uppercase 'T', then you need to adjust the declaration.
-  - For explicit registration, minor errors when entering the method signature. Make sure that what you're passing to the registration call matches the signature in the log file. Remember that 'B' is `byte` and 'Z' is `boolean`. Class name components in signatures start with 'L', end with ';', use '/' to separate package/class names, and use '$' to separate inner-class names (`Ljava/util/Map$Entry;`, say).
+* The library isn't getting loaded. Check the logcat output for
+  messages about library loading.* The method isn't being found due to a name or signature mismatch. This
+    is commonly caused by:
+    + For lazy method lookup, failing to declare C++ functions
+      with `extern "C"` and appropriate
+      visibility (`JNIEXPORT`). Note that prior to Ice Cream
+      Sandwich, the JNIEXPORT macro was incorrect, so using a new GCC with
+      an old `jni.h` won't work.
+      You can use `arm-eabi-nm`
+      to see the symbols as they appear in the library; if they look
+      mangled (something like `_Z15Java_Foo_myfuncP7_JNIEnvP7_jclass`
+      rather than `Java_Foo_myfunc`), or if the symbol type is
+      a lowercase 't' rather than an uppercase 'T', then you need to
+      adjust the declaration.+ For explicit registration, minor errors when entering the
+        method signature. Make sure that what you're passing to the
+        registration call matches the signature in the log file.
+        Remember that 'B' is `byte` and 'Z' is `boolean`.
+        Class name components in signatures start with 'L', end with ';',
+        use '/' to separate package/class names, and use '$' to separate
+        inner-class names (`Ljava/util/Map$Entry;`, say).
 
 Using `javah` to automatically generate JNI headers may help
 avoid some problems.
-
 
 ## FAQ: Why didn't `FindClass` find my class?
 
@@ -854,7 +840,7 @@ using `javap` on the .class file is a good way to find out the
 internal name of your class.
 
 If you enable code shrinking, make sure that you
-[configure which code to keep](https://developer.android.com/studio/build/shrink-code#keep-code). Configuring
+[configure which code to keep](/studio/build/shrink-code#keep-code). Configuring
 proper keep rules is important because the code shrinker might otherwise remove classes, methods,
 or fields that are only used from JNI.
 
@@ -882,14 +868,20 @@ with your application, so attempts to find app-specific classes will fail.
 
 There are a few ways to work around this:
 
-- Do your `FindClass` lookups once, in `JNI_OnLoad`, and cache the class references for later use. Any `FindClass` calls made as part of executing `JNI_OnLoad` will use the class loader associated with the function that called `System.loadLibrary` (this is a special rule, provided to make library initialization more convenient). If your app code is loading the library, `FindClass` will use the correct class loader.
-- Pass an instance of the class into the functions that need it, by declaring your native method to take a Class argument and then passing `Foo.class` in.
-- Cache a reference to the `ClassLoader` object somewhere handy, and issue `loadClass` calls directly. This requires some effort.
-
+* Do your `FindClass` lookups once, in
+  `JNI_OnLoad`, and cache the class references for later
+  use. Any `FindClass` calls made as part of executing
+  `JNI_OnLoad` will use the class loader associated with
+  the function that called `System.loadLibrary` (this is a
+  special rule, provided to make library initialization more convenient).
+  If your app code is loading the library, `FindClass`
+  will use the correct class loader.* Pass an instance of the class into the functions that need
+    it, by declaring your native method to take a Class argument and
+    then passing `Foo.class` in.* Cache a reference to the `ClassLoader` object somewhere
+      handy, and issue `loadClass` calls directly. This requires
+      some effort.
 
 ## FAQ: How do I share raw data with native code?
-
-<br />
 
 You may find yourself in a situation where you need to access a large
 buffer of raw data from both managed and native code. Common examples
@@ -915,8 +907,11 @@ can be very slow.
 
 The choice of which to use depends on two factors:
 
-1. Will most of the data accesses happen from code written in Java or in C/C++?
-2. If the data is eventually being passed to a system API, what form must it be in? (For example, if the data is eventually passed to a function that takes a byte\[\], doing processing in a direct `ByteBuffer` might be unwise.)
+1. Will most of the data accesses happen from code written in Java
+   or in C/C++?- If the data is eventually being passed to a system API, what form
+     must it be in? (For example, if the data is eventually passed to a
+     function that takes a byte[], doing processing in a direct
+     `ByteBuffer` might be unwise.)
 
 If there's no clear winner, use a direct byte buffer. Support for them
 is built directly into JNI, and performance should improve in future releases.

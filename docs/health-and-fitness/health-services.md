@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Wear OS 3 and higher includes a service called
 [Health Services](/jetpack/androidx/releases/health).
 Health Services acts as an intermediary to the various sensors and related

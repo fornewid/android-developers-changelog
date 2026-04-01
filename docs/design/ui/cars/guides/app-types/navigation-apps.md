@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Navigation apps are map-based applications that provide drivers with guidance
 and directions while on the road. They integrate with the vehicle's center
 screen and often the instrument cluster to show information relevant to the

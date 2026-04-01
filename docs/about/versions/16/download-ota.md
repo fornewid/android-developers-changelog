@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 OTA images are available for the following Pixel devices:
 
 * Pixel 6 and 6 Pro

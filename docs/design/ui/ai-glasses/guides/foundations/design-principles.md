@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Designing for AI Glasses with Android XR requires a thoughtful approach to user
 experience, prioritizing comfort and seamless integration with the user's daily
 life. Apps on glasses should feel like a natural extension of the user's

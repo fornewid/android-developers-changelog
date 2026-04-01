@@ -1,68 +1,57 @@
 ---
-title: Lesson 2: Functions  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-2/android-development-with-kotlin-2
 url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-2/android-development-with-kotlin-2
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Lesson 2: Functions
 
-Return to pathway
+# Lesson 2: Functions
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Functions in Kotlin are created with the following keyword?
+   ## Functions in Kotlin are created with the following keyword?
 
-   `void`
+   `void`  
+   `fun`  
+   `function`  
+   `def`  
+2.
 
-   `fun`
+   ## What is the default return type of any functions defined in Kotlin?
 
-   `function`
+   `Int`  
+   `Double`  
+   `void`  
+   `Unit`  
+3.
 
-   `def`
-2. ## What is the default return type of any functions defined in Kotlin?
+   ## The function to print a line in Kotlin is ?
 
-   `Int`
+   `println()`  
+   `printLine()`  
+   `linePrint()`  
+   `line()`  
+4.
 
-   `Double`
+   ## The 'when' statement in Kotlin is similar to which statement in other programming languages?
 
-   `void`
+   `if`  
+   `break`  
+   `switch`  
+   `continue`  
+5.
 
-   `Unit`
-3. ## The function to print a line in Kotlin is ?
+   ## What are lambdas in Kotlin?
 
-   `println()`
-
-   `printLine()`
-
-   `linePrint()`
-
-   `line()`
-4. ## The 'when' statement in Kotlin is similar to which statement in other programming languages?
-
-   `if`
-
-   `break`
-
-   `switch`
-
-   `continue`
-5. ## What are lambdas in Kotlin?
-
-   A lambda is a Data Type in Kotlin
-
-   A lambda is a Class type in Kotlin
-
-   A lambda is an Interface in Kotlin
-
-   A lambda is an expression that describes a function. But instead of declaring a named function, you declare a function that has no name
+   A lambda is a Data Type in Kotlin  
+   A lambda is a Class type in Kotlin  
+   A lambda is an Interface in Kotlin  
+   A lambda is an expression that describes a function. But instead of declaring a named function, you declare a function that has no name  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

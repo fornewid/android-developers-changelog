@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Using code inspections tools, such as [lint](/studio/write/lint), can help you find
 problems and improve your code, but inspection tools can only infer so much. Android resource IDs,
 for example, use an `int` to identify strings, graphics, colors, and other resource types,

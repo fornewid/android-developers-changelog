@@ -1,19 +1,8 @@
 ---
-title: App shortcuts  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/pgs/android/app-shortcuts
 url: https://developer.android.com/games/pgs/android/app-shortcuts
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# App shortcuts Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 The Play Games services may automatically add [app shortcuts](https://developer.android.com/develop/ui/views/launch/shortcuts), for
 example to allow users to quickly choose the Play Games Services profile to use.
@@ -22,7 +11,7 @@ on the device and the game usage.
 
 ## Available shortcuts
 
-**Profile switcher**: shortcut for players to switch between different Play
+**Profile switcher** : shortcut for players to switch between different Play
 Games Profiles. See [How to switch Play Games profiles](https://support.google.com/googleplay/answer/14754238), for
 corresponding Help Center article.
 
@@ -34,57 +23,47 @@ app shortcuts populated by the Play Games services. For that add a
 element to any `"android.intent.category.LAUNCHER"` activity declaration,
 setting the following:
 
-* `android:name` to `"com.google.android.gms.games.APP_SHORTCUTS_MAX_NUMBER"`
-* `android:value` to the maximum number of the app shortcuts slots that can be
-  used by the Play Games services.
+- `android:name` to `"com.google.android.gms.games.APP_SHORTCUTS_MAX_NUMBER"`
+- `android:value` to the maximum number of the app shortcuts slots that can be used by the Play Games services.
 
 ### Example
 
 In this example, we show how to limit the maximum number of the app shortcuts
-slots that the Play Games services can use to **two**. For our example, we
+slots that the Play Games services can use to **two** . For our example, we
 initially would have an
 [app manifest](https://developer.android.com/guide/topics/manifest/manifest-intro)
 that looks like the following:
 
-```
-<manifest ... >
-    <application ... >
-        <activity android:name=".ExampleActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity >
+    <manifest ... >
+        <application ... >
+            <activity android:name=".ExampleActivity" >
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            </activity >
+            ...
+        </application >
         ...
-    </application >
-    ...
-</manifest >
-```
+    </manifest >
 
 And to apply the limits the app manifest should be updated to the following:
 
-```
-<manifest ... >
-    <application ... >
-        <activity android:name=".ExampleActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <meta-data
-                android:name="com.google.android.gms.games.APP_SHORTCUTS_MAX_NUMBER"
-                android:value="2" />
-        </activity >
+    <manifest ... >
+        <application ... >
+            <activity android:name=".ExampleActivity" >
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+                <meta-data
+                    android:name="com.google.android.gms.games.APP_SHORTCUTS_MAX_NUMBER"
+                    android:value="2" />
+            </activity >
+            ...
+        </application >
         ...
-    </application >
-    ...
-</manifest >
-```
+    </manifest >
 
 That's it. Now the maximum number of the app shortcuts slots that the Play Games
 services can use is limited to **two**.
-
-
-
-
-Send feedback

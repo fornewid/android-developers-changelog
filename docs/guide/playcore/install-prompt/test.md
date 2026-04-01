@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/guide/playcore/install-prompt/test
+title: Test in-app install prompts  |  Other Play guides  |  Android Developers
 url: https://developer.android.com/guide/playcore/install-prompt/test
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Other Play guides](https://developer.android.com/guide/app-bundle)
+
+# Test in-app install prompts Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 This guide explains how to test your integration of in-app install prompts in
 your app or game.
@@ -11,7 +20,9 @@ your app or game.
 
 To test the API, follow these steps:
 
-1. Verify that the test account owner has one or more alternate form factor devices, for example, a watch, phone, tablet, foldable, TV, or Android Automotive OS vehicle.
+1. Verify that the test account owner has one or more alternate form factor
+   devices, for example, a watch, phone, tablet, foldable, TV, or Android
+   Automotive OS vehicle.
 2. Verify that the test account is signed in to the Play Store on the other form factors.
 3. Verify that the test account is running Play Store version 42.2 or higher on a phone.
 
@@ -30,7 +41,8 @@ that these conditions are met:
 
 1. The user account is part of the internal test track.
 2. The user account is the primary account and is selected in the Play Store.
-3. The user account has downloaded the app from the Play Store. The app is listed in the user's Google Play library.
+3. The user account has downloaded the app from the Play Store. The app is
+   listed in the user's Google Play library.
 4. The user account has not installed the app on all eligible devices.
 
 After the account on the device downloads the app at least once from the
@@ -49,11 +61,11 @@ The following table describes common issues that can prevent the in-app install
 prompt dialog from displaying in your app:
 
 | Issue | Solution |
-|---|---|
-| Your app is not published in the Play Store. | Your app doesn't have to be published to test. However, your app's [`applicationId`](https://developer.android.com/build/configure-app-module#set-application-id) must be available in at least the internal test track. |
-| The in-app install prompt does not appear. | Confirm that the \[eligibility\](.#eligibility) and \[testing criteria\](.#test) are met. |
+| --- | --- |
+| Your app is not published in the Play Store. | Your app doesn't have to be published to test. However, your app's [`applicationId`](/build/configure-app-module#set-application-id) must be available in at least the internal test track. |
+| The in-app install prompt does not appear. | Confirm that the [eligibility](.#eligibility) and [testing criteria](.#test) are met. |
 | The user's account is not eligible to install the app. | The user has already installed the app on all eligible devices. Uninstall the app from eligible devices. |
 | The primary account is not selected in the Play Store. | When multiple accounts are available on the device, verify that the primary account is selected in the Play Store. |
 | The user's account is protected, for example, with enterprise accounts. | Use a Gmail account instead. |
-| The quota has been reached. | Use an [internal test track](https://developer.android.com/guide/playcore/install-prompt/test#internal-test-track) or [internal app sharing](https://developer.android.com/guide/playcore/install-prompt/test#internal-app-sharing). |
+| The quota has been reached. | Use an [internal test track](#internal-test-track) or [internal app sharing](#internal-app-sharing). |
 | There is an issue with the Google Play Store or Google Play services on the device. | This commonly occurs when the Play Store was sideloaded onto the device. Use a different device that has a valid version of the Play Store and Google Play services. |

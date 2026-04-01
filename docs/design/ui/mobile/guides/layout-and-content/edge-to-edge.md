@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![](/static/images/design/ui/mobile/e2e-hero.png)
 
 An edge-to-edge app takes advantage of the entire screen by drawing UI under the

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 `bundletool` is the underlying tool that Android Studio, the Android Gradle
 plugin, and Google Play use to build an Android App Bundle. `bundletool`
 can convert an app bundle into the various APKs that are deployed to devices.

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 If your app makes a Play Integrity API request and the call fails, your app
 receives an error code. These errors can happen for various reasons, such as
 environmental issues like a poor network connection, problems with your

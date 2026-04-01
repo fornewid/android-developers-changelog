@@ -1,17 +1,8 @@
 ---
-title: Android Studio for Platform resources  |  Android Developers
+title: https://developer.android.com/studio/platform/resources
 url: https://developer.android.com/studio/platform/resources
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio for Platform](https://developer.android.com/studio/platform)
-* [Getting started](https://developer.android.com/studio/platform/intro)
-
-# Android Studio for Platform resources Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This page contains resources for developers working on Android Studio for
 Platform.
@@ -25,8 +16,8 @@ requests.
 
 ## Bug tracking
 
-* [Android Studio public bug tracker](https://issuetracker.google.com/issues?q=componentid:192708%20status:open)
+- [Android Studio public bug tracker](https://issuetracker.google.com/issues?q=componentid:192708+status:open)
 
 ## Source code
 
-* [Android Studio source code](https://android.googlesource.com/platform/tools/base/+/studio-main)
+- [Android Studio source code](https://android.googlesource.com/platform/tools/base/+/studio-main)

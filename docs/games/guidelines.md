@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 As [announced](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) on March 4, 2026, we are revamping the
 Level Up program. There are no changes to the current program and benefits at this time. More details will be coming soon.
 
@@ -224,6 +225,8 @@ the [timelines](#timelines) section.
   communicate the long-term strategic direction of Level Up. The intent is for
   recommended guidelines to potentially evolve into required guidelines in
   the future.
+
+
 
 
 

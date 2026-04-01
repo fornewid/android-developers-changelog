@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 When a Play Billing Library call triggers an action, the library returns a
 [`BillingResult`](/reference/com/android/billingclient/api/BillingResult)
 response to inform developers of the outcome. For example, if you use
@@ -548,8 +547,6 @@ cause this error.
 
 Make sure that you are correctly using the different Play Billing Library
 calls. Also, check the debug message for more info about the error.
-
-
 
 
 

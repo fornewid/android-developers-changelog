@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Espresso offers mechanisms to scroll to or act on a particular item for two
 types of lists: adapter views and recycler views.
 

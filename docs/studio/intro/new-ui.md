@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android Studio Ladybug Feature Drop introduces the New UI from the
 [IntelliJ Platform 2024.2 update](https://blog.jetbrains.com/blog/2024/07/08/the-new-ui-becomes-the-default-in-2024-2/) as the default theme. The
 New UI brings a streamlined design and enhanced features, making it easier for

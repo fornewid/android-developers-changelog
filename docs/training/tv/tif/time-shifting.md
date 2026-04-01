@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Use time-shifting APIs in your TV input service to let users pause, rewind, and
 fast-forward live programs in your service channels. If your app supports
 time-shifting, users gain flexibility in how they watch your content:

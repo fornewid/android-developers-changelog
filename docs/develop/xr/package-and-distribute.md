@@ -16,7 +16,6 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
 
 
 
-
 Through Google Play, Android XR brings a wide variety of apps and experiences to
 XR headsets, ranging from the existing catalog of mobile apps to spatialized and
 immersive XR experiences.

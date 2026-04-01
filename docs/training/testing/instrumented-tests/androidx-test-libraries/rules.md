@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 AndroidX Test includes a set of [JUnit rules](https://github.com/junit-team/junit4/wiki/Rules) to be used with the
 [AndroidJUnitRunner](/training/testing/junit-runner). JUnit rules provide more flexibility and reduce the
 boilerplate code required in tests. For example, they can be used to start a

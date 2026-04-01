@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 This topic focuses on some of the most useful aspects of the Kotlin language
 when developing for Android.
 

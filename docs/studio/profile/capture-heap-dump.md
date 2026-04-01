@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Capture a heap dump to see which objects in your app are using up memory at the
 time of the capture and identify *memory leaks*, or memory allocation behavior
 that leads to stutter, freezes, and even app crashes. It's especially helpful to

@@ -1,18 +1,8 @@
 ---
-title: Customize shared element transition  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/animation/shared-elements/customize
 url: https://developer.android.com/develop/ui/compose/animation/shared-elements/customize
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Customize shared element transition Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 To customize how the shared element transition animation runs, there are a few
 parameters that can be used to change how the shared elements transition.
@@ -24,9 +14,10 @@ specify a different `boundsTransform` parameter on `Modifier.sharedElement()`.
 This provides the initial `Rect` position and target `Rect` position.
 
 For example, to make the text in the preceding example to move with an arc
-motion, specify the `boundsTransform` parameter to use a [`keyframes`](/develop/ui/compose/animation/customize#animationspec) spec:
+motion, specify the `boundsTransform` parameter to use a [`keyframes`](https://developer.android.com/develop/ui/compose/animation/customize#animationspec) spec:
 
-```
+
+```kotlin
 val textBoundsTransform = BoundsTransform { initialBounds, targetBounds ->
     keyframes {
         durationMillis = boundsAnimationDurationMillis
@@ -42,16 +33,11 @@ Text(
         boundsTransform = textBoundsTransform
     )
 )
-
-CustomizeSharedElementsSnippets.kt
 ```
 
+<br />
+
 You can use any `AnimationSpec`. This example uses a `keyframes` spec.
-
-[
-
-](/static/develop/ui/compose/images/animations/shared-element/jetsnack_bounds_transform_text.mp4)
-
 **Figure 1.** Example showing different `boundsTransform` parameters
 
 ## Resize mode
@@ -76,8 +62,8 @@ between the two shared elements.
 The difference between the two resize modes can be seen in the examples that follow:
 
 | `ScaleToBounds` | `RemeasureToBounds` |
-| --- | --- |
-|  |  |
+|---|---|
+|   |   |
 
 ## Dynamically enable and disable shared elements
 
@@ -94,7 +80,8 @@ The following example demonstrates how to define a configuration that only
 enables the shared transition when navigating between specific screens (e.g.,
 only from A to B), while disabling it for others.
 
-```
+
+```kotlin
 SharedTransitionLayout {
     val transition = updateTransition(currentState)
     transition.AnimatedContent { targetState ->
@@ -140,9 +127,9 @@ SharedTransitionLayout {
         }
     }
 }
-
-CustomizeSharedElementsSnippets.kt
 ```
+
+<br />
 
 By default, if a shared element is disabled during an ongoing animation, it
 still completes the current in-progress animation to prevent accidentally
@@ -164,8 +151,8 @@ reflow as it grows. Adding `Modifier.skipToLookaheadSize()` prevents the reflow
 as it grows.
 
 | No `Modifier.skipToLookaheadSize()` - notice the "Lorem Ipsum" text reflowing | `Modifier.skipToLookaheadSize()` - notice the "Lorem Ipsum" text keeps its final state at the start of the animation |
-| --- | --- |
-|  |  |
+|---|---|
+|   |   |
 
 ## Clip and overlays
 
@@ -178,14 +165,14 @@ alpha and scale).
 It will render on top of other non-shared UI elements. Once the transition is
 finished, the element will be dropped from the overlay to its own `DrawScope`.
 
-**Important:** In order to avoid the shared element fading in or out with its
-parents as it transitions to the target state, the shared element is rendered
-into the `SharedTransitionScope` overlay when a match is found.
+> [!IMPORTANT]
+> **Important:** In order to avoid the shared element fading in or out with its parents as it transitions to the target state, the shared element is rendered into the `SharedTransitionScope` overlay when a match is found.
 
 To clip a shared element to a shape, use the standard `Modifier.clip()`
 function. Place it after the `sharedElement()`:
 
-```
+
+```kotlin
 Image(
     painter = painterResource(id = R.drawable.cupcake),
     contentDescription = "Cupcake",
@@ -198,9 +185,9 @@ Image(
         .clip(RoundedCornerShape(16.dp)),
     contentScale = ContentScale.Crop
 )
-
-CustomizeSharedElementsSnippets.kt
 ```
+
+<br />
 
 If you need to ensure that a shared element never renders outside of a parent
 container, you can set `clipInOverlayDuringTransition` on `sharedElement()`. By
@@ -209,7 +196,7 @@ path from the parent `sharedBounds()`.
 
 To support keeping specific UI elements, such as a bottom bar or floating action
 button, always on top during a shared element transition, use
-[`Modifier.renderInSharedTransitionScopeOverlay()`](/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).renderInSharedTransitionScopeOverlay(kotlin.Function0,kotlin.Float,kotlin.Function2)). By default, this
+[`Modifier.renderInSharedTransitionScopeOverlay()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).renderInSharedTransitionScopeOverlay(kotlin.Function0,kotlin.Float,kotlin.Function2)). By default, this
 modifier keeps the content in the overlay during the time when the shared
 transition is active.
 
@@ -218,15 +205,16 @@ shared element until such time as the screen is not visible. Adding the modifier
 onto the composable keeps it elevated.
 
 | Without `Modifier.renderInSharedTransitionScopeOverlay()` | With `Modifier.renderInSharedTransitionScopeOverlay()` |
-| --- | --- |
-|  |  |
+|---|---|
+|   |   |
 
 You might want your non-shared composable to animate away as well as
 remain on top of the other composables before the transition. In such cases, use
 `renderInSharedTransitionScopeOverlay().animateEnterExit()` to animate the
 composable out as the shared element transition runs:
 
-```
+
+```kotlin
 JetsnackBottomBar(
     modifier = Modifier
         .renderInSharedTransitionScopeOverlay(
@@ -241,13 +229,9 @@ JetsnackBottomBar(
             }
         )
 )
-
-CustomizeSharedElementsSnippets.kt
 ```
 
-[
-
-](/static/develop/ui/compose/images/animations/shared-element/with_shared_render_enter_exit.mp4)
+<br />
 
 **Figure 2.** Bottom app bar sliding in and out as the animation transitions.
 
@@ -265,18 +249,6 @@ change the `placeholderSize` parameter to `PlaceholderSize.AnimatedSize`. Doing
 so causes the item to grow or shrink. All other items in the layout respond to
 the change.
 
-| `PlaceholderSize.ContentSize` (default) | `PlaceholderSize.AnimatedSize`  (Notice how the other items in the list move down in response to the one item growing) |
-| --- | --- |
-|  |  |
-
-[Previous
-
-arrow\_back
-
-Overview](/develop/ui/compose/animation/shared-elements)
-
-[Next
-
-Common use cases
-
-arrow\_forward](/develop/ui/compose/animation/shared-elements/common-use-cases)
+| `PlaceholderSize.ContentSize` (default) | `PlaceholderSize.AnimatedSize` (Notice how the other items in the list move down in response to the one item growing) |
+|---|---|
+|   |   |

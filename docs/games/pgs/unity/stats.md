@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 The Player Stats API let you tailor game experiences to specific segments
 of players and different stages of the player lifecycle. You can build
 tailored experiences for each player segment based on how players are
@@ -41,8 +40,6 @@ The player stats are available after authenticating:
             }
         });
 ```
-
-
 
 
 

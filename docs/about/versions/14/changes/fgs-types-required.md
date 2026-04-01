@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 To help developers be more intentional with defining user-facing [foreground
 services](/guide/components/foreground-services), Android 10 introduced the `android:foregroundServiceType`
 attribute within the [`<service>`](/guide/topics/manifest/service-element) element.

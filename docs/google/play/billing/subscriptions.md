@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 This document describes how to handle subscription lifecycle events, such as
 renewals and expirations. It also describes additional subscription features
 such as offering promotions and allowing your users to manage their own
@@ -1100,8 +1099,6 @@ user's access to the content. If the transaction expires or is canceled, a
 `SubscriptionNotification` message with type
 `SUBSCRIPTION_PENDING_PURCHASE_CANCELED` is sent to your RTDN client. In such
 cases, the user should still have access to the content of the old subscription.
-
-
 
 
 

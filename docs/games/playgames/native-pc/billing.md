@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Caution:** The SDK only supports in-app purchases. If your game requires
 subscriptions please contact your Google Partner for assistance.
 

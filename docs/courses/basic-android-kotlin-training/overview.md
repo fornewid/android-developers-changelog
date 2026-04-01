@@ -1,17 +1,12 @@
 ---
-title: Android Basics in Kotlin  |  Training Courses  |  Android Developers
+title: https://developer.android.com/courses/basic-android-kotlin-training/overview
 url: https://developer.android.com/courses/basic-android-kotlin-training/overview
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Training](https://developer.android.com/courses)
+# Android Basics in Kotlin
 
-# Android Basics in Kotlin Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-![](/static/courses/images/android-new-programmers.svg)
+![](https://developer.android.com/static/courses/images/android-new-programmers.svg)
 
 Android Basics in Kotlin is a course about building basic Android apps.
 This course is for people with no prior programming experience.
@@ -31,12 +26,9 @@ and building cool apps on your own!
 If you meet the following prerequisites, then this course is a good place for
 you to start to learn Android app development.
 
-* You have computer knowledge that includes file structure, and configuring
-  and using applications of moderate complexity, such as a spreadsheet,
-  word processor, or photo editor.
-* You can verify system requirements (such as OS version, disk and
-  memory space requirements, and screen resolution).
-* You are comfortable downloading, installing, and updating software.
+- You have computer knowledge that includes file structure, and configuring and using applications of moderate complexity, such as a spreadsheet, word processor, or photo editor.
+- You can verify system requirements (such as OS version, disk and memory space requirements, and screen resolution).
+- You are comfortable downloading, installing, and updating software.
 
 [**Start Course**](https://g.co/android/basics)
 

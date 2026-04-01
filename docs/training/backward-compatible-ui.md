@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 This class demonstrates how to use UI components and APIs available in newer versions of Android in a backward-compatible way, ensuring that your application still runs on previous versions of the platform.
 
 Throughout this class, the new [Action Bar Tabs](/guide/topics/ui/actionbar#Tabs) feature introduced in Android 3.0 (API level 11) serves as the guiding example, but you can apply these techniques to other UI components and API features.

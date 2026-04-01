@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 You can partially show a [bottom sheet](/develop/ui/compose/components/bottom-sheets) and then let the user either make it
 full screen or dismiss it.
 

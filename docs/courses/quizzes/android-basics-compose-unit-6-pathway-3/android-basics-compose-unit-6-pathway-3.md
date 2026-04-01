@@ -1,62 +1,54 @@
 ---
-title: Store and access data using keys with DataStore  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-6-pathway-3/android-basics-compose-unit-6-pathway-3
 url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-6-pathway-3/android-basics-compose-unit-6-pathway-3
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Store and access data using keys with DataStore
 
-Return to pathway
+# Store and access data using keys with DataStore
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## The implementations of `DataStore` are:
+   ## The implementations of`DataStore`are:
 
-   Choose as many answers as you see fit.
+   Choose as many answers as you see fit.  
+   Proto  
+   Preferences  
+   Room  
+   SQLite  
+2.
 
-   Proto
+   ## The Preferences DataStore uses a predefined schema.
 
-   Preferences
+   True  
+   False  
+3.
 
-   Room
+   ## Which function does DataStore provide to modify the DataStore?
 
-   SQLite
-2. ## The Preferences DataStore uses a predefined schema.
+   preferencesDataStore()  
+   updatePreferences()  
+   edit()  
+   map()  
+4.
 
-   True
+   ## Preferences DataStore uses keys to access stored values.
 
-   False
-3. ## Which function does DataStore provide to modify the DataStore?
+   True  
+   False  
+5.
 
-   preferencesDataStore()
+   ## Which exception can occur when you attempt to read from a Preferences DataStore?
 
-   updatePreferences()
-
-   edit()
-
-   map()
-4. ## Preferences DataStore uses keys to access stored values.
-
-   True
-
-   False
-5. ## Which exception can occur when you attempt to read from a Preferences DataStore?
-
-   IllegalArgumentException
-
-   IOException
-
-   IllegalStateException
-
-   NumberFormatException
+   IllegalArgumentException  
+   IOException  
+   IllegalStateException  
+   NumberFormatException  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Like earlier releases, Android 11 includes behavior changes that may
 affect your app. The following behavior changes apply exclusively to apps
 that are targeting Android 11 or higher. If your app sets

@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 With Google Play Games on PC, your users transition seamlessly between playing your game on their mobile device, and playing on their PC. If you also support other device types, such as Chromebooks or Android tablets, your user may be playing across even more surfaces. This topic introduces the continuity requirements for Google Play Games on PC.
 
 Resetting game progress each time they play on a new device is a poor experience for your users; typically their intention is to continue playing your game, regardless of which surface they are on.
@@ -34,8 +33,6 @@ These topics describe how to implement the requirements:
 * [Test cases](/games/playgames/continuity-expected-behaviors) you can use to evaluate your own integration against our requirements
 * [Our recommendations](/games/playgames/integrating-pgs-existing-id-solutions) for integrating Play Games Services with your own existing identity system.
 * [Developer documentation](/games/pgs/overview) for integrating Play Games Services v2 within your game
-
-
 
 
 

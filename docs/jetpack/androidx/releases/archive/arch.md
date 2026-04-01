@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **Note:** These are the original release notes for Architecture Components before
 they were included in the general AndroidX release notes. For the current
 release notes see the [AndroidX release notes](/jetpack/androidx/releases).

@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 As a user navigates through, out of, and back to your app, the
 `Activity` instances in your app transition through
 different states in their lifecycle.

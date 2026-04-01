@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 A carousel displays a scrollable list of items that adapt dynamically based on
 window size. Use carousels to showcase a collection of related content.
 Carousel items emphasize visuals, but can also contain brief text that adapts to

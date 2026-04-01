@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 With the message template, you can present a brief message and optional relevant
 actions.
 

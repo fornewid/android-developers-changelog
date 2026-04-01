@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # GooglePlayGames.BasicApi.Nearby.INearbyConnectionClient
 
 Interface for managing connections and communications between devices using [Nearby](/games/services/unity/v2/api/namespace/google-play-games/basic-api/nearby#namespace_google_play_games_1_1_basic_api_1_1_nearby) Connections.

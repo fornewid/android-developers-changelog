@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 If you are developing games using the Unity Game Engine, you will benefit a lot
 from using the `PlayPcSdkManaged.unitypackage` to install the SDK immediately to
 your Unity project rather than developing the C# to C++ glue code yourself.
