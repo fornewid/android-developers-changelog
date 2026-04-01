@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/recyclerview.md b/docs/jetpack/androidx/releases/recyclerview.md
+index 310a61f..6c538d7 100644
+--- a/docs/jetpack/androidx/releases/recyclerview.md
++++ b/docs/jetpack/androidx/releases/recyclerview.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Recyclerview
+ 
+ [User Guide](/guide/topics/ui/layout/recyclerview)  [Code Sample](https://github.com/android/views-widgets-samples/tree/main/RecyclerView)

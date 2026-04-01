@@ -1,0 +1,51 @@
+diff --git a/docs/design/ui/cars/guides/components/nav-alerts.md b/docs/design/ui/cars/guides/components/nav-alerts.md
+index d69e503..5a5bb13 100644
+--- a/docs/design/ui/cars/guides/components/nav-alerts.md
++++ b/docs/design/ui/cars/guides/components/nav-alerts.md
+@@ -1,21 +1,34 @@
+ ---
+-title: https://developer.android.com/design/ui/cars/guides/components/nav-alerts
++title: Respond to navigation alerts  |  Cars  |  Android Developers
+ url: https://developer.android.com/design/ui/cars/guides/components/nav-alerts
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Respond to navigation alerts
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [UI Design](https://developer.android.com/design/ui)
++* [Cars](https://developer.android.com/design/ui/cars)
++* [Guides](https://developer.android.com/design/ui/cars/guides/foundations/design-principles)
+ 
+-You can inform users about incidents like traffic events by using[navigation alerts](https://developer.android.com/design/ui/cars/guides/templates/navigation-template#alerts)in the[Navigation template](https://developer.android.com/design/ui/cars/guides/templates/navigation-template).
++# Respond to navigation alerts Stay organized with collections Save and categorize content based on your preferences.
+ 
+-Navigation alerts appear in the spot normally used for the estimated time of arrival (ETA), so they don't block the navigation route. Users can then select how to respond to the alert, for example, deciding to reroute to avoid heavy traffic.
++
++
++
++You can inform users about incidents like traffic events by using
++[navigation alerts](/design/ui/cars/guides/templates/navigation-template#alerts) in the [Navigation template](/design/ui/cars/guides/templates/navigation-template).
++
++Navigation alerts appear in the spot normally used for the estimated time of
++arrival (ETA), so they don't block the navigation route. Users can then select
++how to respond to the alert, for example, deciding to reroute to avoid heavy
++traffic.
+ 
+ ## Sample flow
+ 
+ This sample flow shows how the templates might look in Android Auto.
+ 
+-|                                                                                       User action                                                                                       |                                                                             Where action is performed                                                                              | Step count after action |
+-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
+-| While the user is navigating, the app learns about a traffic event ahead on the route.                                                                                                  | Navigation template ![Navigation template during a user's journey](https://developer.android.com/static/images/design/ui/cars/components/respond-to-nav-alert-1.png)               | 1                       |
+-| Instead of the ETA, a navigation alert now appears to warn the user and offer an option to reroute, while a progress indicator tracks the time until the alert automatically dismisses. | Navigation template (refresh) ![Navigation template with alert](https://developer.android.com/static/images/design/ui/cars/components/respond-to-nav-alert-2.png)                  | 1                       |
+-| The alert is dismissed after it times out.                                                                                                                                              | Navigation template (second refresh) ![Navigation template with alert dismissed](https://developer.android.com/static/images/design/ui/cars/components/respond-to-nav-alert-1.png) | 1                       |
+\ No newline at end of file
++| User action | Where action is performed | Step count after action |
++| --- | --- | --- |
++| While the user is navigating, the app learns about a traffic event ahead on the route. | Navigation template Navigation template during a user's journey | 1 |
++| Instead of the ETA, a navigation alert now appears to warn the user and offer an option to reroute, while a progress indicator tracks the time until the alert automatically dismisses. | Navigation template (refresh) Navigation template with alert | 1 |
++| The alert is dismissed after it times out. | Navigation template (second refresh) Navigation template with alert dismissed | 1 |
+\ No newline at end of file

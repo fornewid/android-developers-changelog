@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/oreo/android-8.0-samples.md b/docs/about/versions/oreo/android-8.0-samples.md
+index 76ef5e4..a200db9 100644
+--- a/docs/about/versions/oreo/android-8.0-samples.md
++++ b/docs/about/versions/oreo/android-8.0-samples.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Use the code samples below to learn about Android 8.0 (API level 26)
+ capabilities and APIs. To download the samples in Android Studio,
+ select the **File > New > Import Samples** menu option.

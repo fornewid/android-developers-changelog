@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/upload-worker.md b/docs/topic/performance/tracing/profiling-manager/upload-worker.md
+index 5fbda93..2e453a4 100644
+--- a/docs/topic/performance/tracing/profiling-manager/upload-worker.md
++++ b/docs/topic/performance/tracing/profiling-manager/upload-worker.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ProfilingManager saves traces locally on the device. While you can retrieve
+ these files using ADB for local debugging, collecting field data requires
+ uploading them to a server.

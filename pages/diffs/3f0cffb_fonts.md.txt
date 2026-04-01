@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/text/fonts.md b/docs/develop/ui/compose/text/fonts.md
+index 463d4fd..0cb4adf 100644
+--- a/docs/develop/ui/compose/text/fonts.md
++++ b/docs/develop/ui/compose/text/fonts.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page describes how to set fonts in your Compose app.
+ 
+ ## Set font

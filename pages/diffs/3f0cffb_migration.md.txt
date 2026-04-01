@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/17/migration.md b/docs/about/versions/17/migration.md
+index 17865f0..609f87b 100644
+--- a/docs/about/versions/17/migration.md
++++ b/docs/about/versions/17/migration.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This document provides an overview of development and testing actions you can
+ take to align with the Android platform release timeline and ensure a seamless
+ user experience on Android 17.

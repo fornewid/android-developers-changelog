@@ -1,0 +1,12 @@
+diff --git a/docs/training/sharing/send.md b/docs/training/sharing/send.md
+index cd9d916..6944952 100644
+--- a/docs/training/sharing/send.md
++++ b/docs/training/sharing/send.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android uses intents and their associated extras to let users share information quickly and
+ easily using their favorite apps.
+ 

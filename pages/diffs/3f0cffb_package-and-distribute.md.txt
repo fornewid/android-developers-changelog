@@ -1,0 +1,12 @@
+diff --git a/docs/develop/xr/package-and-distribute.md b/docs/develop/xr/package-and-distribute.md
+index 511acd0..9dc0c82 100644
+--- a/docs/develop/xr/package-and-distribute.md
++++ b/docs/develop/xr/package-and-distribute.md
+@@ -16,7 +16,6 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
+ 
+ 
+ 
+-
+ Through Google Play, Android XR brings a wide variety of apps and experiences to
+ XR headsets, ranging from the existing catalog of mobile apps to spatialized and
+ immersive XR experiences.

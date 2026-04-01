@@ -1,0 +1,247 @@
+diff --git a/docs/develop/ui/views/layout/webapps/dark-theme.md b/docs/develop/ui/views/layout/webapps/dark-theme.md
+index 719189f..956b212 100644
+--- a/docs/develop/ui/views/layout/webapps/dark-theme.md
++++ b/docs/develop/ui/views/layout/webapps/dark-theme.md
+@@ -1,13 +1,24 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/layout/webapps/dark-theme
++title: Darken web content in WebView  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/layout/webapps/dark-theme
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Darken web content in WebView Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ In Android 10 and higher, an app can support a
+-[Dark theme](https://developer.android.com/develop/ui/views/theming/darktheme) and automatically change
++[Dark theme](/develop/ui/views/theming/darktheme) and automatically change
+ between light and dark app themes according to the system theme. To match the
+-current app theme, web content in [WebView](https://developer.android.com/reference/android/webkit/WebView)
++current app theme, web content in [WebView](/reference/android/webkit/WebView)
+ can also use light, dark, or default styling.
+ 
+ WebView's behavior interoperates with the
+@@ -24,16 +35,17 @@ The following table describes how WebView renders web content in your app,
+ depending on the web content's styling and your app's conditions:
+ 
+ | App conditions | Web content that uses `prefers-color-scheme` | Web content that doesn't use `prefers-color-scheme` |
+-|---|---|---|
+-| App is using a light theme with `https://developer.android.com/reference/android/R.styleable#Theme_isLightTheme` set to `true` or not set. | WebView renders the content with the light theme that [](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#author-styling)the content author has defined. | WebView renders the content with the default styling defined by the content author. |
+-| App is using [Force Dark](https://developer.android.com/develop/ui/views/theming/darktheme#force-dark) to [algorithmically apply a dark theme](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#algorithmic-darkening) to the app. | WebView renders the content with the dark theme that [](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#author-styling)the content author has defined. | If allowed by the content author, WebView renders the content with a dark theme that is generated using an algorithm. |
+-| App is using a dark theme with `https://developer.android.com/reference/android/R.styleable#Theme_isLightTheme` set to `false` and the app *doesn't allow* algorithmic darkening for WebView. | WebView renders the content with the dark theme that [](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#author-styling)the content author has defined. | WebView renders the content with the default styling defined by the content author. |
+-| App is using a dark theme with `https://developer.android.com/reference/android/R.styleable#Theme_isLightTheme` set to `false` and the app *does allow* [algorithmic darkening for WebView](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#algorithmic-darkening). | WebView renders the content with the dark theme that [](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#author-styling)the content author has defined. | If allowed by the content author, WebView renders the content with a dark theme that is generated using an algorithm. |
++| --- | --- | --- |
++| App is using a light theme with `isLightTheme` set to `true` or not set. | WebView renders the content with the light theme that the content author has defined. | WebView renders the content with the default styling defined by the content author. |
++| App is using [Force Dark](/develop/ui/views/theming/darktheme#force-dark) to [algorithmically apply a dark theme](#algorithmic-darkening) to the app. | WebView renders the content with the dark theme that the content author has defined. | If allowed by the content author, WebView renders the content with a dark theme that is generated using an algorithm. |
++|
++| App is using a dark theme with `isLightTheme` set to `false` and the app *doesn't allow* algorithmic darkening for WebView. | WebView renders the content with the dark theme that the content author has defined. | WebView renders the content with the default styling defined by the content author. |
++| App is using a dark theme with `isLightTheme` set to `false` and the app *does allow* [algorithmic darkening for WebView](#algorithmic-darkening). | WebView renders the content with the dark theme that the content author has defined. | If allowed by the content author, WebView renders the content with a dark theme that is generated using an algorithm. |
+ 
+ ## Content-author styling
+ 
+ An app's
+-[`isLightTheme`](https://developer.android.com/reference/android/R.styleable#Theme_isLightTheme) attribute
++[`isLightTheme`](/reference/android/R.styleable#Theme_isLightTheme) attribute
+ indicates if the app's theme is light or dark. WebView always sets
+ `prefers-color-scheme` according to `isLightTheme`. If `isLightTheme` is `true`
+ or not specified, then `prefers-color-scheme` is `light`; otherwise, it is
+@@ -51,61 +63,69 @@ your app can allow WebView, when necessary, to algorithmically apply a dark
+ theme to web content that it renders.
+ 
+ If your app is using the app-level
+-[Force Dark](https://developer.android.com/develop/ui/views/theming/darktheme#force-dark) to algorithmically
++[Force Dark](/develop/ui/views/theming/darktheme#force-dark) to algorithmically
+ apply a dark theme to your app, see the following section that describes how to
+-[allow algorithmic darkening for web content with Force Dark](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#app-force-dark).
++[allow algorithmic darkening for web content with Force Dark](#app-force-dark).
+ 
+ If your app is not using Force Dark, how your app specifies when to allow
+ algorithmic darkening in WebView depends on your app's
+-[target API level](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target).
+-See the following sections for [apps targeting Android 13 or higher](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#13) and
+-[apps targeting Android 12 or lower](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#12) for details.
++[target API level](/guide/topics/manifest/uses-sdk-element#target).
++See the following sections for [apps targeting Android 13 or higher](#13) and
++[apps targeting Android 12 or lower](#12) for details.
+ 
+ ### Allow algorithmic darkening for web content with Force Dark
+ 
+ If your app is using the app-level
+-[Force Dark](https://developer.android.com/develop/ui/views/theming/darktheme#force-dark), WebView applies
++[Force Dark](/develop/ui/views/theming/darktheme#force-dark), WebView applies
+ algorithmic darkening to web content if the following conditions are met:
+ 
+-- The WebView and its parent elements allow Force Dark.
+-- The current activity theme is marked as light with [`isLightTheme`](https://developer.android.com/reference/android/R.styleable#Theme_isLightTheme) set to `true`.
+-- The web content author doesn't explicitly disable darkening.
+-- For apps targeting Android 13 (API level 33) or higher, the web content doesn't use `prefers-color-scheme`.
+-- For apps targeting Android 12 (API level 32) or lower: The app has set [WebView's `forceDarkMode` setting](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setForceDark(android.webkit.WebSettings,int)) to [`FORCE_DARK_AUTO`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#FORCE_DARK_AUTO()) and has set their Force Dark strategy to [`DARK_STRATEGY_USER_AGENT_DARKENING_ONLY`](https://developer.android.com/reference/kotlin/androidx/webkit/WebSettingsCompat#DARK_STRATEGY_USER_AGENT_DARKENING_ONLY()).
++* The WebView and its parent elements allow Force Dark.
++* The current activity theme is marked as light with
++  [`isLightTheme`](/reference/android/R.styleable#Theme_isLightTheme) set to
++  `true`.
++* The web content author doesn't explicitly disable darkening.
++* For apps targeting Android 13 (API level 33) or higher, the web content
++  doesn't use `prefers-color-scheme`.
++* For apps targeting Android 12 (API level 32) or lower: The app has set
++  [WebView's `forceDarkMode` setting](/reference/androidx/webkit/WebSettingsCompat#setForceDark(android.webkit.WebSettings,int))
++  to
++  [`FORCE_DARK_AUTO`](/reference/androidx/webkit/WebSettingsCompat#FORCE_DARK_AUTO())
++  and has set their Force Dark strategy to
++  [`DARK_STRATEGY_USER_AGENT_DARKENING_ONLY`](/reference/kotlin/androidx/webkit/WebSettingsCompat#DARK_STRATEGY_USER_AGENT_DARKENING_ONLY()).
+ 
+ WebView and all its parents can allow force dark using
+-[`View.setForceDarkAllowed()`](https://developer.android.com/reference/android/view/View#setForceDarkAllowed(boolean)).
++[`View.setForceDarkAllowed()`](/reference/android/view/View#setForceDarkAllowed(boolean)).
+ The default value is taken from the `setForceDarkAllowed()` attribute of the
+ Android theme, which must also be set to `true`.
+ 
+ Force Dark mode is provided primarily for backward-compatibility in apps that
+-don't [provide their own dark theme](https://developer.android.com/develop/ui/views/theming/darktheme).
++don't [provide their own dark theme](/develop/ui/views/theming/darktheme).
+ If your app uses Force Dark, we recommend
+-[adding support for a dark theme](https://developer.android.com/develop/ui/views/theming/darktheme#support-dark-theme).
++[adding support for a dark theme](/develop/ui/views/theming/darktheme#support-dark-theme).
+ 
+ ### Allow algorithmic darkening (apps targeting Android 13 or higher)
+ 
+ For apps that aren't using app-level Force Dark and target Android 13 (API level
+ 33) or higher, use the AndroidX
+-[`setAlgorithmicDarkeningAllowed()`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setAlgorithmicDarkeningAllowed(android.webkit.WebSettings,%20boolean))
++[`setAlgorithmicDarkeningAllowed()`](/reference/androidx/webkit/WebSettingsCompat#setAlgorithmicDarkeningAllowed(android.webkit.WebSettings,%20boolean))
+ method and pass in `true` to specify that a WebView should allow algorithmic
+ darkening. This method has backward compatibility with previous Android
+ versions.
+ 
+ WebView then applies algorithmic darkening if the following conditions are met:
+ 
+-- The web content doesn't use `prefers-color-scheme`.
+-- The web content author doesn't explicitly disable darkening.
++* The web content doesn't use `prefers-color-scheme`.
++* The web content author doesn't explicitly disable darkening.
+ 
+ ### Allow algorithmic darkening (apps targeting Android 12 or lower)
+ 
+ For apps that aren't using app-level Force Dark and target Android 12 (API level
+ 32) or lower, use
+-[`FORCE_DARK_ON`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#FORCE_DARK_ON())
++[`FORCE_DARK_ON`](/reference/androidx/webkit/WebSettingsCompat#FORCE_DARK_ON())
+ to allow algorithmic darkening.
+ 
+ Use `FORCE_DARK_ON` together with
+-[`FORCE_DARK_OFF`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#FORCE_DARK_OFF())
++[`FORCE_DARK_OFF`](/reference/androidx/webkit/WebSettingsCompat#FORCE_DARK_OFF())
+ if your app provides its own method for switching between light and dark themes,
+ such as a toggleable element in the UI or an automatic time-based selection.
+ 
+@@ -114,7 +134,7 @@ wherever you configure your WebView object, such as in `Activity.onCreate`:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+     WebSettingsCompat.setForceDark(...)
+ }
+@@ -122,7 +142,7 @@ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+ 
+ ### Java
+ 
+-```java
++```
+ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+     WebSettingsCompat.setForceDark(...);
+ }
+@@ -136,7 +156,7 @@ The following code snippet shows how to change the theme format:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+     when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+         Configuration.UI_MODE_NIGHT_YES -> {
+@@ -154,7 +174,7 @@ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+ 
+ ### Java
+ 
+-```java
++```
+ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+     switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+         case Configuration.UI_MODE_NIGHT_YES:
+@@ -171,21 +191,27 @@ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+ #### Customize dark theme handling
+ 
+ You can also use the
+-[ForceDarkStrategy API](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setForceDarkStrategy(android.webkit.WebSettings,%20int))
++[ForceDarkStrategy API](/reference/androidx/webkit/WebSettingsCompat#setForceDarkStrategy(android.webkit.WebSettings,%20int))
+ in AndroidX to control how darkening is applied to a given WebView. This API is
+ applicable only if force dark is set to `FORCE_DARK_ON` or `FORCE_DARK_AUTO`.
+ 
+ Using the API, your app can use either web theme darkening or user-agent
+ darkening:
+ 
+-- **Web theme darkening** : Web developers might apply `@media (prefers-color-scheme: dark)` to control web page appearance in dark mode. WebView renders content according to these settings. For more about web theme darkening, see the [specification](https://drafts.csswg.org/css-color-adjust-1/#preferred).
+-- **User-agent darkening** : the WebView automatically inverts colors of the web page. If you use user-agent darkening, the `@media (prefers-color-scheme: dark)` query evaluates to `false`.
++* **Web theme darkening**: Web developers might apply
++  `@media (prefers-color-scheme: dark)` to control web page appearance in
++  dark mode. WebView renders content according to these settings. For more about
++  web theme darkening, see the
++  [specification](https://drafts.csswg.org/css-color-adjust-1/#preferred).
++* **User-agent darkening**: the WebView automatically inverts colors of the web
++  page. If you use user-agent darkening, the
++  `@media (prefers-color-scheme: dark)` query evaluates to `false`.
+ 
+ To choose between the two strategies, use the following API:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK_STRATEGY)) {
+     WebSettingsCompat.setForceDarkStrategy(...)
+ }
+@@ -193,7 +219,7 @@ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK_STRATEGY)) {
+ 
+ ### Java
+ 
+-```java
++```
+ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK_STRATEGY)) {
+     WebSettingsCompat.setForceDarkStrategy(...);
+ }
+@@ -201,12 +227,12 @@ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK_STRATEGY)) {
+ 
+ The supported strategy options are:
+ 
+-- [`DARK_STRATEGY_PREFER_WEB_THEME_OVER_USER_AGENT_DARKENING`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#DARK_STRATEGY_PREFER_WEB_THEME_OVER_USER_AGENT_DARKENING()):
++* [`DARK_STRATEGY_PREFER_WEB_THEME_OVER_USER_AGENT_DARKENING`](/reference/androidx/webkit/WebSettingsCompat#DARK_STRATEGY_PREFER_WEB_THEME_OVER_USER_AGENT_DARKENING()):
+   This is the default option. While most browsers treat the
+   `<meta name="color-scheme" content="dark light">` tag as optional, Android
+   WebView's default mode requires the meta tag to honor the web page's
+   `prefers-color-scheme` media queries. You can use WebViews with
+-  [`DARK_STRATEGY_WEB_THEME_DARKENING_ONLY`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#DARK_STRATEGY_WEB_THEME_DARKENING_ONLY())
++  [`DARK_STRATEGY_WEB_THEME_DARKENING_ONLY`](/reference/androidx/webkit/WebSettingsCompat#DARK_STRATEGY_WEB_THEME_DARKENING_ONLY())
+   mode, in which case WebView always applies media queries even if the tag is
+   omitted.
+ 
+@@ -214,7 +240,7 @@ The supported strategy options are:
+   `<meta name="color-scheme" content="dark light">` tag to their websites to
+   ensure that content renders correctly in WebViews with the
+   default configuration.
+-- [`DARK_STRATEGY_USER_AGENT_DARKENING_ONLY`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#DARK_STRATEGY_USER_AGENT_DARKENING_ONLY()):
++* [`DARK_STRATEGY_USER_AGENT_DARKENING_ONLY`](/reference/androidx/webkit/WebSettingsCompat#DARK_STRATEGY_USER_AGENT_DARKENING_ONLY()):
+   Called "user-agent darkening," the WebView ignores any web page darkening and
+   applies automatic darkening.
+ 

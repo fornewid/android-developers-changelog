@@ -1,0 +1,22 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/trigger-based-capture.md b/docs/topic/performance/tracing/profiling-manager/trigger-based-capture.md
+index 0683527..0461c66 100644
+--- a/docs/topic/performance/tracing/profiling-manager/trigger-based-capture.md
++++ b/docs/topic/performance/tracing/profiling-manager/trigger-based-capture.md
+@@ -90,6 +90,8 @@ fun recordWithTrigger() {
+     profilingManager.registerForAllProfilingResults(mainExecutor, resultCallback)
+     profilingManager.addProfilingTriggers(triggers)
+ 
++}
++
+ ProfilingManagerKotlinSnippets.kt
+ ```
+ 
+@@ -128,6 +130,8 @@ public void recordWithTrigger() {
+   profilingManager.registerForAllProfilingResults(mainExecutor, resultCallback);
+   profilingManager.addProfilingTriggers(triggers);
+ 
++}
++
+ ProfilingManagerJavaSnippets.java
+ ```
+ 

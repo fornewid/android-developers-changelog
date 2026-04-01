@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material3.md b/docs/jetpack/androidx/releases/compose-material3.md
+index a94cb84..a097c82 100644
+--- a/docs/jetpack/androidx/releases/compose-material3.md
++++ b/docs/jetpack/androidx/releases/compose-material3.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Compose Material 3
+ 
+ [User Guide](/jetpack/compose/tutorial)  [Code Sample](https://github.com/android/compose-samples)

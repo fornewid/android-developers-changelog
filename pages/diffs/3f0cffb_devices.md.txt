@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/camerax/devices.md b/docs/media/camera/camerax/devices.md
+index 117ee4f..a8d97e6 100644
+--- a/docs/media/camera/camerax/devices.md
++++ b/docs/media/camera/camerax/devices.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ CameraX is supported on most Android devices running Android 5.0 (API
+ level 21) and higher. The following table lists the devices with CameraX
+ support that have been tested in our lab.

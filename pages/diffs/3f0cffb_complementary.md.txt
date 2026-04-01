@@ -1,0 +1,84 @@
+diff --git a/docs/design/ui/gallery/reading/complementary.md b/docs/design/ui/gallery/reading/complementary.md
+index 159b466..a24462d 100644
+--- a/docs/design/ui/gallery/reading/complementary.md
++++ b/docs/design/ui/gallery/reading/complementary.md
+@@ -1,29 +1,23 @@
+ ---
+-title: Complementary content  |  Gallery  |  Android Developers
++title: https://developer.android.com/design/ui/gallery/reading/complementary
+ url: https://developer.android.com/design/ui/gallery/reading/complementary
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [Gallery](https://developer.android.com/design/ui/gallery)
+-
+-# Complementary content Stay organized with collections Save and categorize content based on your preferences.
+-
+-
++<br />
+ 
+ Delight readers by giving them more than they expect with a large display space
+-that's made for more—more content, more design ideas. Supplement your main app
++that's made for more---more content, more design ideas. Supplement your main app
+ content with enlightening, edifying information in a supporting pane. Keep
+ readers reading for more app engagement and increased user retention and
+ loyalty.
+ 
+-![](/static/images/large-screens/gallery/samples/reading/gallery_reading_complementary_large.png)
++![](https://developer.android.com/static/images/large-screens/gallery/samples/reading/gallery_reading_complementary_large.png)
+ 
+-![](/static/images/large-screens/gallery/samples/reading/gallery_reading_complementary_compact.png)
++![](https://developer.android.com/static/images/large-screens/gallery/samples/reading/gallery_reading_complementary_compact.png)
++
++*** ** * ** ***
+ 
+----
+ 
+ ## Android AdaptiveUI Samples
+ 
+@@ -33,8 +27,10 @@ more.
+ 
+ [View Figma
+ Kit](https://www.figma.com/community/file/1539759053650269019/android-adaptive-ui-samples)
++![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/android-adaptive-samples.png)
++
++<br />
+ 
+-![](/static/images/large-screens/gallery/samples/callouts/android-adaptive-samples.png)
+ 
+ ## Implement a supporting pane
+ 
+@@ -42,11 +38,13 @@ A mobile view may require supporting content or controls, typically in the form
+ of sheets or dialogs, to help the primary view stay focused and uncluttered.
+ 
+ [Learn
+-more](/develop/ui/compose/layouts/adaptive/canonical-layouts#supporting-pane)
++more](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#supporting-pane)
+ [Material Design
+ website](https://material.io/foundations/layout/canonical-layouts/supporting-pane)
++![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/supporting-pane.png)
++
++<br />
+ 
+-![](/static/images/large-screens/gallery/samples/callouts/supporting-pane.png)
+ 
+ ## Implement a feed
+ 
+@@ -54,8 +52,9 @@ A feed layout arranges equivalent content elements in a configurable grid for
+ quick, convenient viewing of a large amount of content.
+ 
+ [Learn
+-more](/develop/ui/compose/layouts/adaptive/canonical-layouts#feed)
++more](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#feed)
+ [Material Design
+ website](https://material.io/foundations/layout/canonical-layouts/feed)
++![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/feed.png)
+ 
+-![](/static/images/large-screens/gallery/samples/callouts/feed.png)
+\ No newline at end of file
++<br />
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/notifications/build-notification.md b/docs/develop/ui/views/notifications/build-notification.md
+index f8bd959..9df28d1 100644
+--- a/docs/develop/ui/views/notifications/build-notification.md
++++ b/docs/develop/ui/views/notifications/build-notification.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Notifications provide short, timely information about events in your app while
+ it isn't in use. This document shows you how to create a notification with
+ various features. For an introduction to how notifications appear on Android,

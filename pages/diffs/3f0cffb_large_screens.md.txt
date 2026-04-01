@@ -1,0 +1,12 @@
+diff --git a/docs/media/implement/surfaces/large_screens.md b/docs/media/implement/surfaces/large_screens.md
+index 0d6c70e..fc40dc9 100644
+--- a/docs/media/implement/surfaces/large_screens.md
++++ b/docs/media/implement/surfaces/large_screens.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android devices come in a variety of form factors—phones, tablets, foldables,
+ ChromeOS devices—which have a wide range of screen sizes. Android supports many
+ display modes, including multi-window, multi-display, free-form, and

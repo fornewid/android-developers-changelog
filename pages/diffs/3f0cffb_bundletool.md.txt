@@ -1,0 +1,12 @@
+diff --git a/docs/tools/bundletool.md b/docs/tools/bundletool.md
+index 596e0f5..70daf26 100644
+--- a/docs/tools/bundletool.md
++++ b/docs/tools/bundletool.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ `bundletool` is the underlying tool that Android Studio, the Android Gradle
+ plugin, and Google Play use to build an Android App Bundle. `bundletool`
+ can convert an app bundle into the various APKs that are deployed to devices.

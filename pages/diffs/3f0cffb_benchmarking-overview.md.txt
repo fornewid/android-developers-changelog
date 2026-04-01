@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/benchmarking/benchmarking-overview.md b/docs/topic/performance/benchmarking/benchmarking-overview.md
+index 8b7ae5a..af7fc41 100644
+--- a/docs/topic/performance/benchmarking/benchmarking-overview.md
++++ b/docs/topic/performance/benchmarking/benchmarking-overview.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Benchmarking is a way to inspect and monitor the performance of your app. You
+ can regularly run benchmarks to analyze and debug performance problems and help
+ ensure that you don't introduce regressions in recent changes.

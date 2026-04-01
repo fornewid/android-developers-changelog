@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/feature-delivery.md b/docs/guide/playcore/feature-delivery.md
+index 55d644b..c93a2f6 100644
+--- a/docs/guide/playcore/feature-delivery.md
++++ b/docs/guide/playcore/feature-delivery.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Google Play’s app serving model uses [Android App
+ Bundles](/guide/app-bundle) to generate and serve optimized APKs for each user’s
+ device configuration, so users download only the code and resources they need to

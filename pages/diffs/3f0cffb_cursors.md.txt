@@ -1,0 +1,147 @@
+diff --git a/docs/design/ui/desktop/guides/interaction/cursors.md b/docs/design/ui/desktop/guides/interaction/cursors.md
+index 19a26b6..4ee6478 100644
+--- a/docs/design/ui/desktop/guides/interaction/cursors.md
++++ b/docs/design/ui/desktop/guides/interaction/cursors.md
+@@ -1,19 +1,9 @@
+ ---
+-title: Cursors  |  Desktop experience  |  Android Developers
++title: https://developer.android.com/design/ui/desktop/guides/interaction/cursors
+ url: https://developer.android.com/design/ui/desktop/guides/interaction/cursors
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [Desktop experience](https://developer.android.com/design/ui/desktop)
+-* [Guides](https://developer.android.com/design/ui/desktop/guides/foundations/design-principles)
+-
+-# Cursors Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ When using a pointer device, users rely on the cursor to track where they are
+ pointing, infer what kind of actions they can perform, and get feedback during
+ certain interactions.
+@@ -27,75 +17,70 @@ The system provides a set of cursor icons, such as the following:
+ 
+ ### General
+ 
++
+ | Icon | Type | Description |
+-| --- | --- | --- |
+-|  | Pointer | Indicates where the mouse is pointing on the screen. |
+-|  | Hand pointer | Indicates that an object can be clicked or interacted with. |
+-|  | All scroll | Indicates that the user can scroll in any direction. |
+-|  | Grab | Indicates that the user can drag an object. |
+-|  | Grabbing | Indicates that the element is being dragged. |
+-|  | Copy | Indicates that the user can copy text or other content by clicking and dragging. |
+-|  | No drop | Indicates that the user can't drop the item that they are dragging. |
+-|  | Text | Indicates that the user can insert, edit, or copy text. |
+-|  | Text vertical | Indicates that the user can insert, edit, or copy vertical text. |
+-|  | Alias | Indicates that the user can create an alias for a file or directory. |
+-|  | Process spinner | Indicates that a process is underway and the user can't interact with the UI until the process is finished. |
++|---|---|---|
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_default.webp) | Pointer | Indicates where the mouse is pointing on the screen. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_hand.webp) | Hand pointer | Indicates that an object can be clicked or interacted with. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_all.webp) | All scroll | Indicates that the user can scroll in any direction. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_grab.webp) | Grab | Indicates that the user can drag an object. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_grabbing.webp) | Grabbing | Indicates that the element is being dragged. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_copy.webp) | Copy | Indicates that the user can copy text or other content by clicking and dragging. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_nodrop.webp) | No drop | Indicates that the user can't drop the item that they are dragging. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_text.webp) | Text | Indicates that the user can insert, edit, or copy text. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_verticaltext.webp) | Text vertical | Indicates that the user can insert, edit, or copy vertical text. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_alias.webp) | Alias | Indicates that the user can create an alias for a file or directory. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_wait.webp) | Process spinner | Indicates that a process is underway and the user can't interact with the UI until the process is finished. |
++
++<br />
+ 
+ ### Services
+ 
++
+ | Icon | Type | Description |
+-| --- | --- | --- |
+-|  | Help | Indicates that help is available as a help window for the current context. |
+-|  | Context menu | Indicates that the user can right-click to open a context menu. |
+-|  | Crosshair | Indicates that the user can precisely select an object or location. |
+-|  | Cell | Shows the active cell in a spreadsheet. |
+-|  | Zoom out | Indicates that the user can zoom out on an object or area of the screen. |
+-|  | Zoom in | Indicates that the user can zoom in on an object or area of the screen. |
+-|  | Spot hover | Indicates that the mouse is hovering, similar to the default pointer. Used mostly for testing and screen recording. |
+-|  | Spot touch | Indicates that the cursor has tapped. |
++|---|---|---|
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_help.webp) | Help | Indicates that help is available as a help window for the current context. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_context.webp) | Context menu | Indicates that the user can right-click to open a context menu. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_crosshair.webp) | Crosshair | Indicates that the user can precisely select an object or location. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_cell.webp) | Cell | Shows the active cell in a spreadsheet. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_zoomout.webp) | Zoom out | Indicates that the user can zoom out on an object or area of the screen. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_zoomin.webp) | Zoom in | Indicates that the user can zoom in on an object or area of the screen. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_spothover.webp) | Spot hover | Indicates that the mouse is hovering, similar to the default pointer. Used mostly for testing and screen recording. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_spottouch.webp) | Spot touch | Indicates that the cursor has tapped. |
++
++<br />
+ 
+ ### Resize
+ 
++
+ | Icon | Type | Description |
+-| --- | --- | --- |
+-|  | Resize arrows | Indicates that the element can be resized in the direction shown. |
+-|  | No resize directional arrows | Indicates that the user can't resize the object in the shown direction. |
+-|  | No resize all directions | Indicates that the user can't resize an object in any direction. |
++|---|---|---|
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_resizedirections.webp) | Resize arrows | Indicates that the element can be resized in the direction shown. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_noresizedirections.webp) | No resize directional arrows | Indicates that the user can't resize the object in the shown direction. |
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_noresize.webp) | No resize all directions | Indicates that the user can't resize an object in any direction. |
++
++<br />
+ 
+ ### Stylus
+ 
++
+ | Icon | Type | Description |
+-| --- | --- | --- |
+-|  | Scribe hover | With a stylus, indicates that the input field is writable. |
++|---|---|---|
++| ![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_cursor_stylus.webp) | Scribe hover | With a stylus, indicates that the input field is writable. |
++
++<br />
+ 
+ ## Use cursor icons
+ 
+ Use and set the system cursors to communicate interaction to users.
+ For example, use a magnifying glass when hovering over zoomable content.
+-
+-![](/static/images/design/ui/desktop/guides/desktop_ixd_target_hover.webp)
+-
+-
+-Zoom in cursor set to indicate images can be zoomed in on.
++![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_ixd_target_hover.webp) Zoom in cursor set to indicate images can be zoomed in on.
+ 
+ Create a custom cursor icon for more specialized actions that are not provided
+ by Android.
+-![](/static/images/design/ui/desktop/guides/desktop_ixd_custom-cursor.webp)
++![](https://developer.android.com/static/images/design/ui/desktop/guides/desktop_ixd_custom-cursor.webp) App with a custom cursor for a unique interaction.
+ 
+-
+-App with a custom cursor for a unique interaction.
++<br />
+ 
+ For design guidance, [cursor icons](https://m3.material.io/foundations/interaction/inputs#64b60907-0946-462c-adbf-99c96c3bf16c). For implementation details and how to
+-set different cursor types, [custom cursors](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Custom_Cursors).
+-
+-[Previous
+-
+-arrow\_back
+-
+-Pointer interactions](/design/ui/desktop/guides/interaction/pointer-interactions)
+-
+-[Next
+-
+-Keyboard input
+-
+-arrow\_forward](/design/ui/desktop/guides/interaction/keyboard)
+\ No newline at end of file
++set different cursor types, [custom cursors](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Custom_Cursors).
+\ No newline at end of file

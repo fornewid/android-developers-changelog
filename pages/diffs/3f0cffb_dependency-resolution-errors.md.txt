@@ -1,0 +1,12 @@
+diff --git a/docs/build/dependency-resolution-errors.md b/docs/build/dependency-resolution-errors.md
+index 753a274..53c719f 100644
+--- a/docs/build/dependency-resolution-errors.md
++++ b/docs/build/dependency-resolution-errors.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When you add a dependency, you might encounter issues with dependencies required
+ by the original dependency, and conflicts among different dependency versions.
+ Here's how to analyze your dependency graph and fix common issues that arise.

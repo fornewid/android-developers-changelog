@@ -1,0 +1,12 @@
+diff --git a/docs/studio/debug/apk-analyzer.md b/docs/studio/debug/apk-analyzer.md
+index 06d8f0e..e8f3ad6 100644
+--- a/docs/studio/debug/apk-analyzer.md
++++ b/docs/studio/debug/apk-analyzer.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android Studio includes an APK Analyzer that provides immediate insight into the
+ composition of your APK or Android App Bundle after the build process completes.
+ Using the APK Analyzer can reduce the time you spend debugging issues with DEX

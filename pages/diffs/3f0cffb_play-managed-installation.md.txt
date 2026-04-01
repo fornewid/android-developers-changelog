@@ -1,0 +1,12 @@
+diff --git a/docs/games/playgames/native-pc/publish/play-managed-installation.md b/docs/games/playgames/native-pc/publish/play-managed-installation.md
+index 3049e2f..0e3e691 100644
+--- a/docs/games/playgames/native-pc/publish/play-managed-installation.md
++++ b/docs/games/playgames/native-pc/publish/play-managed-installation.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This document shows you how to publish your game on Google Play Games on PC using Play Managed Installation.
+ 
+ With Play Managed Installation, Google Play manages the installation, update, and uninstallation of the game using the game files and metadata you provide in a Windows app bundle (WAB) file.

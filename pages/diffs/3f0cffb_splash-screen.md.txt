@@ -1,0 +1,220 @@
+diff --git a/docs/training/wearables/apps/splash-screen.md b/docs/training/wearables/apps/splash-screen.md
+index c90883a..c0a3e31 100644
+--- a/docs/training/wearables/apps/splash-screen.md
++++ b/docs/training/wearables/apps/splash-screen.md
+@@ -1,16 +1,25 @@
+ ---
+-title: https://developer.android.com/training/wearables/apps/splash-screen
++title: Add a splash screen  |  Wear OS  |  Android Developers
+ url: https://developer.android.com/training/wearables/apps/splash-screen
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Wear OS](https://developer.android.com/training/wearables)
++
++# Add a splash screen Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ If your app implements a custom splash screen or uses a launcher theme, migrate
+-your app to the [`SplashScreen`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen) library, available in Jetpack, to ensure it
++your app to the [`SplashScreen`](/reference/kotlin/androidx/core/splashscreen/SplashScreen) library, available in Jetpack, to ensure it
+ displays correctly on all Wear OS versions.
+ 
+ See step by step implementation instructions on this page to learn how to add a
+ splash screen using the `SplashScreen` library such that the screen meets
+-[design guidelines](https://developer.android.com/training/wearables/design/launch#branded).
++[design guidelines](/training/wearables/design/launch#branded).
+ 
+ ## Add dependencies
+ 
+@@ -18,7 +27,7 @@ Add the following dependency to your app module's `build.gradle` file:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ dependencies {
+     implementation "androidx.core:core-splashscreen:1.2.0"
+ }
+@@ -26,7 +35,7 @@ dependencies {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ dependencies {
+     implementation("androidx.core:core-splashscreen:1.2.0")
+ }
+@@ -40,17 +49,15 @@ Wear OS dimensions.
+ Create a splash screen theme in `res/values/styles.xml`. The parent element
+ depends on the icon's shape:
+ 
+-- If the icon is round, use `Theme.SplashScreen`.
+-- If the icon is a different shape, use `Theme.SplashScreen.IconBackground`.
++* If the icon is round, use `Theme.SplashScreen`.
++* If the icon is a different shape, use `Theme.SplashScreen.IconBackground`.
+ 
+ Use `windowSplashScreenBackground` to fill the background with a single black
+ color. Set the values of `postSplashScreenTheme` to the theme that the Activity
+ should use and `windowSplashScreenAnimatedIcon` to a drawable or animated
+ drawable:
+ 
+-<br />
+-
+-```xml
++```
+ <resources>
+     <style name="Theme.App" parent="@android:style/Theme.DeviceDefault" />
+ 
+@@ -64,24 +71,22 @@ drawable:
+         <item name="postSplashScreenTheme">@style/Theme.App</item>
+     </style>
+ </resources>
+-```
+ 
+-<br />
++styles.xml
++```
+ 
+ If you use a non-round icon, you need to set a white background color underneath
+ your icon. In this case, use the `Theme.SplashScreen.IconBackground` as parent
+ theme and set the `windowSplashScreenIconBackgroundColor` attribute:
+ 
+-<br />
+-
+-```xml
++```
+ <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+     <!-- Set a white background behind the splash screen icon. -->
+     <item name="windowSplashScreenIconBackgroundColor">@android:color/white</item>
+ </style>
+-```
+ 
+-<br />
++styles.xml
++```
+ 
+ The other attributes are optional.
+ 
+@@ -92,9 +97,7 @@ Splash screen themes requires a drawable to pass into the
+ adding a new file `res/drawable/splash_screen.xml` and using app launcher icon
+ and correct splash screen icon size:
+ 
+-<br />
+-
+-```xml
++```
+ <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+     <item
+         android:width="@dimen/splash_screen_icon_size"
+@@ -102,36 +105,32 @@ and correct splash screen icon size:
+         android:drawable="@mipmap/ic_launcher"
+         android:gravity="center" />
+ </layer-list>
+-```
+ 
+-<br />
++splash_screen.xml
++```
+ 
+ The splash screen icon size is defined in `res/values/dimens.xml` and differs
+ depending whether the icon is round:
+ 
+-<br />
+-
+-```xml
++```
+ <resources>
+     <!-- Round app icon can take all of default space -->
+     <dimen name="splash_screen_icon_size">48dp</dimen>
+ </resources>
+-```
+ 
+-<br />
++dimens.xml
++```
+ 
+ ...or non-round and therefore must use the icon background:
+ 
+-<br />
+-
+-```xml
++```
+ <resources>
+     <!-- Non-round icon with background must use reduced size to fit circle -->
+     <dimen name="splash_screen_icon_size">36dp</dimen>
+ </resources>
+-```
+ 
+-<br />
++dimens.xml
++```
+ 
+ ## Specify the theme
+ 
+@@ -139,9 +138,7 @@ In your app's manifest file (`AndroidManifest.xml`), replace the theme of the
+ starting activity -- usually the ones that define a launcher item or are
+ otherwise exported -- to the theme you created in the previous step:
+ 
+-<br />
+-
+-```xml
++```
+ <activity
+     android:name=".snippets.SplashScreenActivity"
+     android:exported="true"
+@@ -149,18 +146,16 @@ otherwise exported -- to the theme you created in the previous step:
+     android:theme="@style/Theme.App.Starting">
+     <!-- ... -->
+ </activity>
+-```
+ 
+-<br />
++AndroidManifest.xml
++```
+ 
+ ## Update your starting activity
+ 
+ Install your splash screen in the starting activity before calling
+ `super.onCreate()`:
+ 
+-<br />
+-
+-```kotlin
++```
+ class SplashScreenActivity : ComponentActivity() {
+     override fun onCreate(savedInstanceState: Bundle?) {
+         installSplashScreen()
+@@ -171,18 +166,18 @@ class SplashScreenActivity : ComponentActivity() {
+         }
+     }
+ }
+-```
+ 
+-<br />
++SplashScreenActivity.kt
++```
+ 
+ ## Additional resources
+ 
+-[Learn more about splash screens](https://developer.android.com/develop/ui/views/launch/splash-screen) in general and how you can use them
++[Learn more about splash screens](/develop/ui/views/launch/splash-screen) in general and how you can use them
+ in your app.
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Migrate your splash screen implementation to Android 12 and later](https://developer.android.com/develop/ui/views/launch/splash-screen/migrate)
+-- [Splash screens](https://developer.android.com/develop/ui/views/launch/splash-screen)
+-- [Integrate App Actions with Android widgets](https://developer.android.com/develop/devices/assistant/widgets)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Migrate your splash screen implementation to Android 12 and later](/develop/ui/views/launch/splash-screen/migrate)
++* [Splash screens](/develop/ui/views/launch/splash-screen)
++* [Integrate App Actions with Android widgets](/develop/devices/assistant/widgets)
+\ No newline at end of file

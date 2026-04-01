@@ -1,0 +1,535 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/ui-compose.md b/docs/develop/xr/jetpack-xr-sdk/ui-compose.md
+index 4e4a26d..a1e884b 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/ui-compose.md
++++ b/docs/develop/xr/jetpack-xr-sdk/ui-compose.md
+@@ -1,15 +1,39 @@
+ ---
+-title: https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose
++title: Develop spatial UI with Jetpack Compose for XR  |  Android XR for Jetpack XR SDK  |  Android Developers
+ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-<br />
++The Android XR SDK has  [reached Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Android XR](https://developer.android.com/develop/xr)
++* [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk)
++* [Guides](https://developer.android.com/develop/xr/get-started)
+ 
+-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
++# Develop spatial UI with Jetpack Compose for XR Stay organized with collections Save and categorize content based on your preferences.
+ 
+-<br />
++
++
++Applicable XR devices
++
++This guidance helps you build experiences for these types of XR devices.
++
++[Learn about XR device types →](/develop/xr/devices)
++
++![](/static/images/develop/xr/xr-headsets-icon.svg)
++
++
++XR Headsets
++
++![](/static/images/develop/xr/xr-glasses-icon.svg)
++
++
++Wired XR Glasses
++
++[Learn about XR device types →](/develop/xr/devices)
+ 
+ With Jetpack Compose for XR, you can declaratively build your spatial UI and
+ layout using familiar Compose concepts such as rows and columns. This lets you
+@@ -19,8 +43,15 @@ applications.
+ If you are spatializing an existing Android Views-based app, you have several
+ development options. You can use interoperability APIs, use Compose and Views
+ together, or work directly with the SceneCore library. See our [guide to working
+-with views](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui-views) for more details.
+-[![](https://developer.android.com/static/images/picto-icons/code.svg) Codelab Learn Android XR Fundamentals: Part 1 - Modes and Spatial Panels](https://developer.android.com/codelabs/xr-fundamentals-part-1)
++with views](/develop/xr/jetpack-xr-sdk/develop-ui-views) for more details.
++
++[![](/static/images/picto-icons/code.svg)
++
++Codelab
++
++Learn Android XR Fundamentals: Part 1 - Modes and Spatial Panels
++
++arrow\_forward](https://developer.android.com/codelabs/xr-fundamentals-part-1)
+ 
+ ## About subspaces and spatialized components
+ 
+@@ -37,17 +68,24 @@ non-XR devices, any code within that subspace is ignored.
+ 
+ There are a few ways to create a subspace:
+ 
+-- [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Boolean,kotlin.Function1)): This composable creates a new, independent Spatial UI hierarchy. It does not inherit the spatial position, orientation, or scale of any parent `Subspace` it is nested within. `Subspace` is automatically bound by the system's recommended content box.
+-- [`PlanarEmbeddedSubspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable#PlanarEmbeddedSubspace(kotlin.Function1)): This composable can be placed within your app's UI hierarchy, allowing you to maintain layouts for 2D and spatial UI. `PlanarEmbeddedSubspace` respects the constraints and positioning of its parent. The 3D content placed inside it is then positioned relative to this 2D-defined area.
++* [`Subspace`](/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Boolean,kotlin.Function1)): This composable creates a new, independent Spatial UI
++  hierarchy. It does not inherit the spatial position, orientation, or scale
++  of any parent `Subspace` it is nested within. `Subspace` is automatically
++  bound by the system's recommended content box.
++* [`PlanarEmbeddedSubspace`](/reference/kotlin/androidx/xr/compose/spatial/PlanarEmbeddedSubspace.composable#PlanarEmbeddedSubspace(kotlin.Function1)): This composable can be placed within
++  your app's UI hierarchy, allowing you to maintain layouts for 2D and spatial
++  UI. `PlanarEmbeddedSubspace` respects the constraints and positioning of
++  its parent. The 3D content placed inside it is then positioned relative to
++  this 2D-defined area.
+ 
+-For more information, see [Add a subspace to your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-subspace).
++For more information, see [Add a subspace to your app](/develop/xr/jetpack-xr-sdk/add-subspace).
+ 
+ ### About spatialized components
+ 
+-**Subspace composables** : These components can only be rendered in a subspace.
++**Subspace composables**: These components can only be rendered in a subspace.
+ They must be enclosed within `Subspace` before being placed within a 2D layout.
+-A [`SubspaceModifier`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier) lets you add attributes like [depth, offset, and
+-positioning](https://developer.android.com/develop/xr/jetpack-xr-sdk/subspacemodifiers) to your subspace composables.
++A [`SubspaceModifier`](/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier) lets you add attributes like [depth, offset, and
++positioning](/develop/xr/jetpack-xr-sdk/subspacemodifiers) to your subspace composables.
+ 
+ Other spatialized components don't require being called inside a subspace. They
+ consist of conventional 2D elements wrapped within a spatial container. These
+@@ -57,20 +95,19 @@ they will fall back to their 2D counterparts.
+ 
+ ## Create a spatial panel
+ 
+-A [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) is a subspace composable that lets you display app
+-content--for example, you could display video playback, still images, or any
++A [`SpatialPanel`](/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) is a subspace composable that lets you display app
++content–for example, you could display video playback, still images, or any
+ other content in a spatial panel.
+ 
+-![Example of a spatial UI panel](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/develop-ui/develop_ui_xr_component_spatial-panel.jpg)
++![Example of a spatial UI panel](/static/images/develop/xr/jetpack-xr-sdk/develop-ui/develop_ui_xr_component_spatial-panel.jpg)
+ 
+ You can use `SubspaceModifier` to change the size, behavior, and positioning of
+ the spatial panel, as shown in the following example.
+ 
+-> [!NOTE]
+-> **Note:** Add [`enableOnBackInvokedCallback="True"`](https://developer.android.com/guide/topics/manifest/activity-element#enableOnBackInvokedCallback) inside your Android Manifest to make sure your `SpatialPanel` properly receives GNav back events.
++**Note:** Add [`enableOnBackInvokedCallback="True"`](/guide/topics/manifest/activity-element#enableOnBackInvokedCallback) inside your Android
++Manifest to make sure your `SpatialPanel` properly receives GNav back events.
+ 
+-
+-```kotlin
++```
+ Subspace {
+     SpatialPanel(
+         SubspaceModifier
+@@ -82,12 +119,11 @@ Subspace {
+         SpatialPanelContent()
+     }
+ }
+-```
+-
+-<br />
+ 
++SpatialPanel.kt
++```
+ 
+-```kotlin
++```
+ @Composable
+ fun SpatialPanelContent() {
+     Box(
+@@ -104,23 +140,29 @@ fun SpatialPanelContent() {
+         )
+     }
+ }
+-```
+ 
+-<br />
++SpatialPanel.kt
++```
+ 
+ ### Key points about the code
+ 
+-- Because [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) APIs are subspace composables, you must call them inside \[`Subspace`\]\[4\]. Calling them outside of a subspace throws an exception.
+-- The size of the `SpatialPanel` has been set using the `height` and `width` specifications on the `SubspaceModifier`. Omitting these specifications lets the size of the panel be determined by the measurements of its contents.
+-- Allow the user to move a panel by adding a [`MovePolicy`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/MovePolicy).
+-- Allow the user to resize a panel by adding a [`ResizePolicy`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/ResizePolicy).
+-- See our [spatial panel design guidance](https://developer.android.com/design/ui/xr/guides/spatial-ui#spatial-panels) for details on sizing and positioning. See our [reference documentation](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary) for more specifics on code implementation.
++* Because [`SpatialPanel`](/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) APIs are subspace composables, you must call
++  them inside [`Subspace`][4]. Calling them outside of a subspace throws an
++  exception.
++* The size of the `SpatialPanel` has been set using the `height` and `width`
++  specifications on the `SubspaceModifier`. Omitting these specifications lets
++  the size of the panel be determined by the measurements of its contents.
++* Allow the user to move a panel by adding a [`MovePolicy`](/reference/kotlin/androidx/xr/compose/subspace/MovePolicy).
++* Allow the user to resize a panel by adding a [`ResizePolicy`](/reference/kotlin/androidx/xr/compose/subspace/ResizePolicy).
++* See our [spatial panel design guidance](/design/ui/xr/guides/spatial-ui#spatial-panels) for details on sizing and
++  positioning. See our [reference documentation](/reference/kotlin/androidx/xr/compose/subspace/package-summary) for more specifics on
++  code implementation.
+ 
+ #### How a `MovePolicy` works
+ 
+ As a user moves a panel away from them, by default, a `MovePolicy`
+ scales the panel in a similar way to how panels are resized by the system in
+-[home space](https://developer.android.com/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space). All children content inherit this behavior. To disable this,
++[home space](/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space). All children content inherit this behavior. To disable this,
+ set the `shouldScaleWithDistance` parameter to `false`.
+ 
+ ## Create an orbiter
+@@ -131,15 +173,14 @@ contains navigation and contextual action items related to the entity it's
+ anchored to. For example, if you've created a spatial panel to display video
+ content, you could add video playback controls inside an orbiter.
+ 
+-![Example of an orbiter](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/develop-ui/develop-ui-xr-component-orbiter-generic.jpg)
++![Example of an orbiter](/static/images/develop/xr/jetpack-xr-sdk/develop-ui/develop-ui-xr-component-orbiter-generic.jpg)
+ 
+ As shown in the following example, call an orbiter inside the 2D layout in a
+ `SpatialPanel` to wrap user controls like navigation. Doing so extracts them
+ from your 2D layout and attaches them to the spatial panel according to your
+ configuration.
+ 
+-
+-```kotlin
++```
+ Subspace {
+     SpatialPanel(
+         SubspaceModifier
+@@ -152,12 +193,11 @@ Subspace {
+         OrbiterExample()
+     }
+ }
+-```
+-
+-<br />
+ 
++Orbiter.kt
++```
+ 
+-```kotlin
++```
+ @Composable
+ fun OrbiterExample() {
+     Orbiter(
+@@ -183,27 +223,29 @@ fun OrbiterExample() {
+         }
+     }
+ }
+-```
+ 
+-<br />
++Orbiter.kt
++```
+ 
+ ### Key points about the code
+ 
+-- Because orbiters are spatial UI components, the code can be reused in 2D or 3D layouts. In a 2D layout, your app renders only the content inside the orbiter and ignores the orbiter itself.
+-- Check out our [design guidance](https://developer.android.com/design/ui/xr/guides/spatial-ui#orbiters) for more information on how to use and design orbiters.
++* Because orbiters are spatial UI components, the code can be reused in 2D or
++  3D layouts. In a 2D layout, your app renders only the content inside the
++  orbiter and ignores the orbiter itself.
++* Check out our [design guidance](/design/ui/xr/guides/spatial-ui#orbiters) for more information on how to use and
++  design orbiters.
+ 
+ ## Add multiple spatial panels to a spatial layout
+ 
+ You can create multiple spatial panels and place them within a spatial layout
+-using [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)), and
+-[`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)).
++using [`SpatialRow`](/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialColumn`](/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialBox`](/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)), and
++[`SpatialLayoutSpacer`](/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)).
+ 
+-![Example of multiple spatial panels in a spatial layout](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/develop-ui/develop-ui-xr-spatial-panels.jpg)
++![Example of multiple spatial panels in a spatial layout](/static/images/develop/xr/jetpack-xr-sdk/develop-ui/develop-ui-xr-spatial-panels.jpg)
+ 
+ The following code example shows how to do this.
+ 
+-
+-```kotlin
++```
+ Subspace {
+     SpatialRow {
+         SpatialColumn {
+@@ -230,12 +272,11 @@ Subspace {
+         }
+     }
+ }
+-```
+-
+-<br />
+ 
++SpatialLayout.kt
++```
+ 
+-```kotlin
++```
+ @Composable
+ fun SpatialPanelContent(text: String) {
+     Column(
+@@ -258,23 +299,26 @@ fun SpatialPanelContent(text: String) {
+         )
+     }
+ }
+-```
+ 
+-<br />
++SpatialLayout.kt
++```
+ 
+ ### Key points about the code
+ 
+-- [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)), and [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)) are all subspace composables and must be placed within a subspace.
+-- Use [`SubspaceModifier`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier) to customize your layout.
+-- For layouts with multiple panels in a row, we recommend setting a curve radius of 825dp using a `SubspaceModifier` so the panels will surround your user. See our [design guidance](https://developer.android.com/design/ui/xr/guides/spatial-ui#spatial-panels) for details.
++* [`SpatialRow`](/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialColumn`](/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialBox`](/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)), and
++  [`SpatialLayoutSpacer`](/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)) are all subspace composables and must be placed
++  within a subspace.
++* Use [`SubspaceModifier`](/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier) to customize your layout.
++* For layouts with multiple panels in a row, we recommend setting a curve
++  radius of 825dp using a `SubspaceModifier` so the panels will surround your
++  user. See our [design guidance](/design/ui/xr/guides/spatial-ui#spatial-panels) for details.
+ 
+ ## Use a SceneCoreEntity to place entities in your layout
+ 
+ To place a 3D object in your layout, you'll need to use a subspace composable
+-called a [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SceneCoreEntity.composable#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)). Here's an example of how to do that.
+-
++called a [`SceneCoreEntity`](/reference/kotlin/androidx/xr/compose/subspace/SceneCoreEntity.composable#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)). Here's an example of how to do that.
+ 
+-```kotlin
++```
+ Subspace {
+     SceneCoreEntity(
+         modifier = SubspaceModifier.offset(x = 50.dp),
+@@ -299,26 +343,26 @@ Subspace {
+         // in the scene graph.
+     }
+ }
+-```
+ 
+-<br />
++SceneCoreEntity.kt
++```
+ 
+ ### Additional information
+ 
+-- See [Add 3D models to your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models) to better understand how to load 3D content within a `SceneCoreEntity`.
++* See [Add 3D models to your app](/develop/xr/jetpack-xr-sdk/add-3d-models) to better understand how to load 3D
++  content within a `SceneCoreEntity`.
+ 
+ ## Add a surface for image or video content
+ 
+-A [`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialFeatheringEffect,kotlin.Function1)) is a subspace composable that creates and
+-manages the [`Surface`](https://developer.android.com/reference/kotlin/android/view/Surface) into which your app can draw content, such as an
+-image or [video](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-video). [`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialFeatheringEffect,kotlin.Function1)) supports either
++A [`SpatialExternalSurface`](/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialFeatheringEffect,kotlin.Function1)) is a subspace composable that creates and
++manages the [`Surface`](/reference/kotlin/android/view/Surface) into which your app can draw content, such as an
++image or [video](/develop/xr/jetpack-xr-sdk/add-spatial-video). [`SpatialExternalSurface`](/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialFeatheringEffect,kotlin.Function1)) supports either
+ stereoscopic or monoscopic content.
+ 
+ This example demonstrates how to load side-by-side stereoscopic video using
+-[Media3 Exoplayer](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models) and [`SpatialExternalSurface`](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design):
+-
++[Media3 Exoplayer](/develop/xr/jetpack-xr-sdk/add-3d-models) and [`SpatialExternalSurface`](/develop/xr/jetpack-xr-sdk/material-design):
+ 
+-```kotlin
++```
+ @OptIn(ExperimentalComposeApi::class)
+ @Composable
+ fun SpatialExternalSurfaceContent() {
+@@ -356,38 +400,47 @@ fun SpatialExternalSurfaceContent() {
+         }
+     }
+ }
+-```
+ 
+-<br />
++SpatialExternalSurface.kt
++```
+ 
+ ### Key points about the code
+ 
+-- Set [`StereoMode`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/StereoMode) to `Mono`, `SideBySide`, or `TopBottom` depending upon which type of content you are rendering:
+-  - `Mono`: The image or video frame consists of a single, identical image shown to both eyes.
+-  - `SideBySide`: The image or video frame contains a pair of images or video frames arranged side-by-side, where the image or frame on the left represents the left eye view, and the image or frame on the right represents the right eye view.
+-  - `TopBottom`: The image or video frame contains a pair of images or video frames stacked vertically, where the image or frame on the top represents the left eye view, and the image or frame on the bottom represents the right eye view.
+-- [`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialFeatheringEffect,kotlin.Function1)) only supports rectangular surfaces.
+-- This [`Surface`](https://developer.android.com/reference/kotlin/android/view/Surface) doesn't capture input events.
+-- It's not possible to synchronize [`StereoMode`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/StereoMode) changes with application rendering or video decoding.
+-- This composable can't render in front of other panels, so you shouldn't use a `MovePolicy` if there are other panels in the layout.
++* Set [`StereoMode`](/reference/kotlin/androidx/xr/compose/subspace/StereoMode) to `Mono`, `SideBySide`, or `TopBottom` depending
++  upon which type of content you are rendering:
++  + `Mono`: The image or video frame consists of a single, identical image
++    shown to both eyes.
++  + `SideBySide`: The image or video frame contains a pair of images or
++    video frames arranged side-by-side, where the image or frame on the left
++    represents the left eye view, and the image or frame on the right
++    represents the right eye view.
++  + `TopBottom`: The image or video frame contains a pair of images or video
++    frames stacked vertically, where the image or frame on the top
++    represents the left eye view, and the image or frame on the bottom
++    represents the right eye view.
++* [`SpatialExternalSurface`](/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialFeatheringEffect,kotlin.Function1)) only supports rectangular surfaces.
++* This [`Surface`](/reference/kotlin/android/view/Surface) doesn't capture input events.
++* It's not possible to synchronize [`StereoMode`](/reference/kotlin/androidx/xr/compose/subspace/StereoMode) changes with application
++  rendering or video decoding.
++* This composable can't render in front of other panels, so you shouldn't use
++  a `MovePolicy` if there are other panels in the layout.
+ 
+ ## Add a surface for DRM protected video content
+ 
+-[`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialFeatheringEffect,kotlin.Function1)) also supports playback of DRM-protected video
++[`SpatialExternalSurface`](/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialFeatheringEffect,kotlin.Function1)) also supports playback of DRM-protected video
+ streams. To enable this, you must create a secure surface that renders to
+ protected graphics buffers. This prevents the content from being screen-recorded
+ or accessed by non-secure system components.
+ 
+ To create a secure surface, set the `surfaceProtection` parameter to
+-`SurfaceProtection.Protected` on the [`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialFeatheringEffect,kotlin.Function1)) composable.
+-Additionally, you must configure [Media3 Exoplayer](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models) with the appropriate DRM
++`SurfaceProtection.Protected` on the [`SpatialExternalSurface`](/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialFeatheringEffect,kotlin.Function1)) composable.
++Additionally, you must configure [Media3 Exoplayer](/develop/xr/jetpack-xr-sdk/add-3d-models) with the appropriate DRM
+ information to handle the license acquisition from a license server.
+ 
+ The following example demonstrates how to configure `SpatialExternalSurface` and
+ `ExoPlayer` to play a DRM-protected video stream:
+ 
+-
+-```kotlin
++```
+ @OptIn(ExperimentalComposeApi::class)
+ @Composable
+ fun DrmSpatialVideoPlayer() {
+@@ -428,15 +481,22 @@ fun DrmSpatialVideoPlayer() {
+         }
+     }
+ }
+-```
+ 
+-<br />
++SpatialExternalSurface.kt
++```
+ 
+ #### Key points about the code
+ 
+-- Protected Surface: Setting `surfaceProtection = SurfaceProtection.Protected` on `SpatialExternalSurface` is essential so that the underlying `Surface` is backed by secure buffers suitable for DRM content.
+-- DRM Configuration: You must configure the `MediaItem` with the DRM scheme (for example, `C.WIDEVINE_UUID`) and the URI of your license server. ExoPlayer uses this information to manage the DRM session.
+-- Secure Content: When rendering to a protected surface, the video content is decoded and displayed on a secure path, which helps satisfy content licensing requirements. This also prevents the content from appearing in screen captures.
++* Protected Surface: Setting `surfaceProtection = SurfaceProtection.Protected`
++  on `SpatialExternalSurface` is essential so that the underlying
++  `Surface` is backed by secure buffers suitable for DRM content.
++* DRM Configuration: You must configure the `MediaItem` with the DRM scheme
++  (for example, `C.WIDEVINE_UUID`) and the URI of your license server. ExoPlayer
++  uses this information to manage the DRM session.
++* Secure Content: When rendering to a protected surface, the video content is
++  decoded and displayed on a secure path, which helps satisfy content licensing
++  requirements. This also prevents the content from appearing in screen
++  captures.
+ 
+ ## Add other spatial UI components
+ 
+@@ -448,21 +508,20 @@ code twice. See the following examples of spatial UI to better understand how to
+ use these elements.
+ 
+ | **UI Component** | **When spatialization is enabled** | **In 2D environment** |
+-|---|---|---|
+-| `SpatialDialog` | Panel will push slightly back in z-depth to display an elevated dialog | Falls back to 2D [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)). |
+-| `SpatialPopup` | Panel will push slightly back in z-depth to display an elevated popup | Falls back to a 2D [`Popup`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Popup.composable#Popup(androidx.compose.ui.window.PopupPositionProvider,kotlin.Function0,androidx.compose.ui.window.PopupProperties,kotlin.Function0)). |
++| --- | --- | --- |
++| `SpatialDialog` | Panel will push slightly back in z-depth to display an elevated dialog | Falls back to 2D [`Dialog`](/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)). |
++| `SpatialPopup` | Panel will push slightly back in z-depth to display an elevated popup | Falls back to a 2D [`Popup`](/reference/kotlin/androidx/compose/ui/window/Popup.composable#Popup(androidx.compose.ui.window.PopupPositionProvider,kotlin.Function0,androidx.compose.ui.window.PopupProperties,kotlin.Function0)). |
+ | `SpatialElevation` | `SpatialElevationLevel` can be set to add elevation. | Shows without spatial elevation. |
+ 
+ ### SpatialDialog
+ 
+ This is an example of a dialog that opens after a short delay. When
+-[`SpatialDialog`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/SpatialDialog.composable#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)) is used, the dialog appears at the same z-depth as the
++[`SpatialDialog`](/reference/kotlin/androidx/xr/compose/spatial/SpatialDialog.composable#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)) is used, the dialog appears at the same z-depth as the
+ spatial panel, and the panel is pushed back by 125dp when spatialization is
+ enabled. `SpatialDialog` can also be used when spatialization isn't enabled, in
+-which case `SpatialDialog` falls back to its 2D counterpart, [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)).
+-
++which case `SpatialDialog` falls back to its 2D counterpart, [`Dialog`](/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)).
+ 
+-```kotlin
++```
+ @Composable
+ fun DelayedDialog() {
+     var showDialog by remember { mutableStateOf(false) }
+@@ -489,19 +548,21 @@ fun DelayedDialog() {
+         }
+     }
+ }
+-```
+ 
+-<br />
++SpatialDialog.kt
++```
+ 
+ ### Key points about the code
+ 
+-- This is an example of [`SpatialDialog`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/SpatialDialog.composable#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)). Using [`SpatialPopup`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialPopup(androidx.compose.ui.Alignment,androidx.compose.ui.unit.IntOffset,kotlin.Function0,androidx.xr.compose.spatial.SpatialPopupProperties,kotlin.Function0)) and [`SpatialElevation`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialElevation(androidx.xr.compose.spatial.SpatialElevationLevel,kotlin.Function0)) is very similar. See our [API reference](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary) for more detail.
++* This is an example of [`SpatialDialog`](/reference/kotlin/androidx/xr/compose/spatial/SpatialDialog.composable#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)). Using [`SpatialPopup`](/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialPopup(androidx.compose.ui.Alignment,androidx.compose.ui.unit.IntOffset,kotlin.Function0,androidx.xr.compose.spatial.SpatialPopupProperties,kotlin.Function0)) and
++  [`SpatialElevation`](/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialElevation(androidx.xr.compose.spatial.SpatialElevationLevel,kotlin.Function0)) is very similar. See our [API reference](/reference/kotlin/androidx/xr/compose/spatial/package-summary) for
++  more detail.
+ 
+ ## Create custom panels and layouts
+ 
+ To create custom panels that are not supported by Compose for XR, you can work
+-directly with [`PanelEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/PanelEntity) instances and the scene graph using the
+-[`SceneCore`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/package-summary) APIs.
++directly with [`PanelEntity`](/reference/kotlin/androidx/xr/scenecore/PanelEntity) instances and the scene graph using the
++[`SceneCore`](/reference/kotlin/androidx/xr/scenecore/package-summary) APIs.
+ 
+ ## Anchor orbiters to spatial layouts and other entities
+ 
+@@ -512,13 +573,14 @@ nearest to where you've declared it.
+ 
+ The orbiter's behavior is determined by where you declare it:
+ 
+-- In a 2D layout wrapped in a `SpatialPanel` (as shown in a [preceding code](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose#2dlayout-code-snippet) snippet), the orbiter anchors to that `SpatialPanel`.
+-- In a `Subspace`, the orbiter anchors to the nearest parent entity, which is the spatial layout the orbiter is declared in.
++* In a 2D layout wrapped in a `SpatialPanel` (as shown in a
++  [preceding code](#2dlayout-code-snippet) snippet), the orbiter anchors to that `SpatialPanel`.
++* In a `Subspace`, the orbiter anchors to the nearest parent entity, which is
++  the spatial layout the orbiter is declared in.
+ 
+ The following example shows how to anchor an orbiter to a spatial row:
+ 
+-
+-```kotlin
++```
+ Subspace {
+     SpatialRow {
+         Orbiter(
+@@ -557,17 +619,21 @@ Subspace {
+         }
+     }
+ }
+-```
+ 
+-<br />
++Orbiter.kt
++```
+ 
+ ### Key points about the code
+ 
+-- When you declare an orbiter outside of a 2D layout, the orbiter anchors to its nearest parent entity. In this case, the orbiter anchors to the top of the `SpatialRow` it's declared in.
+-- Spatial layouts such as `SpatialRow`, `SpatialColumn`, `SpatialBox` all have contentless entities associated with them. Therefore, an orbiter declared in a spatial layout anchors to that layout.
++* When you declare an orbiter outside of a 2D layout, the orbiter anchors to
++  its nearest parent entity. In this case, the orbiter anchors to the top of
++  the `SpatialRow` it's declared in.
++* Spatial layouts such as `SpatialRow`, `SpatialColumn`, `SpatialBox` all have
++  contentless entities associated with them. Therefore, an orbiter declared in
++  a spatial layout anchors to that layout.
+ 
+ ## See also
+ 
+-- [Add 3D models to your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models)
+-- [Develop UI for Android Views-based Apps](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui-views)
+-- [Implement Material Design for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design)
+\ No newline at end of file
++* [Add 3D models to your app](/develop/xr/jetpack-xr-sdk/add-3d-models)
++* [Develop UI for Android Views-based Apps](/develop/xr/jetpack-xr-sdk/develop-ui-views)
++* [Implement Material Design for XR](/develop/xr/jetpack-xr-sdk/material-design)
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/build/manage-manifests.md b/docs/build/manage-manifests.md
+index bc84732..042d584 100644
+--- a/docs/build/manage-manifests.md
++++ b/docs/build/manage-manifests.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This page describes how manifest merging works and how you can apply merge
+ preferences to
+ resolve merge conflicts. For an introduction to the app

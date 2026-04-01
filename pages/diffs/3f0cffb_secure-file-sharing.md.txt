@@ -1,0 +1,12 @@
+diff --git a/docs/training/secure-file-sharing.md b/docs/training/secure-file-sharing.md
+index 519d87c..7e7fb2f 100644
+--- a/docs/training/secure-file-sharing.md
++++ b/docs/training/secure-file-sharing.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Apps often have a need to offer one or more of their files to another app. For example, an image
+ gallery may want to offer files to image editors, or a file management app may want to allow
+ users to copy and paste files between areas in external storage. One way a sending app can

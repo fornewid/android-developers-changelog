@@ -1,0 +1,12 @@
+diff --git a/docs/distribute/marketing-tools/brand-guidelines.md b/docs/distribute/marketing-tools/brand-guidelines.md
+index 179aea7..bcd8488 100644
+--- a/docs/distribute/marketing-tools/brand-guidelines.md
++++ b/docs/distribute/marketing-tools/brand-guidelines.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The "Android" name, the Android logo, the "Google Play" brand, and other Google
+ trademarks, are property of Google LLC and not part of the assets available
+ through the Android Open Source Project.

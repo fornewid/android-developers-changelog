@@ -1,0 +1,12 @@
+diff --git a/docs/topic/modularization/patterns.md b/docs/topic/modularization/patterns.md
+index 3a73aac..757b749 100644
+--- a/docs/topic/modularization/patterns.md
++++ b/docs/topic/modularization/patterns.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ There is no single [modularization](/topic/modularization) strategy that fits all projects. Due to
+ the flexible nature of Gradle there are few constraints as to how you can
+ organize a project. This page gives an overview of some general rules and common

@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/migrate-gpblv6.md b/docs/google/play/billing/migrate-gpblv6.md
+index 4ab08fb..8d6f4fa 100644
+--- a/docs/google/play/billing/migrate-gpblv6.md
++++ b/docs/google/play/billing/migrate-gpblv6.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This topic describes how to migrate from Google Play Billing Library 4 or 5 to
+ Google Play Billing Library 6 and how to use new subscription capabilities.
+ 
+@@ -575,6 +574,4 @@ Billing Library [integration guide](/google/play/billing/integrate) and the
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

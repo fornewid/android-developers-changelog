@@ -1,0 +1,265 @@
+diff --git a/docs/develop/ui/views/touch-and-input/gestures/movement.md b/docs/develop/ui/views/touch-and-input/gestures/movement.md
+index 7fa9823..28b50c6 100644
+--- a/docs/develop/ui/views/touch-and-input/gestures/movement.md
++++ b/docs/develop/ui/views/touch-and-input/gestures/movement.md
+@@ -1,71 +1,47 @@
+ ---
+-title: Track touch and pointer movements  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/touch-and-input/gestures/movement
+ url: https://developer.android.com/develop/ui/views/touch-and-input/gestures/movement
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose. [Gestures →](https://developer.android.com/jetpack/compose/touch-input/pointer-input) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+-# Track touch and pointer movements Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-Try the Compose way
+-
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.
+-
+-[Gestures →](https://developer.android.com/jetpack/compose/touch-input/pointer-input)
+-
+-![](/static/images/android-compose-ui-logo.png)
++<br />
+ 
+ This lesson describes how to track movement in touch events.
+ 
+ A new
+-[`onTouchEvent()`](/reference/android/view/View#onTouchEvent(android.view.MotionEvent))
++[`onTouchEvent()`](https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent))
+ is triggered with an
+-[`ACTION_MOVE`](/reference/android/view/MotionEvent#ACTION_MOVE) event
++[`ACTION_MOVE`](https://developer.android.com/reference/android/view/MotionEvent#ACTION_MOVE) event
+ whenever the current touch contact position, pressure, or size changes. As
+-described in [Detect common gestures](/training/gestures/detector), all
++described in [Detect common gestures](https://developer.android.com/training/gestures/detector), all
+ these events are recorded in the
+-[`MotionEvent`](/reference/android/view/MotionEvent) parameter of
++[`MotionEvent`](https://developer.android.com/reference/android/view/MotionEvent) parameter of
+ `onTouchEvent()`.
+ 
+ Because finger-based touch isn't always the most precise form of interaction,
+ detecting touch events is often based more on movement than on simple contact.
+ To help apps distinguish between movement-based gestures (such as a swipe) and
+ non-movement gestures (such as a single tap), Android includes the notion of
+-*touch slop*. Touch slop refers to the distance in pixels a user's touch can
++*touch slop* . Touch slop refers to the distance in pixels a user's touch can
+ wander before the gesture is interpreted as a movement-based gesture. For more
+ information about this topic, see [Manage touch events in a
+-ViewGroup](/training/gestures/viewgroup#vc).
++ViewGroup](https://developer.android.com/training/gestures/viewgroup#vc).
+ 
+ There are several ways to track movement in a gesture, depending on
+ the needs of your application. The following are examples:
+ 
+-* The starting and ending position of a pointer, such as moving an on-screen
+-  object from point A to point B.
+-* The direction the pointer is traveling in, as determined by the X and Y
+-  coordinates.
+-* History. You can find the size of a gesture's history by calling the
+-  `MotionEvent` method
+-  [`getHistorySize()`](/reference/android/view/MotionEvent#getHistorySize()).
+-  You can then obtain the positions, sizes, time, and pressures of each of the
+-  historical events by using the motion event's
+-  `getHistorical<Value>`
+-  methods. History is useful when rendering a trail of the user's finger, such
+-  as for touch drawing. See the `MotionEvent` reference for details.
+-* The velocity of the pointer as it moves across the touchscreen.
++- The starting and ending position of a pointer, such as moving an on-screen object from point A to point B.
++- The direction the pointer is traveling in, as determined by the X and Y coordinates.
++- History. You can find the size of a gesture's history by calling the `MotionEvent` method [`getHistorySize()`](https://developer.android.com/reference/android/view/MotionEvent#getHistorySize()). You can then obtain the positions, sizes, time, and pressures of each of the historical events by using the motion event's `getHistorical\<Value\>` methods. History is useful when rendering a trail of the user's finger, such as for touch drawing. See the `MotionEvent` reference for details.
++- The velocity of the pointer as it moves across the touchscreen.
+ 
+ Refer to the following related resources:
+ 
+-* [Input events overview](/guide/topics/ui/ui-events)
+-* [Sensors overview](/guide/topics/sensors/sensors_overview)
+-* [Make a custom view interactive](/training/custom-views/making-interactive)
++- [Input events overview](https://developer.android.com/guide/topics/ui/ui-events)
++- [Sensors overview](https://developer.android.com/guide/topics/sensors/sensors_overview)
++- [Make a custom view interactive](https://developer.android.com/training/custom-views/making-interactive)
+ 
+ ## Track velocity
+ 
+@@ -73,7 +49,7 @@ You can have a movement-based gesture that is based on the distance or direction
+ the pointer travels. However, velocity is often a determining factor in tracking
+ a gesture's characteristics or deciding whether the gesture occurred. To make
+ velocity calculation easier, Android provides the
+-[`VelocityTracker`](/reference/android/view/VelocityTracker) class.
++[`VelocityTracker`](https://developer.android.com/reference/android/view/VelocityTracker) class.
+ `VelocityTracker` helps you track the velocity of touch events. This is useful
+ for gestures in which velocity is part of the criteria for the gesture, such as
+ a fling.
+@@ -83,7 +59,7 @@ Here is an example that illustrates the purpose of the methods in the
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ private const val DEBUG_TAG = "Velocity"
+ 
+ class MainActivity : Activity() {
+@@ -129,7 +105,7 @@ class MainActivity : Activity() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class MainActivity extends Activity {
+     private static final String DEBUG_TAG = "Velocity";
+         ...
+@@ -176,9 +152,8 @@ public class MainActivity extends Activity {
+ }
+ ```
+ 
+-**Note:** Calculate velocity after an `ACTION_MOVE` event, not after
+-[`ACTION_UP`](/reference/android/view/MotionEvent#ACTION_UP). After an
+-`ACTION_UP`, the X and Y velocities are 0.
++> [!NOTE]
++> **Note:** Calculate velocity after an `ACTION_MOVE` event, not after [`ACTION_UP`](https://developer.android.com/reference/android/view/MotionEvent#ACTION_UP). After an `ACTION_UP`, the X and Y velocities are 0.
+ 
+ ## Use pointer capture
+ 
+@@ -192,19 +167,19 @@ delivering all mouse events to a focused view in your app.
+ A view in your app can request pointer capture only when the view hierarchy that
+ contains it has focus. For this reason, request pointer capture when there's a
+ specific user action on the view, such as during an
+-[`onClick()`](/reference/android/view/View.OnClickListener#onClick(android.view.View))
++[`onClick()`](https://developer.android.com/reference/android/view/View.OnClickListener#onClick(android.view.View))
+ event or in the
+-[`onWindowFocusChanged()`](/reference/android/app/Activity#onWindowFocusChanged(boolean))
++[`onWindowFocusChanged()`](https://developer.android.com/reference/android/app/Activity#onWindowFocusChanged(boolean))
+ event handler of your activity.
+ 
+ To request pointer capture, call the
+-[`requestPointerCapture()`](/reference/android/view/View#requestPointerCapture())
++[`requestPointerCapture()`](https://developer.android.com/reference/android/view/View#requestPointerCapture())
+ method on the view. The following code example shows how to request pointer
+ capture when the user clicks a view:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ fun onClick(view: View) {
+     view.requestPointerCapture()
+ }
+@@ -212,7 +187,7 @@ fun onClick(view: View) {
+ 
+ ### Java
+ 
+-```
++```java
+ @Override
+ public void onClick(View view) {
+     view.requestPointerCapture();
+@@ -220,11 +195,11 @@ public void onClick(View view) {
+ ```
+ 
+ Once the request to capture the pointer is successful, Android calls
+-[`onPointerCaptureChange(true)`](/reference/android/view/View#onPointerCaptureChange(boolean)).
++[`onPointerCaptureChange(true)`](https://developer.android.com/reference/android/view/View#onPointerCaptureChange(boolean)).
+ The system delivers the mouse events to the focused view in your app as long as
+ it's in the same view hierarchy as the view that requested the capture. Other
+ apps stop receiving mouse events until the capture is released, including
+-[`ACTION_OUTSIDE`](/reference/android/view/MotionEvent#ACTION_OUTSIDE)
++[`ACTION_OUTSIDE`](https://developer.android.com/reference/android/view/MotionEvent#ACTION_OUTSIDE)
+ events. Android delivers pointer events from sources other than the mouse as
+ normal, but the mouse pointer is no longer visible.
+ 
+@@ -234,17 +209,15 @@ Once a view successfully acquires the pointer capture, Android delivers the
+ mouse events. Your focused view can handle the events by performing one of the
+ following tasks:
+ 
+-* If you're using a custom view, override
+-  [`onCapturedPointerEvent(MotionEvent)`](/reference/android/view/View#onCapturedPointerEvent(android.view.MotionEvent)).
+-* Otherwise, register an
+-  [`OnCapturedPointerListener`](/reference/android/view/View.OnCapturedPointerListener).
++- If you're using a custom view, override [`onCapturedPointerEvent(MotionEvent)`](https://developer.android.com/reference/android/view/View#onCapturedPointerEvent(android.view.MotionEvent)).
++- Otherwise, register an [`OnCapturedPointerListener`](https://developer.android.com/reference/android/view/View.OnCapturedPointerListener).
+ 
+ The following code example shows how to implement
+-[`onCapturedPointerEvent(MotionEvent)`](/reference/android/view/View#onCapturedPointerEvent(android.view.MotionEvent)):
++[`onCapturedPointerEvent(MotionEvent)`](https://developer.android.com/reference/android/view/View#onCapturedPointerEvent(android.view.MotionEvent)):
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ override fun onCapturedPointerEvent(motionEvent: MotionEvent): Boolean {
+     // Get the coordinates required by your app.
+     val verticalOffset: Float = motionEvent.y
+@@ -256,7 +229,7 @@ override fun onCapturedPointerEvent(motionEvent: MotionEvent): Boolean {
+ 
+ ### Java
+ 
+-```
++```java
+ @Override
+ public boolean onCapturedPointerEvent(MotionEvent motionEvent) {
+   // Get the coordinates required by your app.
+@@ -268,11 +241,11 @@ public boolean onCapturedPointerEvent(MotionEvent motionEvent) {
+ ```
+ 
+ The following code example shows how to register an
+-[`OnCapturedPointerListener`](/reference/android/view/View.OnCapturedPointerListener):
++[`OnCapturedPointerListener`](https://developer.android.com/reference/android/view/View.OnCapturedPointerListener):
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ myView.setOnCapturedPointerListener { view, motionEvent ->
+     // Get the coordinates required by your app.
+     val horizontalOffset: Float = motionEvent.x
+@@ -284,7 +257,7 @@ myView.setOnCapturedPointerListener { view, motionEvent ->
+ 
+ ### Java
+ 
+-```
++```java
+ myView.setOnCapturedPointerListener(new View.OnCapturedPointerListener() {
+   @Override
+   public boolean onCapturedPointer (View view, MotionEvent motionEvent) {
+@@ -301,18 +274,18 @@ Whether you use a custom view or register a listener, your view receives a
+ `MotionEvent` with pointer coordinates that specify relative movements such as X
+ or Y deltas, similar to the coordinates delivered by a trackball device. You can
+ retrieve the coordinates by using
+-[`getX()`](/reference/android/view/MotionEvent#getX()) and
+-[`getY()`](/reference/android/view/MotionEvent#getY()).
++[`getX()`](https://developer.android.com/reference/android/view/MotionEvent#getX()) and
++[`getY()`](https://developer.android.com/reference/android/view/MotionEvent#getY()).
+ 
+ ### Release pointer capture
+ 
+ The view in your app can release the pointer capture by calling
+-[`releasePointerCapture()`](/reference/android/view/View#releasePointerCapture()),
++[`releasePointerCapture()`](https://developer.android.com/reference/android/view/View#releasePointerCapture()),
+ as shown in the following code example:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ override fun onClick(view: View) {
+     view.releasePointerCapture()
+ }
+@@ -320,7 +293,7 @@ override fun onClick(view: View) {
+ 
+ ### Java
+ 
+-```
++```java
+ @Override
+ public void onClick(View view) {
+     view.releasePointerCapture();

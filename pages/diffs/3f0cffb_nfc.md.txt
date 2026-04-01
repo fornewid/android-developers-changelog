@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/nfc.md b/docs/develop/connectivity/nfc.md
+index 365ef9c..3aea40d 100644
+--- a/docs/develop/connectivity/nfc.md
++++ b/docs/develop/connectivity/nfc.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Near Field Communication (NFC) is a set of short-range wireless technologies,
+ typically requiring a distance of 4 cm or less to initiate a connection. NFC
+ lets you share small payloads of data between an NFC tag and an

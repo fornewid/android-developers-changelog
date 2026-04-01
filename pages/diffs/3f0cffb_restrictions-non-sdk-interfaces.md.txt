@@ -1,0 +1,12 @@
+diff --git a/docs/guide/app-compatibility/restrictions-non-sdk-interfaces.md b/docs/guide/app-compatibility/restrictions-non-sdk-interfaces.md
+index 09cba8b..a268f1a 100644
+--- a/docs/guide/app-compatibility/restrictions-non-sdk-interfaces.md
++++ b/docs/guide/app-compatibility/restrictions-non-sdk-interfaces.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Starting in Android 9 (API level 28), the platform restricts which non-SDK
+ interfaces your app can use. These restrictions apply whenever an app references
+ a non-SDK interface or attempts to obtain its handle using reflection or JNI.

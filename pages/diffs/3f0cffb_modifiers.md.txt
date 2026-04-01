@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/graphics/draw/modifiers.md b/docs/develop/ui/compose/graphics/draw/modifiers.md
+index f0bf0c7..883aafe 100644
+--- a/docs/develop/ui/compose/graphics/draw/modifiers.md
++++ b/docs/develop/ui/compose/graphics/draw/modifiers.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ In addition to the `Canvas` composable, Compose has several useful graphics
+ `Modifiers` which aid in drawing custom content. These modifiers are useful
+ because they can be applied to any composable.

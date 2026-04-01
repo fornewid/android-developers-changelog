@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/16/features/progress-centric-notifications.md b/docs/about/versions/16/features/progress-centric-notifications.md
+index bdf1427..b52f90f 100644
+--- a/docs/about/versions/16/features/progress-centric-notifications.md
++++ b/docs/about/versions/16/features/progress-centric-notifications.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android 16 introduces progress-centric notifications to help users seamlessly
+ track user-initiated, start-to-end journeys.
+ 

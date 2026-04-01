@@ -1,0 +1,62 @@
+diff --git a/docs/guide/topics/large-screens/multitasking-and-multi-instance.md b/docs/guide/topics/large-screens/multitasking-and-multi-instance.md
+index 82b0692..1ed04cf 100644
+--- a/docs/guide/topics/large-screens/multitasking-and-multi-instance.md
++++ b/docs/guide/topics/large-screens/multitasking-and-multi-instance.md
+@@ -1,28 +1,13 @@
+ ---
+-title: Multitasking and multi-instance  |  Large screens  |  Android Developers
++title: https://developer.android.com/guide/topics/large-screens/multitasking-and-multi-instance
+ url: https://developer.android.com/guide/topics/large-screens/multitasking-and-multi-instance
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Large screens](https://developer.android.com/guide/topics/large-screens)
+-* [Guides](https://developer.android.com/guide/topics/large-screens/tier-3-overview)
++![Tier 1 adaptive differentiated icon](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/tier_1_icon.png)
+ 
+-# Multitasking and multi-instance Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-![Tier 1 adaptive differentiated icon](/static/images/docs/quality-guidelines/tier-1/tier_1_icon.png)
+-
+-TIER 1 — Adaptive differentiated
+-
+-**Objective:** Make your app [adaptive differentiated](/docs/quality-guidelines/adaptive-app-quality/tier-1) by meeting the following keyboard, mouse, and trackpad requirements of the [Adaptive app quality guidelines](/docs/quality-guidelines/adaptive-app-quality):
+-
+-* [Multitasking\_Scenarios](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multitasking_Scenarios)
+-* [Multitasking\_PiP](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multitasking_PiP)
+-* [Multi-Instance](/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#Multi-Instance)
++TIER 1 --- Adaptive differentiated
++| **Objective:** Make your app [adaptive differentiated](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#adaptive_differentiated) by meeting the [Multitasking:Support](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#Multitasking:Support) and [Multitasking:Multi-Instance](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#Multitasking:Multi-Instance) requirements of the [Adaptive app quality](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality) guidelines.
+ 
+ The expansive screen space of large screen devices enables users to run multiple
+ apps or multiple instances of the same app simultaneously for an enhanced user
+@@ -33,8 +18,7 @@ experience and increased productivity.
+ Apps can run side by side in split-screen mode or in separate, movable,
+ resizable windows in desktop windowing. Your app can open another application in
+ a separate window from a deep link, open attachments in their own windows, or
+-play videos in interactive picture‑in‑picture mode with custom
+-controls.
++play videos in picture‑in‑picture mode.
+ 
+ ## Multi-instance
+ 
+@@ -46,7 +30,7 @@ document editing, web browsing, file management, and product comparisons.
+ To learn how to make the most of multitasking and multi‑instance use
+ cases, see the following developer guides:
+ 
+-* [Support multi-window mode: Compose](/develop/ui/compose/layouts/adaptive/support-multi-window-mode)
+-* [Support multi-window mode: views](/develop/ui/views/layout/support-multi-window-mode)
+-* [Support desktop windowing](/develop/ui/compose/layouts/adaptive/support-desktop-windowing)
+-* [Add videos using picture-in-picture (PiP)](/develop/ui/views/picture-in-picture)
+\ No newline at end of file
++- [Support multi-window mode: Compose](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode)
++- [Support multi-window mode: views](https://developer.android.com/develop/ui/views/layout/support-multi-window-mode)
++- [Support desktop windowing](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-desktop-windowing)
++- [Add videos using picture-in-picture (PiP)](https://developer.android.com/develop/ui/views/picture-in-picture)
+\ No newline at end of file

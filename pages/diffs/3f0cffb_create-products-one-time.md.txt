@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playpoints/create-products-one-time.md b/docs/guide/playpoints/create-products-one-time.md
+index c1d34b9..2879b81 100644
+--- a/docs/guide/playpoints/create-products-one-time.md
++++ b/docs/guide/playpoints/create-products-one-time.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Before you [deliver one-time product](/guide/playpoints/deliver-items) to Play
+ Point members, you must create the product and set up a Play Points promotion.
+ 

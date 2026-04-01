@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/watch-face-push.md b/docs/training/wearables/watch-face-push.md
+index 208ebb0..684925f 100644
+--- a/docs/training/wearables/watch-face-push.md
++++ b/docs/training/wearables/watch-face-push.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Wear OS 6 introduces a new API, Watch Face Push, which creates opportunities for
+ more advanced watch face publishing use cases.
+ 

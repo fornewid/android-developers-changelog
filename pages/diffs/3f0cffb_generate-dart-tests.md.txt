@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/generate-dart-tests.md b/docs/studio/prompt-gallery/prompts/generate-dart-tests.md
+index 05e1d47..acc9514 100644
+--- a/docs/studio/prompt-gallery/prompts/generate-dart-tests.md
++++ b/docs/studio/prompt-gallery/prompts/generate-dart-tests.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Generates tests for the most significant class in a file.
+ 
+ ---

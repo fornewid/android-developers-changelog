@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/11/features/captive-portal.md b/docs/about/versions/11/features/captive-portal.md
+index 6931e56..d183325 100644
+--- a/docs/about/versions/11/features/captive-portal.md
++++ b/docs/about/versions/11/features/captive-portal.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Starting in Android 11 Beta 2, the system supports a subset of
+ functionality described by
+ [RFC7710bis](https://tools.ietf.org/html/draft-ietf-capport-rfc7710bis)

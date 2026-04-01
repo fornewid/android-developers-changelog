@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/flows/grant-permissions-on-phone.md b/docs/design/ui/cars/guides/flows/grant-permissions-on-phone.md
+index c390830..d89526f 100644
+--- a/docs/design/ui/cars/guides/flows/grant-permissions-on-phone.md
++++ b/docs/design/ui/cars/guides/flows/grant-permissions-on-phone.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When a user tries to open your app but hasn't authorized the necessary
+ permissions, you can use the Message template to request permissions.
+ 

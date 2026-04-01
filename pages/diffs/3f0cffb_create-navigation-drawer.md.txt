@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-navigation-drawer.md b/docs/develop/ui/compose/quick-guides/content/create-navigation-drawer.md
+index 3fc2479..18050f4 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-navigation-drawer.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-navigation-drawer.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The [navigation drawer](https://material.io/components/navigation-drawer) component is a slide-in menu that lets users navigate
+ to various sections of your app. Users can activate it by swiping from the side
+ or tapping a menu icon.

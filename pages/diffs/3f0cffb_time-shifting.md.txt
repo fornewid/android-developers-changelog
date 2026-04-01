@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/tif/time-shifting.md b/docs/training/tv/tif/time-shifting.md
+index 0fc722e..ded8030 100644
+--- a/docs/training/tv/tif/time-shifting.md
++++ b/docs/training/tv/tif/time-shifting.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Use time-shifting APIs in your TV input service to let users pause, rewind, and
+ fast-forward live programs in your service channels. If your app supports
+ time-shifting, users gain flexibility in how they watch your content:

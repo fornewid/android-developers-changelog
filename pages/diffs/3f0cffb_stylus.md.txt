@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/gallery/creativity/stylus.md b/docs/design/ui/gallery/creativity/stylus.md
+index 2d24135..27cdf52 100644
+--- a/docs/design/ui/gallery/creativity/stylus.md
++++ b/docs/design/ui/gallery/creativity/stylus.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![](/static/images/large-screens/gallery/samples/creativity/low-latency.png)
+ 
+ ## Low latency

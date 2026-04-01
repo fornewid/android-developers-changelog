@@ -1,0 +1,12 @@
+diff --git a/docs/identity/legacy/one-tap.md b/docs/identity/legacy/one-tap.md
+index 028f2d5..8fc0ee9 100644
+--- a/docs/identity/legacy/one-tap.md
++++ b/docs/identity/legacy/one-tap.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Caution:**
+ One Tap for Android is deprecated.
+ To ensure the continued security and usability of your app,

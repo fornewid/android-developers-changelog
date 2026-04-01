@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/camera-media3.md b/docs/jetpack/androidx/releases/camera-media3.md
+index ee70cd3..8242dab 100644
+--- a/docs/jetpack/androidx/releases/camera-media3.md
++++ b/docs/jetpack/androidx/releases/camera-media3.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # camera media3
+ 
+ API Reference  

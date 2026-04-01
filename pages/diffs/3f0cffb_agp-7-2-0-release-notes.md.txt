@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/agp-7-2-0-release-notes.md b/docs/build/releases/agp-7-2-0-release-notes.md
+index 1bae1e0..7e31813 100644
+--- a/docs/build/releases/agp-7-2-0-release-notes.md
++++ b/docs/build/releases/agp-7-2-0-release-notes.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Android Gradle Plugin 7.2.0 (May 2022)
+ 
+ Android Gradle plugin 7.2.0 is a major release that includes a variety of

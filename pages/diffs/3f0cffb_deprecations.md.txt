@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/12/deprecations.md b/docs/about/versions/12/deprecations.md
+index fea250a..a12b369 100644
+--- a/docs/about/versions/12/deprecations.md
++++ b/docs/about/versions/12/deprecations.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ With each release, specific Android APIs may become obsolete or need to be
+ refactored to provide a better developer experience or support new platform
+ capabilities. In these cases, Android will officially deprecate the obsolete

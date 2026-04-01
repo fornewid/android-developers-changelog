@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/data/sync.md b/docs/training/wearables/data/sync.md
+index 7bc22b7..0b9ca6f 100644
+--- a/docs/training/wearables/data/sync.md
++++ b/docs/training/wearables/data/sync.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This document describes how to synchronize data between a Wear OS device and a
+ phone. See the [overview guidance](/training/wearables/data/overview) for when to use the Data Layer
+ API and when to use your infrastructure.

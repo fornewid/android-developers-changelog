@@ -1,0 +1,12 @@
+diff --git a/docs/guide/components/activities/activity-lifecycle.md b/docs/guide/components/activities/activity-lifecycle.md
+index 4c757c8..8d01217 100644
+--- a/docs/guide/components/activities/activity-lifecycle.md
++++ b/docs/guide/components/activities/activity-lifecycle.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ As a user navigates through, out of, and back to your app, the
+ `Activity` instances in your app transition through
+ different states in their lifecycle.

@@ -1,0 +1,12 @@
+diff --git a/docs/training/sync-adapters/creating-authenticator.md b/docs/training/sync-adapters/creating-authenticator.md
+index 3d05352..2919ca6 100644
+--- a/docs/training/sync-adapters/creating-authenticator.md
++++ b/docs/training/sync-adapters/creating-authenticator.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The sync adapter framework assumes that your sync adapter transfers data between device storage
+ associated with an account and server storage that requires login access. For this reason, the
+ framework expects you to provide a component called an authenticator as part of your sync

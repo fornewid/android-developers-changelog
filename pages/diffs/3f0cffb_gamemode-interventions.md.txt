@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/adpf/gamemode/gamemode-interventions.md b/docs/games/optimize/adpf/gamemode/gamemode-interventions.md
+index fd6f6df..4cb3f46 100644
+--- a/docs/games/optimize/adpf/gamemode/gamemode-interventions.md
++++ b/docs/games/optimize/adpf/gamemode/gamemode-interventions.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ *Game Mode interventions* are
+ game-specific optimizations set by original equipment manufacturers (OEMs)
+ to improve the performance of games that are no longer being updated by
+@@ -173,6 +172,4 @@ For more information about measuring and optimizing game performance:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

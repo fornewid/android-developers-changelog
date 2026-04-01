@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2025.3.4.md b/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
+index 3d760fc..81f5f8f 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
++++ b/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ### Android Studio Panda 4 | 2025.3.4 Canary 2
+ 
+ **Released together with:**

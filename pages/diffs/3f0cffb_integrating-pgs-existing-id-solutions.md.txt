@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/integrating-pgs-existing-id-solutions.md b/docs/games/playgames/integrating-pgs-existing-id-solutions.md
+index 8857464..5588117 100644
+--- a/docs/games/playgames/integrating-pgs-existing-id-solutions.md
++++ b/docs/games/playgames/integrating-pgs-existing-id-solutions.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This page explains how to integrate
+ Play Games Services Sign In with your existing identity or cloud save
+ solution. Even though these recommendations are optional, they can help you
+@@ -233,6 +232,4 @@ between their game accounts too.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

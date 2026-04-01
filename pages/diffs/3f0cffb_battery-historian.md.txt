@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/power/battery-historian.md b/docs/topic/performance/power/battery-historian.md
+index 61c74ed..2751192 100644
+--- a/docs/topic/performance/power/battery-historian.md
++++ b/docs/topic/performance/power/battery-historian.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Warning:** Battery Historian is no longer actively maintained; if possible,
+ consider using [system tracing](/topic/performance/tracing), the [Macrobenchmark power metric](/topic/performance/benchmarking/macrobenchmark-metrics#power), or the
+ [Power Profiler](/studio/profile/power-profiler) to get insights into battery performance.

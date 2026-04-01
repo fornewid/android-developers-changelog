@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/watch-faces/hardware-acceleration.md b/docs/training/wearables/watch-faces/hardware-acceleration.md
+index 9442de6..22b6c35 100644
+--- a/docs/training/wearables/watch-faces/hardware-acceleration.md
++++ b/docs/training/wearables/watch-faces/hardware-acceleration.md
+@@ -17,7 +17,6 @@ Learn more about the user-facing changes in this [Help Center article](https://
+ 
+ 
+ 
+-
+ Wear OS apps that use standard views benefit from automatic hardware-accelerated
+ graphics rendering. But watch faces are usually implemented using
+ canvases, so they don't automatically get hardware acceleration.

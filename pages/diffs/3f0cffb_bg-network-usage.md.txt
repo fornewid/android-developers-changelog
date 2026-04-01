@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/vitals/bg-network-usage.md b/docs/topic/performance/vitals/bg-network-usage.md
+index db7b5be..727afdf 100644
+--- a/docs/topic/performance/vitals/bg-network-usage.md
++++ b/docs/topic/performance/vitals/bg-network-usage.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When an app connects to the mobile network in the background,
+ the app wakes up the CPU and turns on the radio. Doing so
+ repeatedly can run down a device's battery. An app is considered to be running

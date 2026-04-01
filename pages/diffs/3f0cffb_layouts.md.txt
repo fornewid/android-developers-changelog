@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/views/layouts.md b/docs/training/wearables/views/layouts.md
+index a90f58d..b4bee40 100644
+--- a/docs/training/wearables/views/layouts.md
++++ b/docs/training/wearables/views/layouts.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose on Wear OS is the recommended UI toolkit for Wear OS.

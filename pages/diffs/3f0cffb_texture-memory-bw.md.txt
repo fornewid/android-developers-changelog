@@ -1,0 +1,12 @@
+diff --git a/docs/agi/sys-trace/texture-memory-bw.md b/docs/agi/sys-trace/texture-memory-bw.md
+index 72bd66e..4bd4d2b 100644
+--- a/docs/agi/sys-trace/texture-memory-bw.md
++++ b/docs/agi/sys-trace/texture-memory-bw.md
+@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
+ 
+ 
+ 
+-
+ The memory bandwidth of texture data can be a potential bottleneck for your
+ app's GPU performance. There are some counters in an **AGI System Profile** that can help diagnose texture memory bandwidth issues.
+ 

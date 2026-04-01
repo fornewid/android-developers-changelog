@@ -1,0 +1,104 @@
+diff --git a/docs/studio/projects/configure-agp-ndk.md b/docs/studio/projects/configure-agp-ndk.md
+index bf340a8..4500fe4 100644
+--- a/docs/studio/projects/configure-agp-ndk.md
++++ b/docs/studio/projects/configure-agp-ndk.md
+@@ -1,35 +1,59 @@
+ ---
+-title: https://developer.android.com/studio/projects/configure-agp-ndk
++title: Configure the NDK for the Android Gradle plugin  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/studio/projects/configure-agp-ndk
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Studio](https://developer.android.com/studio)
++* [IDE guides](https://developer.android.com/studio/intro)
++
++# Configure the NDK for the Android Gradle plugin Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ This page shows you how to configure the NDK in your project according to the
+ version of the Android Gradle Plugin (AGP) used by the project.
+ 
+-> [!NOTE]
+-> **Note:** If possible, you should try to update the version of AGP in your project to version 4.1 or later. These AGP versions will auto-download the NDK for you in Android Studio.
++**Note:** If possible, you should try to update the version of AGP in your project
++to version 4.1 or later. These AGP versions will auto-download the NDK for you
++in Android Studio.
+ 
+ The steps vary according to the version of AGP used in the project. Find the
+ Android Gradle Plugin version in either of the following locations:
+ 
+-- **File \> Project Structure \> Project** menu in Android Studio
+-- The top-level `build.gradle` file in the project
++* **File > Project Structure > Project** menu in Android Studio
++* The top-level `build.gradle` file in the project
+ 
+ Select the version below:
+-<button value="agp4-1" default="">AGP 4.1+</button> <button value="agp4-0">AGP 4.0</button> <button value="agp3-6">AGP 3.6</button> <button value="agp3-5">AGP 3.5</button> <button value="agp3-4">AGP 3.4</button>
++
++AGP 4.1+
++AGP 4.0
++AGP 3.6
++AGP 3.5
++AGP 3.4
+ 
+ ## AGP version 4.1+
+ 
+ You have the following options to configure the NDK:
+ 
+-- (Recommended) Use the [`ndkVersion`](https://developer.android.com/studio/projects/install-ndk#apply-specific-version) property to set the NDK version.
+-- Do not set any property. Android Studio will automatically download the [default version of the NDK for that specific AGP version](https://developer.android.com/studio/projects/install-ndk#default-ndk-per-agp) (in this case, NDK version 21.0.6113669) or you can [install the NDK from the command line](https://developer.android.com/studio/projects/configure-agp-ndk#command-line). Android Studio installs all versions of the NDK in the `android-sdk/ndk/` directory. Each version is located in a subdirectory with the version number as its name.
+-- For special use cases, use the `ndkPath` property:
++* (Recommended) Use the
++  [`ndkVersion`](/studio/projects/install-ndk#apply-specific-version) property
++  to set the NDK version.
++* Do not set any property. Android Studio will automatically download the
++  [default version of the NDK for that specific AGP version](/studio/projects/install-ndk#default-ndk-per-agp)
++  (in this case, NDK version 21.0.6113669) or you can
++  [install the NDK from the command line](#command-line). Android Studio
++  installs all versions of the NDK in the
++  `android-sdk/ndk/` directory. Each version is located
++  in a subdirectory with the version number as its name.
++* For special use cases, use the `ndkPath` property:
+ 
+   ### Groovy
+ 
+-  ```groovy
++  ```
+   android {
+     ndkPath "/Users/ndkPath/ndk21"  // Point to your own NDK
+   }
+@@ -37,14 +61,14 @@ You have the following options to configure the NDK:
+ 
+   ### Kotlin
+ 
+-  ```kotlin
++  ```
+   android {
+     ndkPath = "/Users/ndkPath/ndk21"  // Point to your own NDK
+   }
+   ```
+ 
+-  > [!NOTE]
+-  > **Note:** Remove this property before distributing your source code; it should be left outside of your version control system.
++  **Note:** Remove this property before distributing your source code; it should
++  be left outside of your version control system.
+ 
+ ### Install the NDK from the command line
+ 
+@@ -68,6 +92,6 @@ To install the NDK from the command line, do the following:
+    ```
+ 
+    Use the `--channel` option to only install a package if it has been released
+-   in a channel *up to and including* <var translate="no">channel_id.</var>
++   in a channel *up to and including* channel\_id.
+ 
+-For more information, see [sdkmanager](https://developer.android.com/studio/command-line/sdkmanager).
+\ No newline at end of file
++For more information, see [sdkmanager](/studio/command-line/sdkmanager).
+\ No newline at end of file

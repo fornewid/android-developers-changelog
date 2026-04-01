@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/identity.md b/docs/games/playgames/identity.md
+index 8485cbc..74a3545 100644
+--- a/docs/games/playgames/identity.md
++++ b/docs/games/playgames/identity.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ With Google Play Games on PC, your users transition seamlessly between playing your game on their mobile device, and playing on their PC. If you also support other device types, such as Chromebooks or Android tablets, your user may be playing across even more surfaces. This topic introduces the continuity requirements for Google Play Games on PC.
+ 
+ Resetting game progress each time they play on a new device is a poor experience for your users; typically their intention is to continue playing your game, regardless of which surface they are on.
+@@ -38,6 +37,4 @@ These topics describe how to implement the requirements:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

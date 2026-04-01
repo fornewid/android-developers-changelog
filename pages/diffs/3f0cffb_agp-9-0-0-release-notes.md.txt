@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/agp-9-0-0-release-notes.md b/docs/build/releases/agp-9-0-0-release-notes.md
+index f91d404..012348e 100644
+--- a/docs/build/releases/agp-9-0-0-release-notes.md
++++ b/docs/build/releases/agp-9-0-0-release-notes.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android Gradle plugin 9.0 is a major release that brings API and behavior
+ changes.
+ 

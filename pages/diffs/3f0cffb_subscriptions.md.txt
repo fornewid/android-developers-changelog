@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/subscriptions.md b/docs/google/play/billing/subscriptions.md
+index 4987c34..4275127 100644
+--- a/docs/google/play/billing/subscriptions.md
++++ b/docs/google/play/billing/subscriptions.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This document describes how to handle subscription lifecycle events, such as
+ renewals and expirations. It also describes additional subscription features
+ such as offering promotions and allowing your users to manage their own
+@@ -1104,6 +1103,4 @@ cases, the user should still have access to the content of the old subscription.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

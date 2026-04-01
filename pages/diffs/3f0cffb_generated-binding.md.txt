@@ -1,0 +1,12 @@
+diff --git a/docs/topic/libraries/data-binding/generated-binding.md b/docs/topic/libraries/data-binding/generated-binding.md
+index 3eb3d2e..ec2b50d 100644
+--- a/docs/topic/libraries/data-binding/generated-binding.md
++++ b/docs/topic/libraries/data-binding/generated-binding.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Data Binding Library generates binding classes you can use to access the
+ layout's variables and views. This documentation shows how to create and
+ customize generated binding classes.

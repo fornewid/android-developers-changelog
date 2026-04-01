@@ -1,0 +1,12 @@
+diff --git a/docs/topic/architecture/domain-layer.md b/docs/topic/architecture/domain-layer.md
+index f10e7e5..6496d0d 100644
+--- a/docs/topic/architecture/domain-layer.md
++++ b/docs/topic/architecture/domain-layer.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The domain layer is an *optional* layer that sits between the UI layer and the
+ data layer.
+ 

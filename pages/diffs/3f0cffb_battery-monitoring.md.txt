@@ -1,0 +1,12 @@
+diff --git a/docs/training/monitoring-device-state/battery-monitoring.md b/docs/training/monitoring-device-state/battery-monitoring.md
+index 472ee41..d4ddfff 100644
+--- a/docs/training/monitoring-device-state/battery-monitoring.md
++++ b/docs/training/monitoring-device-state/battery-monitoring.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When you're altering the frequency of your background updates to reduce the effect of those
+ updates on battery life, checking the current battery level and charging state is a good place to
+ start.

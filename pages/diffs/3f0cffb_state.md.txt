@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/state.md b/docs/develop/ui/compose/state.md
+index 769e757..ab9b398 100644
+--- a/docs/develop/ui/compose/state.md
++++ b/docs/develop/ui/compose/state.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ State in an app is any value that can change over time. This is a very broad
+ definition and encompasses everything from a Room database to a variable in a
+ class.

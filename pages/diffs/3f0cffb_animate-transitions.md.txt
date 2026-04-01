@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/use-graph/animate-transitions.md b/docs/guide/navigation/use-graph/animate-transitions.md
+index c530b51..db7057c 100644
+--- a/docs/guide/navigation/use-graph/animate-transitions.md
++++ b/docs/guide/navigation/use-graph/animate-transitions.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Navigation component lets you add both property and view animations to
+ actions. To create your own animations, check out
+ [Animation resources](/guide/topics/resources/animation-resource).

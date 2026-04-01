@@ -1,0 +1,118 @@
+diff --git a/docs/about/versions/13.md b/docs/about/versions/13.md
+index 22a655a..d92ab8f 100644
+--- a/docs/about/versions/13.md
++++ b/docs/about/versions/13.md
+@@ -1,82 +1,58 @@
+ ---
+-title: Android 13  |  Android Developers
++title: https://developer.android.com/about/versions/13
+ url: https://developer.android.com/about/versions/13
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Releases](https://developer.android.com/about/versions)
++# Android 13
+ 
+-Stay organized with collections
++### [![Android 13](https://developer.android.com/static/images/about/versions/13/android13-black.png)](http://developer.android.com/about/versions/13/get)
+ 
+-Save and categorize content based on your preferences.
+-
+-
+-
+-
+-### [Android 13](https://developer.android.com/about/versions/13/get)
+-
+-Build for user privacy with photo picker and notification permission. Improve productivity with themed app icons, per-app languages, and clipboard preview. Build for modern standards like Bluetooth LE Audio and MIDI 2.0 over USB. Deliver a better experience on tablets and large screens.
+-
+-[Get started](https://developer.android.com/about/versions/13/get)
++Build for user privacy with photo picker and notification permission. Improve productivity with themed app icons, per-app languages, and clipboard preview. Build for modern standards like Bluetooth LE Audio and MIDI 2.0 over USB. Deliver a better experience on tablets and large screens.  
++[Get started](http://developer.android.com/about/versions/13/get)
+ 
+ ## What's in Android 13
+ 
+-![](https://developer.android.com/static/images/picto-icons/app-optimization-2.svg)
++![](http://developer.android.com/static/images/picto-icons/app-optimization-2.svg)  
+ 
+ ### Behavior Changes
+ 
+-Learn about system changes for privacy, security, performance, and other areas that might affect your app when it's running on Android 13.
+-
+-[All apps](https://developer.android.com/about/versions/13/behavior-changes-all)
+-[Apps targeting Android 13](https://developer.android.com/about/versions/13/behavior-changes-13)
++Learn about system changes for privacy, security, performance, and other areas that might affect your app when it's running on Android 13.  
++[All apps](http://developer.android.com/about/versions/13/behavior-changes-all)[Apps targeting Android 13](http://developer.android.com/about/versions/13/behavior-changes-13)  
++![](http://developer.android.com/static/images/about/versions/13/android-13-hero.png)  
+ 
+-![](https://developer.android.com/static/images/about/versions/13/android-13-hero.png)
++### New features \& APIs
+ 
+-### New features & APIs
++Explore new features from photo picker to themed app icons, per-app language preferences, copy and paste improvements, and more.  
++[Learn More](http://developer.android.com/about/versions/13/features)
+ 
+-Explore new features from photo picker to themed app icons, per-app language preferences, copy and paste improvements, and more.
++## Get started with Android 13
+ 
+-[Learn More](https://developer.android.com/about/versions/13/features)
+-
+-## Get started with Android 13
+-
+-1. **Set up a runtime environment** — see [Get Android 13](/about/versions/13/get)
+-   to flash a Google Pixel device or set up an emulator.
+-2. **Set up Android Studio** — try the Android 13 SDK and tools. See the [SDK setup](/about/versions/13/setup-sdk) page for steps.- **Learn about what's new** — review the [behavior changes for all apps](/about/versions/13/behavior-changes-all) and the
+-     [behavior changes for apps targeting
+-     Android 13](/about/versions/13/behavior-changes-13) that might've affected your app.
+-   - **Test your app** — run through all flows to look for issues.
+-     [Toggle behavior changes](/about/versions/13/reference/compat-framework-changes)
+-     at runtime to isolate issues.
+-   - **Update your app** — target Android 13 if possible, and test with users
+-     using beta channels or other groups.
++1. **Set up a runtime environment** --- see[Get Android 13](https://developer.android.com/about/versions/13/get)to flash a Google Pixel device or set up an emulator.
++2. **Set up Android Studio** --- try the Android 13 SDK and tools. See the[SDK setup](https://developer.android.com/about/versions/13/setup-sdk)page for steps.
++3. **Learn about what's new** --- review the[behavior changes for all apps](https://developer.android.com/about/versions/13/behavior-changes-all)and the[behavior changes for apps targeting Android 13](https://developer.android.com/about/versions/13/behavior-changes-13)that might've affected your app.
++4. **Test your app** --- run through all flows to look for issues.[Toggle behavior changes](https://developer.android.com/about/versions/13/reference/compat-framework-changes)at runtime to isolate issues.
++5. **Update your app**--- target Android 13 if possible, and test with users using beta channels or other groups.
+ 
+ ## Tools and resources
+ 
+-[![](https://developer.android.com/static/images/picto-icons/toggle.svg)](https://developer.android.com/about/versions/13/reference/compat-framework-changes)
+-
+-### [Compatibility tools](https://developer.android.com/about/versions/13/reference/compat-framework-changes)
+-
+-Toggle top behavior changes and debug with integrated logging—no need to change targeting.
+-
+-[Learn More](https://developer.android.com/about/versions/13/reference/compat-framework-changes)
+-
+-[![](https://developer.android.com/static/images/picto-icons/code.svg)](https://developer.android.com/about/versions/13/migration)
+-
+-### [Migrate your apps](https://developer.android.com/about/versions/13/migration)
++[![](http://developer.android.com/static/images/picto-icons/toggle.svg)](http://developer.android.com/about/versions/13/reference/compat-framework-changes)  
+ 
+-Follow this checklist of steps to get your apps ready for Android 13.
++### [Compatibility tools](http://developer.android.com/about/versions/13/reference/compat-framework-changes)
+ 
+-[Learn More](https://developer.android.com/about/versions/13/migration)
++Toggle top behavior changes and debug with integrated logging---no need to change targeting.  
++[Learn More](http://developer.android.com/about/versions/13/reference/compat-framework-changes)  
++[![](http://developer.android.com/static/images/picto-icons/code.svg)](http://developer.android.com/about/versions/13/migration)  
+ 
+-[![](https://developer.android.com/static/images/picto-icons/chat-bubbles-3.svg)](https://developer.android.com/about/versions/13/feedback)
++### [Migrate your apps](http://developer.android.com/about/versions/13/migration)
+ 
+-### [Give feedback](https://developer.android.com/about/versions/13/feedback)
++Follow this checklist of steps to get your apps ready for Android 13.  
++[Learn More](http://developer.android.com/about/versions/13/migration)  
++[![](http://developer.android.com/static/images/picto-icons/chat-bubbles-3.svg)](http://developer.android.com/about/versions/13/feedback)  
+ 
+-Your feedback and issue reports are critical! Use our [main issue tracker](https://source.android.com/source/report-bugs.html) to let us know!
++### [Give feedback](http://developer.android.com/about/versions/13/feedback)
+ 
++Your feedback and issue reports are critical! Use our[main issue tracker](https://source.android.com/source/report-bugs.html)to let us know!  
+ [Learn More](https://source.android.com/source/report-bugs.html)
+ 
+ ## Latest news
+\ No newline at end of file

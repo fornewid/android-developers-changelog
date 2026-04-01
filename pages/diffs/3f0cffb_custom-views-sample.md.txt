@@ -1,0 +1,121 @@
+diff --git a/docs/training/tv/accessibility/custom-views-sample.md b/docs/training/tv/accessibility/custom-views-sample.md
+index dcd4675..03c9000 100644
+--- a/docs/training/tv/accessibility/custom-views-sample.md
++++ b/docs/training/tv/accessibility/custom-views-sample.md
+@@ -1,19 +1,9 @@
+ ---
+-title: Custom view accessibility sample for Android TV  |  Android Developers
++title: https://developer.android.com/training/tv/accessibility/custom-views-sample
+ url: https://developer.android.com/training/tv/accessibility/custom-views-sample
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Android TV](https://developer.android.com/training/tv)
+-
+-# Custom view accessibility sample for Android TV Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ This guide steps through a sample showcasing some best practices to support
+ accessibility with custom views in an Android TV app. The guide shows how to
+ create a simple activity that uses the Canvas API to draw four images that are
+@@ -23,7 +13,7 @@ focusable and let accessibility services navigate between them.
+ 
+ Create a layout file for the custom view activity.
+ 
+-```
++```xml
+ <?xml version="1.0" encoding="utf-8">
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:orientation="vertical"
+@@ -55,7 +45,7 @@ Create a simple activity to load the layout XML file.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+ 
+@@ -70,7 +60,7 @@ class CustomViewBestPracticeActivity:AppCompatActivity() {
+ 
+ ### Java
+ 
+-```
++```java
+ package com.example.tvcustomviews;
+ 
+ import androidx.appcompat.app.AppCompatActivity;
+@@ -93,7 +83,7 @@ Next, define the class and draw four images using a canvas.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ package com.example.tvcustomviews
+ 
+ import android.content.Context
+@@ -197,7 +187,7 @@ class SampleCustomView:View {
+ 
+ ### Java
+ 
+-```
++```java
+ package com.example.tvcustomviews;
+ 
+ import android.content.Context;
+@@ -313,7 +303,7 @@ implementing its methods.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ package com.example.tvcustomviews
+ 
+ import android.graphics.Rect
+@@ -407,7 +397,7 @@ internal class SampleExploreByTouchHelper(parentView:SampleCustomView):ExploreBy
+ 
+ ### Java
+ 
+-```
++```java
+ package com.example.tvcustomviews;
+ 
+ import android.graphics.Rect;
+@@ -509,7 +499,7 @@ Finally, invoke `setAccessibilityDelegate()` when instantiating the custom view.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ private fun init(@Nullable attrs:AttributeSet) {
+   ...
+   ViewCompat.setAccessibilityDelegate(this,
+@@ -519,7 +509,7 @@ private fun init(@Nullable attrs:AttributeSet) {
+ 
+ ### Java
+ 
+-```
++```java
+   private void init(@Nullable AttributeSet attrs) {
+         ...
+         ViewCompat.setAccessibilityDelegate(this,
+@@ -529,10 +519,4 @@ private fun init(@Nullable attrs:AttributeSet) {
+ 
+ With Talkback enabled, accessibility focus is now correctly able to navigate to
+ the four images inside the custom view. If you press the `DPAD_CENTER` key on a
+-keypad, the app registers this event as an `ACTION_CLICK` event.
+-
+-[Previous
+-
+-arrow\_back
+-
+-Custom view accessibility support](/training/tv/accessibility/custom-views)
+\ No newline at end of file
++keypad, the app registers this event as an `ACTION_CLICK` event.
+\ No newline at end of file

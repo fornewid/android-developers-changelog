@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/platforms/android-auto.md b/docs/training/cars/platforms/android-auto.md
+index fff4a01..89de04e 100644
+--- a/docs/training/cars/platforms/android-auto.md
++++ b/docs/training/cars/platforms/android-auto.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![Android Auto user interface](/static/images/training/cars/android-auto.png)
+ 
+ 

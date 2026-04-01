@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/quicksettings-tiles/qr-code.md b/docs/develop/ui/views/quicksettings-tiles/qr-code.md
+index d72d6fb..0c22719 100644
+--- a/docs/develop/ui/views/quicksettings-tiles/qr-code.md
++++ b/docs/develop/ui/views/quicksettings-tiles/qr-code.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Quick Settings are tiles displayed in the [Quick Settings panel](https://support.google.com/android/answer/9083864).
+ Users can tap these tiles to quickly complete recurring tasks.
+ This document shows you how to create a custom Quick Settings tile for QR Code

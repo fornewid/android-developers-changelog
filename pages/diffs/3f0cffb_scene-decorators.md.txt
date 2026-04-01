@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/scenes/scene-decorators.md b/docs/guide/navigation/navigation-3/scenes/scene-decorators.md
+index 8759d83..42f71d7 100644
+--- a/docs/guide/navigation/navigation-3/scenes/scene-decorators.md
++++ b/docs/guide/navigation/navigation-3/scenes/scene-decorators.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Scene decorators let you modify the scene calculated by your app's [scene
+ strategy](/guide/navigation/navigation-3/scenes#understand-scene). In effect, they are used for a second phase of constructing the
+ content that's displayed by a [`NavDisplay`](/reference/kotlin/androidx/navigation3/ui/package-summary#top-level-functions-summary).

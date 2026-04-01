@@ -1,0 +1,12 @@
+diff --git a/docs/build/android-build-structure.md b/docs/build/android-build-structure.md
+index 0230d24..3d15c7d 100644
+--- a/docs/build/android-build-structure.md
++++ b/docs/build/android-build-structure.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android projects contain many build-related files and directory structures to
+ organize your application source and resources. Before diving into the
+ configuration details, we'll take a look at the overall structure and the basics

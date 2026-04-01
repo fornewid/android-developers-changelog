@@ -1,0 +1,12 @@
+diff --git a/docs/media/platform/hdr-image-format.md b/docs/media/platform/hdr-image-format.md
+index 5394290..4fb1663 100644
+--- a/docs/media/platform/hdr-image-format.md
++++ b/docs/media/platform/hdr-image-format.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ## Introduction
+ 
+ This document defines the behavior of a new file format that encodes a

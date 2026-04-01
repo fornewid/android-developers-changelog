@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/discovery/preview-videos.md b/docs/training/tv/discovery/preview-videos.md
+index 00656fa..227ab61 100644
+--- a/docs/training/tv/discovery/preview-videos.md
++++ b/docs/training/tv/discovery/preview-videos.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ A preview video is a great way to encourage users to deep-link into your TV app.
+ Previews can range from short clips to full movie trailers.
+ 

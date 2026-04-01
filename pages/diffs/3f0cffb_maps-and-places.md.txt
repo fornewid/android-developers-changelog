@@ -1,0 +1,12 @@
+diff --git a/docs/develop/sensors-and-location/location/maps-and-places.md b/docs/develop/sensors-and-location/location/maps-and-places.md
+index ccb9513..98ce0aa 100644
+--- a/docs/develop/sensors-and-location/location/maps-and-places.md
++++ b/docs/develop/sensors-and-location/location/maps-and-places.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![](/static/images/google/gps-maps.png)
+ 
+ Allow your users to explore the world with rich maps provided by Google.

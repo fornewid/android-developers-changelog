@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/device.md b/docs/studio/run/device.md
+index 43c16ec..f5aaa34 100644
+--- a/docs/studio/run/device.md
++++ b/docs/studio/run/device.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Always test your Android app on
+ a real device before releasing it to users. This page describes how to set up
+ your development environment and Android device for testing and debugging over

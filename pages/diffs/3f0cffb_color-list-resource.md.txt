@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/resources/color-list-resource.md b/docs/guide/topics/resources/color-list-resource.md
+index cd80a40..14224dd 100644
+--- a/docs/guide/topics/resources/color-list-resource.md
++++ b/docs/guide/topics/resources/color-list-resource.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A `ColorStateList`
+ is an object you can define in XML and apply as a color that actually changes colors depending on
+ the state of the `View` object it is

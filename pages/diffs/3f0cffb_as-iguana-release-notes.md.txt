@@ -1,0 +1,338 @@
+diff --git a/docs/studio/releases/past-releases/as-iguana-release-notes.md b/docs/studio/releases/past-releases/as-iguana-release-notes.md
+index 2350f07..9360dd5 100644
+--- a/docs/studio/releases/past-releases/as-iguana-release-notes.md
++++ b/docs/studio/releases/past-releases/as-iguana-release-notes.md
+@@ -1,33 +1,45 @@
+ ---
+-title: Android Studio Iguana | 2023.2.1 (Feb 2024)  |  Android Developers
++title: https://developer.android.com/studio/releases/past-releases/as-iguana-release-notes
+ url: https://developer.android.com/studio/releases/past-releases/as-iguana-release-notes
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [IDE guides](https://developer.android.com/studio/releases/past-releases)
+-
+-# Android Studio Iguana | 2023.2.1 (Feb 2024) Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ The following are new features in Android Studio Iguana.
+ 
+ ## Patch releases
+ 
++<br />
++
+ The following is a list of the patch releases in Android Studio Iguana
+ and Android Gradle plugin 8.3.
+ 
+-### Android Studio Iguana | 2023.2.1 Patch 2 and AGP 8.3.2 (April 2024)
++<br />
++
++<br />
++
++### Android Studio Iguana \| 2023.2.1 Patch 2 and AGP 8.3.2 (April 2024)
++
++<br />
++
++<br />
+ 
+ This minor update includes
+-[these bug fixes](/studio/releases/fixed-bugs/studio/2023.2.1#android-studio-iguana-|-2023.2.1-patch-2).
++[these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2023.2.1#android-studio-iguana-|-2023.2.1-patch-2).
+ 
+-### Android Studio Iguana | 2023.2.1 Patch 1 and AGP 8.3.1 (March 2024)
++<br />
++
++<br />
++
++### Android Studio Iguana \| 2023.2.1 Patch 1 and AGP 8.3.1 (March 2024)
++
++<br />
++
++<br />
+ 
+ This minor update includes
+-[these bug fixes](/studio/releases/fixed-bugs/studio/2023.2.1#android-studio-iguana-|-2023.2.1-patch-1).
++[these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2023.2.1#android-studio-iguana-|-2023.2.1-patch-1).
++
++<br />
+ 
+ ## IntelliJ IDEA 2023.2 platform update
+ 
+@@ -37,8 +49,8 @@ the Studio IDE experience. For details on the changes, see the
+ 
+ ## Version control system integration in App Quality Insights
+ 
+-[**App Quality Insights**](/studio/debug/app-quality-insights) now lets you
+-navigate from a Crashlytics stack trace to the relevant code—at the point in
++[**App Quality Insights**](https://developer.android.com/studio/debug/app-quality-insights) now lets you
++navigate from a Crashlytics stack trace to the relevant code---at the point in
+ time when the crash happened. AGP attaches git commit hash data to crash
+ reports, which helps Android Studio navigate to your code and show how it was
+ in the version where the issue occurred. When you view a crash report in
+@@ -46,25 +58,27 @@ in the version where the issue occurred. When you view a crash report in
+ current git checkout or view a diff between the current checkout and the version
+ of your codebase that generated the crash.
+ 
+-**Note:** This feature currently only supports version control using git.
++> [!NOTE]
++> **Note:** This feature currently only supports version control using git.
+ 
+-![](/static/studio/images/aqi-vcs-integration.png)
++![](https://developer.android.com/static/studio/images/aqi-vcs-integration.png)
+ 
+ To integrate your version control system with **App Quality Insights**, you
+ need the following minimum requirements:
+ 
+-* Latest Canary version of Android Studio Iguana
+-* Latest Alpha version of Android Gradle Plugin 8.3
+-* [Crashlytics SDK v18.3.7](https://firebase.google.com/support/release-notes/android#crashlytics_v18-3-7)
+-  (or the [Firebase Android Bill of Materials v32.0.0](https://firebase.google.com/support/release-notes/android#bom_v32-0-0))
++- Latest Canary version of Android Studio Iguana
++- Latest Alpha version of Android Gradle Plugin 8.3
++- [Crashlytics SDK v18.3.7](https://firebase.google.com/support/release-notes/android#crashlytics_v18-3-7) (or the [Firebase Android Bill of Materials v32.0.0](https://firebase.google.com/support/release-notes/android#bom_v32-0-0))
+ 
+ To use version control integration for a debuggable build type, enable the
+ `vcsInfo` flag in the module-level build file. For release (non-debuggable)
+ builds, the flag is enabled by default.
+ 
++<br />
++
+ ### Kotlin
+ 
+-```
++```kotlin
+ android {
+   buildTypes {
+     getByName("debug") {
+@@ -78,7 +92,7 @@ android {
+ 
+ ### Groovy
+ 
+-```
++```groovy
+ android {
+   buildTypes {
+     debug {
+@@ -90,6 +104,8 @@ android {
+ }
+ ```
+ 
++<br />
++
+ Now, when you build your app and publish to Google Play, crash reports include
+ the data necessary for the IDE to link to previous versions of your app from the
+ stack trace.
+@@ -97,19 +113,19 @@ stack trace.
+ ## View Crashlytics crash variants in App Quality Insights
+ 
+ To help you analyze the root causes of a crash, you can now use App Quality
+-Insights to view events by issue *variants*, or groups of events that share
++Insights to view events by issue *variants* , or groups of events that share
+ similar stack traces. To view events in each variant of a crash report, select
+ a variant from the dropdown. To aggregate information for all variants, select
+ **All**.
+ 
+-![](/static/studio/images/aqi-variants.png)
++![](https://developer.android.com/static/studio/images/aqi-variants.png)
+ 
+ ## Compose UI Check
+ 
+ To help developers build more adaptive and accessible UIs in Jetpack Compose,
+ Android Studio Iguana Canary 5 introduced a new UI Check mode in Compose
+-Preview. This feature works similar to [Visual linting](/studio/releases/past-releases/as-electric-eel-release-notes#visual-linting)
+-and [Accessibility checks integrations](/guide/topics/ui/accessibility/testing#accessibility-scanner)
++Preview. This feature works similar to [Visual linting](https://developer.android.com/studio/releases/past-releases/as-electric-eel-release-notes#visual-linting)
++and [Accessibility checks integrations](https://developer.android.com/guide/topics/ui/accessibility/testing#accessibility-scanner)
+ for views. When you activate Compose UI Check mode, Android Studio automatically
+ audits your Compose UI and check for adaptive and accessibility issues across
+ different screen sizes, such as text stretched on large screens or low color
+@@ -117,23 +133,16 @@ contrast. The mode highlights issues found in different preview configurations
+ and lists them in the problems panel.
+ 
+ Try out this feature today by clicking on the UI Check button
+-![](/static/studio/images/buttons/compose-ui-check-mode-icon.png)
+-on Compose Preview and send your [feedback](/studio/report-bugs):
+-
+-![](/static/studio/images/design/compose-ui-check-entry.png)
+-
+-
+-Click the Compose UI Check mode button to activate the check.
++![](https://developer.android.com/static/studio/images/buttons/compose-ui-check-mode-icon.png)
++on Compose Preview and send your [feedback](https://developer.android.com/studio/report-bugs):
++![](https://developer.android.com/static/studio/images/design/compose-ui-check-entry.png) Click the Compose UI Check mode button to activate the check.
+ 
+ Known issues of UI Check Mode:
+ 
+-* Selected issue in the problem panel might lose focus
+-* "Suppress rule" doesn't work
+-
+-![](/static/studio/images/design/compose-ui-check.png)
+-
++- Selected issue in the problem panel might lose focus
++- "Suppress rule" doesn't work
+ 
+-Compose UI Check mode activated with details in the problems panel.
++![](https://developer.android.com/static/studio/images/design/compose-ui-check.png) Compose UI Check mode activated with details in the problems panel.
+ 
+ ## Progressive Rendering for Compose Preview
+ 
+@@ -144,18 +153,17 @@ to save memory used.
+ 
+ This feature is developed with the goal to further improve the usability of
+ Previews by being able to handle more previews at the same time in a file. Try
+-it out today and [submit your feedback](/studio/report-bugs).
+-
+-![](/static/studio/images/design/progressive-rendering.gif)
++it out today and [submit your feedback](https://developer.android.com/studio/report-bugs).
++![](https://developer.android.com/static/studio/images/design/progressive-rendering.gif)
+ 
+ ## Baseline Profiles module wizard
+ 
+ Starting with Android Studio Iguana, you can generate
+-[Baseline Profiles](/topic/performance/baselineprofiles/overview) for your app
++[Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview) for your app
+ using the **Baseline Profile Generator** template in the new module wizard
+-(**File > New > New Module**).
++(**File \> New \> New Module**).
+ 
+-![](/static/studio/images/baseline-profile-wizard.png)
++![](https://developer.android.com/static/studio/images/baseline-profile-wizard.png)
+ 
+ This template sets up your project so that it can support Baseline Profiles. It
+ uses the new Baseline Profiles Gradle plugin, which automates the process of
+@@ -165,7 +173,7 @@ The template also creates a run configuration that lets you generate a
+ Baseline Profile with one click from the **Select Run/Debug Configuration**
+ drop-down list.
+ 
+-![](/static/studio/images/baseline-profile-run-config.png)
++![](https://developer.android.com/static/studio/images/baseline-profile-run-config.png)
+ 
+ ## Test against configuration changes with the Espresso Device API
+ 
+@@ -174,14 +182,14 @@ configuration changes, such as rotation and screen unfolding. The Espresso
+ Device API lets you simulate these configuration changes on a virtual device and
+ executes your tests synchronously, so only one UI action or assertion happens at
+ a time and your test results are more reliable. Learn more about how to [write
+-UI tests with Espresso](/training/testing/espresso).
++UI tests with Espresso](https://developer.android.com/training/testing/espresso).
+ 
+ To use the Espresso Device API, you need the following:
+ 
+-* Android Studio Iguana or higher
+-* Android Gradle plugin 8.3 or higher
+-* Android Emulator 33.1.10 or higher
+-* Android virtual device that runs API level 24 or higher
++- Android Studio Iguana or higher
++- Android Gradle plugin 8.3 or higher
++- Android Emulator 33.1.10 or higher
++- Android virtual device that runs API level 24 or higher
+ 
+ ### Set up your project for the Espresso Device API
+ 
+@@ -205,7 +213,7 @@ To set up your project so it supports the Espresso Device API, do the following:
+ 
+    ### Kotlin
+ 
+-   ```
++   ```kotlin
+      testOptions {
+        emulatorControl {
+          enable = true
+@@ -215,7 +223,7 @@ To set up your project so it supports the Espresso Device API, do the following:
+ 
+    ### Groovy
+ 
+-   ```
++   ```groovy
+      testOptions {
+        emulatorControl {
+          enable = true
+@@ -227,7 +235,7 @@ To set up your project so it supports the Espresso Device API, do the following:
+ 
+    ### Kotlin
+ 
+-   ```
++   ```kotlin
+      dependencies {
+        androidTestImplementation("androidx.test.espresso:espresso-device:3.6.1")
+      }
+@@ -235,7 +243,7 @@ To set up your project so it supports the Espresso Device API, do the following:
+ 
+    ### Groovy
+ 
+-   ```
++   ```groovy
+      dependencies {
+        androidTestImplementation 'androidx.test.espresso:espresso-device:3.6.1'
+      }
+@@ -254,7 +262,7 @@ rotates:
+ 1. First, for a consistent starting state set the device to portrait
+    mode:
+ 
+-   ```
++   ```kotlin
+      import androidx.test.espresso.device.action.ScreenOrientation
+      import androidx.test.espresso.device.rules.ScreenOrientationRule
+      ...
+@@ -264,7 +272,7 @@ rotates:
+ 2. Create a test that sets the device to landscape orientation during test
+    execution:
+ 
+-   ```
++   ```kotlin
+      @Test
+      fun myRotationTest() {
+        ...
+@@ -275,7 +283,7 @@ rotates:
+    ```
+ 3. After the screen rotates, check that the UI adapts to the new layout as expected:
+ 
+-   ```
++   ```kotlin
+      @Test
+      fun myRotationTest() {
+        ...
+@@ -295,7 +303,7 @@ device and the screen unfolds:
+    `onDevice().setClosedMode()`. Make sure that your app's layout
+    adapts to the compact screen width:
+ 
+-   ```
++   ```kotlin
+      @Test
+      fun myUnfoldedTest() {
+        onDevice().setClosedMode()
+@@ -305,10 +313,10 @@ device and the screen unfolds:
+      }
+    ```
+ 2. To transition to a fully unfolded state, call
+-   `onDevice().setFlatMode()`. Check that the app’s layout adapts to
++   `onDevice().setFlatMode()`. Check that the app's layout adapts to
+    the expanded size class:
+ 
+-   ```
++   ```kotlin
+      @Test
+      fun myUnfoldedTest() {
+        onDevice().setClosedMode()
+@@ -332,10 +340,8 @@ For example, to specify that a test should only be run on devices that support
+ unfolding to a flat configuration, add the following `@RequiresDeviceMode` code
+ to your test:
+ 
+-```
+-@Test
+-@RequiresDeviceMode(mode = FLAT)
+-fun myUnfoldedTest() {
+-  ...
+-}
+-```
+\ No newline at end of file
++    @Test
++    @RequiresDeviceMode(mode = FLAT)
++    fun myUnfoldedTest() {
++      ...
++    }
+\ No newline at end of file

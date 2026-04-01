@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/results-state.md b/docs/guide/navigation/navigation-3/recipes/results-state.md
+index 91540c5..9e5cbf1 100644
+--- a/docs/guide/navigation/navigation-3/recipes/results-state.md
++++ b/docs/guide/navigation/navigation-3/recipes/results-state.md
+@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Returning a Result (State-Based)
+ 
+ This recipe demonstrates how to return a result from one screen to a previous screen using a state-based approach.

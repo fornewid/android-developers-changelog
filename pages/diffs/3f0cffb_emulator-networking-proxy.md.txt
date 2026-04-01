@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/emulator-networking-proxy.md b/docs/studio/run/emulator-networking-proxy.md
+index af13756..0c3f720 100644
+--- a/docs/studio/run/emulator-networking-proxy.md
++++ b/docs/studio/run/emulator-networking-proxy.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ On the Android Emulator, you can use a proxy to debug application traffic or to
+ access the internet from behind a corporate firewall. The emulator offers two
+ distinct proxy mechanisms to support these different use cases: the Android

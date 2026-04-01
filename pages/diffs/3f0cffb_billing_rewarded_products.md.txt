@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/billing_rewarded_products.md b/docs/google/play/billing/billing_rewarded_products.md
+index 0d13e73..89b97ce 100644
+--- a/docs/google/play/billing/billing_rewarded_products.md
++++ b/docs/google/play/billing/billing_rewarded_products.md
+@@ -14,6 +14,7 @@ Send feedback
+ 
+ 
+ 
++
+ **Warning:** Rewarded products are no longer supported. For more information, see
+ [Create a rewarded product](https://support.google.com/googleplay/android-developer/answer/9155268).
+ 
+@@ -235,4 +236,6 @@ using Google Play Billing
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

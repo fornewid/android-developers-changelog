@@ -1,0 +1,42 @@
+diff --git a/docs/develop/ui/views/components/settings/handle-other-form-factors.md b/docs/develop/ui/views/components/settings/handle-other-form-factors.md
+index f0c788d..be25022 100644
+--- a/docs/develop/ui/views/components/settings/handle-other-form-factors.md
++++ b/docs/develop/ui/views/components/settings/handle-other-form-factors.md
+@@ -1,11 +1,23 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/components/settings/handle-other-form-factors
++title: Handle other form factors  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/components/settings/handle-other-form-factors
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Handle other form factors
+-Part of [Android Jetpack](https://developer.android.com/jetpack).
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
++
++
++# Handle other form factors   Part of [Android Jetpack](/jetpack).
+ 
+ This topic outlines using the Preference Library with other supported form
+ factors.
+@@ -13,7 +25,7 @@ factors.
+ ## Android TV
+ 
+ You should use the
+-[AndroidX Leanback Preference Library](https://developer.android.com/reference/kotlin/androidx/leanback/preference/package-summary)
++[AndroidX Leanback Preference Library](/reference/kotlin/androidx/leanback/preference/package-summary)
+ for building settings on Android TV devices. As the Leanback Preference Library
+ shares many of the same concepts as this library, you can use many of the same
+ attributes to customize your settings screens.
+\ No newline at end of file

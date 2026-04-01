@@ -1,0 +1,12 @@
+diff --git a/docs/media/optimize/performance/measure.md b/docs/media/optimize/performance/measure.md
+index f163558..33b3fc7 100644
+--- a/docs/media/optimize/performance/measure.md
++++ b/docs/media/optimize/performance/measure.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ In Android 8.0 (API level 26) and later, the `getMetrics()` method is available
+ for some media classes. It returns a
+ `PersistableBundle`

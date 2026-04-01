@@ -1,0 +1,121 @@
+diff --git a/docs/ndk/guides/sdk-versions.md b/docs/ndk/guides/sdk-versions.md
+index c2da860..667fc4e 100644
+--- a/docs/ndk/guides/sdk-versions.md
++++ b/docs/ndk/guides/sdk-versions.md
+@@ -1,20 +1,11 @@
+ ---
+-title: Android SDK version properties  |  Android NDK  |  Android Developers
++title: https://developer.android.com/ndk/guides/sdk-versions
+ url: https://developer.android.com/ndk/guides/sdk-versions
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Home](https://developer.android.com/)
+-* [NDK](https://developer.android.com/ndk)
+-* [Develop](https://developer.android.com/develop)
+-* [Guides](https://developer.android.com/ndk/guides)
+-
+-# Android SDK version properties Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Android applications can set a number of SDK version properties in their
+-`build.gradle` file. The [Android `build.gradle`](/studio/build#module-level) documentation explains what
++`build.gradle` file. The [Android `build.gradle`](https://developer.android.com/studio/build#module-level) documentation explains what
+ those properties mean for the application in general. This document explains how
+ those properties affect NDK builds.
+ 
+@@ -48,36 +39,32 @@ At runtime, you can get the `targetSdkVersion` used by an application by calling
+ `android_get_application_target_sdk_version()`. This API is available in API
+ level 24 and later. This function has the following signature:
+ 
+-```
+-/**
+- * Returns the `targetSdkVersion` of the caller, or `__ANDROID_API_FUTURE__` if
+- * there is no known target SDK version (for code not running in the context of
+- * an app).
+- *
+- * The returned values correspond to the named constants in `<android/api-level.h>`,
+- * and is equivalent to the AndroidManifest.xml `targetSdkVersion`.
+- *
+- * See also android_get_device_api_level().
+- *
+- * Available since API level 24.
+- */
+-int android_get_application_target_sdk_version() __INTRODUCED_IN(24);
+-```
++    /**
++     * Returns the `targetSdkVersion` of the caller, or `__ANDROID_API_FUTURE__` if
++     * there is no known target SDK version (for code not running in the context of
++     * an app).
++     *
++     * The returned values correspond to the named constants in `<android/api-level.h>`,
++     * and is equivalent to the AndroidManifest.xml `targetSdkVersion`.
++     *
++     * See also android_get_device_api_level().
++     *
++     * Available since API level 24.
++     */
++    int android_get_application_target_sdk_version() __INTRODUCED_IN(24);
+ 
+ Other behavior changes might depend on the device API level. You can get the API
+ level of the device your application is running on by calling
+ `android_get_device_api_level()`. This function has the following signature:
+ 
+-```
+-/**
+- * Returns the API level of the device we're actually running on, or -1 on failure.
+- * The returned values correspond to the named constants in `<android/api-level.h>`,
+- * and is equivalent to the Java `Build.VERSION.SDK_INT` API.
+- *
+- * See also android_get_application_target_sdk_version().
+- */
+-int android_get_device_api_level();
+-```
++    /**
++     * Returns the API level of the device we're actually running on, or -1 on failure.
++     * The returned values correspond to the named constants in `<android/api-level.h>`,
++     * and is equivalent to the Java `Build.VERSION.SDK_INT` API.
++     *
++     * See also android_get_application_target_sdk_version().
++     */
++    int android_get_device_api_level();
+ 
+ Getting device API levels allows NDK code to be dynamically aware of behavior
+ changes in the platform. Since minor API levels aren't tied to behavior changes,
+@@ -94,7 +81,7 @@ This property has no effect on NDK builds.
+ ## minSdkVersion
+ 
+ The `minSdkVersion` set in your `build.gradle` file determines which APIs are
+-available at build time (see [compileSdkVersion](#compilesdkversion) to understand why this differs
++available at build time (see [compileSdkVersion](https://developer.android.com/ndk/guides/sdk-versions#compilesdkversion) to understand why this differs
+ from Java builds), and determines the minimum version of the OS that your code
+ will be compatible with.
+ 
+@@ -105,10 +92,8 @@ features are used in libc, and may also enable performance or size improvements
+ older versions of Android. Even if you do not use any new APIs, this property
+ still governs the minimum supported OS version of your code.
+ 
+-**Warning:** Your app *might* work on older devices even if your native libraries
+-are built with a newer `minSdkVersion`. **Do not rely on this behavior.** It is
+-not guaranteed to work, and may not on other NDK versions, OS versions, or
+-individual devices.
++> [!WARNING]
++> **Warning:** Your app *might* work on older devices even if your native libraries are built with a newer `minSdkVersion`. **Do not rely on this behavior.** It is not guaranteed to work, and may not on other NDK versions, OS versions, or individual devices.
+ 
+ For a new app, see the user distribution data in Android Studio's New Project
+ Wizard or on [apilevels.com](https://apilevels.com). Choose your balance between
+@@ -121,10 +106,8 @@ longer worth the maintenance costs, or lower it if your users demand it and it's
+ worth the new maintenance costs. The Play console has metrics specific to your
+ app's user distribution.
+ 
+-**Note:** The NDK has its own `minSdkVersion` defined in
+-`<NDK>/meta/platforms.json`. This is the lowest API level supported by the NDK.
+-Do not set your app's `minSdkVersion` lower than this. Play may allow your app
+-to be installed on older devices, but your NDK code may not work.
++> [!NOTE]
++> **Note:** The NDK has its own `minSdkVersion` defined in `<NDK>/meta/platforms.json`. This is the lowest API level supported by the NDK. Do not set your app's `minSdkVersion` lower than this. Play may allow your app to be installed on older devices, but your NDK code may not work.
+ 
+ The `minSdkVersion` of your application is made available to the preprocessor
+ via the `__ANDROID_MIN_SDK_VERSION__` macro (the legacy `__ANDROID_API__` is

@@ -1,0 +1,12 @@
+diff --git a/docs/topic/libraries/architecture/viewmodel/viewmodel-apis.md b/docs/topic/libraries/architecture/viewmodel/viewmodel-apis.md
+index 40ddc5e..3512be7 100644
+--- a/docs/topic/libraries/architecture/viewmodel/viewmodel-apis.md
++++ b/docs/topic/libraries/architecture/viewmodel/viewmodel-apis.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # ViewModel Scoping APIs   Part of [Android Jetpack](/jetpack).
+ 
+ Scope is key to using ViewModels effectively. Each ViewModel is scoped to an

@@ -1,0 +1,12 @@
+diff --git a/docs/identity/legacy/one-tap/linked-account-signin.md b/docs/identity/legacy/one-tap/linked-account-signin.md
+index 74897f2..35fa94e 100644
+--- a/docs/identity/legacy/one-tap/linked-account-signin.md
++++ b/docs/identity/legacy/one-tap/linked-account-signin.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Caution:**
+ One Tap for Android is deprecated.
+ To ensure the continued security and usability of your app,

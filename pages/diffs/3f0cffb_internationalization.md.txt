@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/resources/internationalization.md b/docs/guide/topics/resources/internationalization.md
+index 035bb6c..0e1c4a0 100644
+--- a/docs/guide/topics/resources/internationalization.md
++++ b/docs/guide/topics/resources/internationalization.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android leverages the
+ [ICU
+ library](http://site.icu-project.org/) and [CLDR project](http://cldr.unicode.org/) to provide Unicode and other internationalization

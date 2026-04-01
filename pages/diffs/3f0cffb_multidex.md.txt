@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/multidex.md b/docs/jetpack/androidx/releases/multidex.md
+index 088ba43..a513fe8 100644
+--- a/docs/jetpack/androidx/releases/multidex.md
++++ b/docs/jetpack/androidx/releases/multidex.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Multidex
+ 
+ Deploy applications with multiple dex files on pre-Android 5 devices.

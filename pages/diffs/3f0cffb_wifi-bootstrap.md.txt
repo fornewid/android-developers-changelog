@@ -1,0 +1,105 @@
+diff --git a/docs/develop/connectivity/wifi/wifi-bootstrap.md b/docs/develop/connectivity/wifi/wifi-bootstrap.md
+index 7f8979f..7964da8 100644
+--- a/docs/develop/connectivity/wifi/wifi-bootstrap.md
++++ b/docs/develop/connectivity/wifi/wifi-bootstrap.md
+@@ -1,63 +1,51 @@
+ ---
+-title: Wi-Fi Network Request API for peer-to-peer connectivity  |  Connectivity  |  Android Developers
++title: https://developer.android.com/develop/connectivity/wifi/wifi-bootstrap
+ url: https://developer.android.com/develop/connectivity/wifi/wifi-bootstrap
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [Connectivity](https://developer.android.com/develop/connectivity)
+-* [Guides](https://developer.android.com/develop/connectivity/overview)
+-
+-# Wi-Fi Network Request API for peer-to-peer connectivity Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-On Android 10 (API level 29) and higher devices, you can use a new peer to peer API to
++On Android 10 (API level 29) and higher devices, you can use a new peer to peer API to
+ bootstrap configuration for secondary devices like Chromecast and Google Home
+ hardware. This feature enables your app to prompt the user to change the access
+ point that the device is connected to by using
+-[`WifiNetworkSpecifier`](/reference/android/net/wifi/WifiNetworkSpecifier)
++[`WifiNetworkSpecifier`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier)
+ to describe properties of a requested network.
+ 
+ To use this API, do the following:
+ 
+ 1. Create a Wi-Fi network specifier using
+-   [`WifiNetworkSpecifier.Builder`](/reference/android/net/wifi/WifiNetworkSpecifier.Builder).
++   [`WifiNetworkSpecifier.Builder`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder).
++
+ 2. Set a network filter to match networks to connect to, along with required
+    credentials.
+-3. Decide on a combination of [`SSID`](/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setssid),
+-   [`SSID pattern`](/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setssidpattern),
+-   [`BSSID`](/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setbssid),
+-   and [`BSSID pattern`](/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setbssidpattern)
++
++3. Decide on a combination of [`SSID`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setssid),
++   [`SSID pattern`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setssidpattern),
++   [`BSSID`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setbssid),
++   and [`BSSID pattern`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setbssidpattern)
+    to set the network filter in each request, subject to the following
+    requirements:
+ 
+-   * Each request should provide at least one of `SSID`, `SSID pattern`,
+-     `BSSID`, or `BSSID pattern`
+-   * Each request can set only one of `SSID` or `SSID pattern`
+-   * Each request can set only one of `BSSID` or `BSSID pattern`
++   - Each request should provide at least one of `SSID`, `SSID pattern`, `BSSID`, or `BSSID pattern`
++   - Each request can set only one of `SSID` or `SSID pattern`
++   - Each request can set only one of `BSSID` or `BSSID pattern`
+ 4. Add the specifiers to the network request along with a
+-   [`NetworkCallback`](/reference/android/net/ConnectivityManager.NetworkCallback)
++   [`NetworkCallback`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback)
+    instance to track the status of the request.
+ 
+    If the user accepts the request and the connection to the network is
+    successful,
+-   [`NetworkCallback.onAvailable()`](/reference/android/net/ConnectivityManager.NetworkCallback#onAvailable(android.net.Network))
++   [`NetworkCallback.onAvailable()`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback#onAvailable(android.net.Network))
+    is invoked on the callback object. If the user denies the request or if the
+    connection to the network is unsuccessful,
+-   [`NetworkCallback.onUnavailable()`](/reference/android/net/ConnectivityManager.NetworkCallback#onUnavailable())
++   [`NetworkCallback.onUnavailable()`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback#onUnavailable())
+    is invoked on the callback object.
+ 
+ Initiating the request to connect to a peer device launches a dialog box on the
+ same device, from which that device's user can accept the connection request.
+ 
+-**Note:** Creating a connection using this API does not provide an internet
+-connection to the app or to the device. To provide an internet
+-connection to the apps on a device, use the
+-[Wi-Fi Suggestion API](/develop/connectivity/wifi/wifi-suggest) instead.
++> [!NOTE]
++> **Note:** Creating a connection using this API does not provide an internet connection to the app or to the device. To provide an internet connection to the apps on a device, use the [Wi-Fi Suggestion API](https://developer.android.com/develop/connectivity/wifi/wifi-suggest) instead.
+ 
+ ## Bypassing user approval
+ 
+@@ -79,7 +67,7 @@ prefix of `"test"` and a BSSID OUI of `"10:03:23"`:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ val specifier = WifiNetworkSpecifier.Builder()
+     .setSsidPattern(PatternMatcher("test", PatternMatcher.PATTERN_PREFIX))
+     .setBssidPattern(MacAddress.fromString("10:03:23:00:00:00"), MacAddress.fromString("ff:ff:ff:00:00:00"))
+@@ -112,7 +100,7 @@ connectivityManager.unregisterNetworkCallback(networkCallback)
+ 
+ ### Java
+ 
+-```
++```java
+ final NetworkSpecifier specifier =
+   new WifiNetworkSpecifier.Builder()
+   .setSsidPattern(new PatternMatcher("test", PatternMatcher.PATTERN_PREFIX))

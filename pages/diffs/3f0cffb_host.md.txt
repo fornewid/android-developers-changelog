@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/appwidgets/host.md b/docs/develop/ui/views/appwidgets/host.md
+index c936489..061bec6 100644
+--- a/docs/develop/ui/views/appwidgets/host.md
++++ b/docs/develop/ui/views/appwidgets/host.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Android home screen, available on most Android-powered devices, lets the
+ user embed [app widgets](/guide/topics/appwidgets/overview) (or *widgets*) for
+ quick access to content. If you're building a home screen replacement or a

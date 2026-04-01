@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/agp-1-5-0-release-notes.md b/docs/build/releases/agp-1-5-0-release-notes.md
+index 34ddcfd..80c2139 100644
+--- a/docs/build/releases/agp-1-5-0-release-notes.md
++++ b/docs/build/releases/agp-1-5-0-release-notes.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Android plugin for Gradle, revision 1.5.0 (November 2015)
+ 
+ Dependencies:

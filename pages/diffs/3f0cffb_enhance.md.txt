@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/appwidgets/enhance.md b/docs/develop/ui/views/appwidgets/enhance.md
+index e33fd37..63c8c90 100644
+--- a/docs/develop/ui/views/appwidgets/enhance.md
++++ b/docs/develop/ui/views/appwidgets/enhance.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs.

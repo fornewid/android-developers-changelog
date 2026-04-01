@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/canonical-layouts.md b/docs/develop/ui/views/layout/canonical-layouts.md
+index 757d435..bf111b3 100644
+--- a/docs/develop/ui/views/layout/canonical-layouts.md
++++ b/docs/develop/ui/views/layout/canonical-layouts.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Canonical layouts are proven, versatile layouts that provide an optimal user
+ experience on a variety of form factors.
+ 

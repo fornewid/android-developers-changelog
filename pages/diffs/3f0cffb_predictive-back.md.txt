@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/system/predictive-back.md b/docs/develop/ui/compose/system/predictive-back.md
+index 2ca641f..fe5a928 100644
+--- a/docs/develop/ui/compose/system/predictive-back.md
++++ b/docs/develop/ui/compose/system/predictive-back.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Predictive back, a gesture navigation feature, lets users preview where the
+ back swipe takes them. Predictive back seamlessly integrates with Compose to
+ enhance your app's navigation experience. Users enjoy smoother and more

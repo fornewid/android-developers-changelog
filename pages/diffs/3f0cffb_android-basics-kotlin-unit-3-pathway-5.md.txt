@@ -1,0 +1,120 @@
+diff --git a/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-5/android-basics-kotlin-unit-3-pathway-5.md b/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-5/android-basics-kotlin-unit-3-pathway-5.md
+index 4424f38..e5c8f80 100644
+--- a/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-5/android-basics-kotlin-unit-3-pathway-5.md
++++ b/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-5/android-basics-kotlin-unit-3-pathway-5.md
+@@ -1,72 +1,66 @@
+ ---
+-title: Adaptive layouts  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-basics-kotlin-unit-3-pathway-5/android-basics-kotlin-unit-3-pathway-5
+ url: https://developer.android.com/courses/quizzes/android-basics-kotlin-unit-3-pathway-5/android-basics-kotlin-unit-3-pathway-5
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Adaptive layouts
+ 
+-Return to pathway
+-
+-
+-
+-1. ## The \_\_\_ pattern includes a list of items and more content for the selected item.
+-
+-   list-expansion
+-
+-   data-detail
+-
+-   list-detail
+-
+-   Item-list
+-2. ## In most cases, the pane will only slide on small devices, such as phones, but is displayed side by side on tablets.
+-
+-   True
++# Adaptive layouts
+ 
+-   False
+-3. ## Compact width is typically defined as a screen width smaller than \_\_\_dp.
++<br />
+ 
+-   600
++Return to pathway  
++1.
+ 
+-   720
++   ## The ___ pattern includes a list of items and more content for the selected item.
+ 
+-   840
++   list-expansion  
++   data-detail  
++   list-detail  
++   Item-list  
++2.
+ 
+-   1200
+-4. ## Fill-in-the-blanks
++   ## In most cases, the pane will only slide on small devices, such as phones, but is displayed side by side on tablets.
+ 
+-   Enter one or more words to complete the sentence.
++   True  
++   False  
++3.
+ 
+-   Setting the `android:` \_\_\_ property determines how leftover space in a `SlidingPaneLayout` is distributed among child views.
+-5. ## In general, `isSlideable` will only be true on larger devices, where two layouts are shown side by side.
++   ## Compact width is typically defined as a screen width smaller than ___dp.
+ 
+-   True
++   600  
++   720  
++   840  
++   1200  
++4.
+ 
+-   False
+-6. ## Fill-in-the-blanks
++   ## Fill-in-the-blanks
+ 
+-   Enter one or more words to complete the sentence.
++   Enter one or more words to complete the sentence.  
++   Setting the`android: `___ property determines how leftover space in a`SlidingPaneLayout`is distributed among child views.  
++5.
+ 
+-   The \_\_\_ method of `OnBackPressedCallback` is used to handle the system back button when using a `SlidingPaneLayout`.
+-7. ## Which of the following are `SlidingPaneLayout` events?
++   ## In general,`isSlideable`will only be true on larger devices, where two layouts are shown side by side.
+ 
+-   Choose as many answers as you see fit.
++   True  
++   False  
++6.
+ 
+-   OnPanelOpened()
++   ## Fill-in-the-blanks
+ 
+-   OnPanelChanged()
++   Enter one or more words to complete the sentence.  
++   The ___ method of`OnBackPressedCallback`is used to handle the system back button when using a`SlidingPaneLayout`.  
++7.
+ 
+-   OnPanelClosed()
++   ## Which of the following are`SlidingPaneLayout`events?
+ 
+-   OnPanelSlide()
++   Choose as many answers as you see fit.  
++   OnPanelOpened()  
++   OnPanelChanged()  
++   OnPanelClosed()  
++   OnPanelSlide()  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

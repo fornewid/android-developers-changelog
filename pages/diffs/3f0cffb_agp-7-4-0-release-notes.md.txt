@@ -1,0 +1,91 @@
+diff --git a/docs/build/releases/agp-7-4-0-release-notes.md b/docs/build/releases/agp-7-4-0-release-notes.md
+index fe0ba28..b133a0a 100644
+--- a/docs/build/releases/agp-7-4-0-release-notes.md
++++ b/docs/build/releases/agp-7-4-0-release-notes.md
+@@ -1,23 +1,29 @@
+ ---
+-title: https://developer.android.com/build/releases/agp-7-4-0-release-notes
++title: Android Gradle Plugin 7.4.0 (Jan 2023)  |  Android Developers
+ url: https://developer.android.com/build/releases/agp-7-4-0-release-notes
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Gradle build guides](https://developer.android.com/build/releases/past-releases)
++
++# Android Gradle Plugin 7.4.0 (Jan 2023) Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ Android Gradle Plugin 7.4.0 is a major release that includes a variety of new
+ features and improvements.
+ 
+ ### Compatibility
+ 
+-
+-|   | Minimum version | Default version | Notes |
+-|---:|:---:|:---:|:---:|
+-| Gradle | 7.5 | 7.5 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
+-| SDK Build Tools | 30.0.3 | 30.0.3 | [Install](https://developer.android.com/studio/intro/update#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools) SDK Build Tools. |
+-| NDK | N/A | 23.1.7779620 | [Install](https://developer.android.com/studio/projects/install-ndk#specific-version) or [configure](https://developer.android.com/studio/projects/install-ndk#apply-specific-version) a different version of the NDK. |
+-| JDK | 11 | 11 | To learn more, see [setting the JDK version](https://developer.android.com/studio/intro/studio-config#jdk). |
+-
+-<br />
++|  | Minimum version | Default version | Notes |
++| --- | --- | --- | --- |
++| Gradle | 7.5 | 7.5 | To learn more, see [updating Gradle](/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
++| SDK Build Tools | 30.0.3 | 30.0.3 | [Install](/studio/intro/update#sdk-manager) or [configure](/tools/releases/build-tools) SDK Build Tools. |
++| NDK | N/A | 23.1.7779620 | [Install](/studio/projects/install-ndk#specific-version) or [configure](/studio/projects/install-ndk#apply-specific-version) a different version of the NDK. |
++| JDK | 11 | 11 | To learn more, see [setting the JDK version](/studio/intro/studio-config#jdk). |
+ 
+ ### AGP Upgrade Assistant post-upgrade report and rollback functionality
+ 
+@@ -44,35 +50,21 @@ bytecode. This means that if you compile against AGP, or write custom Lint
+ checks, you need to start targeting JVM 11 bytecode. One of the ways to do this
+ is to include the following in your module-level `build.gradle` file:
+ 
+-    sourceCompatibility = "11"
+-    targetCompatibility = "11"
++```
++sourceCompatibility = "11"
++targetCompatibility = "11"
++```
+ 
+ ### Patch releases
+ 
+-<br />
+-
+ The following is a list of the patch releases for Android Gradle Plugin
+ 7.4.
+ 
+-<br />
+-
+-<br />
+-
+ #### Android Gradle Plugin 7.4.1 (February 2023)
+ 
+-<br />
+-
+-<br />
+-
+ This minor update includes the following bug fixes:
+ 
+-<br />
+-
+-<br />
+-
+-| Fixed issues ||
+-|---|---|
+-| [Issue #242831042](https://issuetracker.google.com/issues/242831042) Migrate from `destination` property to `outputLocation` property to address deprecation warning and prepare for Gradle 9.0 |
+-| [Issue #261329823](https://issuetracker.google.com/issues/261329823) AGP 7.4.0-rc01 breaks Variant API with "Querying the mapped value of `map(provider(java.util.Set))` before task '...' has completed is not supported" |
+-
+-<br />
+\ No newline at end of file
++| Fixed issues | |
++| --- | --- |
++| [Issue #242831042](https://issuetracker.google.com/issues/242831042)  Migrate from `destination` property to `outputLocation` property to address deprecation warning and prepare for Gradle 9.0 |
++| [Issue #261329823](https://issuetracker.google.com/issues/261329823)  AGP 7.4.0-rc01 breaks Variant API with "Querying the mapped value of `map(provider(java.util.Set))` before task '...' has completed is not supported" |
+\ No newline at end of file

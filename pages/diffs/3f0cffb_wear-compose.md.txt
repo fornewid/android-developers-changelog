@@ -1,0 +1,129 @@
+diff --git a/docs/courses/pathways/wear-compose.md b/docs/courses/pathways/wear-compose.md
+index 2d0de0c..eddfd62 100644
+--- a/docs/courses/pathways/wear-compose.md
++++ b/docs/courses/pathways/wear-compose.md
+@@ -1,61 +1,107 @@
+ ---
+-title: https://developer.android.com/courses/pathways/wear-compose
++title: Compose for Wear OS  |  Android Developers
+ url: https://developer.android.com/courses/pathways/wear-compose
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Compose for Wear OS
++* [Home](https://developer.android.com/)
++* [Compose for Wear OS](https://developer.android.com/courses/pathways/wear-compose)
+ 
++Stay organized with collections
++
++Save and categorize content based on your preferences.
+ 
+-Learn about Compose for Wear OS, a modern declarative UI toolkit that helps you build beautiful UIs optimized for the wrist.  
+ 
+ 
++# Compose for Wear OS
++
++Learn about Compose for Wear OS, a modern declarative UI toolkit that helps you build beautiful UIs optimized for the wrist.  
+ Go back
+ 
++*check\_circle*
++
+ ## From mobile to Wear OS
+ 
+-<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Video *Optional*
++*keyboard\_arrow\_down*
++*keyboard\_arrow\_up*
++
++*ondemand\_video*
++Video
++*Optional*
+ 
+ Learn about basic components and principles of Compose for Wear OS.
+ 
+-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button>
++Skip
++
++*check\_circle*
+ 
+ ## Use Jetpack Compose on Wear OS
+ 
+-<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article *Optional*
++*keyboard\_arrow\_down*
++*keyboard\_arrow\_up*
++
++*subject*
++Article
++*Optional*
+ 
+ Learn how to create a Compose app for the wrist.
+ 
+-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/training/wearables/compose)
++Skip
++[Read article](https://developer.android.com/training/wearables/compose)
++
++*check\_circle*
+ 
+ ## Compose material catalog for Wear OS
+ 
+-<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> *Optional*
++*keyboard\_arrow\_down*
++*keyboard\_arrow\_up*
++
++*Optional*
+ 
+ Compose for Wear OS offers components to help create user experiences that conform to Wear OS Design guidelines. Check out design and implementation guidance for the components.
+ 
+-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button>
++Skip
++
++*check\_circle*
+ 
+ ## Compose for Wear OS code-along
+ 
+-<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Video *Optional*
++*keyboard\_arrow\_down*
++*keyboard\_arrow\_up*
++
++*ondemand\_video*
++Video
++*Optional*
+ 
+ Watch Android experts code and answer your questions live. Walk through demos of common components and Wear OS Specific components.
+ 
+-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button>
++Skip
++
++*check\_circle*
+ 
+ ## Compose for Wear OS Codelab
+ 
+-<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Codelab
++*keyboard\_arrow\_down*
++*keyboard\_arrow\_up*
++
++*emoji\_objects*
++Codelab
+ 
+ Learn to how to translate your Compose knowledge to wearable devices and create simple and complex Composables.
+ 
+ [Take codelab](https://developer.android.com/codelabs/compose-for-wear-os)
+ 
++*check\_circle*
++
+ ## Create modern, power-efficient apps for Wear OS
+ 
+-<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Video *Optional*
++*keyboard\_arrow\_down*
++*keyboard\_arrow\_up*
++
++*ondemand\_video*
++Video
++*Optional*
+ 
+ Discover modern, power-efficient Wear OS development with Compose for Wear OS and Health Services.
+ 
+-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button>
+\ No newline at end of file
++Skip
+\ No newline at end of file

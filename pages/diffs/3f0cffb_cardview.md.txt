@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/cardview.md b/docs/jetpack/androidx/releases/cardview.md
+index 16c969e..d534d38 100644
+--- a/docs/jetpack/androidx/releases/cardview.md
++++ b/docs/jetpack/androidx/releases/cardview.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Cardview
+ 
+ [User Guide](/guide/topics/ui/layout/cardview)  [Code Sample](https://github.com/android/views-widgets-samples)

@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/apps/library/car-microphone.md b/docs/training/cars/apps/library/car-microphone.md
+index 37d9745..2b5c765 100644
+--- a/docs/training/cars/apps/library/car-microphone.md
++++ b/docs/training/cars/apps/library/car-microphone.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can use your car's [`CarAppService`](/reference/androidx/car/app/CarAppService) and [`CarAudioRecord`](/reference/androidx/car/app/media/CarAudioRecord) API
+ to grant your app access to the user's car microphone. Users must grant
+ permission to your app to access the car microphone. Your app can record and

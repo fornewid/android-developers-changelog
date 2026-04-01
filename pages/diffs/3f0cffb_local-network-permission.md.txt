@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/local-network-permission.md b/docs/privacy-and-security/local-network-permission.md
+index ce89b03..2e6492e 100644
+--- a/docs/privacy-and-security/local-network-permission.md
++++ b/docs/privacy-and-security/local-network-permission.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Devices on a Local Area Network (LAN) can be accessed by any app that has the
+ `INTERNET` permission.
+ This makes it easy for apps to connect to local devices, but also carries

@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/watch-faces/designing.md b/docs/training/wearables/watch-faces/designing.md
+index 53d53d5..db134e6 100644
+--- a/docs/training/wearables/watch-faces/designing.md
++++ b/docs/training/wearables/watch-faces/designing.md
+@@ -17,7 +17,6 @@ Learn more about the user-facing changes in this [Help Center article](https://
+ 
+ 
+ 
+-
+ Custom watch faces leverage a dynamic, digital canvas that can include colors, animations, and
+ contextual information.
+ 

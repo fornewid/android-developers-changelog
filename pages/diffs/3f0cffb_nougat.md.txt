@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/nougat.md b/docs/about/versions/nougat.md
+index 3c3b812..1549de3 100644
+--- a/docs/about/versions/nougat.md
++++ b/docs/about/versions/nougat.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Android 7.0 Nougat
+ 
+ ![Assorted display of devices including a laptop and a large and small mobile phone showcasing Android 7.0](/static/images/home/n-preview-hero.png)

@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/unity/stats.md b/docs/games/pgs/unity/stats.md
+index e9fa49a..fa4e379 100644
+--- a/docs/games/pgs/unity/stats.md
++++ b/docs/games/pgs/unity/stats.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ The Player Stats API let you tailor game experiences to specific segments
+ of players and different stages of the player lifecycle. You can build
+ tailored experiences for each player segment based on how players are
+@@ -45,6 +44,4 @@ The player stats are available after authenticating:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

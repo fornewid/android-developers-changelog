@@ -1,0 +1,12 @@
+diff --git a/docs/studio/test/other-testing-tools.md b/docs/studio/test/other-testing-tools.md
+index 4a8a76c..7902b87 100644
+--- a/docs/studio/test/other-testing-tools.md
++++ b/docs/studio/test/other-testing-tools.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Here are some other tools that help you set up and manage tests:
+ 
+ * [Espresso Test Recorder](/studio/test/other-testing-tools/espresso-test-recorder)

@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/adpf/fixed-performance-mode.md b/docs/games/optimize/adpf/fixed-performance-mode.md
+index 1a45090..70306b3 100644
+--- a/docs/games/optimize/adpf/fixed-performance-mode.md
++++ b/docs/games/optimize/adpf/fixed-performance-mode.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ **Released**: Android 11 (API level 30)
+ 
+ Android devices can change clocking dynamically based on the system load. This
+@@ -47,4 +48,6 @@ this, we recommend the following for benchmark runs:
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

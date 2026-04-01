@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/styles/state-animations.md b/docs/develop/ui/compose/styles/state-animations.md
+index c1cf6e7..f0887fb 100644
+--- a/docs/develop/ui/compose/styles/state-animations.md
++++ b/docs/develop/ui/compose/styles/state-animations.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Styles API offers a declarative and streamlined approach to managing UI
+ changes during interaction states like `hovered`, `focused`, and `pressed`. With
+ this API, you can significantly decrease the boilerplate code typically required

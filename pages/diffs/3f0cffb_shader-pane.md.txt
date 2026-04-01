@@ -1,0 +1,12 @@
+diff --git a/docs/agi/frame-trace-gui/shader-pane.md b/docs/agi/frame-trace-gui/shader-pane.md
+index 5fb8f18..45a4d09 100644
+--- a/docs/agi/frame-trace-gui/shader-pane.md
++++ b/docs/agi/frame-trace-gui/shader-pane.md
+@@ -14,6 +14,7 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
+ 
+ 
+ 
++
+ The **Shader** pane allows you to see individual shaders used in the trace.
+ 
+ To use this pane, select a shader in the list. This creates a new tab that shows

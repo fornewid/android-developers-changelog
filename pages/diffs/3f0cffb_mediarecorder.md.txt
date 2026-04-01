@@ -1,0 +1,12 @@
+diff --git a/docs/media/platform/mediarecorder.md b/docs/media/platform/mediarecorder.md
+index 06788de..820c86e 100644
+--- a/docs/media/platform/mediarecorder.md
++++ b/docs/media/platform/mediarecorder.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android multimedia framework includes support for capturing and encoding a variety of common
+ audio and video formats. You can use the `MediaRecorder` APIs if supported
+ by the device hardware.

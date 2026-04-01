@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/text/display-text.md b/docs/develop/ui/compose/text/display-text.md
+index ced1b7f..dc489d3 100644
+--- a/docs/develop/ui/compose/text/display-text.md
++++ b/docs/develop/ui/compose/text/display-text.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The most basic way to display text is to use the `Text` composable with a
+ `String` as an argument:
+ 

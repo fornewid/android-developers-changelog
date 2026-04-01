@@ -1,0 +1,47 @@
+diff --git a/docs/design/ui/cars/guides/templates/media-playback-template.md b/docs/design/ui/cars/guides/templates/media-playback-template.md
+index 7a21473..f49866c 100644
+--- a/docs/design/ui/cars/guides/templates/media-playback-template.md
++++ b/docs/design/ui/cars/guides/templates/media-playback-template.md
+@@ -1,18 +1,32 @@
+ ---
+-title: https://developer.android.com/design/ui/cars/guides/templates/media-playback-template
++title: Media Playback template  |  Cars  |  Android Developers
+ url: https://developer.android.com/design/ui/cars/guides/templates/media-playback-template
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Media Playback template
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [UI Design](https://developer.android.com/design/ui)
++* [Cars](https://developer.android.com/design/ui/cars)
++* [Guides](https://developer.android.com/design/ui/cars/guides/foundations/design-principles)
+ 
+-Display details about the media being played at a glance with the Media Playback template.
++# Media Playback template Stay organized with collections Save and categorize content based on your preferences.
+ 
+-With this template, you can choose which actions to allow users to perform from the playback screen.
++
++
++
++Display details about the media being played at a glance with the
++Media Playback template.
++
++With this template, you can choose which actions to allow users to perform from
++the playback screen.
+ 
+ You'll need to decide the following:
+ 
+-- Which buttons to show in the header section.
+-- Which playback buttons and images to show (provided through Media Session).
++* Which buttons to show in the header section.
++* Which playback buttons and images to show (provided through Media Session).
++
++![Image representing a now playing screen](/static/images/design/ui/cars/templates/now-playing.png)
++
+ 
+-![Image representing a now playing screen](https://developer.android.com/static/images/design/ui/cars/templates/now-playing.png)Media playback template.
+\ No newline at end of file
++Media playback template.
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/android-3.1-highlights.md b/docs/about/versions/android-3.1-highlights.md
+index 9e0f7a9..d0e47d7 100644
+--- a/docs/about/versions/android-3.1-highlights.md
++++ b/docs/about/versions/android-3.1-highlights.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Welcome to Android 3.1!
+ 
+ Android 3.1 is an incremental platform release that refines many of the

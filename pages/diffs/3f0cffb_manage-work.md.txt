@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/how-to/manage-work.md b/docs/develop/background-work/background-tasks/persistent/how-to/manage-work.md
+index 929447e..992812d 100644
+--- a/docs/develop/background-work/background-tasks/persistent/how-to/manage-work.md
++++ b/docs/develop/background-work/background-tasks/persistent/how-to/manage-work.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Once you've [defined your
+ `Worker`](/topic/libraries/architecture/workmanager/basics#define_the_work) and
+ [your `WorkRequest`](/topic/libraries/architecture/workmanager/how-to/define-work),

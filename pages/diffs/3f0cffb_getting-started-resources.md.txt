@@ -1,0 +1,12 @@
+diff --git a/docs/kotlin/getting-started-resources.md b/docs/kotlin/getting-started-resources.md
+index 31d4785..3d4c657 100644
+--- a/docs/kotlin/getting-started-resources.md
++++ b/docs/kotlin/getting-started-resources.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Here's a list of additional learning resources that can help you learn to
+ do even more with Kotlin.
+ 

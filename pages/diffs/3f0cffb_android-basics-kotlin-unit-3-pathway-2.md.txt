@@ -1,0 +1,126 @@
+diff --git a/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-2/android-basics-kotlin-unit-3-pathway-2.md b/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-2/android-basics-kotlin-unit-3-pathway-2.md
+index fe42a5d..77ccd9e 100644
+--- a/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-2/android-basics-kotlin-unit-3-pathway-2.md
++++ b/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-2/android-basics-kotlin-unit-3-pathway-2.md
+@@ -1,78 +1,67 @@
+ ---
+-title: Introduction to the Navigation component  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-basics-kotlin-unit-3-pathway-2/android-basics-kotlin-unit-3-pathway-2
+ url: https://developer.android.com/courses/quizzes/android-basics-kotlin-unit-3-pathway-2/android-basics-kotlin-unit-3-pathway-2
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Introduction to the Navigation component
+ 
+-Return to pathway
+-
+-
+-
+-1. ## True or False: `onCreateView()` is only called once for a fragment’s entire lifecycle.
+-
+-   True
+-
+-   False
+-2. ## Which of the following is a benefit of using fragments?
+-
+-   Navigation between fragments allows for more sophisticated user interface patterns, such as tab bars.
+-
+-   Using multiple fragments within an activity allows for an adaptive layout across multiple screen sizes.
++# Introduction to the Navigation component
+ 
+-   The same fragments can be reused across multiple activities.
++<br />
+ 
+-   All of the above
+-3. ## In the fragment lifecycle, which of the following tasks should be performed in `onViewCreated()`?
++Return to pathway  
++1.
+ 
+-   Choose as many answers as you see fit.
++   ## True or False:`onCreateView()`is only called once for a fragment's entire lifecycle.
+ 
+-   Inflating the layout
++   True  
++   False  
++2.
+ 
+-   Binding view objects to properties in your fragment
++   ## Which of the following is a benefit of using fragments?
+ 
+-   Configuring the options menu
++   Navigation between fragments allows for more sophisticated user interface patterns, such as tab bars.  
++   Using multiple fragments within an activity allows for an adaptive layout across multiple screen sizes.  
++   The same fragments can be reused across multiple activities.  
++   All of the above  
++3.
+ 
+-   Setting properties of individual views, such as a recycler view’s adapter
+-4. ## In the fragment lifecycle, which of the following tasks should be performed in `onCreateView()`?
++   ## In the fragment lifecycle, which of the following tasks should be performed in`onViewCreated()`?
+ 
+-   Inflating the layout
++   Choose as many answers as you see fit.  
++   Inflating the layout  
++   Binding view objects to properties in your fragment  
++   Configuring the options menu  
++   Setting properties of individual views, such as a recycler view's adapter  
++4.
+ 
+-   Binding view objects to properties in your fragment
++   ## In the fragment lifecycle, which of the following tasks should be performed in`onCreateView()`?
+ 
+-   Configuring the options menu
++   Inflating the layout  
++   Binding view objects to properties in your fragment  
++   Configuring the options menu  
++   Setting properties of individual views, such as a recycler view's adapter  
++5.
+ 
+-   Setting properties of individual views, such as a recycler view’s adapter
+-5. ## Fill-in-the-blanks
++   ## Fill-in-the-blanks
+ 
+-   Enter one or more words to complete the sentence.
++   Enter one or more words to complete the sentence.  
++   The ___ method needs to be overridden in the host activity to ensure your app's fragment-based navigation responds to the app's "Up" button.  
++6.
+ 
+-   The \_\_\_ method needs to be overridden in the host activity to ensure your app’s fragment-based navigation responds to the app’s "Up" button.
+-6. ## Given the code for navigating between two fragments in a note-taking app, a list of books and a list of notes, which of the following is true about the navigation graph file?
++   ## Given the code for navigating between two fragments in a note-taking app, a list of books and a list of notes, which of the following is true about the navigation graph file?
+ 
+-   ```
++   ```kotlin
+    val action = BooksListFragmentsDirections.actionBooksListToNotesList(bookIndex = index)
+    holder.view.findNavController().navigate(action)
+    ```
+-
+-   A: Both the books list and notes list are destinations.
+-
+-   B: The books list fragment has an argument called `bookIndex`.
+-
+-   C: There’s an action defined on the navigation graph that goes from the books list to the notes list.
+-
+-   D: A, B, and C are true.
+-
+-   E: Only A and C are true.
++   A: Both the books list and notes list are destinations.  
++   B: The books list fragment has an argument called`bookIndex`.  
++   C: There's an action defined on the navigation graph that goes from the books list to the notes list.  
++   D: A, B, and C are true.  
++   E: Only A and C are true.  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

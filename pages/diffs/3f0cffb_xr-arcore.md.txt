@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/xr-arcore.md b/docs/jetpack/androidx/releases/xr-arcore.md
+index 8e45ac3..dfc4876 100644
+--- a/docs/jetpack/androidx/releases/xr-arcore.md
++++ b/docs/jetpack/androidx/releases/xr-arcore.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # ARCore for Jetpack XR
+ 
+ [User Guide](/develop/xr/jetpack-xr-sdk/work-with-arcore)

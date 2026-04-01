@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/glance/create-app-widget.md b/docs/develop/ui/compose/glance/create-app-widget.md
+index 14d1846..5b455a1 100644
+--- a/docs/develop/ui/compose/glance/create-app-widget.md
++++ b/docs/develop/ui/compose/glance/create-app-widget.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The following sections describe how to create a simple app widget with Glance.
+ 
+ **Key Point:** Glance provides a modern approach to build app widgets using Compose,

@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/compose-compiler.md b/docs/jetpack/androidx/releases/compose-compiler.md
+index 96e14a0..f7fe564 100644
+--- a/docs/jetpack/androidx/releases/compose-compiler.md
++++ b/docs/jetpack/androidx/releases/compose-compiler.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Compose Compiler
+ 
+ [User Guide](/jetpack/compose/tutorial)  [Code Sample](https://github.com/android/compose-samples)

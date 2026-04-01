@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/wear-app-quality.md b/docs/docs/quality-guidelines/wear-app-quality.md
+index 57605fe..e5dde22 100644
+--- a/docs/docs/quality-guidelines/wear-app-quality.md
++++ b/docs/docs/quality-guidelines/wear-app-quality.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The checklists on this page show various requirements to help you assess the
+ quality of your Wear OS app and follow the
+ [Principles of Wear OS development](/training/wearables/principles). Each requirement has a unique ID which

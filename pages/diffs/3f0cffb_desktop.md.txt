@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md b/docs/docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md
+index 07bd7d4..509791b 100644
+--- a/docs/docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md
++++ b/docs/docs/quality-guidelines/adaptive-app-quality/experiences/desktop.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The desktop experience—common on Chromebooks and connected
+ displays—enables precise input and advanced multitasking. The desktop
+ environment allows users to work across multiple windows and instances,

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/publish/preparing.md b/docs/studio/publish/preparing.md
+index 741e995..73d9a8b 100644
+--- a/docs/studio/publish/preparing.md
++++ b/docs/studio/publish/preparing.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android developer verification is a new requirement designed to link individuals and organizations
+ to their Android apps. Starting in 2026, Android will require all apps to be registered by verified
+ developers in order to be installed by users on certified Android devices. To learn what you need to

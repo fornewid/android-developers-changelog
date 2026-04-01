@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/coordinatorlayout.md b/docs/jetpack/androidx/releases/coordinatorlayout.md
+index 259551e..6a3e7d8 100644
+--- a/docs/jetpack/androidx/releases/coordinatorlayout.md
++++ b/docs/jetpack/androidx/releases/coordinatorlayout.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Coordinatorlayout
+ 
+ API Reference  

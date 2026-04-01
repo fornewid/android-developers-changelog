@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/intent-redirection.md b/docs/privacy-and-security/risks/intent-redirection.md
+index 45f276f..fa3fb54 100644
+--- a/docs/privacy-and-security/risks/intent-redirection.md
++++ b/docs/privacy-and-security/risks/intent-redirection.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **OWASP category:** [MASVS-PLATFORM: Platform Interaction](https://mas.owasp.org/MASVS/09-MASVS-PLATFORM)
+ 
+ ## Overview

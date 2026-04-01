@@ -1,0 +1,12 @@
+diff --git a/docs/social-and-messaging/guides/media-playback.md b/docs/social-and-messaging/guides/media-playback.md
+index b671a17..7e2d6ef 100644
+--- a/docs/social-and-messaging/guides/media-playback.md
++++ b/docs/social-and-messaging/guides/media-playback.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Media display and playback have become essential components of the Android app
+ experience. Whether your app integrates images and videos or delivers immersive
+ audio experiences, media enriches user interactions and elevates app engagement.

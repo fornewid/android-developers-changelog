@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/feature-delivery/conditional.md b/docs/guide/playcore/feature-delivery/conditional.md
+index 25a2b91..c35e14c 100644
+--- a/docs/guide/playcore/feature-delivery/conditional.md
++++ b/docs/guide/playcore/feature-delivery/conditional.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Conditional delivery allows you to set certain device configuration requirements
+ for feature modules to be downloaded automatically during app install.
+ For example, you can configure a feature module that includes

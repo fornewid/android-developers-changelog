@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/state-lifespans.md b/docs/develop/ui/compose/state-lifespans.md
+index 7201f2a..93c8707 100644
+--- a/docs/develop/ui/compose/state-lifespans.md
++++ b/docs/develop/ui/compose/state-lifespans.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ In Jetpack Compose, composable functions often hold state using the `remember`
+ function. Values that are remembered can be reused across recompositions, as
+ explained in [State and Jetpack Compose](/develop/ui/compose/state).

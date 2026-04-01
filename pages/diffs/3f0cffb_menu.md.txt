@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/menu.md b/docs/develop/ui/compose/components/menu.md
+index c08ff58..ecf24ad 100644
+--- a/docs/develop/ui/compose/components/menu.md
++++ b/docs/develop/ui/compose/components/menu.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Drop-down menus let users click an icon, text field, or other component, and
+ then select from a list of options on a temporary surface. This guide describes
+ how to create both basic menus and more complex menus with dividers and icons.

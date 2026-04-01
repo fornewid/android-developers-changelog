@@ -1,0 +1,12 @@
+diff --git a/docs/build/publish-library/upload-library.md b/docs/build/publish-library/upload-library.md
+index 070e6a5..af26cfd 100644
+--- a/docs/build/publish-library/upload-library.md
++++ b/docs/build/publish-library/upload-library.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To grant access to your library, you need to choose a repository.
+ This page guides you through the considerations related to choosing a
+ repository type and shows how to create a publication using the

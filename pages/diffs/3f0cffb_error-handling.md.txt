@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/glance/error-handling.md b/docs/develop/ui/compose/glance/error-handling.md
+index f110b7e..a56dcbe 100644
+--- a/docs/develop/ui/compose/glance/error-handling.md
++++ b/docs/develop/ui/compose/glance/error-handling.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ API features for improving error handling on Glance are included beginning in
+ Android 15. This page provides best practices regarding these APIs.
+ 

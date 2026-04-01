@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/ai-risks/risks-mitigations.md b/docs/privacy-and-security/risks/ai-risks/risks-mitigations.md
+index 4c5566a..44ed1e6 100644
+--- a/docs/privacy-and-security/risks/ai-risks/risks-mitigations.md
++++ b/docs/privacy-and-security/risks/ai-risks/risks-mitigations.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This guide provides crucial information for developers building Android
+ applications using generative AI (GenAI). GenAI integration presents unique
+ challenges that extend beyond standard software development.

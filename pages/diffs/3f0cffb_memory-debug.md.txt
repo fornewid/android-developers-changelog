@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/memory-debug.md b/docs/ndk/guides/memory-debug.md
+index 4785563..73078e8 100644
+--- a/docs/ndk/guides/memory-debug.md
++++ b/docs/ndk/guides/memory-debug.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android supports multiple tools for debugging memory errors. There are tradeoffs
+ to each, so read below to decide which is best for your use case. This doc gives
+ you an overview of the tools available so you can decide which to investigate

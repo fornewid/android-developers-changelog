@@ -1,0 +1,133 @@
+diff --git a/docs/develop/xr/unity/performance/unity-tools.md b/docs/develop/xr/unity/performance/unity-tools.md
+index b1be0d5..867be47 100644
+--- a/docs/develop/xr/unity/performance/unity-tools.md
++++ b/docs/develop/xr/unity/performance/unity-tools.md
+@@ -1,34 +1,15 @@
+ ---
+-title: Optimize performance using Unity tools and APIs  |  Android Developers
++title: https://developer.android.com/develop/xr/unity/performance/unity-tools
+ url: https://developer.android.com/develop/xr/unity/performance/unity-tools
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Develop](https://developer.android.com/develop)
+-* [Guides](https://developer.android.com/develop/xr/get-started)
++<br />
+ 
+-# Optimize performance using Unity tools and APIs Stay organized with collections Save and categorize content based on your preferences.
+ 
++Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+ 
+-
+-
+-Applicable XR devices
+-
+-This guidance helps you build experiences for these types of XR devices.
+-
+-[Learn about XR device types →](/develop/xr/devices)
+-
+-![](/static/images/develop/xr/xr-headsets-icon.svg)
+-
+-
+-XR Headsets
+-
+-![](/static/images/develop/xr/xr-glasses-icon.svg)
+-
+-
+-Wired XR Glasses
+-
+-[Learn about XR device types →](/develop/xr/devices)
++<br />
+ 
+ Unity provides various performance-related tools and APIs. Use these tools to
+ measure and monitor performance metrics, specify a display refresh rate, and
+@@ -44,27 +25,25 @@ API](https://docs.unity3d.com/Packages/com.unity.xr.androidxr-openxr@1.0/manual/
+ 
+ ### Benefits
+ 
+-* Real-time monitoring of memory usage, CPU and GPU performance.
+-* System statistics from compositor and runtime layers.
+-* Measure the impact of optimization changes.
++- Real-time monitoring of memory usage, CPU and GPU performance.
++- System statistics from compositor and runtime layers.
++- Measure the impact of optimization changes.
+ 
+ To get the best results, actively monitor these metrics while working on your
+ app and tuning the performance:
+ 
+-```
+-AndroidXRPerformanceMetrics androidXRPerformanceMetrics = OpenXRSettings.Instance.GetFeature<AndroidXRPerformanceMetrics>();
++    AndroidXRPerformanceMetrics androidXRPerformanceMetrics = OpenXRSettings.Instance.GetFeature<AndroidXRPerformanceMetrics>();
+ 
+-string values = "";
++    string values = "";
+ 
+-if (m_Display != null && androidXRPerformanceMetrics != null && androidXRPerformanceMetrics.supportedMetricPaths != null)
+-  foreach (var metric in androidXRPerformanceMetrics.supportedMetricPaths)
+-  {
+-    float stat;
+-    XRStats.TryGetStat(m_Display, metric, out stat);
++    if (m_Display != null && androidXRPerformanceMetrics != null && androidXRPerformanceMetrics.supportedMetricPaths != null)
++      foreach (var metric in androidXRPerformanceMetrics.supportedMetricPaths)
++      {
++        float stat;
++        XRStats.TryGetStat(m_Display, metric, out stat);
+ 
+-    values += string.Format("{0}: {1:F2}\n", metric, stat);
+-  }
+-```
++        values += string.Format("{0}: {1:F2}\n", metric, stat);
++      }
+ 
+ ## Specify a Display Refresh Rate
+ 
+@@ -73,9 +52,9 @@ frame rates from the runtime, which the system tries to honor.
+ 
+ ### Benefits
+ 
+-* Adjust refresh rates based on scene complexity.
+-* Optimize power consumption during lighter scenes.
+-* Adapt dynamically to app demands.
++- Adjust refresh rates based on scene complexity.
++- Optimize power consumption during lighter scenes.
++- Adapt dynamically to app demands.
+ 
+ ### Enable this feature
+ 
+@@ -94,27 +73,13 @@ calls and lets you step through them to understand rendering behavior.
+ 
+ ### Benefits
+ 
+-* Identify rendering bottlenecks and unexpected draw calls.
+-* Verify that the [SRP Batcher](/develop/xr/unity/performance/urp-asset-settings#enable-srp-batcher) is working correctly (look for
+-  "RenderLoopNewBatcher" entries).
+-* Check [GPU Resident Drawer](/develop/xr/unity/performance/gpu-rendering#gpu-resident-drawer) batching (look for "Hybrid Batch Group"
+-  entries).
+-* Understand the order of rendering operations.
++- Identify rendering bottlenecks and unexpected draw calls.
++- Verify that the [SRP Batcher](https://developer.android.com/develop/xr/unity/performance/urp-asset-settings#enable-srp-batcher) is working correctly (look for "RenderLoopNewBatcher" entries).
++- Check [GPU Resident Drawer](https://developer.android.com/develop/xr/unity/performance/gpu-rendering#gpu-resident-drawer) batching (look for "Hybrid Batch Group" entries).
++- Understand the order of rendering operations.
+ 
+ ### Enable this feature
+ 
+-1. From the Unity main menu, click **Window > Analysis > Frame Debugger**.
++1. From the Unity main menu, click **Window \> Analysis \> Frame Debugger**.
+ 2. Click **Enable** to start capturing frame data.
+-3. Step through draw calls to see what's being rendered and when.
+-
+-[Previous
+-
+-arrow\_back
+-
+-Optimize GPU rendering](/develop/xr/unity/performance/gpu-rendering)
+-
+-[Next
+-
+-Improve audio performance
+-
+-arrow\_forward](/develop/xr/unity/performance/audio)
+\ No newline at end of file
++3. Step through draw calls to see what's being rendered and when.
+\ No newline at end of file

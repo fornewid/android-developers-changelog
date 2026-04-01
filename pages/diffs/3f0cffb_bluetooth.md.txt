@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/bluetooth.md b/docs/jetpack/androidx/releases/bluetooth.md
+index a96e504..df056aa 100644
+--- a/docs/jetpack/androidx/releases/bluetooth.md
++++ b/docs/jetpack/androidx/releases/bluetooth.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # bluetooth
+ 
+ API Reference  

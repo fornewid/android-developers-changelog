@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/biometric.md b/docs/jetpack/androidx/releases/biometric.md
+index 1429665..4dad191 100644
+--- a/docs/jetpack/androidx/releases/biometric.md
++++ b/docs/jetpack/androidx/releases/biometric.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Biometric
+ 
+ [User Guide](/training/sign-in/biometric-auth)  [Code Sample](https://github.com/android/security-samples)

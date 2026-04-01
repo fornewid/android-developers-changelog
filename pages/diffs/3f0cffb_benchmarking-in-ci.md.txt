@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/benchmarking/benchmarking-in-ci.md b/docs/topic/performance/benchmarking/benchmarking-in-ci.md
+index 315f527..fb56ac1 100644
+--- a/docs/topic/performance/benchmarking/benchmarking-in-ci.md
++++ b/docs/topic/performance/benchmarking/benchmarking-in-ci.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can run benchmarks in Continuous Integration (CI) to track performance over
+ time and recognize performance regressions—or improvements—before
+ your app even releases. This page provides basic information about benchmarking

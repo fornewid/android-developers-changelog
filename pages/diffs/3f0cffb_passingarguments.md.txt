@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/passingarguments.md b/docs/guide/navigation/navigation-3/recipes/passingarguments.md
+index f696d7b..c2dbe75 100644
+--- a/docs/guide/navigation/navigation-3/recipes/passingarguments.md
++++ b/docs/guide/navigation/navigation-3/recipes/passingarguments.md
+@@ -13,6 +13,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Passing Arguments to ViewModels (Hilt)
+ 
+ This recipe demonstrates how to pass navigation arguments (keys) to a `ViewModel` using Hilt for dependency injection.

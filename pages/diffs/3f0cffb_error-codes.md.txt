@@ -1,0 +1,12 @@
+diff --git a/docs/google/play/integrity/error-codes.md b/docs/google/play/integrity/error-codes.md
+index 873e82c..1845a9f 100644
+--- a/docs/google/play/integrity/error-codes.md
++++ b/docs/google/play/integrity/error-codes.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If your app makes a Play Integrity API request and the call fails, your app
+ receives an error code. These errors can happen for various reasons, such as
+ environmental issues like a poor network connection, problems with your

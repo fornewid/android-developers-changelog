@@ -1,0 +1,12 @@
+diff --git a/docs/kotlin/flow.md b/docs/kotlin/flow.md
+index 2a19f74..127ad7c 100644
+--- a/docs/kotlin/flow.md
++++ b/docs/kotlin/flow.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ In coroutines, a *flow* is a type that can emit multiple values
+ sequentially, as opposed to *suspend functions* that return only
+ a single value. For example, you can use a flow to receive live

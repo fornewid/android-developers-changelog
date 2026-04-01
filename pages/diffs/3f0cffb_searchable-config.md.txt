@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/search/searchable-config.md b/docs/develop/ui/views/search/searchable-config.md
+index cc3ad0b..db4e059 100644
+--- a/docs/develop/ui/views/search/searchable-config.md
++++ b/docs/develop/ui/views/search/searchable-config.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose.

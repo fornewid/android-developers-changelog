@@ -1,0 +1,210 @@
+diff --git a/docs/develop/ui/compose/touch-input/pointer-input/tap-and-press.md b/docs/develop/ui/compose/touch-input/pointer-input/tap-and-press.md
+index c76a1c5..fd42415 100644
+--- a/docs/develop/ui/compose/touch-input/pointer-input/tap-and-press.md
++++ b/docs/develop/ui/compose/touch-input/pointer-input/tap-and-press.md
+@@ -1,28 +1,38 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/touch-input/pointer-input/tap-and-press
++title: Tap and press  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/touch-input/pointer-input/tap-and-press
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Tap and press Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Many composables have built-in support for taps or clicks and include an
+ `onClick` lambda. For example, you can create a clickable `Surface` that
+ includes all Material Design behavior appropriate for interaction with surfaces:
+ 
+-
+-```kotlin
++```
+ Surface(onClick = { /* handle click */ }) {
+     Text("Click me!", Modifier.padding(24.dp))
+ }
+-```
+ 
+-<br />
++TapAndPress.kt
++```
+ 
+ But clicks are not the only way a user can interact with composables. This page
+ focuses on gestures that involve a single pointer, where the position of
+ that pointer is not significant for the handling of that event. The following
+ table lists these types of gestures:
+ 
+-|---|---|
++|  |  |
++| --- | --- |
+ | **Gesture** | **Description** |
+ | Tap (or click) | Pointer goes down and then up |
+ | Double tap | Pointer goes down, up, down, up |
+@@ -31,7 +41,7 @@ table lists these types of gestures:
+ 
+ ## Respond to tap or click
+ 
+-[`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) is a commonly used modifier that makes a composable react to
++[`clickable`](/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) is a commonly used modifier that makes a composable react to
+ taps or clicks. This modifier also adds additional features, such as support for
+ focus, mouse and stylus hovering, and a customizable visual indication when
+ pressed. The modifier responds to "clicks" in the widest sense of the word-- not
+@@ -41,11 +51,12 @@ using accessibility services.
+ Imagine a grid of images, where an image shows full-screen when a user
+ clicks on it:
+ 
++[](/static/develop/ui/compose/images/touchinput/tap_and_press_clickable.mp4)
++
+ You can add the `clickable` modifier to each item in the grid to implement this
+ behavior:
+ 
+-
+-```kotlin
++```
+ @Composable
+ private fun ImageGrid(photos: List<Photo>) {
+     var activePhotoId by rememberSaveable { mutableStateOf<Int?>(null) }
+@@ -64,26 +75,31 @@ private fun ImageGrid(photos: List<Photo>) {
+         )
+     }
+ }
+-```
+ 
+-<br />
++TapAndPress.kt
++```
+ 
+ The `clickable` modifier also adds additional behavior:
+ 
+-- `interactionSource` and `indication`, which draw a ripple by default when a user taps the composable. Learn how to customize these on the [Handling user
+-  interactions](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/handling-interactions) page.
+-- Allows accessibility services to interact with the element by setting the semantics information.
+-- Supports keyboard or joystick interaction by allowing focus and pressing `Enter` or the center of the d-pad to interact.
+-- Make the element hoverable, so it responds to the mouse or stylus hovering over it.
++* `interactionSource` and `indication`, which draw a ripple by default when a
++  user taps the composable. Learn how to customize these on the [Handling user
++  interactions](/develop/ui/compose/touch-input/user-interactions/handling-interactions) page.
++* Allows accessibility services to interact with the element by setting the
++  semantics information.
++* Supports keyboard or joystick interaction by allowing focus and pressing
++  `Enter` or the center of the d-pad to interact.
++* Make the element hoverable, so it responds to the mouse or stylus hovering
++  over it.
+ 
+ ## Long-press to show a contextual context menu
+ 
+-[`combinedClickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).combinedClickable(androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.Indication,kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.String,kotlin.Function0,kotlin.Function0,kotlin.Function0)) lets you add double tap or long-press behavior in
++[`combinedClickable`](/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).combinedClickable(androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.Indication,kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.String,kotlin.Function0,kotlin.Function0,kotlin.Function0)) lets you add double tap or long-press behavior in
+ addition to normal click behavior. You can use `combinedClickable` to show a
+ context menu when a user touches and holds a grid image:
+ 
++[](/static/develop/ui/compose/images/touchinput/tap_and_press_context_menu.mp4)
+ 
+-```kotlin
++```
+ var contextMenuPhotoId by rememberSaveable { mutableStateOf<Int?>(null) }
+ val haptics = LocalHapticFeedback.current
+ LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 128.dp)) {
+@@ -108,9 +124,9 @@ if (contextMenuPhotoId != null) {
+         onDismissSheet = { contextMenuPhotoId = null }
+     )
+ }
+-```
+ 
+-<br />
++TapAndPress.kt
++```
+ 
+ As a best practice, you should include haptic feedback when the user
+ long-presses elements, which is why the snippet includes the
+@@ -126,6 +142,8 @@ this extra behavior is not always desirable.
+ Let's look at the image detail screen. The background should be semi-transparent
+ and the user should be able to tap that background to dismiss the detail screen:
+ 
++[](/static/develop/ui/compose/images/touchinput/tap_and_press_scrim.mp4)
++
+ In this case, that background should not have any visual indication on
+ interaction, should not respond to hovering, should not be focusable, and its
+ response to keyboard and accessibility events differ from that of a typical
+@@ -133,8 +151,7 @@ composable. Instead of trying to adapt the `clickable` behavior, you can drop
+ down to a lower abstraction level and directly use the `pointerInput` modifier
+ in combination with the `detectTapGestures` method:
+ 
+-
+-```kotlin
++```
+ @Composable
+ private fun Scrim(onClose: () -> Unit, modifier: Modifier = Modifier) {
+     val strClose = stringResource(R.string.close)
+@@ -163,9 +180,9 @@ private fun Scrim(onClose: () -> Unit, modifier: Modifier = Modifier) {
+             .background(Color.DarkGray.copy(alpha = 0.75f))
+     )
+ }
+-```
+ 
+-<br />
++TapAndPress.kt
++```
+ 
+ As the key of the `pointerInput` modifier you pass the `onClose` lambda. This
+ automatically re-executes the lambda, making sure the right callback is called
+@@ -181,14 +198,15 @@ took place.
+ Let's look at the image detail screen again. A best practice is to make it
+ possible to zoom in on the image by double tapping:
+ 
++[](/static/develop/ui/compose/images/touchinput/tap_and_press_double_tap.mp4)
++
+ As you can see in the video, zooming in occurs around the position of the tap
+ event. The result is different when we zoom in on the left part of the image
+ versus the right part. We can use the `pointerInput` modifier in combination
+ with the `detectTapGestures` to incorporate the tap position into our
+ calculation:
+ 
+-
+-```kotlin
++```
+ var zoomed by remember { mutableStateOf(false) }
+ var zoomOffset by remember { mutableStateOf(Offset.Zero) }
+ Image(
+@@ -211,13 +229,25 @@ Image(
+             translationY = zoomOffset.y
+         }
+ )
+-```
+ 
+-<br />
++TapAndPress.kt
++```
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures)
+-- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
+-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Understand gestures](/develop/ui/compose/touch-input/pointer-input/understand-gestures)
++* [Material Design 2 in Compose](/develop/ui/compose/designsystems/material)
++* [Kotlin for Jetpack Compose](/develop/ui/compose/kotlin)
++
++[Previous
++
++arrow\_back
++
++Understand gestures](/develop/ui/compose/touch-input/pointer-input/understand-gestures)
++
++[Next
++
++Drag, swipe, and fling
++
++arrow\_forward](/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling)
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/power/network/action-server-traffic.md b/docs/topic/performance/power/network/action-server-traffic.md
+index c1ba95b..1adb4ad 100644
+--- a/docs/topic/performance/power/network/action-server-traffic.md
++++ b/docs/topic/performance/power/network/action-server-traffic.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Network traffic sent by server programs to your app can be challenging to
+ optimize. A solution to this problem is for your app to periodically poll the
+ server to check for updates. This approach can waste network connection and

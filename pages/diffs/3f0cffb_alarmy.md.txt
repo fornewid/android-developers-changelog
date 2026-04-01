@@ -1,0 +1,35 @@
+diff --git a/docs/stories/apps/alarmy.md b/docs/stories/apps/alarmy.md
+index c19dd55..9394e1a 100644
+--- a/docs/stories/apps/alarmy.md
++++ b/docs/stories/apps/alarmy.md
+@@ -1,18 +1,12 @@
+ ---
+-title: Delight Room increased 90% of its organic US users with Play Console  |  Developer stories  |  Android Developers
++title: https://developer.android.com/stories/apps/alarmy
+ url: https://developer.android.com/stories/apps/alarmy
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Developer stories](https://developer.android.com/stories)
++# Delight Room increased 90% of its organic US users with Play Console
+ 
+-# Delight Room increased 90% of its organic US users with Play Console Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-Delight Room [Alarmy](https://play.google.com/store/apps/details?id=droom.sleepIfUCan) is an alarm app that can be turned off only when the pre-selected activities, such as taking a photo, solving a math problem, shaking phone, etc., are performed by the user.
++Delight Room[Alarmy](https://play.google.com/store/apps/details?id=droom.sleepIfUCan)is an alarm app that can be turned off only when the pre-selected activities, such as taking a photo, solving a math problem, shaking phone, etc., are performed by the user.
+ 
+ Delight Room product designers completed courses from Play Academy for pre-launch reporting, store listings, user acquisition reporting and setting closed tests, where they learned that Play Console is an effective tool to find and improve app UX or UI issues. Delight Room product designers also tried to grow the business by making the best use of the Play Console features before launching the new subscription products.
+ 
+@@ -38,4 +32,4 @@ Delight Room product designer Sona Jang said, "I thought that developing visual
+ 
+ ## Get started
+ 
+-Complete a [Play Academy](https://playacademy.exceedlms.com/) course or learning path to get the most out of the Play Console features.
+\ No newline at end of file
++Complete a[Play Academy](https://playacademy.exceedlms.com/)course or learning path to get the most out of the Play Console features.
+\ No newline at end of file

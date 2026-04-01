@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/hilt.md b/docs/jetpack/androidx/releases/hilt.md
+index 4ef7067..5c635b2 100644
+--- a/docs/jetpack/androidx/releases/hilt.md
++++ b/docs/jetpack/androidx/releases/hilt.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Hilt
+ 
+ [User Guide](/training/dependency-injection/hilt-android)  [Code Sample](https://github.com/android/architecture-samples/tree/views-hilt)  [Codelab](https://codelabs.developers.google.com/codelabs/android-hilt/#0)

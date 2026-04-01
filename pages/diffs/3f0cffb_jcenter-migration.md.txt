@@ -1,0 +1,34 @@
+diff --git a/docs/build/jcenter-migration.md b/docs/build/jcenter-migration.md
+index 1346e17..f56881c 100644
+--- a/docs/build/jcenter-migration.md
++++ b/docs/build/jcenter-migration.md
+@@ -1,9 +1,17 @@
+ ---
+-title: https://developer.android.com/build/jcenter-migration
++title: JCenter service update  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/build/jcenter-migration
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Android Studio](https://developer.android.com/studio)
++
++# JCenter service update Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ JFrog, the company that maintains the JCenter artifact repository used by
+ many Android projects, made JCenter a read-only repository on March 31, 2021.
+ According to [the announcement](https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/),
+@@ -16,5 +24,5 @@ packages to a new host, such as
+ Developers who use dependencies from JCenter must find the new location of
+ updated versions of those dependencies.
+ 
+-> [!WARNING]
+-> **Warning:** Don't include the `jcenter()` repository in your build config to avoid getting outdated dependencies.
+\ No newline at end of file
++**Warning:** Don't include the `jcenter()` repository in your build config
++to avoid getting outdated dependencies.
+\ No newline at end of file

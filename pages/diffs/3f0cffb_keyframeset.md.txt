@@ -1,0 +1,62 @@
+diff --git a/docs/training/constraint-layout/motionlayout/ref/keyframeset.md b/docs/training/constraint-layout/motionlayout/ref/keyframeset.md
+index 9d07109..abed4f3 100644
+--- a/docs/training/constraint-layout/motionlayout/ref/keyframeset.md
++++ b/docs/training/constraint-layout/motionlayout/ref/keyframeset.md
+@@ -1,25 +1,21 @@
+ ---
+-title: <KeyFrameSet>  |  Android Developers
++title: https://developer.android.com/training/constraint-layout/motionlayout/ref/keyframeset
+ url: https://developer.android.com/training/constraint-layout/motionlayout/ref/keyframeset
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-
+-# <KeyFrameSet> Stay organized with collections Save and categorize content based on your preferences.
+-
+-
++[Video](https://www.youtube.com/watch?v=n_om_WcfSOM)
+ 
+ Specifies location and attributes for views over the course of the motion
+ sequence. By default, motion proceeds from the initial state to the end state.
+ By using `<KeyFrameSet>`, you can build more complex motions.
+ 
+ The `<KeyFrameSet>` contains
+-[`<KeyPosition>`](/training/constraint-layout/motionlayout/ref/keyposition) or
+-[`<KeyAttribute>`](/training/constraint-layout/motionlayout/ref/keyattribute)
++[`<KeyPosition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/keyposition) or
++[`<KeyAttribute>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/keyattribute)
+ nodes. These nodes specify the position or attributes of a target view at a
+ specific point in the motion.
+-[`MotionLayout`](/reference/androidx/constraintlayout/motion/widget/MotionLayout)
++[`MotionLayout`](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout)
+ smoothly animates the view from the starting point to each intermediate point
+ and then to the final destination.
+ 
+@@ -37,7 +33,7 @@ specifies that the ball remains opaque at the midpoint of the motion.
+ 
+ ## Syntax
+ 
+-```
++```xml
+ <KeyFrameSet>
+     [ <KeyPosition/>... ]
+     [ <KeyAttribute/>...]
+@@ -46,12 +42,12 @@ specifies that the ball remains opaque at the midpoint of the motion.
+ 
+ ## Contained in
+ 
+-[`<Transition>`](/training/constraint-layout/motionlayout/ref/transition)
++[`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition)
+ 
+ ## Contains
+ 
+-[`<KeyPosition>`](/training/constraint-layout/motionlayout/ref/keyposition)
++[`<KeyPosition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/keyposition)
+ :   Specifies a view's position at a specific moment during the motion sequence.
+ 
+-[`<KeyAttribute>`](/training/constraint-layout/motionlayout/ref/keyattribute)
++[`<KeyAttribute>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/keyattribute)
+ :   Specifies view attributes at a specific moment during the motion sequence.
+\ No newline at end of file

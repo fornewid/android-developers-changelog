@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/agp-8-9-0-release-notes.md b/docs/build/releases/agp-8-9-0-release-notes.md
+index 66a0357..b51cdc3 100644
+--- a/docs/build/releases/agp-8-9-0-release-notes.md
++++ b/docs/build/releases/agp-8-9-0-release-notes.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android Gradle Plugin 8.9.0 is a major release that includes a variety of new
+ features and improvements.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/declaring-layout.md b/docs/develop/ui/views/layout/declaring-layout.md
+index c480906..bbd3933 100644
+--- a/docs/develop/ui/views/layout/declaring-layout.md
++++ b/docs/develop/ui/views/layout/declaring-layout.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Layouts in views
+ 
+ Try the Compose way

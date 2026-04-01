@@ -1,0 +1,40 @@
+diff --git a/docs/training/tv/get-started/libraries.md b/docs/training/tv/get-started/libraries.md
+index 732872e..d4d80ca 100644
+--- a/docs/training/tv/get-started/libraries.md
++++ b/docs/training/tv/get-started/libraries.md
+@@ -1,22 +1,13 @@
+ ---
+-title: AndroidX TV libraries  |  Android TV  |  Android Developers
++title: https://developer.android.com/training/tv/get-started/libraries
+ url: https://developer.android.com/training/tv/get-started/libraries
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Android TV](https://developer.android.com/training/tv)
+-
+-# AndroidX TV libraries Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Most AndroidX libraries can be used with Android TV. Use
+-[Android architecture components](/topic/libraries/architecture), such as
+-[`ViewModel`](/topic/libraries/architecture/viewmodel) for managing
+-lifecycle-aware UI data and [`Room`](/jetpack/androidx/releases/room) to
++[Android architecture components](https://developer.android.com/topic/libraries/architecture), such as
++[`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) for managing
++lifecycle-aware UI data and [`Room`](https://developer.android.com/jetpack/androidx/releases/room) to
+ integrate with local SQLite databases, just the same as you would for mobile.
+ 
+ Use Compose to build Android TV apps with modern responsive UIs. Combined with
+@@ -24,4 +15,4 @@ Use Compose to build Android TV apps with modern responsive UIs. Combined with
+ logic between form factors.
+ 
+ For details, see
+-[Use Jetpack Compose on Android TV](/training/tv/playback/compose).
+\ No newline at end of file
++[Use Jetpack Compose on Android TV](https://developer.android.com/training/tv/playback/compose).
+\ No newline at end of file

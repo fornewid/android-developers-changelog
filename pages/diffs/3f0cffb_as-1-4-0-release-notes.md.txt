@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/past-releases/as-1-4-0-release-notes.md b/docs/studio/releases/past-releases/as-1-4-0-release-notes.md
+index 4f7bccc..90b9fda 100644
+--- a/docs/studio/releases/past-releases/as-1-4-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-1-4-0-release-notes.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Android Studio v1.4.0 (September 2015)
+ 
+ Fixes and enhancements:

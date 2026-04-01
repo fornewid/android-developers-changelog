@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/14/features/user-per-app-overrides.md b/docs/about/versions/14/features/user-per-app-overrides.md
+index edea202..7be72a4 100644
+--- a/docs/about/versions/14/features/user-per-app-overrides.md
++++ b/docs/about/versions/14/features/user-per-app-overrides.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android provides overrides that change the configured behavior of apps.
+ 
+ Device manufacturers can apply overrides to apps on select large screen devices. Android 14 QPR1 introduces user overrides, which enable users to apply overrides to apps through device settings.

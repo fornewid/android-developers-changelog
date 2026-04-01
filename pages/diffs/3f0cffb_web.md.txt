@@ -1,0 +1,12 @@
+diff --git a/docs/training/testing/espresso/web.md b/docs/training/testing/espresso/web.md
+index 61ba7db..c3bf895 100644
+--- a/docs/training/testing/espresso/web.md
++++ b/docs/training/testing/espresso/web.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Espresso-Web is an entry point to work with Android WebView UI components.
+ Espresso-Web reuses Atoms from the popular [WebDriver API](http://www.seleniumhq.org/docs/03_webdriver.jsp) to examine and control the behavior of a WebView.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/feature-delivery/install-time.md b/docs/guide/playcore/feature-delivery/install-time.md
+index 375e958..a6e445f 100644
+--- a/docs/guide/playcore/feature-delivery/install-time.md
++++ b/docs/guide/playcore/feature-delivery/install-time.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Feature modules allow you to separate certain features and resources
+ from the base module of your app and include them in your app bundle. You can
+ then [customize delivery options](/guide/playcore/feature-delivery#customize_delivery)

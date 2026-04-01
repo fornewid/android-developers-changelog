@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/webapps/webview.md b/docs/develop/ui/views/layout/webapps/webview.md
+index 2292cc0..5834295 100644
+--- a/docs/develop/ui/views/layout/webapps/webview.md
++++ b/docs/develop/ui/views/layout/webapps/webview.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Use [`WebView`](/reference/android/webkit/WebView) to deliver a web application or a web page as a part of a
+ client app. The `WebView` class is an extension of Android's [`View`](/reference/android/view/View)
+ class that lets you display web pages as a part of your activity layout. It

@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/terms.md b/docs/games/pgs/terms.md
+index 19d30ba..58798fc 100644
+--- a/docs/games/pgs/terms.md
++++ b/docs/games/pgs/terms.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ Last modified: June 26th, 2020
+ 
+ By using this API, you consent to be bound by these terms in
+@@ -115,6 +114,4 @@ addition to the
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/testing/emulator/configurable.md b/docs/training/cars/testing/emulator/configurable.md
+index 2666b38..3a86c95 100644
+--- a/docs/training/cars/testing/emulator/configurable.md
++++ b/docs/training/cars/testing/emulator/configurable.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To help emulate some of the configurations seen across OEMs, certain [hardware
+ profiles](/training/cars/testing/emulator#bundled-profiles) support runtime configurability.
+ 

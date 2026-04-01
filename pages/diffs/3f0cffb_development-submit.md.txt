@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/development-submit.md b/docs/games/playgames/development-submit.md
+index 76d96b0..b2e35f2 100644
+--- a/docs/games/playgames/development-submit.md
++++ b/docs/games/playgames/development-submit.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This guide describes how to submit your game for distribution on
+ Google Play Games on PC.
+ 
+@@ -199,4 +200,6 @@ storefront, and updates are no longer published to Google Play Games on PC.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

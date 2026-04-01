@@ -1,0 +1,99 @@
+diff --git a/docs/courses/quizzes/android-architecture/architecture-layers.md b/docs/courses/quizzes/android-architecture/architecture-layers.md
+index c52f17f..5a23a2e 100644
+--- a/docs/courses/quizzes/android-architecture/architecture-layers.md
++++ b/docs/courses/quizzes/android-architecture/architecture-layers.md
+@@ -1,60 +1,53 @@
+ ---
+-title: Modern Android App Architecture quiz  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-architecture/architecture-layers
+ url: https://developer.android.com/courses/quizzes/android-architecture/architecture-layers
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Modern Android App Architecture quiz
+ 
+-Return to pathway
+-
+-
+-
+-1. ## The \_\_\_ is the combination of UI elements and UI state.
+-
+-   ViewModel
+-
+-   Architecture of an app
+-
+-   UI
+-
+-   Unidirectional Data Flow pattern
+-2. ## Which of the following are Jetpack libraries that could be used in the data layer? Select all that apply.
++# Modern Android App Architecture quiz
+ 
+-   Choose as many answers as you see fit.
++<br />
+ 
+-   Room
++Return to pathway  
++1.
+ 
+-   ViewModel
++   ## The ___ is the combination of UI elements and UI state.
+ 
+-   DataStore
++   ViewModel  
++   Architecture of an app  
++   UI  
++   Unidirectional Data Flow pattern  
++2.
+ 
+-   Navigation
+-3. ## True or false? All UI events coming from the ViewModel should be modeled as state.
++   ## Which of the following are Jetpack libraries that could be used in the data layer? Select all that apply.
+ 
+-   True
++   Choose as many answers as you see fit.  
++   Room  
++   ViewModel  
++   DataStore  
++   Navigation  
++3.
+ 
+-   False
+-4. ## True or false? The UI behavior logic or UI logic should be present in a ViewModel.
++   ## True or false? All UI events coming from the ViewModel should be modeled as state.
+ 
+-   True
++   True  
++   False  
++4.
+ 
+-   False
+-5. ## The \_\_\_ layer avoids code duplication and encourages splitting responsibility to avoid large classes.
++   ## True or false? The UI behavior logic or UI logic should be present in a ViewModel.
+ 
+-   UI
++   True  
++   False  
++5.
+ 
+-   Domain
++   ## The ___ layer avoids code duplication and encourages splitting responsibility to avoid large classes.
+ 
+-   Data
++   UI  
++   Domain  
++   Data  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

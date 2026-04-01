@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/cursoradapter.md b/docs/jetpack/androidx/releases/cursoradapter.md
+index e5e62e4..489f224 100644
+--- a/docs/jetpack/androidx/releases/cursoradapter.md
++++ b/docs/jetpack/androidx/releases/cursoradapter.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Cursoradapter
+ 
+ [User Guide](/guide/topics/providers/content-providers)  [Code Sample](https://github.com/android/android-test/blob/master/testapps/ui_testapp/java/androidx/test/ui/app/CursorAdapterListFragment.java)

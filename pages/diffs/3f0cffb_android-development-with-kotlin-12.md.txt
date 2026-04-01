@@ -1,0 +1,126 @@
+diff --git a/docs/courses/quizzes/android-development-with-kotlin-12/android-development-with-kotlin-12.md b/docs/courses/quizzes/android-development-with-kotlin-12/android-development-with-kotlin-12.md
+index 7fbfa4a..51c0d63 100644
+--- a/docs/courses/quizzes/android-development-with-kotlin-12/android-development-with-kotlin-12.md
++++ b/docs/courses/quizzes/android-development-with-kotlin-12/android-development-with-kotlin-12.md
+@@ -1,77 +1,65 @@
+ ---
+-title: Lesson 12: Repository pattern and WorkManager  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-12/android-development-with-kotlin-12
+ url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-12/android-development-with-kotlin-12
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Lesson 12: Repository pattern and WorkManager
+ 
+-Return to pathway
+-
+-
+-
+-1. ## Which component in the Android Architecture Components is responsible for keeping the offline cache up-to-date and getting data from the network?
+-
+-   `ViewModel`
+-
+-   `LiveData`
+-
+-   Repository
+-
+-   Activities
+-2. ## What is the best way to save structured data on the device file system for offline caching?
+-
+-   Room
+-
+-   Files
+-
+-   Shared preferences
+-
+-   Retrofit caching
+-3. ## The `Transformations.map` converts one `LiveData` into another \_\_\_.
+-
+-   `ViewModel`
+-
+-   `LiveData`
++# Lesson 12: Repository pattern and WorkManager
+ 
+-   Repository
++<br />
+ 
+-   DAO object
+-4. ## When implementing offline caching, which one of the following strategies is a good example of the concept of separation of concerns?
++Return to pathway  
++1.
+ 
+-   Create separate classes to represent the network, domain, and database objects.
++   ## Which component in the Android Architecture Components is responsible for keeping the offline cache up-to-date and getting data from the network?
+ 
+-   Create a single class to represent the network, domain, and database objects.
++   `ViewModel`  
++   `LiveData`  
++   Repository  
++   Activities  
++2.
+ 
+-   Create a single class to represent the network and domain objects, and another class to represent the database object.
++   ## What is the best way to save structured data on the device file system for offline caching?
+ 
+-   Create a single class to represent the network object and another class to represent the database and domain objects.
+-5. ## What are the concrete implementations of the `WorkRequest` class?
++   Room  
++   Files  
++   Shared preferences  
++   Retrofit caching  
++3.
+ 
+-   `OneTimeWorkPeriodicRequest`
++   ## The`Transformations.map`converts one`LiveData`into another ___.
+ 
+-   `OneTimeWorkRequest` and `PeriodicWorkRequest`
++   `ViewModel`  
++   `LiveData`  
++   Repository  
++   DAO object  
++4.
+ 
+-   `OneTimeWorkRequest` and `RecurringWorkRequest`
++   ## When implementing offline caching, which one of the following strategies is a good example of the concept of separation of concerns?
+ 
+-   `OneTimeOffWorkRequest` and `RecurringWorkRequest`
+-6. ## Which API do you use to add constraints to a `WorkRequest`?
++   Create separate classes to represent the network, domain, and database objects.  
++   Create a single class to represent the network, domain, and database objects.  
++   Create a single class to represent the network and domain objects, and another class to represent the database object.  
++   Create a single class to represent the network object and another class to represent the database and domain objects.  
++5.
+ 
+-   `setConstraints()`
++   ## What are the concrete implementations of the`WorkRequest`class?
+ 
+-   `addConstraints()`
++   `OneTimeWorkPeriodicRequest`  
++   `OneTimeWorkRequest`and`PeriodicWorkRequest`  
++   `OneTimeWorkRequest`and`RecurringWorkRequest`  
++   `OneTimeOffWorkRequest`and`RecurringWorkRequest`  
++6.
+ 
+-   `setConstraint()`
++   ## Which API do you use to add constraints to a`WorkRequest`?
+ 
+-   `addConstraintsToWorkRequest()`
++   `setConstraints()`  
++   `addConstraints()`  
++   `setConstraint()`  
++   `addConstraintsToWorkRequest()`  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

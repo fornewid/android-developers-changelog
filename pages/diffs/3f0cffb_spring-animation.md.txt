@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/animations/spring-animation.md b/docs/develop/ui/views/animations/spring-animation.md
+index d4ef1ce..c8b444e 100644
+--- a/docs/develop/ui/views/animations/spring-animation.md
++++ b/docs/develop/ui/views/animations/spring-animation.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose.

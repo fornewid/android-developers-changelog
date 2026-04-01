@@ -1,0 +1,395 @@
+diff --git a/docs/media/media3/exoplayer/analytics.md b/docs/media/media3/exoplayer/analytics.md
+index cb2b566..b519995 100644
+--- a/docs/media/media3/exoplayer/analytics.md
++++ b/docs/media/media3/exoplayer/analytics.md
+@@ -1,52 +1,24 @@
+ ---
+-title: Analytics  |  Android media  |  Android Developers
++title: https://developer.android.com/media/media3/exoplayer/analytics
+ url: https://developer.android.com/media/media3/exoplayer/analytics
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Camera & media dev center](https://developer.android.com/media)
+-* [Guides](https://developer.android.com/media/guides)
+-
+-# Analytics Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ ExoPlayer supports a wide range of playback analytics needs. Ultimately,
+ analytics is about collecting, interpreting, aggregating, and summarizing data
+-from playbacks. This data can be used either on the device—for example for
+-logging, debugging, or to inform future playback decisions—or reported to a
++from playbacks. This data can be used either on the device---for example for
++logging, debugging, or to inform future playback decisions---or reported to a
+ server to monitor playbacks across all devices.
+ 
+ An analytics system usually needs to collect events first, and then process them
+ further to make them meaningful:
+ 
+-* **Event collection**:
+-  This can be done by registering an `AnalyticsListener` on an `ExoPlayer`
+-  instance. Registered analytics listeners receive events as they occur during
+-  usage of the player. Each event is associated with the corresponding media
+-  item in the playlist, as well as playback position and timestamp metadata.
+-* **Event processing**:
+-  Some analytics systems upload raw events to a server, with all event
+-  processing performed server-side. It's also possible to process events on the
+-  device, and doing so may be simpler or reduce the amount of information that
+-  needs to be uploaded. ExoPlayer provides `PlaybackStatsListener`, which
+-  allows you to perform the following processing steps:
+-  1. **Event interpretation**: To be useful for analytics purposes, events need
+-     to be interpreted in the context of a single playback. For example the raw
+-     event of a player state change to `STATE_BUFFERING` may correspond to
+-     initial buffering, a rebuffer, or buffering that happens after a seek.
+-  2. **State tracking**: This step converts events to counters. For example,
+-     state change events can be converted to counters tracking how much time is
+-     spent in each playback state. The result is a basic set of analytics data
+-     values for a single playback.
+-  3. **Aggregation**: This step combines the analytics data across multiple
+-     playbacks, typically by adding up counters.
+-  4. **Calculation of summary metrics**: Many of the most useful metrics are
+-     those that compute averages or combine the basic analytics data values in
+-     other ways. Summary metrics can be calculated for single or multiple
+-     playbacks.
++- **Event collection** : This can be done by registering an `AnalyticsListener` on an `ExoPlayer` instance. Registered analytics listeners receive events as they occur during usage of the player. Each event is associated with the corresponding media item in the playlist, as well as playback position and timestamp metadata.
++- **Event processing** : Some analytics systems upload raw events to a server, with all event processing performed server-side. It's also possible to process events on the device, and doing so may be simpler or reduce the amount of information that needs to be uploaded. ExoPlayer provides `PlaybackStatsListener`, which allows you to perform the following processing steps:
++  1. **Event interpretation** : To be useful for analytics purposes, events need to be interpreted in the context of a single playback. For example the raw event of a player state change to `STATE_BUFFERING` may correspond to initial buffering, a rebuffer, or buffering that happens after a seek.
++  2. **State tracking**: This step converts events to counters. For example, state change events can be converted to counters tracking how much time is spent in each playback state. The result is a basic set of analytics data values for a single playback.
++  3. **Aggregation**: This step combines the analytics data across multiple playbacks, typically by adding up counters.
++  4. **Calculation of summary metrics**: Many of the most useful metrics are those that compute averages or combine the basic analytics data values in other ways. Summary metrics can be calculated for single or multiple playbacks.
+ 
+ ## Event collection with AnalyticsListener
+ 
+@@ -54,9 +26,10 @@ Raw playback events from the player are reported to `AnalyticsListener`
+ implementations. You can easily add your own listener and override only the
+ methods you are interested in:
+ 
++
+ ### Kotlin
+ 
+-```
++```kotlin
+ exoPlayer.addAnalyticsListener(
+   object : AnalyticsListener {
+     override fun onPlaybackStateChanged(eventTime: EventTime, @Player.State state: Int) {}
+@@ -68,13 +41,11 @@ exoPlayer.addAnalyticsListener(
+     ) {}
+   }
+ )
+-
+-Analytics.kt
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ exoPlayer.addAnalyticsListener(
+     new AnalyticsListener() {
+       @Override
+@@ -84,25 +55,17 @@ exoPlayer.addAnalyticsListener(
+       public void onDroppedVideoFrames(
+           EventTime eventTime, int droppedFrames, long elapsedMs) {}
+     });
+-
+-Analytics.java
+ ```
+ 
++<br />
++
+ The `EventTime` that's passed to each callback associates the event to a media
+ item in the playlist, as well as playback position and timestamp metadata:
+ 
+-* `realtimeMs`: The wall clock time of the event.
+-* `timeline`, `windowIndex` and `mediaPeriodId`: Defines the playlist and the
+-  item within the playlist to which the event belongs. The `mediaPeriodId`
+-  contains optional additional information, for example indicating whether the
+-  event belongs to an ad within the item.
+-* `eventPlaybackPositionMs`: The playback position in the item when the event
+-  occurred.
+-* `currentTimeline`, `currentWindowIndex`, `currentMediaPeriodId` and
+-  `currentPlaybackPositionMs`: As above but for the currently playing item. The
+-  currently playing item may be different from the item to which the event
+-  belongs, for example if the event corresponds to pre-buffering of the next
+-  item to be played.
++- `realtimeMs`: The wall clock time of the event.
++- `timeline`, `windowIndex` and `mediaPeriodId`: Defines the playlist and the item within the playlist to which the event belongs. The `mediaPeriodId` contains optional additional information, for example indicating whether the event belongs to an ad within the item.
++- `eventPlaybackPositionMs`: The playback position in the item when the event occurred.
++- `currentTimeline`, `currentWindowIndex`, `currentMediaPeriodId` and `currentPlaybackPositionMs`: As above but for the currently playing item. The currently playing item may be different from the item to which the event belongs, for example if the event corresponds to pre-buffering of the next item to be played.
+ 
+ ## Event processing with PlaybackStatsListener
+ 
+@@ -110,26 +73,27 @@ item in the playlist, as well as playback position and timestamp metadata:
+ event processing. It calculates `PlaybackStats`, with counters and derived
+ metrics including:
+ 
+-* Summary metrics, for example the total playback time.
+-* Adaptive playback quality metrics, for example the average video resolution.
+-* Rendering quality metrics, for example the rate of dropped frames.
+-* Resource usage metrics, for example the number of bytes read over the network.
++- Summary metrics, for example the total playback time.
++- Adaptive playback quality metrics, for example the average video resolution.
++- Rendering quality metrics, for example the rate of dropped frames.
++- Resource usage metrics, for example the number of bytes read over the network.
+ 
+ You will find a complete list of the available counts and derived metrics in the
+-[`PlaybackStats` Javadoc](/reference/androidx/media3/exoplayer/analytics/PlaybackStats).
++[`PlaybackStats` Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/analytics/PlaybackStats).
+ 
+ `PlaybackStatsListener` calculates separate `PlaybackStats` for each media item
+ in the playlist, and also each client-side ad inserted within these items. You
+ can provide a callback to `PlaybackStatsListener` to be informed about finished
+ playbacks, and use the `EventTime` passed to the callback to identify which
+-playback finished. It's possible to [aggregate the analytics data](#aggregate-analytics-data) for
++playback finished. It's possible to [aggregate the analytics data](https://developer.android.com/media/media3/exoplayer/analytics#aggregate-analytics-data) for
+ multiple playbacks. It's also possible to query the `PlaybackStats` for the
+ current playback session at any time using
+ `PlaybackStatsListener.getPlaybackStats()`.
+ 
++
+ ### Kotlin
+ 
+-```
++```kotlin
+ exoPlayer.addAnalyticsListener(
+   PlaybackStatsListener(/* keepHistory= */ true) {
+     eventTime: EventTime?,
+@@ -137,23 +101,21 @@ exoPlayer.addAnalyticsListener(
+     -> // Analytics data for the session started at `eventTime` is ready.
+   }
+ )
+-
+-Analytics.kt
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ exoPlayer.addAnalyticsListener(
+     new PlaybackStatsListener(
+         /* keepHistory= */ true,
+         (eventTime, playbackStats) -> {
+           // Analytics data for the session started at `eventTime` is ready.
+         }));
+-
+-Analytics.java
+ ```
+ 
++<br />
++
+ The constructor of `PlaybackStatsListener` gives the option to keep the full
+ history of processed events. Note that this may incur an unknown memory overhead
+ depending on the length of the playback and the number of events. Therefore you
+@@ -165,11 +127,11 @@ the state of the media, but also the user intention to play and more detailed
+ information such as why playback was interrupted or ended:
+ 
+ | Playback state | User intention to play | No intention to play |
+-| --- | --- | --- |
++|---|---|---|
+ | Before playback | `JOINING_FOREGROUND` | `NOT_STARTED`, `JOINING_BACKGROUND` |
+-| Active playback | `PLAYING` |  |
++| Active playback | `PLAYING` |   |
+ | Interrupted playback | `BUFFERING`, `SEEKING` | `PAUSED`, `PAUSED_BUFFERING`, `SUPPRESSED`, `SUPPRESSED_BUFFERING`, `INTERRUPTED_BY_AD` |
+-| End states |  | `ENDED`, `STOPPED`, `FAILED`, `ABANDONED` |
++| End states |   | `ENDED`, `STOPPED`, `FAILED`, `ABANDONED` |
+ 
+ The user intention to play is important to distinguish times when the user was
+ actively waiting for playback to continue from passive wait times. For example,
+@@ -185,33 +147,24 @@ You can record processed and interpreted events by using `PlaybackStatsListener`
+ with `keepHistory=true`. The resulting `PlaybackStats` will contain the
+ following event lists:
+ 
+-* `playbackStateHistory`: An ordered list of extended playback states with
+-  the `EventTime` at which they started to apply. You can also use
+-  `PlaybackStats.getPlaybackStateAtTime` to look up the state at a given wall
+-  clock time.
+-* `mediaTimeHistory`: A history of wall clock time and media time pairs allowing
+-  you to reconstruct which parts of the media were played at which time. You can
+-  also use `PlaybackStats.getMediaTimeMsAtRealtimeMs` to look up the playback
+-  position at a given wall clock time.
+-* `videoFormatHistory` and `audioFormatHistory`: Ordered lists of video and
+-  audio formats used during playback with the `EventTime` at which they started
+-  to be used.
+-* `fatalErrorHistory` and `nonFatalErrorHistory`: Ordered lists of fatal and
+-  non-fatal errors with the `EventTime` at which they occurred. Fatal errors are
+-  those that ended playback, whereas non-fatal errors may have been recoverable.
++- `playbackStateHistory`: An ordered list of extended playback states with the `EventTime` at which they started to apply. You can also use `PlaybackStats.getPlaybackStateAtTime` to look up the state at a given wall clock time.
++- `mediaTimeHistory`: A history of wall clock time and media time pairs allowing you to reconstruct which parts of the media were played at which time. You can also use `PlaybackStats.getMediaTimeMsAtRealtimeMs` to look up the playback position at a given wall clock time.
++- `videoFormatHistory` and `audioFormatHistory`: Ordered lists of video and audio formats used during playback with the `EventTime` at which they started to be used.
++- `fatalErrorHistory` and `nonFatalErrorHistory`: Ordered lists of fatal and non-fatal errors with the `EventTime` at which they occurred. Fatal errors are those that ended playback, whereas non-fatal errors may have been recoverable.
+ 
+ ### Single-playback analytics data
+ 
+ This data is automatically collected if you use `PlaybackStatsListener`, even
+ with `keepHistory=false`. The final values are the public fields that you can
+-find in the [`PlaybackStats` Javadoc](/reference/androidx/media3/exoplayer/analytics/PlaybackStats) and the playback state durations
++find in the [`PlaybackStats` Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/analytics/PlaybackStats) and the playback state durations
+ returned by `getPlaybackStateDurationMs`. For convenience, you'll also find
+ methods like `getTotalPlayTimeMs` and `getTotalWaitTimeMs` that return the
+ duration of specific playback state combinations.
+ 
++
+ ### Kotlin
+ 
+-```
++```kotlin
+ Log.d(
+   "DEBUG",
+   "Playback summary: " +
+@@ -220,13 +173,11 @@ Log.d(
+     ", rebuffers = " +
+     playbackStats.totalRebufferCount,
+ )
+-
+-Analytics.kt
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ Log.d(
+     "DEBUG",
+     "Playback summary: "
+@@ -234,13 +185,12 @@ Log.d(
+         + playbackStats.getTotalPlayTimeMs()
+         + ", rebuffers = "
+         + playbackStats.totalRebufferCount);
+-
+-Analytics.java
+ ```
+ 
+-**Note:** Some values like `totalVideoFormatHeightTimeProduct` are only useful when
+-calculating derived summary metrics like the average video height, but are
+-required to correctly combine multiple `PlaybackStats` together.
++<br />
++
++> [!NOTE]
++> **Note:** Some values like `totalVideoFormatHeightTimeProduct` are only useful when calculating derived summary metrics like the average video height, but are required to correctly combine multiple `PlaybackStats` together.
+ 
+ ### Aggregate analytics data of multiple playbacks
+ 
+@@ -258,9 +208,10 @@ aggregated view of all analytics data collected in the lifetime of a
+ In addition to the basic analytics data, `PlaybackStats` provides many methods
+ to calculate summary metrics.
+ 
++
+ ### Kotlin
+ 
+-```
++```kotlin
+ Log.d(
+   "DEBUG",
+   "Additional calculated summary metrics: " +
+@@ -269,13 +220,11 @@ Log.d(
+     ", mean time between rebuffers = " +
+     playbackStats.meanTimeBetweenRebuffers,
+ )
+-
+-Analytics.kt
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ Log.d(
+     "DEBUG",
+     "Additional calculated summary metrics: "
+@@ -283,10 +232,10 @@ Log.d(
+         + playbackStats.getMeanVideoFormatBitrate()
+         + ", mean time between rebuffers = "
+         + playbackStats.getMeanTimeBetweenRebuffers());
+-
+-Analytics.java
+ ```
+ 
++<br />
++
+ ## Advanced topics
+ 
+ ### Associating analytics data with playback metadata
+@@ -300,9 +249,10 @@ The media tag is part of the `EventTime` reported for raw events and when
+ `PlaybackStats` are finished, so it can be easily retrieved when handling the
+ corresponding analytics data:
+ 
++
+ ### Kotlin
+ 
+-```
++```kotlin
+ PlaybackStatsListener(/* keepHistory= */ false) {
+   eventTime: EventTime,
+   playbackStats: PlaybackStats ->
+@@ -314,13 +264,11 @@ PlaybackStatsListener(/* keepHistory= */ false) {
+       ?.tag
+   // Report playbackStats with mediaTag metadata.
+ }
+-
+-Analytics.kt
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ new PlaybackStatsListener(
+     /* keepHistory= */ false,
+     (eventTime, playbackStats) -> {
+@@ -331,10 +279,10 @@ new PlaybackStatsListener(
+               .tag;
+       // Report playbackStats with mediaTag metadata.
+     });
+-
+-Analytics.java
+ ```
+ 
++<br />
++
+ ### Reporting custom analytics events
+ 
+ In case you need to add custom events to the analytics data, you need to save
+@@ -343,9 +291,10 @@ these events in your own data structure and combine them with the reported
+ to be able to generate `EventTime` instances for your custom events and send
+ them to the already registered listeners as shown in the following example.
+ 
++
+ ### Kotlin
+ 
+-```
++```kotlin
+ @OptIn(UnstableApi::class)
+ private interface ExtendedListener : AnalyticsListener {
+   fun onCustomEvent(eventTime: EventTime)
+@@ -378,13 +327,11 @@ fun useExtendedAnalyticsCollector(context: Context) {
+   // Usage - Triggering the custom event.
+   (player.analyticsCollector as ExtendedCollector).customEvent()
+ }
+-
+-Analytics.kt
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ @OptIn(markerClass = UnstableApi.class)
+ private interface ExtendedListener extends AnalyticsListener {
+   void onCustomEvent(EventTime eventTime);
+@@ -422,6 +369,6 @@ public static void useExtendedAnalyticsCollector(Context context) {
+   // Usage - Triggering the custom event.
+   ((ExtendedCollector) player.getAnalyticsCollector()).customEvent();
+ }
++```
+ 
+-Analytics.java
+-```
+\ No newline at end of file
++<br />
+\ No newline at end of file

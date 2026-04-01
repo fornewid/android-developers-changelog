@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/security-best-practices.md b/docs/privacy-and-security/security-best-practices.md
+index 46f28fa..afc9217 100644
+--- a/docs/privacy-and-security/security-best-practices.md
++++ b/docs/privacy-and-security/security-best-practices.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ By making your app more secure, you help preserve user trust and device
+ integrity.
+ 

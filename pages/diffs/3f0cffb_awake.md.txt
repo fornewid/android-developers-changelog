@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/awake.md b/docs/develop/background-work/background-tasks/awake.md
+index 4900e3e..17a17ae 100644
+--- a/docs/develop/background-work/background-tasks/awake.md
++++ b/docs/develop/background-work/background-tasks/awake.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When the user leaves their Android-powered device idle, it quickly goes into the
+ suspend state to avoid draining the battery. However, there are times when an
+ app needs to prevent the CPU from going to the suspend state. In some cases, the

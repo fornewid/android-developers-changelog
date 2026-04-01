@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/enterprise.md b/docs/jetpack/androidx/releases/enterprise.md
+index d66f0f4..1f9fbb6 100644
+--- a/docs/jetpack/androidx/releases/enterprise.md
++++ b/docs/jetpack/androidx/releases/enterprise.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Enterprise
+ 
+ [User Guide](/work/overview)  [Code Sample](https://github.com/android/enterprise-samples)

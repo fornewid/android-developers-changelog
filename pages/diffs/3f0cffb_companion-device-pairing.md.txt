@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/bluetooth/companion-device-pairing.md b/docs/develop/connectivity/bluetooth/companion-device-pairing.md
+index 9b4d1a2..7861aeb 100644
+--- a/docs/develop/connectivity/bluetooth/companion-device-pairing.md
++++ b/docs/develop/connectivity/bluetooth/companion-device-pairing.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ On devices running Android 8.0 (API level 26) and higher, companion device
+ pairing performs a Bluetooth or Wi-Fi scan of nearby devices on behalf of your
+ app without requiring the

@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/tiles.md b/docs/training/wearables/tiles.md
+index c702534..9f64b07 100644
+--- a/docs/training/wearables/tiles.md
++++ b/docs/training/wearables/tiles.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Tiles provide quick access to the information and actions users need to get
+ things done. The tiles carousel is revealed by a swipe on the watch face, and
+ additional swipes will switch between tiles. Tiles themselves cannot be
