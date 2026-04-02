@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/develop/connectivity/cronet
+title: Perform network operations using Cronet  |  Connectivity  |  Android Developers
 url: https://developer.android.com/develop/connectivity/cronet
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Connectivity](https://developer.android.com/develop/connectivity)
+* [Guides](https://developer.android.com/develop/connectivity/overview)
+
+# Perform network operations using Cronet Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Cronet is the Chromium network stack made available to Android apps as a
 library. Cronet takes advantage of multiple technologies that reduce the latency
@@ -13,7 +23,7 @@ daily basis, such as
 [YouTube](https://play.google.com/store/apps/details?id=com.google.android.youtube),
 [Google App](https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox),
 [Google Photos](https://play.google.com/store/apps/details?id=com.google.android.apps.photos),
-and [Maps - Navigation \& Transit](https://play.google.com/store/apps/details?id=com.google.android.apps.maps).
+and [Maps - Navigation & Transit](https://play.google.com/store/apps/details?id=com.google.android.apps.maps).
 
 ## Features
 
@@ -40,7 +50,7 @@ and [Maps - Navigation \& Transit](https://play.google.com/store/apps/details?id
     [Brotli Compressed Data Format](https://tools.ietf.org/html/rfc7932).
 
 To learn how to use the Cronet Library in your app for Android, see [Send a
-simple request](https://developer.android.com/develop/connectivity/cronet/start). You can also
+simple request](/develop/connectivity/cronet/start). You can also
 browse the
 [Cronet Sample](https://github.com/GoogleChromeLabs/cronet-sample)
 on GitHub.

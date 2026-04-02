@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Understand requirements, creation, and best practices.
 keywords\_public: Startup Profiles, Baseline Profiles, app performance, APK
 optimization, DEX layout, Android Studio, Jetpack Macrobenchmark

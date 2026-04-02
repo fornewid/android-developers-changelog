@@ -71,9 +71,9 @@ Find out how to assess the quality of your app and fulfill the upcoming requirem
 
 [![](https://developer.android.com/static/wear/images/callouts/wear-new-features.svg)](https://developer.android.com/training/wearables/versions/latest)
 
-### [Wear OS 6](https://developer.android.com/training/wearables/versions/latest)
+### [Wear OS 6.1](https://developer.android.com/training/wearables/versions/latest)
 
-The latest version of Wear OS—complete with support for seamless authentication with Credential Manager, personal customization with Material 3 Expressive, and support for watch face marketplaces with Watch Face Push—is here! Test your app using the official emulator in Android Studio.
+The latest version of Wear OS—complete with location-based time zone detection and enhanced experiences for kids—is here! Test your app using the official emulator in Android Studio.
 
 [Get your apps ready](https://developer.android.com/training/wearables/versions/latest)
 

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 When using the system back APIs, you can opt in to receive in-app animations and
 support custom transitions.
 

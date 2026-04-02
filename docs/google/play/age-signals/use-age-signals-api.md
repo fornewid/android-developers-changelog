@@ -14,6 +14,7 @@ On March 17, 2026, the Play Age Signals API starts rolling out responses for use
 
 
 
+
 By using the Play Age Signals API (beta), you agree to the [terms of service](/google/play/age-signals/overview#terms-service)
 and you agree to comply with all [Google Play developer policies](https://play.google/developer-content-policy/). To request
 the user's status and age range, you call the API from your app at runtime. The

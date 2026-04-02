@@ -1,113 +1,83 @@
 ---
-title: Start a glasses activity on display AI glasses from a notification  |  Android XR for Jetpack XR SDK  |  Android Developers
+title: https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/start-activity
 url: https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/start-activity
-source: html-scrape
+source: md.txt
 ---
 
-The Android XR SDK has  [reached Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Android XR](https://developer.android.com/develop/xr)
-* [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk)
-* [Guides](https://developer.android.com/develop/xr/get-started)
-
-# Start a glasses activity on display AI glasses from a notification Stay organized with collections Save and categorize content based on your preferences.
+<br />
 
 
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
+<br />
 
-Applicable XR devices
-
-This guidance helps you build experiences for these types of XR devices.
-
-[Learn about XR device types →](/develop/xr/devices)
-
-![](/static/images/develop/xr/ai-glasses-icon.svg)
-
-
-AI Glasses
-
-[Learn about XR device types →](/develop/xr/devices)
-
-You can specify a different [`PendingIntent`](/reference/kotlin/android/app/PendingIntent) that is invoked when a
-notification is tapped *on the glasses display*. This `PendingIntent` is
+You can specify a different [`PendingIntent`](https://developer.android.com/reference/kotlin/android/app/PendingIntent) that is invoked when a
+notification is tapped *on the glasses display* . This `PendingIntent` is
 distinct from the default intent set for the phone using
-[`setContentIntent`](/reference/kotlin/androidx/core/app/NotificationCompat.Builder#setContentIntent(android.app.PendingIntent)). For example, when the user taps on the notification on
+[`setContentIntent`](https://developer.android.com/reference/kotlin/androidx/core/app/NotificationCompat.Builder#setContentIntent(android.app.PendingIntent)). For example, when the user taps on the notification on
 the display AI glasses, a specific glasses activity launches on the display AI
 glasses.
 
-To add glasses-specific behaviors, use [`ProjectedExtender`](/reference/kotlin/androidx/core/app/NotificationCompat.ProjectedExtender). This API lets
+To add glasses-specific behaviors, use [`ProjectedExtender`](https://developer.android.com/reference/kotlin/androidx/core/app/NotificationCompat.ProjectedExtender). This API lets
 you to customize the notification's behavior on the glasses without affecting
 how it appears on the phone.
 
 ### Kotlin
 
-```
-// Intent to fire when tapped on the phone
-val phoneIntent = Intent(this, MyPhoneActivity::class.java)
-val phonePendingIntent = PendingIntent.getActivity(
-    this, 0, phoneIntent, PendingIntent.FLAG_IMMUTABLE
-)
+    // Intent to fire when tapped on the phone
+    val phoneIntent = Intent(this, MyPhoneActivity::class.java)
+    val phonePendingIntent = PendingIntent.getActivity(
+        this, 0, phoneIntent, PendingIntent.FLAG_IMMUTABLE
+    )
 
-// Intent to fire when tapped on the glasses display
-val glassesIntent = Intent(this, MyGlassesActivity::class.java)
-val glassesPendingIntent = PendingIntent.getActivity(
-    this, 1, glassesIntent, PendingIntent.FLAG_IMMUTABLE
-)
+    // Intent to fire when tapped on the glasses display
+    val glassesIntent = Intent(this, MyGlassesActivity::class.java)
+    val glassesPendingIntent = PendingIntent.getActivity(
+        this, 1, glassesIntent, PendingIntent.FLAG_IMMUTABLE
+    )
 
-// Create the base notification
-val builder = NotificationCompat.Builder(this, CHANNEL_ID).apply {
-    setSmallIcon(R.drawable.ic_notification)
-    setContentTitle("Navigation in Progress")
-    setContentText("Tap to see details")
-    // Default intent for phone
-    setContentIntent(phonePendingIntent)
+    // Create the base notification
+    val builder = NotificationCompat.Builder(this, CHANNEL_ID).apply {
+        setSmallIcon(R.drawable.ic_notification)
+        setContentTitle("Navigation in Progress")
+        setContentText("Tap to see details")
+        // Default intent for phone
+        setContentIntent(phonePendingIntent)
 
-    // Create and apply the glasses extender
-    val projectedExtender = ProjectedExtender().setContentIntent(glassesPendingIntent)
+        // Create and apply the glasses extender
+        val projectedExtender = ProjectedExtender().setContentIntent(glassesPendingIntent)
 
-    extend(projectedExtender)
-}
+        extend(projectedExtender)
+    }
 
-// Issue the notification
-notificationManager.notify(NOTIFICATION_ID, builder.build())
-```
+    // Issue the notification
+    notificationManager.notify(NOTIFICATION_ID, builder.build())
 
 ### Java
 
-```
-// Intent to fire when tapped on the phone
-Intent phoneIntent = new Intent(this, MyPhoneActivity.class);
-PendingIntent phonePendingIntent =
-    PendingIntent.getActivity(this, 0, phoneIntent, PendingIntent.FLAG_IMMUTABLE);
+    // Intent to fire when tapped on the phone
+    Intent phoneIntent = new Intent(this, MyPhoneActivity.class);
+    PendingIntent phonePendingIntent =
+        PendingIntent.getActivity(this, 0, phoneIntent, PendingIntent.FLAG_IMMUTABLE);
 
-// Intent to fire when tapped on the glasses display
-Intent glassesIntent = new Intent(this, MyGlassesActivity.class);
-PendingIntent glassesPendingIntent =
-    PendingIntent.getActivity(this, 1, glassesIntent, PendingIntent.FLAG_IMMUTABLE);
+    // Intent to fire when tapped on the glasses display
+    Intent glassesIntent = new Intent(this, MyGlassesActivity.class);
+    PendingIntent glassesPendingIntent =
+        PendingIntent.getActivity(this, 1, glassesIntent, PendingIntent.FLAG_IMMUTABLE);
 
-// Create the base notification
-NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-    .setSmallIcon(R.drawable.ic_notification)
-    .setContentTitle("New Update")
-    .setContentText("Something important happened.")
-    // Default intent for phone
-    .setContentIntent(phonePendingIntent);
+    // Create the base notification
+    NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+        .setSmallIcon(R.drawable.ic_notification)
+        .setContentTitle("New Update")
+        .setContentText("Something important happened.")
+        // Default intent for phone
+        .setContentIntent(phonePendingIntent);
 
-// Create and apply the Glasses extender
-ProjectedExtender projectedExtender = new ProjectedExtender()
-    // glasses-specific intent
-    .setContentIntent(glassesPendingIntent);
-builder.extend(projectedExtender);
+    // Create and apply the Glasses extender
+    ProjectedExtender projectedExtender = new ProjectedExtender()
+        // glasses-specific intent
+        .setContentIntent(glassesPendingIntent);
+    builder.extend(projectedExtender);
 
-// Issue the notification
-notificationManager.notify(NOTIFICATION_ID, builder.build());
-```
-
-[Previous
-
-arrow\_back
-
-Understand notification behavior for AI glasses](/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/behavior)
+    // Issue the notification
+    notificationManager.notify(NOTIFICATION_ID, builder.build());

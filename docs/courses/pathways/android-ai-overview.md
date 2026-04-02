@@ -1,136 +1,106 @@
 ---
-title: AI-ML learning pathway  |  Android Developers
+title: https://developer.android.com/courses/pathways/android-ai-overview
 url: https://developer.android.com/courses/pathways/android-ai-overview
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # AI-ML learning pathway
 
-This learning pathway is designed to provide Android developers with a comprehensive overview of the AI technologies available for their apps, providing a starting point for exploring and integrating AI features.  
-Go back
 
-*check\_circle*
+This learning pathway is designed to provide Android developers with a comprehensive overview of the AI technologies available for their apps, providing a starting point for exploring and integrating AI features.  
+
+
+Go back
 
 ## Introduction to AI-ML on Android
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article
 
-*subject*
-Article
 
 Understand the landscape of artificial intelligence and machine learning (AI-ML) capabilities available for Android apps.
 
-[Read article](https://developer.android.com/ai/overview)
+<br />
 
-*check\_circle*
+[Read article](https://developer.android.com/ai/overview)
 
 ## Set up the Android AI sample catalog
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article
 
-*subject*
-Article
 
 The Android AI Sample Catalog provides access to individual, self-contained examples that demonstrate various generative AI capabilities. Explore the project to get an idea of the possibilities for AI on Android.
 
-[Read article](https://developer.android.com/ai/samples)
+<br />
 
-*check\_circle*
+[Read article](https://developer.android.com/ai/samples)
 
 ## Run generative AI on device with ML Kit's GenAI APIs
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article
 
-*subject*
-Article
 
 Integrate powerful generative AI features directly into your app for offline use and enhanced privacy. ML Kit's GenAI APIs harness the power of Gemini Nano to help your apps perform tasks such as summarization, proofreading, rewriting, and image description.
 
-[Read article](https://developers.google.com/ml-kit/genai)
+<br />
 
-*check\_circle*
+[Read article](https://developers.google.com/ml-kit/genai)
 
 ## Simplify on-device machine learning with ML Kit
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article
 
-*subject*
-Article
 
 Learn about how ML Kit can help you implement common ML features quickly without deep ML expertise. Explore ML Kit's ready-to-use, on-device APIs (Vision and Natural Language) for tasks like text recognition, face detection, barcode scanning, image labeling, object detection, pose detection, smart reply, translation, etc.
 
-[Read article](https://developers.google.com/ml-kit/guides)
+<br />
 
-*check\_circle*
+[Read article](https://developers.google.com/ml-kit/guides)
 
 ## Custom on-device ML with LiteRT
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article
 
-*subject*
-Article
 
 Learn how to deploy your own custom machine learning models on Android using LiteRT.
 
-[Read article](https://ai.google.dev/edge/litert)
+<br />
 
-*check\_circle*
+[Read article](https://ai.google.dev/edge/litert)
 
 ## Cloud-based generative AI with Firebase AI Logic SDK
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article
 
-*subject*
-Article
 
 Access Google's most capable cloud-based generative models using Firebase AI Logic SDK for complex multimodal AI experiences.
 
-[Read article](https://developer.android.com/ai/gemini)
+<br />
 
-*check\_circle*
+[Read article](https://developer.android.com/ai/gemini)
 
 ## Generate images with Imagen 3
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article
 
-*subject*
-Article
 
 Imagen 3 is an image generation model. It can be used to generate custom avatars for user profiles or to integrate personalized visual assets into existing screen flows to increase user engagement.
 
-[Read article](https://developer.android.com/ai/imagen)
+<br />
 
-*check\_circle*
+[Read article](https://developer.android.com/ai/imagen)
 
 ## Codelab: Add Gemini capabilities to your Android app
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Codelab
 
-*emoji\_objects*
-Codelab
 
 The Gemini API provides access to generative AI models, enabling new application experiences. This codelab demonstrates adding summarization to the JetNews sample app.
+
+<br />
 
 [Take codelab](https://developer.android.com/codelabs/gemini-summarize)
 
 ## Android AI-ML quiz
 
 Test your knowledge of Android AI-ML solutions and earn your AI-ML Overview badge.
-
-[Take the quiz](/courses/quizzes/android-ai-overview)
+[Take the quiz](https://developer.android.com/courses/quizzes/android-ai-overview)

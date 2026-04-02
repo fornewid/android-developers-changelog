@@ -1,20 +1,10 @@
 ---
-title: Edit Ultra HDR images  |  Android media  |  Android Developers
+title: https://developer.android.com/media/grow/ultra-hdr/edit
 url: https://developer.android.com/media/grow/ultra-hdr/edit
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Edit Ultra HDR images Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-The [Ultra HDR image format](/guide/topics/media/platform/hdr-image-format) encodes luminosity information
+The [Ultra HDR image format](https://developer.android.com/guide/topics/media/platform/hdr-image-format) encodes luminosity information
 that lets devices display brighter
 images with more intense colors. When your app edits an Ultra HDR image, you
 want to make sure to preserve that luminosity information. This is important even if the
@@ -25,7 +15,7 @@ new device years later.
 
 The good news is most Android methods for editing bitmaps support the Ultra HDR
 image format. If you're making basic edits to an image, like cropping or
-rotating it, the standard Android methods do the job—you'll end up with an
+rotating it, the standard Android methods do the job---you'll end up with an
 ultra HDR image with the new dimensions or orientation.
 
 The job is trickier if you're modifying the contents of the image. In those
@@ -37,14 +27,11 @@ to get the right result.
 ### Ultra HDR format overview
 
 The Ultra HDR image format is described in detail in the [Ultra HDR Image
-specification](/guide/topics/media/platform/hdr-image-format). The most important thing to understand is an
+specification](https://developer.android.com/guide/topics/media/platform/hdr-image-format). The most important thing to understand is an
 Ultra HDR image contains both a *primary image* and a *gain map*.
 
-* The *primary image* has the color information for each pixel of the image.
-* The *gain map* is a standard JPEG image with the same proportions as the
-  primary image, though not necessarily the same pixel dimensions. Each pixel
-  of the gain map specifies the luminance of the corresponding part of the
-  primary image.
+- The *primary image* has the color information for each pixel of the image.
+- The *gain map* is a standard JPEG image with the same proportions as the primary image, though not necessarily the same pixel dimensions. Each pixel of the gain map specifies the luminance of the corresponding part of the primary image.
 
 The gain map can be either grayscale or color. If the gain map is in color, each
 color channel on the gain map specifies the luminance of that color channel on
@@ -62,16 +49,13 @@ primary image.
 
 ### Basic Ultra HDR edits
 
-If you use the Android [`Bitmap`](/reference/android/graphics/Bitmap) APIs to make
+If you use the Android [`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap) APIs to make
 basic transformations to an Ultra HDR image, the methods make the appropriate
 changes to the gain map. The following `Bitmap` operations are supported:
 
-* **Rotate:** If you rotate an Ultra HDR image, the method rotates the gain
-  map too.
-* **Crop:** If you crop an Ultra HDR image, the method crops the gain map
-  appropriately.
-* **Scale:** If you scale an Ultra HDR image, the method scales the gain map
-  so it has half the width and half the height of the resized primary image.
+- **Rotate:** If you rotate an Ultra HDR image, the method rotates the gain map too.
+- **Crop:** If you crop an Ultra HDR image, the method crops the gain map appropriately.
+- **Scale:** If you scale an Ultra HDR image, the method scales the gain map so it has half the width and half the height of the resized primary image.
 
 In each case, the luminosity information is preserved.
 
@@ -82,12 +66,9 @@ preserved unchanged, which may not give you the results you want.
 
 Common edits that might result in this situation include:
 
-* **Adding stickers or emoji:** The added sticker would have the same
-  luminosity and color vividness values as the area it was pasted on.
-* **Overlaying a second image:** The new image would use the luminosity and
-  color vividness information of the content it's overlaying.
-* **Adding filters:** The old gain map's information might not be appropriate
-  for the modified primary image.
+- **Adding stickers or emoji:** The added sticker would have the same luminosity and color vividness values as the area it was pasted on.
+- **Overlaying a second image:** The new image would use the luminosity and color vividness information of the content it's overlaying.
+- **Adding filters:** The old gain map's information might not be appropriate for the modified primary image.
 
 In each case, the old luminosity and color vividness information is preserved,
 but it might not be appropriate for the modified image.
@@ -95,25 +76,20 @@ but it might not be appropriate for the modified image.
 If the original gain map is appropriate for the edited image, you don't have to
 do anything. If you *do* want to modify the gain map, the usual workflow is:
 
-1. **Fetch the image's current gain map** by calling
-   [`Bitmap.getGainmap()`](/reference/android/graphics/Bitmap#getGainmap()) and cache it.
+1. **Fetch the image's current gain map** by calling [`Bitmap.getGainmap()`](https://developer.android.com/reference/android/graphics/Bitmap#getGainmap()) and cache it.
 2. **Modify the primary image as desired.**
 3. **Make corresponding edits to the cached gain map.** For example, if you
    pasted an emoji onto the primary image, you might set the corresponding
-   portion of the gain map to a neutral value, like [`Color.GRAY`](/reference/android/graphics/Color#GRAY).
+   portion of the gain map to a neutral value, like [`Color.GRAY`](https://developer.android.com/reference/android/graphics/Color#GRAY).
 
-   **Important:** The gain map might not have the same pixel dimensions as the
-   primary image. For this reason, you need to calculate the appropriate pixels
-   on the gain map that correspond to the edited areas on the primary image.
-   For example, suppose the primary image is 8,000×4,000 pixels, and the gain
-   map is 2,000×1,000 pixels. If you edit pixel (500,600) on the primary
-   image, the corresponding pixel on the gain map would be at location
-   (125,150).
+   > [!IMPORTANT]
+   > **Important:** The gain map might not have the same pixel dimensions as the primary image. For this reason, you need to calculate the appropriate pixels on the gain map that correspond to the edited areas on the primary image. For example, suppose the primary image is 8,000×4,000 pixels, and the gain map is 2,000×1,000 pixels. If you edit pixel (500,600) on the primary image, the corresponding pixel on the gain map would be at location (125,150).
+
 4. **Apply the modified gain map back to the image** by calling
-   [`Bitmap.setGainmap()`](/reference/android/graphics/Bitmap#setGainmap(android.graphics.Gainmap))).
+   [`Bitmap.setGainmap()`](https://developer.android.com/reference/android/graphics/Bitmap#setGainmap(android.graphics.Gainmap))).
 
 ### Additional resources
 
 To learn more about Ultra HDR images, see the following additional resources:
 
-* [Ultra HDR image format specification](/guide/topics/media/platform/hdr-image-format)
+- [Ultra HDR image format specification](https://developer.android.com/guide/topics/media/platform/hdr-image-format)

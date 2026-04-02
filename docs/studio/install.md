@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **Note:** Service integrations, such as Gemini in Android Studio and Firebase
 Crashlytics, are only available in the latest stable channel version of Android
 Studio and major versions (including their patches) released in the previous 10

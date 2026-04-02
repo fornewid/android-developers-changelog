@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 ## Listening to playback events
 
 Events, such as changes in state and playback errors, are reported to registered

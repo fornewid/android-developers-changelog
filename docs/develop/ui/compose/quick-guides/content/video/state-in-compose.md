@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Learn how to establish and manage state in your Compose-based app and how
 to configure the UI to react to changes in state. See how to create observable
 states, how to retain state across recompositions or configuration changes, and

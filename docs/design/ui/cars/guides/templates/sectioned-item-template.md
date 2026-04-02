@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Make it easy for users to find their favorite media while driving. You can mix
 and match lists and grids within the Sectioned Item template to create a
 customized browsing structure.

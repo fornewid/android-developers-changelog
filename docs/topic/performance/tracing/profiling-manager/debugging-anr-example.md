@@ -184,6 +184,8 @@ boolean performNetworkRequest(int timeoutMiliseconds) {
   // ...
 }
 
+
+void prepareNetworkRequest() {
   // ...
 }
 

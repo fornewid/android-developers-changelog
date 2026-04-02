@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Background processes can be memory- and battery-intensive. For example, an
 implicit broadcast may start many background processes that have registered to
 listen for it, even if those processes may not do much work. This can have a

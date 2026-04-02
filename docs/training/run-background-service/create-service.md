@@ -10,6 +10,7 @@ source: html-scrape
 
 
 
+
 **Note:** `IntentService` will not work correctly when the
 application is in the background on the latest versions of Android. This page is left here as
 reference for legacy apps only. See the [guide to background processing

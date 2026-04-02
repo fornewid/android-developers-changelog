@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 You can change the prices of your subscription base plans and offers. For
 example, you might have digital products that need annual price adjustments, or
 you might change the set of benefits for a product and want to reflect these
@@ -525,6 +526,8 @@ this scenario:
 
 **Figure 12.** Example timeline diagram
 when a user consents to the price step-up during both free trial and an introductory offer.
+
+
 
 
 

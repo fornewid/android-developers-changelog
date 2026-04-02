@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This page describes how to run your game on a
 [ChromeOS device that supports Android](https://www.chromium.org/chromium-os/chrome-os-systems-supporting-android-apps/)
 for testing purposes. You can use ChromeOS as an alternate testing plarform for
@@ -72,6 +73,8 @@ var currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActi
 var packageManager = currentActivity.Call<AndroidJavaObject>("getPackageManager");
 var isPC = packageManager.Call<bool>("hasSystemFeature", "org.chromium.arc");
 ```
+
+
 
 
 

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Camera and media apps span a broad range of use cases, from capturing content to
 editing photos to sharing music with friends to scrolling through videos on
 social media. In this developer center, you'll find resources to help you

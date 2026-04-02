@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Medical Records data is stored in the [HL7 FHIR](https://www.hl7.org/fhir/overview.html)
 format.
 

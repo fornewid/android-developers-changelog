@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android Studio provides a selection of code samples and templates for you to use to accelerate your
 app development. Browse sample code to learn how to build different components for your
 apps. Use templates to create new app modules, individual activities, or other specific

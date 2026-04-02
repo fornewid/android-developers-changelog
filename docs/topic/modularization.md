@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 A project with multiple Gradle modules is known as a multi-module project. This
 guide encompasses best practices and recommended patterns for developing
 multi-module Android apps.

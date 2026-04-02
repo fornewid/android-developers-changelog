@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Memory is a valuable resource in any software development environment, but it's
 even more valuable on a mobile operating system where physical memory is often
 constrained. This is especially true for natively low-memory devices found

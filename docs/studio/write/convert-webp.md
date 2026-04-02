@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 [WebP](https://developers.google.com/speed/webp/) is an image file format from
 Google that provides lossy compression (like JPEG) as well as transparency (like
 PNG) but can provide better compression than either JPEG or PNG. Lossy WebP

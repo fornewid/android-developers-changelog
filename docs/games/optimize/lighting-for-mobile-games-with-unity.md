@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Lighting is one of the most important aspects of a game. It can set the mood,
 lead the player, identify threats or objectives, and more. Lighting can make or
 break the visuals of a game. For example, good lighting can make a bad model
@@ -394,8 +393,6 @@ relevant platform and graphics API documentation for more information.
 
 For example, in Unity's Universal Render Pipeline forward renderer with
 OpenGL ES 2.0, there is a limit of four lights per object.
-
-
 
 
 

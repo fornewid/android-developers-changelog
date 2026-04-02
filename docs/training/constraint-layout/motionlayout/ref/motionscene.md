@@ -10,6 +10,7 @@ source: html-scrape
 
 
 
+
 Root element of a motion scene file. The `<MotionScene>` contains one or more
 [`<Transition>`](/training/constraint-layout/motionlayout/ref/transition)
 elements, each of which defines the start and end state of a motion sequence and

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 In order to use the MediaRouter framework within your app, you must get an instance
 of the `MediaRouter` object and attach a
 `MediaRouter.Callback` object to listen for routing events.

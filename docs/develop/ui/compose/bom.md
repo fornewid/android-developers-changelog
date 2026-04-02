@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Compose Bill of Materials (BOM) lets you manage all of your Compose library
 versions by specifying only the BOM's version. The BOM itself has links to the
 stable versions of the different Compose libraries, in such a way that they work

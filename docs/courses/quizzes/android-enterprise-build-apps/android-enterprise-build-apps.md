@@ -1,78 +1,69 @@
 ---
-title: Build enterprise apps on Android quiz  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-enterprise-build-apps/android-enterprise-build-apps
 url: https://developer.android.com/courses/quizzes/android-enterprise-build-apps/android-enterprise-build-apps
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Build enterprise apps on Android quiz
 
-Return to pathway
+# Build enterprise apps on Android quiz
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## True or False? The work profile prevents end users from installing their own apps so as not to put corporate data at risk.
+   ## True or False? The work profile prevents end users from installing their own apps so as not to put corporate data at risk.
 
-   True
+   True  
+   False  
+2.
 
-   False
-2. ## Apps installed in a work profile are marked with a(n) \_\_\_ to distinguish them from personal apps.
+   ## Apps installed in a work profile are marked with a(n) ___ to distinguish them from personal apps.
 
-   Android figure
+   Android figure  
+   small briefcase icon  
+   green circle  
+   small W  
+3.
 
-   small briefcase icon
+   ## When a device is enrolled by an organization, the work profile is set up with some preinstalled apps, including a(n) ___ app.
 
-   green circle
+   Android Enterprise  
+   Google for work  
+   Managed Play store  
+4.
 
-   small W
-3. ## When a device is enrolled by an organization, the work profile is set up with some preinstalled apps, including a(n) \_\_\_ app.
+   ## To include work contacts in your app, use...
 
-   Android Enterprise
+   CONTENT_FILTER_URI  
+   READ_EXTERNAL_STORAGE  
+   ENTERPRISE_CONTENT_FILTER_URI  
+   file::/  
+5.
 
-   Google for work
+   ## To present your end user with an easy way to switch between personal and work profiles from within your app, use the ___ class.
 
-   Managed Play store
-4. ## To include work contacts in your app, use...
+   CrossProfileApps  
+   PathPermission  
+   PermissionGroupInfo  
+   ShortcutManager  
+6.
 
-   CONTENT\_FILTER\_URI
+   ## Work profiles are managed by IT admins, which means essential device features and apps might be restricted at runtime. To be extra careful when handling runtime events, always check if there's a valid app that is ready to handle an intent before launching it. Use ___with the package manager to find out.
 
-   READ\_EXTERNAL\_STORAGE
+   resolveInfo  
+   resolveActivity  
+   resolveService  
+   resolveContentProvider  
+7.
 
-   ENTERPRISE\_CONTENT\_FILTER\_URI
+   ## Fill-in-the-blanks
 
-   file::/
-5. ## To present your end user with an easy way to switch between personal and work profiles from within your app, use the \_\_\_ class.
-
-   CrossProfileApps
-
-   PathPermission
-
-   PermissionGroupInfo
-
-   ShortcutManager
-6. ## Work profiles are managed by IT admins, which means essential device features and apps might be restricted at runtime. To be extra careful when handling runtime events, always check if there’s a valid app that is ready to handle an intent before launching it. Use \_\_\_with the package manager to find out.
-
-   resolveInfo
-
-   resolveActivity
-
-   resolveService
-
-   resolveContentProvider
-7. ## Fill-in-the-blanks
-
-   Enter one or more words to complete the sentence.
-
-   The \_\_\_ is responsible for initiating the following OAuth code flow.
-
-   ![](https://developer.android.com/static/courses/quizzes/android-enterprise-build-apps/images/quiz.jpg)
+   Enter one or more words to complete the sentence.  
+   The ___ is responsible for initiating the following OAuth code flow.  
+   ![](http://developer.android.com/static/courses/quizzes/android-enterprise-build-apps/images/quiz.jpg)  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

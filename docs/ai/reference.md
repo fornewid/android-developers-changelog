@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ### Google AI Edge SDK Reference
 
 This section provides reference documentation for the

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 UI rendering is the act of generating a frame from your app and displaying it on
 the screen. To help ensure that a user's interaction with your app is smooth,
 your app must render frames in under 16ms to achieve 60 frames per second (fps).

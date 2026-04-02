@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 **Note:** This guide is for the Play Games Services v2 SDK. For information on the
 previous version of this SDK, see the [Play Games Services v1
 documentation](/games/pgs/v1/android/saved-games).
@@ -420,8 +419,6 @@ steps:
      [`SnapshotsClient.DataOrConflict.isConflict()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.DataOrConflict#isConflict())
      returns `false` and the `Snapshot` object is open for your game to
      modify.
-
-
 
 
 

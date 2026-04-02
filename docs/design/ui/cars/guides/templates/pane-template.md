@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This template is useful for presenting information, such as location and
 reservation details, and for taking action based on data.
 

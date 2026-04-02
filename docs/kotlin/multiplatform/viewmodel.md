@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/kotlin/multiplatform/viewmodel
+title: Set up ViewModel for KMP  |  Kotlin  |  Android Developers
 url: https://developer.android.com/kotlin/multiplatform/viewmodel
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Get started](https://developer.android.com/get-started/overview)
+* [Kotlin](https://developer.android.com/kotlin)
+* [Guides](https://developer.android.com/kotlin/first)
+
+# Set up ViewModel for KMP Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The AndroidX ViewModel serves as a bridge, establishing a clear contract between
 your shared business logic and your UI components. This pattern helps ensure
@@ -11,36 +20,41 @@ platform's distinct appearance. You can continue developing your UI with Jetpack
 Compose on Android and SwiftUI on iOS.
 
 Read more about benefits of using ViewModel and all the features in the [primary
-documentation for ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel).
+documentation for ViewModel](/topic/libraries/architecture/viewmodel).
 
-> [!NOTE]
-> **Note:** You can see the implementation in practice [in our official sample](https://github.com/android/kotlin-multiplatform-samples/tree/main/Fruitties).
+**Note:** You can see the implementation in practice
+[in our official sample](https://github.com/android/kotlin-multiplatform-samples/tree/main/Fruitties).
 
 ## Set up dependencies
 
-> [!NOTE]
-> **Note:** ViewModel supports KMP in versions 2.8.0 and higher.
+**Note:** ViewModel supports KMP in versions 2.8.0 and higher.
 
 To set up the KMP ViewModel in your project, define the dependency in the
 `libs.versions.toml` file:
 
-    [versions]
-    androidx-viewmodel = 2.10.0
+```
+[versions]
+androidx-viewmodel = 2.10.0
 
-    [libraries]
-    androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-viewmodel" }
+[libraries]
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-viewmodel" }
+```
 
 And then add the artifact to the `build.gradle.kts` file for your KMP module
 and declare the dependency as `api`, because this dependency will be exported to
 the binary framework:
 
-    // You need the "api" dependency declaration here if you want better access to the classes from Swift code.
-    commonMain.dependencies {
-      api(libs.androidx.lifecycle.viewmodel)
-    }
+```
+// You need the "api" dependency declaration here if you want better access to the classes from Swift code.
+commonMain.dependencies {
+  api(libs.androidx.lifecycle.viewmodel)
+}
+```
 
-> [!NOTE]
-> **Note:** JetBrains also provides a dependency for a [Common ViewModel](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-viewmodel.html#using-viewmodel-in-common-code). This dependency is only required if you want to retrieve a ViewModel in [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/).
+**Note:** JetBrains also provides a dependency for a
+[Common ViewModel](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-viewmodel.html#using-viewmodel-in-common-code). This dependency is only
+required if you want to retrieve a ViewModel in
+[Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/).
 
 ### Export ViewModel APIs for access from Swift
 
@@ -58,17 +72,19 @@ framework using the `export` setup in the `build.gradle.kts` file where you
 define the iOS binary framework, which makes the ViewModel APIs accessible
 directly from the Swift code the same as from Kotlin code:
 
-    listOf(
-      iosX64(),
-      iosArm64(),
-      iosSimulatorArm64(),
-    ).forEach {
-      it.binaries.framework {
-        // Add this line to all the targets you want to export this dependency
-        export(libs.androidx.lifecycle.viewmodel)
-        baseName = "shared"
-      }
-    }
+```
+listOf(
+  iosX64(),
+  iosArm64(),
+  iosSimulatorArm64(),
+).forEach {
+  it.binaries.framework {
+    // Add this line to all the targets you want to export this dependency
+    export(libs.androidx.lifecycle.viewmodel)
+    baseName = "shared"
+  }
+}
+```
 
 ### (Optional) Using `viewModelScope` on JVM Desktop
 
@@ -77,10 +93,12 @@ the `Dispatchers.Main.immediate`, which might be unavailable on desktop by
 default. To make it work correctly, add the `kotlinx-coroutines-swing`
 dependency to your project:
 
-    // Optional if you use JVM Desktop
-    desktopMain.dependencies {
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:[KotlinX Coroutines version]")
-    }
+```
+// Optional if you use JVM Desktop
+desktopMain.dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:[KotlinX Coroutines version]")
+}
+```
 
 See the [`Dispatchers.Main` documentation](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-main.html)
 for more details.
@@ -100,8 +118,7 @@ Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplat
 For example, in the following snippet is a ViewModel class with its factory,
 defined in `commonMain`:
 
-
-```kotlin
+```
 // commonMain/MainViewModel.kt
 
 class MainViewModel(
@@ -116,14 +133,13 @@ val mainViewModelFactory = viewModelFactory {
 }
 
 fun getDataRepository(): DataRepository = DataRepository()
-```
 
-<br />
+MainViewModel.kt
+```
 
 Then, in your UI code, you can retrieve the ViewModel as usual:
 
-
-```kotlin
+```
 // androidApp/ui/MainScreen.kt
 
 @Composable
@@ -134,9 +150,9 @@ fun MainScreen(
 ) {
 // observe the viewModel state
 }
-```
 
-<br />
+MainScreen.kt
+```
 
 ## Use ViewModel from SwiftUI
 
@@ -159,8 +175,7 @@ To help with this issue, you can create a helper function that will use
 `ObjCClass` instead of the generics type and then use `getOriginalKotlinClass`
 to retrieve the ViewModel class to instantiate:
 
-
-```kotlin
+```
 // iosMain/ViewModelResolver.ios.kt
 
 /**
@@ -183,9 +198,9 @@ fun ViewModelStore.resolveViewModel(
     val provider = ViewModelProvider.Companion.create(this, factory, extras ?: CreationExtras.Empty)
     return key?.let { provider[key, vmClass] } ?: provider[vmClass]
 }
-```
 
-<br />
+ViewModelResolver.ios.kt
+```
 
 Then, when you want to call the function from Swift, you can write a generic
 function of type `T : ViewModel` and use `T.self`, which can pass the
@@ -198,8 +213,7 @@ Next step is to create a `IosViewModelStoreOwner` that implements the
 for the `ObservableObject` is to be able to use this class as a `@StateObject`
 in the SwiftUI code:
 
-
-```kotlin
+```
 // iosApp/IosViewModelStoreOwner.swift
 
 class IosViewModelStoreOwner: ObservableObject, ViewModelStoreOwner {
@@ -230,9 +244,9 @@ class IosViewModelStoreOwner: ObservableObject, ViewModelStoreOwner {
         viewModelStore.clear()
     }
 }
-```
 
-<br />
+IosViewModelStoreOwner.swift
+```
 
 This owner allows retrieving multiple ViewModel types, similarly as on Android.
 The lifecycle of those ViewModels is cleared when the screen using the
@@ -244,8 +258,7 @@ At this point, you can just instantiate the `IosViewModelStoreOwner` as a
 `@StateObject` in a SwiftUI View and call the `viewModel` function to retrieve a
 ViewModel:
 
-
-```kotlin
+```
 // iosApp/ContentView.swift
 
 struct ContentView: View {
@@ -264,9 +277,9 @@ struct ContentView: View {
         // .. the rest of the SwiftUI code
     }
 }
-```
 
-<br />
+ContentView.swift
+```
 
 ## Not Available in Kotlin Multiplatform
 
@@ -275,7 +288,7 @@ Multiplatform.
 
 ### Integration with Hilt
 
-Because [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) is not available for Kotlin Multiplatform projects,
+Because [Hilt](/training/dependency-injection/hilt-android) is not available for Kotlin Multiplatform projects,
 you can't directly use ViewModels with `@HiltViewModel` annotation in
 `commonMain` sourceSet. In that case you need to use some alternative DI
 framework, for example, [Koin](https://insert-koin.io/),

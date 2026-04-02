@@ -1,33 +1,42 @@
 ---
-title: https://developer.android.com/ndk/guides/audio/midi
+title: Native MIDI API  |  Android Developers
 url: https://developer.android.com/ndk/guides/audio/midi
-source: md.txt
+source: html-scrape
 ---
 
-The [AMidi](https://developer.android.com/ndk/reference/group/midi) API is
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Guides](https://developer.android.com/ndk/guides)
+
+# Native MIDI API Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+The [AMidi](/ndk/reference/group/midi) API is
 available in Android NDK r20b and later. It gives app
 developers the ability to send and receive MIDI data with C/C++code.
 
 Android MIDI apps usually use the
-[`midi`](https://developer.android.com/reference/android/media/midi/package-summary) API to communicate with the
+[`midi`](/reference/android/media/midi/package-summary) API to communicate with the
 Android MIDI service. MIDI apps primarily depend on the
-[`MidiManager`](https://developer.android.com/reference/android/media/midi/MidiManager) to discover, open,
+[`MidiManager`](/reference/android/media/midi/MidiManager) to discover, open,
 and close one or more
-[`MidiDevice`](https://developer.android.com/reference/android/media/midi/MidiDevice) objects, and
+[`MidiDevice`](/reference/android/media/midi/MidiDevice) objects, and
 pass data to and from each device via the device's
-MIDI [input](https://developer.android.com/reference/android/media/midi/MidiInputPort)
-and [output](https://developer.android.com/reference/android/media/midi/MidiOutputPort) ports:
+MIDI [input](/reference/android/media/midi/MidiInputPort)
+and [output](/reference/android/media/midi/MidiOutputPort) ports:
 
-![](https://developer.android.com/static/ndk/images/midi/midi.svg)
+![](/static/ndk/images/midi/midi.svg)
 
 When you use AMidi you pass the address of a `MidiDevice` to the native code
 layer with a JNI call. From there, AMidi creates a reference to an `AMidiDevice`
 which has most of the functionality of a `MidiDevice`. Your native code uses
-[AMidi functions](https://developer.android.com/ndk/reference/group/midi#functions_1) that communicate
+[AMidi functions](/ndk/reference/group/midi#functions_1) that communicate
 directly with an `AMidiDevice` The `AMidiDevice` connects directly to the
 MIDI service:
 
-![](https://developer.android.com/static/ndk/images/midi/amidi.svg)
+![](/static/ndk/images/midi/amidi.svg)
 
 Using AMidi calls, you can integrate your app's C/C++ audio/control logic closely
 with MIDI transmission. There is less need for JNI calls, or callbacks to the
@@ -71,7 +80,7 @@ and pass it to the native code.
 #### Discover hardware and ports
 
 The input and output port objects do not belong to the app. They represent ports
-*on the midi device* . To send MIDI data to a device, an app opens a
+*on the midi device*. To send MIDI data to a device, an app opens a
 `MIDIInputPort` and then writes data to it. Conversely, to receive data, an app
 opens a `MIDIOutputPort`. To work properly, the app must be sure the ports it
 opens are the correct type. Device and port discovery are done on the Java side.
@@ -83,7 +92,7 @@ have both input ports and output ports.
 
 ### Kotlin
 
-```kotlin
+```
 private fun getMidiDevices(isOutput: Boolean) : List {
     if (isOutput) {
         return mMidiManager.devices.filter { it.outputPortCount > 0 }
@@ -95,7 +104,7 @@ private fun getMidiDevices(isOutput: Boolean) : List {
 
 ### Java
 
-```java
+```
 private List getMidiDevices(boolean isOutput){
   ArrayList filteredMidiDevices = new ArrayList<>();
 
@@ -112,14 +121,15 @@ private List getMidiDevices(boolean isOutput){
 
 To use AMidi functions in your C/C++ code you must include
 `AMidi/AMidi.h` and link against the `amidi` library. These can be both be found
-in the [Android NDK](https://developer.android.com/ndk).
+in the [Android NDK](/ndk).
 
 The Java side should pass one or more `MidiDevice` objects and port numbers to
 the native layer via a JNI call. The native layer should then perform the
 following steps:
 
 1. For each Java `MidiDevice` obtain an `AMidiDevice` using `AMidiDevice_fromJava()`.
-2. Obtain an `AMidiInputPort` and/or `AMidiOutputPort` from the `AMidiDevice` with `AMidiInputPort_open()` and/or `AMidiOutputPort_open()`.
+2. Obtain an `AMidiInputPort` and/or `AMidiOutputPort` from the `AMidiDevice`
+   with `AMidiInputPort_open()` and/or `AMidiOutputPort_open()`.
 3. Use the obtained ports to send and/or receive MIDI data.
 
 ### Stop AMidi
@@ -130,8 +140,11 @@ disconnected or because the app is exiting.
 
 To release MIDI resources, your code should perform these tasks:
 
-1. Stop reading and/or writing to MIDI ports. If you were using a reading thread to poll for input (see [Implement a polling loop](https://developer.android.com/ndk/guides/audio/midi#polling) below), stop the thread.
-2. Close any open `AMidiInputPort` and/or `AMidiOutputPort` objects with `AMidiInputPort_close()` and/or `AMidiOutputPort_close()` functions.
+1. Stop reading and/or writing to MIDI ports. If you were using a reading
+   thread to poll for input (see [Implement a polling loop](#polling) below),
+   stop the thread.
+2. Close any open `AMidiInputPort` and/or `AMidiOutputPort` objects with
+   `AMidiInputPort_close()` and/or `AMidiOutputPort_close()` functions.
 3. Release the `AMidiDevice` with `AMidiDevice_release()`.
 
 ## Receive MIDI data
@@ -162,7 +175,7 @@ explained in the next snippet.
 
 ### Kotlin
 
-```kotlin
+```
 //AppMidiManager.kt
 class AppMidiManager(context : Context) {
   private external fun startReadingMidi(midiDevice: MidiDevice,
@@ -182,7 +195,7 @@ class AppMidiManager(context : Context) {
 
 ### Java
 
-```java
+```
 //AppMidiManager.java
 public class AppMidiManager {
   private native void startReadingMidi(MidiDevice device, int portNumber);
@@ -213,27 +226,29 @@ an output port on the device:
 
 **AppMidiManager.cpp**
 
-    AMidiDevice midiDevice;
-    static pthread_t readThread;
+```
+AMidiDevice midiDevice;
+static pthread_t readThread;
 
-    static const AMidiDevice* midiDevice = AMIDI_INVALID_HANDLE;
-    static std::atomic<AMidiOutputPort*> midiOutputPort(AMIDI_INVALID_HANDLE);
+static const AMidiDevice* midiDevice = AMIDI_INVALID_HANDLE;
+static std::atomic<AMidiOutputPort*> midiOutputPort(AMIDI_INVALID_HANDLE);
 
-    void Java_com_nativemidiapp_AppMidiManager_startReadingMidi(
-            JNIEnv* env, jobject, jobject deviceObj, jint portNumber) {
-        AMidiDevice_fromJava(j_env, deviceObj, &midiDevice);
+void Java_com_nativemidiapp_AppMidiManager_startReadingMidi(
+        JNIEnv* env, jobject, jobject deviceObj, jint portNumber) {
+    AMidiDevice_fromJava(j_env, deviceObj, &midiDevice);
 
-        AMidiOutputPort* outputPort;
-        int32_t result =
-          AMidiOutputPort_open(midiDevice, portNumber, &outputPort);
-        // check for errors...
+    AMidiOutputPort* outputPort;
+    int32_t result =
+      AMidiOutputPort_open(midiDevice, portNumber, &outputPort);
+    // check for errors...
 
-        // Start read thread
-        int pthread_result =
-          pthread_create(&readThread, NULL, readThreadRoutine, NULL);
-        // check for errors...
+    // Start read thread
+    int pthread_result =
+      pthread_create(&readThread, NULL, readThreadRoutine, NULL);
+    // check for errors...
 
-    }
+}
+```
 
 ### Implement a polling loop
 
@@ -252,53 +267,57 @@ performance impact.
 The function `readThreadRoutine()` called from the `startReadingMidi()` function
 above might look like this:
 
-    void* readThreadRoutine(void * /*context*/) {
-        uint8_t inDataBuffer[SIZE_DATABUFFER];
-        int32_t numMessages;
-        uint32_t opCode;
-        uint64_t timestamp;
-        reading = true;
-        while (reading) {
-            AMidiOutputPort* outputPort = midiOutputPort.load();
-            numMessages =
-                  AMidiOutputPort_receive(outputPort, &opCode, inDataBuffer,
-                                    sizeof(inDataBuffer), &timestamp);
-            if (numMessages >= 0) {
-                if (opCode == AMIDI_OPCODE_DATA) {
-                    // Dispatch the MIDI data....
-                }
-            } else {
-                // some error occurred, the negative numMessages is the error code
-                int32_t errorCode = numMessages;
+```
+void* readThreadRoutine(void * /*context*/) {
+    uint8_t inDataBuffer[SIZE_DATABUFFER];
+    int32_t numMessages;
+    uint32_t opCode;
+    uint64_t timestamp;
+    reading = true;
+    while (reading) {
+        AMidiOutputPort* outputPort = midiOutputPort.load();
+        numMessages =
+              AMidiOutputPort_receive(outputPort, &opCode, inDataBuffer,
+                                sizeof(inDataBuffer), &timestamp);
+        if (numMessages >= 0) {
+            if (opCode == AMIDI_OPCODE_DATA) {
+                // Dispatch the MIDI data….
             }
-      }
-    }
+        } else {
+            // some error occurred, the negative numMessages is the error code
+            int32_t errorCode = numMessages;
+        }
+  }
+}
+```
 
 An app using a native audio API (like OpenSL ES, or
 AAudio) can add MIDI receive code to the audio generation callback like this:
 
-    void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void */*context*/)
-    {
-        uint8_t inDataBuffer[SIZE_DATABUFFER];
-        int32_t numMessages;
-        uint32_t opCode;
-        uint64_t timestamp;
+```
+void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void */*context*/)
+{
+    uint8_t inDataBuffer[SIZE_DATABUFFER];
+    int32_t numMessages;
+    uint32_t opCode;
+    uint64_t timestamp;
 
-        // Read MIDI Data
-        numMessages = AMidiOutputPort_receive(outputPort, &opCode, inDataBuffer,
-            sizeof(inDataBuffer), &timestamp);
-        if (numMessages >= 0 && opCode == AMIDI_OPCODE_DATA) {
-            // Parse and respond to MIDI data
-            // ...
-        }
-
-        // Generate Audio...
+    // Read MIDI Data
+    numMessages = AMidiOutputPort_receive(outputPort, &opCode, inDataBuffer,
+        sizeof(inDataBuffer), &timestamp);
+    if (numMessages >= 0 && opCode == AMIDI_OPCODE_DATA) {
+        // Parse and respond to MIDI data
         // ...
     }
 
+    // Generate Audio…
+    // ...
+}
+```
+
 The following diagram illustrates the flow of a MIDI reading app:
 
-![](https://developer.android.com/static/ndk/images/midi/midi-reading-flow.png)
+![](/static/ndk/images/midi/midi-reading-flow.png)
 
 ## Send MIDI data
 
@@ -317,7 +336,7 @@ next snippet.
 
 ### Kotlin
 
-```kotlin
+```
 //AppMidiManager.kt
 class AppMidiManager(context : Context) {
   private external fun startWritingMidi(midiDevice: MidiDevice,
@@ -337,7 +356,7 @@ class AppMidiManager(context : Context) {
 
 ### Java
 
-```java
+```
 //AppMidiManager.java
 public class AppMidiManager {
   private native void startWritingMidi(MidiDevice device, int portNumber);
@@ -366,18 +385,20 @@ an input port on the device:
 
 **AppMidiManager.cpp**
 
-    void Java_com_nativemidiapp_AppMidiManager_startWritingMidi(
-           JNIEnv* env, jobject, jobject midiDeviceObj, jint portNumber) {
-       media_status_t status;
-       status = AMidiDevice_fromJava(
-         env, midiDeviceObj, &sNativeSendDevice);
-       AMidiInputPort *inputPort;
-       status = AMidiInputPort_open(
-         sNativeSendDevice, portNumber, &inputPort);
+```
+void Java_com_nativemidiapp_AppMidiManager_startWritingMidi(
+       JNIEnv* env, jobject, jobject midiDeviceObj, jint portNumber) {
+   media_status_t status;
+   status = AMidiDevice_fromJava(
+     env, midiDeviceObj, &sNativeSendDevice);
+   AMidiInputPort *inputPort;
+   status = AMidiInputPort_open(
+     sNativeSendDevice, portNumber, &inputPort);
 
-       // store it in a global
-       sMidiInputPort = inputPort;
-    }
+   // store it in a global
+   sMidiInputPort = inputPort;
+}
+```
 
 ### Send MIDI data
 
@@ -392,16 +413,18 @@ writing data.
 Here is an example JNI method that receives a buffer of MIDI commands and
 writes it out:
 
-    void Java_com_nativemidiapp_TBMidiManager_writeMidi(
-    JNIEnv* env, jobject, jbyteArray data, jint numBytes) {
-       jbyte* bufferPtr = env->GetByteArrayElements(data, NULL);
-       AMidiInputPort_send(sMidiInputPort, (uint8_t*)bufferPtr, numBytes);
-       env->ReleaseByteArrayElements(data, bufferPtr, JNI_ABORT);
-    }
+```
+void Java_com_nativemidiapp_TBMidiManager_writeMidi(
+JNIEnv* env, jobject, jbyteArray data, jint numBytes) {
+   jbyte* bufferPtr = env->GetByteArrayElements(data, NULL);
+   AMidiInputPort_send(sMidiInputPort, (uint8_t*)bufferPtr, numBytes);
+   env->ReleaseByteArrayElements(data, bufferPtr, JNI_ABORT);
+}
+```
 
 The following diagram illustrates the flow of a MIDI writing app:
 
-![](https://developer.android.com/static/ndk/images/midi/midi-producing-flow.png)
+![](/static/ndk/images/midi/midi-producing-flow.png)
 
 ## Callbacks
 
@@ -409,8 +432,8 @@ Though not strictly an AMidi feature, your native code may need to pass data
 back to the Java side (to update the UI for example). To do that, you must
 write code in the Java side and the native layer:
 
-- Create a callback method on the Java side.
-- Write a JNI function that stores the information needed to invoke the callback.
+* Create a callback method on the Java side.
+* Write a JNI function that stores the information needed to invoke the callback.
 
 When its time to callback, your native code can construct
 
@@ -418,7 +441,7 @@ Here is the Java-side callback method, `onNativeMessageReceive()`:
 
 ### Kotlin
 
-```kotlin
+```
 //MainActivity.kt
 private fun onNativeMessageReceive(message: ByteArray) {
   // Messages are received on some other thread, so switch to the UI thread
@@ -429,7 +452,7 @@ private fun onNativeMessageReceive(message: ByteArray) {
 
 ### Java
 
-```java
+```
 //MainActivity.java
 private void onNativeMessageReceive(final byte[] message) {
         // Messages are received on some other thread, so switch to the UI thread
@@ -448,45 +471,49 @@ Here is the C code for the JNI function that sets up thea callback to
 
 **MainActivity.cpp**
 
-    /**
-     * Initializes JNI interface stuff, specifically the info needed to call back into the Java
-     * layer when MIDI data is received.
-     */
-    JNICALL void Java_com_example_nativemidi_MainActivity_initNative(JNIEnv * env, jobject instance) {
-        env->GetJavaVM(&theJvm);
+```
+/**
+ * Initializes JNI interface stuff, specifically the info needed to call back into the Java
+ * layer when MIDI data is received.
+ */
+JNICALL void Java_com_example_nativemidi_MainActivity_initNative(JNIEnv * env, jobject instance) {
+    env->GetJavaVM(&theJvm);
 
-        // Setup the receive data callback (into Java)
-        jclass clsMainActivity = env->FindClass("com/example/nativemidi/MainActivity");
-        dataCallbackObj = env->NewGlobalRef(instance);
-        midDataCallback = env->GetMethodID(clsMainActivity, "onNativeMessageReceive", "([B)V");
-    }
+    // Setup the receive data callback (into Java)
+    jclass clsMainActivity = env->FindClass("com/example/nativemidi/MainActivity");
+    dataCallbackObj = env->NewGlobalRef(instance);
+    midDataCallback = env->GetMethodID(clsMainActivity, "onNativeMessageReceive", "([B)V");
+}
+```
 
 When it's time to send data back to Java, the native code retrieves the callback
 pointers and constructs the callback:
 
 **AppMidiManager.cpp**
 
-    // The Data Callback
-    extern JavaVM* theJvm;              // Need this for allocating data buffer for...
-    extern jobject dataCallbackObj;     // This is the (Java) object that implements...
-    extern jmethodID midDataCallback;   // ...this callback routine
+```
+// The Data Callback
+extern JavaVM* theJvm;              // Need this for allocating data buffer for...
+extern jobject dataCallbackObj;     // This is the (Java) object that implements...
+extern jmethodID midDataCallback;   // ...this callback routine
 
-    static void SendTheReceivedData(uint8_t* data, int numBytes) {
-        JNIEnv* env;
-        theJvm->AttachCurrentThread(&env, NULL);
-        if (env == NULL) {
-            LOGE("Error retrieving JNI Env");
-        }
-
-        // Allocate the Java array and fill with received data
-        jbyteArray ret = env->NewByteArray(numBytes);
-        env->SetByteArrayRegion (ret, 0, numBytes, (jbyte*)data);
-
-        // send it to the (Java) callback
-        env->CallVoidMethod(dataCallbackObj, midDataCallback, ret);
+static void SendTheReceivedData(uint8_t* data, int numBytes) {
+    JNIEnv* env;
+    theJvm->AttachCurrentThread(&env, NULL);
+    if (env == NULL) {
+        LOGE("Error retrieving JNI Env");
     }
+
+    // Allocate the Java array and fill with received data
+    jbyteArray ret = env->NewByteArray(numBytes);
+    env->SetByteArrayRegion (ret, 0, numBytes, (jbyte*)data);
+
+    // send it to the (Java) callback
+    env->CallVoidMethod(dataCallbackObj, midDataCallback, ret);
+}
+```
 
 ## Additional resources
 
-- [AMidi reference](https://developer.android.com/ndk/reference/group/midi)
-- See the complete [Native MIDI sample app](https://github.com/android/ndk-samples/tree/main/native-midi) on github.
+* [AMidi reference](/ndk/reference/group/midi)
+* See the complete [Native MIDI sample app](https://github.com/android/ndk-samples/tree/main/native-midi) on github.

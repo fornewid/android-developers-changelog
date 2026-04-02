@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/develop/ui/views/layout/webapps/access-local-server
+title: Access a local development server from WebView  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/layout/webapps/access-local-server
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Access a local development server from WebView Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 When developing web content for WebView, it can be helpful to serve content from
 a local web server on your development machine. If you access this local server
@@ -12,7 +23,7 @@ a web server running on your host machine from a WebView.
 
 ## Set up reverse port forwarding with ADB
 
-You can use the [Android Debug Bridge (adb)](https://developer.android.com/tools/adb), a command-line tool for
+You can use the [Android Debug Bridge (adb)](/tools/adb), a command-line tool for
 communicating with your device, to set up reverse port forwarding. This feature
 lets your device or emulator access a web server running on `localhost` on your
 development machine.
@@ -22,12 +33,16 @@ the device to a different port on the host machine.
 
 To use this feature, run the following command in your terminal:
 
-    adb reverse tcp:DEVICE_PORT tcp:HOST_PORT
+```
+adb reverse tcp:DEVICE_PORT tcp:HOST_PORT
+```
 
 Replace the following:
 
-- `DEVICE_PORT`: The port on the device that your app's WebView connects to. For example, 8080.
-- `HOST_PORT`: The port on your development machine where your web server is running. For example, 8080 or 3000.
+* `DEVICE_PORT`: The port on the device that your app's WebView
+  connects to. For example, 8080.
+* `HOST_PORT`: The port on your development machine where your
+  web server is running. For example, 8080 or 3000.
 
 **Example:**
 
@@ -35,7 +50,9 @@ If your local development server is running on `localhost:8080` on your
 development machine, you can forward requests from your device to it by
 running the following command:
 
-    adb reverse tcp:8080 tcp:8080
+```
+adb reverse tcp:8080 tcp:8080
+```
 
 After running this command, you can point your app's WebView to
 `http://localhost:8080` on the device or emulator. The WebView can then connect
@@ -49,10 +66,12 @@ Chrome DevTools has its own port forwarding feature that you can use to forward
 requests from your device to your development machine.
 
 1. Set up your device for debugging as described in [Debug using Chrome
-   DevTools](https://developer.android.com/develop/ui/views/layout/webapps/debug-chrome-devtools).
+   DevTools](/develop/ui/views/layout/webapps/debug-chrome-devtools).
 2. On the `chrome://inspect` page, select **Port forwarding...**.
-3. In the **Port** field, enter the port number on the Android device that you want to use to access your development machine.
-4. In the **IP address and port** field, enter your development machine's web server address and port number.
+3. In the **Port** field, enter the port number on the Android device that you
+   want to use to access your development machine.
+4. In the **IP address and port** field, enter your development machine's
+   web server address and port number.
 5. Select the **Enable port forwarding** checkbox.
 6. Select **Done**.
 

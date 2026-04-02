@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Tracking when a UI element is visible on-screen is helpful for a variety of
 use cases, such as logging analytics, managing UI state, and optimizing
 resources by automatically playing or pausing video content. Compose offers

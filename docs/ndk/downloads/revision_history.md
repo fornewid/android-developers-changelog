@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page provides information on changes in all released stable versions of the NDK.
 To download the latest stable version of the NDK or any currently available beta version,
 see the [NDK downloads](/ndk/downloads) page.

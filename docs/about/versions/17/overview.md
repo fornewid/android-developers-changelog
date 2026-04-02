@@ -1,32 +1,18 @@
 ---
-title: Android Beta for developers  |  Android Developers
+title: https://developer.android.com/about/versions/17/overview
 url: https://developer.android.com/about/versions/17/overview
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Releases](https://developer.android.com/about/versions)
-
-# Android Beta for developers Stay organized with collections Save and categorize content based on your preferences.
-
-
-
+<br />
 
 Android's public Beta program that gives you everything you need to get your
 apps ready for the next version of Android.
 
-* **Hardware and emulator system images** - A runtime environment to test your
-  apps on the next version of Android, for Pixel devices and the Android
-  Emulator.
-* **Latest platform code and APIs** - We'll provide regular updates, so you'll
-  be testing against the latest platform code.
-* **New behaviors and capabilities** - Pinpoint the behavior changes that will
-  affect your apps, and build with the latest platform capabilities.
-* **Feedback and support** - Your feedback is critical!
-  [Report issues](/about/versions/17/feedback) and let us know what you think! Connect with other
-  developers in the [Developer Community](/about/versions/17/dev-community) to share your
-  experiences.
+- **Hardware and emulator system images** - A runtime environment to test your apps on the next version of Android, for Pixel devices and the Android Emulator.
+- **Latest platform code and APIs** - We'll provide regular updates, so you'll be testing against the latest platform code.
+- **New behaviors and capabilities** - Pinpoint the behavior changes that will affect your apps, and build with the latest platform capabilities.
+- **Feedback and support** - Your feedback is critical! [Report issues](https://developer.android.com/about/versions/17/feedback) and let us know what you think! Connect with other developers in the [Developer Community](https://developer.android.com/about/versions/17/dev-community) to share your experiences.
 
 ## Milestones and updates
 
@@ -37,12 +23,12 @@ API reference, and API diffs. See the following table to learn more about what
 you should focus on during each milestone.
 
 | Milestone | Type | Developer actions |
-| --- | --- | --- |
-| **Beta 1** | Initial beta-quality release, over-the-air update to developers and early adopters who enroll in Android Beta. | * Explore new behavior changes and APIs. * Begin early app compatibility testing. * Give feedback to report any critical issues or requests to us during   this time. |
-| **Later Beta releases** | Incremental Beta-quality release | * Explore new features, APIs, and (for major releases only) behavior   changes. * Continue compatibility testing and watch for feedback from Android   Beta users. * Continue testing targeting the new API level (for major releases   only). * Notify SDK and library developers of any compatibility issues. |
-| Platform Stability | | |
-| **Platform stability** | First **[Platform Stability](#platform-stability)** milestone includes final APIs and behaviors. Play publishing also opens. | * Start final compatibility testing for apps, SDKs, and   libraries. * Release compatible app versions. * Continue work to target the new API level (for major releases   only). * Update SDKs and libraries and notify their developers of any   compatibility issues. |
-| **Final release** | Platform release to AOSP and ecosystem. | * Release compatible versions for apps, SDKs, and libraries. * Continue work to target the new API level (for major releases   only). * Build with new features and APIs. |
+|:---:|---|---|
+| **Beta 1** | Initial beta-quality release, over-the-air update to developers and early adopters who enroll in Android Beta. | - Explore new behavior changes and APIs. - Begin early app compatibility testing. - Give feedback to report any critical issues or requests to us during this time. |
+| **Later Beta releases** | Incremental Beta-quality release | - Explore new features, APIs, and (for major releases only) behavior changes. - Continue compatibility testing and watch for feedback from Android Beta users. - Continue testing targeting the new API level (for major releases only). - Notify SDK and library developers of any compatibility issues. |
+| Platform Stability |||
+| **Platform stability** | First **[Platform Stability](https://developer.android.com/about/versions/17/overview#platform-stability)** milestone includes final APIs and behaviors. Play publishing also opens. | - Start final compatibility testing for apps, SDKs, and libraries. - Release compatible app versions. - Continue work to target the new API level (for major releases only). - Update SDKs and libraries and notify their developers of any compatibility issues. |
+| **Final release** | Platform release to AOSP and ecosystem. | - Release compatible versions for apps, SDKs, and libraries. - Continue work to target the new API level (for major releases only). - Build with new features and APIs. |
 
 ## Android release phases
 
@@ -58,7 +44,7 @@ period, early adopters will be using your app on Pixel devices, so we recommend
 watching for feedback from those users and releasing compatible updates to
 address any issues, without changing the app's targeting. For major releases,
 it's also a good time to begin preparing for changing your app's targeting
-later. Please [give us your feedback](/about/versions/17/feedback) during this time, to let us know
+later. Please [give us your feedback](https://developer.android.com/about/versions/17/feedback) during this time, to let us know
 of any issues or requests.
 
 ### Platform stability milestone
@@ -83,11 +69,8 @@ running the Android platform at the official API level. We recommend publishing
 into the Google Play [alpha and beta tracks](https://support.google.com/googleplay/android-developer/answer/9845334) first so that you can
 test your apps before distributing broadly through the store.
 
-**Important:** **All SDK, library, tools, and game engine developers** should start
-testing at Platform Stability and release your compatible updates as soon as
-possible. Your downstream app and game developers may be blocked until they
-receive your updates. When you've released a compatible update, be vocal and let
-your developers know!
+> [!IMPORTANT]
+> **Important:** **All SDK, library, tools, and game engine developers** should start testing at Platform Stability and release your compatible updates as soon as possible. Your downstream app and game developers may be blocked until they receive your updates. When you've released a compatible update, be vocal and let your developers know!
 
 ### Final release
 
@@ -103,13 +86,13 @@ The Beta program includes everything you need to test your existing apps on a
 variety of screen sizes, network technologies, CPU and GPU chipsets, and
 hardware architectures.
 
-### SDK & tools
+### SDK \& tools
 
 Using Android Studio, you can download the following components through the SDK
 Manager:
 
-* **SDK and tools** for the Beta release
-* **Emulator system images for mobile devices** (64-bit only)
+- **SDK and tools** for the Beta release
+- **Emulator system images for mobile devices** (64-bit only)
 
 We'll provide updates to these development tools at each milestone as needed.
 
@@ -122,8 +105,8 @@ system image for development and testing.
 If you don't have a Pixel device, you can still develop and test using other
 methods, depending on your workflow:
 
-* Emulator system images for mobile devices (64-bit only)
-* Generic system images (GSIs)
+- Emulator system images for mobile devices (64-bit only)
+- Generic system images (GSIs)
 
 ### OTA updates for Pixel through the Android Beta program
 
@@ -159,7 +142,7 @@ time.
 
 ### API Reference and diff report
 
-The [platform reference documentation](/reference/packages) always shows the most recent platform
+The [platform reference documentation](https://developer.android.com/reference/packages) always shows the most recent platform
 preview, beta, or final release. While new APIs are under development, they'll
 be watermarked for visibility and show the preview codename as the API level.
 Note that you can only use these APIs if you are building with the preview SDK.
@@ -172,16 +155,7 @@ were added in the official API level.
 As you test and develop with Android Beta builds, use these channels to report
 issues and give feedback:
 
-* Visit the [Feedback and issues](/about/versions/17/feedback) page for complete information on
-  how to report issues and let us know what you think. From the page, you can
-  go to the issue tracker to file bugs or feature requests, and you can take
-  quick surveys on some of the new features and changes.
-* [Android Preview issue tracker](/about/versions/17/feedback#issue_tracker) is our **primary issue
-  tracker**. You can report bugs, performance issues, and general feedback
-  through the issue tracker. You can also check for known issues and find
-  workaround steps. We'll keep you updated on your issue as it's triaged and
-  sent to the Android engineering team for review.
-* The [Android Developer Community](/about/versions/17/dev-community) is a community where you can
-  **connect with other users and developers** who are working with the Android
-  17 preview builds. You can share observations and ideas and find answers to
-  questions there.
+- Visit the [Feedback and issues](https://developer.android.com/about/versions/17/feedback) page for complete information on how to report issues and let us know what you think. From the page, you can go to the issue tracker to file bugs or feature requests, and you can take quick surveys on some of the new features and changes.
+- [Android Preview issue tracker](https://developer.android.com/about/versions/17/feedback#issue_tracker) is our **primary issue
+  tracker**. You can report bugs, performance issues, and general feedback through the issue tracker. You can also check for known issues and find workaround steps. We'll keep you updated on your issue as it's triaged and sent to the Android engineering team for review.
+- The [Android Developer Community](https://developer.android.com/about/versions/17/dev-community) is a community where you can **connect with other users and developers** who are working with the Android 17 preview builds. You can share observations and ideas and find answers to questions there.

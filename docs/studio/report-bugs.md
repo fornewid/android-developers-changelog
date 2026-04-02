@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Follow the steps on this page to complete a bug report. There are limited
 resources to fix bugs, so bugs that have complete
 information are prioritized. Incomplete bug reports are closed. If that

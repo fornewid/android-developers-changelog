@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The `Activity` class is a crucial component of an Android
 app, and the way activities are launched and put together is a fundamental
 part of the platform's application model. Unlike programming paradigms in

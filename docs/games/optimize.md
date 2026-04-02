@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 You can configure [system tracing](/topic/performance/tracing) to capture a
 CPU and thread profile of your app over a short period of time. Then
 you can use the output report from a system trace to improve your game's
@@ -553,6 +554,8 @@ additional resources:
 
 * [Systrace for Games](https://www.youtube.com/watch?v=4oAlB-3tkqc) presentation
   from Android Game Developer Summit 2018
+
+
 
 
 

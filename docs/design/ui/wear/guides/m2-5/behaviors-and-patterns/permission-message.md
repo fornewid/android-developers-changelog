@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Apps may require specific user permissions, such as location access, to function
 properly. Because wearables are companions to mobile devices, you may need to
 accept permissions on the mobile device as well.

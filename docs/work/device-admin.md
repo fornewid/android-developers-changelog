@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Device admin deprecation**. Starting with Android 9
 (API level 28), some admin policies will be marked as deprecated when
 invoked by a device admin. We recommend you start to prepare now for this change. To learn

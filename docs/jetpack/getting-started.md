@@ -1,20 +1,32 @@
 ---
-title: https://developer.android.com/jetpack/getting-started
+title: Getting started with Android Jetpack  |  Android Developers
 url: https://developer.android.com/jetpack/getting-started
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Get started](https://developer.android.com/get-started/overview)
+* [Jetpack](https://developer.android.com/jetpack)
+* [Guides](https://developer.android.com/jetpack/getting-started)
+
+# Getting started with Android Jetpack Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Jetpack encompasses a collection of Android libraries that incorporate best
 practices and provide backwards compatibility in your Android apps.
 
-The [Jetpack guide to app architecture](https://developer.android.com/jetpack/guide) provides an
+The [Jetpack guide to app architecture](/jetpack/guide) provides an
 overview of the best practices and recommended architecture to consider as you
 build your Android app.
 
 The following sections cover how you can get started using Jetpack components.
 
-> [!NOTE]
-> **Note:** Jetpack libraries don't send any user data to a backend service of any kind. This means that integrating a Jetpack library into your app has no impact on your app's [Data safety form](https://developer.android.com/guide/topics/data/collect-share) in the Play Console.
+**Note:** Jetpack libraries don't send any user data to a backend service of any
+kind. This means that integrating a Jetpack library into your app has no impact
+on your app's [Data safety form](/guide/topics/data/collect-share) in the Play
+Console.
 
 ## Use a Jetpack library in your app
 
@@ -25,7 +37,7 @@ Open the `settings.gradle` file add the `google()` repository in the
 
 ### Groovy
 
-```groovy
+```
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -37,7 +49,7 @@ dependencyResolutionManagement {
 
 ### Kotlin
 
-```kotlin
+```
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -47,16 +59,16 @@ dependencyResolutionManagement {
 }
 ```
 
-> [!WARNING]
-> **Warning:** The JCenter repository became read-only on March 31st, 2021. For more information, see [JCenter service update](https://developer.android.com/studio/build/jcenter-migration).
+**Warning:** The JCenter repository became read-only on March 31st, 2021. For more
+information, see [JCenter service update](/studio/build/jcenter-migration).
 
-You can then add Jetpack components, such as architecture components like [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
-and [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel), in your module's
+You can then add Jetpack components, such as architecture components like [LiveData](/topic/libraries/architecture/livedata)
+and [ViewModel](/topic/libraries/architecture/viewmodel), in your module's
 `build.gradle` file, as shown here:
 
 ### Groovy
 
-```groovy
+```
 dependencies {
     def lifecycle_version = "2.2.0"
 
@@ -68,7 +80,7 @@ dependencies {
 
 ### Kotlin
 
-```kotlin
+```
 dependencies {
     val lifecycle_version = "2.2.0"
 
@@ -78,27 +90,27 @@ dependencies {
 }
 ```
 
-Many Jetpack libraries provide [Android KTX extensions](https://developer.android.com/kotlin/ktx) as shown above with `lifecycle-livedata-ktx` and `lifecycle-viewmodel-ktx`.
+Many Jetpack libraries provide [Android KTX extensions](/kotlin/ktx) as shown above with `lifecycle-livedata-ktx` and `lifecycle-viewmodel-ktx`.
 The KTX extensions build upon the Java-based API, taking advantage of Kotlin-specific language features.
 
-To learn of new Jetpack library releases, check out the [Releases](https://developer.android.com/jetpack/androidx/releases) page.
+To learn of new Jetpack library releases, check out the [Releases](/jetpack/androidx/releases) page.
 
-[Kotlin-based](https://developer.android.com/reference/kotlin/androidx/packages) and
-[Java-based](https://developer.android.com/reference/androidx/packages) API reference pages are available for
+[Kotlin-based](/reference/kotlin/androidx/packages) and
+[Java-based](/reference/androidx/packages) API reference pages are available for
 all Jetpack libraries.
 
 ### Verify Jetpack dependencies (optional)
 
-> [!NOTE]
-> **Note:** Signature verification is an opt-in feature for Gradle builds. If needed, you can [enable signature verification](https://docs.gradle.org/current/userguide/dependency_verification.html).
+**Note:** Signature verification is an opt-in feature for Gradle builds. If needed,
+you can [enable signature verification](https://docs.gradle.org/current/userguide/dependency_verification.html).
 
 As of June 2023, the Jetpack team signs Jetpack libraries. These
 signatures allow developers to verify that the library artifacts are built and
 signed by Google. A library is eligible for signature verification once it
 publishes an update.
 
-> [!NOTE]
-> **Note:** Libraries released prior to June 2023 don't contain signatures and don't pass signature verification.
+**Note:** Libraries released prior to June 2023 don't contain signatures and don't
+pass signature verification.
 
 If your Android project has signature verification enabled, follow these steps
 to verify Jetpack dependencies in the Gradle project:
@@ -106,36 +118,39 @@ to verify Jetpack dependencies in the Gradle project:
 1. Add Google's trusted keys to the `<trusted-keys>` section in
    `$PROJECT_ROOT/gradle/verification-metadata.xml`:
 
-       <trusted-keys>
-           \<trusted-key id="8461efa0e74abae010de66994eb27db2a3b88b8b"\>
-               ...
-           \</trusted-key\>
-           \<trusted-key id="a5f483cd733a4ebaea378b2ae88979fb9b30acf2"\>
-               ...
-           \</trusted-key\>
-           \<trusted-key id="0f06ff86beeaf4e71866ee5232ee5355a6bc6e42"\>
-               ...
-           \</trusted-key\>
-           \<trusted-key id="0e225917414670f4442c250dfd533c07c264648f"\>
-               ...
-           \</trusted-key\>
+   ```
+   <trusted-keys>
+       <trusted-key id="8461efa0e74abae010de66994eb27db2a3b88b8b">
            ...
-       </trusted-keys>
-
+       </trusted-key>
+       <trusted-key id="a5f483cd733a4ebaea378b2ae88979fb9b30acf2">
+           ...
+       </trusted-key>
+       <trusted-key id="0f06ff86beeaf4e71866ee5232ee5355a6bc6e42">
+           ...
+       </trusted-key>
+       <trusted-key id="0e225917414670f4442c250dfd533c07c264648f">
+           ...
+       </trusted-key>
+       ...
+   </trusted-keys>
+   ```
 2. Add a `<trusting group>` entry for each library that the project is using.
    Here's an example for the `androidx.fragment` and `androidx.emoji2` libraries:
 
-       <trusted-keys>
-           <trusted-key id="8461efa0e74abae010de66994eb27db2a3b88b8b">
-               \<trusting group="androidx.fragment"/\>
-               \<trusting group="androidx.emoji2"/\>
-           </trusted-key>
-           <trusted-key id="a5f483cd733a4ebaea378b2ae88979fb9b30acf2">
-               \<trusting group="androidx.fragment"/\>
-               \<trusting group="androidx.emoji2"/\>
-           </trusted-key>
-           ...
-       </trusted-keys>
+   ```
+   <trusted-keys>
+       <trusted-key id="8461efa0e74abae010de66994eb27db2a3b88b8b">
+           <trusting group="androidx.fragment"/>
+           <trusting group="androidx.emoji2"/>
+       </trusted-key>
+       <trusted-key id="a5f483cd733a4ebaea378b2ae88979fb9b30acf2">
+           <trusting group="androidx.fragment"/>
+           <trusting group="androidx.emoji2"/>
+       </trusted-key>
+       ...
+   </trusted-keys>
+   ```
 
 For issues with dependency verification, visit Gradle's guide on
 [troubleshooting dependency verification](https://docs.gradle.org/current/userguide/dependency_verification.html#sub:enabling-verification).
@@ -147,36 +162,38 @@ Finally, details on our trusted key can be viewed on
 
 Jetpack libraries may be used alone or in combination to address different needs in your apps.
 
-- [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) for your background scheduling needs.
-- [Room](https://developer.android.com/topic/libraries/architecture/room) for data storage persistence.
-- [Navigation](https://developer.android.com/guide/navigation/navigation-getting-started) to manage your application navigation flow.
-- [CameraX](https://developer.android.com/training/camerax) for your camera app needs.
-- See the [Overview](https://developer.android.com/jetpack/androidx/versions#version-table) of all the Jetpack libraries.
+* [WorkManager](/topic/libraries/architecture/workmanager) for your background scheduling needs.
+* [Room](/topic/libraries/architecture/room) for data storage persistence.
+* [Navigation](/guide/navigation/navigation-getting-started) to manage your application navigation flow.
+* [CameraX](/training/camerax) for your camera app needs.
+* See the [Overview](/jetpack/androidx/versions#version-table) of all the Jetpack libraries.
 
 Jetpack libraries are published in the `androidx` namespace. If your project
 currently uses the Android Support Library, read how to [migrate to the
-androidx namespace](https://developer.android.com/jetpack/androidx/migrate).
+androidx namespace](/jetpack/androidx/migrate).
 
 To learn more about using Jetpack, check out these pages:
 
-- [Android Architecture Components](https://developer.android.com/topic/libraries/architecture)
-- [Complete list of Jetpack components](https://developer.android.com/jetpack/androidx/explorer)
+* [Android Architecture Components](/topic/libraries/architecture)
+* [Complete list of Jetpack components](/jetpack/androidx/explorer)
 
 ## Additional resources
 
 ### Online training
 
-- [Developing Android Apps with Kotlin](https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012) (Udacity course)
+* [Developing Android Apps with Kotlin](https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012) (Udacity course)
 
 ### Sample code
 
-- The [Sunflower](https://github.com/android/sunflower) demo app uses many different Jetpack components to demonstrate Android development best practices.
+* The [Sunflower](https://github.com/android/sunflower) demo app
+  uses many different Jetpack components to demonstrate Android development best
+  practices.
 
 ### Codelabs
 
-- [Android Lifecycles](https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html)
-- [Room with a View](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin)
+* [Android Lifecycles](https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html)
+* [Room with a View](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin)
 
 ### Videos
 
-- [Assembling your Jetpack](https://youtu.be/2h-vuXC0SF8)
+* [Assembling your Jetpack](https://youtu.be/2h-vuXC0SF8)

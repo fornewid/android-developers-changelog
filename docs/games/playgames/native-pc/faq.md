@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 This document answers common questions about SDKs and publishing for
 Google Play Games on PC.
 

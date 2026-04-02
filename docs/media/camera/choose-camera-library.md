@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** If you want to perform basic camera actions like capturing a photo or video using the device's default camera application, see [Camera intents](/training/camera/camera-intents).
 
 If you want to add camera functionality to an Android app, you have three main options:

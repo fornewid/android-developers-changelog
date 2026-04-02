@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Credential Manager refers to a set of APIs introduced in Android 14 that support
 multiple sign-in methods such as username-password, passkeys, and federated
 sign-in solutions (such as Sign-in with Google). When the Credential Manager API

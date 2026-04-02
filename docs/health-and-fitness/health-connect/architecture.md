@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 SDK, client apps, and permissions management.
 keywords\_public: Health Connect, architecture, Android SDK, client app, APK,
 permissions management, data management, CRUD, aggregation

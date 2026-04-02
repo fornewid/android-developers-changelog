@@ -1,88 +1,67 @@
 ---
-title: Slice templates  |  Android Developers
+title: https://developer.android.com/guide/slices/templates
 url: https://developer.android.com/guide/slices/templates
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
+# Slice templates
 
-# Slice templates Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-This document provides details on how to use the template builders in
-[Android Jetpack](/jetpack) to construct [Slices](/guide/slices).
+This document provides details on how to use the template builders in[Android Jetpack](https://developer.android.com/jetpack)to construct[Slices](https://developer.android.com/guide/slices).
 
 ## Define your Slice template
 
-Slices are constructed by using a
-[`ListBuilder`](/reference/androidx/slice/builders/ListBuilder). ListBuilder
-allows you to add different types of rows that are displayed in a list. This
-section describes each of those row types and how they are constructed.
+Slices are constructed by using a[`ListBuilder`](https://developer.android.com/reference/androidx/slice/builders/ListBuilder). ListBuilder allows you to add different types of rows that are displayed in a list. This section describes each of those row types and how they are constructed.
 
 ### SliceAction
 
-The most basic element of a Slice template is a
-[`SliceAction`](/reference/androidx/slice/builders/SliceAction). A `SliceAction`
-contains a label along with a
-[`PendingIntent`](/reference/android/app/PendingIntent) and is one of the
-following:
+The most basic element of a Slice template is a[`SliceAction`](https://developer.android.com/reference/androidx/slice/builders/SliceAction). A`SliceAction`contains a label along with a[`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent)and is one of the following:
 
-* Icon button
-* Default toggle
-* Custom toggle (a drawable with an on/off state)
+- Icon button
+- Default toggle
+- Custom toggle (a drawable with an on/off state)
 
-`SliceAction` is used by the template builders described in the rest of this
-section. A `SliceAction` can have an image mode defined that determines how the
-image is presented for the action:
+`SliceAction`is used by the template builders described in the rest of this section. A`SliceAction`can have an image mode defined that determines how the image is presented for the action:
 
-* `ICON_IMAGE`: tiny size and tintable
-* `SMALL_IMAGE`: small size and non-tintable
-* `LARGE_IMAGE`: largest size and non-tintable
+- `ICON_IMAGE`: tiny size and tintable
+- `SMALL_IMAGE`: small size and non-tintable
+- `LARGE_IMAGE`: largest size and non-tintable
 
 ### HeaderBuilder
 
-In most cases, you should set a header for your template using a
-[`HeaderBuilder`](/reference/androidx/slice/builders/ListBuilder.HeaderBuilder).
-A header can support the following:
+In most cases, you should set a header for your template using a[`HeaderBuilder`](https://developer.android.com/reference/androidx/slice/builders/ListBuilder.HeaderBuilder). A header can support the following:
 
-* Title
-* Subtitle
-* Summary subtitle
-* Primary action
+- Title
+- Subtitle
+- Summary subtitle
+- Primary action
 
-Some example header configurations are shown below. Note that gray boxes show
-potential icon and padding locations:
+Some example header configurations are shown below. Note that gray boxes show potential icon and padding locations:
 
-![](/static/guide/slices/images/headerbuilder-1.png)
+![](https://developer.android.com/static/guide/slices/images/headerbuilder-1.png)
 
-![](/static/guide/slices/images/headerbuilder-2.png)
+![](https://developer.android.com/static/guide/slices/images/headerbuilder-2.png)
 
-![](/static/guide/slices/images/headerbuilder-3.png)
+![](https://developer.android.com/static/guide/slices/images/headerbuilder-3.png)
 
-![](/static/guide/slices/images/headerbuilder-4.png)
+![](https://developer.android.com/static/guide/slices/images/headerbuilder-4.png)
 
 #### Header rendering on different surfaces
 
-When a Slice is needed, the displaying surface determines how to render the
-Slice. Note that rendering might differ somewhat between hosting surfaces.
+When a Slice is needed, the displaying surface determines how to render the Slice. Note that rendering might differ somewhat between hosting surfaces.
 
-In smaller formats, usually only the header is displayed, if one exists. If
-you’ve specified a summary for the header, the summary text is shown instead of
-the subtitle text.
+In smaller formats, usually only the header is displayed, if one exists. If you've specified a summary for the header, the summary text is shown instead of the subtitle text.
 
-If you have not specified a header in your template, the first row added to your
-`ListBuilder` is usually displayed instead.
+If you have not specified a header in your template, the first row added to your`ListBuilder`is usually displayed instead.
 
-![](/static/guide/slices/images/headerbuilder-5.png)
+![](https://developer.android.com/static/guide/slices/images/headerbuilder-5.png)
 
-![](/static/guide/slices/images/headerbuilder-6.png)
+![](https://developer.android.com/static/guide/slices/images/headerbuilder-6.png)
 
 #### HeaderBuilder example - Simple list Slice with header
 
 ### Kotlin
 
-```
+```kotlin
 fun createSliceWithHeader(sliceUri: Uri) =
     list(context, sliceUri, ListBuilder.INFINITY) {
         setAccentColor(0xff0F9D) // Specify color for tinting icons
@@ -104,7 +83,7 @@ fun createSliceWithHeader(sliceUri: Uri) =
 
 ### Java
 
-```
+```java
 public Slice createSliceWithHeader(Uri sliceUri) {
     if (getContext() == null) {
         return null;
@@ -129,19 +108,17 @@ public Slice createSliceWithHeader(Uri sliceUri) {
     return listBuilder.build();
 }
 ```
-
-**Note:** for simplicity, the example code omits some of the coloring that is
-rendered in the images above
+| **Note:** for simplicity, the example code omits some of the coloring that is rendered in the images above
 
 #### SliceActions in headers
 
 Slice headers can also display SliceActions:
 
-![](/static/guide/slices/images/headeractions-1.png)
+![](https://developer.android.com/static/guide/slices/images/headeractions-1.png)  
 
 ### Kotlin
 
-```
+```kotlin
 fun createSliceWithActionInHeader(sliceUri: Uri): Slice {
     // Construct our slice actions.
     val noteAction = SliceAction.create(
@@ -181,7 +158,7 @@ fun createSliceWithActionInHeader(sliceUri: Uri): Slice {
 
 ### Java
 
-```
+```java
 public Slice createSliceWithActionInHeader(Uri sliceUri) {
     if (getContext() == null) {
         return null;
@@ -223,41 +200,37 @@ public Slice createSliceWithActionInHeader(Uri sliceUri) {
 
 ### RowBuilder
 
-You can construct a row of content by using a
-[`RowBuilder`](/reference/androidx/slice/builders/ListBuilder.RowBuilder). A row
-can support any of the following:
+You can construct a row of content by using a[`RowBuilder`](https://developer.android.com/reference/androidx/slice/builders/ListBuilder.RowBuilder). A row can support any of the following:
 
-* Title
-* Subtitle
-* Start item: SliceAction, Icon, or a timestamp
-* End items: SliceAction, Icon, or a timestamp
-* Primary action
+- Title
+- Subtitle
+- Start item: SliceAction, Icon, or a timestamp
+- End items: SliceAction, Icon, or a timestamp
+- Primary action
 
-You can combine row content in a number of ways, subject to the following
-restrictions:
+You can combine row content in a number of ways, subject to the following restrictions:
 
-* Start items will not show in the first row of a Slice
-* End items cannot be a mix of `SliceAction` objects and `Icon` objects
-* A row can contain only one timestamp
+- Start items will not show in the first row of a Slice
+- End items cannot be a mix of`SliceAction`objects and`Icon`objects
+- A row can contain only one timestamp
 
-Example rows of content are shown in the following images. Note that gray boxes
-show potential icon and padding locations:
+Example rows of content are shown in the following images. Note that gray boxes show potential icon and padding locations:
 
-![](/static/guide/slices/images/rowbuilder-1.png)
+![](https://developer.android.com/static/guide/slices/images/rowbuilder-1.png)
 
-![](/static/guide/slices/images/rowbuilder-2.png)
+![](https://developer.android.com/static/guide/slices/images/rowbuilder-2.png)
 
-![](/static/guide/slices/images/rowbuilder-4.png)
+![](https://developer.android.com/static/guide/slices/images/rowbuilder-4.png)
 
 #### RowBuilder example - Wi-Fi toggle
 
 The example below demonstrates a row with a primary action and a default toggle.
 
-![](/static/guide/slices/images/rowbuilder-5.png)
+![](https://developer.android.com/static/guide/slices/images/rowbuilder-5.png)  
 
 ### Kotlin
 
-```
+```kotlin
 fun createActionWithActionInRow(sliceUri: Uri): Slice {
     // Primary action - open wifi settings.
     val wifiAction = SliceAction.create(
@@ -288,7 +261,7 @@ fun createActionWithActionInRow(sliceUri: Uri): Slice {
 
 ### Java
 
-```
+```java
 public Slice createActionWithActionInRow(Uri sliceUri) {
     if (getContext() == null) {
         return null;
@@ -320,35 +293,31 @@ public Slice createActionWithActionInRow(Uri sliceUri) {
 
 ### GridBuilder
 
-You can construct a grid of content by using a
-[`GridBuilder`](/reference/androidx/slice/builders/GridBuilder). A grid can
-support the following image types:
+You can construct a grid of content by using a[`GridBuilder`](https://developer.android.com/reference/androidx/slice/builders/GridBuilder). A grid can support the following image types:
 
-* `ICON_IMAGE`: tiny size and tintable
-* `SMALL_IMAGE`: small size and non-tintable
-* `LARGE_IMAGE`: largest size and non-tintable
+- `ICON_IMAGE`: tiny size and tintable
+- `SMALL_IMAGE`: small size and non-tintable
+- `LARGE_IMAGE`: largest size and non-tintable
 
-A grid cell is constructed by using a
-[`CellBuilder`](/reference/androidx/slice/builders/GridBuilder.CellBuilder). A
-cell can support up to two lines of text and one image. A cell cannot be empty.
+A grid cell is constructed by using a[`CellBuilder`](https://developer.android.com/reference/androidx/slice/builders/GridBuilder.CellBuilder). A cell can support up to two lines of text and one image. A cell cannot be empty.
 
 Grid examples are shown in the following images:
 
-![](/static/guide/slices/images/gridbuilder-1.png)
+![](https://developer.android.com/static/guide/slices/images/gridbuilder-1.png)
 
-![](/static/guide/slices/images/gridbuilder-2.png)
+![](https://developer.android.com/static/guide/slices/images/gridbuilder-2.png)
 
-![](/static/guide/slices/images/gridbuilder-3.png)
+![](https://developer.android.com/static/guide/slices/images/gridbuilder-3.png)
 
 #### GridRowBuilder example - Nearby restaurants
 
 The example below demonstrates a grid row that contains images and text.
 
-![](/static/guide/slices/images/gridbuilder-4.png)
+![](https://developer.android.com/static/guide/slices/images/gridbuilder-4.png)  
 
 ### Kotlin
 
-```
+```kotlin
 fun createSliceWithGridRow(sliceUri: Uri): Slice {
     // Create the parent builder.
     return list(context, sliceUri, ListBuilder.INFINITY) {
@@ -390,7 +359,7 @@ fun createSliceWithGridRow(sliceUri: Uri): Slice {
 
 ### Java
 
-```
+```java
 public Slice createSliceWithGridRow(Uri sliceUri) {
       if (getContext() == null) {
           return null;
@@ -438,26 +407,21 @@ public Slice createSliceWithGridRow(Uri sliceUri) {
 
 ### RangeBuilder
 
-With a
-[`RangeBuilder`](/reference/androidx/slice/builders/ListBuilder.RangeBuilder),
-you can create a row that contains either a progress bar or an input range, such
-as a slider.
+With a[`RangeBuilder`](https://developer.android.com/reference/androidx/slice/builders/ListBuilder.RangeBuilder), you can create a row that contains either a progress bar or an input range, such as a slider.
 
 Progress and slider examples are shown in the following images:
 
-![](/static/guide/slices/images/rangebuilder-1.png)
+![](https://developer.android.com/static/guide/slices/images/rangebuilder-1.png)
 
-![](/static/guide/slices/images/rangebuilder-2.png)
+![](https://developer.android.com/static/guide/slices/images/rangebuilder-2.png)
 
 #### RangeBuilder example - Slider
 
-The example below demonstrates how to build a Slice that contains a volume
-slider by using an `InputRangeBuilder`. To construct a progress row, use
-[`addRange()`](/reference/androidx/slice/builders/ListBuilder#addRange(androidx.slice.builders.ListBuilder.RangeBuilder)).
+The example below demonstrates how to build a Slice that contains a volume slider by using an`InputRangeBuilder`. To construct a progress row, use[`addRange()`](https://developer.android.com/reference/androidx/slice/builders/ListBuilder#addRange(androidx.slice.builders.ListBuilder.RangeBuilder)).  
 
 ### Kotlin
 
-```
+```kotlin
 fun createSliceWithRange(sliceUri: Uri): Slice {
     return list(context, sliceUri, ListBuilder.INFINITY) {
         inputRange {
@@ -472,7 +436,7 @@ fun createSliceWithRange(sliceUri: Uri): Slice {
 
 ### Java
 
-```
+```java
 public Slice createSliceWithRange(Uri sliceUri) {
     if (getContext() == null) {
         return null;
@@ -496,32 +460,21 @@ public Slice createSliceWithRange(Uri sliceUri) {
 
 ## Delayed content
 
-You should return a Slice as quickly as possible from
-[`SliceProvider.onBindSlice()`](/reference/android/app/slice/SliceProvider#onBindSlice(android.net.Uri,%20java.util.List%3Candroid.app.slice.SliceSpec%3E)).
-Time-consuming calls can lead to display issues, such as flickering and abrupt
-resizing.
+You should return a Slice as quickly as possible from[`SliceProvider.onBindSlice()`](https://developer.android.com/reference/android/app/slice/SliceProvider#onBindSlice(android.net.Uri,%20java.util.List%3Candroid.app.slice.SliceSpec%3E)). Time-consuming calls can lead to display issues, such as flickering and abrupt resizing.
 
-If you have Slice content that cannot be loaded quickly, you can construct your
-Slice with placeholder content while noting in the builder that the
-content is loading. Once the content is ready to be displayed, call
-[`getContentResolver().notifyChange(sliceUri, null)`](/reference/android/content/ContentResolver#notifyChange(android.net.Uri,%20android.database.ContentObserver))
-using your Slice URI. This results in another call to
-`SliceProvider.onBindSlice()`, where you can construct the Slice again with fresh
-content.
+If you have Slice content that cannot be loaded quickly, you can construct your Slice with placeholder content while noting in the builder that the content is loading. Once the content is ready to be displayed, call[`getContentResolver().notifyChange(sliceUri, null)`](https://developer.android.com/reference/android/content/ContentResolver#notifyChange(android.net.Uri,%20android.database.ContentObserver))using your Slice URI. This results in another call to`SliceProvider.onBindSlice()`, where you can construct the Slice again with fresh content.
 
 #### Delayed content example - Ride to work
 
-In the Ride to work row below, the distance to work is determined dynamically
-and might not be available immediately. The example code demonstrates using a
-null subtitle as a placeholder while the content loads:
+In the Ride to work row below, the distance to work is determined dynamically and might not be available immediately. The example code demonstrates using a null subtitle as a placeholder while the content loads:
 
-![](/static/guide/slices/images/delayedcontent-1.png)
+![](https://developer.android.com/static/guide/slices/images/delayedcontent-1.png)  
 
 ### Kotlin
 
-```
+```kotlin
 fun createSliceShowingLoading(sliceUri: Uri): Slice {
-    // We’re waiting to load the time to work so indicate that on the slice by
+    // We're waiting to load the time to work so indicate that on the slice by
     // setting the subtitle with the overloaded method and indicate true.
     return list(context, sliceUri, ListBuilder.INFINITY) {
         row {
@@ -535,7 +488,7 @@ fun createSliceShowingLoading(sliceUri: Uri): Slice {
 
 ### Java
 
-```
+```java
 public Slice createSliceShowingLoading(Uri sliceUri) {
     if (getContext() == null) {
         return null;
@@ -546,7 +499,7 @@ public Slice createSliceShowingLoading(Uri sliceUri) {
             .addRow(new RowBuilder()
                     .setPrimaryAction(createActivityAction())
                     .setTitle("Ride to work")
-                    // We’re waiting to load the time to work so indicate that on the slice by
+                    // We're waiting to load the time to work so indicate that on the slice by
                     // setting the subtitle with the overloaded method and indicate true.
                     .setSubtitle(null, true)
                     .addEndItem(IconCompat.createWithResource(getContext(), R.drawable.ic_work),
@@ -572,22 +525,17 @@ private SliceAction createActivityAction() {
 
 ## Handle disabled scrolling within your Slice
 
-The surface presenting your Slice template may not support scrolling within the
-template. In this case, some of your content might not be displayed.
+The surface presenting your Slice template may not support scrolling within the template. In this case, some of your content might not be displayed.
 
 As an example, consider a Slice showing a list of WiFi networks:
 
-![](/static/guide/slices/images/disabledscrolling-1.png)
+![](https://developer.android.com/static/guide/slices/images/disabledscrolling-1.png)
 
-If the WiFi list is long, and if scrolling is disabled, you can add a
-**See more** button to ensure that users have a way to see all items in the
-list. You can add this button by using
-[`addSeeMoreAction()`](/reference/androidx/slice/builders/ListBuilder#addseemoreaction),
-as shown in the following example:
+If the WiFi list is long, and if scrolling is disabled, you can add a**See more** button to ensure that users have a way to see all items in the list. You can add this button by using[`addSeeMoreAction()`](https://developer.android.com/reference/androidx/slice/builders/ListBuilder#addseemoreaction), as shown in the following example:  
 
 ### Kotlin
 
-```
+```kotlin
 fun seeMoreActionSlice(sliceUri: Uri) =
     list(context, sliceUri, ListBuilder.INFINITY) {
         // [START_EXCLUDE]
@@ -600,7 +548,7 @@ fun seeMoreActionSlice(sliceUri: Uri) =
 
 ### Java
 
-```
+```java
 public Slice seeMoreActionSlice(Uri sliceUri) {
     if (getContext() == null) {
         return null;
@@ -621,16 +569,17 @@ public Slice seeMoreActionSlice(Uri sliceUri) {
 
 This displays as shown in the following image:
 
-![](/static/guide/slices/images/disabledscrolling-2.png)
+![](https://developer.android.com/static/guide/slices/images/disabledscrolling-2.png)
 
-Tapping on **See more** sends `seeAllNetworksPendingIntent`.
+Tapping on**See more** sends`seeAllNetworksPendingIntent`.
 
-Alternatively, if you’d like to provide a custom message or row, consider adding a
-RowBuilder:
+Alternatively, if you'd like to provide a custom message or row, consider adding a RowBuilder:
+
+<br />
 
 ### Kotlin
 
-```
+```kotlin
 fun seeMoreRowSlice(sliceUri: Uri) =
     list(context, sliceUri, ListBuilder.INFINITY) {
         // [START_EXCLUDE]
@@ -652,7 +601,7 @@ fun seeMoreRowSlice(sliceUri: Uri) =
 
 ### Java
 
-```
+```java
 public Slice seeMoreRowSlice(Uri sliceUri) {
     if (getContext() == null) {
         return null;
@@ -681,20 +630,21 @@ public Slice seeMoreRowSlice(Uri sliceUri) {
 }
 ```
 
-The row or action added via this method is displayed only when one of the following conditions
-is met:
+<br />
 
-* The presenter of your Slice has disabled scrolling on the view
-* Not all of your rows can be displayed in the space available
+The row or action added via this method is displayed only when one of the following conditions is met:
+
+- The presenter of your Slice has disabled scrolling on the view
+- Not all of your rows can be displayed in the space available
+
+<br />
 
 ## Combine templates
 
-You can create a rich, dynamic Slice by combining multiple row types. For
-example, a Slice can contain a header row, a grid with a single image, and
-a grid with two cells of text.
+You can create a rich, dynamic Slice by combining multiple row types. For example, a Slice can contain a header row, a grid with a single image, and a grid with two cells of text.
 
-![](/static/guide/slices/images/combinedtemplates-1.png)
+![](https://developer.android.com/static/guide/slices/images/combinedtemplates-1.png)
 
 Here's a Slice with a header row along with a grid that contains three cells.
 
-![](/static/guide/slices/images/combinedtemplates-2.png)
+![](https://developer.android.com/static/guide/slices/images/combinedtemplates-2.png)

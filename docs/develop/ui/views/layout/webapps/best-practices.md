@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Developing web pages and applications for mobile devices presents different challenges compared
 to developing a web page for desktop web browsers. The following practices can help you provide the
 most effective web application for Android and other mobile devices.

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The standalone Android Studio profiler lets you [profile your app](/studio/profile) without running
 the full Android Studio IDE.
 

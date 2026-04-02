@@ -1,48 +1,23 @@
 ---
-title: Add spatial video to your app  |  Android XR for Jetpack XR SDK  |  Android Developers
+title: https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-video
 url: https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-video
-source: html-scrape
+source: md.txt
 ---
 
-The Android XR SDK has  [reached Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Android XR](https://developer.android.com/develop/xr)
-* [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk)
-* [Guides](https://developer.android.com/develop/xr/get-started)
-
-# Add spatial video to your app Stay organized with collections Save and categorize content based on your preferences.
+<br />
 
 
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
-
-Applicable XR devices
-
-This guidance helps you build experiences for these types of XR devices.
-
-[Learn about XR device types →](/develop/xr/devices)
-
-![](/static/images/develop/xr/xr-headsets-icon.svg)
-
-
-XR Headsets
-
-![](/static/images/develop/xr/xr-glasses-icon.svg)
-
-
-Wired XR Glasses
-
-[Learn about XR device types →](/develop/xr/devices)
+<br />
 
 The Jetpack XR SDK supports the playback of stereoscopic [side-by-side
 video](https://en.wikipedia.org/wiki/Stereoscopy#Side-by-side) onto flat surfaces. With stereoscopic video, each frame
 consists of a left-eye and a right-eye image to give viewers a sense of
-depth—also known as *stereopsis*.
+depth---also known as *stereopsis*.
 
 You can render non-stereoscopic 2D video on Android XR apps with the [standard
-media APIs](/media/audio-and-video) used for Android development on other form factors.
+media APIs](https://developer.android.com/media/audio-and-video) used for Android development on other form factors.
 
 ## Play side-by-side video using Jetpack SceneCore
 
@@ -52,13 +27,14 @@ arranged vertically adjacent to each other.
 
 Side-by-side video is not a codec but rather a way of organizing stereoscopic
 frames, which means it can be encoded in any of the [codecs supported by
-Android](/media/platform/supported-formats#video-codecs).
+Android](https://developer.android.com/media/platform/supported-formats#video-codecs).
 
-You can load side-by-side video using [Media3 Exoplayer](/media/media3/exoplayer) and then render it
-using the new [`SurfaceEntity`](/reference/kotlin/androidx/xr/scenecore/SurfaceEntity). To create a `SurfaceEntity`, call
+You can load side-by-side video using [Media3 Exoplayer](https://developer.android.com/media/media3/exoplayer) and then render it
+using the new [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity). To create a `SurfaceEntity`, call
 `SurfaceEntity.create`, as shown in the following example.
 
-```
+
+```kotlin
 val stereoSurfaceEntity = SurfaceEntity.create(
     session = xrSession,
     stereoMode = SurfaceEntity.StereoMode.SIDE_BY_SIDE,
@@ -76,9 +52,9 @@ exoPlayer.setVideoSurface(stereoSurfaceEntity.getSurface())
 exoPlayer.setMediaItem(mediaItem)
 exoPlayer.prepare()
 exoPlayer.play()
-
-SpatialVideo.kt
 ```
+
+<br />
 
 ## Play MV-HEVC video using Jetpack SceneCore
 
@@ -87,15 +63,16 @@ allowing your app to efficiently play back immersive videos at great quality.
 MV-HEVC files have a primary stream, usually the left eye, and a stereo stream
 with the other eye.
 
-Similar to side-by-side video, you can load it using [Media3 Exoplayer](/media/media3/exoplayer) and
-render it using the [`SurfaceEntity`](/reference/kotlin/androidx/xr/scenecore/SurfaceEntity). You will want to specify whether your
+Similar to side-by-side video, you can load it using [Media3 Exoplayer](https://developer.android.com/media/media3/exoplayer) and
+render it using the [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity). You will want to specify whether your
 MV-HEVC file is left or right primary in the `stereoMode` parameter when calling
 `SurfaceEntity.create`.
 
-**Important:** You must use [Media3 1.6.0](/jetpack/androidx/releases/media3#1.6.0) or later and an Android XR device with
-MV-HEVC decoding support to playback MV-HEVC content.
+> [!IMPORTANT]
+> **Important:** You must use [Media3 1.6.0](https://developer.android.com/jetpack/androidx/releases/media3#1.6.0) or later and an Android XR device with MV-HEVC decoding support to playback MV-HEVC content.
 
-```
+
+```kotlin
 // Create the SurfaceEntity with the StereoMode corresponding to the MV-HEVC content
 val stereoSurfaceEntity = SurfaceEntity.create(
     session = xrSession,
@@ -114,9 +91,9 @@ exoPlayer.setVideoSurface(stereoSurfaceEntity.getSurface())
 exoPlayer.setMediaItem(mediaItem)
 exoPlayer.prepare()
 exoPlayer.play()
-
-SpatialVideo.kt
 ```
+
+<br />
 
 ## Play DRM-protected spatial video using Jetpack SceneCore
 
@@ -132,15 +109,15 @@ be accessed by the system or other applications, preventing screen capture.
 
 To play DRM-protected video with Jetpack SceneCore, you need to:
 
-1. Configure [`SurfaceEntity`](/reference/kotlin/androidx/xr/scenecore/SurfaceEntity) to request a protected surface.
-2. Configure [Media3 Exoplayer](/media/media3/exoplayer) with the necessary DRM information to handle
-   the key exchange.
-3. Set the player's output to the [`SurfaceEntity`](/reference/kotlin/androidx/xr/scenecore/SurfaceEntity)'s surface.
+1. Configure [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity) to request a protected surface.
+2. Configure [Media3 Exoplayer](https://developer.android.com/media/media3/exoplayer) with the necessary DRM information to handle the key exchange.
+3. Set the player's output to the [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity)'s surface.
 
 The following example shows how to configure ExoPlayer to play a DRM-protected
-stream and render it on a [`SurfaceEntity`](/reference/kotlin/androidx/xr/scenecore/SurfaceEntity):
+stream and render it on a [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity):
 
-```
+
+```kotlin
 // Create a SurfaceEntity with DRM content
 
 // Define the URI for your DRM-protected content and license server.
@@ -174,16 +151,16 @@ exoPlayer.setVideoSurface(protectedSurfaceEntity.getSurface())
 exoPlayer.setMediaItem(mediaItem)
 exoPlayer.prepare()
 exoPlayer.play()
-
-SpatialVideo.kt
 ```
+
+<br />
 
 For a more detailed overview of Android's media DRM framework, see the [Media
 DRM documentation on source.android.com](https://en.wikipedia.org/wiki/Stereoscopy#Side-by-side).
 
 ## Play 180-degree and 360-degree video using Jetpack SceneCore
 
-[`SurfaceEntity`](/reference/kotlin/androidx/xr/scenecore/SurfaceEntity) supports playback of 180° videos on hemispherical surfaces
+[`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity) supports playback of 180° videos on hemispherical surfaces
 and 360° videos on spherical surfaces. The `radius` parameter refers to the
 radial size of the respective surfaces in meters by default.
 
@@ -191,10 +168,11 @@ The following code shows how to set up `SurfaceEntity` for playback on a 180°
 hemisphere and a 360° sphere. When using these canvas shapes, position the
 surface by leveraging the user's head pose to provide an immersive experience.
 
-**Note:** [`ResizableComponent`](/reference/kotlin/androidx/xr/scenecore/ResizableComponent) isn't supported for [`SurfaceEntity`](/reference/kotlin/androidx/xr/scenecore/SurfaceEntity) when
-the `SurfaceEntity` has a `canvasShape` of `Hemisphere` or `Sphere`.
+> [!NOTE]
+> **Note:** [`ResizableComponent`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ResizableComponent) isn't supported for [`SurfaceEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SurfaceEntity) when the `SurfaceEntity` has a `canvasShape` of `Hemisphere` or `Sphere`.
 
-```
+
+```kotlin
 val devicePose = ArDevice.getInstance(xrSession).state.value.devicePose
 val activitySpacePose = xrSession.scene.perceptionSpace.transformPoseTo(devicePose, xrSession.scene.activitySpace)
 
@@ -206,12 +184,13 @@ val hemisphereStereoSurfaceEntity =
         pose = activitySpacePose,
         shape = SurfaceEntity.Shape.Hemisphere(1.0f),
     )
-// ... and use the surface for playing the media.
-
-SpatialVideo.kt
+// ... and use the surface for playing the media.https://github.com/android/snippets/blob/b17a50993cce9a7469f3bee2594a4a0dff3b5c11/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L61-L72
 ```
 
-```
+<br />
+
+
+```kotlin
 val devicePose = ArDevice.getInstance(xrSession).state.value.devicePose
 val activitySpacePose = xrSession.scene.perceptionSpace.transformPoseTo(devicePose, xrSession.scene.activitySpace)
 // Set up the surface for playing a 360° video on a sphere.
@@ -222,10 +201,10 @@ val sphereStereoSurfaceEntity =
         pose = activitySpacePose,
         shape = SurfaceEntity.Shape.Sphere(1.0f),
     )
-// ... and use the surface for playing the media.
-
-SpatialVideo.kt
+// ... and use the surface for playing the media.https://github.com/android/snippets/blob/b17a50993cce9a7469f3bee2594a4a0dff3b5c11/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L78-L88
 ```
+
+<br />
 
 ## Advanced SurfaceEntity control
 
@@ -241,9 +220,11 @@ The following sections describe some of the advanced features available on
 Soften the edges of the surface to help it blend with the environment by
 setting the `edgeFeatheringParams` property.
 
-**Note:** Edge feathering is not recommended for 360 videos.
+> [!NOTE]
+> **Note:** Edge feathering is not recommended for 360 videos.
 
-```
+
+```kotlin
 // Create a SurfaceEntity.
 val surfaceEntity = SurfaceEntity.create(
     session = xrSession,
@@ -253,9 +234,9 @@ val surfaceEntity = SurfaceEntity.create(
 // Feather the edges of the surface.
 surfaceEntity.edgeFeatheringParams =
     SurfaceEntity.EdgeFeatheringParams.RectangleFeather(0.1f, 0.1f)
-
-SpatialVideo.kt
 ```
+
+<br />
 
 #### Apply an alpha mask
 
@@ -263,7 +244,8 @@ Apply an alpha mask to create non-rectangular surfaces or add transparency
 effects. First, load a `Texture` from an asset, then assign it to the
 `primaryAlphaMaskTexture` property:
 
-```
+
+```kotlin
 // Create a SurfaceEntity.
 val surfaceEntity = SurfaceEntity.create(
     session = xrSession,
@@ -284,11 +266,11 @@ activity.lifecycleScope.launch {
     // To remove the mask, set the property to null.
     surfaceEntity.primaryAlphaMaskTexture = null
 }
-
-SpatialVideo.kt
 ```
+
+<br />
 
 ## Play spatial video using Jetpack Compose for XR
 
 If you're interested in learning how to play video using Jetpack Compose for XR,
-learn how to [add a surface for image or video content](/develop/xr/jetpack-xr-sdk/ui-compose#add-surface).
+learn how to [add a surface for image or video content](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose#add-surface).

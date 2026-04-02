@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This topic describes how to detect and deliver in-app products in your game
 after players purchase them with Play Points in the Google Play app.
 

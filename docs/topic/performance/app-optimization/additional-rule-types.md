@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 R8 lets you add rules that affect the optimization of your app, apart from keep
 rules. Add these rules in the same `proguard-rules.pro` file where you maintain
 your keep rules.

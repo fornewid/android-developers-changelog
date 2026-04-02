@@ -1,72 +1,60 @@
 ---
-title: Release notes  |  Android Developers
+title: https://developer.android.com/about/versions/16/qpr2/release-notes
 url: https://developer.android.com/about/versions/16/qpr2/release-notes
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Releases](https://developer.android.com/about/versions)
-
-# Release notes Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 ### Beta 3
 
-|  |  |
-| --- | --- |
+|---|---|
 | **Release date** | November 10, 2025 |
 | **Builds** | BP41.250916.015.A1 |
 | **Emulator support** | TBA |
 | **Security patch level** | 2025-10-05 |
 | **Google Play services** | 25.34.34 |
-| **API diff** | * [QPR2 Beta 2 → API 36.1](/sdk/api_diff/36.1-incr/changes) * [API 36 → API 36.1](/sdk/api_diff/36.1/changes) |
+| **API diff** | - [QPR2 Beta 2 → API 36.1](https://developer.android.com/sdk/api_diff/36.1-incr/changes) - [API 36 → API 36.1](https://developer.android.com/sdk/api_diff/36.1/changes) |
 
 ### Beta 2
 
-|  |  |
-| --- | --- |
+|---|---|
 | **Release date** | September 17, 2025 |
 | **Builds** | BP41.250822.010 |
 | **Emulator support** | TBA |
 | **Security patch level** | 2025-09-05 |
 | **Google Play services** | 25.29.32 |
-| **API diff** | * [QPR2 Beta 1 → API 36.1](/sdk/api_diff/36.1-incr/changes) * [API 36 → API 36.1](/sdk/api_diff/36.1/changes) |
+| **API diff** | - [QPR2 Beta 1 → API 36.1](https://developer.android.com/sdk/api_diff/36.1-incr/changes) - [API 36 → API 36.1](https://developer.android.com/sdk/api_diff/36.1/changes) |
 
 ### Beta 1
 
-|  |  |
-| --- | --- |
+|---|---|
 | **Release date** | August 20, 2025 |
 | **Builds** | BP41.250725.006 |
 | **Emulator support** | TBA |
 | **Security patch level** | 2025-08-05 |
 | **Google Play services** | 25.25.33 |
-| **API diff** | * [API 36 → QPR2 Beta 1](/sdk/api_diff/b-1-beta1/changes) |
+| **API diff** | - [API 36 → QPR2 Beta 1](https://developer.android.com/sdk/api_diff/b-1-beta1/changes) |
 
 ## About Android 16 QPR2 Beta 3
 
 QPR2 Beta 3 is now available. This is our second platform stability
 release, and it includes many fixes, including to the following issues:
 
-* Google Play System Updates were failing to install for some users. ([Issue #420748298](https://issuetracker.google.com/issues/420748298), [Issue #438257102](https://issuetracker.google.com/issues/438257102))
-* Home screen shortcuts appeared as blank gray circles. ([Issue #440302367](https://issuetracker.google.com/issues/440302367))
-* The Wallet icon on your lockscreen could sometimes appear with incorrect coloring. ([Issue #419061603](https://issuetracker.google.com/issues/419061603), [Issue #434489536](https://issuetracker.google.com/issues/434489536))
-* Battery charged to 100% when adaptive charging is turned on ([Issue #445583926](https://issuetracker.google.com/issues/445583926))
-* The swipe-up gesture from the bottom occasionally stopped working. ([Issue #436632152](https://issuetracker.google.com/issues/436632152), [Issue #445023211](https://issuetracker.google.com/issues/445023211))
-* Your selected theme might not apply on the first attempt. ([Issue #440830741](https://issuetracker.google.com/issues/440830741))
-* 50MP images captured with the ultrawide or telephoto lens displayed rainbow artifacts. ([Issue #422058430](https://issuetracker.google.com/issues/422058430), [Issue #443250512](https://issuetracker.google.com/issues/443250512))
-* Poor battery life due to excessive CPU usage by the launcher, particularly on foldable devices. ([Issue #441741448](https://issuetracker.google.com/issues/441741448))
-* Calls could incorrectly route Bluetooth audio. ([Issue #448580013](https://issuetracker.google.com/issues/448580013), [Issue #448580779](https://issuetracker.google.com/issues/448580779))
-* Users in New Zealand could not access all 6GHz Wi-Fi networks. ([Issue #444050891](https://issuetracker.google.com/issues/444050891))
-* The Terminal app would crash if you changed your device's UI font size while it was open. ([Issue #412082408](https://issuetracker.google.com/issues/412082408))
-* Users couldn't type special characters like `\*`, `@`, or `#` in the GUI terminal. ([Issue #444130818](https://issuetracker.google.com/issues/444130818))
-* Simultaneously swiping lockscreen widgets and the notification shade caused buggy animations and a laggy, unresponsive UI. ([Issue #446133358](https://issuetracker.google.com/issues/446133358))
-* The screen sometimes became unresponsive or froze when unlocking the device.
-* Display freezes and screen noise
-* Unexpected device crashes
+- Google Play System Updates were failing to install for some users. ([Issue #420748298](https://issuetracker.google.com/issues/420748298), [Issue #438257102](https://issuetracker.google.com/issues/438257102))
+- Home screen shortcuts appeared as blank gray circles. ([Issue #440302367](https://issuetracker.google.com/issues/440302367))
+- The Wallet icon on your lockscreen could sometimes appear with incorrect coloring. ([Issue #419061603](https://issuetracker.google.com/issues/419061603), [Issue #434489536](https://issuetracker.google.com/issues/434489536))
+- Battery charged to 100% when adaptive charging is turned on ([Issue #445583926](https://issuetracker.google.com/issues/445583926))
+- The swipe-up gesture from the bottom occasionally stopped working. ([Issue #436632152](https://issuetracker.google.com/issues/436632152), [Issue #445023211](https://issuetracker.google.com/issues/445023211))
+- Your selected theme might not apply on the first attempt. ([Issue #440830741](https://issuetracker.google.com/issues/440830741))
+- 50MP images captured with the ultrawide or telephoto lens displayed rainbow artifacts. ([Issue #422058430](https://issuetracker.google.com/issues/422058430), [Issue #443250512](https://issuetracker.google.com/issues/443250512))
+- Poor battery life due to excessive CPU usage by the launcher, particularly on foldable devices. ([Issue #441741448](https://issuetracker.google.com/issues/441741448))
+- Calls could incorrectly route Bluetooth audio. ([Issue #448580013](https://issuetracker.google.com/issues/448580013), [Issue #448580779](https://issuetracker.google.com/issues/448580779))
+- Users in New Zealand could not access all 6GHz Wi-Fi networks. ([Issue #444050891](https://issuetracker.google.com/issues/444050891))
+- The Terminal app would crash if you changed your device's UI font size while it was open. ([Issue #412082408](https://issuetracker.google.com/issues/412082408))
+- Users couldn't type special characters like `\*`, `@`, or `#` in the GUI terminal. ([Issue #444130818](https://issuetracker.google.com/issues/444130818))
+- Simultaneously swiping lockscreen widgets and the notification shade caused buggy animations and a laggy, unresponsive UI. ([Issue #446133358](https://issuetracker.google.com/issues/446133358))
+- The screen sometimes became unresponsive or froze when unlocking the device.
+- Display freezes and screen noise
+- Unexpected device crashes
 
 ## About Android 16 QPR2 Beta 2
 
@@ -151,83 +139,77 @@ QPR2 Beta 1 includes new features and changes to try out with your apps:
 
 ### UI, System Experience, and Accessibility
 
-* Expanded Dark Theme
-* Auto-Themed App Icons
-* Interactive Chooser Sessions
-* Smoother Android Migrations
-* PDF Document Annotation and Editing
-* Display Topology API
-* Device-aware View Configuration
-* Granular Haptic Feedback Control
-* Quick Settings Tile Categories
+- Expanded Dark Theme
+- Auto-Themed App Icons
+- Interactive Chooser Sessions
+- Smoother Android Migrations
+- PDF Document Annotation and Editing
+- Display Topology API
+- Device-aware View Configuration
+- Granular Haptic Feedback Control
+- Quick Settings Tile Categories
 
-### Media & Audio
+### Media \& Audio
 
-* IAMF Decoding Support
-* Personal Audio Sharing in Output Switcher
-* New AAudio APIs
-* HDR/SDR Brightness Slider
+- IAMF Decoding Support
+- Personal Audio Sharing in Output Switcher
+- New AAudio APIs
+- HDR/SDR Brightness Slider
 
 ### Connectivity
 
-* Companion Device Management Enhancements
-* MediaRouter Network Privacy Improvements
+- Companion Device Management Enhancements
+- MediaRouter Network Privacy Improvements
 
-### Privacy & Security
+### Privacy \& Security
 
-* Secure Lock Device
-* Phone Theft Protection Toggle
+- Secure Lock Device
+- Phone Theft Protection Toggle
 
 ### Developer Productivity
 
-* Widget Engagement Metrics
-* Early Warnings for 16KB Page Size Compatibility
-* Enhanced Profiling
-* More Robust Multi-Display Testing
+- Widget Engagement Metrics
+- Early Warnings for 16KB Page Size Compatibility
+- Enhanced Profiling
+- More Robust Multi-Display Testing
 
 ## How to get Beta 1
 
 You can install this release on any of the following Google Pixel devices:
 
-* Pixel 6 and 6 Pro
-* Pixel 6a
-* Pixel 7 and 7 Pro
-* Pixel 7a
-* Pixel Fold
-* Pixel Tablet
-* Pixel 8 and 8 Pro
-* Pixel 8a
-* Pixel 9, 9 Pro, 9 Pro XL, and 9 Pro Fold
-* Pixel 9a
+- Pixel 6 and 6 Pro
+- Pixel 6a
+- Pixel 7 and 7 Pro
+- Pixel 7a
+- Pixel Fold
+- Pixel Tablet
+- Pixel 8 and 8 Pro
+- Pixel 8a
+- Pixel 9, 9 Pro, 9 Pro XL, and 9 Pro Fold
+- Pixel 9a
 
-See [Get Android 16 QPR2](/about/versions/16/qpr2/get) for details on how to get
+See [Get Android 16 QPR2](https://developer.android.com/about/versions/16/qpr2/get) for details on how to get
 started.
 
 Remember to update your SDK and the Android Emulator as well before you try out
 the latest features and changes. The best way to do this is using the SDK
-Manager in the [latest preview version of Android Studio](/studio/preview).
+Manager in the [latest preview version of Android Studio](https://developer.android.com/studio/preview).
 
 Depending on your development and testing needs, you can also get Android 16 in
 the following ways:
 
-* Get Android 16 QPR2 [on the Android Emulator](/about/versions/16/qpr2/get#on_emulator)
-* Get a [Generic System Image](/about/versions/16/qpr2/gsi-release-notes) (GSI)
+- Get Android 16 QPR2 [on the Android Emulator](https://developer.android.com/about/versions/16/qpr2/get#on_emulator)
+- Get a [Generic System Image](https://developer.android.com/about/versions/16/qpr2/gsi-release-notes) (GSI)
 
 ### General advisories
 
 While a key goal of this release is maintaining app compatibility:
 
-* This release might have various stability, battery, or performance issues.
-* For users with accessibility needs, this release might not be appropriate for
-  daily use.
-* Some apps might not function as expected when running on this release. This
-  limitation includes Google's apps as well as other apps.
-* Android 16 Beta builds aren't [Compatibility Test Suite
-  (CTS)-approved](https://source.android.com/compatibility/cts/),
-  but they have passed preliminary testing and provide a stable set of
-  pre-release APIs for developers. Apps that depend on
-  CTS-approved builds or use [Play Integrity API](/google/play/integrity)
-  might not work normally on Android 16 Beta builds.
+- This release might have various stability, battery, or performance issues.
+- For users with accessibility needs, this release might not be appropriate for daily use.
+- Some apps might not function as expected when running on this release. This limitation includes Google's apps as well as other apps.
+- Android 16 Beta builds aren't [Compatibility Test Suite
+  (CTS)-approved](https://source.android.com/compatibility/cts/), but they have passed preliminary testing and provide a stable set of pre-release APIs for developers. Apps that depend on CTS-approved builds or use [Play Integrity API](https://developer.android.com/google/play/integrity) might not work normally on Android 16 Beta builds.
 
 ### Get support
 
@@ -235,20 +217,11 @@ Two primary support channels are available to you when developing and testing
 with Android Beta. The channel you should use to get support depends on where
 you are encountering your issue.
 
-* **Support for device-specific issues, system issues, and issues with Google
-  apps**: Use the Issue Tracker to create new issues and to view and track
-  issues that you and other developers have submitted. Before creating your own
-  issue, check the known issues listed on this page and search the lists of [top
-  open issues](/about/versions/16/qpr2/top-issues) and
-  [recently created issues](/about/versions/16/qpr2/recent-issues) to see if
-  someone else has already reported it. You can subscribe and vote for an issue
-  by clicking
-  **star this issue** .
-  See [Where to report issues](/about/versions/16/qpr2/feedback#templates) to
-  find an issue template that best matches the type of issue that you are
-  encountering.
-* **Support for issues with other apps**: Contact the app developer directly.
+- **Support for device-specific issues, system issues, and issues with Google
+  apps** : Use the Issue Tracker to create new issues and to view and track issues that you and other developers have submitted. Before creating your own issue, check the known issues listed on this page and search the lists of [top
+  open issues](https://developer.android.com/about/versions/16/qpr2/top-issues) and [recently created issues](https://developer.android.com/about/versions/16/qpr2/recent-issues) to see if someone else has already reported it. You can subscribe and vote for an issue by clicking **star this issue** . See [Where to report issues](https://developer.android.com/about/versions/16/qpr2/feedback#templates) to find an issue template that best matches the type of issue that you are encountering.
+- **Support for issues with other apps**: Contact the app developer directly.
 
 To discuss issues or ideas with other developers and users working with the
 Android 16 QPR2 Beta, join the
-[android\_beta community on Reddit](/about/versions/16/qpr2/dev-community).
+[android_beta community on Reddit](https://developer.android.com/about/versions/16/qpr2/dev-community).

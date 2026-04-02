@@ -1,14 +1,27 @@
 ---
-title: https://developer.android.com/topic/performance/tracing/choose-right-method
+title: Choose the right profiling method  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/tracing/choose-right-method
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App quality](https://developer.android.com/quality)
+* [Technical quality](https://developer.android.com/quality/technical)
+
+# Choose the right profiling method Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 You can collect profiles using two primary methods: manual profile collection
 and the `ProfilingManager` API.
 
-- Manual profile collection involves manually running Perfetto on your local device to record profiles. You can do this using commands as described in [Recording system traces with Perfetto](https://perfetto.dev/docs/getting-started/system-tracing) or by using the Quick Settings tile, as explained in [Record using Quick Settings tile](https://developer.android.com/topic/performance/tracing/on-device#quick-settings).
-- `ProfilingManager` lets apps collect profiles in production.
+* Manual profile collection involves manually running Perfetto on your local
+  device to record profiles. You can do this using commands as described in
+  [Recording system traces with Perfetto](https://perfetto.dev/docs/getting-started/system-tracing) or by using the Quick Settings
+  tile, as explained in [Record using Quick Settings tile](/topic/performance/tracing/on-device#quick-settings).
+* `ProfilingManager` lets apps collect profiles in production.
 
 We recommend using `ProfilingManager` for collecting and analyzing data from
 many users or for debugging rare issues. However, for issues that are easier to
@@ -16,8 +29,8 @@ reproduce, manual profiling might be a better choice.
 
 The following table shows how these two methods for recording profiles differ:
 
-|   | **ProfilingManager** | **Manual profile collection** |
-|---|---|---|
+|  | **ProfilingManager** | **Manual profile collection** |
+| --- | --- | --- |
 | Profile timing control | More | Less |
 | Profile source | Local device and public users | Local device only |
 | Profile output | Redacted | Unredacted |
@@ -47,13 +60,12 @@ on your own device.
 `ProfilingManager` and manual collection produce different types of profile
 outputs:
 
-- `ProfilingManager` produces redacted traces. Redacted traces show
+* `ProfilingManager` produces redacted traces. Redacted traces show
   information about your app's process but hide data from other apps on the
   system. Because `ProfilingManager` collects and redacts before returning
   them, you can collect traces from public users while protecting their
   privacy by not showing data from other apps.
-
-- Manual profile collection produces unredacted traces. When you manually
+* Manual profile collection produces unredacted traces. When you manually
   record a system trace, the output might include all processes running on the
   system. While these unredacted traces offer more complete data for
   debugging, you can only access them locally due to privacy concerns.

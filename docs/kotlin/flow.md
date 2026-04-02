@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 In coroutines, a *flow* is a type that can emit multiple values
 sequentially, as opposed to *suspend functions* that return only
 a single value. For example, you can use a flow to receive live

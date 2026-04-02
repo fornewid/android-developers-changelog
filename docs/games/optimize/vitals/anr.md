@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 When the UI thread of an Android app is blocked for too long, an "Application
 Not Responding" (ANR) error is triggered. If the app is in the foreground, the
 system displays a dialog to the user, as shown in figure 1. The ANR dialog gives

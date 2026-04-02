@@ -1,15 +1,25 @@
 ---
-title: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/about-ink-api
+title: Add inking to your app with the Ink API  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/about-ink-api
-source: md.txt
+source: html-scrape
 ---
 
-The [`Ink API`](https://developer.android.com/jetpack/androidx/releases/ink) helps you
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Add inking to your app with the Ink API Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+The [`Ink API`](/jetpack/androidx/releases/ink) helps you
 add beautiful, low-latency freehand drawing to your Android app. Ink API
 simplifies the complexities of input handling and graphics rendering, allowing
 you to quickly implement responsive drawing surfaces for styluses and other
 pointer inputs.
 
 The API uses the
-[Jetpack Graphics Library for low latency](https://developer.android.com/jetpack/androidx/releases/graphics) to help
+[Jetpack Graphics Library for low latency](/jetpack/androidx/releases/graphics) to help
 provide the smoothest and most responsive inking experience possible.

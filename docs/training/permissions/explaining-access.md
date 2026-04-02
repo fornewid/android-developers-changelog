@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The permissions related to location, microphone, and camera grant your app
 access to particularly sensitive information about users. The platform includes
 several mechanisms, described on this page, to help users stay informed and in

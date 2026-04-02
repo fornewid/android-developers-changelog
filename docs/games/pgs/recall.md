@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 The Recall API helps you seamlessly link Google Play Games Services users to their in-game
 accounts, enabling automatic progress restoration. You store *recall tokens*
 in game servers, which associate these tokens with a user's Google Play Games Services
@@ -202,8 +201,6 @@ using profileless mode. However, there are two important caveats:
 
 In order to integrate the Recall API with your client and game server, [follow
 this guidance](/games/pgs/recall/recall-setup).
-
-
 
 
 

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Most Android-powered devices have built-in sensors that measure motion, orientation,
 and various environmental conditions. These sensors are capable of providing raw data with high
 precision and accuracy, and are useful if you want to monitor three-dimensional device movement or

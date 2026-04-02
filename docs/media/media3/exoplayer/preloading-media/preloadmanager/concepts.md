@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The preload manager helps you give users a better experience by serving content
 to them faster, with less waiting when they switch from one item to another. It
 also lets you customize the duration and ranking of preloading per item.

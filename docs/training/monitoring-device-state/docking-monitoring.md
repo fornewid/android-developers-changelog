@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android-powered devices can be docked into different kinds of docks. These
 include car docks, home docks, and digital or analog docks. The dock state is
 typically closely linked to the charging state, as many docks provide power to

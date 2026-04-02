@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 To streamline your app's authentication experience and future-proof your
 development practices, migrate from the legacy [Google Sign-In for Android](/identity/legacy/gsi)
 to Android Credential Manager. Google Sign-In for Android (as part of

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Google Assistant lets you use voice commands to control many devices, like
 Google Home, your phone, and more. It has a built-in capability to
 understand media commands ("play something by Beyoncé") and supports

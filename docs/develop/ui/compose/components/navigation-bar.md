@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The [navigation bar](https://m3.material.io/components/navigation-bar/overview) allows users to switch between destinations in an app. You
 should use navigation bars for:
 

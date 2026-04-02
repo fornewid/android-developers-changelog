@@ -1,35 +1,23 @@
 ---
-title: xr projected  |  Jetpack  |  Android Developers
+title: https://developer.android.com/jetpack/androidx/releases/xr-projected
 url: https://developer.android.com/jetpack/androidx/releases/xr-projected
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Get started](https://developer.android.com/get-started/overview)
-* [Jetpack](https://developer.android.com/jetpack)
-* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # XR Projected
 
 API Reference  
-[androidx.xr.projected](/reference/kotlin/androidx/xr/projected/package-summary)
-
+[androidx.xr.projected](https://developer.android.com/reference/kotlin/androidx/xr/projected/package-summary)  
 Build experiences that leverage the unique capabilities of connected XR devices.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
-| --- | --- | --- | --- | --- |
-| March 25, 2026 | - | - | - | [1.0.0-alpha06](/jetpack/androidx/releases/xr-projected#1.0.0-alpha06) |
+|---|---|---|---|---|
+| February 25, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha05) |
 
 ## Declaring dependencies
 
 To add a dependency on xr projected, you must add the Google Maven repository to your
-project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
+project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
@@ -37,42 +25,42 @@ your app or module:
 
 ### Groovy
 
-```
+```groovy
 dependencies {
     // Use to implement xr projecteds
-    implementation "androidx.xr.projected:projected:1.0.0-alpha06"
+    implementation "androidx.xr.projected:projected:1.0.0-alpha05"
 }
 ```
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     // Use to implement xr projecteds
-    implementation("androidx.xr.projected:projected:1.0.0-alpha06")
+    implementation("androidx.xr.projected:projected:1.0.0-alpha05")
 
     // Use to implement xr projected complications
-    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha06"
+    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha05"
     // (Kotlin-specific extensions)
-    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha06"
+    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha05"
 
     // Use to implement a projected style and complication editor
-    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha06")
+    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha05")
 
     // Can use to render complications.
     // This library is optional and projecteds may have custom implementation for rendering
     // complications.
-    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha06"
+    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha05"
 }
 ```
 
-For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
+For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
 
 ## Feedback
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:1689664%20status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:1689664+status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
@@ -82,16 +70,6 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
-
-### Version 1.0.0-alpha06
-
-March 25, 2026
-
-`androidx.xr.projected:projected:1.0.0-alpha06`, `androidx.xr.projected:projected-binding:1.0.0-alpha06`, and `androidx.xr.projected:projected-testing:1.0.0-alpha06` are released. Version 1.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/855e9d89b825c1acd405c8aeb81dab7792e61dbc..9c7d19e26a25f01d06a79709097a11943f562613/xr/projected).
-
-**API Changes**
-
-* Added a new `create(activity: Activity)` method to the `ProjectedActivityCompat` ([If4773](https://android-review.googlesource.com/#/q/If4773d4a30b80572b08a10ee622f4be3dd751e0c), [b/479214966](https://issuetracker.google.com/issues/479214966))
 
 ### Version 1.0.0-alpha05
 
@@ -113,9 +91,9 @@ December 03, 2025
 
 **API Changes**
 
-* Added the experimental API for getting the `PresentationMode` ([I2dc0b](https://android-review.googlesource.com/#/q/I2dc0b6ae70e60d2768c03c7ba70920a146609760))
-* Added the experimental API for collecting `ProjectedInputEvent`s ([I78ef8](https://android-review.googlesource.com/#/q/I78ef8007c242f6d78844a75f424de437a37d4486))
-* Added `ProjectedDeviceController` and capabilities API ([If7d2d](https://android-review.googlesource.com/#/q/If7d2ddff2404eb4ef28e19c5358aaa8f7cf1e690))
+- Added the experimental API for getting the `PresentationMode` ([I2dc0b](https://android-review.googlesource.com/#/q/I2dc0b6ae70e60d2768c03c7ba70920a146609760))
+- Added the experimental API for collecting `ProjectedInputEvent`s ([I78ef8](https://android-review.googlesource.com/#/q/I78ef8007c242f6d78844a75f424de437a37d4486))
+- Added `ProjectedDeviceController` and capabilities API ([If7d2d](https://android-review.googlesource.com/#/q/If7d2ddff2404eb4ef28e19c5358aaa8f7cf1e690))
 
 ### Version 1.0.0-alpha02
 
@@ -125,7 +103,7 @@ November 19, 2025
 
 **New Features**
 
-* Initial alpha release of the Projected library.
+- Initial alpha release of the Projected library.
 
 ### Version 1.0.0-alpha01
 
@@ -135,4 +113,4 @@ October 22, 2025
 
 **New Features**
 
-* Adds Projected XR library ([Ieedea7](https://android-review.googlesource.com/#/q/Ieedea759434c0dd59976d5e56f1d3e47f597d402))
+- Adds Projected XR library ([Ieedea7](https://android-review.googlesource.com/#/q/Ieedea759434c0dd59976d5e56f1d3e47f597d402))

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 AppSearch is a high-performance on-device search solution for managing locally
 stored, structured data. It contains APIs for indexing data and retrieving data
 using full-text search. Applications can use AppSearch to offer custom in-app

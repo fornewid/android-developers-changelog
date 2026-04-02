@@ -14,6 +14,7 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
+
 This page contains a growing list of Android devices that are supported by AGI.
 
 AGI requires support from the Android OS, OEM drivers, and the hardware for GPU

@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Studio v0.2.x (July 2013)
 
 * Merged in the latest IntelliJ codebase changes. Includes fixes for issues reported by Studio users such as tweaks to Linux font sizes and font rendering.

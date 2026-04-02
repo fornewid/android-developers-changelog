@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
-
 With Android GPU Inspector (AGI), you can perform system profiling that includes
 a wide range of tracing options and GPU performance measurements for your
 Android app. In comparison to the

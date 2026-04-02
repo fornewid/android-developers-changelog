@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Health Services provides support for [`ExerciseEvents`](/reference/kotlin/androidx/health/services/client/data/ExerciseEvent),
 which notify your app when an event has occurred during an exercise and supply
 associated metadata.

@@ -1,17 +1,8 @@
 ---
-title: Espresso recipes  |  Test your app on Android  |  Android Developers
+title: https://developer.android.com/training/testing/espresso/recipes
 url: https://developer.android.com/training/testing/espresso/recipes
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Test your app on Android](https://developer.android.com/training/testing)
-
-# Espresso recipes Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 This document describes how to set up a variety of common Espresso tests.
 
@@ -26,22 +17,22 @@ For example, in this activity, the view with text `"7"` repeats across multiple
 rows:
 
 ![A list activity showing 3 copies of the same view element
-     inside a 3-item list](/static/images/training/testing/repeated-view.png)
+inside a 3-item list](https://developer.android.com/static/images/training/testing/repeated-view.png)
 
-Often, the non-unique view will be paired with some unique label that’s located
+Often, the non-unique view will be paired with some unique label that's located
 next to it, such as a name of the contact next to the call button. In this case,
 you can use the `hasSibling()` matcher to narrow down your selection:
 
 ### Kotlin
 
-```
+```kotlin
 onView(allOf(withText("7"), hasSibling(withText("item: 0"))))
     .perform(click())
 ```
 
 ### Java
 
-```
+```java
 onView(allOf(withText("7"), hasSibling(withText("item: 0"))))
     .perform(click());
 ```
@@ -59,7 +50,7 @@ in the following code snippet:
 
 ### Kotlin
 
-```
+```kotlin
 fun testClickActionBarItem() {
     // We make sure the contextual action bar is hidden.
     onView(withId(R.id.hide_contextual_action_bar))
@@ -78,7 +69,7 @@ fun testClickActionBarItem() {
 
 ### Java
 
-```
+```java
 public void testClickActionBarItem() {
     // We make sure the contextual action bar is hidden.
     onView(withId(R.id.hide_contextual_action_bar))
@@ -95,13 +86,13 @@ public void testClickActionBarItem() {
 }
 ```
 
-![The save button is on the action bar, at the top of the activity](/static/images/training/testing/save-button-clicked.png)
+![The save button is on the action bar, at the top of the activity](https://developer.android.com/static/images/training/testing/save-button-clicked.png)
 
 The code looks identical for the contextual action bar:
 
 ### Kotlin
 
-```
+```kotlin
 fun testClickActionModeItem() {
     // Make sure we show the contextual action bar.
     onView(withId(R.id.show_contextual_action_bar))
@@ -120,7 +111,7 @@ fun testClickActionModeItem() {
 
 ### Java
 
-```
+```java
 public void testClickActionModeItem() {
     // Make sure we show the contextual action bar.
     onView(withId(R.id.show_contextual_action_bar))
@@ -137,7 +128,7 @@ public void testClickActionModeItem() {
 }
 ```
 
-![The lock button is on the action bar, at the top of the activity](/static/images/training/testing/lock-button-clicked.png)
+![The lock button is on the action bar, at the top of the activity](https://developer.android.com/static/images/training/testing/lock-button-clicked.png)
 
 Clicking on items in the overflow menu is a bit trickier for the normal action
 bar as some devices have a hardware overflow menu button, which opens the
@@ -149,7 +140,7 @@ For the normal action bar:
 
 ### Kotlin
 
-```
+```kotlin
 fun testActionBarOverflow() {
     // Make sure we hide the contextual action bar.
     onView(withId(R.id.hide_contextual_action_bar))
@@ -173,7 +164,7 @@ fun testActionBarOverflow() {
 
 ### Java
 
-```
+```java
 public void testActionBarOverflow() {
     // Make sure we hide the contextual action bar.
     onView(withId(R.id.hide_contextual_action_bar))
@@ -196,18 +187,18 @@ public void testActionBarOverflow() {
 ```
 
 ![The overflow menu button is visible, and a list appears beneath the
-          action bar near the top of the screen](/static/images/training/testing/software-menu-selected.png)
+action bar near the top of the screen](https://developer.android.com/static/images/training/testing/software-menu-selected.png)
 
 This is how this looks on devices with a hardware overflow menu button:
 
 ![There is no overflow menu button, and a list appears near the bottom
-          of the screen](/static/images/training/testing/hardware-menu-selected.png)
+of the screen](https://developer.android.com/static/images/training/testing/hardware-menu-selected.png)
 
 For the contextual action bar it is really easy again:
 
 ### Kotlin
 
-```
+```kotlin
 fun testActionModeOverflow() {
     // Show the contextual action bar.
     onView(withId(R.id.show_contextual_action_bar))
@@ -230,7 +221,7 @@ fun testActionModeOverflow() {
 
 ### Java
 
-```
+```java
 public void testActionModeOverflow() {
     // Show the contextual action bar.
     onView(withId(R.id.show_contextual_action_bar))
@@ -252,7 +243,7 @@ public void testActionModeOverflow() {
 ```
 
 ![The overflow menu button appears in the action bar, and the list of
-          options appear underneath the action bar, near the top of the screen](/static/images/training/testing/contextual-menu-selected.png)
+options appear underneath the action bar, near the top of the screen](https://developer.android.com/static/images/training/testing/contextual-menu-selected.png)
 
 To see the full code for these samples, view the
 [`ActionBarTest.java`](https://github.com/android/android-test/blob/7e834ce37faf52f2a65a73b0a6d83ab148707cbb/testapps/ui_testapp/javatests/androidx/test/ui/app/ActionBarTest.java) sample on GitHub.
@@ -269,7 +260,7 @@ the standard `not()` matcher:
 
 ### Kotlin
 
-```
+```kotlin
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -282,7 +273,7 @@ onView(withId(R.id.bottom_left))
 
 ### Java
 
-```
+```java
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -299,13 +290,13 @@ not, you will get a `NoMatchingViewException` and you need to use
 
 ## Assert that a view is not present
 
-If the view is gone from the view hierarchy—which can happen when an
-action caused a transition to another activity—you should use
+If the view is gone from the view hierarchy---which can happen when an
+action caused a transition to another activity---you should use
 `ViewAssertions.doesNotExist()`:
 
 ### Kotlin
 
-```
+```kotlin
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -316,7 +307,7 @@ onView(withId(R.id.bottom_left))
 
 ### Java
 
-```
+```java
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -328,8 +319,8 @@ onView(withId(R.id.bottom_left))
 ## Assert that a data item is not in an adapter
 
 To prove a particular data item is not within an `AdapterView` you have to do
-things a little differently. We have to find the `AdapterView` we’re interested
-in and interrogate the data its holding. We don’t need to use `onData()`.
+things a little differently. We have to find the `AdapterView` we're interested
+in and interrogate the data its holding. We don't need to use `onData()`.
 Instead, we use `onView()` to find the `AdapterView` and then use another
 matcher to work on the data inside the view.
 
@@ -337,7 +328,7 @@ First the matcher:
 
 ### Kotlin
 
-```
+```kotlin
 private fun withAdaptedData(dataMatcher: Matcher<Any>): Matcher<View> {
     return object : TypeSafeMatcher<View>() {
 
@@ -366,7 +357,7 @@ private fun withAdaptedData(dataMatcher: Matcher<Any>): Matcher<View> {
 
 ### Java
 
-```
+```java
 private static Matcher<View> withAdaptedData(final Matcher<Object> dataMatcher) {
     return new TypeSafeMatcher<View>() {
 
@@ -400,7 +391,7 @@ Then the all we need is `onView()` to find the `AdapterView`:
 
 ### Kotlin
 
-```
+```kotlin
 fun testDataItemNotInAdapter() {
     onView(withId(R.id.list))
           .check(matches(not(withAdaptedData(withItemContent("item: 168")))))
@@ -410,7 +401,7 @@ fun testDataItemNotInAdapter() {
 
 ### Java
 
-```
+```java
 @SuppressWarnings("unchecked")
 public void testDataItemNotInAdapter() {
     onView(withId(R.id.list))
@@ -437,7 +428,7 @@ failure handler:
 
 ### Kotlin
 
-```
+```kotlin
 private class CustomFailureHandler(targetContext: Context) : FailureHandler {
     private val delegate: FailureHandler
 
@@ -458,7 +449,7 @@ private class CustomFailureHandler(targetContext: Context) : FailureHandler {
 
 ### Java
 
-```
+```java
 private static class CustomFailureHandler implements FailureHandler {
     private final FailureHandler delegate;
 
@@ -484,7 +475,7 @@ Espresso in the `setUp()` method of the test:
 
 ### Kotlin
 
-```
+```kotlin
 @Throws(Exception::class)
 override fun setUp() {
     super.setUp()
@@ -496,7 +487,7 @@ override fun setUp() {
 
 ### Java
 
-```
+```java
 @Override
 public void setUp() throws Exception {
     super.setUp();
@@ -507,8 +498,8 @@ public void setUp() throws Exception {
 ```
 
 For more information, see the
-[`FailureHandler`](/reference/androidx/test/espresso/FailureHandler)
-interface and [`Espresso.setFailureHandler()`](/reference/androidx/test/espresso/Espresso#setFailureHandler(androidx.test.espresso.FailureHandler)).
+[`FailureHandler`](https://developer.android.com/reference/androidx/test/espresso/FailureHandler)
+interface and [`Espresso.setFailureHandler()`](https://developer.android.com/reference/androidx/test/espresso/Espresso#setFailureHandler(androidx.test.espresso.FailureHandler)).
 
 ## Target non-default windows
 
@@ -517,13 +508,13 @@ and the app developer, yet in certain cases multiple windows are visible, such
 as when an auto-complete window gets drawn over the main application window in
 the search widget. To simplify things, by default Espresso uses a heuristic to
 guess which `Window` you intend to interact with. This heuristic is almost
-always good enough; however, in rare cases, you’ll need to specify which window
+always good enough; however, in rare cases, you'll need to specify which window
 an interaction should target. You can do this by providing your own root window
 matcher, or `Root` matcher:
 
 ### Kotlin
 
-```
+```kotlin
 onView(withText("South China Sea"))
     .inRoot(withDecorView(not(`is`(getActivity().getWindow().getDecorView()))))
     .perform(click())
@@ -531,16 +522,16 @@ onView(withText("South China Sea"))
 
 ### Java
 
-```
+```java
 onView(withText("South China Sea"))
     .inRoot(withDecorView(not(is(getActivity().getWindow().getDecorView()))))
     .perform(click());
 ```
 
 As is the case with
-[`ViewMatchers`](/reference/androidx/test/espresso/matcher/ViewMatchers),
+[`ViewMatchers`](https://developer.android.com/reference/androidx/test/espresso/matcher/ViewMatchers),
 we provide a set of pre-provided
-[`RootMatchers`](/reference/androidx/test/espresso/matcher/RootMatchers).
+[`RootMatchers`](https://developer.android.com/reference/androidx/test/espresso/matcher/RootMatchers).
 Of course, you can always implement your own `Matcher` object.
 
 Take a look at the [MultipleWindowTest
@@ -556,7 +547,7 @@ to `addHeaderView()` and `addFooterView()`. For example:
 
 ### Kotlin
 
-```
+```kotlin
 const val FOOTER = "FOOTER"
 ...
 val footerView = layoutInflater.inflate(R.layout.list_item, listView, false)
@@ -568,7 +559,7 @@ listView.addFooterView(footerView, FOOTER, true)
 
 ### Java
 
-```
+```java
 public static final String FOOTER = "FOOTER";
 ...
 View footerView = layoutInflater.inflate(R.layout.list_item, listView, false);
@@ -581,7 +572,7 @@ Then, you can write a matcher for the footer:
 
 ### Kotlin
 
-```
+```kotlin
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.instanceOf
 import org.hamcrest.Matchers.`is`
@@ -594,7 +585,7 @@ fun isFooter(): Matcher<Any> {
 
 ### Java
 
-```
+```java
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
@@ -609,7 +600,7 @@ And loading the view in a test is trivial:
 
 ### Kotlin
 
-```
+```kotlin
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.sample.LongListMatchers.isFooter
@@ -624,7 +615,7 @@ fun testClickFooter() {
 
 ### Java
 
-```
+```java
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.sample.LongListMatchers.isFooter;

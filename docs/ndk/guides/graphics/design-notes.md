@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Vulkan is unlike earlier graphics APIs in that drivers do not perform certain
 optimizations, such as pipeline reuse, for apps. Instead, apps using Vulkan must
 implement such optimizations themselves. If they do not, they may exhibit worse

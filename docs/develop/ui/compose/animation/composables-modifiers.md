@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Compose comes with built-in composables and modifiers for handling common animation use cases.
 
 ## Built-in animated composables

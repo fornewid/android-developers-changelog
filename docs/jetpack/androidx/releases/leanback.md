@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Leanback
 
 [User Guide](/training/tv/start/start#leanback-req)  [Code Sample](https://github.com/android/tv-samples)

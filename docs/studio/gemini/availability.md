@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Gemini in Android Studio is available in many countries and territories, with
 support for the English language.
 

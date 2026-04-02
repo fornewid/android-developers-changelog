@@ -1,35 +1,28 @@
 ---
-title: Secure connection API  |  Cross device SDK  |  Android Developers
+title: https://developer.android.com/guide/topics/connectivity/cross-device-sdk/secure-connection
 url: https://developer.android.com/guide/topics/connectivity/cross-device-sdk/secure-connection
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Cross device SDK](https://developer.android.com/guide/topics/connectivity/cross-device-sdk/overview)
-
-# Secure connection API Stay organized with collections Save and categorize content based on your preferences.
-
-
+# Secure connection API
 
 After discovering a remote device, the `handleIntent` function is called, and
-it’s time to start passing data between clients. This section covers the
+it's time to start passing data between clients. This section covers the
 four essential steps of maintaining a secure connection:
 
-* Opening a connection
-* Accepting the connection
-* Sending and receiving data
-* Closing the connection
+- Opening a connection
+- Accepting the connection
+- Sending and receiving data
+- Closing the connection
 
 ## Open a connection
 
 To open a connection to receive data from a remote device, use the
-previously received participant object and specify `CHANNEL_NAME`:
+previously received participant object and specify `CHANNEL_NAME`:  
 
 ### Kotlin
 
-```
+```kotlin
 participant
   .openConnection(CHANNEL_HELLO)
   .onFailure { /* handle failure */}
@@ -41,7 +34,7 @@ participant
 
 ### Java
 
-```
+```java
 public void openConnection(Participant participant) {
   Futures.addCallback(
       participant.openConnectionFuture(CHANNEL_HELLO),
@@ -82,11 +75,11 @@ private void sendDataToRemoteConnection(RemoteConnection remoteConnection) {
 
 Secure connections require the receiving device to accept incoming connections
 before receiving the data. To accept a remote connection, use the following
-snippet:
+snippet:  
 
 ### Kotlin
 
-```
+```kotlin
 suspend fun acceptIncomingConnection(participant: Participant) {
   val connection = participant.acceptConnection(CHANNEL_HELLO).getOrThrow()
   connection.registerReceiver(
@@ -109,7 +102,7 @@ suspend fun acceptIncomingConnection(participant: Participant) {
 
 ### Java
 
-```
+```java
 public void acceptIncomingConnection(Participant participant) {
   // Registers call back to accept incoming remote connection
   Futures.addCallback(

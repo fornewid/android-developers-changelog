@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 In addition to static images on the watch face, animated images can bring a
 further dimension to the user experience.
 

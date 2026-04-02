@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 You may want to change the appearance of parts of the watch face, for example,
 change the position, size, visibility, often in response to [input data
 sources](/training/wearables/wff/common/attributes/source-type) such as the time of day or the accelerometer.

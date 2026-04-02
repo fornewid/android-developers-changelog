@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 To find BLE devices, you use the
 [`startScan()`](/reference/android/bluetooth/le/BluetoothLeScanner#startScan(android.bluetooth.le.ScanCallback))
 method. This method takes a

@@ -1,14 +1,33 @@
 ---
-title: https://developer.android.com/develop/ui/views/layout/insets
+title: Lay out your app within window insets  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/layout/insets
-source: md.txt
+source: html-scrape
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with WindowInsets in Compose. [WindowInsets in Compose →](https://developer.android.com/develop/ui/compose/system/insets) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
 
-<br />
+# Lay out your app within window insets Stay organized with collections Save and categorize content based on your preferences.
 
-![](https://developer.android.com/static/develop/ui/compose/images/layouts/insets/e2e-intro.gif) **Figure 1.** The status bar and navigation bar, collectively called the *system bars*.
+
+
+
+Try the Compose way
+
+Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with WindowInsets in Compose.
+
+[WindowInsets in Compose →](https://developer.android.com/develop/ui/compose/system/insets)
+
+![](/static/images/android-compose-ui-logo.png)
+
+![](/static/develop/ui/compose/images/layouts/insets/e2e-intro.gif)
+
+
+**Figure 1.** The status bar and navigation bar,
+collectively called the *system bars*.
 
 Layout all apps so that your content stretches from the top edge to the bottom
 edge of the screen. This is the default behavior beginning in Android 15
@@ -26,23 +45,20 @@ system gestures.
 
 The following types of window insets are available.
 
-- By default, opt-in to expand your app window to extend across the entire
-  screen and draw app content [edge-to-edge](https://developer.android.com/training/gestures/edge-to-edge)
+* By default, opt-in to expand your app window to extend across the entire
+  screen and draw app content [edge-to-edge](/training/gestures/edge-to-edge)
   behind the system bars. Use offsets to avoid displaying important content
   and touch targets behind system bars.
-
-- Apps that display content such as movies or images can temporarily [hide the
-  system bars](https://developer.android.com/training/system-ui/immersive) for a more immersive experience.
+* Apps that display content such as movies or images can temporarily [hide the
+  system bars](/training/system-ui/immersive) for a more immersive experience.
   Carefully consider your users' needs and expectations before modifying the
   system bars, since they give users a standard way of navigating a device and
   viewing its status.
-
-- A *display cutout* is an area on some devices that extends into the display
+* A *display cutout* is an area on some devices that extends into the display
   surface to provide space for sensors on the front of the device. Apps can
-  support [display cutouts](https://developer.android.com/guide/topics/display-cutout) by querying their
+  support [display cutouts](/guide/topics/display-cutout) by querying their
   positions so that no important content overlaps the cutout area.
-
-- A keyboard transition is a common example where window insets are
+* A keyboard transition is a common example where window insets are
   dynamically updated. Apps can observe the current keyboard state,
   programmatically toggle the states, support animations for window insets,
   and make app content animate seamlessly between keyboard transitions.

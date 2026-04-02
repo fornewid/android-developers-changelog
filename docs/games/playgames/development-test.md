@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This guide describes how to test your game for distribution on
 Google Play Games on PC. This lets you to test your games before users
 are able to play on desktop.
@@ -139,8 +138,6 @@ ANR rates for your game after you have rolled it out to production on
 Google Play Games on PC, just as you would with the mobile version.
 Filter with the **Form factor** and select `Google Play Games on PC` to see the
 crash and ANR rates on Google Play Games on PC.
-
-
 
 
 

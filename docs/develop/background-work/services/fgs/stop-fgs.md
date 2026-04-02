@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 If you want a foreground service to stop running in the foreground, you have
 two options. You can stop the service, or you can leave the service
 running but remove it from the foreground.

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 In Compose the UI is immutable—there's no way to update it after it's been
 drawn. What you can control is the state of your UI. Every time the state of the
 UI changes, Compose [recreates the parts of the UI tree that have

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 You can create an icon to hide or show a password based on a user toggle to
 improve security and enhance the user experience.
 

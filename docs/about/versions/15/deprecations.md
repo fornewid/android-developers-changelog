@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/about/versions/15/deprecations
+title: Deprecations  |  Android Developers
 url: https://developer.android.com/about/versions/15/deprecations
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Releases](https://developer.android.com/about/versions)
+
+# Deprecations Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 With each release, specific Android APIs might become obsolete or need to be
 refactored to provide a better developer experience or support new platform
@@ -12,27 +20,27 @@ direct developers to alternative APIs to use instead.
 Deprecation means that we've ended official support for the APIs, but they will
 continue to remain available to developers. This page highlights some of the
 notable deprecations in this release of Android. To see other deprecations,
-refer to the [API diff report](https://developer.android.com/sdk/api_diff/35/changes).
+refer to the [API diff report](/sdk/api_diff/35/changes).
 
 ## Use Spatializer instead of Virtualizer
 
-First added in Android 12 (API level 32), the [`Spatializer`](https://developer.android.com/reference/android/media/Spatializer)
+First added in Android 12 (API level 32), the [`Spatializer`](/reference/android/media/Spatializer)
 class lets apps query the capabilities and behavior of sound spatialization on
-the device. In Android 15, the [`Virtualizer`](https://developer.android.com/reference/android/media/audiofx/Virtualizer) class is
+the device. In Android 15, the [`Virtualizer`](/reference/android/media/audiofx/Virtualizer) class is
 deprecated. Use
-[`AudioAttributes.Builder.setSpatializationBehavior`](https://developer.android.com/reference/android/media/AudioAttributes.Builder#setSpatializationBehavior(int)) instead
+[`AudioAttributes.Builder.setSpatializationBehavior`](/reference/android/media/AudioAttributes.Builder#setSpatializationBehavior(int)) instead
 to characterize how you want your content to be played when spatialization is
 supported.
 
 AndroidX media3 ExoPlayer 1.0 enables spatial audio by default for multichannel
 audio when the device supports it. See this
 [recent blog post](https://android-developers.googleblog.com/2023/04/delivering-immersive-sound-experience-with-spatial-audio.html) and the
-[spatial audio documentation](https://developer.android.com/media/grow/spatial-audio#exoplayer) for more information, including
+[spatial audio documentation](/media/grow/spatial-audio#exoplayer) for more information, including
 APIs to control the feature.
 
 ## WebSQL deprecated in Android WebView
 
-The [`setDatabaseEnabled`](https://developer.android.com/reference/android/webkit/WebSettings#setDatabaseEnabled(boolean)) and [`getDatabaseEnabled`](https://developer.android.com/reference/android/webkit/WebSettings#getDatabaseEnabled())
+The [`setDatabaseEnabled`](/reference/android/webkit/WebSettings#setDatabaseEnabled(boolean)) and [`getDatabaseEnabled`](/reference/android/webkit/WebSettings#getDatabaseEnabled())
 methods from `WebSettings` are now deprecated. These settings activated support
 for WebSQL inside Webview. WebSQL is now removed in Chrome and is now deprecated
 on Android Webview. These methods will become a no-op on all Android versions in

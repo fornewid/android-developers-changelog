@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 This document explains the `Application.mk` build file used by `ndk-build`.
 
 We recommend that you read the [Concepts](/ndk/guides/concepts) page before this

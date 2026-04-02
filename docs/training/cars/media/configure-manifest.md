@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Configure your app's manifest files to integrate with Android Auto and Android
 Automotive OS (AAOS). To enable discovery and connection by these platforms,
 declare your media browser service in the manifest. Specify the required app

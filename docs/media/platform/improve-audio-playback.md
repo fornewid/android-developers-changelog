@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 When you try to directly access the USB audio peripheral using the USB APIs,
 problems arise. These problems can include: security issues, limiting media
 playback from other apps, and loss of alarms, notifications, and ringtones over

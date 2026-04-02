@@ -191,15 +191,15 @@ March 26, 2026
 
 Stable
 
-### [Panda 2 | 2025.3.2](/studio/releases)
+### [Panda 3 | 2025.3.3](/studio/releases)
 
-March 3, 2026
+April 2, 2026
 
 Stable
 
 ### [Android Gradle Plugin 9.1.0](/build/releases/gradle-plugin)
 
-March 3, 2026
+April 2, 2026
 
 ## Platform
 
@@ -221,9 +221,9 @@ SEPTEMBER 3, 2024 Android 15 continues our mission of building a private and sec
 
 Stable
 
-### [Wear OS 6](https://developer.android.com/training/wearables/versions/latest)
+### [Wear OS 6.1](https://developer.android.com/training/wearables/versions/latest)
 
-July 9, 2025 The latest version of Wear OS contains support for seamless authentication with Credential Manager, personal customization with Material 3 Expressive, and support for watch face marketplaces with Watch Face Push. Test your app using the official emulator in Android Studio.
+The latest version of Wear OS includes location-based time zone detection and refined experiences for kids. Test your app using the official emulator in Android Studio.
 
 ## Experimental
 

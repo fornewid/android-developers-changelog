@@ -14,7 +14,6 @@ The Android 16 Beta is now available. [Try it out today](/about/versions/16) and
 
 
 
-
 To develop with the 12L APIs and test your app, you need to set up the 12L SDK.
 Follow the instructions on this page to set up the Android 12 SDK in Android
 Studio and build and run your app on 12L.

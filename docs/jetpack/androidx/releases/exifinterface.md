@@ -1,32 +1,45 @@
 ---
-title: https://developer.android.com/jetpack/androidx/releases/exifinterface
+title: Exifinterface  |  Jetpack  |  Android Developers
 url: https://developer.android.com/jetpack/androidx/releases/exifinterface
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Get started](https://developer.android.com/get-started/overview)
+* [Jetpack](https://developer.android.com/jetpack)
+* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Exifinterface
 
-[Code Sample](https://github.com/android/camera-samples/blob/master/CameraUtils/lib/src/main/java/com/example/android/camera/utils/ExifUtils.kt)  
+[Code Sample](https://github.com/android/camera-samples/blob/master/CameraUtils/lib/src/main/java/com/example/android/camera/utils/ExifUtils.kt)
+
 API Reference  
-[androidx.exifinterface.media](https://developer.android.com/reference/kotlin/androidx/exifinterface/media/package-summary)  
-Read and write image file EXIF tags.  
+[androidx.exifinterface.media](/reference/kotlin/androidx/exifinterface/media/package-summary)
+
+Read and write image file EXIF tags.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
-|---|---|---|---|---|
-| December 3, 2025 | [1.4.2](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.4.2) | - | - | - |
+| --- | --- | --- | --- | --- |
+| December 3, 2025 | [1.4.2](/jetpack/androidx/releases/exifinterface#1.4.2) | - | - | - |
 
 ## Declaring dependencies
 
 To add a dependency on Exifinterface, you must add the Google Maven repository to your
-project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
+project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
-your app or module:  
+your app or module:
 
 ### Groovy
 
-```groovy
+```
 dependencies {
     implementation "androidx.exifinterface:exifinterface:1.4.2"
 }
@@ -34,19 +47,19 @@ dependencies {
 
 ### Kotlin
 
-```kotlin
+```
 dependencies {
     implementation("androidx.exifinterface:exifinterface:1.4.2")
 }
 ```
 
-For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
 
 ## Feedback
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:460705+status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:460705%20status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
@@ -65,7 +78,7 @@ December 03, 2025
 
 **Bug Fixes**
 
-- Support parsing JPEGs with additional (permitted ) 0xFF bytes before any marker.
+* Support parsing JPEGs with additional (permitted ) 0xFF bytes before any marker.
 
 ### Version 1.4.1
 
@@ -75,7 +88,7 @@ April 23, 2025
 
 **Bug Fixes**
 
-- Fix bug where passing null to `setAttribute` for `TAG_XMP` would throw an exception.
+* Fix bug where passing null to `setAttribute` for `TAG_XMP` would throw an exception.
 
 ### Version 1.4.0
 
@@ -97,13 +110,13 @@ January 15, 2025
 
 **API Changes**
 
-- Update HEIC XMP handling to prefer XMP data from a separate segment in the file, rather than tag 700 in the Exif data.
+* Update HEIC XMP handling to prefer XMP data from a separate segment in the file, rather than tag 700 in the Exif data.
 
 **Bug Fixes**
 
-- Fix `ExifInterface.getThumbnail*()` method to work correctly after a call to `saveAttributes()` (previously the calls would succeed, but the result would be incorrect/undefined)
-- Fix PNG XMP handling to read and write the separate iTXt XMP chunk instead of tag 700 inside the eXIf chunk.
-- Fix `WebP` image corruption when handling image files with trailing non-WebP data. ([b/385766064](https://issuetracker.google.com/385766064)).
+* Fix `ExifInterface.getThumbnail*()` method to work correctly after a call to `saveAttributes()` (previously the calls would succeed, but the result would be incorrect/undefined)
+* Fix PNG XMP handling to read and write the separate iTXt XMP chunk instead of tag 700 inside the eXIf chunk.
+* Fix `WebP` image corruption when handling image files with trailing non-WebP data. ([b/385766064](https://issuetracker.google.com/385766064)).
 
 ### Version 1.4.0-alpha01
 
@@ -113,25 +126,25 @@ November 13, 2024
 
 **New Features**
 
-- Add support for reading XMP data from HEIF images.
-- Add support for reading Exif and XMP from AVIF images.
+* Add support for reading XMP data from HEIF images.
+* Add support for reading Exif and XMP from AVIF images.
 
 **API Changes**
 
-- Indicate that the `location` param for `setGpsInfo` is `@Nullable` and that passing `null` will result in a No-Op. ([If924c](https://android-review.googlesource.com/#/q/If924cd23c58f32cbb112db98cdd3d988105c9429), [b/236484611](https://issuetracker.google.com/issues/236484611))
+* Indicate that the `location` param for `setGpsInfo` is `@Nullable` and that passing `null` will result in a No-Op. ([If924c](https://android-review.googlesource.com/#/q/If924cd23c58f32cbb112db98cdd3d988105c9429), [b/236484611](https://issuetracker.google.com/issues/236484611))
 
 **Bug Fixes**
 
-- Continue parsing after encountering an invalid IFD offset ([b/264729367](https://issuetracker.google.com/264729367)).
-- Handle WebP images which incorrectly contain a JPEG APP1 marker before their Exif data ([b/281638358](https://issuetracker.google.com/281638358)).
-- Ensure XMP changes in JPEGs with a separate XMP segment are stored into the same separate XMP segment by `saveAttributes()`, instead of being written to TIFF/Exif tag 700 which is not supported by the XMP spec and where many tools won't find them.
-- Avoid duplicating XMP data from a separate segment into the TIFF preview directory when saving ([b/309843390](https://issuetracker.google.com/309843390)).
-- Improve precision of double to rational conversions. ([b/312680558](https://issuetracker.google.com/312680558)).
-- Accept rational format (x/y) to `setAttribute` for 'legacy' rational tags which are auto-converted to decimal when returned from `getAttribute` ([b/312680558](https://issuetracker.google.com/312680558)).
-- Ensure XMP data added to a JPEG image which doesn't already contain XMP is written to a separate segment, as specified by the XMP spec. `ExifInterface` is documented to prefer the XMP in the Exif 700 tag in JPEG images (violating the spec), so this behavior is preserved when reading/writing images with existing XMP data.
-- Fix corrupted output when writing WebP images with a height or width greater than 8191px ([b/342697059](https://issuetracker.google.com/342697059)).
-- This library now uses [JSpecify nullness annotations](https://jspecify.dev/), which are type-use. Kotlin developers should use the following compiler argument to enforce correct usage: `-Xjspecify-annotations=strict` (this is the default starting with version 2.1.0 of the Kotlin compiler). ([I5cd0f](https://android-review.googlesource.com/#/q/I5cd0fe313cfeb326ac1b9348f85113af2d5fd676), [b/326456246](https://issuetracker.google.com/issues/326456246))
-- Removed manual outlining of access to new platform APIs since this happens automatically via API modeling when using R8 with AGP 7.3 or later (e.g. R8 version 3.3) and for all builds when using AGP 8.1 or later (e.g. D8 version 8.1). Clients who are not using AGP are advised to update to D8 version 8.1 or later. See [this article](https://medium.com/androiddevelopers/mitigating-soft-verification-issues-in-r8-and-d8-7e9e06827dfd) for more details. ([If6b4c](https://android-review.googlesource.com/#/q/If6b4ccfca0a943b45971a422b58949b13a10bada), [b/345472586](https://issuetracker.google.com/issues/345472586))
+* Continue parsing after encountering an invalid IFD offset ([b/264729367](https://issuetracker.google.com/264729367)).
+* Handle WebP images which incorrectly contain a JPEG APP1 marker before their Exif data ([b/281638358](https://issuetracker.google.com/281638358)).
+* Ensure XMP changes in JPEGs with a separate XMP segment are stored into the same separate XMP segment by `saveAttributes()`, instead of being written to TIFF/Exif tag 700 which is not supported by the XMP spec and where many tools won't find them.
+* Avoid duplicating XMP data from a separate segment into the TIFF preview directory when saving ([b/309843390](https://issuetracker.google.com/309843390)).
+* Improve precision of double to rational conversions. ([b/312680558](https://issuetracker.google.com/312680558)).
+* Accept rational format (x/y) to `setAttribute` for 'legacy' rational tags which are auto-converted to decimal when returned from `getAttribute` ([b/312680558](https://issuetracker.google.com/312680558)).
+* Ensure XMP data added to a JPEG image which doesn't already contain XMP is written to a separate segment, as specified by the XMP spec. `ExifInterface` is documented to prefer the XMP in the Exif 700 tag in JPEG images (violating the spec), so this behavior is preserved when reading/writing images with existing XMP data.
+* Fix corrupted output when writing WebP images with a height or width greater than 8191px ([b/342697059](https://issuetracker.google.com/342697059)).
+* This library now uses [JSpecify nullness annotations](https://jspecify.dev/), which are type-use. Kotlin developers should use the following compiler argument to enforce correct usage: `-Xjspecify-annotations=strict` (this is the default starting with version 2.1.0 of the Kotlin compiler). ([I5cd0f](https://android-review.googlesource.com/#/q/I5cd0fe313cfeb326ac1b9348f85113af2d5fd676), [b/326456246](https://issuetracker.google.com/issues/326456246))
+* Removed manual outlining of access to new platform APIs since this happens automatically via API modeling when using R8 with AGP 7.3 or later (e.g. R8 version 3.3) and for all builds when using AGP 8.1 or later (e.g. D8 version 8.1). Clients who are not using AGP are advised to update to D8 version 8.1 or later. See [this article](https://medium.com/androiddevelopers/mitigating-soft-verification-issues-in-r8-and-d8-7e9e06827dfd) for more details. ([If6b4c](https://android-review.googlesource.com/#/q/If6b4ccfca0a943b45971a422b58949b13a10bada), [b/345472586](https://issuetracker.google.com/issues/345472586))
 
 ## Version 1.3.7
 
@@ -143,7 +156,8 @@ December 13, 2023
 
 **Bug Fixes**
 
-- Throw an exception from `ExifInterface.saveAttributes()` when trying to write a JPEG APP1 segment that's too large (previously we would write an invalid APP1 segment with an incorrect, truncated, length:([b/263747161](https://issuetracker.google.com/263747161))). Continue parsing after encountering an invalid IFD offset (previously parsing would halt immediately, which could result in incorrect values being returned: ([b/264729367](https://issuetracker.google.com/264729367))).
+* Throw an exception from `ExifInterface.saveAttributes()` when trying to write a JPEG APP1 segment that's too large (previously we would write an invalid APP1 segment with an incorrect, truncated, length:([b/263747161](https://issuetracker.google.com/263747161))).
+  Continue parsing after encountering an invalid IFD offset (previously parsing would halt immediately, which could result in incorrect values being returned: ([b/264729367](https://issuetracker.google.com/264729367))).
 
 ## Version 1.3.6
 
@@ -155,7 +169,7 @@ February 8, 2023
 
 **Bug Fixes**
 
-- Fix reading of alpha bit from WebP VP8L chunks ([b/255405635](https://issuetracker.google.com/255405635)).
+* Fix reading of alpha bit from WebP VP8L chunks ([b/255405635](https://issuetracker.google.com/255405635)).
 
 ## Version 1.3.5
 
@@ -167,7 +181,7 @@ October 24, 2022
 
 **Bug Fixes**
 
-- Fix two cases of `saveAttributes()` producing invalid WebP files.
+* Fix two cases of `saveAttributes()` producing invalid WebP files.
 
 ## Version 1.3.4
 
@@ -179,7 +193,7 @@ October 5, 2022
 
 **Bug Fixes**
 
-- Remove support for saving attributes to DNG files. The support added in 1.3.3 was incomplete and produced corrupted files.
+* Remove support for saving attributes to DNG files. The support added in 1.3.3 was incomplete and produced corrupted files.
 
 ## Version 1.3.3
 
@@ -191,12 +205,12 @@ August 4, 2021
 
 **Bug Fixes**
 
-- Fix parsing subsec-related tags. ([aosp/1508143](https://android-review.googlesource.com/c/platform/frameworks/support/+/1508143))
-- Prevent RuntimeException when calling setDataSource. ([c8e66e9](https://android.googlesource.com/platform/frameworks/support/+/c8e66e9039c7bccb3bce6d9b40b80f12f1f42eba))
-- Prevent skipBytes from infinitely looping. ([fdbe88b](https://android.googlesource.com/platform/frameworks/support/+/fdbe88b8753e72d1c6136aa3df29b55c0c8e704e))
-- Catch RuntimeException from MediaMetadataRetriever. ([389b21a](https://android.googlesource.com/platform/frameworks/support/+/389b21a687663a13b894d69dde9a10ca6de9f548))
-- Add support for saving attributes for DNG files ([3017dbc](https://android.googlesource.com/platform/frameworks/support/+/3017dbcbebc1868f0e541c65138a6d875aeb1e49))
-- Replace non-thumbnail tags with thumbnail tags. ([e1b916d](https://android.googlesource.com/platform/frameworks/support/+/e1b916d1f235df260f6ec5d8ecc1c1797634e232))
+* Fix parsing subsec-related tags. ([aosp/1508143](https://android-review.googlesource.com/c/platform/frameworks/support/+/1508143))
+* Prevent RuntimeException when calling setDataSource. ([c8e66e9](https://android.googlesource.com/platform/frameworks/support/+/c8e66e9039c7bccb3bce6d9b40b80f12f1f42eba))
+* Prevent skipBytes from infinitely looping. ([fdbe88b](https://android.googlesource.com/platform/frameworks/support/+/fdbe88b8753e72d1c6136aa3df29b55c0c8e704e))
+* Catch RuntimeException from MediaMetadataRetriever. ([389b21a](https://android.googlesource.com/platform/frameworks/support/+/389b21a687663a13b894d69dde9a10ca6de9f548))
+* Add support for saving attributes for DNG files ([3017dbc](https://android.googlesource.com/platform/frameworks/support/+/3017dbcbebc1868f0e541c65138a6d875aeb1e49))
+* Replace non-thumbnail tags with thumbnail tags. ([e1b916d](https://android.googlesource.com/platform/frameworks/support/+/e1b916d1f235df260f6ec5d8ecc1c1797634e232))
 
 ## Version 1.3.2
 
@@ -208,9 +222,9 @@ December 2, 2020
 
 **Bug Fixes**
 
-- Allows `SRATIONAL` for `GPS_LATITUDE` and `GPS_LONGITUDE`.
-- Added support for reading/writing a secondary format (2020-01-01 00:00:00) of the DateTime tag.
-- Prevented the temporary removal of the origin file while calling saveAttribute().
+* Allows `SRATIONAL` for `GPS_LATITUDE` and `GPS_LONGITUDE`.
+* Added support for reading/writing a secondary format (2020-01-01 00:00:00) of the DateTime tag.
+* Prevented the temporary removal of the origin file while calling saveAttribute().
 
 ## Version 1.3.1
 
@@ -222,7 +236,7 @@ October 14, 2020
 
 **Bug Fixes**
 
-- Fix saveAttributes implementation to keep the image data in MediaProvider
+* Fix saveAttributes implementation to keep the image data in MediaProvider
 
 ## Version 1.3.0
 
@@ -234,10 +248,10 @@ September 16, 2020
 
 **Major changes since 1.2.0**
 
-- Extended WebP EXIF writing support to include files that only contain VP8 or VP8L chunks.
-- Removed unnecessary buffering, which was causing OutOfMemory exceptions for large image files.
-- Removed `INVALID_DATE_TIME`. Instead use `NULL` to return invalid datetime values.
-- Made `getGpsDateTime` return `Long.MIN_VALUE` instead of `-1` for an invalid value.
+* Extended WebP EXIF writing support to include files that only contain VP8 or VP8L chunks.
+* Removed unnecessary buffering, which was causing OutOfMemory exceptions for large image files.
+* Removed `INVALID_DATE_TIME`. Instead use `NULL` to return invalid datetime values.
+* Made `getGpsDateTime` return `Long.MIN_VALUE` instead of `-1` for an invalid value.
 
 ### Version 1.3.0-rc01
 
@@ -253,19 +267,19 @@ August 19, 2020
 
 **New Features**
 
-- Extended WebP EXIF writing support to include files that only contain VP8 or VP8L chunks.
+* Extended WebP EXIF writing support to include files that only contain VP8 or VP8L chunks.
 
 **API Changes**
 
-- Removed `INVALID_DATE_TIME`. Instead use `NULL` to return invalid datetime value.
+* Removed `INVALID_DATE_TIME`. Instead use `NULL` to return invalid datetime value.
 
 **Bug Fixes**
 
-- Made `getGpsDateTime` return `Long.MIN_VALUE` instead of `-1` becuase `-1` is a valid value
-- Made DateTime-related getters consider offset value (+/-) of date string.
-- Removed unnecessary buffering, which was causing OutOfMemory exceptions for large image files.
-- Set default locale to US
-- Replaced adding ".tmp" for creating temp files to adding a prefix.
+* Made `getGpsDateTime` return `Long.MIN_VALUE` instead of `-1` becuase `-1` is a valid value
+* Made DateTime-related getters consider offset value (+/-) of date string.
+* Removed unnecessary buffering, which was causing OutOfMemory exceptions for large image files.
+* Set default locale to US
+* Replaced adding “.tmp” for creating temp files to adding a prefix.
 
 ### Version 1.3.0-alpha01
 
@@ -275,7 +289,7 @@ February 19, 2020
 
 **API Changes**
 
-- Added a new method: `ExifInterface.getGpsDateTime()`
+* Added a new method: `ExifInterface.getGpsDateTime()`
 
 ## Version 1.2.0
 
@@ -287,10 +301,10 @@ April 1, 2020
 
 **Major changes since 1.1.0**
 
-- Added support for adding EXIF to PNG files
-- Added support for WebP files and EXIF data only stream
-- Added an API to check if the specified mime type is supported
-- Added more tags for offset time: `TAG_OFFSET_TIME`, `TAF_OFFSET_TIME_DIGITIZED`, and `TAG_OFFSET_TIME_ORIGINAL`
+* Added support for adding EXIF to PNG files
+* Added support for WebP files and EXIF data only stream
+* Added an API to check if the specified mime type is supported
+* Added more tags for offset time: `TAG_OFFSET_TIME`, `TAF_OFFSET_TIME_DIGITIZED`, and `TAG_OFFSET_TIME_ORIGINAL`
 
 ### Version 1.2.0-rc01
 
@@ -300,7 +314,7 @@ February 19, 2020
 
 **Bug Fixes**
 
-- Fixed an issue where JPEG files were incorrected saved if the JPEG had XMP data
+* Fixed an issue where JPEG files were incorrected saved if the JPEG had XMP data
 
 ### Version 1.2.0-beta01
 
@@ -310,18 +324,18 @@ December 18, 2019
 
 **New features**
 
-- Added support for adding EXIF to PNG files
-- Added support support for reading and writing EXIF from WebP files
-- Added support for an EXIF data only stream
+* Added support for adding EXIF to PNG files
+* Added support support for reading and writing EXIF from WebP files
+* Added support for an EXIF data only stream
 
 **API changes**
 
-- Added an API to check if the specified mime type is supported
-- Exposed the read and write OffsetTime\* tags
+* Added an API to check if the specified mime type is supported
+* Exposed the read and write OffsetTime\* tags
 
 **Bug fixes**
 
-- Fixed an issue where the incorrect offsets were being returned for `getAttributeRange()`
+* Fixed an issue where the incorrect offsets were being returned for `getAttributeRange()`
 
 ## Version 1.1.0
 
@@ -333,9 +347,9 @@ November 20, 2019
 
 **Important changes since 1.0.0**
 
-- Support for HEIF format and more XMP tags
-- Added support for constructing an `ExifInterface` object from a `File` or `FileDescriptor`
-- Added more methods for getting attribute: `hasAttribute`, `getAttributeBytes`, and `getAttributesRange`
+* Support for HEIF format and more XMP tags
+* Added support for constructing an `ExifInterface` object from a `File` or `FileDescriptor`
+* Added more methods for getting attribute: `hasAttribute`, `getAttributeBytes`, and `getAttributesRange`
 
 ### Version 1.1.0-rc01
 
@@ -345,9 +359,9 @@ October 9, 2019
 
 **Bug fixes**
 
-- Added a missing format name (IFD) to prevent an `ArrayIndexOutOfBoundsException` on `loadAttributes`
-- Prevented the deletion of the origin file when an exception happens while calling `saveAttributes`
-- Fixed an exception issue when there is a call to `saveAttributes()` after overwriting a file.
+* Added a missing format name (IFD) to prevent an `ArrayIndexOutOfBoundsException` on `loadAttributes`
+* Prevented the deletion of the origin file when an exception happens while calling `saveAttributes`
+* Fixed an exception issue when there is a call to `saveAttributes()` after overwriting a file.
 
 ### Version 1.1.0-beta01
 
@@ -357,17 +371,17 @@ July 2, 2019
 
 **New features**
 
-- Throws `NullPointerException` when `null` is set for `@NonNull` arguments
-- Support for XMP tags
+* Throws `NullPointerException` when `null` is set for `@NonNull` arguments
+* Support for XMP tags
 
 **API changes**
 
-- Added more methods for getting attribute info
-- `hasAttribute`, `getAttributeBytes`, and `getAttributesRange`
+* Added more methods for getting attribute info
+* `hasAttribute`, `getAttributeBytes`, and `getAttributesRange`
 
 **Bug fixes**
 
-- Prevent file descriptor memory leak
+* Prevent file descriptor memory leak
 
 ### Version 1.1.0-alpha01
 
@@ -377,13 +391,13 @@ March 13, 2019
 
 **New features**
 
-- Support HEIF format
+* Support HEIF format
 
 **API changes**
 
-- Added more constructors of ExifInterface
-- Fixed Typo: `TAG_CAMARA_OWNER_NAME` -\> `TAG_CAMERA_OWNER_NAME`
+* Added more constructors of ExifInterface
+* Fixed Typo: `TAG_CAMARA_OWNER_NAME` -> `TAG_CAMERA_OWNER_NAME`
 
 **Bug fixes**
 
-- Fixed the check of possible overflow for thumbnail image ([aosp/748608](https://android-review.googlesource.com/c/748608))
+* Fixed the check of possible overflow for thumbnail image ([aosp/748608](https://android-review.googlesource.com/c/748608))

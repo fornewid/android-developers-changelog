@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ![](/static/studio/gemini/images/gemini-onboarding.png)
 
 To get started with Gemini in Android Studio, follow these steps:

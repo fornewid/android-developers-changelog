@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 As part of
 [improving app quality](https://android-developers.googleblog.com/2022/10/raising-bar-on-technical-quality-on-google-play.html)
 and protecting user privacy, we recommend you minimize the permissions usage in

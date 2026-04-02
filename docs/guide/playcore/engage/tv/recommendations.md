@@ -167,6 +167,16 @@ entities are supported for the Recommendation cluster:
 Provide a short description for each entity; this description will be displayed
 when users hover over the entity, providing them with additional details.
 
+### Call to action text
+
+Provide an optional call to action text for each entity. This text will be
+displayed to the user to encourage engagement.
+
+### Tags
+
+Optionally provide a list of tags for each entity. Tags can be used for
+categorization and filtering.
+
 ### Platform specific playBack URIs
 
 Create playback URIs for each supported platform: Android TV, Android, or iOS.
@@ -335,6 +345,8 @@ val movieEntity = MovieEntity.Builder()
   .addPosterImages(images)
   // Suppose the duration is 2 hours, it is 72000000 in milliseconds
   .setDurationMills(72000000)
+  .setCallToActionText("Watch Now")
+  .addTag("Action")
   .build()
 ```
 
@@ -368,6 +380,8 @@ val tvShowEntity = TvShowEntity.Builder()
   .setDescription("A sentence describing TV Show.")
   .addPlatformSpecificPlaybackUri(platformSpecificPlaybackUris)
   .addPosterImages(images)
+  .setCallToActionText("Watch Now")
+  .addTag("Drama")
   .build();
 ```
 
@@ -406,6 +420,8 @@ fields:
 ```
 val mediaActionFeedEntity = MediaActionFeedEntity.Builder()
   .setDataFeedElementId(id)
+  .setCallToActionText("Watch Now")
+  .addTag("Action")
   .build()
 ```
 
@@ -436,6 +452,8 @@ val liveTvChannelEntity = LiveTvChannelEntity.Builder()
   // channel playback uri must contain at least PlatformType.TYPE_ANDROID_TV
   .addPlatformSpecificPlaybackUri(channelPlaybackUris)
   .addLogoImage(logoImage)
+  .setCallToActionText("Watch Now")
+  .addTag("News")
   .build()
 ```
 
@@ -479,6 +497,8 @@ val liveTvProgramEntity = LiveTvProgramEntity.Builder()
         .setStartTimestampMillis(1756713600000L)// 2025-09-01T07:30:00+0000
         .setEndTimestampMillis(1756715400000L))// 2025-09-01T08:00:00+0000
   .addPosterImage(programImage)
+  .setCallToActionText("Watch Now")
+  .addTag("Sports")
   .build()
 ```
 

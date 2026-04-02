@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 **Hierarchy Viewer is deprecated.** If you're using Android Studio 3.1 or
 later, you should instead use [**Layout Inspector**](/studio/debug/layout-inspector) to
 inspect your app's view hierarchy at runtime. To profile the rendering speed of your app's layout, use

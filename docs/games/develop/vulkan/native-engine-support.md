@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 ## Get started with Vulkan on Android
 
 Vulkan is the primary low-level graphics API on Android. Vulkan provides optimal
@@ -367,6 +368,8 @@ to any other devices.
 Check out the [CTS submission process](https://source.android.com/docs/compatibility/cts/develop-cts-d#submission-process)
 for step-by-step instructions on how to submit
 the test proposal.
+
+
 
 
 

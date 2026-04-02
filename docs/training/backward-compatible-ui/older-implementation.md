@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 This lesson discusses how to create an implementation that mirrors newer APIs yet supports older devices.
 
 ## Decide on a substitute solution

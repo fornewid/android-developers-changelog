@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 An app bundle is different from an APK in that you can’t deploy one to a
 device. Rather, it’s a publishing format that includes all your app’s compiled
 code and resources in a single build artifact. So, after you upload your

@@ -1,13 +1,17 @@
 ---
-title: https://developer.android.com/training/constraint-layout/motionlayout/ref/keyattribute
+title: <KeyAttribute>  |  Android Developers
 url: https://developer.android.com/training/constraint-layout/motionlayout/ref/keyattribute
-source: md.txt
+source: html-scrape
 ---
 
-[Video](https://www.youtube.com/watch?v=jUm_AkH_mAQ)
+* [Android Developers](https://developer.android.com/)
+
+# <KeyAttribute> Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Specifies view attributes at a specific moment during the motion sequence. You
-can use `<KeyAttribute>` to set the view's [standard attributes](https://developer.android.com/reference/android/support/constraint/motion/MotionLayout#standard-attributes).
+can use `<KeyAttribute>` to set the view's [standard attributes](/reference/android/support/constraint/motion/MotionLayout#standard-attributes).
 
 Suppose a view's opacity (`android:alpha`) is set to 0 in the initial
 `<ConstraintSet>` and 1 in the final `<ConstraintSet>`. By default, this makes
@@ -18,7 +22,7 @@ the `android:alpha` attribute set to 0.
 
 ## Syntax
 
-```xml
+```
 <KeyAttribute
   motion:motionTarget="@id/targetPath"
   motion:framePosition="percentage"
@@ -38,21 +42,21 @@ the `android:alpha` attribute set to 0.
     through the motion sequence.
 
 You can set the following view attributes. For more information about these
-attributes, see the [`View`](https://developer.android.com/reference/android/view/View) reference page.
+attributes, see the [`View`](/reference/android/view/View) reference page.
 
-- `android:alpha`
-- `android:elevation`
-- `android:rotation`
-- `android:rotationX`
-- `android:rotationY`
-- `android:scaleX`
-- `android:scaleY`
-- `android:translationX`
-- `android:translationY`
-- `android:translationZ`
-- `android:visibility`
-- `transitionPathRotate`
+* `android:alpha`
+* `android:elevation`
+* `android:rotation`
+* `android:rotationX`
+* `android:rotationY`
+* `android:scaleX`
+* `android:scaleY`
+* `android:translationX`
+* `android:translationY`
+* `android:translationZ`
+* `android:visibility`
+* `transitionPathRotate`
 
 ## Contained in
 
-- [`<KeyFrameSet>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/keyframeset)
+* [`<KeyFrameSet>`](/training/constraint-layout/motionlayout/ref/keyframeset)

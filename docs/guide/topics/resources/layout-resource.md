@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 A layout resource defines the architecture for the UI in an `Activity` or a
 component of a UI.
 

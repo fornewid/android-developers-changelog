@@ -55,11 +55,11 @@ This integration includes the following three cluster types: **Recommendation** 
 
 Minimum API level: 19
 
-Add the `com.google.android.engage:engage-core` library to your app:  
+Add the `com.google.android.engage:engage-core` library to your app:
 
     dependencies {
         // Make sure you also include that repository in your project's build.gradle file.
-        implementation 'com.google.android.engage:engage-core:1.5.11'
+        implementation 'com.google.android.engage:engage-core:1.5.12'
     }
 
 ### Summary
@@ -367,7 +367,7 @@ APIs are available in the client:
 #### `isServiceAvailable`
 
 This API is used to check if the service is available for integration and
-whether the content can be presented on the device.  
+whether the content can be presented on the device.
 
 ### Kotlin
 
@@ -403,12 +403,15 @@ whether the content can be presented on the device.
         }
     });
 
-| **Note:** We highly recommend keeping a periodic job running to check if the service becomes available at a later point in time. The availability of the service may change with Android version upgrades, app upgrades, installs, and uninstalls. By ensuring periodic job checks at a certain time interval, data can be published once the service becomes available.
+> [!NOTE]
+> **Note:** We highly recommend keeping a periodic job running to check if the service becomes available at a later point in time. The availability of the service may change with Android version upgrades, app upgrades, installs, and uninstalls. By ensuring periodic job checks at a certain time interval, data can be published once the service becomes available.
 
 #### `publishRecommendationClusters`
 
 This API is used to publish a list of `RecommendationCluster` objects.
-**Important:** The publish APIs are upsert APIs; it replaces the existing content. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently.  
+
+> [!IMPORTANT]
+> **Important:** The publish APIs are upsert APIs; it replaces the existing content. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently.
 
 ### Kotlin
 
@@ -446,7 +449,9 @@ maintained.
 #### `publishFeaturedCluster`
 
 This API is used to publish a list of `FeaturedCluster` objects.
-**Important:** The publish APIs are upsert APIs; it replaces the existing content. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently.  
+
+> [!IMPORTANT]
+> **Important:** The publish APIs are upsert APIs; it replaces the existing content. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently.
 
 ### Kotlin
 
@@ -480,7 +485,9 @@ maintained.
 #### `publishContinuationCluster`
 
 This API is used to publish a `ContinuationCluster` object.
-**Important:** The publish APIs are upsert APIs; it replaces the existing content. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently.  
+
+> [!IMPORTANT]
+> **Important:** The publish APIs are upsert APIs; it replaces the existing content. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently.
 
 ### Kotlin
 
@@ -529,7 +536,8 @@ The following metadata is part of the Sign In Card -
 | Action Text | Optional | Text Shown on the CTA (i.e. Sign in) |
 | Subtitle | Optional | Optional Subtitle on the Card |
 
-**Important:** The publish APIs are upsert APIs; it replaces the existing content. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently.  
+> [!IMPORTANT]
+> **Important:** The publish APIs are upsert APIs; it replaces the existing content. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently.
 
 ### Kotlin
 
@@ -590,7 +598,7 @@ This is important because :
 - It helps developers provide insights into when the data is published versus not.
 - Google may use the status codes to nudge the user to do certain actions in the app so they can see the app content or overcome it.
 
-The list of eligible publish status codes are :  
+The list of eligible publish status codes are :
 
     // Content is published
     AppEngagePublishStatusCode.PUBLISHED,
@@ -627,7 +635,7 @@ If the content is not published due to a user not logged in,
 Google would recommend publishing the Sign In Card.
 If for any reason providers are not able to publish the Sign In Card
 then we recommend calling the **updatePublishStatus** API
-with the status code **NOT_PUBLISHED_REQUIRES_SIGN_IN**  
+with the status code **NOT_PUBLISHED_REQUIRES_SIGN_IN**
 
 ### Kotlin
 
@@ -646,7 +654,9 @@ with the status code **NOT_PUBLISHED_REQUIRES_SIGN_IN**
 #### `deleteRecommendationClusters`
 
 This API is used to delete the content of Recommendation Clusters.
-**Important:** Delete APIs should only be called when there is no content to publish. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently. Reach out to [`engage-developers@google.com`](mailto:engage-developers@google.com) before using delete APIs.  
+
+> [!IMPORTANT]
+> **Important:** Delete APIs should only be called when there is no content to publish. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently. Reach out to [`engage-developers@google.com`](mailto:engage-developers@google.com) before using delete APIs.
 
 ### Kotlin
 
@@ -659,12 +669,16 @@ This API is used to delete the content of Recommendation Clusters.
 When the service receives the request, it removes the existing data from the
 Recommendation Clusters. In case of an error, the entire request is rejected
 and the existing state is maintained.
-| **Note:** This api is available from version 1.1.0 onwards.
+
+> [!NOTE]
+> **Note:** This api is available from version 1.1.0 onwards.
 
 #### `deleteFeaturedCluster`
 
 This API is used to delete the content of Featured Cluster.
-**Important:** Delete APIs should only be called when there is no content to publish. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently. Reach out to [`engage-developers@google.com`](mailto:engage-developers@google.com) before using delete APIs.  
+
+> [!IMPORTANT]
+> **Important:** Delete APIs should only be called when there is no content to publish. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently. Reach out to [`engage-developers@google.com`](mailto:engage-developers@google.com) before using delete APIs.
 
 ### Kotlin
 
@@ -677,12 +691,16 @@ This API is used to delete the content of Featured Cluster.
 When the service receives the request, it removes the existing data from the
 Featured Cluster. In case of an error, the entire request is rejected
 and the existing state is maintained.
-| **Note:** This api is available from version 1.1.0 onwards.
+
+> [!NOTE]
+> **Note:** This api is available from version 1.1.0 onwards.
 
 #### `deleteContinuationCluster`
 
 This API is used to delete the content of Continuation Cluster.
-**Important:** Delete APIs should only be called when there is no content to publish. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently. Reach out to [`engage-developers@google.com`](mailto:engage-developers@google.com) before using delete APIs.  
+
+> [!IMPORTANT]
+> **Important:** Delete APIs should only be called when there is no content to publish. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently. Reach out to [`engage-developers@google.com`](mailto:engage-developers@google.com) before using delete APIs.
 
 ### Kotlin
 
@@ -695,12 +713,16 @@ This API is used to delete the content of Continuation Cluster.
 When the service receives the request, it removes the existing data from the
 Continuation Cluster. In case of an error, the entire request is rejected
 and the existing state is maintained.
-| **Note:** This api is available from version 1.1.0 onwards.
+
+> [!NOTE]
+> **Note:** This api is available from version 1.1.0 onwards.
 
 #### `deleteUserManagementCluster`
 
 This API is used to delete the content of UserAccountManagement Cluster.
-**Important:** Delete APIs should only be called when there is no content to publish. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently. Reach out to [`engage-developers@google.com`](mailto:engage-developers@google.com) before using delete APIs.  
+
+> [!IMPORTANT]
+> **Important:** Delete APIs should only be called when there is no content to publish. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently. Reach out to [`engage-developers@google.com`](mailto:engage-developers@google.com) before using delete APIs.
 
 ### Kotlin
 
@@ -713,12 +735,16 @@ This API is used to delete the content of UserAccountManagement Cluster.
 When the service receives the request, it removes the existing data from the
 UserAccountManagement Cluster. In case of an error, the entire request is
 rejected and the existing state is maintained.
-| **Note:** This api is available from version 1.1.0 onwards.
+
+> [!NOTE]
+> **Note:** This api is available from version 1.1.0 onwards.
 
 #### `deleteClusters`
 
 This API is used to delete the content of a given cluster type.
-**Important:** Delete APIs should only be called when there is no content to publish. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently. Reach out to [`engage-developers@google.com`](mailto:engage-developers@google.com) before using delete APIs.  
+
+> [!IMPORTANT]
+> **Important:** Delete APIs should only be called when there is no content to publish. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently. Reach out to [`engage-developers@google.com`](mailto:engage-developers@google.com) before using delete APIs.
 
 ### Kotlin
 
@@ -746,7 +772,7 @@ existing state is maintained.
 #### Error handling
 
 It is highly recommended to listen to the task result from the publish APIs such
-that a follow-up action can be taken to recover and resubmit an successful task.  
+that a follow-up action can be taken to recover and resubmit an successful task.
 
     client.publishRecommendationClusters(
                   new PublishRecommendationClustersRequest.Builder()

@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 There may be instances where you will want to view and edit your
 Play Games Services project directly in Google Cloud Platform.
 
@@ -133,6 +134,8 @@ origins and redirect urls for a web app, etc.):
    Google Play Games Services API status is **ON** in the displayed list of APIs.
 6. In the sidebar on the left, select **Registered apps**.
 7. Expand the OAuth 2.0 Client ID section and find the attribute to edit.
+
+
 
 
 

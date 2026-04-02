@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Studio 2.0 (April 2016)
 
 **Note:** If you are developing for the N Developer Preview, you

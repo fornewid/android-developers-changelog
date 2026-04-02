@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 To use shared elements with the [`navigation-compose` dependency](/jetpack/compose/navigation), use the
 `Modifier.sharedElement()` that takes an `AnimatedVisibilityScope` as a
 parameter. You can use this to decide what should be visible and when.

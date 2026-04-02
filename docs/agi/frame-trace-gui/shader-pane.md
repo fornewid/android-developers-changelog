@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
-
 The **Shader** pane allows you to see individual shaders used in the trace.
 
 To use this pane, select a shader in the list. This creates a new tab that shows

@@ -53,7 +53,7 @@ changes and ask the agent to iterate on your feedback.
 ## Rules in Gemini
 
 Rules in Gemini let you define preferred coding styles or output formats within
-the [Prompt Library](/studio/releases#prompt-library). You can also mention your
+the [Prompt Library](/studio/gemini/prompt-library). You can also mention your
 preferred tech stack and languages. When you set these preferences once, they
 are automatically applied to all subsequent prompts sent to Gemini. Rules help
 the AI understand project standards and preferences for more accurate and

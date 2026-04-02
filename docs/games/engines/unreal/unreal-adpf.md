@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The [Android Dynamic Performance Framework)](/games/optimize/adpf) (ADPF) plugin
 for
 [Unreal Engine](https://www.unrealengine.com/en-US) provides stable

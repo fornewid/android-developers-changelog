@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Create a hierarchy in code   Part of [Android Jetpack](/jetpack).
 
 You can create a hierarchy programmatically in

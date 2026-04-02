@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 This notice and our [Privacy Policy](https://policies.google.com/privacy)
 describe how Gemini in Android Studio handles your data. Please read them
 carefully.

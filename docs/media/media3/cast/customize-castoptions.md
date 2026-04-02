@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/media/media3/cast/customize-castoptions
+title: CastOptions  |  Android media  |  Android Developers
 url: https://developer.android.com/media/media3/cast/customize-castoptions
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# CastOptions Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 To configure your app's Cast session, provide an [`OptionsProvider`](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/OptionsProvider). Use the
 [`CastOptions`](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/CastOptions) object built by the provider to set the receiver application ID,
@@ -13,13 +22,15 @@ manage session lifecycles, and customize media playback behavior.
 For a basic setup that uses the default Cast receiver application, add the
 `DefaultCastOptionsProvider` to your app's `AndroidManifest.xml` file:
 
-    <application>
-      ...
-      <meta-data
-        android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-        android:value="androidx.media3.cast.DefaultCastOptionsProvider" />
-      ...
-    </application>
+```
+<application>
+  ...
+  <meta-data
+    android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+    android:value="androidx.media3.cast.DefaultCastOptionsProvider" />
+  ...
+</application>
+```
 
 ## Create a custom options provider
 
@@ -31,13 +42,15 @@ ID, you need to create your own `OptionsProvider`.
 First, declare your custom provider in `AndroidManifest.xml`. Make sure to use
 the fully qualified class name.
 
-    <application>
-      ...
-      <meta-data
-        android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-        android:value="path.to.your.class.MyCustomCastOptionsProvider" />
-      ...
-    </application>
+```
+<application>
+  ...
+  <meta-data
+    android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+    android:value="path.to.your.class.MyCustomCastOptionsProvider" />
+  ...
+</application>
+```
 
 ### 2. Implement the OptionsProvider interface
 
@@ -48,10 +61,9 @@ example, by setting your custom receiver application ID.
 
 For more information, see [CastOptions.Builder](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/CastOptions.Builder).
 
-
 ### Kotlin
 
-```kotlin
+```
 class MyCustomCastOptionsProvider : OptionsProvider {
 
   override fun getCastOptions(context: Context): CastOptions {
@@ -70,11 +82,13 @@ class MyCustomCastOptionsProvider : OptionsProvider {
     private const val APP_ID = "<APP_ID>"
   }
 }
+
+CustomizeCastOptions.kt
 ```
 
 ### Java
 
-```java
+```
 public static final class MyCustomCastOptionsProvider implements OptionsProvider {
 
   // Add your receiver app ID in <APP_ID>.
@@ -94,6 +108,6 @@ public static final class MyCustomCastOptionsProvider implements OptionsProvider
     return null;
   }
 }
-```
 
-<br />
+CustomizeCastOptions.java
+```

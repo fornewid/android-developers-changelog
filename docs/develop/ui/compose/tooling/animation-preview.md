@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Android Studio allows you to inspect animations from Animation Preview. If an
 animation is described in a composable preview, you can inspect the exact value
 of each animated value at a given time, pause the animation, loop it,
@@ -56,7 +57,7 @@ Animation Preview currently supports the
 [`rememberInfiniteTransition`](/develop/ui/compose/animation#rememberinfinitetransition),
 and [`AnimatedContent`](/develop/ui/compose/animation#animatedcontent)
 APIs. To access the latest features, use Animation Preview with
-Android Studio Panda 2 and `compose.animation` 1.10.5 and higher.
+Android Studio Panda 3 and `compose.animation` 1.10.5 and higher.
 
 ## Recommended for you
 

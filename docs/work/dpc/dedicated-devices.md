@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android includes APIs to manage devices that are dedicated to a specific purpose.
 This developer’s guide introduces these APIs. If you're an enterprise mobility
 management (EMM) developer or solution integrator, read this guide to get

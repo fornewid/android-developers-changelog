@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Health Connect will be packaged with Android 14 as a common data storage layer
 for consumer health and fitness data, protected by granular permissions and
 accessible as an Android system app (referred to throughout this document as the

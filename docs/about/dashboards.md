@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page provides information about the relative number of devices on Google
 Play that share a certain characteristic, such as screen size and density. Each
 snapshot of data represents all of the active devices during a 7-day period

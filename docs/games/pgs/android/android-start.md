@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 **Note:** This guide is for the Play Games Services v2 SDK. For information on the
 previous version of this SDK, see the [Play Games Services v1
 documentation](/games/pgs/v1/android).
@@ -80,6 +81,8 @@ dependency for the Play Games SDK to your
 After completing these steps you must set up
 [sign-in](/games/pgs/android/android-signin)
 in order for the game to access Play Games Services features.
+
+
 
 
 

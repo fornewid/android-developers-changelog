@@ -1,19 +1,10 @@
 ---
-title: What great core value looks like  |  App quality  |  Android Developers
+title: https://developer.android.com/quality/core-value
 url: https://developer.android.com/quality/core-value
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App quality](https://developer.android.com/quality)
-* [Core value](https://developer.android.com/quality/core-value)
-
-# What great core value looks like Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-![](/static/images/quality/hero-images/core_value_highlighted.svg)
+![](https://developer.android.com/static/images/quality/hero-images/core_value_highlighted.svg)
 
 The ultimate purpose of any app or game is to deliver value to users by being
 useful or fun, both on first use and over time. An app or game can't
@@ -42,7 +33,7 @@ outdated content or buggy features.
 ### Form factors
 
 Android offers an increasing
-[array of choices for users beyond mobile](/multidevice). If it
+[array of choices for users beyond mobile](https://developer.android.com/multidevice). If it
 makes sense for your title, support multiple form factors to enable users to
 get more from your app or game. For example, imagine a fitness tracker on a
 phone that can sync a user's heart rate from their watch; or imagine a mobile
@@ -90,4 +81,4 @@ marketing assets and user metrics, when evaluating what titles to promote and
 where.
 
 Play also uses user metrics to evaluate the quality of your app. We consider
-many [user engagement metrics](/quality/core-value/user-metrics) including uninstalls and active users.
+many [user engagement metrics](https://developer.android.com/quality/core-value/user-metrics) including uninstalls and active users.

@@ -1,17 +1,8 @@
 ---
-title: SafetyNet Safe Browsing API  |  Security  |  Android Developers
+title: https://developer.android.com/privacy-and-security/safetynet/safebrowsing
 url: https://developer.android.com/privacy-and-security/safetynet/safebrowsing
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Guides](https://developer.android.com/privacy-and-security/security-tips)
-
-# SafetyNet Safe Browsing API Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 The SafetyNet Safe Browsing API, a library powered by
 [Google Play services](https://developers.google.com/android),
@@ -47,7 +38,7 @@ specific steps, see the page about
 Before using the Safe Browsing API, add the SafetyNet API to your
 project. If you are using Android Studio, add this dependency
 to your app-level Gradle file. For more information, see
-[Protect against security threats with SafetyNet](/training/safetynet#before-you-begin).
+[Protect against security threats with SafetyNet](https://developer.android.com/training/safetynet#before-you-begin).
 
 ## Initialize the API
 
@@ -57,19 +48,18 @@ and waiting for it to complete. The following code snippet provides an example:
 
 ### Kotlin
 
-```
+```kotlin
 Tasks.await(SafetyNet.getClient(this).initSafeBrowsing())
 ```
 
 ### Java
 
-```
+```java
 Tasks.await(SafetyNet.getClient(this).initSafeBrowsing());
 ```
 
-**Note:** To minimize the impact of your app's initialization, call
-`initSafeBrowsing()` as early as possible in your activity's
-[`onResume()`](/reference/android/app/Activity#onResume()) method.
+> [!NOTE]
+> **Note:** To minimize the impact of your app's initialization, call `initSafeBrowsing()` as early as possible in your activity's [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) method.
 
 ## Request a URL check
 
@@ -85,13 +75,13 @@ without a scheme. For example, both
 
 ### Kotlin
 
-```
+```kotlin
 var url = "https://www.google.com"
 ```
 
 ### Java
 
-```
+```java
 String url = "https://www.google.com";
 ```
 
@@ -99,15 +89,16 @@ and
 
 ### Kotlin
 
-```
+```kotlin
 var url = "www.google.com"
 ```
 
 ### Java
 
-```
+```java
 String url = "www.google.com";
 ```
+
 
 are valid.
 
@@ -115,7 +106,7 @@ The following code demonstrates how to send a URL check request:
 
 ### Kotlin
 
-```
+```kotlin
 SafetyNet.getClient(this).lookupUri(
        url,
        SAFE_BROWSING_API_KEY,
@@ -151,7 +142,7 @@ SafetyNet.getClient(this).lookupUri(
 
 ### Java
 
-```
+```java
 SafetyNet.getClient(this).lookupUri(url,
          SAFE_BROWSING_API_KEY,
          SafeBrowsingThreat.TYPE_POTENTIALLY_HARMFUL_APPLICATION,
@@ -215,13 +206,13 @@ The constants in the `SafeBrowsingThreat` class contain the
 currently supported threat types:
 
 | Threat type | Definition |
-| --- | --- |
+|---|---|
 | `TYPE_POTENTIALLY_HARMFUL_APPLICATION` | This threat type identifies URLs of pages that are flagged as containing potentially harmful applications. |
 | `TYPE_SOCIAL_ENGINEERING` | This threat type identifies URLs of pages that are flagged as containing social engineering threats. |
 
 When using the API, you add threat type constants as arguments. You can add as
 many threat type constants as your app requires, but you can only use constants
-that aren’t marked as deprecated.
+that aren't marked as deprecated.
 
 ## Shut down your Safe Browsing session
 
@@ -233,18 +224,18 @@ method:
 
 ### Kotlin
 
-```
+```kotlin
 SafetyNet.getClient(this).shutdownSafeBrowsing()
 ```
 
 ### Java
 
-```
+```java
 SafetyNet.getClient(this).shutdownSafeBrowsing();
 ```
 
 We recommend that you call `shutdownSafeBrowsing()` in your
-activity's [`onPause()`](/reference/android/app/Activity#onPause()) method
+activity's [`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()) method
 and that you call
 [`initSafeBrowsing()`](https://developers.google.com/android/reference/com/google/android/gms/safetynet/SafetyNetClient.html#initSafeBrowsing())
 in your activity's `onResume()` method. However,
@@ -260,7 +251,7 @@ The SafetyNet Safe Browsing API collects the following data automatically when
 it communicates with the Safe Browsing service on Android:
 
 | Data | Description |
-| --- | --- |
+|---|---|
 | App Activity | Collects hash prefix of URLs after a local hash prefix match for purposes of detecting malicious URLs. |
 
 While we aim to be as transparent as possible, you are solely responsible for

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Users rely on their mobile devices for virtually everything these days, from
 sending emails and managing finances, to streaming videos and streaming and
 playing video games. In order to be useful, most apps require data, images, and

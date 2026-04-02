@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 We've heard feedback that developers want to access AI features in stable
 channels as soon as possible. You can now discover and try out the latest AI
 experimental features through the **Studio Labs** menu in the Settings menu

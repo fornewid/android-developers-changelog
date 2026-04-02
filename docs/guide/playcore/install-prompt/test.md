@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This guide explains how to test your integration of in-app install prompts in
 your app or game.
 

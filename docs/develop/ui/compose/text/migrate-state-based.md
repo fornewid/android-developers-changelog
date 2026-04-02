@@ -1,19 +1,29 @@
 ---
-title: https://developer.android.com/develop/ui/compose/text/migrate-state-based
+title: Migrate to state-based text fields  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/text/migrate-state-based
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Migrate to state-based text fields Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 This page provides examples of how you can migrate value-based `TextField`s to
-state-based `TextField`s. See the [Configure text fields](https://developer.android.com/develop/ui/compose/text/user-input) page for
+state-based `TextField`s. See the [Configure text fields](/develop/ui/compose/text/user-input) page for
 information on the differences between value and state-based `TextField`s.
 
 ## Basic usage
 
 ### Value-based
 
-
-```kotlin
+```
 @Composable
 fun OldSimpleTextField() {
     var state by rememberSaveable { mutableStateOf("") }
@@ -23,14 +33,13 @@ fun OldSimpleTextField() {
         singleLine = true,
     )
 }
-```
 
-<br />
+TextFieldMigrationSnippets.kt
+```
 
 ### State-based
 
-
-```kotlin
+```
 @Composable
 fun NewSimpleTextField() {
     TextField(
@@ -38,20 +47,20 @@ fun NewSimpleTextField() {
         lineLimits = TextFieldLineLimits.SingleLine
     )
 }
+
+TextFieldMigrationSnippets.kt
 ```
 
-<br />
-
-- Replace the `value, onValueChange`, and `remember { mutableStateOf("")` } with `rememberTextFieldState()`.
-- Replace `singleLine = true` with `lineLimits =
+* Replace the `value, onValueChange`, and `remember { mutableStateOf("")` } with
+  `rememberTextFieldState()`.
+* Replace `singleLine = true` with `lineLimits =
   TextFieldLineLimits.SingleLine`.
 
 ## Filtering through `onValueChange`
 
 ### Value-based
 
-
-```kotlin
+```
 @Composable
 fun OldNoLeadingZeroes() {
     var input by rememberSaveable { mutableStateOf("") }
@@ -62,14 +71,13 @@ fun OldNoLeadingZeroes() {
         }
     )
 }
-```
 
-<br />
+TextFieldMigrationSnippets.kt
+```
 
 ### State-based
 
-
-```kotlin
+```
 @Preview
 @Composable
 fun NewNoLeadingZeros() {
@@ -80,22 +88,25 @@ fun NewNoLeadingZeros() {
         }
     )
 }
+
+TextFieldMigrationSnippets.kt
 ```
 
-<br />
-
-- Replace the value callback loop with `rememberTextFieldState()`.
-- Re-implement the filtering logic in `onValueChange` using `InputTransformation`.
-- Use `TextFieldBuffer` from the receiver scope of `InputTransformation` to update the `state`.
-  - `InputTransformation` is called exactly right after user input is detected.
-  - Changes that are proposed by `InputTransformation` through `TextFieldBuffer` are applied immediately, avoiding a synchronization issue between the software keyboard and `TextField`.
+* Replace the value callback loop with `rememberTextFieldState()`.
+* Re-implement the filtering logic in `onValueChange` using
+  `InputTransformation`.
+* Use `TextFieldBuffer` from the receiver scope of `InputTransformation` to
+  update the `state`.
+  + `InputTransformation` is called exactly right after user input is detected.
+  + Changes that are proposed by `InputTransformation` through
+    `TextFieldBuffer` are applied immediately, avoiding a synchronization issue
+    between the software keyboard and `TextField`.
 
 ## Credit card formatter `TextField`
 
 ### Value-based
 
-
-```kotlin
+```
 @Composable
 fun OldTextFieldCreditCardFormatter() {
     var state by remember { mutableStateOf("") }
@@ -133,14 +144,13 @@ fun OldTextFieldCreditCardFormatter() {
         }
     )
 }
-```
 
-<br />
+TextFieldMigrationSnippets.kt
+```
 
 ### State-based
 
-
-```kotlin
+```
 @Composable
 fun NewTextFieldCreditCardFormatter() {
     val state = rememberTextFieldState()
@@ -154,22 +164,26 @@ fun NewTextFieldCreditCardFormatter() {
         },
     )
 }
+
+TextFieldMigrationSnippets.kt
 ```
 
-<br />
-
-- Replace the filtering in `onValueChange` with an `InputTransformation` to set the max length of the input.
-  - Refer to the [Filtering through `onValueChange`](https://developer.android.com/develop/ui/compose/text/migrate-state-based#filtering-through) section.
-- Replace `VisualTransformation` with `OutputTransformation` to add in dashes.
-  - With `VisualTransformation`, you are responsible for both creating the new text with the dashes and also calculating how the indices are mapped between the visual text and the backing state.
-  - `OutputTransformation` takes care of the offset mapping automatically. You just need to add the dashes in correct places using the `TextFieldBuffer` from `OutputTransformation.transformOutput`'s receiver scope.
+* Replace the filtering in `onValueChange` with an `InputTransformation` to set
+  the max length of the input.
+  + Refer to the [Filtering through `onValueChange`](#filtering-through) section.
+* Replace `VisualTransformation` with `OutputTransformation` to add in dashes.
+  + With `VisualTransformation`, you are responsible for both creating the new
+    text with the dashes and also calculating how the indices are mapped between
+    the visual text and the backing state.
+  + `OutputTransformation` takes care of the offset mapping automatically. You
+    just need to add the dashes in correct places using the `TextFieldBuffer`
+    from `OutputTransformation.transformOutput`'s receiver scope.
 
 ## Updating the state (simple)
 
 ### Value-based
 
-
-```kotlin
+```
 @Composable
 fun OldTextFieldStateUpdate(userRepository: UserRepository) {
     var username by remember { mutableStateOf("") }
@@ -181,14 +195,13 @@ fun OldTextFieldStateUpdate(userRepository: UserRepository) {
         onValueChange = { username = it }
     )
 }
-```
 
-<br />
+TextFieldMigrationSnippets.kt
+```
 
 ### State-based
 
-
-```kotlin
+```
 @Composable
 fun NewTextFieldStateUpdate(userRepository: UserRepository) {
     val usernameState = rememberTextFieldState()
@@ -197,19 +210,18 @@ fun NewTextFieldStateUpdate(userRepository: UserRepository) {
     }
     TextField(state = usernameState)
 }
+
+TextFieldMigrationSnippets.kt
 ```
 
-<br />
-
-- Replace the value callback loop with `rememberTextFieldState()`.
-- Change the value assignment with `TextFieldState.setTextAndPlaceCursorAtEnd`.
+* Replace the value callback loop with `rememberTextFieldState()`.
+* Change the value assignment with `TextFieldState.setTextAndPlaceCursorAtEnd`.
 
 ## Updating the state (complex)
 
 ### Value-based
 
-
-```kotlin
+```
 @Composable
 fun OldTextFieldAddMarkdownEmphasis() {
     var markdownState by remember { mutableStateOf(TextFieldValue()) }
@@ -236,14 +248,13 @@ fun OldTextFieldAddMarkdownEmphasis() {
         maxLines = 10
     )
 }
-```
 
-<br />
+TextFieldMigrationSnippets.kt
+```
 
 ### State-based
 
-
-```kotlin
+```
 @Composable
 fun NewTextFieldAddMarkdownEmphasis() {
     val markdownState = rememberTextFieldState()
@@ -260,35 +271,37 @@ fun NewTextFieldAddMarkdownEmphasis() {
         lineLimits = TextFieldLineLimits.MultiLine(1, 10)
     )
 }
-```
 
-<br />
+TextFieldMigrationSnippets.kt
+```
 
 In this use case, a button adds the Markdown decorations to make the text bold
 around the cursor or the current selection. It also maintains the selection
 position after the changes.
 
-- Replace the value callback loop with `rememberTextFieldState()`.
-- Replace `maxLines = 10` with `lineLimits =
+* Replace the value callback loop with `rememberTextFieldState()`.
+* Replace `maxLines = 10` with `lineLimits =
   TextFieldLineLimits.MultiLine(maxHeightInLines = 10)`.
-- Change the logic of calculating a new `TextFieldValue` with a `TextFieldState.edit` call.
-  - A new `TextFieldValue` is generated by splicing the existing text based on the current selection, and inserting the Markdown decorations in between.
-  - Also the selection is adjusted according to new indices of the text.
-  - `TextFieldState.edit` has a more natural way of editing the current state with the use of `TextFieldBuffer`.
-  - The selection explicitly defines where to insert the decorations.
-  - Then, adjust the selection, similar to the `onValueChange` approach.
+* Change the logic of calculating a new `TextFieldValue` with a
+  `TextFieldState.edit` call.
+  + A new `TextFieldValue` is generated by splicing the existing text based on
+    the current selection, and inserting the Markdown decorations in between.
+  + Also the selection is adjusted according to new indices of the text.
+  + `TextFieldState.edit` has a more natural way of editing the current state
+    with the use of `TextFieldBuffer`.
+  + The selection explicitly defines where to insert the decorations.
+  + Then, adjust the selection, similar to the `onValueChange` approach.
 
 ## ViewModel `StateFlow` architecture
 
-Many applications follow the [Modern app development guidelines](https://developer.android.com/topic/architecture/ui-layer/state-production), which
+Many applications follow the [Modern app development guidelines](/topic/architecture/ui-layer/state-production), which
 promote using a `StateFlow` to define the UI state of a screen or a component
 through a single immutable class that carries all the information.
 
 In these types of applications, a form like a Login screen with text input is
 usually designed as follows:
 
-
-```kotlin
+```
 class LoginViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState>
@@ -322,9 +335,9 @@ fun LoginForm(
         )
     }
 }
-```
 
-<br />
+TextFieldMigrationSnippets.kt
+```
 
 This design perfectly fits with the `TextFields` that use the `value,
 onValueChange` state hoisting paradigm. However, there are unpredictable
@@ -350,17 +363,18 @@ re-evaluate how you apply the "no UI dependencies in ViewModel" principle in
 your code. Keeping a reference to a `TextFieldState` within your `ViewModel` is
 not an inherently bad practice.
 
-> [!NOTE]
-> **Note:** The `@Composable rememberTextFieldState()` function includes the save-and-restore mechanism that comes with `rememberSaveable` and `TextFieldState.Saver`. If you initialize your `TextFieldState` in your ViewModel, handle this logic separately, as described in the [Saved State
-> module for ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate) page.
+**Note:** The `@Composable rememberTextFieldState()` function includes the
+save-and-restore mechanism that comes with `rememberSaveable` and
+`TextFieldState.Saver`. If you initialize your `TextFieldState` in your
+ViewModel, handle this logic separately, as described in the [Saved State
+module for ViewModel](/topic/libraries/architecture/viewmodel/viewmodel-savedstate) page.
 
 ### Recommended simple approach
 
 We recommend you extract values like `username` or `password` from `UiState`,
 and keep a separate reference for them in the `ViewModel`.
 
-
-```kotlin
+```
 class LoginViewModel : ViewModel() {
     val usernameState = TextFieldState()
     val passwordState = TextFieldState()
@@ -376,12 +390,13 @@ fun LoginForm(
         SecureTextField(state = loginViewModel.passwordState)
     }
 }
+
+TextFieldMigrationSnippets.kt
 ```
 
-<br />
-
-- Replace `MutableStateFlow<UiState>` with a couple `TextFieldState` values.
-- Pass those `TextFieldState` objects to `TextFields` in the `LoginForm` composable.
+* Replace `MutableStateFlow<UiState>` with a couple `TextFieldState` values.
+* Pass those `TextFieldState` objects to `TextFields` in the `LoginForm`
+  composable.
 
 ### Conforming approach
 
@@ -390,8 +405,7 @@ freedom to make these changes, or the time investment could outweigh the
 benefits of using the new `TextField`s. In this case, you can still use
 state-based text fields with a little tweak.
 
-
-```kotlin
+```
 class LoginViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState>
@@ -431,13 +445,16 @@ fun LoginForm(
         SecureTextField(passwordState)
     }
 }
+
+TextFieldMigrationSnippets.kt
 ```
 
-<br />
-
-- Keep your `ViewModel` and `UiState` classes the same.
-- Instead of hoisting the state directly into `ViewModel` and making it the source of the truth for `TextFields`, turn `ViewModel` into a simple data holder.
-  - To do this, observe the changes to each `TextFieldState.text` by collecting a `snapshotFlow` in a `LaunchedEffect`.
-- Your `ViewModel` will still have the latest values from UI, but its `uiState:
+* Keep your `ViewModel` and `UiState` classes the same.
+* Instead of hoisting the state directly into `ViewModel` and making it the
+  source of the truth for `TextFields`, turn `ViewModel` into a simple data
+  holder.
+  + To do this, observe the changes to each `TextFieldState.text` by
+    collecting a `snapshotFlow` in a `LaunchedEffect`.
+* Your `ViewModel` will still have the latest values from UI, but its `uiState:
   StateFlow<UiState>` won't be driving the `TextField`s.
-- Any other persistence logic implemented in your `ViewModel` can stay the same.
+* Any other persistence logic implemented in your `ViewModel` can stay the same.

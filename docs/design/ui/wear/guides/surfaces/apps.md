@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 An app is one of the primary surfaces on Wear OS. Apps are different from complications or tiles, which are glanceable representations of app content. Apps display more information and support richer interactivity. The user often enters an app from another surface, such as the launcher, recents, a notification, complication, tile, or voice action.
 
 ## Principles

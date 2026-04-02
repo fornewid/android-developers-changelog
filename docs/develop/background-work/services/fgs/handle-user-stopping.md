@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Starting in Android 13 (API level 33), users can complete a workflow from the
 [notification drawer](/develop/ui/views/notifications#bar-and-drawer)
 to stop an app that has an ongoing foreground services, regardless of that app's

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Build dependencies are external components required to successfully build your
 project. A build can depend on [libraries, plugins, subprojects](/build/gradle-build-overview#external-dependencies), the Android
 SDK, tooling such as [Kotlin](http://kotlinlang.org) and [Java](https://www.java.com/)

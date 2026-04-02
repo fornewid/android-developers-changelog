@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Warning:** For apps that use the `CarConnection` API and [target](/guide/topics/manifest/uses-sdk-element#target) Android 14
 (API level 34) and higher, use Car App Library version `1.3.0-beta01` or later.
 Earlier versions of the library throw an exception on devices running Android 14

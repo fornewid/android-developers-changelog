@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Google Play services offers the [*Google Low Light Boost library*](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/package-summary). This
 library allows apps to dynamically adjust the camera's brightness in real time
 to adapt to low light conditions, even when running on devices that don't

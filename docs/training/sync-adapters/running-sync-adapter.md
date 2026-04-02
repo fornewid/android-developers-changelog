@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** We recommended [WorkManager](/topic/libraries/architecture/workmanager)
 as the recommended solution for most background processing use cases. Please reference the
 [background processing guide](/guide/background) to learn which solution works best for you.

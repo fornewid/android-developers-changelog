@@ -18,6 +18,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 ![](https://developer.android.com/static/images/hero-illustrations/play-billing-hero.svg)
 
 ### Google Play’s billing system

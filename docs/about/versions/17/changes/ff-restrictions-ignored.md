@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 With Android apps now running on a variety of devices (such as phones, tablets,
 foldables, desktops, cars, and TVs) and windowing modes on large screens (such
 as split screen and desktop windowing), developers should build Android apps

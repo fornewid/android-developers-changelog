@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** Although this page includes [NativeActivity](/reference/android/app/NativeActivity) description,
 [GameActivity inside AGDK jetpack library](/games/agdk/integrate-game-activity)
 is an updated and well maintained implementation of `NativeActivity`,

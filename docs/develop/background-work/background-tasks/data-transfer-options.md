@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Many apps need to transfer data in the background.
 This guide outlines choices for reliable background data transfer, and provides
 examples for how to implement them.

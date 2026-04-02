@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android devices not only have [different screen sizes](/training/multiscreen/screensizes)—handsets, tablets, TVs,
 etc.—but also have screens with different pixel sizes. One
 device might have 160 pixels per inch, while another device fits 480

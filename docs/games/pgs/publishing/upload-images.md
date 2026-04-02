@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 **Deprecated:** This API is deprecated and is being removed, so you shouldn't use
 it. Attempting to use this API causes errors.
 
@@ -559,8 +558,6 @@ the retry delay at something reasonable, say, less than one minute.
 * [PHP](https://github.com/googleapis/google-api-php-client/blob/master/docs/media.md)
 * [Python](https://github.com/googleapis/google-api-python-client/blob/master/docs/media.md)
 * [Ruby](https://github.com/googleapis/google-api-ruby-client/blob/master/docs/usage-guide.md#media)
-
-
 
 
 

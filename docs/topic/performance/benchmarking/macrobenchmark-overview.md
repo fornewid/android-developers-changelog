@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Use the Macrobenchmark library for testing larger use cases of your app,
 including app startup and complex UI manipulations, such as scrolling a
 [`RecyclerView`](/reference/androidx/recyclerview/widget/RecyclerView) or running animations. If you want to test smaller areas of

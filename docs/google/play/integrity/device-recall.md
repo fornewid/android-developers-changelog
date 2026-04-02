@@ -4,8 +4,6 @@ url: https://developer.android.com/google/play/integrity/device-recall
 source: html-scrape
 ---
 
-**Let Play resolve integrity issues for you:** Show a single in-app Play prompt to resolve a broad range of verdict issues and client-side errors. With [Play remediation dialogs](/google/play/integrity/remediation), you can get more users back to a good state and simplify your API integration. [Learn more](https://android-developers.googleblog.com/2025/10/stronger-threat-detection-simpler.html)
-
 * [Android Developers](https://developer.android.com/)
 * [Google Play](https://developer.android.com/distribute)
 * [Play Integrity](https://developer.android.com/google/play/integrity)

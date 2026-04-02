@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This guide explains how to navigate around and interpret a
 [Systrace](/topic/performance/tracing) report. To interpret a Perfetto report,
 see the [Trace Processor](https://perfetto.dev/#/trace-processor.md)

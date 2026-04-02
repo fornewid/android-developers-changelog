@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This guide covers the process of exporting a Defold project as an Android app.
 Defold can generate both APK files for local device testing and Android App
 Bundles for submission to the Google Play Store.
@@ -77,6 +78,8 @@ To configure a build for upload to the Google Play Store:
 * In the **Architectures** section, select both **32-bit** and **64-bit**.
 * In the **Bundle Format** list, select **AAB**.
 * In the **Variant** list, select **Release**.
+
+
 
 
 

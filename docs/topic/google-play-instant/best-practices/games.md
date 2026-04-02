@@ -1,17 +1,8 @@
 ---
-title: UX best practices for games on Google Play Instant  |  Other Play guides  |  Android Developers
+title: https://developer.android.com/topic/google-play-instant/best-practices/games
 url: https://developer.android.com/topic/google-play-instant/best-practices/games
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Other Play guides](https://developer.android.com/guide/app-bundle)
-
-# UX best practices for games on Google Play Instant Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 **Warning:** Google Play Instant will no longer be available. Starting December 2025,
 Instant Apps cannot be published through Google Play, and all
@@ -29,7 +20,7 @@ to redirect them to specific journeys or features when relevant.
 Games on Google Play Instant are a great way to remove friction for your
 players and increase your reach. This guide expands upon the [UX best practices
 for apps on
-Google Play Instant](/topic/google-play-instant/best-practices/apps) and
+Google Play Instant](https://developer.android.com/topic/google-play-instant/best-practices/apps) and
 presents best practices specific to games.
 
 ## Identify your target user experience
@@ -41,7 +32,7 @@ You can make your entire game available without installation, which is a great
 way for players to enjoy your game with the least amount of friction. These types
 of full instant experience games are called Instant play and are
 [eligible for
-featuring on the homepage of the [Google Play Games app](https://play.google.com/store/apps/details?id=com.google.android.play.games)](/topic/google-play-instant/instant-play-games).
+featuring on the homepage of the](https://developer.android.com/topic/google-play-instant/instant-play-games)[Google Play Games app](https://play.google.com/store/apps/details?id=com.google.android.play.games).
 
 If you
 aren't able to make the entire game available, you can also create one of the
@@ -91,16 +82,15 @@ be more simplistic.
 
 ### Cross-promotion and ads
 
-Several types of campaigns—including ad campaigns and cross-promotional ad
-campaigns—can launch players directly into the Google Play Instant
+Several types of campaigns---including ad campaigns and cross-promotional ad
+campaigns---can launch players directly into the Google Play Instant
 experience instead of the static Google Play Store details page.
 
 These experiences include the following:
 
-* Ad campaigns.
-* Cross-promotional ad campaigns: Advertising one of your games within one
-  of your other games.
-* Re-engagement ad campaigns: Ads that target churned players of your game.
+- Ad campaigns.
+- Cross-promotional ad campaigns: Advertising one of your games within one of your other games.
+- Re-engagement ad campaigns: Ads that target churned players of your game.
 
 ## Polish the end-to-end experience
 
@@ -114,33 +104,18 @@ by installing a full version of your game.
 
 Players may find your game using any of the following methods:
 
-* An ad
-* The [Google Play Games app](https://play.google.com/store/apps/details?id=com.google.android.play.games)
-* The **Try Now** button in the Play Store
+- An ad
+- The [Google Play Games app](https://play.google.com/store/apps/details?id=com.google.android.play.games)
+- The **Try Now** button in the Play Store
 
 Provide at least a few of these methods for bringing players into your game.
 
 The screenshots in Figure 1 show examples of these game discovery methods:
-
-![](/static/topic/google-play-instant/best-practices/images/gpi-entry-point-1.png)
-
-![](/static/topic/google-play-instant/images/play-instant-games.png)
-
-![](/static/topic/google-play-instant/best-practices/images/gpi-entry-point-4.png)
-
-
-
-**Figure 1.** Several possible ways players might find your game (left to
-right, from top: ad campaign, Google Play Games app, Play
-Store)
+![](https://developer.android.com/static/topic/google-play-instant/best-practices/images/gpi-entry-point-1.png) ![](https://developer.android.com/static/topic/google-play-instant/images/play-instant-games.png) ![](https://developer.android.com/static/topic/google-play-instant/best-practices/images/gpi-entry-point-4.png) **Figure 1.** Several possible ways players might find your game (left to right, from top: ad campaign, Google Play Games app, Play Store)
 
 ### Start the experience quickly
 
-![Device showing a game loading](/static/topic/google-play-instant/best-practices/images/gpi-game-loading.gif)
-
-
-**Figure 2.** Animation shown when a game loads on
-Google Play Instant
+![Device showing a game loading](https://developer.android.com/static/topic/google-play-instant/best-practices/images/gpi-game-loading.gif) **Figure 2.** Animation shown when a game loads on Google Play Instant
 
 Games on Google Play Instant use an immersive, arcade-like animation as a
 loading screen to keep players engaged while the game loads, as shown in Figure
@@ -151,10 +126,7 @@ as short a time period as possible.
 
 ### Keep the back button enabled
 
-![](/static/topic/google-play-instant/best-practices/images/gpi-back-button-warning.png)
-
-
-**Figure 3.** Back button warning dialog (Bubble Witch 3 Saga)
+![](https://developer.android.com/static/topic/google-play-instant/best-practices/images/gpi-back-button-warning.png) **Figure 3.** Back button warning dialog (Bubble Witch 3 Saga)
 
 Don't disable the Android back button at the bottom of the screen. Instead, show
 a warning when it's pressed to alert players they're about to exit the game,
@@ -165,32 +137,19 @@ navigational patterns.
 
 If you have built a trial experience, you should provide a way for players to
 install the full game. Note that this isn't required for [Instant play
-games that are featured in the Google Play Games app](/topic/google-play-instant/instant-play-games).
+games that are featured in the Google Play Games app](https://developer.android.com/topic/google-play-instant/instant-play-games).
 
 For trial Google Play Instant experiences, you would typically use an **Install** button. You
 can show this button in a variety of locations:
 
-* On screen permanently.
-* Between levels.
-* As part of the main menu.
+- On screen permanently.
+- Between levels.
+- As part of the main menu.
 
 The screenshots in Figure 4 present examples of possible **Install** button
 locations. The screenshot in Figure 5 demonstrates the in-app installation
 experience that occurs after players tap a given **Install** button.
-
-![](/static/topic/google-play-instant/best-practices/images/gpi-install-invite-1.png)
-
-![](/static/topic/google-play-instant/best-practices/images/gpi-install-invite-2.png)
-
-
-
-**Figure 4.** Several possible ways of inviting players to install a game
-(Clash Royale, left; Bubble Witch 3 Saga, right)
-
-![](/static/topic/google-play-instant/best-practices/images/gpi-inline-app-install.png)
-
-
-**Figure 5.** Inline app installation experience (Panda Pop)
+![](https://developer.android.com/static/topic/google-play-instant/best-practices/images/gpi-install-invite-1.png) ![](https://developer.android.com/static/topic/google-play-instant/best-practices/images/gpi-install-invite-2.png) **Figure 4.** Several possible ways of inviting players to install a game (Clash Royale, left; Bubble Witch 3 Saga, right) ![](https://developer.android.com/static/topic/google-play-instant/best-practices/images/gpi-inline-app-install.png) **Figure 5.** Inline app installation experience (Panda Pop)
 
 ### Preserve user state after installation
 

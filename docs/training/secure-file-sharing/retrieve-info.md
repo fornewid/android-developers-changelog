@@ -41,7 +41,7 @@ the server app has returned the content URI to the client:
      * Get the file's content URI from the incoming Intent, then
      * get the file's MIME type
      */
-    val mimeType: String? = returnIntent.data?.let { ret>urnUri -
+    val mimeType: String? = returnIntent.data?.let { returnUri ->
         contentResolver.getType(returnUri)
     }
     ...
@@ -90,9 +90,9 @@ of the arguments of `query()` to
      * then query the server app to get the file's display name
      * and size.
      */
-    returnIntent.data?.let { ret>urnUri -
+    returnIntent.data?.let { returnUri ->
         contentResolver.query(returnUri, null, null, null, null)
-    }?.use { >cursor -
+    }?.use { cursor ->
         /*
          * Get the column indexes of the data in the Cursor,
          * move to the first row in the Cursor, get the data,
@@ -101,8 +101,8 @@ of the arguments of `query()` to
         val nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
         val sizeIndex = cursor.getColumnIndex(OpenableColumns.SIZE)
         cursor.moveToFirst()
-        find<ViewById>TextView(R.id.filename_text).text = cursor.getString(nameIndex)
-        find<ViewById>TextView(R.id.filesize_text).text = cursor.getLong(sizeIndex).toString()
+        findViewById<TextView>(R.id.filename_text).text = cursor.getString(nameIndex)
+        findViewById<TextView>(R.id.filesize_text).text = cursor.getLong(sizeIndex).toString()
         ...
     }
 ```

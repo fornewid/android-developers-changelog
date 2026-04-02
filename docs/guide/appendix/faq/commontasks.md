@@ -1,9 +1,14 @@
 ---
-title: https://developer.android.com/guide/appendix/faq/commontasks
+title: Android Developers
 url: https://developer.android.com/guide/appendix/faq/commontasks
-source: md.txt
+source: html-scrape
 ---
 
-# Android Developers
+* [Android Developers](https://developer.android.com/)
 
-You should have already been redirected by your browser. Please follow[this link](https://developer.android.com/resources/faq/commontasks).
+# Android Developers Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+You should have already been redirected by your browser. Please follow
+[this link](/resources/faq/commontasks).

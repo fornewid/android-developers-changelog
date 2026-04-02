@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 There are several terms and concepts that are important to understand
 when working on gesture handling in an application. This page explains the terms
 pointers, pointer events, and gestures, and introduces the different abstraction

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Apps that target Android 13 (API level 33) or higher and manage Wi-Fi connections
 should request the
 [`NEARBY_WIFI_DEVICES`](/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES)

@@ -1,18 +1,39 @@
 ---
-title: https://developer.android.com/training/cars/apps/library/refresh-template
+title: Refresh the contents of a template  |  Android for Cars  |  Android Developers
 url: https://developer.android.com/training/cars/apps/library/refresh-template
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android for Cars](https://developer.android.com/training/cars)
+
+# Refresh the contents of a template Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 Your app can request the content of a `Screen` to be invalidated by calling the
-[`Screen.invalidate`](https://developer.android.com/reference/androidx/car/app/Screen#invalidate()) method. The host subsequently calls back into your
-app's [`Screen.onGetTemplate`](https://developer.android.com/reference/androidx/car/app/Screen#onGetTemplate()) method to retrieve the template with the new
+[`Screen.invalidate`](/reference/androidx/car/app/Screen#invalidate()) method. The host subsequently calls back into your
+app's [`Screen.onGetTemplate`](/reference/androidx/car/app/Screen#onGetTemplate()) method to retrieve the template with the new
 contents.
 
 When refreshing a `Screen`, it's important to understand the specific content
 in the template that can be updated so the host doesn't count the new template
-against the template quota. To learn more, see [Template restrictions](https://developer.android.com/training/cars/apps/library/template-restrictions).
+against the template quota. To learn more, see [Template restrictions](/training/cars/apps/library/template-restrictions).
 
 We recommend that you structure your screens to have a one-to-one mapping
 between a `Screen` and the type of template it returns through its
 `onGetTemplate` implementation.
+
+[Previous
+
+arrow\_back
+
+Implement screen navigation](/training/cars/apps/library/screen-navigation)
+
+[Next
+
+Review the testing library
+
+arrow\_forward](/training/cars/apps/library/test-library)

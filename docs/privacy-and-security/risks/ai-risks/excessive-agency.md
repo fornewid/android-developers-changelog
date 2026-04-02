@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 [OWASP Risk Description](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)
 
 Excessive agency is a vulnerability that occurs when a large language model

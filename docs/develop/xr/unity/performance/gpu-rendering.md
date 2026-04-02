@@ -1,15 +1,33 @@
 ---
-title: https://developer.android.com/develop/xr/unity/performance/gpu-rendering
+title: Optimize GPU rendering  |  Android Developers
 url: https://developer.android.com/develop/xr/unity/performance/gpu-rendering
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+* [Develop](https://developer.android.com/develop)
+* [Guides](https://developer.android.com/develop/xr/get-started)
+
+# Optimize GPU rendering Stay organized with collections Save and categorize content based on your preferences.
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
-<br />
+Applicable XR devices
+
+This guidance helps you build experiences for these types of XR devices.
+
+[Learn about XR device types →](/develop/xr/devices)
+
+![](/static/images/develop/xr/xr-headsets-icon.svg)
+
+
+XR Headsets
+
+![](/static/images/develop/xr/xr-glasses-icon.svg)
+
+
+Wired XR Glasses
+
+[Learn about XR device types →](/develop/xr/devices)
 
 Unity provides a variety of advanced GPU features that use instancing and
 occlusion culling to significantly reduce draw calls and eliminate rendering of
@@ -24,14 +42,17 @@ effective for large scenes with many objects that share the same mesh.
 
 ### Enable this feature
 
-1. From the Unity main menu, click **Edit \> Project Settings \> Graphics**.
-2. In the **Shader Stripping** section, set **Batch Renderer Group Variants** to **Keep All**.
+1. From the Unity main menu, click **Edit > Project Settings > Graphics**.
+2. In the **Shader Stripping** section, set **Batch Renderer Group Variants**
+   to **Keep All**.
 3. Find your **Default Render Pipeline** asset, which is also your URP asset.
 4. Search for this asset in your project.
 5. Right-click the asset and select **Properties**.
-6. In the **Renderer List** , right-click the **Universal Renderer** and select **Properties**.
+6. In the **Renderer List**, right-click the **Universal Renderer** and select
+   **Properties**.
 7. Set **Rendering Path** to **Forward+**.
-8. Return to your URP asset, select it, and then click the three dots in the and select **Debug**.
+8. Return to your URP asset, select it, and then click the three dots in the
+   and select **Debug**.
 9. Set **GPU Resident Drawer Mode** to **Instanced Drawing**.
 
 ## GPU Occlusion Culling
@@ -42,7 +63,7 @@ scenes with significant occlusion, such as interiors or dense environments.
 
 ### Enable this feature
 
-1. From the Unity main menu, click **Edit \> Project Settings \> Graphics**.
+1. From the Unity main menu, click **Edit > Project Settings > Graphics**.
 2. Enable **GPU Occlusion Culling**.
 3. Select the **URP** tab.
 4. In the **Render Graph** section, disable **Compatibility Mode (Render Graph
@@ -56,19 +77,20 @@ operations.
 
 ### Benefits
 
-- Eliminates unnecessary copying and moving of graphics data.
-- Speeds up GPU rendering for all cases.
+* Eliminates unnecessary copying and moving of graphics data.
+* Speeds up GPU rendering for all cases.
 
 ### Enable this feature
 
-1. From the Unity main menu, click **Edit \> Project Settings**.
+1. From the Unity main menu, click **Edit > Project Settings**.
 2. Expand the **XR Plug-in Management** section, and then click **OpenXR**.
 3. Select the **Android** tab.
 4. Select the **Android XR** feature group.
 5. Click the cog icon next to **Android XR Support**.
 6. Enable **Optimize Buffer Discards (Vulkan)**.
 
-   ![Unity settings optimizing buffer discards](https://developer.android.com/static/images/develop/xr/unity/performance/optimize-buffer-discards.png)
+   ![Unity settings optimizing buffer discards
+   ](/static/images/develop/xr/unity/performance/optimize-buffer-discards.png)
 
 ## Disable front-to-back rendering
 
@@ -79,3 +101,15 @@ objects use expensive fragment shaders.
 
 However, enabling this setting might also reduce performance. For this reason,
 leaving it at the default setting (disabled) is the recommended approach.
+
+[Previous
+
+arrow\_back
+
+Improve frame rates, reduce GPU load, and reduce rendering latency](/develop/xr/unity/performance/androidxr-extension-settings)
+
+[Next
+
+Optimize performance using Unity tools and APIs
+
+arrow\_forward](/develop/xr/unity/performance/unity-tools)

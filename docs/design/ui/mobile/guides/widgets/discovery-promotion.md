@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 App widgets allow your user to deliver key glanceable content and quick actions
 from your app on their home screens and similar surfaces. Improving your
 widget's discoverability ensures users are aware of these powerful extensions of

@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/retain
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/retain
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
 
 # Retain Recipe
 
@@ -23,7 +33,14 @@ For more information on retain, see the documentation for
 and [`RetainedValuesStoreRegistry`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainedValuesStoreRegistry?hl=en).
 
 For information on NavEntryDecorator, see [the official documentation](https://developer.android.com/guide/navigation/navigation-3/naventrydecorators).
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/retain)
+
+[![](/static/images/picto-icons/code.svg)
+
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/retain)
 
 ```
 package com.example.nav3recipes.retain
@@ -153,4 +170,6 @@ class RetainedValuesStoreNavEntryDecorator<T : Any>(
         registry.LocalRetainedValuesStoreProvider(entry.contentKey) { entry.Content() }
     },
 )
+
+RetainActivity.kt
 ```

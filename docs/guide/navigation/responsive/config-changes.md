@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 ## Responsive UI and navigation
 
 To provide the best possible navigation experience to your users, you should

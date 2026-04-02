@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 You can define a Grid container configuration to create flexible layouts
 that respond to different screen sizes and content types.
 This page describes how to do the following:

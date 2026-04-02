@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 **Note:** Games that are played with only the left-mouse button are not required to
 integrate the Input SDK. These games are supported using with the
 [compatibility mode](/games/playgames/input#compatibility-mode). This document
@@ -104,6 +105,8 @@ on how to your Java or Kotlin project.
 
 Download the Input SDK for Unity from the
 [Play Unity Plugins repository](https://developers.google.com/unity/packages#input_sdk).
+
+
 
 
 

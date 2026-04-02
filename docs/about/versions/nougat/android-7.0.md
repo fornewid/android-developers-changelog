@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Android 7.0 Nougat introduces a variety of
 new features and capabilities for users and developers.
 This document highlights what's new for developers.

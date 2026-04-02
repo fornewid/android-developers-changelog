@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Android 8.0 (API level 26) introduces behavior changes as well as new features and APIs that
 you can take advantage of in your apps. This document gives you an overview of the steps to migrate
 your apps to Android 8.0 across two key phases:

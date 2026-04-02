@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android Framework provides access to [raw GNSS measurements](/reference/android/location/GnssMeasurement)
 on several Android devices.
 

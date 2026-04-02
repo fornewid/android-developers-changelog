@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The [`CastPlayer`](/reference/androidx/media3/cast/CastPlayer) is a Jetpack Media3 [Player](/reference/kotlin/androidx/media3/common/Player) implementation that supports
 both local playback and casting to a remote Cast-enabled device. [`CastPlayer`](/reference/androidx/media3/cast/CastPlayer)
 simplifies adding cast functionality to your app and provides rich features to

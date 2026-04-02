@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 As you prepare your Android app to run on Chromebooks, consider the
 device features that your app uses. Chromebooks don't support all the
 hardware and software features that are available on other devices running

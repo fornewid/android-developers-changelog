@@ -249,7 +249,6 @@ GeminiLive.kt
 HashMap<String, Schema> addListParams = new HashMap<String, Schema>(1);
 
 addListParams.put("item", Schema.str("A short string describing the item to add to the list"));
-addListParams.put("item", Schema.str("A short string describing the item to add to the list"));
 
 FunctionDeclaration addListFunctionDeclaration = new FunctionDeclaration(
     "addList",

@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/ink-api-persistent-storage
+title: State preservation and persistent storage  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/ink-api-persistent-storage
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# State preservation and persistent storage Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 State preservation and persistent storage are non-trivial aspects of inking
 apps. This requires a deliberate strategy for saving state during scenarios like
@@ -12,13 +22,13 @@ configuration changes and permanently saving a user's drawings to a database.
 
 In view-based apps, UI state is managed using a combination of the following:
 
-- [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) objects
-- Saved instance state using:
-  - Activity [`onSaveInstanceState()`](https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle))
-  - ViewModel [SavedStateHandle](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate)
-  - Local storage to persist the UI state during app and activity transitions
+* [`ViewModel`](/reference/androidx/lifecycle/ViewModel) objects
+* Saved instance state using:
+  + Activity [`onSaveInstanceState()`](/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle))
+  + ViewModel [SavedStateHandle](/topic/libraries/architecture/viewmodel/viewmodel-savedstate)
+  + Local storage to persist the UI state during app and activity transitions
 
-See [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
+See [Save UI states](/topic/libraries/architecture/saving-states).
 
 ## Persistent storage
 
@@ -28,53 +38,64 @@ Ink API, manual serialization and deserialization are necessary.
 
 To accurately restore a stroke, save its `Brush` and `StrokeInputBatch`.
 
-- [`Brush`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush): Includes numeric fields (size, epsilon), color, and [`BrushFamily`](https://developer.android.com/reference/kotlin/androidx/ink/brush/BrushFamily).
-- [`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch): A list of input points with numeric fields.
+* [`Brush`](/reference/kotlin/androidx/ink/brush/Brush): Includes numeric
+  fields (size, epsilon), color, and
+  [`BrushFamily`](/reference/kotlin/androidx/ink/brush/BrushFamily).
+* [`StrokeInputBatch`](/reference/kotlin/androidx/ink/strokes/StrokeInputBatch):
+  A list of input points with numeric fields.
 
 The Storage module simplifies compactly serializing the most complex part: the
-[`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).
+[`StrokeInputBatch`](/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).
 
-> [!NOTE]
-> **Note:** See data transfer objects such as `SerializedBrush` and `SerializedStroke` as well as the `Converters` helper class in the [*Data object and converter
-> helpers* section](https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-state-preservation#data_object_and_converter_helpers).
+**Note:** See data transfer objects such as `SerializedBrush` and `SerializedStroke`
+as well as the `Converters` helper class in the [*Data object and converter
+helpers* section](/develop/ui/compose/touch-input/stylus-input/ink-api-state-preservation#data_object_and_converter_helpers).
 
 To save a stroke:
 
-- Serialize the `StrokeInputBatch` using the storage module's encode function. Store the resulting binary data.
-- Separately save the essential properties of the stroke's Brush:
-  - The enum that represents the brush family \&mdash Although the instance can be serialized, this is not efficient for apps that use a limited selection of brush families
-  - `colorLong`
-  - `size`
-  - `epsilon`
+* Serialize the `StrokeInputBatch` using the storage module's encode function.
+  Store the resulting binary data.
+* Separately save the essential properties of the stroke's Brush:
+  + The enum that represents the brush family &mdash Although the instance
+    can be serialized, this is not efficient for apps that use a limited
+    selection of brush families
+  + `colorLong`
+  + `size`
+  + `epsilon`
 
-    fun serializeStroke(stroke: Stroke): SerializedStroke {
-      val serializedBrush = serializeBrush(stroke.brush)
-      val encodedSerializedInputs = ByteArrayOutputStream().use
-        {
-          stroke.inputs.encode(it)
-          it.toByteArray()
-        }
-
-      return SerializedStroke(
-        inputs = encodedSerializedInputs,
-        brush = serializedBrush
-      )
+```
+fun serializeStroke(stroke: Stroke): SerializedStroke {
+  val serializedBrush = serializeBrush(stroke.brush)
+  val encodedSerializedInputs = ByteArrayOutputStream().use
+    {
+      stroke.inputs.encode(it)
+      it.toByteArray()
     }
+
+  return SerializedStroke(
+    inputs = encodedSerializedInputs,
+    brush = serializedBrush
+  )
+}
+```
 
 To load a stroke object:
 
-- Retrieve the saved binary data for the `StrokeInputBatch` and deserialize it using the storage module's [decode()](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch.Companion#(androidx.ink.strokes.StrokeInputBatch.Companion).decode(java.io.InputStream)) function.
-- Retrieve the saved `Brush` properties and create the brush.
-- Create the final stroke using the recreated brush and the deserialized
-  [`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).
+* Retrieve the saved binary data for the `StrokeInputBatch` and deserialize it
+  using the storage module's [decode()](/reference/kotlin/androidx/ink/strokes/StrokeInputBatch.Companion#(androidx.ink.strokes.StrokeInputBatch.Companion).decode(java.io.InputStream)) function.
+* Retrieve the saved `Brush` properties and create the brush.
+* Create the final stroke using the recreated brush and the deserialized
+  [`StrokeInputBatch`](/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).
 
-      fun deserializeStroke(serializedStroke: SerializedStroke): Stroke {
-        val inputs = ByteArrayInputStream(serializedStroke.inputs).use {
-          StrokeInputBatch.decode(it)
-        }
-        val brush = deserializeBrush(serializedStroke.brush)
-        return Stroke(brush = brush, inputs = inputs)
-      }
+  ```
+  fun deserializeStroke(serializedStroke: SerializedStroke): Stroke {
+    val inputs = ByteArrayInputStream(serializedStroke.inputs).use {
+      StrokeInputBatch.decode(it)
+    }
+    val brush = deserializeBrush(serializedStroke.brush)
+    return Stroke(brush = brush, inputs = inputs)
+  }
+  ```
 
 #### Handle zoom, pan, and rotation
 
@@ -86,37 +107,39 @@ You do this by passing a `Matrix` to the `pointerEventToWorldTransform`
 parameter. The matrix should represent the inverse of the transformation you
 apply to your finished strokes canvas.
 
-    @Composable
-    fun ZoomableDrawingScreen(...) {
-        // 1. Manage your zoom/pan state (e.g., using detectTransformGestures).
-        var zoom by remember { mutableStateOf(1f) }
-        var pan by remember { mutableStateOf(Offset.Zero) }
+```
+@Composable
+fun ZoomableDrawingScreen(...) {
+    // 1. Manage your zoom/pan state (e.g., using detectTransformGestures).
+    var zoom by remember { mutableStateOf(1f) }
+    var pan by remember { mutableStateOf(Offset.Zero) }
 
-        // 2. Create the Matrix.
-        val pointerEventToWorldTransform = remember(zoom, pan) {
-            android.graphics.Matrix().apply {
-                // Apply the inverse of your rendering transforms
-                postTranslate(-pan.x, -pan.y)
-                postScale(1 / zoom, 1 / zoom)
-            }
-        }
-
-        Box(modifier = Modifier.fillMaxSize()) {
-            // ...Your finished strokes Canvas, with regular transform applied
-
-            // 3. Pass the matrix to InProgressStrokes.
-            InProgressStrokes(
-                modifier = Modifier.fillMaxSize(),
-                pointerEventToWorldTransform = pointerEventToWorldTransform,
-                defaultBrush = currentBrush,
-                nextBrush = onGetNextBrush,
-                onStrokesFinished = onStrokesFinished
-            )
+    // 2. Create the Matrix.
+    val pointerEventToWorldTransform = remember(zoom, pan) {
+        android.graphics.Matrix().apply {
+            // Apply the inverse of your rendering transforms
+            postTranslate(-pan.x, -pan.y)
+            postScale(1 / zoom, 1 / zoom)
         }
     }
 
-> [!NOTE]
-> **Note:** For details on implementing the gestures themselves, refer to the Jetpack Compose documentation for [detectTransformGestures](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.input.pointer.PointerInputScope).detectTransformGestures(kotlin.Boolean,kotlin.Function4)).
+    Box(modifier = Modifier.fillMaxSize()) {
+        // ...Your finished strokes Canvas, with regular transform applied
+
+        // 3. Pass the matrix to InProgressStrokes.
+        InProgressStrokes(
+            modifier = Modifier.fillMaxSize(),
+            pointerEventToWorldTransform = pointerEventToWorldTransform,
+            defaultBrush = currentBrush,
+            nextBrush = onGetNextBrush,
+            onStrokesFinished = onStrokesFinished
+        )
+    }
+}
+```
+
+**Note:** For details on implementing the gestures themselves, refer to the Jetpack
+Compose documentation for [detectTransformGestures](/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.input.pointer.PointerInputScope).detectTransformGestures(kotlin.Boolean,kotlin.Function4)).
 
 #### Export strokes
 
@@ -126,34 +149,36 @@ or saving a final, uneditable version of the content.
 
 To export a scene, you can render your strokes to an offscreen bitmap instead of
 directly to the screen. Use
-[`Android's Picture API`](https://developer.android.com/reference/android/graphics/Picture), which lets you record drawings on a canvas without
+[`Android's Picture API`](/reference/android/graphics/Picture), which lets you record drawings on a canvas without
 needing a visible UI component.
 
 The process involves creating a `Picture` instance, calling `beginRecording()`
 to get a `Canvas`, and then using your existing `CanvasStrokeRenderer` to draw
 each stroke onto that `Canvas`. After you record all the drawing commands, you
-can use the `Picture` to create a [`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap),
+can use the `Picture` to create a [`Bitmap`](/reference/android/graphics/Bitmap),
 which you can then compress and save to a file.
 
-    fun exportDocumentAsImage() {
-      val picture = Picture()
-      val canvas = picture.beginRecording(bitmapWidth, bitmapHeight)
+```
+fun exportDocumentAsImage() {
+  val picture = Picture()
+  val canvas = picture.beginRecording(bitmapWidth, bitmapHeight)
 
-      // The following is similar logic that you'd use in your custom View.onDraw or Compose Canvas.
-      for (item in myDocument) {
-        when (item) {
-          is Stroke -> {
-            canvasStrokeRenderer.draw(canvas, stroke, worldToScreenTransform)
-          }
-          // Draw your other types of items to the canvas.
-        }
+  // The following is similar logic that you'd use in your custom View.onDraw or Compose Canvas.
+  for (item in myDocument) {
+    when (item) {
+      is Stroke -> {
+        canvasStrokeRenderer.draw(canvas, stroke, worldToScreenTransform)
       }
-
-      // Create a Bitmap from the Picture and write it to a file.
-      val bitmap = Bitmap.createBitmap(picture)
-      val outstream = FileOutputStream(filename)
-      bitmap.compress(Bitmap.CompressFormat.PNG, 100, outstream)
+      // Draw your other types of items to the canvas.
     }
+  }
+
+  // Create a Bitmap from the Picture and write it to a file.
+  val bitmap = Bitmap.createBitmap(picture)
+  val outstream = FileOutputStream(filename)
+  bitmap.compress(Bitmap.CompressFormat.PNG, 100, outstream)
+}
+```
 
 #### Data object and converter helpers
 
@@ -163,101 +188,105 @@ Use the Ink API's storage module to encode and decode `StrokeInputBatch`.
 
 ##### Data transfer objects
 
-    @Parcelize
-    @Serializable
-    data class SerializedStroke(
-      val inputs: ByteArray,
-      val brush: SerializedBrush
-    ) : Parcelable {
-      override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is SerializedStroke) return false
-        if (!inputs.contentEquals(other.inputs)) return false
-        if (brush != other.brush) return false
-        return true
-      }
+```
+@Parcelize
+@Serializable
+data class SerializedStroke(
+  val inputs: ByteArray,
+  val brush: SerializedBrush
+) : Parcelable {
+  override fun equals(other: Any?): Boolean {
+    if (this === other) return true
+    if (other !is SerializedStroke) return false
+    if (!inputs.contentEquals(other.inputs)) return false
+    if (brush != other.brush) return false
+    return true
+  }
 
-      override fun hashCode(): Int {
-        var result = inputs.contentHashCode()
-        result = 31 * result + brush.hashCode()
-        return result
-      }
-    }
+  override fun hashCode(): Int {
+    var result = inputs.contentHashCode()
+    result = 31 * result + brush.hashCode()
+    return result
+  }
+}
 
-    @Parcelize
-    @Serializable
-    data class SerializedBrush(
-      val size: Float,
-      val color: Long,
-      val epsilon: Float,
-      val stockBrush: SerializedStockBrush,
-      val clientBrushFamilyId: String? = null
-    ) : Parcelable
+@Parcelize
+@Serializable
+data class SerializedBrush(
+  val size: Float,
+  val color: Long,
+  val epsilon: Float,
+  val stockBrush: SerializedStockBrush,
+  val clientBrushFamilyId: String? = null
+) : Parcelable
 
-    enum class SerializedStockBrush {
-      Marker,
-      PressurePen,
-      Highlighter,
-      DashedLine,
-    }
+enum class SerializedStockBrush {
+  Marker,
+  PressurePen,
+  Highlighter,
+  DashedLine,
+}
+```
 
 ##### Converters
 
-    object Converters {
-      private val stockBrushToEnumValues = mapOf(
-        StockBrushes.marker() to SerializedStockBrush.Marker,
-        StockBrushes.pressurePen() to SerializedStockBrush.PressurePen,
-        StockBrushes.highlighter() to SerializedStockBrush.Highlighter,
-        StockBrushes.dashedLine() to SerializedStockBrush.DashedLine,
-      )
+```
+object Converters {
+  private val stockBrushToEnumValues = mapOf(
+    StockBrushes.marker() to SerializedStockBrush.Marker,
+    StockBrushes.pressurePen() to SerializedStockBrush.PressurePen,
+    StockBrushes.highlighter() to SerializedStockBrush.Highlighter,
+    StockBrushes.dashedLine() to SerializedStockBrush.DashedLine,
+  )
 
-      private val enumToStockBrush =
-        stockBrushToEnumValues.entries.associate { (key, value) -> value to key
-      }
+  private val enumToStockBrush =
+    stockBrushToEnumValues.entries.associate { (key, value) -> value to key
+  }
 
-      private fun serializeBrush(brush: Brush): SerializedBrush {
-        return SerializedBrush(
-          size = brush.size,
-          color = brush.colorLong,
-          epsilon = brush.epsilon,
-          stockBrush = stockBrushToEnumValues[brush.family] ?: SerializedStockBrush.Marker,
-        )
-      }
+  private fun serializeBrush(brush: Brush): SerializedBrush {
+    return SerializedBrush(
+      size = brush.size,
+      color = brush.colorLong,
+      epsilon = brush.epsilon,
+      stockBrush = stockBrushToEnumValues[brush.family] ?: SerializedStockBrush.Marker,
+    )
+  }
 
-      fun serializeStroke(stroke: Stroke): SerializedStroke {
-        val serializedBrush = serializeBrush(stroke.brush)
-        val encodedSerializedInputs = ByteArrayOutputStream().use { outputStream ->
-          stroke.inputs.encode(outputStream)
-          outputStream.toByteArray()
-        }
-
-        return SerializedStroke(
-          inputs = encodedSerializedInputs,
-          brush = serializedBrush
-        )
-      }
-
-      private fun deserializeStroke(
-        serializedStroke: SerializedStroke,
-      ): Stroke? {
-        val inputs = ByteArrayInputStream(serializedStroke.inputs).use { inputStream ->
-            StrokeInputBatch.decode(inputStream)
-        }
-        val brush = deserializeBrush(serializedStroke.brush, customBrushes)
-        return Stroke(brush = brush, inputs = inputs)
-      }
-
-      private fun deserializeBrush(
-        serializedBrush: SerializedBrush,
-      ): Brush {
-        val stockBrushFamily = enumToStockBrush[serializedBrush.stockBrush]
-        val brushFamily = customBrush?.brushFamily ?: stockBrushFamily ?: StockBrushes.marker()
-
-        return Brush.createWithColorLong(
-          family = brushFamily,
-          colorLong = serializedBrush.color,
-          size = serializedBrush.size,
-          epsilon = serializedBrush.epsilon,
-        )
-      }
+  fun serializeStroke(stroke: Stroke): SerializedStroke {
+    val serializedBrush = serializeBrush(stroke.brush)
+    val encodedSerializedInputs = ByteArrayOutputStream().use { outputStream ->
+      stroke.inputs.encode(outputStream)
+      outputStream.toByteArray()
     }
+
+    return SerializedStroke(
+      inputs = encodedSerializedInputs,
+      brush = serializedBrush
+    )
+  }
+
+  private fun deserializeStroke(
+    serializedStroke: SerializedStroke,
+  ): Stroke? {
+    val inputs = ByteArrayInputStream(serializedStroke.inputs).use { inputStream ->
+        StrokeInputBatch.decode(inputStream)
+    }
+    val brush = deserializeBrush(serializedStroke.brush, customBrushes)
+    return Stroke(brush = brush, inputs = inputs)
+  }
+
+  private fun deserializeBrush(
+    serializedBrush: SerializedBrush,
+  ): Brush {
+    val stockBrushFamily = enumToStockBrush[serializedBrush.stockBrush]
+    val brushFamily = customBrush?.brushFamily ?: stockBrushFamily ?: StockBrushes.marker()
+
+    return Brush.createWithColorLong(
+      family = brushFamily,
+      colorLong = serializedBrush.color,
+      size = serializedBrush.size,
+      epsilon = serializedBrush.epsilon,
+    )
+  }
+}
+```

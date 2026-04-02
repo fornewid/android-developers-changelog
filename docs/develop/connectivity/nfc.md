@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Near Field Communication (NFC) is a set of short-range wireless technologies,
 typically requiring a distance of 4 cm or less to initiate a connection. NFC
 lets you share small payloads of data between an NFC tag and an

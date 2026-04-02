@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 You can let users add a stop while driving without losing the view of their
 current route. Transition from the
 [Navigation template](/design/ui/cars/guides/templates/navigation-template)

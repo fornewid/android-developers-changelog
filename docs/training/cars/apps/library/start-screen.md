@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To create the screens displayed by your app, you define the classes that extend
 the `Screen` class and implement its [`onGetTemplate`](/reference/androidx/car/app/Screen#onGetTemplate()) method to return the
 [`Template`](/reference/androidx/car/app/model/Template) instance that represents the state of the UI to display in the

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Many apps use Hilt to inject different behaviors to different build variants.
 This can be particularly useful when Microbenchmarking your app because it lets
 you switch out a component that can skew the results. For example, the following

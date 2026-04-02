@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 There are a few additional ways you can configure a device's camera with
 `ImageCapture`. You do so with `ImageCapture.Builder` methods.
 

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 CameraX provides an Extensions API for accessing [extensions](/training/camera/camera-extensions) that device manufacturers have implemented on various Android devices. For a list of supported extension modes, see [Camera extensions](/training/camera/camera-extensions).
 
 For a list of devices that support extensions, see [Supported devices](/training/camera/supported-devices).

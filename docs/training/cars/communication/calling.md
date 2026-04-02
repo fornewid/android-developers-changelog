@@ -1,27 +1,43 @@
 ---
-title: https://developer.android.com/training/cars/communication/calling
+title: Build calling experiences for Android Auto  |  Android for Cars  |  Android Developers
 url: https://developer.android.com/training/cars/communication/calling
-source: md.txt
+source: html-scrape
 ---
 
-Calling experiences are in beta At this time, anyone can publish communication apps with calling experiences to internal testing and closed testing tracks on the Play Store. Publishing to open testing and production tracks will be permitted at a later date. [Nominate yourself to be an early access partner →](https://forms.gle/VsXEdDEBidxw8q8u8) ![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android for Cars](https://developer.android.com/training/cars)
+
+# Build calling experiences for Android Auto Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+Calling experiences are in beta
+
+At this time, anyone can publish communication apps with calling experiences to internal testing and closed testing tracks on the Play Store. Publishing to open testing and production tracks will be permitted at a later date.
+
+[Nominate yourself to be an early access partner →](https://forms.gle/VsXEdDEBidxw8q8u8)
+
+![](/static/images/picto-icons/test-tube-2.svg)
 
 Apps that support making voice calls can improve their experience on Android
-Auto by integrating with the [Telecom Jetpack library](https://developer.android.com/develop/connectivity/telecom) and
+Auto by integrating with the [Telecom Jetpack library](/develop/connectivity/telecom) and
 providing a templated user interface built using the [Android for Cars App
-Library](https://developer.android.com/training/cars/apps).
+Library](/training/cars/apps).
 
 ## Integrate with the Jetpack Telecom library
 
 To support answering and controlling calls on Android Auto, your app must
 integrate with the Telecom Jetpack library as described in [Build a calling
-app](https://developer.android.com/develop/connectivity/telecom/voip-app). In particular, your app must support the callbacks
-described in [Remote surface support](https://developer.android.com/develop/connectivity/telecom/voip-app/telecom#remote-surface-support). Your app must also use
+app](/develop/connectivity/telecom/voip-app). In particular, your app must support the callbacks
+described in [Remote surface support](/develop/connectivity/telecom/voip-app/telecom#remote-surface-support). Your app must also use
 its telecom integration at all times, not just when a user's phone is running
 Android Auto.
 
-> [!IMPORTANT]
-> **Important:** Additional requirements for your app's telecom integration will be provided in this guide soon.
+**Important:** Additional requirements for your app's telecom integration will be
+provided in this guide soon.
 
 ## Build a templated calling experience
 
@@ -33,8 +49,8 @@ of upcoming calls, a call log, and more. While a call is ongoing, Android Auto
 automatically displays its in-call view for the duration of the call, replacing
 your app's templated screens.
 
-Follow the guidance in [Use the Android for Cars App Library](https://developer.android.com/training/cars/apps) and [Add
-support for Android Auto to your templated app](https://developer.android.com/training/cars/apps/auto) to get started
+Follow the guidance in [Use the Android for Cars App Library](/training/cars/apps) and [Add
+support for Android Auto to your templated app](/training/cars/apps/auto) to get started
 building your app's templated experience. Then, refer to the guidance on this
 page to understand the specific requirements for calling apps.
 
@@ -46,25 +62,28 @@ following:
 #### Declare category support in your manifest
 
 Your app needs to declare the `androidx.car.app.category.CALLING`
-[car app category](https://developer.android.com/training/cars/apps#supported-app-categories) in the intent
-filter of its [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService).
+[car app category](/training/cars/apps#supported-app-categories) in the intent
+filter of its [`CarAppService`](/reference/androidx/car/app/CarAppService).
 
-    <application>
-        ...
-       <service
-           ...
-            android:name=".MyCarAppService"
-            android:exported="true">
-          <intent-filter>
-            <action android:name="androidx.car.app.CarAppService" />
-            <category android:name="androidx.car.app.category.CALLING"/>
-          </intent-filter>
-        </service>
-        ...
-    <application>
+```
+<application>
+    ...
+   <service
+       ...
+        android:name=".MyCarAppService"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="androidx.car.app.CarAppService" />
+        <category android:name="androidx.car.app.category.CALLING"/>
+      </intent-filter>
+    </service>
+    ...
+<application>
+```
 
-> [!IMPORTANT]
-> **Important:** If your app supports both calling and [messaging](https://developer.android.com/training/cars/communication/messaging), include both `androidx.car.app.category.CALLING` and `androidx.car.app.category.MESSAGING` `<category>` elements in the same intent filter.
+**Important:** If your app supports both calling and [messaging](/training/cars/communication/messaging), include both
+`androidx.car.app.category.CALLING` and `androidx.car.app.category.MESSAGING`
+`<category>` elements in the same intent filter.
 
 ## Distribute calling apps
 

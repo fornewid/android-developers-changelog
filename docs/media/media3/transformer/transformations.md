@@ -15,7 +15,6 @@ Media3 Transformer is actively under development and we are looking to hear from
 
 
 
-
 clips, apply video effects, and optimize exports.
 keywords\_public: Media3, Transformer, transcode, video editing, trimming, audio
 processing, Android media

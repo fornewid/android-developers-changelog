@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **OWASP category:** [MASVS-STORAGE: Storage](https://mas.owasp.org/MASVS/05-MASVS-STORAGE)
 
 ## Overview

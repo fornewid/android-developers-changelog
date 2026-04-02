@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This page describes how to enable Google Play Games Services features for your
 game in Google Play Console.
 
@@ -107,8 +106,6 @@ To edit Play Games Services settings within Play Console, you must ensure that
 your team has the right permissions to manage Play Game Services. See
 [Add developer account users and manage permissions](https://support.google.com/googleplay/android-developer/answer/9844686)
 for more information about permissions in Play Console.
-
-
 
 
 

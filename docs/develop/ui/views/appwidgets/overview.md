@@ -1,26 +1,12 @@
 ---
-title: App widgets overview  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/appwidgets/overview
 url: https://developer.android.com/develop/ui/views/appwidgets/overview
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs. [Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
-# App widgets overview Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-Try the Compose way
-
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to build widgets using Compose-style APIs.
-
-[Jetpack Glance →](https://developer.android.com/develop/ui/compose/glance)
-
-![](/static/images/android-compose-ui-logo.png)
+<br />
 
 Widgets are an essential aspect of home screen customization. You can think of
 them as "at-a-glance" views of an app's most important data and functionality
@@ -30,9 +16,9 @@ amount of information in the widget to their preference.
 
 This documentation introduces the different types of widgets you can create and
 the design principles to follow. To build an app widget using the Remote View
-APIs and XML layouts, see [Create a simple widget](/guide/topics/appwidgets). To
+APIs and XML layouts, see [Create a simple widget](https://developer.android.com/guide/topics/appwidgets). To
 build a widget using Kotlin and Compose style APIs, see
-[Jetpack Glance](/jetpack/compose/glance).
+[Jetpack Glance](https://developer.android.com/jetpack/compose/glance).
 
 ## Widget types
 
@@ -42,11 +28,8 @@ Widgets typically fall into one of the following categories:
 ### Information widgets
 
 ![Example weather widget displaying Tokyo as mostly
-            cloudy, 14 degrees, and the projected temperature beginning at
-            4pm through 7pm](/static/images/appwidgets/weather-size-5x2.png)
-
-
-**Figure 1.** An information widget from a weather app.
+cloudy, 14 degrees, and the projected temperature beginning at
+4pm through 7pm](https://developer.android.com/static/images/appwidgets/weather-size-5x2.png) **Figure 1.** An information widget from a weather app.
 
 Information widgets typically display crucial information elements and track how
 that information changes over time. Examples of information widgets are weather
@@ -63,20 +46,15 @@ Collection widgets can scroll vertically.
 
 Collection widgets typically focus on the following use cases:
 
-* Browsing the collection.
-* Opening an element of the collection to its detail view in the associated
-  app.
-* Interacting with elements, such as marking them done—with support for
-  compound buttons in Android 12 (API level 31).
+- Browsing the collection.
+- Opening an element of the collection to its detail view in the associated app.
+- Interacting with elements, such as marking them done---with support for compound buttons in Android 12 (API level 31).
 
 ### Control widgets
 
 ![A widget for an app called 'Light list,' displaying toggle switches
-            labeled 'Bedroom,' 'Kitchen', and 'Living room,' with the first two
-            toggle switches turned off](/static/images/appwidgets/light-list.png)
-
-
-**Figure 4.** Example of a control widget.
+labeled 'Bedroom,' 'Kitchen', and 'Living room,' with the first two
+toggle switches turned off](https://developer.android.com/static/images/appwidgets/light-list.png) **Figure 4.** Example of a control widget.
 
 The main purpose of a control widget is to display frequently used functions so
 that the user can trigger them from the home screen without having to open the
@@ -91,14 +69,11 @@ such as in the case of a search widget.
 ### Hybrid widgets
 
 ![A general music app showing buttons for 'thumbs
-            down,' back, play/pause, forward, and 'thumbs up.' The artist and
-            track are listed as 'Artist' and 'Example music,' respectively.](/static/images/appwidgets/music.png)
-
-
-**Figure 5.** Example of a music app widget.
+down,' back, play/pause, forward, and 'thumbs up.' The artist and
+track are listed as 'Artist' and 'Example music,' respectively.](https://developer.android.com/static/images/appwidgets/music.png) **Figure 5.** Example of a music app widget.
 
 While some widgets represent one of the types in the preceding
-sections—information, collection, or control—many widgets are
+sections---information, collection, or control---many widgets are
 hybrids that combine elements of different types. For example, a music player
 widget is primarily a control widget, but it also shows the user what track is
 currently playing, like an information widget.
@@ -110,13 +85,13 @@ of other types as needed.
 
 Any type of widget can be displayed by Google Assistant in response to user
 voice commands. You can configure your widgets to fulfill [App
-Actions](//developers.google.com/assistant/app), enabling users to
+Actions](https://developers.google.com/assistant/app), enabling users to
 receive quick answers and interactive app experiences on Assistant surfaces like
 Android and [Android
 Auto](https://developers.google.com/cars/design/android-auto/product-experience/system-ui/widgets).
 For more details on widget fulfillment for Assistant, see [Integrate App Actions
 with Android
-widgets](//developers.google.com/assistant/app/widgets).
+widgets](https://developers.google.com/assistant/app/widgets).
 
 ## Widget limitations
 
@@ -138,8 +113,8 @@ The only gestures available for widgets are **touch** and **vertical swipe**.
 Given the limitations on gestures available for widgets, some UI building blocks
 that rely on restricted gestures are not available for widgets. For a complete
 list of supported building blocks and more information on layout restrictions,
-see [Create the widget layout](/guide/topics/appwidgets#layout) and [Provide flexible widget
-layouts](/guide/topics/appwidgets/layouts).
+see [Create the widget layout](https://developer.android.com/guide/topics/appwidgets#layout) and [Provide flexible widget
+layouts](https://developer.android.com/guide/topics/appwidgets/layouts).
 
 ## Design guidelines
 
@@ -163,9 +138,10 @@ screen.
 
 Good candidates for navigation links on widgets are:
 
-* **Generative functions:** these are the functions that let the user create
+- **Generative functions:** these are the functions that let the user create
   new content for an app, such as creating a new document or a new message.
-* **Open the app at the top level:** tapping an information element usually
+
+- **Open the app at the top level:** tapping an information element usually
   navigates the user to a lower-level detail screen. Providing access to the
   top level of your application offers more navigation flexibility and can
   replace a dedicated app shortcut that users otherwise use to navigate to the
@@ -175,12 +151,9 @@ Good candidates for navigation links on widgets are:
 
 ### Widget resizing
 
-![Standard Google Clock widget](/static/images/appwidgets/clock.png)
+![Standard Google Clock widget](https://developer.android.com/static/images/appwidgets/clock.png) **Figure 6.** Standard Google Clock widget.
 
-
-**Figure 6.** Standard Google Clock widget.
-
-Touching & holding a resizable widget and then releasing it puts the widget into
+Touching \& holding a resizable widget and then releasing it puts the widget into
 resize mode. Users can use the drag handles or the widget corners to set their
 preferred size.
 
@@ -192,9 +165,8 @@ fixed-size.
 
 Letting users resize widgets has important benefits:
 
-* They can fine-tune how much information they want to see on each widget.
-* They can better influence the layout of widgets and shortcuts on their home
-  panels.
+- They can fine-tune how much information they want to see on each widget.
+- They can better influence the layout of widgets and shortcuts on their home panels.
 
 Plan a resize strategy for your widget according to the type of widget you're
 creating. List- or grid-based collection widgets are usually straightforward,
@@ -210,27 +182,21 @@ resize operation.
 In the example that follows, the user can resize a weather widget in three
 steps, exposing richer information about the weather at the current location as
 the widget grows.
-
 ![Example weather widget in the smallest 3x2-grid size, and listing the
-            location name (Tokyo), temperature (14°), and symbol indicating
-            partially cloudy weather](/static/images/appwidgets/weather-size-3x2.png)
+location name (Tokyo), temperature (14°), and symbol indicating
+partially cloudy weather](https://developer.android.com/static/images/appwidgets/weather-size-3x2.png) **Figure 7.** Example weather widget in a 3x2-grid 'small' size.
 
-
-**Figure 7.** Example weather widget in a 3x2-grid 'small' size.
+<br />
 
 ![Example weather widget in a 5x2 'medium' size, including all of the
-            UI from the 3x2-grid size plus the label 'mostly cloudy' and
-            forecast temperatures from 4pm through 7pm](/static/images/appwidgets/weather-size-5x2.png)
+UI from the 3x2-grid size plus the label 'mostly cloudy' and
+forecast temperatures from 4pm through 7pm](https://developer.android.com/static/images/appwidgets/weather-size-5x2.png) **Figure 8.** Example weather widget in a 5x2-grid 'medium' size.
 
-
-**Figure 8.** Example weather widget in a 5x2-grid 'medium' size.
+<br />
 
 ![Example weather widget in a 5x4 'large' size, including all of the UI
-            from the 3x2- and 5x2-grid sizes plus a forecast of the weather
-            from Tuesday through Friday](/static/images/appwidgets/weather-size-5x4.png)
-
-
-**Figure 9.** Example weather widget in the 5x4-grid 'large' size.
+from the 3x2- and 5x2-grid sizes plus a forecast of the weather
+from Tuesday through Friday](https://developer.android.com/static/images/appwidgets/weather-size-5x4.png) **Figure 9.** Example weather widget in the 5x4-grid 'large' size.
 
 For each widget size, determine how much of your app's information is displayed.
 For smaller sizes, concentrate on essential information, and then add contextual
@@ -242,27 +208,16 @@ It's tempting to lay out your widgets according to the dimensions of the
 placement grid of a device that you develop with. This can be a useful initial
 approximation, but keep the following points in mind:
 
-* Planning your widget resizing strategy across "size buckets" rather than
-  variable grid dimensions gives you the most reliable results.
-* The number, size, and spacing of cells can vary widely from device to
-  device. Hence, it is very important that your widget is flexible and can
-  accommodate more or less space than anticipated.
-* As the user resizes a widget, the system responds with a dp size range in
-  which your widget can redraw itself.
-* Starting in Android 12, you can provide more refined size
-  attributes and more flexible layouts. This includes:
-  + [Specifying widget size
-    constraints](/guide/topics/appwidgets/layouts#specify-widget-size-constraints). For example,
-    you can specify the target size for your widget—in grid
-    cells—as well as the maximum possible size.
-  + Providing [responsive layouts](/guide/topics/appwidgets/layouts#provide-responsive-layouts),
-    which change depending on the size of the widget.
-  + Providing [exact-size layouts](/guide/topics/appwidgets/layouts#provide-exact-layouts), which
-    let the launcher respond with size options for portrait and landscape
-    mode, for phones, or with four sizes for foldables.
-  + Using [updated guidance and new
-    APIs](/guide/topics/appwidgets/layouts#anatomy_determining_size) to determine proper sizes
-    for your widget.
+- Planning your widget resizing strategy across "size buckets" rather than variable grid dimensions gives you the most reliable results.
+- The number, size, and spacing of cells can vary widely from device to device. Hence, it is very important that your widget is flexible and can accommodate more or less space than anticipated.
+- As the user resizes a widget, the system responds with a dp size range in which your widget can redraw itself.
+- Starting in Android 12, you can provide more refined size attributes and more flexible layouts. This includes:
+  - [Specifying widget size
+    constraints](https://developer.android.com/guide/topics/appwidgets/layouts#specify-widget-size-constraints). For example, you can specify the target size for your widget---in grid cells---as well as the maximum possible size.
+  - Providing [responsive layouts](https://developer.android.com/guide/topics/appwidgets/layouts#provide-responsive-layouts), which change depending on the size of the widget.
+  - Providing [exact-size layouts](https://developer.android.com/guide/topics/appwidgets/layouts#provide-exact-layouts), which let the launcher respond with size options for portrait and landscape mode, for phones, or with four sizes for foldables.
+  - Using [updated guidance and new
+    APIs](https://developer.android.com/guide/topics/appwidgets/layouts#anatomy_determining_size) to determine proper sizes for your widget.
 
 ### Widget configuration by users
 
@@ -272,17 +227,14 @@ the inbox can be displayed or a static photo widget where the user has to assign
 a picture from the gallery to be displayed. Android widgets display their
 configuration choices right after the user drops the widget onto a home screen.
 
-**Note:** Android 12 adds new options to let you provide a more
-seamless configuration experience for users. See [Enable users to configure app
-widgets](/guide/topics/appwidgets/configuration) for details on letting users
-reconfigure already-placed widgets and skip the default configuration step.
+> [!NOTE]
+> **Note:** Android 12 adds new options to let you provide a more seamless configuration experience for users. See [Enable users to configure app
+> widgets](https://developer.android.com/guide/topics/appwidgets/configuration) for details on letting users reconfigure already-placed widgets and skip the default configuration step.
 
 ## Widget design checklist
 
-* Focus on small portions of glanceable information on your widget. Expand on
-  the information in your app.
-* Choose the right widget type for your purpose.
-* Plan how the content for your widget adapts to different sizes.
-* Make your widget layout independent of orientation and device by making sure
-  the layout can stretch and contract.
-* Consider whether your widget needs any additional configuration.
+- Focus on small portions of glanceable information on your widget. Expand on the information in your app.
+- Choose the right widget type for your purpose.
+- Plan how the content for your widget adapts to different sizes.
+- Make your widget layout independent of orientation and device by making sure the layout can stretch and contract.
+- Consider whether your widget needs any additional configuration.

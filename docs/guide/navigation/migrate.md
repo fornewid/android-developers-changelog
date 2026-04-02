@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The [Navigation component](/topic/libraries/architecture/navigation) is a
 library that can manage complex navigation, transition animation, deep linking,
 and compile-time checked argument passing between the screens in your app.

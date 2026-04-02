@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page covers the architecture of CameraX, including its structure, how to work with the API, how to work with lifecycles, and how to combine use cases.
 
 ## CameraX structure

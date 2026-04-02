@@ -1,19 +1,8 @@
 ---
-title: Test your integration with the Health Connect Toolbox  |  Android health & fitness  |  Android Developers
+title: https://developer.android.com/health-and-fitness/health-connect/test/health-connect-toolbox
 url: https://developer.android.com/health-and-fitness/health-connect/test/health-connect-toolbox
-source: html-scrape
+source: md.txt
 ---
-
-Starting in 2026, we'll be transitioning away from Google Fit APIs. For more information on the Google Fit migration, see the [Migration Guide](/health-and-fitness/guides/health-connect/migrate/migration-guide).
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Health & fitness dev center](https://developer.android.com/health-and-fitness)
-* [Health Connect Guides](https://developer.android.com/health-and-fitness/health-connect)
-
-# Test your integration with the Health Connect Toolbox Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 The Health Connect Toolbox is a companion developer tool to help you test
 your app's integration with Health Connect. It can read and write data directly
@@ -26,20 +15,15 @@ Extract the ZIP file to get the APK files. Then, to install the Toolbox APK on
 a connected device, use `adb`. Navigate to the folder where the APK is located
 and run the following command:
 
-```
-$ adb install HealthConnectToolbox-{Version Number}.apk
-```
+    $ adb install HealthConnectToolbox-{Version Number}.apk
 
-**Note:** The Health Connect Toolbox is actively maintained and the
-`{Version Number}` is expected to be updated with each release. Review the
-extracted APK from your downloaded ZIP file and make the appropriate changes to
-the command.
+| **Note:** The Health Connect Toolbox is actively maintained and the `{Version Number}` is expected to be updated with each release. Review the extracted APK from your downloaded ZIP file and make the appropriate changes to the command.
 
 To manage read and write permissions for testing, open the Health
 Connect app from either the main screen of the Toolbox app or go directly to
 the permission flow.
 
-![The Health Connect Toolbox app is shown as a full user interface.](/static/health-and-fitness/health-connect/images/toolbox-homescreen.png)
+![The Health Connect Toolbox app is shown as a full user interface.](https://developer.android.com/static/health-and-fitness/health-connect/images/toolbox-homescreen.png)
 
 ## Read and write health records
 
@@ -61,4 +45,4 @@ To read the health records from other apps:
 3. Select the time period for query.
 4. Tap the **READ** button.
 
-![One screenshot showing inserting data from toolbox. Another screenshot showing reading data from toolbox.](/static/health-and-fitness/health-connect/images/toolbox-read-write-data.png)
+![One screenshot showing inserting data from toolbox. Another screenshot showing reading data from toolbox.](https://developer.android.com/static/health-and-fitness/health-connect/images/toolbox-read-write-data.png)

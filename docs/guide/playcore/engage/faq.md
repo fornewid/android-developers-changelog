@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/guide/playcore/engage/faq
+title: Engage SDK Frequently asked questions  |  Other Play guides  |  Android Developers
 url: https://developer.android.com/guide/playcore/engage/faq
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Other Play guides](https://developer.android.com/guide/app-bundle)
+
+# Engage SDK Frequently asked questions Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 ## Publish FAQs
 
@@ -48,34 +57,38 @@ trigger a data sync in cases where users might not use the app frequently.
 
 The verification app doesn't support testing broadcast intent with
 permission. You have to remove permissions while testing and
-add them back before switching the SDK to prod version in [Step 6](https://developer.android.com/guide/playcore/engage/workflow#switch-to-prod).
+add them back before switching the SDK to prod version in [Step 6](/guide/playcore/engage/workflow#switch-to-prod).
 
 #### Background execution not allowed
 
 While registering the broadcast intent, you may come across the following error:
 
-    Background execution not allowed: receiving Intent
-    { act=com.google.android.engage.action.PUBLISH_RECOMMENDATION .. }
+```
+Background execution not allowed: receiving Intent
+{ act=com.google.android.engage.action.PUBLISH_RECOMMENDATION .. }
+```
 
 You need to register the broadcast receivers dynamically.
 
-    class AppEngageBroadcastReceiver extends BroadcastReceiver {
-    // Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
-    // is received
-    }
+```
+class AppEngageBroadcastReceiver extends BroadcastReceiver {
+// Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
+// is received
+}
 
-    public static void registerBroadcastReceivers(Context context) {
+public static void registerBroadcastReceivers(Context context) {
 
-    context = context.getApplicationContext();
+context = context.getApplicationContext();
 
-    // Register Recommendation Cluster Publish Intent
-    context.registerReceiver(new AppEngageBroadcastReceiver(),
-                             new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_RECOMMENDATION,
-                             com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                             /*scheduler=*/null));
-    ...
+// Register Recommendation Cluster Publish Intent
+context.registerReceiver(new AppEngageBroadcastReceiver(),
+                         new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_RECOMMENDATION,
+                         com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                         /*scheduler=*/null));
+...
 
-    }
+}
+```
 
 ## Workflow FAQs
 
@@ -94,13 +107,15 @@ the APK.
 The deep links are associated with the package name. A good way to test
 deep links is using the adb tool.
 
-    adb shell am start -W -a android.intent.action.VIEW -d <DEEPLINK URI> <PACKAGE NAME>
+```
+adb shell am start -W -a android.intent.action.VIEW -d <DEEPLINK URI> <PACKAGE NAME>
+```
 
 #### How can I calculate the impact of the integration?
 
 The deep links are a great way to track the attribution. The deep link URLs
 that take users to your app can be included with additional tracking params.
-For example - "http://xx/deeplink?source_tag=engage".
+For example - "http://xx/deeplink?source\_tag=engage".
 
 Developers can add their own tracking params and provide attribution to
 calculate impact.
@@ -115,7 +130,7 @@ Continue Watching 2.0 (Video Discovery API) takes the "pick up where you left
 off" experience to the next level! It's a significant upgrade that allows
 viewers to seamlessly resume their content across a wider range of devices.
 Imagine starting a movie on your Google TV and then effortlessly continuing it
-on your phone during your commute -- that's the power of Continue Watching 2.0.
+on your phone during your commute – that's the power of Continue Watching 2.0.
 
 This new system is designed to boost viewer engagement and retention by
 providing a smooth, frictionless experience across the entire Google ecosystem.
@@ -126,10 +141,17 @@ Answer: Continue Watching 2.0 makes it easier than ever for viewers to pick up
 where they left off on your content, no matter what device they're using. Here's
 how it works:
 
-- Seamless experience across Google: Start watching on your Google TV, and continue seamlessly on your Android phone, iPhone, or Android tablet. It even works on devices where you haven't installed the app yet!
-- Increased engagement and retention: Continue Watching 2.0 helps bring users back to your app, even on new devices. By letting users resume their favorite shows, you increase the chances they'll keep watching.
-- Wider reach: Beyond Google TV, Continue Watching 2.0 works across other Android media experiences, like Play Cubes and other Google media apps.
-- Backward compatible: If you're already using the older "[Watch Next](https://developer.android.com/training/tv/discovery/watch-next-add-programs)" feature, no problem! Continue Watching 2.0 is backward compatible, so your existing integration will still work.
+* Seamless experience across Google: Start watching on your Google TV, and
+  continue seamlessly on your Android phone, iPhone, or Android tablet. It even
+  works on devices where you haven't installed the app yet!
+* Increased engagement and retention: Continue Watching 2.0 helps bring users
+  back to your app, even on new devices. By letting users resume their
+  favorite shows, you increase the chances they'll keep watching.
+* Wider reach: Beyond Google TV, Continue Watching 2.0 works across other
+  Android media experiences, like Play Cubes and other Google media apps.
+* Backward compatible: If you're already using the older "[Watch Next](/training/tv/discovery/watch-next-add-programs)"
+  feature, no problem! Continue Watching 2.0 is backward compatible, so your
+  existing integration will still work.
 
 Important Note: All new Continue Watching integrations must use Continue
 Watching 2.0. The older "Cross Device Play Next" system is being phased out.
@@ -153,8 +175,10 @@ with Continue Watching 2.0.
 
 Continue Watching 2.0 is being rolled out in phases.
 
-- Early Access: We're initially granting access to a select group of partners through an Early Access Program (EAP).
-- Expanding Access: We're working hard to make Continue Watching 2.0 available to all developers soon.
+* Early Access: We're initially granting access to a select group of partners
+  through an Early Access Program (EAP).
+* Expanding Access: We're working hard to make Continue Watching 2.0 available
+  to all developers soon.
 
 For a smooth and successful launch, we have safeguards in place to
 manage the rollout. This involves both an allowlist on the Continue Watching 2.0
@@ -164,28 +188,25 @@ permissions before you begin with Engage SDK integration.
 
 #### Is there a recommended image size we should provide?
 
-Image requirements have been updated in the [Create Entities](https://developer.android.com/guide/playcore/engage/watch#image-specs)
+Image requirements have been updated in the [Create Entities](/guide/playcore/engage/watch#image-specs)
 section.
 
 #### With this new API documentation, will the Continue Watching data pulled by the Google server from the client and will it be reflected in all the devices?
 
 The new API offers significant advantages for Continue Watching, including:
 
-- **Seamless experience across Google TVs:** Users can start watching on one
+* **Seamless experience across Google TVs:** Users can start watching on one
   Google TV and resume on any other Google TV logged in with the same account.
   This feature also works with older Android TV versions.
-
-- **Mobile app integration:** Continue Watching is available on the Google TV
+* **Mobile app integration:** Continue Watching is available on the Google TV
   mobile app for Android and iOS, allowing users to seamlessly switch between
   their TV and mobile devices.
-
-- **Enhanced user retention:** Even on devices without the app installed or
+* **Enhanced user retention:** Even on devices without the app installed or
   where the user isn't logged in, Continue Watching prompts users to re-engage
   with your app, boosting retention.
-
-- **Expansion to other platforms:** This integration extends Continue Watching
+* **Expansion to other platforms:** This integration extends Continue Watching
   to other Google media platforms like Android, Play Cubes, tablets, and other
-  Google media apps \& surfaces on Android, maximizing user engagement across
+  Google media apps & surfaces on Android, maximizing user engagement across
   devices.
 
 #### What is the limit on the number of entities I can publish to the Continuation cluster?
@@ -239,26 +260,36 @@ encounter:
 
 For all content types (movies, TV episodes, live streams, video clips):
 
-- Missing Links: Make sure you provide valid platform-specific URIs (links) for your content. These links tell the system where to find your content on each platform.
-- Missing Titles: Don't forget to include titles for all your content. This helps users identify what they were watching.
-- Image Aspect Ratios: Verify all images associated with your content have an aspect ratio close to 16:9. This makes sure your images display correctly on different screens.
+* Missing Links: Make sure you provide valid platform-specific URIs
+  (links) for your content. These links tell the system where to find
+  your content on each platform.
+* Missing Titles: Don't forget to include titles for all your
+  content. This helps users identify what they were watching.
+* Image Aspect Ratios: Verify all images associated with your
+  content have an aspect ratio close to 16:9. This makes sure your
+  images display correctly on different screens.
 
 For TV Episodes:
 
-- Complete Episode Information: Make sure to include the show title, episode number, and season number. This helps organize episodes and allows users to navigate within a series.
-- Accurate Playback Position: Double-check that the last playback position is less than or equal to the total duration of the episode. This makes sure users resume from the correct spot.
+* Complete Episode Information: Make sure to include the show title,
+  episode number, and season number. This helps organize episodes and
+  allows users to navigate within a series.
+* Accurate Playback Position: Double-check that the last playback position
+  is less than or equal to the total duration of the episode. This makes
+  sure users resume from the correct spot.
 
 For Movies:
 
-- Accurate Playback Position: Similar to TV episodes, verify the last playback position is accurate.
+* Accurate Playback Position: Similar to TV episodes, verify the last playback
+  position is accurate.
 
 For Live Streaming Videos:
 
-- Broadcaster Information: Include the broadcaster's name for live streams.
+* Broadcaster Information: Include the broadcaster's name for live streams.
 
 For Video Clips:
 
-- Creator Information: Specify the creator of the video clip.
+* Creator Information: Specify the creator of the video clip.
 
 Remember: The verification app will flag these issues, allowing you to fix them
 before submitting your app. This saves you time and ensures a smoother
@@ -272,9 +303,16 @@ AccountProfile is designed for apps that use individual user accounts. However,
 we understand that some apps, like yours, may rely on anonymous logins. Here's
 how Continue Watching 2.0 works in this scenario:
 
-- AccountProfile is technically required, but... you can still integrate Continue Watching 2.0 even if your app doesn't have a user account system.
-- Limited to on-device use: The cross-device capabilities of Continue Watching 2.0 relies on identifying users across different devices. Since anonymous logins don't provide this, the feature will be limited to the user's current device.
-- How to configure: To set this up, you'll need to disable cross-device syncing. This makes sure that Continue Watching entries only appear on the specific device where the content was started.
+* AccountProfile is technically required, but... you can still integrate
+  Continue Watching 2.0 even if your app doesn't have a user account
+  system.
+* Limited to on-device use: The cross-device capabilities of Continue
+  Watching 2.0 relies on identifying users across different devices. Since
+  anonymous logins don't provide this, the feature will be limited to the user's
+  current device.
+* How to configure: To set this up, you'll need to disable cross-device
+  syncing. This makes sure that Continue Watching entries only appear on the
+  specific device where the content was started.
 
 In summary: While you can integrate Continue Watching 2.0 with anonymous logins,
 users will only be able to resume content on the same device.
@@ -284,14 +322,29 @@ users will only be able to resume content on the same device.
 AccountProfile requires both accountId and profileId to function correctly.
 Here's why:
 
-- Consistent identification: accountId identifies the user, while profileId distinguishes between different profiles within that user's account (if applicable). Providing both makes sure that Continue Watching accurately tracks and displays content for each individual profile.
-- Preventing errors: Using accountId and profileId inconsistently across different API calls can lead to unexpected behavior and errors. For example, if you include both when adding content to Continue Watching but only use accountId when deleting content, the system may not be able to correctly identify and remove the intended items.
+* Consistent identification: accountId identifies the user, while profileId
+  distinguishes between different profiles within that user's account (if
+  applicable). Providing both makes sure that Continue Watching
+  accurately tracks
+  and displays content for each individual profile.
+* Preventing errors: Using accountId and profileId inconsistently across
+  different API calls can lead to unexpected behavior and errors. For example,
+  if you include both when adding content to Continue Watching but only use
+  accountId when deleting content, the system may not be able to correctly
+  identify and remove the intended items.
 
 #### Is profileId required for Continue Watching 2.0?
 
-- accountId is required. This identifies the user across devices.
-- profileId is crucial for a good user experience. While technically optional, profileId is strongly recommended if your service supports multiple profiles (like many streaming services do). Why is it so important? Because without profileId, Continue Watching may show content from other profiles on the same account. This can lead to a confusing and frustrating experience for your users.
-- In short: Providing profileId makes sure that Continue Watching accurately reflects each individual's viewing history. Unless your app doesn't support the concept of profile within an account, you should provide it.
+* accountId is required. This identifies the user across devices.
+* profileId is crucial for a good user experience. While technically optional,
+  profileId is strongly recommended if your service supports multiple profiles
+  (like many streaming services do).
+  Why is it so important? Because without profileId, Continue Watching may show
+  content from other profiles on the same account. This can lead to a confusing
+  and frustrating experience for your users.
+* In short: Providing profileId makes sure that Continue Watching accurately
+  reflects each individual's viewing history. Unless your app doesn't support
+  the concept of profile within an account, you should provide it.
 
 #### How does Google use the profileId on their side?
 
@@ -369,37 +422,61 @@ the content.
 The following are test cases for Google TV that our QA performs. Similar test
 cases can be performed on other surfaces as well.
 
-1. Watch a video, which is longer than 20 minutes for about 5 minutes. Exit app. The video card should be displayed in the "Continue Watching" row. Note: We only display 5 cards per 3p app in CW
-2. Selecting the newly appeared card in the "Continue Watching" row should continue playing the video from the right point in the video.Note: Any New or old content should resume playback from where it was left off last
-3. Changing accounts on the GTV device should change the cards on the Continue Watching row. Only videos from the current account should show up. Sorted in recent order. 3p app profile CW will be intermixed. Note: CW for GoogleAccount2 will show 3P contents that GoogleAccount2 was engaged watching
-4. Exit the app with BACK button \> Verify card is displayed in the "Continue watching" row
-5. Hide the video in the "Continue Watching" row, it shouldn't show again Test if hidden content stays hidden beyond 24 hours and even after the app opens after 24 hrs. Confirm hiding one item does not hide multiple items.
-6. Content availability in Continue watching with full metadata: Card image, App name, title, season episode # for TV contents
+1. Watch a video, which is longer than 20 minutes for about 5 minutes. Exit
+   app. The video card should be displayed in the "Continue Watching" row.
+   Note: We only display 5 cards per 3p app in CW
+2. Selecting the newly appeared card in the "Continue Watching" row should
+   continue playing the video from the right point in the video.Note: Any New or
+   old content should resume playback from where it was left off last
+3. Changing accounts on the GTV device should change the cards on the Continue
+   Watching row. Only videos from the current account should show up. Sorted in
+   recent order. 3p app profile CW will be intermixed. Note: CW for
+   GoogleAccount2 will show 3P contents that GoogleAccount2 was engaged watching
+4. Exit the app with BACK button > Verify card is displayed in the "Continue
+   watching" row
+5. Hide the video in the "Continue Watching" row, it shouldn't show again Test
+   if hidden content stays hidden beyond 24 hours and even after the app opens
+   after 24 hrs. Confirm hiding one item does not hide multiple items.
+6. Content availability in Continue watching with full metadata: Card image,
+   App name, title, season episode # for TV contents
 7. Check Progress displays in the progress bar
-8. User watched the content until ending credits - content does not display in Continue Watching
+8. User watched the content until ending credits - content does not display in
+   Continue Watching
 9. Confirm no unwatched items show up in continue watching row
-10. Confirm that the CW items are arranged chronologically based on when watch activity happened and not when the app was last opened or last day
-11. Confirm that episode and season details on CW card match what was watched on episodic content
-12. Confirm completed (items at credits or beyond) items don't show up in continue watching
-13. Turn off the device halfway through watching the episode/movie/show. "Turn off the device halfway through watching the episode/movie/show. Verify on turning on the device and on other TV, CW displays the right card , at the right position and progress bar"
+10. Confirm that the CW items are arranged chronologically based on when watch
+    activity happened and not when the app was last opened or last day
+11. Confirm that episode and season details on CW card match what was watched on
+    episodic content
+12. Confirm completed (items at credits or beyond) items don't show up in
+    continue watching
+13. Turn off the device halfway through watching the episode/movie/show. "Turn
+    off the device halfway through watching the episode/movie/show. Verify on
+    turning on the device and on other TV, CW displays the right card , at the
+    right position and progress bar"
 14. Turn off the device after completely watching episode 1, verify
-15. episode 1 drops and doesn't reappear in Continue Watching row \[on second device and on turning on the test device\]
-    1. episode 2 (if available), should appear in Continue Watching row \[on second device and on turning on the test device\]
-16. First scenario: TV1: GoogleAccount: mom, 3p account / profile: account 1 / profile_1. Watch content and verify CW data displays contents watched by 3P account_1/profile_1
+15. episode 1 drops and doesn't reappear in Continue Watching row [on second
+    device and on turning on the test device]
+    1. episode 2 (if available), should appear in Continue Watching row [on
+       second device and on turning on the test device]
+16. First scenario: TV1: GoogleAccount: mom, 3p account / profile: account 1 /
+    profile\_1. Watch content and verify CW data displays contents
+    watched by 3P account\_1/profile\_1
 17. TV2: GoogleAccount: mom. Verify CW data from the first scenario. Now login
     to the 3p app as a different account. 3p account / profile:
-    account_2 / profile_2. Watch content and verify CW data displays contents
-    watched by 3p account_2/profile_2
-
+    account\_2 / profile\_2. Watch content and verify CW data displays contents
+    watched by 3p account\_2/profile\_2
 18. GoogleAccount: mom. New device case /3P app not installed. On a new
     device(FDR the device), Verify CW displays data from the last used 3P app that
     was used by the GoogleAccount. Note: CW row shouldn't show 3P contents if the
     GAIA is not yet associated with a 3P profile on other device
 
-    1. GoogleAccount: mom. New device case /3P app installed but not logged in. On a new device(FDR the device), Verify CW displays data from the last used 3P app that was used by the GoogleAccount.
-19.
-    | **Note:** When the app is installed and logged in, the CW state would reflect the active 3P user logged into the 3P app.
-    1. Note: Continue Watching row shouldn't show 3P contents if the GoogleAccount is not yet associated with a 3P profile
+    1. GoogleAccount: mom. New device case /3P app installed but not logged in.
+       On a new device(FDR the device), Verify CW displays data from the last used
+       3P app that was used by the GoogleAccount.
+19. **Note:** When the app is installed and logged in, the CW state would reflect
+    the active 3P user logged into the 3P app.
+    1. Note: Continue Watching row shouldn't show 3P contents if the
+       GoogleAccount is not yet associated with a 3P profile
 
 #### We are not seeing Continue Watching showing up on Google TV iOS app. What happened?
 
@@ -410,26 +487,34 @@ devices.
 
 No, frequent updates are not recommended. Here's why:
 
-- Performance Impact: Continuously sending updates puts unnecessary strain on our servers, potentially slowing down the system for everyone.
-- Unnecessary Data: While a user is actively watching, their playback position changes constantly. Sending updates every few seconds creates a lot of redundant data that isn't helpful for resuming playback.
+* Performance Impact: Continuously sending updates puts unnecessary strain on
+  our servers, potentially slowing down the system for everyone.
+* Unnecessary Data: While a user is actively watching, their playback position
+  changes constantly. Sending updates every few seconds creates a lot of
+  redundant data that isn't helpful for resuming playback.
 
 When to update Continue Watching information:
 
 Focus on capturing meaningful changes in the user's viewing progress. Here are
 the key scenarios:
 
-- Playback Paused or Stopped: When a user pauses or stops watching, send an update to store their current position.
-- App Closed or Backgrounded: If a user exits the app or switches to another app while watching a video, send an update to save their progress.
-- When user removes an item from their continue watching row within app
+* Playback Paused or Stopped: When a user pauses or stops watching, send an
+  update to store their current position.
+* App Closed or Backgrounded: If a user exits the app or switches to another
+  app
+  while watching a video, send an update to save their progress.
+* When user removes an item from their continue watching row within app
 
 How to efficiently update:
 
 Instead of timed updates, utilize events within your video player or app
 lifecycle to trigger updates. For example:
 
-- onPause, onStop: When the video playback pauses or stops.
-- onAppClose, onAppBackgrounded: When the app closes or moves to the background.
+* onPause, onStop: When the video playback pauses or stops.
+* onAppClose, onAppBackgrounded: When the app closes or moves to the background.
 
 By following these guidelines, you'll ensure efficient use of resources while
 still providing a seamless Continue Watching experience for your users.
-| **Note:** Please contact [`engage-developers@google.com`](mailto:engage-developers@google.com) if you have any questions that are not covered here.
+
+**Note:** Please contact [`engage-developers@google.com`](mailto:engage-developers@google.com)
+if you have any questions that are not covered here.

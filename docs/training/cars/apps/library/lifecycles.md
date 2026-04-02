@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The [`Session`](/reference/androidx/car/app/Session) and [`Screen`](/reference/androidx/car/app/Screen) classes implement the [`LifecycleOwner`](/reference/androidx/lifecycle/LifecycleOwner)
 interface. As the user interacts with the app, lifecycle callbacks of your
 `Session` and `Screen` objects are invoked, as illustrated in Figures 1 and 2.

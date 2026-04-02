@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android Studio provides [full support for Kotlin](/kotlin), enabling you to add
 Kotlin files to your existing project and convert Java language code to Kotlin.
 You can then use all of Android Studio's existing tools with your Kotlin code,

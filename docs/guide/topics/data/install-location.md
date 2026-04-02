@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Beginning with API Level 8, you can allow your application to be installed on the
 external storage (for example, the device's SD card). This is an optional feature you can declare
 for your application with the [`android:installLocation`](/guide/topics/manifest/manifest-element#install) manifest attribute. If you do

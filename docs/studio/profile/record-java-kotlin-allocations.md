@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Recording Java/Kotlin allocations helps you identify undesirable memory patterns
 that might be causing performance problems. The profiler can show you the
 following about object allocations:

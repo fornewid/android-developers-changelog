@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 An app has poor performance if it responds slowly, shows choppy animations,
 freezes, or consumes too much power. Fixing performance problems involves
 *profiling* your app, or identifying areas in which your app makes inefficient

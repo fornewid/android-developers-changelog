@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Popular multi-platform game engines have supported Vulkan for some time.
 However, due to varying levels of device support, these game engines have
 implemented ways to allowlist good devices and denylist known bad devices.
@@ -48,8 +47,6 @@ to learn how to customize it. Remember to keep your `BaseDeviceProfile.ini` file
 updated. As new device drivers may fix previously known bad devices, you do not
 want to miss out on optimizations that you will get for free from the updated
 device drivers.
-
-
 
 
 

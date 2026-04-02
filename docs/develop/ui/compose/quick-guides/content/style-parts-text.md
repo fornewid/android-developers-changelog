@@ -1,28 +1,17 @@
 ---
-title: Style parts of text  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/quick-guides/content/style-parts-text
 url: https://developer.android.com/develop/ui/compose/quick-guides/content/style-parts-text
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
-
-# Style parts of text Stay organized with collections Save and categorize content based on your preferences.
-
-
+<br />
 
 You can style parts of text to improve readability, increase positive user
 experience, and encourage greater creativity through use of colors and fonts.
 
 ## Results
 
-![ Hello World text with multiple styles](/static/develop/ui/compose/quick-guides/content/style parts of a text display.png)
-
-
-**Figure 1.** A line of text with multiple styles.
+![Hello World text with multiple styles](https://developer.android.com/static/develop/ui/compose/quick-guides/content/style parts of a text display.png) **Figure 1.** A line of text with multiple styles.
 
 ## Version compatibility
 
@@ -31,13 +20,16 @@ higher.
 
 ### Dependencies
 
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/style-parts-text_504265100ae01120c9f8aa6e5287923881f65f7e4bc6b06f0aa1c8888205eb6f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+
 ## Style parts of text
 
 The following code displays the string "Hello World" using blue for the "H", red
 for the "W", and black for the rest of the text. To set different styles within
-a single [`Text`](/reference/kotlin/androidx/compose/material/Text.composable#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle)) composable, use the following code:
+a single [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle)) composable, use the following code:
 
-```
+
+```kotlin
 @Composable
 fun MultipleStylesInText() {
     Text(
@@ -54,38 +46,25 @@ fun MultipleStylesInText() {
         }
     )
 }
-
-TextSnippets.kt
 ```
+
+<br />
 
 ### Key points about the code
 
-* Uses [`buildAnnotatedString`](/reference/kotlin/androidx/compose/ui/text/package-summary#buildAnnotatedString(kotlin.Function1)) that returns an [`AnnotatedString`](/reference/kotlin/androidx/compose/ui/text/AnnotatedString)
-  string to set different styles within text.
-* Styles part of text with [`SpanStyle`](/reference/kotlin/androidx/compose/ui/text/SpanStyle), a configuration that allows
-  character-level styling.
+- Uses [`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary#buildAnnotatedString(kotlin.Function1)) that returns an [`AnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString) string to set different styles within text.
+- Styles part of text with [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle), a configuration that allows character-level styling.
 
 ## Collections that contain this guide
 
 This guide is part of these curated Quick Guide collections that cover
 broader Android development goals:
-
-![](/static/images/quick-guides/collection-illustration.png)
-
-![](/static/images/picto-icons/collection.svg)
+![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display text
 
-Text is a central piece of any UI. Find out different ways
-you can present text in your app to provide a delightful user experience.
-
-[Quick guide collection](/develop/ui/compose/quick-guides/collections/display-text)
-
-![](/static/images/picto-icons/help.svg)
+Text is a central piece of any UI. Find out different ways you can present text in your app to provide a delightful user experience. [Quick guide collection](https://developer.android.com/develop/ui/compose/quick-guides/collections/display-text) ![](https://developer.android.com/static/images/picto-icons/help.svg)
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.
-
-[Go to FAQ](/quick-guides/faq)
-[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

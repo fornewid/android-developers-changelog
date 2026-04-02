@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 A desktop experience is adaptive from the start, supporting a variety of sizes
 on connected displays or within windows. Support the full range of Android
 devices by creating an adaptive UI. Adaptive layouts are essential for desktop

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Improve battery efficiency of a Wear OS UI.
 
 ---

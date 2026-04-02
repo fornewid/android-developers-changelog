@@ -1,45 +1,35 @@
 ---
-title: Configure Baseline Profile generation  |  App quality  |  Android Developers
+title: https://developer.android.com/topic/performance/baselineprofiles/configure-baselineprofiles
 url: https://developer.android.com/topic/performance/baselineprofiles/configure-baselineprofiles
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App quality](https://developer.android.com/quality)
-* [Technical quality](https://developer.android.com/quality/technical)
-
-# Configure Baseline Profile generation Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 The Baseline Profile Gradle plugin makes it easier to generate and maintain
-[Baseline Profiles](/topic/performance/baselineprofiles/overview). It helps you
+[Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview). It helps you
 do the following tasks:
 
-* [Create new Baseline Profiles for your app](/topic/performance/baselineprofiles/create-baselineprofile#create-baselineprofile-plugin).
-* [Create new Baseline Profiles for your library](/topic/performance/baselineprofiles/create-baselineprofile-library).
-* Customize your Baseline Profile generation.
+- [Create new Baseline Profiles for your app](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-baselineprofile-plugin).
+- [Create new Baseline Profiles for your library](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile-library).
+- Customize your Baseline Profile generation.
 
 This page explains how to use the Baseline Profile Gradle plugin to customize
 the generation of your Baseline Profiles.
 
 ## Plugin requirements
 
-* AGP 8.0 or higher
-* Dependency on the
-  [latest Gradle plugin version](https://maven.google.com/web/index.html?q=benchmark#androidx.benchmark:benchmark-baseline-profile-gradle-plugin)
+- AGP 8.0 or higher
+- Dependency on the [latest Gradle plugin version](https://maven.google.com/web/index.html?q=benchmark#androidx.benchmark:benchmark-baseline-profile-gradle-plugin)
 
 ## Use a Gradle Managed Devices to generate Baseline Profiles
 
-To use a [Gradle Managed Device (GMD)](/studio/test/gradle-managed-devices) to
+To use a [Gradle Managed Device (GMD)](https://developer.android.com/studio/test/gradle-managed-devices) to
 generate your Baseline Profile, add one in the `build.gradle.kts` configuration
-of the profile producer module—likely the `:baselineprofile` test module—as
+of the profile producer module---likely the `:baselineprofile` test module---as
 shown in the following example:
 
 ### Kotlin
 
-```
+```kotlin
 android {
    testOptions.managedDevices.devices {
        create<com.android.build.api.dsl.ManagedVirtualDevice>("pixel6Api31") {
@@ -53,7 +43,7 @@ android {
 
 ### Groovy
 
-```
+```groovy
 android {
    testOptions.managedDevices.devices {
        pixel6Api31(ManagedVirtualDevice) {
@@ -71,7 +61,7 @@ Gradle plugin configuration as follows, in the `build.gradle.kts` of the
 
 ### Kotlin
 
-```
+```kotlin
 baselineProfile {
     managedDevices += "pixel6Api31"
 }
@@ -79,7 +69,7 @@ baselineProfile {
 
 ### Groovy
 
-```
+```groovy
 baselineProfile {
     managedDevices = ['pixel6Api31']
 }
@@ -90,7 +80,7 @@ When you use a GMD to generate Baseline Profiles, set `useConnectedDevices` to
 
 ### Kotlin
 
-```
+```kotlin
 baselineProfile {
     ...
     useConnectedDevices = false
@@ -99,7 +89,7 @@ baselineProfile {
 
 ### Groovy
 
-```
+```groovy
 baselineProfile {
     ...
     useConnectedDevices false
@@ -115,7 +105,7 @@ application or library module.
 
 ### Kotlin
 
-```
+```kotlin
 baselineProfile {
     mergeIntoMain = true
 }
@@ -123,7 +113,7 @@ baselineProfile {
 
 ### Groovy
 
-```
+```groovy
 baselineProfile {
     mergeIntoMain true
 }
@@ -137,20 +127,18 @@ Profiles when this setting is `true`, so there's a single Gradle task called
 
 To disable merging and have one profile per variant, set `mergeIntoMain` to
 `false`. In this case, multiple variant-specific Gradle tasks exist. For
-example, when there are two flavors—such as free and paid—and one
+example, when there are two flavors---such as free and paid---and one
 release build type, the tasks are the following:
 
-```
-* `generateFreeReleaseBaselineProfile`
-* `generatePaidReleaseBaselineProfile`
-* `generateReleaseBaselineProfile`
-```
+    * `generateFreeReleaseBaselineProfile`
+    * `generatePaidReleaseBaselineProfile`
+    * `generateReleaseBaselineProfile`
 
 To specify the merging behavior per variant, use the following code:
 
 ### Kotlin
 
-```
+```kotlin
 baselineProfile {
     variants {
         freeRelease {
@@ -162,7 +150,7 @@ baselineProfile {
 
 ### Groovy
 
-```
+```groovy
 baselineProfile {
     variants {
         freeRelease {
@@ -190,7 +178,7 @@ To enable automatic generation for release builds, use the
 
 ### Kotlin
 
-```
+```kotlin
 baselineProfile {
     automaticGenerationDuringBuild = true
 }
@@ -198,7 +186,7 @@ baselineProfile {
 
 ### Groovy
 
-```
+```groovy
 baselineProfile {
     automaticGenerationDuringBuild true
 }
@@ -213,18 +201,15 @@ While automatic generation helps users gain the best performance benefit, it
 also increases the build time because of the double build and instrumentation
 tests.
 
-**Note:** You can always explicitly run the Baseline Profile generation and assemble
-a release build with
-`./gradlew :app:generateReleaseBaseline :app:assembleRelease`, in which case the
-Baseline Profile is generated first and then packaged with the assembled release
-version.
+> [!NOTE]
+> **Note:** You can always explicitly run the Baseline Profile generation and assemble a release build with `./gradlew :app:generateReleaseBaseline :app:assembleRelease`, in which case the Baseline Profile is generated first and then packaged with the assembled release version.
 
 You can also specify this behavior per variant, as shown in the following
 example:
 
 ### Kotlin
 
-```
+```kotlin
 baselineProfile {
     variants {
         freeRelease {
@@ -236,7 +221,7 @@ baselineProfile {
 
 ### Groovy
 
-```
+```groovy
 baselineProfile {
     variants {
         freeRelease {
@@ -254,25 +239,19 @@ when building, and a `releaseWithoutProfile` build for internal testing.
 Instead of adding a new variant without a Baseline Profile, you can also disable
 generation from the command line like this:
 
-```
-./gradlew assembleRelease -Pandroid.baselineProfile.automaticGenerationDuringBuild=false
-```
+    ./gradlew assembleRelease -Pandroid.baselineProfile.automaticGenerationDuringBuild=false
 
 ## Store Baseline Profiles into sources
 
 You can store Baseline Profiles in the source directory through the `saveInSrc`
 flag in the `build.gradle.kts` of the application or library module:
 
-* `true`: the Baseline Profile is stored in
-  `src/<variant>/generated/baselineProfiles`. This lets you commit the latest
-  generated profile with your sources.
-* `false`: the Baseline Profile is stored in the intermediate files in the build
-  directory. This way, when committing your code, you don't save the latest
-  generated profile.
+- `true`: the Baseline Profile is stored in `src/<variant>/generated/baselineProfiles`. This lets you commit the latest generated profile with your sources.
+- `false`: the Baseline Profile is stored in the intermediate files in the build directory. This way, when committing your code, you don't save the latest generated profile.
 
 ### Kotlin
 
-```
+```kotlin
 baselineProfile {
     saveInSrc = true
 }
@@ -280,7 +259,7 @@ baselineProfile {
 
 ### Groovy
 
-```
+```groovy
 baselineProfile {
     saveInSrc true
 }
@@ -290,7 +269,7 @@ You can also specify this behavior per variant:
 
 ### Kotlin
 
-```
+```kotlin
 baselineProfile {
     variants {
         freeRelease {
@@ -302,7 +281,7 @@ baselineProfile {
 
 ### Groovy
 
-```
+```groovy
 baselineProfile {
     variants {
         freeRelease {
@@ -318,42 +297,40 @@ By default, the Baseline Profile Gradle Plugin warns you of situations that
 might cause issues. To disable the warnings, you can set the relevant option to
 `false` in your `build.gradle.kts` file. Here are the warning options:
 
-```
-baselineProfile {
-    warnings {
+    baselineProfile {
+        warnings {
 
-        /**
-        * Warn when the Android Gradle Plugin version is higher than the max
-        * tested one.
-        */
-        maxAgpVersion = true
+            /**
+            * Warn when the Android Gradle Plugin version is higher than the max
+            * tested one.
+            */
+            maxAgpVersion = true
 
-        /**
-        * Warn when a benchmark or baseline profile variant has been disabled.
-        */
-        disabledVariants = true
+            /**
+            * Warn when a benchmark or baseline profile variant has been disabled.
+            */
+            disabledVariants = true
 
-        /**
-        * Warn that running `generateBaselineProfile` with AGP 8.0 doesn't
-        * support running instrumentation tests for multiple build types at
-        * once.
-        */
-        multipleBuildTypesWithAgp80 = true
+            /**
+            * Warn that running `generateBaselineProfile` with AGP 8.0 doesn't
+            * support running instrumentation tests for multiple build types at
+            * once.
+            */
+            multipleBuildTypesWithAgp80 = true
 
-        /**
-        * Warn when no baseline profiles are generated after running the
-        * generate baseline profile command.
-        */
-        noBaselineProfileRulesGenerated = true
+            /**
+            * Warn when no baseline profiles are generated after running the
+            * generate baseline profile command.
+            */
+            noBaselineProfileRulesGenerated = true
 
-        /**
-        * Warn when no startup profiles are generated after running the generate
-        * baseline profile command.
-        */
-        noStartupProfileRulesGenerated = true
+            /**
+            * Warn when no startup profiles are generated after running the generate
+            * baseline profile command.
+            */
+            noStartupProfileRulesGenerated = true
+        }
     }
-}
-```
 
 ## Filter profile rules
 
@@ -366,20 +343,15 @@ Profile rules are excluded and everything else is included.
 
 The filters specification can be any of the following:
 
-* Package name ending with double wildcards to match the specified package and
-  all subpackages. For example, `com.example.**` matches `com.example.method` and
-  `com.example.method.bar`.
-* Package name ending with wildcard to match specified package only. For
-  example, `com.example.*` matches `com.example.method` but doesn't match
-  `com.example.method.bar`.
-* Class names to match a specific class—for example,
-  `com.example.MyClass`.
+- Package name ending with double wildcards to match the specified package and all subpackages. For example, `com.example.**` matches `com.example.method` and `com.example.method.bar`.
+- Package name ending with wildcard to match specified package only. For example, `com.example.*` matches `com.example.method` but doesn't match `com.example.method.bar`.
+- Class names to match a specific class---for example, `com.example.MyClass`.
 
 The following examples show how to include and exclude specific packages:
 
 ### Kotlin
 
-```
+```kotlin
 baselineProfile {
     filter {
         include("com.somelibrary.widget.grid.**")
@@ -394,7 +366,7 @@ baselineProfile {
 
 ### Groovy
 
-```
+```groovy
 baselineProfile {
     filter {
         include 'com.somelibrary.widget.grid.**'
@@ -411,7 +383,7 @@ Customize the filter rules for different variants as follows:
 
 ### Kotlin
 
-```
+```kotlin
 // Non-specific filters applied to all the variants.
 baselineProfile {
     filter { include("com.myapp.**") }
@@ -458,7 +430,7 @@ baselineProfile {
 
 ### Groovy
 
-```
+```groovy
 // Non-specific filters applied to all the variants.
 baselineProfile {
     filter { include 'com.myapp.**' }
@@ -503,9 +475,8 @@ baselineProfile {
 }
 ```
 
-**Note:** Filters for a specific variant (`freeRelease`), are added to the
-flavor-level (`free`) filters, build-level (`release`) filters, and global
-filters specified outside the `variants` block.
+> [!NOTE]
+> **Note:** Filters for a specific variant (`freeRelease`), are added to the flavor-level (`free`) filters, build-level (`release`) filters, and global filters specified outside the `variants` block.
 
 You can also filter rules using the [`filterPredicate`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:benchmark/benchmark-macro-junit4/src/main/java/androidx/benchmark/macro/junit4/BaselineProfileRule.kt;l=67;drc=4f34c5b0ef80804dcb9838902aa89f5f813560d9) argument in
 `BaselineProfileRule.collect()`, but we recommend using the Gradle plugin to
@@ -530,7 +501,7 @@ which properties are overridden:
 
 ### Kotlin
 
-```
+```kotlin
 android {
     buildTypes {
         release {
@@ -564,7 +535,7 @@ android {
 
 ### Groovy
 
-```
+```groovy
 android {
     buildTypes {
         release {
@@ -600,16 +571,17 @@ android {
 
 When creating Baseline Profiles, here are some additional things to be aware of:
 
-* *Compiled* Baseline Profiles must be smaller than 1.5 MB. This doesn't
+- *Compiled* Baseline Profiles must be smaller than 1.5 MB. This doesn't
   apply to the text format in your source files, which are typically much
   larger prior to compilation. Verify the size of your binary Baseline
   Profile by locating it in the output artifact under
   `assets/dexopt/baseline.prof` for APK or
   `BUNDLE-METADATA/com.android.tools.build.profiles/baseline.prof` for AAB.
 
-  **Tip:** In Android Studio Flamingo (2022.2.1) or later, verify the size
-  in the [APK Analyzer](/studio/debug/apk-analyzer).
-* Broad rules that compile too much of the application can slow down startup
+  > [!TIP]
+  > **Tip:** In Android Studio Flamingo (2022.2.1) or later, verify the size in the [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer).
+
+- Broad rules that compile too much of the application can slow down startup
   due to increased disk access. If you're just starting with Baseline
   Profiles, don't worry about this. However, depending on your app and the
   size and number of journeys, adding a lot of journeys can result in
@@ -619,26 +591,10 @@ When creating Baseline Profiles, here are some additional things to be aware of:
 
 ## Codelabs
 
-### [Inspect app performance with Macrobenchmark](/codelabs/android-macrobenchmark-inspect)
+### [Inspect app performance with Macrobenchmark](https://developer.android.com/codelabs/android-macrobenchmark-inspect)
 
-Dive into macrobenchmarking to measure performance.
+Dive into macrobenchmarking to measure performance. [Learn more](https://developer.android.com/codelabs/android-macrobenchmark-inspect)
 
-[Learn more](/codelabs/android-macrobenchmark-inspect)
+### [Improve app performance with Baseline Profiles](https://developer.android.com/codelabs/android-baseline-profiles-improve)
 
-### [Improve app performance with Baseline Profiles](/codelabs/android-baseline-profiles-improve)
-
-Generate a custom Baseline Profile tailored to an Android app and verify its effectiveness.
-
-[Learn more](/codelabs/android-baseline-profiles-improve)
-
-[Previous
-
-arrow\_back
-
-Create Baseline Profiles for a library](/topic/performance/baselineprofiles/create-baselineprofile-library)
-
-[Next
-
-Measure with Macrobenchmark library
-
-arrow\_forward](/topic/performance/baselineprofiles/measure-baselineprofile)
+Generate a custom Baseline Profile tailored to an Android app and verify its effectiveness. [Learn more](https://developer.android.com/codelabs/android-baseline-profiles-improve)

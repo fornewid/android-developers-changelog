@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 You can animate, character-by-character, the appearance of text, so it looks
 like a streaming typing effect, similar to what a typewriter would produce.
 

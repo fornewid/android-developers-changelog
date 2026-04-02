@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # GooglePlayGames.PlayGamesPlatform
 
 Provides access to the Google Play Games platform.

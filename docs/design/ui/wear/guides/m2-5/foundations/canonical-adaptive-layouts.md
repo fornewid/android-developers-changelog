@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/wear/images/design/canonical-header.png)
 
 These canonical layouts are proven, versatile app layouts that provide an

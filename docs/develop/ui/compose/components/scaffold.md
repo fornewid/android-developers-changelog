@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Scaffold
 
 In Material Design, a scaffold is a fundamental structure that provides a

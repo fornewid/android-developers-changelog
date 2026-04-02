@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This guide describes how to update your game after it has been approved to
 upload to the production track. It lists items to verify before updating your
 game and publishing tasks to perform on new versions.
@@ -89,8 +88,6 @@ publishing.
 
 For both publishing flows, we will contact you if we find violations of the
 Google Play Games on PC requirements.
-
-
 
 
 

@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Studio 3.2 (September 2018)
 
 Android Studio 3.2 is a major release that includes a variety of new features

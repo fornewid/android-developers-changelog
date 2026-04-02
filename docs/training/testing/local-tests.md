@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/training/testing/local-tests
+title: Build local unit tests  |  Test your app on Android  |  Android Developers
 url: https://developer.android.com/training/testing/local-tests
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Test your app on Android](https://developer.android.com/training/testing)
+
+# Build local unit tests Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 A *local* test runs directly on your own workstation, rather than an Android
 device or emulator. As such, it uses your local Java Virtual Machine (JVM),
@@ -16,11 +24,16 @@ test*. It does so by executing that code and checking the result.
 Unit tests are usually simple but their setup can be problematic when the *unit
 under test* is not designed with testability in mind:
 
-- The code that you want to verify needs to be *accessible* from a test. For example, you can't test a private method directly. Instead, you test the class using its public APIs.
-- In order to run unit tests in *isolation* , the dependencies of the unit under tests must be replaced by components that you control, such as fakes or other [test doubles](https://developer.android.com/training/testing/fundamentals/test-doubles). This is especially problematic if your code depends on the Android framework.
+* The code that you want to verify needs to be *accessible* from a test. For
+  example, you can't test a private method directly. Instead, you test the class
+  using its public APIs.
+* In order to run unit tests in *isolation*, the dependencies of the unit
+  under tests must be replaced by components that you control, such as fakes or
+  other [test doubles](/training/testing/fundamentals/test-doubles). This is especially problematic if your code depends on
+  the Android framework.
 
 To learn about common unit testing strategies in Android, read [What to
-test](https://developer.android.com/training/testing/fundamentals/what-to-test).
+test](/training/testing/fundamentals/what-to-test).
 
 ## Local tests location
 
@@ -37,21 +50,23 @@ To do so, open your app's module's `build.gradle` file and specify the following
 libraries as dependencies. Use the `testImplementation` function to indicate
 that they apply to the local test source set, and not the application:
 
-    dependencies {
-      // Required -- JUnit 4 framework
-      testImplementation "junit:junit:$jUnitVersion"
-      // Optional -- Robolectric environment
-      testImplementation "androidx.test:core:$androidXTestVersion"
-      // Optional -- Mockito framework
-      testImplementation "org.mockito:mockito-core:$mockitoVersion"
-      // Optional -- mockito-kotlin
-      testImplementation "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion"
-      // Optional -- Mockk framework
-      testImplementation "io.mockk:mockk:$mockkVersion"
-    }
+```
+dependencies {
+  // Required -- JUnit 4 framework
+  testImplementation "junit:junit:$jUnitVersion"
+  // Optional -- Robolectric environment
+  testImplementation "androidx.test:core:$androidXTestVersion"
+  // Optional -- Mockito framework
+  testImplementation "org.mockito:mockito-core:$mockitoVersion"
+  // Optional -- mockito-kotlin
+  testImplementation "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion"
+  // Optional -- Mockk framework
+  testImplementation "io.mockk:mockk:$mockkVersion"
+}
+```
 
-> [!NOTE]
-> **Note:** `testImplementation` adds dependencies for local tests and `androidTestImplementation` adds dependencies for Instrumented tests.
+**Note:** `testImplementation` adds dependencies for local tests and
+`androidTestImplementation` adds dependencies for Instrumented tests.
 
 ## Create a local unit test class
 
@@ -69,7 +84,7 @@ true if`isValidEmail()` also returns true.
 
 ### Kotlin
 
-```kotlin
+```
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -84,7 +99,7 @@ class EmailValidatorTest {
 
 ### Java
 
-```java
+```
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -106,7 +121,7 @@ as [junit.Assert](http://junit.org/javadoc/latest/org/junit/Assert.html), [Hamcr
 
 ## Mockable Android library
 
-When you execute local unit tests, the [Android Gradle Plug-in](https://developer.android.com/studio/releases/gradle-plugin) includes a
+When you execute local unit tests, the [Android Gradle Plug-in](/studio/releases/gradle-plugin) includes a
 library that contains all the APIs of the Android framework, correct to the
 version used in your project. The library holds all the public methods and
 classes of those APIs, but the code inside the methods has been removed. If any
@@ -116,8 +131,8 @@ This allows local tests to be built when referencing classes in the Android
 framework such as `Context`. More importantly, it allows you to use a mocking
 framework with Android classes.
 
-> [!NOTE]
-> **Note:** A mock is a type of test double that has expectations about its interactions, and whose behavior you can define. See [Test doubles](https://developer.android.com/training/testing/fundamentals/test-doubles).
+**Note:** A mock is a type of test double that has expectations about its
+interactions, and whose behavior you can define. See [Test doubles](/training/testing/fundamentals/test-doubles).
 
 ### Mocking Android dependencies
 
@@ -136,54 +151,65 @@ behavior of mocks of the Android classes in your unit tests.
 To add a mock object to your local unit test using Mockito, follow this
 programming model:
 
-1. Include the Mockito library dependency in your `build.gradle` file, as described in [Set up your testing environment](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/test-setup#add-gradle).
-2. At the beginning of your unit test class definition, add the `@RunWith(MockitoJUnitRunner.class)` annotation. This annotation tells the Mockito test runner to validate that your usage of the framework is correct and simplifies the initialization of your mock objects.
-3. To create a mock object for an Android dependency, add the `@Mock` annotation before the field declaration.
-4. To stub the behavior of the dependency, you can specify a condition and return value when the condition is met by using the `when()` and `thenReturn()` methods.
+1. Include the Mockito library dependency in your `build.gradle` file, as
+   described in [Set up your testing environment](/training/testing/instrumented-tests/androidx-test-libraries/test-setup#add-gradle).
+2. At the beginning of your unit test class definition, add the
+   `@RunWith(MockitoJUnitRunner.class)` annotation. This annotation tells the
+   Mockito test runner to validate that your usage of the framework is correct and
+   simplifies the initialization of your mock objects.
+3. To create a mock object for an Android dependency, add the `@Mock` annotation
+   before the field declaration.
+4. To stub the behavior of the dependency, you can specify a condition and
+   return value when the condition is met by using the `when()` and `thenReturn()`
+   methods.
 
 The following example shows how you might create a unit test that uses a mock
-[`Context`](https://developer.android.com/reference/android/content/Context) object in Kotlin created with [Mockito-Kotlin](https://github.com/mockito/mockito-kotlin).
+[`Context`](/reference/android/content/Context) object in Kotlin created with [Mockito-Kotlin](https://github.com/mockito/mockito-kotlin).
 
-    import android.content.Context
-    import org.junit.Assert.assertEquals
-    import org.junit.Test
-    import org.junit.runner.RunWith
-    import org.mockito.Mock
-    import org.mockito.junit.MockitoJUnitRunner
-    import org.mockito.kotlin.doReturn
-    import org.mockito.kotlin.mock
+```
+import android.content.Context
+import org.junit.Assert.assertEquals
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.junit.MockitoJUnitRunner
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
 
-    private const val FAKE_STRING = "HELLO WORLD"
+private const val FAKE_STRING = "HELLO WORLD"
 
-    @RunWith(MockitoJUnitRunner::class)
-    class MockedContextTest {
+@RunWith(MockitoJUnitRunner::class)
+class MockedContextTest {
 
-      @Mock
-      private lateinit var mockContext: Context
+  @Mock
+  private lateinit var mockContext: Context
 
-      @Test
-      fun readStringFromContext_LocalizedString() {
-        // Given a mocked Context injected into the object under test...
-        val mockContext = mock<Context> {
-            on { getString(R.string.name_label) } doReturn FAKE_STRING
-        }
-
-        val myObjectUnderTest = ClassUnderTest(mockContext)
-
-        // ...when the string is returned from the object under test...
-        val result: String = myObjectUnderTest.getName()
-
-        // ...then the result should be the expected one.
-        assertEquals(result, FAKE_STRING)
-      }
+  @Test
+  fun readStringFromContext_LocalizedString() {
+    // Given a mocked Context injected into the object under test...
+    val mockContext = mock<Context> {
+        on { getString(R.string.name_label) } doReturn FAKE_STRING
     }
+
+    val myObjectUnderTest = ClassUnderTest(mockContext)
+
+    // ...when the string is returned from the object under test...
+    val result: String = myObjectUnderTest.getName()
+
+    // ...then the result should be the expected one.
+    assertEquals(result, FAKE_STRING)
+  }
+}
+```
 
 To learn more about using the Mockito framework, see the [Mockito API
 reference](https://github.com/mockito/mockito-kotlin) and the `SharedPreferencesHelperTest` class in the
-[sample code](https://github.com/android/testing-samples/tree/main/unit/BasicSample). Also try the [Android Testing Codelab](https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-basics).
+[sample code](https://github.com/android/testing-samples/tree/main/unit/BasicSample). Also try the [Android Testing Codelab](/codelabs/advanced-android-kotlin-training-testing-basics).
 
-> [!CAUTION]
-> **Caution:** Complex mocks should be avoided. Instead, you can use different types of test doubles such as fakes, or [Robolectric](http://robolectric.org/) shadows if they are Android classes. Also, consider using the real implementation of the dependency in an instrumentation test.
+**Caution:** Complex mocks should be avoided. Instead, you can use different types
+of test doubles such as fakes, or [Robolectric](http://robolectric.org/) shadows if they are Android
+classes. Also, consider using the real implementation of the dependency in an
+instrumentation test.
 
 ### Error: "Method ... not mocked"
 
@@ -195,11 +221,15 @@ behavior so that methods instead return either null or zero, depending on the
 return type. To do so, add the following configuration in your project's
 top-level `build.gradle` file in Groovy:
 
-    android {
-      ...
-      testOptions {
-        unitTests.returnDefaultValues = true
-      }
+```
+android {
+  ...
+  testOptions {
+    unitTests.returnDefaultValues = true
+  }
+```
 
-> [!CAUTION]
-> **Caution:** Take care when setting the `returnDefaultValues` property to `true`. The null/zero return values can introduce regressions to your tests, which are hard to debug and might allow failing tests to pass. Only use it as a last resort.
+**Caution:** Take care when setting the `returnDefaultValues` property to `true`.
+The null/zero return values can introduce regressions to your tests, which are
+hard to debug and might allow failing tests to pass. Only use it as a last
+resort.

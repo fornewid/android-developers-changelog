@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The Google USB Driver is required to perform
 [`adb`](/studio/command-line/adb) debugging on Windows with Google
 devices. Windows

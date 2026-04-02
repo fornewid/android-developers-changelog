@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 To handle touch input events, read the array
 [`motionEvents`](/reference/android/view/MotionEvent) in your game loop. These
 contain events that have happened since the last time these arrays were cleared.
@@ -73,6 +74,8 @@ removed from the `android_app` and no longer used for handling input events.
    ```
    android_app_clear_motion_events(mApp);
    ```
+
+
 
 
 

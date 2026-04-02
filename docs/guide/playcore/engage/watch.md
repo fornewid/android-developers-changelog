@@ -99,7 +99,7 @@ Add the `com.google.android.engage:engage-core` library to your app:
 ```
 dependencies {
     // Make sure you also include that repository in your project's build.gradle file.
-    implementation 'com.google.android.engage:engage-core:1.5.11'
+    implementation 'com.google.android.engage:engage-core:1.5.12'
 }
 ```
 
@@ -221,6 +221,8 @@ The following chart outlines attributes and requirements for each type.
 | Duration | **Required** | In milliseconds. |
 | Genre | **Required** | Free text |
 | Content ratings | Optional | Free text, follow the industry standard. ([Example](https://www.spectrum.net/support/tv/tv-and-movie-ratings-descriptions)) |
+| Call to action text | Optional | Free text to be displayed as a call to action. |
+| Tags | Optional | List of tags associated with the entity. |
 | Watch next type | Conditionally required | Must be provided when the item is in the Continuation cluster and must be one of the following four types:  CONTINUE: The user has already watched more than 1 minute of this content.  NEW: The user has watched all available episodes from some episodic content, but a new episode has become available and there is exactly one unwatched episode. This works for TV shows, recorded soccer matches in a series, and so on.  NEXT: The user has watched one or more complete episodes from some episodic content, but there remains either more than one episode remaining or exactly one episode remaining where the last episode is not "NEW" and was released before the user started watching the episodic content.  WATCHLIST: The user has explicitly elected to add a movie, event, or series to a watchlist to manually curate what they want to watch next. |
 | Last engagement time | Conditionally required | Must be provided when the item is in the Continuation cluster. In epoch milliseconds. |
 | Last playback position time | Conditionally required | Must be provided when the item is in the Continuation cluster and WatchNextType is CONTINUE. In epoch milliseconds. |
@@ -240,6 +242,8 @@ The following chart outlines attributes and requirements for each type.
 | Season count | **Required** | Positive integer |
 | Genre | **Required** | Free text |
 | Content ratings | Optional | Free text, follow the industry standard. ([Example](https://www.spectrum.net/support/tv/tv-and-movie-ratings-descriptions)) |
+| Call to action text | Optional | Free text to be displayed as a call to action. |
+| Tags | Optional | List of tags associated with the entity. |
 | Watch next type | Conditionally required | Must be provided when the item is in the Continuation cluster and must be one of the following four types:  CONTINUE: The user has already watched more than 1 minute of this content.  NEW: The user has watched all available episodes from some episodic content, but a new episode has become available and there is exactly one unwatched episode. This works for TV shows, recorded soccer matches in a series, and so on.  NEXT: The user has watched one or more complete episodes from some episodic content, but there remains either more than one episode remaining or exactly one episode remaining where the last episode is not "NEW" and was released before the user started watching the episodic content.  WATCHLIST: The user has explicitly elected to add a movie, event, or series to a watchlist to manually curate what they want to watch next. |
 | Last engagement time | Conditionally required | Must be provided when the item is in the Continuation cluster. In epoch milliseconds. |
 | Last playback position time | Conditionally required | Must be provided when the item is in the Continuation cluster and WatchNextType is CONTINUE. In epoch milliseconds. |
@@ -260,6 +264,8 @@ The following chart outlines attributes and requirements for each type.
 | Episode count | **Required** | Positive integer |
 | Genre | **Required** | Free text |
 | Content ratings | Optional | Free text, follow the industry standard. ([Example](https://www.spectrum.net/support/tv/tv-and-movie-ratings-descriptions)) |
+| Call to action text | Optional | Free text to be displayed as a call to action. |
+| Tags | Optional | List of tags associated with the entity. |
 | Watch next type | Conditionally required | Must be provided when the item is in the Continuation cluster and must be one of the following four types:  CONTINUE: The user has already watched more than 1 minute of this content.  NEW: The user has watched all available episodes from some episodic content, but a new episode has become available and there is exactly one unwatched episode. This works for TV shows, recorded soccer matches in a series, and so on.  NEXT: The user has watched one or more complete episodes from some episodic content, but there remains either more than one episode remaining or exactly one episode remaining where the last episode is not "NEW" and was released before the user started watching the episodic content.  WATCHLIST: The user has explicitly elected to add a movie, event, or series to a watchlist to manually curate what they want to watch next. |
 | Last engagement time | Conditionally required | Must be provided when the item is in the Continuation cluster. In epoch milliseconds. |
 | Last playback position time | Conditionally required | Must be provided when the item is in the Continuation cluster and WatchNextType is CONTINUE. In epoch milliseconds. |
@@ -279,6 +285,8 @@ The following chart outlines attributes and requirements for each type.
 | Duration | **Required** | Must be a positive value in milliseconds. |
 | Genre | **Required** | Free text |
 | Content ratings | Optional | Free text, follow the industry standard. ([Example](https://www.spectrum.net/support/tv/tv-and-movie-ratings-descriptions)) |
+| Call to action text | Optional | Free text to be displayed as a call to action. |
+| Tags | Optional | List of tags associated with the entity. |
 | Watch next type | Conditionally required | Must be provided when the item is in the Continuation cluster and must be one of the following four types:  CONTINUE: The user has already watched more than 1 minute of this content.  NEW: The user has watched all available episodes from some episodic content, but a new episode has become available and there is exactly one unwatched episode. This works for TV shows, recorded soccer matches in a series, and so on.  NEXT: The user has watched one or more complete episodes from some episodic content, but there remains either more than one episode remaining or exactly one episode remaining where the last episode is not "NEW" and was released before the user started watching the episodic content.  WATCHLIST: The user has explicitly elected to add a movie, event, or series to a watchlist to manually curate what they want to watch next. |
 | Last engagement time | Conditionally required | Must be provided when the item is in the Continuation cluster. In epoch milliseconds. |
 | Last playback position time | Conditionally required | Must be provided when the item is in the Continuation cluster and WatchNextType is CONTINUE. In epoch milliseconds. |
@@ -294,6 +302,8 @@ The following chart outlines attributes and requirements for each type.
 | Start time | Optional | In epoch milliseconds. |
 | End time | Optional | In epoch milliseconds. |
 | View count | Optional | Free text, must be localized. |
+| Call to action text | Optional | Free text to be displayed as a call to action. |
+| Tags | Optional | List of tags associated with the entity. |
 | Watch next type | Conditionally required | Must be provided when the item is in the Continuation cluster and must be one of the following four types:  CONTINUE: The user has already watched more than 1 minute of this content.  NEW: The user has watched all available episodes from some episodic content, but a new episode has become available and there is exactly one unwatched episode. This works for TV shows, recorded soccer matches in a series, and so on.  NEXT: The user has watched one or more complete episodes from some episodic content, but there remains either more than one episode remaining or exactly one episode remaining where the last episode is not "NEW" and was released before the user started watching the episodic content.  WATCHLIST: The user has explicitly elected to add a movie, event, or series to a watchlist to manually curate what they want to watch next. |
 | Last engagement time | Conditionally required | Must be provided when the item is in the Continuation cluster. In epoch milliseconds. |
 | Last playback position time | Conditionally required | Must be provided when the item is in the Continuation cluster and WatchNextType is CONTINUE. In epoch milliseconds. |
@@ -313,6 +323,8 @@ such as TikTok or YouTube.
 | Creator | **Required** | Free text |
 | Creator image | Optional | Image of the Creator avatar |
 | View count | Optional | Free text, must be localized. |
+| Call to action text | Optional | Free text to be displayed as a call to action. |
+| Tags | Optional | List of tags associated with the entity. |
 | Watch next type | Conditionally required | Must be provided when the item is in the Continuation cluster and must be one of the following four types:  CONTINUE: The user has already watched more than 1 minute of this content.  NEW: The user has watched all available episodes from some episodic content, but a new episode has become available and there is exactly one unwatched episode. This works for TV shows, recorded soccer matches in a series, and so on.  NEXT: The user has watched one or more complete episodes from some episodic content, but there remains either more than one episode remaining or exactly one episode remaining where the last episode is not "NEW" and was released before the user started watching the episodic content.  WATCHLIST: The user has explicitly elected to add a movie, event, or series to a watchlist to manually curate what they want to watch next. |
 | Last engagement time | Conditionally required | Must be provided when the item is in the Continuation cluster. In epoch milliseconds. |
 | Last playback position time | Conditionally required | Must be provided when the item is in the Continuation cluster and WatchNextType is CONTINUE. In epoch milliseconds. |
@@ -354,6 +366,8 @@ var movie = MovieEntity.Builder()
     .addContentRating("R")
     .setWatchNextType(WatchNextType.TYPE_NEW)
     .setLastEngagementTimeMillis(1664568895L)
+    .setCallToActionText("Watch Now")
+    .addTag("Action")
     .build()
 ```
 
@@ -376,6 +390,8 @@ MovieEntity movie = new MovieEntity.Builder()
                   .addContentRating("R")
                   .setWatchNextType(WatchNextType.TYPE_NEW)
                   .setLastEngagementTimeMillis(1664568895L)
+                  .setCallToActionText("Watch Now")
+                  .addTag("Action")
                   .build();
 ```
 

@@ -92,7 +92,7 @@ Add the `com.google.android.engage:engage-core` library to your app:
 
     dependencies {
         // Make sure you also include that repository in your project's build.gradle file.
-        implementation 'com.google.android.engage:engage-core:1.5.11'
+        implementation 'com.google.android.engage:engage-core:1.5.12'
     }
 
 ### Summary

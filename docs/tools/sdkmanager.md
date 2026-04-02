@@ -1,33 +1,50 @@
 ---
-title: https://developer.android.com/tools/sdkmanager
+title: sdkmanager  |  Android Studio  |  Android Developers
 url: https://developer.android.com/tools/sdkmanager
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [SDK tools guides](https://developer.android.com/tools)
+
+# sdkmanager Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The `sdkmanager` is a command-line tool that lets you view, install,
 update, and uninstall packages for the Android SDK. If you're using Android
 Studio, then you don't need to use this tool, and you can instead [manage your
-SDK packages from the IDE](https://developer.android.com/studio/intro/update#sdk-manager).
+SDK packages from the IDE](/studio/intro/update#sdk-manager).
 
 The `sdkmanager` tool is provided in the
-[Android SDK Command-Line Tools](https://developer.android.com/studio/command-line#tools-sdk) package.
+[Android SDK Command-Line Tools](/studio/command-line#tools-sdk) package.
 To use the SDK Manager to install a version of the command-line tools,
 follow these steps:
 
-1. Download the latest [command line tools package](https://developer.android.com/studio#command-line-tools-only) from the [Android Studio](https://developer.android.com/studio) page and extract the package.
-2. Move the unzipped `cmdline-tools` directory into a new directory of your choice, such as <var translate="no">android_sdk</var>. This new directory is your Android SDK directory.
-3. In the unzipped `cmdline-tools` directory, create a sub-directory called `latest`.
-4. Move the original `cmdline-tools` directory contents, including the `lib` directory, `bin` directory, `NOTICE.txt` file, and `source.properties` file, into the newly created `latest` directory. You can now use the command-line tools from this location.
+1. Download the latest [command line tools package](/studio#command-line-tools-only) from the [Android Studio](/studio) page and extract the package.
+2. Move the unzipped `cmdline-tools` directory into a new directory
+   of your choice, such as android\_sdk. This new directory is your
+   Android SDK directory.
+3. In the unzipped `cmdline-tools` directory, create a
+   sub-directory called `latest`.
+4. Move the original `cmdline-tools` directory contents, including
+   the `lib` directory, `bin` directory,
+   `NOTICE.txt` file, and `source.properties` file, into the
+   newly created `latest` directory. You can now use the command-line
+   tools from this location.
 5. (Optional) To install a previous version of the command-line tools, run
    the following command:
 
    ```
    android_sdk/cmdline-tools/latest/bin/sdkmanager --install "cmdline-tools;version"
    ```
-   Substitute `version` with the version you want to install, for example `5.0`.
 
-   > [!NOTE]
-   > **Note:** For local usage, you can use the `latest` packages. For scripts, choose a specific version instead to ensure stability.
+   Substitute `version` with the version you want to install,
+   for example `5.0`.
+   **Note:** For local usage, you can use the `latest` packages.
+   For scripts, choose a specific version instead to ensure stability.
 
 ## Usage
 
@@ -47,8 +64,8 @@ Use the `channel` option to include a package from a channel up to and
 including `channel_id`. For example, specify the canary channel to list
 packages from all channels.
 
-> [!NOTE]
-> **Note:** To list only stable packages, use `--channel=0` or remove the `--channel` option entirely.
+**Note:** To list only stable packages, use `--channel=0` or remove the `--channel`
+option entirely.
 
 ### Install packages
 
@@ -58,7 +75,7 @@ To install packages, use the following syntax:
 sdkmanager packages [options]
 ```
 
-The <var translate="no">packages</var> argument is an SDK-style path, as shown with
+The packages argument is an SDK-style path, as shown with
 the `--list` command, wrapped in quotes. For example,
 `"build-tools;36.0.0"` or
 `"platforms;android-36"`.
@@ -68,7 +85,9 @@ paths, separated with a space, but they must each be wrapped in their own set of
 quotes. For example, here's how to install the latest platform tools and
 the SDK tools for API level 36:
 
-    sdkmanager "platform-tools" "platforms;android-36"
+```
+sdkmanager "platform-tools" "platforms;android-36"
+```
 
 Alternatively, you can pass a text file that specifies all packages:
 
@@ -76,7 +95,7 @@ Alternatively, you can pass a text file that specifies all packages:
 sdkmanager --package_file=package_file [options]
 ```
 
-The <var translate="no">package_file</var> argument is the location of a text file in which
+The package\_file argument is the location of a text file in which
 each line is an SDK-style path of a package to install (without quotes).
 
 To uninstall, add the `--uninstall` flag:
@@ -131,9 +150,9 @@ This prompts you to accept any licenses that haven't already been accepted.
 The following table lists the available options for the commands listed in the preceding section:
 
 | Option | Description |
-|---|---|
+| --- | --- |
 | `--sdk_root=path` | Use the specified SDK path instead of the SDK containing this tool. |
-| `--channel=channel_id` | Include packages in channels up to and including channel_id. Available channels are: `0` (Stable), `1` (Beta), `2` (Dev), and `3` (Canary). |
+| `--channel=channel_id` | Include packages in channels up to and including channel\_id. Available channels are: `0` (Stable), `1` (Beta), `2` (Dev), and `3` (Canary). |
 | `--include_obsolete` | Include obsolete packages in the package listing or package updates. For use with `--list` and `--update` only. |
 | `--no_https` | Force all connections to use HTTP rather than HTTPS. |
 | `--newer` | With `--list`, show only new or updatable packages. |
@@ -142,5 +161,7 @@ The following table lists the available options for the commands listed in the p
 | `--proxy_host={IP_address | DNS_address}` | IP or DNS address of the proxy to use. |
 | `--proxy_port=port_number` | Proxy port number to connect to. |
 
-> [!NOTE]
-> **Note:** If you want to install packages for an operating system different from the current machine, set the [`REPO_OS_OVERRIDE`](https://developer.android.com/studio/command-line/variables#repo_os_override) environment variable to either `"windows"`, `"macosx"`, or `"linux"`.
+**Note:** If you want to install packages for an
+operating system different from the current machine, set the
+[`REPO_OS_OVERRIDE`](/studio/command-line/variables#repo_os_override)
+environment variable to either `"windows"`, `"macosx"`, or `"linux"`.

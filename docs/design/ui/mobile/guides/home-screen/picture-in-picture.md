@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![](/static/images/design/ui/mobile/pip-hero.png)
 
 Picture-in-picture (PiP) is a type of multi-window mode intended for activities

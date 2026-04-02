@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Modify code to correctly handle screen rotation and other changes.
 
 ---

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Game controllers are equipped with additional features that significantly
 enhance player interaction and immersion. The haptics, motion sensors, and light
 functionalities of Android game controllers are particularly instrumental in

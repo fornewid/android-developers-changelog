@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You can run benchmarks in Continuous Integration (CI) to track performance over
 time and recognize performance regressions—or improvements—before
 your app even releases. This page provides basic information about benchmarking

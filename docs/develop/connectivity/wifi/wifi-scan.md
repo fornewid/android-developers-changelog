@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 You can use the Wi-Fi scanning capabilities provided by the
 [WifiManager API](/reference/android/net/wifi/WifiManager) to get a list of
 Wi-Fi access points that are visible from the device.

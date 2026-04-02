@@ -1,37 +1,44 @@
 ---
-title: https://developer.android.com/build/gradle-tips
+title: Gradle tips and recipes  |  Android Studio  |  Android Developers
 url: https://developer.android.com/build/gradle-tips
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [Gradle build guides](https://developer.android.com/build/gradle-build-overview)
+
+# Gradle tips and recipes Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Gradle and the Android plugin for Gradle provide a flexible way to compile,
 build, and package your Android app or library. This page collects some
 useful tips and configurations to help you get the most out of each build.
 If you want to learn about ways to make your builds faster, read
-[Optimize Your Build Speed](https://developer.android.com/studio/build/optimize-your-build).
+[Optimize Your Build Speed](/studio/build/optimize-your-build).
 
-
-If you are new to Gradle, learn the basics by reading [Configure Your Build](https://developer.android.com/studio/build). You can also inspect the
+If you are new to Gradle, learn the basics by reading [Configure Your Build](/studio/build). You can also inspect the
 Android plugin's [DSL reference
-documentation](https://developer.android.com/reference/tools/gradle-api) to learn more about the properties used in this page.
+documentation](/reference/tools/gradle-api) to learn more about the properties used in this page.
 
 ## Manage projects and sources
 
-
 Here are some configurations to manage your project's modules and their
 sources. To learn more about creating and managing projects and modules, read
-the [Projects Overview](https://developer.android.com/studio/projects).
+the [Projects Overview](/studio/projects).
 
 ### Change default source set configurations
 
-
-You can use the `https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.api.AndroidSourceSet.html` block in the module-level `build.gradle`
+You can use the `sourceSets` block in the module-level `build.gradle`
 file to change where Gradle looks to gather files for each component of a
-[source set](https://developer.android.com/studio/build/build-variants#sourcesets).
+[source set](/studio/build/build-variants#sourcesets).
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   sourceSets {
@@ -71,7 +78,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   sourceSets {
@@ -111,21 +118,19 @@ android {
 
 ## Manage libraries and dependencies
 
-
-Gradle provides a robust mechanism to [manage dependencies](https://developer.android.com/studio/build/dependencies), whether they're
-remote libraries or local [library modules](https://developer.android.com/studio/projects/android-library).
+Gradle provides a robust mechanism to [manage dependencies](/studio/build/dependencies), whether they're
+remote libraries or local [library modules](/studio/projects/android-library).
 
 ### Target specific builds with dependency configurations
 
-
-If you want a dependency for only a specific [build variant](https://developer.android.com/studio/build/build-variants) source set or [testing source set](https://developer.android.com/studio/test#sourcesets), capitalize the
+If you want a dependency for only a specific [build variant](/studio/build/build-variants) source set or [testing source set](/studio/test#sourcesets), capitalize the
 [dependency
-configuration](https://developer.android.com/studio/build/dependencies#dependency-configurations) name and prefix it with the name of the build variant or
+configuration](/studio/build/dependencies#dependency-configurations) name and prefix it with the name of the build variant or
 testing source set.
 
 ### Groovy
 
-```groovy
+```
 android {...}
 
 // Creates Gradle dependency configurations to use in the dependencies block.
@@ -150,7 +155,7 @@ dependencies {
 
 ### Kotlin
 
-```kotlin
+```
 android {...}
 
 dependencies {
@@ -168,20 +173,17 @@ dependencies {
 
 ## Create different versions of your app
 
-
 Gradle and the Android plugin allow you to create different versions of your
-app from a single module by [configuring build variants](https://developer.android.com/studio/build/build-variants).
+app from a single module by [configuring build variants](/studio/build/build-variants).
 
 ### Configure dynamic version codes
-
 
 By default, when Gradle generates APKs for your project, each APK has the
 same version information, as specified in the module-level `build.gradle` file.
 Because the Google Play Store does not allow multiple APKs for the same app
 that all have the same version information, you need to ensure each APK has
-its own unique [versionCode](https://developer.android.com/studio/publish/versioning#appversioning) before you
+its own unique [versionCode](/studio/publish/versioning#appversioning) before you
 upload to the Play Store.
-
 
 You can do this with custom build logic that assigns a different version code
 to each APK at build time. For example, when creating separate APKs for each
@@ -189,7 +191,7 @@ ABI, automatic APK versioning looks something like this:
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   defaultConfig {
@@ -242,7 +244,7 @@ android.applicationVariants.all { variant ->
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   defaultConfig {
@@ -292,12 +294,10 @@ androidComponents {
 
 ### Combine multiple product flavors
 
-
 In some cases, you may want to [combine configurations
-from multiple product flavors](https://developer.android.com/studio/build/build-variants#flavor-dimensions). To do this, the Android plugin for Gradle
+from multiple product flavors](/studio/build/build-variants#flavor-dimensions). To do this, the Android plugin for Gradle
 lets you to create groups of product flavors, called *flavor
 dimensions*.
-
 
 The following code sample uses the [`flavorDimensions`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.AppExtension.html#com.android.build.gradle.AppExtension:flavorDimensions(java.lang.String[])) property to create a "mode" flavor dimension to group
 the "full" and "demo" product flavors, and an "api" flavor dimension to group
@@ -306,7 +306,7 @@ product flavors from the "mode" dimension with those of the "api" dimension.
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   buildTypes {
@@ -343,7 +343,7 @@ android {
       // To ensure the target device receives the version of the app with
       // the highest compatible API level, assign version codes in increasing
       // value with API level. To learn more about assigning version codes to
-      // support app updates and uploading to Google Play, read https://developer.android.com/google/play/publishing/multiple-apks#HowItWorks
+      // support app updates and uploading to Google Play, read Multiple APK Support
       versionCode 30000 + android.defaultConfig.versionCode
       versionNameSuffix "-minApi24"
       ...
@@ -371,7 +371,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   buildTypes {
@@ -408,7 +408,7 @@ android {
       // To ensure the target device receives the version of the app with
       // the highest compatible API level, assign version codes in increasing
       // value with API level. To learn more about assigning version codes to
-      // support app updates and uploading to Google Play, read https://developer.android.com/google/play/publishing/multiple-apks#HowItWorks
+      // support app updates and uploading to Google Play, read Multiple APK Support
       versionCode = 30000 + android.defaultConfig.versionCode
       versionNameSuffix = "-minApi24"
       ...
@@ -436,15 +436,14 @@ android {
 
 ### Filter variants
 
-
 You can [filter
-build variants](https://developer.android.com/studio/build/build-variants#filter-variants) that you don't want using the [`variantFilter`](https://google.github.io/android-gradle-dsl/current/com.android.build.api.variant.VariantFilter.html) block in the module's `build.gradle` file. The
+build variants](/studio/build/build-variants#filter-variants) that you don't want using the [`variantFilter`](https://google.github.io/android-gradle-dsl/current/com.android.build.api.variant.VariantFilter.html) block in the module's `build.gradle` file. The
 following sample code tells Gradle to not build any variants that combine
 the "minApi21" and "demo" product flavors:
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   buildTypes {...}
@@ -472,7 +471,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   buildTypes {...}
@@ -501,18 +500,16 @@ androidComponents {
 
 ## Test Your App
 
-
-To learn more about running local and integrated unit tests, read [Test your app](https://developer.android.com/studio/test).
+To learn more about running local and integrated unit tests, read [Test your app](/studio/test).
 
 ### Configure lint options
 
-
 You can configure certain lint options using the [`lintOptions`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.LintOptions.html#com.android.build.gradle.internal.dsl.LintOptions) block in your module-level `build.gradle` file. To
-learn more about using lint for your Android project, read [Improve Your Code with Lint](https://developer.android.com/studio/write/lint).
+learn more about using lint for your Android project, read [Improve Your Code with Lint](/studio/write/lint).
 
 ### Groovy
 
-```groovy
+```
 android {
     ...
     lintOptions {
@@ -538,7 +535,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
     ...
     lintOptions {
@@ -567,24 +564,23 @@ android {
 
 ### Configure instrumentation manifest settings
 
-
-When Gradle builds your test APK, it automatically generates the [`AndroidManifest.xml`](https://developer.android.com/guide/topics/manifest/manifest-intro) file and
-configures it with the [`<instrumentation>`](https://developer.android.com/guide/topics/manifest/instrumentation-element)
+When Gradle builds your test APK, it automatically generates the [`AndroidManifest.xml`](/guide/topics/manifest/manifest-intro) file and
+configures it with the [`<instrumentation>`](/guide/topics/manifest/instrumentation-element)
 node. You can change some of the settings for this node by either creating
-another manifest file in the [test source set](https://developer.android.com/studio/test#test_types_and_location) or
+another manifest file in the [test source set](/studio/test#test_types_and_location) or
 configuring your module-level `build.gradle` file, as shown in the
 following code sample.
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   // Each product flavor you configure can override properties in the
-  // defaultConfig block. To learn more, go to https://developer.android.com/studio/build/build-variants#product-flavors.
+  // defaultConfig block. To learn more, go to Configure Product Flavors.
   defaultConfig {
     ...
-    // Specifies the https://developer.android.com/studio/build/configure-app-module#application-id.html for the test APK.
+    // Specifies the application ID for the test APK.
     testApplicationId "com.test.foo"
     // Specifies the fully-qualified class name of the test instrumentation runner.
     testInstrumentationRunner "android.test.InstrumentationTestRunner"
@@ -602,14 +598,14 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   // Each product flavor you configure can override properties in the
-  // defaultConfig block. To learn more, go to https://developer.android.com/studio/build/build-variants#product-flavors.
+  // defaultConfig block. To learn more, go to Configure Product Flavors.
   defaultConfig {
     ...
-    // Specifies the https://developer.android.com/studio/build/configure-app-module#set_the_application_id for the test APK.
+    // Specifies the application ID for the test APK.
     testApplicationId = "com.test.foo"
     // Specifies the fully-qualified class name of the test instrumentation runner.
     testInstrumentationRunner = "android.test.InstrumentationTestRunner"
@@ -627,7 +623,6 @@ android {
 
 ### Change the test build type
 
-
 By default, all tests run against the debug build type. You can change this
 to another build type by using the `testBuildType` property in
 your module-level `build.gradle` file. For example, if you want to
@@ -636,7 +631,7 @@ the following snippet.
 
 ### Groovy
 
-```groovy
+```
 android {
     ...
     testBuildType "staging"
@@ -645,7 +640,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
     ...
     testBuildType "staging"
@@ -654,14 +649,13 @@ android {
 
 ### Configure Gradle test options
 
-
 To specify options that change how Gradle runs all your tests, configure the
 [`testOptions`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.TestOptions.html) block in the module-level
 `build.gradle`.
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   // Encapsulates options for running tests.
@@ -680,7 +674,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   // Encapsulates options for running tests.
@@ -697,12 +691,11 @@ android {
 }
 ```
 
-
 To specify options for only local unit tests, configure the [`testOptions.unitTests`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.TestOptions.UnitTestOptions.html) block.
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   testOptions {
@@ -710,13 +703,13 @@ android {
     // Encapsulates options for local unit tests.
     unitTests {
       // By default, local unit tests throw an exception any time the code you are testing tries to access
-      // Android platform APIs (unless you https://developer.android.com/training/testing/unit-testing/local-unit-tests#mocking-dependencies yourself or with a testing
+      // Android platform APIs (unless you mock Android dependencies yourself or with a testing
       // framework like Mockito). However, you can enable the following property so that the test
       // returns either null or zero when accessing platform APIs, rather than throwing an exception.
       returnDefaultValues true
 
       // Encapsulates options for controlling how Gradle executes local unit tests. For a list
-      // of all the options you can specify, read https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html.
+      // of all the options you can specify, read Gradle's reference documentation.
       all {
         // Sets JVM argument(s) for the test JVM(s).
         jvmArgs '-XX:MaxPermSize=256m'
@@ -733,7 +726,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   testOptions {
@@ -741,13 +734,13 @@ android {
     // Encapsulates options for local unit tests.
     unitTests {
       // By default, local unit tests throw an exception any time the code you are testing tries to access
-      // Android platform APIs (unless you https://developer.android.com/training/testing/unit-testing/local-unit-tests#mocking-dependencies yourself or with a testing
+      // Android platform APIs (unless you mock Android dependencies yourself or with a testing
       // framework like Mockito). However, you can enable the following property so that the test
       // returns either null or zero when accessing platform APIs, rather than throwing an exception.
       returnDefaultValues true
 
       // Encapsulates options for controlling how Gradle executes local unit tests. For a list
-      // of all the options you can specify, read https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html.
+      // of all the options you can specify, read Gradle's reference documentation.
       all {
         // Sets JVM argument(s) for the test JVM(s).
         jvmArgs '-XX:MaxPermSize=256m'
@@ -764,22 +757,20 @@ android {
 
 ## Optimize your build
 
-
 This section provides some configurations to help speed up your full and
 incremental builds. To learn more, read
-[Optimize Your Build Speed](https://developer.android.com/studio/build/optimize-your-build).
+[Optimize Your Build Speed](/studio/build/optimize-your-build).
 
 ### Shrink your code
 
-
-Android Studio uses R8, which consumes ProGuard rules files, to [shrink your code](https://developer.android.com/studio/build/shrink-code#shrink-code). For new
+Android Studio uses R8, which consumes ProGuard rules files, to [shrink your code](/studio/build/shrink-code#shrink-code). For new
 projects, Android Studio uses a default settings file (`proguard-android.txt`) from
 the Android SDK's `tools/proguard/folder`. For even more code shrinking, try the
 `proguard-android-optimize.txt` file that's in the same location.
 
 ### Groovy
 
-```groovy
+```
 android {
   buildTypes {
     release {
@@ -795,7 +786,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   buildTypes {
     release {
@@ -809,7 +800,6 @@ android {
 ...
 ```
 
-
 To add rules that are specific to each build variant, configure
 additional [`proguardFiles`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.ProductFlavor.html#com.android.build.gradle.internal.dsl.ProductFlavor:proguardFiles) property for each flavor. For example, the
 following sample adds `flavor2-rules.pro` to "flavor2". Now the
@@ -818,7 +808,7 @@ the release block are also applied.
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   buildTypes {
@@ -842,7 +832,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   buildTypes {
@@ -866,19 +856,17 @@ android {
 
 ## Publish your app
 
-
-To learn more about publishing your app to Google Play, read [Publish Your App](https://developer.android.com/studio/publish).
+To learn more about publishing your app to Google Play, read [Publish Your App](/studio/publish).
 
 ### Sign your app
 
-
 Although Android Studio provides a straighforward way to [configure signing for release
-builds](https://developer.android.com/studio/publish/app-signing#release-mode) from the UI, you can manually configure the `https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.SigningConfig.html` block in your module's `build.gradle`
+builds](/studio/publish/app-signing#release-mode) from the UI, you can manually configure the `signingConfigs` block in your module's `build.gradle`
 file:
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   defaultConfig { ... }
@@ -910,7 +898,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   defaultConfig { ... }
@@ -942,13 +930,13 @@ android {
 
 ### Remove private signing information from your project
 
-
 By default, signing configurations are recorded in plain text to the module's
 `build.gradle` file. If you are working with a team or an
 open-source project, you can move this sensitive information out of the build
 files by proceeding as follows.
 
-1. Create a file named `keystore.properties` in the root directory of your project and include the following information:
+1. Create a file named `keystore.properties` in the root directory of your
+   project and include the following information:
 
    ```
    storePassword=myStorePassword
@@ -956,11 +944,12 @@ files by proceeding as follows.
    keyAlias=myKeyAlias
    storeFile=myStoreFileLocation
    ```
-2. In your `build.gradle` file, load the `keystore.properties` file as follows (this has to be before the android block):
+2. In your `build.gradle` file, load the `keystore.properties`
+   file as follows (this has to be before the android block):
 
    ### Groovy
 
-   ```groovy
+   ```
    // Creates a variable called keystorePropertiesFile, and initializes it to the
    // keystore.properties file.
    def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -979,7 +968,7 @@ files by proceeding as follows.
 
    ### Kotlin
 
-   ```kotlin
+   ```
    // Creates a variable called keystorePropertiesFile, and initializes it to the
    // keystore.properties file.
    def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -995,11 +984,12 @@ files by proceeding as follows.
    }
    ...
    ```
-3. Input the signing information stored in the `keystoreProperties` object:
+3. Input the signing information stored in the `keystoreProperties`
+   object:
 
    ### Groovy
 
-   ```groovy
+   ```
    android {
      signingConfigs {
        config {
@@ -1016,7 +1006,7 @@ files by proceeding as follows.
 
    ### Kotlin
 
-   ```kotlin
+   ```
    android {
      signingConfigs {
        config {
@@ -1032,16 +1022,13 @@ files by proceeding as follows.
    ```
 4. Click **Sync Now** in the notification bar.
 
-
-To learn more about app signing, read [Sign Your App](https://developer.android.com/studio/publish/app-signing).
+To learn more about app signing, read [Sign Your App](/studio/publish/app-signing).
 
 ## Simplify app development
-
 
 The following tips help make developing your Android app easier.
 
 ### Share custom fields and resource values with your app's code
-
 
 At build time, Gradle generates the `BuildConfig` class so your
 app code can inspect information about the current build. You can also add
@@ -1052,7 +1039,7 @@ values with `resValue()`.
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   buildTypes {
@@ -1078,7 +1065,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   buildTypes {
@@ -1101,13 +1088,12 @@ android {
 }
 ...
 ```
-
 
 In your app code, you can access the properties as follows:
 
 ### Kotlin
 
-```kotlin
+```
 ...
 Log.i(TAG, BuildConfig.BUILD_TIME)
 Log.i(TAG, getString(R.string.build_time))
@@ -1115,7 +1101,7 @@ Log.i(TAG, getString(R.string.build_time))
 
 ### Java
 
-```java
+```
 ...
 Log.i(TAG, BuildConfig.BUILD_TIME);
 Log.i(TAG, getString(R.string.build_time));
@@ -1123,24 +1109,23 @@ Log.i(TAG, getString(R.string.build_time));
 
 ### Share properties with the manifest
 
-
 In some cases, you may need to declare the same property in both your
 manifest and your code (for example, when declaring authorities for a
-`https://developer.android.com/reference/androidx/core/content/FileProvider`).
+`FileProvider`).
 Rather than updating the same property in multiple locations to reflect a
 change, define a single property in your module's `build.gradle`
 file to have it available to both the manifest and your code, as shown in the
 following sample. To learn more, read [Inject Build Variables into the
-Manifest](https://developer.android.com/studio/build/manage-manifests#inject_build_variables_into_the_manifest).
+Manifest](/studio/build/manage-manifests#inject_build_variables_into_the_manifest).
 
 ### Groovy
 
-```groovy
+```
 android {
   // For settings specific to a product flavor, configure these properties
   // for each flavor in the productFlavors block.
   defaultConfig {
-    // Creates a property for the https://developer.android.com/reference/androidx/core/content/FileProvider authority.
+    // Creates a property for the FileProvider authority.
     def filesAuthorityValue = applicationId + ".files"
     // Creates a placeholder property to use in the manifest.
     manifestPlaceholders =
@@ -1157,12 +1142,12 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   // For settings specific to a product flavor, configure these properties
   // for each flavor in the productFlavors block.
   defaultConfig {
-    // Creates a property for the https://developer.android.com/reference/androidx/core/content/FileProvider authority.
+    // Creates a property for the FileProvider authority.
     val filesAuthorityValue = applicationId + ".files"
     // Creates a placeholder property to use in the manifest.
     manifestPlaceholders["filesAuthority"] = filesAuthorityValue
@@ -1176,10 +1161,9 @@ android {
 ...
 ```
 
-
 In your manifest, access the placeholder as follows:
 
-```xml
+```
 <manifest>
   ...
   <application>
@@ -1195,20 +1179,19 @@ In your manifest, access the placeholder as follows:
 </manifest>
 ```
 
-
 Accessing the `FILES_AUTHORITY` field in your app's code looks
 something like this:
 
 ### Kotlin
 
-```kotlin
+```
 ...
 val contentUri: Uri = FileProvider.getUriForFile(context, BuildConfig.FILES_AUTHORITY, myFile)
 ```
 
 ### Java
 
-```java
+```
 ...
 Uri contentUri = FileProvider.getUriForFile(getContext(),
   BuildConfig.FILES_AUTHORITY,

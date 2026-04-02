@@ -1,19 +1,8 @@
 ---
-title: Advanced animation example: Gestures  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/animation/advanced
 url: https://developer.android.com/develop/ui/compose/animation/advanced
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Advanced animation example: Gestures Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 There are several things we have to take into consideration when we are working
 with touch events and animations, compared to when we are working with
@@ -22,14 +11,15 @@ when touch events begin as user interaction should have the highest priority.
 
 In the example below, we use an `Animatable` to represent the offset position of
 a circle component. Touch events are processed with the
-[`pointerInput`](/reference/kotlin/androidx/compose/ui/input/pointer/package-summary#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,%20kotlin.coroutines.SuspendFunction1))
+[`pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,%20kotlin.coroutines.SuspendFunction1))
 modifier. When we detect a new tap event, we call `animateTo` to animate the
 offset value to the tap position. A tap event can happen during the animation
 too, and in that case, `animateTo` interrupts the ongoing animation and starts
 the animation to the new target position while maintaining the velocity of the
 interrupted animation.
 
-```
+
+```kotlin
 @Composable
 fun Gesture() {
     val offset = remember { Animatable(Offset(0f, 0f), Offset.VectorConverter) }
@@ -57,14 +47,14 @@ fun Gesture() {
 }
 
 private fun Offset.toIntOffset() = IntOffset(x.roundToInt(), y.roundToInt())
-
-AdvancedAnimationSnippets.kt
 ```
+
+<br />
 
 Another frequent pattern is we need to synchronize animation values with values
 coming from touch events, such as drag. In the example below, we see "swipe to
 dismiss" implemented as a `Modifier` (rather than using the
-[`SwipeToDismiss`](/reference/kotlin/androidx/compose/material/SwipeToDismiss.composable)
+[`SwipeToDismiss`](https://developer.android.com/reference/kotlin/androidx/compose/material/SwipeToDismiss.composable)
 composable). The horizontal offset of the element is represented as an
 `Animatable`. This API has a characteristic useful in gesture animation. Its
 value can be changed by touch events as well as the animation. When we receive a
@@ -78,7 +68,8 @@ be fed directly to `animateDecay` for the fling animation. When we want to slide
 the offset value back to the original position, we specify the target offset
 value of `0f` with the `animateTo` method.
 
-```
+
+```kotlin
 fun Modifier.swipeToDismiss(
     onDismissed: () -> Unit
 ): Modifier = composed {
@@ -138,13 +129,13 @@ fun Modifier.swipeToDismiss(
     }
         .offset { IntOffset(offsetX.value.roundToInt(), 0) }
 }
-
-AdvancedAnimationSnippets.kt
 ```
+
+<br />
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Value-based animations](/develop/ui/compose/animation/value-based)
-* [Drag, swipe, and fling](/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling)
-* [Understand gestures](/develop/ui/compose/touch-input/pointer-input/understand-gestures)
+- Note: link text is displayed when JavaScript is off
+- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based)
+- [Drag, swipe, and fling](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling)
+- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures)

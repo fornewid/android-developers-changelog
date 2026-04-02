@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The Android Contact Picker is a standardized, browsable interface for users to
 share contacts with your app. Available on devices running
 Android 17 (API level 37) or higher, the picker offers a privacy-preserving

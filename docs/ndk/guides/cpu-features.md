@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 There are several ways to check for CPU features in your code, each with a
 different set of trade-offs.
 

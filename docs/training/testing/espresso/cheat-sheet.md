@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The Espresso Cheat Sheet is a quick reference you can use during development.
 This cheat sheet contains most available instances of `Matcher`, `ViewAction`,
 and `ViewAssertion`.

@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Each page in this section describes the usage, format, and syntax for a certain type
 of [app resource](/guide/topics/resources/providing-resources)
 that you can provide in your project resources directory (`res/`).

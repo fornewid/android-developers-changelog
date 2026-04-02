@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Enhance your app's health and fitness experience by expanding it onto wearable
 devices powered by [Wear OS](/wear).
 

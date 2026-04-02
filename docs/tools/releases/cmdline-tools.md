@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android SDK Command-Line Tools package
 contains various tools for building and debugging Android apps. It is
 released concurrently with Android Studio and is installed in the

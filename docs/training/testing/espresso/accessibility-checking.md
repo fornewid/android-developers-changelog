@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Testing for accessibility lets you experience your app from the perspective of
 your entire user base, including users with accessibility needs. This form of
 testing can reveal opportunities to make your app more powerful and versatile.

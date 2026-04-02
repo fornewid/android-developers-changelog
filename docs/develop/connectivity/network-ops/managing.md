@@ -1,36 +1,25 @@
 ---
-title: Manage network usage  |  Connectivity  |  Android Developers
+title: https://developer.android.com/develop/connectivity/network-ops/managing
 url: https://developer.android.com/develop/connectivity/network-ops/managing
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Connectivity](https://developer.android.com/develop/connectivity)
-* [Guides](https://developer.android.com/develop/connectivity/overview)
-
-# Manage network usage Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 This lesson describes how to write applications that have fine-grained control
 over their usage of network resources. If your application performs a lot of
 network operations, you should provide user settings that allow users to control
-your app’s data habits, such as how often your app syncs data, whether to
+your app's data habits, such as how often your app syncs data, whether to
 perform uploads/downloads only when on Wi-Fi, whether to use data while roaming,
 and so on. With these controls available to them, users are much less likely to
-disable your app’s access to background data when they approach their limits,
+disable your app's access to background data when they approach their limits,
 because they can instead precisely control how much data your app uses.
 
 To learn more about the network usage of your app, including the number and
 types of network connections over a period of time, read [Web
-apps](/guide/webapps) and [Inspect network traffic with network
-profiler](/studio/profile/network-profiler). For general guidelines on how to
+apps](https://developer.android.com/guide/webapps) and [Inspect network traffic with network
+profiler](https://developer.android.com/studio/profile/network-profiler). For general guidelines on how to
 write apps that minimize the battery life impact of downloads and network
-connections, see [Optimize battery life](/training/monitoring-device-state) and
-[Transfer data without draining the battery](/training/efficient-downloads).
+connections, see [Optimize battery life](https://developer.android.com/training/monitoring-device-state) and
+[Transfer data without draining the battery](https://developer.android.com/training/efficient-downloads).
 
 You can also check out the [NetworkConnect
 sample](https://github.com/android/connectivity-samples/tree/main/NetworkConnect).
@@ -40,7 +29,7 @@ sample](https://github.com/android/connectivity-samples/tree/main/NetworkConnect
 A device can have various types of network connections. This lesson focuses on
 using either a Wi-Fi or a mobile network connection. For the full list of
 possible network types, see
-[`ConnectivityManager`](/reference/android/net/ConnectivityManager).
+[`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager).
 
 Wi-Fi is typically faster. Also, mobile data is often metered, which can get
 expensive. A common strategy for apps is to only fetch large data if a Wi-Fi
@@ -52,11 +41,8 @@ inadvertently using the wrong radio. If a network connection is unavailable,
 your application should respond gracefully. To check the network connection, you
 typically use the following classes:
 
-* `ConnectivityManager`: Answers queries about the state of network
-  connectivity. It also notifies applications when network connectivity
-  changes.
-* [`NetworkInfo`](/reference/android/net/NetworkInfo): Describes the status of a
-  network interface of a given type (currently either Mobile or Wi-Fi).
+- `ConnectivityManager`: Answers queries about the state of network connectivity. It also notifies applications when network connectivity changes.
+- [`NetworkInfo`](https://developer.android.com/reference/android/net/NetworkInfo): Describes the status of a network interface of a given type (currently either Mobile or Wi-Fi).
 
 This code snippet tests network connectivity for Wi-Fi and mobile. It determines
 whether these network interfaces are available (that is, whether network
@@ -65,7 +51,7 @@ connectivity exists and if it is possible to establish sockets and pass data):
 
 ### Kotlin
 
-```
+```kotlin
 private const val DEBUG_TAG = "NetworkStatusExample"
 ...
 val connMgr = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -87,7 +73,7 @@ Log.d(DEBUG_TAG, "Mobile connected: $isMobileConn")
 
 ### Java
 
-```
+```java
 private static final String DEBUG_TAG = "NetworkStatusExample";
 ...
 ConnectivityManager connMgr =
@@ -109,21 +95,21 @@ Log.d(DEBUG_TAG, "Mobile connected: " + isMobileConn);
 
 Note that you should not base decisions on whether a network is "available." You
 should always check
-[`isConnected()`](/reference/android/net/NetworkInfo#isConnected()) before
+[`isConnected()`](https://developer.android.com/reference/android/net/NetworkInfo#isConnected()) before
 performing network operations, since `isConnected()` handles cases like flaky
 mobile networks, airplane mode, and restricted background data.
 
 A more concise way of checking whether a network interface is available is as
 follows. The method
-[`getActiveNetworkInfo()`](/reference/android/net/ConnectivityManager#getActiveNetworkInfo())
-returns a `NetworkInfo` instance
+[`getActiveNetworkInfo()`](https://developer.android.com/reference/android/net/ConnectivityManager#getActiveNetworkInfo())
+returns a `NetworkInfo` instance
 representing the first connected network interface it can find, or `null` if
 none of the interfaces is connected (meaning that an internet connection is not
 available):
 
 ### Kotlin
 
-```
+```kotlin
 fun isOnline(): Boolean {
     val connMgr = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val networkInfo: NetworkInfo? = connMgr.activeNetworkInfo
@@ -133,7 +119,7 @@ fun isOnline(): Boolean {
 
 ### Java
 
-```
+```java
 public boolean isOnline() {
     ConnectivityManager connMgr = (ConnectivityManager)
             getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -143,7 +129,7 @@ public boolean isOnline() {
 ```
 
 To query more fine-grained state you can use
-[`NetworkInfo.DetailedState`](/reference/android/net/NetworkInfo.DetailedState),
+[`NetworkInfo.DetailedState`](https://developer.android.com/reference/android/net/NetworkInfo.DetailedState),
 but this should seldom be necessary.
 
 ## Manage network usage
@@ -151,33 +137,22 @@ but this should seldom be necessary.
 You can implement a preferences activity that gives users explicit control over
 your app's usage of network resources. For example:
 
-* You might allow users to upload videos only when the device is connected to a
-  Wi-Fi network.
-* You might sync (or not) depending on specific criteria such as network
-  availability, time interval, and so on.
+- You might allow users to upload videos only when the device is connected to a Wi-Fi network.
+- You might sync (or not) depending on specific criteria such as network availability, time interval, and so on.
 
 To write an app that supports network access and managing network usage, your
 manifest must have the right permissions and intent filters.
 
-* The manifest excerpted later in this section includes the following
-  permissions:
-  + [`android.permission.INTERNET`](/reference/android/Manifest.permission#INTERNET)
-    — Allows applications to open network sockets.
-  + [`android.permission.ACCESS_NETWORK_STATE`](/reference/android/Manifest.permission#ACCESS_NETWORK_STATE)
-    — Allows applications to access information about networks.
-* You can declare the intent filter for the
-  [`ACTION_MANAGE_NETWORK_USAGE`](/reference/android/content/Intent#ACTION_MANAGE_NETWORK_USAGE)
-  action to indicate that your application defines an activity that offers
-  options to control data usage. `ACTION_MANAGE_NETWORK_USAGE` shows settings
-  for managing the network data usage of a specific application. When your app
-  has a settings activity that allows users to control network usage, you should
-  declare this intent filter for that activity.
+- The manifest excerpted later in this section includes the following permissions:
+  - [`android.permission.INTERNET`](https://developer.android.com/reference/android/Manifest.permission#INTERNET) --- Allows applications to open network sockets.
+  - [`android.permission.ACCESS_NETWORK_STATE`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_NETWORK_STATE) --- Allows applications to access information about networks.
+- You can declare the intent filter for the [`ACTION_MANAGE_NETWORK_USAGE`](https://developer.android.com/reference/android/content/Intent#ACTION_MANAGE_NETWORK_USAGE) action to indicate that your application defines an activity that offers options to control data usage. `ACTION_MANAGE_NETWORK_USAGE` shows settings for managing the network data usage of a specific application. When your app has a settings activity that allows users to control network usage, you should declare this intent filter for that activity.
 
 In the sample application, this action is handled by the class
 `SettingsActivity`, which displays a preferences UI to let users decide when to
 download a feed.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.networkusage"
@@ -214,49 +189,46 @@ data leak.
 The following shows a sample of a manifest file that uses the per-process
 functionality:
 
-```
-<processes>
-    <process />
-    <deny-permission android:name="android.permission.INTERNET" />
-    <process android:process=":withoutnet1" />
-    <process android:process="com.android.cts.useprocess.withnet1">
-        <allow-permission android:name="android.permission.INTERNET" />
-    </process>
-    <allow-permission android:name="android.permission.INTERNET" />
-    <process android:process=":withoutnet2">
+    <processes>
+        <process />
         <deny-permission android:name="android.permission.INTERNET" />
-    </process>
-    <process android:process="com.android.cts.useprocess.withnet2" />
-</processes>
-```
+        <process android:process=":withoutnet1" />
+        <process android:process="com.android.cts.useprocess.withnet1">
+            <allow-permission android:name="android.permission.INTERNET" />
+        </process>
+        <allow-permission android:name="android.permission.INTERNET" />
+        <process android:process=":withoutnet2">
+            <deny-permission android:name="android.permission.INTERNET" />
+        </process>
+        <process android:process="com.android.cts.useprocess.withnet2" />
+    </processes>
 
 ## Implement a preference activity
 
 As you can see in the manifest excerpt earlier in this topic, the sample app's
 activity `SettingsActivity` has an intent filter for the
 `ACTION_MANAGE_NETWORK_USAGE` action. `SettingsActivity` is a subclass of
-[`PreferenceActivity`](/reference/android/preference/PreferenceActivity). It
+[`PreferenceActivity`](https://developer.android.com/reference/android/preference/PreferenceActivity). It
 displays a preferences screen (shown in figure 1) that lets users specify the
 following:
 
-* Whether to display summaries for each XML feed entry, or just a link for each entry.
-* Whether to download the XML feed if any network connection is available, or only if Wi-Fi is
-  available.
+- Whether to display summaries for each XML feed entry, or just a link for each entry.
+- Whether to download the XML feed if any network connection is available, or only if Wi-Fi is available.
 
-![Preferences panel](/static/images/training/basics/network-settings1.png) ![Setting a network preference](/static/images/training/basics/network-settings2.png)
+![Preferences panel](https://developer.android.com/static/images/training/basics/network-settings1.png) ![Setting a network preference](https://developer.android.com/static/images/training/basics/network-settings2.png)
 
 **Figure 1.** Preferences activity.
 
 Here is `SettingsActivity`. Note that it implements
-[`OnSharedPreferenceChangeListener`](/reference/android/content/SharedPreferences.OnSharedPreferenceChangeListener).
+[`OnSharedPreferenceChangeListener`](https://developer.android.com/reference/android/content/SharedPreferences.OnSharedPreferenceChangeListener).
 When a user changes a preference, it fires
-[`onSharedPreferenceChanged()`](/reference/android/content/SharedPreferences.OnSharedPreferenceChangeListener#onSharedPreferenceChanged(android.content.SharedPreferences,%20java.lang.String)),
+[`onSharedPreferenceChanged()`](https://developer.android.com/reference/android/content/SharedPreferences.OnSharedPreferenceChangeListener#onSharedPreferenceChanged(android.content.SharedPreferences,%20java.lang.String)),
 which sets `refreshDisplay` to true. This causes the display to refresh when the
 user returns to the main activity:
 
 ### Kotlin
 
-```
+```kotlin
 class SettingsActivity : PreferenceActivity(), OnSharedPreferenceChangeListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -298,7 +270,7 @@ class SettingsActivity : PreferenceActivity(), OnSharedPreferenceChangeListener 
 
 ### Java
 
-```
+```java
 public class SettingsActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 
     @Override
@@ -353,7 +325,7 @@ display.
 
 ### Kotlin
 
-```
+```kotlin
 class NetworkActivity : Activity() {
 
     // The BroadcastReceiver that tracks network connectivity changes.
@@ -442,7 +414,7 @@ class NetworkActivity : Activity() {
 
 ### Java
 
-```
+```java
 public class NetworkActivity extends Activity {
     public static final String WIFI = "Wi-Fi";
     public static final String ANY = "Any";
@@ -535,10 +507,10 @@ public class NetworkActivity extends Activity {
 ## Detect connection changes
 
 The final piece of the puzzle is the
-[`BroadcastReceiver`](/reference/android/content/BroadcastReceiver) subclass,
+[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) subclass,
 `NetworkReceiver`. When the device's network connection changes,
 `NetworkReceiver` intercepts the action
-[`CONNECTIVITY_ACTION`](/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION),
+[`CONNECTIVITY_ACTION`](https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION),
 determines what the network connection status is, and sets the flags
 `wifiConnected` and `mobileConnected` to true/false accordingly. The upshot is
 that the next time the user returns to the app, the app will only download the
@@ -548,9 +520,9 @@ latest feed and update the display if `NetworkActivity.refreshDisplay` is set to
 Setting up a `BroadcastReceiver` that gets called unnecessarily can be a drain
 on system resources. The sample application registers the `BroadcastReceiver`
 `NetworkReceiver` in
-[`onCreate()`](/reference/android/app/Activity#onCreate(android.os.Bundle)),
+[`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)),
 and it unregisters it in
-[`onDestroy()`](/reference/android/app/Activity#onDestroy()). This is more
+[`onDestroy()`](https://developer.android.com/reference/android/app/Activity#onDestroy()). This is more
 lightweight than declaring a `<receiver>` in the manifest. When you
 declare a `<receiver>` in the manifest, it can wake up your app at any
 time, even if you haven't run it for weeks. By registering and unregistering
@@ -558,14 +530,14 @@ time, even if you haven't run it for weeks. By registering and unregistering
 be woken up after the user leaves the app. If you do declare a
 `<receiver>` in the manifest and you know exactly where you need it, you
 can use
-[`setComponentEnabledSetting()`](/reference/android/content/pm/PackageManager#setComponentEnabledSetting(android.content.ComponentName,%20int,%20int))
+[`setComponentEnabledSetting()`](https://developer.android.com/reference/android/content/pm/PackageManager#setComponentEnabledSetting(android.content.ComponentName,%20int,%20int))
 to enable and disable it as appropriate.
 
 Here is `NetworkReceiver`:
 
 ### Kotlin
 
-```
+```kotlin
 class NetworkReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
@@ -601,7 +573,7 @@ class NetworkReceiver : BroadcastReceiver() {
 
 ### Java
 
-```
+```java
 public class NetworkReceiver extends BroadcastReceiver {
 
     @Override

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![](/static/wear/images/sliders/sliders-hero.png)
 
 The [Inline sliders](/reference/kotlin/androidx/wear/compose/material/InlineSlider.composable#InlineSlider(kotlin.Float,kotlin.Function1,kotlin.Int,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.ranges.ClosedFloatingPointRange,kotlin.Boolean,androidx.wear.compose.material.InlineSliderColors)) allow users to make selections from a range of values.

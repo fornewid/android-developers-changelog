@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 You can create a more interactive and engaging user experience in your app by
 loading a drawable file to display animated images. Animated images are useful
 for creating loading indicators, success or error indicators, facilitating game

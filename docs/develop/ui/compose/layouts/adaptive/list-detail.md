@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 List-detail is a UI pattern that consists of a dual-pane layout where one pane
 presents a list of items and another pane displays the details of items selected
 from the list.

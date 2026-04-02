@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To get started with Android 10, you'll need a hardware device or emulator
 running Android 10 for testing and development.
 

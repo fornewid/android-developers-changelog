@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 [Google Play Instant](/topic/google-play-instant/overview) allows users to
 interact with your app without needing to install
 APK(s) on their device. Instead, they can experience your app through the

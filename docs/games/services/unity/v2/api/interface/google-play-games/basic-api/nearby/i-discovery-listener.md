@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # GooglePlayGames.BasicApi.Nearby.IDiscoveryListener
 
 Interface for receiving notifications about discovered endpoints.

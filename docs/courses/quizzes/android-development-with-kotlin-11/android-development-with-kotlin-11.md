@@ -1,68 +1,57 @@
 ---
-title: Lesson 11: Connect to the internet  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-11/android-development-with-kotlin-11
 url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-11/android-development-with-kotlin-11
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Lesson 11: Connect to the internet
 
-Return to pathway
+# Lesson 11: Connect to the internet
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## What are the two key things Retrofit needs to build a web services API?
+   ## What are the two key things Retrofit needs to build a web services API?
 
-   The base URI for the web service, and a GET query.
+   The base URI for the web service, and a GET query.  
+   The base URI for the web service, and a converter factory.  
+   A network connection to the web service, and an authorization token.  
+   A converter factory, and a parser for the response.  
+2.
 
-   The base URI for the web service, and a converter factory.
+   ## What is the purpose of the Moshi library?
 
-   A network connection to the web service, and an authorization token.
+   To get data back from a web service.  
+   To interact with Retrofit to make a web service request.  
+   To parse a JSON response from a web service into Kotlin data objects.  
+   To rename Kotlin objects to match the keys in the JSON response.  
+3.
 
-   A converter factory, and a parser for the response.
-2. ## What is the purpose of the Moshi library?
+   ## Which Glide method do you use to indicate the`ImageView`that will contain the loaded image?
 
-   To get data back from a web service.
+   `into()`  
+   `with()`  
+   `imageview()`  
+   `apply()`  
+4.
 
-   To interact with Retrofit to make a web service request.
+   ## How do you specify a placeholder image to show when Glide is loading?
 
-   To parse a JSON response from a web service into Kotlin data objects.
+   Use the`into()`method with a drawable.  
+   Use`RequestOptions()`and call the`placeholder()`method with a drawable.  
+   Assign the`Glide.placeholder`property to a drawable.  
+   Use`RequestOptions()`and call the`loadingImage()`method with a drawable.  
+5.
 
-   To rename Kotlin objects to match the keys in the JSON response.
-3. ## Which Glide method do you use to indicate the `ImageView` that will contain the loaded image?
+   ## How do you add a query option to a REST web service call in Retrofit?
 
-   `into()`
-
-   `with()`
-
-   `imageview()`
-
-   `apply()`
-4. ## How do you specify a placeholder image to show when Glide is loading?
-
-   Use the `into()` method with a drawable.
-
-   Use `RequestOptions()` and call the `placeholder()` method with a drawable.
-
-   Assign the `Glide.placeholder` property to a drawable.
-
-   Use `RequestOptions()` and call the `loadingImage()` method with a drawable.
-5. ## How do you add a query option to a REST web service call in Retrofit?
-
-   Append the query to the end of the request URL.
-
-   Add a parameter for the query to the function that makes the request, and annotate that parameter with `@Query`.
-
-   Use the Query class to build a request.
-
-   Use the `addQuery()` method in the Retrofit builder.
+   Append the query to the end of the request URL.  
+   Add a parameter for the query to the function that makes the request, and annotate that parameter with`@Query`.  
+   Use the Query class to build a request.  
+   Use the`addQuery()`method in the Retrofit builder.  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

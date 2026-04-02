@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The [`ProfilingManager`](/reference/android/os/ProfilingManager) Android API lets you collect real user performance
 profiles, such as [system traces](/topic/performance/tracing), programmatically. The `ProfilingManager` API
 supports two types of trace collections: traces that you explicitly start and

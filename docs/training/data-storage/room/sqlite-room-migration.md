@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Room persistence library provides a number of benefits over using the SQLite
 APIs directly:
 

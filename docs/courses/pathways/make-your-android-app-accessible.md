@@ -1,95 +1,54 @@
 ---
-title: Make your Android app more accessible  |  Android Developers
+title: https://developer.android.com/courses/pathways/make-your-android-app-accessible
 url: https://developer.android.com/courses/pathways/make-your-android-app-accessible
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Make your Android app more accessible
 
-Learn the accessibility principles that make a big difference to your users, including color contrast, touch target size, and content labeling.  
-Go back
 
-*check\_circle*
+Learn the accessibility principles that make a big difference to your users, including color contrast, touch target size, and content labeling.  
+
+
+Go back
 
 ## Get started with Android Accessibility
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
-
-*ondemand\_video*
-Video
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Video
 
 Learn about accessibility and get introduced to the concepts covered in this series.
 
-*check\_circle*
-
 ## Accessibility in Android
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
-
-*ondemand\_video*
-Video
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Video
 
 Learn how users with disabilities can modify the default configurations of their Android device to make the device more functional for them.
 
-*check\_circle*
-
 ## Accessibility Services and the Android Accessibility Model
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
-
-*ondemand\_video*
-Video
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Video
 
 Learn how the Android Framework communicates with Accessibility Services, providing an alternate way for users with disabilities to interact with Android devices.
 
-*check\_circle*
-
 ## Common accessibility problems
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
-
-*subject*
-Article
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article
 
 Learn how users with disabilities can modify the default configurations of their Android device to make the device more functional for them.
 
 [Read article](https://developer.android.com/guide/topics/ui/accessibility/apps)
 
-*check\_circle*
-
 ## Test your app's accessibility
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
-
-*subject*
-Article
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article
 
 Learn how to test for accessibility and experience your app from the perspective of your users.
 
 [Read article](https://developer.android.com/guide/topics/ui/accessibility/testing)
 
-*check\_circle*
-
 ## Troubleshoot common accessibility issues
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
-
-*emoji\_objects*
-Codelab
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Codelab
 
 Learn how to implement best practices for content labeling, touch target implementation, and contrast implementation, and how to troubleshoot and fix these issues.
 
@@ -98,5 +57,4 @@ Learn how to implement best practices for content labeling, touch target impleme
 ## Make your Android app accessible quiz
 
 Test your knowledge earn a badge.
-
-[Take the quiz](/courses/quizzes/make-your-android-app-accessible/accessibility-on-android)
+[Take the quiz](https://developer.android.com/courses/quizzes/make-your-android-app-accessible/accessibility-on-android)

@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 A [`Fragment`](/reference/androidx/fragment/app/Fragment) represents a
 reusable portion of your app's UI. A fragment defines and manages its own
 layout, has its own lifecycle, and can handle its own input events. Fragments

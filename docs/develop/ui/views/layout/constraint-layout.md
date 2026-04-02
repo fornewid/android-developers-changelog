@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Build a responsive UI with ConstraintLayout   Part of [Android Jetpack](/jetpack).
 
 Try the Compose way

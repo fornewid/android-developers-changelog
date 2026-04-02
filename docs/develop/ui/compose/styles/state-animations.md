@@ -1,18 +1,10 @@
 ---
-title: State and animations in Styles  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/styles/state-animations
 url: https://developer.android.com/develop/ui/compose/styles/state-animations
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# State and animations in Styles Stay organized with collections Save and categorize content based on your preferences.
-
-
+<br />
 
 The Styles API offers a declarative and streamlined approach to managing UI
 changes during interaction states like `hovered`, `focused`, and `pressed`. With
@@ -29,14 +21,14 @@ definitions.
 
 Styles come with built-in support for common interactions:
 
-* Pressed
-* Hovered
-* Selected
-* Enabled
-* Toggled
+- Pressed
+- Hovered
+- Selected
+- Enabled
+- Toggled
 
 It's also possible to support custom states. See the [Custom State Styling with
-StyleState](#custom-state) section for more information.
+StyleState](https://developer.android.com/develop/ui/compose/styles/state-animations#custom-state) section for more information.
 
 ### Handle interaction states with Style parameters
 
@@ -44,7 +36,8 @@ The following example demonstrates modifying the `background` and `borderColor`
 in response to interaction states, specifically switching to purple when hovered
 and blue when focused:
 
-```
+
+```kotlin
 @Preview
 @Composable
 private fun OpenButton() {
@@ -69,14 +62,9 @@ private fun OpenButton() {
         }
     )
 }
-
-StateAnimations.kt
 ```
 
-[
-
-](/static/develop/ui/compose/styles/images/basic_hover_change.mp4)
-
+<br />
 
 **Figure 1.** Changing background color based on hovered and focused states.
 
@@ -84,7 +72,8 @@ You can also create nested state definitions. For example, you can define a
 specific style for when a button is being both pressed and hovered
 simultaneously:
 
-```
+
+```kotlin
 @Composable
 private fun OpenButton_CombinedStates() {
     BaseButton(
@@ -116,14 +105,9 @@ private fun OpenButton_CombinedStates() {
         }
     )
 }
-
-StateAnimations.kt
 ```
 
-[
-
-](/static/develop/ui/compose/styles/images/hover_press_shortcuts.mp4)
-
+<br />
 
 **Figure 2.** Hovered and pressed state together on a button.
 
@@ -137,16 +121,12 @@ Consider a scenario where your design system includes a `GradientButton`. You
 may want to create a `LoginButton` that inherits from `GradientButton`, but
 alters its colors during interactions, like being pressed.
 
-* To enable `interactionSource` style updates, include an `interactionSource`
-  as a parameter within your composable. Use the provided parameter or, if one
-  is not supplied, initialize a new `MutableInteractionSource`.
-* Initialize the `styleState` by providing the `interactionSource`. Make sure
-  the `styleState`'s enabled status reflects the value of the provided enabled
-  parameter.
-* Assign the `interactionSource` to the `focusable` and `clickable` modifiers.
-  Finally, apply the `styleState` to the modifier's `styleable` parameter.
+- To enable `interactionSource` style updates, include an `interactionSource` as a parameter within your composable. Use the provided parameter or, if one is not supplied, initialize a new `MutableInteractionSource`.
+- Initialize the `styleState` by providing the `interactionSource`. Make sure the `styleState`'s enabled status reflects the value of the provided enabled parameter.
+- Assign the `interactionSource` to the `focusable` and `clickable` modifiers. Finally, apply the `styleState` to the modifier's `styleable` parameter.
 
-```
+
+```kotlin
 @Composable
 private fun GradientButton(
     onClick: () -> Unit,
@@ -173,14 +153,15 @@ private fun GradientButton(
         content = content,
     )
 }
-
-StateAnimations.kt
 ```
+
+<br />
 
 You can now use the `interactionSource` state to drive style modifications with
 the pressed, focused, and hovered options inside the style block:
 
-```
+
+```kotlin
 @Preview
 @Composable
 fun LoginButton() {
@@ -199,14 +180,9 @@ fun LoginButton() {
         BaseText("Login")
     }
 }
-
-StateAnimations.kt
 ```
 
-[
-
-](/static/develop/ui/compose/styles/images/custom_composable_styleable.mp4)
-
+<br />
 
 **Figure 3.** Changing a custom composable state based on `interactionSource`.
 
@@ -218,7 +194,8 @@ animations between different states. This is similar to the `animate*AsState`
 APIs. The following example animates the `borderColor` from black to blue when
 the state changes to focused:
 
-```
+
+```kotlin
 val animatingStyle = Style {
     externalPadding(48.dp)
     border(3.dp, Color.Black)
@@ -251,14 +228,9 @@ private fun AnimatingStyleChanges() {
 
     }
 }
-
-StateAnimations.kt
 ```
 
-[
-
-](/static/develop/ui/compose/styles/images/animate_style_changes_basic.mp4)
-
+<br />
 
 **Figure 4.** Animating color changes on press.
 
@@ -266,7 +238,8 @@ The `animate` API accepts an `animationSpec` to change the duration or shape of
 the animation curve. The following example animates the size of the box with a
 `spring` spec:
 
-```
+
+```kotlin
 val animatingStyleSpec = Style {
     externalPadding(48.dp)
     border(3.dp, Color.Black)
@@ -300,14 +273,9 @@ fun AnimatingStyleChangesSpec() {
         )
         .styleable(styleState, animatingStyleSpec))
 }
-
-StateAnimations.kt
 ```
 
-[
-
-](/static/develop/ui/compose/styles/images/animate_style_changes_spec.mp4)
-
+<br />
 
 **Figure 5.** Animating size and color changes on press.
 
@@ -326,11 +294,12 @@ use your own custom state:
 ### Define custom key
 
 To create a custom state-based style, first create a
-[`StyleStateKey`](/reference/kotlin/androidx/compose/foundation/style/StyleStateKey) and pass in the default state value. When the
+[`StyleStateKey`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/style/StyleStateKey) and pass in the default state value. When the
 app launches, the media player is in the `Stopped` state, so it's initialized in
 this way:
 
-```
+
+```kotlin
 enum class PlayerState {
     Stopped,
     Playing,
@@ -338,9 +307,9 @@ enum class PlayerState {
 }
 
 val playerStateKey = StyleStateKey(PlayerState.Stopped)
-
-CustomStates.kt
 ```
+
+<br />
 
 ### Create StyleState extension functions
 
@@ -348,7 +317,8 @@ Define an extension function on `StyleState` to query the current `playState`.
 Then, create extension functions on `StyleScope` with your custom states passing
 in the `playStateKey`, a lambda with the specific state, and the style.
 
-```
+
+```kotlin
 // Extension Function on MutableStyleState to query and set the current playState
 var MutableStyleState.playerState
     get() = this[playerStateKey]
@@ -360,9 +330,9 @@ fun StyleScope.playerPlaying(value: Style) {
 fun StyleScope.playerPaused(value: Style) {
     state(playerStateKey, value, { key, state -> state[key] == PlayerState.Paused })
 }
-
-CustomStates.kt
 ```
+
+<br />
 
 ### Link to custom state
 
@@ -370,7 +340,8 @@ Define the `styleState` in your composable and set the `styleState.playState`
 equal to incoming state. Pass `styleState` into the `styleable` function on the
 modifier.
 
-```
+
+```kotlin
 @Composable
 fun MediaPlayer(
     url: String,
@@ -387,14 +358,15 @@ fun MediaPlayer(
         ///..
     }
 }
-
-CustomStates.kt
 ```
+
+<br />
 
 Within the `style` lambda, you can apply state based styling for custom states,
 using the previously defined extension functions.
 
-```
+
+```kotlin
 @Composable
 fun StyleStateKeySample() {
     // Using the extension function to change the border color to green while playing
@@ -419,13 +391,14 @@ fun StyleStateKeySample() {
         style = style,
         state = PlayerState.Stopped)
 }
-
-CustomStates.kt
 ```
+
+<br />
 
 The following code is the full snippet for this example:
 
-```
+
+```kotlin
 enum class PlayerState {
     Stopped,
     Playing,
@@ -489,6 +462,6 @@ fun StyleStateKeySample() {
         style = style,
         state = PlayerState.Stopped)
 }
-
-CustomStates.kt
 ```
+
+<br />

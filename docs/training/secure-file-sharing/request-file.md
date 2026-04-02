@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 When an app wants to access a file shared by another app, the requesting app (the client)
 usually sends a request to the app sharing the files (the server). In most cases, the request
 starts an `Activity` in the server app that displays the files it can share.

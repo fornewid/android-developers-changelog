@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 On devices running Android 15 or higher, Android Auto supports running
 apps in [supported parked app categories](/training/cars#parked) directly on the head unit. See
 [Parked apps](/training/cars/platforms/android-auto#parked-apps) for more information about the parked app user experience on

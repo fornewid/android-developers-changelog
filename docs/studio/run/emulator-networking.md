@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 | Network | API Level | Capability |
 | --- | --- | --- |
 | Ethernet | 15+ | Internet and host access. |

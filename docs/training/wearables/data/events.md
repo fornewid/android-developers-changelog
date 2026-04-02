@@ -1,37 +1,23 @@
 ---
-title: Handle Data Layer events on Wear  |  Wear OS  |  Android Developers
+title: https://developer.android.com/training/wearables/data/events
 url: https://developer.android.com/training/wearables/data/events
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Wear OS](https://developer.android.com/training/wearables)
-
-# Handle Data Layer events on Wear Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 When you make a call to the Data Layer API, you can receive the status of the
 call when it completes. You also can listen for data events resulting from data
 changes that your app makes anywhere on the Wear OS by Google network.
 
-**Note:** The Data Layer API can only send messages and synchronize data with
-Android phones or Wear OS watches. If a Wear OS device is paired with an iOS
-device, the Data Layer API doesn't work. For this reason, don't use the Data
-Layer API as the primary way to communicate with a network. Instead, follow the
-same pattern in your Wear OS app as in a mobile app, with some minor differences
-as described in [Network access and sync on Wear OS](/training/wearables/data-layer/network-access).
+> [!NOTE]
+> **Note:** The Data Layer API can only send messages and synchronize data with Android phones or Wear OS watches. If a Wear OS device is paired with an iOS device, the Data Layer API doesn't work. For this reason, don't use the Data Layer API as the primary way to communicate with a network. Instead, follow the same pattern in your Wear OS app as in a mobile app, with some minor differences as described in [Network access and sync on Wear OS](https://developer.android.com/training/wearables/data-layer/network-access).
 
 For an example of effectively working with the Data Layer API, see the [Android
 DataLayer Sample](https://github.com/android/wear-os-samples/tree/main/DataLayer) app.
 
 ## Wait for the status of Data Layer calls
 
-Calls to the Data Layer API—such as a call using the `putDataItem` method of the
-[`DataClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient) class—sometimes return a [`Task<ResultType>`](https://developers.google.com/android/guides/tasks) object. As
+Calls to the Data Layer API---such as a call using the `putDataItem` method of the
+[`DataClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient) class---sometimes return a [`Task<ResultType>`](https://developers.google.com/android/guides/tasks) object. As
 soon as the `Task` object is created, the operation is queued in the background.
 If you do nothing more after this, the operation eventually completes silently.
 
@@ -44,7 +30,9 @@ asynchronously or synchronously.
 If your code is running on the main UI thread, don't make blocking calls to the
 Data Layer API and use a coroutine to call `putDataItem`:
 
-```
+<br />
+
+```kotlin
 private suspend fun Context.sendDataAsync(count: Int) {
     try {
         val putDataReq: PutDataRequest = PutDataMapRequest.create("/count").run {
@@ -63,9 +51,9 @@ private suspend fun Context.sendDataAsync(count: Int) {
 private fun handleDataItem(dataItem: DataItem) { }
 private fun handleDataItemError(exception: Exception) { }
 private fun handleTaskComplete() { }
-
-DataLayerActivity.kt
 ```
+
+<br />
 
 See the [Task API](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) for other possibilities, including chaining the execution
 of different tasks.
@@ -78,7 +66,9 @@ blocking call to `putDataItem`.
 
 **Note:** Do not call this while on the main thread.
 
-```
+<br />
+
+```kotlin
 private fun Context.sendDataSync(count: Int) = runBlocking {
     val putDataReq = PutDataMapRequest.create("/count").run {
         dataMap.putInt("count_key", count)
@@ -94,9 +84,9 @@ private fun Context.sendDataSync(count: Int) = runBlocking {
         // Handle failure
     }
 }
-
-DataLayerActivity.kt
 ```
+
+<br />
 
 ## Listen for Data Layer events
 
@@ -106,9 +96,8 @@ items being created and messages being received.
 
 To listen for data layer events, you have two options:
 
-* Create a service that extends [`WearableListenerService`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService.html).
-* Create an activity or class that implements the
-  [`DataClient.OnDataChangedListener`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient.OnDataChangedListener) interface.
+- Create a service that extends [`WearableListenerService`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService.html).
+- Create an activity or class that implements the [`DataClient.OnDataChangedListener`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient.OnDataChangedListener) interface.
 
 With both of these options, you override the data event callback methods for the
 events you are interested in handling.
@@ -136,14 +125,9 @@ any data events from the wearable app.
 Some of the events you can listen for using `WearableListenerService` are the
 following:
 
-* [`onDataChanged()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService#onDataChanged(com.google.android.gms.wearable.DataEventBuffer)): whenever a data item object is created, deleted, or
-  changed, the system triggers this callback on all connected nodes.
-* [`onMessageReceived()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService#onMessageReceived(com.google.android.gms.wearable.MessageEvent)): a message sent from a node triggers this
-  callback on the target node.
-* [`onCapabilityChanged()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService#onCapabilityChanged(com.google.android.gms.wearable.CapabilityInfo)): when a capability that an instance of your
-  app advertises becomes available on the network, that event triggers this
-  callback. If you're looking for a nearby node, you can query the
-  [`isNearby()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Node.html#isNearby()) method of the nodes provided in the callback.
+- [`onDataChanged()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService#onDataChanged(com.google.android.gms.wearable.DataEventBuffer)): whenever a data item object is created, deleted, or changed, the system triggers this callback on all connected nodes.
+- [`onMessageReceived()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService#onMessageReceived(com.google.android.gms.wearable.MessageEvent)): a message sent from a node triggers this callback on the target node.
+- [`onCapabilityChanged()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService#onCapabilityChanged(com.google.android.gms.wearable.CapabilityInfo)): when a capability that an instance of your app advertises becomes available on the network, that event triggers this callback. If you're looking for a nearby node, you can query the [`isNearby()`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Node.html#isNearby()) method of the nodes provided in the callback.
 
 You can also listen for events from [`ChannelClient.ChannelCallback`](https://developers.google.com/android/reference/com/google/android/gms/wearable/ChannelClient.ChannelCallback), such
 as `onChannelOpened()`.
@@ -155,13 +139,13 @@ To create a `WearableListenerService`, follow these steps:
 
 1. Create a class that extends `WearableListenerService`.
 2. Listen for the events that you're interested in, such as `onDataChanged()`.
-3. Declare an intent filter in your Android manifest to notify the system about
-   your `WearableListenerService`. This declaration lets the system bind your
-   service as needed.
+3. Declare an intent filter in your Android manifest to notify the system about your `WearableListenerService`. This declaration lets the system bind your service as needed.
 
 The following example shows how to implement a `WearableListenerService`:
 
-```
+<br />
+
+```kotlin
 class DataLayerListenerService : WearableListenerService() {
 
     override fun onDataChanged(dataEvents: DataEventBuffer) {
@@ -189,9 +173,9 @@ class DataLayerListenerService : WearableListenerService() {
             }
     }
 }
-
-DataLayerService.kt
 ```
+
+<br />
 
 The following section explains how to use an intent filter with this listener.
 
@@ -200,7 +184,9 @@ The following section explains how to use an intent filter with this listener.
 An intent filter for the `WearableListenerService` example shown in the previous
 section might look like this:
 
-```
+<br />
+
+```xml
 <service
     android:name=".snippets.datalayer.DataLayerListenerService"
     android:exported="true"
@@ -213,9 +199,9 @@ section might look like this:
             android:path="/start-activity" />
     </intent-filter>
 </service>
-
-AndroidManifest.xml
 ```
+
+<br />
 
 The `DATA_CHANGED` action filter tells the system your app is interested in data
 layer events.
@@ -237,14 +223,12 @@ For more information about the filter types that Wear OS supports, see the API
 reference documentation for [`WearableListenerService`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService).
 
 For more information on data filters and matching rules, see the API reference
-documentation for the [`<data>`](/guide/topics/manifest/data-element) manifest element.
+documentation for the [`<data>`](https://developer.android.com/guide/topics/manifest/data-element) manifest element.
 
 When matching intent filters, remember two important rules:
 
-* If no scheme is specified for the intent filter, the system ignores all the
-  other URI attributes.
-* If no host is specified for the filter, the system ignores all the path
-  attributes.
+- If no scheme is specified for the intent filter, the system ignores all the other URI attributes.
+- If no host is specified for the filter, the system ignores all the path attributes.
 
 ### Use a live listener
 
@@ -252,9 +236,9 @@ If your app only cares about data-layer events when the user is interacting with
 the app, it may not need a long-running service to handle every data change. In
 such a case, you can listen for events in an activity.
 
-To recommend a cleaner and safer approach, use a **Lifecycle Observer**. By
+To recommend a cleaner and safer approach, use a **Lifecycle Observer** . By
 using a Lifecycle Observer, you move the registration logic out of the
-Activity's [`onResume()`](/reference/android/app/Activity#onResume()) and into a separate, reusable class that
+Activity's [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) and into a separate, reusable class that
 implements `DefaultLifecycleObserver`.
 
 This approach keeps your Activity lean and prevents common bugs like forgetting
@@ -265,7 +249,9 @@ to unregister the listener.
 This class wraps the [`DataClient.OnDataChangedListener`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient.OnDataChangedListener) and automatically
 manages its own subscription based on the Activity's lifecycle.
 
-```
+<br />
+
+```kotlin
 class WearDataLayerObserver(
     private val dataClient: DataClient,
     private val onDataReceived: (DataEventBuffer) -> Unit
@@ -286,16 +272,18 @@ class WearDataLayerObserver(
         dataClient.removeListener(this)
     }
 }
-
-LifecycleAware.kt
 ```
+
+<br />
 
 #### 2. Usage in your Activity
 
-Now, your Activity doesn't need to override [`onResume()`](/reference/android/app/Activity#onResume()) or
-[`onPause()`](/reference/android/app/Activity#onPause()) for the Wear API. You add the observer once in `onCreate()`.
+Now, your Activity doesn't need to override [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) or
+[`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()) for the Wear API. You add the observer once in `onCreate()`.
 
-```
+<br />
+
+```kotlin
 class DataLayerLifecycleActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -314,28 +302,22 @@ class DataLayerLifecycleActivity : ComponentActivity() {
         // ... filter and process events ...
     }
 }
-
-LifecycleAware.kt
 ```
+
+<br />
 
 #### Why this is better:
 
-* **Cleaner Activity:** You remove boilerplate from the Activity lifecycle
-  methods.
-* **Safety:** `DefaultLifecycleObserver` helps verify that the listener is
-  removed even if the Activity is destroyed unexpectedly, preventing memory
-  leaks.
-* **Reusability:** You can plug this `WearDataLayerObserver` into any Activity
-  or Fragment without rewriting the registration logic.
-* **Decoupling:** The logic for when to listen is separated from the logic of
-  what to do with the data.
+- **Cleaner Activity:** You remove boilerplate from the Activity lifecycle methods.
+- **Safety:** `DefaultLifecycleObserver` helps verify that the listener is removed even if the Activity is destroyed unexpectedly, preventing memory leaks.
+- **Reusability:** You can plug this `WearDataLayerObserver` into any Activity or Fragment without rewriting the registration logic.
+- **Decoupling:** The logic for when to listen is separated from the logic of what to do with the data.
 
-**Tip:** If you are using a `ViewModel`, collect these events as a `Flow` using
-`callbackFlow` and then observe that `Flow` in the `Activity` using
-`repeatOnLifecycle`. This completely eliminates the need for the `Activity` to
-even know the `DataClient` exists.**Caution:** Before using the Wearable Data Layer API, check that it's available
-on a device; otherwise, an exception occurs. Use the
-[`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) class, as demonstrated in the [overview](/training/wearables/data/overview#client).
+> [!TIP]
+> **Tip:** If you are using a `ViewModel`, collect these events as a `Flow` using `callbackFlow` and then observe that `Flow` in the `Activity` using `repeatOnLifecycle`. This completely eliminates the need for the `Activity` to even know the `DataClient` exists.
+
+> [!CAUTION]
+> **Caution:** Before using the Wearable Data Layer API, check that it's available on a device; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) class, as demonstrated in the [overview](https://developer.android.com/training/wearables/data/overview#client).
 
 ### Use filters with live listeners
 
@@ -345,6 +327,6 @@ when registering a live listener through the [Wearable API](https://developers.g
 apply to both API-based live listeners and manifest-based listeners.
 
 A common pattern is to [register a listener with a specific path or path prefix
-using a `LifecycleObserver`](#use-live-listener). By implementing listeners in this fashion,
+using a `LifecycleObserver`](https://developer.android.com/training/wearables/data/events#use-live-listener). By implementing listeners in this fashion,
 your app can more selectively receive events, improving its design and
 efficiency.

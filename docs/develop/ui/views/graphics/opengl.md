@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Android framework provides plenty of standard tools for creating attractive, functional
 graphical user interfaces. However, if you want more control of what your application draws on
 screen, or are venturing into three dimensional graphics, you need to use a different tool. The

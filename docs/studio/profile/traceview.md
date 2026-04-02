@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 **Traceview is deprecated.** If you're using Android
 Studio 3.2 or later, you should instead use
 [**CPU Profiler**](/studio/profile/cpu-profiler) to inspect

@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 There is no single [modularization](/topic/modularization) strategy that fits all projects. Due to
 the flexible nature of Gradle there are few constraints as to how you can
 organize a project. This page gives an overview of some general rules and common

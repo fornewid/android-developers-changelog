@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page lists known devices with [camera extensions](/training/camera/camera-extensions) support. Use the filter field to search for a device.
 
 **Note:** This is not an exhaustive list of all supported devices.

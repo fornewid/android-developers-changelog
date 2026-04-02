@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Once your Activity has taken control of handling all insets, you can use Compose
 APIs to verify that content isn't obscured and interactable elements don't
 overlap with the system UI. These APIs also synchronize your app's layout with

@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Android FPS throttling is a Game Mode intervention that helps games run at a
 more stable frame rate in order to reduce battery consumption. The intervention
 is available in [Android 13](/about/versions/13/get) or later.
@@ -128,6 +129,8 @@ intervention** list. For example:
 
 FPS throttling interventions are shown in the format of "fps=X", where `X` is
 the throttling FPS in a specific game mode. `0` is the default value.
+
+
 
 
 

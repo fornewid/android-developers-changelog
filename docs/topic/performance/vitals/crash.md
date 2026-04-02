@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 An Android app crashes whenever there’s an unexpected exit caused by an
 unhandled exception or signal. An app that is written using Java or Kotlin
 crashes if it throws an unhandled exception, represented by the

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android Studio provides a debugger that lets you do the following and more:
 
 * Select a device to debug your app on.

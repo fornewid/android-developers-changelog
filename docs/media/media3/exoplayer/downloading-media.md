@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** ExoPlayer also supports on-the-fly caching for streamed media, see
 [Caching media](/media/media3/exoplayer/network-stacks#caching).
 

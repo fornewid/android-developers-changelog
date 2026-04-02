@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Design adaptable Android widgets that scale seamlessly. Use our recommended
 default sizes as a starting point, and test your layouts across different
 dimensions to ensure optimal readability and user experience.

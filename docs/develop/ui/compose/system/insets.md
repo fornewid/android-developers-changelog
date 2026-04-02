@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The Android platform is responsible for drawing the system UI, such as the
 status bar and navigation bar. This system UI is displayed regardless of which
 app the user is using.

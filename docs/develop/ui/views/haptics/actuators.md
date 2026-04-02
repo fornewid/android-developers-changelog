@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The most common vibration actuators on Android devices are [linear resonant
 actuators (LRAs)](https://medium.com/@SomaticLabs/what-is-a-linear-resonant-actuator-81cc25f85779). LRAs simulate the feeling of a button click
 on what is otherwise an unresponsive glass surface. A clear and crisp click

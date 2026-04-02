@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 ![](/static/images/lockups/android-stacked.svg)
 
 You can get Android 15 in any of the following ways:

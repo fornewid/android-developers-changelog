@@ -1,79 +1,66 @@
 ---
-title: Lesson 9: App architecture (persistence)  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-9/android-development-with-kotlin-9
 url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-9/android-development-with-kotlin-9
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Lesson 9: App architecture (persistence)
 
-Return to pathway
+# Lesson 9: App architecture (persistence)
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## How do you indicate that a class represents an entity to store in a Room database?
+   ## How do you indicate that a class represents an entity to store in a Room database?
 
-   Make the class extend `DatabaseEntity`.
+   Make the class extend`DatabaseEntity`.  
+   Annotate the class with`@Entity`.  
+   Annotate the class with`@Database`.  
+   Make the class extend`RoomEntity`and also annotate the class with`@Room`.  
+2.
 
-   Annotate the class with `@Entity`.
+   ## The DAO (data access object) is an interface that Room uses to map Kotlin functions to database queries. How do you indicate that an interface represents a DAO for a Room database?
 
-   Annotate the class with `@Database`.
+   Make the interface extend`RoomDAO`.  
+   Make the interface extend`EntityDao`, then implement the`DaoConnection()`method.  
+   Annotate the interface with`@Dao`.  
+   Annotate the interface with`@RoomConnection`.  
+3.
 
-   Make the class extend `RoomEntity` and also annotate the class with `@Room`.
-2. ## The DAO (data access object) is an interface that Room uses to map Kotlin functions to database queries. How do you indicate that an interface represents a DAO for a Room database?
+   ## Which of the following annotations can you use in your`@Dao`interface? Choose all that apply.
 
-   Make the interface extend `RoomDAO`.
+   Choose as many answers as you see fit.  
+   `@Get`  
+   `@Update`  
+   `@Insert`  
+   `@Query`  
+4.
 
-   Make the interface extend `EntityDao`, then implement the `DaoConnection()` method.
+   ## Which of the following is not a benefit of using coroutines?
 
-   Annotate the interface with `@Dao`.
+   They run asynchronously.  
+   They can be run on a thread other than the main thread.  
+   They always make the app run faster.  
+   They can use exceptions.  
+5.
 
-   Annotate the interface with `@RoomConnection`.
-3. ## Which of the following annotations can you use in your `@Dao` interface? Choose all that apply.
+   ## Which of the following is not true for`Suspend`functions?
 
-   Choose as many answers as you see fit.
+   An function annotated with the`Suspend`keyword.  
+   A function that can be called inside coroutines.  
+   While a`Suspend`function is running, the calling thread is suspended.  
+   `Suspend`functions must always run in the background.  
+6.
 
-   `@Get`
+   ## Which of the following statements is NOT true?
 
-   `@Update`
-
-   `@Insert`
-
-   `@Query`
-4. ## Which of the following is not a benefit of using coroutines?
-
-   They run asynchronously.
-
-   They can be run on a thread other than the main thread.
-
-   They always make the app run faster.
-
-   They can use exceptions.
-5. ## Which of the following is not true for `Suspend` functions?
-
-   An function annotated with the `Suspend` keyword.
-
-   A function that can be called inside coroutines.
-
-   While a `Suspend` function is running, the calling thread is suspended.
-
-   `Suspend` functions must always run in the background.
-6. ## Which of the following statements is NOT true?
-
-   When execution is blocked, no other work can be executed on the blocked thread.
-
-   When execution is suspended, the thread can do other work while waiting for the offloaded work to complete.
-
-   Suspending is more efficient, because threads may not be waiting, doing nothing.
-
-   Whether blocked or suspended, execution is still waiting for the result of the coroutine before continuing.
+   When execution is blocked, no other work can be executed on the blocked thread.  
+   When execution is suspended, the thread can do other work while waiting for the offloaded work to complete.  
+   Suspending is more efficient, because threads may not be waiting, doing nothing.  
+   Whether blocked or suspended, execution is still waiting for the result of the coroutine before continuing.  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

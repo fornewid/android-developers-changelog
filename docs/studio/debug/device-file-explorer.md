@@ -1,40 +1,28 @@
 ---
-title: View on-device files with Device Explorer  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/debug/device-file-explorer
 url: https://developer.android.com/studio/debug/device-file-explorer
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [IDE guides](https://developer.android.com/studio/intro)
-
-# View on-device files with Device Explorer Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 The Device Explorer lets you view, copy, and delete files on an
 Android device. It's useful when examining files your app creates
 or if you want to transfer files to and from a device.
 
-**Note:** Most device data is not visible unless you are using a rooted device or an
-emulator with a standard Android (AOSP) system image, not one of the Google APIs
-or Google Play system images. When using a connected device, be sure to
-[enable USB debugging](/studio/debug/dev-options#enable).
+> [!NOTE]
+> **Note:** Most device data is not visible unless you are using a rooted device or an emulator with a standard Android (AOSP) system image, not one of the Google APIs or Google Play system images. When using a connected device, be sure to [enable USB debugging](https://developer.android.com/studio/debug/dev-options#enable).
 
 To work with a device's file system, proceed as follows:
 
-1. To open the Device Explorer, select **View > Tool Windows > Device
-   Explorer** or click the **Device Explorer**
-   ![](/static/studio/images/buttons/device-explorer-icon.png) button in the tool window bar.
+1. To open the Device Explorer, select **View \> Tool Windows \> Device
+   Explorer** or click the **Device Explorer** ![](https://developer.android.com/static/studio/images/buttons/device-explorer-icon.png) button in the tool window bar.
 2. Select a device from the drop-down list.
 3. Interact with the device content in the file explorer window:
-   * Right-click a file or directory to create a new file or directory.
-   * Save, upload, delete, or synchronize the selected file or directory to
-     your machine.
-   * Double-click a file to open it in Android Studio.
+   - Right-click a file or directory to create a new file or directory.
+   - Save, upload, delete, or synchronize the selected file or directory to your machine.
+   - Double-click a file to open it in Android Studio.
 
-![](/static/studio/images/debug/device-explorer.png)
+![](https://developer.android.com/static/studio/images/debug/device-explorer.png)
+
 
 **Figure 1.** The Device Explorer tool window.
 
@@ -49,12 +37,12 @@ useful:
 
 `data/data/app_name/`
 :   Contains data files for your app stored on
-    [internal storage](/training/data-storage#categories-locations).
+    [internal storage](https://developer.android.com/training/data-storage#categories-locations).
 
 `sdcard/`
 :   Contains user files stored on
     [external user
-    storage](/training/data-storage#categories-locations) (pictures, etc.).
+    storage](https://developer.android.com/training/data-storage#categories-locations) (pictures, etc.).
 
 **Note:** Not all files on a hardware device are
 visible in the Device Explorer. For example, in the `data/data/`

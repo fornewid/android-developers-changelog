@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 If your app has a  [`minSdk` of API 20 or lower](#mdex-pre-l) and your app and the
 libraries it references exceed 65,536 methods, you encounter the following build error that
 indicates your app has reached the limit of the Android build architecture:

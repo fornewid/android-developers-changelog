@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android devices enable a desktop experience where apps open in
 free-form windows and users primarily interact with the UI with a pointer device
 like a mouse and a physical keyboard. Learn more about [desktop experience

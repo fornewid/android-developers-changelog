@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This developer’s guide explains how dedicated devices can be locked to a single
 app or a set of apps. If you’re an enterprise mobility management (EMM)
 developer or solutions integrator read this guide to add lock task mode to your

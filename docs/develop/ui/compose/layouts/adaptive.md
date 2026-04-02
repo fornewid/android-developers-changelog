@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Android apps run on a wide variety of devices—from foldable flip phones to
 wall‑mounted TVs. To provide a great user experience on all types of
 devices, adapt your app's UI to different display sizes and configurations. The

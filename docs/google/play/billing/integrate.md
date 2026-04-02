@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 **Note:** Before reading this document, make sure you've read through the [Play
 Console Help Center documentation](https://support.google.com/googleplay/android-developer/topic/3450769), which describes critical purchase-related
 concepts, as well as how to create and configure your products for sale. In
@@ -1126,8 +1125,6 @@ purchase prompt for a previously abandoned purchase.
 
 **Figure 3.** The Google Play Store screen shows a
 purchase prompt for a previously abandoned purchase.
-
-
 
 
 

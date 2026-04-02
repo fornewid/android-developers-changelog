@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/wear/images/design/tiles-bestpractices-hero-updated.png)
 
 ## Design on black

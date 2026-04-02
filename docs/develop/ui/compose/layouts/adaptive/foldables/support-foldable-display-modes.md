@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Foldable devices offer unique viewing experiences. Rear display mode and
 dual‑screen mode enable you to build special display features for foldable
 devices such as rear‑camera selfie preview and simultaneous but different

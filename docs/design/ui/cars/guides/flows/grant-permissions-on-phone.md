@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 When a user tries to open your app but hasn't authorized the necessary
 permissions, you can use the Message template to request permissions.
 

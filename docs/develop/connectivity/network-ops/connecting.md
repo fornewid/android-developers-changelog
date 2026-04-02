@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 To perform network operations in your application, your manifest must include
 the following permissions:
 

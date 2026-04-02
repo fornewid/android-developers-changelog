@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Android supports a variety of USB peripherals and Android USB accessories
 (hardware that implements the Android accessory protocol) through two modes: USB
 accessory and USB host. In USB accessory mode, the external USB hardware acts as
