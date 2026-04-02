@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/tracing/navigate-report.md b/docs/topic/performance/tracing/navigate-report.md
+index acfc743..4daae34 100644
+--- a/docs/topic/performance/tracing/navigate-report.md
++++ b/docs/topic/performance/tracing/navigate-report.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This guide explains how to navigate around and interpret a
+ [Systrace](/topic/performance/tracing) report. To interpret a Perfetto report,
+ see the [Trace Processor](https://perfetto.dev/#/trace-processor.md)

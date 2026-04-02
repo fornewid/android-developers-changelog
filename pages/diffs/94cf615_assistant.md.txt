@@ -1,0 +1,12 @@
+diff --git a/docs/media/implement/assistant.md b/docs/media/implement/assistant.md
+index 15f3cd3..f0e8468 100644
+--- a/docs/media/implement/assistant.md
++++ b/docs/media/implement/assistant.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Google Assistant lets you use voice commands to control many devices, like
+ Google Home, your phone, and more. It has a built-in capability to
+ understand media commands ("play something by Beyoncé") and supports

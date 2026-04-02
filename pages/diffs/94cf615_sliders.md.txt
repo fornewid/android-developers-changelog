@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/components/sliders.md b/docs/design/ui/wear/guides/m2-5/components/sliders.md
+index 5124461..c9aa3fc 100644
+--- a/docs/design/ui/wear/guides/m2-5/components/sliders.md
++++ b/docs/design/ui/wear/guides/m2-5/components/sliders.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ![](/static/wear/images/sliders/sliders-hero.png)
+ 
+ The [Inline sliders](/reference/kotlin/androidx/wear/compose/material/InlineSlider.composable#InlineSlider(kotlin.Float,kotlin.Function1,kotlin.Int,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.ranges.ClosedFloatingPointRange,kotlin.Boolean,androidx.wear.compose.material.InlineSliderColors)) allow users to make selections from a range of values.

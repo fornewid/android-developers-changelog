@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/compose.md b/docs/training/wearables/compose.md
+index fbd136a..499001b 100644
+--- a/docs/training/wearables/compose.md
++++ b/docs/training/wearables/compose.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Compose for Wear OS Material version
+ 
+ 2.5

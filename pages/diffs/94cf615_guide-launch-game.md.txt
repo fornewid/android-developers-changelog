@@ -1,0 +1,20 @@
+diff --git a/docs/games/distribute/guide-launch-game.md b/docs/games/distribute/guide-launch-game.md
+index 2954fb2..09d37f3 100644
+--- a/docs/games/distribute/guide-launch-game.md
++++ b/docs/games/distribute/guide-launch-game.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Android is an open platform with various manufacturers, models, and multiple OS
+ versions. These various combinations offer developers a broad market
+ opportunity but also demand compatibility and optimization across different
+@@ -194,4 +195,6 @@ continuous improvement and innovation.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

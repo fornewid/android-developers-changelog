@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/publishing/upload-images.md b/docs/games/pgs/publishing/upload-images.md
+index 0136853..9acabd4 100644
+--- a/docs/games/pgs/publishing/upload-images.md
++++ b/docs/games/pgs/publishing/upload-images.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ **Deprecated:** This API is deprecated and is being removed, so you shouldn't use
+ it. Attempting to use this API causes errors.
+ 
+@@ -563,6 +562,4 @@ the retry delay at something reasonable, say, less than one minute.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

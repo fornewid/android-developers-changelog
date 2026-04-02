@@ -1,0 +1,12 @@
+diff --git a/docs/studio/test/monkeyrunner/MonkeyImage.md b/docs/studio/test/monkeyrunner/MonkeyImage.md
+index ec3aa4b..7b60673 100644
+--- a/docs/studio/test/monkeyrunner/MonkeyImage.md
++++ b/docs/studio/test/monkeyrunner/MonkeyImage.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A monkeyrunner class to hold an image of the device or emulator's screen. The image is
+ copied from the screen buffer during a screenshot. This object's methods allow you to
+ convert the image into various storage formats, write the image to a file, copy parts of

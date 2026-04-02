@@ -1,0 +1,106 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md b/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md
+index 621fcda..83ec055 100644
+--- a/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md
++++ b/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md
+@@ -1,21 +1,12 @@
+ ---
+-title: App architecture  |  Android Developers
++title: https://developer.android.com/guide/navigation/navigation-3/recipes/navscenedecorator
+ url: https://developer.android.com/guide/navigation/navigation-3/recipes/navscenedecorator
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [App architecture](https://developer.android.com/topic/architecture/intro)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Nav UI with Scene Decorators Recipe
+ 
+-This recipe demonstrates how to add UI elements such as top app bars and navigation bars or rails that you’d like to add at the scene, rather than nav entry level. To do this, it uses the scene decorator API.
++This recipe demonstrates how to add UI elements such as top app bars and navigation bars or rails that you'd like to add at the scene, rather than nav entry level. To do this, it uses the scene decorator API.
+ 
+ ## How it works
+ 
+@@ -31,20 +22,13 @@ For example, the nav bar and rail composables in this recipe have some internal
+ 
+ To accomplish the desired behavior, this recipe combines Compose's [movable content](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#movableContentOf(kotlin.Function0)) and [shared element](https://developer.android.com/develop/ui/compose/animation/shared-elements) APIs:
+ 
+-* By using `movableContentOf`, it is able to retain the state of the composable as it is moved between the different branches of the composition corresponding to each scene.
+-* By using the shared element APIs, it is able to keep the nav bar/rail in place while animating the content of the scenes that have been decorated. This is accomplished using the `sharedElement` modifier as well as a custom modifier, `cacheSize`, that maintains a placeholder of the correct size in the scene that doesn't call the movable content composable.
++- By using `movableContentOf`, it is able to retain the state of the composable as it is moved between the different branches of the composition corresponding to each scene.
++- By using the shared element APIs, it is able to keep the nav bar/rail in place while animating the content of the scenes that have been decorated. This is accomplished using the `sharedElement` modifier as well as a custom modifier, `cacheSize`, that maintains a placeholder of the correct size in the scene that doesn't call the movable content composable.
+ 
+ ### The `NavigationSceneDecoratorStrategy` class
+ 
+ The `NavigationSceneDecoratorStrategy` class is responsible for wrapping the input scene in a `NavigationScene`. The `rememberNavigationSceneDecoratorStrategy` function simplifies the process of creating a `NavigationSceneDecoratorStrategy` by handling the creation of the `movableContentOf` composables. Generally, the `NavigationSceneDecoratorStrategy` should be one of, if not the final, items in the `sceneDecoratorStrategies` parameter so that it can contain all the other content of the app.
+-
+-[![](/static/images/picto-icons/code.svg)
+-
+-Explore
+-
+-View the full recipe on GitHub.
+-
+-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/navscenedecorator)
++[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/navscenedecorator)
+ 
+ ```
+ /*
+@@ -117,8 +101,6 @@ class ResponsiveNavigationSceneDecoratorActivity : ComponentActivity() {
+         }
+     }
+ }
+-
+-ResponsiveNavigationSceneDecoratorActivity.kt
+ ```
+ 
+ ```
+@@ -256,8 +238,6 @@ class ResponsiveNavigationSceneDecoratorStrategy<T : Any>(
+     }
+ 
+ }
+-
+-ResponsiveNavigationSceneDecorator.kt
+ ```
+ 
+ ```
+@@ -532,8 +512,6 @@ fun NavRail(
+         }
+     }
+ }
+-
+-Content.kt
+ ```
+ 
+ ```
+@@ -742,8 +720,6 @@ private class WindowInsetsOverlapNode(
+         }
+     }
+ }
+-
+-Modifiers.kt
+ ```
+ 
+ ```
+@@ -847,8 +823,6 @@ fun NavigationState.toEntries(
+ 
+     return stacksInUse.flatMap { decoratedEntries[it] ?: emptyList() }.toMutableStateList()
+ }
+-
+-NavigationState.kt
+ ```
+ 
+ ```
+@@ -898,6 +872,4 @@ class Navigator(val state: NavigationState) {
+         }
+     }
+ }
+-
+-Navigator.kt
+ ```
+\ No newline at end of file

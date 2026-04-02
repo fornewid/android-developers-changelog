@@ -1,0 +1,141 @@
+diff --git a/docs/courses/quizzes/android-basics-kotlin-two/android-basics-kotlin-pathway-two.md b/docs/courses/quizzes/android-basics-kotlin-two/android-basics-kotlin-pathway-two.md
+index 83a84b1..5533834 100644
+--- a/docs/courses/quizzes/android-basics-kotlin-two/android-basics-kotlin-pathway-two.md
++++ b/docs/courses/quizzes/android-basics-kotlin-two/android-basics-kotlin-pathway-two.md
+@@ -1,70 +1,87 @@
+ ---
+-title: https://developer.android.com/courses/quizzes/android-basics-kotlin-two/android-basics-kotlin-pathway-two
++title: Create your first Android app  |  Android Developers
+ url: https://developer.android.com/courses/quizzes/android-basics-kotlin-two/android-basics-kotlin-pathway-two
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Create your first Android app
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
+ 
+ # Create your first Android app
+ 
+-<br />
++Return to pathway
++
++
++
++1. ## What does IDE stand for?
++
++   Integrated Development Environment
++
++   Independent Design Environment
++
++   Ideal Developer Environment
++
++   Intelligent Design Environment
++2. ## Which of the following are advantages of using Android Studio?
++
++   Choose as many answers as you see fit.
++
++   It can help prevent typos and other mistakes in your code.
++
++   It comes with a virtual device called an emulator that can run your app.
++
++   It can show you a real-time preview of how your app will look on-screen while you code.
++
++   It can automatically translate your app into other languages.
++3. ## What does “Minimum SDK” refer to in an Android Studio project?
++
++   The minimum amount of storage that your app requires for download
++
++   The minimum number of devices that your app can access
++
++   The minimum download speed that your app requires
++
++   The minimum version of Android that your app can run on
++4. ## What is the purpose of using a virtual device, or emulator, in Android Studio?
++
++   To show a variety of error messages to users
++
++   To experiment with app code safely
++
++   To test your app on a device without having that physical device
+ 
+-Return to pathway  
+-1.
++   To see what your app looks like in a web browser
++5. ## In Android Studio, what is a project template good for?
+ 
+-   ## What does IDE stand for?
++   Choose as many answers as you see fit.
+ 
+-   Integrated Development Environment  
+-   Independent Design Environment  
+-   Ideal Developer Environment  
+-   Intelligent Design Environment  
+-2.
++   It causes Android Studio to download files faster.
+ 
+-   ## Which of the following are advantages of using Android Studio?
++   It makes getting started on building a new app faster.
+ 
+-   Choose as many answers as you see fit.  
+-   It can help prevent typos and other mistakes in your code.  
+-   It comes with a virtual device called an emulator that can run your app.  
+-   It can show you a real-time preview of how your app will look on-screen while you code.  
+-   It can automatically translate your app into other languages.  
+-3.
++   It provides a structure that follows best practices.
+ 
+-   ## What does "Minimum SDK" refer to in an Android Studio project?
++   It is the only way to build apps that can be previewed in Android Studio.
+ 
+-   The minimum amount of storage that your app requires for download  
+-   The minimum number of devices that your app can access  
+-   The minimum download speed that your app requires  
+-   The minimum version of Android that your app can run on  
+-4.
++   It makes building a new app less error-prone by pre-populating the project with some app code.
++6. ## How do you create a new project in Android Studio?
+ 
+-   ## What is the purpose of using a virtual device, or emulator, in Android Studio?
++   A. Log out of Android Studio, and navigate to your project folder to find instructions.
+ 
+-   To show a variety of error messages to users  
+-   To experiment with app code safely  
+-   To test your app on a device without having that physical device  
+-   To see what your app looks like in a web browser  
+-5.
++   B. If you have a project already open, select File > New > New Project from the Android Studio menu.
+ 
+-   ## In Android Studio, what is a project template good for?
++   C. In the “Welcome to Android Studio” window, click “Start a new Android Studio project.”
+ 
+-   Choose as many answers as you see fit.  
+-   It causes Android Studio to download files faster.  
+-   It makes getting started on building a new app faster.  
+-   It provides a structure that follows best practices.  
+-   It is the only way to build apps that can be previewed in Android Studio.  
+-   It makes building a new app less error-prone by pre-populating the project with some app code.  
+-6.
++   D. Create a new file on your computer, and title it “New Android Studio Project."
+ 
+-   ## How do you create a new project in Android Studio?
++   Both B and C are ways to create a new project in Android Studio.
+ 
+-   A. Log out of Android Studio, and navigate to your project folder to find instructions.  
+-   B. If you have a project already open, select File \> New \> New Project from the Android Studio menu.  
+-   C. In the "Welcome to Android Studio" window, click "Start a new Android Studio project."  
+-   D. Create a new file on your computer, and title it "New Android Studio Project."  
+-   Both B and C are ways to create a new project in Android Studio.  
+-   None of the above  
++   None of the above
+ 
+ Submit answers
+ 
+-*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error\_outline*
++An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

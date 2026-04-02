@@ -1,0 +1,99 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/results-state.md b/docs/guide/navigation/navigation-3/recipes/results-state.md
+index 9e5cbf1..ce755fb 100644
+--- a/docs/guide/navigation/navigation-3/recipes/results-state.md
++++ b/docs/guide/navigation/navigation-3/recipes/results-state.md
+@@ -13,6 +13,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Returning a Result (State-Based)
+ 
+ This recipe demonstrates how to return a result from one screen to a previous screen using a state-based approach.
+@@ -118,9 +119,15 @@ NavKeys
+ 
+ package com.example.nav3recipes.results.common
+ 
+-data class Person(val name: String, val favoriteColor: String)
++import android.os.Parcelable
++import kotlinx.parcelize.Parcelize
++
++@Parcelize
++data class Person(val name: String, val favoriteColor: String) : Parcelable
+ 
+-Person.kt
++Person
++
++.kt
+ ```
+ 
+ ```
+@@ -234,10 +241,7 @@ import androidx.activity.ComponentActivity
+ import androidx.activity.compose.setContent
+ import androidx.compose.foundation.layout.padding
+ import androidx.compose.material3.Scaffold
+-import androidx.compose.material3.Text
+-import androidx.compose.runtime.CompositionLocalProvider
+ import androidx.compose.ui.Modifier
+-import androidx.navigation3.runtime.NavEntry
+ import androidx.navigation3.runtime.entryProvider
+ import androidx.navigation3.runtime.rememberNavBackStack
+ import androidx.navigation3.ui.NavDisplay
+@@ -263,14 +267,14 @@ class ResultStateActivity : ComponentActivity() {
+                     modifier = Modifier.padding(paddingValues),
+                     onBack = { backStack.removeLastOrNull() },
+                     entryProvider = entryProvider {
+-                        entry<Home>{
++                        entry<Home> {
+                             val person = resultStore.getResultState<Person?>()
+                             HomeScreen(
+                                 person = person,
+                                 onNext = { backStack.add(PersonDetailsForm()) }
+                             )
+                         }
+-                        entry<PersonDetailsForm>{
++                        entry<PersonDetailsForm> {
+                             PersonDetailsScreen(
+                                 onSubmit = { person ->
+                                     resultStore.setResult<Person>(result = person)
+@@ -315,6 +319,7 @@ import androidx.compose.runtime.compositionLocalOf
+ import androidx.compose.runtime.mutableStateMapOf
+ import androidx.compose.runtime.mutableStateOf
+ import androidx.compose.runtime.saveable.Saver
++import androidx.compose.runtime.saveable.mapSaver
+ import androidx.compose.runtime.saveable.rememberSaveable
+ 
+ /**
+@@ -345,7 +350,7 @@ object LocalResultStore {
+  * Provides a [ResultStore] that will be remembered across configuration changes.
+  */
+ @Composable
+-fun rememberResultStore() : ResultStore {
++fun rememberResultStore(): ResultStore {
+     return rememberSaveable(saver = ResultStoreSaver()) {
+         ResultStore()
+     }
+@@ -384,11 +389,19 @@ class ResultStore {
+     }
+ }
+ 
+-/** Saver to save and restore the NavController across config change and process death. */
++/** Saver to save and restore the ResultStore across config change and process death. */
+ private fun ResultStoreSaver(): Saver<ResultStore, *> =
+-    Saver(
+-        save = { it.resultStateMap },
+-        restore = { ResultStore().apply { resultStateMap.putAll(it)  } },
++    mapSaver(
++        save = { resultStore ->
++            resultStore.resultStateMap.mapValues { it.value.value }
++        },
++        restore = { restoredMap ->
++            ResultStore().apply {
++                restoredMap.forEach { (key, value) ->
++                    resultStateMap[key] = mutableStateOf(value)
++                }
++            }
++        }
+     )
+ 
+ ResultStore.kt

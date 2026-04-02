@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/discovery/game-programs.md b/docs/training/tv/discovery/game-programs.md
+index 6eb2fe9..e47e641 100644
+--- a/docs/training/tv/discovery/game-programs.md
++++ b/docs/training/tv/discovery/game-programs.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ All game programs have the type attribute
+ [`TYPE_GAME`](/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_GAME()).
+ 

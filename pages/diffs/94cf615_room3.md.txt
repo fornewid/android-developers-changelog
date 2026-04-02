@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/room3.md b/docs/jetpack/androidx/releases/room3.md
+index 07534f1..0821a7a 100644
+--- a/docs/jetpack/androidx/releases/room3.md
++++ b/docs/jetpack/androidx/releases/room3.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Room 3.0
+ 
+ The Room persistence library provides

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/prompt-library.md b/docs/studio/gemini/prompt-library.md
+index 211b975..2f675b9 100644
+--- a/docs/studio/gemini/prompt-library.md
++++ b/docs/studio/gemini/prompt-library.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Use the Prompt Library to save and manage your frequently used prompts and
+ quickly recall them when needed. If there's a prompt that you use often for
+ different files or different sections of code, you can use a prompt template

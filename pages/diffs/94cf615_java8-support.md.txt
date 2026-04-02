@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/java8-support.md b/docs/studio/write/java8-support.md
+index 0537b1d..bf44f52 100644
+--- a/docs/studio/write/java8-support.md
++++ b/docs/studio/write/java8-support.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android Gradle plugin 3.0.0 and later supports all Java 7 language features
+ and a subset of Java 8 language features that vary by platform version. When
+ building your app using the Android Gradle plugin 4.0.0 and higher, you can use

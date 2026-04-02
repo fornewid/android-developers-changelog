@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/adpf/gamemode/fps-throttling.md b/docs/games/optimize/adpf/gamemode/fps-throttling.md
+index 5fde06f..103ed16 100644
+--- a/docs/games/optimize/adpf/gamemode/fps-throttling.md
++++ b/docs/games/optimize/adpf/gamemode/fps-throttling.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Android FPS throttling is a Game Mode intervention that helps games run at a
+ more stable frame rate in order to reduce battery consumption. The intervention
+ is available in [Android 13](/about/versions/13/get) or later.
+@@ -132,4 +133,6 @@ the throttling FPS in a specific game mode. `0` is the default value.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

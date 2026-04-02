@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/asset-delivery/integrate-java.md b/docs/guide/playcore/asset-delivery/integrate-java.md
+index c17b3fc..ec71cee 100644
+--- a/docs/guide/playcore/asset-delivery/integrate-java.md
++++ b/docs/guide/playcore/asset-delivery/integrate-java.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Use the steps in this guide to access your app's asset packs from your Java
+ code.
+ 

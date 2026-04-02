@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize.md b/docs/games/optimize.md
+index 96d0918..a954033 100644
+--- a/docs/games/optimize.md
++++ b/docs/games/optimize.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ You can configure [system tracing](/topic/performance/tracing) to capture a
+ CPU and thread profile of your app over a short period of time. Then
+ you can use the output report from a system trace to improve your game's
+@@ -557,4 +558,6 @@ additional resources:
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

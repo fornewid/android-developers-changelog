@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/components/settings/programmatic-hierarchy.md b/docs/develop/ui/views/components/settings/programmatic-hierarchy.md
+index 67339d2..5711d53 100644
+--- a/docs/develop/ui/views/components/settings/programmatic-hierarchy.md
++++ b/docs/develop/ui/views/components/settings/programmatic-hierarchy.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Create a hierarchy in code   Part of [Android Jetpack](/jetpack).
+ 
+ You can create a hierarchy programmatically in

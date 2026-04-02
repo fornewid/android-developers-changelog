@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/input-sdk.md b/docs/games/playgames/input-sdk.md
+index 9be7317..b1e4c8b 100644
+--- a/docs/games/playgames/input-sdk.md
++++ b/docs/games/playgames/input-sdk.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ **Note:** Games that are played with only the left-mouse button are not required to
+ integrate the Input SDK. These games are supported using with the
+ [compatibility mode](/games/playgames/input#compatibility-mode). This document
+@@ -108,4 +109,6 @@ Download the Input SDK for Unity from the
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

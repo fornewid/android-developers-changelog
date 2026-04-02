@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/bluetooth/ble/find-ble-devices.md b/docs/develop/connectivity/bluetooth/ble/find-ble-devices.md
+index 30c55e6..87e6c2d 100644
+--- a/docs/develop/connectivity/bluetooth/ble/find-ble-devices.md
++++ b/docs/develop/connectivity/bluetooth/ble/find-ble-devices.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To find BLE devices, you use the
+ [`startScan()`](/reference/android/bluetooth/le/BluetoothLeScanner#startScan(android.bluetooth.le.ScanCallback))
+ method. This method takes a

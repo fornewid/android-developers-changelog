@@ -1,0 +1,176 @@
+diff --git a/docs/gemini-in-android.md b/docs/gemini-in-android.md
+index d0800d6..f4e9fba 100644
+--- a/docs/gemini-in-android.md
++++ b/docs/gemini-in-android.md
+@@ -290,7 +290,7 @@ Ultrahuman launches features 15% faster with Gemini in Android Studio
+ 
+ [Read more](https://android-developers.googleblog.com/2026/01/ultrahuman-launches-features-15-faster.html)
+ 
+-## Download Android Studio Panda 2 | 2025.3.2
++## Download Android Studio Panda 3 | 2025.3.3
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -396,17 +396,17 @@ This is the Android Software Development Kit License Agreement
+ 
+ I have read and agree with the above terms and conditions
+ 
+-Download Android Studio Panda 2 | 2025.3.2
++Download Android Studio Panda 3 | 2025.3.3
+ for Linux
+-[Download Android Studio Panda 2 | 2025.3.2
++[Download Android Studio Panda 3 | 2025.3.3
+ for
+-Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.2.6/android-studio-panda2-linux.tar.gz)
++Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.3.6/android-studio-panda3-linux.tar.gz)
+ 
+-*android-studio-panda2-linux.tar.gz*
++*android-studio-panda3-linux.tar.gz*
+ 
+ 
+ 
+-## Download Android Studio Panda 2 | 2025.3.2
++## Download Android Studio Panda 3 | 2025.3.3
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -512,17 +512,17 @@ This is the Android Software Development Kit License Agreement
+ 
+ I have read and agree with the above terms and conditions
+ 
+-Download Android Studio Panda 2 | 2025.3.2
++Download Android Studio Panda 3 | 2025.3.3
+ for ChromeOS
+-[Download Android Studio Panda 2 | 2025.3.2
++[Download Android Studio Panda 3 | 2025.3.3
+ for
+-ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2025.3.2.6/android-studio-panda2-cros.deb)
++ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.6/android-studio-panda3-cros.deb)
+ 
+-*android-studio-panda2-cros.deb*
++*android-studio-panda3-cros.deb*
+ 
+ 
+ 
+-## Download Android Studio Panda 2 | 2025.3.2
++## Download Android Studio Panda 3 | 2025.3.3
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -628,17 +628,17 @@ This is the Android Software Development Kit License Agreement
+ 
+ I have read and agree with the above terms and conditions
+ 
+-Download Android Studio Panda 2 | 2025.3.2
++Download Android Studio Panda 3 | 2025.3.3
+ for Mac
+-[Download Android Studio Panda 2 | 2025.3.2
++[Download Android Studio Panda 3 | 2025.3.3
+ for
+-Mac](https://edgedl.me.gvt1.com/android/studio/install/2025.3.2.6/android-studio-panda2-mac.dmg)
++Mac](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.6/android-studio-panda3-mac.dmg)
+ 
+-*android-studio-panda2-mac.dmg*
++*android-studio-panda3-mac.dmg*
+ 
+ 
+ 
+-## Download Android Studio Panda 2 | 2025.3.2
++## Download Android Studio Panda 3 | 2025.3.3
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -744,17 +744,17 @@ This is the Android Software Development Kit License Agreement
+ 
+ I have read and agree with the above terms and conditions
+ 
+-Download Android Studio Panda 2 | 2025.3.2
++Download Android Studio Panda 3 | 2025.3.3
+ for Mac (ARM)
+-[Download Android Studio Panda 2 | 2025.3.2
++[Download Android Studio Panda 3 | 2025.3.3
+ for
+-Mac (ARM)](https://edgedl.me.gvt1.com/android/studio/install/2025.3.2.6/android-studio-panda2-mac_arm.dmg)
++Mac (ARM)](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.6/android-studio-panda3-mac_arm.dmg)
+ 
+-*android-studio-panda2-mac\_arm.dmg*
++*android-studio-panda3-mac\_arm.dmg*
+ 
+ 
+ 
+-## Download Android Studio Panda 2 | 2025.3.2
++## Download Android Studio Panda 3 | 2025.3.3
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -862,23 +862,23 @@ I have read and agree with the above terms and conditions
+ 
+ ### Select the version of Android Studio that's right for your Mac:
+ 
+-#### Android Studio Panda 2 | 2025.3.2
++#### Android Studio Panda 3 | 2025.3.3
+ 
+ Mac with Apple chip
+-[Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.2.6/android-studio-panda2-mac_arm.dmg)
++[Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.6/android-studio-panda3-mac_arm.dmg)
+ 
+-*android-studio-panda2-mac\_arm.dmg*
++*android-studio-panda3-mac\_arm.dmg*
+ 
+ Mac with Intel chip
+-[Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.2.6/android-studio-panda2-mac.dmg)
++[Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.6/android-studio-panda3-mac.dmg)
+ 
+-*android-studio-panda2-mac.dmg*
++*android-studio-panda3-mac.dmg*
+ 
+ 
+ 
+ 
+ 
+-## Download Android Studio Panda 2 | 2025.3.2
++## Download Android Studio Panda 3 | 2025.3.3
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -984,17 +984,17 @@ This is the Android Software Development Kit License Agreement
+ 
+ I have read and agree with the above terms and conditions
+ 
+-Download Android Studio Panda 2 | 2025.3.2
++Download Android Studio Panda 3 | 2025.3.3
+ for Windows
+-[Download Android Studio Panda 2 | 2025.3.2
++[Download Android Studio Panda 3 | 2025.3.3
+ for
+-Windows](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.2.6/android-studio-panda2-windows.zip)
++Windows](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.3.6/android-studio-panda3-windows.zip)
+ 
+-*android-studio-panda2-windows.zip*
++*android-studio-panda3-windows.zip*
+ 
+ 
+ 
+-## Download Android Studio Panda 2 | 2025.3.2
++## Download Android Studio Panda 3 | 2025.3.3
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -1100,13 +1100,13 @@ This is the Android Software Development Kit License Agreement
+ 
+ I have read and agree with the above terms and conditions
+ 
+-Download Android Studio Panda 2 | 2025.3.2
++Download Android Studio Panda 3 | 2025.3.3
+ for Windows
+-[Download Android Studio Panda 2 | 2025.3.2
++[Download Android Studio Panda 3 | 2025.3.3
+ for
+-Windows](https://edgedl.me.gvt1.com/android/studio/install/2025.3.2.6/android-studio-panda2-windows.exe)
++Windows](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.6/android-studio-panda3-windows.exe)
+ 
+-*android-studio-panda2-windows.exe*
++*android-studio-panda3-windows.exe*
+ 
+ 
+ 

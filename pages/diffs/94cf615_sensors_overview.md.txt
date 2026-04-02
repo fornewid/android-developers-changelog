@@ -1,0 +1,12 @@
+diff --git a/docs/develop/sensors-and-location/sensors/sensors_overview.md b/docs/develop/sensors-and-location/sensors/sensors_overview.md
+index 38a4c8e..9d75c63 100644
+--- a/docs/develop/sensors-and-location/sensors/sensors_overview.md
++++ b/docs/develop/sensors-and-location/sensors/sensors_overview.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Most Android-powered devices have built-in sensors that measure motion, orientation,
+ and various environmental conditions. These sensors are capable of providing raw data with high
+ precision and accuracy, and are useful if you want to monitor three-dimensional device movement or

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/scaffold.md b/docs/develop/ui/compose/components/scaffold.md
+index 9ac8f10..8570020 100644
+--- a/docs/develop/ui/compose/components/scaffold.md
++++ b/docs/develop/ui/compose/components/scaffold.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Scaffold
+ 
+ In Material Design, a scaffold is a fundamental structure that provides a

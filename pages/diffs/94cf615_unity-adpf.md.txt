@@ -1,0 +1,12 @@
+diff --git a/docs/games/engines/unity/unity-adpf.md b/docs/games/engines/unity/unity-adpf.md
+index c27d6fb..ac9821f 100644
+--- a/docs/games/engines/unity/unity-adpf.md
++++ b/docs/games/engines/unity/unity-adpf.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ [Unity Adaptive Performance](https://docs.unity3d.com/Packages/com.unity.adaptiveperformance@5.0/manual/installing-and-configuring.html)
+ is a tool for game developers who want to optimize their games on mobile
+ devices, particularly for the diverse Android ecosystem. Adaptive Performance

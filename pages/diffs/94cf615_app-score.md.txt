@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/app-score.md b/docs/topic/performance/app-score.md
+index 20d26f6..6e06838 100644
+--- a/docs/topic/performance/app-score.md
++++ b/docs/topic/performance/app-score.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Use the App Performance Score to calculate your overall performance score
+ and discover opportunities for improvement. The App Performance Score provides a
+ standardized framework to measure performance with minimal in-depth technical

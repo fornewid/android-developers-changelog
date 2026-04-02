@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/standalone-profiler.md b/docs/studio/profile/standalone-profiler.md
+index b2c05fc..69db2e3 100644
+--- a/docs/studio/profile/standalone-profiler.md
++++ b/docs/studio/profile/standalone-profiler.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The standalone Android Studio profiler lets you [profile your app](/studio/profile) without running
+ the full Android Studio IDE.
+ 

@@ -1,0 +1,196 @@
+diff --git a/docs/developer-verification.md b/docs/developer-verification.md
+index d87b6ae..940a2c8 100644
+--- a/docs/developer-verification.md
++++ b/docs/developer-verification.md
+@@ -1,33 +1,53 @@
+ ---
+-title: https://developer.android.com/developer-verification
++title: Android developer verification  |  Android Developers
+ url: https://developer.android.com/developer-verification
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-## Elevating Android security to keep it open and safe
++* [Android Developers](https://developer.android.com/)
++* [Essentials](https://developer.android.com/get-started)
++* [Android developer verification](https://developer.android.com/developer-verification)
++
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
+ 
+ 
++## Elevating Android security to keep it open and safe
++
+ By making Android safer, we're protecting the open environment that allows developers and
+ users to confidently create and connect. Android's new developer verification is an extra
+ layer of security that deters bad actors and makes it harder for them to repeatedly spread
+ harm. Starting in September 2026, apps in select regions must be registered by a verified
+ developer to be installed on [certified Android devices](https://www.android.com/certified/partners/).
+-![](http://developer.android.com/static/images/developer-verification/developer-identity-hero.png) ![](http://developer.android.com/static/images/picto-icons/asterisk.svg)
++
++![](https://developer.android.com/static/images/developer-verification/developer-identity-hero.png)
++
++![](https://developer.android.com/static/images/picto-icons/asterisk.svg)
+ 
+ ## To get verified, you'll need to complete two main steps
+ 
+-![](http://developer.android.com/static/images/cluster-illustrations/video-chat-2.svg) Step 1
++![](https://developer.android.com/static/images/cluster-illustrations/video-chat-2.svg)
++
++Step 1
+ 
+ ### Verify your identity
+ 
+-- You will need to provide and verify your personal details, like your legal name, address, email address, and phone number.
+-- If you're registering as an organization, you'll also need to provide a D-U-N-S number and verify your organization's website.
+-- You may also need to upload official government ID.
+-![](http://developer.android.com/static/images/cluster-illustrations/policy.svg) Step 2
++* You will need to provide and verify your personal details, like your legal name,
++  address, email address, and phone number.
++* If you're registering as an organization, you'll also need to provide a D-U-N-S number
++  and verify your organization's website.
++* You may also need to upload official government ID.
++
++![](https://developer.android.com/static/images/cluster-illustrations/policy.svg)
++
++Step 2
+ 
+ ### Register your package names
+ 
+-- Prove ownership of your apps by providing the APK signed with your private key to connect the APK with your developer account.
++* Prove ownership of your apps by providing the APK signed with your private key to
++  connect the APK with your developer account.
+ 
+ ## What type of distribution do I need?
+ 
+@@ -36,72 +56,107 @@ developer to be installed on [certified Android devices](https://www.android.com
+ ### Full distribution
+ 
+ Best for organizations and professional developers with wide distribution. This account offers unlimited apps and installs. If you publish apps only outside of Google Play, create an [Android Developer Console](https://android.google.com/developerconsole/developers) account to verify your identity and register package names.   
++  
++Need a quick refresher? [Read our Android Developer Console PDF](/static/developer-verification/guides/pdf-guides/adc-guide.pdf) or [web guide](/developer-verification/guides/android-developer-console).
+ 
+-Need a quick refresher? [Read our Android Developer Console PDF](https://developer.android.com/static/developer-verification/guides/pdf-guides/adc-guide.pdf) or [web guide](https://developer.android.com/developer-verification/guides/android-developer-console). ![](https://developer.android.com/static/images/picto-icons/chevron-simple.svg)
++![](https://developer.android.com/static/images/picto-icons/chevron-simple.svg)
+ 
+ ### Limited distribution
+ 
+ We're committed to keeping Android an open platform for you to learn, experiment, and build for fun. If you are a developer who doesn't distribute apps widely, we recognize that your needs may be different from commercial developers and have provided this free account for you. To maintain ecosystem security, apps can be installed on up to 20 devices that end-users have explicitly authorized.  
+-[Learn more](https://developer.android.com/developer-verification/guides/limited-distribution) and [sign up for early access](https://google.qualtrics.com/jfe/form/SV_4N7NGE06NjJJdl4). ![](http://developer.android.com/static/images/logos/google-play.svg)
++ [Learn more](/developer-verification/guides/limited-distribution) and [sign up for early access](https://google.qualtrics.com/jfe/form/SV_4N7NGE06NjJJdl4).
++
++![](https://developer.android.com/static/images/logos/google-play.svg)
+ 
+ ## For Google Play developers
+ 
+-If you distribute apps through Google Play, you've likely already completed these steps. Play will use the information you've already shared to automatically register your apps. If you distribute apps outside of Google Play, you can manually register them through the Play Console. [Learn more](http://developer.android.com/developer-verification/guides/google-play-console)
++If you distribute apps through Google Play, you've likely already completed these steps. Play will use the information you've already shared to automatically register your apps. If you distribute apps outside of Google Play, you can manually register them through the Play Console.
++
++[Learn more](http://developer.android.com/developer-verification/guides/google-play-console)
+ 
+-> [!NOTE]
+-> We'll share more information in the coming months.
++We’ll share more information in the coming months.
+ 
+-![](http://developer.android.com/static/images/picto-icons/help.svg)
++![](https://developer.android.com/static/images/picto-icons/help.svg)
+ 
+ ## Get ready
+ 
+-We're providing as much guidance as possible to help you prepare. Guide
++We're providing as much guidance as possible to help you prepare.
++
++Guide
+ 
+-### [Read the Android developer verification guide](http://developer.android.com/developer-verification/guides)
++### [Read the Android developer verification guide](https://developer.android.com/developer-verification/guides)
+ 
+-to understand the basics of identity verification [Learn more](http://developer.android.com/developer-verification/guides) Interest form
++to understand the basics of identity verification
+ 
+-### [For students and hobbyists](http://developer.android.com/developer-verification/guides/limited-distribution)
++[Learn more](https://developer.android.com/developer-verification/guides)
+ 
+-Sign up for early access to experiment with free, limited distribution accounts. [Learn more](http://developer.android.com/developer-verification/guides/limited-distribution) Advanced flow
++Interest form
++
++### [For students and hobbyists](https://developer.android.com/developer-verification/guides/limited-distribution)
++
++Sign up for early access to experiment with free, limited distribution accounts.
++
++[Learn more](https://developer.android.com/developer-verification/guides/limited-distribution)
++
++Advanced flow
+ 
+ ### [For developers who don't want to verify](https://android-developers.googleblog.com/2026/03/android-developer-verification.html)
+ 
+-Preview the advanced flow to see how we'll serve power users who want the ability to download unverified apps. [Learn more](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) Contact us
++Preview the advanced flow to see how we'll serve power users who want the ability to download unverified apps.
++
++[Learn more](https://android-developers.googleblog.com/2026/03/android-developer-verification.html)
++
++Contact us
+ 
+ ### [Get support and submit feedback](https://docs.google.com/forms/d/e/1FAIpQLSeN8qv6GRTztqsXy6P8P2_Q93BOIIkT2X7sOQKesQD_LCvnKw/viewform)
+ 
+-for Android developer verification. [Learn more](https://docs.google.com/forms/d/e/1FAIpQLSeN8qv6GRTztqsXy6P8P2_Q93BOIIkT2X7sOQKesQD_LCvnKw/viewform)
++for Android developer verification.
++
++[Learn more](https://docs.google.com/forms/d/e/1FAIpQLSeN8qv6GRTztqsXy6P8P2_Q93BOIIkT2X7sOQKesQD_LCvnKw/viewform)
+ 
+ ## Timeline
+ 
+-We're announcing the changes early and proactively getting developer feedback to ensure our solutions are balanced.
++We’re announcing the changes early and proactively getting developer feedback to ensure our solutions are balanced.
+ 
+ | Date | Update |
+-|---|---|
++| --- | --- |
+ | Aug 2025 | [Announced](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) new developer verification requirements. |
+ | Nov 2025 | Early access began for both Android Developer Console and Play Console. |
+ | Mar 2026 | Verification opens for all developers. |
+ | Jun 2026 | Early access starts for limited distribution accounts. |
+-| Aug 2026 | [Limited distribution account](https://developer.android.com/developer-verification/guides/limited-distribution) launches globally. [Advanced flow](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) for users launches globally. |
++| Aug 2026 | [Limited distribution account](/developer-verification/guides/limited-distribution) launches globally.  [Advanced flow](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) for users launches globally. |
+ | Sep 2026 | The verification requirement goes into effect in Brazil, Indonesia, Singapore, and Thailand. At this point, any app installed on a certified device in these regions must be registered by a verified developer. |
+ | 2027 and beyond | We will continue to roll out this requirement globally. |
+ 
+ ## Latest News
+ 
+-[![](http://developer.android.com/static/developer-verification/assets/blogicon.png)](https://android-developers.googleblog.com/2026/03/android-developer-verification-rolling-out-to-all-developers.html) Blog
++[![](https://developer.android.com/static/developer-verification/assets/blogicon.png)](https://android-developers.googleblog.com/2026/03/android-developer-verification-rolling-out-to-all-developers.html)
++
++Blog
+ 
+ ### [Rolling out to all developers on Play and Android consoles](https://android-developers.googleblog.com/2026/03/android-developer-verification-rolling-out-to-all-developers.html)
+ 
+-Over the next few weeks, we're opening the verification process to everyone through Android Developer Console and the Play Console. [![](http://developer.android.com/static/images/developer-verification/v3-opt-b.png)](https://support.google.com/googleplay/android-developer/thread/419196358/android-developer-verification-balancing-openness-and-choice-with-safety) Blog
++Over the next few weeks, we're opening the verification process to everyone through Android Developer Console and the Play Console.
++
++[![](https://developer.android.com/static/images/developer-verification/v3-opt-b.png)](https://support.google.com/googleplay/android-developer/thread/419196358/android-developer-verification-balancing-openness-and-choice-with-safety)
++
++Blog
+ 
+ ### [Balancing openness and choice with safety](https://support.google.com/googleplay/android-developer/thread/419196358/android-developer-verification-balancing-openness-and-choice-with-safety)
+ 
+-Preview our advanced flow to ensure power users can sideload apps from unverified developers. [![](http://developer.android.com/static/images/developer-verification/sideloading-thumbnail2.png)](https://www.youtube.com/shorts/WcPElxbOeXY) YouTube
++Preview our advanced flow to ensure power users can sideload apps from unverified developers.
++
++[![](https://developer.android.com/static/images/developer-verification/sideloading-thumbnail2.png)](https://www.youtube.com/shorts/WcPElxbOeXY)
++
++YouTube
+ 
+ ### [Preview how users can sideload your apps](https://www.youtube.com/shorts/WcPElxbOeXY)
+ 
+-Watch a quick explainer on how the new advanced flow works. [![](http://developer.android.com/static/images/developer-verification/A7DEhW-mjdc-SD.jpg)](https://www.youtube.com/watch?v=A7DEhW-mjdc) YouTube
++Watch a quick explainer on how the new advanced flow works.
++
++[![](https://developer.android.com/static/images/developer-verification/A7DEhW-mjdc-SD.jpg)](https://www.youtube.com/watch?v=A7DEhW-mjdc)
++
++YouTube
+ 
+ ### [Android developer verification](https://www.youtube.com/watch?v=A7DEhW-mjdc)
+ 

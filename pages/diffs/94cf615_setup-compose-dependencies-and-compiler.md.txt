@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/setup-compose-dependencies-and-compiler.md b/docs/develop/ui/compose/setup-compose-dependencies-and-compiler.md
+index ef67b02..3f37e10 100644
+--- a/docs/develop/ui/compose/setup-compose-dependencies-and-compiler.md
++++ b/docs/develop/ui/compose/setup-compose-dependencies-and-compiler.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ## Set up the Compose Compiler Gradle plugin
+ 
+ For Gradle users, you can use the Compose Compiler Gradle plugin to make setting

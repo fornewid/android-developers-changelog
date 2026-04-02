@@ -1,0 +1,25 @@
+diff --git a/docs/guide/appendix/faq/commontasks.md b/docs/guide/appendix/faq/commontasks.md
+index 32796f9..7563756 100644
+--- a/docs/guide/appendix/faq/commontasks.md
++++ b/docs/guide/appendix/faq/commontasks.md
+@@ -1,9 +1,14 @@
+ ---
+-title: https://developer.android.com/guide/appendix/faq/commontasks
++title: Android Developers
+ url: https://developer.android.com/guide/appendix/faq/commontasks
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Android Developers
++* [Android Developers](https://developer.android.com/)
+ 
+-You should have already been redirected by your browser. Please follow[this link](https://developer.android.com/resources/faq/commontasks).
+\ No newline at end of file
++# Android Developers Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++You should have already been redirected by your browser. Please follow
++[this link](/resources/faq/commontasks).
+\ No newline at end of file

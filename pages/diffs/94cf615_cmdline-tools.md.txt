@@ -1,0 +1,12 @@
+diff --git a/docs/tools/releases/cmdline-tools.md b/docs/tools/releases/cmdline-tools.md
+index 7c6790b..1bf3e48 100644
+--- a/docs/tools/releases/cmdline-tools.md
++++ b/docs/tools/releases/cmdline-tools.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android SDK Command-Line Tools package
+ contains various tools for building and debugging Android apps. It is
+ released concurrently with Android Studio and is installed in the

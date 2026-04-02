@@ -1,0 +1,395 @@
+diff --git a/docs/develop/ui/views/layout/twopane.md b/docs/develop/ui/views/layout/twopane.md
+index 06bb8b6..921783c 100644
+--- a/docs/develop/ui/views/layout/twopane.md
++++ b/docs/develop/ui/views/layout/twopane.md
+@@ -1,46 +1,32 @@
+ ---
+-title: Create a two-pane layout  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/layout/twopane
+ url: https://developer.android.com/develop/ui/views/layout/twopane
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose. [Adaptive Layouts →](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+-# Create a two-pane layout Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-Try the Compose way
+-
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose.
+-
+-[Adaptive Layouts →](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
+-
+-![](/static/images/android-compose-ui-logo.png)
++<br />
+ 
+ Every screen in your app must be responsive and adapt to the available space.
+ You can [build a responsive UI with
+-`ConstraintLayout`](/training/constraint-layout) that lets a single-pane
++`ConstraintLayout`](https://developer.android.com/training/constraint-layout) that lets a single-pane
+ approach scale to many sizes, but larger devices might benefit from splitting
+ the layout into multiple panes. For example, you might want a screen to show a
+ list of items next to a list of details of the selected item.
+ 
+ The
+-[`SlidingPaneLayout`](/reference/androidx/slidingpanelayout/widget/SlidingPaneLayout)
++[`SlidingPaneLayout`](https://developer.android.com/reference/androidx/slidingpanelayout/widget/SlidingPaneLayout)
+ component supports showing two panes side by side on larger devices and
+ foldables while automatically adapting to show only one pane at a time on
+ smaller devices such as phones.
+ 
+ For device-specific guidance, see the
+-[screen compatibility overview](/guide/practices/screens_support).
++[screen compatibility overview](https://developer.android.com/guide/practices/screens_support).
+ 
+-**Note:** For a step-by-step, hands-on experience creating a two-pane layout, see
+-the [Adaptive
+-Layouts](/codelabs/basic-android-kotlin-training-adaptive-layouts#0) codelab.
++> [!NOTE]
++> **Note:** For a step-by-step, hands-on experience creating a two-pane layout, see the [Adaptive
++> Layouts](https://developer.android.com/codelabs/basic-android-kotlin-training-adaptive-layouts#0) codelab.
+ 
+ ## Setup
+ 
+@@ -49,7 +35,7 @@ To use `SlidingPaneLayout`, include the following dependency in your app's
+ 
+ ### Groovy
+ 
+-```
++```groovy
+ dependencies {
+     implementation "androidx.slidingpanelayout:slidingpanelayout:1.2.0"
+ }
+@@ -57,7 +43,7 @@ dependencies {
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ dependencies {
+     implementation("androidx.slidingpanelayout:slidingpanelayout:1.2.0")
+ }
+@@ -68,18 +54,13 @@ dependencies {
+ `SlidingPaneLayout` provides a horizontal, two-pane layout for use at the top
+ level of a UI. This layout uses the first pane as a content list or a browser,
+ subordinate to a primary detail view for displaying content in the other pane.
+-
+-![An image showing an example of SlidingPaneLayout](/static/images/ui/slidingpanelayout-example.png)
+-
+-
+-**Figure 1.** An example of a layout created with
+-`SlidingPaneLayout`.
++![An image showing an example of SlidingPaneLayout](https://developer.android.com/static/images/ui/slidingpanelayout-example.png) **Figure 1.** An example of a layout created with `SlidingPaneLayout`.
+ 
+ `SlidingPaneLayout` uses the width of the two panes to determine whether to show
+ the panes side by side. For example, if the list pane is measured to have a
+-minimum size of 200 dp and the detail pane needs 400 dp, then the
++minimum size of 200 dp and the detail pane needs 400 dp, then the
+ `SlidingPaneLayout` automatically shows the two panes side by side as long as it
+-has at least 600 dp of width available.
++has at least 600 dp of width available.
+ 
+ Child views overlap if their combined width exceeds the available width in the
+ `SlidingPaneLayout`. In this case, the child views expand to fill the available
+@@ -98,42 +79,40 @@ side of the folding feature. If there isn't enough space to maintain that
+ minimum size, `SlidingPaneLayout` switches back to overlapping the views.
+ 
+ Here is an example of using a `SlidingPaneLayout` that has a
+-[`RecyclerView`](/reference/androidx/recyclerview/widget/RecyclerView) as its
++[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) as its
+ left pane and a
+-[`FragmentContainerView`](/reference/androidx/fragment/app/FragmentContainerView)
++[`FragmentContainerView`](https://developer.android.com/reference/androidx/fragment/app/FragmentContainerView)
+ as its primary detail view to display content from the left pane:
+ 
+-```
+-<!-- two_pane.xml -->
+-<androidx.slidingpanelayout.widget.SlidingPaneLayout
+-   xmlns:android="http://schemas.android.com/apk/res/android"
+-   android:id="@+id/sliding_pane_layout"
+-   android:layout_width="match_parent"
+-   android:layout_height="match_parent">
+-
+-   <!-- The first child view becomes the left pane. When the combined needed
+-        width, expressed using android:layout_width, doesn't fit on-screen at
+-        once, the right pane is permitted to overlap the left. -->
+-
+-   <androidx.recyclerview.widget.RecyclerView
+-             android:id="@+id/list_pane"
+-             android:layout_width="280dp"
+-             android:layout_height="match_parent"
+-             android:layout_gravity="start"/>
+-
+-   <!-- The second child becomes the right (content) pane. In this example,
+-        android:layout_weight is used to expand this detail pane to consume
+-        leftover available space when the entire window is wide enough to fit
+-        the left and right pane.-->
+-   <androidx.fragment.app.FragmentContainerView
+-       android:id="@+id/detail_container"
+-       android:layout_width="300dp"
+-       android:layout_weight="1"
+-       android:layout_height="match_parent"
+-       android:background="#ff333333"
+-       android:name="com.example.SelectAnItemFragment" />
+-</androidx.slidingpanelayout.widget.SlidingPaneLayout>
+-```
++    <!-- two_pane.xml -->
++    <androidx.slidingpanelayout.widget.SlidingPaneLayout
++       xmlns:android="http://schemas.android.com/apk/res/android"
++       android:id="@+id/sliding_pane_layout"
++       android:layout_width="match_parent"
++       android:layout_height="match_parent">
++
++       <!-- The first child view becomes the left pane. When the combined needed
++            width, expressed using android:layout_width, doesn't fit on-screen at
++            once, the right pane is permitted to overlap the left. -->
++
++       <androidx.recyclerview.widget.RecyclerView
++                 android:id="@+id/list_pane"
++                 android:layout_width="280dp"
++                 android:layout_height="match_parent"
++                 android:layout_gravity="start"/>
++
++       <!-- The second child becomes the right (content) pane. In this example,
++            android:layout_weight is used to expand this detail pane to consume
++            leftover available space when the entire window is wide enough to fit
++            the left and right pane.-->
++       <androidx.fragment.app.FragmentContainerView
++           android:id="@+id/detail_container"
++           android:layout_width="300dp"
++           android:layout_weight="1"
++           android:layout_height="match_parent"
++           android:background="#ff333333"
++           android:name="com.example.SelectAnItemFragment" />
++    </androidx.slidingpanelayout.widget.SlidingPaneLayout>
+ 
+ In this example, the `android:name` attribute on `FragmentContainerView` adds
+ the initial fragment to the detail pane, ensuring that users on large-screen
+@@ -143,14 +122,14 @@ devices don't see an empty right pane when the app first launches.
+ 
+ In the preceding XML example, tapping an element in the `RecyclerView`
+ triggers a change in the detail pane. When using fragments, this requires a
+-[`FragmentTransaction`](/reference/androidx/fragment/app/FragmentTransaction)
++[`FragmentTransaction`](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction)
+ that replaces the right pane, calling
+-[`open()`](/reference/androidx/slidingpanelayout/widget/SlidingPaneLayout#open())
++[`open()`](https://developer.android.com/reference/androidx/slidingpanelayout/widget/SlidingPaneLayout#open())
+ on the `SlidingPaneLayout` to swap to the newly visible fragment:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ // A method on the Fragment that owns the SlidingPaneLayout,called by the
+ // adapter when an item is selected.
+ fun openDetails(itemId: Int) {
+@@ -170,7 +149,7 @@ fun openDetails(itemId: Int) {
+ 
+ ### Java
+ 
+-```
++```java
+ // A method on the Fragment that owns the SlidingPaneLayout, called by the
+ // adapter when an item is selected.
+ void openDetails(int itemId) {
+@@ -190,7 +169,7 @@ void openDetails(int itemId) {
+ ```
+ 
+ This code specifically doesn't call
+-[`addToBackStack()`](/reference/androidx/fragment/app/FragmentTransaction#addToBackStack(java.lang.String))
++[`addToBackStack()`](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction#addToBackStack(java.lang.String))
+ on the `FragmentTransaction`. This avoids building a back stack in the detail
+ pane.
+ 
+@@ -198,9 +177,9 @@ pane.
+ 
+ The examples in this page use `SlidingPaneLayout` directly and require you to
+ manage fragment transactions manually. However, the
+-[Navigation component](/guide/navigation) provides a prebuilt implementation of
++[Navigation component](https://developer.android.com/guide/navigation) provides a prebuilt implementation of
+ a two-pane layout through
+-[`AbstractListDetailFragment`](/reference/androidx/navigation/fragment/AbstractListDetailFragment),
++[`AbstractListDetailFragment`](https://developer.android.com/reference/androidx/navigation/fragment/AbstractListDetailFragment),
+ an API class that uses a `SlidingPaneLayout` under the hood to manage your list
+ and detail panes.
+ 
+@@ -209,38 +188,36 @@ declaring a `SlidingPaneLayout` and both of your panes, your layout only needs a
+ `FragmentContainerView` to hold your `AbstractListDetailFragment`
+ implementation:
+ 
+-```
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent">
+-    <androidx.fragment.app.FragmentContainerView
+-        android:id="@+id/two_pane_container"
+-        <!-- The name of your AbstractListDetailFragment implementation.-->
+-        android:name="com.example.testapp.TwoPaneFragment"
++    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++        xmlns:app="http://schemas.android.com/apk/res-auto"
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        <!-- The navigation graph for your detail pane.-->
+-        app:navGraph="@navigation/two_pane_navigation" />
+-</FrameLayout>
+-```
++        android:layout_height="match_parent">
++        <androidx.fragment.app.FragmentContainerView
++            android:id="@+id/two_pane_container"
++            <!-- The name of your AbstractListDetailFragment implementation.-->
++            android:name="com.example.testapp.TwoPaneFragment"
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            <!-- The navigation graph for your detail pane.-->
++            app:navGraph="@navigation/two_pane_navigation" />
++    </FrameLayout>
+ 
+ Implement
+-[`onCreateListPaneView()`](/reference/androidx/navigation/fragment/AbstractListDetailFragment#onCreateListPaneView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle))
++[`onCreateListPaneView()`](https://developer.android.com/reference/androidx/navigation/fragment/AbstractListDetailFragment#onCreateListPaneView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle))
+ and
+-[`onListPaneViewCreated()`](/reference/androidx/navigation/fragment/AbstractListDetailFragment#onListPaneViewCreated(android.view.View,android.os.Bundle))
++[`onListPaneViewCreated()`](https://developer.android.com/reference/androidx/navigation/fragment/AbstractListDetailFragment#onListPaneViewCreated(android.view.View,android.os.Bundle))
+ to provide a custom view for your list pane. For the detail pane,
+ `AbstractListDetailFragment` uses a
+-[`NavHostFragment`](/reference/androidx/navigation/fragment/NavHostFragment).
++[`NavHostFragment`](https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment).
+ This means you can define a [navigation
+-graph](/guide/navigation/navigation-design-graph) that only contains the
++graph](https://developer.android.com/guide/navigation/navigation-design-graph) that only contains the
+ destinations to be shown in the detail pane. Then, you can use
+-[`NavController`](/reference/androidx/navigation/NavController) to swap your
++[`NavController`](https://developer.android.com/reference/androidx/navigation/NavController) to swap your
+ detail pane between the destinations in the self-contained navigation graph:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ fun openDetails(itemId: Int) {
+     val navController = navHostFragment.navController
+     navController.navigate(
+@@ -266,7 +243,7 @@ fun openDetails(itemId: Int) {
+ 
+ ### Java
+ 
+-```
++```java
+ void openDetails(int itemId) {
+     NavController navController = navHostFragment.getNavController();
+     NavOptions.Builder builder = new NavOptions.Builder()
+@@ -304,13 +281,13 @@ for a full implementation of a two-pane layout using the Navigation component.
+ On smaller devices where the list and detail panes overlap, make sure the system
+ back button takes the user from the detail pane back to the list pane. Do this
+ by [providing custom back
+-navigation](/guide/navigation/navigation-custom-back) and connecting an
+-[`OnBackPressedCallback`](/reference/androidx/activity/OnBackPressedCallback) to
++navigation](https://developer.android.com/guide/navigation/navigation-custom-back) and connecting an
++[`OnBackPressedCallback`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback) to
+ the current state of the `SlidingPaneLayout`:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class TwoPaneOnBackPressedCallback(
+     private val slidingPaneLayout: SlidingPaneLayout
+ ) : OnBackPressedCallback(
+@@ -347,7 +324,7 @@ class TwoPaneOnBackPressedCallback(
+ 
+ ### Java
+ 
+-```
++```java
+ class TwoPaneOnBackPressedCallback extends OnBackPressedCallback
+         implements SlidingPaneLayout.PanelSlideListener {
+ 
+@@ -388,13 +365,13 @@ class TwoPaneOnBackPressedCallback extends OnBackPressedCallback
+ ```
+ 
+ You can add the callback to the
+-[`OnBackPressedDispatcher`](/reference/androidx/activity/OnBackPressedDispatcher)
++[`OnBackPressedDispatcher`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher)
+ using
+-[`addCallback()`](/reference/androidx/activity/OnBackPressedDispatcher#addCallback(androidx.lifecycle.LifecycleOwner,%20androidx.activity.OnBackPressedCallback)):
++[`addCallback()`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher#addCallback(androidx.lifecycle.LifecycleOwner,%20androidx.activity.OnBackPressedCallback)):
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class TwoPaneFragment : Fragment(R.layout.two_pane) {
+ 
+     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+@@ -411,7 +388,7 @@ class TwoPaneFragment : Fragment(R.layout.two_pane) {
+ 
+ ### Java
+ 
+-```
++```java
+ class TwoPaneFragment extends Fragment {
+ 
+     public TwoPaneFragment() {
+@@ -436,41 +413,39 @@ class TwoPaneFragment extends Fragment {
+ ## Lock mode
+ 
+ `SlidingPaneLayout` always lets you manually call `open()` and
+-[`close()`](/reference/androidx/slidingpanelayout/widget/SlidingPaneLayout#close())
++[`close()`](https://developer.android.com/reference/androidx/slidingpanelayout/widget/SlidingPaneLayout#close())
+ to transition between the list and detail panes on phones. These methods have no
+ effect if both panes are visible and don't overlap.
+ 
+ When the list and detail panes overlap, users can swipe in both directions by
+ default, freely switching between the two panes even when not using [gesture
+-navigation](/training/gestures/gesturenav). You can control the swipe direction
++navigation](https://developer.android.com/training/gestures/gesturenav). You can control the swipe direction
+ by setting the lock mode of the `SlidingPaneLayout`:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ binding.slidingPaneLayout.lockMode = SlidingPaneLayout.LOCK_MODE_LOCKED
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ binding.getSlidingPaneLayout().setLockMode(SlidingPaneLayout.LOCK_MODE_LOCKED);
+ ```
+ 
+-**Note:** The lock mode only controls what user gestures are possible. You can
+-always open or close the `SlidingPaneLayout` programmatically, regardless of
+-which lock mode is set.
++> [!NOTE]
++> **Note:** The lock mode only controls what user gestures are possible. You can always open or close the `SlidingPaneLayout` programmatically, regardless of which lock mode is set.
+ 
+ ## Learn more
+ 
+ To learn more about designing layouts for different form factors, see the
+ following documentation:
+ 
+-* [Screen compatibility overview](/guide/practices/screens_support)
+-* [Design for different form factors](/guide/navigation/navigation-form-factors)
++- [Screen compatibility overview](https://developer.android.com/guide/practices/screens_support)
++- [Design for different form factors](https://developer.android.com/guide/navigation/navigation-form-factors)
+ 
+ ## Additional resources
+ 
+-* [Adaptive Layouts codelab](/codelabs/basic-android-kotlin-training-adaptive-layouts#0)
+-* [SlidingPaneLayout example](https://github.com/google-developer-training/basic-android-kotlin-training-sports/tree/starter)
+-  on GitHub.
+\ No newline at end of file
++- [Adaptive Layouts codelab](https://developer.android.com/codelabs/basic-android-kotlin-training-adaptive-layouts#0)
++- [SlidingPaneLayout example](https://github.com/google-developer-training/basic-android-kotlin-training-sports/tree/starter) on GitHub.
+\ No newline at end of file

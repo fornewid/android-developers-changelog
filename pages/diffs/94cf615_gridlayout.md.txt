@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/gridlayout.md b/docs/jetpack/androidx/releases/gridlayout.md
+index 191ad4a..e29af34 100644
+--- a/docs/jetpack/androidx/releases/gridlayout.md
++++ b/docs/jetpack/androidx/releases/gridlayout.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # GridLayout
+ 
+ [Code Sample](https://github.com/android/views-widgets-samples/blob/master/ConstraintLayoutExamples/CycleEditor/src/com/google/androidstudio/motionlayoutcycles/MainPanel.java)

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/custom-back/support-animations.md b/docs/guide/navigation/custom-back/support-animations.md
+index c3b2af9..b0ddfbf 100644
+--- a/docs/guide/navigation/custom-back/support-animations.md
++++ b/docs/guide/navigation/custom-back/support-animations.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When using the system back APIs, you can opt in to receive in-app animations and
+ support custom transitions.
+ 

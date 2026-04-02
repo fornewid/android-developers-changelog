@@ -1,0 +1,180 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/grid/item-properties.md b/docs/develop/ui/compose/layouts/adaptive/grid/item-properties.md
+index e64ef14..b6d6f20 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/grid/item-properties.md
++++ b/docs/develop/ui/compose/layouts/adaptive/grid/item-properties.md
+@@ -1,11 +1,22 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/item-properties
++title: Set item properties  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/item-properties
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Set item properties Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ While the `Grid` config defines the overall structure,
+-you use the [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope#(androidx.compose.ui.Modifier).gridItem(kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int,androidx.compose.ui.Alignment)) modifier to control the position, spanning,
++you use the [`gridItem`](/reference/kotlin/androidx/compose/foundation/layout/GridScope#(androidx.compose.ui.Modifier).gridItem(kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int,androidx.compose.ui.Alignment)) modifier to control the position, spanning,
+ and alignment of items within that structure.
+ 
+ ## Set the item position
+@@ -15,7 +26,7 @@ with the `row` and `column` parameters.
+ 
+ The `row` and `column` parameters specify the row and column track indexes
+ that the item is placed in.
+-Track indexes are 1-based---they start at one.
++Track indexes are 1-based—they start at one.
+ Specifying only `row` or `column` (not both) places the item
+ in the next available space in that track.
+ Specifying both places the item into that cell.
+@@ -34,8 +45,7 @@ Card **#3** is assigned to the last row (indexed by -1),
+ where it automatically occupies
+ the first available column in that track (Figure 1).
+ 
+-
+-```kotlin
++```
+ Grid(
+     config = {
+         repeat(2) {
+@@ -51,28 +61,33 @@ Grid(
+     Card2(modifier = Modifier.gridItem(row = 2, column = 2))
+     Card3(modifier = Modifier.gridItem(row = -1, column = -2))
+ }
+-```
+ 
+-<br />
++GridItem.kt
++```
+ 
+ ![Card #2 is placed in the grid cell
++    in the second row and the second column,
++    and Card #3 is placed in the first column in the third row.](/static/develop/ui/compose/images/layouts/adaptive/grid/position.png)
++
++
++**Figure 1**.
++Card **#2** is placed in the grid cell
+ in the second row and the second column,
+-and Card #3 is placed in the first column in the third row.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/position.png) **Figure 1** . Card **#2** is placed in the grid cell in the second row and the second column, and Card **#3** is placed in the first column in the third row.
++and Card **#3** is placed in the first column in the third row.
+ 
+ ## Span rows and columns
+ 
+ Use the `rowSpan` and `columnSpan` parameters
+ to span an item over multiple cells.
+-You can place a UI element into a [grid area](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid#grid-area),
+-which is the area consisting of several [grid cells](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid#grid-cell).
++You can place a UI element into a [grid area](/develop/ui/compose/layouts/adaptive/grid#grid-area),
++which is the area consisting of several [grid cells](/develop/ui/compose/layouts/adaptive/grid#grid-cell).
+ The `gridItem` modifier lets you specify the grid area
+ with the `rowSpan` and `columnSpan` parameters.
+ In the following example,
+ Card **#1** is placed in the area consisting of two rows and two columns
+ (Figure 2).
+ 
+-
+-```kotlin
++```
+ Grid(
+     config = {
+         repeat(3) {
+@@ -90,21 +105,24 @@ Grid(
+     Card3()
+     Card4(modifier = Modifier.gridItem(columnSpan = 3))
+ }
++
++GridArea.kt
+ ```
+ 
+-<br />
++![Card #4 spans three columns](/static/develop/ui/compose/images/layouts/adaptive/grid/spanning.png)
+ 
+-![Card #4 spans three columns](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/spanning.png) **Figure 2** . Card **#4** spans three columns.
++
++**Figure 2**.
++Card **#4** spans three columns.
+ 
+ ## Set the alignment in a grid area
+ 
+ You can set the alignment of the UI element in a grid area
+-by specifying it in the `alignment` parameter of the [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope#(androidx.compose.ui.Modifier).gridItem(kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int,androidx.compose.ui.Alignment)) modifier.
++by specifying it in the `alignment` parameter of the [`gridItem`](/reference/kotlin/androidx/compose/foundation/layout/GridScope#(androidx.compose.ui.Modifier).gridItem(kotlin.Int,kotlin.Int,kotlin.Int,kotlin.Int,androidx.compose.ui.Alignment)) modifier.
+ In the following example, **#1** is placed in the center of the grid area
+ consisting of two columns and two rows.
+ 
+-
+-```kotlin
++```
+ Grid(
+     config = {
+         repeat(3) {
+@@ -130,12 +148,17 @@ Grid(
+     Card3()
+     Card4(modifier = Modifier.gridItem(columnSpan = 3))
+ }
+-```
+ 
+-<br />
++GridArea.kt
++```
+ 
+ ![The Text with #1 is placed in the center of the grid area
+-consisting of two rows and two columns.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/alignment.png) **Figure 3** . The Text with **#1** is placed in the center of the grid area consisting of two rows and two columns.
++    consisting of two rows and two columns.](/static/develop/ui/compose/images/layouts/adaptive/grid/alignment.png)
++
++
++**Figure 3**.
++The Text with **#1** is placed in the center of the grid area
++consisting of two rows and two columns.
+ 
+ ## Auto-placement mixed with placed items
+ 
+@@ -146,8 +169,7 @@ and the UI elements with specified grid cells.
+ Card **#2** and card **#4** are specified grid cells,
+ and the other items are auto-placed.
+ 
+-
+-```kotlin
++```
+ Grid(
+     config = {
+         repeat(2) {
+@@ -167,8 +189,24 @@ Grid(
+     Card5()
+     Card6()
+ }
++
++GridItem.kt
+ ```
+ 
+-<br />
++![Card #3 is placed next to card <b>#1</b>, as it is an auto-placement.](/static/develop/ui/compose/images/layouts/adaptive/grid/autoplacement-mixed-with-placement.png)
++
++
++**Figure 4**.
++Card **#3** is placed next to card **#1**, as it is an auto-placement.
++
++[Previous
++
++arrow\_back
++
++Set container properties](/develop/ui/compose/layouts/adaptive/grid/container-properties)
++
++[Next
++
++Learn about foldables
+ 
+-![Card #3 is placed next to card <b>#1</b>, as it is an auto-placement.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/autoplacement-mixed-with-placement.png) **Figure 4** . Card **#3** is placed next to card **#1**, as it is an auto-placement.
+\ No newline at end of file
++arrow\_forward](/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables)
+\ No newline at end of file

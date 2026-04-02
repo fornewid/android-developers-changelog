@@ -1,0 +1,12 @@
+diff --git a/docs/media/grow/good-better-best.md b/docs/media/grow/good-better-best.md
+index 15c4e41..603fbda 100644
+--- a/docs/media/grow/good-better-best.md
++++ b/docs/media/grow/good-better-best.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This article charts the optimal progression of a media app from a likely
+ starting place to best-in-class. It's designed to
+ help you think about scaling your app over time, and what features to implement

@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/xr/guides/motion.md b/docs/design/ui/xr/guides/motion.md
+index 0e75856..d41c05e 100644
+--- a/docs/design/ui/xr/guides/motion.md
++++ b/docs/design/ui/xr/guides/motion.md
+@@ -16,7 +16,6 @@ The Android XR SDK is now available in Developer Preview. We want your feedback!
+ 
+ 
+ 
+-
+ Motion can transform your XR app from a static scene into a vibrant, interactive
+ experience. It's important to consider a user's visual and physical comfort when
+ designing with motion.

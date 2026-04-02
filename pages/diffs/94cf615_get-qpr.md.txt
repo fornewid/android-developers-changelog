@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/15/get-qpr.md b/docs/about/versions/15/get-qpr.md
+index 1412a02..670b251 100644
+--- a/docs/about/versions/15/get-qpr.md
++++ b/docs/about/versions/15/get-qpr.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![Android brand logo](/static/images/shared/android-logo-verticallockup_primary.png)
+ 
+ You can get Android 15 QPR2 in any of the following ways:

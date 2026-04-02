@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/fixed-bugs/emulator/34.md b/docs/studio/releases/fixed-bugs/emulator/34.md
+index dae2f65..b495c5b 100644
+--- a/docs/studio/releases/fixed-bugs/emulator/34.md
++++ b/docs/studio/releases/fixed-bugs/emulator/34.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ### Android Emulator 34.2.12
+ 
+ | Fixed Issues | |

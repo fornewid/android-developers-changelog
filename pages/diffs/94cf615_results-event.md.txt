@@ -1,0 +1,118 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/results-event.md b/docs/guide/navigation/navigation-3/recipes/results-event.md
+index ec2efae..2489dc5 100644
+--- a/docs/guide/navigation/navigation-3/recipes/results-event.md
++++ b/docs/guide/navigation/navigation-3/recipes/results-event.md
+@@ -1,18 +1,9 @@
+ ---
+-title: App architecture  |  Android Developers
++title: https://developer.android.com/guide/navigation/navigation-3/recipes/results-event
+ url: https://developer.android.com/guide/navigation/navigation-3/recipes/results-event
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [App architecture](https://developer.android.com/topic/architecture/intro)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Returning a Result (Event-Based)
+ 
+ This recipe demonstrates how to return a result from one screen to a previous screen using an event-based approach.
+@@ -22,18 +13,11 @@ This recipe demonstrates how to return a result from one screen to a previous sc
+ This example uses a `ResultEventBus` to facilitate communication between the screens.
+ 
+ 1. **`ResultEventBus`**: A simple event bus is created and made available to the composables.
+-2. **Sending the result**: The screen that produces the result calls `resultBus.sendResult(person)` to send the data back as a one-time event.
+-3. **Receiving the result**: The screen that needs the result uses a `ResultEffect` composable to listen for results of a specific type. When a result is received, the effect's lambda is triggered.
++2. **Sending the result** : The screen that produces the result calls `resultBus.sendResult(person)` to send the data back as a one-time event.
++3. **Receiving the result** : The screen that needs the result uses a `ResultEffect` composable to listen for results of a specific type. When a result is received, the effect's lambda is triggered.
+ 
+ This approach is useful for results that are transient and should be handled as one-time events.
+-
+-[![](/static/images/picto-icons/code.svg)
+-
+-Explore
+-
+-View the full recipe on GitHub.
+-
+-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/event)
++[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/event)
+ 
+ ```
+ /*
+@@ -62,8 +46,6 @@ import androidx.lifecycle.ViewModel
+ class HomeViewModel : ViewModel() {
+     var person by mutableStateOf<Person?>(null)
+ }
+-
+-HomeViewModel.kt
+ ```
+ 
+ ```
+@@ -92,11 +74,7 @@ import kotlinx.serialization.Serializable
+ data object Home : NavKey
+ 
+ @Serializable
+-class PersonDetailsForm : NavKey
+-
+-NavKeys
+-
+-.kt
++class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/c9d31b92fc28ca60888a1de8f367647344a618ae/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
+ ```
+ 
+ ```
+@@ -118,9 +96,11 @@ NavKeys
+ 
+ package com.example.nav3recipes.results.common
+ 
+-data class Person(val name: String, val favoriteColor: String)
++import android.os.Parcelable
++import kotlinx.parcelize.Parcelize
+ 
+-Person.kt
++@Parcelize
++data class Person(val name: String, val favoriteColor: String) : Parcelablehttps://github.com/android/nav3-recipes/blob/c9d31b92fc28ca60888a1de8f367647344a618ae/app/src/main/java/com/example/nav3recipes/results/common/Person.kt
+ ```
+ 
+ ```
+@@ -206,8 +186,6 @@ fun PersonDetailsScreen(
+         }
+     }
+ }
+-
+-ScreenContent.kt
+ ```
+ 
+ ```
+@@ -254,8 +232,6 @@ inline fun <reified T> ResultEffect(
+         }
+     }
+ }
+-
+-ResultEffect.kt
+ ```
+ 
+ ```
+@@ -339,8 +315,6 @@ class ResultEventActivity : ComponentActivity() {
+         }
+     }
+ }
+-
+-ResultEventActivity.kt
+ ```
+ 
+ ```
+@@ -429,6 +403,4 @@ class ResultEventBus {
+         channelMap.remove(resultKey)
+     }
+ }
+-
+-ResultEventBus.kt
+ ```
+\ No newline at end of file

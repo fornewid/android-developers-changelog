@@ -1,0 +1,206 @@
+diff --git a/docs/develop/connectivity/network-ops/network-access-optimization.md b/docs/develop/connectivity/network-ops/network-access-optimization.md
+index 90a085c..80ba31a 100644
+--- a/docs/develop/connectivity/network-ops/network-access-optimization.md
++++ b/docs/develop/connectivity/network-ops/network-access-optimization.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/develop/connectivity/network-ops/network-access-optimization
++title: Optimize network access  |  Connectivity  |  Android Developers
+ url: https://developer.android.com/develop/connectivity/network-ops/network-access-optimization
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [Connectivity](https://developer.android.com/develop/connectivity)
++* [Guides](https://developer.android.com/develop/connectivity/overview)
++
++# Optimize network access Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Using the wireless radio to transfer data is potentially one of your app's most
+ significant sources of battery drain. To minimize the battery drain associated
+ with network activity, it's critical that you understand how your connectivity
+@@ -11,7 +21,7 @@ model will affect the underlying radio hardware.
+ 
+ This section introduces the wireless radio state machine and explains how your
+ app's connectivity model interacts with it. It then offers several techniques
+-which, when followed, will help minimize the effect of your app's data
++which, when followed, will help minimize the effect of your app’s data
+ consumption on the battery.
+ 
+ ## The radio state machine
+@@ -29,9 +39,12 @@ attempting to minimize the latency associated with "powering up" the radio.
+ 
+ The state machine for a typical 3G network radio consists of three energy states:
+ 
+-- **Full power**: Used when a connection is active, allowing the device to transfer data at its highest possible rate.
+-- **Low power**: An intermediate state that cuts battery power consumption by around 50%.
+-- **Standby**: The minimal power-consuming state during which no network connection is active.
++* **Full power**: Used when a connection is active, allowing the device to
++  transfer data at its highest possible rate.
++* **Low power**: An intermediate state that cuts battery power consumption by
++  around 50%.
++* **Standby**: The minimal power-consuming state during which no network
++  connection is active.
+ 
+ While the low and standby states drain significantly less battery, they also
+ introduce significant latency to network requests. Returning to full power from
+@@ -39,10 +52,9 @@ the low state takes around 1.5 seconds, and moving from standby to full power
+ can take over 2 seconds.
+ 
+ To minimize latency, the state machine uses a delay to postpone the transition
+-to lower energy states. Figure 1 uses AT\&T's timings for a typical 3G radio.
+-
+-![](https://developer.android.com/static/images/develop/connectivity/mobile_radio_state_machine.png)   
++to lower energy states. Figure 1 uses AT&T's timings for a typical 3G radio.
+ 
++![](/static/images/develop/connectivity/mobile_radio_state_machine.png)   
+ **Figure 1.** Typical 3G wireless radio state machine.
+ 
+ The radio state machine on each device, particularly the associated transition
+@@ -51,7 +63,7 @@ technology employed (3G, LTE, 5G, and so on) and is defined and configured by
+ the carrier network over which the device is operating.
+ 
+ This page describes a representative state machine for a typical 3G wireless
+-radio, based on data provided by AT\&T. However, the general principles and
++radio, based on data provided by AT&T. However, the general principles and
+ resulting best practices are applicable for all wireless radio implementations.
+ 
+ This approach is particularly effective for typical mobile web browsing as it
+@@ -68,8 +80,8 @@ prioritized).
+ 
+ Every time you create a new network connection, the radio transitions to the
+ full power state. In the case of the typical 3G radio state machine described
+-earlier, it will remain at full power for the duration of your transfer---plus
+-an additional 5 seconds of tail time---followed by 12 seconds at the low energy
++earlier, it will remain at full power for the duration of your transfer—plus
++an additional 5 seconds of tail time—followed by 12 seconds at the low energy
+ state. So for a typical 3G device, every data transfer session will cause the
+ radio to draw energy for at least 18 seconds.
+ 
+@@ -77,8 +89,7 @@ In practice, this means that an app which makes a one second data transfer,
+ three times a minute, will keep the wireless radio perpetually active, moving it
+ back to high power just as it is entering standby mode.
+ 
+-![](https://developer.android.com/static/images/develop/connectivity/unbundled.png)   
+-
++![](/static/images/develop/connectivity/unbundled.png)   
+ **Figure 2.** Relative wireless radio power use for one-second transfer running
+ three times every minute. Figure excludes "power up" latency between runs.
+ 
+@@ -88,30 +99,29 @@ state for a total of only 20 seconds each minute. This would allow the radio to
+ be on standby for 40 seconds of every minute, resulting in a significant
+ reduction in battery consumption.
+ 
+-![](https://developer.android.com/static/images/develop/connectivity/bundled.png)   
+-
++![](/static/images/develop/connectivity/bundled.png)   
+ **Figure 3.** Relative wireless radio power use for three second transfers
+ running once every minute.
+ 
+ ## Optimization techniques
+ 
+-Now that you understand how network access affects battery life, let's talk
++Now that you understand how network access affects battery life, let’s talk
+ about a few things that you can do to help reduce battery drain, while also
+ providing a fast and fluid user experience.
+ 
+ ### Bundle data transfers
+ 
+-As stated in the previous section, bundling your data transfers so that you're
++As stated in the previous section, bundling your data transfers so that you’re
+ transferring more data less often is one of the best ways to improve battery
+ efficiency.
+ 
+ Of course, this is not always possible to do if your app needs to receive or
+ send data immediately in response to a user action. You can mitigate this by
+-anticipating and [prefetching data](https://developer.android.com/develop/connectivity/network-ops/network-access-optimization#prefetch-data). Other scenarios, such as
++anticipating and [prefetching data](#prefetch-data). Other scenarios, such as
+ sending logs or analytics to a server and other, non-urgent, app-initiated data
+ transfers, lend themselves very well to batching and bundling. See [Optimizing
+ app-initiated
+-tasks](https://developer.android.com/develop/connectivity/minimize-effect-regular-updates#app-initiated) for
++tasks](/develop/connectivity/minimize-effect-regular-updates#app-initiated) for
+ tips on scheduling background network transfers.
+ 
+ ### Prefetch data
+@@ -146,13 +156,13 @@ results in significant latency when switching categories or reading
+ articles.
+ 
+ A better approach is to prefetch a reasonable amount of data at startup,
+-beginning with the first set of news headlines and thumbnails---ensuring a
+-low-latency startup time---and continuing with the remaining headlines and
++beginning with the first set of news headlines and thumbnails—ensuring a
++low-latency startup time—and continuing with the remaining headlines and
+ thumbnails, as well as the article text for each article available from at least
+ the primary headline list.
+ 
+ Another alternative is to prefetch every headline, thumbnail, article text, and
+-possibly even full article pictures---typically in the background on a
++possibly even full article pictures—typically in the background on a
+ predetermined schedule. This approach risks spending significant bandwidth and
+ battery life downloading content that's never used, so it should be implemented
+ with caution.
+@@ -161,7 +171,7 @@ with caution.
+ 
+ While prefetching data carries a lot of benefits, used too aggressively
+ prefetching also introduces the risk of increasing battery drain and bandwidth
+-use---as well as download quota---by downloading data that isn't used. It's also
++use—as well as download quota—by downloading data that isn't used. It's also
+ important to ensure that prefetching doesn't delay application startup while the
+ app waits for the prefetch to complete. In practical terms that might mean
+ processing data progressively, or initiating consecutive transfers prioritized
+@@ -179,13 +189,13 @@ Generally speaking, it's good practice to prefetch data such that you will only
+ need to initiate another download every 2 to 5 minutes, and in the order of 1 to
+ 5 megabytes.
+ 
+-Following this principle, large downloads---such as video files---should be
++Following this principle, large downloads—such as video files—should be
+ downloaded in chunks at regular intervals (every 2 to 5 minutes), effectively
+ prefetching only the video data likely to be viewed in the next few minutes.
+ 
+ One solution is to schedule the full download to occur only when connected to
+ Wi-Fi, and possibly only when the device is charging. The
+-[WorkManager API](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#constraints)
++[WorkManager API](/topic/libraries/architecture/workmanager/how-to/define-work#constraints)
+ supports exactly this use case, allowing you to restrict the background work
+ until the device meets the developer-specified criteria, such as charging and
+ being connected to Wi-Fi.
+@@ -195,10 +205,10 @@ being connected to Wi-Fi.
+ Searching for a cell signal is one of the most power-draining operations on a
+ mobile device. A best practice for user-initiated requests is to first check for
+ a connection using
+-[`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager), as shown in
++[`ConnectivityManager`](/reference/android/net/ConnectivityManager), as shown in
+ [Monitor connectivity status and connection
+-metering](https://developer.android.com/training/monitoring-device-state/connectivity-status-type#DetermineConnection).
+-If there's no network, the app can save battery by not forcing the mobile radio
++metering](/training/monitoring-device-state/connectivity-status-type#DetermineConnection).
++If there’s no network, the app can save battery by not forcing the mobile radio
+ to search. The request can then be scheduled and performed in a batch with other
+ requests when a connection is made.
+ 
+@@ -211,7 +221,7 @@ It's generally more efficient to reuse existing network connections than it is
+ to initiate new ones. Reusing connections also allows the network to
+ more-intelligently react to congestion and related network data issues.
+ 
+-[`HttpURLConnection`](https://developer.android.com/reference/java/net/HttpURLConnection) and most HTTP
++[`HttpURLConnection`](/reference/java/net/HttpURLConnection) and most HTTP
+ clients, such as [OkHttp](https://square.github.io/okhttp/), enable
+ connection-pooling by default, and reusing the same connection for multiple
+ requests.
+@@ -222,7 +232,7 @@ In this section, you learned a lot about the wireless radio and some strategies
+ that you can apply broadly to provide a fast, responsive user experience while
+ reducing battery drain.
+ 
+-In the next section, we'll take a detailed look at three distinct types of
+-network interactions common to most apps. You'll learn the drivers for each of
++In the next section, we’ll take a detailed look at three distinct types of
++network interactions common to most apps. You’ll learn the drivers for each of
+ these types as well as modern techniques and APIs for managing these
+ interactions efficiently.
+\ No newline at end of file

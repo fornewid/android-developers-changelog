@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/management/api/achievements.md b/docs/games/services/management/api/achievements.md
+index 37c6041..cd2a12e 100644
+--- a/docs/games/services/management/api/achievements.md
++++ b/docs/games/services/management/api/achievements.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Represents player awards for in-game accomplishments.
+ 
+ For a list of [methods](#methods) for this resource, see the end of this page.

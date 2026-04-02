@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/pointer-input/understand-gestures.md b/docs/develop/ui/compose/touch-input/pointer-input/understand-gestures.md
+index e409466..fdb0ac8 100644
+--- a/docs/develop/ui/compose/touch-input/pointer-input/understand-gestures.md
++++ b/docs/develop/ui/compose/touch-input/pointer-input/understand-gestures.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ There are several terms and concepts that are important to understand
+ when working on gesture handling in an application. This page explains the terms
+ pointers, pointer events, and gestures, and introduces the different abstraction

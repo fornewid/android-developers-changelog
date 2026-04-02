@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/security-gms-provider.md b/docs/privacy-and-security/security-gms-provider.md
+index ba4246d..be33f21 100644
+--- a/docs/privacy-and-security/security-gms-provider.md
++++ b/docs/privacy-and-security/security-gms-provider.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android relies on a security `Provider` to
+ provide secure network communications. However, from time to time,
+ vulnerabilities are found in the default security provider. To protect against

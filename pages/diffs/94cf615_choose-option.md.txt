@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/lowlight/choose-option.md b/docs/media/camera/lowlight/choose-option.md
+index cbc6221..d6f1f42 100644
+--- a/docs/media/camera/lowlight/choose-option.md
++++ b/docs/media/camera/lowlight/choose-option.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ We offer several different ways to capture moments in low light. This document
+ helps you choose the right one for your app's needs.
+ 

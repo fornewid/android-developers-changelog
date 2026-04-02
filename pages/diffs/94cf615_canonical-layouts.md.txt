@@ -1,0 +1,319 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/canonical-layouts.md b/docs/develop/ui/compose/layouts/adaptive/canonical-layouts.md
+index b071f96..90ab374 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/canonical-layouts.md
++++ b/docs/develop/ui/compose/layouts/adaptive/canonical-layouts.md
+@@ -1,13 +1,23 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts
++title: Canonical layouts  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Canonical layouts Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Canonical layouts are proven, versatile layouts that provide an optimal user
+ experience on a variety of form factors.
+ 
+-![Depiction of large screen devices showing the canonical layouts.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/canonical-layouts/canonical_layouts_header.png)
++![Depiction of large screen devices showing the canonical layouts.](/static/develop/ui/compose/images/layouts/adaptive/canonical-layouts/canonical_layouts_header.png)
+ 
+ The canonical layouts support small screen phones as well as tablets, foldables,
+ and ChromeOS devices. Derived from [Material Design guidance](https://m3.material.io/foundations/layout/canonical-layouts/overview), the layouts are
+@@ -21,17 +31,17 @@ form the foundation of great apps.
+ 
+ ## List-detail
+ 
+-![Wireframe of list-detail layout.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/canonical-layouts/list-detail_wireframe.png)
++![Wireframe of list-detail layout.](/static/develop/ui/compose/images/layouts/adaptive/canonical-layouts/list-detail_wireframe.png)
+ 
+ The list-detail layout enables users to explore lists of items that have
+-descriptive, explanatory, or other supplementary information---the item
++descriptive, explanatory, or other supplementary information—the item
+ detail.
+ 
+ The layout divides the app window into two side-by-side panes: one for the list,
+ one for the detail. Users select items from the list to display the item detail.
+ Deep links in the detail reveal additional content in the detail pane.
+ 
+-Expanded-width displays (see [Use window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes)) accommodate both the
++Expanded-width displays (see [Use window size classes](/develop/ui/compose/layouts/adaptive/use-window-size-classes)) accommodate both the
+ list and detail at the same time. Selection of a list item updates the detail
+ pane to show the related content for the selected item.
+ 
+@@ -44,14 +54,28 @@ Configuration changes such as device orientation changes or app window size
+ changes can change the display's window size class. A list‑detail layout
+ responds accordingly, preserving app state:
+ 
+-- If an expanded-width display showing both the list and detail panes narrows to medium or compact, the detail pane remains visible and the list pane is hidden
+-- If a medium- or compact-width display has just the detail pane visible and the window size class widens to expanded, the list and detail are shown together, and the list indicates that the item corresponding to the content in the detail pane is selected
+-- If a medium- or compact-width display has just the list pane visible and widens to expanded, the list and a placeholder detail pane are shown together
+-
+-List-detail is ideal for [messaging apps](https://developer.android.com/large-screens/gallery/social#media), [contact managers](https://developer.android.com/large-screens/gallery/productivity#items-and-overviews), [interactive
+-media browsers](https://developer.android.com/large-screens/gallery/media#easy-exploration) or any app where the content can be organized as a list of
++* If an expanded-width display showing both the list and detail panes narrows
++  to medium or compact, the detail pane remains visible and the list pane is
++  hidden
++* If a medium- or compact-width display has just the detail pane visible and
++  the window size class widens to expanded, the list and detail are shown
++  together, and the list indicates that the item corresponding to the content
++  in the detail pane is selected
++* If a medium- or compact-width display has just the list pane visible and
++  widens to expanded, the list and a placeholder detail pane are shown
++  together
++
++List-detail is ideal for [messaging apps](/large-screens/gallery/social#media), [contact managers](/large-screens/gallery/productivity#items-and-overviews), [interactive
++media browsers](/large-screens/gallery/media#easy-exploration) or any app where the content can be organized as a list of
+ items that reveal additional information.
+-Your browser doesn't support the video tag. **Figure 1.** Messaging app showing a list of conversations and the details of a selected conversation.
++
++[
++
++Your browser doesn't support the video tag.
++](/static/develop/ui/compose/images/layouts/adaptive/canonical-layouts/list-detail_conversations.mp4)
++
++
++**Figure 1.** Messaging app showing a list of conversations and the details of a selected conversation.
+ 
+ ### Implementation
+ 
+@@ -60,24 +84,23 @@ determines whether to show the list and detail panes at the same time (when the
+ width window size class is expanded) or just the list or detail pane (when the
+ width window size class is medium or compact).
+ 
+-To ensure unidirectional data flow, [hoist all state](https://developer.android.com/jetpack/compose/state#state-hoisting), including current
++To ensure unidirectional data flow, [hoist all state](/jetpack/compose/state#state-hoisting), including current
+ window size class and detail of the selected list item (if any), so all
+ composables have access to the data and can render correctly.
+ 
+-When showing just the detail pane on small window sizes, add a [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable#BackHandler(kotlin.Boolean,kotlin.Function0))
++When showing just the detail pane on small window sizes, add a [`BackHandler`](/reference/kotlin/androidx/activity/compose/BackHandler.composable#BackHandler(kotlin.Boolean,kotlin.Function0))
+ to remove the detail pane and display just the list pane. The `BackHandler` is
+ not part of the overall app navigation since the handler is dependent on the
+ window size class and selected detail state.
+ 
+-[`ListDetailPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/ListDetailPaneScaffold.composable#ListDetailPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldState,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState))
++[`ListDetailPaneScaffold`](/reference/kotlin/androidx/compose/material3/adaptive/layout/ListDetailPaneScaffold.composable#ListDetailPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldState,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState))
+ is a high-level composable that simplifies the implementation of list-detail
+ layouts. It automatically handles pane logic based on window size classes and
+ supports navigation between panes.
+ 
+ Here is a minimal implementation using `ListDetailPaneScaffold`:
+ 
+-
+-```kotlin
++```
+ @OptIn(ExperimentalMaterial3AdaptiveApi::class)
+ @Composable
+ fun MyListDetailPaneScaffold() {
+@@ -93,24 +116,25 @@ fun MyListDetailPaneScaffold() {
+         }
+     )
+ }
+-```
+ 
+-<br />
++CanonicalLayoutSamples.kt
++```
+ 
+ The following are the key components in this example:
+ 
+-- **[`rememberListDetailPaneScaffoldNavigator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/rememberListDetailPaneScaffoldNavigator.composable#rememberListDetailPaneScaffoldNavigator(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldAdaptStrategies,kotlin.Boolean,kotlin.collections.List))**: Creates a navigator to manage navigation between the list and detail panes.
+-- **`listPane`**: Displays the list of items.
+-- **`detailPane`**: Displays the content of a selected item.
++* **[`rememberListDetailPaneScaffoldNavigator`](/reference/kotlin/androidx/compose/material3/adaptive/navigation/rememberListDetailPaneScaffoldNavigator.composable#rememberListDetailPaneScaffoldNavigator(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldAdaptStrategies,kotlin.Boolean,kotlin.collections.List))**: Creates a navigator to manage
++  navigation between the list and detail panes.
++* **`listPane`**: Displays the list of items.
++* **`detailPane`**: Displays the content of a selected item.
+ 
+ For detailed implementation examples, see:
+ 
+-- [Build a list-detail layout](https://developer.android.com/develop/ui/compose/layouts/adaptive/list-detail) developer guide
+-- [list-detail-compose](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/list-detail-compose) sample
++* [Build a list-detail layout](/develop/ui/compose/layouts/adaptive/list-detail) developer guide
++* [list-detail-compose](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/list-detail-compose) sample
+ 
+ ## Feed
+ 
+-![Wireframe of feed layout.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/canonical-layouts/feed_wireframe.png)
++![Wireframe of feed layout.](/static/develop/ui/compose/images/layouts/adaptive/canonical-layouts/feed_wireframe.png)
+ 
+ A feed layout arranges equivalent content elements in a configurable grid for
+ quick, convenient viewing of a large amount of content.
+@@ -127,14 +151,21 @@ A feed layout supports displays of almost any size because the grid can adapt
+ from a single, scrolling column to a multi‑column scrolling feed of
+ content.
+ 
+-Feeds are especially well suited for [news and social media apps](https://developer.android.com/large-screens/gallery/social#posts).
+-Your browser doesn't support the video tag. **Figure 2.** Social media app showing posts in cards of varying sizes.
++Feeds are especially well suited for [news and social media apps](/large-screens/gallery/social#posts).
++
++[
++
++Your browser doesn't support the video tag.
++](/static/develop/ui/compose/images/layouts/adaptive/canonical-layouts/feed_posts.mp4)
++
++
++**Figure 2.** Social media app showing posts in cards of varying sizes.
+ 
+ ### Implementation
+ 
+ A feed consists of a large number of content elements in a vertical scrolling
+-container laid out in a grid. [Lazy lists](https://developer.android.com/jetpack/compose/lists#lazy) efficiently render a large number
+-of items in columns or rows. [Lazy grids](https://developer.android.com/jetpack/compose/lists#lazy-grids) render items in grids, supporting
++container laid out in a grid. [Lazy lists](/jetpack/compose/lists#lazy) efficiently render a large number
++of items in columns or rows. [Lazy grids](/jetpack/compose/lists#lazy-grids) render items in grids, supporting
+ configuration of the item sizes and spans.
+ 
+ Configure the columns of the grid layout based on the available display area to
+@@ -142,15 +173,14 @@ set the minimum allowable width for grid items. When defining grid items, adjust
+ column spans to emphasize some items over others.
+ 
+ For section headers, dividers, or other items designed to occupy the full width
+-of the feed, use [`maxLineSpan`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyGridItemSpanScope#maxLineSpan()) to take up the full width of the layout.
++of the feed, use [`maxLineSpan`](/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyGridItemSpanScope#maxLineSpan()) to take up the full width of the layout.
+ 
+ On compact-width displays that don't have enough space to show more than one
+-column, [`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyVerticalGrid.composable) behaves just like a [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable).
++column, [`LazyVerticalGrid`](/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyVerticalGrid.composable) behaves just like a [`LazyColumn`](/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable).
+ 
+ Here is a minimal implementation using `LazyVerticalGrid`:
+ 
+-
+-```kotlin
++```
+ @Composable
+ fun MyFeed(names: List<String>) {
+     LazyVerticalGrid(
+@@ -162,9 +192,9 @@ fun MyFeed(names: List<String>) {
+         }
+     }
+ }
+-```
+ 
+-<br />
++CanonicalLayoutSamples.kt
++```
+ 
+ The key to an adaptive feed is the `columns` configuration.
+ `GridCells.Adaptive(minSize = 180.dp)` creates a grid where each column is at
+@@ -173,11 +203,9 @@ available space.
+ 
+ For an example implementation, see the [Feed with Compose sample](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/feed-compose).
+ 
+-<br />
+-
+ ## Supporting pane
+ 
+-![Wireframe of supporting pane layout.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/canonical-layouts/supporting_pane_wireframe.png)
++![Wireframe of supporting pane layout.](/static/develop/ui/compose/images/layouts/adaptive/canonical-layouts/supporting_pane_wireframe.png)
+ 
+ Supporting pane layout organizes app content into primary and secondary display
+ areas.
+@@ -188,7 +216,7 @@ pane that takes up the remainder of the app window and presents content that
+ supports the main content.
+ 
+ Supporting pane layouts work well on expanded-width displays (see [Use window
+-size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes)) in landscape orientation. Medium- or compact‑width
++size classes](/develop/ui/compose/layouts/adaptive/use-window-size-classes)) in landscape orientation. Medium- or compact‑width
+ displays support showing both the primary and secondary display areas if the
+ content is adaptable to narrower display spaces, or if the additional content
+ can be initially hidden in a bottom or side sheet accessible by means of a
+@@ -204,12 +232,20 @@ listing.
+ 
+ Use cases for supporting pane include:
+ 
+-- **Productivity apps:** A [document or spreadsheet accompanied by reviewer
+-  comments](https://developer.android.com/large-screens/gallery/productivity#reviews-and-comments) in a supporting pane
+-- **Media apps:** A [streaming video complemented by a list of related videos](https://developer.android.com/large-screens/gallery/media#media-exploration) in a supporting pane, or the depiction of an album of music supplemented with a playlist
+-- **Tools and settings:** A [media editing tool](https://developer.android.com/large-screens/gallery/social#tools) with palettes, effects, and other settings in a support pane
++* **Productivity apps:** A [document or spreadsheet accompanied by reviewer
++  comments](/large-screens/gallery/productivity#reviews-and-comments) in a supporting pane
++* **Media apps:** A [streaming video complemented by a list of related videos](/large-screens/gallery/media#media-exploration)
++  in a supporting pane, or the depiction of an album of music supplemented
++  with a playlist
++* **Tools and settings:** A [media editing tool](/large-screens/gallery/social#tools) with palettes, effects, and other settings in a support pane
++
++[
+ 
+-Your browser doesn't support the video tag. **Figure 3.** Shopping app with product descriptions in a supporting pane.
++Your browser doesn't support the video tag.
++](/static/develop/ui/compose/images/layouts/adaptive/canonical-layouts/supporting_pane_products.mp4)
++
++
++**Figure 3.** Shopping app with product descriptions in a supporting pane.
+ 
+ ### Implementation
+ 
+@@ -227,15 +263,14 @@ space available. For medium width, split the display space equally between the
+ main and supporting content. For expanded width, give 70% of the space to the
+ main content, 30% to the supporting content.
+ 
+-[`SupportingPaneScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable#SupportingPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldValue,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) is a high-level composable that simplifies the
++[`SupportingPaneScaffold`](/reference/kotlin/androidx/compose/material3/adaptive/layout/SupportingPaneScaffold.composable#SupportingPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldValue,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function2,androidx.compose.material3.adaptive.layout.PaneExpansionState)) is a high-level composable that simplifies the
+ implementation of supporting pane layouts. The composable automatically handles pane logic
+ based on window size classes, displaying panes side by side on large screens
+ or hiding the supporting pane on small screens. `SupportingPaneScaffold` also supports navigation between panes.
+ 
+ The following is a minimal implementation:
+ 
+-
+-```kotlin
++```
+ @OptIn(ExperimentalMaterial3AdaptiveApi::class)
+ @Composable
+ fun MySupportingPaneScaffold() {
+@@ -253,20 +288,34 @@ fun MySupportingPaneScaffold() {
+         }
+     )
+ }
++
++CanonicalLayoutSamples.kt
+ ```
+-Key components in the example:
+ 
+-<br />
++Key components in the example:
+ 
+-- **[`rememberSupportingPaneScaffoldNavigator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigation/rememberSupportingPaneScaffoldNavigator.composable#rememberSupportingPaneScaffoldNavigator(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldAdaptStrategies,kotlin.Boolean))**: Composable that creates a navigator to manage pane visibility (for example, hiding or showing the supporting pane on compact screens)
+-- **`mainPane`**: Composable that displays the primary content
+-- **`supportingPane`**: Composable that displays the supplementary content
++* **[`rememberSupportingPaneScaffoldNavigator`](/reference/kotlin/androidx/compose/material3/adaptive/navigation/rememberSupportingPaneScaffoldNavigator.composable#rememberSupportingPaneScaffoldNavigator(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldAdaptStrategies,kotlin.Boolean))**: Composable that creates a navigator to manage
++  pane visibility (for example, hiding or showing the supporting pane on compact screens)
++* **`mainPane`**: Composable that displays the primary content
++* **`supportingPane`**: Composable that displays the supplementary content
+ 
+ For detailed implementation examples, see:
+ 
+-- [Build a supporting pane layout](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-a-supporting-pane-layout) developer guide
+-- [supporting-pane-compose](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/supporting-pane-compose) sample
++* [Build a supporting pane layout](/develop/ui/compose/layouts/adaptive/build-a-supporting-pane-layout) developer guide
++* [supporting-pane-compose](https://github.com/android/adaptive-apps-samples/tree/main/CanonicalLayouts/supporting-pane-compose) sample
+ 
+ ## Additional resources
+ 
+-- Material Design --- [Canonical layouts](https://m3.material.io/foundations/layout/canonical-layouts/overview)
+\ No newline at end of file
++* Material Design — [Canonical layouts](https://m3.material.io/foundations/layout/canonical-layouts/overview)
++
++[Previous
++
++arrow\_back
++
++App orientation, aspect ratio, and resizability](/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability)
++
++[Next
++
++Support different display sizes
++
++arrow\_forward](/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
+\ No newline at end of file

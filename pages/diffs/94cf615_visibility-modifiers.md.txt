@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/visibility-modifiers.md b/docs/develop/ui/compose/layouts/visibility-modifiers.md
+index f40e6b8..44ac5a2 100644
+--- a/docs/develop/ui/compose/layouts/visibility-modifiers.md
++++ b/docs/develop/ui/compose/layouts/visibility-modifiers.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Tracking when a UI element is visible on-screen is helpful for a variety of
+ use cases, such as logging analytics, managing UI state, and optimizing
+ resources by automatically playing or pausing video content. Compose offers

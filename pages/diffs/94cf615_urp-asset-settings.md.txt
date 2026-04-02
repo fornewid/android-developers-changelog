@@ -1,0 +1,124 @@
+diff --git a/docs/develop/xr/unity/performance/urp-asset-settings.md b/docs/develop/xr/unity/performance/urp-asset-settings.md
+index 6aa5400..3808f5f 100644
+--- a/docs/develop/xr/unity/performance/urp-asset-settings.md
++++ b/docs/develop/xr/unity/performance/urp-asset-settings.md
+@@ -1,15 +1,31 @@
+ ---
+-title: https://developer.android.com/develop/xr/unity/performance/urp-asset-settings
++title: Optimize rendering using URP Asset settings  |  Android Developers
+ url: https://developer.android.com/develop/xr/unity/performance/urp-asset-settings
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-<br />
++# Optimize rendering using URP Asset settings Stay organized with collections Save and categorize content based on your preferences.
+ 
+ 
+-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+ 
+-<br />
++
++Applicable XR devices
++
++This guidance helps you build experiences for these types of XR devices.
++
++[Learn about XR device types →](/develop/xr/devices)
++
++![](/static/images/develop/xr/xr-headsets-icon.svg)
++
++
++XR Headsets
++
++![](/static/images/develop/xr/xr-glasses-icon.svg)
++
++
++Wired XR Glasses
++
++[Learn about XR device types →](/develop/xr/devices)
+ 
+ Unity provides a variety of performance-related features and settings in its
+ Universal Render Pipeline (URP) Asset settings. Enable or disable these features
+@@ -20,7 +36,7 @@ to reduce GPU and CPU performance costs and to improve visual quality.
+ Follow these steps to access Unity's URP Asset settings, where you can configure
+ the performance features that are outlined in the subsequent sections:
+ 
+-1. From the Unity main menu, click **Edit \> Project Settings \> Graphics**.
++1. From the Unity main menu, click **Edit > Project Settings > Graphics**.
+ 2. Find your **Default Render Pipeline** asset, which is also your URP asset.
+ 3. Search for this asset in your project.
+ 4. Right-click the asset and select **Properties**.
+@@ -32,7 +48,7 @@ minimal visual benefit compared to its performance cost.
+ 
+ #### Disable this feature
+ 
+-In the URP Asset properties that you [navigated to earlier](https://developer.android.com/develop/xr/unity/performance/urp-asset-settings#access-urp-asset-settings), disable **HDR**.
++In the URP Asset properties that you [navigated to earlier](#access-urp-asset-settings), disable **HDR**.
+ 
+ ### Disable post processing
+ 
+@@ -41,8 +57,10 @@ visual benefit compared to its performance cost.
+ 
+ #### Disable this feature
+ 
+-1. In the URP Asset properties that you [navigated to earlier](https://developer.android.com/develop/xr/unity/performance/urp-asset-settings#access-urp-asset-settings), find the **Renderer List**.
+-2. In the **Renderer List** , right-click the **Universal Renderer** and select **Properties**.
++1. In the URP Asset properties that you [navigated to earlier](#access-urp-asset-settings), find the
++   **Renderer List**.
++2. In the **Renderer List**, right-click the **Universal Renderer** and select
++   **Properties**.
+ 3. In the **Post-Processing** section, deselect **Enabled**.
+ 
+ ### Disable Depth Priming Mode
+@@ -58,14 +76,17 @@ Low-Resolution-Z (LRZ) or Hidden Surface Removal (HSR).
+ 
+ #### Benefits
+ 
+-- Avoids increased performance impact from the depth pre-pass due to the two views on XR devices.
+-- Allows use of hardware optimizations like LRZ or HSR for similar results.
+-- Eliminates an unsupported and unnecessary step for untethered XR devices.
++* Avoids increased performance impact from the depth pre-pass due to the two
++  views on XR devices.
++* Allows use of hardware optimizations like LRZ or HSR for similar results.
++* Eliminates an unsupported and unnecessary step for untethered XR devices.
+ 
+ #### Disable this feature
+ 
+-1. In the URP Asset properties that you [navigated to earlier](https://developer.android.com/develop/xr/unity/performance/urp-asset-settings#access-urp-asset-settings), find the **Renderer List**.
+-2. Right-click the **(Universal Renderer Data)** file and select **Properties**.
++1. In the URP Asset properties that you [navigated to earlier](#access-urp-asset-settings), find the
++   **Renderer List**.
++2. Right-click the **(Universal Renderer Data)** file and select
++   **Properties**.
+ 3. Change the **Depth Priming Mode** to **Disabled**.
+ 
+ ### Enable MSAA for anti-aliasing
+@@ -79,7 +100,7 @@ provides a good balance between visual quality and performance.
+ 
+ #### Enable this feature
+ 
+-In the URP Asset properties that you [navigated to earlier](https://developer.android.com/develop/xr/unity/performance/urp-asset-settings#access-urp-asset-settings), change **Anti
++In the URP Asset properties that you [navigated to earlier](#access-urp-asset-settings), change **Anti
+ Aliasing (MSAA)** to **2x**.
+ 
+ ## Use URP Debug mode settings and features
+@@ -87,7 +108,7 @@ Aliasing (MSAA)** to **2x**.
+ Other important URP Asset settings are available through Debug mode. Follow
+ these steps to access these settings:
+ 
+-1. From the Unity main menu, click **Edit \> Project Settings**.
++1. From the Unity main menu, click **Edit > Project Settings**.
+ 2. Select **Graphics** section from the left panel.
+ 3. Find your **Default Render Pipeline** asset (this is your URP asset).
+ 4. Search for this asset in your project and select it.
+@@ -101,8 +122,8 @@ reduces performance.
+ 
+ In your URP Asset Debug settings, disable the following options:
+ 
+-- **Require Depth Textures**
+-- **Require Opaque Texture**
++* **Require Depth Textures**
++* **Require Opaque Texture**
+ 
+ ### Enable SRP Batcher
+ 

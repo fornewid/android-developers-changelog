@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/adpf/game-engine-support.md b/docs/games/optimize/adpf/game-engine-support.md
+index 3bf4d27..77435fe 100644
+--- a/docs/games/optimize/adpf/game-engine-support.md
++++ b/docs/games/optimize/adpf/game-engine-support.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ Major game engines have integrated Adaptability APIs through packages or
+ plugins.
+ 
+@@ -30,6 +29,4 @@ Here is the version information of game engine support.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

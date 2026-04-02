@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/past-releases/as-0-2-release-notes.md b/docs/studio/releases/past-releases/as-0-2-release-notes.md
+index d43562e..1c8fdc4 100644
+--- a/docs/studio/releases/past-releases/as-0-2-release-notes.md
++++ b/docs/studio/releases/past-releases/as-0-2-release-notes.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Android Studio v0.2.x (July 2013)
+ 
+ * Merged in the latest IntelliJ codebase changes. Includes fixes for issues reported by Studio users such as tweaks to Linux font sizes and font rendering.

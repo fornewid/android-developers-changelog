@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/animation/composables-modifiers.md b/docs/develop/ui/compose/animation/composables-modifiers.md
+index 71b4e77..e9dd612 100644
+--- a/docs/develop/ui/compose/animation/composables-modifiers.md
++++ b/docs/develop/ui/compose/animation/composables-modifiers.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Compose comes with built-in composables and modifiers for handling common animation use cases.
+ 
+ ## Built-in animated composables

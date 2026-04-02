@@ -1,0 +1,81 @@
+diff --git a/docs/studio/projects/templates.md b/docs/studio/projects/templates.md
+index 1354310..55a6bcd 100644
+--- a/docs/studio/projects/templates.md
++++ b/docs/studio/projects/templates.md
+@@ -1,9 +1,18 @@
+ ---
+-title: https://developer.android.com/studio/projects/templates
++title: Add code from a template  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/studio/projects/templates
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Studio](https://developer.android.com/studio)
++* [IDE guides](https://developer.android.com/studio/intro)
++
++# Add code from a template Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Android Studio provides code templates that follow the Android design and
+ development best practices to get you on the right track to creating
+ beautiful, functional apps. You can use templates to create new app modules,
+@@ -11,8 +20,8 @@ individual activities, or other specific Android project components.
+ 
+ Some templates provide starter code for common usage contexts, such as
+ navigation drawers or login screens. You can choose from these app module
+-and activity templates when you first [create your project](https://developer.android.com/studio/projects/create-project),
+-when you [add a new app module within an existing project](https://developer.android.com/studio/projects/add-app-module),
++and activity templates when you first [create your project](/studio/projects/create-project),
++when you [add a new app module within an existing project](/studio/projects/add-app-module),
+ or when you add a new activity within an app module.
+ 
+ In addition to activities, you can also add other Android project components
+@@ -23,21 +32,21 @@ folders and XML files.
+ This page discusses how to add Android project components like activities to
+ your project and describes the commonly used activity templates available in
+ Android Studio. Note that most templates depend on the [Android Support
+-Library](https://developer.android.com/tools/support-library/features) to include user interface principles based on [Material Design](https://developer.android.com/design/material).
++Library](/tools/support-library/features) to include user interface principles based on [Material Design](/design/material).
+ 
+ ## Add a project component
+ 
+-![](https://developer.android.com/static/studio/images/projects/templates-menu.png)
++![](/static/studio/images/projects/templates-menu.png)
+ 
+-**Figure 1** . The templates menu, accessible through the
+-**File** \> **New** menu or by right-clicking in the
++**Figure 1**. The templates menu, accessible through the
++**File** > **New** menu or by right-clicking in the
+ **Project** window.
+ 
+ Android Studio groups templates by the type of component that they add, such
+ as an **Activity** or an **XML** file, as shown in figure 1.
+ 
+ To add an Android project component using a template, use the **Project**
+-![](https://developer.android.com/static/studio/images/buttons/window-project.png) window. Right-click on the
++![](/static/studio/images/buttons/window-project.png) window. Right-click on the
+ folder in which you want to add the new component, and select **New**. Based
+ on what components can be added to the folder you clicked on, you then see a
+ list of template types like those shown in figure 1.
+@@ -50,7 +59,7 @@ sync your project.
+ 
+ ## Select an activity template
+ 
+-![](https://developer.android.com/static/studio/images/projects/empty-compose-activity-template.png)
++![](/static/studio/images/projects/empty-compose-activity-template.png)
+ 
+ **Figure 2**. The Empty Compose Activity template.
+ 
+@@ -61,7 +70,7 @@ through a long block of text.
+ 
+ Android Studio also provides templates for a variety of different app module
+ types, including Wear OS, Android TV, and Cloud App Engine. You can view
+-templates for these different module types when [adding a project component](https://developer.android.com/studio/projects/templates#FindTemplates).
++templates for these different module types when [adding a project component](#FindTemplates).
+ Templates also exist for more API-specific modules and activities, such as
+ Google AdMobs Ads and Google Maps.
+ 

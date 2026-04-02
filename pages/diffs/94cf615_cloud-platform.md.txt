@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/console/cloud-platform.md b/docs/games/pgs/console/cloud-platform.md
+index f4e0ec2..15ad570 100644
+--- a/docs/games/pgs/console/cloud-platform.md
++++ b/docs/games/pgs/console/cloud-platform.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ There may be instances where you will want to view and edit your
+ Play Games Services project directly in Google Cloud Platform.
+ 
+@@ -137,4 +138,6 @@ origins and redirect urls for a web app, etc.):
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

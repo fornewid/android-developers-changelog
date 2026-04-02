@@ -1,0 +1,76 @@
+diff --git a/docs/develop/ui/compose/system/insets-views-compose.md b/docs/develop/ui/compose/system/insets-views-compose.md
+index 30a8b18..e009d36 100644
+--- a/docs/develop/ui/compose/system/insets-views-compose.md
++++ b/docs/develop/ui/compose/system/insets-views-compose.md
+@@ -1,20 +1,9 @@
+ ---
+-title: Use insets in Views and Compose  |  Jetpack Compose  |  Android Developers
++title: https://developer.android.com/develop/ui/compose/system/insets-views-compose
+ url: https://developer.android.com/develop/ui/compose/system/insets-views-compose
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+-
+-# Use insets in Views and Compose Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ If your app contains both Compose and View code, you may need to be explicit
+ about which system insets each one should consume and ensure that insets are
+ dispatched to sibling views.
+@@ -32,14 +21,14 @@ insets in Compose, and pad the `AndroidView` composables accordingly.
+ 
+ By default, each `ComposeView` consumes all insets at the
+ `WindowInsetsCompat` level of consumption. To change this default behavior, set
+-[`AbstractComposeView.consumeWindowInsets`](/reference/kotlin/androidx/compose/ui/platform/AbstractComposeView#(androidx.compose.ui.platform.AbstractComposeView).consumeWindowInsets())
++[`AbstractComposeView.consumeWindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/AbstractComposeView#(androidx.compose.ui.platform.AbstractComposeView).consumeWindowInsets())
+ to `false`.
+ 
+ ## Backward compatible inset dispatching for views
+ 
+ If your app contains Views code, you may need to confirm that insets are dispatched
+ to sibling views on devices that run Android 10 (API level 29) or lower. See the
+-[edge-to-edge Views guide](/develop/ui/views/layout/edge-to-edge#backward-compatible-dispatching)
++[edge-to-edge Views guide](https://developer.android.com/develop/ui/views/layout/edge-to-edge#backward-compatible-dispatching)
+ for more information.
+ 
+ ## System bar icons
+@@ -53,26 +42,14 @@ status bar icons:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ WindowCompat.getInsetsController(window, window.decorView)
+     .isAppearanceLightStatusBars = false
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ WindowCompat.getInsetsController(window, window.getDecorView())
+     .setAppearanceLightStatusBars(false);
+-```
+-
+-[Previous
+-
+-arrow\_back
+-
+-Use Material 3 insets](/develop/ui/compose/system/material-insets)
+-
+-[Next
+-
+-About system bar protection
+-
+-arrow\_forward](/develop/ui/compose/system/system-bars)
+\ No newline at end of file
++```
+\ No newline at end of file

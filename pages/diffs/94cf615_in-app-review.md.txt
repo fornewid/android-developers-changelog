@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/in-app-review.md b/docs/guide/playcore/in-app-review.md
+index 7dafe96..f2ce78a 100644
+--- a/docs/guide/playcore/in-app-review.md
++++ b/docs/guide/playcore/in-app-review.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Google Play In-App Review API lets you prompt users to submit Play Store
+ ratings and reviews without the inconvenience of leaving your app or game.
+ 

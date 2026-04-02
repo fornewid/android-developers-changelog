@@ -1,0 +1,12 @@
+diff --git a/docs/build/tool-and-library-dependencies.md b/docs/build/tool-and-library-dependencies.md
+index ed1baf5..de5058d 100644
+--- a/docs/build/tool-and-library-dependencies.md
++++ b/docs/build/tool-and-library-dependencies.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Build dependencies are external components required to successfully build your
+ project. A build can depend on [libraries, plugins, subprojects](/build/gradle-build-overview#external-dependencies), the Android
+ SDK, tooling such as [Kotlin](http://kotlinlang.org) and [Java](https://www.java.com/)

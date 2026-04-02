@@ -1,0 +1,656 @@
+diff --git a/docs/develop/ui/views/animations/reveal-or-hide-view.md b/docs/develop/ui/views/animations/reveal-or-hide-view.md
+index 4a84457..59deff6 100644
+--- a/docs/develop/ui/views/animations/reveal-or-hide-view.md
++++ b/docs/develop/ui/views/animations/reveal-or-hide-view.md
+@@ -1,26 +1,12 @@
+ ---
+-title: Reveal or hide a view using animation  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/animations/reveal-or-hide-view
+ url: https://developer.android.com/develop/ui/views/animations/reveal-or-hide-view
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose. [Crossfade →](https://developer.android.com/jetpack/compose/animation/composables-modifiers#crossfade) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+-# Reveal or hide a view using animation Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-Try the Compose way
+-
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose.
+-
+-[Crossfade →](https://developer.android.com/jetpack/compose/animation/composables-modifiers#crossfade)
+-
+-![](/static/images/android-compose-ui-logo.png)
++<br />
+ 
+ While your app is being used, new information appears on the screen and old
+ information is removed. Changing what shows on the screen immediately can be
+@@ -28,30 +14,23 @@ jarring, and users can miss new content that appears suddenly. Animations slow
+ down the changes and draw the user's eye with motion so that the updates are
+ more obvious.
+ 
+-**Note:** [Jetpack Compose](/jetpack/compose) is the preferred way to build Android
+-apps. See the Compose [Animations](/jetpack/compose/animation) documentation.
++> [!NOTE]
++> **Note:** [Jetpack Compose](https://developer.android.com/jetpack/compose) is the preferred way to build Android apps. See the Compose [Animations](https://developer.android.com/jetpack/compose/animation) documentation.
+ 
+ There are three common animations you can use to show or hide a view: reveal
+ animations, crossfade animations, and cardflip animations.
+ 
+ ## Create a crossfade animation
+ 
+-A crossfade animation—also known as a *dissolve*—gradually fades out
+-one [`View`](/reference/android/view/View) or
+-[`ViewGroup`](/reference/android/view/ViewGroup) while simultaneously
++A crossfade animation---also known as a *dissolve* ---gradually fades out
++one [`View`](https://developer.android.com/reference/android/view/View) or
++[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup) while simultaneously
+ fading in another. This animation is useful for situations where you want to
+ switch content or views in your app. The crossfade animation shown here uses
+-[`ViewPropertyAnimator`](/reference/android/view/ViewPropertyAnimator),
++[`ViewPropertyAnimator`](https://developer.android.com/reference/android/view/ViewPropertyAnimator),
+ which is available for Android 3.1 (API level 12) and higher.
+ 
+ Here's an example of a crossfade from a progress indicator to text content:
+-
+-[
+-
+-
+-
+-](/static/training/animation/anim_crossfade.mp4)
+-
+ **Figure 1.** Crossfade animation.
+ 
+ ### Create the views
+@@ -59,59 +38,46 @@ Here's an example of a crossfade from a progress indicator to text content:
+ Create the two views that you want to crossfade. The following example creates a
+ progress indicator and a scrollable text view:
+ 
+-```
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent">
+-
+-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+-        android:id="@+id/content"
++    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+ 
+-        <TextView style="?android:textAppearanceMedium"
+-            android:lineSpacingMultiplier="1.2"
++        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
++            android:id="@+id/content"
+             android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:text="@string/lorem_ipsum"
+-            android:padding="16dp" />
++            android:layout_height="match_parent">
+ 
+-    </ScrollView>
++            <TextView style="?android:textAppearanceMedium"
++                android:lineSpacingMultiplier="1.2"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="@string/lorem_ipsum"
++                android:padding="16dp" />
+ 
+-    <ProgressBar android:id="@+id/loading_spinner"
+-        style="?android:progressBarStyleLarge"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:layout_gravity="center" />
++        </ScrollView>
+ 
+-</FrameLayout>
+-```
++        <ProgressBar android:id="@+id/loading_spinner"
++            style="?android:progressBarStyleLarge"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_gravity="center" />
++
++    </FrameLayout>
+ 
+ ### Set up the crossfade animation
+ 
+ To set up the crossfade animation, do the following:
+ 
+-1. Create member variables for the views that you want to crossfade. You need
+-   these references later when modifying the views during the animation.
+-2. Set the visibility of the view that is being faded in to
+-   [`GONE`](/reference/android/view/View#GONE). This prevents the view
+-   from using layout space and omits it from layout calculations, which speeds
+-   up processing
+-3. Cache the [`config_shortAnimTime`](/reference/android/R.integer#config_shortAnimTime)
+-   system property in a member variable. This property defines a standard "short"
+-   duration for the animation. This duration is ideal for subtle animations or
+-   animations that occur frequently.
+-   [`config_longAnimTime`](/reference/android/R.integer#config_longAnimTime)
+-   and
+-   [`config_mediumAnimTime`](/reference/android/R.integer#config_mediumAnimTime)
+-   are also available.
++1. Create member variables for the views that you want to crossfade. You need these references later when modifying the views during the animation.
++2. Set the visibility of the view that is being faded in to [`GONE`](https://developer.android.com/reference/android/view/View#GONE). This prevents the view from using layout space and omits it from layout calculations, which speeds up processing
++3. Cache the [`config_shortAnimTime`](https://developer.android.com/reference/android/R.integer#config_shortAnimTime) system property in a member variable. This property defines a standard "short" duration for the animation. This duration is ideal for subtle animations or animations that occur frequently. [`config_longAnimTime`](https://developer.android.com/reference/android/R.integer#config_longAnimTime) and [`config_mediumAnimTime`](https://developer.android.com/reference/android/R.integer#config_mediumAnimTime) are also available.
+ 
+ Here's an example using the layout from the previous code snippet as the
+ activity content view:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class CrossfadeActivity : Activity() {
+ 
+     private lateinit var contentView: View
+@@ -137,7 +103,7 @@ class CrossfadeActivity : Activity() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class CrossfadeActivity extends Activity {
+ 
+     private View contentView;
+@@ -167,25 +133,15 @@ public class CrossfadeActivity extends Activity {
+ 
+ When the views are properly set up, crossfade them by doing the following:
+ 
+-1. For the view that is fading in, set the alpha value to 0 and the visibility
+-   to [`VISIBLE`](/reference/android/view/View#VISIBLE) from its initial
+-   setting of `GONE`. This makes the view visible but transparent.
+-2. For the view that is fading in, animate its alpha value from 0 to 1. For the
+-   view that is fading out, animate the alpha value from 1 to 0.
+-3. Using
+-   [`onAnimationEnd()`](/reference/android/animation/Animator.AnimatorListener#onAnimationEnd(android.animation.Animator))
+-   in an
+-   [`Animator.AnimatorListener`](/reference/android/animation/Animator.AnimatorListener),
+-   set the visibility of the view that is fading out to `GONE`. Even though the
+-   alpha value is 0, setting the view's visibility to `GONE` prevents the view
+-   from using layout space and omits it from layout calculations, which speeds
+-   up processing.
++1. For the view that is fading in, set the alpha value to 0 and the visibility to [`VISIBLE`](https://developer.android.com/reference/android/view/View#VISIBLE) from its initial setting of `GONE`. This makes the view visible but transparent.
++2. For the view that is fading in, animate its alpha value from 0 to 1. For the view that is fading out, animate the alpha value from 1 to 0.
++3. Using [`onAnimationEnd()`](https://developer.android.com/reference/android/animation/Animator.AnimatorListener#onAnimationEnd(android.animation.Animator)) in an [`Animator.AnimatorListener`](https://developer.android.com/reference/android/animation/Animator.AnimatorListener), set the visibility of the view that is fading out to `GONE`. Even though the alpha value is 0, setting the view's visibility to `GONE` prevents the view from using layout space and omits it from layout calculations, which speeds up processing.
+ 
+ The following method shows an example of how to do this:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class CrossfadeActivity : Activity() {
+ 
+     private lateinit var contentView: View
+@@ -223,7 +179,7 @@ class CrossfadeActivity : Activity() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class CrossfadeActivity extends Activity {
+ 
+     private View contentView;
+@@ -264,16 +220,9 @@ public class CrossfadeActivity extends Activity {
+ 
+ Card flips switch between views of content by showing an animation that emulates
+ a card flipping over. The card flip animation shown here uses
+-[`FragmentTransaction`](/reference/androidx/fragment/app/FragmentTransaction).
++[`FragmentTransaction`](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction).
+ 
+ Here's what a card flip looks like:
+-
+-[
+-
+-
+-
+-](/static/develop/ui/views/animations/anim_card_flip.mp4)
+-
+ **Figure 2.** Card flip animation.
+ 
+ ### Create the animator objects
+@@ -283,107 +232,99 @@ for when the front of the card animates out and to the left and when it animates
+ in and from the left. The other two animators are for when the back of the card
+ animates in and from the right and when it animates out and to the right.
+ 
+-card\_flip\_left\_in.xml
+-
+-```
+-<set xmlns:android="http://schemas.android.com/apk/res/android">
+-    <!-- Before rotating, immediately set the alpha to 0. -->
+-    <objectAnimator
+-        android:valueFrom="1.0"
+-        android:valueTo="0.0"
+-        android:propertyName="alpha"
+-        android:duration="0" />
+-
+-    <!-- Rotate. -->
+-    <objectAnimator
+-        android:valueFrom="-180"
+-        android:valueTo="0"
+-        android:propertyName="rotationY"
+-        android:interpolator="@android:interpolator/accelerate_decelerate"
+-        android:duration="@integer/card_flip_time_full" />
+-
+-    <!-- Halfway through the rotation, set the alpha to 1. See startOffset. -->
+-    <objectAnimator
+-        android:valueFrom="0.0"
+-        android:valueTo="1.0"
+-        android:propertyName="alpha"
+-        android:startOffset="@integer/card_flip_time_half"
+-        android:duration="1" />
+-</set>
+-```
+-
+-card\_flip\_left\_out.xml
+-
+-```
+-<set xmlns:android="http://schemas.android.com/apk/res/android">
+-    <!-- Rotate. -->
+-    <objectAnimator
+-        android:valueFrom="0"
+-        android:valueTo="180"
+-        android:propertyName="rotationY"
+-        android:interpolator="@android:interpolator/accelerate_decelerate"
+-        android:duration="@integer/card_flip_time_full" />
+-
+-    <!-- Halfway through the rotation, set the alpha to 0. See startOffset. -->
+-    <objectAnimator
+-        android:valueFrom="1.0"
+-        android:valueTo="0.0"
+-        android:propertyName="alpha"
+-        android:startOffset="@integer/card_flip_time_half"
+-        android:duration="1" />
+-</set>
+-```
+-
+-card\_flip\_right\_in.xml
+-
+-```
+-<set xmlns:android="http://schemas.android.com/apk/res/android">
+-    <!-- Before rotating, immediately set the alpha to 0. -->
+-    <objectAnimator
+-        android:valueFrom="1.0"
+-        android:valueTo="0.0"
+-        android:propertyName="alpha"
+-        android:duration="0" />
+-
+-    <!-- Rotate. -->
+-    <objectAnimator
+-        android:valueFrom="180"
+-        android:valueTo="0"
+-        android:propertyName="rotationY"
+-        android:interpolator="@android:interpolator/accelerate_decelerate"
+-        android:duration="@integer/card_flip_time_full" />
+-
+-    <!-- Halfway through the rotation, set the alpha to 1. See startOffset. -->
+-    <objectAnimator
+-        android:valueFrom="0.0"
+-        android:valueTo="1.0"
+-        android:propertyName="alpha"
+-        android:startOffset="@integer/card_flip_time_half"
+-        android:duration="1" />
+-</set>
+-```
+-
+-card\_flip\_right\_out.xml
+-
+-```
+-<set xmlns:android="http://schemas.android.com/apk/res/android">
+-    <!-- Rotate. -->
+-    <objectAnimator
+-        android:valueFrom="0"
+-        android:valueTo="-180"
+-        android:propertyName="rotationY"
+-        android:interpolator="@android:interpolator/accelerate_decelerate"
+-        android:duration="@integer/card_flip_time_full" />
+-
+-    <!-- Halfway through the rotation, set the alpha to 0. See startOffset. -->
+-    <objectAnimator
+-        android:valueFrom="1.0"
+-        android:valueTo="0.0"
+-        android:propertyName="alpha"
+-        android:startOffset="@integer/card_flip_time_half"
+-        android:duration="1" />
+-</set>
+-```
++card_flip_left_in.xml
++
++    <set xmlns:android="http://schemas.android.com/apk/res/android">
++        <!-- Before rotating, immediately set the alpha to 0. -->
++        <objectAnimator
++            android:valueFrom="1.0"
++            android:valueTo="0.0"
++            android:propertyName="alpha"
++            android:duration="0" />
++
++        <!-- Rotate. -->
++        <objectAnimator
++            android:valueFrom="-180"
++            android:valueTo="0"
++            android:propertyName="rotationY"
++            android:interpolator="@android:interpolator/accelerate_decelerate"
++            android:duration="@integer/card_flip_time_full" />
++
++        <!-- Halfway through the rotation, set the alpha to 1. See startOffset. -->
++        <objectAnimator
++            android:valueFrom="0.0"
++            android:valueTo="1.0"
++            android:propertyName="alpha"
++            android:startOffset="@integer/card_flip_time_half"
++            android:duration="1" />
++    </set>
++
++card_flip_left_out.xml
++
++    <set xmlns:android="http://schemas.android.com/apk/res/android">
++        <!-- Rotate. -->
++        <objectAnimator
++            android:valueFrom="0"
++            android:valueTo="180"
++            android:propertyName="rotationY"
++            android:interpolator="@android:interpolator/accelerate_decelerate"
++            android:duration="@integer/card_flip_time_full" />
++
++        <!-- Halfway through the rotation, set the alpha to 0. See startOffset. -->
++        <objectAnimator
++            android:valueFrom="1.0"
++            android:valueTo="0.0"
++            android:propertyName="alpha"
++            android:startOffset="@integer/card_flip_time_half"
++            android:duration="1" />
++    </set>
++
++card_flip_right_in.xml
++
++    <set xmlns:android="http://schemas.android.com/apk/res/android">
++        <!-- Before rotating, immediately set the alpha to 0. -->
++        <objectAnimator
++            android:valueFrom="1.0"
++            android:valueTo="0.0"
++            android:propertyName="alpha"
++            android:duration="0" />
++
++        <!-- Rotate. -->
++        <objectAnimator
++            android:valueFrom="180"
++            android:valueTo="0"
++            android:propertyName="rotationY"
++            android:interpolator="@android:interpolator/accelerate_decelerate"
++            android:duration="@integer/card_flip_time_full" />
++
++        <!-- Halfway through the rotation, set the alpha to 1. See startOffset. -->
++        <objectAnimator
++            android:valueFrom="0.0"
++            android:valueTo="1.0"
++            android:propertyName="alpha"
++            android:startOffset="@integer/card_flip_time_half"
++            android:duration="1" />
++    </set>
++
++card_flip_right_out.xml
++
++    <set xmlns:android="http://schemas.android.com/apk/res/android">
++        <!-- Rotate. -->
++        <objectAnimator
++            android:valueFrom="0"
++            android:valueTo="-180"
++            android:propertyName="rotationY"
++            android:interpolator="@android:interpolator/accelerate_decelerate"
++            android:duration="@integer/card_flip_time_full" />
++
++        <!-- Halfway through the rotation, set the alpha to 0. See startOffset. -->
++        <objectAnimator
++            android:valueFrom="1.0"
++            android:valueTo="0.0"
++            android:propertyName="alpha"
++            android:startOffset="@integer/card_flip_time_half"
++            android:duration="1" />
++    </set>
+ 
+ ### Create the views
+ 
+@@ -392,52 +333,48 @@ want, such as two text views, two images, or any combination of views to flip
+ between. Use the two layouts in the fragments that you animate later. The
+ following layout creates one side of a card, which shows text:
+ 
+-```
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    android:orientation="vertical"
+-    android:background="#a6c"
+-    android:padding="16dp"
+-    android:gravity="bottom">
+-
+-    <TextView android:id="@android:id/text1"
+-        style="?android:textAppearanceLarge"
+-        android:textStyle="bold"
+-        android:textColor="#fff"
++    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text="@string/card_back_title" />
+-
+-    <TextView style="?android:textAppearanceSmall"
+-        android:textAllCaps="true"
+-        android:textColor="#80ffffff"
+-        android:textStyle="bold"
+-        android:lineSpacingMultiplier="1.2"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text="@string/card_back_description" />
++        android:layout_height="match_parent"
++        android:orientation="vertical"
++        android:background="#a6c"
++        android:padding="16dp"
++        android:gravity="bottom">
++
++        <TextView android:id="@android:id/text1"
++            style="?android:textAppearanceLarge"
++            android:textStyle="bold"
++            android:textColor="#fff"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="@string/card_back_title" />
+ 
+-</LinearLayout>
+-```
++        <TextView style="?android:textAppearanceSmall"
++            android:textAllCaps="true"
++            android:textColor="#80ffffff"
++            android:textStyle="bold"
++            android:lineSpacingMultiplier="1.2"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="@string/card_back_description" />
++
++    </LinearLayout>
+ 
+ And the next layout creates the other side of the card, which displays an
+-[`ImageView`](/reference/android/widget/ImageView):
++[`ImageView`](https://developer.android.com/reference/android/widget/ImageView):
+ 
+-```
+-<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    android:src="@drawable/image1"
+-    android:scaleType="centerCrop"
+-    android:contentDescription="@string/description_image_1" />
+-```
++    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:src="@drawable/image1"
++        android:scaleType="centerCrop"
++        android:contentDescription="@string/description_image_1" />
+ 
+ ### Create the fragments
+ 
+ Create fragment classes for the front and back of the card. In your fragment
+ classes, return the layouts that you created from the
+-[`onCreateView()`](/reference/android/app/Fragment#onCreateView(android.view.LayoutInflater,%20android.view.ViewGroup,%20android.os.Bundle))
++[`onCreateView()`](https://developer.android.com/reference/android/app/Fragment#onCreateView(android.view.LayoutInflater,%20android.view.ViewGroup,%20android.os.Bundle))
+ method. You can then create instances of this fragment in the parent activity
+ where you want to show the card.
+ 
+@@ -446,7 +383,7 @@ that uses them:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class CardFlipActivity : FragmentActivity() {
+     ...
+     /**
+@@ -478,7 +415,7 @@ class CardFlipActivity : FragmentActivity() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class CardFlipActivity extends FragmentActivity {
+     ...
+     /**
+@@ -509,15 +446,13 @@ public class CardFlipActivity extends FragmentActivity {
+ 
+ Display the fragments inside a parent activity. To do this, create the layout
+ for your activity. The following example creates a
+-[`FrameLayout`](/reference/android/widget/FrameLayout) that you can add
++[`FrameLayout`](https://developer.android.com/reference/android/widget/FrameLayout) that you can add
+ fragments to at runtime:
+ 
+-```
+-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:id="@+id/container"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent" />
+-```
++    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++        android:id="@+id/container"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent" />
+ 
+ In the activity code, set the content view to be the layout that you create.
+ It's good practice to show a default fragment when the activity is created. The
+@@ -526,7 +461,7 @@ default:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class CardFlipActivity : FragmentActivity() {
+ 
+     override fun onCreate(savedInstanceState: Bundle?) {
+@@ -544,7 +479,7 @@ class CardFlipActivity : FragmentActivity() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class CardFlipActivity extends FragmentActivity {
+ 
+     @Override
+@@ -567,15 +502,13 @@ With the front of the card showing, you can show the back of the card with the
+ flip animation at an appropriate time. Create a method to show the other side of
+ the card that does the following things:
+ 
+-* Sets the custom animations that you created for the fragment transitions.
+-* Replaces the displayed fragment with a new fragment and animates this event
+-  with the custom animations you created.
+-* Adds the previously displayed fragment to the fragment back stack, so when
+-  the user taps the Back button, the card flips back over.
++- Sets the custom animations that you created for the fragment transitions.
++- Replaces the displayed fragment with a new fragment and animates this event with the custom animations you created.
++- Adds the previously displayed fragment to the fragment back stack, so when the user taps the Back button, the card flips back over.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class CardFlipActivity : FragmentActivity() {
+     ...
+     private fun flipCard() {
+@@ -623,7 +556,7 @@ class CardFlipActivity : FragmentActivity() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class CardFlipActivity extends FragmentActivity {
+     ...
+     private void flipCard() {
+@@ -673,17 +606,17 @@ public class CardFlipActivity extends FragmentActivity {
+ 
+ Reveal animations provide users visual continuity when you show or hide a group
+ of UI elements. The
+-[`ViewAnimationUtils.createCircularReveal()`](/reference/android/view/ViewAnimationUtils#createCircularReveal(android.view.View,%20int,%20int,%20float,%20float))
++[`ViewAnimationUtils.createCircularReveal()`](https://developer.android.com/reference/android/view/ViewAnimationUtils#createCircularReveal(android.view.View,%20int,%20int,%20float,%20float))
+ method lets you animate a clipping circle to reveal or hide a view. This
+ animation is provided in the
+-[`ViewAnimationUtils`](/reference/android/view/ViewAnimationUtils) class,
++[`ViewAnimationUtils`](https://developer.android.com/reference/android/view/ViewAnimationUtils) class,
+ which is available for Android 5.0 (API level 21) and higher.
+ 
+ Here is an example showing how to reveal a previously invisible view:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ // A previously invisible view.
+ val myView: View = findViewById(R.id.my_view)
+ 
+@@ -710,7 +643,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+ 
+ ### Java
+ 
+-```
++```java
+ // A previously invisible view.
+ View myView = findViewById(R.id.my_view);
+ 
+@@ -752,7 +685,7 @@ To hide a previously visible view, do the following:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ // A previously visible view.
+ val myView: View = findViewById(R.id.my_view)
+ 
+@@ -788,7 +721,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+ 
+ ### Java
+ 
+-```
++```java
+ // A previously visible view.
+ final View myView = findViewById(R.id.my_view);
+ 
+@@ -826,10 +759,10 @@ In this case, the initial radius of the clipping circle is set to be as large as
+ the view so that the view is visible before the animation starts. The final
+ radius is set to zero so that the view is hidden when the animation finishes.
+ Add a listener to the animation so that the view's visibility can be set to
+-[`INVISIBLE`](/reference/android/view/View#INVISIBLE) when the animation
++[`INVISIBLE`](https://developer.android.com/reference/android/view/View#INVISIBLE) when the animation
+ completes.
+ 
+ ## Additional resources
+ 
+-* [Animation](/jetpack/compose/animation) with Jetpack Compose.
+-* [Gestures](/jetpack/compose/touch-input/gestures) with Jetpack Compose.
+\ No newline at end of file
++- [Animation](https://developer.android.com/jetpack/compose/animation) with Jetpack Compose.
++- [Gestures](https://developer.android.com/jetpack/compose/touch-input/gestures) with Jetpack Compose.
+\ No newline at end of file

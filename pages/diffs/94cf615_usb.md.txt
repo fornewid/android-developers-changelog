@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/usb.md b/docs/develop/connectivity/usb.md
+index 9c4b508..694b982 100644
+--- a/docs/develop/connectivity/usb.md
++++ b/docs/develop/connectivity/usb.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android supports a variety of USB peripherals and Android USB accessories
+ (hardware that implements the Android accessory protocol) through two modes: USB
+ accessory and USB host. In USB accessory mode, the external USB hardware acts as

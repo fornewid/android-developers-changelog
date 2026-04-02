@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-services/active-data/exercise-events.md b/docs/health-and-fitness/health-services/active-data/exercise-events.md
+index 3e773ca..21aff2e 100644
+--- a/docs/health-and-fitness/health-services/active-data/exercise-events.md
++++ b/docs/health-and-fitness/health-services/active-data/exercise-events.md
+@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
+-
+ Health Services provides support for [`ExerciseEvents`](/reference/kotlin/androidx/health/services/client/data/ExerciseEvent),
+ which notify your app when an event has occurred during an exercise and supply
+ associated metadata.

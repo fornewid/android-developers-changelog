@@ -1,0 +1,12 @@
+diff --git a/docs/guide/appendix/faq/licensingandoss.md b/docs/guide/appendix/faq/licensingandoss.md
+index 2b41417..759eb82 100644
+--- a/docs/guide/appendix/faq/licensingandoss.md
++++ b/docs/guide/appendix/faq/licensingandoss.md
+@@ -10,6 +10,5 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You should have already been redirected by your browser. Please follow
+ [this link](/resources/faq/licensingandoss).
+\ No newline at end of file

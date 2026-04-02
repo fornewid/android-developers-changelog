@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/validate-handling-of-configuration-changes.md b/docs/studio/prompt-gallery/prompts/validate-handling-of-configuration-changes.md
+index 6dc9474..665422b 100644
+--- a/docs/studio/prompt-gallery/prompts/validate-handling-of-configuration-changes.md
++++ b/docs/studio/prompt-gallery/prompts/validate-handling-of-configuration-changes.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Modify code to correctly handle screen rotation and other changes.
+ 
+ ---

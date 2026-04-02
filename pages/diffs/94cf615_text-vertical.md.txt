@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/text-vertical.md b/docs/jetpack/androidx/releases/text-vertical.md
+index f0cef04..766ac8d 100644
+--- a/docs/jetpack/androidx/releases/text-vertical.md
++++ b/docs/jetpack/androidx/releases/text-vertical.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # text-vertical
+ 
+ API Reference  

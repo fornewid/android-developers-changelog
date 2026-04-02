@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/animate-text.md b/docs/develop/ui/compose/quick-guides/content/animate-text.md
+index fbfd291..31a3b44 100644
+--- a/docs/develop/ui/compose/quick-guides/content/animate-text.md
++++ b/docs/develop/ui/compose/quick-guides/content/animate-text.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can animate, character-by-character, the appearance of text, so it looks
+ like a streaming typing effect, similar to what a typewriter would produce.
+ 

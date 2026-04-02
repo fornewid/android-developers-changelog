@@ -1,0 +1,270 @@
+diff --git a/docs/guide/navigation/use-graph/safe-args.md b/docs/guide/navigation/use-graph/safe-args.md
+index 893860d..c425e92 100644
+--- a/docs/guide/navigation/use-graph/safe-args.md
++++ b/docs/guide/navigation/use-graph/safe-args.md
+@@ -1,28 +1,34 @@
+ ---
+-title: https://developer.android.com/guide/navigation/use-graph/safe-args
++title: Safe Args  |  App architecture  |  Android Developers
+ url: https://developer.android.com/guide/navigation/use-graph/safe-args
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
++
++# Safe Args Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ The recommended way to navigate between destinations is to use the Safe Args
+ Gradle plugin. This plugin generates object and builder classes that enable
+ type-safe navigation between destinations. Use Safe Args for
+-navigating and [passing data between destinations](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args).
++navigating and [passing data between destinations](/guide/navigation/navigation-pass-data#Safe-args).
+ 
+-> [!NOTE]
+-> **Note:** If you aren't using Gradle, you must use other navigation methods.
+-
+-> [!WARNING]
+-> **Warning:** Safe Args is only available for Android views and fragments. If you are using Compose, see the guide on [type safe navigation](https://developer.android.com/guide/navigation/navigation-type-safety).
++**Note:** If you aren't using Gradle, you must use other navigation methods.**Warning:** Safe Args is only available for Android views and fragments. If you are
++using Compose, see the guide on [type safe navigation](/guide/navigation/navigation-type-safety).
+ 
+ ## Enable Safe Args
+ 
+-To add [Safe Args](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args)
++To add [Safe Args](/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args)
+ to your project, include the following `classpath` in your top level `build.gradle` file:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ buildscript {
+     repositories {
+         google()
+@@ -36,7 +42,7 @@ buildscript {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ buildscript {
+     repositories {
+         google()
+@@ -55,7 +61,7 @@ this line to **your app or module's** `build.gradle` file:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ plugins {
+   id 'androidx.navigation.safeargs'
+ }
+@@ -63,7 +69,7 @@ plugins {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ plugins {
+     id("androidx.navigation.safeargs")
+ }
+@@ -73,7 +79,7 @@ Alternatively, to generate Kotlin code suitable for Kotlin-only modules add:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ plugins {
+   id 'androidx.navigation.safeargs.kotlin'
+ }
+@@ -81,15 +87,15 @@ plugins {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ plugins {
+     id("androidx.navigation.safeargs.kotlin")
+ }
+ ```
+ 
+ You must have `android.useAndroidX=true` in your
+-[`gradle.properties` file](https://developer.android.com/studio/build#properties-files) as per
+-[Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate#migrate)).
++[`gradle.properties` file](/studio/build#properties-files) as per
++[Migrating to AndroidX](/jetpack/androidx/migrate#migrate)).
+ 
+ ## Generated code
+ 
+@@ -104,9 +110,9 @@ name. For example, if the originating destination is named
+ `SpecifyAmountFragmentDirections`.
+ 
+ The generated class contains a static method for each action defined in the
+-originating destination. This method takes any defined [action parameters](https://developer.android.com/guide/navigation/navigation-pass-data) as
+-arguments and returns a [`NavDirections`](https://developer.android.com/reference/androidx/navigation/NavDirections) object that you can pass directly
+-to [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(androidx.navigation.NavDirections)).
++originating destination. This method takes any defined [action parameters](/guide/navigation/navigation-pass-data) as
++arguments and returns a [`NavDirections`](/reference/androidx/navigation/NavDirections) object that you can pass directly
++to [`navigate()`](/reference/androidx/navigation/NavController#navigate(androidx.navigation.NavDirections)).
+ 
+ ## Safe Args example
+ 
+@@ -124,27 +130,31 @@ directly to `navigate()`, as shown in the following example:
+ 
+ ### Kotlin
+ 
+-    override fun onClick(v: View) {
+-        val amount: Float = ...
+-        val action =
+-            SpecifyAmountFragmentDirections
+-                .actionSpecifyAmountFragmentToConfirmationFragment(amount)
+-        v.findNavController().navigate(action)
+-    }
++```
++override fun onClick(v: View) {
++    val amount: Float = ...
++    val action =
++        SpecifyAmountFragmentDirections
++            .actionSpecifyAmountFragmentToConfirmationFragment(amount)
++    v.findNavController().navigate(action)
++}
++```
+ 
+ ### Java
+ 
+-    @Override
+-    public void onClick(View view) {
+-        float amount = ...;
+-        action =
+-            SpecifyAmountFragmentDirections
+-                .actionSpecifyAmountFragmentToConfirmationFragment(amount);
+-        Navigation.findNavController(view).navigate(action);
+-    }
++```
++@Override
++public void onClick(View view) {
++    float amount = ...;
++    action =
++        SpecifyAmountFragmentDirections
++            .actionSpecifyAmountFragmentToConfirmationFragment(amount);
++    Navigation.findNavController(view).navigate(action);
++}
++```
+ 
+ For more information about passing data between destinations with Safe Args, see
+-[Use Safe Args to pass data with type safety](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args).
++[Use Safe Args to pass data with type safety](/guide/navigation/navigation-pass-data#Safe-args).
+ 
+ ## Ensure type safety by using Safe Args
+ 
+@@ -152,15 +162,14 @@ Navigate between destinations using the Safe Args
+ Gradle plugin. This plugin generates simple object and builder classes that
+ enable type-safe navigation and argument passing between destinations.
+ 
+-> [!NOTE]
+-> **Note:** For other ways to navigate, see [Navigate to a destination](https://developer.android.com/guide/navigation/navigation-navigate).
++**Note:** For other ways to navigate, see [Navigate to a destination](/guide/navigation/navigation-navigate).
+ 
+-To add [Safe Args](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args)
++To add [Safe Args](/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args)
+ to your project, include the following `classpath` in your top level `build.gradle` file:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ buildscript {
+     repositories {
+         google()
+@@ -174,7 +183,7 @@ buildscript {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ buildscript {
+     repositories {
+         google()
+@@ -193,7 +202,7 @@ this line to **your app or module's** `build.gradle` file:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ plugins {
+   id 'androidx.navigation.safeargs'
+ }
+@@ -201,7 +210,7 @@ plugins {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ plugins {
+     id("androidx.navigation.safeargs")
+ }
+@@ -211,7 +220,7 @@ Alternatively, to generate Kotlin code suitable for Kotlin-only modules add:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ plugins {
+   id 'androidx.navigation.safeargs.kotlin'
+ }
+@@ -219,19 +228,19 @@ plugins {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ plugins {
+     id("androidx.navigation.safeargs.kotlin")
+ }
+ ```
+ 
+ You must have `android.useAndroidX=true` in your
+-[`gradle.properties` file](https://developer.android.com/studio/build#properties-files) as per
+-[Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate#migrate)).
++[`gradle.properties` file](/studio/build#properties-files) as per
++[Migrating to AndroidX](/jetpack/androidx/migrate#migrate)).
+ 
+ After you enable Safe Args, the plugin generates code that contains classes and
+ methods for each action you've defined. For each action, Safe Args also
+-generates a class for each *originating destination* , which is the destination
++generates a class for each *originating destination*, which is the destination
+ from which the action originates. The generated class name is a combination of
+ the originating destination class name and the word "Directions". For example,
+ if the destination is named `SpecifyAmountFragment`, the generated class is
+@@ -251,7 +260,7 @@ directly to `navigate()`, as shown in the following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onClick(view: View) {
+     val action =
+         SpecifyAmountFragmentDirections
+@@ -262,7 +271,7 @@ override fun onClick(view: View) {
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public void onClick(View view) {
+     NavDirections action =
+@@ -273,5 +282,5 @@ public void onClick(View view) {
+ ```
+ 
+ For more information on passing data between destinations with Safe Args, see
+-[Use Safe Args to pass data with type safety](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args) in *Pass data between
++[Use Safe Args to pass data with type safety](/guide/navigation/navigation-pass-data#Safe-args) in *Pass data between
+ destinations*.
+\ No newline at end of file

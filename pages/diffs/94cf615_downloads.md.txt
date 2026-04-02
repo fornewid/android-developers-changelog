@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/downloads.md b/docs/ndk/downloads.md
+index 2a02cda..ce87af1 100644
+--- a/docs/ndk/downloads.md
++++ b/docs/ndk/downloads.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Select the NDK package for your development platform.
+ For information about the changes in the latest version of the NDK and earlier revisions, see
+ [NDK Revision History.](/ndk/downloads/revision_history)

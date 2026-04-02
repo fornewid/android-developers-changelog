@@ -1,0 +1,12 @@
+diff --git a/docs/guide/fragments/dialogs.md b/docs/guide/fragments/dialogs.md
+index 303a6d6..e90ed52 100644
+--- a/docs/guide/fragments/dialogs.md
++++ b/docs/guide/fragments/dialogs.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A [`DialogFragment`](/reference/androidx/fragment/app/DialogFragment) is a
+ special fragment subclass that is designed for creating and hosting
+ [dialogs](/guide/topics/ui/dialogs). Although you don't need to

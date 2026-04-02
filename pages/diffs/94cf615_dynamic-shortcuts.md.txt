@@ -1,0 +1,12 @@
+diff --git a/docs/develop/devices/assistant/dynamic-shortcuts.md b/docs/develop/devices/assistant/dynamic-shortcuts.md
+index cfb709f..7d62bee 100644
+--- a/docs/develop/devices/assistant/dynamic-shortcuts.md
++++ b/docs/develop/devices/assistant/dynamic-shortcuts.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ [Android shortcuts](/guide/topics/ui/shortcuts) provide users with quick
+ methods to perform an action or access content in an app.
+ Assistant can proactively suggest your Android dynamic shortcuts to users at

@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/16/qpr2.md b/docs/about/versions/16/qpr2.md
+index bac81cd..fa25206 100644
+--- a/docs/about/versions/16/qpr2.md
++++ b/docs/about/versions/16/qpr2.md
+@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ [![](https://developer.android.com/static/about/versions/16/images/android-16-green.svg)](https://developer.android.com/about/versions/16/qpr2/get)
+ 
+ ### [Android 16 QPR2 Beta](https://developer.android.com/about/versions/16/qpr2/get)

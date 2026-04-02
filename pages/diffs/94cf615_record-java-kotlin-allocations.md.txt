@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/record-java-kotlin-allocations.md b/docs/studio/profile/record-java-kotlin-allocations.md
+index b9391c6..a6a4fa3 100644
+--- a/docs/studio/profile/record-java-kotlin-allocations.md
++++ b/docs/studio/profile/record-java-kotlin-allocations.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Recording Java/Kotlin allocations helps you identify undesirable memory patterns
+ that might be causing performance problems. The profiler can show you the
+ following about object allocations:

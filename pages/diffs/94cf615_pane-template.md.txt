@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/templates/pane-template.md b/docs/design/ui/cars/guides/templates/pane-template.md
+index 4abe0c8..d27b767 100644
+--- a/docs/design/ui/cars/guides/templates/pane-template.md
++++ b/docs/design/ui/cars/guides/templates/pane-template.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This template is useful for presenting information, such as location and
+ reservation details, and for taking action based on data.
+ 

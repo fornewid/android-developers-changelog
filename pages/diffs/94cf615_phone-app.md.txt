@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/watch-face-push/phone-app.md b/docs/training/wearables/watch-face-push/phone-app.md
+index 12c37cc..ad0f4aa 100644
+--- a/docs/training/wearables/watch-face-push/phone-app.md
++++ b/docs/training/wearables/watch-face-push/phone-app.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** The Watch Face Push library is meant for watch face developers who prefer
+ to publish to their own marketplace stores.  
+   

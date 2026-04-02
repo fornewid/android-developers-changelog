@@ -1,0 +1,21 @@
+diff --git a/docs/google/play/integrity/additional-tools.md b/docs/google/play/integrity/additional-tools.md
+index c5934b3..b52df2e 100644
+--- a/docs/google/play/integrity/additional-tools.md
++++ b/docs/google/play/integrity/additional-tools.md
+@@ -4,8 +4,6 @@ url: https://developer.android.com/google/play/integrity/additional-tools
+ source: html-scrape
+ ---
+ 
+-**Let Play resolve integrity issues for you:** Show a single in-app Play prompt to resolve a broad range of verdict issues and client-side errors. With [Play remediation dialogs](/google/play/integrity/remediation), you can get more users back to a good state and simplify your API integration. [Learn more](https://android-developers.googleblog.com/2025/10/stronger-threat-detection-simpler.html)
+-
+ * [Android Developers](https://developer.android.com/)
+ * [Google Play](https://developer.android.com/distribute)
+ * [Play Integrity](https://developer.android.com/google/play/integrity)
+@@ -14,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The following tools and resources will help you make the most of the Play
+ Integrity API as part of your anti-abuse strategy.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/graphics/getting-started.md b/docs/ndk/guides/graphics/getting-started.md
+index 1f17d67..5d90dd1 100644
+--- a/docs/ndk/guides/graphics/getting-started.md
++++ b/docs/ndk/guides/graphics/getting-started.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** Although this page includes [NativeActivity](/reference/android/app/NativeActivity) description,
+ [GameActivity inside AGDK jetpack library](/games/agdk/integrate-game-activity)
+ is an updated and well maintained implementation of `NativeActivity`,

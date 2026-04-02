@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/navigation-bar.md b/docs/develop/ui/compose/components/navigation-bar.md
+index a550495..644f6de 100644
+--- a/docs/develop/ui/compose/components/navigation-bar.md
++++ b/docs/develop/ui/compose/components/navigation-bar.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The [navigation bar](https://m3.material.io/components/navigation-bar/overview) allows users to switch between destinations in an app. You
+ should use navigation bars for:
+ 

@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/seamless-restore.md b/docs/games/pgs/seamless-restore.md
+index d486b96..c057f04 100644
+--- a/docs/games/pgs/seamless-restore.md
++++ b/docs/games/pgs/seamless-restore.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Seamless restore is the mechanism by which a returning player is immediately
+ reconnected to their progress upon installing the game on a new device or
+ reinstalling the game, removing the friction of a login screen.
+@@ -92,4 +93,6 @@ PGS Player ID. You may do this by any of the following methods:
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

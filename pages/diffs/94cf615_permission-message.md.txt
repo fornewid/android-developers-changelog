@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/behaviors-and-patterns/permission-message.md b/docs/design/ui/wear/guides/m2-5/behaviors-and-patterns/permission-message.md
+index 2dfb793..ac5f239 100644
+--- a/docs/design/ui/wear/guides/m2-5/behaviors-and-patterns/permission-message.md
++++ b/docs/design/ui/wear/guides/m2-5/behaviors-and-patterns/permission-message.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Apps may require specific user permissions, such as location access, to function
+ properly. Because wearables are companions to mobile devices, you may need to
+ accept permissions on the mobile device as well.

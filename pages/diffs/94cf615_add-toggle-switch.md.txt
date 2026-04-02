@@ -1,0 +1,150 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/add-toggle-switch.md b/docs/develop/ui/compose/quick-guides/content/add-toggle-switch.md
+index 6be748d..c8bf5ec 100644
+--- a/docs/develop/ui/compose/quick-guides/content/add-toggle-switch.md
++++ b/docs/develop/ui/compose/quick-guides/content/add-toggle-switch.md
+@@ -1,18 +1,26 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/quick-guides/content/add-toggle-switch
++title: Add a switch that users can toggle  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/quick-guides/content/add-toggle-switch
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-<br />
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
+ 
+-The [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) component lets users toggle between two states: checked
++# Add a switch that users can toggle Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++The [`Switch`](/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) component lets users toggle between two states: checked
+ and unchecked. Use a switch to let the user to do one of the
+ following:
+ 
+-- Toggle a setting on or off.
+-- Enable or disable a feature.
+-- Select an option.
++* Toggle a setting on or off.
++* Enable or disable a feature.
++* Select an option.
+ 
+ The component has two parts: the thumb and the track. The thumb is the draggable
+ part of the switch, and the track is the background. The user can drag the thumb
+@@ -26,65 +34,90 @@ higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_504265100ae01120c9f8aa6e5287923881f65f7e4bc6b06f0aa1c8888205eb6f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+-
+ ## Implement a switch
+ 
+ The following example is a minimal implementation of the `Switch` composable:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_0b34cabf45ecf9133ef24baa85d8e27ce5dbbb9796c237270a3120093101b91c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+-![A basic switch that is unchecked.](https://developer.android.com/static/develop/ui/compose/images/components/switch-deactivated.png) **Figure 1.** An unchecked switch. ![A basic Switch that is checked.](https://developer.android.com/static/develop/ui/compose/images/components/switch.png) **Figure 2.** A checked switch.
++![A basic switch that is unchecked.](/static/develop/ui/compose/images/components/switch-deactivated.png)
++
++
++**Figure 1.** An unchecked switch.
++
++
++![A basic Switch that is checked.](/static/develop/ui/compose/images/components/switch.png)
++
++
++**Figure 2.** A checked switch.
+ 
+ ## Create a custom thumb
+ 
+ You can pass any composable for the `thumbContent` parameter to create a custom
+ thumb. The following is an example of a switch that uses a custom icon for its
+ thumb:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_272f697079b345c0b68b1fe83b95752a9ed22debaa45af658026a9205bbeaeb0.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+ The unchecked appearance is the same as the example in
+ the preceding section. However, when checked, this implementation appears as
+ follows:
+-![A switch that uses the thumbContent parameter to display a custom icon when checked.](https://developer.android.com/static/develop/ui/compose/images/components/switch-icon.png) **Figure 3.** A switch with a custom checked icon.
++
++![A switch that uses the thumbContent parameter to display a custom icon when checked.](/static/develop/ui/compose/images/components/switch-icon.png)
++
++
++**Figure 3.** A switch with a custom checked icon.
+ 
+ ## Use custom colors
+ 
+ Use the `colors` parameter to
+ change the color of a switch's thumb and track, taking into account whether the
+ switch is checked.
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_9c9d7e2dd21a2d72a95473f2ecd4ca3e19c93252bdf13b60e143cba89c1ca0bd.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+-![A switch that uses the colors parameter to display a switch with custom colors for both the thumb and tack.](https://developer.android.com/static/develop/ui/compose/images/components/switch-colors.png) **Figure 4.** A switch with custom colors.
++![A switch that uses the colors parameter to display a switch with custom colors for both the thumb and tack.](/static/develop/ui/compose/images/components/switch-colors.png)
++
++
++**Figure 4.** A switch with custom colors.
+ 
+ ## Key points
+ 
+-- Basic parameters:
++* Basic parameters:
+ 
+-  - **`checked`**: The initial state of the switch.
+-  - **`onCheckedChange`**: A callback that is called when the state of the switch changes.
+-  - **`enabled`**: Whether the switch is enabled or disabled.
+-  - **`colors`**: The colors used for the switch.
+-- Advanced parameters
++  + **`checked`**: The initial state of the switch.
++  + **`onCheckedChange`**: A callback that is called when the state of the
++    switch changes.
++  + **`enabled`**: Whether the switch is enabled or disabled.
++  + **`colors`**: The colors used for the switch.
++* Advanced parameters
+ 
+-  - **`thumbContent`**: Use this to customize the appearance of the thumb when it is checked.
+-  - **`colors`**: Use this to customize the color of the track and thumb.
++  + **`thumbContent`**: Use this to customize the appearance of the thumb when
++    it is checked.
++  + **`colors`**: Use this to customize the color of the track and thumb.
+ 
+ ## Collections that contain this guide
+ 
+ This guide is part of these curated Quick Guide collections that cover
+ broader Android development goals:
+-![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
++
++![](/static/images/quick-guides/collection-illustration.png)
++
++![](/static/images/picto-icons/collection.svg)
+ 
+ ### Display interactive components
+ 
+-Learn how composable functions can enable you to easily create beautiful UI components based on the Material Design design system. [Quick guide collection](https://developer.android.com/develop/ui/compose/quick-guides/collections/display-interactive-components) ![](https://developer.android.com/static/images/picto-icons/help.svg)
++Learn how composable functions can enable you to easily
++create beautiful UI components based on the Material Design design
++system.
++
++[Quick guide collection](/develop/ui/compose/quick-guides/collections/display-interactive-components)
++
++![](/static/images/picto-icons/help.svg)
+ 
+ ## Have questions or feedback
+ 
+-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+\ No newline at end of file
++Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.
++
++[Go to FAQ](/quick-guides/faq)
++[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+\ No newline at end of file

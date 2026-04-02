@@ -1,0 +1,94 @@
+diff --git a/docs/topic/performance/vitals/bg-wifi.md b/docs/topic/performance/vitals/bg-wifi.md
+index bba56c5..c47b282 100644
+--- a/docs/topic/performance/vitals/bg-wifi.md
++++ b/docs/topic/performance/vitals/bg-wifi.md
+@@ -1,21 +1,11 @@
+ ---
+-title: Excessive Wi-Fi Scanning in the Background  |  App quality  |  Android Developers
++title: https://developer.android.com/topic/performance/vitals/bg-wifi
+ url: https://developer.android.com/topic/performance/vitals/bg-wifi
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [App quality](https://developer.android.com/quality)
+-* [Technical quality](https://developer.android.com/quality/technical)
+-
+-# Excessive Wi-Fi Scanning in the Background Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ When an app performs Wi-Fi scans in the background, it wakes up the CPU,
+-causing rate of battery drain. When too many scans occur, the device’s
++causing rate of battery drain. When too many scans occur, the device's
+ battery life may be noticeably shortened. An app is considered to be running in
+ the background if it is in the `PROCESS_STATE_BACKGROUND` or
+ `PROCESS_STATE_CACHED` state.
+@@ -41,11 +31,8 @@ this behavior.
+ 
+ The definition of *battery session* depends on the platform version.
+ 
+-* In Android 10, a battery session is the aggregation of all battery reports
+-  received within a given 24-hour period. A *battery report* refers to the
+-  interval between two battery charges either from below 20% to above 80% or
+-  from any charge level to 100%.
+-* In Android 11, a battery session is a fixed 24-hour period.
++- In Android 10, a battery session is the aggregation of all battery reports received within a given 24-hour period. A *battery report* refers to the interval between two battery charges either from below 20% to above 80% or from any charge level to 100%.
++- In Android 11, a battery session is a fixed 24-hour period.
+ 
+ For information on how Google Play collects Android vitals data, see the [Play
+ Console](https://support.google.com/googleplay/android-developer/answer/7385505)
+@@ -58,10 +45,10 @@ app's scanning behavior. Battery Historian provides a visualization of Wi-Fi
+ scanning behavior on a per-app basis, which can help you gain a clearer
+ picture of what's happening with your app. For more information about Battery
+ Historian, see
+-[Analyzing Power Use with Battery Historian](/topic/performance/power/battery-historian#asd).
++[Analyzing Power Use with Battery Historian](https://developer.android.com/topic/performance/power/battery-historian#asd).
+ 
+ For information about the mechanics of using Battery Historian, see
+-[Batterystats and Battery Historian Walkthrough](/topic/performance/power/setup-battery-historian).
++[Batterystats and Battery Historian Walkthrough](https://developer.android.com/topic/performance/power/setup-battery-historian).
+ 
+ ## Reduce the scans
+ 
+@@ -72,29 +59,17 @@ why and when Wi-Fi scans take place on their device.
+ 
+ For information on how to scan while in the foreground,
+ see the documentation for the
+-[`WifiManager`](/reference/android/net/wifi/WifiManager#startScan()) class.
++[`WifiManager`](https://developer.android.com/reference/android/net/wifi/WifiManager#startScan()) class.
+ 
+ If your app cannot avoid performing Wi-Fi scans while the app is running in
+ the background, it may benefit from applying
+-a [Lazy First](/topic/performance/power#lazy) strategy. Lazy First
++a [Lazy First](https://developer.android.com/topic/performance/power#lazy) strategy. Lazy First
+ encompasses three techniques that you can use to cut down on Wi-Fi scans:
+-*reduce*, *defer*, and *coalesce*.
++*reduce* , *defer* , and *coalesce* .
+ For information about these techniques, see
+-[Optimizing for Battery Life](/topic/performance/power).
++[Optimizing for Battery Life](https://developer.android.com/topic/performance/power).
+ 
+ ## Recommended for you
+ 
+-* Note: link text is displayed when JavaScript is off
+-* [Excessive Mobile Network Usage in Background](/topic/performance/vitals/bg-network-usage)
+-
+-[Previous
+-
+-arrow\_back
+-
+-Excessive Wakeups](/topic/performance/vitals/wakeup)
+-
+-[Next
+-
+-Excessive Background Network Usage
+-
+-arrow\_forward](/topic/performance/vitals/bg-network-usage)
+\ No newline at end of file
++- Note: link text is displayed when JavaScript is off
++- [Excessive Mobile Network Usage in Background](https://developer.android.com/topic/performance/vitals/bg-network-usage)
+\ No newline at end of file

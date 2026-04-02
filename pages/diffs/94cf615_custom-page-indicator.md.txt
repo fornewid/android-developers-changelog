@@ -1,0 +1,132 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/custom-page-indicator.md b/docs/develop/ui/compose/quick-guides/content/custom-page-indicator.md
+index d0a0f3d..a3a1dd1 100644
+--- a/docs/develop/ui/compose/quick-guides/content/custom-page-indicator.md
++++ b/docs/develop/ui/compose/quick-guides/content/custom-page-indicator.md
+@@ -1,18 +1,10 @@
+ ---
+-title: Add a custom page indicator  |  Jetpack Compose  |  Android Developers
++title: https://developer.android.com/develop/ui/compose/quick-guides/content/custom-page-indicator
+ url: https://developer.android.com/develop/ui/compose/quick-guides/content/custom-page-indicator
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
+-
+-# Add a custom page indicator Stay organized with collections Save and categorize content based on your preferences.
+-
+-
++<br />
+ 
+ Using page indicators, you can help your users understand their current position
+ within your app's content, providing a visual indication of progress. These
+@@ -22,11 +14,6 @@ lists.
+ 
+ ## Results
+ 
+-[
+-
+-](/static/develop/ui/compose/quick-guides/content/page_indicator.mp4)
+-
+-
+ **Figure 1.** Pager showing a circle indicator under the content.
+ 
+ ## Version compatibility
+@@ -36,13 +23,16 @@ higher.
+ 
+ ### Dependencies
+ 
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/custom-page-indicator_504265100ae01120c9f8aa6e5287923881f65f7e4bc6b06f0aa1c8888205eb6f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++
+ ## Create a horizontal pager with a custom page indicator
+ 
+ The following code creates a horizontal pager that has a page indicator, giving
+ the user visual cues for how many pages there are and which page is
+ visible:
+ 
+-```
++
++```kotlin
+ val pagerState = rememberPagerState(pageCount = {
+     4
+ })
+@@ -74,61 +64,33 @@ Row(
+         )
+     }
+ }
+-
+-PagerSnippets.kt
+ ```
+ 
++<br />
++
+ ### Key points about the code
+ 
+-* The code implements a [`HorizontalPager`](/reference/kotlin/androidx/compose/foundation/pager/HorizontalPager.composable), which lets you swipe
+-  horizontally between different pages of content. In this case, each page
+-  displays the page number.
+-* The `rememberPagerState()` function initializes the pager and sets the
+-  number of pages to 4. This function creates a state object that tracks the
+-  current page, and lets you control the pager.
+-* The [`pagerState.currentPage`](/reference/kotlin/androidx/compose/foundation/pager/PagerState#currentPage()) property is used to determine which page
+-  indicator should be highlighted.
+-* The page indictator appears in a pager overlaid by a [`Row`](/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1))
+-  implementation.
+-* A 16 dp circle is drawn for each page in the pager. The indicator for the
+-  current page is displayed as `DarkGray`, while the rest of the indicator
+-  circles are `LightGray`.
+-* The [`Text`](/reference/kotlin/androidx/compose/material/Text.composable#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle)) composable within the `HorizontalPager` displays the text
+-  "Page: [page number]" on each page.
++- The code implements a [`HorizontalPager`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/HorizontalPager.composable), which lets you swipe horizontally between different pages of content. In this case, each page displays the page number.
++- The `rememberPagerState()` function initializes the pager and sets the number of pages to 4. This function creates a state object that tracks the current page, and lets you control the pager.
++- The [`pagerState.currentPage`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState#currentPage()) property is used to determine which page indicator should be highlighted.
++- The page indictator appears in a pager overlaid by a [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) implementation.
++- A 16 dp circle is drawn for each page in the pager. The indicator for the current page is displayed as `DarkGray`, while the rest of the indicator circles are `LightGray`.
++- The [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle)) composable within the `HorizontalPager` displays the text "Page: \[page number\]" on each page.
+ 
+ ## Collections that contain this guide
+ 
+ This guide is part of these curated Quick Guide collections that cover
+ broader Android development goals:
+-
+-![](/static/images/quick-guides/collection-illustration.png)
+-
+-![](/static/images/picto-icons/collection.svg)
++![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+ 
+ ### Display a list or grid
+ 
+-Lists and grids allow your app to display collections in a
+-visually pleasing form that's easy for users to consume.
+-
+-[Quick guide collection](/develop/ui/compose/quick-guides/collections/display-a-list-or-grid)
+-
+-![](/static/images/quick-guides/collection-illustration.png)
+-
+-![](/static/images/picto-icons/collection.svg)
++Lists and grids allow your app to display collections in a visually pleasing form that's easy for users to consume. [Quick guide collection](https://developer.android.com/develop/ui/compose/quick-guides/collections/display-a-list-or-grid) ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+ 
+ ### Display interactive components
+ 
+-Learn how composable functions can enable you to easily
+-create beautiful UI components based on the Material Design design
+-system.
+-
+-[Quick guide collection](/develop/ui/compose/quick-guides/collections/display-interactive-components)
+-
+-![](/static/images/picto-icons/help.svg)
++Learn how composable functions can enable you to easily create beautiful UI components based on the Material Design design system. [Quick guide collection](https://developer.android.com/develop/ui/compose/quick-guides/collections/display-interactive-components) ![](https://developer.android.com/static/images/picto-icons/help.svg)
+ 
+ ## Have questions or feedback
+ 
+-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.
+-
+-[Go to FAQ](/quick-guides/faq)
+-[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+\ No newline at end of file
++Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+\ No newline at end of file

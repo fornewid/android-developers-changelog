@@ -1,0 +1,12 @@
+diff --git a/docs/training/sync-adapters/creating-stub-provider.md b/docs/training/sync-adapters/creating-stub-provider.md
+index 14fbf80..c9886a5 100644
+--- a/docs/training/sync-adapters/creating-stub-provider.md
++++ b/docs/training/sync-adapters/creating-stub-provider.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The sync adapter framework is designed to work with device data managed by the flexible and
+ highly secure content provider framework. For this reason, the sync adapter framework expects
+ that an app that uses the framework has already defined a content provider for its local data.

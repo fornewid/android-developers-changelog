@@ -1,0 +1,12 @@
+diff --git a/docs/about/canary.md b/docs/about/canary.md
+index ad63669..2af1e21 100644
+--- a/docs/about/canary.md
++++ b/docs/about/canary.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ![Android brand logo](/static/images/shared/android-logo-verticallockup_primary.png)
+ The Canary channel lets you explore and test the most up-to-date Android
+ builds with pre-release Android APIs and potential upcoming behavior changes.

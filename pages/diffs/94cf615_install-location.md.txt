@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/data/install-location.md b/docs/guide/topics/data/install-location.md
+index 48e4223..f54e54c 100644
+--- a/docs/guide/topics/data/install-location.md
++++ b/docs/guide/topics/data/install-location.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Beginning with API Level 8, you can allow your application to be installed on the
+ external storage (for example, the device's SD card). This is an optional feature you can declare
+ for your application with the [`android:installLocation`](/guide/topics/manifest/manifest-element#install) manifest attribute. If you do

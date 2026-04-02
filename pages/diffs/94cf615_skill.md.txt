@@ -1,0 +1,12 @@
+diff --git a/docs/agents/skills/system/edge-to-edge/skill.md b/docs/agents/skills/system/edge-to-edge/skill.md
+index c39788b..baea6c1 100644
+--- a/docs/agents/skills/system/edge-to-edge/skill.md
++++ b/docs/agents/skills/system/edge-to-edge/skill.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ## Prerequisites
+ 
+ * Project **MUST** use Android Jetpack Compose.

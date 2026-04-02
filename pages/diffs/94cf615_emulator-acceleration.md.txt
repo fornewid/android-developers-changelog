@@ -1,0 +1,626 @@
+diff --git a/docs/studio/run/emulator-acceleration.md b/docs/studio/run/emulator-acceleration.md
+index e85ace6..e566089 100644
+--- a/docs/studio/run/emulator-acceleration.md
++++ b/docs/studio/run/emulator-acceleration.md
+@@ -1,29 +1,19 @@
+ ---
+-title: Configure hardware acceleration for the Android Emulator  |  Android Studio  |  Android Developers
++title: https://developer.android.com/studio/run/emulator-acceleration
+ url: https://developer.android.com/studio/run/emulator-acceleration
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Android Studio](https://developer.android.com/studio)
+-* [IDE guides](https://developer.android.com/studio/intro)
+-
+-# Configure hardware acceleration for the Android Emulator Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-The emulator runs best if it can use your machine’s hardware, such as
++The emulator runs best if it can use your machine's hardware, such as
+ the CPU, GPU, and modem, rather than running as pure software. The ability to use
+-your machine’s hardware to improve performance is called *hardware
++your machine's hardware to improve performance is called *hardware
+ acceleration*.
+ 
+ The emulator can use hardware acceleration to improve your
+ experience in two main ways:
+ 
+-* Graphics acceleration for improved screen
+-  rendering
+-* Virtual machine (VM) acceleration for improved execution speed
++- Graphics acceleration for improved screen rendering
++- Virtual machine (VM) acceleration for improved execution speed
+ 
+ Hardware acceleration is enabled by default on most machines. If it isn't
+ enabled on your machine, this page describes how you can configure graphics and
+@@ -43,18 +33,15 @@ specify whether the emulator uses hardware or software rendering.
+ In the automatic mode, the emulator decides whether to use
+ hardware or software graphics acceleration based on your computer.
+ You can also override the setting if you start the emulator from the
+-[command line](/studio/run/emulator-commandline#starting).
++[command line](https://developer.android.com/studio/run/emulator-commandline#starting).
+ 
+ ### Configure graphics acceleration in the AVD Manager
+ 
+ To configure graphics acceleration for an AVD, follow these steps:
+ 
+-1. Open the [Device Manager](/studio/run/managing-avds#viewing).
+-2. [Create a new AVD](/studio/run/managing-avds#createavd) or
+-   [edit an existing AVD](/studio/run/managing-avds#workingavd).
+-3. In the [**Configuration**](/studio/run/managing-avds#verifyconfigpage)
+-   window, find the **Emulated Performance** section under the
+-   **Additional Settings** tab.
++1. Open the [Device Manager](https://developer.android.com/studio/run/managing-avds#viewing).
++2. [Create a new AVD](https://developer.android.com/studio/run/managing-avds#createavd) or [edit an existing AVD](https://developer.android.com/studio/run/managing-avds#workingavd).
++3. In the [**Configuration**](https://developer.android.com/studio/run/managing-avds#verifyconfigpage) window, find the **Emulated Performance** section under the **Additional Settings** tab.
+ 4. Select a value for the **Graphics acceleration** option.
+ 5. Click **Finish**.
+ 
+@@ -70,35 +57,24 @@ emulator -avd avd_name -gpu mode [{-option [value]} ... ]
+ The value of `mode` can be set to one of the following
+ options:
+ 
+-* `auto`: Let the emulator choose between hardware or software graphics
+-  acceleration based on the AVD, computer setup and quality metrics. This is the
+-  recommended mode for most users.
+-* `host`: Use the GPU on your computer for hardware acceleration. This option
+-  typically provides the highest graphics quality and performance for the
+-  emulator and can enable [MoltenVK](https://github.com/KhronosGroup/MoltenVK) on macOS for accelerated
+-  Vulkan rendering.
+-  However, if you experience issues with graphics emulation, you might
+-  need to switch to software rendering.
+-* `software`: Use the most suitable software rendering backend for the AVD,
+-  requested emulation features, and quality metrics. This option is recommended
+-  if you experience issues with `auto` or `host` modes.
+-* `lavapipe`: Use software rendering with [Mesa 3D](https://docs.mesa3d.org/drivers/llvmpipe.html) drivers.
+-* `swiftshader`: Use software rendering with [SwiftShader](https://swiftshader.googlesource.com/SwiftShader)
+-  for GLES and Vulkan workloads.
+-* `swangle`: Use SwiftShader software drivers with ANGLE backend.
+-
+-**Note:** If you enable a graphics acceleration option that your computer doesn't
+-support, you are likely to see crashes or incorrect images displayed during
+-emulation.
++- `auto`: Let the emulator choose between hardware or software graphics acceleration based on the AVD, computer setup and quality metrics. This is the recommended mode for most users.
++- `host`: Use the GPU on your computer for hardware acceleration. This option typically provides the highest graphics quality and performance for the emulator and can enable [MoltenVK](https://github.com/KhronosGroup/MoltenVK) on macOS for accelerated Vulkan rendering. However, if you experience issues with graphics emulation, you might need to switch to software rendering.
++- `software`: Use the most suitable software rendering backend for the AVD, requested emulation features, and quality metrics. This option is recommended if you experience issues with `auto` or `host` modes.
++- `lavapipe`: Use software rendering with [Mesa 3D](https://docs.mesa3d.org/drivers/llvmpipe.html) drivers.
++- `swiftshader`: Use software rendering with [SwiftShader](https://swiftshader.googlesource.com/SwiftShader) for GLES and Vulkan workloads.
++- `swangle`: Use SwiftShader software drivers with ANGLE backend.
++
++> [!NOTE]
++> **Note:** If you enable a graphics acceleration option that your computer doesn't support, you are likely to see crashes or incorrect images displayed during emulation.
+ 
+ The following `mode` options are deprecated:
+ 
+-* `mesa`: Deprecated in version 25.3.0.
+-* `angle`: Deprecated in version 27.0.2.
+-* `angle_indirect`: Deprecated in version 34.2.14.
+-* `guest`: Deprecated in version 36.4.9.
+-* `swiftshader_indirect`: Deprecated in version 36.4.9.
+-* `swangle_indirect`: Deprecated in version 36.4.9.
++- `mesa`: Deprecated in version 25.3.0.
++- `angle`: Deprecated in version 27.0.2.
++- `angle_indirect`: Deprecated in version 34.2.14.
++- `guest`: Deprecated in version 36.4.9.
++- `swiftshader_indirect`: Deprecated in version 36.4.9.
++- `swangle_indirect`: Deprecated in version 36.4.9.
+ 
+ ## Configure VM acceleration
+ 
+@@ -119,29 +95,26 @@ requirements that are specific to your operating system.
+ To use VM acceleration, your development environment must meet the
+ following requirements:
+ 
+-* [SDK Tools](/studio/releases/cmdline-tools):
+-  Minimum version 17; recommended version 26.1.1 or later
+-* [AVD](/studio/run/managing-avds#about):
++- [SDK Tools](https://developer.android.com/studio/releases/cmdline-tools): Minimum version 17; recommended version 26.1.1 or later
++- [AVD](https://developer.android.com/studio/run/managing-avds#about):
+   Required Android version is described in the table that follows.
+ 
+   | CPU Architecture | System Image Requirement |
+-  | --- | --- |
+-  | X86\_64 | x86 or x86\_64 system images for Android 2.3.3 (API level 10) and higher |
++  |---|---|
++  | X86_64 | x86 or x86_64 system images for Android 2.3.3 (API level 10) and higher |
+   | ARM64 | arm64-v8a system images for Android 5.0 (API level 21) and higher |
+ 
+-  **Warning:** AVDs that don't follow the requirements, such as ARM- or
+-  MIPS-based system images on Intel or AMD CPUs, can't use the VM
+-  acceleration that is described on this page.
++  > [!WARNING]
++  > **Warning:** AVDs that don't follow the requirements, such as ARM- or MIPS-based system images on Intel or AMD CPUs, can't use the VM acceleration that is described on this page.
+ 
+ #### Virtualization extension requirements
+ 
+ In addition to the development environment requirements, your computer's
+ processor must support virtualization extensions. Supported processors are:
+ 
+-* Intel Processors with Intel Virtualization Technology (VT-x, vmx), such as
+-  Intel Core iX and Intel Core Ultra processors
+-* AMD Processors with AMD-V (SVM), such as AMD Ryzen processors
+-* Apple silicon
++- Intel Processors with Intel Virtualization Technology (VT-x, vmx), such as Intel Core iX and Intel Core Ultra processors
++- AMD Processors with AMD-V (SVM), such as AMD Ryzen processors
++- Apple silicon
+ 
+ Additional Requirements for Intel and AMD processors:
+ 
+@@ -154,25 +127,15 @@ If you're unsure whether your processor supports the required extensions,
+ check the specifications for your processor on the manufacturer's site. If your
+ processor doesn't support these extensions, then you can't use VM acceleration.
+ 
+-**Note:** On PC platforms, virtualization extensions are typically enabled through
+-the BIOS and they may be turned off by default. Check the documentation from
+-your system vendor to find out how to enable virtualization extensions.
++> [!NOTE]
++> **Note:** On PC platforms, virtualization extensions are typically enabled through the BIOS and they may be turned off by default. Check the documentation from your system vendor to find out how to enable virtualization extensions.
+ 
+ ### Restrictions
+ 
+ VM acceleration has the following restrictions:
+ 
+-* You can't run a VM-accelerated emulator inside another VM, such as a VM hosted
+-  by VirtualBox, VMWare, or Docker. You must run a VM-accelerated emulator
+-  directly on your host computer.
+-* Depending on your operating system and hypervisor, you may not run software
+-  that uses another virtualization technology at the same time that you run a
+-  VM-accelerated emulator. Examples of the such software include but are not
+-  limited to virtual machine solutions, certain antivirus programs and a few
+-  anti-cheat solutions. The situation is mostly observed on Windows with Hyper-V
+-  off. Most of such software can coexist with the android emulator without any
+-  problems. But when conflicts occur, it is recommended not to run the
+-  VM-accelerated emulator at the same time with such software.
++- You can't run a VM-accelerated emulator inside another VM, such as a VM hosted by VirtualBox, VMWare, or Docker. You must run a VM-accelerated emulator directly on your host computer.
++- Depending on your operating system and hypervisor, you may not run software that uses another virtualization technology at the same time that you run a VM-accelerated emulator. Examples of the such software include but are not limited to virtual machine solutions, certain antivirus programs and a few anti-cheat solutions. The situation is mostly observed on Windows with Hyper-V off. Most of such software can coexist with the android emulator without any problems. But when conflicts occur, it is recommended not to run the VM-accelerated emulator at the same time with such software.
+ 
+ ### About hypervisors
+ 
+@@ -190,9 +153,9 @@ The hypervisor that works best for you depends on your computer's operating
+ system and configuration. For more information, see one of the following
+ sections:
+ 
+-* [Configure VM acceleration on Windows](#vm-windows)
+-* [Configure VM acceleration on macOS](#vm-mac)
+-* [Configure VM acceleration on Linux](#vm-linux)
++- [Configure VM acceleration on Windows](https://developer.android.com/studio/run/emulator-acceleration#vm-windows)
++- [Configure VM acceleration on macOS](https://developer.android.com/studio/run/emulator-acceleration#vm-mac)
++- [Configure VM acceleration on Linux](https://developer.android.com/studio/run/emulator-acceleration#vm-linux)
+ 
+ ### Check whether a hypervisor is installed
+ 
+@@ -211,10 +174,9 @@ accel:
+ WHPX(10.0.22631) is installed and usable.
+ accel
+ ```
++There are multiple hypervisor choices on Windows. So what you see might be different from the example here. For example, you may see one of the following keywords in the message: **AEHD** , **GVM** (former name of AEHD).
+ 
+-There are multiple hypervisor choices on Windows. So what you see might
+-be different from the example here. For example, you may see one of the
+-following keywords in the message: **AEHD**, **GVM** (former name of AEHD).
++<br />
+ 
+ macOS:
+ 
+@@ -226,6 +188,8 @@ Hypervisor.Framework OS X Version 13.2
+ accel
+ ```
+ 
++<br />
++
+ Linux:
+ 
+ ```
+@@ -235,6 +199,8 @@ accel:
+ KVM (version 12) is installed and usable.
+ ```
+ 
++<br />
++
+ ### Configure VM acceleration on Windows
+ 
+ On Windows, we recommend using the Microsoft-supplied [Windows Hypervisor
+@@ -245,23 +211,21 @@ system requirements.
+ 
+ Windows Hypervisor Platform might not be turned on by default. In such cases,
+ follow [Configure VM acceleration using Windows Hypervisor
+-Platform](#vm-windows-whpx) to enable it. A reboot may be required after
++Platform](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx) to enable it. A reboot may be required after
+ enabling it.
+ 
+-**Note:** The Android Emulator supports another hypervisor: [Android Emulator hypervisor driver](https://github.com/google/android-emulator-hypervisor-driver). However, the Android Emulator hypervisor driver will be sunset on December 31, 2026. Android Emulator users on Windows will have until the end of 2026 to transition by enabling Windows Hypervisor Platform. Before that, you can still use the Android Emulator hypervisor driver. [Configure VM acceleration using Android Emulator hypervisor driver](#vm-windows-aehd) is still included in this document but will be removed after December 31, 2026.
++> [!NOTE]
++> **Note:** The Android Emulator supports another hypervisor: [Android Emulator hypervisor driver](https://github.com/google/android-emulator-hypervisor-driver). However, the Android Emulator hypervisor driver will be sunset on December 31, 2026. Android Emulator users on Windows will have until the end of 2026 to transition by enabling Windows Hypervisor Platform. Before that, you can still use the Android Emulator hypervisor driver. [Configure VM acceleration using Android Emulator hypervisor driver](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-aehd) is still included in this document but will be removed after December 31, 2026.
+ 
+ #### Configure VM acceleration using Windows Hypervisor Platform
+ 
+ Before you can enable WHPX, your computer must meet the following requirements:
+ 
+-* Intel processors: Support for Virtualization Technology (VT-x), Extended Page
+-  Tables (EPT), and Unrestricted Guest (UG) features. VT-x must be enabled in
+-  your computer's BIOS settings.
+-* AMD processors: AMD Ryzen processor recommended. Virtualization or SVM must
+-  be enabled in your computer's BIOS settings.
+-* [Android Studio 3.2 Beta 1 or higher](/studio/preview)
+-* [Android Emulator version 27.3.8 or higher](/studio/intro/update#sdk-manager)
+-* Windows 10 or higher
++- Intel processors: Support for Virtualization Technology (VT-x), Extended Page Tables (EPT), and Unrestricted Guest (UG) features. VT-x must be enabled in your computer's BIOS settings.
++- AMD processors: AMD Ryzen processor recommended. Virtualization or SVM must be enabled in your computer's BIOS settings.
++- [Android Studio 3.2 Beta 1 or higher](https://developer.android.com/studio/preview)
++- [Android Emulator version 27.3.8 or higher](https://developer.android.com/studio/intro/update#sdk-manager)
++- Windows 10 or higher
+ 
+ To install WHPX on Windows, follow these steps:
+ 
+@@ -270,53 +234,53 @@ To install WHPX on Windows, follow these steps:
+ 
+    The **Turn Windows features on or off** control panel should appear, and
+    be selected.
+-   ![](/static/studio/images/run/windows-features-on-off-windows11.png)
++   ![](https://developer.android.com/static/studio/images/run/windows-features-on-off-windows11.png)
+ 3. Press the Enter key, or click **Turns Windows Features on or off**, to launch
+    the control panel.
++
+ 4. Check the box next to **Windows Hypervisor Platform**.
+ 
+-   ![](/static/studio/images/run/whpx_windows10_1803.png)
++   ![](https://developer.android.com/static/studio/images/run/whpx_windows10_1803.png)
+ 5. Click **OK**.
++
+ 6. Once the installation has finished, restart your computer.
+ 
+ #### Configure VM acceleration using Android Emulator hypervisor driver (AEHD) on Windows
+ 
+-**Note:** Android Emulator hypervisor driver will be sunset on December 31, 2026.
+-Android Emulator users on Windows will have until the end of 2026 to transition
+-by enabling Windows Hypervisor Platform and performing the required system
+-reboot.
++> [!NOTE]
++> **Note:** Android Emulator hypervisor driver will be sunset on December 31, 2026. Android Emulator users on Windows will have until the end of 2026 to transition by enabling Windows Hypervisor Platform and performing the required system reboot.
+ 
+ Before you can install and use the Android Emulator hypervisor driver, your
+ computer must meet the following requirements:
+ 
+-* Intel or AMD processors with virtualization extension.
+-* 64-bit Windows 11 or Windows 10 (32-bit Windows is not
++- Intel or AMD processors with virtualization extension.
++- 64-bit Windows 11 or Windows 10 (32-bit Windows is not
+   supported)
+ 
+   Windows 8.1, Windows 8 and Windows 7 users can continue using AEHD 1.7
+   or lower. However, there will be no support provided for such scenarios.
+-* Features which also use the Windows Hyper-V Hypervisor must be disabled in the
++- Features which also use the Windows Hyper-V Hypervisor must be disabled in the
+   Windows Features Dialog.
+ 
+   Certain Windows components also activate and use the Windows Hyper-V
+   Hypervisor, even when the Windows Hypervisor Platform is not selected in the
+-  Windows Features Dialog. These include security features such as **Hyper-V**,
+-  **Core Isolation**, and others. (Note that the **Hyper-V** feature is NOT the
++  Windows Features Dialog. These include security features such as **Hyper-V** ,
++  **Core Isolation** , and others. (Note that the **Hyper-V** feature is NOT the
+   same as the Hyper-V Hypervisor.) If you need these features, use
+-  [WHPX](#vm-windows-whpx) instead.
++  [WHPX](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx) instead.
+ 
+ On AMD Processors, the Android Emulator hypervisor driver can be installed via
+-the [SDK Manager](/studio/intro/update#sdk-manager) in Android Studio 4.0 Canary
++the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) in Android Studio 4.0 Canary
+ 5 or later.
+ 
+ On Intel Processors, the Android Emulator hypervisor driver can be installed via
+-the [SDK Manager](/studio/intro/update#sdk-manager) in Android Studio Flamingo
++the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) in Android Studio Flamingo
+ or later.
+ 
+ To install from the SDK Manager,
+ follow these steps:
+ 
+-1. Select **Tools >** SDK Manager.
++1. Select **Tools \>** SDK Manager.
+ 2. Click the **SDK Tools** tab and select **Android Emulator hypervisor
+    driver**.
+ 3. Click **OK** to download and install the Android Emulator hypervisor driver.
+@@ -325,55 +289,43 @@ follow these steps:
+ 
+    **AEHD 2.1 and higher**
+ 
+-   ```
+-   sc query aehd
+-   ```
++       sc query aehd
+ 
+    A status message includes the following information:
+ 
+-   ```
+-   SERVICE_NAME: aehd
+-          ...
+-          STATE              : 4  RUNNING
+-          ...
+-   ```
++       SERVICE_NAME: aehd
++              ...
++              STATE              : 4  RUNNING
++              ...
+ 
+    The following error message means either that virtualization extension is not
+    enabled in your BIOS or that Hyper-V is not disabled:
+ 
+-   ```
+-   SERVICE_NAME: aehd
+-          ...
+-          STATE              : 1  STOPPED
+-          WIN32_EXIT_CODE    : 4294967201 (0xffffffa1)
+-          ...
+-   ```
++       SERVICE_NAME: aehd
++              ...
++              STATE              : 1  STOPPED
++              WIN32_EXIT_CODE    : 4294967201 (0xffffffa1)
++              ...
+ 
+    **AEHD 2.0 and lower**
+ 
+-   ```
+-   sc query gvm
+-   ```
++       sc query gvm
+ 
+    A status message includes the following information:
+ 
+-   ```
+-   SERVICE_NAME: gvm
+-          ...
+-          STATE              : 4  RUNNING
+-          ...
+-   ```
++       SERVICE_NAME: gvm
++              ...
++              STATE              : 4  RUNNING
++              ...
+ 
+    The following error message means either that virtualization extension is not
+    enabled in your BIOS or that Hyper-V is not disabled:
+ 
+-   ```
+-   SERVICE_NAME: gvm
+-          ...
+-          STATE              : 1  STOPPED
+-          WIN32_EXIT_CODE    : 4294967201 (0xffffffa1)
+-          ...
+-   ```
++       SERVICE_NAME: gvm
++              ...
++              STATE              : 1  STOPPED
++              WIN32_EXIT_CODE    : 4294967201 (0xffffffa1)
++              ...
+ 
+ The Android Emulator hypervisor driver can also be downloaded and installed from
+ [GitHub](https://github.com/google/android-emulator-hypervisor-driver/releases).
+@@ -385,20 +337,16 @@ command line with administrator privileges:
+ 
+ **AEHD 2.1 and higher**
+ 
+-```
+-   sc stop aehd
+-   sc delete aehd
+-```
++       sc stop aehd
++       sc delete aehd
+ 
+ **AEHD 2.0 and lower**
+ 
+-```
+-   sc stop gvm
+-   sc delete gvm
+-```
++       sc stop gvm
++       sc delete gvm
+ 
+-**Note:** Shut down any x86 emulators before uninstalling the Android Emulator
+-hypervisor driver for AMD.
++> [!NOTE]
++> **Note:** Shut down any x86 emulators before uninstalling the Android Emulator hypervisor driver for AMD.
+ 
+ ### Configure VM acceleration on macOS
+ 
+@@ -408,8 +356,8 @@ which requires the macOS v10.10 (Yosemite) and higher. However, Android Studio
+ may require higher version for the macOS. In such cases, follow the Android
+ Studio system requirements.
+ 
+-**Note:** The Android Emulator had supported Intel HAXM on macOS in the past, but
+-this option is not available anymore since macOS v11.
++> [!NOTE]
++> **Note:** The Android Emulator had supported Intel HAXM on macOS in the past, but this option is not available anymore since macOS v11.
+ 
+ ### Configure VM acceleration on Linux
+ 
+@@ -427,13 +375,12 @@ sufficient permissions as specified in the KVM installation instructions.
+ To use VM acceleration on Linux, your computer must also meet these
+ requirements:
+ 
+-* For Intel processors: Support for Virtualization Technology (VT-x), Intel
+-  EM64T (Intel 64) features, and Execute Disable (XD) Bit functionality enabled.
+-* For AMD processors: Support for AMD Virtualization (AMD-V).
++- For Intel processors: Support for Virtualization Technology (VT-x), Intel EM64T (Intel 64) features, and Execute Disable (XD) Bit functionality enabled.
++- For AMD processors: Support for AMD Virtualization (AMD-V).
+ 
+ #### Check whether KVM is installed on Linux
+ 
+-You can use the emulator [`-accel-check`](#accel-check)
++You can use the emulator [`-accel-check`](https://developer.android.com/studio/run/emulator-acceleration#accel-check)
+ command-line option to check whether you have KVM installed. Alternatively,
+ you can install the `cpu-checker` package containing the `kvm-ok` command.
+ 
+@@ -456,18 +403,14 @@ The following example shows how to use the `kvm-ok` command:
+ 
+    Expected output:
+ 
+-   ```
+-   INFO: /dev/kvm exists
+-   KVM acceleration can be used
+-   ```
++       INFO: /dev/kvm exists
++       KVM acceleration can be used
+ 
+    If you get the following error, it means that you can still run virtual
+    machines. However, your virtual machine is slower without the KVM extensions.
+ 
+-   ```
+-   INFO: Your CPU does not support KVM extensions
+-   KVM acceleration can NOT be used
+-   ```
++       INFO: Your CPU does not support KVM extensions
++       KVM acceleration can NOT be used
+ 
+ #### Install KVM on Linux
+ 
+@@ -479,18 +422,24 @@ Cosmic (18.10) or later:
+ sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+ ```
+ 
++<br />
++
+ Lucid (10.04) or later:
+ 
+ ```
+ sudo apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
+ ```
+ 
++<br />
++
+ Karmic (9.10) or earlier:
+ 
+ ```
+ sudo aptitude install kvm libvirt-bin ubuntu-vm-builder bridge-utils
+ ```
+ 
++<br />
++
+ ### Guide for Intel HAXM Uninstallation
+ 
+ HAXM is deprecated for quite some time (01/2023) as [Intel discontinues
+@@ -499,7 +448,7 @@ development of HAXM](https://github.com/intel/haxm).
+ Starting from emulator 36.2.x.x, the Android Emulator won't use HAXM
+ anymore, and in case you were using it before, we will need to install a new
+ hypervisor driver. We would recommend using the Windows Hypervisor Platform
+-([WHPX](#vm-windows-whpx)) from Microsoft.
++([WHPX](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx)) from Microsoft.
+ 
+ It is recommended to remove Intel HAXM completely from your Windows system,
+ unless you have other software installed that depends on HAXM and you choose
+@@ -509,30 +458,28 @@ To uninstall Intel HAXM, follow these steps:
+ 
+ #### Check whether Intel HAXM is installed
+ 
+-**Note:** Don't rely on the package status of Intel HAXM from the SDK manager. SDK
+-manager may fail to check the existence of Intel HAXM.
++> [!NOTE]
++> **Note:** Don't rely on the package status of Intel HAXM from the SDK manager. SDK manager may fail to check the existence of Intel HAXM.
+ 
+ To determine whether Intel HAXM is installed on your Windows system, open a
+ Windows command console and run the following command:
+ 
+-```
+-   sc query intelhaxm
+-```
++       sc query intelhaxm
+ 
+ If Intel HAXM is installed and running, you should see the following message
+ in the command output.
+-![](/static/studio/images/run/HAXM/HAXM_check_installed.png)
++![](https://developer.android.com/static/studio/images/run/HAXM/HAXM_check_installed.png)
+ 
+ If Intel HAXM is installed but disabled, you should see the following message
+ in the command output.
+-![](/static/studio/images/run/HAXM/HAXM_check_disabled.png)
++![](https://developer.android.com/static/studio/images/run/HAXM/HAXM_check_disabled.png)
+ 
+ In both cases, regardless whether Intel HAXM is running or disabled, it is
+ installed. You need to go to the **next step** to continue to uninstall Intel
+ HAXM.
+ 
+ If Intel HAXM is not installed, you should see the following message.
+-![](/static/studio/images/run/HAXM/HAXM_check_not_installed.png)
++![](https://developer.android.com/static/studio/images/run/HAXM/HAXM_check_not_installed.png)
+ 
+ #### Uninstall Intel HAXM using SDK manager from the Android Studio
+ 
+@@ -541,44 +488,45 @@ the module listed in the "SDK Tools" tab.
+ Open the SDK manager from the Android Studio, get to the "SDK Tools" tab, then
+ navigate to the "Intel x86 Emulator Accelerator (HAXM installer) - Deprecated"
+ line. It should look like the following screenshot.
+-![](/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_1.png)
++![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_1.png)
+ 
+ Clear the checkbox as shown in the following screenshot.
+-![](/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_2.png)
++![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_2.png)
+ 
+ Click "Apply" button and the following dialog should pop up.
+-![](/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_3.png)
++![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_3.png)
+ 
+ When Intel HAXM is successfully uninstalled, you should see the following.
+-Uninstallation is done and you can **stop here**.
+-![](/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_4.png)
++Uninstallation is done and you can **stop here** .
++![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_SDK_Manager_4.png)
+ 
+ In case of any errors, continue to the **next step**.
+ 
+ #### Uninstall Intel HAXM using Windows "settings".
+ 
+-Open Windows "settings" and navigate to "Apps > Installed apps".
++Open Windows "settings" and navigate to "Apps \> Installed apps".
+ 
+ Locate the "Intel Hardware Accelerated Execution Manager" entry and click
+ "Uninstall", as shown in the following screenshot.
+-![](/static/studio/images/run/HAXM/Uninstall_from_Windows_Settings.png)
++![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_from_Windows_Settings.png)
+ 
+ The Intel HAXM uninstaller should run and report the result. If the
+-uninstallation is successful, go to **Delete Intel HAXM installer package**.
++uninstallation is successful, go to **Delete Intel HAXM installer package** .
+ Otherwise, continue to the **next step**.
+ 
+ #### Uninstall using command line
+ 
+-**Note:** This is a manual process by running the commands requiring the admin
+-privilege. Open a Windows command console as admin and run the following
+-commands.
++> [!NOTE]
++> **Note:** This is a manual process by running the commands requiring the admin privilege. Open a Windows command console as admin and run the following commands.
+ 
+ 1. Stop Intel HAXM service by running 'sc stop intelhaxm'. You should see the
+    following output.
+-   ![](/static/studio/images/run/HAXM/Uninstall_Manually_1.png)
++   ![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_Manually_1.png)
++
+ 2. Delete Intel HAXM service by running 'sc delete intelhaxm'. You should see
+    the following output.
+-   ![](/static/studio/images/run/HAXM/Uninstall_Manually_2.png)
++   ![](https://developer.android.com/static/studio/images/run/HAXM/Uninstall_Manually_2.png)
++
+ 3. Go to **Delete Intel HAXM installer package**.
+ 
+ #### Delete Intel HAXM installer package.
+@@ -587,7 +535,7 @@ This step is only required when uninstalling Intel HAXM using Windows "settings"
+ or command line. Without this step, the SDK manager of the Android Studio may
+ continue listing Intel HAXM as "Installed".
+ 
+-The installer package is located at<Your Android SDK folder>\extras\intel.
+-By default, Android SDK will be installed at "C:\Users\<Your Windows User ID
+->\AppData\Local\Android\Sdk". See example in the following screenshot.
+-![](/static/studio/images/run/HAXM/Delete_HAXM_package.png)
+\ No newline at end of file
++The installer package is located at\<Your Android SDK folder\>\\extras\\intel.
++By default, Android SDK will be installed at "C:\\Users\\\<Your Windows User ID
++\>\\AppData\\Local\\Android\\Sdk". See example in the following screenshot.
++![](https://developer.android.com/static/studio/images/run/HAXM/Delete_HAXM_package.png)
+\ No newline at end of file

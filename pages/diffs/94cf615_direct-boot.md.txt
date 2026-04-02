@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/direct-boot.md b/docs/privacy-and-security/direct-boot.md
+index 25b2f37..285cc8d 100644
+--- a/docs/privacy-and-security/direct-boot.md
++++ b/docs/privacy-and-security/direct-boot.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android 7.0 runs in a secure, *Direct Boot* mode
+ when the device has been powered on but the user hasn't unlocked the
+ device. To support this, the system provides two storage locations for data:

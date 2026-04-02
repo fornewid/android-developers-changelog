@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components.md b/docs/develop/ui/compose/components.md
+index a65f638..7901645 100644
+--- a/docs/develop/ui/compose/components.md
++++ b/docs/develop/ui/compose/components.md
+@@ -16,6 +16,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ ### Material components in Compose
+ 
+ Jetpack Compose offers an implementation of Material Design, a comprehensive design system for creating digital interfaces. You can use composable functions to implement Material components.

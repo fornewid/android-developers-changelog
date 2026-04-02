@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect/read-data.md b/docs/health-and-fitness/health-connect/read-data.md
+index e64a242..7f65f5b 100644
+--- a/docs/health-and-fitness/health-connect/read-data.md
++++ b/docs/health-and-fitness/health-connect/read-data.md
+@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
++
+ The following example shows you how to read raw data as part of the common
+ workflow.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/navigation-rail.md b/docs/develop/ui/compose/components/navigation-rail.md
+index 3468eb9..8ba8e80 100644
+--- a/docs/develop/ui/compose/components/navigation-rail.md
++++ b/docs/develop/ui/compose/components/navigation-rail.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Rails provide access to destinations in apps that run on devices with large
+ screens. You should use navigation rails for:
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/training/testing/espresso/cheat-sheet.md b/docs/training/testing/espresso/cheat-sheet.md
+index 206d35f..a4c4657 100644
+--- a/docs/training/testing/espresso/cheat-sheet.md
++++ b/docs/training/testing/espresso/cheat-sheet.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Espresso Cheat Sheet is a quick reference you can use during development.
+ This cheat sheet contains most available instances of `Matcher`, `ViewAction`,
+ and `ViewAssertion`.

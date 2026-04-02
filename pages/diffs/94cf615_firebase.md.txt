@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/firebase.md b/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/firebase.md
+index 8aea4e2..0cfe4a8 100644
+--- a/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/firebase.md
++++ b/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/firebase.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ WorkManager is a library for scheduling and executing deferrable background work
+ in Android. It is the recommended replacement for Firebase JobDispatcher. The
+ following guide will walk you through the process of migrating your Firebase

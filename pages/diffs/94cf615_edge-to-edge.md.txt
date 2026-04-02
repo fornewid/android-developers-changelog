@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/edge-to-edge.md b/docs/develop/ui/views/layout/edge-to-edge.md
+index 218a3b2..ed65acf 100644
+--- a/docs/develop/ui/views/layout/edge-to-edge.md
++++ b/docs/develop/ui/views/layout/edge-to-edge.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with edge-to-edge in Compose.

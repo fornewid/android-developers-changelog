@@ -1,0 +1,178 @@
+diff --git a/docs/guide/topics/resources/multilingual-support.md b/docs/guide/topics/resources/multilingual-support.md
+index 6414f9c..24f208e 100644
+--- a/docs/guide/topics/resources/multilingual-support.md
++++ b/docs/guide/topics/resources/multilingual-support.md
+@@ -1,17 +1,9 @@
+ ---
+-title: Language and locale resolution overview  |  App architecture  |  Android Developers
++title: https://developer.android.com/guide/topics/resources/multilingual-support
+ url: https://developer.android.com/guide/topics/resources/multilingual-support
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [App architecture](https://developer.android.com/topic/architecture/intro)
+-
+-# Language and locale resolution overview Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Starting in Android 7.0 (API level 24),
+ Android provides enhanced support for multilingual users,
+ allowing them to select multiple locales in settings. Android
+@@ -31,10 +23,8 @@ match app and system locales.
+ 
+ For example, assume that you have the following situation:
+ 
+-* Your app's default language is `en_US` (US English), and it also has
+-  Spanish strings localized in `es_ES`
+-  resource files.
+-* A device is set to `es_MX`
++- Your app's default language is `en_US` (US English), and it also has Spanish strings localized in `es_ES` resource files.
++- A device is set to `es_MX`
+ 
+ When your Java code refers to strings, the system would load
+ strings from the default (`en_US`) resource file, even if the app has
+@@ -46,11 +36,12 @@ back to the default, which is `en_US`.
+ The system would also default to `en_US` if the user chose a language that
+ the app didn't support at all, like French. For example:
+ 
++
+ **Table 1.** Resource resolution without an exact locale match.
+ 
+ | User Settings | App Resources | Resource Resolution |
+-| --- | --- | --- |
+-| fr\_CH | default (en)  de\_DE  es\_ES  fr\_FR  it\_IT | Try fr\_CH => Fail  Try fr => Fail  Use default (en) |
++|---|---|---|
++| fr_CH | default (en) de_DE es_ES fr_FR it_IT | Try fr_CH =\> Fail Try fr =\> Fail Use default (en) |
+ 
+ In this example, the system displays English strings without
+ knowing whether the user can understand English. This behavior is pretty common
+@@ -79,12 +70,13 @@ reliability of resource resolution.
+ With versions of Android greater than 7.0, the case described in
+ **Table 1** is resolved differently:
+ 
++
+ **Table 2.** An improved resolution strategy for when there is no
+ exact locale match.
+ 
+ | User Settings | App Resources | Resource Resolution |
+-| --- | --- | --- |
+-| 1. fr\_CH | default (en)  de\_DE  es\_ES  fr\_FR  it\_IT | Try fr\_CH => Fail  Try fr => Fail  Try children of fr => fr\_FR  Use fr\_FR |
++|---|---|---|
++| 1. fr_CH | default (en) de_DE es_ES fr_FR it_IT | Try fr_CH =\> Fail Try fr =\> Fail Try children of fr =\> fr_FR Use fr_FR |
+ 
+ Now the user gets French resources instead of English. This example also shows
+ why you should store French strings in `fr` rather than `fr_FR`
+@@ -93,17 +85,19 @@ to match the closest parent dialect,
+ making resolution faster and more predictable.
+ 
+ In addition to this improved resolution logic, Android now offers more
+-user languages to choose from. Let’s try the above example again with Italian
++user languages to choose from. Let's try the above example again with Italian
+ specified as an additional user language, but without app support for French.
+ 
++
+ **Table 3.** Resource resolution when the app only matches the
+ user's second-preferred locale setting.
+ 
+ | User Settings | App Resources | Resource Resolution |
+-| --- | --- | --- |
+-| 1. fr\_CH 2. it\_CH | default (en)  de\_DE  es\_ES  it\_IT | Try fr\_CH => Fail  Try fr => Fail  Try children of fr => Fail  Try it\_CH => Fail  Try it => Fail  Try children of it => it\_IT  Use it\_IT |
++|---|---|---|
++| 1. fr_CH 2. it_CH | default (en) de_DE es_ES it_IT | Try fr_CH =\> Fail Try fr =\> Fail Try children of fr =\> Fail Try it_CH =\> Fail Try it =\> Fail Try children of it =\> it_IT Use it_IT |
++
+ 
+-The user still gets a language they understand, even though the app doesn’t
++The user still gets a language they understand, even though the app doesn't
+ support French.
+ 
+ ## Designing your app to support additional locales
+@@ -114,15 +108,16 @@ accommodate different languages and formatting conventions, in a scalable way.
+ 
+ ### Specify the languages your app supports
+ 
++
+ To ensure that languages are resolved correctly, specify the languages your app supports using the
+ `resConfigs` property in the module-level `build.gradle` file.
+ 
+ The following code sample shows how to use `resConfigs` to denote languages supported.
+-In this example, the app supports both English and Spanish.
++In this example, the app supports both English and Spanish.  
+ 
+ ### Groovy
+ 
+-```
++```groovy
+ android {
+     defaultConfig {
+         ...
+@@ -133,7 +128,7 @@ android {
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ android {
+     defaultConfig {
+         ...
+@@ -141,23 +136,23 @@ android {
+     }
+ }
+ ```
+-
+-Due to the way the build system merges resources from your app and its dependencies, you must
+-specify supported languages in this way to ensure that user language settings are received correctly.
++Due to the way the build system merges resources from your app and its dependencies, you must specify supported languages in this way to ensure that user language settings are received correctly.
+ 
+ ### LocaleList API
+ 
++
+ Starting with Android 7.0 (API level 24), Android exposes the
+ `LocaleList.getDefault()` API
+ that lets apps directly query the list of languages a user has specified. This API
+ allows you to create more sophisticated
+ app behavior and better-optimized display of content. For example, Search
+-can show results in multiple languages based on user’s settings. Browser apps
++can show results in multiple languages based on user's settings. Browser apps
+ can avoid offering to translate pages in a language the user already knows,
+ and keyboard apps can auto-enable all appropriate layouts.
+ 
+ ### Formatters
+ 
++
+ Up through Android 6.0 (API level 23), Android supported only one or
+ two locales
+ for many common languages
+@@ -171,24 +166,13 @@ a confusing experience for end users.
+ Therefore, when developing for Android 7.0 or higher versions,
+ make sure to use formatters instead of hard coding numbers and date strings.
+ 
++
+ For example, Android 7.0 and higher includes support for
+ 27 Arabic locales. These locales can share most resources,
+ but some prefer ASCII digits, while others prefer native digits. For example,
+ when you want to create a sentence with a digit variable, such as
+-"Choose a 4 digit pin", use formatters as shown below:
++"Choose a 4 digit pin", use formatters as shown below:  
+ 
+ ```
+  format(locale, "Choose a %d-digit PIN", 4)
+-```
+-
+-[Previous
+-
+-arrow\_back
+-
+-Unicode and internationalization support](/guide/topics/resources/internationalization)
+-
+-[Next
+-
+-Per-app language preferences
+-
+-arrow\_forward](/guide/topics/resources/app-languages)
+\ No newline at end of file
++```
+\ No newline at end of file

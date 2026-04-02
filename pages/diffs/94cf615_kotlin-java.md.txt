@@ -1,0 +1,421 @@
+diff --git a/docs/guide/playcore/in-app-updates/kotlin-java.md b/docs/guide/playcore/in-app-updates/kotlin-java.md
+index f48d322..e45143e 100644
+--- a/docs/guide/playcore/in-app-updates/kotlin-java.md
++++ b/docs/guide/playcore/in-app-updates/kotlin-java.md
+@@ -1,36 +1,27 @@
+ ---
+-title: Support in-app updates (Kotlin or Java)  |  Other Play guides  |  Android Developers
++title: https://developer.android.com/guide/playcore/in-app-updates/kotlin-java
+ url: https://developer.android.com/guide/playcore/in-app-updates/kotlin-java
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-* [Other Play guides](https://developer.android.com/guide/app-bundle)
+-
+-# Support in-app updates (Kotlin or Java) Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-This guide describes how to support [in-app updates](/guide/playcore/in-app-updates) in your app using either
++This guide describes how to support [in-app updates](https://developer.android.com/guide/playcore/in-app-updates) in your app using either
+ Kotlin or Java. There are separate guides for cases where your implementation
+-uses [native code (C/C++)](/guide/playcore/in-app-updates/native) and cases where your implementation uses
+-[Unity](/guide/playcore/in-app-updates/unity) or [Unreal Engine](/guide/playcore/in-app-updates/unreal-engine).
++uses [native code (C/C++)](https://developer.android.com/guide/playcore/in-app-updates/native) and cases where your implementation uses
++[Unity](https://developer.android.com/guide/playcore/in-app-updates/unity) or [Unreal Engine](https://developer.android.com/guide/playcore/in-app-updates/unreal-engine).
+ 
+ ## Set up your development environment
+ 
+-The Play In-App Update Library is a part of the [Google Play Core libraries](/guide/playcore).
++The Play In-App Update Library is a part of the [Google Play Core libraries](https://developer.android.com/guide/playcore).
+ Include the following Gradle dependency to integrate the Play In-App Update
+ Library.
+ 
+ ### Groovy
+ 
+-```
++```groovy
+ // In your app's build.gradle file:
+ ...
+ dependencies {
+-    // This dependency is downloaded from the Google's Maven repository.
++    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+     // So, make sure you also include that repository in your project's build.gradle file.
+     implementation 'com.google.android.play:app-update:2.1.0'
+ 
+@@ -42,11 +33,11 @@ dependencies {
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ // In your app's build.gradle.kts file:
+ ...
+ dependencies {
+-    // This dependency is downloaded from the Google's Maven repository.
++    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+     // So, make sure you also include that repository in your project's build.gradle file.
+     implementation("com.google.android.play:app-update:2.1.0")
+ 
+@@ -59,11 +50,11 @@ dependencies {
+ ## Check for update availability
+ 
+ Before requesting an update, check if there is an update available for your app.
+-Use [`AppUpdateManager`](/reference/com/google/android/play/core/appupdate/AppUpdateManager) to check for an update:
++Use [`AppUpdateManager`](https://developer.android.com/reference/com/google/android/play/core/appupdate/AppUpdateManager) to check for an update:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ val appUpdateManager = AppUpdateManagerFactory.create(context)
+ 
+ // Returns an intent object that you use to check for an update.
+@@ -83,7 +74,7 @@ appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+ 
+ ### Java
+ 
+-```
++```java
+ AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(context);
+ 
+ // Returns an intent object that you use to check for an update.
+@@ -100,14 +91,12 @@ appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
+ });
+ ```
+ 
+-The returned [`AppUpdateInfo`](/reference/com/google/android/play/core/appupdate/AppUpdateInfo) instance contains the update availability
++The returned [`AppUpdateInfo`](https://developer.android.com/reference/com/google/android/play/core/appupdate/AppUpdateInfo) instance contains the update availability
+ status. Depending on the status of the update, the instance also contains the
+ following:
+ 
+-* If an update is available and the update is allowed, the instance also
+-  contains an intent to start the update.
+-* If an in-app update is already in progress, the instance also reports the
+-  status of the in-progress update.
++- If an update is available and the update is allowed, the instance also contains an intent to start the update.
++- If an in-app update is already in progress, the instance also reports the status of the in-progress update.
+ 
+ ### Check update staleness
+ 
+@@ -118,12 +107,12 @@ flexible update or an immediate update. For example, you might wait a few days
+ before notifying the user with a flexible update, and a few days after that
+ before requiring an immediate update.
+ 
+-Use [`clientVersionStalenessDays()`](/reference/com/google/android/play/core/appupdate/AppUpdateInfo#clientVersionStalenessDays()) to check the number of days since the
++Use [`clientVersionStalenessDays()`](https://developer.android.com/reference/com/google/android/play/core/appupdate/AppUpdateInfo#clientVersionStalenessDays()) to check the number of days since the
+ update became available on the Play Store:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ val appUpdateManager = AppUpdateManagerFactory.create(context)
+ 
+ // Returns an intent object that you use to check for an update.
+@@ -142,7 +131,7 @@ appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+ 
+ ### Java
+ 
+-```
++```java
+ AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(context);
+ 
+ // Returns an intent object that you use to check for an update.
+@@ -166,13 +155,9 @@ The Google Play Developer API lets you set the priority of each update. This
+ allows your app to decide how strongly to recommend an update to the user. For
+ example, consider the following strategy for setting update priority:
+ 
+-* Minor UI improvements: **Low-priority** update; request neither a flexible
+-  update nor an immediate update. Update only when the user isn't interacting
+-  with your app.
+-* Performance improvements: **Medium-priority** update; request a flexible
+-  update.
+-* Critical security update: **High-priority** update; request an immediate
+-  update.
++- Minor UI improvements: **Low-priority** update; request neither a flexible update nor an immediate update. Update only when the user isn't interacting with your app.
++- Performance improvements: **Medium-priority** update; request a flexible update.
++- Critical security update: **High-priority** update; request an immediate update.
+ 
+ To determine priority, Google Play uses an integer value between 0 and 5, with 0
+ being the default and 5 being the highest priority. To set the priority for an
+@@ -187,7 +172,7 @@ the [`Edit.tracks`](https://developers.google.com/android-publisher/api-ref/rest
+ method. The following example demonstrates releasing an app with version code 88
+ and `inAppUpdatePriority` 5:
+ 
+-```
++```json
+ {
+   "releases": [{
+       "versionCodes": ["88"],
+@@ -198,21 +183,21 @@ and `inAppUpdatePriority` 5:
+ ```
+ 
+ In your app's code, you can check the priority level for a given update using
+-[`updatePriority()`](/reference/com/google/android/play/core/appupdate/AppUpdateInfo#updatePriority()). The returned priority takes into account the
++[`updatePriority()`](https://developer.android.com/reference/com/google/android/play/core/appupdate/AppUpdateInfo#updatePriority()). The returned priority takes into account the
+ `inAppUpdatePriority` for all app version codes between the installed version
+ and latest available version, irrespective of the release track. For example,
+ consider the following scenario:
+ 
+-* You release version 1 to a production track with no priority.
+-* You release version 2 to an internal test track with priority 5.
+-* You release version 3 to a production track with no priority.
++- You release version 1 to a production track with no priority.
++- You release version 2 to an internal test track with priority 5.
++- You release version 3 to a production track with no priority.
+ 
+ When production users update from version 1 to version 3, they will get priority
+ 5, even though version 2 was published on a different track.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ val appUpdateManager = AppUpdateManagerFactory.create(context)
+ 
+ // Returns an intent object that you use to check for an update.
+@@ -231,7 +216,7 @@ appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+ 
+ ### Java
+ 
+-```
++```java
+ AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(context);
+ 
+ // Returns an intent object that you use to check for an update.
+@@ -251,11 +236,11 @@ appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
+ ## Start an update
+ 
+ After you confirm that an update is available, you can request an update using
+-[`AppUpdateManager.startUpdateFlowForResult()`](/reference/com/google/android/play/core/appupdate/AppUpdateManager#startupdateflowforresult):
++[`AppUpdateManager.startUpdateFlowForResult()`](https://developer.android.com/reference/com/google/android/play/core/appupdate/AppUpdateManager#startupdateflowforresult):
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ appUpdateManager.startUpdateFlowForResult(
+     // Pass the intent that is returned by 'getAppUpdateInfo()'.
+     appUpdateInfo,
+@@ -268,7 +253,7 @@ appUpdateManager.startUpdateFlowForResult(
+ 
+ ### Java
+ 
+-```
++```java
+ appUpdateManager.startUpdateFlowForResult(
+     // Pass the intent that is returned by 'getAppUpdateInfo()'.
+     appUpdateInfo,
+@@ -279,31 +264,30 @@ appUpdateManager.startUpdateFlowForResult(
+     AppUpdateOptions.newBuilder(AppUpdateType.IMMEDIATE).build());
+ ```
+ 
+-**Note:** Be mindful of how often you request updates to avoid annoying or tiring
+-your users. You should only request in-app updates for changes that are
+-important to the core functionality of your app.
++> [!NOTE]
++> **Note:** Be mindful of how often you request updates to avoid annoying or tiring your users. You should only request in-app updates for changes that are important to the core functionality of your app.
+ 
+ Each `AppUpdateInfo` instance can be used to start an update only once. To retry
+ the update in case of failure, request a new `AppUpdateInfo` and check again
+ that the update is available and allowed.
+ 
+ You can register an activity result launcher using the built-in
+-[`ActivityResultContracts.StartIntentSenderForResult`](/reference/androidx/activity/result/contract/ActivityResultContracts.StartIntentSenderForResult) contract. Check the
+-section on [getting callback for update status](#status-callback).
++[`ActivityResultContracts.StartIntentSenderForResult`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts.StartIntentSenderForResult) contract. Check the
++section on [getting callback for update status](https://developer.android.com/guide/playcore/in-app-updates/kotlin-java#status-callback).
+ 
+-The next steps depend on whether you are requesting a [flexible update](#flexible) or
+-an [immediate update](#immediate).
++The next steps depend on whether you are requesting a [flexible update](https://developer.android.com/guide/playcore/in-app-updates/kotlin-java#flexible) or
++an [immediate update](https://developer.android.com/guide/playcore/in-app-updates/kotlin-java#immediate).
+ 
+ ### Configure an update with AppUpdateOptions
+ 
+-[`AppUpdateOptions`](/reference/com/google/android/play/core/appupdate/AppUpdateOptions) contains an `AllowAssetPackDeletion` field that defines
+-whether the update is allowed to clear [asset packs](/guide/app-bundle/asset-delivery) in case of limited
++[`AppUpdateOptions`](https://developer.android.com/reference/com/google/android/play/core/appupdate/AppUpdateOptions) contains an `AllowAssetPackDeletion` field that defines
++whether the update is allowed to clear [asset packs](https://developer.android.com/guide/app-bundle/asset-delivery) in case of limited
+ device storage. This field is set to `false` by default, but you can use the
+-[`setAllowAssetPackDeletion()`](/reference/com/google/android/play/core/appupdate/AppUpdateOptions.Builder#setallowassetpackdeletion) method to set it to `true` instead:
++[`setAllowAssetPackDeletion()`](https://developer.android.com/reference/com/google/android/play/core/appupdate/AppUpdateOptions.Builder#setallowassetpackdeletion) method to set it to `true` instead:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ appUpdateManager.startUpdateFlowForResult(
+     // Pass the intent that is returned by 'getAppUpdateInfo()'.
+     appUpdateInfo,
+@@ -318,7 +302,7 @@ appUpdateManager.startUpdateFlowForResult(
+ 
+ ### Java
+ 
+-```
++```java
+ appUpdateManager.startUpdateFlowForResult(
+     // Pass the intent that is returned by 'getAppUpdateInfo()'.
+     appUpdateInfo,
+@@ -331,9 +315,8 @@ appUpdateManager.startUpdateFlowForResult(
+         .build());
+ ```
+ 
+-**Caution:** Use the `AllowAssetPackDeletion` API option with care to avoid
+-accidentally deleting assets. Before setting this option to `true`, check
+-whether the update is allowed with this option set to `false`.
++> [!CAUTION]
++> **Caution:** Use the `AllowAssetPackDeletion` API option with care to avoid accidentally deleting assets. Before setting this option to `true`, check whether the update is allowed with this option set to `false`.
+ 
+ ### Get a callback for update status
+ 
+@@ -342,7 +325,7 @@ confirmation dialog result:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ registerForActivityResult(StartIntentSenderForResult()) { result: ActivityResult ->
+     // handle callback
+     if (result.resultCode != RESULT_OK) {
+@@ -355,7 +338,7 @@ registerForActivityResult(StartIntentSenderForResult()) { result: ActivityResult
+ 
+ ### Java
+ 
+-```
++```java
+ registerForActivityResult(
+     new ActivityResultContracts.StartIntentSenderForResult(),
+     new ActivityResultCallback<ActivityResult>() {
+@@ -374,13 +357,9 @@ registerForActivityResult(
+ There are several values you might receive from the `onActivityResult()`
+ callback:
+ 
+-* [`RESULT_OK`](/reference/android/app/Activity#RESULT_OK): The user has accepted the update. For immediate updates,
+-  you might not receive this callback because the update should already be
+-  finished by the time control is given back to your app.
+-* [`RESULT_CANCELED`](/reference/android/app/Activity#RESULT_CANCELED): The user has denied or canceled the update.
+-* [`ActivityResult.RESULT_IN_APP_UPDATE_FAILED`](/reference/com/google/android/play/core/install/model/ActivityResult#RESULT_IN_APP_UPDATE_FAILED): Some other error
+-  prevented either the user from providing consent or the update from
+-  proceeding.
++- [`RESULT_OK`](https://developer.android.com/reference/android/app/Activity#RESULT_OK): The user has accepted the update. For immediate updates, you might not receive this callback because the update should already be finished by the time control is given back to your app.
++- [`RESULT_CANCELED`](https://developer.android.com/reference/android/app/Activity#RESULT_CANCELED): The user has denied or canceled the update.
++- [`ActivityResult.RESULT_IN_APP_UPDATE_FAILED`](https://developer.android.com/reference/com/google/android/play/core/install/model/ActivityResult#RESULT_IN_APP_UPDATE_FAILED): Some other error prevented either the user from providing consent or the update from proceeding.
+ 
+ ## Handle a flexible update
+ 
+@@ -401,7 +380,7 @@ inform users of the download's progress.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ // Create a listener to track request state updates.
+ val listener = InstallStateUpdatedListener { state ->
+     // (Optional) Provide a download progress bar.
+@@ -424,7 +403,7 @@ appUpdateManager.unregisterListener(listener)
+ 
+ ### Java
+ 
+-```
++```java
+ // Create a listener to track request state updates.
+ InstallStateUpdatedListener listener = state -> {
+   // (Optional) Provide a download progress bar.
+@@ -464,7 +443,7 @@ that requests confirmation from the user to restart the app:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ val listener = { state ->
+     if (state.installStatus() == InstallStatus.DOWNLOADED) {
+         // After the update is downloaded, show a notification
+@@ -490,7 +469,7 @@ fun popupSnackbarForCompleteUpdate() {
+ 
+ ### Java
+ 
+-```
++```java
+ InstallStateUpdatedListener listener = state -> {
+     if (state.installStatus() == InstallStatus.DOWNLOADED) {
+         // After the update is downloaded, show a notification
+@@ -514,12 +493,12 @@ private void popupSnackbarForCompleteUpdate() {
+ }
+ ```
+ 
+-When you call [`appUpdateManager.completeUpdate()`](/reference/com/google/android/play/core/appupdate/AppUpdateManager#completeUpdate()) in the foreground, the
++When you call [`appUpdateManager.completeUpdate()`](https://developer.android.com/reference/com/google/android/play/core/appupdate/AppUpdateManager#completeUpdate()) in the foreground, the
+ platform displays a full-screen UI that restarts the app in the background.
+ After the platform installs the update, your app restarts into its main
+ activity.
+ 
+-If you instead call `completeUpdate()` when your app is [in the background](/guide/background#definition),
++If you instead call `completeUpdate()` when your app is [in the background](https://developer.android.com/guide/background#definition),
+ the update is installed silently without obscuring the device UI.
+ 
+ Whenever the user brings your app to the foreground, check whether your app has
+@@ -529,7 +508,7 @@ continues to occupy the user's device storage.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ // Checks that the update is not stalled during 'onResume()'.
+ // However, you should execute this check at all app entry points.
+ override fun onResume() {
+@@ -550,7 +529,7 @@ override fun onResume() {
+ 
+ ### Java
+ 
+-```
++```java
+ // Checks that the update is not stalled during 'onResume()'.
+ // However, you should execute this check at all app entry points.
+ @Override
+@@ -580,12 +559,12 @@ without additional user confirmation.
+ 
+ However, when your app returns to the foreground, you should confirm that the
+ update is not stalled in the
+-[`UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS`](/reference/com/google/android/play/core/install/model/UpdateAvailability#DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) state. If the
++[`UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS`](https://developer.android.com/reference/com/google/android/play/core/install/model/UpdateAvailability#DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) state. If the
+ update is stalled in this state, resume the update:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ // Checks that the update is not stalled during 'onResume()'.
+ // However, you should execute this check at all entry points into the app.
+ override fun onResume() {
+@@ -610,7 +589,7 @@ override fun onResume() {
+ 
+ ### Java
+ 
+-```
++```java
+ // Checks that the update is not stalled during 'onResume()'.
+ // However, you should execute this check at all entry points into the app.
+ @Override
+@@ -635,7 +614,7 @@ protected void onResume() {
+ ```
+ 
+ The update flow returns a result as described in the reference documentation for
+-[`startUpdateFlowForResult()`](/reference/com/google/android/play/core/appupdate/AppUpdateManager#startUpdateFlowForResult(com.google.android.play.core.appupdate.AppUpdateInfo,%20android.app.Activity,%20com.google.android.play.core.appupdate.AppUpdateOptions,%20int)). In particular, your app should be able to
++[`startUpdateFlowForResult()`](https://developer.android.com/reference/com/google/android/play/core/appupdate/AppUpdateManager#startUpdateFlowForResult(com.google.android.play.core.appupdate.AppUpdateInfo,%20android.app.Activity,%20com.google.android.play.core.appupdate.AppUpdateOptions,%20int)). In particular, your app should be able to
+ handle cases where a user declines the update or cancels the download. When the
+ user performs either of these actions, the Google Play UI closes. Your app
+ should determine the best way to proceed.
+@@ -648,5 +627,5 @@ when they're ready to install the required update.
+ 
+ ## Next steps
+ 
+-[Test your app's in-app updates](/guide/playcore/in-app-updates/test) to verify that your integration is working
++[Test your app's in-app updates](https://developer.android.com/guide/playcore/in-app-updates/test) to verify that your integration is working
+ correctly.
+\ No newline at end of file

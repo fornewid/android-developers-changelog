@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/core-uwb.md b/docs/jetpack/androidx/releases/core-uwb.md
+index 3d162ad..9e1d41f 100644
+--- a/docs/jetpack/androidx/releases/core-uwb.md
++++ b/docs/jetpack/androidx/releases/core-uwb.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Core Ultra Wideband (UWB)
+ 
+ API Reference  

@@ -1,0 +1,62 @@
+diff --git a/docs/studio/gemini/add-api-key.md b/docs/studio/gemini/add-api-key.md
+index b6a79a7..fcfc6bb 100644
+--- a/docs/studio/gemini/add-api-key.md
++++ b/docs/studio/gemini/add-api-key.md
+@@ -1,17 +1,26 @@
+ ---
+-title: https://developer.android.com/studio/gemini/add-api-key
++title: Add your own Gemini API key  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/studio/gemini/add-api-key
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-> [!NOTE]
+-> **Note:** The ability to add your own API key is only applicable if you're using Gemini's free tier. Business users have access to Gemini 2.5 Pro by default.
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Studio](https://developer.android.com/studio)
++* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
++
++# Add your own Gemini API key Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++**Note:** The ability to add your own API key is only applicable if you're using
++Gemini's free tier. Business users have access to Gemini 2.5 Pro by default.
+ 
+ The default Agent Mode in Android Studio has a no-cost daily quota with a
+ limited context window. To expand the context window, you can add your own
+ Gemini API key to take advantage of up to 1 million tokens with Gemini 3 Pro. To
+ learn how to add an API key when using third-party models, see [Use a remote
+-model](https://developer.android.com/studio/gemini/use-a-remote-model).
++model](/studio/gemini/use-a-remote-model).
+ 
+ A larger context window lets you send more instructions, code, and attachments
+ to Gemini, leading to even higher quality responses. This is especially useful
+@@ -20,14 +29,18 @@ ability to reason about complex or long-running tasks.
+ 
+ To get a Gemini API key:
+ 
+-1. In Android Studio, go to **File (Android Studio** on macOS) **\> Settings \>
+-   Tools \> AI \> Model Providers** and click **Gemini**.
+-2. Click **Get a Gemini API key** to open [Google AI Studio](https://aistudio.google.com/) and retrieve or create your API key.
+-3. Enter your Gemini API key in the **API key** field. A list of models appears in **Available models**.
+-4. Select the models you want to enable. You can choose from the enabled models when you send a prompt.
+-5. Select **Apply** to apply the updates (click **OK** to apply the updates and immediately exit the settings).
++1. In Android Studio, go to **File (Android Studio** on macOS) **> Settings >
++   Tools > AI > Model Providers** and click **Gemini**.
++2. Click **Get a Gemini API key** to open [Google AI Studio](https://aistudio.google.com/) and retrieve or
++   create your API key.
++3. Enter your Gemini API key in the **API key** field. A list of models appears
++   in **Available models**.
++4. Select the models you want to enable. You can choose from the enabled models
++   when you send a prompt.
++5. Select **Apply** to apply the updates (click **OK** to apply the updates and
++   immediately exit the settings).
+ 
+-![Add your own API key in the Gemini settings.](https://developer.android.com/static/studio/gemini/images/gemini-3-add-api-key-settings.png)
++![Add your own API key in the Gemini settings.](/static/studio/gemini/images/gemini-3-add-api-key-settings.png)
+ 
+ Be sure to safeguard your Gemini API key because [additional charges](https://aistudio.google.com/) apply
+ for Gemini API usage associated with a personal API key. You can monitor your

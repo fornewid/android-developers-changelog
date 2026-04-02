@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/animations/fling-animation.md b/docs/develop/ui/views/animations/fling-animation.md
+index b6b68cb..a4e5e07 100644
+--- a/docs/develop/ui/views/animations/fling-animation.md
++++ b/docs/develop/ui/views/animations/fling-animation.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose.

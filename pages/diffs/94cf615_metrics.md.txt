@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/glance/metrics.md b/docs/develop/ui/compose/glance/metrics.md
+index 4c00015..c54df77 100644
+--- a/docs/develop/ui/compose/glance/metrics.md
++++ b/docs/develop/ui/compose/glance/metrics.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android 16 includes additional metrics APIs that are more granular. These
+ metrics track tap actions such as a button click, scroll, impressions, and the
+ widget's size and position.

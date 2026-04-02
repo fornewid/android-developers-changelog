@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/unity/v2/api/struct/google-play-games/basic-api/nearby/connection-request.md b/docs/games/services/unity/v2/api/struct/google-play-games/basic-api/nearby/connection-request.md
+index eb0c657..d764e24 100644
+--- a/docs/games/services/unity/v2/api/struct/google-play-games/basic-api/nearby/connection-request.md
++++ b/docs/games/services/unity/v2/api/struct/google-play-games/basic-api/nearby/connection-request.md
+@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # GooglePlayGames.BasicApi.Nearby.ConnectionRequest
+ 
+ Represents a request to establish a connection with a remote endpoint.

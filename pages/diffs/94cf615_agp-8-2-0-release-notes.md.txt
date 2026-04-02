@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/agp-8-2-0-release-notes.md b/docs/build/releases/agp-8-2-0-release-notes.md
+index 8351cb1..c264870 100644
+--- a/docs/build/releases/agp-8-2-0-release-notes.md
++++ b/docs/build/releases/agp-8-2-0-release-notes.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android Gradle plugin 8.2.0 is a major release that includes a variety of new
+ features and improvements.
+ 

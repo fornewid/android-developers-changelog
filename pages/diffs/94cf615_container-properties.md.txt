@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/grid/container-properties.md b/docs/develop/ui/compose/layouts/adaptive/grid/container-properties.md
+index 72b5122..efe7e79 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/grid/container-properties.md
++++ b/docs/develop/ui/compose/layouts/adaptive/grid/container-properties.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can define a Grid container configuration to create flexible layouts
+ that respond to different screen sizes and content types.
+ This page describes how to do the following:

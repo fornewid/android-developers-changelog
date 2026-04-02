@@ -1,0 +1,119 @@
+diff --git a/docs/develop/ui/views/launch/shortcuts/adding-capabilities.md b/docs/develop/ui/views/launch/shortcuts/adding-capabilities.md
+index 99bc5ea..64b8328 100644
+--- a/docs/develop/ui/views/launch/shortcuts/adding-capabilities.md
++++ b/docs/develop/ui/views/launch/shortcuts/adding-capabilities.md
+@@ -1,24 +1,14 @@
+ ---
+-title: Add capabilities to shortcuts  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/launch/shortcuts/adding-capabilities
+ url: https://developer.android.com/develop/ui/views/launch/shortcuts/adding-capabilities
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+-
+-# Add capabilities to shortcuts Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Capabilities in `shortcuts.xml` let you declare the types of actions users can
+ take to launch your app and directly perform a specific task.
+ 
+ For example, Google Assistant App Actions use capabilities to let developers
+-extend in-app features to [built-in intents](//developers.google.com/assistant/app/intents) (BIIs), letting users activate
++extend in-app features to [built-in intents](https://developers.google.com/assistant/app/intents) (BIIs), letting users activate
+ and control those features using spoken commands. A capability consists of the
+ name of the action and an `intent` targeting the destination in your app that
+ resolves the user intent.
+@@ -30,40 +20,40 @@ Android app development project. To define a `capability` element, do the
+ following:
+ 
+ 1. Create a `shortcuts.xml` resource by following the instructions in [Create
+-   static shortcuts](//develop/ui/views/launch/shortcuts/creating-shortcuts#static).
++   static shortcuts](https://develop/ui/views/launch/shortcuts/creating-shortcuts#static).
+ 2. Include the following required information in your capability:
+ 
+-   * **Capability name:** the action you want your app to support. Refer to
++   - **Capability name:** the action you want your app to support. Refer to
+      the component documentation for the feature that requires capability
+      definitions. App Actions voice-enabled commands use the BII `Action ID`
+-     for capability names, which you can find in [BII reference](//developers.google.com/assistant/app/reference/built-in-intents). For example,
+-     the [`GET_THING`](//developers.google.com/assistant/app/reference/built-in-intents/common/get-thing) BII lists its `Action ID` as `actions.intent.GET_THING`.
+-   * **App destination:** the destination in your app the action launches to
++     for capability names, which you can find in [BII reference](https://developers.google.com/assistant/app/reference/built-in-intents). For example,
++     the [`GET_THING`](https://developers.google.com/assistant/app/reference/built-in-intents/common/get-thing) BII lists its `Action ID` as `actions.intent.GET_THING`.
++
++   - **App destination:** the destination in your app the action launches to
+      fulfill the user request. Define app destinations using `intent` elements
+      nested within the `capability`.
+-   * **Parameter mappings:** each `intent` might contain parameters to be
++
++   - **Parameter mappings:** each `intent` might contain parameters to be
+      passed as `extra` data of the intent. For example, each App Actions BII
+      includes fields representing information users often provide in queries that
+      trigger the BII.
+ 
+ The following example demonstrates a capability definition in `shortcuts.xml`
+-for [`actions.intent.START_EXERCISE`](//developers.google.com/assistant/app/reference/built-in-intents/health-and-fitness/start-exercise), a BII that lets users use spoken
++for [`actions.intent.START_EXERCISE`](https://developers.google.com/assistant/app/reference/built-in-intents/health-and-fitness/start-exercise), a BII that lets users use spoken
+ commands with Assistant to begin a workout in a fitness app:
+ 
+-```
+-<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+-  <capability android:name="actions.intent.START_EXERCISE">
+-    <intent
+-      android:action="android.intent.action.VIEW"
+-      android:targetPackage="com.example.sampleApp"
+-      android:targetClass="com.example.sampleApp.ExerciseActivity">
+-      <parameter
+-        android:name="exercise.name"
+-        android:key="exerciseType"/>
+-    </intent>
+-  </capability>
+-</shortcuts>
+-```
++    <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
++      <capability android:name="actions.intent.START_EXERCISE">
++        <intent
++          android:action="android.intent.action.VIEW"
++          android:targetPackage="com.example.sampleApp"
++          android:targetClass="com.example.sampleApp.ExerciseActivity">
++          <parameter
++            android:name="exercise.name"
++            android:key="exerciseType"/>
++        </intent>
++      </capability>
++    </shortcuts>
+ 
+ In the preceding example, the `<capability>` `android:name` attribute refers to
+ the `START_EXERCISE` BII. If a user invokes this BII by asking Assistant, *"Hey
+@@ -71,13 +61,9 @@ Google, start a run in ExampleApp,"* Assistant fulfills the user request using
+ information provided in the nested `intent` element. The `intent` in this sample
+ defines the following details:
+ 
+-* The `android:targetPackage` sets the target application package for this
+-  intent.
+-* The `android:targetClass` field specifies the destination activity:
+-  `com.example.sampleApp.ExerciseActivity`.
+-* The intent `parameter` declares support for a BII parameter
+-  [`exercise.name`](//developers.google.com/assistant/app/reference/built-in-intents/health-and-fitness/start-exercise#recommended-fields) and how to pass the parameter value—collected
+-  from the user—as extra data in the `intent`.
++- The `android:targetPackage` sets the target application package for this intent.
++- The `android:targetClass` field specifies the destination activity: `com.example.sampleApp.ExerciseActivity`.
++- The intent `parameter` declares support for a BII parameter [`exercise.name`](https://developers.google.com/assistant/app/reference/built-in-intents/health-and-fitness/start-exercise#recommended-fields) and how to pass the parameter value---collected from the user---as extra data in the `intent`.
+ 
+ ## Associate shortcuts with a capability
+ 
+@@ -90,4 +76,4 @@ can use a shortcut to launch an instance of a `capability` that defines a valid
+ exercise entity of "run" for the `exercise.name` parameter.
+ 
+ For more information about associating shortcuts to App Actions, see [App
+-Actions overview](//developers.google.com/assistant/app).
+\ No newline at end of file
++Actions overview](https://developers.google.com/assistant/app).
+\ No newline at end of file

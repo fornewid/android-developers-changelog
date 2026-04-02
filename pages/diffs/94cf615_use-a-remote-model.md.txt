@@ -1,0 +1,131 @@
+diff --git a/docs/studio/gemini/use-a-remote-model.md b/docs/studio/gemini/use-a-remote-model.md
+index 1f44f72..da92a8d 100644
+--- a/docs/studio/gemini/use-a-remote-model.md
++++ b/docs/studio/gemini/use-a-remote-model.md
+@@ -1,52 +1,70 @@
+ ---
+-title: https://developer.android.com/studio/gemini/use-a-remote-model
++title: Use a remote model  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/studio/gemini/use-a-remote-model
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Studio](https://developer.android.com/studio)
++* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
++
++# Use a remote model Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ Many developers use a variety of large language models like ChatGPT, Claude, and
+ GitHub Copilot. By integrating remote models in Android Studio, you can use the
+ model
+ of your choice and take advantage of a wide range of AI capabilities.
+ 
+-> [!WARNING]
+-> **Warning:** By using a third-party model, you agree to send your code and other input data to the provider of the model. Review the model provider's terms to understand how your data will be used. Note that some Android Studio features might not function as expected with external models.
++**Warning:** By using a third-party model, you agree to send your code and other
++input data to the provider of the model. Review the model provider's terms to
++understand how your data will be used. Note that some Android Studio features
++might not function as expected with external models.
+ 
+ ## Configure a remote model provider
+ 
+ Add a new remote model provider to Android Studio as follows:
+ 
+-1. In Android Studio settings, expand **Tools \> AI** and select **Model
++1. In Android Studio settings, expand **Tools > AI** and select **Model
+    Providers**.
+-2. Click the **Add** ![](https://developer.android.com/static/studio/gemini/images/add-button.png) button.
+-3. Select **Third-Party Remote Provider** . ![Settings dialog with the Local Provider and Third-Party
+-   Remote Provider options available.](https://developer.android.com/static/studio/gemini/images/third-party-remote-provider.png) **Figure 1.** Select the remote provider option.
++2. Click the **Add** ![](/static/studio/gemini/images/add-button.png) button.
++3. Select **Third-Party Remote Provider**.
++   ![Settings dialog with the Local Provider and Third-Party
++            Remote Provider options available.](/static/studio/gemini/images/third-party-remote-provider.png)
++
++
++   **Figure 1.** Select the remote provider option.
+ 4. Enter provider details:
+ 
+-   - **Description:** Provide a descriptive name for your remote model provider.
+-   - **URL:** Enter the API endpoint URL for your remote model provider.
++   * **Description:** Provide a descriptive name for your remote model
++     provider.
++   * **URL:** Enter the API endpoint URL for your remote model provider.
+ 
+      For example:
+-     - OpenAI - https://api.openai.com/v1
+-     - Claude - https://api.anthropic.com
+-     - OpenRouter - https://openrouter.ai/api/v1
+-   - **API key:** Enter the API key provided by your remote model provider.
+ 
++     + OpenAI - https://api.openai.com/v1
++     + Claude - https://api.anthropic.com
++     + OpenRouter - https://openrouter.ai/api/v1
++   * **API key:** Enter the API key provided by your remote model provider.
+      ![Settings dialog containing a form for entry of remote model
+-     provider information.](https://developer.android.com/static/studio/gemini/images/remote-model-provider-settings.png) **Figure 2.** Enter the remote model provider information.
++          provider information.](/static/studio/gemini/images/remote-model-provider-settings.png)
+ 
+-     <br />
+ 
++     **Figure 2.** Enter the remote model provider information.
+ 5. Click **Refresh** to retrieve the list of available models from your
+    configured provider.
+-
+ 6. Select models to use.
+-
+    ![Settings dialog showing remote provide information, including
+-   a list of available models.](https://developer.android.com/static/studio/gemini/images/available-remote-models.png) **Figure 3.** Select from a list of available models. By selecting multiple models, you can choose which model to use when you send a prompt.
++            a list of available models.](/static/studio/gemini/images/available-remote-models.png)
+ 
+-   <br />
+ 
++   **Figure 3.** Select from a list of available models.
++
++   By selecting multiple models, you can choose which model to use when you
++   send a prompt.
+ 7. Click **OK** to save your settings.
+ 
+ ## Select a remote model for AI assistance
+@@ -58,19 +76,30 @@ assistance features:
+ 2. Use the model picker to select a remote model from the list of available
+    models.
+ 
+-   ![The model picker in the chat window showing a list of models from which you can choose.](https://developer.android.com/static/studio/gemini/images/remote-model-picker.png) **Figure 4.** Select a model.
++   ![The model picker in the chat window showing a list of models from which you can choose.](/static/studio/gemini/images/remote-model-picker.png)
++
++
++   **Figure 4.** Select a model.
+ 
+ ## Important considerations
+ 
+-- **Terms and conditions:** When using third-party models, you are subject to their terms and conditions.
+-- **Feature compatibility:** Some Android Studio AI features might not function as expected with all third-party models.
++* **Terms and conditions:** When using third-party models, you are subject to
++  their terms and conditions.
++* **Feature compatibility:** Some Android Studio AI features might not
++  function as expected with all third-party models.
+ 
+ ### Security risks
+ 
+ Connecting to any third-party model has inherent risks and responsibilities:
+ 
+-- **Unverified models:** Be extremely cautious when using a model that is unverified or from an unknown source. Using such a model could introduce security vulnerabilities into your development environment or expose your source code.
+-- **Data transmission:** Using an external model means you are sending your code, prompts, and other input data to the third-party provider's servers. You are responsible for understanding the provider's data handling and privacy policies.
++* **Unverified models:** Be extremely cautious when using a model that is
++  unverified or from an unknown source. Using such a model could introduce
++  security vulnerabilities into your development environment or expose your
++  source code.
++* **Data transmission:** Using an external model means you are sending your
++  code, prompts, and other input data to the third-party provider's servers.
++  You are responsible for understanding the provider's data handling and
++  privacy policies.
+ 
+ ### Secure API key management
+ 

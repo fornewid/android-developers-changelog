@@ -1,0 +1,12 @@
+diff --git a/docs/stories/apps/monzo-camerax.md b/docs/stories/apps/monzo-camerax.md
+index dee4ab2..0298d36 100644
+--- a/docs/stories/apps/monzo-camerax.md
++++ b/docs/stories/apps/monzo-camerax.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Monzo is a banking service and app offering digital and mobile-only financial
+ services. Their mission is to make money work for everyone. To sign up new
+ customers, the Monzo app captures images of an identification document (such as

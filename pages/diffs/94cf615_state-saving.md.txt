@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/state-saving.md b/docs/develop/ui/compose/state-saving.md
+index 69efdd6..2322427 100644
+--- a/docs/develop/ui/compose/state-saving.md
++++ b/docs/develop/ui/compose/state-saving.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Depending on where your state is hoisted to and the logic that is required, you
+ can use different APIs to store and restore your [UI state](/topic/architecture/ui-layer/stateholders#ui-state). Every app uses a
+ combination of APIs to best achieve this.

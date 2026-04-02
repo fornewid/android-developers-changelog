@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile.md b/docs/studio/profile.md
+index c735b59..870c54a 100644
+--- a/docs/studio/profile.md
++++ b/docs/studio/profile.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ An app has poor performance if it responds slowly, shows choppy animations,
+ freezes, or consumes too much power. Fixing performance problems involves
+ *profiling* your app, or identifying areas in which your app makes inefficient

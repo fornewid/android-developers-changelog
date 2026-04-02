@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/inspecting-overview.md b/docs/topic/performance/inspecting-overview.md
+index f9e3536..f130eea 100644
+--- a/docs/topic/performance/inspecting-overview.md
++++ b/docs/topic/performance/inspecting-overview.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Inspect performance to help you understand what is happening in your app and
+ ensure it meets your expectations.
+ 

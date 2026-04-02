@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/tv/guides/foundations/color-on-tv.md b/docs/design/ui/tv/guides/foundations/color-on-tv.md
+index 48da0e9..10da484 100644
+--- a/docs/design/ui/tv/guides/foundations/color-on-tv.md
++++ b/docs/design/ui/tv/guides/foundations/color-on-tv.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Color on TV design can inspire, set the mood and even drive users to make
+ decisions. It's a powerful and tangible element that users notice first.
+ As a rich way to connect with a wide audience, it's no wonder color is an

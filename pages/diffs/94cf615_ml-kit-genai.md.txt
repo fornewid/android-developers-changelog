@@ -1,0 +1,12 @@
+diff --git a/docs/ai/gemini-nano/ml-kit-genai.md b/docs/ai/gemini-nano/ml-kit-genai.md
+index a2514dd..044a360 100644
+--- a/docs/ai/gemini-nano/ml-kit-genai.md
++++ b/docs/ai/gemini-nano/ml-kit-genai.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ML Kit's GenAI APIs harness the power of Gemini Nano to help your apps perform
+ tasks. These APIs provide out-of-the-box quality for popular use cases through
+ a high-level interface. The ML Kit GenAI APIs are built on top of AICore, an

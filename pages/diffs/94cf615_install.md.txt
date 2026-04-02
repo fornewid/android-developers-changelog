@@ -1,0 +1,12 @@
+diff --git a/docs/studio/install.md b/docs/studio/install.md
+index c7e55b5..c86a3a1 100644
+--- a/docs/studio/install.md
++++ b/docs/studio/install.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** Service integrations, such as Gemini in Android Studio and Firebase
+ Crashlytics, are only available in the latest stable channel version of Android
+ Studio and major versions (including their patches) released in the previous 10

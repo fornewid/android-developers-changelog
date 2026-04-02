@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/app-optimization/additional-rule-types.md b/docs/topic/performance/app-optimization/additional-rule-types.md
+index 2774bef..d5f602d 100644
+--- a/docs/topic/performance/app-optimization/additional-rule-types.md
++++ b/docs/topic/performance/app-optimization/additional-rule-types.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ R8 lets you add rules that affect the optimization of your app, apart from keep
+ rules. Add these rules in the same `proguard-rules.pro` file where you maintain
+ your keep rules.

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/past-releases/as-chipmunk-release-notes.md b/docs/studio/releases/past-releases/as-chipmunk-release-notes.md
+index c751da2..c59f1bd 100644
+--- a/docs/studio/releases/past-releases/as-chipmunk-release-notes.md
++++ b/docs/studio/releases/past-releases/as-chipmunk-release-notes.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The following are new features in Android Studio Chipmunk.
+ 
+ ## Support for creating your app with Jetpack Compose

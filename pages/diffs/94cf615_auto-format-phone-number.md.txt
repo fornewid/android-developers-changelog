@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/auto-format-phone-number.md b/docs/develop/ui/compose/quick-guides/content/auto-format-phone-number.md
+index 505600b..47e4345 100644
+--- a/docs/develop/ui/compose/quick-guides/content/auto-format-phone-number.md
++++ b/docs/develop/ui/compose/quick-guides/content/auto-format-phone-number.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can auto format a phone number in a text field in your app, saving users
+ time by formatting the phone number as they input digits. Follow this guidance
+ to auto format a phone number:

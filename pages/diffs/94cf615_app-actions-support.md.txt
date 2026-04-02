@@ -1,0 +1,12 @@
+diff --git a/docs/develop/devices/assistant/app-actions-support.md b/docs/develop/devices/assistant/app-actions-support.md
+index c66843a..bfce2ec 100644
+--- a/docs/develop/devices/assistant/app-actions-support.md
++++ b/docs/develop/devices/assistant/app-actions-support.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Resources for development questions, reporting issues, and staying connected to
+ the community can be found below.
+ 

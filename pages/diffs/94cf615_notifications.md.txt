@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/notifications.md b/docs/training/wearables/notifications.md
+index f355cf3..fa5234e 100644
+--- a/docs/training/wearables/notifications.md
++++ b/docs/training/wearables/notifications.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Notifications on watches use the same APIs and have the same structure as notifications on phones.
+ 
+ Notifications can appear on a watch in two ways:

@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/background-optimization.md b/docs/topic/performance/background-optimization.md
+index e11472e..e2f6d6c 100644
+--- a/docs/topic/performance/background-optimization.md
++++ b/docs/topic/performance/background-optimization.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Background processes can be memory- and battery-intensive. For example, an
+ implicit broadcast may start many background processes that have registered
+ to listen for it, even if those processes may not do much work. This can have

@@ -1,0 +1,12 @@
+diff --git a/docs/build/version-upgrade-strategies.md b/docs/build/version-upgrade-strategies.md
+index e59dc42..53130fb 100644
+--- a/docs/build/version-upgrade-strategies.md
++++ b/docs/build/version-upgrade-strategies.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** Before updating your dependencies, consider enabling
+ [Dependency verification](/build/dependency-verification) to help verify the dependencies you download
+ and include in your project.

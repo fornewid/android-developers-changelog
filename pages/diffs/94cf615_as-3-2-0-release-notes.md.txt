@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/past-releases/as-3-2-0-release-notes.md b/docs/studio/releases/past-releases/as-3-2-0-release-notes.md
+index b7137d3..a56e170 100644
+--- a/docs/studio/releases/past-releases/as-3-2-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-3-2-0-release-notes.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Android Studio 3.2 (September 2018)
+ 
+ Android Studio 3.2 is a major release that includes a variety of new features

@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/development-update.md b/docs/games/playgames/development-update.md
+index d283875..0f9f822 100644
+--- a/docs/games/playgames/development-update.md
++++ b/docs/games/playgames/development-update.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This guide describes how to update your game after it has been approved to
+ upload to the production track. It lists items to verify before updating your
+ game and publishing tasks to perform on new versions.
+@@ -93,6 +92,4 @@ Google Play Games on PC requirements.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

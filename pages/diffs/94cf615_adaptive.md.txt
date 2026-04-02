@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive.md b/docs/develop/ui/compose/layouts/adaptive.md
+index f456cc3..9094ab7 100644
+--- a/docs/develop/ui/compose/layouts/adaptive.md
++++ b/docs/develop/ui/compose/layouts/adaptive.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android apps run on a wide variety of devices—from foldable flip phones to
+ wall‑mounted TVs. To provide a great user experience on all types of
+ devices, adapt your app's UI to different display sizes and configurations. The

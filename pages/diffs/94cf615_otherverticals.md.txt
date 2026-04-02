@@ -1,0 +1,13 @@
+diff --git a/docs/guide/playcore/engage/otherverticals.md b/docs/guide/playcore/engage/otherverticals.md
+index dac5152..e4a0183 100644
+--- a/docs/guide/playcore/engage/otherverticals.md
++++ b/docs/guide/playcore/engage/otherverticals.md
+@@ -199,7 +199,7 @@ Add the `com.google.android.engage:engage-core` library to your app:
+ ```
+ dependencies {
+     // Make sure you also include that repository in your project's build.gradle file.
+-    implementation 'com.google.android.engage:engage-core:1.5.11'
++    implementation 'com.google.android.engage:engage-core:1.5.12'
+ }
+ ```
+ 

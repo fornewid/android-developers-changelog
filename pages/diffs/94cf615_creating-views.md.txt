@@ -1,0 +1,105 @@
+diff --git a/docs/training/data-storage/room/creating-views.md b/docs/training/data-storage/room/creating-views.md
+index c843516..4c8ca71 100644
+--- a/docs/training/data-storage/room/creating-views.md
++++ b/docs/training/data-storage/room/creating-views.md
+@@ -1,30 +1,40 @@
+ ---
+-title: https://developer.android.com/training/data-storage/room/creating-views
++title: Create views into a database  |  App data and files  |  Android Developers
+ url: https://developer.android.com/training/data-storage/room/creating-views
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [App data and files](https://developer.android.com/training/data-storage)
++
++# Create views into a database Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Version 2.1.0 and higher of the [Room persistence
+-library](https://developer.android.com/training/data-storage/room) provides support for [SQLite database
++library](/training/data-storage/room) provides support for [SQLite database
+ views](https://www.sqlite.org/lang_createview.html), allowing you
+ to encapsulate a query into a class. Room refers to these query-backed classes
+-as *views* , and they behave the same as simple data objects when used in a
+-[DAO](https://developer.android.com/training/data-storage/room/accessing-data).
++as *views*, and they behave the same as simple data objects when used in a
++[DAO](/training/data-storage/room/accessing-data).
+ 
+-> [!NOTE]
+-> **Note:** Like [entities](https://developer.android.com/training/data-storage/room/defining-data), you can run `SELECT` statements against views. However, you cannot run `INSERT`, `UPDATE`, or `DELETE` statements against views.
++**Note:** Like [entities](/training/data-storage/room/defining-data), you can run
++`SELECT` statements against views. However, you cannot run `INSERT`, `UPDATE`,
++or `DELETE` statements against views.
+ 
+ ## Create a view
+ 
+ To create a view, add the
+-[`@DatabaseView`](https://developer.android.com/reference/androidx/room/DatabaseView) annotation to a class.
++[`@DatabaseView`](/reference/androidx/room/DatabaseView) annotation to a class.
+ Set the annotation's value to the query that the class should represent.
+ 
+ The following code snippet provides an example of a view:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ @DatabaseView("SELECT user.id, user.name, user.departmentId," +
+         "department.name AS departmentName FROM user " +
+         "INNER JOIN department ON user.departmentId = department.id")
+@@ -38,7 +48,7 @@ data class UserDetail(
+ 
+ ### Java
+ 
+-```java
++```
+ @DatabaseView("SELECT user.id, user.name, user.departmentId," +
+               "department.name AS departmentName FROM user " +
+               "INNER JOIN department ON user.departmentId = department.id")
+@@ -53,12 +63,12 @@ public class UserDetail {
+ ## Associate a view with your database
+ 
+ To include this view as part of your app's database, include the
+-[`views`](https://developer.android.com/reference/androidx/room/Database#views) property in your app's
++[`views`](/reference/androidx/room/Database#views) property in your app's
+ `@Database` annotation:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ @Database(entities = [User::class],
+           views =[UserDetail::class], version = 1)
+ abstract class AppDatabase : RoomDatabase() {
+@@ -68,10 +78,22 @@ abstract class AppDatabase : RoomDatabase() {
+ 
+ ### Java
+ 
+-```java
++```
+ @Database(entities = {User.class}, views = {UserDetail.class},
+           version = 1)
+ public abstract class AppDatabase extends RoomDatabase {
+     public abstract UserDao userDao();
+ }
+-```
+\ No newline at end of file
++```
++
++[Previous
++
++arrow\_back
++
++Write asynchronous DAO queries](/training/data-storage/room/async-queries)
++
++[Next
++
++Prepopulate your database
++
++arrow\_forward](/training/data-storage/room/prepopulate)
+\ No newline at end of file

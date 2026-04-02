@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/apps/audio.md b/docs/training/wearables/apps/audio.md
+index bf7dc4a..e26bcbe 100644
+--- a/docs/training/wearables/apps/audio.md
++++ b/docs/training/wearables/apps/audio.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This guide describes how you can use familiar Android APIs to play audio on Wear
+ OS apps.
+ 

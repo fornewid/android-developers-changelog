@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/media/configure-manifest.md b/docs/training/cars/media/configure-manifest.md
+index 933161e..ebde796 100644
+--- a/docs/training/cars/media/configure-manifest.md
++++ b/docs/training/cars/media/configure-manifest.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Configure your app's manifest files to integrate with Android Auto and Android
+ Automotive OS (AAOS). To enable discovery and connection by these platforms,
+ declare your media browser service in the manifest. Specify the required app

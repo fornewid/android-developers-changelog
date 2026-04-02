@@ -1,0 +1,20 @@
+diff --git a/docs/games/develop/vulkan/native-engine-support.md b/docs/games/develop/vulkan/native-engine-support.md
+index fe8d779..ae245f1 100644
+--- a/docs/games/develop/vulkan/native-engine-support.md
++++ b/docs/games/develop/vulkan/native-engine-support.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ ## Get started with Vulkan on Android
+ 
+ Vulkan is the primary low-level graphics API on Android. Vulkan provides optimal
+@@ -371,4 +372,6 @@ the test proposal.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

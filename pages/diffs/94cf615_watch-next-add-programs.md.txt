@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/discovery/watch-next-add-programs.md b/docs/training/tv/discovery/watch-next-add-programs.md
+index 9899225..0923496 100644
+--- a/docs/training/tv/discovery/watch-next-add-programs.md
++++ b/docs/training/tv/discovery/watch-next-add-programs.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Watch Next channel is the second row that appears in the home screen, after
+ the apps row. The system creates and maintains this channel. Your app can add
+ programs to the Watch Next channel: programs that the user marked as

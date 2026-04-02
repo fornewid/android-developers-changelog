@@ -1,0 +1,12 @@
+diff --git a/docs/media/media3/transformer/tone-mapping.md b/docs/media/media3/transformer/tone-mapping.md
+index e9321b4..6bc3358 100644
+--- a/docs/media/media3/transformer/tone-mapping.md
++++ b/docs/media/media3/transformer/tone-mapping.md
+@@ -15,6 +15,7 @@ Media3 Transformer is actively under development and we are looking to hear from
+ 
+ 
+ 
++
+ When working with Transformer, it is important to consider the compatibility
+ between HDR and SDR content. HDR displays content with greater color detail,
+ color and contrast, giving users a better visual experience. However, due to the

@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/mobile/guides/widgets/discovery-promotion.md b/docs/design/ui/mobile/guides/widgets/discovery-promotion.md
+index 7cc2345..8f7c287 100644
+--- a/docs/design/ui/mobile/guides/widgets/discovery-promotion.md
++++ b/docs/design/ui/mobile/guides/widgets/discovery-promotion.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ App widgets allow your user to deliver key glanceable content and quick actions
+ from your app on their home screens and similar surfaces. Improving your
+ widget's discoverability ensures users are aware of these powerful extensions of

@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/downloads/revision_history.md b/docs/ndk/downloads/revision_history.md
+index 98b6f8d..c8e22b7 100644
+--- a/docs/ndk/downloads/revision_history.md
++++ b/docs/ndk/downloads/revision_history.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page provides information on changes in all released stable versions of the NDK.
+ To download the latest stable version of the NDK or any currently available beta version,
+ see the [NDK downloads](/ndk/downloads) page.

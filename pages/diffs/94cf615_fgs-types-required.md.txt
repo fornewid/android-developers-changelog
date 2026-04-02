@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/14/changes/fgs-types-required.md b/docs/about/versions/14/changes/fgs-types-required.md
+index ed33ad3..3387ced 100644
+--- a/docs/about/versions/14/changes/fgs-types-required.md
++++ b/docs/about/versions/14/changes/fgs-types-required.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To help developers be more intentional with defining user-facing [foreground
+ services](/guide/components/foreground-services), Android 10 introduced the `android:foregroundServiceType`
+ attribute within the [`<service>`](/guide/topics/manifest/service-element) element.

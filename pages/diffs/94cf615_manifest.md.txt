@@ -1,0 +1,12 @@
+diff --git a/docs/develop/devices/chromeos/learn/manifest.md b/docs/develop/devices/chromeos/learn/manifest.md
+index e1f408b..ca28d57 100644
+--- a/docs/develop/devices/chromeos/learn/manifest.md
++++ b/docs/develop/devices/chromeos/learn/manifest.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ As you prepare your Android app to run on Chromebooks, consider the
+ device features that your app uses. Chromebooks don't support all the
+ hardware and software features that are available on other devices running

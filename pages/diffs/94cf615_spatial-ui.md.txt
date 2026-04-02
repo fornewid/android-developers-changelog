@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/xr/guides/spatial-ui.md b/docs/design/ui/xr/guides/spatial-ui.md
+index aedca1d..04773ab 100644
+--- a/docs/design/ui/xr/guides/spatial-ui.md
++++ b/docs/design/ui/xr/guides/spatial-ui.md
+@@ -16,6 +16,7 @@ The Android XR SDK is now available in Developer Preview. We want your feedback!
+ 
+ 
+ 
++
+ **Preview:** Currently, spatial UI is only available in [Full Space](/design/ui/xr/guides/foundations#modes).
+ 
+ When building an Android XR differentiated app, you may want to use spatial UI

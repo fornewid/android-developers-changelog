@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/notifications/live-update.md b/docs/develop/ui/views/notifications/live-update.md
+index 4cf378f..5e5357f 100644
+--- a/docs/develop/ui/views/notifications/live-update.md
++++ b/docs/develop/ui/views/notifications/live-update.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Live updates provide a summary of important updates so users can track progress
+ without opening the app. The system promotes Live Update notifications although
+ users can temporarily dismiss or demote a live update notification, to a

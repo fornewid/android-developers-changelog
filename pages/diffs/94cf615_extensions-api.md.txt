@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/camerax/extensions-api.md b/docs/media/camera/camerax/extensions-api.md
+index c82feb8..0004b43 100644
+--- a/docs/media/camera/camerax/extensions-api.md
++++ b/docs/media/camera/camerax/extensions-api.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ CameraX provides an Extensions API for accessing [extensions](/training/camera/camera-extensions) that device manufacturers have implemented on various Android devices. For a list of supported extension modes, see [Camera extensions](/training/camera/camera-extensions).
+ 
+ For a list of devices that support extensions, see [Supported devices](/training/camera/supported-devices).

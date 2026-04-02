@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/ui/accessibility/custom-views.md b/docs/guide/topics/ui/accessibility/custom-views.md
+index 052a5f1..f5f5d6c 100644
+--- a/docs/guide/topics/ui/accessibility/custom-views.md
++++ b/docs/guide/topics/ui/accessibility/custom-views.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If your application requires a
+ [custom view component](/guide/topics/ui/custom-components),
+ you must make the view more accessible. The following steps can improve your custom view's

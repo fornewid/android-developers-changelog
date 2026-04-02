@@ -1,0 +1,12 @@
+diff --git a/docs/tools/mksdcard.md b/docs/tools/mksdcard.md
+index e3098db..71c8470 100644
+--- a/docs/tools/mksdcard.md
++++ b/docs/tools/mksdcard.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Use the `mksdcard` tool to create a FAT32 disk image that you can load into
+ emulators running different Android Virtual Devices (AVDs) to simulate the presence
+ of the same SD card in multiple devices.

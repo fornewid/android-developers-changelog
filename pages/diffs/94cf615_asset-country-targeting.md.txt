@@ -1,0 +1,12 @@
+diff --git a/docs/google/play/asset-country-targeting.md b/docs/google/play/asset-country-targeting.md
+index 6e7f303..ee191ee 100644
+--- a/docs/google/play/asset-country-targeting.md
++++ b/docs/google/play/asset-country-targeting.md
+@@ -8,6 +8,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Warning:** Access to the information on this page is governed by a
+ Google non-disclosure agreement.**Note:** The features described on this page are currently only available to
+ select Play Partners.**Note:** [Use this form](https://support.google.com/googleplay/android-developer/contact/general_contact)

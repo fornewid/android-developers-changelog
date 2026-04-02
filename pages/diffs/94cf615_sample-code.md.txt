@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/sample-code.md b/docs/studio/write/sample-code.md
+index 937edea..c5ac05e 100644
+--- a/docs/studio/write/sample-code.md
++++ b/docs/studio/write/sample-code.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android Studio provides a selection of code samples and templates for you to use to accelerate your
+ app development. Browse sample code to learn how to build different components for your
+ apps. Use templates to create new app modules, individual activities, or other specific

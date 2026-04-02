@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/dialog.md b/docs/develop/ui/compose/components/dialog.md
+index 065e204..d2165e1 100644
+--- a/docs/develop/ui/compose/components/dialog.md
++++ b/docs/develop/ui/compose/components/dialog.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The [`Dialog`](/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) component displays dialog messages or requests user input on a
+ layer above the main app content. It creates an interruptive UI experience to
+ capture user attention.

@@ -1,0 +1,12 @@
+diff --git a/docs/ai/samples/socialite.md b/docs/ai/samples/socialite.md
+index fd28fa6..35acc16 100644
+--- a/docs/ai/samples/socialite.md
++++ b/docs/ai/samples/socialite.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![Animated screenshot showing the SociaLite chatbot in
+ action](/static/images/ai/socialite-ai-chat.gif)
+ 

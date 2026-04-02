@@ -1,0 +1,12 @@
+diff --git a/docs/develop/sensors-and-location/sensors/gnss.md b/docs/develop/sensors-and-location/sensors/gnss.md
+index 8b9544b..465b2d4 100644
+--- a/docs/develop/sensors-and-location/sensors/gnss.md
++++ b/docs/develop/sensors-and-location/sensors/gnss.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android Framework provides access to [raw GNSS measurements](/reference/android/location/GnssMeasurement)
+ on several Android devices.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/discovery/recommendations.md b/docs/training/tv/discovery/recommendations.md
+index 50811c7..246363a 100644
+--- a/docs/training/tv/discovery/recommendations.md
++++ b/docs/training/tv/discovery/recommendations.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android TV *home screen* displays recommended content using *channels* and
+ *programs*. Channels are displayed as individual rows on the home screen, with
+ cards that display all of the available programs for that channel.

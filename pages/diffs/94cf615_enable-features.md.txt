@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/console/enable-features.md b/docs/games/pgs/console/enable-features.md
+index 5d6b7f7..78aad7d 100644
+--- a/docs/games/pgs/console/enable-features.md
++++ b/docs/games/pgs/console/enable-features.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This page describes how to enable Google Play Games Services features for your
+ game in Google Play Console.
+ 
+@@ -111,6 +110,4 @@ for more information about permissions in Play Console.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

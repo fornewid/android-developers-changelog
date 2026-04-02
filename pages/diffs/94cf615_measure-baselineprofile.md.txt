@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/baselineprofiles/measure-baselineprofile.md b/docs/topic/performance/baselineprofiles/measure-baselineprofile.md
+index 238e0f4..5b4d1c7 100644
+--- a/docs/topic/performance/baselineprofiles/measure-baselineprofile.md
++++ b/docs/topic/performance/baselineprofiles/measure-baselineprofile.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ We recommend using [Jetpack Macrobenchmark](/topic/performance/benchmarking/macrobenchmark-overview) to test how an app performs when
+ Baseline Profiles are enabled, and then compare those results to a benchmark
+ with Baseline Profiles disabled. With this approach, you can measure app startup

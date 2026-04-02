@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/bluetooth/ble-audio/audio-manager.md b/docs/develop/connectivity/bluetooth/ble-audio/audio-manager.md
+index 7c7d511..e841e64 100644
+--- a/docs/develop/connectivity/bluetooth/ble-audio/audio-manager.md
++++ b/docs/develop/connectivity/bluetooth/ble-audio/audio-manager.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This guide covers communication applications, such as Voice over Internet Protocol (VoIP), that want to self-manage their audio and hearable device state.
+ 
+ **Note:** Starting in Android 13 (API level 33), applications must migrate from [`AudioManager#startBluetoothSco()`](/reference/android/media/AudioManager#startBluetoothSco()) to [`AudioManager#setCommunicationDevice()`](/reference/android/media/AudioManager#setCommunicationDevice(android.media.AudioDeviceInfo)) to support upcoming BLE audio headsets. This change is backward-compatible with Hands-Free Profile (HFP) devices.

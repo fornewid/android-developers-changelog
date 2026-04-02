@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/17/features/contact-picker.md b/docs/about/versions/17/features/contact-picker.md
+index c6638be..f49ba7c 100644
+--- a/docs/about/versions/17/features/contact-picker.md
++++ b/docs/about/versions/17/features/contact-picker.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Android Contact Picker is a standardized, browsable interface for users to
+ share contacts with your app. Available on devices running
+ Android 17 (API level 37) or higher, the picker offers a privacy-preserving

@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/watch-face-designer/licenses.md b/docs/training/wearables/watch-face-designer/licenses.md
+index e79baef..c41adfd 100644
+--- a/docs/training/wearables/watch-face-designer/licenses.md
++++ b/docs/training/wearables/watch-face-designer/licenses.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Watch Face Designer contains components from open source packages used under
+ their respective licenses listed below.
+ 

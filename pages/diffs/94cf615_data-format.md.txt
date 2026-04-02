@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect/medical-records/data-format.md b/docs/health-and-fitness/health-connect/medical-records/data-format.md
+index 58943c0..6c9d0e2 100644
+--- a/docs/health-and-fitness/health-connect/medical-records/data-format.md
++++ b/docs/health-and-fitness/health-connect/medical-records/data-format.md
+@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
+-
+ Medical Records data is stored in the [HL7 FHIR](https://www.hl7.org/fhir/overview.html)
+ format.
+ 

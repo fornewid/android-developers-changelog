@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/benchmarking/microbenchmark-write.md b/docs/topic/performance/benchmarking/microbenchmark-write.md
+index 4a6fda8..3162a56 100644
+--- a/docs/topic/performance/benchmarking/microbenchmark-write.md
++++ b/docs/topic/performance/benchmarking/microbenchmark-write.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To learn how to use the Microbenchmark library by adding changes to your
+ application code, see the [Quickstart](#quickstart) section. To learn how to
+ complete a full setup with more complicated changes to your codebase, see the

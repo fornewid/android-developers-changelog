@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/app-optimization/global-options.md b/docs/topic/performance/app-optimization/global-options.md
+index a34d029..aa81402 100644
+--- a/docs/topic/performance/app-optimization/global-options.md
++++ b/docs/topic/performance/app-optimization/global-options.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ R8 provides global options that either modify R8's optimizations throughout the
+ app or affect every keep rule. These options are maintained in the
+ `proguard-rules.pro` file, along with keep rules. A few of these global options

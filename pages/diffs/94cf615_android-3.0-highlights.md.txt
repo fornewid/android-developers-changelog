@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/android-3.0-highlights.md b/docs/about/versions/android-3.0-highlights.md
+index f776040..65082bb 100644
+--- a/docs/about/versions/android-3.0-highlights.md
++++ b/docs/about/versions/android-3.0-highlights.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Welcome to Android 3.0!
+ 
+ The Android 3.0 platform introduces many new and exciting features for users and developers.

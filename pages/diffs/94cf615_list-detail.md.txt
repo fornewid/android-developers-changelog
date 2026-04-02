@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/list-detail.md b/docs/develop/ui/compose/layouts/adaptive/list-detail.md
+index 03f32be..8afc90d 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/list-detail.md
++++ b/docs/develop/ui/compose/layouts/adaptive/list-detail.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ List-detail is a UI pattern that consists of a dual-pane layout where one pane
+ presents a list of items and another pane displays the details of items selected
+ from the list.

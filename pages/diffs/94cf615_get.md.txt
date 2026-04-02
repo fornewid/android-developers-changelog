@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/17/get.md b/docs/about/versions/17/get.md
+index 5f2821a..583e7e0 100644
+--- a/docs/about/versions/17/get.md
++++ b/docs/about/versions/17/get.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ![Android logo below the word 'Android'](/static/images/lockups/android-stacked.svg)
+ 
+ You can get Android 17 in any of the following ways:

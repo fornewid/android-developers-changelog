@@ -1,0 +1,214 @@
+diff --git a/docs/develop/ui/views/touch-and-input/drag-drop/view.md b/docs/develop/ui/views/touch-and-input/drag-drop/view.md
+index 16a74d6..86306c5 100644
+--- a/docs/develop/ui/views/touch-and-input/drag-drop/view.md
++++ b/docs/develop/ui/views/touch-and-input/drag-drop/view.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/view
++title: Implement drag and drop with views  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/view
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Implement drag and drop with views Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ You can implement your drag-and-drop process in views by responding to events
+ that might trigger a drag start and responding and consuming drop events.
+ 
+@@ -13,21 +23,21 @@ The user starts a drag with a gesture, usually by touching or clicking and
+ holding on an item they want to drag.
+ 
+ To handle this in a `View`, create a
+-[`ClipData`](https://developer.android.com/reference/android/content/ClipData) object and
+-[`ClipData.Item`](https://developer.android.com/reference/android/content/ClipData.Item) object for
++[`ClipData`](/reference/android/content/ClipData) object and
++[`ClipData.Item`](/reference/android/content/ClipData.Item) object for
+ the data being moved. As part of the `ClipData`, supply metadata that is
+ stored in a
+-[`ClipDescription`](https://developer.android.com/reference/android/content/ClipDescription) object
++[`ClipDescription`](/reference/android/content/ClipDescription) object
+ within the `ClipData`. For a drag-and-drop operation that doesn't represent
+ data movement, you might want to use `null` instead of an actual object.
+ 
+-For example, this code snippet shows how to respond to a touch \& hold
++For example, this code snippet shows how to respond to a touch & hold
+ gesture on an `ImageView` by creating a `ClipData` object that contains the
+ tag (or label) of an `ImageView`:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // Create a string for the ImageView label.
+ val IMAGEVIEW_TAG = "icon bitmap"
+ ...
+@@ -71,7 +81,7 @@ val imageView = ImageView(context).apply {
+ 
+ ### Java
+ 
+-```java
++```
+ // Create a string for the ImageView label.
+ private static final String IMAGEVIEW_TAG = "icon bitmap";
+ ...
+@@ -130,7 +140,7 @@ In response to an event with the action type `ACTION_DRAG_STARTED`, a drag event
+ listener must do the following:
+ 
+ 1. Call
+-   [`DragEvent.getClipDescription()`](https://developer.android.com/reference/android/view/DragEvent#getClipDescription())
++   [`DragEvent.getClipDescription()`](/reference/android/view/DragEvent#getClipDescription())
+    and use the MIME type methods in the returned `ClipDescription` to see
+    whether the listener can accept the data being dragged.
+ 
+@@ -143,10 +153,10 @@ listener must do the following:
+    `ACTION_DRAG_ENDED` to conclude the drag-and-drop operation.
+ 
+ For an `ACTION_DRAG_STARTED` event, the following `DragEvent` methods aren't
+-valid: [`getClipData()`](https://developer.android.com/reference/android/view/DragEvent#getClipData()),
+-[`getX()`](https://developer.android.com/reference/android/view/DragEvent#getX()),
+-[`getY()`](https://developer.android.com/reference/android/view/DragEvent#getY()), and
+-[`getResult()`](https://developer.android.com/reference/android/view/DragEvent#getResult()).
++valid: [`getClipData()`](/reference/android/view/DragEvent#getClipData()),
++[`getX()`](/reference/android/view/DragEvent#getX()),
++[`getY()`](/reference/android/view/DragEvent#getY()), and
++[`getResult()`](/reference/android/view/DragEvent#getResult()).
+ 
+ ## Handle events during the drag
+ 
+@@ -158,18 +168,38 @@ events primarily to decide if they must change the appearance of their `View`.
+ 
+ During the drag action, `DragEvent.getAction()` returns one of three values:
+ 
+-- [`ACTION_DRAG_ENTERED`](https://developer.android.com/reference/android/view/DragEvent#ACTION_DRAG_ENTERED): the listener receives this event action type when the touch point---the point on the screen underneath the user's finger or mouse---enters the bounding box of the listener's `View`.
+-- [`ACTION_DRAG_LOCATION`](https://developer.android.com/reference/android/view/DragEvent#ACTION_DRAG_LOCATION): once the listener receives an `ACTION_DRAG_ENTERED` event, it receives a new `ACTION_DRAG_LOCATION` event every time the touch point moves until it receives an `ACTION_DRAG_EXITED` event. The `getX()` and `getY()` methods return the X and Y coordinates of the touch point.
+-- [`ACTION_DRAG_EXITED`](https://developer.android.com/reference/android/view/DragEvent#ACTION_DRAG_EXITED): this event action type is sent to a listener that previously receives `ACTION_DRAG_ENTERED`. The event is sent when the drag shadow touch point moves from within the bounding box of the listener's `View` to outside the bounding box.
++* [`ACTION_DRAG_ENTERED`](/reference/android/view/DragEvent#ACTION_DRAG_ENTERED):
++  the listener receives this event action type when the touch point—the
++  point on the screen underneath the user's finger or mouse—enters the
++  bounding box of the listener's `View`.
++* [`ACTION_DRAG_LOCATION`](/reference/android/view/DragEvent#ACTION_DRAG_LOCATION):
++  once the listener receives an `ACTION_DRAG_ENTERED` event, it receives a new
++  `ACTION_DRAG_LOCATION` event every time the touch point moves until it
++  receives an `ACTION_DRAG_EXITED` event. The `getX()` and `getY()` methods
++  return the X and Y coordinates of the touch point.
++* [`ACTION_DRAG_EXITED`](/reference/android/view/DragEvent#ACTION_DRAG_EXITED):
++  this event action type is sent to a listener that previously receives
++  `ACTION_DRAG_ENTERED`. The event is sent when the drag shadow touch point
++  moves from within the bounding box of the listener's `View` to outside the
++  bounding box.
+ 
+ The drag event listener doesn't need to react to any of these action types. If
+ the listener returns a value to the system, it is ignored.
+ 
+ Here are some guidelines for responding to each of these action types:
+ 
+-- In response to `ACTION_DRAG_ENTERED` or `ACTION_DRAG_LOCATION`, the listener can change the appearance of the `View` to indicate that the view is a potential drop target.
+-- An event with the action type `ACTION_DRAG_LOCATION` contains valid data for `getX()` and `getY()` corresponding to the location of the touch point. The listener can use this information to alter the `View` appearance at the touch point or to determine the exact position where the user can drop the content.
+-- In response to `ACTION_DRAG_EXITED`, the listener must reset any appearance changes it applies in response to `ACTION_DRAG_ENTERED` or `ACTION_DRAG_LOCATION`. This indicates to the user that the `View` is no longer an imminent drop target.
++* In response to `ACTION_DRAG_ENTERED` or `ACTION_DRAG_LOCATION`, the listener
++  can change the appearance of the `View` to indicate that the view is a
++  potential drop target.
++* An event with the action type `ACTION_DRAG_LOCATION` contains valid data for
++  `getX()` and `getY()` corresponding to the location of the touch point. The
++  listener can use this information to alter the `View` appearance at the
++  touch point or to determine the exact position where the user can drop the
++  content.
++* In response to `ACTION_DRAG_EXITED`, the listener must reset any appearance
++  changes it applies in response to `ACTION_DRAG_ENTERED` or
++  `ACTION_DRAG_LOCATION`. This indicates to the user that the `View` is no
++  longer an imminent drop target.
+ 
+ ## Respond to a drop
+ 
+@@ -181,10 +211,9 @@ The drag event listener must do the following:
+ 
+ 1. Call `getClipData()` to get the `ClipData` object that is originally
+    supplied in the call to
+-   [`startDragAndDrop()`](https://developer.android.com/reference/android/view/View#startDragAndDrop(android.content.ClipData,%20android.view.View.DragShadowBuilder,%20java.lang.Object,%20int))
++   [`startDragAndDrop()`](/reference/android/view/View#startDragAndDrop(android.content.ClipData,%20android.view.View.DragShadowBuilder,%20java.lang.Object,%20int))
+    and process the data. If the drag-and-drop operation doesn't represent data
+    movement, this is unnecessary.
+-
+ 2. Return boolean `true` to indicate that the drop is processed successfully,
+    or `false` if it isn't. The returned value becomes the value returned by
+    `getResult()` for the eventual `ACTION_DRAG_ENDED` event. If the system
+@@ -208,9 +237,18 @@ in your application. This indicates that the drag operation is finished.
+ 
+ Each drag event listener must do the following:
+ 
+-1. If the listener changes its appearance during the operation, it should reset back to its default appearance as a visual indication to the user that the operation is finished.
+-2. The listener can optionally call `getResult()` to find out more about the operation. If a listener returns `true` in response to an event of action type `ACTION_DROP`, then `getResult()` returns boolean `true`. In all other cases, `getResult()` returns boolean `false`, including when the system doesn't send an `ACTION_DROP` event.
+-3. To indicate the successful completion of the drop operation, the listener should return boolean `true` to the system. By not returning `false`, a visual cue showing the drop shadow returning to its source may suggest to the user that the operation was unsuccessful.
++1. If the listener changes its appearance during the operation, it should reset
++   back to its default appearance as a visual indication to the user that the
++   operation is finished.
++2. The listener can optionally call `getResult()` to find out more about the
++   operation. If a listener returns `true` in response to an event of action
++   type `ACTION_DROP`, then `getResult()` returns boolean `true`. In all other
++   cases, `getResult()` returns boolean `false`, including when the system
++   doesn't send an `ACTION_DROP` event.
++3. To indicate the successful completion of the drop operation, the listener
++   should return boolean `true` to the system. By not returning `false`, a
++   visual cue showing the drop shadow returning to its source may suggest to
++   the user that the operation was unsuccessful.
+ 
+ ## Respond to drag events: An example
+ 
+@@ -219,7 +257,7 @@ following code snippet is an example of responding to drag events:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val imageView = ImageView(this)
+ 
+ // Set the drag event listener for the View.
+@@ -320,7 +358,7 @@ imageView.setOnDragListener { v, e ->
+ 
+ ### Java
+ 
+-```java
++```
+ View imageView = new ImageView(this);
+ 
+ // Set the drag event listener for the View.
+@@ -436,7 +474,7 @@ rectangular, gray drag shadow for a `TextView`:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private class MyDragShadowBuilder(view: View) : View.DragShadowBuilder(view) {
+ 
+     private val shadow = ColorDrawable(Color.LTGRAY)
+@@ -479,7 +517,7 @@ private class MyDragShadowBuilder(view: View) : View.DragShadowBuilder(view) {
+ 
+ ### Java
+ 
+-```java
++```
+ private static class MyDragShadowBuilder extends View.DragShadowBuilder {
+ 
+     // The drag shadow image, defined as a drawable object.
+@@ -537,5 +575,8 @@ private static class MyDragShadowBuilder extends View.DragShadowBuilder {
+ }
+ ```
+ 
+-> [!NOTE]
+-> **Note:** You don't have to extend `View.DragShadowBuilder`. The constructor [`View.DragShadowBuilder(View)`](https://developer.android.com/reference/android/view/View.DragShadowBuilder#DragShadowBuilder(android.view.View)) creates a default drag shadow that's the same size as the `View` argument passed to it. The constructor also centers the touch point in the drag shadow.
+\ No newline at end of file
++**Note:** You don't have to extend `View.DragShadowBuilder`. The constructor
++[`View.DragShadowBuilder(View)`](/reference/android/view/View.DragShadowBuilder#DragShadowBuilder(android.view.View))
++creates a default drag shadow that's the same size as the `View` argument
++passed to it. The constructor also centers the touch point in the drag
++shadow.
+\ No newline at end of file

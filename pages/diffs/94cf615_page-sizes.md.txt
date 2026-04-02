@@ -1,0 +1,12 @@
+diff --git a/docs/guide/practices/page-sizes.md b/docs/guide/practices/page-sizes.md
+index cd06e6c..96b94b8 100644
+--- a/docs/guide/practices/page-sizes.md
++++ b/docs/guide/practices/page-sizes.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ 16 KB Google Play compatibility requirement
+ 
+ Starting November 1st, 2025, all new apps and updates to existing apps submitted to Google Play and targeting Android 15+ devices must support 16 KB page sizes on 64-bit devices.

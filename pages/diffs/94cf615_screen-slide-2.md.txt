@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/animations/screen-slide-2.md b/docs/develop/ui/views/animations/screen-slide-2.md
+index 117c2eb..6bee760 100644
+--- a/docs/develop/ui/views/animations/screen-slide-2.md
++++ b/docs/develop/ui/views/animations/screen-slide-2.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Pager in Compose.

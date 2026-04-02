@@ -1,0 +1,12 @@
+diff --git a/docs/identity/app-set-id.md b/docs/identity/app-set-id.md
+index e3f4f00..d1ea820 100644
+--- a/docs/identity/app-set-id.md
++++ b/docs/identity/app-set-id.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ For use cases such as analytics or fraud prevention on a given device, you might
+ need to correlate usage or actions across a set of apps owned by your
+ organization. [Google Play services](https://developers.google.com/android)

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/video/state-in-compose.md b/docs/develop/ui/compose/quick-guides/content/video/state-in-compose.md
+index f6cba3b..bc14138 100644
+--- a/docs/develop/ui/compose/quick-guides/content/video/state-in-compose.md
++++ b/docs/develop/ui/compose/quick-guides/content/video/state-in-compose.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Learn how to establish and manage state in your Compose-based app and how
+ to configure the UI to react to changes in state. See how to create observable
+ states, how to retain state across recompositions or configuration changes, and

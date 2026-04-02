@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/traceview.md b/docs/studio/profile/traceview.md
+index e6fe826..431a91c 100644
+--- a/docs/studio/profile/traceview.md
++++ b/docs/studio/profile/traceview.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Traceview is deprecated.** If you're using Android
+ Studio 3.2 or later, you should instead use
+ [**CPU Profiler**](/studio/profile/cpu-profiler) to inspect

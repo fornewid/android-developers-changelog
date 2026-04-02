@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/choose-camera-library.md b/docs/media/camera/choose-camera-library.md
+index 4286dd0..4e922af 100644
+--- a/docs/media/camera/choose-camera-library.md
++++ b/docs/media/camera/choose-camera-library.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** If you want to perform basic camera actions like capturing a photo or video using the device's default camera application, see [Camera intents](/training/camera/camera-intents).
+ 
+ If you want to add camera functionality to an Android app, you have three main options:

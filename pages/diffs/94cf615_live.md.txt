@@ -1,0 +1,12 @@
+diff --git a/docs/ai/gemini/live.md b/docs/ai/gemini/live.md
+index 35f892e..77ff560 100644
+--- a/docs/ai/gemini/live.md
++++ b/docs/ai/gemini/live.md
+@@ -248,7 +248,6 @@ GeminiLive.kt
+ ```
+ HashMap<String, Schema> addListParams = new HashMap<String, Schema>(1);
+ 
+-addListParams.put("item", Schema.str("A short string describing the item to add to the list"));
+ addListParams.put("item", Schema.str("A short string describing the item to add to the list"));
+ 
+ FunctionDeclaration addListFunctionDeclaration = new FunctionDeclaration(

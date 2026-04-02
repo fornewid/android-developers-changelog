@@ -1,0 +1,12 @@
+diff --git a/docs/training/permissions/explaining-access.md b/docs/training/permissions/explaining-access.md
+index 54ad4ed..70ee582 100644
+--- a/docs/training/permissions/explaining-access.md
++++ b/docs/training/permissions/explaining-access.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The permissions related to location, microphone, and camera grant your app
+ access to particularly sensitive information about users. The platform includes
+ several mechanisms, described on this page, to help users stay informed and in

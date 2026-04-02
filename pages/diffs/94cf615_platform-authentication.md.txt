@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/platform-authentication.md b/docs/games/pgs/platform-authentication.md
+index 2013b67..9c34570 100644
+--- a/docs/games/pgs/platform-authentication.md
++++ b/docs/games/pgs/platform-authentication.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ **Note:** This guide is for the Play Games Services v2 SDK. For information on the
+ previous version of this SDK, see the [Play Games Services v1
+ documentation](/games/pgs/v1/signin).
+@@ -372,4 +373,6 @@ Guest Mode - IGA created (click to enlarge).
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

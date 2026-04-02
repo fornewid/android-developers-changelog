@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/migrate/class-mappings.md b/docs/jetpack/androidx/migrate/class-mappings.md
+index e92657f..0ad2ac0 100644
+--- a/docs/jetpack/androidx/migrate/class-mappings.md
++++ b/docs/jetpack/androidx/migrate/class-mappings.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The following table lists the current mappings from the old support library packages to the
+ new `androidx` packages.
+ You can also download these mappings in

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/adopt/for-large-teams.md b/docs/develop/ui/compose/adopt/for-large-teams.md
+index a76eeef..5a259ff 100644
+--- a/docs/develop/ui/compose/adopt/for-large-teams.md
++++ b/docs/develop/ui/compose/adopt/for-large-teams.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ![](https://developer.android.com/static/images/spot-icons/jetpack-compose.svg)
+ 
+ ### Technical decision makers: Adopt Compose for your teams

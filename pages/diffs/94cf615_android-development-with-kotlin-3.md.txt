@@ -1,0 +1,74 @@
+diff --git a/docs/courses/pathways/android-development-with-kotlin-3.md b/docs/courses/pathways/android-development-with-kotlin-3.md
+index 4e116b8..363a731 100644
+--- a/docs/courses/pathways/android-development-with-kotlin-3.md
++++ b/docs/courses/pathways/android-development-with-kotlin-3.md
+@@ -1,52 +1,43 @@
+ ---
+-title: Lesson 3: Classes and Objects  |  Android Developers
++title: https://developer.android.com/courses/pathways/android-development-with-kotlin-3
+ url: https://developer.android.com/courses/pathways/android-development-with-kotlin-3
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-
+-Stay organized with collections
++# Lesson 3: Classes and Objects
+ 
+-Save and categorize content based on your preferences.
++# Lesson 3: Classes and Objects
+ 
+ 
++Learn about classes, objects, and inheritance in Kotlin. Create small programs as you learn about abstract classes, interfaces, and interface delegation.  
+ 
+-# Lesson 3: Classes and Objects
+ 
+-Learn about classes, objects, and inheritance in Kotlin. Create small programs as you learn about abstract classes, interfaces, and interface delegation.  
+ Go back
+ 
+-*check\_circle*
++*check_circle*  
+ 
+ ## Using Classes and Objects in Kotlin
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
++*keyboard_arrow_down* *keyboard_arrow_up*  
++*emoji_objects* Codelab  
+ 
+-*emoji\_objects*
+-Codelab
+ 
+ Create a Kotlin program and learn about classes and objects in Kotlin.
+ 
+-[Take codelab](https://developer.android.com/codelabs/android-development-kotlin-3.1)
+-
+-*check\_circle*
++[Take codelab](https://developer.android.com/codelabs/android-development-kotlin-3.1)  
++*check_circle*  
+ 
+ ## Pairs/triples, collections, constants, and writing extension functions
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
++*keyboard_arrow_down* *keyboard_arrow_up*  
++*emoji_objects* Codelab  
+ 
+-*emoji\_objects*
+-Codelab
+ 
+ Learn about a number of different useful features in Kotlin, including pairs, collections, and extension functions.
+ 
+-[Take codelab](https://developer.android.com/codelabs/android-development-kotlin-3.2)
++[Take codelab](https://developer.android.com/codelabs/android-development-kotlin-3.2)  
+ 
+ ## Quiz
+ 
+-Earn your badge for completing Lesson 3: Classes and Objects.
+-
+-[Take the quiz](/courses/quizzes/android-development-with-kotlin-3/android-development-with-kotlin-3)
+\ No newline at end of file
++Earn your badge for completing Lesson 3: Classes and Objects.  
++[Take the quiz](https://developer.android.com/courses/quizzes/android-development-with-kotlin-3/android-development-with-kotlin-3)
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/mobile/guides/widgets/sizing.md b/docs/design/ui/mobile/guides/widgets/sizing.md
+index da96f2a..572e587 100644
+--- a/docs/design/ui/mobile/guides/widgets/sizing.md
++++ b/docs/design/ui/mobile/guides/widgets/sizing.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Design adaptable Android widgets that scale seamlessly. Use our recommended
+ default sizes as a starting point, and test your layouts across different
+ dimensions to ensure optimal readability and user experience.

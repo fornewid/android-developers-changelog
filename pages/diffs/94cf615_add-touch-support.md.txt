@@ -1,0 +1,20 @@
+diff --git a/docs/games/agdk/add-touch-support.md b/docs/games/agdk/add-touch-support.md
+index c5b5726..5534f96 100644
+--- a/docs/games/agdk/add-touch-support.md
++++ b/docs/games/agdk/add-touch-support.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ To handle touch input events, read the array
+ [`motionEvents`](/reference/android/view/MotionEvent) in your game loop. These
+ contain events that have happened since the last time these arrays were cleared.
+@@ -77,4 +78,6 @@ removed from the `android_app` and no longer used for handling input events.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/custom-component-accessibility.md b/docs/studio/prompt-gallery/prompts/custom-component-accessibility.md
+index 8159f10..d82c802 100644
+--- a/docs/studio/prompt-gallery/prompts/custom-component-accessibility.md
++++ b/docs/studio/prompt-gallery/prompts/custom-component-accessibility.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Make your UI accessible to screen readers.
+ 
+ ---

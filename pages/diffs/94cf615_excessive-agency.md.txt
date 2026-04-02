@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/ai-risks/excessive-agency.md b/docs/privacy-and-security/risks/ai-risks/excessive-agency.md
+index 1e019fe..40fc2af 100644
+--- a/docs/privacy-and-security/risks/ai-risks/excessive-agency.md
++++ b/docs/privacy-and-security/risks/ai-risks/excessive-agency.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ [OWASP Risk Description](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)
+ 
+ Excessive agency is a vulnerability that occurs when a large language model

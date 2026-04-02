@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/android/saved-games.md b/docs/games/pgs/android/saved-games.md
+index 09bca87..4bcb606 100644
+--- a/docs/games/pgs/android/saved-games.md
++++ b/docs/games/pgs/android/saved-games.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ **Note:** This guide is for the Play Games Services v2 SDK. For information on the
+ previous version of this SDK, see the [Play Games Services v1
+ documentation](/games/pgs/v1/android/saved-games).
+@@ -424,6 +423,4 @@ steps:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

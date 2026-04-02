@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/baselineprofiles/manually-create-measure.md b/docs/topic/performance/baselineprofiles/manually-create-measure.md
+index 9d93067..e7d7d39 100644
+--- a/docs/topic/performance/baselineprofiles/manually-create-measure.md
++++ b/docs/topic/performance/baselineprofiles/manually-create-measure.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ We highly recommend automating generation of profile rules using the [Jetpack
+ Macrobenchmark
+ library](/topic/performance/baselineprofiles/measure-baselineprofile) to reduce

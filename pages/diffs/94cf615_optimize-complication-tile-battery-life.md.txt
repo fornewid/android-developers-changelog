@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/optimize-complication-tile-battery-life.md b/docs/studio/prompt-gallery/prompts/optimize-complication-tile-battery-life.md
+index e03751c..1b5a3dd 100644
+--- a/docs/studio/prompt-gallery/prompts/optimize-complication-tile-battery-life.md
++++ b/docs/studio/prompt-gallery/prompts/optimize-complication-tile-battery-life.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Improve battery efficiency of a Wear OS UI.
+ 
+ ---

@@ -1,0 +1,271 @@
+diff --git a/docs/training/wearables/tiles/debug.md b/docs/training/wearables/tiles/debug.md
+index a541dbf..c3a2059 100644
+--- a/docs/training/wearables/tiles/debug.md
++++ b/docs/training/wearables/tiles/debug.md
+@@ -1,32 +1,23 @@
+ ---
+-title: Run and debug a tile  |  Wear OS  |  Android Developers
++title: https://developer.android.com/training/wearables/tiles/debug
+ url: https://developer.android.com/training/wearables/tiles/debug
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Wear OS](https://developer.android.com/training/wearables)
+-
+-# Run and debug a tile Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Tiles are not apps, and so are deployed and launched using different mechanisms.
+-When a device has [developer options](/studio/debug/dev-options) enabled (emulators have these features
++When a device has [developer options](https://developer.android.com/studio/debug/dev-options) enabled (emulators have these features
+ enabled by default), additional features supporting tile development become
+-available for use in both [Android Studio](/studio) and [`adb`](/tools/adb).
++available for use in both [Android Studio](https://developer.android.com/studio) and [`adb`](https://developer.android.com/tools/adb).
+ 
+ ## Deploy tiles
+ 
+ To deploy your tile, you can install your app on a physical device or emulator
+-using [Android Studio](/studio), as described in [Build and run your app](/studio/run). Then,
++using [Android Studio](https://developer.android.com/studio), as described in [Build and run your app](https://developer.android.com/studio/run). Then,
+ following the same steps as regular users, manually [add the tile to the tiles
+ carousel](https://support.google.com/wearos/answer/9314375).
+ 
+ During active development, you might find it easier and faster to use Android
+-Studio's ["Wear OS Tile" Run/Debug Configuration](/studio/run/rundebugconfig) feature. This method
++Studio's ["Wear OS Tile" Run/Debug Configuration](https://developer.android.com/studio/run/rundebugconfig) feature. This method
+ deploys and activates your tile automatically, allowing for immediate
+ interaction without additional manual steps.
+ 
+@@ -34,18 +25,8 @@ interaction without additional manual steps.
+ 
+ The easiest way to deploy and run a tile is to use the "run service" icon in the
+ gutter. This automatically creates a run configuration if it doesn't already
+-exist. See [Wear OS run/debug configurations](/studio/run/rundebugconfig#wear-os-configs) for more information.
+-
+-![Screenshot with red arrow pointing to "▷" in the gutter](/static/training/wearables/images/as-gutter-run.png)
+-
+-
+-Click "▷" in the gutter
+-
+-
+-![Screenshot showing red arrow pointing to run configuration dropdown, and the "TestTileService" configuration option outlined in red](/static/training/wearables/images/as-run-command.png)
+-
+-
+-A "run configuration" is automatically created
++exist. See [Wear OS run/debug configurations](https://developer.android.com/studio/run/rundebugconfig#wear-os-configs) for more information.
++![Screenshot with red arrow pointing to "▷" in the gutter](https://developer.android.com/static/training/wearables/images/as-gutter-run.png) Click "▷" in the gutter ![Screenshot showing red arrow pointing to run configuration dropdown, and the "TestTileService" configuration option outlined in red](https://developer.android.com/static/training/wearables/images/as-run-command.png) A "run configuration" is automatically created
+ 
+ ### Create configuration manually
+ 
+@@ -55,20 +36,20 @@ Meerkat (2024.3.1).
+ 
+ 1. Select the "⋮" ("hamburger") option from the title bar.
+ 
+-   ![Screenshot with red arrow pointing to the "⋮" ("hamburger") option from the title bar.](/static/training/wearables/images/as-hamburger.png)
+-2. Select "Edit…".
++   ![Screenshot with red arrow pointing to the "⋮" ("hamburger") option from the title bar.](https://developer.android.com/static/training/wearables/images/as-hamburger.png)
++2. Select "Edit...".
+ 
+-   !["Edit…" is the first option under the Configuration section of the drop-down list.](/static/training/wearables/images/as-edit.png)
++   !["Edit…" is the first option under the Configuration section of the drop-down list.](https://developer.android.com/static/training/wearables/images/as-edit.png)
+ 3. Select "+" to add a configuration on the dialog that appears.
+ 
+-   ![Screenshot with red arrow pointing to "+".](/static/training/wearables/images/as-plus.png)
++   ![Screenshot with red arrow pointing to "+".](https://developer.android.com/static/training/wearables/images/as-plus.png)
+ 4. Select "Wear OS Tile" as the type of the new configuration.
+ 
+-   ![Screenshot with red arrow pointing to the "Wear OS Tile" configuration option.](/static/training/wearables/images/as-wear-os-tile.png)
++   ![Screenshot with red arrow pointing to the "Wear OS Tile" configuration option.](https://developer.android.com/static/training/wearables/images/as-wear-os-tile.png)
+ 5. Enter a name for your configuration and select the module and tile as
+    appropriate.
+ 
+-   ![Screenshot with three red arrows pointing to areas of the dialog window.](/static/training/wearables/images/as-edit-configuration.png)
++   ![Screenshot with three red arrows pointing to areas of the dialog window.](https://developer.android.com/static/training/wearables/images/as-edit-configuration.png)
+ 6. Tap "OK". Your configuration will appear in the title bar. Tap the "▷"
+    ("run") button and your tile will be deployed and activated.
+ 
+@@ -78,34 +59,30 @@ Starting in Android Studio Koala Feature Drop, you can view snapshots of your
+ Wear OS app's tiles. This panel is particularly useful if your tile's appearance
+ changes in response to conditions, such as different content depending on the
+ device's display size, or a sports event reaching halftime.
+-
+ ![Group names in the preview panel match the group name given in the
+-    preview annotation](/static/studio/images/design/wear-tiles-preview-panel.png)
+-
+-
+-Tiles preview panel in Android Studio.
++preview annotation](https://developer.android.com/static/studio/images/design/wear-tiles-preview-panel.png) Tiles preview panel in Android Studio.
+ 
+ ### Add dependencies
+ 
+ Include the following dependencies in your app's `build.gradle.kts` or
+ `build.gradle` file:
+ 
+-```
+-dependencies {
+-    implementation("androidx.wear.tiles:tiles-tooling-preview:1.6.0")
+-    debugImplementation("androidx.wear.tiles:tiles-tooling:1.6.0")
+-    implementation("androidx.wear:wear-tooling-preview:1.0.0")
+-}
+-```
++    dependencies {
++        implementation("androidx.wear.tiles:tiles-tooling-preview:1.6.0")
++        debugImplementation("androidx.wear.tiles:tiles-tooling:1.6.0")
++        implementation("androidx.wear:wear-tooling-preview:1.0.0")
++    }
+ 
+ ### Configure tile previews
+ 
+ To see a preview of your tile's appearance on different Wear OS display sizes,
+ add the `@Preview` annotation, and pass in the `device` parameter. Note that
+ this `@Preview` annotation is from a different package than the one you use for
+-[composable previews](/develop/ui/compose/tooling/previews).
++[composable previews](https://developer.android.com/develop/ui/compose/tooling/previews).
+ 
+-```
++<br />
++
++```kotlin
+ @Preview(device = WearDevices.SMALL_ROUND)
+ @Preview(device = WearDevices.LARGE_ROUND)
+ fun tilePreview(context: Context) = TilePreviewData { request ->
+@@ -113,14 +90,12 @@ fun tilePreview(context: Context) = TilePreviewData { request ->
+         buildMyTileLayout(context, request.deviceConfiguration)
+     ).build()
+ }
+-
+-Preview.kt
+ ```
+ 
+-**Note:** Although the `@Preview` annotation is specific to Wear OS tiles, other
+-options such as `device`, `name`, `group`, `fontScale`, and `locale` work the
+-same for previews of Wear OS tiles as they do for previews of components that
+-use [Compose on Wear OS](/training/wearables/compose/screen-size#previews).
++<br />
++
++> [!NOTE]
++> **Note:** Although the `@Preview` annotation is specific to Wear OS tiles, other options such as `device`, `name`, `group`, `fontScale`, and `locale` work the same for previews of Wear OS tiles as they do for previews of components that use [Compose on Wear OS](https://developer.android.com/training/wearables/compose/screen-size#previews).
+ 
+ ### Add and register resources
+ 
+@@ -128,7 +103,9 @@ If your tile uses Android resources, you will need to register them within the
+ `onTileResourceRequest` parameter of `TilePreviewData`, as shown in the
+ following code snippet:
+ 
+-```
++<br />
++
++```kotlin
+ @Preview(device = WearDevices.SMALL_ROUND)
+ fun previewWithResources(context: Context) = TilePreviewData(
+     onTileResourceRequest = { request ->
+@@ -146,19 +123,21 @@ fun previewWithResources(context: Context) = TilePreviewData(
+         ).build()
+     }
+ )
+-
+-Preview.kt
+ ```
+ 
++<br />
++
+ ### Show specific values from platform data sources
+ 
+-If your tile uses platform data—such as heart rate, calories, distance, and
+-steps—the tile shows default values for them.
++If your tile uses platform data---such as heart rate, calories, distance, and
++steps---the tile shows default values for them.
+ 
+ To show a specific value, set the `platformDataValues` parameter when creating
+ the `TilePreviewData` object, as shown in the following code snippet:
+ 
+-```
++<br />
++
++```kotlin
+ @Preview(device = WearDevices.SMALL_ROUND)
+ fun previewWithPlatformOverride(context: Context) = TilePreviewData(
+     platformDataValues = PlatformDataValues.of(
+@@ -171,13 +150,13 @@ fun previewWithPlatformOverride(context: Context) = TilePreviewData(
+         ).build()
+     }
+ )
+-
+-Preview.kt
+ ```
+ 
++<br />
++
+ ## Manipulate tiles using adb
+ 
+-[`adb`](/tools/adb) can be used to programmatically install, remove and activate tiles
++[`adb`](https://developer.android.com/tools/adb) can be used to programmatically install, remove and activate tiles
+ during development.
+ 
+ In the following commands, `ComponentName` is a string composed of the package
+@@ -188,15 +167,11 @@ name and a class inside that package, for example
+ 
+ Adds a tile provided by `COMPONENT_NAME` and returns the index.
+ 
+-```
+-adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SURFACE --es operation add-tile --ecn component [COMPONENT_NAME]
+-```
++    adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SURFACE --es operation add-tile --ecn component [COMPONENT_NAME]
+ 
+ Example output:
+ 
+-```
+-Broadcast completed: result=1, data="Index=[0]"
+-```
++    Broadcast completed: result=1, data="Index=[0]"
+ 
+ If a tile already exists in the carousel, it's removed and reinserted in the
+ same location. Otherwise, it's inserted at `Index[0]`. Also, if the carousel is
+@@ -206,33 +181,24 @@ at its maximum capacity, the last tile is removed to make room for the new tile.
+ 
+ Activate tile at index `TILE_INDEX`.
+ 
+-```
+-adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SYSUI --es operation show-tile --ei index [TILE_INDEX]
+-```
++    adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SYSUI --es operation show-tile --ei index [TILE_INDEX]
+ 
+ Example output:
+ 
+-```
+-Broadcast completed: result=1
+-```
++    Broadcast completed: result=1
+ 
+ ### remove-tile
+ 
+ Removes all tile instances on the carousel associated with `COMPONENT_NAME`.
+ 
+-```
+-adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SURFACE --es operation remove-tile --ecn component [COMPONENT_NAME]
+-```
++    adb shell am broadcast -a com.google.android.wearable.app.DEBUG_SURFACE --es operation remove-tile --ecn component [COMPONENT_NAME]
+ 
+ Example output:
+ 
+-```
+-result=1, data="Tile(s) removed."
+-```
++    result=1, data="Tile(s) removed."
+ 
+ ### Return values
+ 
+-* **result=0**: No broadcast receiver responded to this command, most likely
+-  because the Wear OS version is too old, or the debug process is not running.
+-* **result=1**: Success.
+-* **result>1**: Error.
+\ No newline at end of file
++- **result=0**: No broadcast receiver responded to this command, most likely because the Wear OS version is too old, or the debug process is not running.
++- **result=1**: Success.
++- **result\>1**: Error.
+\ No newline at end of file

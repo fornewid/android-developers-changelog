@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/integrate.md b/docs/google/play/billing/integrate.md
+index 328a5e8..60393d0 100644
+--- a/docs/google/play/billing/integrate.md
++++ b/docs/google/play/billing/integrate.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ **Note:** Before reading this document, make sure you've read through the [Play
+ Console Help Center documentation](https://support.google.com/googleplay/android-developer/topic/3450769), which describes critical purchase-related
+ concepts, as well as how to create and configure your products for sale. In
+@@ -1130,6 +1129,4 @@ purchase prompt for a previously abandoned purchase.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

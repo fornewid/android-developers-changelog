@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/resources/layout-resource.md b/docs/guide/topics/resources/layout-resource.md
+index 394b1ba..1cc057a 100644
+--- a/docs/guide/topics/resources/layout-resource.md
++++ b/docs/guide/topics/resources/layout-resource.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A layout resource defines the architecture for the UI in an `Activity` or a
+ component of a UI.
+ 

@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/defold/defold-export.md b/docs/games/engines/defold/defold-export.md
+index ae7a7f6..ad6914b 100644
+--- a/docs/games/engines/defold/defold-export.md
++++ b/docs/games/engines/defold/defold-export.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This guide covers the process of exporting a Defold project as an Android app.
+ Defold can generate both APK files for local device testing and Android App
+ Bundles for submission to the Google Play Store.
+@@ -81,4 +82,6 @@ To configure a build for upload to the Google Play Store:
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

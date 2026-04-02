@@ -1,0 +1,13 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/debugging-anr-example.md b/docs/topic/performance/tracing/profiling-manager/debugging-anr-example.md
+index 5c1235d..ccb38b6 100644
+--- a/docs/topic/performance/tracing/profiling-manager/debugging-anr-example.md
++++ b/docs/topic/performance/tracing/profiling-manager/debugging-anr-example.md
+@@ -184,6 +184,8 @@ boolean performNetworkRequest(int timeoutMiliseconds) {
+   // ...
+ }
+ 
++
++void prepareNetworkRequest() {
+   // ...
+ }
+ 
