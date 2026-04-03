@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Wear OS apps can run standalone, without a companion app. This means that
 a Wear OS app needs to manage authentication on its own when accessing
 data from the internet. But the watch's small screen size and reduced

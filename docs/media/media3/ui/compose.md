@@ -1,17 +1,8 @@
 ---
-title: Getting started with Compose-based UI  |  Android media  |  Android Developers
+title: https://developer.android.com/media/media3/ui/compose
 url: https://developer.android.com/media/media3/ui/compose
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Getting started with Compose-based UI Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 ## Add the dependency
 
@@ -20,43 +11,39 @@ to add both of them because the Material3 one depends on the core one.
 
 ### Kotlin
 
-```
-// Include only one of the following dependencies
-implementation("androidx.media3:media3-ui-compose:1.10.0")
-implementation("androidx.media3:media3-ui-compose-material3:1.10.0")
-```
+    // Include only one of the following dependencies
+    implementation("androidx.media3:media3-ui-compose:1.10.0")
+    implementation("androidx.media3:media3-ui-compose-material3:1.10.0")
 
 ### Groovy
 
-```
-// Include only one of the following dependencies
-implementation "androidx.media3:media3-ui-compose:1.10.0"
-implementation "androidx.media3:media3-ui-compose-material3:1.10.0"
-```
+    // Include only one of the following dependencies
+    implementation "androidx.media3:media3-ui-compose:1.10.0"
+    implementation "androidx.media3:media3-ui-compose-material3:1.10.0"
 
 We highly encourage you to develop your app in a Compose-first fashion or
-[migrate from using Views](/develop/ui/compose/migrate).
+[migrate from using Views](https://developer.android.com/develop/ui/compose/migrate).
 
 ## Fully Compose demo app
 
 While the `media3-ui-compose` library does not include out-of-the-box
 Composables (such as buttons, indicators, images or dialogs), you can find a
 [demo app written fully in Compose](https://github.com/androidx/media/tree/release/demos/compose) that avoids any interoperability
-solutions like wrapping [`PlayerView`](/reference/androidx/media3/ui/PlayerView) in [`AndroidView`](/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)). The demo app
+solutions like wrapping [`PlayerView`](https://developer.android.com/reference/androidx/media3/ui/PlayerView) in [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)). The demo app
 utilises the UI state holder classes from `media3-ui-compose` module and makes
-use of the [Compose Material3](/develop/ui/compose/designsystems/material3) library.
+use of the [Compose Material3](https://developer.android.com/develop/ui/compose/designsystems/material3) library.
 
 ## Which library do I need?
 
 Depending on the level of customization you require, you can choose between two
 Media3 Compose libraries. To understand the difference, it helps to think about
-the [UI state production pipeline](/topic/architecture/ui-layer/stateholders#ui-state-production-pipeline): `Business logic → UI logic → UI`.
+the [UI state production pipeline](https://developer.android.com/topic/architecture/ui-layer/stateholders#ui-state-production-pipeline): `Business logic → UI logic → UI`.
 
 **Use `media3-ui-compose` for full control over your UI components.**
 
 This library provides the `Business logic → UI logic` connection. It contains
-foundational components like [`PlayerSurface`](/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) and [`ContentFrame`](/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)), along with
-state holder classes (e.g., [`PlayPauseButtonState`](/reference/kotlin/androidx/media3/ui/compose/state/PlayPauseButtonState#PlayPauseButtonState(androidx.media3.common.Player))) that convert `Player`
+foundational components like [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) and [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)), along with
+state holder classes (e.g., [`PlayPauseButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlayPauseButtonState#PlayPauseButtonState(androidx.media3.common.Player))) that convert `Player`
 state into UI state.
 
 This library does **not** provide ready-to-use Material Design components. You
@@ -77,7 +64,7 @@ for you.
 ## At a glance
 
 | Feature | `media3-ui-compose` | `media3-ui-compose-material3` |
-| --- | --- | --- |
+|---|---|---|
 | **UI Components** | Foundational elements like `PlayerSurface` and `ContentFrame`, but **no** pre-styled buttons or controls. | Provides a full set of prebuilt, Material3-styled `Composables` like `PlayPauseButton`, `SeekBackButton`, `PositionAndDurationText`, etc. |
 | **State Management** | Provides `remember...State` holders to manage the logic. | Manages state internally, but you can still access the state holders if you need to. |
 | **Dependencies** | `androidx.compose.foundation` | `media3-ui-compose`, `androidx.compose.material3`, `com.google.android.material` |

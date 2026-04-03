@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Update an XML layout to follow Android Auto UI best practices.
 
 ---

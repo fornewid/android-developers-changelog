@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 This guide describes how to integrate with the APIs to support external offers
 in eligible apps and regions. To learn more about the external offers program
 including eligibility requirements and geographic scope see
@@ -338,8 +337,6 @@ information on configuring license testers.
 
 Once you've finished in-app integration, you're ready to [integrate your
 backend](/google/play/billing/outside-gpb-backend).
-
-
 
 
 

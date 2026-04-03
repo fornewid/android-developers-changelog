@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Resource Manager is a tool window for importing, creating, managing, and
 using resources in your app. To open the tool window, select
 **View > Tool Windows > Resource Manager** from the menu or select

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Flows that involve purchases should be as simple and short as possible so you
 can minimize distraction for drivers.
 

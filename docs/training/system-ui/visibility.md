@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 This lesson describes how to register a listener so that your app can get notified
 of system UI visibility changes. This is useful if you want to
 synchronize other parts of your UI with the hiding/showing of system bars.

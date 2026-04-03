@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Gradle and the Android plugin for Gradle provide a flexible way to compile,
 build, and package your Android app or library. This page collects some
 useful tips and configurations to help you get the most out of each build.

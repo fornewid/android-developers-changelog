@@ -1,17 +1,8 @@
 ---
-title: Register on Google Play Console  |  Android developer verification  |  Android Developers
+title: https://developer.android.com/developer-verification/guides/google-play-console
 url: https://developer.android.com/developer-verification/guides/google-play-console
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Android developer verification](https://developer.android.com/developer-verification)
-* [Guides](https://developer.android.com/developer-verification/guides)
-
-# Register on Google Play Console Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 If you distribute your apps on Google Play, you must use the Play Console to
 manage your Play package names. You'll also be able to register any apps your
@@ -34,20 +25,10 @@ those packages. Most Play developers have already shared their app ownership
 information, so Play can automatically register most of your package names using
 information that you've provided.
 
-* **For new Play apps**: When you create a new app in the Google Play Console,
-  Play will automatically register the package name and link it to your
-  account. However, If that name is already used by another developer you will
-  be prompted to pick another name. If you have been using this name off Play
-  you will still be able to use it on Play too.
-* **For existing Play apps**: When Android developer verification registration
-  opens to all developers in March 2026, Google Play will automatically
-  register all Play apps using information developers have already shared. We
-  expect to automatically register 98% of all Play apps. The remaining 2% will
-  require the developers to manually register these apps. Starting in March,
-  developers can see their apps' auto-registration results displayed above the
-  app list in Play Console.
+- **For new Play apps**: When you create a new app in the Google Play Console, Play will automatically register the package name and link it to your account. However, If that name is already used by another developer you will be prompted to pick another name. If you have been using this name off Play you will still be able to use it on Play too.
+- **For existing Play apps**: When Android developer verification registration opens to all developers in March 2026, Google Play will automatically register all Play apps using information developers have already shared. We expect to automatically register 98% of all Play apps. The remaining 2% will require the developers to manually register these apps. Starting in March, developers can see their apps' auto-registration results displayed above the app list in Play Console.
 
 ### Review
 
-Check out the [Play Console PDF guide](/static/developer-verification/guides/pdf-guides/pdc-guide.pdf) for Android developer verification for
+Check out the [Play Console PDF guide](https://developer.android.com/static/developer-verification/guides/pdf-guides/pdc-guide.pdf) for Android developer verification for
 a step-by-step walkthrough.

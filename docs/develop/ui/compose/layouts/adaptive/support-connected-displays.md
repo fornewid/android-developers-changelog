@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Connected displays extend the [desktop windowing](/develop/ui/compose/layouts/adaptive/support-desktop-windowing) experience to standard phones, giving users access to large screens from their mobile devices. This capability opens up new possibilities for app interaction and user productivity.
 
 All the unique features of desktop windowing apply to connected displays. When you connect a phone to a display, the phone's state remains unchanged, and a blank desktop session starts on the connected display. The device and the display act as two individual systems, with apps specific to each display.

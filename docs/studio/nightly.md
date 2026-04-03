@@ -29,11 +29,11 @@ Nightly builds can be unstable.
 
 Download Panda 4
 
-Panda 4 | 2025.3.4 Nightly 2026-04-02
+Panda 4 | 2025.3.4 Nightly 2026-04-03
 for
 ()
 
-## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-02
+## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-03
 
 Before downloading, you must agree to the following terms and conditions.
 
@@ -139,15 +139,15 @@ This is the Android Software Development Kit License Agreement
 
 I have read and agree with the above terms and conditions
 
-Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-02
+Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-03
 for Windows
-[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-02
+[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-03
 for
-Windows](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.3/android-studio-nightly-2026-04-02-windows.zip)
+Windows](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.3/android-studio-nightly-2026-04-03-windows.zip)
 
-*android-studio-nightly-2026-04-02-windows.zip*
+*android-studio-nightly-2026-04-03-windows.zip*
 
-## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-02
+## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-03
 
 Before downloading, you must agree to the following terms and conditions.
 
@@ -255,19 +255,19 @@ I have read and agree with the above terms and conditions
 
 ### Select the version of Android Studio that's right for your Mac:
 
-#### Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-02
+#### Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-03
 
 Mac with Apple chip
-[Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.3/android-studio-nightly-2026-04-02-mac_arm.dmg)
+[Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.3/android-studio-nightly-2026-04-03-mac_arm.dmg)
 
-*android-studio-nightly-2026-04-02-mac\_arm.dmg*
+*android-studio-nightly-2026-04-03-mac\_arm.dmg*
 
 Mac with Intel chip
-[Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.3/android-studio-nightly-2026-04-02-mac.dmg)
+[Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.3/android-studio-nightly-2026-04-03-mac.dmg)
 
-*android-studio-nightly-2026-04-02-mac.dmg*
+*android-studio-nightly-2026-04-03-mac.dmg*
 
-## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-02
+## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-03
 
 Before downloading, you must agree to the following terms and conditions.
 
@@ -373,15 +373,15 @@ This is the Android Software Development Kit License Agreement
 
 I have read and agree with the above terms and conditions
 
-Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-02
+Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-03
 for Linux
-[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-02
+[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-03
 for
-Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.3/android-studio-nightly-2026-04-02-linux.tar.gz)
+Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.3/android-studio-nightly-2026-04-03-linux.tar.gz)
 
-*android-studio-nightly-2026-04-02-linux.tar.gz*
+*android-studio-nightly-2026-04-03-linux.tar.gz*
 
-## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-02
+## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-03
 
 Before downloading, you must agree to the following terms and conditions.
 
@@ -487,10 +487,10 @@ This is the Android Software Development Kit License Agreement
 
 I have read and agree with the above terms and conditions
 
-Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-02
+Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-03
 for ChromeOS
-[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-02
+[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-03
 for
-ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.3/android-studio-nightly-2026-04-02-cros.deb)
+ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.3/android-studio-nightly-2026-04-03-cros.deb)
 
-*android-studio-nightly-2026-04-02-cros.deb*
+*android-studio-nightly-2026-04-03-cros.deb*

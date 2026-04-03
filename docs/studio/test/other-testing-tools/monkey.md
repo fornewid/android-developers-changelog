@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The Monkey is a program that runs on your
 [emulator](/tools/help/emulator) or device and generates pseudo-random
 streams of user events such as clicks, touches, or gestures, as well as a number of system-level

@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Cursoradapter
 
 [User Guide](/guide/topics/providers/content-providers)  [Code Sample](https://github.com/android/android-test/blob/master/testapps/ui_testapp/java/androidx/test/ui/app/CursorAdapterListFragment.java)

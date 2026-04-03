@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 On Android 12.0 (API level 31) and later, the system provides the
 [`CallStyle`](/reference/android/app/Notification.CallStyle) notification template to distinguish call notifications from
 other types of notifications. Use this template to create incoming or

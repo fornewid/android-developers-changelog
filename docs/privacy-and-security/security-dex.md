@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 On devices running Android 10 (API level 29) and higher you can tell the platform to run
 embedded DEX code directly from your app's APK file. This option can help
 prevent an attack if an attacker ever managed to tamper with the locally

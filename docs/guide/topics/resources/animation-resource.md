@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 An animation resource can define one of two types of animations:
 
 [Property animation](#Property)

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Make sure your app meets design requirements for usability in cars.
 
 This section lists (or provides links to) all of the UX requirements you'll

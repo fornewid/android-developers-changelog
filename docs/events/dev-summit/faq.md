@@ -1,10 +1,17 @@
 ---
-title: https://developer.android.com/events/dev-summit/faq
+title: Frequently Asked Questions  |  Android Dev Summit  |  Android Developers
 url: https://developer.android.com/events/dev-summit/faq
-source: md.txt
+source: html-scrape
 ---
 
-# Frequently Asked Questions
+* [Home](https://developer.android.com/)
+* [Android Dev Summit](https://developer.android.com/events/dev-summit)
+* [FAQ and Guidelines](https://developer.android.com/events/dev-summit/faq)
+
+# Frequently Asked Questions Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 #### What is Android Dev Summit 2022?
 
@@ -14,14 +21,15 @@ Android Dev Summit 2022 is a hybrid event covering the latest updates in Android
 
 This year you can watch technical talks in three tracks across three weeks: Modern Android Development on October 24, Form Factors on November 9, and Platform on November 14, all livestreamed on YouTube.
 
-#### Will the sessions be livestreamed? What if I can't follow the event in real time?
+#### Will the sessions be livestreamed? What if I can’t follow the event in real time?
 
 Yes, all content will be livestreamed on YouTube and available post-event.
 
 #### How can I stay informed?
 
-Sign up for the Android developer[newsletter](https://developer.android.com/subscribe)to receive updates and information about the event.
+Sign up for the Android developer [newsletter](https://developer.android.com/subscribe)
+to receive updates and information about the event.
 
 #### Is there a Code of Conduct for the event?
 
-Attendees, please review our[Community Guidelines](https://developers.google.com/community-guidelines)to ensure that Android Dev Summit is a harassment-free and inclusive event experience for everyone. At Android Dev Summit, we take our community guidelines seriously, and all attendees, speakers, and staff at our event are required to agree to these guidelines. If you have any questions, please contact[android-dev-summit@google.com](mailto:android-dev-summit@google.com).
+Attendees, please review our [Community Guidelines](https://developers.google.com/community-guidelines) to ensure that Android Dev Summit is a harassment-free and inclusive event experience for everyone. At Android Dev Summit, we take our community guidelines seriously, and all attendees, speakers, and staff at our event are required to agree to these guidelines. If you have any questions, please contact [android-dev-summit@google.com](mailto:android-dev-summit@google.com).

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Many TV apps include content detail pages with relevant metadata for a given
 piece of content (i.e. a specific movie). Detail pages can be implemented as a
 composable function, taking metadata of the selected content as its argument.

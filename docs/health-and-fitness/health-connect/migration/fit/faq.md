@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 This document provides answers to frequently asked questions about migrating
 from Google Fit APIs to Android Health APIs.
 

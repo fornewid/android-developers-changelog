@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 **Note:** This guide is for the Play Games Services v2 SDK. For information on the
 previous version of this SDK, see the [Play Games Services v1
 documentation](/games/pgs/v1/android/events).
@@ -121,6 +122,8 @@ public void loadEvents() {
       });
 }
 ```
+
+
 
 
 

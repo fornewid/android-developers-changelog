@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android applications can set a number of SDK version properties in their
 `build.gradle` file. The [Android `build.gradle`](/studio/build#module-level) documentation explains what
 those properties mean for the application in general. This document explains how

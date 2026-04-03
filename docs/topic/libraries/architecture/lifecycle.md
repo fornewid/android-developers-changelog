@@ -1,11 +1,21 @@
 ---
-title: https://developer.android.com/topic/libraries/architecture/lifecycle
+title: Handling lifecycles with lifecycle-aware components  |  App architecture  |  Android Developers
 url: https://developer.android.com/topic/libraries/architecture/lifecycle
-source: md.txt
+source: html-scrape
 ---
 
-# Handling lifecycles with lifecycle-aware components
-Part of [Android Jetpack](https://developer.android.com/jetpack).
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+
+# Handling lifecycles with lifecycle-aware components   Part of [Android Jetpack](/jetpack).
 
 Lifecycle-aware components perform actions in response to a change in the
 lifecycle status of another component, such as activities and fragments. These
@@ -18,13 +28,15 @@ poor organization of the code and to the proliferation of errors. By using
 lifecycle-aware components, you can move the code of dependent components out of
 the lifecycle methods and into the components themselves.
 
-The [`androidx.lifecycle`](https://developer.android.com/reference/androidx/lifecycle/package-summary)
+The [`androidx.lifecycle`](/reference/androidx/lifecycle/package-summary)
 package provides classes and interfaces that let you build *lifecycle-aware*
-components---which are components that can automatically adjust their
+components—which are components that can automatically adjust their
 behavior based on the current lifecycle state of an activity or fragment.
 
-> [!NOTE]
-> **Note:** To import [`androidx.lifecycle`](https://developer.android.com/reference/androidx/lifecycle/package-summary) into your Android project, see the instructions for declaring dependencies in the [Lifecycle release notes](https://developer.android.com/jetpack/androidx/releases/lifecycle#declaring_dependencies).
+**Note:** To import
+[`androidx.lifecycle`](/reference/androidx/lifecycle/package-summary)
+into your Android project, see the instructions for declaring dependencies in the
+[Lifecycle release notes](/jetpack/androidx/releases/lifecycle#declaring_dependencies).
 
 Most of the app components that are defined in the Android Framework have
 lifecycles attached to them. Lifecycles are managed by the operating system or
@@ -37,7 +49,7 @@ common implementation might be like the following:
 
 ### Kotlin
 
-```kotlin
+```
 internal class MyLocationListener(
         private val context: Context,
         private val callback: (Location) -> Unit
@@ -79,7 +91,7 @@ class MyActivity : AppCompatActivity() {
 
 ### Java
 
-```java
+```
 class MyLocationListener {
     public MyLocationListener(Context context, Callback callback) {
         // ...
@@ -125,17 +137,17 @@ class MyActivity extends AppCompatActivity {
 Even though this sample looks fine, in a real app, you end up having too many
 calls that manage the UI and other components in response to the current state
 of the lifecycle. Managing multiple components places a considerable amount of
-code in lifecycle methods, such as `https://developer.android.com/reference/android/app/Activity#onStart()` and
-`https://developer.android.com/reference/android/app/Activity#onStop()`, which makes them difficult to maintain.
+code in lifecycle methods, such as `onStart()` and
+`onStop()`, which makes them difficult to maintain.
 
 Moreover, there's no guarantee that the component starts before the activity or
 fragment is stopped. This is especially true if we need to perform a
-long-running operation, such as some configuration check in `https://developer.android.com/reference/android/app/Activity#onStart()`. This can cause a race condition where the `https://developer.android.com/reference/android/app/Activity#onStop()` method finishes before the `https://developer.android.com/reference/android/app/Activity#onStart()`, keeping the component alive longer than it's
+long-running operation, such as some configuration check in `onStart()`. This can cause a race condition where the `onStop()` method finishes before the `onStart()`, keeping the component alive longer than it's
 needed.
 
 ### Kotlin
 
-```kotlin
+```
 class MyActivity : AppCompatActivity() {
     private lateinit var myLocationListener: MyLocationListener
 
@@ -165,7 +177,7 @@ class MyActivity : AppCompatActivity() {
 
 ### Java
 
-```java
+```
 class MyActivity extends AppCompatActivity {
     private MyLocationListener myLocationListener;
 
@@ -194,44 +206,48 @@ class MyActivity extends AppCompatActivity {
 }
 ```
 
-The [`androidx.lifecycle`](https://developer.android.com/reference/androidx/lifecycle/package-summary)
+The [`androidx.lifecycle`](/reference/androidx/lifecycle/package-summary)
 package provides classes and interfaces that help you tackle these problems in a
 resilient and isolated way.
 
 ## Lifecycle
 
-[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) is a class
+[`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) is a class
 that holds the information about the lifecycle state of a component (like an
 activity or a fragment) and allows other objects to observe this state.
 
-[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) uses two main
+[`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) uses two main
 enumerations to track the lifecycle status for its associated component:
 
 Event
 :   The lifecycle events that are dispatched from the framework and the
-    [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) class. These
+    [`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) class. These
     events map to the callback events in activities and fragments.
 
 State
 :   The current state of the component tracked by the
-    [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) object.
-![](https://developer.android.com/static/images/topic/libraries/architecture/lifecycle-states.svg) **Figure 1.** States and events of the Android activity lifecycle.
+    [`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) object.
+
+![](/static/images/topic/libraries/architecture/lifecycle-states.svg)
+
+
+**Figure 1.** States and events of the Android activity lifecycle.
 
 Think of the states as nodes of a graph and events as the edges between
 these nodes.
 
 A class can monitor the component's lifecycle status by implementing
-[`DefaultLifecycleObserver`](https://developer.android.com/reference/androidx/lifecycle/DefaultLifecycleObserver)
+[`DefaultLifecycleObserver`](/reference/androidx/lifecycle/DefaultLifecycleObserver)
 and overriding corresponding methods such as `onCreate`, `onStart`, etc.
 Then you can add an observer by calling the
-[`addObserver()`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle#addObserver(androidx.lifecycle.LifecycleObserver))
-method of the [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle)
+[`addObserver()`](/reference/androidx/lifecycle/Lifecycle#addObserver(androidx.lifecycle.LifecycleObserver))
+method of the [`Lifecycle`](/reference/androidx/lifecycle/Lifecycle)
 class and passing an instance of your observer, as shown in the following
 example:
 
 ### Kotlin
 
-```kotlin
+```
 class MyObserver : DefaultLifecycleObserver {
     override fun onResume(owner: LifecycleOwner) {
         connect()
@@ -247,7 +263,7 @@ myLifecycleOwner.getLifecycle().addObserver(MyObserver())
 
 ### Java
 
-```java
+```
 public class MyObserver implements DefaultLifecycleObserver {
     @Override
     public void onResume(LifecycleOwner owner) {
@@ -264,39 +280,39 @@ myLifecycleOwner.getLifecycle().addObserver(new MyObserver());
 ```
 
 In the example above, the `myLifecycleOwner` object implements the
-[`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner)
+[`LifecycleOwner`](/reference/androidx/lifecycle/LifecycleOwner)
 interface, which is explained in the following section.
 
 ## LifecycleOwner
 
-[`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner) is a
+[`LifecycleOwner`](/reference/androidx/lifecycle/LifecycleOwner) is a
 single method interface that denotes that the class has a
-[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle). It has one
+[`Lifecycle`](/reference/androidx/lifecycle/Lifecycle). It has one
 method,
-[`getLifecycle()`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner#getLifecycle()),
+[`getLifecycle()`](/reference/androidx/lifecycle/LifecycleOwner#getLifecycle()),
 which must be implemented by the class.
 If you're trying to manage the lifecycle of a whole application
 process instead, see
-[`ProcessLifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner).
+[`ProcessLifecycleOwner`](/reference/androidx/lifecycle/ProcessLifecycleOwner).
 
 This interface abstracts the ownership of a
-[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) from individual
-classes, such as `https://developer.android.com/reference/androidx/fragment/app/Fragment` and `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity`, and allows writing components that
+[`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) from individual
+classes, such as `Fragment` and `AppCompatActivity`, and allows writing components that
 work with them. Any custom application class can implement the
-[`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner)
+[`LifecycleOwner`](/reference/androidx/lifecycle/LifecycleOwner)
 interface.
 
 Components that implement
-[`DefaultLifecycleObserver`](https://developer.android.com/reference/androidx/lifecycle/DefaultLifecycleObserver)
+[`DefaultLifecycleObserver`](/reference/androidx/lifecycle/DefaultLifecycleObserver)
 work seamlessly with components that implement
-[`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner)
+[`LifecycleOwner`](/reference/androidx/lifecycle/LifecycleOwner)
 because an owner can provide a lifecycle, which an observer can register to
 watch.
 
 For the location tracking example, we can make the `MyLocationListener` class
-implement [`DefaultLifecycleObserver`](https://developer.android.com/reference/androidx/lifecycle/DefaultLifecycleObserver)
+implement [`DefaultLifecycleObserver`](/reference/androidx/lifecycle/DefaultLifecycleObserver)
 and then initialize it with the activity's
-[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) in the `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method. This allows the
+[`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) in the `onCreate()` method. This allows the
 `MyLocationListener` class to be self-sufficient, meaning that the logic to
 react to changes in lifecycle status is declared in `MyLocationListener` instead
 of the activity. Having the individual components store their own logic makes
@@ -304,7 +320,7 @@ the activities and fragments logic easier to manage.
 
 ### Kotlin
 
-```kotlin
+```
 class MyActivity : AppCompatActivity() {
     private lateinit var myLocationListener: MyLocationListener
 
@@ -323,7 +339,7 @@ class MyActivity : AppCompatActivity() {
 
 ### Java
 
-```java
+```
 class MyActivity extends AppCompatActivity {
     private MyLocationListener myLocationListener;
 
@@ -341,18 +357,18 @@ class MyActivity extends AppCompatActivity {
 ```
 
 A common use case is to avoid invoking certain callbacks if the
-[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) isn't in a good
+[`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) isn't in a good
 state right now. For example, if the callback runs a fragment transaction after
 the activity state is saved, it would trigger a crash, so we would never want to
 invoke that callback.
 
 To make this use case easy, the
-[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) class allows
+[`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) class allows
 other objects to query the current state.
 
 ### Kotlin
 
-```kotlin
+```
 internal class MyLocationListener(
         private val context: Context,
         private val lifecycle: Lifecycle,
@@ -382,7 +398,7 @@ internal class MyLocationListener(
 
 ### Java
 
-```java
+```
 class MyLocationListener implements DefaultLifecycleObserver {
     private boolean enabled = false;
     public MyLocationListener(Context context, Lifecycle lifecycle, Callback callback) {
@@ -423,19 +439,19 @@ client side.
 ### Implementing a custom LifecycleOwner
 
 Fragments and Activities in Support Library 26.1.0 and later already implement
-the [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner)
+the [`LifecycleOwner`](/reference/androidx/lifecycle/LifecycleOwner)
 interface.
 
 If you have a custom class that you would like to make a
-[`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner), you
+[`LifecycleOwner`](/reference/androidx/lifecycle/LifecycleOwner), you
 can use the
-[LifecycleRegistry](https://developer.android.com/reference/androidx/lifecycle/LifecycleRegistry)
+[LifecycleRegistry](/reference/androidx/lifecycle/LifecycleRegistry)
 class, but you need to forward events into that class, as shown in the following
 code example:
 
 ### Kotlin
 
-```kotlin
+```
 class MyActivity : Activity(), LifecycleOwner {
 
     private lateinit var lifecycleRegistry: LifecycleRegistry
@@ -460,7 +476,7 @@ class MyActivity : Activity(), LifecycleOwner {
 
 ### Java
 
-```java
+```
 public class MyActivity extends Activity implements LifecycleOwner {
     private LifecycleRegistry lifecycleRegistry;
 
@@ -488,72 +504,126 @@ public class MyActivity extends Activity implements LifecycleOwner {
 
 ## Best practices for lifecycle-aware components
 
-- Keep your UI controllers (activities and fragments) as lean as possible. They should not try to acquire their own data; instead, use a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) to do that, and observe a [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) object to reflect the changes back to the views.
-- Try to write data-driven UIs where your UI controller's responsibility is to update the views as data changes, or notify user actions back to the [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel).
-- Put your data logic in your [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) class. [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) should serve as the connector between your UI controller and the rest of your app. Be careful though, it isn't [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel)'s responsibility to fetch data (for example, from a network). Instead, [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) should call the appropriate component to fetch the data, then provide the result back to the UI controller.
-- Use [Data Binding](https://developer.android.com/topic/libraries/data-binding) to maintain a clean interface between your views and the UI controller. This allows you to make your views more declarative and minimize the update code you need to write in your activities and fragments. If you prefer to do this in the Java programming language, use a library like [Butter Knife](http://jakewharton.github.io/butterknife/) to avoid boilerplate code and have a better abstraction.
-- If your UI is complex, consider creating a [presenter](http://www.gwtproject.org/articles/mvp-architecture.html#presenter) class to handle UI modifications. This might be a laborious task, but it can make your UI components easier to test.
-- Avoid referencing a `https://developer.android.com/reference/android/view/View` or `https://developer.android.com/reference/android/app/Activity` context in your [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel). If the `ViewModel` outlives the activity (in case of configuration changes), your activity leaks and isn't properly disposed by the garbage collector.
-- Use [Kotlin coroutines](https://developer.android.com/topic/libraries/architecture/coroutines) to manage long-running tasks and other operations that can run asynchronously.
+* Keep your UI controllers (activities and fragments) as lean as possible. They
+  should not try to acquire their own data; instead, use a
+  [`ViewModel`](/reference/androidx/lifecycle/ViewModel) to do that,
+  and observe a [`LiveData`](/reference/androidx/lifecycle/LiveData)
+  object to reflect the changes back to the views.
+* Try to write data-driven UIs where your UI controller’s responsibility is to
+  update the views as data changes, or notify user actions back to the
+  [`ViewModel`](/reference/androidx/lifecycle/ViewModel).
+* Put your data logic in your
+  [`ViewModel`](/reference/androidx/lifecycle/ViewModel) class.
+  [`ViewModel`](/reference/androidx/lifecycle/ViewModel) should serve
+  as the connector between your UI controller and the rest of your app. Be
+  careful though, it isn't
+  [`ViewModel`](/reference/androidx/lifecycle/ViewModel)'s
+  responsibility to fetch data (for example, from a network). Instead,
+  [`ViewModel`](/reference/androidx/lifecycle/ViewModel) should call
+  the appropriate component to fetch the data, then provide the result back to
+  the UI controller.
+* Use [Data Binding](/topic/libraries/data-binding) to maintain a
+  clean interface between your views and the UI controller. This allows you to
+  make your views more declarative and minimize the update code you need to
+  write in your activities and fragments. If you prefer to do this in the Java
+  programming language, use a library like
+  [Butter Knife](http://jakewharton.github.io/butterknife/) to avoid boilerplate
+  code and have a better abstraction.
+* If your UI is complex, consider creating a
+  [presenter](http://www.gwtproject.org/articles/mvp-architecture.html#presenter)
+  class to handle UI modifications. This might be a laborious task, but it can
+  make your UI components easier to test.
+* Avoid referencing a `View` or `Activity`
+  context in your [`ViewModel`](/reference/androidx/lifecycle/ViewModel).
+  If the `ViewModel` outlives the activity (in case of configuration changes),
+  your activity leaks and isn't properly disposed by the garbage collector.
+* Use [Kotlin coroutines](/topic/libraries/architecture/coroutines) to manage
+  long-running tasks and other operations that can run asynchronously.
 
 ## Use cases for lifecycle-aware components
 
 Lifecycle-aware components can make it much easier for you to manage lifecycles
 in a variety of cases. A few examples are:
 
-- Switching between coarse and fine-grained location updates. Use lifecycle-aware components to enable fine-grained location updates while your location app is visible and switch to coarse-grained updates when the app is in the background. [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData), a lifecycle-aware component, allows your app to automatically update the UI when your user changes locations.
-- Stopping and starting video buffering. Use lifecycle-aware components to start video buffering as soon as possible, but defer playback until app is fully started. You can also use lifecycle-aware components to terminate buffering when your app is destroyed.
-- Starting and stopping network connectivity. Use lifecycle-aware components to enable live updating (streaming) of network data while an app is in the foreground and also to automatically pause when the app goes into the background.
-- Pausing and resuming animated drawables. Use lifecycle-aware components to handle pausing animated drawables when the app is in the background and resume drawables after the app is in the foreground.
+* Switching between coarse and fine-grained location updates. Use
+  lifecycle-aware components to enable fine-grained location updates while your
+  location app is visible and switch to coarse-grained updates when the app is
+  in the background. [`LiveData`](/reference/androidx/lifecycle/LiveData), a lifecycle-aware component,
+  allows your app to automatically update the UI when your user changes
+  locations.
+* Stopping and starting video buffering. Use lifecycle-aware components to start
+  video buffering as soon as possible, but defer playback until app is fully
+  started. You can also use lifecycle-aware components to terminate buffering
+  when your app is destroyed.
+* Starting and stopping network connectivity. Use lifecycle-aware components to
+  enable live updating (streaming) of network data while an app is in the
+  foreground and also to automatically pause when the app goes into the
+  background.
+* Pausing and resuming animated drawables. Use lifecycle-aware components to
+  handle pausing animated drawables when the app is in the background and
+  resume drawables after the app is in the foreground.
 
 ## Handling on stop events
 
-When a [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) belongs to an `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity`
-or `https://developer.android.com/reference/androidx/fragment/app/Fragment`, the [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle)'s
+When a [`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) belongs to an `AppCompatActivity`
+or `Fragment`, the [`Lifecycle`](/reference/androidx/lifecycle/Lifecycle)'s
 state changes to
-[`CREATED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#CREATED) and
-the [`ON_STOP`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.Event#ON_STOP)
-event is dispatched when the `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity` or
-`https://developer.android.com/reference/androidx/fragment/app/Fragment`'s `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#onSaveInstanceState(android.os.Bundle)`
+[`CREATED`](/reference/androidx/lifecycle/Lifecycle.State#CREATED) and
+the [`ON_STOP`](/reference/androidx/lifecycle/Lifecycle.Event#ON_STOP)
+event is dispatched when the `AppCompatActivity` or
+`Fragment`'s `onSaveInstanceState()`
 is called.
 
-When a `https://developer.android.com/reference/androidx/fragment/app/Fragment` or `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity`'s state is saved via
-`https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#onSaveInstanceState(android.os.Bundle)`, it's UI
+When a `Fragment` or `AppCompatActivity`'s state is saved via
+`onSaveInstanceState()`, it's UI
 is considered immutable until
-[`ON_START`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.Event#ON_START) is
+[`ON_START`](/reference/androidx/lifecycle/Lifecycle.Event#ON_START) is
 called. Trying to modify the UI after the state is saved is likely to cause
-inconsistencies in the navigation state of your application which is why `https://developer.android.com/reference/androidx/fragment/app/FragmentManager` throws an exception if the app runs a
-`https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction` after state is saved. See
-`https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction#commit()` for details.
+inconsistencies in the navigation state of your application which is why `FragmentManager` throws an exception if the app runs a
+`FragmentTransaction` after state is saved. See
+`commit()` for details.
 
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) prevents this edge case out of the box by refraining
-from calling its observer if the observer's associated [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle)
+[`LiveData`](/reference/androidx/lifecycle/LiveData) prevents this edge case out of the box by refraining
+from calling its observer if the observer's associated [`Lifecycle`](/reference/androidx/lifecycle/Lifecycle)
 isn't at least
-[`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#STARTED).
+[`STARTED`](/reference/androidx/lifecycle/Lifecycle.State#STARTED).
 Behind the scenes, it calls
-[`isAtLeast()`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#isAtLeast(androidx.lifecycle.Lifecycle.State))
+[`isAtLeast()`](/reference/androidx/lifecycle/Lifecycle.State#isAtLeast(androidx.lifecycle.Lifecycle.State))
 before deciding to invoke its observer.
 
-Unfortunately, `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity`'s `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#onStop()` method is called *after*
-`https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#onSaveInstanceState(android.os.Bundle)`,
+Unfortunately, `AppCompatActivity`'s `onStop()` method is called *after*
+`onSaveInstanceState()`,
 which leaves a gap where UI state changes are not allowed but the
-[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) has not yet been moved to the
-[`CREATED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#CREATED)
+[`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) has not yet been moved to the
+[`CREATED`](/reference/androidx/lifecycle/Lifecycle.State#CREATED)
 state.
 
-To prevent this issue, the [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) class in version `beta2`
+To prevent this issue, the [`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) class in version `beta2`
 and lower mark the state as
-[`CREATED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#CREATED)
+[`CREATED`](/reference/androidx/lifecycle/Lifecycle.State#CREATED)
 without dispatching the event so that any code that checks the current
-state gets the real value even though the event isn't dispatched until `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#onStop()` is called by the system.
+state gets the real value even though the event isn't dispatched until `onStop()` is called by the system.
 
 Unfortunately, this solution has two major problems:
 
-- On API level 23 and lower, the Android system actually saves the state of an activity even if it is *partially* covered by another activity. In other words, the Android system calls `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#onSaveInstanceState(android.os.Bundle)` but it doesn't necessarily call `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#onStop()`. This creates a potentially long interval where the observer still thinks that the lifecycle is active even though its UI state can't be modified.
-- Any class that wants to expose a similar behavior to the [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) class has to implement the workaround provided by [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) version `beta 2` and lower.
+* On API level 23 and lower, the Android system actually saves the state of an
+  activity even if it is *partially* covered by another activity. In other
+  words, the Android system calls `onSaveInstanceState()`
+  but it doesn't necessarily call `onStop()`. This creates a potentially
+  long interval where the observer still thinks that the lifecycle is active
+  even though its UI state can't be modified.
+* Any class that wants to expose a similar behavior to the
+  [`LiveData`](/reference/androidx/lifecycle/LiveData) class has to implement the workaround provided by
+  [`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) version `beta 2` and lower.
 
-> [!NOTE]
-> **Note:** To make this flow simpler and provide better compatibility with older versions, starting at version `1.0.0-rc1`, [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) objects are marked as [`CREATED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#CREATED) and [`ON_STOP`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.Event#ON_STOP) is dispatched when `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#onSaveInstanceState(android.os.Bundle)` is called without waiting for a call to the `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#onStop()` method. This is unlikely to impact your code but it is something you need to be aware of as it doesn't match the call order in the `https://developer.android.com/reference/android/app/Activity` class in API level 26 and lower.
+**Note:** To make this flow simpler and provide better compatibility with older versions,
+starting at version `1.0.0-rc1`, [`Lifecycle`](/reference/androidx/lifecycle/Lifecycle) objects are marked
+as [`CREATED`](/reference/androidx/lifecycle/Lifecycle.State#CREATED)
+and [`ON_STOP`](/reference/androidx/lifecycle/Lifecycle.Event#ON_STOP)
+is dispatched when `onSaveInstanceState()`
+is called without waiting for a call to the `onStop()` method. This is unlikely to
+impact your code but it is something you need
+to be aware of as it doesn't match the call order in the `Activity` class in API level 26 and lower.
 
 ## Additional resources
 
@@ -562,19 +632,20 @@ consult the following additional resources.
 
 ### Samples
 
-- [Sunflower](https://github.com/android/sunflower), a demo app demonstrating best practices with Architecture Components
+* [Sunflower](https://github.com/android/sunflower), a demo app demonstrating best practices with
+  Architecture Components
 
 ### Codelabs
 
-- [Android Lifecycle-aware components](https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html?index=../../index#0)
+* [Android Lifecycle-aware components](https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html?index=..%2F..%2Findex#0)
 
 ### Blogs
 
-- [Introducing Android Sunflower](https://medium.com/androiddevelopers/introducing-android-sunflower-e421b43fe0c2)
+* [Introducing Android Sunflower](https://medium.com/androiddevelopers/introducing-android-sunflower-e421b43fe0c2)
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [LiveData overview](https://developer.android.com/topic/libraries/architecture/livedata)
-- [Use Kotlin coroutines with lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/coroutines)
-- [Saved State module for ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate)
+* Note: link text is displayed when JavaScript is off
+* [LiveData overview](/topic/libraries/architecture/livedata)
+* [Use Kotlin coroutines with lifecycle-aware components](/topic/libraries/architecture/coroutines)
+* [Saved State module for ViewModel](/topic/libraries/architecture/viewmodel/viewmodel-savedstate)

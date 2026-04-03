@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Swipe views allow you to navigate between sibling screens, such as tabs, with a
 horizontal finger gesture, or *swipe*. This navigation pattern is also referred
 to as *horizontal paging*. This topic teaches you how to create a tab layout

@@ -1,32 +1,22 @@
 ---
-title: Test against screen configuration changes with the Espresso Device API  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/test/espresso-api
 url: https://developer.android.com/studio/test/espresso-api
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [IDE guides](https://developer.android.com/studio/intro)
-
-# Test against screen configuration changes with the Espresso Device API Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Use the Espresso Device API to test your app when the device undergoes common
 configuration changes, such as rotation and screen unfolding. The Espresso
 Device API lets you simulate these configuration changes on a virtual device and
 executes your tests synchronously, so only one UI action or assertion happens at
 a time and your test results are more reliable. If you're new to writing UI
-tests with Espresso, see its [documentation](/training/testing/espresso).
+tests with Espresso, see its [documentation](https://developer.android.com/training/testing/espresso).
 
 To use the Espresso Device API, you need the following:
 
-* Android Studio Iguana or higher
-* Android Gradle plugin 8.3 or higher
-* Android Emulator 33.1.10 or higher
-* Android virtual device that runs API level 24 or higher
+- Android Studio Iguana or higher
+- Android Gradle plugin 8.3 or higher
+- Android Emulator 33.1.10 or higher
+- Android virtual device that runs API level 24 or higher
 
 ## Set up your project for the Espresso Device API
 
@@ -38,52 +28,58 @@ To set up your project so it supports the Espresso Device API, do the following:
    ```
      <uses-permission android:name="android.permission.INTERNET" />
      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+     
    ```
 2. Enable the `enableEmulatorControl` experimental flag in the
    `gradle.properties` file:
 
    ```
      android.experimental.androidTest.enableEmulatorControl=true
+     
    ```
 3. Enable the `emulatorControl` option in the module-level build
    script:
 
    ### Kotlin
 
-   ```
+   ```kotlin
      testOptions {
        emulatorControl {
          enable = true
        }
      }
+     
    ```
 
    ### Groovy
 
-   ```
+   ```groovy
      testOptions {
        emulatorControl {
          enable = true
        }
      }
+     
    ```
 4. In the module-level build script, import the Espresso Device library
    into your project:
 
    ### Kotlin
 
-   ```
+   ```kotlin
      dependencies {
        androidTestImplementation("androidx.test.espresso:espresso-device:1.0.1")
      }
+     
    ```
 
    ### Groovy
 
-   ```
+   ```groovy
      dependencies {
        androidTestImplementation 'androidx.test.espresso:espresso-device:1.0.1'
      }
+     
    ```
 
 ## Test against common configuration changes
@@ -99,17 +95,18 @@ rotates:
 1. First, for a consistent starting state set the device to portrait
    mode:
 
-   ```
+   ```kotlin
      import androidx.test.espresso.device.action.ScreenOrientation
      import androidx.test.espresso.device.rules.ScreenOrientationRule
      ...
      @get:Rule
      val screenOrientationRule: ScreenOrientationRule = ScreenOrientationRule(ScreenOrientation.PORTRAIT)
+     
    ```
 2. Create a test that sets the device to landscape orientation during test
    execution:
 
-   ```
+   ```kotlin
      @Test
      fun myRotationTest() {
        ...
@@ -117,10 +114,11 @@ rotates:
        onDevice().setScreenOrientation(ScreenOrientation.LANDSCAPE)
        ...
      }
+     
    ```
 3. After the screen rotates, check that the UI adapts to the new layout as expected.
 
-   ```
+   ```kotlin
      @Test
      fun myRotationTest() {
        ...
@@ -129,6 +127,7 @@ rotates:
        composeTestRule.onNodeWithTag("NavRail").assertIsDisplayed()
        composeTestRule.onNodeWithTag("BottomBar").assertDoesNotExist()
      }
+     
    ```
 
 ### Test against screen unfolding
@@ -140,7 +139,7 @@ device and the screen unfolds:
    `onDevice().setClosedMode()`. Make sure that your app's layout
    adapts to the compact screen width.
 
-   ```
+   ```kotlin
      @Test
      fun myUnfoldedTest() {
        onDevice().setClosedMode()
@@ -148,12 +147,13 @@ device and the screen unfolds:
        composeTestRule.onNodeWithTag("NavRail").assetDoesNotExist()
        ...
      }
+     
    ```
 2. To transition to a fully unfolded state, call
-   `onDevice().setFlatMode()`. Check that the app’s layout adapts to
+   `onDevice().setFlatMode()`. Check that the app's layout adapts to
    the expanded size class.
 
-   ```
+   ```kotlin
      @Test
      fun myUnfoldedTest() {
        onDevice().setClosedMode()
@@ -162,6 +162,7 @@ device and the screen unfolds:
        composeTestRule.onNodeWithTag("NavRail").assertIsDisplayed()
        composeTestRule.onNodeWithTag("BottomBar").assetDoesNotExist()
      }
+     
    ```
 
 ## Specify what devices your tests need
@@ -177,10 +178,8 @@ For example, to specify that a test should only be run on devices that support
 unfolding to a flat configuration, add the following `@RequiresDeviceMode` code
 to your test:
 
-```
-@Test
-@RequiresDeviceMode(mode = FLAT)
-fun myUnfoldedTest() {
-  ...
-}
-```
+    @Test
+    @RequiresDeviceMode(mode = FLAT)
+    fun myUnfoldedTest() {
+      ...
+    }

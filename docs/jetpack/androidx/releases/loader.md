@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Loader
 
 [User Guide](/guide/components/loaders)  [Code Sample](https://github.com/android/architecture-components-samples/blob/master/PersistenceContentProviderSample/app/src/main/java/com/example/android/contentprovidersample/MainActivity.java)

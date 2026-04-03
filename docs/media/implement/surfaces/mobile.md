@@ -1,16 +1,25 @@
 ---
-title: https://developer.android.com/media/implement/surfaces/mobile
+title: Media controls  |  Android media  |  Android Developers
 url: https://developer.android.com/media/implement/surfaces/mobile
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Media controls Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Media controls in Android are located near the Quick Settings. Sessions from
 multiple apps are arranged in a swipeable carousel. The carousel lists sessions
 in this order:
 
-- Streams playing locally on the phone
-- Remote streams, such as those detected on external devices or cast sessions
-- Previous resumable sessions, in the order they were last played
+* Streams playing locally on the phone
+* Remote streams, such as those detected on external devices or cast sessions
+* Previous resumable sessions, in the order they were last played
 
 Starting in Android 13 (API level 33), to ensure that users can access a rich
 set of media controls for apps playing media, action buttons on media controls
@@ -21,8 +30,12 @@ media control experience across devices.
 
 Figure 1 shows an example of how this looks on a phone and tablet device,
 respectively.
+
 ![Media controls in terms of how they appear on phone and tablets devices,
-using an example of a sample track showing how the buttons may appear](https://developer.android.com/static/images/media/samples/media-controls-android-13.svg) **Figure 1:**Media controls on phone and tablet devices
+            using an example of a sample track showing how the buttons may appear](/static/images/media/samples/media-controls-android-13.svg)
+
+
+**Figure 1:** Media controls on phone and tablet devices
 
 The system displays up to five action buttons based on the `Player` state as
 described in the following table. In compact mode, only the first three action
@@ -30,44 +43,43 @@ slots are displayed. This aligns with how media controls are rendered in other
 Android platforms such as Auto, Assistant, and Wear OS.
 
 | Slot | Criteria | Action |
-|---|---|---|
-| 1 | [`playWhenReady`](https://developer.android.com/reference/androidx/media3/common/Player#getPlayWhenReady()) is false or the current [playback state](https://developer.android.com/reference/androidx/media3/common/Player#getPlaybackState()) is `STATE_ENDED`. | Play |
-| 1 | [`playWhenReady`](https://developer.android.com/reference/androidx/media3/common/Player#getPlayWhenReady()) is true and the current [playback state](https://developer.android.com/reference/androidx/media3/common/Player#getPlaybackState()) is `STATE_BUFFERING`. | Loading spinner |
-| 1 | [`playWhenReady`](https://developer.android.com/reference/androidx/media3/common/Player#getPlayWhenReady()) is true and the current [playback state](https://developer.android.com/reference/androidx/media3/common/Player#getPlaybackState()) is `STATE_READY`. | Pause |
-| 2 | The [media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) contain a custom button for `CommandButton.SLOT_BACK` | Custom |
-| 2 | Player command [`COMMAND_SEEK_TO_PREVIOUS`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_SEEK_TO_PREVIOUS()) or [`COMMAND_SEEK_TO_PREVIOUS_MEDIA_ITEM`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_SEEK_TO_PREVIOUS_MEDIA_ITEM()) is available. | Previous |
-| 2 | Neither a custom button nor one of the listed commands is available. | Empty |
-| 3 | The [media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) contain a custom button for `CommandButton.SLOT_FORWARD` | Custom |
-| 3 | Player command [`COMMAND_SEEK_TO_NEXT`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_SEEK_TO_NEXT()) or [`COMMAND_SEEK_TO_NEXT_MEDIA_ITEM`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_SEEK_TO_NEXT_MEDIA_ITEM()) is available. | Next |
-| 3 | Neither a custom button nor one of the listed commands is available. | Empty |
-| 4 | The [media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) contain a custom button for `CommandButton.SLOT_OVERFLOW` that hasn't been placed yet. | Custom |
-| 5 | The [media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) contain a custom button for `CommandButton.SLOT_OVERFLOW` that hasn't been placed yet. | Custom |
+| --- | --- | --- |
+| 1 | [`playWhenReady`](/reference/androidx/media3/common/Player#getPlayWhenReady()) is false or the current [playback state](/reference/androidx/media3/common/Player#getPlaybackState()) is `STATE_ENDED`. | Play |
+| [`playWhenReady`](/reference/androidx/media3/common/Player#getPlayWhenReady()) is true and the current [playback state](/reference/androidx/media3/common/Player#getPlaybackState()) is `STATE_BUFFERING`. | Loading spinner |
+| [`playWhenReady`](/reference/androidx/media3/common/Player#getPlayWhenReady()) is true and the current [playback state](/reference/androidx/media3/common/Player#getPlaybackState()) is `STATE_READY`. | Pause |
+| 2 | The [media button preferences](/media/media3/session/control-playback#commands) contain a custom button for `CommandButton.SLOT_BACK` | Custom |
+| Player command [`COMMAND_SEEK_TO_PREVIOUS`](/reference/androidx/media3/common/Player#COMMAND_SEEK_TO_PREVIOUS()) or [`COMMAND_SEEK_TO_PREVIOUS_MEDIA_ITEM`](/reference/androidx/media3/common/Player#COMMAND_SEEK_TO_PREVIOUS_MEDIA_ITEM()) is available. | Previous |
+| Neither a custom button nor one of the listed commands is available. | Empty |
+| 3 | The [media button preferences](/media/media3/session/control-playback#commands) contain a custom button for `CommandButton.SLOT_FORWARD` | Custom |
+| Player command [`COMMAND_SEEK_TO_NEXT`](/reference/androidx/media3/common/Player#COMMAND_SEEK_TO_NEXT()) or [`COMMAND_SEEK_TO_NEXT_MEDIA_ITEM`](/reference/androidx/media3/common/Player#COMMAND_SEEK_TO_NEXT_MEDIA_ITEM()) is available. | Next |
+| Neither a custom button nor one of the listed commands is available. | Empty |
+| 4 | The [media button preferences](/media/media3/session/control-playback#commands) contain a custom button for `CommandButton.SLOT_OVERFLOW` that hasn't been placed yet. | Custom |
+| 5 | The [media button preferences](/media/media3/session/control-playback#commands) contain a custom button for `CommandButton.SLOT_OVERFLOW` that hasn't been placed yet. | Custom |
 
 Custom overflow button are placed in the order in which they were added to the
 media button preferences.
 
-> [!NOTE]
-> **Note:** When the user taps on the notification, the system triggers the session activity `PendingIntent` passed to [`MediaSession.Builder#setSessionActivity`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Builder#setSessionActivity(android.app.PendingIntent)) (which must [launch an activity](https://developer.android.com/reference/android/app/PendingIntent#isActivity())).
+**Note:** When the user taps on the notification, the system triggers the session
+activity `PendingIntent` passed to [`MediaSession.Builder#setSessionActivity`](/reference/androidx/media3/session/MediaSession.Builder#setSessionActivity(android.app.PendingIntent))
+(which must [launch an activity](/reference/android/app/PendingIntent#isActivity())).
 
 ## Customize command buttons
 
-To customize system media controls with [Jetpack Media3](https://developer.android.com/guide/topics/media/media3), you can set
+To customize system media controls with [Jetpack Media3](/guide/topics/media/media3), you can set
 the media button preferences of the session and the available commands of
 controllers accordingly:
 
-1. Build a [`MediaSession`](https://developer.android.com/media/implement/playback-app#managing_playback_with_a_media_session) and [define the media button
-   preferences](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaSession.Builder#setMediaButtonPreferences(java.util.List%3Candroidx.media3.session.CommandButton%3E)) for custom command buttons.
-
-2. In [`MediaSession.Callback.onConnect()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaSession.Callback#onConnect(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo)),
+1. Build a [`MediaSession`](/media/implement/playback-app#managing_playback_with_a_media_session) and [define the media button
+   preferences](/reference/kotlin/androidx/media3/session/MediaSession.Builder#setMediaButtonPreferences(java.util.List%3Candroidx.media3.session.CommandButton%3E)) for custom command buttons.
+2. In [`MediaSession.Callback.onConnect()`](/reference/kotlin/androidx/media3/session/MediaSession.Callback#onConnect(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo)),
    authorize controllers by defining their available commands, including [custom
-   commands](https://developer.android.com/media/media3/session/control-playback#available-commands), in the `ConnectionResult`.
-
-3. In [`MediaSession.Callback.onCustomCommand()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaSession.Callback#onCustomCommand(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,androidx.media3.session.SessionCommand,android.os.Bundle)),
+   commands](/media/media3/session/control-playback#available-commands), in the `ConnectionResult`.
+3. In [`MediaSession.Callback.onCustomCommand()`](/reference/kotlin/androidx/media3/session/MediaSession.Callback#onCustomCommand(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,androidx.media3.session.SessionCommand,android.os.Bundle)),
    respond to the custom command being selected by the user.
 
 ### Kotlin
 
-```kotlin
+```
 class PlaybackService : MediaSessionService() {
   private val customCommandFavorites = SessionCommand(ACTION_FAVORITES, Bundle.EMPTY)
   private var mediaSession: MediaSession? = null
@@ -122,7 +134,7 @@ class PlaybackService : MediaSessionService() {
 
 ### Java
 
-```java
+```
 public class PlaybackService extends MediaSessionService {
   private static final SessionCommand CUSTOM_COMMAND_FAVORITES =
       new SessionCommand("ACTION_FAVORITES", Bundle.EMPTY);
@@ -176,12 +188,12 @@ public class PlaybackService extends MediaSessionService {
 
 To learn more about configuring your `MediaSession` so that clients like the
 system can connect to your media app, see
-[Grant control to other clients](https://developer.android.com/media/implement/playback-app#grant_control_to_other_clients).
+[Grant control to other clients](/media/implement/playback-app#grant_control_to_other_clients).
 
 With Jetpack Media3, when you implement a `MediaSession`, your `PlaybackState`
 is automatically kept up-to-date with the media player. Similarly, when you
 implement a `MediaSessionService`, the library automatically publishes a
-`MediaStyle` [notification](https://developer.android.com/media/implement/playback-app#publishing_a_notification)
+`MediaStyle` [notification](/media/implement/playback-app#publishing_a_notification)
 for you and keeps it up-to-date.
 
 ### Respond to action buttons
@@ -189,11 +201,11 @@ for you and keeps it up-to-date.
 When a user taps an action button in the system media controls, the system's
 `MediaController` sends a playback command to your `MediaSession`. The
 `MediaSession` then delegates those commands down to the player. Commands
-defined in Media3's [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player)
+defined in Media3's [`Player`](/reference/kotlin/androidx/media3/common/Player)
 interface are automatically handled by the media
 session.
 
-Refer to [Add custom commands](https://developer.android.com/media/media3/session/control-playback#available-commands) for guidance on how
+Refer to [Add custom commands](/media/media3/session/control-playback#available-commands) for guidance on how
 to respond to a custom command.
 
 ## Support media resumption
@@ -203,17 +215,16 @@ without having to start the app. When playback begins, the user interacts with
 the media controls in the usual way.
 
 The playback resumption feature can be turned on and off using the Settings app,
-under the **Sound \> Media** options. The user can also access Settings by
+under the **Sound > Media** options. The user can also access Settings by
 tapping the gear icon that appears after swiping on the expanded carousel.
 
 Media3 offers APIs to make it easier to support media resumption. See the
-[Playback resumption with Media3](https://developer.android.com/guide/topics/media/session/mediasessionservice#resumption)
+[Playback resumption with Media3](/guide/topics/media/session/mediasessionservice#resumption)
 documentation for guidance on implementing this feature.
 
 ## Using the legacy media APIs
 
-> [!CAUTION]
-> **Caution:** We strongly recommend using the Jetpack Media3 APIs as described above.
+**Caution:** We strongly recommend using the Jetpack Media3 APIs as described above.
 
 This section explains how to integrate with the system media controls using
 the legacy MediaCompat APIs.
@@ -221,11 +232,12 @@ the legacy MediaCompat APIs.
 The system retrieves the following information from the
 `MediaSession`'s `MediaMetadata`, and displays it when it is available:
 
-- `METADATA_KEY_ALBUM_ART_URI`
-- `METADATA_KEY_TITLE`
-- `METADATA_KEY_DISPLAY_TITLE`
-- `METADATA_KEY_ARTIST`
-- `METADATA_KEY_DURATION` (If the duration isn't set the seek bar doesn't show progress)
+* `METADATA_KEY_ALBUM_ART_URI`
+* `METADATA_KEY_TITLE`
+* `METADATA_KEY_DISPLAY_TITLE`
+* `METADATA_KEY_ARTIST`
+* `METADATA_KEY_DURATION` (If the duration isn't set the seek bar doesn't
+  show progress)
 
 To ensure you have a valid and accurate media control notification,
 set the value of the `METADATA_KEY_TITLE` or `METADATA_KEY_DISPLAY_TITLE`
@@ -242,18 +254,18 @@ item. In order for the seek bar to be enabled, you must implement
 `PlaybackState.Builder#setActions` and include `ACTION_SEEK_TO`.
 
 | Slot | Action | Criteria |
-|---|---|---|
-| 1 | Play | Current [state](https://developer.android.com/reference/android/media/session/PlaybackState#getState()) of the `PlaybackState` is the one of the following: - `STATE_NONE` - `STATE_STOPPED` - `STATE_PAUSED` - `STATE_ERROR` |
-| 1 | Loading spinner | Current [state](https://developer.android.com/reference/android/media/session/PlaybackState#getState()) of the `PlaybackState` is one of the following: - `STATE_CONNECTING` - `STATE_BUFFERING` |
-| 1 | Pause | Current [state](https://developer.android.com/reference/android/media/session/PlaybackState#getState()) of the `PlaybackState` is none of the above. |
-| 2 | Previous | `PlaybackState` [actions](https://developer.android.com/reference/android/media/session/PlaybackState#getActions()) include `ACTION_SKIP_TO_PREVIOUS`. |
-| 2 | Custom | `PlaybackState` [actions](https://developer.android.com/reference/android/media/session/PlaybackState#getActions()) don't include `ACTION_SKIP_TO_PREVIOUS` and `PlaybackState` [custom actions](https://developer.android.com/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
-| 2 | Empty | `PlaybackState` [extras](https://developer.android.com/reference/android/media/session/PlaybackState#getExtras()) include a `true` boolean value for key [`SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV). |
-| 3 | Next | `PlaybackState` [actions](https://developer.android.com/reference/android/media/session/PlaybackState#getActions()) include `ACTION_SKIP_TO_NEXT`. |
-| 3 | Custom | `PlaybackState` [actions](https://developer.android.com/reference/android/media/session/PlaybackState#getActions()) don't include `ACTION_SKIP_TO_NEXT` and `PlaybackState` [custom actions](https://developer.android.com/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
-| 3 | Empty | `PlaybackState` [extras](https://developer.android.com/reference/android/media/session/PlaybackState#getExtras()) include a `true` boolean value for key [`SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT). |
-| 4 | Custom | `PlaybackState` [custom actions](https://developer.android.com/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
-| 5 | Custom | `PlaybackState` [custom actions](https://developer.android.com/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
+| --- | --- | --- |
+| 1 | Play | Current [state](/reference/android/media/session/PlaybackState#getState()) of the `PlaybackState` is the one of the following:  * `STATE_NONE` * `STATE_STOPPED` * `STATE_PAUSED` * `STATE_ERROR` |
+| Loading spinner | Current [state](/reference/android/media/session/PlaybackState#getState()) of the `PlaybackState` is one of the following:  * `STATE_CONNECTING` * `STATE_BUFFERING` |
+| Pause | Current [state](/reference/android/media/session/PlaybackState#getState()) of the `PlaybackState` is none of the above. |
+| 2 | Previous | `PlaybackState` [actions](/reference/android/media/session/PlaybackState#getActions()) include `ACTION_SKIP_TO_PREVIOUS`. |
+| Custom | `PlaybackState` [actions](/reference/android/media/session/PlaybackState#getActions()) don't include `ACTION_SKIP_TO_PREVIOUS` and `PlaybackState` [custom actions](/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
+| Empty | `PlaybackState` [extras](/reference/android/media/session/PlaybackState#getExtras()) include a `true` boolean value for key [`SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV`](/reference/androidx/media/utils/MediaConstants#SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV). |
+| 3 | Next | `PlaybackState` [actions](/reference/android/media/session/PlaybackState#getActions()) include `ACTION_SKIP_TO_NEXT`. |
+| Custom | `PlaybackState` [actions](/reference/android/media/session/PlaybackState#getActions()) don't include `ACTION_SKIP_TO_NEXT` and `PlaybackState` [custom actions](/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
+| Empty | `PlaybackState` [extras](/reference/android/media/session/PlaybackState#getExtras()) include a `true` boolean value for key [`SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT`](/reference/androidx/media/utils/MediaConstants#SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT). |
+| 4 | Custom | `PlaybackState` [custom actions](/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
+| 5 | Custom | `PlaybackState` [custom actions](/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
 
 ### Add standard actions
 
@@ -265,7 +277,7 @@ the `PlaybackState` for the media session.
 
 ### Kotlin
 
-```kotlin
+```
 val session = MediaSessionCompat(context, TAG)
 val playbackStateBuilder = PlaybackStateCompat.Builder()
 val style = NotificationCompat.MediaStyle()
@@ -293,7 +305,7 @@ notificationBuilder.setStyle(style)
 
 ### Java
 
-```java
+```
 MediaSessionCompat session = new MediaSessionCompat(context, TAG);
 PlaybackStateCompat.Builder playbackStateBuilder = new PlaybackStateCompat.Builder();
 NotificationCompat.MediaStyle style = new NotificationCompat.MediaStyle();
@@ -325,7 +337,7 @@ the session:
 
 ### Kotlin
 
-```kotlin
+```
 session.setExtras(Bundle().apply {
     putBoolean(SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV, true)
     putBoolean(SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT, true)
@@ -334,7 +346,7 @@ session.setExtras(Bundle().apply {
 
 ### Java
 
-```java
+```
 Bundle extras = new Bundle();
 extras.putBoolean(SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV, true);
 extras.putBoolean(SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT, true);
@@ -344,13 +356,13 @@ session.setExtras(extras);
 ### Add custom actions
 
 For other actions you want to show on the media controls, you can create a
-[`PlaybackStateCompat.CustomAction`](https://developer.android.com/reference/kotlin/android/support/v4/media/session/PlaybackStateCompat.CustomAction)
+[`PlaybackStateCompat.CustomAction`](/reference/kotlin/android/support/v4/media/session/PlaybackStateCompat.CustomAction)
 and add that to the `PlaybackState` instead. These actions are shown in the
 order they were added.
 
 ### Kotlin
 
-```kotlin
+```
 val customAction = PlaybackStateCompat.CustomAction.Builder(
     "com.example.MY_CUSTOM_ACTION", // action ID
     "Custom Action", // title - used as content description for the button
@@ -362,7 +374,7 @@ playbackStateBuilder.addCustomAction(customAction)
 
 ### Java
 
-```java
+```
 PlaybackStateCompat.CustomAction customAction = new PlaybackStateCompat.CustomAction.Builder(
         "com.example.MY_CUSTOM_ACTION", // action ID
         "Custom Action", // title - used as content description for the button
@@ -375,13 +387,13 @@ playbackStateBuilder.addCustomAction(customAction);
 ### Responding to PlaybackState actions
 
 When a user taps on a button, SystemUI uses
-[`MediaController.TransportControls`](https://developer.android.com/reference/android/media/session/MediaController.TransportControls)
+[`MediaController.TransportControls`](/reference/android/media/session/MediaController.TransportControls)
 to send a command back to the `MediaSession`. You need to register a callback
 that can respond properly to these events.
 
 ### Kotlin
 
-```kotlin
+```
 val callback = object: MediaSession.Callback() {
     override fun onPlay() {
         // start playback
@@ -420,7 +432,7 @@ session.setCallback(callback)
 
 ### Java
 
-```java
+```
 MediaSession.Callback callback = new MediaSession.Callback() {
     @Override
     public void onPlay() {
@@ -491,34 +503,31 @@ found [in the UAMP app](https://github.com/android/uamp/blob/f60b902643407ba234a
 In order to support playback resumption, your `MediaBrowserService` must
 implement these behaviors:
 
-- `onGetRoot()` must return a non-null root quickly. Other complex logic should
+* `onGetRoot()` must return a non-null root quickly. Other complex logic should
   be handled in `onLoadChildren()`
-
-- When
+* When
   `onLoadChildren()` is called on the root media ID, the result must contain a
-  [FLAG_PLAYABLE](https://developer.android.com/reference/android/media/browse/MediaBrowser.MediaItem#FLAG_PLAYABLE)
+  [FLAG\_PLAYABLE](/reference/android/media/browse/MediaBrowser.MediaItem#FLAG_PLAYABLE)
   child.
-
-- `MediaBrowserService` should return the most recently played media item when
+* `MediaBrowserService` should return the most recently played media item when
   they receive an
-  [EXTRA_RECENT](https://developer.android.com/reference/android/service/media/MediaBrowserService.BrowserRoot#EXTRA_RECENT)
+  [EXTRA\_RECENT](/reference/android/service/media/MediaBrowserService.BrowserRoot#EXTRA_RECENT)
   query. The value returned should be an actual media item rather than generic
   function.
-
-- `MediaBrowserService` must provide an appropriate
-  [MediaDescription](https://developer.android.com/reference/android/media/MediaDescription) with a non-empty
-  [title](https://developer.android.com/reference/android/media/MediaDescription#getTitle()) and
-  [subtitle](https://developer.android.com/reference/android/media/MediaDescription#getSubtitle()).
+* `MediaBrowserService` must provide an appropriate
+  [MediaDescription](/reference/android/media/MediaDescription) with a non-empty
+  [title](/reference/android/media/MediaDescription#getTitle()) and
+  [subtitle](/reference/android/media/MediaDescription#getSubtitle()).
   It should also set an
-  [icon URI](https://developer.android.com/reference/android/media/MediaDescription#getIconUri())
+  [icon URI](/reference/android/media/MediaDescription#getIconUri())
   or an
-  [icon bitmap](https://developer.android.com/reference/android/media/MediaDescription#getIconBitmap()).
+  [icon bitmap](/reference/android/media/MediaDescription#getIconBitmap()).
 
 The following code examples illustrate how to implement `onGetRoot()`.
 
 ### Kotlin
 
-```kotlin
+```
 override fun onGetRoot(
     clientPackageName: String,
     clientUid: Int,
@@ -546,7 +555,7 @@ override fun onGetRoot(
 
 ### Java
 
-```java
+```
 @Override
 public BrowserRoot onGetRoot(String clientPackageName, int clientUid,
     Bundle rootHints) {
@@ -579,7 +588,7 @@ derived from the `Notification.Action` list attached to the `MediaStyle`
 notification. The system displays up to five actions in the order in which they
 were added. In compact mode, up to three buttons are shown, determined by the
 values passed into
-[`setShowActionsInCompactView()`](https://developer.android.com/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle#setShowActionsInCompactView(int...)).
+[`setShowActionsInCompactView()`](/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle#setShowActionsInCompactView(int...)).
 
 Custom actions are placed in the order in which they were added to the
 `PlaybackState`.
@@ -589,7 +598,7 @@ notification :
 
 ### Kotlin
 
-```kotlin
+```
 import androidx.core.app.NotificationCompat
 import androidx.media3.session.MediaStyleNotificationHelper
 
@@ -612,7 +621,7 @@ var notification = NotificationCompat.Builder(context, CHANNEL_ID)
 
 ### Java
 
-```java
+```
 import androidx.core.app.NotificationCompat;
 import androidx.media3.session.MediaStyleNotificationHelper;
 

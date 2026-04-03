@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Media3
 
 [Code Sample](https://github.com/androidx/media/tree/main/demos)

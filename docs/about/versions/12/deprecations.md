@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 With each release, specific Android APIs may become obsolete or need to be
 refactored to provide a better developer experience or support new platform
 capabilities. In these cases, Android will officially deprecate the obsolete

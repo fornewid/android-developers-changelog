@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 AGSL is designed to be largely compatible with GLSL ES 1.0. For more information,
 see the equivalent function in the
 [OpenGL ES Shading Language documentation](https://www.khronos.org/files/opengles_shading_language.pdf).

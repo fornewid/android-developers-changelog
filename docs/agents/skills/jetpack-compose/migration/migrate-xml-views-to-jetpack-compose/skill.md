@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This skill guides through the process of migrating an existing Android XML View to Jetpack Compose. It performs a stable, safe and visually consistent transition by following a structured, 10-step methodology. This skill migrates UI (XML to Jetpack Compose) only.
 
 ## Objective

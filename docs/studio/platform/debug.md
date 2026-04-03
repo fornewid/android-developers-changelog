@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android Studio for Platform (ASfP) provides a powerful debugger that lets you:
 
 * Select a device to debug on.

@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 The Android 2.3 platform introduces many new and exciting features for
 users and developers. This document provides a glimpse at some of the new features
 and technologies in Android 2.3. For detailed information about the new developer APIs, see the [Android 2.3 version notes](/about/versions/android-2.3).

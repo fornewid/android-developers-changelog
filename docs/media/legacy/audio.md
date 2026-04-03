@@ -15,6 +15,7 @@ These guides discuss the MediaCompat APIs, which are no longer updated. We stron
 
 
 
+
 The preferred architecture for an audio app is a client/server design. The client is an Activity in your app that includes a `MediaBrowser`, media controller, and the UI. The server is a `MediaBrowserService` containing the player and a media session.
 
 ![Audio activity and BrowserService](/static/guide/topics/media/images/audio-activity-and-service.png "audio-app")

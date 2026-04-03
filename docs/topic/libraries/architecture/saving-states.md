@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This guide discusses user expectations about UI state, and the options available
 for preserving state.
 

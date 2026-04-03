@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Last modified: June 26th, 2020
 
 By using this API, you consent to be bound by these terms in
@@ -111,8 +110,6 @@ addition to the
    Client. Google and its licensors own all right, title and interest, including all
    intellectual property and other proprietary rights, in and to this code. You will not
    modify, translate, or create derivative works of the code.
-
-
 
 
 

@@ -15,7 +15,6 @@ These guides discuss the MediaCompat APIs, which are no longer updated. We stron
 
 
 
-
 When the activity receives the `onCreate()` lifecycle callback method it should perform these steps:
 
 * Create and [initialize the media session](/guide/topics/media-apps/working-with-a-media-session#init-session)

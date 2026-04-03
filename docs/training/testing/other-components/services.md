@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 If you are implementing a local [`Service`](/reference/android/app/Service) as a component of your app, you
 can create [instrumented tests](/training/testing/unit-testing/instrumented-unit-tests) to verify that its behavior is correct.
 

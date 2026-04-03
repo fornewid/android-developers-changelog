@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** These are the original release notes for Test components that shipped in
 the support library. For the current release notes
 see the [Androidx release notes](/jetpack/androidx/releases/test).

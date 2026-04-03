@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The following are new features in Android Studio Narwhal.
 
 ## Introducing Gemini in Android Studio for businesses

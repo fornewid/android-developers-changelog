@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The recommended way to navigate between destinations is to use the Safe Args
 Gradle plugin. This plugin generates object and builder classes that enable
 type-safe navigation between destinations. Use Safe Args for

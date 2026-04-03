@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Deep linking lets you bring users directly into your app from web browsers,
 notifications, social media, ads, and other sources. Deep links provide direct
 app-to-app and web-to-app transitions that can help you increase engagement

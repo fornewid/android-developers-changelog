@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture
+title: Trigger-based profiling  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App quality](https://developer.android.com/quality)
+* [Technical quality](https://developer.android.com/quality/technical)
+
+# Trigger-based profiling Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 `ProfilingManager` supports capturing profiles based on system triggers. The
 system manages the recording process and provides the resulting profile to your
@@ -20,7 +30,7 @@ you start a profile only after the trigger occurs, the root cause can already be
 lost.
 
 For example, a long-running operation on the UI thread causes an [Application
-Not Responding (ANR)](https://developer.android.com/topic/performance/anrs/keep-your-app-responsive) error. By the time the system detects the ANR and
+Not Responding (ANR)](/topic/performance/anrs/keep-your-app-responsive) error. By the time the system detects the ANR and
 signals the app, the operation might have finished. Starting a profile at that
 moment misses the actual blocking work.
 
@@ -33,22 +43,24 @@ The primary reason to use profiling triggers is to capture data for
 unpredictable events where it's impossible for an app to start recording
 manually before these events occur. Profiling triggers can be used to:
 
-- **Debug performance issues:** Diagnose ANRs, memory leaks, and other stability problems.
-- **Optimize critical user journeys:** Analyze and improve flows, for example, app startup.
-- **Understand user behavior:** Gain insights into events, for example, user-initiated app exits.
+* **Debug performance issues:** Diagnose ANRs, memory leaks, and other
+  stability problems.
+* **Optimize critical user journeys:** Analyze and improve flows, for example,
+  app startup.
+* **Understand user behavior:** Gain insights into events, for example,
+  user-initiated app exits.
 
-> [!NOTE]
-> **Note:** The full list of available triggers is in the [`ProfilingTrigger`](https://developer.android.com/reference/android/os/ProfilingTrigger) class.
+**Note:** The full list of available triggers is in the [`ProfilingTrigger`](/reference/android/os/ProfilingTrigger)
+class.
 
 ## Set up a trigger
 
 The following code demonstrates how to register for the
 `TRIGGER_TYPE_APP_FULLY_DRAWN` trigger and apply rate limiting to it.
 
-
 ### Kotlin
 
-```kotlin
+```
 fun recordWithTrigger() {
     val profilingManager = applicationContext.getSystemService(ProfilingManager::class.java)
 
@@ -80,11 +92,13 @@ fun recordWithTrigger() {
     profilingManager.addProfilingTriggers(triggers)
 
 }
+
+ProfilingManagerKotlinSnippets.kt
 ```
 
 ### Java
 
-```java
+```
 public void recordWithTrigger() {
   ProfilingManager profilingManager = getApplicationContext().getSystemService(
       ProfilingManager.class);
@@ -118,39 +132,54 @@ public void recordWithTrigger() {
   profilingManager.addProfilingTriggers(triggers);
 
 }
-```
 
-<br />
+ProfilingManagerJavaSnippets.java
+```
 
 The code performs these steps:
 
-1. **Get the manager** : Retrieves the `ProfilingManager` service.
-2. **Define a trigger** : Builds a `ProfilingTrigger` for `TRIGGER_TYPE_APP_FULLY_DRAWN`. This event occurs when the app reports that it has finished startup and is interactive.
-3. **Set rate limits** : Applies a 1-hour rate limit to this specific trigger (`setRateLimitingPeriodHours(1)`). This prevents the app from recording more than one startup profile per hour.
-4. **Register listener** : Calls `registerForAllProfilingResults` to define the callback that handles the result. This callback receives the path of the saved profile through `getResultFilePath()`.
-5. **Add triggers** : Registers the trigger list with `ProfilingManager` using `addProfilingTriggers`.
-6. **Fire event** : Calls `reportFullyDrawn()`, which emits the `TRIGGER_TYPE_APP_FULLY_DRAWN` event to the system triggering a profile collection assuming a system background trace was running and there is rate limiter quota available. This optional step demonstrates an end-to-end flow because your app must call `reportFullyDrawn()` for this trigger.
+1. **Get the manager**: Retrieves the `ProfilingManager` service.
+2. **Define a trigger**: Builds a `ProfilingTrigger` for
+   `TRIGGER_TYPE_APP_FULLY_DRAWN`. This event occurs when the app reports that
+   it has finished startup and is interactive.
+3. **Set rate limits**: Applies a 1-hour rate limit to this specific trigger
+   (`setRateLimitingPeriodHours(1)`). This prevents the app from recording more
+   than one startup profile per hour.
+4. **Register listener**: Calls `registerForAllProfilingResults` to define the
+   callback that handles the result. This callback receives the path of the
+   saved profile through `getResultFilePath()`.
+5. **Add triggers**: Registers the trigger list with `ProfilingManager` using
+   `addProfilingTriggers`.
+6. **Fire event**: Calls `reportFullyDrawn()`, which emits the
+   `TRIGGER_TYPE_APP_FULLY_DRAWN` event to the system triggering a profile
+   collection assuming a system background trace was running and there is rate
+   limiter quota available. This optional step demonstrates an end-to-end flow
+   because your app must call `reportFullyDrawn()` for this trigger.
 
 ## Retrieve the trace
 
 The system saves trigger-based profiles in the same directory as other profiles.
 The filename for triggered traces follows this format:
 
-    profile_trigger_<profile_type_code>_<datetime>.<profile-type-name>
+```
+profile_trigger_<profile_type_code>_<datetime>.<profile-type-name>
+```
 
 You can pull the file using ADB. For example, to pull the system trace captured
-with the [example code](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture#set-up-a-trigger) using ADB, it might look like this:
+with the [example code](/topic/performance/tracing/profiling-manager/trigger-based-capture#set-up-a-trigger) using ADB, it might look like this:
 
-    adb pull /data/user/0/com.example.sampleapp/files/profiling/profile_trigger_1_2025-05-06-14-12-40.perfetto-trace
+```
+adb pull /data/user/0/com.example.sampleapp/files/profiling/profile_trigger_1_2025-05-06-14-12-40.perfetto-trace
+```
 
-> [!NOTE]
-> **Note:** pulling from the app directory using ADB (for example `/data/user/0/com.example.sampleapp/...`) requires root access. If you do not have root, you can pull the profiles from the temp directory at `/data/misc/perfetto-traces/profiling/<trace-name.perfetto-trace>`
-
-> [!IMPORTANT]
-> **Key Point:** Always use `ProfilingResult#getResultFilePath()` to locate the file because the directory structure can change.
+**Note:** pulling from the app directory using ADB (for example
+`/data/user/0/com.example.sampleapp/...`) requires root access. If you do not
+have root, you can pull the profiles from the temp directory at
+`/data/misc/perfetto-traces/profiling/<trace-name.perfetto-trace>`**Key Point:** Always use `ProfilingResult#getResultFilePath()` to locate the file
+because the directory structure can change.
 
 For details on visualizing these traces, see [Retrieve and analyze profiling
-data](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze).
+data](/topic/performance/tracing/profiling-manager/retrieve-and-analyze).
 
 ## How background tracing works
 
@@ -162,12 +191,15 @@ The will then profile include information that led up to the trigger.
 Once the profile is saved, the system notifies your app using the callback
 provided to `registerForAllProfilingResults`. This callback privdes the path to
 the captured profile which can be accessed by calling
-[ProfilingResult#getResultFilePath()](https://developer.android.com/reference/android/os/ProfilingResult#getResultFilePath()).
+[ProfilingResult#getResultFilePath()](/reference/android/os/ProfilingResult#getResultFilePath()).
 
-> [!NOTE]
-> **Note:** If your app isn't running when a profile is recorded, the system delivers the callback the next time your app starts and registers its listener.
+**Note:** If your app isn't running when a profile is recorded, the system delivers
+the callback the next time your app starts and registers its listener.
 
-![Diagram showing how background trace snapshots work, with a ring buffer capturing data before a trigger event.](https://developer.android.com/static/topic/performance/images/tracing/profilingmanager-background-trace-trigger-diagram.png) **Figure 1**: How background trace snapshots work.
+![Diagram showing how background trace snapshots work, with a ring buffer capturing data before a trigger event.](/static/topic/performance/images/tracing/profilingmanager-background-trace-trigger-diagram.png)
+
+
+**Figure 1**: How background trace snapshots work.
 
 To reduce the impact on device performance and battery life, the system doesn't
 run background traces continuously. Instead, it uses a sampling method. The
@@ -184,12 +216,12 @@ recent activity leading up to the trigger.
 
 High-frequency triggers can quickly consume your app's rate limiter quota. To
 better understand the rate limiter, we encourage you to look at [How rate
-limiter works](https://developer.android.com/topic/performance/tracing/profiling-manager/%7B/topic/performance/tracing/profiling-manager/will-my-profile-always-be-collected:#how-rate-limiting-works%7D). To prevent a single trigger type from exhausting your quota,
+limiter works](/topic/performance/tracing/profiling-manager/%7B/topic/performance/tracing/profiling-manager/will-my-profile-always-be-collected:#how-rate-limiting-works%7D). To prevent a single trigger type from exhausting your quota,
 you can implement trigger-specific rate limiting.
 
 `ProfilingManager` supports app-defined trigger-specific rate limiting. This
 lets you add another layer of time-based throttling in addition to the existing
-rate limiter. Use the [`setRateLimitingPeriodHours`](https://developer.android.com/reference/android/os/ProfilingTrigger.Builder#setRateLimitingPeriodHours(int)) API to set a specific
+rate limiter. Use the [`setRateLimitingPeriodHours`](/reference/android/os/ProfilingTrigger.Builder#setRateLimitingPeriodHours(int)) API to set a specific
 cooldown time for a trigger. After the cooldown expires, you can trigger it
 again.
 
@@ -198,7 +230,9 @@ again.
 Because background traces run at random times, debugging triggers locally is
 hard. To force a background trace for testing, use the following ADB command:
 
-    adb shell device_config put profiling_testing system_triggered_profiling.testing_package_name <com.example.myapp>
+```
+adb shell device_config put profiling_testing system_triggered_profiling.testing_package_name <com.example.myapp>
+```
 
 This command forces the system to start a continuous background trace for the
 specified package, allowing every trigger to be able to collect a profile if
@@ -206,4 +240,4 @@ rate limiter allows.
 
 You can also enable other debug options, for example, disabling the rate limiter
 when debugging locally. For more information, see [Debug commands for local
-profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode).
+profiling](/topic/performance/tracing/profiling-manager/debug-mode).

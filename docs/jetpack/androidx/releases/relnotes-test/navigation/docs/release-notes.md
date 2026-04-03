@@ -1,9 +1,14 @@
 ---
-title: https://developer.android.com/jetpack/androidx/releases/relnotes-test/navigation/docs/release-notes
+title: AndroidX Navigation library release notes  |  Android Developers
 url: https://developer.android.com/jetpack/androidx/releases/relnotes-test/navigation/docs/release-notes
-source: md.txt
+source: html-scrape
 ---
 
-# AndroidX Navigation library release notes
+# AndroidX Navigation library release notes Stay organized with collections Save and categorize content based on your preferences.
 
-This page documents production updates to AndroidX Navigation library. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecation.
+
+
+
+This page documents production updates to AndroidX Navigation library.
+Check this page for announcements about new or updated features, bug fixes,
+known issues, and deprecation.

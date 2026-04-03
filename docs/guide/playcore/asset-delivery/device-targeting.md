@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Device targeting lets you deliver different versions
 (e.g. resolutions, etc.) of the same asset to devices based on their
 hardware. For example, you may choose to deliver low resolution assets

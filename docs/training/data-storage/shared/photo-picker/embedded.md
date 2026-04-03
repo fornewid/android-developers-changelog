@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 ![Animation showing the continuous photo picker selection process](/static/training/data-storage/shared/photo-picker/assets/continuous2.gif)
 
 The embedded photo picker is a different form of photo picking experience,

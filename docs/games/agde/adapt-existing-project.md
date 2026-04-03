@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Configure a project to use the Android Game Development Extension.
 
 The Android Game Development Extension invokes MSBuild to build C/C++ source code into shared
@@ -290,8 +289,6 @@ named `build.gradle`) to read these properties.
 
   For more information, see the Android Studio topic
   [Install and configure the NDK and CMake](/studio/projects/install-ndk).
-
-
 
 
 

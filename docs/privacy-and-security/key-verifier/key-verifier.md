@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 The Key Verifier for Android provides a unified and secure way for users to
 verify that they are communicating with the right person in your end-to-end
 encrypted (E2EE) app. It protects users from man-in-the-middle attacks by

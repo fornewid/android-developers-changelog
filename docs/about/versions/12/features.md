@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 12 introduces great new features and APIs for developers.
 The sections below help you learn about features for your apps and get started
 with the related APIs.

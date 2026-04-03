@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 More than 300 million Android large screen devices, including tablets,
 foldables, ChromeOS devices, car displays, and TVs, are in use today, with more
 coming continually. To provide an optimal user experience on the growing number

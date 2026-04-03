@@ -17,7 +17,6 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
 
 
 
-
 **Name String**
 
 `XR_ANDROID_unbounded_reference_space`

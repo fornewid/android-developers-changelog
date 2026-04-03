@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The [`SwipeToDismissBox`](/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable) component allows a user to dismiss or update an
 item by swiping it to the left or right.
 

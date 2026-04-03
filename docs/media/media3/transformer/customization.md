@@ -1,8 +1,20 @@
 ---
-title: https://developer.android.com/media/media3/transformer/customization
+title: Customization  |  Android media  |  Android Developers
 url: https://developer.android.com/media/media3/transformer/customization
-source: md.txt
+source: html-scrape
 ---
+
+Media3 Transformer is actively under development and we are looking to hear from you! We welcome your feedback, feature requests and bug reports in the [issue tracker](https://github.com/androidx/media/issues). Follow the [ExoPlayer blog](https://medium.com/google-exoplayer) for the latest updates.
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Customization Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 To control Transformer's behavior, you can configure options in the API surface
 or replace pieces of functionality completely by writing custom implementations
@@ -17,23 +29,24 @@ or 16 as is often required by hardware encoders. You can turn off this behavior
 so that Transformer instead throws an error if it can't produce the required
 output resolution:
 
-
 ### Kotlin
 
-```kotlin
+```
 transformerBuilder.setEncoderFactory(
   DefaultEncoderFactory.Builder(context).setEnableFallback(false).build()
 )
+
+Customization.kt
 ```
 
 ### Java
 
-```java
+```
 transformerBuilder.setEncoderFactory(
     new DefaultEncoderFactory.Builder(context).setEnableFallback(false).build());
-```
 
-<br />
+Customization.java
+```
 
 Similarly, the `DefaultEncoderFactory` also supports using custom encoding
 settings with the `setRequestedVideoEncoderSettings` option.

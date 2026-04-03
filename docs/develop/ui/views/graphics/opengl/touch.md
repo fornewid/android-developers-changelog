@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Making objects move according to a preset program like the rotating triangle is useful for
 getting some attention, but what if you want to have users interact with your OpenGL ES graphics?
 The key to making your OpenGL ES application touch interactive is expanding your implementation of

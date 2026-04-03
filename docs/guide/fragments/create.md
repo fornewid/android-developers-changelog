@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 A [fragment](/guide/fragments) represents a modular portion of the user
 interface within an activity. A fragment has its own lifecycle, receives its
 own input events, and you can add or remove fragments while the containing

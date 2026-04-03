@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page lists known issues, workarounds, and troubleshooting tips for the
 Android Emulator. If you encounter an issue not listed here or are unable to
 successfully use a workaround listed here,

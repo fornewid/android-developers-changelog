@@ -1,24 +1,19 @@
 ---
-title: <MotionScene>  |  Android Developers
+title: https://developer.android.com/training/constraint-layout/motionlayout/ref/motionscene
 url: https://developer.android.com/training/constraint-layout/motionlayout/ref/motionscene
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-
-# <MotionScene> Stay organized with collections Save and categorize content based on your preferences.
-
-
-
+[Video](https://www.youtube.com/watch?v=o8c1RO3WgBA)
 
 Root element of a motion scene file. The `<MotionScene>` contains one or more
-[`<Transition>`](/training/constraint-layout/motionlayout/ref/transition)
+[`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition)
 elements, each of which defines the start and end state of a motion sequence and
 the transition between the two.
 
 ## Syntax
 
-```
+```xml
 <MotionScene xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     ...
@@ -32,14 +27,14 @@ the transition between the two.
     multiple `<Transition>` elements, the `MotionLayout` chooses the most
     appropriate `<Transition>` based on the user's interaction. For example, a
     `<MotionScene>` might have four `<Transition>` children, each with an
-    [`<OnSwipe>`](/training/constraint-layout/motionlayout/ref/onswipe) for a user
+    [`<OnSwipe>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/onswipe) for a user
     swipe in a different direction. When the user swipes on the screen, the
     `MotionLayout` uses the appropriate `<Transition>` for a swipe in that
     direction.
 
 ## Can contain
 
-[`<ConstraintSet>`](/training/constraint-layout/motionlayout/ref/constraintset)
+[`<ConstraintSet>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/constraintset)
 :   Specifies a beginning or ending state for one or more of the `<Transition>`
     nodes. The `<MotionLayout>` is not permitted to have `<ConstraintSet>`
     children, since the `<Transition>` can point to XML layouts instead of

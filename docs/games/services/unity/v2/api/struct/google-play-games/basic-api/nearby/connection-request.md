@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # GooglePlayGames.BasicApi.Nearby.ConnectionRequest
 
 Represents a request to establish a connection with a remote endpoint.

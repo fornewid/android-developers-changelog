@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Kotlin Android Extensions is deprecated, which means that using Kotlin
 synthetics for view binding is no longer supported. If your app uses Kotlin
 synthetics for view binding, use this guide to migrate to Jetpack view binding.

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Wear OS watches may have different hardware button configurations. This guide
 goes over the best use cases for each of these button types.
 

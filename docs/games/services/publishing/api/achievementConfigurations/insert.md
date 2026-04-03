@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 **Requires [authorization](#auth)**
 
 Insert a new achievement configuration in this application.

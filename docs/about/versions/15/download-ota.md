@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Building on the [initial release of Android 15](/about/versions/15), we continue to
 update the platform with fixes and improvements that are then rolled out to
 supported devices. These releases happen on a quarterly cadence through

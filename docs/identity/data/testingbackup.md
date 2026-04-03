@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This page shows you how to test the cloud backups and the device-to-device (D2D)
 transfer process for your app. It is important to test both of these with each
 major release of your app to help ensure that your users can continue to use

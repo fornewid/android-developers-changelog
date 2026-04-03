@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 ExoPlayer supports HLS with multiple container formats. The contained audio and
 video sample formats must also be supported (see the [sample formats](/media/media3/exoplayer/supported-formats#sample-formats)
 section for details). We strongly encourage HLS content producers to generate

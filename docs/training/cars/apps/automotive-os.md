@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/training/cars/apps/automotive-os
+title: Add support for Android Automotive OS to your templated app  |  Android for Cars  |  Android Developers
 url: https://developer.android.com/training/cars/apps/automotive-os
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android for Cars](https://developer.android.com/training/cars)
+
+# Add support for Android Automotive OS to your templated app Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Android Automotive OS allows users to install apps in the car. To reach
 users on this platform, you need to distribute a driver-optimized app that is
@@ -10,25 +19,26 @@ compatible with Android Automotive OS. You can re-use almost all of the code and
 resources in your Android Auto app, but you must create a separate build that
 meets the requirements described on this page.
 
-> [!IMPORTANT]
-> **Important:** This guide assumes that you have implemented all the features in [Use the Android for Cars App Library](https://developer.android.com/training/cars/apps).
+**Important:** This guide assumes that you have implemented all the
+features in [Use the Android for Cars App Library](/training/cars/apps).
 
 To run your car app on Android Automotive OS, you need the latest
 Templates Host, which comes as a system app.
 
-> [!NOTE]
-> **Note:** You may need to navigate to the Play Store listing for the [Google Automotive App
-> Host](https://play.google.com/store/apps/details?id=com.google.android.apps.automotive.templates.host) to install or update the host.
+**Note:** You may need to navigate to the
+Play Store listing for the [Google Automotive App
+Host](https://play.google.com/store/apps/details?id=com.google.android.apps.automotive.templates.host)
+to install or update the host.
 
 ## Development overview
 
 Adding Android Automotive OS support only requires a few steps, as
 described in sections on this page:
 
-1. [Create an automotive module](https://developer.android.com/training/cars/apps/automotive-os#automotive-module)
-2. [Declare support for Android Automotive OS](https://developer.android.com/training/cars/apps/automotive-os#manifest-car-app)
-3. [Declare your `CarAppService` and `CarAppActivity`](https://developer.android.com/training/cars/apps/automotive-os#car-app-activity)
-4. [Update your Gradle dependencies](https://developer.android.com/training/cars/apps/automotive-os#gradle)
+1. [Create an automotive module](#automotive-module)
+2. [Declare support for Android Automotive OS](#manifest-car-app)
+3. [Declare your `CarAppService` and `CarAppActivity`](#car-app-activity)
+4. [Update your Gradle dependencies](#gradle)
 
 Use [Android Studio Bumblebee](https://developer.android.com/studio/) or newer to ensure
 that all Automotive OS features are enabled.
@@ -43,27 +53,29 @@ code used for your phone app.
 For an existing project, follow these steps to add an automotive module to your
 project:
 
-1. In Android Studio, click **File \> New \> New Module**.
-2. Select **Automotive Module** , then click **Next**.
-3. Provide an **Application/Library name**. This is the name that users see for your app on Android Automotive OS.
+1. In Android Studio, click **File > New > New Module**.
+2. Select **Automotive Module**, then click **Next**.
+3. Provide an **Application/Library name**. This is the name that users see for
+   your app on Android Automotive OS.
 4. Enter a **Module name**.
 5. Edit the **Package name** to match your existing app.
-6. Select **API 29: Android 10 (Q)** for the **Minimum SDK** , then click
+6. Select **API 29: Android 10 (Q)** for the **Minimum SDK**, then click
    **Next**.
    All cars that support the Car App Library on Android Automotive OS run on
    Android 10 API level 29 or higher, so selecting this value targets all
    compatible cars.
-
-7. Select **Add No Activity** , then click **Finish**.
+7. Select **Add No Activity**, then click **Finish**.
 
 If you are starting a new project:
 
-1. In Android Studio, click **File \> New \> New Project**.
+1. In Android Studio, click **File > New > New Project**.
 2. Select **Automotive** for **Project Type**.
-3. Select **No Activity** , then click **Next**.
-4. Provide a **Name** for your project. This is the name that users see for your app on Android Automotive OS.
-5. Enter a **Package name** . See the [Package names](https://developer.android.com/training/cars/apps/automotive-os#package-names) section for more details on selecting a package name.
-6. Select **API 29: Android 10 (Q)** for the **Minimum SDK** , then click
+3. Select **No Activity**, then click **Next**.
+4. Provide a **Name** for your project. This is the name that users see for your
+   app on Android Automotive OS.
+5. Enter a **Package name**. See the [Package names](#package-names) section
+   for more details on selecting a package name.
+6. Select **API 29: Android 10 (Q)** for the **Minimum SDK**, then click
    **Next**.
 
    All cars that support the Car App Library on Android Automotive OS run on
@@ -73,28 +85,32 @@ If you are starting a new project:
 After you create your module in Android Studio, open the `AndroidManifest.xml`
 file in your new automotive module:
 
-    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.example.car.app">
+```
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.car.app">
 
-        <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" />
 
-        <uses-feature
-            android:name="android.hardware.type.automotive"
-            android:required="true" />
+    <uses-feature
+        android:name="android.hardware.type.automotive"
+        android:required="true" />
 
-    </manifest>
+</manifest>
+```
 
-> [!NOTE]
-> **Note:** Your [`CarAppActivity`](https://developer.android.com/training/cars/apps/automotive-os#car-app-activity) must have its `android:theme` attribute set to `"@android:style/Theme.DeviceDefault.NoActionBar"`. Remove the line `android:theme="@style/AppTheme"` from the `application` element in the manifest generated by the previous steps to help ensure that the correct theme is used.
+**Note:** Your [`CarAppActivity`](#car-app-activity) must have its `android:theme`
+attribute set to `"@android:style/Theme.DeviceDefault.NoActionBar"`. Remove the line
+`android:theme="@style/AppTheme"` from the `application` element in the manifest
+generated by the previous steps to help ensure that the correct theme is used.
 
-The [`<application>`](https://developer.android.com/guide/topics/manifest/application-element) element has some standard app information as well as a
-[`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) element that declares support for Android Automotive OS.
+The [`<application>`](/guide/topics/manifest/application-element) element has some standard app information as well as a
+[`<uses-feature>`](/guide/topics/manifest/uses-feature-element) element that declares support for Android Automotive OS.
 Note that there are no activities declared in the manifest.
 
 ### Declare feature requirements
@@ -102,21 +118,23 @@ Note that there are no activities declared in the manifest.
 Next, add the following `uses-feature` element to your manifest to indicate that
 it requires a template host to function properly:
 
-    <manifest ...>
-      ...
-      <uses-feature
-          android:name="android.software.car.templates_host"
-          android:required="true" />
-      ...
-    </manifest>
+```
+<manifest ...>
+  ...
+  <uses-feature
+      android:name="android.software.car.templates_host"
+      android:required="true" />
+  ...
+</manifest>
+```
 
 Additionally, ensure that your app [meets the Google Play feature
-requirements](https://developer.android.com/training/cars/platforms/automotive-os#play-feature-requirements) that apply to all apps built for Android Automotive OS.
+requirements](/training/cars/platforms/automotive-os#play-feature-requirements) that apply to all apps built for Android Automotive OS.
 
 ## Update your Gradle dependencies
 
 Within you automotive module, you must add a dependency on the
-[`androidx.car.app:app-automotive` artifact](https://developer.android.com/jetpack/androidx/releases/car-app),
+[`androidx.car.app:app-automotive` artifact](/jetpack/androidx/releases/car-app),
 which includes the `CarAppActivity` implementation required for your app to run
 on Android Automotive OS.
 
@@ -129,7 +147,7 @@ shared module using Gradle's [project dependencies](https://docs.gradle.org/curr
 
 ### Groovy
 
-```groovy
+```
 buildscript {
     ...
     dependencies {
@@ -142,7 +160,7 @@ buildscript {
 
 ### Kotlin
 
-```kotlin
+```
 buildscript {
     ...
     dependencies {
@@ -158,12 +176,14 @@ buildscript {
 Use the following manifest entry to declare that your app supports
 Android Automotive OS:
 
-    <application>
-        ...
-        <meta-data android:name="com.android.automotive"
-            android:resource="@xml/automotive_app_desc"/>
-        ...
-    </application>
+```
+<application>
+    ...
+    <meta-data android:name="com.android.automotive"
+        android:resource="@xml/automotive_app_desc"/>
+    ...
+</application>
+```
 
 This manifest entry refers to an XML file that declares the automotive
 capabilities that your app supports.
@@ -172,19 +192,22 @@ To indicate that you have a Car App Library app,
 add an XML file named `automotive_app_desc.xml` to the `res/xml/` directory in
 your Android Automotive OS module. This file should include the following content:
 
-    <automotiveApp>
-        <uses name="template"/>
-    </automotiveApp>
+```
+<automotiveApp>
+    <uses name="template"/>
+</automotiveApp>
+```
 
-> [!NOTE]
-> **Note:** Don't include any references to the `com.google.android.gms.car.application` attribute that is required for Android Auto in your Android Automotive OS app.
+**Note:** Don't include any references to the
+`com.google.android.gms.car.application` attribute that is required for Android
+Auto in your Android Automotive OS app.
 
 ## Declare your CarAppService and CarAppActivity
 
 As with Android Auto, Android Automotive OS uses your `CarAppService`
 implementation to run your app. Refer to
-[Create your CarAppService and Session](https://developer.android.com/training/cars/apps#create-carappservice)
-and [Declare your CarAppService](https://developer.android.com/training/cars/apps#declare-carappservice) for
+[Create your CarAppService and Session](/training/cars/apps#create-carappservice)
+and [Declare your CarAppService](/training/cars/apps#declare-carappservice) for
 instructions on implementing and declaring your `CarAppService`.
 
 Unlike Android Auto, you must include an additional application component,
@@ -195,7 +218,7 @@ with the template host application to render your app's UI. You should only have
 one instance of this activity in your manifest, and it must be declared as
 follows:
 
-```xml
+```
 <activity
     android:exported="true"
     android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
@@ -213,23 +236,31 @@ follows:
 </activity>
 ```
 
-- `android:name` is set to the fully-qualified class name of the `CarAppActivity` class from the `app-automotive` artifact.
-- `android:exported` is set to `true` as the activity must be launchable by an app other than itself (namely, the launcher).
-- `android:launchMode` is set to `singleTask` so the user can return to the same instance of the activity from the launcher if they navigate away.
-- `android:theme` is set to `@android:style/Theme.DeviceDefault.NoActionBar` so that the app takes up the full screen space available to it.
-- The intent filter indicates that this is the launcher activity for the app.
-- There is a `<meta-data>` element that indicates to the OS that the app can be used while UX restrictions are in place, such as when the vehicle is in motion.
+* `android:name` is set to the fully-qualified class name of the `CarAppActivity`
+  class from the `app-automotive` artifact.
+* `android:exported` is set to `true` as the activity must be launchable by an
+  app other than itself (namely, the launcher).
+* `android:launchMode` is set to `singleTask` so the user can return to the same
+  instance of the activity from the launcher if they navigate away.
+* `android:theme` is set to `@android:style/Theme.DeviceDefault.NoActionBar` so
+  that the app takes up the full screen space available to it.
+* The intent filter indicates that this is the launcher activity for the app.
+* There is a `<meta-data>` element that indicates to the OS that the app can
+  be used while UX restrictions are in place, such as when the vehicle is in
+  motion.
 
-> [!CAUTION]
-> **Caution:** Activities marked as distraction optimized are only treated as such when installed from a trusted source (such as the Google Play Store) or when running on a `userdebug` system image (such as emulators without the Google Play Store).
+**Caution:** Activities marked as distraction optimized are only treated as such
+when installed from a trusted source (such as the Google Play Store)
+or when running on a `userdebug` system image (such as emulators without the
+Google Play Store).
 
 ### Additional requirements for navigation apps
 
-For [navigation](https://developer.android.com/training/cars/apps/navigation) apps, there are a few more
+For [navigation](/training/cars/apps/navigation) apps, there are a few more
 required manifest entries for the `CarAppActivity` as shown in the following
 snippet:
 
-```xml
+```
 <activity
     android:exported="true"
     android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
@@ -256,13 +287,16 @@ snippet:
 </activity>
 ```
 
-- The additional [`android.intent.category.APP_MAPS`](https://developer.android.com/reference/android/content/Intent#CATEGORY_APP_MAPS) category informs the system that your app is able to show the user's location.
-- The `androidx.car.app.action.NAVIGATE` intent filter ensures that users have the option of using your app when handling an implicit navigation intent from another car app.
+* The additional [`android.intent.category.APP_MAPS`](/reference/android/content/Intent#CATEGORY_APP_MAPS)
+  category informs the system that your app is able to show the user's location.
+* The `androidx.car.app.action.NAVIGATE` intent filter ensures that users have
+  the option of using your app when handling an implicit navigation intent from
+  another car app.
 
 ## Support deep links
 
 To improve your templated app's experience on Android Automotive OS devices, you
-can support add support for [deep links](https://developer.android.com/training/app-links) to your `CarAppActivity`. For
+can support add support for [deep links](/training/app-links) to your `CarAppActivity`. For
 example, this allows users to open your app directly from a browser or when
 receiving a URL shared from a phone using [Quick Share](https://support.google.com/android/answer/9286773).
 
@@ -270,7 +304,7 @@ receiving a URL shared from a phone using [Quick Share](https://support.google.c
 
 To inform the OS that your app is able to handle deep links, you'll need to add
 the appropriate intent filters within the `<activity>` element for your app's
-`CarAppActivity`. See [Add intent filters for incoming links](https://developer.android.com/training/app-links/deep-linking#adding-filters) for additional
+`CarAppActivity`. See [Add intent filters for incoming links](/training/app-links/deep-linking#adding-filters) for additional
 guidance.
 
 For the best user experience, we recommend supporting all of the deep links
@@ -279,26 +313,30 @@ app.
 
 ### Handle deep link intents
 
-To handle intents, your app should [read the data from incoming intents](https://developer.android.com/training/app-links/deep-linking#handling-intents)
+To handle intents, your app should [read the data from incoming intents](/training/app-links/deep-linking#handling-intents)
 both when your car app's `Session` is being created during
-[`onCreateScreen()`](https://developer.android.com/reference/androidx/car/app/Session#onCreateScreen(android.content.Intent)) as well as when it receives a new intent during
-[`onNewIntent()`](https://developer.android.com/reference/androidx/car/app/Session#onNewIntent(android.content.Intent)):
+[`onCreateScreen()`](/reference/androidx/car/app/Session#onCreateScreen(android.content.Intent)) as well as when it receives a new intent during
+[`onNewIntent()`](/reference/androidx/car/app/Session#onNewIntent(android.content.Intent)):
 
-    class MySession : Session() {
+```
+class MySession : Session() {
 
-      ...
+  ...
 
-      override fun onCreateScreen(intent: Intent) : Screen {
-        // Handle the intent when the app is being started for the first time
-      }
+  override fun onCreateScreen(intent: Intent) : Screen {
+    // Handle the intent when the app is being started for the first time
+  }
 
-      override fun onNewIntent(intent: Intent) {
-        // Handle the intent when the app is already running
-      }
-    }
+  override fun onNewIntent(intent: Intent) {
+    // Handle the intent when the app is already running
+  }
+}
+```
 
-> [!TIP]
-> **Tip:** You can use [`ScreenManager`](https://developer.android.com/reference/androidx/car/app/ScreenManager) to modify the screen stack when handling an intent. For example, it can be used to pre-seed a back stack when an intent opens to a `Screen` that would normally require the user to navigate through other screens first.
+**Tip:** You can use [`ScreenManager`](/reference/androidx/car/app/ScreenManager) to modify the screen stack when handling
+an intent. For example, it can be used to pre-seed a back stack when an intent
+opens to a `Screen` that would normally require the user to navigate through
+other screens first.
 
 ## Other Considerations
 
@@ -323,11 +361,11 @@ The following table summarizes some other key differences between keeping your c
 name or using a new package name:
 
 | Feature | Same package name | New package name |
-|---|---|---|
+| --- | --- | --- |
 | Store listing | Single | Multiple |
 | Mirrored install | Yes: fast app reinstall during the setup wizard | No |
 | Play Store Review process | Blocking reviews: if the review fails for one APK, other APKs submitted in the same release are blocked | Individual reviews |
-| Statistics, metrics, and [vitals](https://developer.android.com/topic/performance/vitals) | Combined: you can filter by device name for automotive-specific data. | Separate |
+| Statistics, metrics, and [vitals](/topic/performance/vitals) | Combined: you can filter by device name for automotive-specific data. | Separate |
 | Indexing and search ranking | Build off current standing | No carryover |
 | Integrating with other apps | Most likely no changes needed, assuming media code is shared between both APKs | Might have to update the corresponding app, such as for URI playback with Google Assistant |
 
@@ -341,10 +379,13 @@ cars are also expected to have more variable connectivity than mobile devices.
 Here are a few things to keep in mind as you consider your offline support
 strategy:
 
-- The best time to download content is while your app is in use.
-- Do not assume that WiFi is available. A car might never come into WiFi range, or the Original Equipment Manufacturer (OEM) might have disabled WiFi in favor of a cellular network.
-- While it is okay to smartly cache content you expect users to use, we recommend that you let the user change this behavior.
-- The disk space on cars varies, so give users a way to delete offline content.
+* The best time to download content is while your app is in use.
+* Do not assume that WiFi is available. A car might never come into WiFi range,
+  or the Original Equipment Manufacturer (OEM) might have disabled WiFi in favor of a cellular network.
+* While it is okay to smartly cache content you expect users to
+  use, we recommend that you let the user change this behavior.
+* The disk space on cars varies, so give users a way to delete
+  offline content.
 
 ## Frequently asked questions
 
@@ -360,18 +401,19 @@ for complying with all the car app quality requirements.
 ### How do I publish my Android Automotive OS app using the Google Play Console?
 
 For details on how to publish your Android Automotive OS app using the Google
-Play Console, see [Distribute to cars](https://developer.android.com/training/cars/distribute).
+Play Console, see [Distribute to cars](/training/cars/distribute).
 
-> [!WARNING]
-> **Warning:** Because a templated app artifact cannot support both mobile and Android Automotive OS experiences, you [must use the dedicated Android Automotive OS
-> track](https://developer.android.com/training/cars/distribute#choose-track-aaos) to distribute your templated app to Android Automotive OS devices.
+**Warning:** Because a templated app artifact cannot support both mobile and Android
+Automotive OS experiences, you [must use the dedicated Android Automotive OS
+track](/training/cars/distribute#choose-track-aaos) to distribute your templated
+app to Android Automotive OS devices.
 
 ## Troubleshooting
 
 See the following for help with some common troubleshooting scenarios
 on Android Automotive OS.
 
-- Even after uninstalling a Car App Library app from the system settings,
+* Even after uninstalling a Car App Library app from the system settings,
   I get an error when trying to install a new version.
 
   To be sure that the app is uninstalled, use the command

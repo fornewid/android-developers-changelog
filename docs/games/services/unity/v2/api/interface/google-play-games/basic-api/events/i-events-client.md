@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # GooglePlayGames.BasicApi.Events.IEventsClient
 
 An interface for interacting with events.

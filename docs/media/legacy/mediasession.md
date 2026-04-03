@@ -15,7 +15,6 @@ These guides discuss the MediaCompat APIs, which are no longer updated. We stron
 
 
 
-
 Media sessions provide a universal way of interacting with an audio or video
 player. By informing Android that media is playing in an app, playback
 controls can be delegated to the app. Integrating with the media session allows

@@ -1,19 +1,8 @@
 ---
-title: Textures  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/optimize/textures
 url: https://developer.android.com/games/optimize/textures
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Textures Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Follow these best practices to optimize the appearance and performance of
 textures in your Android game.
@@ -32,11 +21,7 @@ A texture atlas is a texture designed to contain the image data of multiple
 graphic objects, such as 3D meshes or 2D sprites. Instead of each object having
 its own texture, an atlas texture is used to combine the images from each
 object.
-
-![Meshes that share a texture atlas](/static/images/games/artbp/texture/texture_figure01.jpg)
-
-
-**Figure 1.** The yellow highlight in the rendered scene (left) outlines meshes that share the texture atlas (right).
+![Meshes that share a texture atlas](https://developer.android.com/static/images/games/artbp/texture/texture_figure01.jpg) **Figure 1.**The yellow highlight in the rendered scene (left) outlines meshes that share the texture atlas (right).
 
 Minimizing the number of draw calls of a game frame is an important element in
 achieving optimal rendering performance. Using the same texture for different
@@ -82,11 +67,7 @@ A mipmapped texture uses more memory compared to a non mipmapped texture. The
 additional mipmap levels increase the memory footprint of a texture by 33%. If a
 texture is drawn at a fixed distance from the camera, generating mipmaps is an
 unnecessary use of memory.
-
-![A mipmap chain from a base texture resolution of 512x512 pixels](/static/images/games/artbp/texture/texture_figure02.jpg)
-
-
-**Figure 2.** A mipmap chain, the base resolution of the texture is 512x512 pixels.
+![A mipmap chain from a base texture resolution of 512x512 pixels](https://developer.android.com/static/images/games/artbp/texture/texture_figure02.jpg) **Figure 2.**A mipmap chain, the base resolution of the texture is 512x512 pixels.
 
 Correctly using mipmaps improves GPU performance. Availability of lower
 resolution mipmap levels reduces memory bandwidth usage and improves texture
@@ -95,11 +76,7 @@ cache residency.
 Mipmapping can also improve visual quality by reducing texture aliasing. Texture
 aliasing can be observed as a flickering effect on areas further from the
 camera.
-
-![An example of texture aliasing](/static/images/games/artbp/texture/texture_figure03.jpg)
-
-
-**Figure 3.** An example of texture aliasing. One image is rendered without mipmaps (left), the other image with mipmaps (right). Texture aliasing can be observed inside the red rectangle in the left image.
+![An example of texture aliasing](https://developer.android.com/static/images/games/artbp/texture/texture_figure03.jpg) **Figure 3.**An example of texture aliasing. One image is rendered without mipmaps (left), the other image with mipmaps (right). Texture aliasing can be observed inside the red rectangle in the left image.
 
 ### Engine specific mipmap details
 
@@ -138,11 +115,7 @@ color for the fragment. Bilinear filtering results in a smoother gradient
 between pixels, avoiding the blocky appearance of nearest filtering. Triangles
 rendered close to the camera will appear blurry instead of pixelated. Bilinear
 costs more than nearest due to the additional texel samples and averaging.
-
-![A comparison between nearest and bilinear filtering](/static/images/games/artbp/texture/texture_figure04.jpg)
-
-
-**Figure 4.** A comparison of nearest (left) and bilinear (right) texture filtering.
+![A comparison between nearest and bilinear filtering](https://developer.android.com/static/images/games/artbp/texture/texture_figure04.jpg) **Figure 4.**A comparison of nearest (left) and bilinear (right) texture filtering.
 
 ### Trilinear
 
@@ -153,11 +126,7 @@ point. Trilinear filtering softens these transitions by performing bilinear
 filtering on two different mipmap levels and interpolating the results. The use
 of multiple mip levels and interpolation make trilinear more computationally
 expensive than bilinear.
-
-![A comparison between bilinear and trilinear filtering](/static/images/games/artbp/texture/texture_figure05.jpg)
-
-
-**Figure 5.** A comparison of bilinear (left) and trilinear (right) texture filtering. The zoomed region contrasts the difference in rendering along mipmap transitions.
+![A comparison between bilinear and trilinear filtering](https://developer.android.com/static/images/games/artbp/texture/texture_figure05.jpg) **Figure 5.**A comparison of bilinear (left) and trilinear (right) texture filtering. The zoomed region contrasts the difference in rendering along mipmap transitions.
 
 ### Anisotropic
 
@@ -167,11 +136,7 @@ example of this kind of mesh. Anisotropic filtering requires mipmapped textures
 to function. The ratio or level of anisotropic filtering applied during
 rendering can be configured. The cost of anisotropic filtering increases as the
 level increases.
-
-![A comparison between 1x and 2x anisotropic filtering](/static/images/games/artbp/texture/texture_figure06.jpg)
-
-
-**Figure 6.** A comparison of bilinear/1x anisotropic filtering (left) and bilinear/2x anisotropic filtering (right)
+![A comparison between 1x and 2x anisotropic filtering](https://developer.android.com/static/images/games/artbp/texture/texture_figure06.jpg) **Figure 6.**A comparison of bilinear/1x anisotropic filtering (left) and bilinear/2x anisotropic filtering (right)
 
 ### Mode selection strategy
 
@@ -184,7 +149,7 @@ costly and should be done very selectively for critical game assets.
 
 Texture filtering may account for up to half of the total GPU energy
 consumption, choosing simpler texture filters where possible is an excellent way
-to reduce your game’s power demands.
+to reduce your game's power demands.
 
 ## Optimize texture sizes
 
@@ -211,19 +176,11 @@ roughness, or normal maps, should not be exported in sRGB color space.
 
 Game engine texture settings include a parameter for whether a texture uses sRGB
 color space.
-
-![sRGB texture settings in Unity and Unreal Engine 4](/static/images/games/artbp/texture/texture_figure07.jpg)
-
-
-**Figure 7.** sRGB texture settings in Unity (left) and Unreal Engine 4 (right).
+![sRGB texture settings in Unity and Unreal Engine 4](https://developer.android.com/static/images/games/artbp/texture/texture_figure07.jpg) **Figure 7.**sRGB texture settings in Unity (left) and Unreal Engine 4 (right).
 
 Since the pixel data of such textures is not used as color data, using the sRGB
 color space will produce incorrect visuals.
-
-![Rendering a roughness metallic man in linear versus sRGB color space](/static/images/games/artbp/texture/texture_figure08.jpg)
-
-
-**Figure 8.** A linear (non sRGB) roughness metallic map (left) and sRGB roughness metallic map (right). The reflections on the right appear incorrect.
+![Rendering a roughness metallic man in linear versus sRGB color space](https://developer.android.com/static/images/games/artbp/texture/texture_figure08.jpg) **Figure 8.**A linear (non sRGB) roughness metallic map (left) and sRGB roughness metallic map (right). The reflections on the right appear incorrect.
 
 ## Use texture compression
 
@@ -232,7 +189,7 @@ pixel data that results in a texture that can be quickly decompressed by
 graphics hardware during rendering. Effective use of texture compression can
 reduce memory usage and increase performance with minimal impact to visual
 quality. Three texture compression algorithms are most common on Android:
-[ETC1, ETC2 and ASTC](/guide/playcore/asset-delivery/texture-compression).
+[ETC1, ETC2 and ASTC](https://developer.android.com/guide/playcore/asset-delivery/texture-compression).
 For modern games, ASTC is generally the best primary option, with
 ETC2 being a fallback option if your game targets devices which do not support
 ASTC.
@@ -250,9 +207,9 @@ ETC2 is supported by over 90% of active Android devices. Very old devices which
 do not support the OpenGL ES 3.0 API are unable to use ETC2. Compared to ETC1,
 ETC2 adds:
 
-* Alpha channel support, both eight bit and single bit ‘punchthrough’
-* sRGB versions of RGB and RGBA textures
-* One and two channel, R11 and RG11, textures
+- Alpha channel support, both eight bit and single bit 'punchthrough'
+- sRGB versions of RGB and RGBA textures
+- One and two channel, R11 and RG11, textures
 
 ### ASTC
 
@@ -261,11 +218,7 @@ compression block sizes, which gives you fine-grained control to balance
 compression ratio against image quality for a given texture. ASTC is often
 capable of achieving superior quality at the same memory size as ETC2, or
 similar quantity at a smaller memory size than ETC2.
-
-![A visual comparison of texture compression formats using the same source image](/static/images/games/artbp/texture/texture_figure09.jpg)
-
-
-**Figure 9.** A comparison between images that are: uncompressed (left, 17MB in size), compressed with ETC1 (center, 3MB in size), compressed with ASTC (right, 2.5MB in size).
+![A visual comparison of texture compression formats using the same source image](https://developer.android.com/static/images/games/artbp/texture/texture_figure09.jpg) **Figure 9.**A comparison between images that are: uncompressed (left, 17MB in size), compressed with ETC1 (center, 3MB in size), compressed with ASTC (right, 2.5MB in size).
 
 ### Texture compression speed
 
@@ -289,15 +242,12 @@ format to an individual device at install time.
 Keep the UV island as straight as possible. This helps your texture in the
 following ways:
 
-* Packing UV islands is easier, leading to less wasted space.
-* Straight UVs reduce the ‘staircase effect’ on textures.
-* Good UV packing ensures getting optimal resolution from the texture.
-* Better quality texturing, even if UVs are slightly distorted from straightening.
+- Packing UV islands is easier, leading to less wasted space.
+- Straight UVs reduce the 'staircase effect' on textures.
+- Good UV packing ensures getting optimal resolution from the texture.
+- Better quality texturing, even if UVs are slightly distorted from straightening.
 
-![An unoptimized UV island versus an optimized UV island](/static/images/games/artbp/texture/texture_figure10.jpg)
-
-
-**Figure 10.** An unoptimized UV island (left) and a straightened/unwrapped UV island (right).
+![An unoptimized UV island versus an optimized UV island](https://developer.android.com/static/images/games/artbp/texture/texture_figure10.jpg) **Figure 10.**An unoptimized UV island (left) and a straightened/unwrapped UV island (right).
 
 Visible texture seams on a model look bad. Try to place any UV seams in places
 where they are less visible. To help create better normal maps, split your UV
@@ -305,29 +255,21 @@ island where the edges are sharp and leave some space around the island.
 
 ## Avoid imperceptible detail
 
-When creating art, don’t add details that won’t be seen, especially on games
+When creating art, don't add details that won't be seen, especially on games
 designed for devices with smaller screens. Making an intricately detailed
 4096x4096 texture is wasted on a small chair model that is barely visible in the
 corner of a room. In certain cases, you may need to exaggerate edges (adding
 extra highlights) and shading to improve shape perception.
-
-![A small texture is used on a model rendered at a distance](/static/images/games/artbp/texture/texture_figure11.jpg)
-
-
-**Figure 11.** A small 256x256 texture lacking excessive detail is used on a soldier model rendered at a distance.
+![A small texture is used on a model rendered at a distance](https://developer.android.com/static/images/games/artbp/texture/texture_figure11.jpg) **Figure 11.**A small 256x256 texture lacking excessive detail is used on a soldier model rendered at a distance.
 
 ## Bake details
 
 Mobile devices have smaller screens and less powerful graphics hardware than
 personal computers or gaming consoles. Instead of calculating effects like
-ambient occlusion or specular highlighting at runtime, consider ‘baking’ them
+ambient occlusion or specular highlighting at runtime, consider 'baking' them
 into the diffuse texture when possible. This helps performance and ensures
 visibility of your details.
-
-![Baking highlights and ambient occulusion into a diffuse texture](/static/images/games/artbp/texture/texture_figure12.jpg)
-
-
-**Figure 12.** Highlights and ambient occlusion baked into the diffuse texture (left) and rendered in-game (right).
+![Baking highlights and ambient occulusion into a diffuse texture](https://developer.android.com/static/images/games/artbp/texture/texture_figure12.jpg) **Figure 12.**Highlights and ambient occlusion baked into the diffuse texture (left) and rendered in-game (right).
 
 ## Use color tinting
 
@@ -337,11 +279,7 @@ meshes. With color tinting, a grayscale texture is used, which takes less
 texture memory than an RGB texture. Per vertex color data is applied by the
 shader to colorize the mesh. An alternative tinting method is to use an RGB mask
 and apply the texture based on the color range of the mask.
-
-![A grayscale texture tinted at runtime](/static/images/games/artbp/texture/texture_figure13.jpg)
-
-
-**Figure 13.** A grayscale texture (left) tinted at runtime for the pillar model (right).
+![A grayscale texture tinted at runtime](https://developer.android.com/static/images/games/artbp/texture/texture_figure13.jpg) **Figure 13.**A grayscale texture (left) tinted at runtime for the pillar model (right).
 
 ## Pack texture channels
 
@@ -349,11 +287,7 @@ When rendering materials with multiple textures, look for opportunities to
 combine textures that only use a single color channel into a single texture that
 uses all three color channels. This reduces memory usage and decreases the
 number of texture sampler operations performed by the fragment shader.
-
-![Three single-channel textures combined into one multi-channel texture](/static/images/games/artbp/texture/texture_figure14.jpg)
-
-
-**Figure 14.** Three single-channel textures (left) are combined into one multi-channel texture (right). The ambient occlusion data is assigned to red, the roughness/smoothness map to green, and the metallic map to blue.
+![Three single-channel textures combined into one multi-channel texture](https://developer.android.com/static/images/games/artbp/texture/texture_figure14.jpg) **Figure 14.**Three single-channel textures (left) are combined into one multi-channel texture (right). The ambient occlusion data is assigned to red, the roughness/smoothness map to green, and the metallic map to blue.
 
 When packing, assign data with the most detail to the green channel. Since the
 human eye is more
@@ -368,11 +302,7 @@ your packed texture, consider putting the alpha channel data into your packed
 texture instead of your diffuse texture. Depending on the format of your diffuse
 texture, this can help you reduce its size, or increase its visual quality by
 omitting the alpha channel data.
-
-![An alpha channel packed into another texture](/static/images/games/artbp/texture/texture_figure15.jpg)
-
-
-**Figure 15.** An alpha channel opacity map is packed into a texture along with a roughness/smoothness map and a metallic map.
+![An alpha channel packed into another texture](https://developer.android.com/static/images/games/artbp/texture/texture_figure15.jpg) **Figure 15.**An alpha channel opacity map is packed into a texture along with a roughness/smoothness map and a metallic map.
 
 Make sure that your packed textures are set to a linear RGB color space and not sRGB.
 
@@ -383,11 +313,7 @@ without using additional geometry. Features such as wrinkles or bolts that might
 require many triangles to model can be simulated using a normal map. Normal
 mapping may or may not be appropriate depending on the art style and direction
 of the game.
-
-![A model rendered with and without a normal map](/static/images/games/artbp/texture/texture_figure16.jpg)
-
-
-**Figure 16.** A model rendered without a normal map (left), and the same model rendered with a normal map (center), and the normal map texture (right).
+![A model rendered with and without a normal map](https://developer.android.com/static/images/games/artbp/texture/texture_figure16.jpg) **Figure 16.**A model rendered without a normal map (left), and the same model rendered with a normal map (center), and the normal map texture (right).
 
 Normal maps do incur some performance cost and should be used sparingly on lower
 end devices. The normal map requires an additional texture, resulting in
@@ -403,17 +329,7 @@ A cage is a larger, or pushed out, version of your low polygon model. It needs
 to encompass the high polygon model to work well during normal map baking. The
 cage is used to limit raycast distance during normal map baking and helps avoid
 problems with split normal seams on the normal map.
-
-![A cage surrounding the low polygon mesh](/static/images/games/artbp/texture/texture_figure17.jpg)
-
-
-**Figure 17.** A cage surrounding the low polygon mesh.
-
-
-![A model rendered using a normal map with and without a cage](/static/images/games/artbp/texture/texture_figure18.jpg)
-
-
-**Figure 18.** A model rendering using a normal map generated with a cage (left) compared to a model rendered using a normal map generated without a cage (right).
+![A cage surrounding the low polygon mesh](https://developer.android.com/static/images/games/artbp/texture/texture_figure17.jpg) **Figure 17.**A cage surrounding the low polygon mesh. ![A model rendered using a normal map with and without a cage](https://developer.android.com/static/images/games/artbp/texture/texture_figure18.jpg) **Figure 18.**A model rendering using a normal map generated with a cage (left) compared to a model rendered using a normal map generated without a cage (right).
 
 ### Bake matching by mesh name
 
@@ -430,13 +346,9 @@ Formore information on this feature in Marmoset Toolbag,
 
 If you are unable to match by mesh name when baking, consider exploding your
 mesh. Exploding your mesh moves parts away from each other so that the normal
-map doesn’t project onto the wrong surface. If you are also baking for ambient
+map doesn't project onto the wrong surface. If you are also baking for ambient
 occlusion, you may need to perform that bake separately with an unexploded mesh.
-
-![An exploded mesh for normal map baking](/static/images/games/artbp/texture/texture_figure19.jpg)
-
-
-**Figure 19.** An exploded mesh for normal map baking
+![An exploded mesh for normal map baking](https://developer.android.com/static/images/games/artbp/texture/texture_figure19.jpg) **Figure 19.**An exploded mesh for normal map baking
 
 ## Minimize seams
 
@@ -444,8 +356,3 @@ Continuous UV on hard edges will cause visible seams, split UV on hard edges to
 minimize this effect. When setting smoothing groups, as a rule of thumb keep the
 angle less than 90 degrees. UV seams need to have a different smoothing group on
 the triangles.
-
-
-
-
-Send feedback

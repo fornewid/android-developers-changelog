@@ -1,73 +1,63 @@
 ---
-title: Kotlin Fundamentals: Activity and Fragment lifecycles quiz  |  Android Developers
+title: https://developer.android.com/courses/quizzes/kotlin-fundamentals-five/kotlin-fundamentals-five
 url: https://developer.android.com/courses/quizzes/kotlin-fundamentals-five/kotlin-fundamentals-five
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Kotlin Fundamentals: Activity and Fragment lifecycles quiz
 
-Return to pathway
+# Kotlin Fundamentals: Activity and Fragment lifecycles quiz
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Which of the following is not an activity lifecycle state?
+   ## Which of the following is not an activity lifecycle state?
 
-   Started
+   Started  
+   Waiting  
+   Created  
+   Destroyed  
+2.
 
-   Waiting
+   ## Which lifecycle method is called to make an activity visible?
 
-   Created
+   onPause()  
+   onVisible()  
+   onStart()  
+   onDestroy()  
+3.
 
-   Destroyed
-2. ## Which lifecycle method is called to make an activity visible?
+   ## Which lifecycle method is called to give an activity focus?
 
-   onPause()
+   onResume()  
+   onVisible()  
+   onStart()  
+   onFocus()  
+4.
 
-   onVisible()
+   ## Your app contains a physics simulation that requires heavy computation to display onscreen. Then the user gets a phone call. Which of the following is true?
 
-   onStart()
+   During the phone call, you should continue computing the positions of objects in the physics simulation.  
+   During the phone call, you should stop computing the positions of objects in the physics simulation.  
+5.
 
-   onDestroy()
-3. ## Which lifecycle method is called to give an activity focus?
+   ## Which lifecycle method should you override to pause the simulation when the app is not on the screen?
 
-   onResume()
+   onDestroy()  
+   onPause()  
+   onStop()  
+   onSaveInstanceState()  
+6.
 
-   onVisible()
+   ## To make a class lifecycle-aware through the Jetpack lifecycle library, which interface should the class implement?
 
-   onStart()
-
-   onFocus()
-4. ## Your app contains a physics simulation that requires heavy computation to display onscreen. Then the user gets a phone call. Which of the following is true?
-
-   During the phone call, you should continue computing the positions of objects in the physics simulation.
-
-   During the phone call, you should stop computing the positions of objects in the physics simulation.
-5. ## Which lifecycle method should you override to pause the simulation when the app is not on the screen?
-
-   onDestroy()
-
-   onPause()
-
-   onStop()
-
-   onSaveInstanceState()
-6. ## To make a class lifecycle-aware through the Jetpack lifecycle library, which interface should the class implement?
-
-   Lifecycle
-
-   LifecycleOwner
-
-   Lifecycle.Event
-
-   LifecycleObserver
+   Lifecycle  
+   LifecycleOwner  
+   Lifecycle.Event  
+   LifecycleObserver  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

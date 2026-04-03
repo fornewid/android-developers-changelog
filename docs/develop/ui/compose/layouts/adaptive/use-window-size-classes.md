@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Window size classes are a set of opinionated viewport breakpoints that help you
 design, develop, and test responsive/adaptive layouts. The breakpoints balance
 layout simplicity with the flexibility of optimizing your app for unique cases.

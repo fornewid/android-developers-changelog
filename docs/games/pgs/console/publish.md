@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 To ensure that Google Play Games Services are functioning correctly in your application, you
 should test your Play Games Services before publishing your game changes on Google
 Play.
@@ -117,6 +118,8 @@ publish the game changes. To delete data for testers, use the
 features may not be immediately reflected under your game's listing in the
 Google Play Store until your users start earning achievements and posting
 scores.
+
+
 
 
 

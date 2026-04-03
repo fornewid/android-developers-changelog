@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 If you are implementing a [content provider](/guide/topics/providers/content-providers) to store and retrieve data or to
 make data accessible to other apps, you should test your provider to ensure that
 it doesn't behave in an unexpected way. This lesson describes how to test public

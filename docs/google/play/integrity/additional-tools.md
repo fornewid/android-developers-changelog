@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The following tools and resources will help you make the most of the Play
 Integrity API as part of your anti-abuse strategy.
 

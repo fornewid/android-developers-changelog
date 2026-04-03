@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ### Material components in Compose
 
 Jetpack Compose offers an implementation of Material Design, a comprehensive design system for creating digital interfaces. You can use composable functions to implement Material components.

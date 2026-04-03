@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The [Navigation component](/guide/navigation) provides support for Jetpack Compose applications.
 You can navigate between composables while taking advantage of the Navigation
 component's infrastructure and features.

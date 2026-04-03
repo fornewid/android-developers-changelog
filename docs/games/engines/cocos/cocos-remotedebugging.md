@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Due to the differences between development and running environments, some
 problems only occur on specific physical devices.
 
@@ -47,8 +46,6 @@ To perform remote code debugging on physical devices, just follow these 3 steps:
 For more detailed instructions, you can take a look at the official [Cocos
 Creator
 documentation](https://docs.cocos.com/creator/manual/en/editor/publish/debug-jsb.html).
-
-
 
 
 

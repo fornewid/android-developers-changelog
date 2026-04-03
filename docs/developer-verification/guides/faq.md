@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This guide answers some of the most common questions regarding Android developer
 verification.
 

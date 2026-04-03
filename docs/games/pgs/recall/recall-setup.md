@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This page explains how to implement the [Recall API](/games/pgs/recall) within your game. It
 first covers setting up your game server and client to support the API, and then
 explains how to store and retrieve tokens.
@@ -416,8 +415,6 @@ provide end users with an appropriate notice that describes the following:
 * The processing of this data under the [Google Privacy Policy](https://policies.google.com/privacy), and the
   requirement to obtain appropriate end-user consent for this sharing that
   meets all applicable legal requirements.
-
-
 
 
 

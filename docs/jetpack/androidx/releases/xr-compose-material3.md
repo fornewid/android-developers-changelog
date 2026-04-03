@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Material Design for XR
 
 [User Guide](/develop/xr/jetpack-xr-sdk/material-design)

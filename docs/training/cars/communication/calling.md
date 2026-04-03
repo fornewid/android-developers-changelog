@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Calling experiences are in beta
 
 At this time, anyone can publish communication apps with calling experiences to internal testing and closed testing tracks on the Play Store. Publishing to open testing and production tracks will be permitted at a later date.

@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
-
 With Android GPU Inspector (AGI), you can profile a specific frame of your Android app
 and use it to perform an in-depth analysis of the app's GPU usage. This
 profiling data can give you a deeper understand of your app's GPU usage than

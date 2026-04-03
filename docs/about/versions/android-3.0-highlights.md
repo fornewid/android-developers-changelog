@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 Welcome to Android 3.0!
 
 The Android 3.0 platform introduces many new and exciting features for users and developers.

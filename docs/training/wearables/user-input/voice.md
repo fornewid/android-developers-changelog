@@ -1,41 +1,47 @@
 ---
-title: https://developer.android.com/training/wearables/user-input/voice
+title: Voice input  |  Wear OS  |  Android Developers
 url: https://developer.android.com/training/wearables/user-input/voice
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Wear OS](https://developer.android.com/training/wearables)
+
+# Voice input Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Every Wear OS device comes with a microphone, so users can use their voice to interact with the
 device. You can divide these into three types of interactions:
 
-- Record audio
-- Get free-form speech input
-- Voice actions
+* Record audio
+* Get free-form speech input
+* Voice actions
 
 ## Record audio
 
-
 Recording audio on a Wear OS device works the same way as it would on a phone. Refer to the
-[MediaRecorder documentation](https://developer.android.com/guide/topics/media/mediarecorder) to learn more about
+[MediaRecorder documentation](/guide/topics/media/mediarecorder) to learn more about
 recording audio on Android. You can also look at a sample implementation in the
 [Wear Speaker sample](https://github.com/android/wear-os-samples/tree/main/WearSpeakerSample)
 on Github.
 
 ## Get free-form speech input
 
-
 Call the system's built-in Speech Recognizer activity to get speech input from users. Use speech
 input to send messages or perform searches.
 
-
-In your app, call `https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)`
-using the `https://developer.android.com/reference/android/speech/RecognizerIntent#ACTION_RECOGNIZE_SPEECH`
+In your app, call `startActivityForResult()`
+using the `ACTION_RECOGNIZE_SPEECH`
 action. This starts the speech recognition activity, and you can then handle the result in
-`https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)`.
-
+`onActivityResult()`.
 
 The following code sample shows how to start and handle a speech recognition activity.
 
-```kotlin
+```
 var textForVoiceInput by remember { mutableStateOf("") }
 
 val voiceLauncher =
@@ -80,6 +86,8 @@ ScreenScaffold(scrollState = scrollState) {
         )
     }
 }
+
+VoiceInputScreen.kt
 ```
 
 ## Voice Actions
@@ -87,4 +95,4 @@ ScreenScaffold(scrollState = scrollState) {
 Voice Actions and Assistant App Actions aren't supported at this time except for Wear OS apps in
 China. Read more about
 [Voice Actions support
-for China](https://developer.android.com/training/wearables/apps/creating-app-china#voice-actions-support).
+for China](/training/wearables/apps/creating-app-china#voice-actions-support).

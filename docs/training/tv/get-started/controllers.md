@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 TV devices require a secondary hardware device for interacting with apps—a basic
 remote controller or game controller. Therefore, your app must support directional pad (D-pad) input.
 Also, your app might need to handle controllers going offline and input from more than one

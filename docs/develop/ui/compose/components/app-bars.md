@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 App bars are containers that provide the user access to key features and
 navigation items. There are two types of app bars, top app bars and bottom app
 bars. Their respective appearance and purpose are as follows:

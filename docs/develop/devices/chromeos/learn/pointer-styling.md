@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android users come to your app from all different types of form factors i.e., phones, tablets, foldables, and Chromebooks. When interacting with your application, especially on larger screens, users may also use some sort of pointing device like a three-button mouse. Android applications have support for applying different styling to the mouse pointer to help those users have a visual indication that they can interact with an object.
 
 ## Use the system default cursors

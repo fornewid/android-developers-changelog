@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 A content provider manages access to a central repository of data. A provider
 is part of an Android application, which often provides its own UI for working with
 the data. However, content providers are primarily used by other

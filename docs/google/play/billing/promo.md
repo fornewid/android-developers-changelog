@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 Promotions, or *promo codes*, enable you to give one-time products or trials
 to subscriptions free-of-charge to a limited number of users. The user enters
 a promo code, either in your app or in the Google Play Store app, and receives
@@ -168,8 +167,6 @@ the Google Play Store prompts the user to update or download your app.
 
 To test your promo code implementation, see
 [Test promo codes](/google/play/billing/test#promo).
-
-
 
 
 

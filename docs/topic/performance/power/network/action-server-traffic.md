@@ -1,8 +1,15 @@
 ---
-title: https://developer.android.com/topic/performance/power/network/action-server-traffic
+title: Optimize server-initiated network use  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/power/network/action-server-traffic
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App quality](https://developer.android.com/quality)
+
+# Optimize server-initiated network use Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Network traffic sent by server programs to your app can be challenging to
 optimize. A solution to this problem is for your app to periodically poll the
@@ -41,5 +48,7 @@ device's radio to power up. Since FCM can be used by many apps, using it in your
 app reduces the total number of network connections needed on a device and
 allows the device radio to sleep more often.
 
-> [!NOTE]
-> **Note:** When using FCM, your app can pass messages in normal or high priority. Your server should typically use normal priority to deliver messages. Using this priority level prevents devices from being woken up if they are inactive and in a low-power Doze state. Use high priority messages only if absolutely required.
+**Note:** When using FCM, your app can pass messages in normal or high priority.
+Your server should typically use normal priority to deliver messages. Using this
+priority level prevents devices from being woken up if they are inactive and in
+a low-power Doze state. Use high priority messages only if absolutely required.

@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 syntax:
 :   ```
     <receiver android:directBootAware=["true" | "false"]

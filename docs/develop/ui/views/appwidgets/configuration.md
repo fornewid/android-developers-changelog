@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 App widgets can be configurable. For example, a clock widget can let users
 configure which time zone to display.
 

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Extending your app to Assistant with App Actions lets users quickly engage
 with the key features of your app by talking to Google Assistant. Once you
 implement App Actions, you can use it to drive user retention and engagement

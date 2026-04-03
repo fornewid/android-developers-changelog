@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/develop/ui/compose/graphics/images/optimization
+title: Optimizing performance for images  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/graphics/images/optimization
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Optimizing performance for images Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Working with images can quickly introduce performance issues if you aren't
 careful. You can quite easily run into an `OutOfMemoryError` when working
@@ -19,35 +30,40 @@ less performant UI rendering.
 
 To manage image sizes:
 
-- Scale down your image files to be as small as possible (without affecting output image).
-- Consider [converting your images to WEBP](https://developer.android.com/studio/write/convert-webp) format instead of JPEG or PNGs.
-- Supply smaller images for different screen resolutions (see [Tip #3](https://developer.android.com/develop/ui/compose/graphics/images/optimization#screen-sizes)),
-- Use an [image loading library](https://developer.android.com/develop/ui/compose/graphics/images/loading#load_an_image_from_the_internet), which scales down your image to fit the size of your view on screen. This can help improve the loading performance of your screen.
+* Scale down your image files to be as small as possible (without affecting
+  output image).
+* Consider [converting your images to WEBP](/studio/write/convert-webp) format instead of JPEG or PNGs.
+* Supply smaller images for different screen resolutions (see [Tip #3](/develop/ui/compose/graphics/images/optimization#screen-sizes)),
+* Use an [image loading library](/develop/ui/compose/graphics/images/loading#load_an_image_from_the_internet), which scales down your image to fit the
+  size of your view on screen. This can help improve the loading performance of
+  your screen.
 
-> [!CAUTION]
-> **Caution:** Using `painterResource` will **not** scale your image to the size of the Composable that is visible on screen. If you have a large image in a small Composable, be sure to use an image loading library which scales the image down for you to fit the bounds.
+**Caution:** Using `painterResource` will **not** scale your image to the size of
+the Composable that is visible on screen. If you have a large image in a small
+Composable, be sure to use an image loading library which scales the image down
+for you to fit the bounds.
 
 #### Use vectors over bitmaps where possible
 
 When representing something visually on screen, you need to decide if it can be
 represented as a vector or not. Prefer vector images over bitmaps, as they
-don't pixelate when you scale them to different sizes. However, not everything
-can be represented as a vector - images taken with a camera can't be converted
+don’t pixelate when you scale them to different sizes. However, not everything
+can be represented as a vector - images taken with a camera can’t be converted
 into a vector.
 
 #### Supply alternative resources for different screen sizes
 
 If you are shipping images with your app, consider supplying different sized
 assets for different device resolutions. This can help reduce the download size
-of your app on devices, and improve performance as it'll load up a lower
+of your app on devices, and improve performance as it’ll load up a lower
 resolution image on a lower resolution device. For more information on providing
 alternative bitmaps for different device sizes, [check out the alternative
-bitmap documentation](https://developer.android.com/training/multiscreen/screendensities#TaskProvideAltBmp).
+bitmap documentation](/training/multiscreen/screendensities#TaskProvideAltBmp).
 
 #### When using `ImageBitmap`, call `prepareToDraw` before drawing
 
 When using `ImageBitmap`, to start the process of uploading the texture to the
-GPU, call [`ImageBitmap#prepareToDraw()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap#prepareToDraw()) before actually drawing it. This
+GPU, call [`ImageBitmap#prepareToDraw()`](/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap#prepareToDraw()) before actually drawing it. This
 helps the GPU prepare the texture and improve the performance of showing a
 visual on screen. Most image loading libraries already do this optimization, but
 if you are working with the `ImageBitmap` class yourself, it is something to
@@ -64,34 +80,42 @@ the data has changed.
 Therefore, it is preferable to pass a URL or drawable resource ID as parameters
 to your composable, instead of passing a `Painter` as a parameter.
 
-    // Prefer this:
-    @Composable
-    fun MyImage(url: String) {
+```
+// Prefer this:
+@Composable
+fun MyImage(url: String) {
 
-    }
-    // Over this:
-    @Composable
-    fun MyImage(painter: Painter) {
+}
+// Over this:
+@Composable
+fun MyImage(painter: Painter) {
 
-    }
+}
+```
 
-## Don't store a bitmap in memory longer than you need it
+## Don’t store a bitmap in memory longer than you need it
 
 The more bitmaps you load into memory, the more likely it is that you could run
 out of memory on the device. For instance, if loading a large list of Image
 composables on screen, use `LazyColumn` or `LazyRow` to ensure that memory is
 freed up when scrolling a large list.
 
-## Don't package large images with your AAB/APK file
+## Don’t package large images with your AAB/APK file
 
 One of the top causes for large app download size is due to graphics that are
-packaged inside the AAB or APK file. Use the [APK analyzer](https://developer.android.com/studio/debug/apk-analyzer) tool to ensure
+packaged inside the AAB or APK file. Use the [APK analyzer](/studio/debug/apk-analyzer) tool to ensure
 that you aren't packaging larger than required image files. Reduce the sizes or
 consider placing the images on a server and only downloading them when required.
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [ImageBitmap vs ImageVector {:#bitmap-vs-vector}](https://developer.android.com/develop/ui/compose/graphics/images/compare)
-- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving)
-- [Jetpack Compose Phases](https://developer.android.com/develop/ui/compose/phases)
+* Note: link text is displayed when JavaScript is off
+* [ImageBitmap vs ImageVector {:#bitmap-vs-vector}](/develop/ui/compose/graphics/images/compare)
+* [Save UI state in Compose](/develop/ui/compose/state-saving)
+* [Jetpack Compose Phases](/develop/ui/compose/phases)
+
+[Previous
+
+arrow\_back
+
+Custom painter](/develop/ui/compose/graphics/images/custompainter)

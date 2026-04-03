@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This page shows you how to add a `QuickContactBadge` to your UI
 and how to bind data to it. A `QuickContactBadge` is a widget that
 initially appears as a thumbnail image. Although you can use any `Bitmap`

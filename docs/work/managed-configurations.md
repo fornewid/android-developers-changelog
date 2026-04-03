@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 If you are developing apps for the enterprise market, you may need
 to satisfy particular requirements set by a organization's policies.
 Managed configurations, previously known as *application restrictions*,

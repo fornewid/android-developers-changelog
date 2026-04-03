@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Tiles provide quick, predictable access to information and actions to solve user needs. Since users want value without delay from their watch, the purpose of each Tile should be immediately obvious by showing only the most critical bits of information. Avoid providing a superfluous amount of functionality.
 Tiles should feel focused, concise, and purpose-driven.
 

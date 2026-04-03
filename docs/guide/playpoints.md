@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Google Play Points program rewards engaged members and benefits developers
 by increasing user retention and reinvestment.
 [Google Play Points](https://play.google.com/console/about/googleplaypoints/)

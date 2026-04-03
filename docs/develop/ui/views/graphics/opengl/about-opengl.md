@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android includes support for high performance 2D and 3D graphics with the Open Graphics Library
 (OpenGL®), specifically, the OpenGL ES API. OpenGL is a cross-platform graphics API that
 specifies a

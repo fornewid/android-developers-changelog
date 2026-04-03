@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This topic describes how to detect and manage Play Games Services API usage in
 your game.
 
@@ -71,6 +72,8 @@ your app's quota entry in the
 Requests to increase the games quota usually aren't accepted unless your game is
 experiencing exceptional usage and is obeying the best practices in the
 [quality checklist](https://developers.google.com/games/services/bestpractices#9_quota_and_rate_limiting).
+
+
 
 
 

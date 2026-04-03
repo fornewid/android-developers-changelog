@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Recyclerview
 
 [User Guide](/guide/topics/ui/layout/recyclerview)  [Code Sample](https://github.com/android/views-widgets-samples/tree/main/RecyclerView)

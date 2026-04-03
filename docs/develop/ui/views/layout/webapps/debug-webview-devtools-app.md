@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The WebView DevTools app is an on-device utility for managing and debugging the
 system WebView component itself. It is separate from Chrome DevTools, which runs
 on your development machine and lets you remotely debug the live web content

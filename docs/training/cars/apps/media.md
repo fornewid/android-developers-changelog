@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Templated media apps are in beta
 
 At this time, anyone can publish templated media apps to internal testing and closed testing tracks on the Play Store. Publishing to open tracks and production tracks will be permitted at a later date.
@@ -123,7 +124,7 @@ resources. It should look as follows:
 
 ### Provide an attribution icon
 
-Be sure to add an [attribution icon](/training/cars/media#attribution_icon) for media apps built using the Car
+Be sure to add an [attribution icon](/training/cars/media/configure-manifest#attribution-icon) for media apps built using the Car
 App Library.
 
 ## Support voice actions

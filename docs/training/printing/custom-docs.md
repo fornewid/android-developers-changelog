@@ -1,18 +1,8 @@
 ---
-title: Printing custom documents  |  App data and files  |  Android Developers
+title: https://developer.android.com/training/printing/custom-docs
 url: https://developer.android.com/training/printing/custom-docs
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [App data and files](https://developer.android.com/training/data-storage)
-
-# Printing custom documents Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 For some applications, such as drawing apps, page layout apps and other apps that focus on
 graphic output, creating beautiful printed pages is a key feature. In this case, it is not enough
@@ -32,13 +22,13 @@ build content for printing.
 
 When your application manages the printing process directly, the first step after receiving a
 print request from your user is to connect to the Android print framework and obtain an instance
-of the `PrintManager` class. This class allows you to initialize a print job
+of the `https://developer.android.com/reference/android/print/PrintManager` class. This class allows you to initialize a print job
 and begin the printing lifecycle. The following code example shows how to get the print manager
 and start the printing process.
 
 ### Kotlin
 
-```
+```kotlin
 private fun doPrint() {
     activity?.also { context ->
         // Get a PrintManager instance
@@ -54,7 +44,7 @@ private fun doPrint() {
 
 ### Java
 
-```
+```java
 private void doPrint() {
     // Get a PrintManager instance
     PrintManager printManager = (PrintManager) getActivity()
@@ -70,11 +60,12 @@ private void doPrint() {
 }
 ```
 
-The example code above demonstrates how to name a print job and set an instance of the `PrintDocumentAdapter` class which handles the steps of the printing lifecycle. The
+The example code above demonstrates how to name a print job and set an instance of the `https://developer.android.com/reference/android/print/PrintDocumentAdapter` class which handles the steps of the printing lifecycle. The
 implementation of the print adapter class is discussed in the next section.
 
-**Note:** The last parameter in the `print()`
-method takes a `PrintAttributes` object. You can use this parameter to
+
+**Note:** The last parameter in the `https://developer.android.com/reference/android/print/PrintManager#print(java.lang.String, android.print.PrintDocumentAdapter, android.print.PrintAttributes)`
+method takes a `https://developer.android.com/reference/android/print/PrintAttributes` object. You can use this parameter to
 provide hints to the printing framework and pre-set options based on the previous printing cycle,
 thereby improving the user experience. You may also use this parameter to set options that are
 more appropriate to the content being printed, such as setting the orientation to landscape
@@ -92,47 +83,37 @@ takes the final print document and passes it to a print provider for output. Dur
 process, users can choose to cancel the print action, so your print adapter must also listen for
 and react to a cancellation requests.
 
-The `PrintDocumentAdapter` abstract class is designed to handle the
+The `https://developer.android.com/reference/android/print/PrintDocumentAdapter` abstract class is designed to handle the
 printing lifecycle, which has four main callback methods. You must implement these methods
 in your print adapter in order to interact properly with the print framework:
 
-* `onStart()` - Called once at the
-  beginning of the print process. If your application has any one-time preparation tasks to
-  perform, such as getting a snapshot of the data to be printed, execute them here. Implementing
-  this method in your adapter is not required.
-* `onLayout()` - Called each time a
-  user changes a print setting which impacts the output, such as a different page size,
-  or page orientation, giving your application an opportunity to compute the layout of the
-  pages to be printed. At the minimum, this method must return how many pages are expected
-  in the printed document.
-* `onWrite()` - Called to render printed
-  pages into a file to be printed. This method may be called one or more times after each
-  `onLayout()` call.
-* `onFinish()` - Called once at the end
-  of the print process. If your application has any one-time tear-down tasks to perform,
-  execute them here. Implementing this method in your adapter is not required.
+- `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onStart()` - Called once at the beginning of the print process. If your application has any one-time preparation tasks to perform, such as getting a snapshot of the data to be printed, execute them here. Implementing this method in your adapter is not required.
+- `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onLayout(android.print.PrintAttributes, android.print.PrintAttributes, android.os.CancellationSignal, android.print.PrintDocumentAdapter.LayoutResultCallback, android.os.Bundle)` - Called each time a user changes a print setting which impacts the output, such as a different page size, or page orientation, giving your application an opportunity to compute the layout of the pages to be printed. At the minimum, this method must return how many pages are expected in the printed document.
+- `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onWrite(android.print.PageRange[], android.os.ParcelFileDescriptor, android.os.CancellationSignal, android.print.PrintDocumentAdapter.WriteResultCallback)` - Called to render printed pages into a file to be printed. This method may be called one or more times after each `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onLayout(android.print.PrintAttributes, android.print.PrintAttributes, android.os.CancellationSignal, android.print.PrintDocumentAdapter.LayoutResultCallback, android.os.Bundle)` call.
+- `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onFinish()` - Called once at the end of the print process. If your application has any one-time tear-down tasks to perform, execute them here. Implementing this method in your adapter is not required.
 
 The following sections describe how to implement the layout and write methods, which are
 critical to the functioning of a print adapter.
 
+
 **Note:** These adapter methods are called on the main thread of your application. If
 you expect the execution of these methods in your implementation to take a significant amount of
 time, implement them to execute within a separate thread. For example, you can encapsulate the
-layout or print document writing work in separate `AsyncTask` objects.
+layout or print document writing work in separate `https://developer.android.com/reference/android/os/AsyncTask` objects.
 
 ### Compute print document info
 
-Within an implementation of the `PrintDocumentAdapter` class, your
+Within an implementation of the `https://developer.android.com/reference/android/print/PrintDocumentAdapter` class, your
 application must be able to specify the type of document it is creating and calculate the total
 number of pages for print job, given information about the printed page size.
-The implementation of the `onLayout()` method in
+The implementation of the `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onLayout(android.print.PrintAttributes, android.print.PrintAttributes, android.os.CancellationSignal, android.print.PrintDocumentAdapter.LayoutResultCallback, android.os.Bundle)` method in
 the adapter makes these calculations and provides information about the expected output of the
-print job in a `PrintDocumentInfo` class, including the number of pages and
-content type. The following code example shows a basic implementation of the `onLayout()` method for a `PrintDocumentAdapter`:
+print job in a `https://developer.android.com/reference/android/print/PrintDocumentInfo` class, including the number of pages and
+content type. The following code example shows a basic implementation of the `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onLayout(android.print.PrintAttributes, android.print.PrintAttributes, android.os.CancellationSignal, android.print.PrintDocumentAdapter.LayoutResultCallback, android.os.Bundle)` method for a `https://developer.android.com/reference/android/print/PrintDocumentAdapter`:
 
 ### Kotlin
 
-```
+```kotlin
 override fun onLayout(
         oldAttributes: PrintAttributes?,
         newAttributes: PrintAttributes,
@@ -171,7 +152,7 @@ override fun onLayout(
 
 ### Java
 
-```
+```java
 @Override
 public void onLayout(PrintAttributes oldAttributes,
                      PrintAttributes newAttributes,
@@ -206,18 +187,19 @@ public void onLayout(PrintAttributes oldAttributes,
 }
 ```
 
-The execution of `onLayout()` method can
+The execution of `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onLayout(android.print.PrintAttributes, android.print.PrintAttributes, android.os.CancellationSignal, android.print.PrintDocumentAdapter.LayoutResultCallback, android.os.Bundle)` method can
 have three outcomes: completion, cancellation, or failure in the case where calculation of the
 layout cannot be completed. You must indicate one of these results by calling the appropriate
-method of the `PrintDocumentAdapter.LayoutResultCallback` object.
+method of the `https://developer.android.com/reference/android/print/PrintDocumentAdapter.LayoutResultCallback` object.
+
 
 **Note:** The boolean parameter of the
-`onLayoutFinished()` method indicates whether or not the layout content has actually changed
+`https://developer.android.com/reference/android/print/PrintDocumentAdapter.LayoutResultCallback#onLayoutFinished(android.print.PrintDocumentInfo, boolean)` method indicates whether or not the layout content has actually changed
 since the last request. Setting this parameter properly allows the print framework to avoid
-unnecessarily calling the `onWrite()` method,
+unnecessarily calling the `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onWrite(android.print.PageRange[], android.os.ParcelFileDescriptor, android.os.CancellationSignal, android.print.PrintDocumentAdapter.WriteResultCallback)` method,
 essentially caching the previously written print document and improving performance.
 
-The main work of `onLayout()` is
+The main work of `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onLayout(android.print.PrintAttributes, android.print.PrintAttributes, android.os.CancellationSignal, android.print.PrintDocumentAdapter.LayoutResultCallback, android.os.Bundle)` is
 calculating the number of pages that are expected as output given the attributes of the printer.
 How you calculate this number is highly dependent on how your application lays out pages for
 printing. The following code example shows an implementation where the number of pages is
@@ -225,7 +207,7 @@ determined by the print orientation:
 
 ### Kotlin
 
-```
+```kotlin
 private fun computePageCount(printAttributes: PrintAttributes): Int {
     var itemsPerPage = 4 // default item count for portrait mode
 
@@ -244,7 +226,7 @@ private fun computePageCount(printAttributes: PrintAttributes): Int {
 
 ### Java
 
-```
+```java
 private int computePageCount(PrintAttributes printAttributes) {
     int itemsPerPage = 4; // default item count for portrait mode
 
@@ -263,28 +245,30 @@ private int computePageCount(PrintAttributes printAttributes) {
 
 ### Write a print document file
 
-When it is time to write print output to a file, the Android print framework calls the `onWrite()` method of your application's `PrintDocumentAdapter` class. The method's parameters specify which pages should be
+When it is time to write print output to a file, the Android print framework calls the `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onWrite(android.print.PageRange[], android.os.ParcelFileDescriptor, android.os.CancellationSignal, android.print.PrintDocumentAdapter.WriteResultCallback)` method of your application's `https://developer.android.com/reference/android/print/PrintDocumentAdapter` class. The method's parameters specify which pages should be
 written and the output file to be used. Your implementation of this method must then render each
 requested page of content to a multi-page PDF document file. When this process is complete, you
-call the `onWriteFinished()` method of the callback object.
+call the `https://developer.android.com/reference/android/print/PrintDocumentAdapter.WriteResultCallback#onWriteFinished(android.print.PageRange[])` method of the callback object.
 
-**Note:** The Android print framework may call the `onWrite()` method one or more times for every
-call to `onLayout()`. For this reason, it is
+
+**Note:** The Android print framework may call the `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onWrite(android.print.PageRange[], android.os.ParcelFileDescriptor, android.os.CancellationSignal, android.print.PrintDocumentAdapter.WriteResultCallback)` method one or more times for every
+call to `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onLayout(android.print.PrintAttributes, android.print.PrintAttributes, android.os.CancellationSignal, android.print.PrintDocumentAdapter.LayoutResultCallback, android.os.Bundle)`. For this reason, it is
 important to set the boolean parameter of
-`onLayoutFinished()` method to `false` when the print content layout has not changed,
+`https://developer.android.com/reference/android/print/PrintDocumentAdapter.LayoutResultCallback#onLayoutFinished(android.print.PrintDocumentInfo, boolean)` method to `false` when the print content layout has not changed,
 to avoid unnecessary re-writes of the print document.
 
+
 **Note:** The boolean parameter of the
-`onLayoutFinished()` method indicates whether or not the layout content has actually changed
+`https://developer.android.com/reference/android/print/PrintDocumentAdapter.LayoutResultCallback#onLayoutFinished(android.print.PrintDocumentInfo, boolean)` method indicates whether or not the layout content has actually changed
 since the last request. Setting this parameter properly allows the print framework to avoid
-unnecessarily calling the `onLayout()` method,
+unnecessarily calling the `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onLayout(android.print.PrintAttributes, android.print.PrintAttributes, android.os.CancellationSignal, android.print.PrintDocumentAdapter.LayoutResultCallback, android.os.Bundle)` method,
 essentially caching the previously written print document and improving performance.
 
-The following sample demonstrates the basic mechanics of this process using the `PrintedPdfDocument` class to create a PDF file:
+The following sample demonstrates the basic mechanics of this process using the `https://developer.android.com/reference/android/print/pdf/PrintedPdfDocument` class to create a PDF file:
 
 ### Kotlin
 
-```
+```kotlin
 override fun onWrite(
         pageRanges: Array<out PageRange>,
         destination: ParcelFileDescriptor,
@@ -338,7 +322,7 @@ override fun onWrite(
 
 ### Java
 
-```
+```java
 @Override
 public void onWrite(final PageRange[] pageRanges,
                     final ParcelFileDescriptor destination,
@@ -392,35 +376,36 @@ public void onWrite(final PageRange[] pageRanges,
 This sample delegates rendering of PDF page content to `drawPage()`
 method, which is discussed in the next section.
 
-As with layout, execution of `onWrite()`
+As with layout, execution of `https://developer.android.com/reference/android/print/PrintDocumentAdapter#onWrite(android.print.PageRange[], android.os.ParcelFileDescriptor, android.os.CancellationSignal, android.print.PrintDocumentAdapter.WriteResultCallback)`
 method can have three outcomes: completion, cancellation, or failure in the case where the
 the content cannot be written. You must indicate one of these results by calling the
-appropriate method of the `PrintDocumentAdapter.WriteResultCallback` object.
+appropriate method of the `https://developer.android.com/reference/android/print/PrintDocumentAdapter.WriteResultCallback` object.
+
 
 **Note:** Rendering a document for printing can be a resource-intensive operation. In
 order to avoid blocking the main user interface thread of your application, you should consider
 performing the page rendering and writing operations on a separate thread, for example
-in an `AsyncTask`.
+in an `https://developer.android.com/reference/android/os/AsyncTask`.
 For more information about working with execution threads like asynchronous tasks,
 see [Processes
-and Threads](/guide/components/processes-and-threads).
+and Threads](https://developer.android.com/guide/components/processes-and-threads).
 
 ## Drawing PDF page content
 
 When your application prints, your application must generate a PDF document and pass it to
 the Android print framework for printing. You can use any PDF generation library for this
-purpose. This lesson shows how to use the `PrintedPdfDocument` class
+purpose. This lesson shows how to use the `https://developer.android.com/reference/android/print/pdf/PrintedPdfDocument` class
 to generate PDF pages from your content.
 
-The `PrintedPdfDocument` class uses a `Canvas`
+The `https://developer.android.com/reference/android/print/pdf/PrintedPdfDocument` class uses a `https://developer.android.com/reference/android/graphics/Canvas`
 object to draw elements on a PDF page, similar to drawing on an activity layout. You can draw
-elements on the printed page using the `Canvas` draw methods. The following
+elements on the printed page using the `https://developer.android.com/reference/android/graphics/Canvas` draw methods. The following
 example code demonstrates how to draw some simple elements on a PDF document page using these
 methods:
 
 ### Kotlin
 
-```
+```kotlin
 private fun drawPage(page: PdfDocument.Page) {
     page.canvas.apply {
 
@@ -444,7 +429,7 @@ private fun drawPage(page: PdfDocument.Page) {
 
 ### Java
 
-```
+```java
 private void drawPage(PdfDocument.Page page) {
     Canvas canvas = page.getCanvas();
 
@@ -465,18 +450,13 @@ private void drawPage(PdfDocument.Page page) {
 }
 ```
 
-When using `Canvas` to draw on a PDF page, elements are specified in
+When using `https://developer.android.com/reference/android/graphics/Canvas` to draw on a PDF page, elements are specified in
 points, which is 1/72 of an inch. Make sure you use this unit of measure for specifying the size
 of elements on the page. For positioning of drawn elements, the coordinate system starts at 0,0
 for the top left corner of the page.
 
-**Tip:** While the `Canvas` object allows you to place print
+
+**Tip:** While the `https://developer.android.com/reference/android/graphics/Canvas` object allows you to place print
 elements on the edge of a PDF document, many printers are not able to print to the edge of a
 physical piece of paper. Make sure that you account for the unprintable edges of the page when
 you build a print document with this class.
-
-[Previous
-
-arrow\_back
-
-Printing HTML documents](/training/printing/html-docs)

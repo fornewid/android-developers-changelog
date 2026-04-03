@@ -1,29 +1,12 @@
 ---
-title: Remaining Backward Compatible  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/search/training/backward-compat
 url: https://developer.android.com/develop/ui/views/search/training/backward-compat
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Filter a list →](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
-# Remaining Backward Compatible Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-Try the Compose way
-
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose.
-
-[Filter a list →](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing)
-
-![](/static/images/android-compose-ui-logo.png)
-
-The `SearchView` and action bar are only available on Android 3.0 and
+The `https://developer.android.com/reference/android/widget/SearchView` and action bar are only available on Android 3.0 and
 later. To support older platforms, you can fall back to the search dialog. The search dialog is a
 system provided UI that overlays on top of your application when invoked.
 
@@ -34,7 +17,7 @@ devices, but want to target Android 3.0 or later versions. When you do this, you
 automatically uses the action bar on Android 3.0 or later and uses the traditional menu system on
 older devices:
 
-```
+```xml
 <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15" />
 
 <application>
@@ -43,15 +26,15 @@ older devices:
 
 ## Provide the Search Dialog for Older Devices
 
-To invoke the search dialog on older devices, call `onSearchRequested()` whenever a user selects the search
+To invoke the search dialog on older devices, call `https://developer.android.com/reference/android/app/Activity#onSearchRequested()` whenever a user selects the search
 menu item from the options menu. Because Android 3.0 and higher devices show the
-`SearchView` in the action bar (as demonstrated in the first lesson), only versions
-older than 3.0 call `onOptionsItemSelected()` when the
+`https://developer.android.com/reference/android/widget/SearchView` in the action bar (as demonstrated in the first lesson), only versions
+older than 3.0 call `https://developer.android.com/reference/android/app/Activity#onOptionsItemSelected(android.view.MenuItem)` when the
 user selects the search menu item.
 
 ### Kotlin
 
-```
+```kotlin
 override fun onOptionsItemSelected(item: MenuItem): Boolean {
     return when (item.itemId) {
         R.id.search -> {
@@ -65,7 +48,7 @@ override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
 ### Java
 
-```
+```java
 @Override
 public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
@@ -80,12 +63,12 @@ public boolean onOptionsItemSelected(MenuItem item) {
 
 ## Check the Android Build Version at Runtime
 
-At runtime, check the device version to make sure an unsupported use of `SearchView` does not occur on older devices. In our example code, this happens in
-the `onCreateOptionsMenu()` method:
+At runtime, check the device version to make sure an unsupported use of `https://developer.android.com/reference/android/widget/SearchView` does not occur on older devices. In our example code, this happens in
+the `https://developer.android.com/reference/android/app/Activity#onCreateOptionsMenu(android.view.Menu)` method:
 
 ### Kotlin
 
-```
+```kotlin
 override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
     menuInflater.inflate(R.menu.options_menu, menu)
@@ -103,7 +86,7 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
 ### Java
 
-```
+```java
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
 

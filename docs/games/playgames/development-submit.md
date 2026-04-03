@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This guide describes how to submit your game for distribution on
 Google Play Games on PC.
 
@@ -196,8 +195,6 @@ To remove your game from Google Play Games on PC, remove the form factor as foll
 After you remove the form factor, users who have already downloaded your game can still play
 it. However, the game is no longer available from the Google Play Games on PC
 storefront, and updates are no longer published to Google Play Games on PC.
-
-
 
 
 

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Android Studio supports inspection of [`animate*AsState`](/develop/ui/compose/animation/value-based#animate-as-state), [`CrossFade`](/develop/ui/compose/animation/composables-modifiers#crossfade),
 [`rememberInfiniteTransition`](/develop/ui/compose/animation/value-based#rememberinfinitetransition), [`AnimatedContent`](/develop/ui/compose/animation/composables-modifiers#animatedcontent),
 [`updateTransition`](/develop/ui/compose/animation/value-based#updateTransition), and [`animatedVisibility`](/develop/ui/compose/animation/composables-modifiers#animatedvisibility) in

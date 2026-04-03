@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 **Released**: Android 11 (API level 30)
 
 Android devices can change clocking dynamically based on the system load. This
@@ -44,8 +43,6 @@ this, we recommend the following for benchmark runs:
   the run.
 * Monitor the thermal state of the device during testing to differentiate the
   impact between the benchmark code and thermal events.
-
-
 
 
 

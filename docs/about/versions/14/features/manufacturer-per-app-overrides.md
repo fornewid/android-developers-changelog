@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android provides overrides that change the configured behavior of apps. For example, the [`FORCE_RESIZE_APP`](/guide/topics/large-screens/large-screen-compatibility-mode#force_resize_app) override instructs the system to resize the app to fit display dimensions even if [`resizeableActivity="false"`](/guide/topics/manifest/application-element#resizeableActivity) is set in the app manifest.
 
 Device manufacturers apply overrides to apps on select large screen devices.

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 12 (API level 31) revamps the existing [Widgets
 API](/guide/topics/appwidgets/overview) to improve the user and developer
 experience in the platform and launchers. Use this guide to learn how to ensure

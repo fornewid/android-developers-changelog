@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Keep the task flow short and ensure trip continuity by offering to let users
 continue navigation after a stop. Use the message template included in the
 Map + Content template to create this prompt.

@@ -16,6 +16,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Preference components and attributes   Part of [Android Jetpack](/jetpack).
 
 This topic describes some of the most commonly-used `Preference` components and

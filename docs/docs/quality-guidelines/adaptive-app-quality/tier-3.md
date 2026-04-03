@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Apps that are Adaptive ready run full screen on all form factors and provide basic support for external input devices, enabling users to complete critical task flows on any device.
 
 ![Depiction of the three quality tiers as layers stacked vertically with the bottom tier highlighted.](/static/images/docs/quality-guidelines/tier-3/tier_3_header.png)

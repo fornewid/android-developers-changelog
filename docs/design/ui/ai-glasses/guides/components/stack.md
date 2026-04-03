@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 A stack is a collapsed list that only displays one piece of content at a time,
 in a stacked visual, such as a notification or card.
 

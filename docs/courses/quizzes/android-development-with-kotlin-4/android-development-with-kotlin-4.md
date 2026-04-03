@@ -1,67 +1,77 @@
 ---
-title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-4/android-development-with-kotlin-4
+title: Lesson 4: Build your first Android app  |  Android Developers
 url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-4/android-development-with-kotlin-4
-source: md.txt
+source: html-scrape
 ---
 
-# Lesson 4: Build your first Android app
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Lesson 4: Build your first Android app
 
-<br />
+Return to pathway
 
 
-Return to pathway  
-1.
 
-   ## Which method on an `Activity` inflates the app's layout and makes its views available as objects?
+1. ## Which method on an `Activity` inflates the app's layout and makes its views available as objects?
 
-   `onCreate()`  
-   `setClickListener()`  
-   `setContentView()`  
-   `show()`  
-2.
+   `onCreate()`
 
-   ## Which view attribute do you use to set the width of a `View` so that it adjusts to fit the content?
+   `setClickListener()`
 
-   `android:view_width="wrap"`  
-   `android:layout_width="wrap_content"`  
-   `android:layout_height="wrap_content"`  
-   `android:layout_width="match_parent"`  
-3.
+   `setContentView()`
 
-   ## Which method changes the image resource for an `ImageView` in Kotlin code?
+   `show()`
+2. ## Which view attribute do you use to set the width of a `View` so that it adjusts to fit the content?
 
-   `setImageResource()`  
-   `setImageURI()`  
-   `setImage()`  
-   `setImageRes()`  
-4.
+   `android:view_width="wrap"`
 
-   ## What does the `lateinit` keyword in a variable declaration indicate in Kotlin code?
+   `android:layout_width="wrap_content"`
 
-   The variable is never initialized.  
-   The variable is only initialized at app runtime.  
-   The variable is automatically initialized to `null`.  
-   The variable will be initialized later. I promise!  
-5.
+   `android:layout_height="wrap_content"`
 
-   ## Which Gradle configuration indicates the most recent API level your app has been tested with?
+   `android:layout_width="match_parent"`
+3. ## Which method changes the image resource for an `ImageView` in Kotlin code?
 
-   `minSdkVersion`  
-   `compileSdkVersion`  
-   `targetSdkVersion`  
-   `testSdkVersion`  
-6.
+   `setImageResource()`
 
-   ## Which of the following accessibility tools comes built in with most Android devices?
+   `setImageURI()`
 
-   In Android Studio, Refactor \> Add RTL support where possible  
-   Accessibility Scanner  
-   TalkBack  
-   Lint  
+   `setImage()`
+
+   `setImageRes()`
+4. ## What does the `lateinit` keyword in a variable declaration indicate in Kotlin code?
+
+   The variable is never initialized.
+
+   The variable is only initialized at app runtime.
+
+   The variable is automatically initialized to `null`.
+
+   The variable will be initialized later. I promise!
+5. ## Which Gradle configuration indicates the most recent API level your app has been tested with?
+
+   `minSdkVersion`
+
+   `compileSdkVersion`
+
+   `targetSdkVersion`
+
+   `testSdkVersion`
+6. ## Which of the following accessibility tools comes built in with most Android devices?
+
+   In Android Studio, Refactor > Add RTL support where possible
+
+   Accessibility Scanner
+
+   TalkBack
+
+   Lint
 
 Submit answers
 
-
-*error_outline* An error occurred when grading the quiz. Please try again.
+*error\_outline*
+An error occurred when grading the quiz. Please try again.

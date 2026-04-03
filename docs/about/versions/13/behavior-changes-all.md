@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Android 13 platform includes behavior changes that may affect your app. The
 following behavior changes apply to *all apps* when they run on Android 13,
 regardless of `targetSdkVersion`. You should test your app and then modify it as

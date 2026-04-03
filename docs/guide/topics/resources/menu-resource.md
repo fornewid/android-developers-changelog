@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 A menu resource defines an application menu—an options menu, context menu, or submenu—that
 can be inflated with `MenuInflater`.
 

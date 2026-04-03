@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 **Note:** With the release of Android 9.0 (API level 28) there is
 a new version of the support library called
 [AndroidX](/jetpack/androidx) which is part of [Jetpack](/jetpack).

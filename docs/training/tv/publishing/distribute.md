@@ -8,7 +8,6 @@ source: html-scrape
 
 
 
-
 If your apps meet the core app quality guidelines on Android devices and provide
 a high-quality experience for Android TV devices, your apps appear on Google
 Play and can be discovered on Android TV and Google TV.

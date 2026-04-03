@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 **Warning:**
 
 **The Google Sign-In for Android API is outdated and no longer supported.**

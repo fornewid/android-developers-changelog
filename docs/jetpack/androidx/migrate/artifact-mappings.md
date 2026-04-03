@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The following table lists the current mappings from old support library artifacts to `androidx`.
 You can also download these mappings in
 [CSV format](/static/topic/libraries/support-library/downloads/androidx-artifact-mapping.csv).

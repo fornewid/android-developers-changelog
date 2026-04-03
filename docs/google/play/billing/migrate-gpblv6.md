@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 This topic describes how to migrate from Google Play Billing Library 4 or 5 to
 Google Play Billing Library 6 and how to use new subscription capabilities.
 
@@ -570,6 +571,8 @@ transaction is fully completed. You can still use the purchase token for your
 records. For more information about handling pending purchases, see the Play
 Billing Library [integration guide](/google/play/billing/integrate) and the
 [purchase lifecycle management guide](/google/play/billing/lifecycle).
+
+
 
 
 

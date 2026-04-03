@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page provides release information about the SDK packages available for
 download from the [SDK Manager](/studio/intro/update#sdk-manager), in the **SDK Platforms** tab.
 

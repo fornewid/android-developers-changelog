@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Client-server encrypted interactions use [Transport Layer Security
 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) to protect your app's data.
 

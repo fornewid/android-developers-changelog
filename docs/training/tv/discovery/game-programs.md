@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 All game programs have the type attribute
 [`TYPE_GAME`](/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_GAME()).
 

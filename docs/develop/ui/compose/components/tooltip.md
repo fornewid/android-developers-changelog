@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Use [tooltips](https://m3.material.io/components/tooltips/overview) to add context to a button or other UI element.
 There are two types of tooltips:
 

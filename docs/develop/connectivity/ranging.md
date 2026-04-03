@@ -1,19 +1,8 @@
 ---
-title: Range between devices  |  Connectivity  |  Android Developers
+title: https://developer.android.com/develop/connectivity/ranging
 url: https://developer.android.com/develop/connectivity/ranging
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Connectivity](https://developer.android.com/develop/connectivity)
-* [Guides](https://developer.android.com/develop/connectivity/overview)
-
-# Range between devices Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Android 16 introduces the Ranging module, which provides a unified and
 standardized interface for precise ranging between devices. You can use this API
@@ -22,26 +11,26 @@ handle each ranging technology individually.
 
 The Ranging module supports the following technologies:
 
-* [Ultra-wideband](/develop/connectivity/uwb)
-* Bluetooth channel sounding
-* [Wi-Fi NAN RTT](/develop/connectivity/wifi/wifi-rtt)
-* Bluetooth RSSI ranging
+- [Ultra-wideband](https://developer.android.com/develop/connectivity/uwb)
+- Bluetooth channel sounding
+- [Wi-Fi NAN RTT](https://developer.android.com/develop/connectivity/wifi/wifi-rtt)
+- Bluetooth RSSI ranging
 
 ## Ranging capabilities and availabilities
 
-The [`RangingManager`](/reference/android/ranging/RangingManager) class provides apps with information about the ranging
+The [`RangingManager`](https://developer.android.com/reference/android/ranging/RangingManager) class provides apps with information about the ranging
 technologies supported by the local device, as well as the availability and
-capabilities of each technology. Apps can register for a [`Callback`](/reference/android/ranging/RangingManager#registerCapabilitiesCallback(java.util.concurrent.Executor,%20android.ranging.RangingManager.RangingCapabilitiesCallback)) to
+capabilities of each technology. Apps can register for a [`Callback`](https://developer.android.com/reference/android/ranging/RangingManager#registerCapabilitiesCallback(java.util.concurrent.Executor,%20android.ranging.RangingManager.RangingCapabilitiesCallback)) to
 receive updates on any changes to the availability or capabilities of any
 supported technologies.
 
 ## Device roles
 
 A device participating in a ranging session must be either an *initiator* or a
-*responder*. The initiator device starts the ranging session with one or more
+*responder* . The initiator device starts the ranging session with one or more
 responder devices. A responder device responds to ranging requests from only one
 initiator at a time. You can specify the role for a given device in a ranging
-session with the [`RangingPreference`](/reference/android/ranging/RangingPreference) class.
+session with the [`RangingPreference`](https://developer.android.com/reference/android/ranging/RangingPreference) class.
 
 ## Ranging session types
 
@@ -51,15 +40,11 @@ session.
 
 The Ranging module can handle OOB negotiations for you, but it also supports
 custom OOB implementations.
-
-![](/static/images/develop/connectivity/ranging_oob_flow.png)
-
-
-**Figure 1.** OOB flow for session types.
+![](https://developer.android.com/static/images/develop/connectivity/ranging_oob_flow.png) **Figure 1.** OOB flow for session types.
 
 ### Default OOB implementation
 
-In this session type ([`RANGING_SESSION_OOB`](/reference/android/ranging/RangingConfig#RANGING_SESSION_OOB)), the Ranging module handles
+In this session type ([`RANGING_SESSION_OOB`](https://developer.android.com/reference/android/ranging/RangingConfig#RANGING_SESSION_OOB)), the Ranging module handles
 OOB negotiations to start a ranging session. It selects suitable parameters
 based on the ranging preferences provided by the app, and it uses the
 appropriate technologies based on what both devices support. This session type
@@ -71,23 +56,19 @@ connection establishment.
 
 ### Custom OOB implementation
 
-In this session type ([`RANGING_SESSION_RAW`](/reference/android/ranging/RangingConfig#RANGING_SESSION_RAW)), the app bypasses the Ranging
+In this session type ([`RANGING_SESSION_RAW`](https://developer.android.com/reference/android/ranging/RangingConfig#RANGING_SESSION_RAW)), the app bypasses the Ranging
 module's OOB flow and handles its own OOB negotiation and parameters. That means
 the app must determine which technologies the peer device supports, negotiate
 ranging parameters, and begin the ranging session.
 
 ## Ranging preferences
 
-Use a [`RangingPreference`](/reference/android/ranging/RangingPreference) object to specify the selected parameters for a
+Use a [`RangingPreference`](https://developer.android.com/reference/android/ranging/RangingPreference) object to specify the selected parameters for a
 ranging session. This includes the following:
 
-* **Device role.** This indicates whether the device will be the initiator or
-  the responder.
-* **Ranging configuration.** A [`RangingConfig`](/reference/android/ranging/RangingConfig) object specifies the
-  ranging session type and other parameters needed to start a ranging session.
-* **Session configuration.** A [`SessionConfig`](/reference/android/ranging/SessionConfig) object specifies
-  parameters to be enforced on the ranging session such as measurement limit,
-  sensor fusion, geofence configuration, and more.
+- **Device role.** This indicates whether the device will be the initiator or the responder.
+- **Ranging configuration.** A [`RangingConfig`](https://developer.android.com/reference/android/ranging/RangingConfig) object specifies the ranging session type and other parameters needed to start a ranging session.
+- **Session configuration.** A [`SessionConfig`](https://developer.android.com/reference/android/ranging/SessionConfig) object specifies parameters to be enforced on the ranging session such as measurement limit, sensor fusion, geofence configuration, and more.
 
 ## Ranging permission
 
@@ -95,46 +76,33 @@ The Ranging module requires a new unified permission
 (`android.permission.RANGING`) to access all current and future ranging
 technologies. This permission is in the `NEARBY_DEVICES_PERMISSIONS` list.
 
-```
-<uses-permission android:name="android.permission.RANGING" />
-```
+    <uses-permission android:name="android.permission.RANGING" />
 
 ## Restrictions and limitations
 
 The Ranging module might restrict ranging due to several reasons, including the
 following:
 
-* Third-party apps are only allowed to perform background ranging with
-  ultra-wideband, and only on [supported devices](/develop/connectivity/uwb#uwb-enabled_mobile_devices). Ranging in the
-  background with other technologies is not allowed.
-* Ranging is not allowed when the maximum number of concurrent ranging
-  sessions by device has been reached.
-* Ranging might be restricted due to system health concerns such as battery,
-  performance, or memory.
+- Third-party apps are only allowed to perform background ranging with ultra-wideband, and only on [supported devices](https://developer.android.com/develop/connectivity/uwb#uwb-enabled_mobile_devices). Ranging in the background with other technologies is not allowed.
+- Ranging is not allowed when the maximum number of concurrent ranging sessions by device has been reached.
+- Ranging might be restricted due to system health concerns such as battery, performance, or memory.
 
 The Ranging module also has the following known limitations:
 
-* The Ranging module only supports delivery of ranging data to peer devices
-  for ultra-wideband. For other technologies, the Ranging module only delivers
-  ranging data to the initiator device.
-* The Ranging module only supports dynamic addition of devices in [raw ranging
-  mode](#custom), and only for ultra-wideband.
-* The Ranging module doesn't support one-to-many ultra-wideband sessions for
-  [default OOB implementations](#default). If you pass in multiple device handles,
-  the module creates a one-to-one session for each peer device that supports
-  ultra-wideband.
+- The Ranging module only supports delivery of ranging data to peer devices for ultra-wideband. For other technologies, the Ranging module only delivers ranging data to the initiator device.
+- The Ranging module only supports dynamic addition of devices in [raw ranging
+  mode](https://developer.android.com/develop/connectivity/ranging#custom), and only for ultra-wideband.
+- The Ranging module doesn't support one-to-many ultra-wideband sessions for [default OOB implementations](https://developer.android.com/develop/connectivity/ranging#default). If you pass in multiple device handles, the module creates a one-to-one session for each peer device that supports ultra-wideband.
 
 ## Conduct a ranging session
 
 To conduct a ranging session using the Ranging module, follow these steps:
 
 1. Verify that all devices are operating on Android 16 or higher.
-2. Request the `android.permission.RANGING` [permission](#permission) in the app
-   manifest.
+2. Request the `android.permission.RANGING` [permission](https://developer.android.com/develop/connectivity/ranging#permission) in the app manifest.
 3. Assess the capabilities and availability of ranging technologies.
 4. Discover a peer device for ranging operations.
-5. Establish a connection for an out-of-band exchange, using either of the
-   session types described in [Ranging session types](#session-types).
+5. Establish a connection for an out-of-band exchange, using either of the session types described in [Ranging session types](https://developer.android.com/develop/connectivity/ranging#session-types).
 6. Initiate ranging and continuously acquire ranging data.
 7. Terminate the ranging session.
 
@@ -143,257 +111,247 @@ and the responder role.
 
 ### Kotlin
 
-```
-class RangingApp {
+    class RangingApp {
 
-    // Starts a ranging session on the initiator side.
-    fun startRangingInitiator(
-        context: Context,
-        deviceHandle: DeviceHandle,
-        executor: Executor,
-        callback: RangingSessionCallback
-    ) {
+        // Starts a ranging session on the initiator side.
+        fun startRangingInitiator(
+            context: Context,
+            deviceHandle: DeviceHandle,
+            executor: Executor,
+            callback: RangingSessionCallback
+        ) {
 
-        // Get the RangingManager which is the entry point for ranging module.
-        val manager = context.getSystemService(RangingManager::class.java)
+            // Get the RangingManager which is the entry point for ranging module.
+            val manager = context.getSystemService(RangingManager::class.java)
 
-        // Create a new RangingSession using the provided executor and callback.
-        val session = manager.createRangingSession(executor, callback)
+            // Create a new RangingSession using the provided executor and callback.
+            val session = manager.createRangingSession(executor, callback)
 
-        // Create an OobInitiatorRangingConfig, which specifies the ranging parameters for
-        // the initiator role.
-        val config = OobInitiatorRangingConfig.Builder()
-            .setFastestRangingInterval(Duration.ofMillis(100))
-            .setSlowestRangingInterval(Duration.ofMillis(5000))
-            .setRangingMode(RANGING_MODE_AUTO)
-            .setSecurityLevel(SECURITY_LEVEL_BASIC)
-            .addDeviceHandle(deviceHandle)
-            .build()
-
-        // Create a RangingPreference, which specifies the role (initiator) and
-        // configuration for the ranging session.
-        val preference =
-            RangingPreference.Builder(DEVICE_ROLE_INITIATOR, config).build()
-
-        // Start ranging session.
-        session.start(preference)
-
-        // If successful, the ranging data will be sent through callback#onResults
-
-        // Stop ranging session
-        session.stop()
-    }
-
-    // Starts a ranging session on the responder side.
-    fun startRangingResponder(
-        context: Context,
-        deviceHandle: DeviceHandle,
-        executor: Executor,
-        callback: RangingSessionCallback
-    ) {
-
-        // Get the RangingManager which is the entry point for ranging module.
-        val manager = context.getSystemService(RangingManager::class.java)
-
-        // Create a new RangingSession using the provided executor and callback.
-        val session = manager.createRangingSession(executor, callback)
-
-        // Create an OobResponderRangingConfig, which specifies the ranging parameters for
-        // the responder role.
-        val config = OobResponderRangingConfig.Builder(deviceHandle).build()
-
-        // Create a RangingPreference, which specifies the role (responder) and
-        // configuration for the ranging session.
-        val preference =
-            RangingPreference.Builder(DEVICE_ROLE_RESPONDER, config).build()
-
-        // Start the ranging session.
-        session.start(preference)
-
-        // Stop the ranging session
-        session.stop()
-    }
-}
-```
-
-### Java
-
-```
-public class RangingApp {
-
-    // Starts a ranging session on the initiator side.
-    void startRangingInitiator(Context context, DeviceHandle deviceHandle, Executor executor, RangingSessionCallback callback) {
-
-        // Get the RangingManager which is the entry point for ranging module.
-        RangingManager manager = context.getSystemService(RangingManager.class);
-
-        // Create a new RangingSession using the provided executor and callback.
-        RangingSession session = manager.createRangingSession(executor, callback);
-
-        // Create an OobInitiatorRangingConfig, which specifies the ranging parameters for
-        // the initiator role.
-        OobInitiatorRangingConfig config = new OobInitiatorRangingConfig.Builder()
+            // Create an OobInitiatorRangingConfig, which specifies the ranging parameters for
+            // the initiator role.
+            val config = OobInitiatorRangingConfig.Builder()
                 .setFastestRangingInterval(Duration.ofMillis(100))
                 .setSlowestRangingInterval(Duration.ofMillis(5000))
                 .setRangingMode(RANGING_MODE_AUTO)
                 .setSecurityLevel(SECURITY_LEVEL_BASIC)
                 .addDeviceHandle(deviceHandle)
-                .build();
+                .build()
 
-        // Create a RangingPreference, which specifies the role (initiator) and
-        // configuration for the ranging session.
-        RangingPreference preference =
-                new RangingPreference.Builder(DEVICE_ROLE_INITIATOR, config).build();
+            // Create a RangingPreference, which specifies the role (initiator) and
+            // configuration for the ranging session.
+            val preference =
+                RangingPreference.Builder(DEVICE_ROLE_INITIATOR, config).build()
 
-        // Start ranging session.
-        session.start(preference);
+            // Start ranging session.
+            session.start(preference)
 
-        // If successful, the ranging data will be sent through callback#onResults
+            // If successful, the ranging data will be sent through callback#onResults
 
-        // Stop ranging session
-        session.stop();
+            // Stop ranging session
+            session.stop()
+        }
 
+        // Starts a ranging session on the responder side.
+        fun startRangingResponder(
+            context: Context,
+            deviceHandle: DeviceHandle,
+            executor: Executor,
+            callback: RangingSessionCallback
+        ) {
+
+            // Get the RangingManager which is the entry point for ranging module.
+            val manager = context.getSystemService(RangingManager::class.java)
+
+            // Create a new RangingSession using the provided executor and callback.
+            val session = manager.createRangingSession(executor, callback)
+
+            // Create an OobResponderRangingConfig, which specifies the ranging parameters for
+            // the responder role.
+            val config = OobResponderRangingConfig.Builder(deviceHandle).build()
+
+            // Create a RangingPreference, which specifies the role (responder) and
+            // configuration for the ranging session.
+            val preference =
+                RangingPreference.Builder(DEVICE_ROLE_RESPONDER, config).build()
+
+            // Start the ranging session.
+            session.start(preference)
+
+            // Stop the ranging session
+            session.stop()
+        }
     }
 
-    // Starts a ranging session on the responder side.
-    void startRangingResponder(Context context,  DeviceHandle deviceHandle, Executor executor, RangingSessionCallback callback) {
+### Java
 
-        // Get the RangingManager which is the entry point for ranging module.
-        RangingManager manager = context.getSystemService(RangingManager.class);
+    public class RangingApp {
 
-        // Create a new RangingSession using the provided executor and callback.
-        RangingSession session = manager.createRangingSession(executor, callback);
+        // Starts a ranging session on the initiator side.
+        void startRangingInitiator(Context context, DeviceHandle deviceHandle, Executor executor, RangingSessionCallback callback) {
 
-        // Create an OobResponderRangingConfig, which specifies the ranging parameters for
-        // the responder role.
-        OobResponderRangingConfig config = new OobResponderRangingConfig.Builder(  deviceHandle).build();
+            // Get the RangingManager which is the entry point for ranging module.
+            RangingManager manager = context.getSystemService(RangingManager.class);
 
-        // Create a RangingPreference, which specifies the role (responder) and
-        // configuration for the ranging session.
-        RangingPreference preference =
-                new RangingPreference.Builder(DEVICE_ROLE_RESPONDER, config).build();
+            // Create a new RangingSession using the provided executor and callback.
+            RangingSession session = manager.createRangingSession(executor, callback);
 
-        // Start the ranging session.
-        session.start(preference);
+            // Create an OobInitiatorRangingConfig, which specifies the ranging parameters for
+            // the initiator role.
+            OobInitiatorRangingConfig config = new OobInitiatorRangingConfig.Builder()
+                    .setFastestRangingInterval(Duration.ofMillis(100))
+                    .setSlowestRangingInterval(Duration.ofMillis(5000))
+                    .setRangingMode(RANGING_MODE_AUTO)
+                    .setSecurityLevel(SECURITY_LEVEL_BASIC)
+                    .addDeviceHandle(deviceHandle)
+                    .build();
 
-        // Stop the ranging session
-        session.stop();
+            // Create a RangingPreference, which specifies the role (initiator) and
+            // configuration for the ranging session.
+            RangingPreference preference =
+                    new RangingPreference.Builder(DEVICE_ROLE_INITIATOR, config).build();
+
+            // Start ranging session.
+            session.start(preference);
+
+            // If successful, the ranging data will be sent through callback#onResults
+
+            // Stop ranging session
+            session.stop();
+
+        }
+
+        // Starts a ranging session on the responder side.
+        void startRangingResponder(Context context,  DeviceHandle deviceHandle, Executor executor, RangingSessionCallback callback) {
+
+            // Get the RangingManager which is the entry point for ranging module.
+            RangingManager manager = context.getSystemService(RangingManager.class);
+
+            // Create a new RangingSession using the provided executor and callback.
+            RangingSession session = manager.createRangingSession(executor, callback);
+
+            // Create an OobResponderRangingConfig, which specifies the ranging parameters for
+            // the responder role.
+            OobResponderRangingConfig config = new OobResponderRangingConfig.Builder(  deviceHandle).build();
+
+            // Create a RangingPreference, which specifies the role (responder) and
+            // configuration for the ranging session.
+            RangingPreference preference =
+                    new RangingPreference.Builder(DEVICE_ROLE_RESPONDER, config).build();
+
+            // Start the ranging session.
+            session.start(preference);
+
+            // Stop the ranging session
+            session.stop();
+        }
     }
-}
-```
 
 ## UWB interoperability with iOS devices
 
 The Ranging module supports interoperability with iOS devices using
 ultra-wideband (UWB). To range with an iOS device, you must use a [custom OOB
-implementation](#custom) and configure the ranging session with specific parameters
+implementation](https://developer.android.com/develop/connectivity/ranging#custom) and configure the ranging session with specific parameters
 that match the [Apple Nearby Interaction Accessory Protocol](https://developer.apple.com/documentation/nearbyinteraction#Interact-with-third-party-devices). Refer
-to the [sample app](##sample-ios-interop) for reference.
+to the [sample app](https://developer.android.com/develop/connectivity/ranging##sample-ios-interop) for reference.
 
 When creating the `RangingPreference`, use `RawRangingDevice` and
 `UwbRangingParams` to specify the configuration. The following parameters are
 crucial for iOS interoperability:
 
-* **Configuration ID:** Use `UwbRangingParams.CONFIG_UNICAST_DS_TWR`.
-* **Session Key Info:** Provide a byte array containing the Vendor ID and the
-  Static STS IV.
-* **Complex Channel:** Set the channel number and preamble index to match the
-  iOS device's configuration.
+- **Configuration ID:** Use `UwbRangingParams.CONFIG_UNICAST_DS_TWR`.
+- **Session Key Info:** Provide a byte array containing the Vendor ID and the Static STS IV.
+- **Complex Channel:** Set the channel number and preamble index to match the iOS device's configuration.
 
 The following code snippet demonstrates how to create a `RangingPreference` for
 an initiator device ranging with an iOS responder:
 
 ### Kotlin
 
-```
-// Create UwbRangingParams with iOS-specific configuration
-val uwbRangingParams = UwbRangingParams.Builder(
-    sessionId,
-    UwbRangingParams.CONFIG_UNICAST_DS_TWR,
-    sourceAddress,
-    destinationAddress
-)
-    .setComplexChannel(
-        UwbComplexChannel.Builder()
-            .setChannel(channelNumber)
-            .setPreambleIndex(preambleIndex)
-            .build()
-    )
-    .setRangingUpdateRate(updateRate)
-    .setSessionKeyInfo(sessionKeyInfo) // Vendor ID + STS IV
-    .setSlotDuration(slotDuration)
-    .build()
-
-// Create RawRangingDevice
-val rawRangingDevice = RawRangingDevice.Builder()
-    .setRangingDevice(RangingDevice.Builder().build())
-    .setUwbRangingParams(uwbRangingParams)
-    .build()
-
-// Create SessionConfig
-val sessionConfig = SessionConfig.Builder()
-    .setAngleOfArrivalNeeded(true)
-    .setDataNotificationConfig(DataNotificationConfig.Builder()
-        .setNotificationConfigType(DataNotificationConfig.NOTIFICATION_CONFIG_ENABLE)
-        .build())
-    .build()
-
-// Create RangingPreference for the initiator
-val preference = RangingPreference.Builder(
-    RangingPreference.DEVICE_ROLE_INITIATOR,
-    RawInitiatorRangingConfig.Builder()
-        .addRawRangingDevice(rawRangingDevice)
-        .build()
-)
-    .setSessionConfig(sessionConfig)
-    .build()
-```
-
-### Java
-
-```
-// Create UwbRangingParams with iOS-specific configuration
-UwbRangingParams uwbRangingParams = new UwbRangingParams.Builder(
+    // Create UwbRangingParams with iOS-specific configuration
+    val uwbRangingParams = UwbRangingParams.Builder(
         sessionId,
         UwbRangingParams.CONFIG_UNICAST_DS_TWR,
         sourceAddress,
-        destinationAddress)
-        .setComplexChannel(new UwbComplexChannel.Builder()
+        destinationAddress
+    )
+        .setComplexChannel(
+            UwbComplexChannel.Builder()
                 .setChannel(channelNumber)
                 .setPreambleIndex(preambleIndex)
-                .build())
+                .build()
+        )
         .setRangingUpdateRate(updateRate)
         .setSessionKeyInfo(sessionKeyInfo) // Vendor ID + STS IV
         .setSlotDuration(slotDuration)
-        .build();
+        .build()
 
-// Create RawRangingDevice
-RawRangingDevice rawRangingDevice = new RawRangingDevice.Builder()
-        .setRangingDevice(new RangingDevice.Builder().build())
+    // Create RawRangingDevice
+    val rawRangingDevice = RawRangingDevice.Builder()
+        .setRangingDevice(RangingDevice.Builder().build())
         .setUwbRangingParams(uwbRangingParams)
-        .build();
+        .build()
 
-// Create SessionConfig
-SessionConfig sessionConfig = new SessionConfig.Builder()
+    // Create SessionConfig
+    val sessionConfig = SessionConfig.Builder()
         .setAngleOfArrivalNeeded(true)
-        .setDataNotificationConfig(new DataNotificationConfig.Builder()
-                .setNotificationConfigType(DataNotificationConfig.NOTIFICATION_CONFIG_ENABLE)
-                .build())
-        .build();
+        .setDataNotificationConfig(DataNotificationConfig.Builder()
+            .setNotificationConfigType(DataNotificationConfig.NOTIFICATION_CONFIG_ENABLE)
+            .build())
+        .build()
 
-// Create RangingPreference for the initiator
-RangingPreference preference = new RangingPreference.Builder(
+    // Create RangingPreference for the initiator
+    val preference = RangingPreference.Builder(
         RangingPreference.DEVICE_ROLE_INITIATOR,
-        new RawInitiatorRangingConfig.Builder()
-                .addRawRangingDevice(rawRangingDevice)
-                .build())
+        RawInitiatorRangingConfig.Builder()
+            .addRawRangingDevice(rawRangingDevice)
+            .build()
+    )
         .setSessionConfig(sessionConfig)
-        .build();
-```
+        .build()
+
+### Java
+
+    // Create UwbRangingParams with iOS-specific configuration
+    UwbRangingParams uwbRangingParams = new UwbRangingParams.Builder(
+            sessionId,
+            UwbRangingParams.CONFIG_UNICAST_DS_TWR,
+            sourceAddress,
+            destinationAddress)
+            .setComplexChannel(new UwbComplexChannel.Builder()
+                    .setChannel(channelNumber)
+                    .setPreambleIndex(preambleIndex)
+                    .build())
+            .setRangingUpdateRate(updateRate)
+            .setSessionKeyInfo(sessionKeyInfo) // Vendor ID + STS IV
+            .setSlotDuration(slotDuration)
+            .build();
+
+    // Create RawRangingDevice
+    RawRangingDevice rawRangingDevice = new RawRangingDevice.Builder()
+            .setRangingDevice(new RangingDevice.Builder().build())
+            .setUwbRangingParams(uwbRangingParams)
+            .build();
+
+    // Create SessionConfig
+    SessionConfig sessionConfig = new SessionConfig.Builder()
+            .setAngleOfArrivalNeeded(true)
+            .setDataNotificationConfig(new DataNotificationConfig.Builder()
+                    .setNotificationConfigType(DataNotificationConfig.NOTIFICATION_CONFIG_ENABLE)
+                    .build())
+            .build();
+
+    // Create RangingPreference for the initiator
+    RangingPreference preference = new RangingPreference.Builder(
+            RangingPreference.DEVICE_ROLE_INITIATOR,
+            new RawInitiatorRangingConfig.Builder()
+                    .addRawRangingDevice(rawRangingDevice)
+                    .build())
+            .setSessionConfig(sessionConfig)
+            .build();
 
 ## UWB Downlink-TDoA API
 
-For UWB DL-TDoA API, see [Android 17 new features](/about/versions/17/features#dl-tdoa-api-android-17).
+For UWB DL-TDoA API, see [Android 17 new features](https://developer.android.com/about/versions/17/features#dl-tdoa-api-android-17).
 
 ## Sample app
 
@@ -403,10 +361,6 @@ the Ranging module and includes flows for both supported session types.
 
 ### UWB interoperability with iOS devices
 
-The [Android sample app](#sample) supports starting a UWB ranging session with the
+The [Android sample app](https://developer.android.com/develop/connectivity/ranging#sample) supports starting a UWB ranging session with the
 [iOS sample app](https://developer.apple.com/documentation/NearbyInteraction/implementing-spatial-interactions-with-third-party-accessories).
-
-![](/static/images/develop/connectivity/ranging_uwb_android_ios_interop.png)
-
-
-**Figure 2.** Android and iOS UWB usage.
+![](https://developer.android.com/static/images/develop/connectivity/ranging_uwb_android_ios_interop.png) **Figure 2.** Android and iOS UWB usage.

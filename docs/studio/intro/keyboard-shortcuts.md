@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Keyboard shortcuts are a useful way of quickly navigating around Android
 Studio and performing common actions. In many cases, using keyboard shortcuts is
 faster than using the GUI.

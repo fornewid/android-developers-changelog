@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Google Play’s app serving model uses [Android App
 Bundles](/guide/app-bundle) to generate and serve optimized APKs for each user’s
 device configuration, so users download only the code and resources they need to

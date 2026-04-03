@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This document describes different methods for viewing JavaScript console logs to
 debug content within a WebView.
 

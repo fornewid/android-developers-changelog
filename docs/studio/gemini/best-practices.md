@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Gemini in Android Studio acts as your coding collaborator, accelerating your
 development workflow by generating code, summarizing complex topics, finding
 specific resources, and more. Effective communication is the key to unlocking

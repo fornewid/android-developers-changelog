@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 The Game Readiness Checker is a tool that helps validate your game against review
 requirements locally in the Google Play Games on PC Developer Emulator. Running your game
 through this tool helps shorten review time by highlighting common issues before

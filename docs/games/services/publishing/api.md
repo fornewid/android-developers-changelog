@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This API reference is organized by resource type. Each resource type has one or more data representations and one or more methods.
 
 ## Resource types

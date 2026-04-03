@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 When you're working with native code, hardware matters. The NDK lets you ensure
 you're compiling for the right architectures and CPUs by giving you a variety
 of ABIs from which to choose.

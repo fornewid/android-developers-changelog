@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Basic Recipe
 
 This recipe shows a basic example of how to use the Navigation 3 API with two screens.

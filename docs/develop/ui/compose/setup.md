@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 For the best experience developing with Compose, download and install [Android
 Studio](/studio). It includes many [smart editor features](/develop/ui/compose/tooling), such as new project
 templates and the ability to immediately preview your Compose UI and animations.

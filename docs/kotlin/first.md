@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 At Google I/O 2019, we announced that Android development will be
 increasingly Kotlin-first, and we’ve stood by that commitment. Kotlin is an
 expressive and concise programming language that reduces common code errors

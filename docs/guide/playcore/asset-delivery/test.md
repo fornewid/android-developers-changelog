@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Use the steps in this guide to test how your app integrates Play Asset Delivery
 to retrieve asset packs.
 

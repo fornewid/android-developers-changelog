@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Make sure that your app offers an interactive UI that responds quickly to user input and, if necessary, compensates for a slow launch.
 Ensure that your app is designed to be easily localized by
 accommodating the variations between languages: allow for spacing, density,

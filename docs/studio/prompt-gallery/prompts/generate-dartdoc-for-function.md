@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Generates a DartDoc comment describing the properties of the selected function.
 
 ---

@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 There are three basic components of your development environment that you
 must decide on before you start developing an Android game.
 These include:
@@ -137,6 +138,8 @@ supported by the Android GPU Inspector (AGI) graphics profiling tool.
 
 For information about the Android GPU Inspector, see
 [AGI](/agi).
+
+
 
 
 

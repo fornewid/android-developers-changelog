@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 You can use a *global action* to create a common action that multiple
 destinations can use. For example, you might want buttons in
 different destinations to navigate to the same main app screen.

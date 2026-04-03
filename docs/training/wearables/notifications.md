@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Notifications on watches use the same APIs and have the same structure as notifications on phones.
 
 Notifications can appear on a watch in two ways:

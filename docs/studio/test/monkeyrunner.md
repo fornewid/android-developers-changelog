@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 The legacy `monkeyrunner` tool provides an API for writing programs that control an
 Android device or emulator from outside of Android code.
 

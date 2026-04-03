@@ -1,13 +1,23 @@
 ---
-title: https://developer.android.com/design/ui/ai-glasses/guides/components/buttons
+title: Buttons  |  AI Glasses  |  Android Developers
 url: https://developer.android.com/design/ui/ai-glasses/guides/components/buttons
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [UI Design](https://developer.android.com/design/ui)
+* [AI Glasses](https://developer.android.com/design/ui/ai-glasses)
+* [Guides](https://developer.android.com/design/ui/ai-glasses/guides/foundations/design-principles)
+
+# Buttons Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Buttons are the primary visual indicator for a user's actions.
 
 ![Design elements should be anchored to the bottom of the
-frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons.png)
+frame.](/static/images/design/ui/glasses/guides/glasses_components_buttons.png)
 
 ### Principles
 
@@ -24,23 +34,38 @@ recognizable.
 **Flexible**: The button component should accommodate common variations, such as
 including icons and different sizes, without sacrificing consistency.
 
-## Usage \& Placement
+## Usage & Placement
 
 A button should be placed closely to its relevant content. They can be placed
 alone or with other components, like cards and lists.
-![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_use_do.png)
+
+![](/static/images/design/ui/glasses/guides/glasses_components_buttons_use_do.png)
+
+check\_circle
 
 ### Do
 
-Use progressive disclosure to reveal less relevant actions. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_use_dont.png)
+Use progressive disclosure to reveal less relevant actions.
+
+![](/static/images/design/ui/glasses/guides/glasses_components_buttons_use_dont.png)
+
+cancel
 
 ### Don't
 
-Overwhelm the user's view with too many buttons. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_action_do.png)
+Overwhelm the user's view with too many buttons.
+
+![](/static/images/design/ui/glasses/guides/glasses_components_buttons_action_do.png)
+
+check\_circle
 
 ### Do
 
-Use buttons to prompt an action. Or use a title chip for a static element. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_action_dont.png)
+Use buttons to prompt an action. Or use a title chip for a static element.
+
+![](/static/images/design/ui/glasses/guides/glasses_components_buttons_action_dont.png)
+
+cancel
 
 ### Don't
 
@@ -50,15 +75,16 @@ use a button as a static decorative element.
 
 ### Default
 
-
-![Default buttons](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_default.png)
+![Default buttons
+](/static/images/design/ui/glasses/guides/glasses_components_buttons_default.png)
 **1.** Enabled: Default state.
 **2.** Hover
 **3.** Tap
 
 ### Large
 
-![Large button style](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_large.png)
+![Large button style
+](/static/images/design/ui/glasses/guides/glasses_components_buttons_large.png)
 **1.** Enabled: Default state.
 **2.** Hover
 **3.** Tap
@@ -72,9 +98,8 @@ importance.
 
 ### Default
 
-
 | Properties | Customization | Defaults |
-|---|---|---|
+| --- | --- | --- |
 | Shape | Yes | Large, Circle |
 | Padding | Yes | 16 dp, 8 dp |
 | Border | Yes | 2 dp, #606460 |
@@ -84,13 +109,10 @@ importance.
 | Size | Yes | 56 dp min height |
 | Depth | Yes | 0 |
 
-<br />
-
 ### Large
 
-
 | Properties | Customization | Defaults |
-|---|---|---|
+| --- | --- | --- |
 | Shape | Yes | Large, Circle |
 | Padding | Yes | 20 dp, 8 dp |
 | Border | Yes | 2 dp, #606460 |
@@ -99,6 +121,16 @@ importance.
 | Trailing icon | Yes | 56 dp |
 | Size | Yes | 72 dp min height |
 | Depth | Yes | 0 |
-| Surface | No |   |
+| Surface | No |  |
 
-<br />
+[Previous
+
+arrow\_back
+
+Icons](/design/ui/ai-glasses/guides/styles/icons)
+
+[Next
+
+Title chip
+
+arrow\_forward](/design/ui/ai-glasses/guides/components/title-chip)

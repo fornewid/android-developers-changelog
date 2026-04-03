@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Profile-Guided Optimization support was introduced in AGDE
 version 22.2.71.
 
@@ -177,6 +178,8 @@ covers the necessary switches – `-fprofile-generate`, and
 
 If you are using a middleware engine for your game, consult the documentation
 for your engine to see how to enable PGO (if it is supported).
+
+
 
 
 

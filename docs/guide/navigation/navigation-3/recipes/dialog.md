@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Dialog Recipe
 
 This recipe demonstrates how to display a destination as a dialog.

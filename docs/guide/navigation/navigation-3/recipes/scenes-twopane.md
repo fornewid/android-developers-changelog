@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Two-Pane Scene Recipe
 
 This example shows how to create a two pane layout using the Scenes API.

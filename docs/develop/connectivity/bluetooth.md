@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Android platform includes support for the Bluetooth network stack, which
 allows a device to wirelessly exchange data with other Bluetooth devices. The
 app framework provides access to the Bluetooth functionality through Bluetooth

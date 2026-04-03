@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 A local network in this project refers to an IP network that utilizes a
 broadcast-capable network interface, such as Wi-Fi or Ethernet, but excludes
 cellular (WWAN) or VPN connections.

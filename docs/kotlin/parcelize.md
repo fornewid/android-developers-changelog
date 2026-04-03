@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The [`kotlin-parcelize` plugin](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize)
 provides a
 [`Parcelable`](/reference/android/os/Parcelable) implementation generator.

@@ -1,22 +1,8 @@
 ---
-title: Draw a watch face  |  Wear OS  |  Android Developers
+title: https://developer.android.com/training/wearables/watch-faces/drawing
 url: https://developer.android.com/training/wearables/watch-faces/drawing
-source: html-scrape
+source: md.txt
 ---
-
-As of January 2026, the Watch Face Format is required for installing watch faces on all Wear OS devices.
-
-Learn more about the user-facing changes in this [Help Center article](https://support.google.com/wearos/thread/284572445).
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Wear OS](https://developer.android.com/training/wearables/watch-faces/designing)
-
-# Draw a watch face Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 After you configure your project and add a class that implements the
 watch face service, you can start writing code to initialize and draw your
@@ -26,33 +12,31 @@ Every watch face creates a custom subclass of a renderer that implements
 everything needed to draw the watch face.
 
 The renderer combines the
-[`UserStyle`](/reference/androidx/wear/watchface/style/UserStyle), the
+[`UserStyle`](https://developer.android.com/reference/androidx/wear/watchface/style/UserStyle), the
 complication information from
-[`ComplicationSlotsManager`](/reference/androidx/wear/watchface/ComplicationSlotsManager),
+[`ComplicationSlotsManager`](https://developer.android.com/reference/androidx/wear/watchface/ComplicationSlotsManager),
 the current time, and other state information to
 render the watch face, as shown in the following example:
 
-```
-class CustomCanvasRenderer(
-    private val context: Context,
-    surfaceHolder: SurfaceHolder,
-    watchState: WatchState,
-    private val complicationSlotsManager: ComplicationSlotsManager,
-    currentUserStyleRepository: CurrentUserStyleRepository,
-    canvasType: Int
-) : Renderer.CanvasRenderer(
-    surfaceHolder = surfaceHolder,
-    currentUserStyleRepository = currentUserStyleRepository,
-    watchState = watchState,
-    canvasType = canvasType,
-    interactiveDrawModeUpdateDelayMillis = 16L
-) {
-    override fun render(canvas: Canvas, bounds: Rect, zonedDateTime: ZonedDateTime) {
-        // Draw into the canvas
-    }
+    class CustomCanvasRenderer(
+        private val context: Context,
+        surfaceHolder: SurfaceHolder,
+        watchState: WatchState,
+        private val complicationSlotsManager: ComplicationSlotsManager,
+        currentUserStyleRepository: CurrentUserStyleRepository,
+        canvasType: Int
+    ) : Renderer.CanvasRenderer(
+        surfaceHolder = surfaceHolder,
+        currentUserStyleRepository = currentUserStyleRepository,
+        watchState = watchState,
+        canvasType = canvasType,
+        interactiveDrawModeUpdateDelayMillis = 16L
+    ) {
+        override fun render(canvas: Canvas, bounds: Rect, zonedDateTime: ZonedDateTime) {
+            // Draw into the canvas
+        }
 
-    override fun renderHighlightLayer(canvas: Canvas, bounds: Rect, zonedDateTime: ZonedDateTime) {
-        // Draw into the canvas
+        override fun renderHighlightLayer(canvas: Canvas, bounds: Rect, zonedDateTime: ZonedDateTime) {
+            // Draw into the canvas
+        }
     }
-}
-```

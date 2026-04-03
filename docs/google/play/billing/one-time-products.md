@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 A one-time product (previously referred as in-app product) refers to a
 digital item or content that a user can purchase with a single charge to
 their payment method. Unlike subscriptions, which involve recurring payments,
@@ -37,8 +36,6 @@ One-time products are categorized into two main types:
 
 * [One-time product purchase lifecycle](/google/play/billing/lifecycle/one-time)
 * [Multiple purchase options and offers for one-time products](/google/play/billing/one-time-product-multi-purchase-options-offers)
-
-
 
 
 

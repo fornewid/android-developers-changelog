@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Interpolator
 
 [User Guide](/guide/topics/graphics/prop-animation#interpolators)

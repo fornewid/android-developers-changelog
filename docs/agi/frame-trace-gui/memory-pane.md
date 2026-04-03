@@ -14,6 +14,7 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
+
 The **Memory** pane displays the values in RAM or GPU memory for the selected command.
 
 ![Memory pane](/static/images/agi/memory-pane/memory-pane-1.png)

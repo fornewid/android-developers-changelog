@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page describes how to use a preload manager to manage video content. By
 using a preload manager, you can give the user a better experience; when the
 user switches from one media item to another, the playback starts faster because

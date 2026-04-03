@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Use the [Sign-in template](/design/ui/cars/guides/templates/sign-in-template) to prompt the user to sign in using one of the
 following 4 [sign-in methods](/design/ui/cars/guides/templates/sign-in-template#methods):
 

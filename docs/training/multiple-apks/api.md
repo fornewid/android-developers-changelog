@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 If you publish your app to Google Play, you should build and upload an
 [Android App Bundle](/guide/app-bundle). When you do so, Google Play automatically
 generates and serves optimized APKs for each user's device configuration, so they download only

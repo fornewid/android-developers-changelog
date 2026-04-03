@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 ![](/static/images/about/versions/13/predictive-back-nav-home.gif)
 
 

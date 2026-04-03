@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 In some cases, you may want to use XML and `RemoteViews` to provide a view.
 Perhaps you have already implemented a feature without Glance, or the feature is
 not yet available or possible with the current Glance API. For these situations,

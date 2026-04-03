@@ -1,40 +1,27 @@
 ---
-title: Buttons  |  TV  |  Android Developers
+title: https://developer.android.com/design/ui/tv/guides/components/buttons
 url: https://developer.android.com/design/ui/tv/guides/components/buttons
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [UI Design](https://developer.android.com/design/ui)
-* [TV](https://developer.android.com/design/ui/tv)
-* [Guides](https://developer.android.com/design/ui/tv/guides/foundations/design-for-tv)
-
-# Buttons Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Buttons help users initiate actions or flow. Choose from different
 types of buttons to inform emphasis.
 
-![Cover Buttons](/static/design/ui/tv/guides/components/images/covers/cover-buttons.webp)
+![Cover Buttons](https://developer.android.com/static/design/ui/tv/guides/components/images/covers/cover-buttons.webp)
 
 ## Resources
 
 | Type | Link | Status |
-| --- | --- | --- |
+|---|---|---|
 | Design | [Design source (Figma)](https://goo.gle/tv-desing-kit) | Available |
-| Implementation | [Jetpack Compose](/reference/kotlin/androidx/tv/material3/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.tv.material3.ButtonScale,androidx.tv.material3.ButtonGlow,androidx.tv.material3.ButtonShape,androidx.tv.material3.ButtonColors,androidx.compose.ui.unit.Dp,androidx.tv.material3.ButtonBorder,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) | Available |
+| Implementation | [Jetpack Compose](https://developer.android.com/reference/kotlin/androidx/tv/material3/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.tv.material3.ButtonScale,androidx.tv.material3.ButtonGlow,androidx.tv.material3.ButtonShape,androidx.tv.material3.ButtonColors,androidx.compose.ui.unit.Dp,androidx.tv.material3.ButtonBorder,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) | Available |
 
 ## Highlights
 
-* Choose the type of button based on the importance of the action.
-  The more important the action is, the more emphasis on the button.
-* Buttons should have clear labels to indicate the action they perform.
-* Place buttons logically on the screen—where users likely expect to
-  find them.
-* Don't overuse buttons. Too many buttons on a screen disrupt the
-  visual hierarchy.
+- Choose the type of button based on the importance of the action. The more important the action is, the more emphasis on the button.
+- Buttons should have clear labels to indicate the action they perform.
+- Place buttons logically on the screen---where users likely expect to find them.
+- Don't overuse buttons. Too many buttons on a screen disrupt the visual hierarchy.
 
 ## Variants
 
@@ -47,18 +34,12 @@ There are six types of buttons:
 5. Long button
 6. Image button
 
-![Filled button](/static/design/ui/tv/guides/components/images/buttons/button-1.webp)
-![Outline button](/static/design/ui/tv/guides/components/images/buttons/button-2.webp)
-![Icon button](/static/design/ui/tv/guides/components/images/buttons/button-3.webp)
-![Outline icon button](/static/design/ui/tv/guides/components/images/buttons/button-4.webp)
-
-![Long button](/static/design/ui/tv/guides/components/images/buttons/button-5.webp)
-![Image button](/static/design/ui/tv/guides/components/images/buttons/button-6.webp)
+![Filled button](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-1.webp) ![Outline button](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-2.webp) ![Icon button](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-3.webp) ![Outline icon button](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-4.webp) ![Long button](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-5.webp) ![Image button](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-6.webp)
 
 Choose the type of button based on the importance of the action.
 The more important the action is, the more emphasis its button should have.
 
-![Button Emphasis](/static/design/ui/tv/guides/components/images/buttons/button-emphasis.webp)
+![Button Emphasis](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-emphasis.webp)
 
 ## Filled and outline button
 
@@ -71,7 +52,7 @@ well with filled buttons to indicate an alternative, secondary action.
 
 ### Anatomy
 
-![Filled and outline button anatomy](/static/design/ui/tv/guides/components/images/buttons/button-anatomy.webp)
+![Filled and outline button anatomy](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-anatomy.webp)
 
 1. Container
 2. Label text
@@ -81,7 +62,7 @@ well with filled buttons to indicate an alternative, secondary action.
 
 Visual representation of a component's status.
 
-![Filled and outline button states](/static/design/ui/tv/guides/components/images/buttons/button-states.webp)
+![Filled and outline button states](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-states.webp)
 
 1. Default
 2. Focused
@@ -89,7 +70,7 @@ Visual representation of a component's status.
 
 ### Specification
 
-![Filled and outline button specifications](/static/design/ui/tv/guides/components/images/buttons/button-specs.webp)
+![Filled and outline button specifications](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-specs.webp)
 
 ## Icon and outline icon button
 
@@ -102,14 +83,14 @@ Icon buttons can be defined in three sizes: small, medium and large.
 
 ### Anatomy
 
-![Icon & outline icon button Anatomy](/static/design/ui/tv/guides/components/images/buttons/icon-button-anatomy.webp)
+![Icon & outline icon button Anatomy](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/icon-button-anatomy.webp)
 
 1. Container
 2. Icon
 
 ### States
 
-![Icon & outline icon button States](/static/design/ui/tv/guides/components/images/buttons/icon-button-states.webp)
+![Icon & outline icon button States](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/icon-button-states.webp)
 
 1. Default
 2. Focused
@@ -120,7 +101,7 @@ a component or interactive element.
 
 ### Spec
 
-![Icon & outline icon button Specs](/static/design/ui/tv/guides/components/images/buttons/icon-button-specs.webp)
+![Icon & outline icon button Specs](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/icon-button-specs.webp)
 
 ## Wide button
 
@@ -130,7 +111,7 @@ options are grouped together. The group should share a common surface.
 
 ### Anatomy
 
-![Wide button Anatomy](/static/design/ui/tv/guides/components/images/buttons/wide-button-anatomy.webp)
+![Wide button Anatomy](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/wide-button-anatomy.webp)
 
 1. Container
 2. Leading icon
@@ -139,7 +120,7 @@ options are grouped together. The group should share a common surface.
 
 ### States
 
-![Wide button States](/static/design/ui/tv/guides/components/images/buttons/wide-button-states.webp)
+![Wide button States](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/wide-button-states.webp)
 
 1. Default
 2. Focused
@@ -150,7 +131,7 @@ a component or interactive element.
 
 ### Specifications
 
-![Wide button Spec](/static/design/ui/tv/guides/components/images/buttons/wide-button-specs.webp)
+![Wide button Spec](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/wide-button-specs.webp)
 
 ## Image button
 
@@ -160,7 +141,7 @@ together with related actions, and the group should share a common surface.
 
 ### Anatomy
 
-![Image button Spec](/static/design/ui/tv/guides/components/images/buttons/image-button-anatomy.webp)
+![Image button Spec](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/image-button-anatomy.webp)
 
 1. Container
 2. Leading icon
@@ -173,7 +154,7 @@ together with related actions, and the group should share a common surface.
 
 ### States
 
-![Image button States](/static/design/ui/tv/guides/components/images/buttons/image-button-states.webp)
+![Image button States](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/image-button-states.webp)
 
 1. Default
 2. Focused
@@ -184,7 +165,7 @@ a component or interactive element.
 
 ### Spec
 
-![Image button Specs](/static/design/ui/tv/guides/components/images/buttons/image-button-specs.webp)
+![Image button Specs](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/image-button-specs.webp)
 
 ## Usage
 
@@ -195,7 +176,7 @@ forms, cards, and toolbars.
 Buttons are just one option for representing actions in your UI. Don't
 overuse them. Too many buttons on a screen disrupts the visual hierarchy.
 
-![Button Anatomy](/static/design/ui/tv/guides/components/images/buttons/buttons-anatomy.webp)
+![Button Anatomy](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/buttons-anatomy.webp)
 
 1. Container
 2. Icon
@@ -210,32 +191,22 @@ Buttons display a container around content. The container scales by 1.1x on
 focus, maintaining the internal padding. Here are some considerations
 for container:
 
-* Set container width based on content with consistent padding.
-* Set the container's relative position to the responsive layout grid.
-* Use solid color containers for filled buttons.
-* Use stroke and fill color on focus for outlined buttons. On focus, the
-  container gets a fill color along with outline.
-* For wide and image buttons, container width is set according to the
-  layout grid.
-* Container size, position, and alignment can change as its parent
-  container scales.
+- Set container width based on content with consistent padding.
+- Set the container's relative position to the responsive layout grid.
+- Use solid color containers for filled buttons.
+- Use stroke and fill color on focus for outlined buttons. On focus, the container gets a fill color along with outline.
+- For wide and image buttons, container width is set according to the layout grid.
+- Container size, position, and alignment can change as its parent container scales.
 
-![Button container](/static/design/ui/tv/guides/components/images/buttons/container.webp)
+![Button container](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/container.webp)
 
 Text and icon button containers have fully rounded corners. Wide and
 image button containers have rounded containers of 12dp.
-
-![](/static/design/ui/tv/guides/components/images/buttons/container-do.webp)
-
-check\_circle
+![](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/container-do.webp)
 
 ### Do
 
-Filled button width can be responsive to the layout grid. Icons and label text remain centered when button width increases.
-
-![](/static/design/ui/tv/guides/components/images/buttons/container-caution.webp)
-
-warning
+Filled button width can be responsive to the layout grid. Icons and label text remain centered when button width increases. ![](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/container-caution.webp)
 
 ### Caution
 
@@ -246,26 +217,15 @@ For wide and image buttons, container width is defined by the parent container. 
 Icons visually communicate the button's action and help draw attention.
 They should be placed on the leading side of the button. Icons are
 always vertically centered within the container.
-
-![](/static/design/ui/tv/guides/components/images/buttons/icons-do.webp)
-
-check\_circle
+![](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/icons-do.webp)
 
 ### Do
 
-Icon buttons with different sizes can be grouped together.
-
-![](/static/design/ui/tv/guides/components/images/buttons/icons-dont-1.webp)
-
-cancel
+Icon buttons with different sizes can be grouped together. ![](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/icons-dont-1.webp)
 
 ### Don't
 
-Don’t vertically align an icon and text in the center of a button
-
-![](/static/design/ui/tv/guides/components/images/buttons/icons-dont-2.webp)
-
-warning
+Don't vertically align an icon and text in the center of a button ![](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/icons-dont-2.webp)
 
 ### Caution
 
@@ -279,18 +239,11 @@ the action that occurs if a user taps a button.
 Use sentence case for button label text, capitalizing the first word
 and proper nouns. Avoid wrapping text. For maximum legibility, label text
 should remain on a single line.
-
-![](/static/design/ui/tv/guides/components/images/buttons/label-do.webp)
-
-check\_circle
+![](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/label-do.webp)
 
 ### Do
 
-Use sentence case for button label text, capitalizing the first word and proper nouns.
-
-![](/static/design/ui/tv/guides/components/images/buttons/label-caution.webp)
-
-warning
+Use sentence case for button label text, capitalizing the first word and proper nouns. ![](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/label-caution.webp)
 
 ### Caution
 
@@ -319,9 +272,11 @@ lands on it first.
 
 ### Maintain linear layout
 
-![Example of Button row layout](/static/design/ui/tv/guides/components/images/buttons/button-row.webp)
 
-![Example of Button column layout](/static/design/ui/tv/guides/components/images/buttons/button-column.webp)
+![Example of Button row layout](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-row.webp)
+![Example of Button column layout](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-column.webp)
+
+<br />
 
 1. Row layout
 2. Column layout
@@ -332,47 +287,20 @@ In column layout, single button variants should be maintained. In
 row layout, different variants can be clustered together in a button group
 but the logic should be clear. Filled and outline buttons can be used in
 the same group, but ensure clear hierarchy for actions.
-
-![](/static/design/ui/tv/guides/components/images/buttons/button-group-1.webp)
-
-check\_circle
+![](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-group-1.webp)
 
 ### Do
 
-Use the same button variants in a button group.
-
-![](/static/design/ui/tv/guides/components/images/buttons/button-group-2.webp)
-
-cancel
+Use the same button variants in a button group. ![](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-group-2.webp)
 
 ### Don't
 
-Mix long buttons and image buttons in a button group.
-
-![](/static/design/ui/tv/guides/components/images/buttons/button-group-3.webp)
-
-warning
+Mix long buttons and image buttons in a button group. ![](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-group-3.webp)
 
 ### Caution
 
-In row layout, text and icon buttons can be placed together. Ensure that the primary button has higher emphasis.
-
-![](/static/design/ui/tv/guides/components/images/buttons/button-group-4.webp)
-
-check\_circle
+In row layout, text and icon buttons can be placed together. Ensure that the primary button has higher emphasis. ![](https://developer.android.com/static/design/ui/tv/guides/components/images/buttons/button-group-4.webp)
 
 ### Do
 
 In column layout, use only one button variant.
-
-[Previous
-
-arrow\_back
-
-Layouts](/design/ui/tv/guides/styles/layouts)
-
-[Next
-
-Cards
-
-arrow\_forward](/design/ui/tv/guides/components/cards)

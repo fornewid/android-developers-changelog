@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 With each release of Android, we introduce new features as well as behavior
 changes aimed at making the Android more helpful, more secure, and better
 performing. In many cases your app will work exactly as expected out of the box,

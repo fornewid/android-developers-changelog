@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 3D Games that run well on the largest number of devices begin with 3D art that has
 been designed to best take advantage of graphics processors. This guide
 highlights optimizations and best practices for 3D assets on mobile to make
@@ -389,8 +388,6 @@ For example, you can make characters with bigger hands so they're easier to see.
 
 **Figure 19.** Example model that shows exaggerated proportions for better
 visibility.
-
-
 
 
 

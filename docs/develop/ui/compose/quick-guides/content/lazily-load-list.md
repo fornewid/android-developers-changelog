@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 With lazy loading and Paging, you can support large lists of items—including an
 infinite list—in your app by loading and displaying data incrementally. This
 technique enables you to reduce initial load times and optimize memory usage,

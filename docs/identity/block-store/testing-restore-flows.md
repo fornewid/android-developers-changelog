@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ## Supported device-to-device restore flows
 
 Some OEMs build custom device-to-device restore flows. Block Store only works

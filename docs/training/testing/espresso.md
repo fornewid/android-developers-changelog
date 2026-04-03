@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Use Espresso to write concise, beautiful, and reliable Android UI tests.
 
 The following code snippet shows an example of an Espresso test:

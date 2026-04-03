@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This cookbook helps developers and system integrators enhance their dedicated
 device solution. Follow our how-to recipes to find solutions for dedicated-device
 behaviors. This cookbook works best for developers that already have a dedicated

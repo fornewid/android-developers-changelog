@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Building applications for use on Android (Go edition) devices requires special
 attention to performance optimizations and resource usage. There are two main
 components to understand when building for Android (Go edition): the operating

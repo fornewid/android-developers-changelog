@@ -14,6 +14,7 @@ On March 17, 2026, the Play Age Signals API starts rolling out responses for use
 
 
 
+
 This page explains what's in the recent updates to the [Maven repository](https://maven.google.com/web/index.html#com.google.android.play:age-signals) for
 the [Play Age Signals Library](/google/play/age-signals/overview).
 

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 ![Android logo below the word 'Android'](/static/images/lockups/android-stacked.svg)
 
 You can get Android 17 in any of the following ways:

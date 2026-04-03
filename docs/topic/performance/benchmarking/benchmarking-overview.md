@@ -1,17 +1,8 @@
 ---
-title: Benchmark your app  |  App quality  |  Android Developers
+title: https://developer.android.com/topic/performance/benchmarking/benchmarking-overview
 url: https://developer.android.com/topic/performance/benchmarking/benchmarking-overview
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App quality](https://developer.android.com/quality)
-* [Technical quality](https://developer.android.com/quality/technical)
-
-# Benchmark your app Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Benchmarking is a way to inspect and monitor the performance of your app. You
 can regularly run benchmarks to analyze and debug performance problems and help
@@ -23,7 +14,7 @@ Microbenchmark.
 
 ## Macrobenchmark
 
-The [Macrobenchmark](/studio/profile/macrobenchmark) library measures larger end-user interactions, such as
+The [Macrobenchmark](https://developer.android.com/studio/profile/macrobenchmark) library measures larger end-user interactions, such as
 startup, interacting with the UI, and animations. The library provides direct
 control over the performance environment you're testing. It lets you control
 compiling and lets you start and stop your app to directly measure actual app
@@ -36,9 +27,9 @@ user.
 
 ## Microbenchmark
 
-The [Microbenchmark](/studio/profile/benchmark) library lets you benchmark app code directly in a loop.
-This is designed for measuring CPU work that assesses best-case performance—such
-as warmed up Just in Time (JIT) and disk accesses cached—that you might see with
+The [Microbenchmark](https://developer.android.com/studio/profile/benchmark) library lets you benchmark app code directly in a loop.
+This is designed for measuring CPU work that assesses best-case performance---such
+as warmed up Just in Time (JIT) and disk accesses cached---that you might see with
 an inner-loop or a specific hot function. ​​The library can only measure the
 code that you can call directly in isolation.
 
@@ -52,7 +43,7 @@ pass of your `View` class is from a performance perspective.
 However, you aren't able to measure how the benchmarked cases contribute to the
 overall user experience. In some scenarios, benchmarking doesn't tell you if
 you're improving a bottleneck like jank or app startup time. For this reason,
-it's crucial to identify those bottlenecks first with the [Android Profiler](/studio/profile).
+it's crucial to identify those bottlenecks first with the [Android Profiler](https://developer.android.com/studio/profile).
 After you find the code you want to investigate and optimize, the benchmarked
 loop can run repeatedly in a quick and easier fashion to create less noisy
 results, which lets you focus on one area of improvement.
@@ -63,8 +54,8 @@ specific to the app, not ones that might relate to overall system issues.
 
 ## Benchmark library comparison
 
-|  | Macrobenchmark | Microbenchmark |
-| --- | --- | --- |
+|   | Macrobenchmark | Microbenchmark |
+|---|---|---|
 | API version | 23 and later | 14 and later |
 | Function | Measure high-level entry points or interactions, such as activity launch or scrolling a list. | Measure individual functions. |
 | Scope | Out-of-process test of full app. | In-process test of CPU work. |
@@ -73,7 +64,7 @@ specific to the app, not ones that might relate to overall system issues.
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Create Baseline Profiles {:#creating-profile-rules}](/topic/performance/baselineprofiles/create-baselineprofile)
-* [JankStats Library](/topic/performance/jankstats)
-* [Overview of measuring app performance](/topic/performance/measuring-performance)
+- Note: link text is displayed when JavaScript is off
+- [Create Baseline Profiles {:#creating-profile-rules}](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile)
+- [JankStats Library](https://developer.android.com/topic/performance/jankstats)
+- [Overview of measuring app performance](https://developer.android.com/topic/performance/measuring-performance)

@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 You can get Android 11 in any of these ways:
 
 1. Get an OTA update or system image for a [Google Pixel device](#on_pixel)

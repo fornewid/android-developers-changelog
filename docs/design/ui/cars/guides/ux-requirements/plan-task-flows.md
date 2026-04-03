@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Help drivers focus on the road by minimizing the amount of time they need to
 interact with their screen. You can do this by choosing the templates best
 suited for each task and keeping task flows short.

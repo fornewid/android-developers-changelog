@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android's enterprise features provide organizations with a secure, flexible, and
 unified Android mobility platform—combining devices, applications,
 and management. Android apps are compatible with Android's enterprise features

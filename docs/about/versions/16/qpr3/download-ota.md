@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Warning:** Hey Googler! Before sideloading a new release, please check your
 Building on the [initial release of Android 16](/about/versions/16), we continue to
 update the platform with fixes and improvements that are then rolled out to

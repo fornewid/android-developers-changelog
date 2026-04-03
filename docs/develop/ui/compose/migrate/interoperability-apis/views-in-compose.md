@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose
+title: Using Views in Compose  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Using Views in Compose Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 You can include an Android View hierarchy in a Compose UI. This approach is
 particularly useful if you want to use UI elements that are not yet available in
@@ -10,16 +20,15 @@ Compose, like
 [`AdView`](https://developers.google.com/android/reference/com/google/android/gms/ads/AdView).
 This approach also lets you reuse custom views you may have designed.
 
-To include a view element or hierarchy, use the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1))
+To include a view element or hierarchy, use the [`AndroidView`](/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1))
 composable. `AndroidView` is passed a lambda that returns a
-[`View`](https://developer.android.com/reference/android/view/View). `AndroidView` also provides an `update`
+[`View`](/reference/android/view/View). `AndroidView` also provides an `update`
 callback that is called when the view is inflated. The `AndroidView` recomposes
 whenever a `State` read within the callback changes. `AndroidView`, like many
 other built-in composables, takes a `Modifier` parameter that can be used, for
 example, to set its position in the parent composable.
 
-
-```kotlin
+```
 @Composable
 fun CustomView() {
     var selectedItem by remember { mutableIntStateOf(0) }
@@ -55,47 +64,47 @@ fun ContentExample() {
         CustomView()
     }
 }
+
+InteroperabilityAPIsSnippets.kt
 ```
 
-<br />
-
-> [!NOTE]
-> **Note:** Prefer to construct a View in the `AndroidView` `factory` lambda instead of using `remember` to hold a View reference outside of `AndroidView`.
+**Note:** Prefer to construct a View in the `AndroidView` `factory` lambda instead
+of using `remember` to hold a View reference outside of `AndroidView`.
 
 ## `AndroidView` with view binding
 
 To embed an XML layout, use the
-[`AndroidViewBinding`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/package-summary#AndroidViewBinding(kotlin.Function3,%20androidx.compose.ui.Modifier,%20kotlin.Function1))
+[`AndroidViewBinding`](/reference/kotlin/androidx/compose/ui/viewinterop/package-summary#AndroidViewBinding(kotlin.Function3,%20androidx.compose.ui.Modifier,%20kotlin.Function1))
 API, which is provided by the `androidx.compose.ui:ui-viewbinding` library. To
-do this, your project must enable [view binding](https://developer.android.com/topic/libraries/view-binding#setup).
+do this, your project must enable [view binding](/topic/libraries/view-binding#setup).
 
-
-```kotlin
+```
 @Composable
 fun AndroidViewBindingExample() {
     AndroidViewBinding(ExampleLayoutBinding::inflate) {
         exampleView.setBackgroundColor(Color.GRAY)
     }
 }
-```
 
-<br />
+InteroperabilityAPIsSnippets.kt
+```
 
 ## `AndroidView` in Lazy lists
 
 If you are using an `AndroidView` in a Lazy list (`LazyColumn`, `LazyRow`,
-`Pager`, etc.), consider using the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/package-summary#AndroidView(kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1))
+`Pager`, etc.), consider using the [`AndroidView`](/reference/kotlin/androidx/compose/ui/viewinterop/package-summary#AndroidView(kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1))
 overload introduced in version 1.4.0-rc01. This overload allows Compose to reuse
 the underlying `View` instance when the containing composition is reused as is
 the case for Lazy lists.
 
 This overload of `AndroidView` adds 2 additional parameters:
 
-- `onReset` - A callback invoked to signal that the `View` is about to be reused. This must be non-null to enable View reuse.
-- `onRelease` (optional) - A callback invoked to signal that the `View` has exited the composition and will not be reused again.
+* `onReset` - A callback invoked to signal that the `View` is about to be
+  reused. This must be non-null to enable View reuse.
+* `onRelease` (optional) - A callback invoked to signal that the `View` has
+  exited the composition and will not be reused again.
 
-
-```kotlin
+```
 @Composable
 fun AndroidViewInLazyList() {
     LazyColumn {
@@ -115,9 +124,9 @@ fun AndroidViewInLazyList() {
         }
     }
 }
-```
 
-<br />
+InteroperabilityAPIsSnippets.kt
+```
 
 ## Fragments in Compose
 
@@ -125,7 +134,7 @@ Use the `AndroidFragment` composable to add a `Fragment` in Compose.
 `AndroidFragment` has fragment-specific handling such as removing the
 fragment when the composable leaves the composition.
 
-To include a fragment, use the [`AndroidFragment`](https://developer.android.com/reference/kotlin/androidx/fragment/compose/package-summary#AndroidFragment)
+To include a fragment, use the [`AndroidFragment`](/reference/kotlin/androidx/fragment/compose/package-summary#AndroidFragment)
 composable. You pass a `Fragment` class to `AndroidFragment`, which then adds
 an instance of that class directly into the composition. `AndroidFragment` also
 provides a `fragmentState` object to create the `AndroidFragment` with a given
@@ -137,15 +146,14 @@ example, to set its position in the parent composable.
 
 Call `AndroidFragment` in Compose as follows:
 
-
-```kotlin
+```
 @Composable
 fun FragmentInComposeExample() {
     AndroidFragment<MyFragment>()
 }
-```
 
-<br />
+InteroperabilityAPIsSnippets.kt
+```
 
 ## Calling the Android framework from Compose
 
@@ -154,11 +162,11 @@ on Android View classes, like `Activity` or `Fragment`, and might use Android
 framework classes like the `Context`, system resources,
 `Service`, or `BroadcastReceiver`.
 
-To learn more about system resources, see [Resources in Compose](https://developer.android.com/develop/ui/compose/resources).
+To learn more about system resources, see [Resources in Compose](/develop/ui/compose/resources).
 
 ### Composition Locals
 
-[`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal)
+[`CompositionLocal`](/reference/kotlin/androidx/compose/runtime/CompositionLocal)
 classes allow passing data implicitly through composable functions. They're
 usually provided with a value in a certain node of the UI tree. That value can
 be used by its composable descendants without declaring the `CompositionLocal`
@@ -167,10 +175,10 @@ as a parameter in the composable function.
 `CompositionLocal` is used to propagate values for Android framework types in
 Compose such as `Context`, `Configuration` or the `View` in which the Compose
 code is hosted with the corresponding
-[`LocalContext`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalContext()),
-[`LocalConfiguration`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalConfiguration()),
+[`LocalContext`](/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalContext()),
+[`LocalConfiguration`](/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalConfiguration()),
 or
-[`LocalView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalView()).
+[`LocalView`](/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalView()).
 Note that `CompositionLocal` classes are prefixed with `Local` for better
 discoverability with auto-complete in the IDE.
 
@@ -178,8 +186,7 @@ Access the current value of a `CompositionLocal` by using its `current`
 property. For example, the code below shows a toast message by providing
 `LocalContext.current` into the `Toast.makeToast` method.
 
-
-```kotlin
+```
 @Composable
 fun ToastGreetingButton(greeting: String) {
     val context = LocalContext.current
@@ -189,20 +196,19 @@ fun ToastGreetingButton(greeting: String) {
         Text("Greet")
     }
 }
-```
 
-<br />
+InteroperabilityAPIsSnippets.kt
+```
 
 ### Broadcast receivers
 
 To showcase `CompositionLocal` and [side
-effects](https://developer.android.com/develop/ui/compose/side-effects), if a
-[`BroadcastReceiver`](https://developer.android.com/guide/components/broadcasts) needs to be registered from
+effects](/develop/ui/compose/side-effects), if a
+[`BroadcastReceiver`](/guide/components/broadcasts) needs to be registered from
 a composable function, use of `LocalContext` to use the current context, and
 `rememberUpdatedState` and `DisposableEffect` side effects.
 
-
-```kotlin
+```
 @Composable
 fun SystemBroadcastReceiver(
     systemAction: String,
@@ -242,20 +248,19 @@ fun HomeScreen() {
 
     /* Rest of the HomeScreen */
 }
-```
 
-<br />
+InteroperabilityAPIsSnippets.kt
+```
 
 ## Other interactions
 
 If there isn't a utility defined for the interaction you need, the best practice
 is to follow the general Compose guideline,
 *data flows down, events flow up* (discussed at more length in [Thinking
-in Compose](https://developer.android.com/develop/ui/compose/mental-model)). For example, this composable
+in Compose](/develop/ui/compose/mental-model)). For example, this composable
 launches a different activity:
 
-
-```kotlin
+```
 class OtherInteractionsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -276,6 +281,6 @@ fun ExampleComposable(data: DataExample, onButtonClick: () -> Unit) {
         Text(data.title)
     }
 }
-```
 
-<br />
+InteroperabilityAPIsSnippets.kt
+```

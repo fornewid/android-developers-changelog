@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 [`TimeText`](/reference/kotlin/androidx/wear/compose/material/TimeText.composable#TimeText(androidx.compose.ui.Modifier,androidx.wear.compose.material.TimeSource,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.layout.PaddingValues,kotlin.Function0,kotlin.Function1,kotlin.Function0,kotlin.Function1,kotlin.Function0,kotlin.Function1))
 is a layout that shows the current time at the top of the screen.
 

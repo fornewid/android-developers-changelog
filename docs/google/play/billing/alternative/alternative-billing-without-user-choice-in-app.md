@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 **Note:** Manual reporting of alternative billing only is being sunset. Please find
 more details about migration deadlines
 [here](https://support.google.com/googleplay/android-developer/answer/13821247)
@@ -286,8 +285,6 @@ information on configuring license testers.
 
 Once you've finished in-app integration, you're ready to [integrate your
 backend](/google/play/billing/outside-gpb-backend).
-
-
 
 
 

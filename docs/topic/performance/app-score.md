@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Use the App Performance Score to calculate your overall performance score
 and discover opportunities for improvement. The App Performance Score provides a
 standardized framework to measure performance with minimal in-depth technical

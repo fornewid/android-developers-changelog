@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The camera enables an exciting range of application use cases such as capturing
 video and images for sharing with social media, to creating utilities such as
 document and QR Code scanning. This developer center provides documentation and

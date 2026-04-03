@@ -1,16 +1,26 @@
 ---
-title: https://developer.android.com/google/play/billing/compatibility
+title: May 2022 subscription changes guide  |  Play Billing  |  Android Developers
 url: https://developer.android.com/google/play/billing/compatibility
-source: md.txt
+source: html-scrape
 ---
 
-[Google Play's billing system](https://developer.android.com/google/play/billing) is a service that
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Play Monetization](https://developer.android.com/google/play/billing)
+
+Send feedback
+
+# May 2022 subscription changes guide Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+[Google Play's billing system](/google/play/billing) is a service that
 allows you to sell digital products and content in your Android app.
 With the May 2022 release, we've changed how subscription products are
 defined, and this affects how they are sold in-app and managed on your
 backend. If you are integrating with Google Play Billing for the first
 time, you can start your integration by reading
-[Getting ready](https://developer.android.com/google/play/billing/getting-ready).
+[Getting ready](/google/play/billing/getting-ready).
 
 If you were selling subscriptions with Google Play Billing before May 2022,
 it's important to understand how to adopt new features while maintaining
@@ -18,18 +28,28 @@ your existing subscriptions.
 
 **The first thing to know is that all of your existing subscriptions, apps,
 and backend integrations function just as they did before the May 2022
-release** . You don't need to make any immediate changes, and you can adopt
+release**. You don't need to make any immediate changes, and you can adopt
 these new features over time. Each major release of the
-[Google Play Billing Library](https://developer.android.com/reference/com/android/billingclient/classes)
+[Google Play Billing Library](/reference/com/android/billingclient/classes)
 is supported for two years after release. Existing integrations with the
-[Google Play Developer API](https://developer.android.com/google/play/developer-api)
+[Google Play Developer API](/google/play/developer-api)
 continue to function as before.
 
 Here's an overview of the May 2022 updates:
 
-- The new [**Google Play Console**](https://play.google.com/console) lets you create and manage subscriptions, base plans, and offers. This includes both new and migrated subscriptions.
-- The [**Play Developer API**](https://developers.google.com/android-publisher) contains updates to support new Google Play Console UI functionality in API form. Notably, there is a new version of the [**Subscription Purchases API**](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2). Use this API to check subscription status and manage subscription purchases.
-- The new [**Play Billing Library version 5**](https://developer.android.com/google/play/billing/release-notes) allows your app to benefit from all the new subscription features. When you're ready to upgrade to version 5, follow the guidance in the [migration guide](https://developer.android.com/google/play/billing/migrate-gpblv5).
+* The new [**Google Play Console**](https://play.google.com/console)
+  lets you create and manage subscriptions, base plans, and offers.
+  This includes both new and migrated subscriptions.
+* The [**Play Developer API**](https://developers.google.com/android-publisher)
+  contains updates to support new Google Play Console UI functionality
+  in API form. Notably, there is a new version of the
+  [**Subscription Purchases API**](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2).
+  Use this API to check subscription status and manage subscription purchases.
+* The new
+  [**Play Billing Library version 5**](/google/play/billing/release-notes)
+  allows your app to benefit from all the new subscription features.
+  When you're ready to upgrade to version 5, follow the guidance in the
+  [migration guide](/google/play/billing/migrate-gpblv5).
 
 ## Subscriptions configuration
 
@@ -50,7 +70,7 @@ offer, if applicable.
 
 Since older integrations expected each subscription to include a single offer,
 represented by a
-[`SkuDetails`](https://developer.android.com/reference/com/android/billingclient/api/SkuDetails) object,
+[`SkuDetails`](/reference/com/android/billingclient/api/SkuDetails) object,
 each subscription can have a single backward-compatible base plan or offer.
 The backward-compatible base plan or offer is returned as part of a SKU
 for apps that are using the now-deprecated `querySkuDetailsAsync()` method.
@@ -92,16 +112,16 @@ the new objects under `monetization.subscriptions` in the following
 table:
 
 | InAppProduct | Subscription |
-|---|---|
+| --- | --- |
 | `packageName` | `packageName` |
 | `sku` | `productId` |
 | `status` | `basePlans[0].state` |
-| `prices` | basePlans\[0\].regionalConfigs.price |
+| `prices` | basePlans[0].regionalConfigs.price |
 | `listings` | listings |
 | `defaultPrice` | No equivalence |
-| `subscriptionPeriod` | basePlans\[0\].autoRenewingBasePlanType.billingPeriodDuration |
-| `trialPeriod` | basePlans\[0\].offers\[0\].phases\[0\].regionalConfigs\[0\].free |
-| `gracePeriod` | basePlans\[0\].autoRenewingBasePlanType.gracePeriodDuration |
+| `subscriptionPeriod` | basePlans[0].autoRenewingBasePlanType.billingPeriodDuration |
+| `trialPeriod` | basePlans[0].offers[0].phases[0].regionalConfigs[0].free |
+| `gracePeriod` | basePlans[0].autoRenewingBasePlanType.gracePeriodDuration |
 | `subscriptionTaxesAndComplianceSettings` | taxAndComplianceSettings |
 
 This required API update only applies to the Publishing API (SKU management).
@@ -110,11 +130,11 @@ This required API update only applies to the Publishing API (SKU management).
 
 To support gradual migration, the Play Billing Library includes all the
 methods and objects available in previous versions.
-[`SkuDetails`](https://developer.android.com/reference/com/android/billingclient/api/SkuDetails)
+[`SkuDetails`](/reference/com/android/billingclient/api/SkuDetails)
 objects and functions like
-[`querySkuDetailsAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#querySkuDetailsAsync(com.android.billingclient.api.SkuDetailsParams,%20com.android.billingclient.api.SkuDetailsResponseListener))
+[`querySkuDetailsAsync()`](/reference/com/android/billingclient/api/BillingClient#querySkuDetailsAsync(com.android.billingclient.api.SkuDetailsParams,%20com.android.billingclient.api.SkuDetailsResponseListener))
 still exist so you can upgrade to use
-[new functionality](https://developer.android.com/google/play/billing/migrate-gpblv5)
+[new functionality](/google/play/billing/migrate-gpblv5)
 without having to also immediately update existing subscriptions code.
 You can also control which offers are available through these methods
 by marking them as backward-compatible.
@@ -135,7 +155,7 @@ products. For one-time purchases, you can use
 
 Play Billing Library 5 also includes both new and legacy methods for
 launching the purchase flow. If the `BillingFlowParams` object passed to
-[`BillingClient.launchBillingFlow()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#launchBillingFlow(android.app.Activity,%20com.android.billingclient.api.BillingFlowParams))
+[`BillingClient.launchBillingFlow()`](/reference/com/android/billingclient/api/BillingClient#launchBillingFlow(android.app.Activity,%20com.android.billingclient.api.BillingFlowParams))
 is configured using a `SkuDetails` object, the system extracts the offer
 information to sell from the backward-compatible base plan or offer that
 corresponds to the SKU. If the `BillingFlowParams` object passed to
@@ -152,7 +172,7 @@ in a `BillingClient.SkuType` value, as in older versions, or a
 `BillingClient.ProductType` value that represents the new subscription
 entities.
 
-We recommend [updating your apps](https://developer.android.com/google/play/billing/migrate-gpblv5)
+We recommend [updating your apps](/google/play/billing/migrate-gpblv5)
 to version 5 of the library soon so you can start taking advantage
 of these new subscription features.
 
@@ -164,8 +184,8 @@ migration to version 5.
 
 ### Real Time Developer Notifications
 
-Soon the [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub)
-object will no longer contain a *subscriptionId* . If you are relying on
+Soon the [`SubscriptionNotification`](/google/play/billing/rtdn-reference#sub)
+object will no longer contain a *subscriptionId*. If you are relying on
 this field to identify the subscription product, you should update
 to obtain this information from the subscription status by using
 [`purchases.subscriptionv2:get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2)
@@ -199,13 +219,20 @@ the user instead of automatically renewing. All fields apply
 to prepaid plans as they do for auto-renewing subscriptions,
 with the following exceptions:
 
-- **\[New field\] lineItems\[0\].prepaid_plan.allowExtendAfterTime**: denotes when a user will be allowed to buy another top-up to extend their prepaid plan, as a user is allowed to have only one unconsumed top-up at a time.
-- **\[New field\] SubscriptionState** : specifies the subscription object state. For prepaid plans, this value is always either `ACTIVE`, `PENDING`, or `CANCELED`.
-- **lineItems\[0\].expiryTime**: This field is always present for prepaid plans.
-- **paused_state_context**: This field is never present, as prepaid plans cannot pause.
-- **lineItems\[0\].auto_renewing_plan**: Not present for prepaid plans.
-- **canceled_state_context**: Not present for prepaid plans, as this field applies only to users who actively cancel a subscription.
-- **lineItems\[0\].productId** : This field replaces `subscriptionId` from previous versions.
+* **[New field] lineItems[0].prepaid\_plan.allowExtendAfterTime**: denotes
+  when a user will be allowed to buy another top-up to extend their prepaid
+  plan, as a user is allowed to have only one unconsumed top-up at a time.
+* **[New field] SubscriptionState**: specifies the subscription object state.
+  For prepaid plans, this value is always either `ACTIVE`, `PENDING`, or
+  `CANCELED`.
+* **lineItems[0].expiryTime**: This field is always present for prepaid plans.
+* **paused\_state\_context**: This field is never present, as prepaid plans
+  cannot pause.
+* **lineItems[0].auto\_renewing\_plan**: Not present for prepaid plans.
+* **canceled\_state\_context**: Not present for prepaid plans, as this field
+  applies only to users who actively cancel a subscription.
+* **lineItems[0].productId**: This field replaces `subscriptionId` from
+  previous versions.
 
 #### SubscriptionPurchaseV2 fields for recurring subscriptions
 
@@ -215,7 +242,7 @@ the legacy subscription endpoint map to corresponding fields in
 `purchases.subscriptionv2`.
 
 | SubscriptionPurchase | SubscriptionPurchaseV2 |
-|---|---|
+| --- | --- |
 | `countryCode` | `regionCode` |
 | `orderId` | `latestOrderId` |
 | (no equivalent field) | `lineItems.offerPhase` (identifies current phase: free trial, intro price, proration, base price) |
@@ -232,12 +259,12 @@ the legacy subscription endpoint map to corresponding fields in
 | (no equivalent field) | `testPurchase` (only present in licensed tester purchases) |
 | `autoRenewing` | `lineItems.autoRenewingPlan.autoRenewEnabled` |
 | `priceCurrenceCode`, `priceAmountMicros` | `lineItems.autoRenewingPlan.recurringPrice` |
-| `introductoryPriceInfo` | `lineItems.offerPhase.introductoryPrice` This information can also be found in the `offer` for each of the subscriptions purchased. |
+| `introductoryPriceInfo` | `lineItems.offerPhase.introductoryPrice`  This information can also be found in the `offer` for each of the subscriptions purchased. |
 | developerPayload | (no equivalent field) developer payload has been deprecated |
-| paymentState | (no equivalent field) You can infer the payment state from `subscriptionState`: - Payment is pending: - `SUBSCRIPTION_STATE_PENDING` (new purchases with pending transaction) - `SUBSCRIPTION_STATE_IN_GRACE_PERIOD` - `SUBSCRIPTION_STATE_ON_HOLD` - Payment has been received: - `SUBSCRIPTION_STATE_ACTIVE` - Free trial: - `lineItems.offerPhase.freeTrial` - Deferred upgrade / downgrade: - `SUBSCRIPTION_STATE_PENDING` |
+| paymentState | (no equivalent field)  You can infer the payment state from `subscriptionState`:  * Payment is pending:   + `SUBSCRIPTION_STATE_PENDING` (new purchases     with pending transaction)   + `SUBSCRIPTION_STATE_IN_GRACE_PERIOD`   + `SUBSCRIPTION_STATE_ON_HOLD` * Payment has been received:   + `SUBSCRIPTION_STATE_ACTIVE` * Free trial:   + `lineItems.offerPhase.freeTrial` * Deferred upgrade / downgrade:   + `SUBSCRIPTION_STATE_PENDING` |
 | `cancelReason`, `userCancellationTimeMillis`, `cancelSurveyResult` | `canceledStateContext` |
 | `linkedPurchaseToken` | `linkedPurchaseToken` (no change) |
-| `purchaseType` | Test: through `testPurchase` Promotion: `signupPromotion` |
+| `purchaseType` | Test: through `testPurchase`  Promotion: `signupPromotion` |
 | `priceChange` | `lineItems.autoRenewingPlan.priceChangeDetails` |
 | `profileName`, `emailAddress`, `givenName`, `familyName`, `profileId` | [`subscribeWithGoogleInfo`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#subscribewithgoogleinfo) |
 | `acknowledgementState` | `acknowledgementState (no change)` |
@@ -269,3 +296,8 @@ endpoint to calculate regional prices as you would through the
 Play Console. This method accepts a single price in any Play-supported
 currency and returns converted prices (including the default rate of
 tax where applicable) for all regions where Google Play supports purchases.
+
+
+
+
+Send feedback

@@ -1,33 +1,12 @@
 ---
-title: Android Studio  |  Android Developers
+title: https://developer.android.com/build/releases/agp-1-0-0-release-notes
 url: https://developer.android.com/build/releases/agp-1-0-0-release-notes
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Gradle build guides](https://developer.android.com/build/releases/past-releases)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
 
 # Android plugin for Gradle, revision 1.0.0 (December 2014)
 
 Dependencies:
-
-|  | Minimum version | Default version | Notes |
-| --- | --- | --- | --- |
-| Gradle | 2.2.1 | 2.2.1 | To learn more, see [updating Gradle](/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). Supports up to Gradle 2.3.X |
-| SDK Build Tools | 21.1.1 | 21.1.1 | [Install](/studio/intro/update#sdk-manager) or [configure](/tools/releases/build-tools) SDK Build Tools. |
-
-**Note:** This version of the Android
-plugin for Gradle is not compatible with Gradle 2.4 and
-higher.
-
 General Notes:
-:   * Initial plugin release.
+:
+    - Initial plugin release.

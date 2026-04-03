@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 It's important to verify the stability of your app's database and your users'
 data when creating databases using the
 [Room persistence library](/training/data-storage/room). This page

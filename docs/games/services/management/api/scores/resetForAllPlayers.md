@@ -1,19 +1,12 @@
 ---
-title: Scores: resetForAllPlayers  |  API reference  |  Android Developers
+title: https://developer.android.com/games/services/management/api/scores/resetForAllPlayers
 url: https://developer.android.com/games/services/management/api/scores/resetForAllPlayers
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [API reference](https://developer.android.com/reference)
+# Scores: resetForAllPlayers
 
-# Scores: resetForAllPlayers Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-**Requires [authorization](#auth)**
+**Requires[authorization](https://developer.android.com/games/services/management/api/scores/resetForAllPlayers#auth)**
 
 Resets scores for the leaderboard with the given ID for all players. This method is only available to user accounts for your developer console. Only draft leaderboards can be reset.
 
@@ -27,17 +20,17 @@ POST https://www.googleapis.com/games/v1management/leaderboards/leaderboardId/sc
 
 ### Parameters
 
-| Parameter name | Value | Description |
-| --- | --- | --- |
-| **Path parameters** | | |
+| Parameter name  |  Value   |        Description         |
+|-----------------|----------|----------------------------|
+| **Path parameters**                                   |||
 | `leaderboardId` | `string` | The ID of the leaderboard. |
 
 ### Authorization
 
-This request requires authorization with the following scope ([read more about authentication and authorization](/accounts/docs/OAuth2)).
+This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
 
-| Scope |
-| --- |
+|                  Scope                  |
+|-----------------------------------------|
 | `https://www.googleapis.com/auth/games` |
 
 ### Request body

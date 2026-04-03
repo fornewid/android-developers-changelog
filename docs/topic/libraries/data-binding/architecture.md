@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The AndroidX library includes the [Architecture
 Components](/topic/libraries/architecture), which you can
 use to design robust, testable, and maintainable apps.

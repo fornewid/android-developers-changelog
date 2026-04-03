@@ -1,46 +1,69 @@
 ---
-title: https://developer.android.com/distribute/console
+title: Google Play Console  |  Android Developers
 url: https://developer.android.com/distribute/console
-source: md.txt
+source: html-scrape
 ---
 
-# Google Play Console
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
 
-![](http://developer.android.com/static/distribute/console/images/play-console.svg)  
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+![](https://developer.android.com/static/distribute/console/images/play-console.svg)
 
 ### Google Play Console
 
-Publish your apps and games with Google Play Console and grow your business on Google Play. Benefit from features that help you improve your app's quality, engage your audience, earn revenue, and more.  
-[Sign in](https://play.google.com/console/)[Learn More](https://play.google.com/console/about/)[![](http://developer.android.com/static/images/picto-icons/badge.svg)](https://play.google.com/console/about/guides/build-a-high-quality-app-or-game/)  
+Publish your apps and games with Google Play Console and grow your business on Google Play. Benefit from features that help you improve your app’s quality, engage your audience, earn revenue, and more.
 
-### [Build a high-quality app or game](https://play.google.com/console/about/guides/build-a-high-quality-app-or-game/)
+[Sign in](//play.google.com/console/)
+[Learn More](//play.google.com/console/about/)
 
-Drive long term success by improving key app quality components including content, user experience and technical performance  
-[Discover how](https://play.google.com/console/about/guides/build-a-high-quality-app-or-game/)  
-[![](http://developer.android.com/static/images/spot-icons/tools-update.svg)](https://play.google.com/console/about/guides/releasewithconfidence/)  
+[![](https://developer.android.com/static/images/picto-icons/badge.svg)](//play.google.com/console/about/guides/build-a-high-quality-app-or-game/)
 
-### [Release with confidence](https://play.google.com/console/about/guides/releasewithconfidence/)
+### [Build a high-quality app or game](//play.google.com/console/about/guides/build-a-high-quality-app-or-game/)
 
-Make your app launch a success with tools and strategies to help you publish, manage, and distribute your app worldwide  
-[Discover how](https://play.google.com/console/about/guides/releasewithconfidence/)[![](http://developer.android.com/static/images/picto-icons/grow.svg)](https://play.google.com/console/about/guides/growyouraudience/)  
+Drive long term success by improving key app quality components including content, user experience and technical performance
 
-### [Grow your audience](https://play.google.com/console/about/guides/growyouraudience/)
+[Discover how](//play.google.com/console/about/guides/build-a-high-quality-app-or-game/)
 
-Accelerate your user growth with our reporting and optimization tools, including unique market insights exclusive to Google Play  
-[Discover how](https://play.google.com/console/about/guides/growyouraudience/)  
-[![](http://developer.android.com/static/images/picto-icons/monetize.svg)](https://play.google.com/console/about/guides/play-commerce/)  
+[![](https://developer.android.com/static/images/spot-icons/tools-update.svg)](//play.google.com/console/about/guides/releasewithconfidence/)
 
-### [Monetize with ease](https://play.google.com/console/about/guides/play-commerce/)
+### [Release with confidence](//play.google.com/console/about/guides/releasewithconfidence/)
 
-Create a revenue stream by launching a paid app or offering digital content or subscriptions  
-[Discover how](https://play.google.com/console/about/guides/play-commerce/)  
-[![](http://developer.android.com/static/images/spot-icons/engagement-2.svg)](https://play.google.com/console/about/guides/engage-and-retain-your-users/)  
+Make your app launch a success with tools and strategies to help you publish, manage, and distribute your app worldwide
 
-### [Engage and retain your users](https://play.google.com/console/about/guides/engage-and-retain-your-users/)
+[Discover how](//play.google.com/console/about/guides/releasewithconfidence/)
 
-Our engagement tools and insights keep users coming back for more. Explore these app retention strategies to help engage your users.  
-[Discover how](https://play.google.com/console/about/guides/engage-and-retain-your-users/)![](http://developer.android.com/static/distribute/console/images/play-console-blue.png)  
+[![](https://developer.android.com/static/images/picto-icons/grow.svg)](//play.google.com/console/about/guides/growyouraudience/)
+
+### [Grow your audience](//play.google.com/console/about/guides/growyouraudience/)
+
+Accelerate your user growth with our reporting and optimization tools, including unique market insights exclusive to Google Play
+
+[Discover how](//play.google.com/console/about/guides/growyouraudience/)
+
+[![](https://developer.android.com/static/images/picto-icons/monetize.svg)](//play.google.com/console/about/guides/play-commerce/)
+
+### [Monetize with ease](//play.google.com/console/about/guides/play-commerce/)
+
+Create a revenue stream by launching a paid app or offering digital content or subscriptions
+
+[Discover how](//play.google.com/console/about/guides/play-commerce/)
+
+[![](https://developer.android.com/static/images/spot-icons/engagement-2.svg)](//play.google.com/console/about/guides/engage-and-retain-your-users/)
+
+### [Engage and retain your users](//play.google.com/console/about/guides/engage-and-retain-your-users/)
+
+Our engagement tools and insights keep users coming back for more. Explore these app retention strategies to help engage your users.
+
+[Discover how](//play.google.com/console/about/guides/engage-and-retain-your-users/)
+
+![](https://developer.android.com/static/distribute/console/images/play-console-blue.png)
 
 ## Get started with Play Console today
 
-[Sign in](https://play.google.com/console/)
+[Sign in](//play.google.com/console/)

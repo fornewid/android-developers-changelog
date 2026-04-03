@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Color considers display, environment, and cognition. Color on glasses uses a
 highly-refined palette to support the behavior of additive displays and to
 optimize for visual comfort. The use of color on glasses should be used

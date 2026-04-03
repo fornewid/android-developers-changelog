@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 On large screen devices, users often interact with apps using a keyboard, mouse,
 trackpad, stylus, or gamepad. To enable your app to accept input from external
 devices, do the following:

@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 To draw objects and sprites in your game, you will need to configure the
 display, surface and context variables, set up rendering in your game loop, and
 draw each scene and object.
@@ -293,6 +294,8 @@ Read the following for more information about OpenGL ES and Vulkan:
   in Android Source.
 * [Understand Android game loops](/games/develop/gameloops) - learn to pace
   frames, queue buffers, handle VSYNC callbacks, and manage threads.
+
+
 
 
 

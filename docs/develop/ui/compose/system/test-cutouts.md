@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Be sure to test all of your app's screens and experiences. Test on devices with
 different types of cutouts, if possible. If you don't have a device with a
 cutout, you can simulate common cutout configurations on any device or emulator

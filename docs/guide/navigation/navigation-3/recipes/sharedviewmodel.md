@@ -1,17 +1,8 @@
 ---
-title: App architecture  |  Android Developers
+title: https://developer.android.com/guide/navigation/navigation-3/recipes/sharedviewmodel
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/sharedviewmodel
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Shared ViewModel Recipe
 
@@ -21,9 +12,9 @@ This recipe demonstrates how to share a `ViewModel` between different screens (e
 
 This example defines three screens:
 
-* `ParentScreen`: Displays a button that increments a counter, the counter state is held in a `CounterViewModel`.
-* `ChildScreen`: A sub-screen that can update the `ParentScreen`'s counter state.
-* `StandaloneScreen`: An independent screen with its own isolated state.
+- `ParentScreen`: Displays a button that increments a counter, the counter state is held in a `CounterViewModel`.
+- `ChildScreen`: A sub-screen that can update the `ParentScreen`'s counter state.
+- `StandaloneScreen`: An independent screen with its own isolated state.
 
 ### `SharedViewModelStoreNavEntryDecorator`
 
@@ -31,46 +22,33 @@ The core of this recipe is the `SharedViewModelStoreNavEntryDecorator`. This dec
 
 In `SharedViewModelActivity.kt`, the `NavDisplay` is configured with this decorator:
 
-```
-entryDecorators = listOf(
-    rememberSaveableStateHolderNavEntryDecorator(),
-    rememberSharedViewModelStoreNavEntryDecorator(),
-)
-```
+    entryDecorators = listOf(
+        rememberSaveableStateHolderNavEntryDecorator(),
+        rememberSharedViewModelStoreNavEntryDecorator(),
+    )
 
 ### Sharing the ViewModel
 
 To enable sharing, the `ChildScreen` entry explicitly defines its parent using metadata:
 
-```
-entry<ChildScreen>(
-    metadata = SharedViewModelStoreNavEntryDecorator.parent(
-        ParentScreen.toContentKey()
-    )
-) {
-    // ...
-}
-```
+    entry<ChildScreen>(
+        metadata = SharedViewModelStoreNavEntryDecorator.parent(
+            ParentScreen.toContentKey()
+        )
+    ) {
+        // ...
+    }
 
 The `toContentKey()` extension function is used to standardize how the parent `NavEntry`'s `contentKey` is specified, both when defining the parent and when referenced in metadata by the child.
 
 When `ChildScreen` requests a `CounterViewModel`:
 
-```
-val parentViewModel = viewModel(modelClass = CounterViewModel::class)
-```
+    val parentViewModel = viewModel(modelClass = CounterViewModel::class)
 
 The decorator ensures it receives the **same instance** that `ParentScreen` is using, because it's using the `ParentScreen`'s `ViewModelStore`.
 
 In contrast, `StandaloneScreen` does not define a parent, so it gets its own fresh `ViewModelStore` and a new instance of `CounterViewModel`.
-
-[![](/static/images/picto-icons/code.svg)
-
-Explore
-
-View the full recipe on GitHub.
-
-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/sharedviewmodel)
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/sharedviewmodel)
 
 ```
 /*
@@ -279,8 +257,6 @@ fun rememberViewModelStoreOwner(viewModelStore: ViewModelStore): ViewModelStoreO
         }
     }
 }
-
-SharedViewModelStoreNavEntryDecorator.kt
 ```
 
 ```
@@ -414,6 +390,4 @@ fun NavKey.toContentKey() = this.toString()
 class CounterViewModel : ViewModel() {
     var count by mutableIntStateOf(0)
 }
-
-SharedViewModelActivity.kt
 ```

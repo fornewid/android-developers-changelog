@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This topics describes how to use Play Games Services events in Unity
 games.
 
@@ -43,6 +44,8 @@ To increment an event, call the following method:
 
 You only need to make this call once. It handles batching and execution in the
 background.
+
+
 
 
 

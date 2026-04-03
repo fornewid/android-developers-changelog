@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 Use the extended controls on the Android Emulator to send data, change device
 properties, control apps, and more. To open the **Extended controls** window,
 click **More** ![Emulator extended controls icon](/static/studio/images/buttons/emulator-extended-controls.png) in the emulator panel. Some of

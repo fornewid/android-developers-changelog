@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Multi-window mode enables multiple apps to share the same screen simultaneously.
 Apps can be side by side or one above the other (split-screen mode), one app in
 a small window overlaying other apps (picture-in-picture mode), or individual

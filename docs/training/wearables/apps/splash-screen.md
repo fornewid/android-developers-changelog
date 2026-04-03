@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 If your app implements a custom splash screen or uses a launcher theme, migrate
 your app to the [`SplashScreen`](/reference/kotlin/androidx/core/splashscreen/SplashScreen) library, available in Jetpack, to ensure it
 displays correctly on all Wear OS versions.

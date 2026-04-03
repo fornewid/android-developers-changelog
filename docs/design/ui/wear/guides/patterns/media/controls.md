@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The media controls screen is essential to help users control the media that
 they're listening to. Create media controls using a 5-button layout to verify
 that minimum tap targets are met. On larger screens that are 225 dp or larger,

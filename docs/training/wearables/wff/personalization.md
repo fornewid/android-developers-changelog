@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Once you have a basic watch face put together, letting the user customize both
 the appearance of the watch face and the information shown on it, helps make the watch
 more personal and more useful.

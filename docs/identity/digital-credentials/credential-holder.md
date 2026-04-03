@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The Credential Manager Holder API enables your Android holder (also called
 "wallet") app to manage and present digital credentials to verifiers.
 

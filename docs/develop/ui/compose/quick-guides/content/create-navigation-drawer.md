@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The [navigation drawer](https://material.io/components/navigation-drawer) component is a slide-in menu that lets users navigate
 to various sections of your app. Users can activate it by swiping from the side
 or tapping a menu icon.

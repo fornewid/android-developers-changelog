@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** We recommend building your UI with Compose instead of Views where
 possible. To learn how to preview your Compose UI, see
 [Compose previews](/jetpack/compose/tooling/previews).

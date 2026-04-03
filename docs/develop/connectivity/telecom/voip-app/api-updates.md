@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Android 14 introduced API updates accompanied by user experience changes to
 audio routing behavior for Bluetooth LE Audio (LEA) devices, including hearing
 aids. These changes impacted how VoIP apps manage audio output selection. This

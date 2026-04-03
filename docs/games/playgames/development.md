@@ -13,7 +13,6 @@ Send feedback
 
 
 
-
 This guide will walk you through everything you need to know to get your game
 ready for Google Play Games on PC and submit a build for testing.
 
@@ -22,8 +21,6 @@ Learn how to
 * [Test](/games/playgames/development-test) your game
 * [Package](/games/playgames/development-package) your game
 * [Submit](/games/playgames/development-submit) a build
-
-
 
 
 

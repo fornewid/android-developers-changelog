@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Beginning in Android 11, keyboards and other input-method editors
 (*IMEs*) can display autofill suggestions inline, in a suggestion strip, or
 something similar instead of the system displaying suggestions in a menu. Since

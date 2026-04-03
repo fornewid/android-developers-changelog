@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Recording device activity over a short period of time is known as *system
 tracing*. System tracing produces a trace file that you can use to generate a
 system report. This report helps you identify how best to improve your app or

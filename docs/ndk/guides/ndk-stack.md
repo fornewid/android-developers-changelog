@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The `ndk-stack` tool allows you to symbolize stack traces from
 [`adb logcat`](/tools/help/logcat) or a
 tombstone in `/data/tombstones/`. It replaces any

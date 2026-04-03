@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Design media experiences on Wear OS by applying core principles that prioritize
 user control and efficiency.
 

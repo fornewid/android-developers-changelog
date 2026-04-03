@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The [`Dialog`](/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) component displays dialog messages or requests user input on a
 layer above the main app content. It creates an interruptive UI experience to
 capture user attention.

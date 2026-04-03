@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Media3 provides a default [`PlayerView`](/guide/topics/media/ui/playerview) that provides some customization
 options.
 

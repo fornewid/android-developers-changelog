@@ -1,88 +1,75 @@
 ---
-title: Supported Vulkan extensions  |  Android Developers
+title: https://developer.android.com/agi/vulkan-extensions
 url: https://developer.android.com/agi/vulkan-extensions
-source: html-scrape
+source: md.txt
 ---
 
-Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.withgoogle.com/) on March 15!
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Guides](https://developer.android.com/games/guides)
-
-# Supported Vulkan extensions Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-**Note:** Use of unsupported extensions with the **Include Unsupported Extensions**
-[trace option](/agi/frame-trace/frame-profiler#trace_options) selected may
-result in undesirable behavior, including subtle errors or crashes, when
-replaying a trace.
+> [!NOTE]
+> **Note:** Use of unsupported extensions with the **Include Unsupported Extensions** [trace option](https://developer.android.com/agi/frame-trace/frame-profiler#trace_options) selected may result in undesirable behavior, including subtle errors or crashes, when replaying a trace.
 
 | Extension | Support | Note |
-| --- | --- | --- |
-| VK\_KHR\_16bit\_storage | Yes | Core in 1.1 |
-| VK\_KHR\_8bit\_storage | Yes |  |
-| VK\_KHR\_android\_surface | Yes |  |
-| VK\_KHR\_bind\_memory2 | Yes | Core in 1.1 |
-| VK\_KHR\_create\_renderpass2 | No |  |
-| VK\_KHR\_dedicated\_allocation | Yes | Core in 1.1 |
-| VK\_KHR\_depth\_stencil\_resolve | No |  |
-| VK\_KHR\_descriptor\_update\_template | Yes | Core in 1.1 |
-| VK\_KHR\_device\_group | Yes | Core in 1.1 |
-| VK\_KHR\_device\_group\_creation | Yes | Core in 1.1 |
-| VK\_KHR\_display | Yes |  |
-| VK\_KHR\_display\_swapchain | Yes |  |
-| VK\_KHR\_draw\_indirect\_count | Yes |  |
-| VK\_KHR\_driver\_properties | Yes |  |
-| VK\_KHR\_external\_fence | No | Core in 1.1 |
-| VK\_KHR\_external\_fence\_capabilities | Yes | Core in 1.1 |
-| VK\_KHR\_external\_fence\_fd | No |  |
-| VK\_KHR\_external\_fence\_win32 | No |  |
-| VK\_KHR\_external\_memory | No | Core in 1.1 |
-| VK\_KHR\_external\_memory\_capabilities | Yes | Core in 1.1 |
-| VK\_KHR\_external\_memory\_fd | No |  |
-| VK\_KHR\_external\_memory\_win32 | No |  |
-| VK\_KHR\_external\_semaphore | No | Core in 1.1 |
-| VK\_KHR\_external\_semaphore\_capabilities | Yes | Core in 1.1 |
-| VK\_KHR\_external\_semaphore\_fd | No |  |
-| VK\_KHR\_external\_semaphore\_win32 | No |  |
-| VK\_KHR\_get\_display\_properties2 | No |  |
-| VK\_KHR\_get\_memory\_requirements2 | Yes | Core in 1.1 |
-| VK\_KHR\_get\_physical\_device\_properties2 | Yes | Core in 1.1 |
-| VK\_KHR\_get\_surface\_capabilities2 | Yes |  |
-| VK\_KHR\_image\_format\_list | Yes |  |
-| VK\_KHR\_imageless\_framebuffer | No |  |
-| VK\_KHR\_incremental\_present | No |  |
-| VK\_KHR\_maintenance1 | Yes | Core in 1.1 |
-| VK\_KHR\_maintenance2 | Yes | Core in 1.1 |
-| VK\_KHR\_maintenance3 | Yes | Core in 1.1 |
-| VK\_KHR\_multiview | No | Core in 1.1 |
-| VK\_KHR\_pipeline\_executable\_properties | No |  |
-| VK\_KHR\_push\_descriptor | No |  |
-| VK\_KHR\_relaxed\_block\_layout | Yes | Core in 1.1 |
-| VK\_KHR\_sampler\_mirror\_clamp\_to\_edge | Yes |  |
-| VK\_KHR\_sampler\_ycbcr\_conversion | Yes | Core in 1.1 |
-| VK\_KHR\_shader\_atomic\_int64 | Yes |  |
-| VK\_KHR\_shader\_clock | Yes |  |
-| VK\_KHR\_shader\_draw\_parameters | Yes | Core in 1.1 |
-| VK\_KHR\_shader\_float16\_int8 | Yes |  |
-| VK\_KHR\_shader\_float\_controls | Yes |  |
-| VK\_KHR\_shader\_subgroup\_extended\_types | Yes |  |
-| VK\_KHR\_shared\_presentable\_image | No |  |
-| VK\_KHR\_spirv\_1\_4 | Yes |  |
-| VK\_KHR\_storage\_buffer\_storage\_class | Yes | Core in 1.1 |
-| VK\_KHR\_surface | Yes |  |
-| VK\_KHR\_surface\_protected\_capabilities | No |  |
-| VK\_KHR\_swapchain | Yes |  |
-| VK\_KHR\_swapchain\_mutable\_format | No |  |
-| VK\_KHR\_timeline\_semaphore | No |  |
-| VK\_KHR\_uniform\_buffer\_standard\_layout | No |  |
-| VK\_KHR\_variable\_pointers | Yes | Core in 1.1 |
-| VK\_KHR\_vulkan\_memory\_model | Yes |  |
-| VK\_KHR\_wayland\_surface | Yes |  |
-| VK\_KHR\_win32\_keyed\_mutex | No |  |
-| VK\_KHR\_win32\_surface | Yes |  |
-| VK\_KHR\_xcb\_surface | Yes |  |
-| VK\_KHR\_xlib\_surface | Yes |  |
+|---|---|---|
+| VK_KHR_16bit_storage | Yes | Core in 1.1 |
+| VK_KHR_8bit_storage | Yes |   |
+| VK_KHR_android_surface | Yes |   |
+| VK_KHR_bind_memory2 | Yes | Core in 1.1 |
+| VK_KHR_create_renderpass2 | No |   |
+| VK_KHR_dedicated_allocation | Yes | Core in 1.1 |
+| VK_KHR_depth_stencil_resolve | No |   |
+| VK_KHR_descriptor_update_template | Yes | Core in 1.1 |
+| VK_KHR_device_group | Yes | Core in 1.1 |
+| VK_KHR_device_group_creation | Yes | Core in 1.1 |
+| VK_KHR_display | Yes |   |
+| VK_KHR_display_swapchain | Yes |   |
+| VK_KHR_draw_indirect_count | Yes |   |
+| VK_KHR_driver_properties | Yes |   |
+| VK_KHR_external_fence | No | Core in 1.1 |
+| VK_KHR_external_fence_capabilities | Yes | Core in 1.1 |
+| VK_KHR_external_fence_fd | No |   |
+| VK_KHR_external_fence_win32 | No |   |
+| VK_KHR_external_memory | No | Core in 1.1 |
+| VK_KHR_external_memory_capabilities | Yes | Core in 1.1 |
+| VK_KHR_external_memory_fd | No |   |
+| VK_KHR_external_memory_win32 | No |   |
+| VK_KHR_external_semaphore | No | Core in 1.1 |
+| VK_KHR_external_semaphore_capabilities | Yes | Core in 1.1 |
+| VK_KHR_external_semaphore_fd | No |   |
+| VK_KHR_external_semaphore_win32 | No |   |
+| VK_KHR_get_display_properties2 | No |   |
+| VK_KHR_get_memory_requirements2 | Yes | Core in 1.1 |
+| VK_KHR_get_physical_device_properties2 | Yes | Core in 1.1 |
+| VK_KHR_get_surface_capabilities2 | Yes |   |
+| VK_KHR_image_format_list | Yes |   |
+| VK_KHR_imageless_framebuffer | No |   |
+| VK_KHR_incremental_present | No |   |
+| VK_KHR_maintenance1 | Yes | Core in 1.1 |
+| VK_KHR_maintenance2 | Yes | Core in 1.1 |
+| VK_KHR_maintenance3 | Yes | Core in 1.1 |
+| VK_KHR_multiview | No | Core in 1.1 |
+| VK_KHR_pipeline_executable_properties | No |   |
+| VK_KHR_push_descriptor | No |   |
+| VK_KHR_relaxed_block_layout | Yes | Core in 1.1 |
+| VK_KHR_sampler_mirror_clamp_to_edge | Yes |   |
+| VK_KHR_sampler_ycbcr_conversion | Yes | Core in 1.1 |
+| VK_KHR_shader_atomic_int64 | Yes |   |
+| VK_KHR_shader_clock | Yes |   |
+| VK_KHR_shader_draw_parameters | Yes | Core in 1.1 |
+| VK_KHR_shader_float16_int8 | Yes |   |
+| VK_KHR_shader_float_controls | Yes |   |
+| VK_KHR_shader_subgroup_extended_types | Yes |   |
+| VK_KHR_shared_presentable_image | No |   |
+| VK_KHR_spirv_1_4 | Yes |   |
+| VK_KHR_storage_buffer_storage_class | Yes | Core in 1.1 |
+| VK_KHR_surface | Yes |   |
+| VK_KHR_surface_protected_capabilities | No |   |
+| VK_KHR_swapchain | Yes |   |
+| VK_KHR_swapchain_mutable_format | No |   |
+| VK_KHR_timeline_semaphore | No |   |
+| VK_KHR_uniform_buffer_standard_layout | No |   |
+| VK_KHR_variable_pointers | Yes | Core in 1.1 |
+| VK_KHR_vulkan_memory_model | Yes |   |
+| VK_KHR_wayland_surface | Yes |   |
+| VK_KHR_win32_keyed_mutex | No |   |
+| VK_KHR_win32_surface | Yes |   |
+| VK_KHR_xcb_surface | Yes |   |
+| VK_KHR_xlib_surface | Yes |   |

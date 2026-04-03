@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Requires [authorization](#auth)**
 
 Resets the event with the given ID for all players. This method is only available to user accounts for your developer console. Only draft events can be reset.

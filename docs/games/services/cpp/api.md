@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Google Play Games C++ API Reference
 
 These are the reference pages for the Play Games services C++ APIs.

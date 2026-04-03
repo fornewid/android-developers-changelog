@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** Agent files titled `AGENTS.md` are compatible with Android Studio Narwhal
 4 Feature Drop Canary 4 and higher. To use agent files with Android Studio
 Narwhal 3 Feature Drop, use the name `AGENT.md` instead of `AGENTS.md`.

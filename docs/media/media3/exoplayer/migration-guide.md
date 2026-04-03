@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Apps that are currently using the standalone `com.google.android.exoplayer2`
 library and `androidx.media` should migrate to `androidx.media3`. Use
 the [migration script](#exoplayer) to migrate gradle build files, Java and

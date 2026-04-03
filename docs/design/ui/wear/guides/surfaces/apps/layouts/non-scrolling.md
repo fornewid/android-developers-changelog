@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Non-scrolling views focus on glanceable information and offer users value with
 little or no interaction. Because of that, it can be challenging to build
 responsive behavior into these layouts.

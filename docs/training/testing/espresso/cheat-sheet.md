@@ -1,24 +1,15 @@
 ---
-title: Espresso cheat sheet  |  Test your app on Android  |  Android Developers
+title: https://developer.android.com/training/testing/espresso/cheat-sheet
 url: https://developer.android.com/training/testing/espresso/cheat-sheet
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Test your app on Android](https://developer.android.com/training/testing)
-
-# Espresso cheat sheet Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 The Espresso Cheat Sheet is a quick reference you can use during development.
 This cheat sheet contains most available instances of `Matcher`, `ViewAction`,
 and `ViewAssertion`.
 
 ![List of methods available for onView(), onData(), intended() and
-          intending()](/static/images/training/testing/espresso-cheatsheet.png)
+intending()](https://developer.android.com/static/images/training/testing/espresso-cheatsheet.png)
 
 An offline version is also available in PDF format:
 [espresso-cheat-sheet-2.1.0.pdf](https://android.github.io/android-test/downloads/espresso-cheat-sheet-2.1.0.pdf).

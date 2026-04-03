@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Speed up buying decisions with a scrollable list of products shoppers can select from to see product descriptions, specifications, manufacturer data, star ratings—all on one screen for convenient viewing that rings up sales quickly.
 
 ![](/static/images/large-screens/gallery/samples/shopping/gallery_shopping_specs.png)

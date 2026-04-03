@@ -12,23 +12,22 @@ source: html-scrape
 
 
 
-
 This page presents several [Architecture](/topic/architecture) best practices and recommendations.
-Adopt them to improve your app’s quality, robustness, and scalability. They also
+Adopt them to improve your app's quality, robustness, and scalability. They also
 make it easier to maintain and test your app.
 
-**Note:** You should treat the recommendations in the document as
+**Note:** Treat the recommendations in the document as
 recommendations and not strict requirements. Adapt them to your app as needed.
 
 The best practices below are grouped by topic. Each has a priority that reflects
-how strongly the team recommends it. The list of priorities is as follows:
+how strong the recommendation is. The list of priorities is as follows:
 
-* **Strongly recommended:** You should implement this practice unless it clashes fundamentally with your approach.
+* **Strongly recommended:** Implement this practice unless it clashes fundamentally with your approach.
 * **Recommended:** This practice is likely to improve your app.
 * **Optional:** This practice can improve your app in certain circumstances.
 
-**Note:** In order to understand these recommendations, you should be familiar with
-the [Architecture guidance](/topic/architecture).
+**Note:** To understand these recommendations, make sure you are familiar
+with the [Architecture guidance](/topic/architecture).
 
 ## Layered architecture
 
@@ -39,11 +38,11 @@ practices for layered architecture:
 
 | Recommendation | Description |
 | --- | --- |
-| Use a clearly defined [data layer](/jetpack/guide/data-layer). **Strongly recommended** | The [data layer](/jetpack/guide/data-layer) exposes application data to the rest of the app and contains the vast majority of business logic of your app.  * You should create [repositories](/topic/architecture/data-layer#architecture) even if they just contain a single data source. * In small apps, you can choose to place data layer types in a `data` package or module. |
-| Use a clearly defined [UI layer](/jetpack/guide/ui-layer). **Strongly recommended** | The [UI layer](/jetpack/guide/ui-layer) displays the application data on the screen and serves as the primary point of user interaction.  * In small apps, you can choose to place data layer types in a `ui` package or module.  [More UI layer best practices here](#ui-layer). |
-| The [data layer](/jetpack/guide/data-layer) should expose application data using a repository. **Strongly recommended** | Components in the UI layer such as composables, activities, or ViewModels shouldn't interact directly with a data source. Examples of data sources are:   * Databases, DataStore, SharedPreferences, Firebase APIs. * GPS location providers. * Bluetooth data providers. * Network connectivity status provider. |
-| Use [coroutines and flows](/kotlin/coroutines?gclid=CjwKCAjwhNWZBhB_EiwAPzlhNtReVIBfrUFBUt6SqZz3YLezP9YEiGuBube4YSTrOF-0ovxzpNGNaRoCiYsQAvD_BwE&gclsrc=aw.ds). **Strongly recommended** | Use [coroutines and flows](/kotlin/coroutines?gclid=CjwKCAjwhNWZBhB_EiwAPzlhNtReVIBfrUFBUt6SqZz3YLezP9YEiGuBube4YSTrOF-0ovxzpNGNaRoCiYsQAvD_BwE&gclsrc=aw.ds) to communicate between layers. [More coroutines best practices here](/kotlin/coroutines/coroutines-best-practices). |
-| Use a [domain layer](/jetpack/guide/domain-layer). **Recommended in big apps** | Use a [domain layer](/jetpack/guide/domain-layer), use cases, if you need to reuse business logic that interacts with the data layer across multiple ViewModels, or you want to simplify the business logic complexity of a particular ViewModel |
+| Use a clearly defined [data layer](/jetpack/guide/data-layer). **Strongly recommended** | The [data layer](/jetpack/guide/data-layer) exposes application data to the rest of the app and contains the vast majority of your app's business logic.  * Create [repositories](/topic/architecture/data-layer#architecture) even if they contain only a single data source. * In small apps, you can choose to place data layer types in a `data` package or module. |
+| Use a clearly defined [UI layer](/jetpack/guide/ui-layer). **Strongly recommended** | The [UI layer](/jetpack/guide/ui-layer) displays the application data on the screen and serves as the primary point of user interaction. [Jetpack Compose](/develop/ui/compose/documentation) is the recommended modern toolkit for building your app's UI.  * In small apps, you can choose to place data layer types in a `ui` package or module.  For more information on UI layer best practices, see [UI layer](#ui-layer). |
+| Expose application data from the [data layer](/jetpack/guide/data-layer) using a repository. **Strongly recommended** | Make sure components in the UI layer such as composables or ViewModels don't interact directly with a data source. Examples of data sources include:   * Databases, DataStore, SharedPreferences, Firebase APIs. * GPS location providers. * Bluetooth data providers. * Network connectivity status providers. |
+| Use [coroutines and flows](/kotlin/coroutines?gclid=CjwKCAjwhNWZBhB_EiwAPzlhNtReVIBfrUFBUt6SqZz3YLezP9YEiGuBube4YSTrOF-0ovxzpNGNaRoCiYsQAvD_BwE&gclsrc=aw.ds). **Strongly recommended** | Use [coroutines and flows](/kotlin/coroutines?gclid=CjwKCAjwhNWZBhB_EiwAPzlhNtReVIBfrUFBUt6SqZz3YLezP9YEiGuBube4YSTrOF-0ovxzpNGNaRoCiYsQAvD_BwE&gclsrc=aw.ds) to communicate between layers. For more information on coroutines best practices, see [Best practices for coroutines in Android](/kotlin/coroutines/coroutines-best-practices). |
+| Use a [domain layer](/jetpack/guide/domain-layer). **Recommended in big apps** | Use a [domain layer](/jetpack/guide/domain-layer) with use cases if you need to reuse business logic that interacts with the data layer across multiple ViewModels, or you want to simplify the business logic complexity of a particular ViewModel |
 
 ## UI layer
 
@@ -54,60 +53,37 @@ for the UI layer:
 | Recommendation | Description |
 | --- | --- |
 | Follow [Unidirectional Data Flow (UDF)](/jetpack/compose/architecture#udf). **Strongly recommended** | Follow [Unidirectional Data Flow (UDF)](/jetpack/compose/architecture#udf) principles, where ViewModels expose UI state using the observer pattern and receive actions from the UI through method calls. |
-| Use [AAC ViewModels](/topic/libraries/architecture/viewmodel) if their benefits apply to your app. **Strongly recommended** | Use [AAC ViewModels](/topic/libraries/architecture/viewmodel) to [handle business logic](/jetpack/guide/ui-layer#logic-types), and fetch application data to expose UI state to the UI (Compose or Android Views). See more [ViewModel best practices here.](#viewmodel)  See the [benefits of ViewModels here.](/topic/architecture/ui-layer/stateholders#viewmodel-as) |
-| Use lifecycle-aware UI state collection. **Strongly recommended** | Collect UI state from the UI using the appropriate lifecycle-aware coroutine builder: [`repeatOnLifecycle`](/reference/kotlin/androidx/lifecycle/package-summary#(androidx.lifecycle.Lifecycle).repeatOnLifecycle(androidx.lifecycle.Lifecycle.State,kotlin.coroutines.SuspendFunction1)) in the View system and [`collectAsStateWithLifecycle`](/reference/kotlin/androidx/lifecycle/compose/collectAsStateWithLifecycle.composable#(kotlinx.coroutines.flow.StateFlow).collectAsStateWithLifecycle(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle.State,kotlin.coroutines.CoroutineContext)) in Jetpack Compose. Read more about [`repeatOnLifecycle`](https://medium.com/androiddevelopers/a-safer-way-to-collect-flows-from-android-uis-23080b1f8bda).  Read more about about [`collectAsStateWithLifecycle`](https://medium.com/androiddevelopers/consuming-flows-safely-in-jetpack-compose-cde014d0d5a3). |
-| Do not send events from the ViewModel to the UI. **Strongly recommended** | Process the event immediately in the ViewModel and cause a state update with the result of handling the event. More about [UI events here](/topic/architecture/ui-layer/events#handle-viewmodel-events). |
-| Use a single-activity application. **Recommended** | Use [Navigation Fragments](/guide/navigation) or [Navigation Compose](/jetpack/compose/navigation) to navigate between screens and deep link to your app if your app has more than one screen. |
-| Use [Jetpack Compose](/jetpack/compose). **Recommended** | Use [Jetpack Compose](/jetpack/compose) to build new apps for phones, tablets and foldables and Wear OS. |
+| Use [AAC ViewModels](/topic/libraries/architecture/viewmodel) if their benefits apply to your app. **Strongly recommended** | Use [AAC ViewModels](/topic/libraries/architecture/viewmodel) to [handle business logic](/jetpack/guide/ui-layer#logic-types), and fetch application data to expose UI state to the UI. For more information on ViewModel best practices, see [Architecture recommendations.](#viewmodel)  For more information on the benefits of ViewModels, see [The ViewModel as a business logic state holder.](/topic/architecture/ui-layer/stateholders#viewmodel-as) |
+| Use lifecycle-aware UI state collection. **Strongly recommended** | Collect UI state from the UI using the appropriate lifecycle-aware coroutine builder, [`collectAsStateWithLifecycle`](/reference/kotlin/androidx/lifecycle/compose/collectAsStateWithLifecycle.composable#(kotlinx.coroutines.flow.StateFlow).collectAsStateWithLifecycle(androidx.lifecycle.LifecycleOwner,androidx.lifecycle.Lifecycle.State,kotlin.coroutines.CoroutineContext)). Read more about  [`collectAsStateWithLifecycle`](https://medium.com/androiddevelopers/consuming-flows-safely-in-jetpack-compose-cde014d0d5a3). |
+| Do not send events from the ViewModel to the UI. **Strongly recommended** | Process the event immediately in the ViewModel and cause a state update with the result of handling the event. For more information about UI events, see [Handle ViewModel events](/topic/architecture/ui-layer/events#handle-viewmodel-events). |
+| Use a single-activity application. **Strongly recommended** | Use [Navigation 3](/guide/navigation/navigation-3) to navigate between screens and deep link to your app if your app has more than one screen. |
+| Use [Jetpack Compose](/jetpack/compose). **Strongly recommended** | Use [Jetpack Compose](/jetpack/compose) to build new apps for phones, tablets, foldables, and Wear OS. |
 
 The following snippet outlines how to collect the UI state in a lifecycle-aware
 manner:
 
-### Views
-
 ```
-class MyFragment : Fragment() {
-
-    private val viewModel: MyViewModel by viewModel()
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collect {
-                    // Process item
-                }
-            }
-        }
-    }
-}
-```
-
-### Compose
-
-```
-@Composable
-fun MyScreen(
-    viewModel: MyViewModel = viewModel()
-) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-}
+  @Composable
+  fun MyScreen(
+      viewModel: MyViewModel = viewModel()
+  ) {
+      val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+  }
 ```
 
 ## ViewModel
 
-[ViewModels](/topic/architecture/ui-layer/stateholders#business-logic) are responsible for providing the UI state and access to the
+[ViewModels](/topic/architecture/ui-layer/stateholders#business-logic) are responsible for providing the UI state and accessing the
 data layer. Here are some best practices for ViewModels:
 
 | Recommendation | Description |
 | --- | --- |
-| ViewModels should be agnostic of the Android lifecycle. **Strongly recommended** | ViewModels shouldn't hold a reference to any Lifecycle-related type. Don't pass `Activity, Fragment, Context` or `Resources` as a dependency. If something needs a `Context` in the ViewModel, you should strongly evaluate if that is in the right layer. |
-| Use [coroutines and flows](/kotlin/coroutines?gclid=CjwKCAjwhNWZBhB_EiwAPzlhNtReVIBfrUFBUt6SqZz3YLezP9YEiGuBube4YSTrOF-0ovxzpNGNaRoCiYsQAvD_BwE&gclsrc=aw.ds). **Strongly recommended** | The ViewModel interacts with the data or domain layers using:   * Kotlin flows for receiving application data, * `suspend` functions to perform actions using [`viewModelScope`](/topic/libraries/architecture/coroutines#viewmodelscope). |
+| Keep ViewModels independent of the Android lifecycle. **Strongly recommended** | In ViewModels, don't hold a reference to any lifecycle-related type. Don't pass `Activity`, `Context` or `Resources` as a dependency. If something needs a `Context` in the ViewModel, carefully evaluate if that is in the right layer. |
+| Use [coroutines and flows](/kotlin/coroutines?gclid=CjwKCAjwhNWZBhB_EiwAPzlhNtReVIBfrUFBUt6SqZz3YLezP9YEiGuBube4YSTrOF-0ovxzpNGNaRoCiYsQAvD_BwE&gclsrc=aw.ds). **Strongly recommended** | The ViewModel interacts with the data or domain layers using the following:   * Kotlin flows for receiving application data * `suspend` functions for performing actions using [`viewModelScope`](/topic/libraries/architecture/coroutines#viewmodelscope) |
 | Use ViewModels at screen level. **Strongly recommended** | Do not use ViewModels in reusable pieces of UI. You should use ViewModels in:   * Screen-level composables, * Activities/Fragments in Views, * Destinations or graphs when using [Jetpack Navigation](/guide/navigation). |
-| Use [plain state holder classes](/topic/architecture/ui-layer/stateholders#ui-logic) in reusable UI components. **Strongly recommended** | Use [plain state holder classes](/topic/architecture/ui-layer/stateholders#ui-logic) for handling complexity in reusable UI components. By doing this, the state can be hoisted and controlled externally. |
-| Do not use [`AndroidViewModel`](/reference/androidx/lifecycle/AndroidViewModel). **Recommended** | Use the [`ViewModel`](/reference/androidx/lifecycle/ViewModel) class, not [`AndroidViewModel`](/reference/androidx/lifecycle/AndroidViewModel). The `Application` class shouldn't be used in the ViewModel. Instead, move the dependency to the UI or the data layer. |
-| Expose a UI state. **Recommended** | ViewModels should expose data to the UI through a single property called `uiState`. If the UI shows multiple, unrelated pieces of data, the VM can [expose multiple UI state properties](/jetpack/guide/ui-layer#additional-considerations).  * You should make `uiState` a `StateFlow`. * You should create the `uiState` using the [`stateIn`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/state-in.html) operator with the [`WhileSubscribed(5000)`](https://medium.com/androiddevelopers/migrating-from-livedata-to-kotlins-flow-379292f419fb) policy [(example)](https://github.com/android/compose-samples/blob/main/JetNews/app/src/main/java/com/example/jetnews/ui/interests/InterestsViewModel.kt#L56) if the data comes as a stream of data from other layers of the hierarchy. * For simpler cases with no streams of data coming from the data layer, it's acceptable to use a `MutableStateFlow` exposed as an immutable `StateFlow` [(example)](https://github.com/android/compose-samples/blob/main/Jetcaster/app/src/main/java/com/example/jetcaster/ui/home/category/PodcastCategoryViewModel.kt#L37). * You can choose to have the `${Screen}UiState` as a data class that can contain data, errors and loading signals. This class could also be a sealed class if the different states are exclusive. |
+| Use [plain state holder classes](/topic/architecture/ui-layer/stateholders#ui-logic) in reusable UI components. **Strongly recommended** | Use [plain state holder classes](/topic/architecture/ui-layer/stateholders#ui-logic) for handling complexity in reusable UI components. When you do this, the state can be hoisted and controlled externally. |
+| Do not use [`AndroidViewModel`](/reference/androidx/lifecycle/AndroidViewModel). **Recommended** | Use the [`ViewModel`](/reference/androidx/lifecycle/ViewModel) class, not [`AndroidViewModel`](/reference/androidx/lifecycle/AndroidViewModel). Don't use the `Application` class in the ViewModel. Instead, move the dependency to the UI or the data layer. |
+| Expose a UI state. **Recommended** | Make your ViewModels expose data to the UI through a single property called `uiState`. If the UI shows multiple, unrelated pieces of data, the VM can [expose multiple UI state properties](/jetpack/guide/ui-layer#additional-considerations).  * Make `uiState` a `StateFlow`. * Create the `uiState` using the [`stateIn`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/state-in.html) operator with the [`WhileSubscribed(5000)`](https://medium.com/androiddevelopers/migrating-from-livedata-to-kotlins-flow-379292f419fb) policy if the data comes as a stream of data from other layers of the hierarchy. (See [this code example](https://github.com/android/compose-samples/blob/main/JetNews/app/src/main/java/com/example/jetnews/ui/interests/InterestsViewModel.kt#L56).) * For simpler cases with no streams of data coming from the data layer, it's acceptable to use a `MutableStateFlow` exposed as an immutable `StateFlow`. * You can choose to have the `${Screen}UiState` as a data class that can contain data, errors, and loading signals. This class can also be a sealed class if the different states are exclusive. |
 
 The following snippet outlines how to expose UI state from a ViewModel:
 
@@ -133,67 +109,57 @@ class BookmarksViewModel @Inject constructor(
 
 ## Lifecycle
 
-The following are some best practices for working with the [Android
+Follow best practices for working with the [Activity
 lifecycle](/guide/components/activities/activity-lifecycle):
 
 | Recommendation | Description |
 | --- | --- |
-| Do not override lifecycle methods in Activities or Fragments. **Strongly recommended** | Do not override lifecycle methods such as `onResume` in Activities or Fragments. Use [`LifecycleObserver`](/reference/androidx/lifecycle/LifecycleObserver) instead. If the app needs to perform work when the lifecycle reaches a certain `Lifecycle.State`, use the [`repeatOnLifecycle`](/reference/kotlin/androidx/lifecycle/package-summary#(androidx.lifecycle.Lifecycle).repeatOnLifecycle(androidx.lifecycle.Lifecycle.State,kotlin.coroutines.SuspendFunction1)) API. |
+| Use lifecycle-aware effects in composables instead of overriding `Activity` lifecycle callbacks. **Strongly recommended** | Don't override `Activity` lifecycle methods, such as `onResume`, to run UI-related tasks. Instead, use Compose's [LifecycleEffects](/topic/libraries/architecture/compose) or lifecycle-aware coroutine scopes:   * Use `LifecycleStartEffect` to perform synchronous work when your activity starts and stops.* Use `LifecycleResumeEffect` to perform synchronous work when your activity resumes and pauses.* Use `repeatOnLifecycle` to perform asynchronous work in response to lifecycle events.* Collect asynchronous data from Flows using `collectAsStateWithLifecycle`. |
 
 The following snippet outlines how to perform operations given a certain
 Lifecycle state:
 
-### Views
-
 ```
-class MyFragment: Fragment() {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+  @Composable
+  fun LocationChangedEffect(
+    locationManager: LocationManager,
+    onLocationChanged: (Location) -> Unit
+  ) {
+    val currentOnLocationChanged by rememberUpdatedState(onLocationChanged)
 
-        viewLifecycleOwner.lifecycle.addObserver(object : DefaultLifecycleObserver {
-            override fun onResume(owner: LifecycleOwner) {
-                // ...
-            }
-            override fun onPause(owner: LifecycleOwner) {
-                // ...
-            }
+    LifecycleStartEffect(locationManager) {
+        val listener = LocationListener { newLocation ->
+            currentOnLocationChanged(newLocation)
+        }
+
+        try {
+            locationManager.requestLocationUpdates(
+                LocationManager.GPS_PROVIDER,
+                1000L,
+                1f,
+                listener,
+            )
+        } catch (e: SecurityException) {
+            // TODO: Handle missing permissions
+        }
+
+        onStopOrDispose {
+            locationManager.removeUpdates(listener)
         }
     }
-}
-```
-
-### Compose
-
-```
-@Composable
-fun MyApp() {
-
-    val lifecycleOwner = LocalLifecycleOwner.current
-    DisposableEffect(lifecycleOwner, ...) {
-        val lifecycleObserver = object : DefaultLifecycleObserver {
-            override fun onStop(owner: LifecycleOwner) {
-                // ...
-            }
-        }
-
-        lifecycleOwner.lifecycle.addObserver(lifecycleObserver)
-        onDispose {
-            lifecycleOwner.lifecycle.removeObserver(lifecycleObserver)
-        }
-    }
-}
+  }
 ```
 
 ## Handle dependencies
 
-There are several best practices you should observe when managing dependencies
+Follow best practices when managing dependencies
 between components:
 
 | Recommendation | Description |
 | --- | --- |
 | Use [dependency injection](/training/dependency-injection). **Strongly recommended** | Use [dependency injection](/training/dependency-injection) best practices, mainly [constructor injection](/training/dependency-injection#what-is-di) when possible. |
 | Scope to a component when necessary. **Strongly recommended** | Scope to a [dependency container](/training/dependency-injection/manual#dependencies-container) when the type contains mutable data that needs to be shared or the type is expensive to initialize and is widely used in the app. |
-| Use [Hilt](/training/dependency-injection/hilt-android). **Recommended** | Use [Hilt](/training/dependency-injection/hilt-android) or [manual dependency injection](/training/dependency-injection/manual) in simple apps. Use [Hilt](/training/dependency-injection/hilt-android) if your project is complex enough. For example, if you have:  * Multiple screens with ViewModels—integration * WorkManager usage—integration * Advance usage of Navigation, such as ViewModels scoped to the nav graph—integration. |
+| Use [Hilt](/training/dependency-injection/hilt-android). **Recommended** | Use [Hilt](/training/dependency-injection/hilt-android) or [manual dependency injection](/training/dependency-injection/manual) in simple apps. Use [Hilt](/training/dependency-injection/hilt-android) if your project is complex enough-for example, if it includes any of the following:  * Multiple screens with ViewModels * Uses WorkManager * Has ViewModels scoped to the navigation back stack |
 
 ## Testing
 
@@ -201,19 +167,19 @@ The following are some best practices for [testing](/training/testing/fundamenta
 
 | Recommendation | Description |
 | --- | --- |
-| [Know what to test](https://developer.android.com/training/testing/fundamentals/what-to-test). **Strongly recommended** | Unless the project is roughly as simple as a hello world app, you should test it, at minimum with:   * Unit test ViewModels, including Flows. * Unit test data layer entities. That is, repositories and data sources. * UI navigation tests that are useful as regression tests in CI. |
-| Prefer fakes to mocks. **Strongly recommended** | Read more in the [Use test doubles in Android documentation](/training/testing/fundamentals/test-doubles). |
-| Test StateFlows. **Strongly recommended** | When testing `StateFlow`:  * [Assert on the `value` property](/kotlin/flow/test#stateflows) whenever possible * You should [create a `collectJob`](/kotlin/flow/test#statein) if using `WhileSubscribed` |
+| [Know what to test](https://developer.android.com/training/testing/fundamentals/what-to-test). **Strongly recommended** | Unless the project is as simple as a "hello world" app, test it. At minimum, include the following:   * Unit tests for ViewModels, including Flows * Unit tests for data layer entities-that is, repositories and data sources * UI navigation tests that are useful as regression tests in CI |
+| Prefer fakes to mocks. **Strongly recommended** | For more information on using fakes, see [Use test doubles in Android](/training/testing/fundamentals/test-doubles). |
+| Test StateFlows. **Strongly recommended** | When testing `StateFlow`, do the following:  * [Assert on the `value` property](/kotlin/flow/test#stateflows) whenever possible. * Use [`WhileSubscribed`](/kotlin/flow/test#statein). |
 
-For more information, check the [What to test in Android DAC guide](/training/testing/fundamentals/what-to-test).
+For more information, see [What to test in Android](/training/testing/fundamentals/what-to-test) and [Test your Compose layout](/develop/ui/compose/testing).
 
 ## Models
 
-You should observe these best practices when developing models in your apps:
+Observe these best practices when developing models in your apps:
 
 | Recommendation | Description |
 | --- | --- |
-| Create a model per layer in complex apps. **Recommended** | In complex apps, create new models in different layers or components when it makes sense. Consider the following examples:   * A remote data source can map the model that it receives through the network to a simpler class with just the data the app needs * Repositories can map DAO models to simpler data classes with just the information the UI layer needs. * ViewModel can include data layer models in `UiState` classes. |
+| Create a model per layer in complex apps. **Recommended** | In complex apps, create new models in different layers or components when it makes sense. Consider the following examples:   * A remote data source can map the model that it receives through the network to a simpler class with only the data the app needs. * Repositories can map DAO models to simpler data classes with just the information the UI layer needs. * ViewModel can include data layer models in `UiState` classes. |
 
 ## Naming conventions
 
@@ -221,7 +187,21 @@ When naming your codebase, you should be aware of the following best practices:
 
 | Recommendation | Description |
 | --- | --- |
-| Naming methods. **Optional** | Methods should be a verb phrase. For example, `makePayment()`. |
-| Naming properties. **Optional** | Properties should be a noun phrase. For example, `inProgressTopicSelection`. |
-| Naming streams of data. **Optional** | When a class exposes a Flow stream, LiveData, or any other stream, the naming convention is `get{model}Stream()`. For example, `getAuthorStream(): Flow<Author>` If the function returns a list of models the model name should be in the plural: `getAuthorsStream(): Flow<List<Author>>` |
-| Naming interfaces implementations. **Optional** | Names for the implementations of interfaces should be meaningful. Have `Default` as the prefix if a better name cannot be found. For example, for a `NewsRepository` interface, you could have an `OfflineFirstNewsRepository`, or `InMemoryNewsRepository`. If you can find no good name, then use `DefaultNewsRepository`. Fake implementations should be prefixed with `Fake`, as in `FakeAuthorsRepository`. |
+| Naming methods. **Optional** | Use verb phrases to name methods-for example, `makePayment()`. |
+| Naming properties. **Optional** | Use noun phrases to name properties-for example, `inProgressTopicSelection`. |
+| Naming streams of data. **Optional** | When a class exposes a Flow stream or any other stream, the naming convention is `get{model}Stream`. For example, `getAuthorStream(): Flow<Author>`. If the function returns a list of models, use the plural model name: `getAuthorsStream(): Flow<List<Author>>`. |
+| Naming interfaces implementations. **Optional** | Use meaningful names for the implementations of interfaces. Use `Default` as the prefix if a better name cannot be found. For example, for a `NewsRepository` interface, you might have an `OfflineFirstNewsRepository`, or `InMemoryNewsRepository`. If you cannot find a good name, use `DefaultNewsRepository`. Prefix fake implementations with `Fake`, as in `FakeAuthorsRepository`. |
+
+## Additional resources
+
+For more information about Android architecture, see the following additional
+resources:
+
+### Documentation
+
+* [Compose UI Architecture](/develop/ui/compose/architecture)
+* [Jetpack Compose architectural layering](/develop/ui/compose/layering)
+
+### Views content
+
+* [Recommendations for Android architecture (Views)](/topic/architecture/views/recommendations-views)

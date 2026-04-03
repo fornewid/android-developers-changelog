@@ -1,16 +1,27 @@
 ---
-title: https://developer.android.com/games/playgames/emulator
+title: Download the Google Play Games on PC Developer Emulator  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/playgames/emulator
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+# Download the Google Play Games on PC Developer Emulator Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 [Download Stable Edition](https://dl.google.com/tag/s/appguid=%7BC601E9A4-03B0-4188-843E-80058BF16EF9%7D&appname=GPG_Developer_Emulator_Stable&needsadmin=true&ap=prod/play/games/Install-GooglePlayGames-DeveloperEmulator-Stable.exe)
-[Other Downloads](https://developer.android.com/games/playgames/emulator#other-downloads)
+[Other Downloads](#other-downloads)
 
 The Google Play Games on PC Developer Emulator is a developer focused emulator for
 Google Play Games on PC. It features a configurable emulator and surrounding
 tooling to make it easy to build, test, and debug your PC title. This emulator
-is useful for [testing and developing](https://developer.android.com/games/playgames/pg-emulator) games for Google Play Games on PC.
+is useful for [testing and developing](/games/playgames/pg-emulator) games for Google Play Games on PC.
 
 ## Terms and Conditions
 
@@ -38,12 +49,13 @@ The development emulator is backed by the same underlying technology as the
 consumer Google Play Games on PC experience, but is optimized for developer
 based workflows. This means that the developer emulator:
 
-- Boots to a typical Android launcher
-- Can toggle the graphics stack between Vulkan and DirectX
-- Can force the aspect ratio for testing
-- Provides manual control over whether the mouse sends mouse or emulated touch events
-- Supports debugging and sideloading games
-- Does not return `MEETS_VIRTUAL_INTEGRITY` from [Play Integrity Protection](https://developer.android.com/games/playgames/integrity)
+* Boots to a typical Android launcher
+* Can toggle the graphics stack between Vulkan and DirectX
+* Can force the aspect ratio for testing
+* Provides manual control over whether the mouse sends mouse or emulated touch
+  events
+* Supports debugging and sideloading games
+* Does not return `MEETS_VIRTUAL_INTEGRITY` from [Play Integrity Protection](/games/playgames/integrity)
 
 ## Enabling Virtualization
 
@@ -66,61 +78,61 @@ memory snapshot, is created and sent to Google.
 
 Along with the dump file, we also collect the following metadata:
 
-- OS Name and version: E.g. Windows NT, 10.0.19041 804
-- CPU Architecture: E.g.amd64, family 6 model 165 stepping 2
-- Gpu name: E.g., Intel(R) UHD Graphics
-- Gpu driver file: E.g. igdumdim64.dll
-- Gpu driver version: E.g.: 27.20.100.8729
-- Gpu gdi device name: E.g.: \\.\\DISPLAY1
+* OS Name and version: E.g. Windows NT, 10.0.19041 804
+* CPU Architecture: E.g.amd64, family 6 model 165 stepping 2
+* Gpu name: E.g., Intel(R) UHD Graphics
+* Gpu driver file: E.g. igdumdim64.dll
+* Gpu driver version: E.g.: 27.20.100.8729
+* Gpu gdi device name: E.g.: \.\DISPLAY1
 
 ### Metrics (performance and stability)
 
 HPE collects performance and stability metrics which help HPE developers analyse
 and improve HPE. The list of metrics we collect include the following:
 
-- Emulator's main process cpu usage in percentage
-- Emulator's main process memory usage in mb
-- Emulator's displayed frame(s) per second
-- Emulator's janky frame(s) per second
-- Emulator's network transfer rate in bytes/sec
-- Emulator's network receive rate in bytes/sec
-- Emulator process is closed unexpectedly
-- Emulator process is closed as expected
-- Emulator process is closed due to an error exiting an app
-- Launching an app
-- Successfully launched an app
-- Successfully stopped an app
-- Attempting sign-in
-- Successfully signed in
-- Sign in failed
-- Attempting to refresh sign-in
-- Successfully refreshed sign-in
-- Refreshing sign-in failed
-- Attempting to check sign-in status
-- Successfully checked sign-in status
-- Checking sign-in status failed
-- Emulator starting time
-- Emulator launching successfully time
-- Emulator launching unsuccessfully time
-- Attempting to install an app
-- Successfully installed an app
-- Installing an app failed
-- Installing app attempt ignored
-- Installing an app resulted in a retriable failure
-- Installing an app resulted in terminal failure
-- Sign-in timeout
-- Emulator running unhealthy
-- Service running time span
-- Emulator running time span
-- Emulator exit code
-- Launching an app is cancelled
-- App package name (if applicable)
-- HPE version number
-- Hardware information
-  - CPU name
-  - GPU name
-  - Disk drive type
-  - Page file size
+* Emulator's main process cpu usage in percentage
+* Emulator's main process memory usage in mb
+* Emulator's displayed frame(s) per second
+* Emulator's janky frame(s) per second
+* Emulator's network transfer rate in bytes/sec
+* Emulator's network receive rate in bytes/sec
+* Emulator process is closed unexpectedly
+* Emulator process is closed as expected
+* Emulator process is closed due to an error exiting an app
+* Launching an app
+* Successfully launched an app
+* Successfully stopped an app
+* Attempting sign-in
+* Successfully signed in
+* Sign in failed
+* Attempting to refresh sign-in
+* Successfully refreshed sign-in
+* Refreshing sign-in failed
+* Attempting to check sign-in status
+* Successfully checked sign-in status
+* Checking sign-in status failed
+* Emulator starting time
+* Emulator launching successfully time
+* Emulator launching unsuccessfully time
+* Attempting to install an app
+* Successfully installed an app
+* Installing an app failed
+* Installing app attempt ignored
+* Installing an app resulted in a retriable failure
+* Installing an app resulted in terminal failure
+* Sign-in timeout
+* Emulator running unhealthy
+* Service running time span
+* Emulator running time span
+* Emulator exit code
+* Launching an app is cancelled
+* App package name (if applicable)
+* HPE version number
+* Hardware information
+  + CPU name
+  + GPU name
+  + Disk drive type
+  + Page file size
 
 ## Developer Emulator Downloads
 
@@ -133,7 +145,8 @@ address any concerns before the new client is released to players.
 
 To switch the current track for your developer emulator:
 
-1. Quit the Google Play Games on PC Developer Emulator from the task bar icon if it's running
+1. Quit the Google Play Games on PC Developer Emulator from the task bar icon if it's
+   running
 2. Fully uninstall the current Google Play Games on PC Developer Emulator
 3. Run the installer for the specific track you plan to develop with (below)
 
@@ -143,5 +156,11 @@ the track be switched after installation.
 
 ### Downloads
 
-- [Stable](https://dl.google.com/tag/s/appguid=%7BC601E9A4-03B0-4188-843E-80058BF16EF9%7D&appname=GPG_Developer_Emulator_Stable&needsadmin=true&ap=prod/play/games/Install-GooglePlayGames-DeveloperEmulator-Stable.exe) - the current stable release with 100% rollout.
-- [Beta](https://dl.google.com/tag/s/appguid=%7BC601E9A4-03B0-4188-843E-80058BF16EF9%7D&appname=GPG_Developer_Emulator_Beta&needsadmin=true&ap=dogfood/play/games/Install-GooglePlayGames-DeveloperEmulator-Beta.exe) - the upcoming release. Ensure your game works on the next release.
+* [Stable](https://dl.google.com/tag/s/appguid=%7BC601E9A4-03B0-4188-843E-80058BF16EF9%7D&appname=GPG_Developer_Emulator_Stable&needsadmin=true&ap=prod/play/games/Install-GooglePlayGames-DeveloperEmulator-Stable.exe) - the current stable release with 100% rollout.
+* [Beta](https://dl.google.com/tag/s/appguid=%7BC601E9A4-03B0-4188-843E-80058BF16EF9%7D&appname=GPG_Developer_Emulator_Beta&needsadmin=true&ap=dogfood/play/games/Install-GooglePlayGames-DeveloperEmulator-Beta.exe) - the upcoming release. Ensure your game works on the next
+  release.
+
+
+
+
+Send feedback

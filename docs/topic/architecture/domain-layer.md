@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The domain layer is an *optional* layer that sits between the UI layer and the
 data layer.
 

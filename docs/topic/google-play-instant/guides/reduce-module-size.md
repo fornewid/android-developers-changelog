@@ -1,16 +1,8 @@
 ---
-title: Reduce the size of your instant app  |  Other Play guides  |  Android Developers
+title: https://developer.android.com/topic/google-play-instant/guides/reduce-module-size
 url: https://developer.android.com/topic/google-play-instant/guides/reduce-module-size
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Other Play guides](https://developer.android.com/guide/app-bundle)
-
-# Reduce the size of your instant app Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 **Warning:** Google Play Instant will no longer be available. Starting December 2025,
 Instant Apps cannot be published through Google Play, and all
@@ -40,7 +32,7 @@ practices to benefit your installable app, too.
 
 The largest improvement to your app's binary size occurs when you refactor the
 app into multiple feature modules. Start with a [base feature
-module](/topic/google-play-instant/getting-started/create-base-feature-module),
+module](https://developer.android.com/topic/google-play-instant/getting-started/create-base-feature-module),
 then extract thematically-related workflows into their own feature modules.
 Assign a starting activity and unique URL to each feature module so that users
 can complete the module's workflow successfully.
@@ -51,12 +43,10 @@ require access to your dependent libraries. If only one feature module uses a
 given library, import that library in the feature module itself, not the base
 feature module. Keep in mind that, in order to release an instant app for a
 particular feature module, the **total** size of that feature
-module and the base feature module must be less than 15 MB.
+module and the base feature module must be less than 15 MB.
 
-**Note:** If your instant experience contains more methods than the DEX limit
-of 65,536 methods, you can still [enable multidex](/studio/build/multidex) and
-publish your instant experience, provided that your app satisfies the total size
-limit.
+> [!NOTE]
+> **Note:** If your instant experience contains more methods than the DEX limit of 65,536 methods, you can still [enable multidex](https://developer.android.com/studio/build/multidex) and publish your instant experience, provided that your app satisfies the total size limit.
 
 ### Best practices
 
@@ -75,8 +65,8 @@ Design for multiple feature modules
 Don't focus on the feature module size limit at the beginning
 :   Feature module size limits don't apply to locally-built binaries. You can
     also release an instant app through the **internal test** track, which enforces
-    a 15 MB limit on feature module sizes. Only the **alpha** and
-    **production** tracks enforce the 15 MB limit.
+    a 15 MB limit on feature module sizes. Only the **alpha** and
+    **production** tracks enforce the 15 MB limit.
 
 ## Update app resources
 
@@ -93,29 +83,26 @@ file format instead of PNG. Google Play Instant provides complete support
 for WebP, including transparency and lossless compression, so image quality
 remains the same.
 
-**Note:** The one exception to this rule is your app's launcher icon: it must use
-the PNG format. This rule has minimal impact on your app's total size, however,
-because most projects store launcher icons in the `mipmap` directory.
+> [!NOTE]
+> **Note:** The one exception to this rule is your app's launcher icon: it must use the PNG format. This rule has minimal impact on your app's total size, however, because most projects store launcher icons in the `mipmap` directory.
 
 If possible, remove all backward compatibility requirements for using other PNG
 images. If you must use PNG images, place them in the module that's used to
 build and install your app.
 
-**Note:** You can save even more space by converting your app's images to
-[vector drawables](/guide/topics/graphics/vector-drawable-resources). Unlike
-the conversion from PNG to WebP, however, you need to change your app's code to
-use vector drawables.
+> [!NOTE]
+> **Note:** You can save even more space by converting your app's images to [vector drawables](https://developer.android.com/guide/topics/graphics/vector-drawable-resources). Unlike the conversion from PNG to WebP, however, you need to change your app's code to use vector drawables.
 
 ### Remove unused languages
 
 If your app supports multiple languages, reduce as many localized resources as
 you can. This step is particularly useful to complete if you use an "app
-compat" library, such as [`android.support.v7.appcompat`](/reference/android/support/v7/appcompat/package-summary).
+compat" library, such as [`android.support.v7.appcompat`](https://developer.android.com/reference/android/support/v7/appcompat/package-summary).
 This library includes messages in many languages, some of which your app might
 not support.
 
 To learn more, check out how to [remove unused alternative
-resources](/studio/build/shrink-code#unused-alt-resources), particularly
+resources](https://developer.android.com/studio/build/shrink-code#unused-alt-resources), particularly
 unused languages.
 
 ### Remove extra files
@@ -126,8 +113,7 @@ for this specific situation. To use the tool, complete the following steps:
 
 1. Press **Control+Alt+Shift+I** (**Command+Alt+Shift+I** on Mac OS).
 2. In the dialog that appears, type `"unused resources"`.
-3. Select the **Unused resources** option to start the resource usage
-   inspection process.
+3. Select the **Unused resources** option to start the resource usage inspection process.
 
 If any large resources remain in your app, consider whether it's possible to
 unpackage them from your app and download them as standalone files after the
@@ -141,15 +127,14 @@ requests.
 As an app grows in scope, it can take on a surprising number of dependencies,
 particularly one of the following types:
 
-* **Native libraries:** Libraries that contain native code that your instant
-  app never runs.
-* **Transitive dependencies:** Libraries upon which your app's imported
-  libraries depend.
+- **Native libraries:** Libraries that contain native code that your instant app never runs.
+- **Transitive dependencies:** Libraries upon which your app's imported libraries depend.
 
 Android Studio has several useful tools for identifying any extraneous
 dependencies in your app's project:
 
 External libraries
+
 :   Android Studio's **Project** view includes an **External Libraries** section.
 
     This section contains every library that your app uses, including native
@@ -157,17 +142,18 @@ External libraries
     libraries that your app doesn't require.
 
 APK Analyzer
-:   You can use the [APK Analyzer](/studio/debug/apk-analyzer) tool to compare
+
+:   You can use the [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer) tool to compare
     different builds, including instant app builds.
 
 After you've determined which libraries your app doesn't need, exclude them by
 adding lines similar to the following to your Gradle build file:
 
-<feature\_module>/build.gradle
+\<feature_module\>/build.gradle
 
 ### Groovy
 
-```
+```groovy
 dependencies {
     implementation('some-important-but-large-library') {
         exclude group: 'com.example.imgtools', module: 'native'
@@ -177,7 +163,7 @@ dependencies {
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     implementation('some-important-but-large-library') {
         exclude(group = "com.example.imgtools", module = "native")
@@ -191,4 +177,4 @@ Management](https://docs.gradle.org/current/userguide/core_dependency_management
 
 ## Implement cloud delivery of assets
 
-If you need to shrink the size down further, you might need to rely on [cloud delivery of assets](/topic/google-play-instant/getting-started/cloud-delivery-assets).
+If you need to shrink the size down further, you might need to rely on [cloud delivery of assets](https://developer.android.com/topic/google-play-instant/getting-started/cloud-delivery-assets).

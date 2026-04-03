@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android Gradle plugin 4.0 added support for using Kotlin in your Gradle build
 configuration as a replacement for Groovy, the programming language
 traditionally used in Gradle configuration files.

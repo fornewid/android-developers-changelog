@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/topic/performance/tracing/custom-events-native
+title: Custom trace events in native code  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/tracing/custom-events-native
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App quality](https://developer.android.com/quality)
+* [Technical quality](https://developer.android.com/quality/technical)
+
+# Custom trace events in native code Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Android 6.0 (API level 23) and higher support a native tracing API, `trace.h`,
 to write trace events to the system buffer that you can then analyze using
@@ -23,7 +32,7 @@ complete the following steps:
    capture custom events within your app or game, as shown in the following code
    snippet:
 
-   ```c++
+   ```
    #include <android/trace.h>
    #include <dlfcn.h>
 
@@ -36,7 +45,7 @@ complete the following steps:
 2. Load the ATrace symbols at runtime, as shown in the following code
    snippet. Usually, you perform this process in an object constructor.
 
-   ```c++
+   ```
    // Retrieve a handle to libandroid.
    void *lib = dlopen("libandroid.so", RTLD_NOW | RTLD_LOCAL);
 
@@ -56,13 +65,13 @@ complete the following steps:
 
    **Note:** To provide tracing support further back to
    Android 4.3 (API level 18), you can use JNI to call the methods in
-   [managed code](https://developer.android.com/topic/performance/tracing/custom-events-native#managed-code) around the code shown in the
+   [managed code](#managed-code) around the code shown in the
    preceding snippet.
 3. Call `ATrace_beginSection()` and
    `ATrace_endSection()` at the beginning and end, respectively, of
    your custom event:
 
-   ```c++
+   ```
    #include <android/trace.h>
 
    char *customEventName = new char[32];
@@ -72,7 +81,8 @@ complete the following steps:
    // Your app or game's response to the button being pressed.
    ATrace_endSection();
    ```
-   **Note:** When you call `ATrace_beginSection()` multiple
+
+   **Note:**  When you call `ATrace_beginSection()` multiple
    times, calling `ATrace_endSection()` ends only the most
    recently called `ATrace_beginSection()` method. So, for nested
    calls, make sure that you properly match each call to
@@ -100,7 +110,7 @@ To create a macro for tracing an entire function, complete the following steps:
 
 1. Define the macro:
 
-   ```c++
+   ```
    #define ATRACE_NAME(name) ScopedTrace ___tracer(name)
 
    // ATRACE_CALL is an ATRACE_NAME that uses the current function name.
@@ -119,7 +129,7 @@ To create a macro for tracing an entire function, complete the following steps:
    ```
 2. Call the macro within the function that you want to trace:
 
-   ```c++
+   ```
    void myExpensiveFunction() {
      ATRACE_CALL();
      // Code that you want to trace.
@@ -132,7 +142,7 @@ You can give a name to each thread in which your events occur, as demonstrated
 in the following code snippet. This step makes it easier to identify the threads
 that belong to specific actions within your game.
 
-```c++
+```
 #include <pthread.h>
 
 static void *render_scene(void *parm) {
@@ -154,8 +164,10 @@ void init_threads() {
 }
 ```
 
+
+
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [Best practices for SQLite performance](https://developer.android.com/topic/performance/sqlite-performance-best-practices)
-- [Create and measure Baseline Profiles without Macrobenchmark](https://developer.android.com/topic/performance/baselineprofiles/manually-create-measure)
+* Note: link text is displayed when JavaScript is off
+* [Best practices for SQLite performance](/topic/performance/sqlite-performance-best-practices)
+* [Create and measure Baseline Profiles without Macrobenchmark](/topic/performance/baselineprofiles/manually-create-measure)

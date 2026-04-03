@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Many apps need to be able to precisely control exactly what's drawn on the
 screen. This might be as small as putting a box or a circle on the screen in
 just the right place, or it might be an elaborate arrangement of graphic

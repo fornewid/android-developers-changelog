@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** When adding dependencies, consider enabling
 [Dependency verification](/build/dependency-verification) to help ensure the
 dependencies you download and include in your project are what you expect.

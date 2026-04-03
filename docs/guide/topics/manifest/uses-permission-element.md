@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 **Note:** In some cases, the permissions that you request
 through `<uses-permission>` can affect how Google Play filters your
 application. If you request a hardware-related permission, such as

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 syntax:
 :   ```
     <action android:name="string" />

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 This guide explains how to filter through a list of strings based on text input
 in Jetpack Compose. Use this approach to dynamically update a list based on user
 search queries.

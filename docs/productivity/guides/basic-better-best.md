@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This guide charts the optimal progression of a productivity app from a likely
 starting place to best-in-class. It's designed to help you think about improving
 your app over time, deciding what features to implement when. While every

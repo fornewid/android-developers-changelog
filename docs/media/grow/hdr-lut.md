@@ -1,18 +1,8 @@
 ---
-title: Color correct with look-up tables (LUTs)  |  Android media  |  Android Developers
+title: https://developer.android.com/media/grow/hdr-lut
 url: https://developer.android.com/media/grow/hdr-lut
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Color correct with look-up tables (LUTs) Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Varying HDR capabilities across Android devices can lead to fragmented HDR
 display outputs. A look-up table (LUT) is a new color correction solution
@@ -26,46 +16,37 @@ To implement LUTs, your SDK version must 36 or higher.
 
 ## Implement a LUT
 
-Follow these steps to apply a LUT to a [`SurfaceControl`](/reference/android/view/SurfaceControl):
+Follow these steps to apply a LUT to a [`SurfaceControl`](https://developer.android.com/reference/android/view/SurfaceControl):
 
-1. Create a [`DisplayLuts`](/reference/android/hardware/DisplayLuts) instance.
-2. Create [`DisplayLuts.Entry`](/reference/android/hardware/DisplayLuts.Entry) instance(s) with the LUT data buffer,
-   LUT dimension, and the sampling key of the LUT. For more information,
-   see [`LutProperties`](/reference/android/hardware/LutProperties) documentation.
-3. Call [`DisplayLuts#set(DisplayLuts.Entry luts)`](/reference/android/hardware/DisplayLuts#set(android.hardware.DisplayLuts.Entry)) or
-   [`DisplayLuts#set(DisplayLuts.Entry first, DisplayLuts.Entry second)`](/reference/android/hardware/DisplayLuts#set(android.hardware.DisplayLuts.Entry,%20android.hardware.DisplayLuts.Entry))
-   to set LUT entries. The framework supports 1D LUT, 3D LUT, or a combination of
-   1D and 3D LUTs.
-4. Call [`SurfaceControl.Transaction#setLuts`](/reference/android/view/SurfaceControl.Transaction#setLuts(android.view.SurfaceControl,%20android.hardware.DisplayLuts)) to apply the LUTs to the layer.
+1. Create a [`DisplayLuts`](https://developer.android.com/reference/android/hardware/DisplayLuts) instance.
+2. Create [`DisplayLuts.Entry`](https://developer.android.com/reference/android/hardware/DisplayLuts.Entry) instance(s) with the LUT data buffer, LUT dimension, and the sampling key of the LUT. For more information, see [`LutProperties`](https://developer.android.com/reference/android/hardware/LutProperties) documentation.
+3. Call [`DisplayLuts#set(DisplayLuts.Entry luts)`](https://developer.android.com/reference/android/hardware/DisplayLuts#set(android.hardware.DisplayLuts.Entry)) or [`DisplayLuts#set(DisplayLuts.Entry first, DisplayLuts.Entry second)`](https://developer.android.com/reference/android/hardware/DisplayLuts#set(android.hardware.DisplayLuts.Entry,%20android.hardware.DisplayLuts.Entry)) to set LUT entries. The framework supports 1D LUT, 3D LUT, or a combination of 1D and 3D LUTs.
+4. Call [`SurfaceControl.Transaction#setLuts`](https://developer.android.com/reference/android/view/SurfaceControl.Transaction#setLuts(android.view.SurfaceControl,%20android.hardware.DisplayLuts)) to apply the LUTs to the layer.
 
 ### Kotlin
 
-```
-val sc = SurfaceControl.Builder().build()
-val luts = DisplayLuts()
-val entry = DisplayLuts.Entry(
-    floatArrayOf(0.5f, 0.5f, 0.5f, 0.5f),
-    LutProperties.ONE_DIMENSION,
-    LutProperties.SAMPLING_KEY_MAX_RGB
-)
-luts.set(entry)
-SurfaceControl.Transaction().setLuts(sc, luts).apply()
-```
+    val sc = SurfaceControl.Builder().build()
+    val luts = DisplayLuts()
+    val entry = DisplayLuts.Entry(
+        floatArrayOf(0.5f, 0.5f, 0.5f, 0.5f),
+        LutProperties.ONE_DIMENSION,
+        LutProperties.SAMPLING_KEY_MAX_RGB
+    )
+    luts.set(entry)
+    SurfaceControl.Transaction().setLuts(sc, luts).apply()
 
 ### Java
 
-```
-SurfaceControl sc = new SurfaceControl.Builder().build();
-DisplayLuts luts = new DisplayLuts();
-DisplayLuts.Entry entry = new DisplayLuts.Entry(
-  new float[]{0.5f, 0.5f, 0.5f, 0.5f},
-  LutProperties.ONE_DIMENSION,
-  LutProperties.SAMPLING_KEY_MAX_RGB
-);
-luts.set(entry);
-new SurfaceControl.Transaction().setLuts(sc, luts).apply();
-```
+    SurfaceControl sc = new SurfaceControl.Builder().build();
+    DisplayLuts luts = new DisplayLuts();
+    DisplayLuts.Entry entry = new DisplayLuts.Entry(
+      new float[]{0.5f, 0.5f, 0.5f, 0.5f},
+      LutProperties.ONE_DIMENSION,
+      LutProperties.SAMPLING_KEY_MAX_RGB
+    );
+    luts.set(entry);
+    new SurfaceControl.Transaction().setLuts(sc, luts).apply();
 
-You can also use [`OverlayProperties.getLutProperties()`](/reference/android/hardware/OverlayProperties#getLutProperties()) to understand the
+You can also use [`OverlayProperties.getLutProperties()`](https://developer.android.com/reference/android/hardware/OverlayProperties#getLutProperties()) to understand the
 LUT properties of the device, and determine if the Hardware Composer can handle
 the selected LUT.

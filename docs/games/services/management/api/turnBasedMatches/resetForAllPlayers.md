@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Requires [authorization](#auth)**
 
 Deletes turn-based matches where the only match participants are from whitelisted tester accounts for your application. This method is only available to user accounts for your developer console.

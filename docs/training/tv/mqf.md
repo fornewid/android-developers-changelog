@@ -1,10 +1,19 @@
 ---
-title: https://developer.android.com/training/tv/mqf
+title: Media Quality framework  |  Android TV  |  Android Developers
 url: https://developer.android.com/training/tv/mqf
-source: md.txt
+source: html-scrape
 ---
 
-The Media Quality framework is being introduced in Android 16 for
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android TV](https://developer.android.com/training/tv)
+
+# Media Quality framework Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+The Media Quality framework is being introduced in Android 16 for
 Android TV with the objective of establishing a standardized API for Picture
 Quality (PQ) and Audio Quality (AQ) adjustments. The primary goal is to provide
 a unified approach to these adjustments across different Android TV devices.
@@ -43,11 +52,11 @@ The Media Quality Framework is composed of several key components that work toge
 
 **Figure 1.** Interactions between Media Quality Framework components
 
-- **Media Quality Manager (SDK API)**: The application-facing SDK API that allows apps to manage picture and sound profiles.
-- **Media Quality Service**: A system service that contains the core business logic, managing profiles, permissions, and communication with the HAL.
-- **Media Quality Database**: A SQLite database that stores all picture and sound profiles.
-- **Media Quality Contract**: Defines the standardized parameters and data structures used for communication between apps and the framework.
-- **Media Quality HAL**: The Hardware Abstraction Layer that SoC vendors implement to communicate picture and sound profile changes to the underlying hardware.
+* **Media Quality Manager (SDK API)**: The application-facing SDK API that allows apps to manage picture and sound profiles.
+* **Media Quality Service**: A system service that contains the core business logic, managing profiles, permissions, and communication with the HAL.
+* **Media Quality Database**: A SQLite database that stores all picture and sound profiles.
+* **Media Quality Contract**: Defines the standardized parameters and data structures used for communication between apps and the framework.
+* **Media Quality HAL**: The Hardware Abstraction Layer that SoC vendors implement to communicate picture and sound profile changes to the underlying hardware.
 
 ## Features
 
@@ -55,9 +64,9 @@ The Media Quality Framework supports a wide range of features to provide a flexi
 
 ### Profile Management
 
-- **App-managed profiles**: Apps can create, update, and delete their own profiles for a customized experience.
-- **Default profiles**: System apps can set default profiles for specific apps or TV inputs (e.g., HDMI 1).
-- **Global default profile**: A system-wide fallback profile that is applied when no specific profile is set.
+* **App-managed profiles**: Apps can create, update, and delete their own profiles for a customized experience.
+* **Default profiles**: System apps can set default profiles for specific apps or TV inputs (e.g., HDMI 1).
+* **Global default profile**: A system-wide fallback profile that is applied when no specific profile is set.
 
 ## Overall Workflow
 
@@ -104,7 +113,7 @@ The Media Quality SDK API provides the necessary tools for apps to interact with
 This package contains the primary classes for managing media quality.
 
 | Class | Description |
-|---|---|
+| --- | --- |
 | `MediaQualityManager` | The central class for interacting with the MQF. |
 | `PictureProfile` | A data class representing a complete set of picture parameters for a specific mode. |
 | `SoundProfile` | A data class for sound parameters. |
@@ -115,7 +124,7 @@ This package contains the primary classes for managing media quality.
 Key methods include:
 
 | Method | Description |
-|---|---|
+| --- | --- |
 | `createPictureProfile(PictureProfile profile)` | Creates a new picture profile. Requires special permissions or for the app to be on the allowlist. |
 | `updatePictureProfile(PictureProfile profile)` | Updates an existing picture profile. Can only be called by the profile's creator. |
 | `removePictureProfile(String profileId)` | Deletes a profile. Can only be called by the profile's creator. |
@@ -127,14 +136,16 @@ Key methods include:
 
 The `PictureProfile` object encapsulates all the information for a given picture mode.
 
-    public final class PictureProfile {
-      private String id;
-      private int type; // System or Application
-      private String name; // e.g., "Movie", "Game"
-      private String inputId; // e.g., "HDMI1"
-      private String packageName; // e.g., "com.google.android.youtube"
-      private PersistableBundle parameters; // Bundle containing all PQ parameters
-    }
+```
+public final class PictureProfile {
+  private String id;
+  private int type; // System or Application
+  private String name; // e.g., "Movie", "Game"
+  private String inputId; // e.g., "HDMI1"
+  private String packageName; // e.g., "com.google.android.youtube"
+  private PersistableBundle parameters; // Bundle containing all PQ parameters
+}
+```
 
 ## Media Quality HAL
 
@@ -147,7 +158,7 @@ The HAL manages picture and sound profiles using AIDL parcelables. This involves
 The HAL interface is composed of several key AIDL files:
 
 | HAL File | Description |
-|---|---|
+| --- | --- |
 | `IMediaQuality.aidl` | The main interface for the Media Quality service, used for setting listeners and discovering hardware capabilities. |
 | `IPictureProfileChangedListener.aidl` | A listener interface that the framework uses to notify the HAL (specifically, a component like the composer HAL) of changes to a picture profile. |
 | `IPictureProfileAdjustmentListener.aidl` | A listener interface that the HAL uses to notify the framework of adjustments made at the hardware level, for example, when a user changes a setting directly via a hardware remote. |

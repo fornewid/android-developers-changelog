@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 [Android Emulator](/studio/run/emulator) is included with Android Studio.
 
 Versions of the emulator prior to 25.3.0 were distributed as part of the Android
@@ -33,6 +32,38 @@ Emulator, see the
 [closed issues](/studio/releases/fixed-bugs/emulator/36).
 
 For known issues and troubleshooting, please see [Emulator Troubleshooting](/studio/run/emulator-troubleshooting).
+
+## 36.5.10 Stable (Apr 2, 2026)
+
+This update includes the following feature and bug fixes:
+
+### Test Multi-Device Interactions with Android Emulator
+
+The Android Emulator now features a new networking stack to improve multi-device
+testing, eliminating the need for manual port forwarding to connect multiple AVD
+instances on the same host. AVDs can now automatically discover and communicate
+with each other as if they are on the same virtual network. This allows seamless
+testing of peer-to-peer interactions using protocols like Wi-Fi Direct and
+Network Service Discovery.
+
+This new networking stack offers several key advantages for developers:
+
+* **Zero-Configuration**: No more manual port forwarding or scripting adb
+  commands.
+* **Seamless Peer-to-Peer**: Critical protocols like Wi-Fi Direct and Network
+  Service Discovery work out of the box between emulators.
+* **Improved Stability**: Resolves long-standing stability issues, such as
+  data loss ([Issue #150758736](https://issuetracker.google.com/150758736)) and connection drops ([Issue #449817856](https://issuetracker.google.com/449817856)) found in the
+  legacy stack.
+
+To get started, update to the latest Android Emulator version in Android Studio
+SDK Manager. For more information, documentation is here.
+
+### Additional Features and Bug Fixes
+
+* New Pixel AVDs added including, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, and Pixel 10 Pro Fold
+* List webcams as user friendly names and fix an issue on Linux where the Emulator failed to detect and list all connected webcams
+* [Bug Fix][Issue #333628462](https://issuetracker.google.com/333628462) crashpad\_handler process consumes excessive CPU on macOS
 
 ## 36.4.10 Patch (Mar 9, 2026)
 

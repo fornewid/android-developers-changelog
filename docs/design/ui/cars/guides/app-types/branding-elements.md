@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Branding elements like icons and colors help users to easily recognize your app.
 You'll need to provide an app icon and select an accent color to represent your
 brand wherever your content is visible.

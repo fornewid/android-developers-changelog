@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Users might be restricted from using the keyboard while driving.
 Presenting past search results (places) or keywords (such as *coffee*) using
 the Search template can help them find the right destination without typing.

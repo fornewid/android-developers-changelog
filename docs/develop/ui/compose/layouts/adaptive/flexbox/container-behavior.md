@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 To configure the behavior of the `FlexBox` container, create a `FlexBoxConfig`
 block and supply it using the `config` parameter.
 

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Layout Inspector in Android Studio lets you debug the layout of your app by
 showing a view hierarchy where you can inspect the properties of each view. With
 the Layout Inspector, you can compare your app layout with design mockups,

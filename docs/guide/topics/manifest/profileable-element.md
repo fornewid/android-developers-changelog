@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 syntax:
 :   ```
     <profileable android:shell=["true" | "false"] android:enabled=["true" | "false"] />

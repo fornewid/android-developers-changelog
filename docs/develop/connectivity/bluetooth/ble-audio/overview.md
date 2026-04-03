@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 **Note:** [`isLeAudioSupported()`](/reference/android/bluetooth/BluetoothAdapter#isLeAudioSupported()) and [`isLeAudioBroadcastSourceSupported()`](/reference/android/bluetooth/BluetoothAdapter#isLeAudioBroadcastSourceSupported()) will return `True` if the device supports BLE Audio.
 
 Bluetooth Low Energy Audio (LEA) ensures that users can receive high fidelity audio without sacrificing battery life, and lets them seamlessly switch between different use cases. Android 13 (API level 33) includes built-in support for LEA.

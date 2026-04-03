@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 If your app relies on interactions with other apps to complete its use cases,
 it's useful to test how [package visibility](/training/package-visibility)
 changes in Android 11 (API level 30) and higher affect your app.

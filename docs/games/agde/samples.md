@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 The samples for the Android Game Development Extension demonstrate how to use key features
 of the extension. This topic describes the samples and the
 settings needed to run them.
@@ -277,6 +278,8 @@ Use the `HWASan` configuration as it is simpler and can help you identify
 common memory bugs. Explore the implementation of the `HWASan-Advanced`
 configuration if you want to understand how HWASan works or want to preserve the
 internal semantics of your memory allocator while using HWASan.
+
+
 
 
 

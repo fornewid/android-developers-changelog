@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Gemini Pro and Gemini Flash model families offer Android developers
 multimodal AI capabilities, running inference in the cloud and processing image,
 audio, video, and text inputs in Android apps.

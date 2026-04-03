@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Lifecycle library offers built-in APIs that let you integrate with Jetpack
 [Compose](/jetpack/compose). Key APIs include the following:
 
