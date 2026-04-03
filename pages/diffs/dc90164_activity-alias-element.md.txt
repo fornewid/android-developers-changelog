@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/manifest/activity-alias-element.md b/docs/guide/topics/manifest/activity-alias-element.md
+index 8450108..f140c75 100644
+--- a/docs/guide/topics/manifest/activity-alias-element.md
++++ b/docs/guide/topics/manifest/activity-alias-element.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ syntax:
+ :   ```
+     <activity-alias android:enabled=["true" | "false"]

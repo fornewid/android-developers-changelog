@@ -1,0 +1,219 @@
+diff --git a/docs/about/versions/pie/android-9.0-changes-28.md b/docs/about/versions/pie/android-9.0-changes-28.md
+index b10a13f..8338a41 100644
+--- a/docs/about/versions/pie/android-9.0-changes-28.md
++++ b/docs/about/versions/pie/android-9.0-changes-28.md
+@@ -1,9 +1,17 @@
+ ---
+-title: https://developer.android.com/about/versions/pie/android-9.0-changes-28
++title: Behavior changes: apps targeting API level 28+  |  Android Developers
+ url: https://developer.android.com/about/versions/pie/android-9.0-changes-28
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Essentials](https://developer.android.com/get-started)
++* [Releases](https://developer.android.com/about/versions)
++
++# Behavior changes: apps targeting API level 28+ Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Android 9 (API level 28) introduces a number of changes to the Android system.
+ The following behavior changes apply exclusively to apps that are targeting
+ API level 28 or higher. Apps that set `targetSdkVersion` to API level 28 or
+@@ -12,18 +20,18 @@ their apps to support these behaviors properly, where applicable to the app.
+ 
+ For changes that affect all apps running on Android 9, regardless of which API
+ level they target, see
+-[Behavior changes: all apps](https://developer.android.com/about/versions/pie/android-9.0-changes-all).
++[Behavior changes: all apps](/about/versions/pie/android-9.0-changes-all).
+ 
+ ## Foreground services
+ 
+ Apps that target Android 9 or higher and use foreground services must request
+-the [`FOREGROUND_SERVICE`](https://developer.android.com/reference/android/Manifest.permission#FOREGROUND_SERVICE)
+-permission. This is a [normal permission](https://developer.android.com/guide/topics/permissions/normal-permissions),
++the [`FOREGROUND_SERVICE`](/reference/android/Manifest.permission#FOREGROUND_SERVICE)
++permission. This is a [normal permission](/guide/topics/permissions/normal-permissions),
+ so the system automatically grants it to the requesting app.
+ 
+ If an app that targets Android 9 or higher attempts to create a foreground service without
+-requesting [`FOREGROUND_SERVICE`](https://developer.android.com/reference/android/Manifest.permission#FOREGROUND_SERVICE),
+-the system throws a [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException).
++requesting [`FOREGROUND_SERVICE`](/reference/android/Manifest.permission#FOREGROUND_SERVICE),
++the system throws a [`SecurityException`](/reference/java/lang/SecurityException).
+ 
+ ## Privacy changes
+ 
+@@ -33,14 +41,14 @@ enhance user privacy.
+ 
+ #### Build serial number deprecation
+ 
+-In Android 9, [`Build.SERIAL`](https://developer.android.com/reference/android/os/Build#SERIAL) is
++In Android 9, [`Build.SERIAL`](/reference/android/os/Build#SERIAL) is
+ always set to `"UNKNOWN"` to protect users' privacy.
+ 
+ If your app needs to access a device's hardware serial number, you should
+ instead request the
+-[`READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE)
++[`READ_PHONE_STATE`](/reference/android/Manifest.permission#READ_PHONE_STATE)
+ permission, then call
+-[`getSerial()`](https://developer.android.com/reference/android/os/Build#getSerial()).
++[`getSerial()`](/reference/android/os/Build#getSerial()).
+ 
+ #### DNS privacy
+ 
+@@ -58,44 +66,50 @@ app's security, but these changes take effect only if your app targets API level
+ #### Network TLS enabled by default
+ 
+ If your app targets Android 9 or higher, the
+-[`isCleartextTrafficPermitted()`](https://developer.android.com/reference/android/security/NetworkSecurityPolicy#isCleartextTrafficPermitted())
++[`isCleartextTrafficPermitted()`](/reference/android/security/NetworkSecurityPolicy#isCleartextTrafficPermitted())
+ method returns `false` by default. If your app needs to enable cleartext for
+ specific domains, you must explicitly set `cleartextTrafficPermitted` to `true`
+ for those domains in your app's [Network Security
+-Configuration](https://developer.android.com/training/articles/security-config).
++Configuration](/training/articles/security-config).
+ 
+ #### Web-based data directories separated by process
+ 
+ In order to improve app stability and data integrity in Android 9, apps cannot
+-share a single [`WebView`](https://developer.android.com/reference/android/webkit/WebView) data
++share a single [`WebView`](/reference/android/webkit/WebView) data
+ directory among
+-[multiple processes](https://developer.android.com/guide/components/processes-and-threads). Typically,
++[multiple processes](/guide/components/processes-and-threads). Typically,
+ such data directories store cookies, HTTP caches, and other persistent and
+ temporary storage related to web browsing.
+ 
+ In most cases, your app should use classes from the
+-[`android.webkit`](https://developer.android.com/reference/android/webkit/package-summary) package, such
+-as [`WebView`](https://developer.android.com/reference/android/webkit/WebView) and
+-[`CookieManager`](https://developer.android.com/reference/android/webkit/CookieManager), in only one
++[`android.webkit`](/reference/android/webkit/package-summary) package, such
++as [`WebView`](/reference/android/webkit/WebView) and
++[`CookieManager`](/reference/android/webkit/CookieManager), in only one
+ process. For example, you should move all
+-[`Activity`](https://developer.android.com/reference/android/app/Activity) objects that use a `WebView`
++[`Activity`](/reference/android/app/Activity) objects that use a `WebView`
+ into the same process. You can more strictly enforce the "one process only" rule
+ by calling
+-[`disableWebView()`](https://developer.android.com/reference/android/webkit/WebView#disableWebView()) in
++[`disableWebView()`](/reference/android/webkit/WebView#disableWebView()) in
+ your app's other processes. This call prevents `WebView` from being initialized
+ in those other processes by mistake, even if it's being called from a dependent
+ library.
+ 
+ If your app must use instances of
+-[`WebView`](https://developer.android.com/reference/android/webkit/WebView) in more than one process,
++[`WebView`](/reference/android/webkit/WebView) in more than one process,
+ you must assign a unique data directory suffix for each process, using the
+-[`WebView.setDataDirectorySuffix()`](https://developer.android.com/reference/android/webkit/WebView#setDataDirectorySuffix(java.lang.String))
++[`WebView.setDataDirectorySuffix()`](/reference/android/webkit/WebView#setDataDirectorySuffix(java.lang.String))
+ method, before using a given instance of `WebView` in that process. This method
+ places web data from each process in its own directory within your app's data
+ directory.
+ 
+-> [!NOTE]
+-> **Note:** Even if you use `setDataDirectorySuffix()`, the system doesn't share cookies and other web data across your app's process boundaries. If multiple processes in your app need access to the same web data, you need to copy it between those processes yourself. For example, you can call [`getCookie()`](https://developer.android.com/reference/android/webkit/CookieManager#getCookie(java.lang.String)) and [`setCookie()`](https://developer.android.com/reference/android/webkit/CookieManager#setCookie(java.lang.String,%20java.lang.String,%20android.webkit.ValueCallback%3Cjava.lang.Boolean%3E)) to manually transfer cookie data from one process to another.
++**Note:** Even if you use `setDataDirectorySuffix()`, the system doesn't share
++cookies and other web data across your app's process boundaries. If multiple
++processes in your app need access to the same web data, you need to copy it
++between those processes yourself. For example, you can call
++[`getCookie()`](/reference/android/webkit/CookieManager#getCookie(java.lang.String))
++and
++[`setCookie()`](/reference/android/webkit/CookieManager#setCookie(java.lang.String,%20java.lang.String,%20android.webkit.ValueCallback%3Cjava.lang.Boolean%3E))
++to manually transfer cookie data from one process to another.
+ 
+ #### Per-app SELinux domains
+ 
+@@ -103,11 +117,11 @@ Apps that target Android 9 or higher cannot share data with other apps using
+ world-accessible Unix permissions. This change improves the integrity of the
+ [Android Application Sandbox](https://source.android.com/security/overview/kernel-security#the-application-sandbox),
+ particularly the requirement that an app's
+-[private data](https://developer.android.com/guide/topics/data/data-storage#filesInternal) is accessible
++[private data](/guide/topics/data/data-storage#filesInternal) is accessible
+ only by that app.
+ 
+ To share files with other apps, use a [content
+-provider](https://developer.android.com/guide/topics/providers/content-provider-basics).
++provider](/guide/topics/providers/content-provider-basics).
+ 
+ ## Connectivity changes
+ 
+@@ -115,19 +129,19 @@ provider](https://developer.android.com/guide/topics/providers/content-provider-
+ 
+ Within apps that target Android 9 or higher, the system counts
+ network traffic on networks
+-that aren't the current default---such as cell traffic while the device is on
+-Wi-Fi---and provides methods in the
+-[`NetworkStatsManager`](https://developer.android.com/reference/android/app/usage/NetworkStatsManager)
++that aren't the current default—such as cell traffic while the device is on
++Wi-Fi—and provides methods in the
++[`NetworkStatsManager`](/reference/android/app/usage/NetworkStatsManager)
+ class to query for that traffic.
+ 
+ In particular,
+-[`getMultipathPreference()`](https://developer.android.com/reference/android/net/ConnectivityManager#getMultipathPreference(android.net.Network))
++[`getMultipathPreference()`](/reference/android/net/ConnectivityManager#getMultipathPreference(android.net.Network))
+ now returns a value based on the aforementioned network traffic. Beginning with
+ Android 9, the method returns `true` for cell data, but when more than a certain amount of
+ traffic accumulates in a day, it starts returning `false`. Apps running on
+ Android 9 must call the method and honor this hint.
+ 
+-The [`ConnectivityManager.NetworkCallback`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback)
++The [`ConnectivityManager.NetworkCallback`](/reference/android/net/ConnectivityManager.NetworkCallback)
+ class now sends information about VPNs to apps. This change makes it much easier
+ for apps to listen for connectivity events without having to mix synchronous and
+ asynchronous calls and using limited APIs. Additionally, it means that
+@@ -137,17 +151,21 @@ Wi-Fi networks or multiple cell networks simultaneously.
+ ### Apache HTTP client deprecation
+ 
+ With Android 6.0,
+-[we removed support for the Apache HTTP client](https://developer.android.com/about/versions/marshmallow/android-6.0-changes#behavior-apache-http-client).
++[we removed support for the Apache HTTP client](/about/versions/marshmallow/android-6.0-changes#behavior-apache-http-client).
+ Beginning with Android 9, that library is removed from the
+ bootclasspath and is not available to apps by default.
+ 
+ To continue using the Apache HTTP client, apps that target Android 9 and above
+ can add the following to their `AndroidManifest.xml`:
+ 
+-    <uses-library android:name="org.apache.http.legacy" android:required="false"/>
++```
++<uses-library android:name="org.apache.http.legacy" android:required="false"/>
++```
+ 
+-> [!NOTE]
+-> **Note:** The `android:required="false"` attribute is required for apps that have a minimum SDK of 23 or lower, because on devices with API levels lower than 24, the `org.apache.http.legacy` library is not available. (On those devices, the Apache HTTP classes are available on the bootclasspath.)
++**Note:** The `android:required="false"` attribute is required for apps that have a
++minimum SDK of 23 or lower, because on devices with API levels lower than 24,
++the `org.apache.http.legacy` library is not available. (On those devices, the
++Apache HTTP classes are available on the bootclasspath.)
+ 
+ As an alternative to using the runtime Apache library, apps can bundle their
+ own version of the `org.apache.http` library in their APK. If you do this,
+@@ -173,12 +191,12 @@ behaviour for handling 4 and 8 hex digit CSS colors.
+ 
+ CSS Color Module Level 4
+ has been supported by Chrome since release 52, but
+-[WebView](https://developer.android.com/reference/android/webkit/WebView) currently disables the feature
++[WebView](/reference/android/webkit/WebView) currently disables the feature
+ because existing Android applications were found to contain 32 bit hex colors
+ in the Android ordering (ARGB), which would cause rendering errors.
+ 
+ For example, the color `#80ff8080` is currently rendered in
+-[WebView](https://developer.android.com/reference/android/webkit/WebView) as opaque
++[WebView](/reference/android/webkit/WebView) as opaque
+ light red (`#ff8080`) for apps targeting API levels 27 or lower. The leading
+ component (which would be interpreted by Android as the alpha component) is
+ currently ignored. If an app targets API level 28 or higher, `#80ff8080` is
+@@ -189,7 +207,7 @@ interpreted as 50% transparent light green (`#80ff80`).
+ Android versions earlier than Android 9 could infer MIME types from the file
+ contents. Starting with Android 9 (API level 28) apps must use the
+ correct file extension when loading `file:` URIs in a
+-[WebView](https://developer.android.com/reference/android/webkit/WebView).
++[WebView](/reference/android/webkit/WebView).
+ 
+ Using the file contents to infer MIME types can be a source of security bugs,
+ and this is not generally permitted by modern browsers.

@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/xr-compose-material3.md b/docs/jetpack/androidx/releases/xr-compose-material3.md
+index f424317..03018f6 100644
+--- a/docs/jetpack/androidx/releases/xr-compose-material3.md
++++ b/docs/jetpack/androidx/releases/xr-compose-material3.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Material Design for XR
+ 
+ [User Guide](/develop/xr/jetpack-xr-sdk/material-design)

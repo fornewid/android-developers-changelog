@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/migrate/interoperability-apis/compose-in-views.md b/docs/develop/ui/compose/migrate/interoperability-apis/compose-in-views.md
+index 3b18619..3115fc5 100644
+--- a/docs/develop/ui/compose/migrate/interoperability-apis/compose-in-views.md
++++ b/docs/develop/ui/compose/migrate/interoperability-apis/compose-in-views.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can add Compose-based UI into an existing app that uses a View-based design.
+ 
+ To create a new, entirely Compose-based screen, have your

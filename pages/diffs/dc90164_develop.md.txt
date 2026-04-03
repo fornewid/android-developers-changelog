@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/androidgo/develop.md b/docs/guide/topics/androidgo/develop.md
+index 5285db6..fa64944 100644
+--- a/docs/guide/topics/androidgo/develop.md
++++ b/docs/guide/topics/androidgo/develop.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Building applications for use on Android (Go edition) devices requires special
+ attention to performance optimizations and resource usage. There are two main
+ components to understand when building for Android (Go edition): the operating

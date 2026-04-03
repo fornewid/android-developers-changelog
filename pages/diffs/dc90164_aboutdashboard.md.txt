@@ -1,0 +1,20 @@
+diff --git a/docs/games/gamedashboard/aboutdashboard.md b/docs/games/gamedashboard/aboutdashboard.md
+index 4acb507..e025635 100644
+--- a/docs/games/gamedashboard/aboutdashboard.md
++++ b/docs/games/gamedashboard/aboutdashboard.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ The Game Dashboard is an overlay displayed on top of a running game to provide
+ features to enhance the gaming experience. It provides shortcuts to access
+ features which are frequently used while gaming, such as:
+@@ -44,4 +45,6 @@ applications.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

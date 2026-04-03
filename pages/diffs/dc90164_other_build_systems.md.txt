@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/other_build_systems.md b/docs/ndk/guides/other_build_systems.md
+index c88ec01..d330e7b 100644
+--- a/docs/ndk/guides/other_build_systems.md
++++ b/docs/ndk/guides/other_build_systems.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** The content described on this page requires at least NDK r19. If
+ you're using an older NDK, consider upgrading. If you're unable to upgrade, use
+ `<NDK>/build/tools/make_standalone_toolchain.py`.

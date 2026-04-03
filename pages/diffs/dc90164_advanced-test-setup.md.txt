@@ -1,0 +1,12 @@
+diff --git a/docs/studio/test/advanced-test-setup.md b/docs/studio/test/advanced-test-setup.md
+index a50a690..cd78a97 100644
+--- a/docs/studio/test/advanced-test-setup.md
++++ b/docs/studio/test/advanced-test-setup.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ [Test in Android Studio](/studio/test/test-in-android-studio) and
+ [Test from the command line](/studio/test/command-line) explain how to set
+ up and run basic test configurations. However, when your app and its

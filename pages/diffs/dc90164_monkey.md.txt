@@ -1,0 +1,12 @@
+diff --git a/docs/studio/test/other-testing-tools/monkey.md b/docs/studio/test/other-testing-tools/monkey.md
+index 52fbdc9..3297b38 100644
+--- a/docs/studio/test/other-testing-tools/monkey.md
++++ b/docs/studio/test/other-testing-tools/monkey.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Monkey is a program that runs on your
+ [emulator](/tools/help/emulator) or device and generates pseudo-random
+ streams of user events such as clicks, touches, or gestures, as well as a number of system-level

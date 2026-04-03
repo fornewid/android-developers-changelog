@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/cronet.md b/docs/develop/connectivity/cronet.md
+index 7c68efb..2c20d79 100644
+--- a/docs/develop/connectivity/cronet.md
++++ b/docs/develop/connectivity/cronet.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Cronet is the Chromium network stack made available to Android apps as a
+ library. Cronet takes advantage of multiple technologies that reduce the latency
+ and increase the throughput of the network requests that your app needs to work.

@@ -1,0 +1,12 @@
+diff --git a/docs/identity/phone-number-hint.md b/docs/identity/phone-number-hint.md
+index f3cb07d..b18d6f8 100644
+--- a/docs/identity/phone-number-hint.md
++++ b/docs/identity/phone-number-hint.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Phone Number Hint API, a library powered by [Google Play services](https://developers.google.com/android),
+ provides a frictionless way to show a user's (SIM-based) phone numbers as a
+ hint.

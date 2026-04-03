@@ -1,0 +1,46 @@
+diff --git a/docs/design/ui/cars/guides/app-types/navigate-to-a-saved-location.md b/docs/design/ui/cars/guides/app-types/navigate-to-a-saved-location.md
+index 4018408..1834c54 100644
+--- a/docs/design/ui/cars/guides/app-types/navigate-to-a-saved-location.md
++++ b/docs/design/ui/cars/guides/app-types/navigate-to-a-saved-location.md
+@@ -1,30 +1,20 @@
+ ---
+-title: Navigate to a saved location  |  Cars  |  Android Developers
++title: https://developer.android.com/design/ui/cars/guides/app-types/navigate-to-a-saved-location
+ url: https://developer.android.com/design/ui/cars/guides/app-types/navigate-to-a-saved-location
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [Cars](https://developer.android.com/design/ui/cars)
+-* [Guides](https://developer.android.com/design/ui/cars/guides/foundations/design-principles)
++# Navigate to a saved location
+ 
+-# Navigate to a saved location Stay organized with collections Save and categorize content based on your preferences.
++You can keep task flows short by presenting location shortcuts in the landing screen of your navigation apps.
+ 
+-
+-
+-You can keep task flows short by presenting location shortcuts in the landing
+-screen of your navigation apps.
+-
+-For example, if you include shortcuts such as *Home* and *Work*, users can
+-start navigation with just one tap.
++For example, if you include shortcuts such as*Home* and*Work*, users can start navigation with just one tap.
+ 
+ ## Sample flow
+ 
+ This sample flow shows how the templates might look in Android Auto.
+ 
+-| User action | Where action is performed | Step count after action |
+-| --- | --- | --- |
+-| The user selects a shortcut to a saved location. | Pane template included in the Map + Content template (landing template) Pane template included in the Map + Content template | 1 |
+-| Navigation begins. | Navigation template Navigation template | 1 (new task) |
+\ No newline at end of file
++|                   User action                    |                                                                                                      Where action is performed                                                                                                       | Step count after action |
++|--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
++| The user selects a shortcut to a saved location. | Pane template included in the Map + Content template (landing template) ![Pane template included in the Map + Content template](https://developer.android.com/static/images/design/ui/cars/app-cuj/navigate_to_saved_location_1.png) | 1                       |
++| Navigation begins.                               | Navigation template ![Navigation template](https://developer.android.com/static/images/design/ui/cars/app-cuj/navigate_to_saved_location_2.png)                                                                                      | 1 (new task)            |
+\ No newline at end of file

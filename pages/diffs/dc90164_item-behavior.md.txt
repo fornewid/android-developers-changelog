@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/flexbox/item-behavior.md b/docs/develop/ui/compose/layouts/adaptive/flexbox/item-behavior.md
+index 0d0ad1e..488cb55 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/flexbox/item-behavior.md
++++ b/docs/develop/ui/compose/layouts/adaptive/flexbox/item-behavior.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Use `Modifier.flex` to control how an item changes size, order, and is aligned
+ inside a `FlexBox`.
+ 

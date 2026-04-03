@@ -1,0 +1,205 @@
+diff --git a/docs/studio/debug/logcat.md b/docs/studio/debug/logcat.md
+index 904c53d..e158120 100644
+--- a/docs/studio/debug/logcat.md
++++ b/docs/studio/debug/logcat.md
+@@ -1,12 +1,22 @@
+ ---
+-title: https://developer.android.com/studio/debug/logcat
++title: View logs with Logcat  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/studio/debug/logcat
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Studio](https://developer.android.com/studio)
++* [IDE guides](https://developer.android.com/studio/intro)
++
++# View logs with Logcat Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ The **Logcat** window in Android Studio helps you debug your app by
+-displaying logs from your device in real time---for example, messages that you
+-added to your app with the [`Log`](https://developer.android.com/reference/android/util/Log) class, messages
++displaying logs from your device in real time—for example, messages that you
++added to your app with the [`Log`](/reference/android/util/Log) class, messages
+ from services that run on Android, or system messages, such as when a garbage
+ collection occurs. When an app throws an exception, Logcat shows a message
+ followed by the associated stack trace containing links to the line of code.
+@@ -15,16 +25,17 @@ followed by the associated stack trace containing links to the line of code.
+ 
+ To view the log messages for your app, do the following.
+ 
+-1. In Android Studio, [build and run your app](https://developer.android.com/studio/run) on a physical device or emulator.
+-2. Select **View \> Tool Windows \> Logcat** from the menu bar.
++1. In Android Studio, [build and run your app](/studio/run) on a physical
++   device or emulator.
++2. Select **View > Tool Windows > Logcat** from the menu bar.
+ 
+ By default, Logcat scrolls to the end. Clicking in the Logcat view or scrolling
+ up using your mouse wheel turns this feature off. To turn it back on, click
+-**Scroll to the End** ![Scroll to the End icon](https://developer.android.com/static/studio/images/buttons/logcat-scroll-end.png)
++**Scroll to the End** ![Scroll to the End icon](/static/studio/images/buttons/logcat-scroll-end.png)
+ from the toolbar. You can also use the toolbar to clear, pause, or restart
+ Logcat.
+ 
+-![The Logcat window UI](https://developer.android.com/static/studio/images/debug/logcat-window.png)
++![The Logcat window UI](/static/studio/images/debug/logcat-window.png)
+ 
+ **Figure 1.** Logcat formats logs to make it easier to scan useful information,
+ such as tags and messages, and identify different types of logs, such as
+@@ -49,12 +60,12 @@ For example, the following log message has a priority of `DEBUG` and a tag of
+ The standard log view displays each log's date, time process and thread ID, tag,
+ package name, priority, and the message associated with it. By default, message
+ lines are not wrapped in the log view but you can use the
+-**Soft-Wrap** ![Soft-Wrap icon](https://developer.android.com/static/studio/images/buttons/logcat-soft-wrap.png)
++**Soft-Wrap** ![Soft-Wrap icon](/static/studio/images/buttons/logcat-soft-wrap.png)
+ option from the Logcat toolbar.
+ 
+ You can switch to **Compact** view, which has less default display information,
+ by clicking
+-**Configure Logcat Formatting Options** ![](https://developer.android.com/static/studio/images/buttons/logcat-formatting-options.png)
++**Configure Logcat Formatting Options** ![](/static/studio/images/buttons/logcat-formatting-options.png)
+ from the **Logcat** toolbar.
+ 
+ To further configure how much information you want displayed, select
+@@ -63,15 +74,15 @@ process IDs, or package names displayed.
+ 
+ #### Change the color scheme
+ 
+-To change the color scheme, navigate to **Android Studio** \> **Settings** \>
+-**Editor** \> **Color Scheme** . To change the color scheme of your log view,
+-select **Android Logcat** . To change the color scheme of your filter, select
++To change the color scheme, navigate to **Android Studio** > **Settings** >
++**Editor** > **Color Scheme**. To change the color scheme of your log view,
++select **Android Logcat**. To change the color scheme of your filter, select
+ **Logcat Filter**.
+ 
+ #### Additional configuration options
+ 
+-For additional configuration options, navigate to **Android Studio** \>
+-**Settings** \> **Tools** \> **Logcat**. From here, you can choose the Logcat
++For additional configuration options, navigate to **Android Studio** >
++**Settings** > **Tools** > **Logcat**. From here, you can choose the Logcat
+ cycle buffer size, the default filter for new Logcat windows, and whether you
+ want to add filters from history to autocomplete.
+ 
+@@ -79,17 +90,17 @@ want to add filters from history to autocomplete.
+ 
+ Tabs help you easily switch between different devices or queries. You can create
+ multiple Logcat tabs by clicking
+-**New Tab** ![New Tab icon](https://developer.android.com/static/studio/images/buttons/logcat-new-tab.png).
++**New Tab** ![New Tab icon](/static/studio/images/buttons/logcat-new-tab.png).
+ Right-clicking a tab lets you rename and rearrange it.
+ 
+ Additionally, you can split the view within a tab to help you more easily
+ compare between two sets of logs. To create a split, either right-click in the
+ log view or click the **Split Panels** option from the toolbar, and select
+-**Split Right** or **Split Down** . To close a split, right-click and
++**Split Right** or **Split Down**. To close a split, right-click and
+ select **Close**. Each split allows you to set its own device connection, view
+ options, and query.
+ 
+-![Multiple Logcat windows](https://developer.android.com/static/studio/images/debug/logcat-split-view.png)
++![Multiple Logcat windows](/static/studio/images/debug/logcat-split-view.png)
+ **Figure 2.** Split **Logcat** windows in Android Studio.
+ 
+ From the **Logcat** toolbar, you can either scroll to the end of the logs, or
+@@ -103,18 +114,21 @@ query and also exclude logs based on key-values. While you have the option to
+ use regular expressions, you don't have to rely on them for queries. To see
+ suggestions, press `Ctrl` + `Space` in the query field.
+ 
+-![List of suggestions in the query field](https://developer.android.com/static/studio/images/debug/logcat-query-suggestions.png)
++![List of suggestions in the query field](/static/studio/images/debug/logcat-query-suggestions.png)
+ **Figure 3.** Press `Ctrl` + `Space` in the query field to see a list of
+ suggested queries.
+ 
+ The following are some examples of keys you can use in your query:
+ 
+-- `tag`: Matches against the `tag` field of the log entry.
+-- `package`: Matches against the package name of the logging app.
+-- `process`: Matches against the process name of the logging app.
+-- `message`: Matches against the message part of the log entry.
+-- `level`: Matches the specified or higher severe log level--for example, `DEBUG`.
+-- `age`: Matches if the entry timestamp is recent. Values are specified as a number followed by a letter specifying the time unit: `s` for seconds, `m` for minutes, `h` for hours and `d` for days. For example, `age: 5m` filters only messages that were logged in the last 5 minutes.
++* `tag`: Matches against the `tag` field of the log entry.
++* `package`: Matches against the package name of the logging app.
++* `process`: Matches against the process name of the logging app.
++* `message`: Matches against the message part of the log entry.
++* `level`: Matches the specified or higher severe log level–for example, `DEBUG`.
++* `age`: Matches if the entry timestamp is recent. Values are specified as a
++  number followed by a letter specifying the time unit: `s` for seconds, `m` for
++  minutes, `h` for hours and `d` for days. For example, `age: 5m` filters only
++  messages that were logged in the last 5 minutes.
+ 
+ ### Negation and regular expressions
+ 
+@@ -194,17 +208,19 @@ For example, `level:INFO` matches any log entry with a log level of `INFO`,
+ The `age` query matches entries based on their timestamp, and is formatted as
+ `age:<number><unit>`, where
+ 
+-- `<number>` is an integer
+-- `<unit>` is one of `s`, `m`, `h`, and `d` (seconds, minutes, hours, and days).
++* `<number>` is an integer
++* `<unit>` is one of `s`, `m`, `h`, and `d` (seconds, minutes, hours, and days).
+ 
+ Given the following list, the `age` query matches log messages that have a
+ timestamp in the range described by the value. For example: the query `age:5m`
+ matches entries with a timestamp no earlier than 5 minutes ago.
+ 
+-    age:30s
+-    age:5m
+-    age:3h
+-    age:1d
++```
++age:30s
++age:5m
++age:3h
++age:1d
++```
+ 
+ Note that the timestamp is compared against the timestamp of the host, not the
+ connected device. If the time of the device is not set correctly, this query
+@@ -214,8 +230,10 @@ may not work as expected.
+ 
+ You can use the `is` key as follows:
+ 
+-- `is:crash` matches log entries that represent an application crash (either native or Java).
+-- `is:stacktrace` matches log entries that represent anything that looks like a Java stacktrace, regardless of the log level.
++* `is:crash` matches log entries that represent an application crash
++  (either native or Java).
++* `is:stacktrace` matches log entries that represent anything that looks like a
++  Java stacktrace, regardless of the log level.
+ 
+ **`name` key**
+ 
+@@ -227,13 +245,13 @@ specified value for `name` in the query.
+ ### View query history
+ 
+ You can view your query history by clicking
+-**Show history** ![Filter icon](https://developer.android.com/static/studio/images/buttons/logcat-filter-icon.png)
++**Show history** ![Filter icon](/static/studio/images/buttons/logcat-filter-icon.png)
+ next to the query field. To favorite a query so that it stays at the top of the
+ list across all your studio projects, click the star next to it. You can also
+ use the `name:` key to make favorite queries more easy to recognize. For more
+-information, see [Special queries](https://developer.android.com/studio/debug/logcat#special-queries).
++information, see [Special queries](#special-queries).
+ 
+-![UI for favoriting a query](https://developer.android.com/static/studio/images/debug/logcat-fav-query.png)
++![UI for favoriting a query](/static/studio/images/debug/logcat-fav-query.png)
+ 
+ **Figure 4.** Favorite a query by clicking the star next to it.
+ 
+@@ -244,7 +262,7 @@ a message in the output, such as `PROCESS ENDED` and `PROCESS STARTED`.
+ Restarting Logcat preserves your session configuration, such as tab splits,
+ filters, and view options, so that you can continue your session easily.
+ 
+-![Logcat window for app crashes](https://developer.android.com/static/studio/images/debug/logcat-track-crashes.png)
++![Logcat window for app crashes](/static/studio/images/debug/logcat-track-crashes.png)
+ 
+ **Figure 5.** When your app process restarts, Logcat prints a message that the
+ process has ended and then started.
+\ No newline at end of file

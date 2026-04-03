@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/android-2.3-highlights.md b/docs/about/versions/android-2.3-highlights.md
+index 3555950..7f030d2 100644
+--- a/docs/about/versions/android-2.3-highlights.md
++++ b/docs/about/versions/android-2.3-highlights.md
+@@ -10,7 +10,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android 2.3 platform introduces many new and exciting features for
+ users and developers. This document provides a glimpse at some of the new features
+ and technologies in Android 2.3. For detailed information about the new developer APIs, see the [Android 2.3 version notes](/about/versions/android-2.3).

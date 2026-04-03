@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/animation/choose-api.md b/docs/develop/ui/compose/animation/choose-api.md
+index 36e8d87..5f5f3d3 100644
+--- a/docs/develop/ui/compose/animation/choose-api.md
++++ b/docs/develop/ui/compose/animation/choose-api.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The following diagram helps you decide what API to use to implement your animation.
+ 
+ ![Flowchart describing the decision tree for choosing the appropriate animation API](/static/develop/ui/compose/images/animations/compose_animation_decision_tree_v2.jpg)

@@ -1,0 +1,129 @@
+diff --git a/docs/courses/quizzes/android-basics-compose-unit-2-pathway-2/android-basics-compose-unit-2-pathway-2.md b/docs/courses/quizzes/android-basics-compose-unit-2-pathway-2/android-basics-compose-unit-2-pathway-2.md
+index 63437fb..aba62fe 100644
+--- a/docs/courses/quizzes/android-basics-compose-unit-2-pathway-2/android-basics-compose-unit-2-pathway-2.md
++++ b/docs/courses/quizzes/android-basics-compose-unit-2-pathway-2/android-basics-compose-unit-2-pathway-2.md
+@@ -1,69 +1,78 @@
+ ---
+-title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-2-pathway-2/android-basics-compose-unit-2-pathway-2
++title: Add a button to an app  |  Android Developers
+ url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-2-pathway-2/android-basics-compose-unit-2-pathway-2
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Add a button to an app
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
+ 
+ # Add a button to an app
+ 
+-<br />
++Return to pathway
++
++
++
++1. ## Use a \_\_\_ Composable to display an image
++
++   Button
++
++   Text
++
++   Image
++
++   Icon
++2. ## `Alignment.Center` centers UI components both horizontally and vertically.
++
++   True
++
++   False
++3. ## Composable functions can store an object in memory using the \_\_\_ composable
++
++   remember
++
++   Column
++
++   Modifier
+ 
+-Return to pathway  
+-1.
++   @Composable
++4. ## The debugger allows you to inspect variables when code execution has been suspended.
+ 
+-   ## Use a ___ Composable to display an image
++   True
+ 
+-   Button  
+-   Text  
+-   Image  
+-   Icon  
+-2.
++   False
++5. ## By using \_\_\_ values in a composable function, variables can be made into observables that schedule a recomposition when their value is changed.
+ 
+-   ## `Alignment.Center`centers UI components both horizontally and vertically.
++   remember
+ 
+-   True  
+-   False  
+-3.
++   Modifier
+ 
+-   ## Composable functions can store an object in memory using the ___ composable
++   @Composable
+ 
+-   remember  
+-   Column  
+-   Modifier  
+-   @Composable  
+-4.
++   mutableStateOf
++6. ## The \_\_\_ composable places its children in a vertical sequence.
+ 
+-   ## The debugger allows you to inspect variables when code execution has been suspended.
++   Row
+ 
+-   True  
+-   False  
+-5.
++   Box
+ 
+-   ## By using ___ values in a composable function, variables can be made into observables that schedule a recomposition when their value is changed.
++   Column
+ 
+-   remember  
+-   Modifier  
+-   @Composable  
+-   mutableStateOf  
+-6.
++   Modifier
++7. ## The \_\_\_ debugger feature allows you to navigate back up the call stack.
+ 
+-   ## The ___ composable places its children in a vertical sequence.
++   Step over
+ 
+-   Row  
+-   Box  
+-   Column  
+-   Modifier  
+-7.
++   Step out
+ 
+-   ## The ___ debugger feature allows you to navigate back up the call stack.
++   Step into
+ 
+-   Step over  
+-   Step out  
+-   Step into  
+-   Resume program  
++   Resume program
+ 
+ Submit answers
+ 
+-*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error\_outline*
++An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

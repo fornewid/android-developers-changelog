@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/publishing/api/imageConfigurations/upload.md b/docs/games/services/publishing/api/imageConfigurations/upload.md
+index 20f56ec..1e61e01 100644
+--- a/docs/games/services/publishing/api/imageConfigurations/upload.md
++++ b/docs/games/services/publishing/api/imageConfigurations/upload.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Deprecated:** This API is deprecated and is being removed, so you shouldn't use it.
+ Attempting to use this API causes errors.
+ 

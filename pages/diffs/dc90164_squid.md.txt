@@ -1,0 +1,63 @@
+diff --git a/docs/stories/apps/squid.md b/docs/stories/apps/squid.md
+index 9d34f1d..671a679 100644
+--- a/docs/stories/apps/squid.md
++++ b/docs/stories/apps/squid.md
+@@ -1,18 +1,10 @@
+ ---
+-title: Squid boosts their rating with new features in ChromeOS  |  Developer stories  |  Android Developers
++title: https://developer.android.com/stories/apps/squid
+ url: https://developer.android.com/stories/apps/squid
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Developer stories](https://developer.android.com/stories)
+-
+-# Squid boosts their rating with new features in ChromeOS Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-![](/static/images/distribute/stories/squid.png)
++# Squid boosts their rating with new features in ChromeOS
+ 
+ [Squid](https://play.google.com/store/apps/details?id=com.steadfastinnovation.android.projectpapyrus)
+ allows users to take handwritten notes naturally on various devices. With Squid
+@@ -25,12 +17,13 @@ when Android Honeycomb was released. The latest ChromeOS devices with active
+ pen support that run Android apps are essentially the hardware they've been
+ waiting for, so it was easy for them to make the choice to optimize.
+ 
+-## What they did
++What they did
++-------------
+ 
+ Squid was built for large screen devices from the beginning, but there were a
+ few areas they needed to focus on to optimize for ChromeOS. They added better
+ support for the keyboard with keyboard shortcuts, navigation, and making sure
+-hitting the “Enter” key closed dialogs where you would expect this to be the
++hitting the "Enter" key closed dialogs where you would expect this to be the
+ natural behavior. They also added support for trackpad scrolling, which is
+ helpful when users are reviewing a note in Squid, and support for the system
+ clipboard.
+@@ -42,7 +35,8 @@ because an active pen provides a much more natural writing experience. Squid
+ users are astonished at how fluid and lag-free writing is now. With low-latency
+ support, the ink finally feels like it's coming out of the pen.
+ 
+-## Results
++Results
++-------
+ 
+ Squid users have given the app rave reviews. The cumulative average rating on
+ Chromebooks is 4.6☆, which is 8.5% higher than their average rating across all
+@@ -53,7 +47,8 @@ They've also had schools start adopting Squid in the classroom, and are hoping
+ to expand this further in 2018 with the great lineup of new active pen-enabled
+ Chromebooks built for education.
+ 
+-## Get started
++Get started
++-----------
+ 
+ Learn how to best
+ [optimize your apps for ChromeOS](/topic/arc/optimizing).
+\ No newline at end of file

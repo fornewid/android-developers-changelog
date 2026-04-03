@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/sample.md b/docs/ndk/guides/sample.md
+index 8cb5c0f..dcdaa1b 100644
+--- a/docs/ndk/guides/sample.md
++++ b/docs/ndk/guides/sample.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This section explains several of the sample apps provided with the NDK. It assumes that you already have a working knowledge of programming in Java and native code, and focuses on issues particular to working with the NDK.
+ 
+ It discusses the following samples:

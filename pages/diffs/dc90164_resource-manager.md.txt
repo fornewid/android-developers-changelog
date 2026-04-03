@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/resource-manager.md b/docs/studio/write/resource-manager.md
+index c756479..c04c9d5 100644
+--- a/docs/studio/write/resource-manager.md
++++ b/docs/studio/write/resource-manager.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Resource Manager is a tool window for importing, creating, managing, and
+ using resources in your app. To open the tool window, select
+ **View > Tool Windows > Resource Manager** from the menu or select

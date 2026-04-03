@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/app-types/media-apps.md b/docs/design/ui/cars/guides/app-types/media-apps.md
+index b085e90..c5d43e7 100644
+--- a/docs/design/ui/cars/guides/app-types/media-apps.md
++++ b/docs/design/ui/cars/guides/app-types/media-apps.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Help users find their favorite songs, podcasts, and audiobooks easily while
+ keeping their eyes on the road. You can design end-to-end media experiences that
+ bring the best of your app to the car.

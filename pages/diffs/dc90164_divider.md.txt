@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/divider.md b/docs/develop/ui/compose/components/divider.md
+index 76745a3..957be38 100644
+--- a/docs/develop/ui/compose/components/divider.md
++++ b/docs/develop/ui/compose/components/divider.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ [Dividers](https://m3.material.io/components/divider/overview) are thin lines that separate items in lists or other
+ containers. You can implement dividers in your app using the `HorizontalDivider`
+ and `VerticalDivider` composables.

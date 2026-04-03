@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/baselineprofiles/create-baselineprofile-library.md b/docs/topic/performance/baselineprofiles/create-baselineprofile-library.md
+index 97f35eb..de82b10 100644
+--- a/docs/topic/performance/baselineprofiles/create-baselineprofile-library.md
++++ b/docs/topic/performance/baselineprofiles/create-baselineprofile-library.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To create Baseline Profiles for a library, use the
+ [Baseline Profile Gradle plugin](/topic/performance/baselineprofiles/configure-baselineprofiles).
+ 

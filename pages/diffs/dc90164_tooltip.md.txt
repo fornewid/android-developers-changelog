@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/tooltip.md b/docs/develop/ui/compose/components/tooltip.md
+index 19aa55c..d19e017 100644
+--- a/docs/develop/ui/compose/components/tooltip.md
++++ b/docs/develop/ui/compose/components/tooltip.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Use [tooltips](https://m3.material.io/components/tooltips/overview) to add context to a button or other UI element.
+ There are two types of tooltips:
+ 

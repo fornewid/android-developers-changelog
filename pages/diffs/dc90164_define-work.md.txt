@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/getting-started/define-work.md b/docs/develop/background-work/background-tasks/persistent/getting-started/define-work.md
+index d231061..a3b2230 100644
+--- a/docs/develop/background-work/background-tasks/persistent/getting-started/define-work.md
++++ b/docs/develop/background-work/background-tasks/persistent/getting-started/define-work.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The [getting started guide](/develop/background-work/background-tasks/persistent/getting-started) covered how to create a [`WorkRequest`](/reference/androidx/work/WorkRequest)
+ and enqueue it.
+ 

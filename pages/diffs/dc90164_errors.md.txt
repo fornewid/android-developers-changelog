@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/media/errors.md b/docs/training/cars/media/errors.md
+index 3fbde45..8c6b593 100644
+--- a/docs/training/cars/media/errors.md
++++ b/docs/training/cars/media/errors.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android Auto and Android Automotive (AAOS) set the playback state to
+ `STATE_ERROR` and provide a user-facing, localized error message. The apps can
+ then display the message to the user.

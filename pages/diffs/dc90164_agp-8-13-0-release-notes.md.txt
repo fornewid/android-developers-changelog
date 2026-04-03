@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/agp-8-13-0-release-notes.md b/docs/build/releases/agp-8-13-0-release-notes.md
+index e374160..f71b3ea 100644
+--- a/docs/build/releases/agp-8-13-0-release-notes.md
++++ b/docs/build/releases/agp-8-13-0-release-notes.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android Gradle Plugin 8.13.0 is a major release that includes a variety of new
+ features and improvements.
+ 

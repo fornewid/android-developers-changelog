@@ -1,0 +1,20 @@
+diff --git a/docs/games/agde/configure-pgo.md b/docs/games/agde/configure-pgo.md
+index 73827f8..0c79c7b 100644
+--- a/docs/games/agde/configure-pgo.md
++++ b/docs/games/agde/configure-pgo.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Profile-Guided Optimization support was introduced in AGDE
+ version 22.2.71.
+ 
+@@ -181,4 +182,6 @@ for your engine to see how to enable PGO (if it is supported).
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

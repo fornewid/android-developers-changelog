@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/gallery/social/drag-and-drop.md b/docs/design/ui/gallery/social/drag-and-drop.md
+index 4285142..03c80e9 100644
+--- a/docs/design/ui/gallery/social/drag-and-drop.md
++++ b/docs/design/ui/gallery/social/drag-and-drop.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Make content sharing simple with spacious layouts that enable natural,
+ fumble-free drag-and-drop interactions within apps and, in multi-window mode,
+ between apps.

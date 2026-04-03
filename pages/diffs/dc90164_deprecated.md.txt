@@ -1,0 +1,12 @@
+diff --git a/docs/studio/services/deprecated.md b/docs/studio/services/deprecated.md
+index 08e06e5..80eaed7 100644
+--- a/docs/studio/services/deprecated.md
++++ b/docs/studio/services/deprecated.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The following Android Studio service integrations have been deprecated:
+ 
+ ## Meerkat

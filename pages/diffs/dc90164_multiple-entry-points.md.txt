@@ -1,0 +1,79 @@
+diff --git a/docs/topic/google-play-instant/guides/multiple-entry-points.md b/docs/topic/google-play-instant/guides/multiple-entry-points.md
+index a5024ca..4dbddd3 100644
+--- a/docs/topic/google-play-instant/guides/multiple-entry-points.md
++++ b/docs/topic/google-play-instant/guides/multiple-entry-points.md
+@@ -1,9 +1,17 @@
+ ---
+-title: https://developer.android.com/topic/google-play-instant/guides/multiple-entry-points
++title: Provide multiple entry points into an instant experience  |  Other Play guides  |  Android Developers
+ url: https://developer.android.com/topic/google-play-instant/guides/multiple-entry-points
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Google Play](https://developer.android.com/distribute)
++* [Other Play guides](https://developer.android.com/guide/app-bundle)
++
++# Provide multiple entry points into an instant experience Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ **Warning:** Google Play Instant will no longer be available. Starting December 2025,
+ Instant Apps cannot be published through Google Play, and all
+ [Google Play services Instant APIs](https://developers.google.com/android/reference/com/google/android/gms/instantapps/package-summary)
+@@ -17,13 +25,13 @@ To continue optimizing for user growth, we encourage developers to refer users t
+ their regular app or game, using [deeplinks](https://support.google.com/googleplay/android-developer/answer/12463044)
+ to redirect them to specific journeys or features when relevant.
+ 
+-Each instant experience has at least one *entry point* , which is a single
++Each instant experience has at least one *entry point*, which is a single
+ activity within your app or game. If you want your app or game to have multiple
+ entry points, each starting activity needs to be *addressable*; that is, it
+ needs to correspond to a unique URL.
+ 
+-> [!NOTE]
+-> **Note:** You cannot associate fragments with URLs. Additionally, you cannot launch these fragments independently of an activity.
++**Note:** You cannot associate fragments with URLs. Additionally, you cannot launch
++these fragments independently of an activity.
+ 
+ If the URLs for the entry points in an instant app or game share a domain, each
+ entry point needs to correspond to a different path within that domain. For
+@@ -33,11 +41,13 @@ location. Each of these features corresponds to resources within a web domain,
+ "example.com". To provide a unique URL for each entry point, specify different
+ paths within the domain, as shown in the following table.
+ 
+-> [!CAUTION]
+-> **Caution:** To help the system launch the correct activity for each entry point, make sure that your paths don't share a common prefix. For example, if you provided entry points containing the URLs "http://example.com/check" and "http://example.com/checkout", the system's behavior might be undefined.
++**Caution:** To help the system launch the correct activity for each entry point,
++make sure that your paths don't share a common prefix. For example, if you
++provided entry points containing the URLs "http://example.com/check" and
++"http://example.com/checkout", the system's behavior might be undefined.
+ 
+ | Feature | URL |
+-|---|---|
++| --- | --- |
+ | Location finder | http://example.com/finder |
+ | Nearby restaurants | http://example.com/restaurants |
+ | Share location | http://example.com/share |
+@@ -51,7 +61,7 @@ shown in the following code snippet:
+ 
+ AndroidManifest.xml
+ 
+-```xml
++```
+ <manifest>
+   <activity android:name=".CatalogActivity" >
+     <intent-filter>
+@@ -67,5 +77,7 @@ AndroidManifest.xml
+ </manifest>
+ ```
+ 
+-> [!NOTE]
+-> **Note:** To match a `pathPrefix` filter, URLs must contain the path prefix in addition to at least one character following the prefix. Therefore, by following the logic in the preceding code snippet, the URL "/items/" would bring users to `CatalogActivity`.
+\ No newline at end of file
++**Note:** To match a `pathPrefix` filter, URLs must contain the path prefix in
++addition to at least one character following the prefix. Therefore, by following
++the logic in the preceding code snippet, the URL "/items/" would bring users to
++`CatalogActivity`.
+\ No newline at end of file

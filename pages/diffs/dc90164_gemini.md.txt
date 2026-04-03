@@ -1,0 +1,12 @@
+diff --git a/docs/ai/gemini.md b/docs/ai/gemini.md
+index dc15e28..de78197 100644
+--- a/docs/ai/gemini.md
++++ b/docs/ai/gemini.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Gemini Pro and Gemini Flash model families offer Android developers
+ multimodal AI capabilities, running inference in the cloud and processing image,
+ audio, video, and text inputs in Android apps.

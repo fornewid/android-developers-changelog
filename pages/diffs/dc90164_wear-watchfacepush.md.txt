@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/wear-watchfacepush.md b/docs/jetpack/androidx/releases/wear-watchfacepush.md
+index 70cec55..0940502 100644
+--- a/docs/jetpack/androidx/releases/wear-watchfacepush.md
++++ b/docs/jetpack/androidx/releases/wear-watchfacepush.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Wear Watch Face Push
+ 
+ API Reference  

@@ -1,0 +1,12 @@
+diff --git a/docs/kotlin/multiplatform/viewmodel.md b/docs/kotlin/multiplatform/viewmodel.md
+index 48c9106..82cf80f 100644
+--- a/docs/kotlin/multiplatform/viewmodel.md
++++ b/docs/kotlin/multiplatform/viewmodel.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The AndroidX ViewModel serves as a bridge, establishing a clear contract between
+ your shared business logic and your UI components. This pattern helps ensure
+ data consistency across platforms, while enabling UIs to be customized for each

@@ -1,0 +1,12 @@
+diff --git a/docs/tv/release/13.md b/docs/tv/release/13.md
+index b699abf..54d4748 100644
+--- a/docs/tv/release/13.md
++++ b/docs/tv/release/13.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** Android 13 for TV is a developer release only and won't be delivered to
+ consumer devices.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/localbroadcastmanager.md b/docs/jetpack/androidx/releases/localbroadcastmanager.md
+index 78e7d26..cbb733f 100644
+--- a/docs/jetpack/androidx/releases/localbroadcastmanager.md
++++ b/docs/jetpack/androidx/releases/localbroadcastmanager.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Localbroadcastmanager
+ 
+ [User Guide](/guide/components/broadcasts)  [Code Sample](https://github.com/android/location-samples/blob/master/LocationUpdatesForegroundService/app/src/main/java/com/google/android/gms/location/sample/locationupdatesforegroundservice/MainActivity.java)

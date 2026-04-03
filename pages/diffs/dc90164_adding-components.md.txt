@@ -1,0 +1,12 @@
+diff --git a/docs/topic/libraries/architecture/adding-components.md b/docs/topic/libraries/architecture/adding-components.md
+index 1950208..8fdb247 100644
+--- a/docs/topic/libraries/architecture/adding-components.md
++++ b/docs/topic/libraries/architecture/adding-components.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ [Issue Tracker](https://issuetracker.google.com/issues/new?component=197448&template=878802)
+ 
+ Report issues so we can fix bugs.

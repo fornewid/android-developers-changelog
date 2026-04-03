@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/recall/recall-setup.md b/docs/games/pgs/recall/recall-setup.md
+index 74ae122..a3cf8e0 100644
+--- a/docs/games/pgs/recall/recall-setup.md
++++ b/docs/games/pgs/recall/recall-setup.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This page explains how to implement the [Recall API](/games/pgs/recall) within your game. It
+ first covers setting up your game server and client to support the API, and then
+ explains how to store and retrieve tokens.
+@@ -420,6 +419,4 @@ provide end users with an appropriate notice that describes the following:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/webapps/access-local-server.md b/docs/develop/ui/views/layout/webapps/access-local-server.md
+index 7eb569c..2188c84 100644
+--- a/docs/develop/ui/views/layout/webapps/access-local-server.md
++++ b/docs/develop/ui/views/layout/webapps/access-local-server.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When developing web content for WebView, it can be helpful to serve content from
+ a local web server on your development machine. If you access this local server
+ from a WebView on a test device or emulator, you can quickly see your changes

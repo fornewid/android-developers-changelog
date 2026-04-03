@@ -1,0 +1,12 @@
+diff --git a/docs/topic/libraries/support-library/revisions.md b/docs/topic/libraries/support-library/revisions.md
+index 5ce7970..d1a1483 100644
+--- a/docs/topic/libraries/support-library/revisions.md
++++ b/docs/topic/libraries/support-library/revisions.md
+@@ -10,7 +10,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page provides details about the most recent Support Library package
+ releases. For earlier releases, see the [Support Library Revisions Archive](/topic/libraries/support-library/rev-archive).
+ 

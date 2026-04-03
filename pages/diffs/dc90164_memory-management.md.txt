@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/memory-management.md b/docs/topic/performance/memory-management.md
+index ec1184b..de1e642 100644
+--- a/docs/topic/performance/memory-management.md
++++ b/docs/topic/performance/memory-management.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android platform runs on the premise that free memory is wasted memory. It
+ tries to use all of the available memory at all times. For example, the system
+ keeps apps in memory after they've been closed so the user can quickly switch

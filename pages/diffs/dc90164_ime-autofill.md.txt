@@ -1,0 +1,12 @@
+diff --git a/docs/identity/autofill/ime-autofill.md b/docs/identity/autofill/ime-autofill.md
+index c3924fe..ef468e6 100644
+--- a/docs/identity/autofill/ime-autofill.md
++++ b/docs/identity/autofill/ime-autofill.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Beginning in Android 11, keyboards and other input-method editors
+ (*IMEs*) can display autofill suggestions inline, in a suggestion strip, or
+ something similar instead of the system displaying suggestions in a menu. Since

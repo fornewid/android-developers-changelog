@@ -1,0 +1,12 @@
+diff --git a/docs/topic/libraries/view-binding/migration.md b/docs/topic/libraries/view-binding/migration.md
+index 37d32ce..bd83f76 100644
+--- a/docs/topic/libraries/view-binding/migration.md
++++ b/docs/topic/libraries/view-binding/migration.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Kotlin Android Extensions is deprecated, which means that using Kotlin
+ synthetics for view binding is no longer supported. If your app uses Kotlin
+ synthetics for view binding, use this guide to migrate to Jetpack view binding.

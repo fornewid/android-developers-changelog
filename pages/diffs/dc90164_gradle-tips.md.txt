@@ -1,0 +1,12 @@
+diff --git a/docs/build/gradle-tips.md b/docs/build/gradle-tips.md
+index bb50b3f..12d2c86 100644
+--- a/docs/build/gradle-tips.md
++++ b/docs/build/gradle-tips.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Gradle and the Android plugin for Gradle provide a flexible way to compile,
+ build, and package your Android app or library. This page collects some
+ useful tips and configurations to help you get the most out of each build.

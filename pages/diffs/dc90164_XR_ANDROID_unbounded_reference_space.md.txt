@@ -1,0 +1,12 @@
+diff --git a/docs/develop/xr/openxr/extensions/XR_ANDROID_unbounded_reference_space.md b/docs/develop/xr/openxr/extensions/XR_ANDROID_unbounded_reference_space.md
+index 408a281..d1e9a4d 100644
+--- a/docs/develop/xr/openxr/extensions/XR_ANDROID_unbounded_reference_space.md
++++ b/docs/develop/xr/openxr/extensions/XR_ANDROID_unbounded_reference_space.md
+@@ -17,7 +17,6 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
+ 
+ 
+ 
+-
+ **Name String**
+ 
+ `XR_ANDROID_unbounded_reference_space`

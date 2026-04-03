@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/best-practices.md b/docs/studio/gemini/best-practices.md
+index bcd5fa9..81bfc0c 100644
+--- a/docs/studio/gemini/best-practices.md
++++ b/docs/studio/gemini/best-practices.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Gemini in Android Studio acts as your coding collaborator, accelerating your
+ development workflow by generating code, summarizing complex topics, finding
+ specific resources, and more. Effective communication is the key to unlocking

@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/wff/complications.md b/docs/training/wearables/wff/complications.md
+index 4bba3c1..746eee3 100644
+--- a/docs/training/wearables/wff/complications.md
++++ b/docs/training/wearables/wff/complications.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ [Complications](/design/ui/wear/guides/surfaces/complications) are a feature of both physical and smartwatch watch faces
+ that show additional information. Typically the user selects what information is
+ shown in a complication.

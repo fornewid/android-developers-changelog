@@ -1,0 +1,12 @@
+diff --git a/docs/studio/intro/keyboard-shortcuts.md b/docs/studio/intro/keyboard-shortcuts.md
+index 475e559..8db8a9d 100644
+--- a/docs/studio/intro/keyboard-shortcuts.md
++++ b/docs/studio/intro/keyboard-shortcuts.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Keyboard shortcuts are a useful way of quickly navigating around Android
+ Studio and performing common actions. In many cases, using keyboard shortcuts is
+ faster than using the GUI.

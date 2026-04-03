@@ -1,0 +1,12 @@
+diff --git a/docs/studio/projects/configure-agp-ndk.md b/docs/studio/projects/configure-agp-ndk.md
+index 4500fe4..023f1bf 100644
+--- a/docs/studio/projects/configure-agp-ndk.md
++++ b/docs/studio/projects/configure-agp-ndk.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page shows you how to configure the NDK in your project according to the
+ version of the Android Gradle Plugin (AGP) used by the project.
+ 

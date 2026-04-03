@@ -1,0 +1,12 @@
+diff --git a/docs/training/system-ui/visibility.md b/docs/training/system-ui/visibility.md
+index 66dfb8e..b53103f 100644
+--- a/docs/training/system-ui/visibility.md
++++ b/docs/training/system-ui/visibility.md
+@@ -10,7 +10,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This lesson describes how to register a listener so that your app can get notified
+ of system UI visibility changes. This is useful if you want to
+ synchronize other parts of your UI with the hiding/showing of system bars.

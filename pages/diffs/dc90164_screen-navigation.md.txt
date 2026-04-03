@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/apps/library/screen-navigation.md b/docs/training/cars/apps/library/screen-navigation.md
+index a70d612..7453261 100644
+--- a/docs/training/cars/apps/library/screen-navigation.md
++++ b/docs/training/cars/apps/library/screen-navigation.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Apps often present a number of different screens, each possibly using
+ different templates the user can navigate through as they interact with
+ the interface.

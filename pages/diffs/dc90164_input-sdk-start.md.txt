@@ -1,0 +1,994 @@
+diff --git a/docs/games/playgames/input-sdk-start.md b/docs/games/playgames/input-sdk-start.md
+index 9092ab1..1936f77 100644
+--- a/docs/games/playgames/input-sdk-start.md
++++ b/docs/games/playgames/input-sdk-start.md
+@@ -1,22 +1,11 @@
+ ---
+-title: Get started with the Input SDK  |  Android game development  |  Android Developers
++title: https://developer.android.com/games/playgames/input-sdk-start
+ url: https://developer.android.com/games/playgames/input-sdk-start
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-* [Games dev center](https://developer.android.com/games)
+-* [Guides](https://developer.android.com/games/guides)
+-
+-Send feedback
+-
+-# Get started with the Input SDK Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-**Note:** If you're looking to upgrade from an earlier version, see the
+-[migration guides](/games/playgames/input-sdk-migration-guides).
++> [!NOTE]
++> **Note:** If you're looking to upgrade from an earlier version, see the [migration guides](https://developer.android.com/games/playgames/input-sdk-migration-guides).
+ 
+ This document describes how to set up and display the Input SDK in
+ games that support Google Play Games on PC. The tasks include adding the SDK
+@@ -26,7 +15,7 @@ game‑actions‑to‑user‑input assignments.
+ ## Before you get started
+ 
+ Before you add the Input SDK to your game, you must support
+-[keyboard and mouse](/games/playgames/input) input **using your game engine's
++[keyboard and mouse](https://developer.android.com/games/playgames/input) input **using your game engine's
+ input system**.
+ 
+ The Input SDK provides information to Google Play Games on PC about
+@@ -47,7 +36,7 @@ The following sequence diagram describes how the API of the Input SDK works:
+ 
+ ![Sequence diagram of a game implementation that calls Input SDK API
+ and its interaction with the Android
+-device.](/static/images/games/playgames/input-flow.png)
++device.](https://developer.android.com/static/images/games/playgames/input-flow.png)
+ 
+ When your game implements the Input SDK your controls are displayed
+ in the Google Play Games on PC overlay.
+@@ -58,40 +47,20 @@ The Google Play Games on PC overlay ("the overlay") displays the controls
+ defined by your game. Users access the overlay at any time by
+ pressing **Shift + Tab**.
+ 
+-![The Google Play Games on PC overlay.](/static/images/games/playgames/input-sdk-1.png)
++![The Google Play Games on PC overlay.](https://developer.android.com/static/images/games/playgames/input-sdk-1.png)
+ 
+ ### Best practices for designing key bindings
+ 
+ When designing your key bindings consider the following best practices:
+ 
+-* Group your `InputActions` into logically related `InputGroups` to improve
+-  navigation and discoverability of the controls during gameplay.
+-* Assign each `InputGroup` to at most one `InputContext`. A fine granuled
+-  `InputMap` results in a better experience for navigating your controls in
+-  the overlay.
+-* Create an `InputContext` for each different scene type of your game.
+-  Typically, you can use a single `InputContext` for all your "menu-like"
+-  scenes. Use different `InputContexts` for any minigames in your game or for
+-  alternative controls for a single scene.
+-* If two actions are designed to use the same key under the same
+-  `InputContext`, utilize the label string such as "Interact / Fire".
+-* If two keys are designed to bind to the same `InputAction` then use 2
+-  different `InputActions` that perform the same action in your game. You may
+-  utilize the same label string for both `InputActions`, but its ID must be
+-  different.
+-* If a modifier key is applied to a set of keys, consider having a single
+-  `InputAction` with the modifier key instead of multiple `InputActions` that
+-  combine the modifier key (example: use **Shift** and **W, A, S, D** instead
+-  **Shift + W, Shift + A, Shift + S, Shift + D**).
+-* Input remapping gets disabled automatically when the user writes into text
+-  fields. Follow best practices for implementing Android text fields to ensure
+-  that Android can detect text fields in your game and prevent remapped keys
+-  from interfering with them. If your game has to use non-conventional text
+-  fields you can use `setInputContext()` with an `InputContext` containing an
+-  empty list of `InputGroups` to disable remapping manually.
+-* If your game supports remapping, consider updating your key bindings a
+-  sensitive operation that can conflict with the user saved versions. Avoid
+-  changing IDs of existing controls when possible.
++- Group your `InputActions` into logically related `InputGroups` to improve navigation and discoverability of the controls during gameplay.
++- Assign each `InputGroup` to at most one `InputContext`. A fine granuled `InputMap` results in a better experience for navigating your controls in the overlay.
++- Create an `InputContext` for each different scene type of your game. Typically, you can use a single `InputContext` for all your "menu-like" scenes. Use different `InputContexts` for any minigames in your game or for alternative controls for a single scene.
++- If two actions are designed to use the same key under the same `InputContext`, utilize the label string such as "Interact / Fire".
++- If two keys are designed to bind to the same `InputAction` then use 2 different `InputActions` that perform the same action in your game. You may utilize the same label string for both `InputActions`, but its ID must be different.
++- If a modifier key is applied to a set of keys, consider having a single `InputAction` with the modifier key instead of multiple `InputActions` that combine the modifier key (example: use **Shift** and **W, A, S, D** instead **Shift + W, Shift + A, Shift + S, Shift + D**).
++- Input remapping gets disabled automatically when the user writes into text fields. Follow best practices for implementing Android text fields to ensure that Android can detect text fields in your game and prevent remapped keys from interfering with them. If your game has to use non-conventional text fields you can use `setInputContext()` with an `InputContext` containing an empty list of `InputGroups` to disable remapping manually.
++- If your game supports remapping, consider updating your key bindings a sensitive operation that can conflict with the user saved versions. Avoid changing IDs of existing controls when possible.
+ 
+ ## The remapping feature
+ 
+@@ -100,7 +69,7 @@ bindings your game provides using the Input SDK. This is optional and
+ can be entirely disabled. For example, you may wish to provide your own keyboard
+ remapping interface. To disable remapping for your game you just have to specify
+ the remapping option disabled for your `InputMap` (see
+-[Build an InputMap](#input-map) for more information).
++[Build an InputMap](https://developer.android.com/games/playgames/input-sdk-start#input-map) for more information).
+ 
+ To access this feature users need to open the overlay and then click the action
+ they want to remap. After every remapping event Google Play Games on PC maps
+@@ -109,7 +78,7 @@ receive, so your game doesn't need to be aware of the player's remapping. You
+ can optionally update the assets used for displaying the keyboard controls in
+ your game by adding a callback for remapping events.
+ 
+-![Attempt to remap the key ](/static/images/games/playgames/input-sdk-2.png)
++![Attempt to remap the key](https://developer.android.com/static/images/games/playgames/input-sdk-2.png)
+ 
+ Google Play Games on PC stores remapped controls locally for each user,
+ enabling control persistence across gaming sessions. This information is stored
+@@ -123,41 +92,33 @@ To support the remapping feature in your game, avoid the following restrictions:
+ Remapping features can be disabled in your game if the key bindings contain any
+ of the following cases:
+ 
+-* Multi-key `InputActions` that are not composed by a modifier key + a
+-  non-modifier key. For example, **Shift + A** is valid but **A + B**,
+-  **Ctrl + Alt** or **Shift + A + Tab** is not.
+-* The `InputMap` contains `InputActions`, `InputGroups` or `InputContexts`
+-  with repeated unique IDs.
++- Multi-key `InputActions` that are not composed by a modifier key + a non-modifier key. For example, **Shift + A** is valid but **A + B** , **Ctrl + Alt** or **Shift + A + Tab** is not.
++- The `InputMap` contains `InputActions`, `InputGroups` or `InputContexts` with repeated unique IDs.
++
++> [!NOTE]
++> **Note:** Failure to avoid these exceptions may cause delays in your deployment process and result in the remapping feature being disabled for your game.
+ 
+-**Note:** Failure to avoid these exceptions may cause delays in your deployment
+-process and result in the remapping feature being disabled for your game.**Note:** If your game implements Input SDK v1.0.0-beta and has the remapping
+-feature disabled, migrate to the
+-[latest Input SDK version](/games/playgames/(#remapping-listener)) and fix any error you find.
+-If you are using the latest version and still find the remapping feature
+-disabled for your game, contact your Google Play Games on PC advocate.
++> [!NOTE]
++> **Note:** If your game implements Input SDK v1.0.0-beta and has the remapping feature disabled, migrate to the [latest Input SDK version](https://developer.android.com/games/playgames/(#remapping-listener)) and fix any error you find. If you are using the latest version and still find the remapping feature disabled for your game, contact your Google Play Games on PC advocate.
+ 
+ ### Limitations of remapping
+ 
+ When designing your key bindings for remapping consider the following
+ limitations:
+ 
+-* Remapping to key combinations is not supported. For example, users can't
+-  remap **Shift + A** to **Ctrl + B** or **A** to **Shift + A**.
+-* Remapping is not supported for `InputActions` with mouse buttons. For
+-  example, **Shift + Right-click** cannot be remapped.
++- Remapping to key combinations is not supported. For example, users can't remap **Shift + A** to **Ctrl + B** or **A** to **Shift + A**.
++- Remapping is not supported for `InputActions` with mouse buttons. For example, **Shift + Right-click** cannot be remapped.
+ 
+ ### Test key remapping on Google Play Games on PC Emulator
+ 
+ You can enable the remapping feature in Google Play Games on PC Emulator at any time
+ by issuing the following adb command:
+ 
+-```
+-adb shell dumpsys input_mapping_service --set RemappingFlagValue true
+-```
++    adb shell dumpsys input_mapping_service --set RemappingFlagValue true
+ 
+ The overlay change as in the following image:
+ 
+-![The overlay with key remapping enabled.](/static/images/games/playgames/input-sdk-3.png)
++![The overlay with key remapping enabled.](https://developer.android.com/static/images/games/playgames/input-sdk-3.png)
+ 
+ ## Add the SDK
+ 
+@@ -168,12 +129,10 @@ Install the Input SDK according to your development platform.
+ Get the Input SDK for Java or Kotlin by adding a dependency to your
+ module-level `build.gradle` file:
+ 
+-```
+-dependencies {
+-  implementation 'com.google.android.libraries.play.games:inputmapping:1.1.1-beta'
+-  ...
+-}
+-```
++    dependencies {
++      implementation 'com.google.android.libraries.play.games:inputmapping:1.1.1-beta'
++      ...
++    }
+ 
+ ### Unity
+ 
+@@ -186,7 +145,7 @@ to install the packages.
+ 
+ [Download the Input SDK unitypackage file](https://developers.google.com/unity/archive#input_sdk)
+ with all its dependencies. You can install the `.unitypackage` by selecting
+-**Assets > Import package > Custom Package** and locating the file you downloaded.
++**Assets \> Import package \> Custom Package** and locating the file you downloaded.
+ 
+ #### Install using UPM
+ 
+@@ -194,19 +153,17 @@ Alternatively you may install the package using the
+ [Unity Package Manager](https://docs.unity3d.com/Manual/upm-ui-local.html) by
+ downloading the `.tgz` and installing its dependencies:
+ 
+-* [com.google.external-dependency-manager-1.2.172](https://developers.google.com/unity/archive#external_dependency_manager_for_unity)
+-* [com.google.librarywrapper.java-0.2.0](https://github.com/google/library-wrapper-unity-common)
+-* [com.google.librarywrapper.openjdk8-0.2.0](https://github.com/google/library-wrapper-unity-openjdk8)
+-* [com.google.android.libraries.play.games.inputmapping-1.1.1-beta](https://github.com/playgameservices/play-games-input-sdk-unity) (or selecting [the tgz from this archive](https://developers.google.com/unity/archive#input_sdk))
++- [com.google.external-dependency-manager-1.2.172](https://developers.google.com/unity/archive#external_dependency_manager_for_unity)
++- [com.google.librarywrapper.java-0.2.0](https://github.com/google/library-wrapper-unity-common)
++- [com.google.librarywrapper.openjdk8-0.2.0](https://github.com/google/library-wrapper-unity-openjdk8)
++- [com.google.android.libraries.play.games.inputmapping-1.1.1-beta](https://github.com/playgameservices/play-games-input-sdk-unity) (or selecting [the tgz from this archive](https://developers.google.com/unity/archive#input_sdk))
+ 
+ #### Install using OpenUPM
+ 
+ You may install the package using
+ [OpenUPM](https://openupm.com/packages/com.google.android.libraries.play.games.inputmapping/).
+ 
+-```
+-$ openupm add com.google.android.libraries.play.games.inputmapping
+-```
++    $ openupm add com.google.android.libraries.play.games.inputmapping
+ 
+ ### Sample games
+ 
+@@ -218,12 +175,8 @@ for Unity games.
+ 
+ ## Generate your key bindings
+ 
+-**Note:** you can
+-[detect when your game is running on Google Play Games on PC](/games/playgames/pc-compatibility#detect-hpe),
+-although the Input SDK is intelligent enough to detect when it's
+-running on mobile. Alternatively you can define your own **PLAY\_GAMES\_PC**
+-[preprocessor directive](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html)
+-in Unity.
++> [!NOTE]
++> **Note:** you can [detect when your game is running on Google Play Games on PC](https://developer.android.com/games/playgames/pc-compatibility#detect-hpe), although the Input SDK is intelligent enough to detect when it's running on mobile. Alternatively you can define your own **PLAY_GAMES_PC** [preprocessor directive](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html) in Unity.
+ 
+ Register your key bindings by building an `InputMap` and returning it with an
+ `InputMappingProvider`. The following example outlines an
+@@ -231,7 +184,7 @@ Register your key bindings by building an `InputMap` and returning it with an
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class InputSDKProvider : InputMappingProvider {
+   override fun onProvideInputMap(): InputMap {
+     TODO("Not yet implemented")
+@@ -241,7 +194,7 @@ class InputSDKProvider : InputMappingProvider {
+ 
+ ### Java
+ 
+-```
++```java
+ public class InputSDKProvider implements InputMappingProvider {
+     private static final String INPUTMAP_VERSION = "1.0.0";
+ 
+@@ -255,7 +208,7 @@ public class InputSDKProvider implements InputMappingProvider {
+ 
+ ### C#
+ 
+-```
++```c#
+ #if PLAY_GAMES_PC
+ using Java.Lang;
+ using Java.Util;
+@@ -289,7 +242,7 @@ This example maps the space key to the *Drive* action.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ companion object {
+   private val driveInputAction = InputAction.create(
+     "Drive",
+@@ -301,7 +254,7 @@ companion object {
+ 
+ ### Java
+ 
+-```
++```java
+ private static final InputAction driveInputAction = InputAction.create(
+     "Drive",
+     InputEventIds.DRIVE.ordinal(),
+@@ -314,7 +267,7 @@ private static final InputAction driveInputAction = InputAction.create(
+ 
+ ### C#
+ 
+-```
++```c#
+ private static readonly InputAction driveInputAction = InputAction.Create(
+     "Drive",
+     (long)InputEventIds.DRIVE,
+@@ -325,14 +278,14 @@ private static readonly InputAction driveInputAction = InputAction.Create(
+ );
+ ```
+ 
+-![Single key InputAction displayed in the overlay.](/static/images/games/playgames/input-sdk-4.png)
++![Single key InputAction displayed in the overlay.](https://developer.android.com/static/images/games/playgames/input-sdk-4.png)
+ 
+ Actions can represent mouse inputs as well. This example sets **Left-click** to
+ the *Move* action:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ companion object {
+   private val mouseInputAction = InputAction.create(
+     "Move",
+@@ -344,7 +297,7 @@ companion object {
+ 
+ ### Java
+ 
+-```
++```java
+ private static final InputAction mouseInputAction = InputAction.create(
+     "Move",
+     InputActionsIds.MOUSE_MOVEMENT.ordinal(),
+@@ -358,7 +311,7 @@ private static final InputAction mouseInputAction = InputAction.create(
+ 
+ ### C#
+ 
+-```
++```c#
+ private static readonly InputAction mouseInputAction = InputAction.Create(
+     "Move",
+     (long)InputEventIds.MOUSE_MOVEMENT,
+@@ -370,7 +323,7 @@ private static readonly InputAction mouseInputAction = InputAction.Create(
+ );
+ ```
+ 
+-![Mouse InputAction displayed in the overlay.](/static/images/games/playgames/input-sdk-5.png)
++![Mouse InputAction displayed in the overlay.](https://developer.android.com/static/images/games/playgames/input-sdk-5.png)
+ 
+ Key combinations are specified by passing multiple key codes to your
+ `InputAction`. In this example space + shift is mapped to
+@@ -378,7 +331,7 @@ the *Turbo* action, which works even when Space is mapped to *Drive*.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ companion object {
+   private val turboInputAction = InputAction.create(
+     "Turbo",
+@@ -392,7 +345,7 @@ companion object {
+ 
+ ### Java
+ 
+-```
++```java
+ private static final InputAction turboInputAction = InputAction.create(
+     "Turbo",
+     InputActionsIds.TURBO.ordinal(),
+@@ -406,7 +359,7 @@ private static final InputAction turboInputAction = InputAction.create(
+ 
+ ### C#
+ 
+-```
++```c#
+ private static readonly InputAction turboInputAction = InputAction.Create(
+     "Turbo",
+     (long)InputEventIds.TURBO,
+@@ -421,9 +374,10 @@ private static readonly InputAction turboInputAction = InputAction.Create(
+ );
+ ```
+ 
+-![Multi-key InputAction displayed in the overlay.](/static/images/games/playgames/input-sdk-6.png)
++![Multi-key InputAction displayed in the overlay.](https://developer.android.com/static/images/games/playgames/input-sdk-6.png)
+ 
+-**Note:** if supporting remapping, users can remap multi-key actions to single keys.
++> [!NOTE]
++> **Note:** if supporting remapping, users can remap multi-key actions to single keys.
+ 
+ The Input SDK lets you mix mouse and key buttons together for a
+ single action. This example indicates that Shift and **Right-click**
+@@ -431,7 +385,7 @@ pressed together adds a waypoint in this sample game:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ companion object {
+   private val addWaypointInputAction = InputAction.create(
+     "Add waypoint",
+@@ -445,7 +399,7 @@ companion object {
+ 
+ ### Java
+ 
+-```
++```java
+ private static final InputAction addWaypointInputAction = InputAction.create(
+     "Add waypoint",
+     InputActionsIds.ADD_WAYPOINT.ordinal(),
+@@ -459,7 +413,7 @@ private static final InputAction addWaypointInputAction = InputAction.create(
+ 
+ ### C#
+ 
+-```
++```c#
+ private static readonly InputAction addWaypointInputAction = InputAction.Create(
+     "Add waypoint",
+     (long)InputEventIds.ADD_WAYPOINT,
+@@ -471,35 +425,21 @@ private static readonly InputAction addWaypointInputAction = InputAction.Create(
+ );
+ ```
+ 
+-![Combination of key + mouse InputAction displayed in the overlay.](/static/images/games/playgames/input-sdk-7.png)
++![Combination of key + mouse InputAction displayed in the overlay.](https://developer.android.com/static/images/games/playgames/input-sdk-7.png)
+ 
+ InputAction has the following fields:
+ 
+-* `ActionLabel`: the string displayed in the UI to represent this action.
+-  Localization is not done automatically, so perform any localization up
+-  front.
+-* `InputControls`: defines the input controls that this action uses. The
+-  controls map to consistent glyphs in the overlay.
+-* `InputActionId`: `InputIdentifier` object that stores number ID and version
+-  of the `InputAction` (see [Tracking Key IDs](#tracking-key-ids) for more
+-  information).
+-* `InputRemappingOption`: one of `InputEnums.REMAP_OPTION_ENABLED` or
+-  `InputEnums.REMAP_OPTION_DISABLED`. Defines if the action is enabled to
+-  remap. If your game does not support remapping you may skip this field or
+-  simply set it disabled.
+-* `RemappedInputControls`: read-only `InputControls` object used to read the
+-  remapped key set by the user on remapping events (used for
+-  [getting notified on remapping events](#remapping-listener)).
++- `ActionLabel`: the string displayed in the UI to represent this action. Localization is not done automatically, so perform any localization up front.
++- `InputControls`: defines the input controls that this action uses. The controls map to consistent glyphs in the overlay.
++- `InputActionId`: `InputIdentifier` object that stores number ID and version of the `InputAction` (see [Tracking Key IDs](https://developer.android.com/games/playgames/input-sdk-start#tracking-key-ids) for more information).
++- `InputRemappingOption`: one of `InputEnums.REMAP_OPTION_ENABLED` or `InputEnums.REMAP_OPTION_DISABLED`. Defines if the action is enabled to remap. If your game does not support remapping you may skip this field or simply set it disabled.
++- `RemappedInputControls`: read-only `InputControls` object used to read the remapped key set by the user on remapping events (used for [getting notified on remapping events](https://developer.android.com/games/playgames/input-sdk-start#remapping-listener)).
+ 
+ `InputControls` represents the inputs associated with an action and contains the
+ following fields::
+ 
+-* `AndroidKeycodes`: is a list of integers representing keyboard inputs
+-  associated with an action. These are defined in the
+-  [KeyEvent](https://developer.android.com/reference/android/view/KeyEvent)
+-  class or the AndroidKeycode class for Unity.
+-* `MouseActions`: is a list of `MouseAction` values representing mouse inputs
+-  associated with this action.
++- `AndroidKeycodes`: is a list of integers representing keyboard inputs associated with an action. These are defined in the [KeyEvent](https://developer.android.com/reference/android/view/KeyEvent) class or the AndroidKeycode class for Unity.
++- `MouseActions`: is a list of `MouseAction` values representing mouse inputs associated with this action.
+ 
+ ### Define your input groups
+ 
+@@ -518,7 +458,7 @@ intelligent enough to turn off remapping if you don't support it in your
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ companion object {
+   private val menuInputGroup = InputGroup.create(
+     "Menu keys",
+@@ -537,7 +477,7 @@ companion object {
+ 
+ ### Java
+ 
+-```
++```java
+ private static final InputGroup menuInputGroup = InputGroup.create(
+     "Menu keys",
+     Arrays.asList(
+@@ -554,7 +494,7 @@ private static final InputGroup menuInputGroup = InputGroup.create(
+ 
+ ### C#
+ 
+-```
++```c#
+ private static readonly InputGroup menuInputGroup = InputGroup.Create(
+     "Menu keys",
+     new[]
+@@ -575,38 +515,26 @@ The following example displays the **Road controls** and the **Menu controls**
+ input groups in the overlay:
+ 
+ ![The overlay displaying an InputMap that contains the Road controls and the
+-Menu controls input groups.](/static/images/games/playgames/input-sdk-8.png)
++Menu controls input groups.](https://developer.android.com/static/images/games/playgames/input-sdk-8.png)
+ 
+ `InputGroup` has the following fields:
+ 
+-* `GroupLabel`: a string to be displayed in the overlay that can be used to
+-  logically group a set of actions. This string is not automatically
+-  localized.
+-* `InputActions`: a list of `InputAction` objects you define in the previous
+-  step. All of these actions are visually displayed under the group heading.
+-* `InputGroupId`: `InputIdentifier` object that stores the number ID and
+-  version of the `InputGroup`. See [Tracking Key IDs](#tracking-key-ids) for
+-  more information.
+-* `InputRemappingOption`: one of `InputEnums.REMAP_OPTION_ENABLED` or
+-  `InputEnums.REMAP_OPTION_DISABLED`. If disabled, all the `InputAction`
+-  objects belonging to this group will have remapping disabled even if they
+-  specify its remapping option enabled. If enabled, all the actions belonging
+-  to this group can be remappable unless specified disabled by the individual
+-  actions.
+-
+-**Note:** each `InputAction` must belong to at most one `InputGroup`.
++- `GroupLabel`: a string to be displayed in the overlay that can be used to logically group a set of actions. This string is not automatically localized.
++- `InputActions`: a list of `InputAction` objects you define in the previous step. All of these actions are visually displayed under the group heading.
++- `InputGroupId`: `InputIdentifier` object that stores the number ID and version of the `InputGroup`. See [Tracking Key IDs](https://developer.android.com/games/playgames/input-sdk-start#tracking-key-ids) for more information.
++- `InputRemappingOption`: one of `InputEnums.REMAP_OPTION_ENABLED` or `InputEnums.REMAP_OPTION_DISABLED`. If disabled, all the `InputAction` objects belonging to this group will have remapping disabled even if they specify its remapping option enabled. If enabled, all the actions belonging to this group can be remappable unless specified disabled by the individual actions.
++
++> [!NOTE]
++> **Note:** each `InputAction` must belong to at most one `InputGroup`.
+ 
+ ### Define your input contexts
+ 
+ `InputContexts` allows your game to use a different set of keyboard controls for
+ different scenes of your game. For example:
+ 
+-* You may specify different sets of inputs for navigating menus versus moving
+-  in the game.
+-* You may specify different sets of inputs depending on the mode of locomotion
+-  in your game, such as driving versus walking.
+-* You may specify different sets of inputs based on the current state of your
+-  game, such as navigating an overworld versus playing an individual level.
++- You may specify different sets of inputs for navigating menus versus moving in the game.
++- You may specify different sets of inputs depending on the mode of locomotion in your game, such as driving versus walking.
++- You may specify different sets of inputs based on the current state of your game, such as navigating an overworld versus playing an individual level.
+ 
+ When using `InputContexts`, the overlay shows first the groups of the context
+ in use. To enable this behavior, call `setInputContext()` to set the
+@@ -615,14 +543,13 @@ demonstrates this behavior: in the "driving" scene, the **Road controls**
+ actions are shown at the top of the overlay. When opening the "store" menu, the
+ "Menu controls" actions are displayed at the top of the overlay.
+ 
+-![InputContexts sorting groups in the overlay.](/static/images/games/playgames/input-sdk-9.png)
++![InputContexts sorting groups in the overlay.](https://developer.android.com/static/images/games/playgames/input-sdk-9.png)
+ 
+ These overlay updates are achieved by setting a different `InputContext` at
+ different points in your game. To do this:
+ 
+ 1. Group your `InputActions` with logically-related actions using `InputGroups`
+-2. Assign these `InputGroups` to an `InputContext` for the different parts of
+-   your game
++2. Assign these `InputGroups` to an `InputContext` for the different parts of your game
+ 
+ `InputGroups` that belong to the same`InputContext`cannot have conflicting
+ `InputActions` where the same key is used. It is a good practice to assign each
+@@ -632,7 +559,7 @@ The following sample code demonstrates `InputContext` logic:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ companion object {
+   val menuSceneInputContext = InputContext.create(
+     "Menu",
+@@ -656,7 +583,7 @@ companion object {
+ 
+ ### Java
+ 
+-```
++```java
+ public static final InputContext menuSceneInputContext = InputContext.create(
+         "Menu",
+         InputIdentifier.create(
+@@ -684,7 +611,7 @@ public static final InputContext gameSceneInputContext = InputContext.create(
+ 
+ ### C#
+ 
+-```
++```c#
+ public static readonly InputContext menuSceneInputContext = InputContext.Create(
+     "Menu",
+     InputIdentifier.Create(
+@@ -714,13 +641,9 @@ public static readonly InputContext gameSceneInputContext = InputContext.Create(
+ 
+ `InputContext` has the following fields:
+ 
+-* `LocalizedContextLabel`: a string describing the groups that belong to the
+-  context.
+-* `InputContextId`: `InputIdentifier` object that stores number ID and version
+-  of the `InputContext` (see [Tracking Key IDs](#tracking-key-ids) for more
+-  information).
+-* `ActiveGroups`: a list of `InputGroups` to be used and displayed at the top
+-  of the overlay when this context is active.
++- `LocalizedContextLabel`: a string describing the groups that belong to the context.
++- `InputContextId`: `InputIdentifier` object that stores number ID and version of the `InputContext` (see [Tracking Key IDs](https://developer.android.com/games/playgames/input-sdk-start#tracking-key-ids) for more information).
++- `ActiveGroups`: a list of `InputGroups` to be used and displayed at the top of the overlay when this context is active.
+ 
+ ### Build an input map
+ 
+@@ -739,7 +662,7 @@ The following example builds an `InputMap` used to report a collection of
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ companion object {
+   val gameInputMap = InputMap.create(
+     listOf(
+@@ -759,7 +682,7 @@ companion object {
+ 
+ ### Java
+ 
+-```
++```java
+ public static final InputMap gameInputMap = InputMap.create(
+         Arrays.asList(
+                 basicMenuNavigationInputGroup,
+@@ -782,7 +705,7 @@ public static final InputMap gameInputMap = InputMap.create(
+ 
+ ### C#
+ 
+-```
++```c#
+ public static readonly InputMap gameInputMap = InputMap.Create(
+     new[]
+     {
+@@ -809,19 +732,11 @@ public static readonly InputMap gameInputMap = InputMap.Create(
+ 
+ `InputMap` has the following fields:
+ 
+-* `InputGroups`: the InputGroups reported by your game. The groups are
+-  displayed in order in the overlay, unless specified the current groups in
+-  use calling `setInputContext()`.
+-* `MouseSettings`: The `MouseSettings` object indicate that mouse sensitivity
+-  can be adjusted and that the mouse is inverted on the y axis.
+-* `InputMapId`: `InputIdentifier` object that stores number ID and version of
+-  the `InputMap` (see [Tracking Key IDs](#tracking-key-ids) for more
+-  information).
+-* `InputRemappingOption`: one of `InputEnums.REMAP_OPTION_ENABLED` or
+-  `InputEnums.REMAP_OPTION_DISABLED`. Defines if the remapping feature is
+-  enabled.
+-* `ReservedControls`: a list of `InputControls` that users won't be allowed to
+-  remap to.
++- `InputGroups`: the InputGroups reported by your game. The groups are displayed in order in the overlay, unless specified the current groups in use calling `setInputContext()`.
++- `MouseSettings`: The `MouseSettings` object indicate that mouse sensitivity can be adjusted and that the mouse is inverted on the y axis.
++- `InputMapId`: `InputIdentifier` object that stores number ID and version of the `InputMap` (see [Tracking Key IDs](https://developer.android.com/games/playgames/input-sdk-start#tracking-key-ids) for more information).
++- `InputRemappingOption`: one of `InputEnums.REMAP_OPTION_ENABLED` or `InputEnums.REMAP_OPTION_DISABLED`. Defines if the remapping feature is enabled.
++- `ReservedControls`: a list of `InputControls` that users won't be allowed to remap to.
+ 
+ ### Track key IDs
+ 
+@@ -836,7 +751,7 @@ The following example assigns a string version to `InputActions` or
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class InputSDKProviderKotlin : InputMappingProvider {
+   companion object {
+     const val INPUTMAP_VERSION = "1.0.0"
+@@ -864,7 +779,7 @@ class InputSDKProviderKotlin : InputMappingProvider {
+ 
+ ### Java
+ 
+-```
++```java
+ public class InputSDKProvider implements InputMappingProvider {
+     public static final String INPUTMAP_VERSION = "1.0.0";
+ 
+@@ -896,7 +811,7 @@ public class InputSDKProvider implements InputMappingProvider {
+ 
+ ### C#
+ 
+-```
++```c#
+ #if PLAY_GAMES_PC
+ 
+ using Java.Lang;
+@@ -946,7 +861,7 @@ your `InputMap`. Similarly, `InputGroup` object IDs must be unique across all
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ enum class InputActionsIds {
+     NAVIGATE_UP,
+     NAVIGATE_DOWN,
+@@ -981,7 +896,7 @@ const val INPUT_MAP_ID = 0
+ 
+ ### Java
+ 
+-```
++```java
+ public enum InputActionsIds {
+     NAVIGATE_UP,
+     NAVIGATE_DOWN,
+@@ -1016,7 +931,7 @@ public static final long INPUT_MAP_ID = 0;
+ 
+ ### C#
+ 
+-```
++```c#
+ public enum InputActionsIds
+ {
+     NAVIGATE_UP,
+@@ -1054,10 +969,8 @@ public static readonly long INPUT_MAP_ID = 0;
+ 
+ `InputIdentifier` has the following fields:
+ 
+-* `UniqueId`: a unique number id set to clearly identify a given set of input
+-  data uniquely.
+-* `VersionString`: a human readable version string set to identify a version
+-  of input data between 2 versions of input data changes.
++- `UniqueId`: a unique number id set to clearly identify a given set of input data uniquely.
++- `VersionString`: a human readable version string set to identify a version of input data between 2 versions of input data changes.
+ 
+ ### Get notified on remapping events (Optional)
+ 
+@@ -1070,7 +983,7 @@ keys G, P and S to J, X
+ and T respectively, the UI elements of the game get updated to
+ display the keys set by the user.
+ 
+-![UI reacting to remapping events using the InputRemappingListener callback.](/static/images/games/playgames/input-sdk-10.png)
++![UI reacting to remapping events using the InputRemappingListener callback.](https://developer.android.com/static/images/games/playgames/input-sdk-10.png)
+ 
+ This functionality is achieved by registering an `InputRemappingListener`
+ callback. To implement this feautre, start by registering an
+@@ -1078,7 +991,7 @@ callback. To implement this feautre, start by registering an
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class InputSDKRemappingListener : InputRemappingListener {
+   override fun onInputMapChanged(inputMap: InputMap) {
+     Log.i(TAG, "Received update on input map changed.")
+@@ -1171,7 +1084,7 @@ class InputSDKRemappingListener : InputRemappingListener {
+ 
+ ### Java
+ 
+-```
++```java
+ public class InputSDKRemappingListener implements InputRemappingListener {
+ 
+     private static final String TAG = "InputSDKRemappingListener";
+@@ -1273,7 +1186,7 @@ public class InputSDKRemappingListener implements InputRemappingListener {
+ 
+ ### C#
+ 
+-```
++```c#
+ #if PLAY_GAMES_PC
+ 
+ using System.Text;
+@@ -1407,8 +1320,8 @@ public class InputSDKRemappingListener : InputRemappingListenerCallbackHelper
+ The `InputRemappingListener` is notified at launch time after loading the
+ user-saved remapped controls, and after every time the user remaps their keys.
+ 
+-**Note:** you can have at most one remapping listener registered in your
+-application.
++> [!NOTE]
++> **Note:** you can have at most one remapping listener registered in your application.
+ 
+ ### Initialization
+ 
+@@ -1426,7 +1339,7 @@ The following sample demonstrates how to initialize the API:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ override fun onCreate(savedInstanceState: Bundle?) {
+     super.onCreate(savedInstanceState)
+ 
+@@ -1444,7 +1357,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
+ 
+ ### Java
+ 
+-```
++```java
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+     super.onCreate(savedInstanceState);
+@@ -1465,7 +1378,7 @@ protected void onCreate(Bundle savedInstanceState) {
+ 
+ ### C#
+ 
+-```
++```c#
+ #if PLAY_GAMES_PC
+ using Google.Android.Libraries.Play.Games.Inputmapping;
+ using Google.Android.Libraries.Play.Games.InputMapping.ExternalType.Android.Content;
+@@ -1506,7 +1419,7 @@ enough to avoid leaking resources if you don't:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ override fun onDestroy() {
+     if (isGooglePlayGamesOnPC()) {
+         val inputMappingClient = Input.getInputMappingClient(this)
+@@ -1520,7 +1433,7 @@ override fun onDestroy() {
+ 
+ ### Java
+ 
+-```
++```java
+ @Override
+ protected void onDestroy() {
+     if (isGooglePlayGamesOnPC()) {
+@@ -1536,7 +1449,7 @@ protected void onDestroy() {
+ 
+ ### C#
+ 
+-```
++```c#
+ public class GameManager : MonoBehaviour
+ {
+     private void OnDestroy()
+@@ -1552,97 +1465,93 @@ public class GameManager : MonoBehaviour
+ ## Test
+ 
+ You can test your Input SDK implementation by manually opening
+-[the overlay](#the-overlay) to view the player experience, or via the adb shell
++[the overlay](https://developer.android.com/games/playgames/input-sdk-start#the-overlay) to view the player experience, or via the adb shell
+ for automated testing and verification.
+ 
+ The Google Play Games on PC Emulator checks the correctness of your input map
+ against common errors. For scenarios like duplicate unique ids, using different
+ input maps or failing on the remapping rules (if remapping is enabled), the
+ overlay shows an error message as below:
+-![The Input SDK overlay.](/static/images/games/playgames/input-sdk-11.png)
++![The Input SDK overlay.](https://developer.android.com/static/images/games/playgames/input-sdk-11.png)
+ 
+ Verify your Input SDK implementation using `adb` at the command line.
+ To get the current input map, use the following `adb shell` command (replace
+ `MY.PACKAGE.NAME` with the name of your game):
+ 
+-```
+-adb shell dumpsys input_mapping_service --get MY.PACKAGE.NAME
+-```
++    adb shell dumpsys input_mapping_service --get MY.PACKAGE.NAME
+ 
+ You will see output similar to this if you successfully registered your
+ `InputMap`:
+ 
+-```
+-Getting input map for com.example.inputsample...
+-Successfully received the following inputmap:
+-# com.google.android.libraries.play.games.InputMap@d73526e1
+-input_groups {
+-  group_label: "Basic Movement"
+-  input_actions {
+-    action_label: "Jump"
+-    input_controls {
+-      keycodes: 51
+-      keycodes: 19
+-    }
+-    unique_id: 0
+-  }
+-  input_actions {
+-    action_label: "Left"
+-    input_controls {
+-      keycodes: 29
+-      keycodes: 21
+-    }
+-    unique_id: 1
+-  }
+-  input_actions {
+-    action_label: "Right"
+-    input_controls {
+-      keycodes: 32
+-      keycodes: 22
+-    }
+-    unique_id: 2
+-  }
+-  input_actions {
+-    action_label: "Use"
+-    input_controls {
+-      keycodes: 33
+-      keycodes: 66
+-      mouse_actions: MOUSE_LEFT_CLICK
+-      mouse_actions_value: 0
++    Getting input map for com.example.inputsample...
++    Successfully received the following inputmap:
++    # com.google.android.libraries.play.games.InputMap@d73526e1
++    input_groups {
++      group_label: "Basic Movement"
++      input_actions {
++        action_label: "Jump"
++        input_controls {
++          keycodes: 51
++          keycodes: 19
++        }
++        unique_id: 0
++      }
++      input_actions {
++        action_label: "Left"
++        input_controls {
++          keycodes: 29
++          keycodes: 21
++        }
++        unique_id: 1
++      }
++      input_actions {
++        action_label: "Right"
++        input_controls {
++          keycodes: 32
++          keycodes: 22
++        }
++        unique_id: 2
++      }
++      input_actions {
++        action_label: "Use"
++        input_controls {
++          keycodes: 33
++          keycodes: 66
++          mouse_actions: MOUSE_LEFT_CLICK
++          mouse_actions_value: 0
++        }
++        unique_id: 3
++      }
+     }
+-    unique_id: 3
+-  }
+-}
+-input_groups {
+-  group_label: "Special Input"
+-  input_actions {
+-    action_label: "Jump"
+-    input_controls {
+-      keycodes: 51
+-      keycodes: 19
+-      keycodes: 62
+-      mouse_actions: MOUSE_LEFT_CLICK
+-      mouse_actions_value: 0
++    input_groups {
++      group_label: "Special Input"
++      input_actions {
++        action_label: "Jump"
++        input_controls {
++          keycodes: 51
++          keycodes: 19
++          keycodes: 62
++          mouse_actions: MOUSE_LEFT_CLICK
++          mouse_actions_value: 0
++        }
++        unique_id: 4
++      }
++      input_actions {
++        action_label: "Duck"
++        input_controls {
++          keycodes: 47
++          keycodes: 20
++          keycodes: 113
++          mouse_actions: MOUSE_RIGHT_CLICK
++          mouse_actions_value: 1
++        }
++        unique_id: 5
++      }
+     }
+-    unique_id: 4
+-  }
+-  input_actions {
+-    action_label: "Duck"
+-    input_controls {
+-      keycodes: 47
+-      keycodes: 20
+-      keycodes: 113
+-      mouse_actions: MOUSE_RIGHT_CLICK
+-      mouse_actions_value: 1
++    mouse_settings {
++      allow_mouse_sensitivity_adjustment: true
++      invert_mouse_movement: true
+     }
+-    unique_id: 5
+-  }
+-}
+-mouse_settings {
+-  allow_mouse_sensitivity_adjustment: true
+-  invert_mouse_movement: true
+-}
+-```
+ 
+ ## Localization
+ 
+@@ -1656,18 +1565,11 @@ When using Proguard to minify your game, add the following rules to your
+ proguard configuration file to ensure the SDK doesn't get stripped from your
+ final package:
+ 
+-```
+--keep class com.google.android.libraries.play.hpe.** { *; }
+--keep class com.google.android.libraries.play.games.inputmapping.** { *; }
+-```
++    -keep class com.google.android.libraries.play.hpe.** { *; }
++    -keep class com.google.android.libraries.play.games.inputmapping.** { *; }
+ 
+ ## What's next
+ 
+ After you integrate the Input SDK into your game, you can continue
+ with any remaining Google Play Games on PC requirements. For more information,
+-see [Get started with Google Play Games on PC](/games/playgames/start).
+-
+-
+-
+-
+-Send feedback
+\ No newline at end of file
++see [Get started with Google Play Games on PC](https://developer.android.com/games/playgames/start).
+\ No newline at end of file

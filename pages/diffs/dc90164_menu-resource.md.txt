@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/resources/menu-resource.md b/docs/guide/topics/resources/menu-resource.md
+index de2cd5e..e904c8a 100644
+--- a/docs/guide/topics/resources/menu-resource.md
++++ b/docs/guide/topics/resources/menu-resource.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ A menu resource defines an application menu—an options menu, context menu, or submenu—that
+ can be inflated with `MenuInflater`.
+ 

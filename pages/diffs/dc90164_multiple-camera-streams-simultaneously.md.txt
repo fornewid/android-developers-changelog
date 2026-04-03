@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/camera2/multiple-camera-streams-simultaneously.md b/docs/media/camera/camera2/multiple-camera-streams-simultaneously.md
+index 87a339b..0f76f8e 100644
+--- a/docs/media/camera/camera2/multiple-camera-streams-simultaneously.md
++++ b/docs/media/camera/camera2/multiple-camera-streams-simultaneously.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** This page refers to the [Camera2](/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
+ 
+ A camera application can use more than one stream of frames simultaneously. In

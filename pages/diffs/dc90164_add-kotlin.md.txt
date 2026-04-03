@@ -1,0 +1,12 @@
+diff --git a/docs/kotlin/add-kotlin.md b/docs/kotlin/add-kotlin.md
+index 53d0f4d..55e16a2 100644
+--- a/docs/kotlin/add-kotlin.md
++++ b/docs/kotlin/add-kotlin.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android Studio provides [full support for Kotlin](/kotlin), enabling you to add
+ Kotlin files to your existing project and convert Java language code to Kotlin.
+ You can then use all of Android Studio's existing tools with your Kotlin code,

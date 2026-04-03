@@ -1,0 +1,12 @@
+diff --git a/docs/studio/projects/create-project.md b/docs/studio/projects/create-project.md
+index a43d0bf..df1f472 100644
+--- a/docs/studio/projects/create-project.md
++++ b/docs/studio/projects/create-project.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android Studio makes it easy to create Android apps for various form factors,
+ such as phones, tablets, TVs, and Wear devices. This page explains how to
+ start a new Android app project or import an existing project.

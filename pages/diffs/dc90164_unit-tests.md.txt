@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect/test/unit-tests.md b/docs/health-and-fitness/health-connect/test/unit-tests.md
+index adb2f0c..01bd55c 100644
+--- a/docs/health-and-fitness/health-connect/test/unit-tests.md
++++ b/docs/health-and-fitness/health-connect/test/unit-tests.md
+@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
+-
+ **Note:** The Health Connect Testing library is in alpha, so future versions might
+ include breaking changes.
+ 

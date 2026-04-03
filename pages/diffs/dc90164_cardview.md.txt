@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/cardview.md b/docs/develop/ui/views/layout/cardview.md
+index c4ad417..fda6fc5 100644
+--- a/docs/develop/ui/views/layout/cardview.md
++++ b/docs/develop/ui/views/layout/cardview.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose.

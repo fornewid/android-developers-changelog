@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/resources/animation-resource.md b/docs/guide/topics/resources/animation-resource.md
+index 9f1e975..434aff6 100644
+--- a/docs/guide/topics/resources/animation-resource.md
++++ b/docs/guide/topics/resources/animation-resource.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ An animation resource can define one of two types of animations:
+ 
+ [Property animation](#Property)

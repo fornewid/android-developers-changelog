@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/nougat/android-7.0-changes.md b/docs/about/versions/nougat/android-7.0-changes.md
+index ff0700e..e85777a 100644
+--- a/docs/about/versions/nougat/android-7.0-changes.md
++++ b/docs/about/versions/nougat/android-7.0-changes.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Along with new features and capabilities, Android 7.0
+ includes a variety of system and API behavior changes. This document
+ highlights some of the key changes that you should understand and account for

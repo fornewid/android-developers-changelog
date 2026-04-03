@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/providers/content-provider-basics.md b/docs/guide/topics/providers/content-provider-basics.md
+index 3977b8b..4f2722e 100644
+--- a/docs/guide/topics/providers/content-provider-basics.md
++++ b/docs/guide/topics/providers/content-provider-basics.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A content provider manages access to a central repository of data. A provider
+ is part of an Android application, which often provides its own UI for working with
+ the data. However, content providers are primarily used by other

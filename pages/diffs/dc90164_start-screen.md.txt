@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/apps/library/start-screen.md b/docs/training/cars/apps/library/start-screen.md
+index 7db7266..52bdc02 100644
+--- a/docs/training/cars/apps/library/start-screen.md
++++ b/docs/training/cars/apps/library/start-screen.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To create the screens displayed by your app, you define the classes that extend
+ the `Screen` class and implement its [`onGetTemplate`](/reference/androidx/car/app/Screen#onGetTemplate()) method to return the
+ [`Template`](/reference/androidx/car/app/model/Template) instance that represents the state of the UI to display in the

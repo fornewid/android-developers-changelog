@@ -1,0 +1,137 @@
+diff --git a/docs/games/services/publishing/api/achievementConfigurations.md b/docs/games/services/publishing/api/achievementConfigurations.md
+index b197e1c..d86337d 100644
+--- a/docs/games/services/publishing/api/achievementConfigurations.md
++++ b/docs/games/services/publishing/api/achievementConfigurations.md
+@@ -1,20 +1,12 @@
+ ---
+-title: AchievementConfigurations  |  API reference  |  Android Developers
++title: https://developer.android.com/games/services/publishing/api/achievementConfigurations
+ url: https://developer.android.com/games/services/publishing/api/achievementConfigurations
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [API reference](https://developer.android.com/reference)
+-
+-# AchievementConfigurations Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Represents the configuration of an accomplishment.
+ 
+-For a list of [methods](#methods) for this resource, see the end of this page.
++For a list of [methods](https://developer.android.com/games/services/publishing/api/achievementConfigurations#methods) for this resource, see the end of this page.
+ 
+ ## Resource representations
+ 
+@@ -84,61 +76,61 @@ This is a JSON template for an achievement configuration resource.
+ ```
+ 
+ | Property name | Value | Description | Notes |
+-| --- | --- | --- | --- |
+-| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#achievementConfiguration`. |  |
+-| `token` | `string` | The token for this resource. |  |
+-| `id` | `string` | The ID of the achievement. |  |
+-| `achievementType` | `string` | The type of the achievement.  Possible values are:  * "`STANDARD`" - Achievement is either locked or unlocked. * "`INCREMENTAL`" - Achievement is incremental. |  |
+-| `initialState` | `string` | The initial state of the achievement.  Possible values are:  * "`HIDDEN`" - Achievement is hidden. * "`REVEALED`" - Achievement is revealed. * "`UNLOCKED`" - Achievement is unlocked. |  |
+-| `stepsToUnlock` | `integer` | Steps to unlock. Only applicable to incremental achievements. |  |
+-| `draft` | `nested object` | The draft data of the achievement. |  |
+-| `draft.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#achievementConfigurationDetail`. |  |
+-| `draft.name` | `nested object` | Localized strings for the achievement name. |  |
+-| `draft.name.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedStringBundle`. |  |
+-| `draft.name.translations[]` | `list` | The locale strings. |  |
+-| `draft.name.translations[].kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedString`. |  |
+-| `draft.name.translations[].locale` | `string` | The locale string. |  |
+-| `draft.name.translations[].value` | `string` | The string value. |  |
+-| `draft.description` | `nested object` | Localized strings for the achievement description. |  |
+-| `draft.description.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedStringBundle`. |  |
+-| `draft.description.translations[]` | `list` | The locale strings. |  |
+-| `draft.description.translations[].kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedString`. |  |
+-| `draft.description.translations[].locale` | `string` | The locale string. |  |
+-| `draft.description.translations[].value` | `string` | The string value. |  |
+-| `draft.pointValue` | `integer` | Point value for the achievement. |  |
+-| `draft.iconUrl` | `string` | The icon url of this achievement. Writes to this field are ignored. |  |
+-| `draft.sortRank` | `integer` | The sort rank of this achievement. Writes to this field are ignored. |  |
+-| `published` | `nested object` | The published data of the achievement. This data is read-only. |  |
+-| `published.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#achievementConfigurationDetail`. |  |
+-| `published.name` | `nested object` | Localized strings for the achievement name. |  |
+-| `published.name.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedStringBundle`. |  |
+-| `published.name.translations[]` | `list` | The locale strings. |  |
+-| `published.name.translations[].kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedString`. |  |
+-| `published.name.translations[].locale` | `string` | The locale string. |  |
+-| `published.name.translations[].value` | `string` | The string value. |  |
+-| `published.description` | `nested object` | Localized strings for the achievement description. |  |
+-| `published.description.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedStringBundle`. |  |
+-| `published.description.translations[]` | `list` | The locale strings. |  |
+-| `published.description.translations[].kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedString`. |  |
+-| `published.description.translations[].locale` | `string` | The locale string. |  |
+-| `published.description.translations[].value` | `string` | The string value. |  |
+-| `published.pointValue` | `integer` | Point value for the achievement. |  |
+-| `published.iconUrl` | `string` | The icon url of this achievement. Writes to this field are ignored. |  |
+-| `published.sortRank` | `integer` | The sort rank of this achievement. Writes to this field are ignored. |  |
++|---|---|---|---|
++| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#achievementConfiguration`. |   |
++| `token` | `string` | The token for this resource. |   |
++| `id` | `string` | The ID of the achievement. |   |
++| `achievementType` | `string` | The type of the achievement. Possible values are: - "`STANDARD`" - Achievement is either locked or unlocked. - "`INCREMENTAL`" - Achievement is incremental. |   |
++| `initialState` | `string` | The initial state of the achievement. Possible values are: - "`HIDDEN`" - Achievement is hidden. - "`REVEALED`" - Achievement is revealed. - "`UNLOCKED`" - Achievement is unlocked. |   |
++| `stepsToUnlock` | `integer` | Steps to unlock. Only applicable to incremental achievements. |   |
++| `draft` | `nested object` | The draft data of the achievement. |   |
++| `draft.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#achievementConfigurationDetail`. |   |
++| `draft.name` | `nested object` | Localized strings for the achievement name. |   |
++| `draft.name.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedStringBundle`. |   |
++| `draft.name.translations[]` | `list` | The locale strings. |   |
++| `draft.name.translations[].kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedString`. |   |
++| `draft.name.translations[].locale` | `string` | The locale string. |   |
++| `draft.name.translations[].value` | `string` | The string value. |   |
++| `draft.description` | `nested object` | Localized strings for the achievement description. |   |
++| `draft.description.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedStringBundle`. |   |
++| `draft.description.translations[]` | `list` | The locale strings. |   |
++| `draft.description.translations[].kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedString`. |   |
++| `draft.description.translations[].locale` | `string` | The locale string. |   |
++| `draft.description.translations[].value` | `string` | The string value. |   |
++| `draft.pointValue` | `integer` | Point value for the achievement. |   |
++| `draft.iconUrl` | `string` | The icon url of this achievement. Writes to this field are ignored. |   |
++| `draft.sortRank` | `integer` | The sort rank of this achievement. Writes to this field are ignored. |   |
++| `published` | `nested object` | The published data of the achievement. This data is read-only. |   |
++| `published.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#achievementConfigurationDetail`. |   |
++| `published.name` | `nested object` | Localized strings for the achievement name. |   |
++| `published.name.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedStringBundle`. |   |
++| `published.name.translations[]` | `list` | The locale strings. |   |
++| `published.name.translations[].kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedString`. |   |
++| `published.name.translations[].locale` | `string` | The locale string. |   |
++| `published.name.translations[].value` | `string` | The string value. |   |
++| `published.description` | `nested object` | Localized strings for the achievement description. |   |
++| `published.description.kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedStringBundle`. |   |
++| `published.description.translations[]` | `list` | The locale strings. |   |
++| `published.description.translations[].kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#localizedString`. |   |
++| `published.description.translations[].locale` | `string` | The locale string. |   |
++| `published.description.translations[].value` | `string` | The string value. |   |
++| `published.pointValue` | `integer` | Point value for the achievement. |   |
++| `published.iconUrl` | `string` | The icon url of this achievement. Writes to this field are ignored. |   |
++| `published.sortRank` | `integer` | The sort rank of this achievement. Writes to this field are ignored. |   |
+ 
+ ## Methods
+ 
+-[delete](/games/services/publishing/api/achievementConfigurations/delete)
++[delete](https://developer.android.com/games/services/publishing/api/achievementConfigurations/delete)
+ :   Delete the achievement configuration with the given ID.
+ 
+-[get](/games/services/publishing/api/achievementConfigurations/get)
++[get](https://developer.android.com/games/services/publishing/api/achievementConfigurations/get)
+ :   Retrieves the metadata of the achievement configuration with the given ID.
+ 
+-[insert](/games/services/publishing/api/achievementConfigurations/insert)
++[insert](https://developer.android.com/games/services/publishing/api/achievementConfigurations/insert)
+ :   Insert a new achievement configuration in this application.
+ 
+-[list](/games/services/publishing/api/achievementConfigurations/list)
++[list](https://developer.android.com/games/services/publishing/api/achievementConfigurations/list)
+ :   Returns a list of the achievement configurations in this application.
+ 
+-[update](/games/services/publishing/api/achievementConfigurations/update)
++[update](https://developer.android.com/games/services/publishing/api/achievementConfigurations/update)
+ :   Update the metadata of the achievement configuration with the given ID.
+\ No newline at end of file

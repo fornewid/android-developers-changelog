@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/tv/samples/jet-fit.md b/docs/design/ui/tv/samples/jet-fit.md
+index fba9a0f..d7103cc 100644
+--- a/docs/design/ui/tv/samples/jet-fit.md
++++ b/docs/design/ui/tv/samples/jet-fit.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Convert your living room into a gym and reach your fitness goals with on-demand
+ workout classes, tailored training plans, and virtual coaching, all
+ available at your fingertips.

@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/cocos/cocos-remotedebugging.md b/docs/games/engines/cocos/cocos-remotedebugging.md
+index de38c35..10d4eb7 100644
+--- a/docs/games/engines/cocos/cocos-remotedebugging.md
++++ b/docs/games/engines/cocos/cocos-remotedebugging.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ Due to the differences between development and running environments, some
+ problems only occur on specific physical devices.
+ 
+@@ -51,6 +50,4 @@ documentation](https://docs.cocos.com/creator/manual/en/editor/publish/debug-jsb
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

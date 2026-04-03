@@ -1,0 +1,111 @@
+diff --git a/docs/games/playgames/native-pc/setup/developer_mode.md b/docs/games/playgames/native-pc/setup/developer_mode.md
+index e49a391..5d1c4ea 100644
+--- a/docs/games/playgames/native-pc/setup/developer_mode.md
++++ b/docs/games/playgames/native-pc/setup/developer_mode.md
+@@ -1,26 +1,18 @@
+ ---
+-title: Use the PC SDK while developing  |  Play for Native PC  |  Android Developers
++title: https://developer.android.com/games/playgames/native-pc/setup/developer_mode
+ url: https://developer.android.com/games/playgames/native-pc/setup/developer_mode
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Home](https://developer.android.com/)
+-* [Play for Native PC](https://developer.android.com/games/playgames/native-pc)
+-* [Guides](https://developer.android.com/games/playgames/native-pc/setup)
+-
+-# Use the PC SDK while developing Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ In order to successfully initialize the SDK inside of a game several
+ requirements must be satisfied. These include:
+ 
+-* Running from a digitally signed game executable
+-* Launching the game executable from Google Play Games
++- Running from a digitally signed game executable
++
++- Launching the game executable from Google Play Games
+ 
+ These can be burdensome for developers that are actively building their game
+-inside of a game editor or code IDE as they require packaging & publishing the
++inside of a game editor or code IDE as they require packaging \& publishing the
+ game for release.
+ 
+ To provide a better development workflow the SDK offers a developer
+@@ -31,36 +23,31 @@ Games.
+ 
+ ## Prerequisites
+ 
+-* Obtain an early-access partner (EAP) GUID. This a secret key that allows your
+-  development team to use the SDK from within your game engine editor
+-  without needing to package or digitally sign your game executable or launch it
+-  from Google Play Games.
++- Obtain an early-access partner (EAP) GUID. This a secret key that allows your development team to use the SDK from within your game engine editor without needing to package or digitally sign your game executable or launch it from Google Play Games.
+ 
+-**Note:** Work with your Google Partner to get an early-access partner GUID for your
+-development team. If you don't have an early-access partner, complete the
+-[express interest form](https://docs.google.com/forms/d/e/1FAIpQLScn35BX-X63ggG84S76okR37nwq6qRA1PNPk4fsBpDbD7J21Q/viewform?_ga=2.233777694.1640262997.1747860154-345235146.1745606832). 
++> [!NOTE]
++> **Note:** Work with your Google Partner to get an early-access partner GUID for your development team. If you don't have an early-access partner, complete the [express interest form](https://docs.google.com/forms/d/e/1FAIpQLScn35BX-X63ggG84S76okR37nwq6qRA1PNPk4fsBpDbD7J21Q/viewform?_ga=2.233777694.1640262997.1747860154-345235146.1745606832).
+ 
+ ## **Step 1**: Enable developer mode in the manifest
+ 
+-**Warning:** Make sure to remove the `<IsDeveloperMode>` tag
+-before publishing your game.
++> [!WARNING]
++> **Warning:** Make sure to remove the `<IsDeveloperMode>` tag before publishing your game.
+ 
+ Enable developer mode for your application by setting `IsDeveloperMode` to
+ `true` inside of the your application's `manifest.xml`.
+ 
+-```
+-<?xml version="1.0" encoding="utf-8"?>
+-<?Manifest version="1">
+-   <?Application>
+-     <?PackageName>com.example.package<?/PackageName>
+-     <?IsDeveloperMode>true</?IsDeveloperMode>
+-   <?/Application>
+-<?/Manifest>
+-```
++    <?xml version="1.0" encoding="utf-8"?>
++    <Manifest version="1">
++        <Application>
++            <PackageName>com.example.package</PackageName>
++            \<IsDeveloperMode\>true\</IsDeveloperMode\>
++        </Application>
++    </Manifest>
+ 
+ ## **Step 2**: Enable early access
+ 
+-**Warning:** The early access partner GUID is a secret. Don't share this value.
++> [!WARNING]
++> **Warning:** The early access partner GUID is a secret. Don't share this value.
+ 
+ Enable early access on the device where your are testing by setting the
+ `EarlyAccessPartnerGuid` string value under the
+@@ -69,9 +56,7 @@ Enable early access on the device where your are testing by setting the
+ This can be done either using the Windows Registry Editor, or from an admin cmd
+ terminal with the command:
+ 
+-```
+-C:\> reg add "HKLM\Software\Google\Play Games Services" /v EarlyAccessPartnerGuid /t REG_SZ /d EAP GUID
+-```
++    C:\> reg add "HKLM\Software\Google\Play Games Services" /v EarlyAccessPartnerGuid /t REG_SZ /d EAP GUID
+ 
+ ## **Step 3**: Sign into Google Play Games for PC
+ 
+@@ -91,6 +76,6 @@ your app's internal testers inside of the
+ 
+ Add Google Play PC features to your app:
+ 
+-* Sell digital goods with [Play Billing](/games/playgames/native-pc/billing)
+-* Measure your marketing with [Play Install Referrer](/games/playgames/native-pc/install_referrer)
+-* Protect your game with [Play Integrity for PC](/games/playgames/native-pc/trust)
+\ No newline at end of file
++- Sell digital goods with [Play Billing](https://developer.android.com/games/playgames/native-pc/billing)
++- Measure your marketing with [Play Install Referrer](https://developer.android.com/games/playgames/native-pc/install_referrer)
++- Protect your game with [Play Integrity for PC](https://developer.android.com/games/playgames/native-pc/trust)
+\ No newline at end of file

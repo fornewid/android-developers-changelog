@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/chart-glossary/events-table.md b/docs/studio/profile/chart-glossary/events-table.md
+index 01ff45d..a9d3e55 100644
+--- a/docs/studio/profile/chart-glossary/events-table.md
++++ b/docs/studio/profile/chart-glossary/events-table.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The **events table** lists all calls in the selected thread. You can
+ sort them by clicking on the column headers. By selecting a row in the table,
+ you can navigate the timeline to the start and end time of the selected call.

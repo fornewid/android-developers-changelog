@@ -1,0 +1,111 @@
+diff --git a/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-3/android-basics-kotlin-unit-3-pathway-3.md b/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-3/android-basics-kotlin-unit-3-pathway-3.md
+index ebfd0f1..35fa55b 100644
+--- a/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-3/android-basics-kotlin-unit-3-pathway-3.md
++++ b/docs/courses/quizzes/android-basics-kotlin-unit-3-pathway-3/android-basics-kotlin-unit-3-pathway-3.md
+@@ -1,60 +1,67 @@
+ ---
+-title: https://developer.android.com/courses/quizzes/android-basics-kotlin-unit-3-pathway-3/android-basics-kotlin-unit-3-pathway-3
++title: Architecture components  |  Android Developers
+ url: https://developer.android.com/courses/quizzes/android-basics-kotlin-unit-3-pathway-3/android-basics-kotlin-unit-3-pathway-3
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Architecture components
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
+ 
+ # Architecture components
+ 
+-<br />
++Return to pathway
++
++
++
++1. ## Which of the following are reasons to use a ViewModel?
++
++   Choose as many answers as you see fit.
++
++   A ViewModel and its data can survive orientation changes in an Activity/Fragment.
++
++   A ViewModel allows you to separate code that updates the UI from code that doesn’t need to rely on the UI or its lifecycle.
++
++   A ViewModel prevents your data from updating the UI automatically.
++2. ## A ViewModel is destroyed after which of the following ?
++
++   always after `onStop`
++
++   always after `onDestroy`
+ 
+-Return to pathway  
+-1.
++   after `onDestroy`, if it not a configuration change
++3. ## True or False: You should execute time-consuming tasks and I/O requests in your Activity/Fragment.
+ 
+-   ## Which of the following are reasons to use a ViewModel?
++   True
+ 
+-   Choose as many answers as you see fit.  
+-   A ViewModel and its data can survive orientation changes in an Activity/Fragment.  
+-   A ViewModel allows you to separate code that updates the UI from code that doesn't need to rely on the UI or its lifecycle.  
+-   A ViewModel prevents your data from updating the UI automatically.  
+-2.
++   False
++4. ## Why should you initialize and store LiveData in your ViewModel instead of a UI Controller?
+ 
+-   ## A ViewModel is destroyed after which of the following ?
++   Both the ViewModel and LiveData are lifecycle aware.
+ 
+-   always after`onStop`  
+-   always after`onDestroy`  
+-   after`onDestroy`, if it not a configuration change  
+-3.
++   To ensure that the LiveData isn’t destroyed when the UI Controller is destroyed.
+ 
+-   ## True or False: You should execute time-consuming tasks and I/O requests in your Activity/Fragment.
++   To hide or separate implementation details making your app more flexible.
+ 
+-   True  
+-   False  
+-4.
++   All of the above
++5. ## Which of the following allows you to use `observe` for changes?
+ 
+-   ## Why should you initialize and store LiveData in your ViewModel instead of a UI Controller?
++   a LiveData object
+ 
+-   Both the ViewModel and LiveData are lifecycle aware.  
+-   To ensure that the LiveData isn't destroyed when the UI Controller is destroyed.  
+-   To hide or separate implementation details making your app more flexible.  
+-   All of the above  
+-5.
++   any mutable object
+ 
+-   ## Which of the following allows you to use`observe`for changes?
++   any property in a ViewModel
+ 
+-   a LiveData object  
+-   any mutable object  
+-   any property in a ViewModel  
+-   any property in a ViewModel or LiveData object  
+-6.
++   any property in a ViewModel or LiveData object
++6. ## True or False: It’s OK for a ViewModel to directly reference a `View` or `LifecycleOwner` class.
+ 
+-   ## True or False: It's OK for a ViewModel to directly reference a`View`or`LifecycleOwner`class.
++   True
+ 
+-   True  
+-   False  
++   False
+ 
+ Submit answers
+ 
+-*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error\_outline*
++An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

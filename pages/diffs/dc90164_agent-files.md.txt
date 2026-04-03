@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/agent-files.md b/docs/studio/gemini/agent-files.md
+index 6726e4d..3afa147 100644
+--- a/docs/studio/gemini/agent-files.md
++++ b/docs/studio/gemini/agent-files.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** Agent files titled `AGENTS.md` are compatible with Android Studio Narwhal
+ 4 Feature Drop Canary 4 and higher. To use agent files with Android Studio
+ Narwhal 3 Feature Drop, use the name `AGENT.md` instead of `AGENTS.md`.

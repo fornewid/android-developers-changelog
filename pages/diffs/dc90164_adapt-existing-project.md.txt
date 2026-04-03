@@ -1,0 +1,20 @@
+diff --git a/docs/games/agde/adapt-existing-project.md b/docs/games/agde/adapt-existing-project.md
+index 39ceb2b..95b9864 100644
+--- a/docs/games/agde/adapt-existing-project.md
++++ b/docs/games/agde/adapt-existing-project.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ Configure a project to use the Android Game Development Extension.
+ 
+ The Android Game Development Extension invokes MSBuild to build C/C++ source code into shared
+@@ -294,6 +293,4 @@ named `build.gradle`) to read these properties.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

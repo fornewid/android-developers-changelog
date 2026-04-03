@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/graphics/opengl/about-opengl.md b/docs/develop/ui/views/graphics/opengl/about-opengl.md
+index f7f59db..de67d7c 100644
+--- a/docs/develop/ui/views/graphics/opengl/about-opengl.md
++++ b/docs/develop/ui/views/graphics/opengl/about-opengl.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android includes support for high performance 2D and 3D graphics with the Open Graphics Library
+ (OpenGL®), specifically, the OpenGL ES API. OpenGL is a cross-platform graphics API that
+ specifies a

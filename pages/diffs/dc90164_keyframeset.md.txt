@@ -1,0 +1,12 @@
+diff --git a/docs/training/constraint-layout/motionlayout/ref/keyframeset.md b/docs/training/constraint-layout/motionlayout/ref/keyframeset.md
+index 9d07109..c7415b3 100644
+--- a/docs/training/constraint-layout/motionlayout/ref/keyframeset.md
++++ b/docs/training/constraint-layout/motionlayout/ref/keyframeset.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Specifies location and attributes for views over the course of the motion
+ sequence. By default, motion proceeds from the initial state to the end state.
+ By using `<KeyFrameSet>`, you can build more complex motions.

@@ -1,0 +1,20 @@
+diff --git a/docs/games/develop/all-screens.md b/docs/games/develop/all-screens.md
+index d5438bb..199a157 100644
+--- a/docs/games/develop/all-screens.md
++++ b/docs/games/develop/all-screens.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ When developing a game for Android, it's important to anticipate the variety of
+ possible player experiences and remain adaptive to a player's real-time
+ interaction needs. By supporting different player experiences, you increase
+@@ -414,6 +413,4 @@ You can perform tests using a variety of tools that the platform supports:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

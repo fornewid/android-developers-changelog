@@ -1,0 +1,12 @@
+diff --git a/docs/kotlin/first.md b/docs/kotlin/first.md
+index 55b9ef2..53735d2 100644
+--- a/docs/kotlin/first.md
++++ b/docs/kotlin/first.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ At Google I/O 2019, we announced that Android development will be
+ increasingly Kotlin-first, and we’ve stood by that commitment. Kotlin is an
+ expressive and concise programming language that reduces common code errors

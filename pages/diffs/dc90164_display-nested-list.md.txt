@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/display-nested-list.md b/docs/develop/ui/compose/quick-guides/content/display-nested-list.md
+index c345870..6647863 100644
+--- a/docs/develop/ui/compose/quick-guides/content/display-nested-list.md
++++ b/docs/develop/ui/compose/quick-guides/content/display-nested-list.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can display nested scrolling items within a list to present complex layouts,
+ such as product catalogs, media galleries, news feeds, and more.
+ 

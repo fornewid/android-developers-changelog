@@ -1,0 +1,126 @@
+diff --git a/docs/health-and-fitness/health-connect/ui/onboard-users.md b/docs/health-and-fitness/health-connect/ui/onboard-users.md
+index 59c9e66..85d40af 100644
+--- a/docs/health-and-fitness/health-connect/ui/onboard-users.md
++++ b/docs/health-and-fitness/health-connect/ui/onboard-users.md
+@@ -1,45 +1,32 @@
+ ---
+-title: Plan for onboarding users  |  Android health & fitness  |  Android Developers
++title: https://developer.android.com/health-and-fitness/health-connect/ui/onboard-users
+ url: https://developer.android.com/health-and-fitness/health-connect/ui/onboard-users
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Starting in 2026, we'll be transitioning away from Google Fit APIs. For more information on the Google Fit migration, see the [Migration Guide](/health-and-fitness/guides/health-connect/migrate/migration-guide).
+-
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Health & fitness dev center](https://developer.android.com/health-and-fitness)
+-* [Health Connect Guides](https://developer.android.com/health-and-fitness/health-connect)
+-
+-# Plan for onboarding users Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Many apps have a custom onboarding flow such as feature education or asking user
+ consent. To enable Health Connect to launch your onboarding flow, add the
+-following to your manifest:
+-
+-```
+-<!-- Required to support pre-Android 14 devices with APK Health Connect -->
+-<activity
+-  android:name=".OnboardingActivity"
+-  android:exported="true"
+-  android:permission="com.google.android.apps.healthdata.permission.START_ONBOARDING">
+-  <intent-filter>
+-    <action android:name="androidx.health.ACTION_SHOW_ONBOARDING"/>
+-  </intent-filter>
+-</activity>
+-<!-- Required to support Android 14+ devices with platform Health Connect -->
+-<activity-alias
+-  android:name="UAndAboveOnboardingActivity"
+-  android:exported="true"
+-  android:targetActivity=".OnboardingActivity"
+-  android:permission="android.permission.health.START_ONBOARDING">
+-  <intent-filter>
+-    <action android:name="android.health.connect.action.SHOW_ONBOARDING" />
+-  </intent-filter>
+-</activity-alias>
+-```
++following to your manifest:  
++
++    <!-- Required to support pre-Android 14 devices with APK Health Connect -->
++    <activity
++      android:name=".OnboardingActivity"
++      android:exported="true"
++      android:permission="com.google.android.apps.healthdata.permission.START_ONBOARDING">
++      <intent-filter>
++        <action android:name="androidx.health.ACTION_SHOW_ONBOARDING"/>
++      </intent-filter>
++    </activity>
++    <!-- Required to support Android 14+ devices with platform Health Connect -->
++    <activity-alias
++      android:name="UAndAboveOnboardingActivity"
++      android:exported="true"
++      android:targetActivity=".OnboardingActivity"
++      android:permission="android.permission.health.START_ONBOARDING">
++      <intent-filter>
++        <action android:name="android.health.connect.action.SHOW_ONBOARDING" />
++      </intent-filter>
++    </activity-alias>
+ 
+ Users may initiate the connection to your app directly from the Health
+ Connect app, rather than from within your app. If your app requires any
+@@ -50,10 +37,11 @@ provide an onboarding activity.
+ 
+ To support both pre-Android 14 and Android 14+ devices:
+ 
+-* **Recommended approach:** Create a single onboarding activity that handles
++- **Recommended approach:** Create a single onboarding activity that handles
+   both scenarios. Use an activity alias, as shown in the example,to verify
+   compatibility across Android versions.
+-* **Alternative approach:** Export two separate activities,
++
++- **Alternative approach:** Export two separate activities,
+   one for each Android version. This approach may lead to increased maintenance
+   complexity.
+ 
+@@ -62,13 +50,11 @@ To support both pre-Android 14 and Android 14+ devices:
+ When a user attempts to connect your app to Health Connect, the exported
+ activity is launched. This activity must do the following:
+ 
+-* Display any relevant user education such as explaining what data is written or
+-  read.
+-* Ask the user to grant consent if required.
+-* Make a permissions request to Health Connect.
+-* Carry out any other application specific logic such as scheduling a periodic
+-  worker.
+-* Once complete, allow the user to dismiss the activity.
++- Display any relevant user education such as explaining what data is written or read.
++- Ask the user to grant consent if required.
++- Make a permissions request to Health Connect.
++- Carry out any other application specific logic such as scheduling a periodic worker.
++- Once complete, allow the user to dismiss the activity.
+ 
+ For apps that *don't* export an onboarding activity, Health Connect instead
+ brings the user to the **Manage permissions** screen once the user attempts to
+@@ -76,16 +62,4 @@ connect the app. This may be acceptable for apps where permissions being
+ granted is the only prerequisite for the integration to function.
+ 
+ Note that the onboarding activity may be launched more than once, for example if
+-the user later revokes permissions to your app and then reconnects it.
+-
+-[Previous
+-
+-arrow\_back
+-
+-Overview](/health-and-fitness/health-connect/ui/guidelines)
+-
+-[Next
+-
+-Promote Health Connect
+-
+-arrow\_forward](/health-and-fitness/health-connect/ui/promote)
+\ No newline at end of file
++the user later revokes permissions to your app and then reconnects it.
+\ No newline at end of file

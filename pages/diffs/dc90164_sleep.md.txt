@@ -1,0 +1,569 @@
+diff --git a/docs/health-and-fitness/health-connect/experiences/sleep.md b/docs/health-and-fitness/health-connect/experiences/sleep.md
+index 25667ca..be6eaf2 100644
+--- a/docs/health-and-fitness/health-connect/experiences/sleep.md
++++ b/docs/health-and-fitness/health-connect/experiences/sleep.md
+@@ -1,23 +1,29 @@
+ ---
+-title: https://developer.android.com/health-and-fitness/health-connect/experiences/sleep
++title: Develop Sleep Experiences with Health Connect  |  Android health & fitness  |  Android Developers
+ url: https://developer.android.com/health-and-fitness/health-connect/experiences/sleep
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-<br />
++Starting in 2026, we'll be transitioning away from Google Fit APIs. For more information on the Google Fit migration, see the [Migration Guide](/health-and-fitness/guides/health-connect/migrate/migration-guide).
+ 
+-> [!NOTE]
+-> **Note:** This guide is compatible with Health Connect version [1.1.0](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0).
++* [Android Developers](https://developer.android.com/)
++* [Essentials](https://developer.android.com/get-started)
++* [Health & fitness dev center](https://developer.android.com/health-and-fitness)
++* [Health Connect Guides](https://developer.android.com/health-and-fitness/health-connect)
+ 
+-<br />
++# Develop Sleep Experiences with Health Connect Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++**Note:** This guide is compatible with Health Connect version [1.1.0](/jetpack/androidx/releases/health-connect#1.1.0).
+ 
+ If you're looking to build a sleep tracking experience in your app, you can use
+ Health Connect to do things like:
+ 
+-- Write sleep sessions
+-- Write sleep stage data
+-- Write sleep data such as heart rate, oxygen saturation, and respiratory rate
+-- Read sleep data from other apps
++* Write sleep sessions
++* Write sleep stage data
++* Write sleep data such as heart rate, oxygen saturation, and respiratory rate
++* Read sleep data from other apps
+ 
+ This guide describes how to build these sleep features, covering data types,
+ background execution, permissions, recommended workflows, and best practices.
+@@ -27,11 +33,13 @@ background execution, permissions, recommended workflows, and best practices.
+ You can build a comprehensive sleep tracking experience using Health Connect by
+ following these core steps:
+ 
+-- Correctly implementing permissions based on Health Permissions.
+-- Recording sessions using `SleepSessionRecord`.
+-- Writing data types like sleep stages, heart rate, and oxygen saturation consistently during the session.
+-- Managing background execution properly to verify continuous data capture overnight.
+-- Reading session data for post-sleep summaries and analysis.
++* Correctly implementing permissions based on Health Permissions.
++* Recording sessions using `SleepSessionRecord`.
++* Writing data types like sleep stages, heart rate, and oxygen saturation
++  consistently during the session.
++* Managing background execution properly to verify continuous data capture
++  overnight.
++* Reading session data for post-sleep summaries and analysis.
+ 
+ This workflow enables interoperability with other Health Connect apps and
+ verifies user-controlled data access.
+@@ -40,10 +48,10 @@ verifies user-controlled data access.
+ 
+ Before implementing sleep features:
+ 
+-- [Integrate Health Connect](https://developer.android.com/health-and-fitness/health-connect/get-started#step-1) using the appropriate dependency.
+-- [Create a `HealthConnectClient`](https://developer.android.com/health-and-fitness/health-connect/get-started#step-2) instance.
+-- Verify your app implements runtime [permission flows based on Health
+-  Permissions](https://developer.android.com/health-and-fitness/health-connect/get-started#declare-permissions).
++* [Integrate Health Connect](/health-and-fitness/health-connect/get-started#step-1) using the appropriate dependency.
++* [Create a `HealthConnectClient`](/health-and-fitness/health-connect/get-started#step-2) instance.
++* Verify your app implements runtime [permission flows based on Health
++  Permissions](/health-and-fitness/health-connect/get-started#declare-permissions).
+ 
+ ## Key concepts
+ 
+@@ -57,10 +65,11 @@ session, various data types such as `HeartRateRecord` or
+ 
+ Sleep data is represented by `SleepSessionRecord`. Each record stores:
+ 
+-- `startTime`
+-- `endTime`
+-- `stages`: A list of `SleepSessionRecord.Stage` including deep, light, REM, and awake sleep.
+-- Optional session metadata (title, notes)
++* `startTime`
++* `endTime`
++* `stages`: A list of `SleepSessionRecord.Stage` including deep, light, REM,
++  and awake sleep.
++* Optional session metadata (title, notes)
+ 
+ Apps may write multiple data types associated with a session.
+ 
+@@ -68,10 +77,12 @@ Apps may write multiple data types associated with a session.
+ 
+ Common data types recorded during a sleep session include:
+ 
+-- [`SleepSessionRecord`](https://developer.android.com/health-and-fitness/health-connect/features/sleep-sessions): Records sleep duration and stages including deep, light, REM, and awake sleep.
+-- [`HeartRateRecord`](https://developer.android.com/health-and-fitness/health-connect/data-types/vitals#heart-rate): Records heart rate during sleep.
+-- [`OxygenSaturationRecord`](https://developer.android.com/health-and-fitness/health-connect/data-types/vitals#oxygen-saturation): Records oxygen saturation (SpO2) during sleep.
+-- [`RespiratoryRateRecord`](https://developer.android.com/health-and-fitness/health-connect/data-types/vitals#respiratory-rate): Records respiratory rate during sleep.
++* [`SleepSessionRecord`](/health-and-fitness/health-connect/features/sleep-sessions): Records sleep duration and stages including
++  deep, light, REM, and awake sleep.
++* [`HeartRateRecord`](/health-and-fitness/health-connect/data-types/vitals#heart-rate): Records heart rate during sleep.
++* [`OxygenSaturationRecord`](/health-and-fitness/health-connect/data-types/vitals#oxygen-saturation): Records oxygen saturation (SpO2) during
++  sleep.
++* [`RespiratoryRateRecord`](/health-and-fitness/health-connect/data-types/vitals#respiratory-rate): Records respiratory rate during sleep.
+ 
+ Each data type is stored as an individual record.
+ 
+@@ -87,9 +98,10 @@ and request the necessary permissions for sleep data.
+ Sleep tracking apps commonly run overnight with the screen off. When in this
+ state, you should use:
+ 
+-- Foreground services for data collection
+-- `WorkManager` for deferred write or syncing
+-- Batching strategies for regular record writes of granular data such as heart rate
++* Foreground services for data collection
++* `WorkManager` for deferred write or syncing
++* Batching strategies for regular record writes of granular data such as
++  heart rate
+ 
+ Maintain continuity by keeping session ID consistent across all writes.
+ 
+@@ -97,13 +109,13 @@ Maintain continuity by keeping session ID consistent across all writes.
+ 
+ Your app must request the relevant Health Connect permissions before reading or
+ writing sleep data. For a complete list of data types, see
+-[Health Connect data types](https://developer.android.com/health-and-fitness/health-connect/data-types). Common permissions for sleep include sleep
++[Health Connect data types](/health-and-fitness/health-connect/data-types). Common permissions for sleep include sleep
+ sessions and metrics like heart rate or oxygen saturation.
+ 
+ Access to sleep is protected by the following permissions:
+ 
+-- `android.permission.health.READ_SLEEP`
+-- `android.permission.health.WRITE_SLEEP`
++* `android.permission.health.READ_SLEEP`
++* `android.permission.health.WRITE_SLEEP`
+ 
+ To add sleep capability to your app, start by requesting
+ permissions for the `SleepSession` data type.
+@@ -111,19 +123,23 @@ permissions for the `SleepSession` data type.
+ Here's the permission you need to declare to be able to write
+ sleep:
+ 
+-    <application>
+-      <uses-permission
+-    android:name="android.permission.health.WRITE_SLEEP" />
+-    ...
+-    </application>
++```
++<application>
++  <uses-permission
++android:name="android.permission.health.WRITE_SLEEP" />
++...
++</application>
++```
+ 
+ To read sleep, you need to request the following permissions:
+ 
+-    <application>
+-      <uses-permission
+-    android:name="android.permission.health.READ_SLEEP" />
+-    ...
+-    </application>
++```
++<application>
++  <uses-permission
++android:name="android.permission.health.READ_SLEEP" />
++...
++</application>
++```
+ 
+ The following shows an example of how to request permissions for a sleep
+ session that includes heart rate, oxygen saturation, and respiratory rate data:
+@@ -135,43 +151,47 @@ To do so, create a set of permissions for the required data types.
+ Make sure that the permissions in the set are declared in your Android
+ manifest first.
+ 
+-    // Create a set of permissions for required data types
+-    val PERMISSIONS =
+-        setOf(
+-      HealthPermission.getReadPermission(SleepSessionRecord::class),
+-      HealthPermission.getWritePermission(SleepSessionRecord::class),
+-      HealthPermission.getReadPermission(HeartRateRecord::class),
+-      HealthPermission.getWritePermission(HeartRateRecord::class),
+-      HealthPermission.getReadPermission(OxygenSaturationRecord::class),
+-      HealthPermission.getWritePermission(OxygenSaturationRecord::class),
+-      HealthPermission.getReadPermission(RespiratoryRateRecord::class),
+-      HealthPermission.getWritePermission(RespiratoryRateRecord::class)
+-    )
+-
+-Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
++```
++// Create a set of permissions for required data types
++val PERMISSIONS =
++    setOf(
++  HealthPermission.getReadPermission(SleepSessionRecord::class),
++  HealthPermission.getWritePermission(SleepSessionRecord::class),
++  HealthPermission.getReadPermission(HeartRateRecord::class),
++  HealthPermission.getWritePermission(HeartRateRecord::class),
++  HealthPermission.getReadPermission(OxygenSaturationRecord::class),
++  HealthPermission.getWritePermission(OxygenSaturationRecord::class),
++  HealthPermission.getReadPermission(RespiratoryRateRecord::class),
++  HealthPermission.getWritePermission(RespiratoryRateRecord::class)
++)
++```
++
++Use [`getGrantedPermissions`](/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
+ required permissions granted. If not, use
+-[`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
++[`createRequestPermissionResultContract`](/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
+ those permissions. This displays the Health Connect permissions screen.
+ 
+-    // Create the permissions launcher
+-    val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
+-
+-    val requestPermissions = registerForActivityResult(requestPermissionActivityContract) { granted ->
+-      if (granted.containsAll(PERMISSIONS)) {
+-        // Permissions successfully granted
+-      } else {
+-        // Lack of required permissions
+-      }
+-    }
+-
+-    suspend fun checkPermissionsAndRun(healthConnectClient: HealthConnectClient) {
+-      val granted = healthConnectClient.permissionController.getGrantedPermissions()
+-      if (granted.containsAll(PERMISSIONS)) {
+-        // Permissions already granted; proceed with inserting or reading data
+-      } else {
+-        requestPermissions.launch(PERMISSIONS)
+-      }
+-    }
++```
++// Create the permissions launcher
++val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
++
++val requestPermissions = registerForActivityResult(requestPermissionActivityContract) { granted ->
++  if (granted.containsAll(PERMISSIONS)) {
++    // Permissions successfully granted
++  } else {
++    // Lack of required permissions
++  }
++}
++
++suspend fun checkPermissionsAndRun(healthConnectClient: HealthConnectClient) {
++  val granted = healthConnectClient.permissionController.getGrantedPermissions()
++  if (granted.containsAll(PERMISSIONS)) {
++    // Permissions already granted; proceed with inserting or reading data
++  } else {
++    requestPermissions.launch(PERMISSIONS)
++  }
++}
++```
+ 
+ Because users can grant or revoke permissions at any time, your app needs to
+ check for permissions every time before using them and handle scenarios where
+@@ -187,7 +207,7 @@ sleep session, record them with timestamps that fall between the session's
+ link sleep sessions with granular data. Instead, association is implicit through
+ overlapping time intervals. When reading sleep data, you can use a session's
+ time range to query for associated data types, as shown in
+-[Reading sleep data](https://developer.android.com/health-and-fitness/health-connect/experiences/sleep#reading-sleep-data).
++[Reading sleep data](#reading-sleep-data).
+ 
+ ### Write a session
+ 
+@@ -202,42 +222,47 @@ to be after `startTime`.
+ To write a sleep session:
+ 
+ 1. Generate a unique client record ID.
+-2. When the user wakes up, or sleep tracking is stopped, gather all sleep stages and construct a `SleepSessionRecord`.
++2. When the user wakes up, or sleep tracking is stopped, gather all sleep
++   stages and construct a `SleepSessionRecord`.
+ 3. Insert the record using `insertRecords`.
+ 
+-> [!NOTE]
+-> **Best Practice:** Use Client IDs When creating records, set a **metadata.clientRecordId** . This is the most effective way to prevent duplicates during sync retries. See [Best practices](https://developer.android.com/health-and-fitness/health-connect/experiences/sleep#best-practices) for a code example.
++**Best Practice:** Use Client IDs When creating records, set a
++**metadata.clientRecordId**. This is the most effective way to prevent
++duplicates during sync retries. See [Best practices](#best-practices)
++for a code example.
+ 
+ Example:
+ 
+-    val clientRecordId = UUID.randomUUID().toString()
+-    val sessionStartTime = LocalDateTime.of(2023, 10, 30, 22, 0).toInstant(ZoneOffset.UTC)
+-    val sessionEndTime = LocalDateTime.of(2023, 10, 31, 7, 0).toInstant(ZoneOffset.UTC)
+-
+-    val stages = mutableListOf<SleepSessionRecord.Stage>()
+-    // Add recorded stages, for example:
+-    stages.add(SleepSessionRecord.Stage(
+-        startTime = sessionStartTime.plusSeconds(3600),
+-        endTime = sessionStartTime.plusSeconds(7200),
+-        stage = SleepSessionRecord.STAGE_TYPE_LIGHT)
+-    )
+-    stages.add(SleepSessionRecord.Stage(
+-        startTime = sessionStartTime.plusSeconds(7200),
+-        endTime = sessionStartTime.plusSeconds(10800),
+-        stage = SleepSessionRecord.STAGE_TYPE_DEEP)
+-    )
+-    // ... other stages
+-
+-    val session = SleepSessionRecord(
+-        startTime = sessionStartTime,
+-        startZoneOffset = ZoneOffset.UTC,
+-        endTime = sessionEndTime,
+-        endZoneOffset = ZoneOffset.UTC,
+-        stages = stages,
+-        metadata = Metadata(clientRecordId = clientRecordId)
+-    )
+-
+-    healthConnectClient.insertRecords(listOf(session))
++```
++val clientRecordId = UUID.randomUUID().toString()
++val sessionStartTime = LocalDateTime.of(2023, 10, 30, 22, 0).toInstant(ZoneOffset.UTC)
++val sessionEndTime = LocalDateTime.of(2023, 10, 31, 7, 0).toInstant(ZoneOffset.UTC)
++
++val stages = mutableListOf<SleepSessionRecord.Stage>()
++// Add recorded stages, for example:
++stages.add(SleepSessionRecord.Stage(
++    startTime = sessionStartTime.plusSeconds(3600),
++    endTime = sessionStartTime.plusSeconds(7200),
++    stage = SleepSessionRecord.STAGE_TYPE_LIGHT)
++)
++stages.add(SleepSessionRecord.Stage(
++    startTime = sessionStartTime.plusSeconds(7200),
++    endTime = sessionStartTime.plusSeconds(10800),
++    stage = SleepSessionRecord.STAGE_TYPE_DEEP)
++)
++// ... other stages
++
++val session = SleepSessionRecord(
++    startTime = sessionStartTime,
++    startZoneOffset = ZoneOffset.UTC,
++    endTime = sessionEndTime,
++    endZoneOffset = ZoneOffset.UTC,
++    stages = stages,
++    metadata = Metadata(clientRecordId = clientRecordId)
++)
++
++healthConnectClient.insertRecords(listOf(session))
++```
+ 
+ ## Reading sleep data
+ 
+@@ -251,60 +276,72 @@ that occurred during that same time interval.
+ You can read sleep sessions using a `ReadRecordsRequest` with
+ `SleepSessionRecord` as the record type, filtered by a time range. To read
+ associated data for a given session, make a second request for the selected
+-data type, such as `HeartRateRecord`---filtering by the `startTime` and `endTime`
++data type, such as `HeartRateRecord`—filtering by the `startTime` and `endTime`
+ of the sleep session.
+ 
+ The following example shows how to read sleep sessions with associated heart
+ rate data for a given time range:
+ 
+-    suspend fun readSleepSessionsWithAssociatedData(
+-        healthConnectClient: HealthConnectClient,
+-        startTime: Instant,
+-        endTime: Instant
+-    ) {
+-        val response = healthConnectClient.readRecords(
+-            ReadRecordsRequest(
+-                recordType = SleepSessionRecord::class,
+-                timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+-            )
++```
++suspend fun readSleepSessionsWithAssociatedData(
++    healthConnectClient: HealthConnectClient,
++    startTime: Instant,
++    endTime: Instant
++) {
++    val response = healthConnectClient.readRecords(
++        ReadRecordsRequest(
++            recordType = SleepSessionRecord::class,
++            timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+         )
++    )
++
++    for (sleepRecord in response.records) {
++        // Process each session
++        val stages = sleepRecord.stages
++        val notes = sleepRecord.notes
+ 
+-        for (sleepRecord in response.records) {
+-            // Process each session
+-            val stages = sleepRecord.stages
+-            val notes = sleepRecord.notes
+-
+-            // To read specific granular data (like heart rate) that occurred during
+-            // this session, use the session's startTime and endTime to filter
+-            // the request for that data type.
+-            val hrResponse = healthConnectClient.readRecords(
+-                ReadRecordsRequest(
+-                    recordType = HeartRateRecord::class,
+-                    timeRangeFilter = TimeRangeFilter.between(
+-                        sleepRecord.startTime,
+-                        sleepRecord.endTime
+-                    )
++        // To read specific granular data (like heart rate) that occurred during
++        // this session, use the session's startTime and endTime to filter
++        // the request for that data type.
++        val hrResponse = healthConnectClient.readRecords(
++            ReadRecordsRequest(
++                recordType = HeartRateRecord::class,
++                timeRangeFilter = TimeRangeFilter.between(
++                    sleepRecord.startTime,
++                    sleepRecord.endTime
+                 )
+             )
+-            for (heartRateRecord in hrResponse.records) {
+-                for (sample in heartRateRecord.samples) {
+-                    val bpm = sample.beatsPerMinute
+-                }
++        )
++        for (heartRateRecord in hrResponse.records) {
++            for (sample in heartRateRecord.samples) {
++                val bpm = sample.beatsPerMinute
+             }
+         }
+     }
++}
++```
+ 
+ ## Best practices
+ 
+ Follow these guidelines to improve data reliability and user experience:
+ 
+-- **Write Frequency**
+-  - **Active Tracking(Foreground):** For active sleep tracking, write data as it becomes available or at a maximum interval of 15 minutes.
+-  - **Background Sync:** Use `WorkManager` for deferred writes. Aim for a 15-minute interval to strike a balance between real-time data and battery efficiency.
+-  - **Batching:** Do not write every single sensor event individually. Chunk your requests. Health Connect handles up to 1000 records per write request.
+-- **Keep session IDs stable and unique:** Use consistent identifiers for your sessions. If a session is edited or updated, using the same ID prevents it from being treated as a new, separate sleep session.
+-- **Use batching for data types:** To reduce Input/Output overhead and preserve battery life, group your data points into a single `insertRecords` call rather than writing each point individually.
+-- **Avoid writing duplicate data: Use Client IDs** When creating records, set
++* **Write Frequency**
++  + **Active Tracking(Foreground):** For active sleep tracking, write data
++    as it becomes available or at a maximum interval of 15 minutes.
++  + **Background Sync:** Use `WorkManager` for deferred writes. Aim for a
++    15-minute interval to strike a balance between real-time data and
++    battery efficiency.
++  + **Batching:** Do not write every single sensor event individually. Chunk
++    your requests. Health Connect handles up to 1000 records per write
++    request.
++* **Keep session IDs stable and unique:** Use consistent identifiers for your
++  sessions. If a session is edited or updated, using the same ID prevents it
++  from being treated as a new, separate sleep session.
++* **Use batching for data types:** To reduce
++  Input/Output overhead and preserve battery life, group your data points
++  into a single `insertRecords` call rather than writing each point
++  individually.
++* **Avoid writing duplicate data: Use Client IDs** When creating records, set
+   a `metadata.clientRecordId`. Health Connect uses this to identify unique
+   records. If you attempt to write a record with a `clientRecordId` that
+   already exists, Health Connect will ignore the duplicate or update the
+@@ -312,55 +349,65 @@ Follow these guidelines to improve data reliability and user experience:
+   `metadata.clientRecordId` is the most effective way to prevent duplicates
+   during sync retries or app reinstalls.
+ 
+-      val record = RespiratoryRateRecord(
+-          rate = 16.0,
+-          time = time,
+-          zoneOffset = ZoneOffset.UTC,
+-          metadata = Metadata(
+-              // Use a unique ID from your own database
+-              clientRecordId = "respiratory_rate_20231030_1"
+-          )
++  ```
++  val record = RespiratoryRateRecord(
++      rate = 16.0,
++      time = time,
++      zoneOffset = ZoneOffset.UTC,
++      metadata = Metadata(
++          // Use a unique ID from your own database
++          clientRecordId = "respiratory_rate_20231030_1"
+       )
+-
+-- **Check existing data:** Before syncing, query the time range to see if
++  )
++  ```
++* **Check existing data:** Before syncing, query the time range to see if
+   records from your app already exist.
+-
+-- **Ensure timestamps do not overlap:** Verify that a new session does not
++* **Ensure timestamps do not overlap:** Verify that a new session does not
+   start before the previous one ends. Overlapping sessions can cause conflicts
+   in fitness dashboards and summary calculations.
+-
+-- **Provide clear rationales for permission:** Use the
++* **Provide clear rationales for permission:** Use the
+   `Permission.createIntent` flow to explain why your app needs access to
+   health data, such as "To analyze your sleep patterns."
+-
+-- **Test long-running sessions:** Monitor battery consumption during sessions
++* **Test long-running sessions:** Monitor battery consumption during sessions
+   lasting several hours to verify your batching interval and sensor usage
+   don't drain the device.
+-
+-- **Align timestamps with sensor rates:** Match your record timestamps to the
++* **Align timestamps with sensor rates:** Match your record timestamps to the
+   actual frequency of your sensors to maintain data high-fidelity.
+ 
+ ## Testing
+ 
+ To verify data correctness and a high-quality user experience, follow these
+-testing strategies and refer to the official [Test top use cases](https://developer.android.com/health-and-fitness/health-connect/test/test-cases)
++testing strategies and refer to the official [Test top use cases](/health-and-fitness/health-connect/test/test-cases)
+ documentation.
+ 
+ ### Verification tools
+ 
+-- **[Health Connect Toolbox](https://developer.android.com/health-and-fitness/health-connect/test/health-connect-toolbox):** Use this companion app to manually inspect records, delete test data, and simulate changes to the database. It is the best way to verify that your records are being stored correctly.
+-- **[Unit testing with `FakeHealthConnectClient`](https://developer.android.com/health-and-fitness/health-connect/test/unit-tests):** Use the testing library to verify how your app handles edge cases, like permission revocation or API exceptions without needing a physical device.
++* **[Health Connect Toolbox](/health-and-fitness/health-connect/test/health-connect-toolbox):** Use this companion app to manually inspect
++  records, delete test data, and simulate changes to the database. It is the
++  best way to verify that your records are being stored correctly.
++* **[Unit testing with `FakeHealthConnectClient`](/health-and-fitness/health-connect/test/unit-tests):** Use the testing library
++  to verify how your app handles edge cases, like permission revocation or API
++  exceptions without needing a physical device.
+ 
+ ### Quality checklist
+ 
+-**Confirm records in Health Connect:** Open the Health Connect app and navigate to Data and access to verify records appear with expected values. **Read data from other apps:** Test your app's ability to read sessions written by other apps to verify ecosystem compatibility. See [Reading sleep data](https://developer.android.com/health-and-fitness/health-connect/experiences/sleep#reading-sleep-data). **Balance write frequency:** Monitor battery usage. Frequent writes provide high detail but increase drain.
++**Confirm records in Health Connect:** Open the
++Health Connect app and navigate to Data and access to verify records appear
++with expected values.
++
++**Read data from other apps:** Test your app's
++ability to read sessions written by other apps to verify ecosystem
++compatibility. See [Reading sleep data](#reading-sleep-data).
++
++**Balance write frequency:** Monitor battery usage.
++Frequent writes provide high detail but increase drain.
+ 
+ ## Typical architecture
+ 
+ A sleep tracking implementation commonly includes:
+ 
+ | Component | Manages |
+-|---|---|
++| --- | --- |
+ | Session controller | Session state Timer Batching logic Data types controllers Data collection |
+ | Repository layer (wraps Health Connect operations:) | Insert session Insert data types Inserts sleep stages Read session summaries |
+ | UI Layer (Displays): | Duration Live data types Sleep stage visualization |
+@@ -368,13 +415,15 @@ A sleep tracking implementation commonly includes:
+ ## Troubleshooting
+ 
+ | Symptom | Possible cause | Resolution |
+-|---|---|---|
+-| Missing data types (For example, Heart Rate) | Missing write permissions or incorrect time filters. | Check that you have requested and the user has granted the specific data type permission. Verify your `ReadRecordsRequest` uses a `TimeRangeFilter` that matches the session. See [Permissions](https://developer.android.com/health-and-fitness/health-connect/experiences/sleep#permissions). |
++| --- | --- | --- |
++| Missing data types (for example, Heart Rate) | Missing write permissions or incorrect time filters. | Check that you have requested and the user has granted the specific data type permission. Verify your `ReadRecordsRequest` uses a `TimeRangeFilter` that matches the session. See [Permissions](#permissions). |
+ | Session fails to write | Overlapping timestamps. | Health Connect may reject records that overlap with existing data from the same app. Validate that the `startTime` of a new session is after the `endTime` of the previous one. |
+-| No sensor data recorded during sleep | Foreground service was killed or inactive. | To collect sensor data overnight while the screen is off, you can use a [Foreground Service](https://developer.android.com/develop/background-work/services/fgs) with `foregroundServiceType="health"`. |
+-| Duplicate records appear | Missing `clientRecordId` | Assign a unique `clientRecordId` in the `Metadata` of each record. This allows Health Connect to perform de-duplication if the same data is written twice during a sync retry. See [Best practices](https://developer.android.com/health-and-fitness/health-connect/experiences/sleep#best-practices). |
++| No sensor data recorded during sleep | Foreground service was killed or inactive. | To collect sensor data overnight while the screen is off, you can use a [Foreground Service](/develop/background-work/services/fgs) with `foregroundServiceType="health"`. |
++| Duplicate records appear | Missing `clientRecordId`. | Assign a unique `clientRecordId` in the `Metadata` of each record. This allows Health Connect to perform de-duplication if the same data is written twice during a sync retry. See [Best practices](#best-practices). |
+ 
+ ### Common debugging steps
+ 
+-- **Check Permission state:** Always call `getPermissionStatus()` before attempting a read or write operation. Users can revoke permissions in system settings at any time.
+-- **Verify Execution Mode:** If your app is not collecting data in the background, verify you have declared the correct permissions in your `AndroidManifest.xml` and that the user hasn't placed the app into "Battery Restricted" mode.
+\ No newline at end of file
++|  |  |
++| --- | --- |
++| Check permission state. | Always call `getPermissionStatus()` before attempting a read or write operation. Users can revoke permissions in system settings at any time. |
++| Verify execution mode. | If your app is not collecting data in the background, verify that you have declared the correct permissions in your `AndroidManifest.xml` file and that the user hasn't placed the app into "Battery Restricted" mode. |
+\ No newline at end of file

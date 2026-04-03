@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/vitals/crash.md b/docs/topic/performance/vitals/crash.md
+index 240c112..c14688a 100644
+--- a/docs/topic/performance/vitals/crash.md
++++ b/docs/topic/performance/vitals/crash.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ An Android app crashes whenever there’s an unexpected exit caused by an
+ unhandled exception or signal. An app that is written using Java or Kotlin
+ crashes if it throws an unhandled exception, represented by the

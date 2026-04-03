@@ -1,0 +1,12 @@
+diff --git a/docs/guide/components/activities/intro-activities.md b/docs/guide/components/activities/intro-activities.md
+index 34d54b9..17786c7 100644
+--- a/docs/guide/components/activities/intro-activities.md
++++ b/docs/guide/components/activities/intro-activities.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The `Activity` class is a crucial component of an Android
+ app, and the way activities are launched and put together is a fundamental
+ part of the platform's application model. Unlike programming paradigms in

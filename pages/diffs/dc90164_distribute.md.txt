@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/publishing/distribute.md b/docs/training/tv/publishing/distribute.md
+index 2e26166..b953d5d 100644
+--- a/docs/training/tv/publishing/distribute.md
++++ b/docs/training/tv/publishing/distribute.md
+@@ -8,7 +8,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If your apps meet the core app quality guidelines on Android devices and provide
+ a high-quality experience for Android TV devices, your apps appear on Google
+ Play and can be discovered on Android TV and Google TV.

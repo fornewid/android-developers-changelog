@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/security-ssl.md b/docs/privacy-and-security/security-ssl.md
+index 6978537..a263261 100644
+--- a/docs/privacy-and-security/security-ssl.md
++++ b/docs/privacy-and-security/security-ssl.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Client-server encrypted interactions use [Transport Layer Security
+ (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) to protect your app's data.
+ 

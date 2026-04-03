@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/generic-data-class-modification.md b/docs/studio/prompt-gallery/prompts/generic-data-class-modification.md
+index 4265ed3..14ab415 100644
+--- a/docs/studio/prompt-gallery/prompts/generic-data-class-modification.md
++++ b/docs/studio/prompt-gallery/prompts/generic-data-class-modification.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Add a field to a data class.
+ 
+ ---

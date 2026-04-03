@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/jankstats.md b/docs/topic/performance/jankstats.md
+index 240ecc2..4e1f48d 100644
+--- a/docs/topic/performance/jankstats.md
++++ b/docs/topic/performance/jankstats.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The JankStats library helps you track and analyze performance problems in your
+ applications. Jank refers to application frames that take too long to render,
+ and the JankStats library provides reports on the jank statistics of your app.

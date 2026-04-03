@@ -1,0 +1,12 @@
+diff --git a/docs/guide/fragments/communicate.md b/docs/guide/fragments/communicate.md
+index d89b639..d91f938 100644
+--- a/docs/guide/fragments/communicate.md
++++ b/docs/guide/fragments/communicate.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To reuse fragments, build them as completely self-contained components
+ that define their own layout and behavior. Once you define these
+ reusable fragments, you can associate them with an activity and connect

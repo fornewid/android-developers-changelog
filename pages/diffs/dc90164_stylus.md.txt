@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/adaptive-app-quality/experiences/stylus.md b/docs/docs/quality-guidelines/adaptive-app-quality/experiences/stylus.md
+index beeff76..0c450d0 100644
+--- a/docs/docs/quality-guidelines/adaptive-app-quality/experiences/stylus.md
++++ b/docs/docs/quality-guidelines/adaptive-app-quality/experiences/stylus.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A stylus enables artists, builders, and creators to express themselves using
+ precise input and expansive canvases. Pressure sensitivity and low latency allow
+ highly responsive interactions. Intuitive content management through drag and

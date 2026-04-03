@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/asset-delivery/device-targeting.md b/docs/guide/playcore/asset-delivery/device-targeting.md
+index 6738c4c..7e02b63 100644
+--- a/docs/guide/playcore/asset-delivery/device-targeting.md
++++ b/docs/guide/playcore/asset-delivery/device-targeting.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Device targeting lets you deliver different versions
+ (e.g. resolutions, etc.) of the same asset to devices based on their
+ hardware. For example, you may choose to deliver low resolution assets

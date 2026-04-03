@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/filter-list-while-typing.md b/docs/develop/ui/compose/quick-guides/content/filter-list-while-typing.md
+index 8ff7b30..95deb55 100644
+--- a/docs/develop/ui/compose/quick-guides/content/filter-list-while-typing.md
++++ b/docs/develop/ui/compose/quick-guides/content/filter-list-while-typing.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This guide explains how to filter through a list of strings based on text input
+ in Jetpack Compose. Use this approach to dynamically update a list based on user
+ search queries.

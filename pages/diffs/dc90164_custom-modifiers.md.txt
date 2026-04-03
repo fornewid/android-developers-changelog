@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/custom-modifiers.md b/docs/develop/ui/compose/custom-modifiers.md
+index 61f65e0..ce25f84 100644
+--- a/docs/develop/ui/compose/custom-modifiers.md
++++ b/docs/develop/ui/compose/custom-modifiers.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Compose provides many [modifiers](/develop/ui/compose/modifiers) for common behaviors right out of the box,
+ but you can also create your own custom modifiers.
+ 

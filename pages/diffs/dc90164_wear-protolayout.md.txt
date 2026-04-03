@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/wear-protolayout.md b/docs/jetpack/androidx/releases/wear-protolayout.md
+index 369b20e..f7e2f5d 100644
+--- a/docs/jetpack/androidx/releases/wear-protolayout.md
++++ b/docs/jetpack/androidx/releases/wear-protolayout.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # wear protolayout
+ 
+ API Reference  

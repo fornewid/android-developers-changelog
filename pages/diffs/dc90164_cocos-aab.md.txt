@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/cocos/cocos-aab.md b/docs/games/engines/cocos/cocos-aab.md
+index d728754..693fc30 100644
+--- a/docs/games/engines/cocos/cocos-aab.md
++++ b/docs/games/engines/cocos/cocos-aab.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ An [Android App Bundle](/guide/app-bundle) is a publishing format that includes
+ all your app's compiled code and resources, and defers APK generation and
+ signing to Google Play.
+@@ -34,4 +35,6 @@ the Android Build panel. Your game will then be published with the AAB format.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

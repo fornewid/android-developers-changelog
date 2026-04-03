@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/haptics.md b/docs/develop/ui/views/haptics.md
+index a71f598..676b313 100644
+--- a/docs/develop/ui/views/haptics.md
++++ b/docs/develop/ui/views/haptics.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Haptics is everything you feel through the sense of touch. Modern Android
+ devices often incorporate a vibration actuator to allow devices to stimulate the
+ user's sense of touch. These motors have advanced significantly from the

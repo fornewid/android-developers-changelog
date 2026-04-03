@@ -1,0 +1,12 @@
+diff --git a/docs/topic/libraries/data-binding/architecture.md b/docs/topic/libraries/data-binding/architecture.md
+index e164d9a..c07819a 100644
+--- a/docs/topic/libraries/data-binding/architecture.md
++++ b/docs/topic/libraries/data-binding/architecture.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The AndroidX library includes the [Architecture
+ Components](/topic/libraries/architecture), which you can
+ use to design robust, testable, and maintainable apps.

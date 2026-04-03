@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/text/migrate-state-based.md b/docs/develop/ui/compose/text/migrate-state-based.md
+index dcd7214..b111164 100644
+--- a/docs/develop/ui/compose/text/migrate-state-based.md
++++ b/docs/develop/ui/compose/text/migrate-state-based.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page provides examples of how you can migrate value-based `TextField`s to
+ state-based `TextField`s. See the [Configure text fields](/develop/ui/compose/text/user-input) page for
+ information on the differences between value and state-based `TextField`s.

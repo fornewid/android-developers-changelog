@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/privacysandbox-plugins.md b/docs/jetpack/androidx/releases/privacysandbox-plugins.md
+index a352607..11f2f34 100644
+--- a/docs/jetpack/androidx/releases/privacysandbox-plugins.md
++++ b/docs/jetpack/androidx/releases/privacysandbox-plugins.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # privacysandbox plugins
+ 
+ API Reference  

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/app-bars.md b/docs/develop/ui/compose/components/app-bars.md
+index b949411..42fbf5e 100644
+--- a/docs/develop/ui/compose/components/app-bars.md
++++ b/docs/develop/ui/compose/components/app-bars.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ App bars are containers that provide the user access to key features and
+ navigation items. There are two types of app bars, top app bars and bottom app
+ bars. Their respective appearance and purpose are as follows:

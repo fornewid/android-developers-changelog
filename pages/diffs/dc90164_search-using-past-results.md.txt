@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/app-types/search-using-past-results.md b/docs/design/ui/cars/guides/app-types/search-using-past-results.md
+index 7cf0e87..59c2e34 100644
+--- a/docs/design/ui/cars/guides/app-types/search-using-past-results.md
++++ b/docs/design/ui/cars/guides/app-types/search-using-past-results.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Users might be restricted from using the keyboard while driving.
+ Presenting past search results (places) or keywords (such as *coffee*) using
+ the Search template can help them find the right destination without typing.

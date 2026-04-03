@@ -1,0 +1,192 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/how-to-capture.md b/docs/topic/performance/tracing/profiling-manager/how-to-capture.md
+index 1aa28f1..fe34928 100644
+--- a/docs/topic/performance/tracing/profiling-manager/how-to-capture.md
++++ b/docs/topic/performance/tracing/profiling-manager/how-to-capture.md
+@@ -1,29 +1,38 @@
+ ---
+-title: https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture
++title: App-driven profiling  |  App quality  |  Android Developers
+ url: https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App quality](https://developer.android.com/quality)
++* [Technical quality](https://developer.android.com/quality/technical)
++
++# App-driven profiling Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ This page shows how to record a system trace using the `ProfilingManager` API.
+ 
+ `ProfilingManager` can also record other profile types. This process is similar
+ to recording a system trace, but each type uses a different builder. The
+ supported profiles and their builders are:
+ 
+-- **System Traces:** Recorded using [`SystemTraceRequestBuilder`](https://developer.android.com/reference/androidx/core/os/SystemTraceRequestBuilder), which
++* **System Traces:** Recorded using [`SystemTraceRequestBuilder`](/reference/androidx/core/os/SystemTraceRequestBuilder), which
+   are useful for latency analysis and general performance debugging.
+-
+-- **Heap dumps:** Recorded using [`JavaHeapDumpRequestBuilder`](https://developer.android.com/reference/androidx/core/os/JavaHeapDumpRequestBuilder), which are
++* **Heap dumps:** Recorded using [`JavaHeapDumpRequestBuilder`](/reference/androidx/core/os/JavaHeapDumpRequestBuilder), which are
+   helpful for memory leak detection and optimization.
+-
+-- **Heap profiles:** Recorded using [`HeapProfileRequestBuilder`](https://developer.android.com/reference/androidx/core/os/HeapProfileRequestBuilder), which
++* **Heap profiles:** Recorded using [`HeapProfileRequestBuilder`](/reference/androidx/core/os/HeapProfileRequestBuilder), which
+   are useful for memory optimization.
+-
+-- **Call stack profiles:** Recorded using [`StackSamplingRequestBuilder`](https://developer.android.com/reference/androidx/core/os/StackSamplingRequestBuilder),
++* **Call stack profiles:** Recorded using [`StackSamplingRequestBuilder`](/reference/androidx/core/os/StackSamplingRequestBuilder),
+   which are useful for understanding code execution and latency analysis.
+ 
+-> [!TIP]
+-> **Tip:** `ProfilingManager` contains a rate limiter that is set up to reduce the impact of repeated profiling requests on device performance. When you're using this tool locally, you want to see every request so we recommend keeping the [rate limiter disabled](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#disable-rate-limiter).
++**Tip:** `ProfilingManager` contains a rate limiter that is set up to reduce the
++impact of repeated profiling requests on device performance. When you're using
++this tool locally, you want to see every request so we recommend keeping the
++[rate limiter disabled](/topic/performance/tracing/profiling-manager/debug-mode#disable-rate-limiter).
+ 
+ ## Add dependencies
+ 
+@@ -32,26 +41,25 @@ Jetpack libraries to your `build.gradle.kts` file.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+    dependencies {
+        implementation("androidx.tracing:tracing:1.3.0")
+        implementation("androidx.core:core:1.18.0")
+    }
+-   
+ ```
+ 
+ ### Groovy
+ 
+-```groovy
++```
+    dependencies {
+        implementation 'androidx.tracing:tracing:1.3.0'
+        implementation 'androidx.core:core:1.18.0'
+    }
+-   
+ ```
+ 
+-> [!NOTE]
+-> **Note:** You can use `ProfilingManager` directly without Jetpack libraries. However, Jetpack wrappers simplify usage, provide a compatibility layer, and reduce the effort needed to manage behavior across Android releases.
++**Note:** You can use `ProfilingManager` directly without Jetpack libraries.
++However, Jetpack wrappers simplify usage, provide a compatibility layer, and
++reduce the effort needed to manage behavior across Android releases.
+ 
+ ## Record a system trace
+ 
+@@ -59,10 +67,9 @@ After adding the required dependencies, use the following code to record a
+ system trace. This example shows a basic setup within an `Activity` to start and
+ manage a profiling session.
+ 
+-
+ ### Kotlin
+ 
+-```kotlin
++```
+ @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
+ fun sampleRecordSystemTrace() {
+     val mainExecutor: Executor =
+@@ -103,11 +110,13 @@ fun sampleRecordSystemTrace() {
+ fun heavyOperation() {
+     // Computations you want to profile
+ }
++
++ProfilingManagerKotlinSnippets.kt
+ ```
+ 
+ ### Java
+ 
+-```java
++```
+ void heavyOperation() {
+   // Computations you want to profile
+ }
+@@ -154,9 +163,9 @@ void sampleRecordSystemTrace() {
+   // Once the interesting code section is profiled, stop profile
+   stopSignal.cancel();
+ }
+-```
+ 
+-<br />
++ProfilingManagerJavaSnippets.java
++```
+ 
+ The sample code sets up and manages the profiling session by going through the
+ following steps:
+@@ -165,31 +174,35 @@ following steps:
+    receive the profiling results. Profiling happens in the background. Using a
+    non-UI thread executor helps prevent Application Not Responding (ANR) errors
+    if you add more processing to the callback later.
+-
+ 2. **Handle profiling results.** Create a `Consumer<ProfilingResult>` object.
+    The system uses this object to send profiling results from
+    `ProfilingManager` back to your app.
+-
+ 3. **Build the profiling request.** Create a `SystemTraceRequestBuilder` to set
+    up your profiling session. This builder lets you customize
+    `ProfilingManager` trace settings. Customizing the builder is optional; if
+    you don't, the system uses default settings.
+ 
+-   - **Define a tag.** Use `setTag()` to add a tag to the trace name. This tag helps you identify the trace.
+-   - **Optional: Set the duration.** Use `setDurationMs()` to specify how long to profile in milliseconds. For example, `60000` sets a 60-second trace. The trace automatically ends after the specified duration if `CancellationSignal` isn't triggered before that.
+-   - **Choose a buffer policy.** Use `setBufferFillPolicy()` to define how trace data is stored. `BufferFillPolicy.RING_BUFFER` means that when the buffer is full, new data overwrites the oldest data, keeping a continuous record of recent activity.
+-   - **Set a buffer size.** Use `setBufferSizeKb()` to specify a buffer size for tracing which you can use to control the size of the output trace file.
+-
+-   > [!NOTE]
+-   > **Note:** Not all the Perfetto configurations are available for `ProfilingManager`.
+-
++   * **Define a tag.** Use `setTag()` to add a tag to the trace name. This
++     tag helps you identify the trace.
++   * **Optional: Set the duration.** Use `setDurationMs()` to specify how
++     long to profile in milliseconds. For example, `60000` sets a 60-second
++     trace. The trace automatically ends after the specified duration if
++     `CancellationSignal` isn't triggered before that.
++   * **Choose a buffer policy.** Use `setBufferFillPolicy()` to define how
++     trace data is stored. `BufferFillPolicy.RING_BUFFER` means that when the
++     buffer is full, new data overwrites the oldest data, keeping a
++     continuous record of recent activity.
++   * **Set a buffer size.** Use `setBufferSizeKb()` to specify a buffer size
++     for tracing which you can use to control the size of the output trace
++     file.**Note:** Not all the Perfetto configurations are available for
++   `ProfilingManager`.
+ 4. **Optional: Manage the session lifecycle.** Create a `CancellationSignal`.
+    This object lets you stop the profiling session whenever you want, giving
+    you precise control over its length.
+ 
+-   > [!NOTE]
+-   > **Note:** If you use neither `CancellationSignal` nor `setDurationMs()`, the system applies a default duration. If you define both, whichever happens first ends the session.
+-
++   **Note:** If you use neither `CancellationSignal` nor `setDurationMs()`, the
++   system applies a default duration. If you define both, whichever happens
++   first ends the session.
+ 5. **Start and receive results.** When you call `requestProfiling()`,
+    `ProfilingManager` starts a profiling session in the background. Once
+    profiling is done, it sends the `ProfilingResult` to your
+@@ -199,12 +212,11 @@ following steps:
+    programmatically or, for local profiling, by running `adb pull <trace_path>`
+    from your computer.
+ 
+-   > [!NOTE]
+-   > **Note:** If an error occurs during profiling, the `ProfilingResult` provides an error description through `profilingResult.getErrorMessage()` and an error code through `profilingResult.getErrorCode()`. A common reason for failure is if your app gets rate limited due to excessive requests.
+-
+-   > [!NOTE]
+-   > **Note:** If the app dies before this result is delivered, delivery will be attempted again once the app starts and registers a general listener.
+-
++   **Note:** If an error occurs during profiling, the `ProfilingResult` provides an
++   error description through `profilingResult.getErrorMessage()` and an error
++   code through `profilingResult.getErrorCode()`. A common reason for failure
++   is if your app gets rate limited due to excessive requests.**Note:** If the app dies before this result is delivered, delivery will be
++   attempted again once the app starts and registers a general listener.
+ 6. **Add custom trace points.** You can add custom trace points in your app's
+    code. In the previous code example, a trace slice named
+    `MyApp:HeavyOperation` is added using `Trace.beginSection()` and

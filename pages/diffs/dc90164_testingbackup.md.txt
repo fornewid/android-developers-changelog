@@ -1,0 +1,12 @@
+diff --git a/docs/identity/data/testingbackup.md b/docs/identity/data/testingbackup.md
+index d4c5fdf..42877c1 100644
+--- a/docs/identity/data/testingbackup.md
++++ b/docs/identity/data/testingbackup.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page shows you how to test the cloud backups and the device-to-device (D2D)
+ transfer process for your app. It is important to test both of these with each
+ major release of your app to help ensure that your users can continue to use

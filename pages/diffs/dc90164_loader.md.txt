@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/loader.md b/docs/jetpack/androidx/releases/loader.md
+index f27cf85..74c7330 100644
+--- a/docs/jetpack/androidx/releases/loader.md
++++ b/docs/jetpack/androidx/releases/loader.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Loader
+ 
+ [User Guide](/guide/components/loaders)  [Code Sample](https://github.com/android/architecture-components-samples/blob/master/PersistenceContentProviderSample/app/src/main/java/com/example/android/contentprovidersample/MainActivity.java)

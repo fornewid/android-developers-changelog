@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/appsearch.md b/docs/jetpack/androidx/releases/appsearch.md
+index dd17583..5c9f571 100644
+--- a/docs/jetpack/androidx/releases/appsearch.md
++++ b/docs/jetpack/androidx/releases/appsearch.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # AppSearch
+ 
+ [User Guide](/guide/topics/search/appsearch)  [Code Sample](https://github.com/android/search-samples/tree/main/AppSearchSample)

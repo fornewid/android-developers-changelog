@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/design/actions.md b/docs/guide/navigation/design/actions.md
+index 6d48f3a..5c9593b 100644
+--- a/docs/guide/navigation/design/actions.md
++++ b/docs/guide/navigation/design/actions.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can build connections between fragments using navigation actions. Evoking a
+ navigation action takes the user from one destination to another. This guide
+ explains what actions are and demonstrates how you can create and use them.

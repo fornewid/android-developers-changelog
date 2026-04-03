@@ -1,0 +1,12 @@
+diff --git a/docs/training/material/animations.md b/docs/training/material/animations.md
+index 0e54f92..6f67da0 100644
+--- a/docs/training/material/animations.md
++++ b/docs/training/material/animations.md
+@@ -10,7 +10,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **This page is deprecated.** See below for the new location for
+ documentation that used to be here.
+ 

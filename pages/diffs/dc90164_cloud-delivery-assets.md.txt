@@ -1,0 +1,12 @@
+diff --git a/docs/topic/google-play-instant/getting-started/cloud-delivery-assets.md b/docs/topic/google-play-instant/getting-started/cloud-delivery-assets.md
+index 0614ef8..65edc04 100644
+--- a/docs/topic/google-play-instant/getting-started/cloud-delivery-assets.md
++++ b/docs/topic/google-play-instant/getting-started/cloud-delivery-assets.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Warning:** Google Play Instant will no longer be available. Starting December 2025,
+ Instant Apps cannot be published through Google Play, and all
+ [Google Play services Instant APIs](https://developers.google.com/android/reference/com/google/android/gms/instantapps/package-summary)

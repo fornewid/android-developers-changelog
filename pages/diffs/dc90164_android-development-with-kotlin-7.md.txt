@@ -1,0 +1,75 @@
+diff --git a/docs/courses/pathways/android-development-with-kotlin-7.md b/docs/courses/pathways/android-development-with-kotlin-7.md
+index 8c6a915..119c5f0 100644
+--- a/docs/courses/pathways/android-development-with-kotlin-7.md
++++ b/docs/courses/pathways/android-development-with-kotlin-7.md
+@@ -1,52 +1,33 @@
+ ---
+-title: Lesson 7: Activity and fragment lifecycles  |  Android Developers
++title: https://developer.android.com/courses/pathways/android-development-with-kotlin-7
+ url: https://developer.android.com/courses/pathways/android-development-with-kotlin-7
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
++# Lesson 7: Activity and fragment lifecycles
+ 
+ # Lesson 7: Activity and fragment lifecycles
+ 
+ Learn about Activity and Fragment lifecycles, how to handle complex lifecycle situations, and use logging to help debug and track the state of the app.  
+-Go back
+-
+-*check\_circle*
++Go back  
++*check_circle*  
+ 
+ ## Lifecycles and logging
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
+-
+-*emoji\_objects*
+-Codelab
+-
+-Import the starter code for the DessertClicker app. Then, add basic logging to explore the lifecycle methods. Next, you explore lifecycle use cases and the fragment lifecycle.
+-
+-[Take codelab](/codelabs/kotlin-android-training-lifecycles-logging)
+-
+-*check\_circle*
++*keyboard_arrow_down* *keyboard_arrow_up*  
++*emoji_objects*Codelab  
++Import the starter code for the DessertClicker app. Then, add basic logging to explore the lifecycle methods. Next, you explore lifecycle use cases and the fragment lifecycle.  
++[Take codelab](https://developer.android.com/codelabs/kotlin-android-training-lifecycles-logging)  
++*check_circle*  
+ 
+ ## Complex lifecycle situations
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
+-
+-*emoji\_objects*
+-Codelab
+-
+-Modify the DessertClicker app to use the Jetpack lifecycle library. Use the Android Debug Bridge to simulate your app's process shutdown. Then, retain and restore app data that may be lost if the app is unexpectedly closed.
+-
+-[Take codelab](/codelabs/kotlin-android-training-complex-lifecycle)
++*keyboard_arrow_down* *keyboard_arrow_up*  
++*emoji_objects*Codelab  
++Modify the DessertClicker app to use the Jetpack lifecycle library. Use the Android Debug Bridge to simulate your app's process shutdown. Then, retain and restore app data that may be lost if the app is unexpectedly closed.  
++[Take codelab](https://developer.android.com/codelabs/kotlin-android-training-complex-lifecycle)  
+ 
+ ## Quiz
+ 
+-Earn your badge for completing Lesson 7: Activity and fragment lifecycles.
+-
+-[Take the quiz](/courses/quizzes/android-development-with-kotlin-7/android-development-with-kotlin-7)
+\ No newline at end of file
++Earn your badge for completing Lesson 7: Activity and fragment lifecycles.  
++[Take the quiz](https://developer.android.com/courses/quizzes/android-development-with-kotlin-7/android-development-with-kotlin-7)
+\ No newline at end of file

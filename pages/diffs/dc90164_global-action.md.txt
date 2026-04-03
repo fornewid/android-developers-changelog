@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/design/global-action.md b/docs/guide/navigation/design/global-action.md
+index a413603..d3f0970 100644
+--- a/docs/guide/navigation/design/global-action.md
++++ b/docs/guide/navigation/design/global-action.md
+@@ -10,7 +10,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can use a *global action* to create a common action that multiple
+ destinations can use. For example, you might want buttons in
+ different destinations to navigate to the same main app screen.

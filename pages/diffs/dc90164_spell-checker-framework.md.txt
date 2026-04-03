@@ -1,0 +1,146 @@
+diff --git a/docs/develop/ui/views/touch-and-input/spell-checker-framework.md b/docs/develop/ui/views/touch-and-input/spell-checker-framework.md
+index b1cf677..26b2812 100644
+--- a/docs/develop/ui/views/touch-and-input/spell-checker-framework.md
++++ b/docs/develop/ui/views/touch-and-input/spell-checker-framework.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/touch-and-input/spell-checker-framework
++title: Spell checker framework  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/touch-and-input/spell-checker-framework
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Spell checker framework Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ The Android platform offers a spell checker framework that lets you
+ implement and access spell checking in your app. The framework is one of the
+ Text Service APIs.
+@@ -16,7 +26,12 @@ checker.
+ ## Spell checker lifecycle
+ 
+ The following diagram shows the lifecycle of the spell checker service:
+-![An image showing the lifecycle for the spelling checker service](https://developer.android.com/static/resources/articles/images/spellcheck_lifecycle.png) **Figure 1.** The spell checker service lifecycle.
++
++![An image showing the lifecycle for the spelling checker service](/static/resources/articles/images/spellcheck_lifecycle.png)
++
++
++**Figure 1.** The spell checker service
++lifecycle.
+ 
+ To initiate spell checking, your app starts its implementation of the spell
+ checker service. Clients in your app, such as activities or individual UI
+@@ -37,8 +52,45 @@ your manifest file.
+ 
+ Define the service and session object with the following classes:
+ 
+-> [!NOTE]
+-> **Note:** Implement all aspects of spell checking asynchronously and in a thread-safe manner. A spell checker might be called simultaneously by different threads running on different cores. The `SpellCheckerService` and `SpellCheckerService.Session` take care of this automatically.
++* A subclass of `SpellCheckerService`
++  :   The `SpellCheckerService` implements both the
++      `Service`
++      class and the spell checker framework interface. Within your subclass,
++      implement the following method:
++
++      `createSession()`
++      :   A factory method that returns a
++          `SpellCheckerService.Session` object to a client that
++          wants to check spelling.
++* An implementation of `SpellCheckerService.Session`
++  :   An object that the spell checker service provides to clients to let
++      them pass text to the spell checker and receive suggestions. Within this
++      class, implement the following methods:
++
++      `onCreate()`
++      :   Called by the system in response to
++          `createSession()`. In this method, you can initialize
++          the `SpellCheckerService.Session` object based on the
++          current locale and other details.
++
++      `onGetSentenceSuggestionsMultiple()`
++      :   Performs the actual spell checking. This method returns an array of
++          `SentenceSuggestionsInfo`
++          containing suggestions for the sentences passed to it.
++
++      Optionally, you can implement
++      `onCancel()`,
++      which handles requests to cancel spell checking;
++      `onGetSuggestions()`,
++      which handles a word suggestion request; or
++      `onGetSuggestionsMultiple()`,
++      which handles batches of word suggestion requests.
++
++**Note:** Implement all aspects of spell checking asynchronously and in a
++thread-safe manner. A spell checker might be called simultaneously by
++different threads running on different cores. The
++`SpellCheckerService` and
++`SpellCheckerService.Session` take care of this automatically.
+ 
+ ### Spell checker manifest and metadata
+ 
+@@ -48,7 +100,7 @@ file for the spell checker.
+ The manifest file defines the app, the service, and the activity for
+ controlling settings, as shown in the following example:
+ 
+-```xml
++```
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.example.android.samplespellcheckerservice" >
+     <application
+@@ -78,7 +130,7 @@ controlling settings, as shown in the following example:
+ ```
+ 
+ Components that want to use the service must request the permission
+-`https://developer.android.com/reference/android/Manifest.permission#BIND_TEXT_SERVICE`
++`BIND_TEXT_SERVICE`
+ to ensure that only the system binds to the service. The service's definition
+ also specifies the `spellchecker.xml` metadata file, which is
+ described in the next section.
+@@ -86,7 +138,7 @@ described in the next section.
+ The metadata file `spellchecker.xml` contains the following
+ XML:
+ 
+-```xml
++```
+ <spell-checker xmlns:android="http://schemas.android.com/apk/res/android"
+         android:label="@string/spellchecker_name"
+         android:settingsActivity="com.example.SpellCheckerSettingsActivity">
+@@ -108,16 +160,26 @@ subtypes define locales that the spell checker can handle.
+ ## Access the spell checker service from a client
+ 
+ apps that use
+-`https://developer.android.com/reference/android/widget/TextView` and
+-`https://developer.android.com/reference/android/widget/EditText`
++`TextView` and
++`EditText`
+ views automatically benefit from spell checking, because `TextView`
+ automatically uses a spell checker:
+-![An image showing how the spell checker is automatically enabled in EditText](https://developer.android.com/static/images/ui/spellchecker_edittext.png) **Figure 2.** Spell checking in an `EditText`.
++
++![An image showing how the spell checker is automatically enabled in EditText](/static/images/ui/spellchecker_edittext.png)
++
++
++**Figure 2.** Spell checking in an
++`EditText`.
+ 
+ However, you might want to interact directly with a spell checker service in
+ other cases. The following diagram shows the flow of control for interacting
+ with a spell checker service:
+-![An image showing the diagram of the interaction with a spell checker service](https://developer.android.com/static/resources/articles/images/spellcheck_client_flow.png) **Figure 3.** Interaction with a spell checker service.
++
++![An image showing the diagram of the interaction with a spell checker service](/static/resources/articles/images/spellcheck_client_flow.png)
++
++
++**Figure 3.** Interaction with a spell checker
++service.
+ 
+ The
+ [LatinIME

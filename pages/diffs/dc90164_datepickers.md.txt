@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/datepickers.md b/docs/develop/ui/compose/components/datepickers.md
+index d08d765..4a36e7d 100644
+--- a/docs/develop/ui/compose/components/datepickers.md
++++ b/docs/develop/ui/compose/components/datepickers.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ [Date pickers](https://m3.material.io/components/date-pickers/overview) let users select a date, a date range, or both. They use a
+ calendar dialog or text input to let users select dates.
+ 

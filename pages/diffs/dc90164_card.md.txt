@@ -1,0 +1,197 @@
+diff --git a/docs/training/tv/playback/leanback/card.md b/docs/training/tv/playback/leanback/card.md
+index bfdce65..3247f98 100644
+--- a/docs/training/tv/playback/leanback/card.md
++++ b/docs/training/tv/playback/leanback/card.md
+@@ -1,33 +1,60 @@
+ ---
+-title: https://developer.android.com/training/tv/playback/leanback/card
++title: Provide a card view  |  Android TV  |  Android Developers
+ url: https://developer.android.com/training/tv/playback/leanback/card
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Provide a card view
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Android TV](https://developer.android.com/training/tv)
+ 
+-Build better with Compose  
+-Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS.  
+-[Compose for TV →](https://developer.android.com/training/tv/playback/compose)  
+-![](https://developer.android.com/static/images/android-compose-tv-logo.png)
+-| **Warning:** The Leanback library is deprecated. Use[Jetpack Compose for Android TV OS](https://developer.android.com/training/tv/playback/compose)instead.
++# Provide a card view Stay organized with collections Save and categorize content based on your preferences.
+ 
+-This guide focuses on creating the card views for your media items and presenting them in the browse fragment using the deprecated Leanback UI toolkit. The implementation of the catalog browser in a browse fragment is detailed in the[Browse Fragment guide](https://developer.android.com/training/tv/playback/leanback/browse).
+ 
+-The[BaseCardView](https://developer.android.com/reference/androidx/leanback/widget/BaseCardView)class and subclasses display the metadata associated with a media item. The[ImageCardView](https://developer.android.com/reference/androidx/leanback/widget/ImageCardView)class used in this lesson displays an image for the content along with the media item's title.
+ 
+-See also the sample implementation in the deprecated[Leanback sample app](https://github.com/android/tv-samples/tree/main/Leanback).
+-![App card view](https://developer.android.com/static/images/tv/card-view.png)
+ 
+-**Figure 1.**The Leanback sample app image card view when selected.
++Build better with Compose
++
++Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS.
++
++[Compose for TV →](https://developer.android.com/training/tv/playback/compose)
++
++![](/static/images/android-compose-tv-logo.png)
++
++**Warning:** The Leanback library is deprecated. Use [Jetpack Compose for
++Android TV OS](/training/tv/playback/compose) instead.
++
++This guide focuses on creating the card views for your media items and presenting them in the
++browse fragment using the deprecated Leanback UI toolkit. The implementation
++of the catalog browser in a browse fragment is detailed in the
++[Browse Fragment guide](/training/tv/playback/leanback/browse).
++
++The `BaseCardView`
++class and subclasses display the metadata associated with a media item. The
++`ImageCardView`
++class used in this lesson displays an image for the content along with the media item's title.
++
++See also the sample implementation in the deprecated
++[Leanback sample app](https://github.com/android/tv-samples/tree/main/Leanback)
++.
++
++![App card view](/static/images/tv/card-view.png)
++
++**Figure 1.** The Leanback sample app image card view when selected.
+ 
+ ## Create a card presenter
+ 
+-A[Presenter](https://developer.android.com/reference/androidx/leanback/widget/Presenter)generates views and binds objects to them on demand. In the browse fragment where your app presents its content to the user, you create a`Presenter`for the content cards and pass it to the adapter that adds the content to the screen. In the following code, the`CardPresenter`is created in the[onLoadFinished()](https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onLoadFinished(androidx.loader.content.Loader%3CD%3E,D))callback of the[LoaderManager](https://developer.android.com/reference/androidx/loader/app/LoaderManager):  
++A `Presenter` generates views and binds objects to them
++on demand. In the browse fragment where your app presents its content to the user, you create a
++`Presenter` for the content cards and pass it to the adapter
++that adds the content to the screen. In the following code, the `CardPresenter` is created
++in the `onLoadFinished()`
++callback of the `LoaderManager`:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onLoadFinished(loader: Loader<HashMap<String, List<Movie>>>, data: HashMap<String, List<Movie>>) {
+     rowsAdapter = ArrayObjectAdapter(ListRowPresenter())
+     val cardPresenter = CardPresenter()
+@@ -63,7 +90,7 @@ override fun onLoadFinished(loader: Loader<HashMap<String, List<Movie>>>, data:
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public void onLoadFinished(Loader<HashMap<String, List<Movie>>> arg0,
+                            HashMap<String, List<Movie>> data) {
+@@ -102,13 +129,17 @@ public void onLoadFinished(Loader<HashMap<String, List<Movie>>> arg0,
+ 
+ ## Create a card view
+ 
+-In this step, you build the card presenter with a view holder for the card view that describes your media content items. Note that each presenter must create only one view type. If you have two card view types, then you need two card presenters.
++In this step, you build the card presenter with a view holder for the card view that describes
++your media content items. Note that each presenter must create only one view type. If you have two
++card view types, then you need two card presenters.
+ 
+-In the[Presenter](https://developer.android.com/reference/androidx/leanback/widget/Presenter), implement an[onCreateViewHolder()](https://developer.android.com/reference/androidx/leanback/widget/Presenter#onCreateViewHolder(android.view.ViewGroup))callback that creates a view holder that can be used to display a content item:  
++In the `Presenter`, implement an
++`onCreateViewHolder()`
++callback that creates a view holder that can be used to display a content item:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private const val CARD_WIDTH = 313
+ private const val CARD_HEIGHT = 176
+ 
+@@ -125,7 +156,7 @@ class CardPresenter : Presenter() {
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public class CardPresenter extends Presenter {
+ 
+@@ -141,13 +172,17 @@ public class CardPresenter extends Presenter {
+ ...
+ ```
+ 
+-In the[onCreateViewHolder()](https://developer.android.com/reference/androidx/leanback/widget/Presenter#onCreateViewHolder(android.view.ViewGroup))method, create a card view for content items. The following sample uses an[ImageCardView](https://developer.android.com/reference/androidx/leanback/widget/ImageCardView).
++In the `onCreateViewHolder()` method,
++create a card view for content items. The following sample uses an
++`ImageCardView`.
+ 
+-When a card is selected, the default behavior expands it to a larger size. If you want to designate a different color for the selected card, call[setSelected()](https://developer.android.com/reference/androidx/leanback/widget/BaseCardView#setSelected(boolean))as shown here:  
++When a card is selected, the default behavior expands it to a larger size. If you want to designate
++a different color for the selected card, call `setSelected()`
++as shown here:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+     ...
+     val cardView = object : ImageCardView(context) {
+         override fun setSelected(selected: Boolean) {
+@@ -163,7 +198,7 @@ When a card is selected, the default behavior expands it to a larger size. If yo
+ 
+ ### Java
+ 
+-```java
++```
+ ...
+     ImageCardView cardView = new ImageCardView(context) {
+         @Override
+@@ -178,11 +213,15 @@ When a card is selected, the default behavior expands it to a larger size. If yo
+ ...
+ ```
+ 
+-When the user opens your app, the[Presenter.ViewHolder](https://developer.android.com/reference/androidx/leanback/widget/Presenter.ViewHolder)displays the`CardView`objects for your content items. You need to set these to receive focus from the D-pad controller by calling[setFocusable(true)](https://developer.android.com/reference/android/view/View#setFocusable(boolean))and[setFocusableInTouchMode(true)](https://developer.android.com/reference/android/view/View#setFocusableInTouchMode(boolean)), as shown in the following code:  
++When the user opens your app, the `Presenter.ViewHolder`
++displays the `CardView` objects for your content items. You need to set these to receive
++focus from the D-pad controller by calling `setFocusable(true)`
++and `setFocusableInTouchMode(true)`,
++as shown in the following code:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+     ...
+     cardView.isFocusable = true
+     cardView.isFocusableInTouchMode = true
+@@ -192,7 +231,7 @@ When the user opens your app, the[Presenter.ViewHolder](https://developer.androi
+ 
+ ### Java
+ 
+-```java
++```
+ ...
+     cardView.setFocusable(true);
+     cardView.setFocusableInTouchMode(true);
+@@ -200,4 +239,17 @@ When the user opens your app, the[Presenter.ViewHolder](https://developer.androi
+ }
+ ```
+ 
+-When the user selects the[ImageCardView](https://developer.android.com/reference/androidx/leanback/widget/ImageCardView), it expands to reveal its text area with the background color you specify, as shown in figure 1.
+\ No newline at end of file
++When the user selects the `ImageCardView`, it expands
++to reveal its text area with the background color you specify, as shown in figure 1.
++
++[Previous
++
++arrow\_back
++
++Create a catalog browser](/training/tv/playback/leanback/browse)
++
++[Next
++
++Build a details view
++
++arrow\_forward](/training/tv/playback/leanback/details)
+\ No newline at end of file

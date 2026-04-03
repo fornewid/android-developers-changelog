@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/communication.md b/docs/training/cars/communication.md
+index c3532a4..42086fe 100644
+--- a/docs/training/cars/communication.md
++++ b/docs/training/cars/communication.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The communication category encompasses a variety of experiences that let users
+ stay connected on the go with Android Auto. These include [notification-powered](/training/cars/communication/notification-messaging)
+ and [templated](/training/cars/communication/templated-messaging) experiences for short-form text messaging, as well as [calling](/training/cars/communication/calling)

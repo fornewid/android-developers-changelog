@@ -1,0 +1,12 @@
+diff --git a/docs/training/constraint-layout/motionlayout/ref/keyattribute.md b/docs/training/constraint-layout/motionlayout/ref/keyattribute.md
+index 338ddd9..69dcc47 100644
+--- a/docs/training/constraint-layout/motionlayout/ref/keyattribute.md
++++ b/docs/training/constraint-layout/motionlayout/ref/keyattribute.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Specifies view attributes at a specific moment during the motion sequence. You
+ can use `<KeyAttribute>` to set the view's [standard attributes](/reference/android/support/constraint/motion/MotionLayout#standard-attributes).
+ 

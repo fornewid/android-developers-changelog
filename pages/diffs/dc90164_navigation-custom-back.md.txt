@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-custom-back.md b/docs/guide/navigation/navigation-custom-back.md
+index b5eb815..9b2e1e1 100644
+--- a/docs/guide/navigation/navigation-custom-back.md
++++ b/docs/guide/navigation/navigation-custom-back.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ *Back navigation* is how users move backward through the history of screens they
+ previously visited. All Android devices provide a Back button for this type of
+ navigation, so don't add a Back button to your app’s UI. Depending on

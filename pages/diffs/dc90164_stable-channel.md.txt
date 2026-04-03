@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/versions/stable-channel.md b/docs/jetpack/androidx/versions/stable-channel.md
+index c4b31d7..33af8b4 100644
+--- a/docs/jetpack/androidx/versions/stable-channel.md
++++ b/docs/jetpack/androidx/versions/stable-channel.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ---
+ 
+ [Overview](/jetpack/androidx/versions)

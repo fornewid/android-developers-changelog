@@ -1,0 +1,12 @@
+diff --git a/docs/build/publish-library/fused-library.md b/docs/build/publish-library/fused-library.md
+index 3aa8e8d..8bc018e 100644
+--- a/docs/build/publish-library/fused-library.md
++++ b/docs/build/publish-library/fused-library.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ In projects with many modules, it can be challenging to distribute Android
+ Libraries to your users while trying to maintain a clear project structure.
+ In many cases, many more libraries need to be published than intended.

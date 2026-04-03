@@ -1,0 +1,12 @@
+diff --git a/docs/ai/imagen.md b/docs/ai/imagen.md
+index 6b3c126..9167bb5 100644
+--- a/docs/ai/imagen.md
++++ b/docs/ai/imagen.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Imagen is an image generation model. It can be used to generate
+ custom avatars for user profiles or to integrate personalized visual assets into
+ existing screen flows to increase user engagement.

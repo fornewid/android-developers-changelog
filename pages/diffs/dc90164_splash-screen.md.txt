@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/apps/splash-screen.md b/docs/training/wearables/apps/splash-screen.md
+index c0a3e31..1b6b191 100644
+--- a/docs/training/wearables/apps/splash-screen.md
++++ b/docs/training/wearables/apps/splash-screen.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ If your app implements a custom splash screen or uses a launcher theme, migrate
+ your app to the [`SplashScreen`](/reference/kotlin/androidx/core/splashscreen/SplashScreen) library, available in Jetpack, to ensure it
+ displays correctly on all Wear OS versions.

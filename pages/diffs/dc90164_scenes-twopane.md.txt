@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md b/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md
+index 9a56ba2..1ab35a9 100644
+--- a/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md
++++ b/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md
+@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Two-Pane Scene Recipe
+ 
+ This example shows how to create a two pane layout using the Scenes API.

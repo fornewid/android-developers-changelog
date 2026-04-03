@@ -1,0 +1,12 @@
+diff --git a/docs/media/media3/exoplayer/listening-to-player-events.md b/docs/media/media3/exoplayer/listening-to-player-events.md
+index a2686f2..5cfd89f 100644
+--- a/docs/media/media3/exoplayer/listening-to-player-events.md
++++ b/docs/media/media3/exoplayer/listening-to-player-events.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ## Listening to playback events
+ 
+ Events, such as changes in state and playback errors, are reported to registered

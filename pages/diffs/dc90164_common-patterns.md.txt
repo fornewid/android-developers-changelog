@@ -1,0 +1,12 @@
+diff --git a/docs/kotlin/common-patterns.md b/docs/kotlin/common-patterns.md
+index 4228f8c..092a49f 100644
+--- a/docs/kotlin/common-patterns.md
++++ b/docs/kotlin/common-patterns.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This topic focuses on some of the most useful aspects of the Kotlin language
+ when developing for Android.
+ 

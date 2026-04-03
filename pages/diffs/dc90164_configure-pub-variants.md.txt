@@ -1,0 +1,12 @@
+diff --git a/docs/build/publish-library/configure-pub-variants.md b/docs/build/publish-library/configure-pub-variants.md
+index ce15942..de9ddaf 100644
+--- a/docs/build/publish-library/configure-pub-variants.md
++++ b/docs/build/publish-library/configure-pub-variants.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Publication variants let you create a more customized experience for your users.
+ Configuring publication variants lets you publish different build variants,
+ each with its own attributes.

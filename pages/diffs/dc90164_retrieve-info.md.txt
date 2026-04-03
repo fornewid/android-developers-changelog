@@ -1,0 +1,12 @@
+diff --git a/docs/training/secure-file-sharing/retrieve-info.md b/docs/training/secure-file-sharing/retrieve-info.md
+index 7dc41f2..9f2a4a7 100644
+--- a/docs/training/secure-file-sharing/retrieve-info.md
++++ b/docs/training/secure-file-sharing/retrieve-info.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Before a client app tries to work with a file for which it has a content URI, the app can
+ request information about the file from the server app, including the file's data type and
+ file size. The data type helps the client app to determine if it can handle the file, and the

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/improving-layouts/optimizing-layouts.md b/docs/develop/ui/views/layout/improving-layouts/optimizing-layouts.md
+index 9490cc6..af7b188 100644
+--- a/docs/develop/ui/views/layout/improving-layouts/optimizing-layouts.md
++++ b/docs/develop/ui/views/layout/improving-layouts/optimizing-layouts.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose.

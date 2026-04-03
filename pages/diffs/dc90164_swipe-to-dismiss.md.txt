@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md b/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md
+index ba52bc0..8b1517d 100644
+--- a/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md
++++ b/docs/develop/ui/compose/touch-input/user-interactions/swipe-to-dismiss.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The [`SwipeToDismissBox`](/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable) component allows a user to dismiss or update an
+ item by swiping it to the left or right.
+ 

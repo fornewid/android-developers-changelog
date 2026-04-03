@@ -1,0 +1,294 @@
+diff --git a/docs/privacy-and-security/local-network-permission.md b/docs/privacy-and-security/local-network-permission.md
+index 2e6492e..0b3254c 100644
+--- a/docs/privacy-and-security/local-network-permission.md
++++ b/docs/privacy-and-security/local-network-permission.md
+@@ -1,20 +1,9 @@
+ ---
+-title: Local network permission  |  Privacy  |  Android Developers
++title: https://developer.android.com/privacy-and-security/local-network-permission
+ url: https://developer.android.com/privacy-and-security/local-network-permission
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [Security](https://developer.android.com/security)
+-* [Privacy](https://developer.android.com/privacy)
+-* [Guides](https://developer.android.com/privacy-and-security/about)
+-
+-# Local network permission Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ Devices on a Local Area Network (LAN) can be accessed by any app that has the
+ `INTERNET` permission.
+ This makes it easy for apps to connect to local devices, but also carries
+@@ -33,8 +22,8 @@ such that they can prepare to permission guard them on a future Android release.
+ 
+ Apps will be affected if they access the user's local network using:
+ 
+-* Direct or library use of raw sockets on local network addresses, for example, `Multicast DNS (mDNS)` or `Simple Service Discovery Protocol (SSDP)`.
+-* Use of framework-level classes that access the local network, for example, `NsdManager`.
++- Direct or library use of raw sockets on local network addresses, for example, `Multicast DNS (mDNS)` or `Simple Service Discovery Protocol (SSDP)`.
++- Use of framework-level classes that access the local network, for example, `NsdManager`.
+ 
+ ### Details of impact
+ 
+@@ -42,30 +31,28 @@ Traffic to and from a local network address requires local network access
+ permission. The following table lists some common cases:
+ 
+ | App Low Level Network Operation | Local Network Permission Required |
+-| --- | --- |
++|---|---|
+ | Making an outgoing TCP connection | yes |
+ | Accepting an incoming TCP connection | yes |
+ | Sending a UDP unicast, multicast, broadcast | yes |
+ | Receiving a incoming UDP unicast, multicast, broadcast | yes |
+ 
+ These restrictions are implemented deep in the networking stack, and thus they
+-apply to **all networking APIs**. This includes sockets created in the platform
++apply to **all networking APIs** . This includes sockets created in the platform
+ or managed code, networking libraries like Cronet and OkHttp, and any APIs
+ implemented on top of those. Trying to resolve services on the local network
+ that have a `.local` suffix requires local network permission.
+ 
+-**Note:** Traffic originating from Android Webviews that require local network
+-access will inherit permission state from the host app
++> [!NOTE]
++> **Note:** Traffic originating from Android Webviews that require local network access will inherit permission state from the host app
+ 
+ Exceptions to the preceding rules:
+ 
+-* If a device's DNS server is on a local network, traffic to / from it (at port 53) doesn't require local network access permission.
+-* Applications using Output Switcher as their in-app picker won't need local network permissions (more guidance to come at a later release).
++- If a device's DNS server is on a local network, traffic to / from it (at port 53) doesn't require local network access permission.
++- Applications using Output Switcher as their in-app picker won't need local network permissions (more guidance to come at a later release).
+ 
+-**Note:** Many media casting scenarios depend on access to the local network and
+-will be impacted by this change. However, not all apps which offer casting will
+-need to request the new permission. Future APIs and guidance for dealing with
+-casting scenarios will be provided at a later Android Release.
++> [!NOTE]
++> **Note:** Many media casting scenarios depend on access to the local network and will be impacted by this change. However, not all apps which offer casting will need to request the new permission. Future APIs and guidance for dealing with casting scenarios will be provided at a later Android Release.
+ 
+ ## Android 17 Enforcement
+ 
+@@ -73,11 +60,11 @@ Starting in Android 17, local network protections are mandatory and enforced for
+ apps targeting Android 17 or higher.
+ 
+ | Aspect | Android 16 | Android 17 |
+-| --- | --- | --- |
++|---|---|---|
+ | Target SDK | 36 | 37 or higher |
+-| Permission | Temporarily used NEARBY\_WIFI\_DEVICES | ACCESS\_LOCAL\_NETWORK |
++| Permission | Temporarily used NEARBY_WIFI_DEVICES | ACCESS_LOCAL_NETWORK |
+ | Default Access | Local network access is open | Local network is blocked by default for all apps that update their target SDK |
+-| Permission Group | Part of the existing NEARBY\_DEVICES permission group | |
++| Permission Group | Part of the existing NEARBY_DEVICES permission group ||
+ 
+ To verify app functionality isn't broken after the enforcement, applications
+ targeting SDK 37 or higher must adopt one of the following paths to manage
+@@ -89,43 +76,38 @@ For system-mediated discovery and connection tasks, use
+ pickers to avoid requesting the broad runtime permission entirely.
+ Use the following pickers based on your use case:
+ 
+-* **Media Streaming:** For applications that support Google Cast they can use
+-  the [output switcher](https://developers.google.com/cast/docs/android_sender/output_switcher) feature. This enables developers to allow users to
+-  select specific streaming devices without the app needing to request the broad
+-  [`ACCESS_LOCAL_NETWORK`](/reference/kotlin/android/Manifest.permission#access_local_network) permission.
+-* **General Connectivity:** The [`NsdManager`](/reference/android/net/nsd/NsdManager) includes a system-run service
+-  picker for mDNS discovery. Instead of the app scanning the entire network, the
+-  system displays a dialog allowing the user to select a single device for the app
+-  to access.
+-
+-```
+-val discoveryRequest = DiscoveryRequest.Builder("_http._tcp")
+-    .setFlags(DiscoveryRequest.FLAG_SHOW_PICKER)
+-    .build()
+-
+-nsdManager.registerServiceInfoCallback(discoveryRequest, executor, object : NsdManager.ServiceInfoCallback {
+-    override fun onServiceUpdated(serviceInfo: NsdServiceInfo) {
+-        // Handle the user-selected and discovered service
+-        // NsdServiceInfo.getHostAddresses() can now be connected to
+-        // without ACCESS_LOCAL_NETWORK permission
+-    }
+-})
+-```
++- **Media Streaming:** For applications that support Google Cast they can use the [output switcher](https://developers.google.com/cast/docs/android_sender/output_switcher) feature. This enables developers to allow users to select specific streaming devices without the app needing to request the broad [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) permission.
++- **General Connectivity:** The [`NsdManager`](https://developer.android.com/reference/android/net/nsd/NsdManager) includes a system-run service picker for mDNS discovery. Instead of the app scanning the entire network, the system displays a dialog allowing the user to select a single device for the app to access.
++
++    val discoveryRequest = DiscoveryRequest.Builder("_http._tcp")
++        .setFlags(DiscoveryRequest.FLAG_SHOW_PICKER)
++        .build()
++
++    nsdManager.registerServiceInfoCallback(discoveryRequest, executor, object : NsdManager.ServiceInfoCallback {
++        override fun onServiceUpdated(serviceInfo: NsdServiceInfo) {
++            // Handle the user-selected and discovered service
++            // NsdServiceInfo.getHostAddresses() can now be connected to
++            // without ACCESS_LOCAL_NETWORK permission
++        }
++    })
+ 
+ #### Path B: Requesting runtime permission (broad access)
+ 
+ This path is required for complex use cases like home automation or IoT device
+ management that need broad, persistent access to the local network.
+ 
+-* **Declare the permission in the manifest:** Explicitly declare [`ACCESS_LOCAL_NETWORK`](/reference/kotlin/android/Manifest.permission#access_local_network) in the `AndroidManifest.xml`.
+-* **Request Permission at Runtime:** Before attempting any local network access,
++- **Declare the permission in the manifest:** Explicitly declare [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) in the `AndroidManifest.xml`.
++
++- **Request Permission at Runtime:** Before attempting any local network access,
+   applications must check if the permission has been granted. If not, they must
+   call `Activity.requestPermission()` to trigger the standard system prompt.
+-* **Pre-granted scenario:** The [`ACCESS_LOCAL_NETWORK`](/reference/kotlin/android/Manifest.permission#access_local_network) permission is part
++
++- **Pre-granted scenario:** The [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) permission is part
+   of the `NEARBY_DEVICES` permission group. If a user has already granted another
+   permission in this group (such as Bluetooth permissions), they won't be
+   re-prompted for local network access.
+-* **Handling Denial and Revocation:** Apps must gracefully handle cases where
++
++- **Handling Denial and Revocation:** Apps must gracefully handle cases where
+   the user denies the request or later revokes permission in system settings.
+   In such scenarios, local network traffic will be blocked.
+ 
+@@ -133,10 +115,10 @@ management that need broad, persistent access to the local network.
+ 
+ The platform implements a counter reset strategy that addresses scenarios where
+ an app's prior denial of the `NEARBY_DEVICES` permission group
+-(which now includes [`ACCESS_LOCAL_NETWORK`](/reference/kotlin/android/Manifest.permission#access_local_network)) prevented the app from asking
++(which now includes [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network)) prevented the app from asking
+ for the permission after adequately presenting its rationale. This mechanism
+ grants additional opportunities for the app to invoke the `requestPermission()`
+-API, effectively resetting the denial count for the [`ACCESS_LOCAL_NETWORK`](/reference/kotlin/android/Manifest.permission#access_local_network)
++API, effectively resetting the denial count for the [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network)
+ permission. This allows for a more nuanced re-engagement with the user,
+ especially when the initial denial occurred before the app could convey the
+ necessity of local network access for its core functionality.
+@@ -147,32 +129,36 @@ Local Network Permission utilizes a split permission migration strategy to
+ handle new and legacy applications differently, based on their target SDK
+ 
+ | Category | Target SDK level | Local network access behavior | Required developer action |
+-| --- | --- | --- | --- |
+-| New Apps / Updated Apps | >= 37 (Android 17) | Blocked By Default | Declare and request `ACCESS_LOCAL_NETWORK` runtime permission |
+-| Legacy Apps | < 37 | Apps with INTERNET permission receive an implicit permission grant for `ACCESS_LOCAL_NETWORK`, allowing them to retain access. This is temporary and will be blocked by default once app bumps target SDK to 37 | No immediate code change needed |
++|---|---|---|---|
++| New Apps / Updated Apps | \>= 37 (Android 17) | Blocked By Default | Declare and request `ACCESS_LOCAL_NETWORK` runtime permission |
++| Legacy Apps | \< 37 | Apps with INTERNET permission receive an implicit permission grant for `ACCESS_LOCAL_NETWORK`, allowing them to retain access. This is temporary and will be blocked by default once app bumps target SDK to 37 | No immediate code change needed |
++
++<br />
+ 
+ #### LNP Strategy by Use Case
+ 
+-* **Casting:** For media casting functionalities, the most appropriate and
++- **Casting:** For media casting functionalities, the most appropriate and
+   privacy-preserving strategy is to use the [output switcher](https://developers.google.com/cast/docs/android_sender/output_switcher). This method
+   allows the system to handle local network discovery and connection on the user's
+-  behalf, eliminating the need for the app to request [`ACCESS_LOCAL_NETWORK`](/reference/kotlin/android/Manifest.permission#access_local_network)
++  behalf, eliminating the need for the app to request [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network)
+   permission.
+-* **Browsers:** Handling errors requires different approaches based on the
++
++- **Browsers:** Handling errors requires different approaches based on the
+   protocol. UDP errors result in `EPERM` error code. For TCP connections,
+   browsers should use the NDK API `android_getnetworkblockedreason(int sockFd)`
+   to determine if a packet was blocked by LNP this API returns
+   `ANDROID_NETWORK_BLOCKED_REASON_LNP`.
+-* **Other Use Cases (for example, IoT):** Applications that find devices using
++
++- **Other Use Cases (for example, IoT):** Applications that find devices using
+   mDNS should use `android.net.nsd.DiscoveryRequest#FLAG_SHOW_PICKER` which allows
+   finding devices without the permission, and
+   `NsdManager#registerServiceInfoCallback` / `NsdManager#resolveService` to obtain
+   IP addresses. Connections to IP addresses obtained this way don't require the
+-  [`ACCESS_LOCAL_NETWORK`](/reference/kotlin/android/Manifest.permission#access_local_network) permission.
++  [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) permission.
+ 
+ For applications that require direct local network communication and cannot
+ use system-mediated pickers, the suggested approach is to use the permission
+-reset counter strategy. If the [`ACCESS_LOCAL_NETWORK`](/reference/kotlin/android/Manifest.permission#access_local_network) permission is revoked
++reset counter strategy. If the [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) permission is revoked
+ by the user, this mechanism provides additional opportunities for the app to
+ re-request the permission, allowing developers to present a clearer rationale
+ for the user.
+@@ -185,9 +171,8 @@ To opt into local network restrictions, do the following:
+ 2. Install the app to be tested
+ 3. Toggle the Appcompat config by using adb
+ 
+-   ```
+-   adb shell am compat enable RESTRICT_LOCAL_NETWORK <package_name>
+-   ```
++       adb shell am compat enable RESTRICT_LOCAL_NETWORK <package_name>
++
+ 4. **Reboot the device**
+ 
+ Now your app's access to the local network is restricted and any attempt to
+@@ -197,46 +182,45 @@ process (for example, `NsdManager`) they aren't affected during the opt-in.
+ 
+ To restore access, you must grant your app permission to `NEARBY_WIFI_DEVICES`.
+ 
+-* Make sure the app declares the `NEARBY_WIFI_DEVICES` permission in its `manifest`.
+-* Go to **Settings** > **Apps** > **[App Name]** > **Permissions** > **Nearby devices** > **Allow**
++- Make sure the app declares the `NEARBY_WIFI_DEVICES` permission in its `manifest`.
++- Go to **Settings** \> **Apps** \> **\[App Name\]** \> **Permissions** \> **Nearby devices** \> **Allow**
+ 
+-**Note:** in a future Android release, this feature will be guarded by a new
+-permission in the [`NEARBY_DEVICES`](/reference/android/Manifest.permission_group#NEARBY_DEVICES) permission group.
++> [!NOTE]
++> **Note:** in a future Android release, this feature will be guarded by a new permission in the [`NEARBY_DEVICES`](https://developer.android.com/reference/android/Manifest.permission_group#NEARBY_DEVICES) permission group.
+ 
+ Now your app's access to the local network should be restored and all your
+ scenarios should work as they did prior to opting the app in. Here is how the
+ app network traffic is impacted.
+ 
+ | Permission | Outbound LAN Request | Outbound/Inbound Internet Request | Inbound LAN Request |
+-| --- | --- | --- | --- |
++|---|---|---|---|
+ | Granted | Works | Works | Works |
+ | Not Granted | Fails | Works | Fails |
+ 
+ Use the following command to toggle-off the Appcompat config
+ 
+-```
+-adb shell am compat disable RESTRICT_LOCAL_NETWORK <package_name>
+-```
++    adb shell am compat disable RESTRICT_LOCAL_NETWORK <package_name>
+ 
+ ## Errors
+ 
+ If a local network access request fails due to missing permission:
+ 
+-* TCP Connections will typically result in a **timeout error**.
++- TCP Connections will typically result in a **timeout error**.
++
++  > [!NOTE]
++  > **Note:** If you are using Android NDK a TCP error can be determined by `android_getnetworkblockedreason(int sockFd)` API
+ 
+-  **Note:** If you are using Android NDK a TCP error can be determined by
+-  `android_getnetworkblockedreason(int sockFd)` API
+-* UDP errors and general permission denials will typically result in an **EPERM** error code
++- UDP errors and general permission denials will typically result in an **EPERM** error code
+ 
+ ### Bugs
+ 
+-[Submit bugs](/about/versions/16/feedback) and feedback for:
++[Submit bugs](https://developer.android.com/about/versions/16/feedback) and feedback for:
+ 
+-* Discrepancies in LAN access (you don't think a certain access should be considered "local network" access)
+-* Bugs where LAN access should be blocked but isn't
+-* Bugs where LAN access shouldn't be blocked but is
++- Discrepancies in LAN access (you don't think a certain access should be considered "local network" access)
++- Bugs where LAN access should be blocked but isn't
++- Bugs where LAN access shouldn't be blocked but is
+ 
+ The following should be unaffected by this change:
+ 
+-* Access to the Internet
+-* Mobile Network
+\ No newline at end of file
++- Access to the Internet
++- Mobile Network
+\ No newline at end of file

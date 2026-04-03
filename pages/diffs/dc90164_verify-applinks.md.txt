@@ -1,0 +1,238 @@
+diff --git a/docs/training/app-links/verify-applinks.md b/docs/training/app-links/verify-applinks.md
+index 7e5bec6..0689791 100644
+--- a/docs/training/app-links/verify-applinks.md
++++ b/docs/training/app-links/verify-applinks.md
+@@ -1,14 +1,22 @@
+ ---
+-title: https://developer.android.com/training/app-links/verify-applinks
++title: Verify App Links  |  App architecture  |  Android Developers
+ url: https://developer.android.com/training/app-links/verify-applinks
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
++
++# Verify App Links Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ When `android:autoVerify="true"` is present in at least one of your app's intent
+ filters, installing your app on a device that runs Android 6.0 (API level 23) or
+ higher causes the system to automatically verify the hosts associated with the
+-URLs in your app's intent filters. On Android 12 and higher, you
+-can also [invoke the verification process manually](https://developer.android.com/training/app-links/verify-applinks#manual-verification) to
++URLs in your app's intent filters. On Android 12 and higher, you
++can also [invoke the verification process manually](#manual-verification) to
+ test the verification logic.
+ 
+ ## Auto verification
+@@ -16,13 +24,17 @@ test the verification logic.
+ The system's auto-verification involves the following:
+ 
+ 1. The system inspects all intent filters that include any of the following:
+-   - Action: `android.intent.action.VIEW`
+-   - Categories: `android.intent.category.BROWSABLE` and `android.intent.category.DEFAULT`
+-   - Data scheme: `http` or `https`
+-2. For each unique host name found in the above intent filters, Android queries the corresponding websites for the Digital Asset Links file at `https:///.well-known/assetlinks.json`.
+-
+-> [!NOTE]
+-> **Note:** On Android 11 (API level 30) and lower, the system establishes your app as the default handler for the specified URL patterns only if it finds a matching Digital Asset Links file for *all* hosts in the manifest.
++   * Action: `android.intent.action.VIEW`
++   * Categories: `android.intent.category.BROWSABLE` and
++     `android.intent.category.DEFAULT`
++   * Data scheme: `http` or `https`
++2. For each unique host name found in the above intent filters, Android queries
++   the corresponding websites for the Digital Asset Links file at
++   `https:///.well-known/assetlinks.json`.
++
++**Note:** On Android 11 (API level 30) and lower, the system establishes your app as
++the default handler for the specified URL patterns only if it finds a matching
++Digital Asset Links file for *all* hosts in the manifest.
+ 
+ After you have confirmed the list of websites to associate with your app, and
+ you have confirmed that the hosted JSON file is valid, install the app on your
+@@ -38,9 +50,9 @@ adb shell am start -a android.intent.action.VIEW \
+ 
+ ### Manual verification
+ 
+-Starting in Android 12, you can manually invoke domain
++Starting in Android 12, you can manually invoke domain
+ verification for an app that's installed on a device. You can perform this
+-process regardless of whether your app targets Android 12.
++process regardless of whether your app targets Android 12.
+ 
+ #### Establish an internet connection
+ 
+@@ -49,7 +61,7 @@ internet.
+ 
+ #### Support the updated domain verification process
+ 
+-If your app targets Android 12 or higher, the system uses the
++If your app targets Android 12 or higher, the system uses the
+ updated domain verification process automatically.
+ 
+ Otherwise, you can manually enable the updated verification process. To do so,
+@@ -81,8 +93,8 @@ verification itself. To do so, run the following command in a terminal window:
+ adb shell pm verify-app-links --re-verify PACKAGE_NAME
+ ```
+ 
+-> [!NOTE]
+-> **Note:** Before you review the results of this command, wait a few minutes for the verification agent to finish the requests related to domain verification.
++**Note:** Before you review the results of this command, wait a few minutes for the
++verification agent to finish the requests related to domain verification.
+ 
+ #### Review the verification results
+ 
+@@ -117,7 +129,7 @@ return for a given domain:
+ `none`
+ :   Nothing has been recorded for this domain. Wait a few more minutes for the
+     verification agent to finish the requests related to domain verification, then
+-    [invoke the domain verification process](https://developer.android.com/training/app-links/verify-applinks#invoke-domain-verification) again.
++    [invoke the domain verification process](#invoke-domain-verification) again.
+ 
+ `verified`
+ :   The domain is successfully verified for the declaring app.
+@@ -144,20 +156,21 @@ return for a given domain:
+ :   The domain was approved automatically by the device configuration.
+ 
+ Error code of `1024` or greater
+-
+ :   Custom error code that's specific to the device's verifier.
+ 
+     Double-check that you have [established a network
+-    connection](https://developer.android.com/training/app-links/verify-applinks#establish-internet-connection), and [invoke the domain
+-    verification process](https://developer.android.com/training/app-links/verify-applinks#invoke-domain-verification) again.
++    connection](#establish-internet-connection), and [invoke the domain
++    verification process](#invoke-domain-verification) again.
+ 
+ ## Request the user to associate your app with a domain
+ 
+ Another way for your app to get approved for a domain is to ask the user to
+ associate your app with that domain.
+ 
+-> [!NOTE]
+-> **Note:** On a given device, only one app at a time can be associated with a particular domain. If another app is already verified for the domain, the user must first disassociate that other app with the domain before they can associate your app with the domain.
++**Note:** On a given device, only one app at a time can be associated with a
++particular domain. If another app is already verified for the domain, the user
++must first disassociate that other app with the domain before they can associate
++your app with the domain.
+ 
+ ### Check whether your app is already approved for the domain
+ 
+@@ -165,8 +178,9 @@ Before you prompt the user, check whether your app is the default handler for
+ the domains that you define in your `<intent-filter>` elements. You can query
+ the approval state using one of the following methods:
+ 
+-- The [`DomainVerificationManager`](https://developer.android.com/reference/android/content/pm/verify/domain/DomainVerificationManager) API (at runtime).
+-- A command-line program (during testing).
++* The [`DomainVerificationManager`](/reference/android/content/pm/verify/domain/DomainVerificationManager)
++  API (at runtime).
++* A command-line program (during testing).
+ 
+ #### DomainVerificationManager
+ 
+@@ -175,7 +189,7 @@ The following code snippet demonstrates how to use the
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val context: Context = TODO("Your activity or fragment's Context")
+ val manager = context.getSystemService(DomainVerificationManager::class.java)
+ val userState = manager.getDomainVerificationUserState(context.packageName)
+@@ -196,7 +210,7 @@ val unapprovedDomains = userState?.hostToStateMap
+ 
+ ### Java
+ 
+-```java
++```
+ Context context = TODO("Your activity or fragment's Context");
+ DomainVerificationManager manager =
+         context.getSystemService(DomainVerificationManager.class);
+@@ -258,9 +272,10 @@ You can also use shell commands to simulate the process where the user selects
+ which app is associated with a given domain. A full explanation of these
+ commands is available from the output of `adb shell pm`.
+ 
+-> [!NOTE]
+-> **Note:** The system can only associate one app at a time with a domain, even when you use shell commands. Some special cases, such as [installing two app variants
+-> simultaneously](https://developer.android.com/training/app-links/verify-applinks#multi-app-same-domain), require special handling to open a given web link in the intended app.
++**Note:** The system can only associate one app at a time with a domain, even when
++you use shell commands. Some special cases, such as [installing two app variants
++simultaneously](#multi-app-same-domain), require special handling to open a
++given web link in the intended app.
+ 
+ ### Provide context for the request
+ 
+@@ -273,14 +288,14 @@ for a particular domain.
+ 
+ After the user understands what your app is asking them to do, make the request.
+ To do so, invoke an intent that includes the
+-[`ACTION_APP_OPEN_BY_DEFAULT_SETTINGS`](https://developer.android.com/reference/android/provider/Settings#ACTION_APP_OPEN_BY_DEFAULT_SETTINGS)
++[`ACTION_APP_OPEN_BY_DEFAULT_SETTINGS`](/reference/android/provider/Settings#ACTION_APP_OPEN_BY_DEFAULT_SETTINGS)
+ intent action, and a data string matching
+ `package:com.example.pkg` for the target app, as shown in
+ the following code snippet:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val context: Context = TODO("Your activity or fragment's Context")
+ val intent = Intent(Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS,
+     Uri.parse("package:${context.packageName}"))
+@@ -289,7 +304,7 @@ context.startActivity(intent)
+ 
+ ### Java
+ 
+-```java
++```
+ Context context = TODO("Your activity or fragment's Context");
+ Intent intent = new Intent(Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS,
+     Uri.parse("package:" + context.getPackageName()));
+@@ -297,20 +312,29 @@ context.startActivity(intent);
+ ```
+ 
+ When the intent is invoked, users see a settings screen called **Open by
+-default** . This screen contains a radio button called **Open supported links**,
++default**. This screen contains a radio button called **Open supported links**,
+ as shown in figure 1.
+ 
+-When the user turns on **Open supported links** , a set of checkboxes appear
+-under a section called **Links to open in this app** . From here, users can
++When the user turns on **Open supported links**, a set of checkboxes appear
++under a section called **Links to open in this app**. From here, users can
+ select the domains that they want to associate with your app. They can also
+ select **Add link** to add domains, as shown in figure 2. When users later
+ select any link within the domains that they add, the link opens in your app
+ automatically.
++
+ ![When the radio button is enabled, a section near the bottom
+-includes checkboxes as well as a button called 'Add link'](https://developer.android.com/static/images/training/app-links/choose-domains.svg) **Figure 1.** System settings screen where users can choose which links open in your app by default. ![Each checkbox represents a domain that you can add. The
+-dialog's buttons are 'Cancel' and 'Add.'](https://developer.android.com/static/images/training/app-links/add-domains.svg) **Figure 2.** Dialog where users can choose additional domains to associate with your app.
++    includes checkboxes as well as a button called 'Add link'](/static/images/training/app-links/choose-domains.svg)
++
++
++**Figure 1.** System settings screen where users can choose
++which links open in your app by default.
++
++![Each checkbox represents a domain that you can add. The
++    dialog's buttons are 'Cancel' and 'Add.'](/static/images/training/app-links/add-domains.svg)
++
+ 
+-<br />
++**Figure 2.** Dialog where users can choose additional domains
++to associate with your app.
+ 
+ ## Open domains in your app that your app cannot verify
+ 
+@@ -323,5 +347,5 @@ domains with your third-party app.
+ In addition, consider introducing a dialog or trampoline activity that allows
+ the user to open the link in the first-party app if the user prefers to do so,
+ acting as a proxy. Before setting up such a dialog or trampoline activity, set
+-up your app so that it has [package visibility](https://developer.android.com/training/package-visibility)
++up your app so that it has [package visibility](/training/package-visibility)
+ into the first-party apps that match your app's web intent filter.
+\ No newline at end of file

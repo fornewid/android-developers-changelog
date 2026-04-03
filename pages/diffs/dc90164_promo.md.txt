@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/promo.md b/docs/google/play/billing/promo.md
+index 2dd790a..920fde4 100644
+--- a/docs/google/play/billing/promo.md
++++ b/docs/google/play/billing/promo.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ Promotions, or *promo codes*, enable you to give one-time products or trials
+ to subscriptions free-of-charge to a limited number of users. The user enters
+ a promo code, either in your app or in the Google Play Store app, and receives
+@@ -172,6 +171,4 @@ To test your promo code implementation, see
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

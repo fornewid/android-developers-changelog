@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/display-animated-image.md b/docs/develop/ui/compose/quick-guides/content/display-animated-image.md
+index 9fafedb..29037f4 100644
+--- a/docs/develop/ui/compose/quick-guides/content/display-animated-image.md
++++ b/docs/develop/ui/compose/quick-guides/content/display-animated-image.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can create a more interactive and engaging user experience in your app by
+ loading a drawable file to display animated images. Animated images are useful
+ for creating loading indicators, success or error indicators, facilitating game

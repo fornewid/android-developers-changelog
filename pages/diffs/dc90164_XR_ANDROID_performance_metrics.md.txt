@@ -1,0 +1,12 @@
+diff --git a/docs/develop/xr/openxr/extensions/XR_ANDROID_performance_metrics.md b/docs/develop/xr/openxr/extensions/XR_ANDROID_performance_metrics.md
+index 72bd1ea..670b091 100644
+--- a/docs/develop/xr/openxr/extensions/XR_ANDROID_performance_metrics.md
++++ b/docs/develop/xr/openxr/extensions/XR_ANDROID_performance_metrics.md
+@@ -17,6 +17,7 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
+ 
+ 
+ 
++
+ **Name String**
+ 
+ `XR_ANDROID_performance_metrics`

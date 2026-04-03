@@ -1,0 +1,12 @@
+diff --git a/docs/build/dependencies.md b/docs/build/dependencies.md
+index 8aaa0cd..b2bfe72 100644
+--- a/docs/build/dependencies.md
++++ b/docs/build/dependencies.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** When adding dependencies, consider enabling
+ [Dependency verification](/build/dependency-verification) to help ensure the
+ dependencies you download and include in your project are what you expect.

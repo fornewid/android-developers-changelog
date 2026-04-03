@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/animations/motionlayout/carousel.md b/docs/develop/ui/views/animations/motionlayout/carousel.md
+index 7bd4cd4..504d029 100644
+--- a/docs/develop/ui/views/animations/motionlayout/carousel.md
++++ b/docs/develop/ui/views/animations/motionlayout/carousel.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to add a carousel in Compose.

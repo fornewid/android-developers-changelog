@@ -1,0 +1,12 @@
+diff --git a/docs/identity/legacy/gsi/legacy-sign-in.md b/docs/identity/legacy/gsi/legacy-sign-in.md
+index 4e3992d..8e59b36 100644
+--- a/docs/identity/legacy/gsi/legacy-sign-in.md
++++ b/docs/identity/legacy/gsi/legacy-sign-in.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Warning:**
+ 
+ **The Google Sign-In for Android API is outdated and no longer supported.**

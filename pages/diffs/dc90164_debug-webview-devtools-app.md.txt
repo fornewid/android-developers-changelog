@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/webapps/debug-webview-devtools-app.md b/docs/develop/ui/views/layout/webapps/debug-webview-devtools-app.md
+index 070ca5d..77c0438 100644
+--- a/docs/develop/ui/views/layout/webapps/debug-webview-devtools-app.md
++++ b/docs/develop/ui/views/layout/webapps/debug-webview-devtools-app.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The WebView DevTools app is an on-device utility for managing and debugging the
+ system WebView component itself. It is separate from Chrome DevTools, which runs
+ on your development machine and lets you remotely debug the live web content

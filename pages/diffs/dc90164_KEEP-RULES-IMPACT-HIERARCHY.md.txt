@@ -1,0 +1,12 @@
+diff --git a/docs/agents/skills/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY.md b/docs/agents/skills/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY.md
+index 43ab409..3443ef0 100644
+--- a/docs/agents/skills/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY.md
++++ b/docs/agents/skills/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY.md
+@@ -8,6 +8,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Keep rules prevent optimization of R8, these rules are listed in the order of
+ the scope of what it retains in the codebase.
+ 

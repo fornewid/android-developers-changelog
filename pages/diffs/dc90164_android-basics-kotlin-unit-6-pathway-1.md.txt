@@ -1,0 +1,135 @@
+diff --git a/docs/courses/quizzes/android-basics-kotlin-unit-6-pathway-1/android-basics-kotlin-unit-6-pathway-1.md b/docs/courses/quizzes/android-basics-kotlin-unit-6-pathway-1/android-basics-kotlin-unit-6-pathway-1.md
+index d287d78..aa7c6b1 100644
+--- a/docs/courses/quizzes/android-basics-kotlin-unit-6-pathway-1/android-basics-kotlin-unit-6-pathway-1.md
++++ b/docs/courses/quizzes/android-basics-kotlin-unit-6-pathway-1/android-basics-kotlin-unit-6-pathway-1.md
+@@ -1,74 +1,81 @@
+ ---
+-title: https://developer.android.com/courses/quizzes/android-basics-kotlin-unit-6-pathway-1/android-basics-kotlin-unit-6-pathway-1
++title: Schedule tasks with WorkManager  |  Android Developers
+ url: https://developer.android.com/courses/quizzes/android-basics-kotlin-unit-6-pathway-1/android-basics-kotlin-unit-6-pathway-1
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Schedule tasks with WorkManager
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
+ 
+ # Schedule tasks with WorkManager
+ 
+-<br />
++Return to pathway
++
++
++
++1. ## Which of the following is true about `WorkManager`
++
++   Tasks are typically chained, but not run in parallel.
++
++   `WorkManager` is part of Android Jetpack and requires a Gradle dependency to use.
++
++   `WorkManager` does not necessarily guarantee that a task will be executed.
++
++   `WorkRequest` is the name of the class responsible for scheduling and running tasks
++2. ## Which of the following would not require `WorkManager`?
++
++   Performing a GET request to a web service.
++
++   Long running tasks such as downloading large amounts of data
++
++   Scheduling a task to repeat after a set interval.
++
++   Doing something while the app is in the background.
++3. ## A `Worker` represents a task to be scheduled by `WorkManager` while a `WorkRequest` contains the actual code to be executed.
+ 
+-Return to pathway  
+-1.
++   True
+ 
+-   ## Which of the following is true about`WorkManager`
++   False
++4. ## Making execution dependent on device state such as storage space and battery life are examples of
+ 
+-   Tasks are typically chained, but not run in parallel.  
+-   `WorkManager`is part of Android Jetpack and requires a Gradle dependency to use.  
+-   `WorkManager`does not necessarily guarantee that a task will be executed.  
+-   `WorkRequest`is the name of the class responsible for scheduling and running tasks  
+-2.
++   chaining
+ 
+-   ## Which of the following would not require`WorkManager`?
++   best practices
+ 
+-   Performing a GET request to a web service.  
+-   Long running tasks such as downloading large amounts of data  
+-   Scheduling a task to repeat after a set interval.  
+-   Doing something while the app is in the background.  
+-3.
++   constraints
+ 
+-   ## A`Worker`represents a task to be scheduled by`WorkManager`while a`WorkRequest`contains the actual code to be executed.
++   canceling tasks
++5. ## Fill-in-the-blanks
+ 
+-   True  
+-   False  
+-4.
++   Enter one or more words to complete the sentence.
+ 
+-   ## Making execution dependent on device state such as storage space and battery life are examples of
++   For a single task, you'd create a `OneTimeWorkRequest`, whereas for a task that needs to repeat after a given interval, you'd create a \_\_\_.
++6. ## In a chain, the output of the last `WorkRequest` becomes the input for the next `WorkRequest`.
+ 
+-   chaining  
+-   best practices  
+-   constraints  
+-   canceling tasks  
+-5.
++   True
+ 
+-   ## Fill-in-the-blanks
++   False
++7. ## Fill-in-the-blanks
+ 
+-   Enter one or more words to complete the sentence.  
+-   For a single task, you'd create a`OneTimeWorkRequest`, whereas for a task that needs to repeat after a given interval, you'd create a ___.  
+-6.
++   Enter one or more words to complete the sentence.
+ 
+-   ## In a chain, the output of the last`WorkRequest`becomes the input for the next`WorkRequest`.
++   The \_\_\_`()` method is implemented by subclasses of the `Worker` class and defines the code to be executed by a `WorkRequest`.
++8. ## Which of the following are true about unique work chains?
+ 
+-   True  
+-   False  
+-7.
++   Choose as many answers as you see fit.
+ 
+-   ## Fill-in-the-blanks
++   An `ExistingWorkPolicy` is required to determine what happens to an in-progress task (kept, replaced, etc.)
+ 
+-   Enter one or more words to complete the sentence.  
+-   The ___`()`method is implemented by subclasses of the`Worker`class and defines the code to be executed by a`WorkRequest`.  
+-8.
++   Tags can be used to get the `WorkInfo` for the request.
+ 
+-   ## Which of the following are true about unique work chains?
++   If no tag is specified, you can still ensure a task is unique by setting the `WorkManager` ID
+ 
+-   Choose as many answers as you see fit.  
+-   An`ExistingWorkPolicy`is required to determine what happens to an in-progress task (kept, replaced, etc.)  
+-   Tags can be used to get the`WorkInfo`for the request.  
+-   If no tag is specified, you can still ensure a task is unique by setting the`WorkManager`ID  
+-   Unique work can be canceled using the`cancelUniqueWork()`method and providing the tag.  
++   Unique work can be canceled using the `cancelUniqueWork()` method and providing the tag.
+ 
+ Submit answers
+ 
+-*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error\_outline*
++An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

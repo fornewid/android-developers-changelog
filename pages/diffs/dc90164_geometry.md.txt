@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/geometry.md b/docs/games/optimize/geometry.md
+index ad93d32..391b841 100644
+--- a/docs/games/optimize/geometry.md
++++ b/docs/games/optimize/geometry.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ 3D Games that run well on the largest number of devices begin with 3D art that has
+ been designed to best take advantage of graphics processors. This guide
+ highlights optimizations and best practices for 3D assets on mobile to make
+@@ -393,6 +392,4 @@ visibility.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

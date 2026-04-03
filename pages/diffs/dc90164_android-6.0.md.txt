@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/marshmallow/android-6.0.md b/docs/about/versions/marshmallow/android-6.0.md
+index 6898675..01ffa5d 100644
+--- a/docs/about/versions/marshmallow/android-6.0.md
++++ b/docs/about/versions/marshmallow/android-6.0.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android 6.0 ([M](/reference/android/os/Build.VERSION_CODES#M))
+ offers new features for users and app developers. This document provides an introduction to the
+ most notable APIs.

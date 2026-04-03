@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/pointer-input.md b/docs/develop/ui/compose/touch-input/pointer-input.md
+index a612c2e..f0e3438 100644
+--- a/docs/develop/ui/compose/touch-input/pointer-input.md
++++ b/docs/develop/ui/compose/touch-input/pointer-input.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Compose provides a variety of APIs to help you detect gestures that are
+ generated from user interactions. The APIs cover a wide range of use cases:
+ 

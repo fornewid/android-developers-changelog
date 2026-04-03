@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/badges.md b/docs/develop/ui/compose/components/badges.md
+index 7e70274..a477d99 100644
+--- a/docs/develop/ui/compose/components/badges.md
++++ b/docs/develop/ui/compose/components/badges.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Use a [badge](https://m3.material.io/components/badges/overview) to display a small visual element to denote status
+ or a numeric value on another composable. Here are a few common scenarios where
+ you might use a badge:

@@ -1,0 +1,170 @@
+diff --git a/docs/develop/ui/compose/performance/stability/strongskipping.md b/docs/develop/ui/compose/performance/stability/strongskipping.md
+index 7295f22..5424473 100644
+--- a/docs/develop/ui/compose/performance/stability/strongskipping.md
++++ b/docs/develop/ui/compose/performance/stability/strongskipping.md
+@@ -1,16 +1,27 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/performance/stability/strongskipping
++title: Strong skipping mode  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/performance/stability/strongskipping
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Strong skipping mode Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Strong Skipping is a mode available in the Compose compiler. When enabled, it
+ changes the compiler's behavior in two ways:
+ 
+-- Composables with unstable parameters become [skippable](https://developer.android.com/develop/ui/compose/performance/stability#functions)
+-- Lambdas with unstable captures are [remembered](https://developer.android.com/develop/ui/compose/state#state-in-composables)
++* Composables with unstable parameters become [skippable](/develop/ui/compose/performance/stability#functions)
++* Lambdas with unstable captures are [remembered](/develop/ui/compose/state#state-in-composables)
+ 
+-| **Note:** Strong Skipping is enabled by default in Kotlin 2.0.20. The full list of options are available in the [Compose Compiler Gradle Plugin reference](https://kotlinlang.org/docs/compose-compiler-options.html).
++**Note:** Strong Skipping is enabled by default in Kotlin 2.0.20. The full list of
++options are available in the [Compose Compiler Gradle Plugin reference](https://kotlinlang.org/docs/compose-compiler-options.html).
+ 
+ ## Enable strong skipping mode
+ 
+@@ -20,15 +31,17 @@ To enable strong skipping for a Gradle module in a release prior to 2.0.20,
+ include the following option in
+ the `composeCompiler` block of your Gradle configuration:
+ 
+-    android { ... }
++```
++android { ... }
+ 
+-    composeCompiler {
+-       enableStrongSkippingMode = true
+-    }
++composeCompiler {
++   enableStrongSkippingMode = true
++}
++```
+ 
+ ## Composable skippability
+ 
+-Strong skipping mode relaxes some of the [stability](https://developer.android.com/develop/ui/compose/performance/stability) rules normally applied
++Strong skipping mode relaxes some of the [stability](/develop/ui/compose/performance/stability) rules normally applied
+ by the Compose compiler when it comes to skipping and composable functions. By
+ default, the Compose compiler marks a composable function as skippable if all of
+ its arguments have stable values. Strong skipping mode changes this.
+@@ -41,10 +54,10 @@ Non-restartable composable functions remain unskippable.
+ 
+ To determine whether to skip a composable during recomposition, Compose compares
+ the value of each parameter with their previous values. The type of comparison
+-depends on the [stability](https://developer.android.com/develop/ui/compose/performance/stability) of the parameter.
++depends on the [stability](/develop/ui/compose/performance/stability) of the parameter.
+ 
+-- Unstable parameters are compared using instance equality (`===`)
+-- Stable parameters are compared using object equality (`Object.equals()`)
++* Unstable parameters are compared using instance equality (`===`)
++* Stable parameters are compared using object equality (`Object.equals()`)
+ 
+ If all parameters meet these requirements, Compose skips the composable during
+ recomposition.
+@@ -53,9 +66,11 @@ You might want a composable to opt out of strong skipping. That is, you might
+ want a restartable but non-skippable composable. In this case, use the
+ `@NonSkippableComposable` annotation.
+ 
+-    @NonSkippableComposable
+-    @Composable
+-    fun MyNonSkippableComposable {}
++```
++@NonSkippableComposable
++@Composable
++fun MyNonSkippableComposable {}
++```
+ 
+ ### Annotate classes as stable
+ 
+@@ -80,31 +95,37 @@ captures of the lambda.
+ 
+ Consider a case where you have a lambda as in the following example:
+ 
+-    @Composable
+-    fun MyComposable(unstableObject: Unstable, stableObject: Stable) {
+-        val lambda = {
+-            use(unstableObject)
+-            use(stableObject)
+-        }
++```
++@Composable
++fun MyComposable(unstableObject: Unstable, stableObject: Stable) {
++    val lambda = {
++        use(unstableObject)
++        use(stableObject)
+     }
++}
++```
+ 
+ With strong skipping enabled, the compiler memoizes the lambda by wrapping it in
+ a `remember` call:
+ 
+-    @Composable
+-    fun MyComposable(unstableObject: Unstable, stableObject: Stable) {
+-        val lambda = remember(unstableObject, stableObject) {
+-            {
+-                use(unstableObject)
+-                use(stableObject)
+-            }
++```
++@Composable
++fun MyComposable(unstableObject: Unstable, stableObject: Stable) {
++    val lambda = remember(unstableObject, stableObject) {
++        {
++            use(unstableObject)
++            use(stableObject)
+         }
+     }
++}
++```
+ 
+ The keys follow the same comparison rules as composable functions. The runtime
+ compares unstable keys using instance equality. It compares stable keys using
+ object equality.
+-| **Note:** This is slightly different to a typical `remember` call where the Compose runtime compares all keys using object equality.
++
++**Note:** This is slightly different to a typical `remember` call where the Compose
++runtime compares all keys using object equality.
+ 
+ ### Memoization and recomposition
+ 
+@@ -113,16 +134,24 @@ skips during recomposition. Without memoization, the runtime is much more likely
+ to allocate a new lambda to any composable that takes a lambda parameter during
+ recomposition. As a result, the new lambda has parameters that are not equal to
+ the last composition. This results in recomposition.
+-| **Note:** A common misconception is that lambdas with unstable captures are themselves unstable objects. This is not true. The Compose compiler always considers lambdas to be stable. However, with Strong skipping disabled, the compiler does not memoize them and the runtime allocates them during recomposition. As such, lambdas with unstable captures cause Compose not to skip composables because they have unequal parameters.
++
++**Note:** A common misconception is that lambdas with unstable captures are
++themselves unstable objects. This is not true. The Compose compiler always
++considers lambdas to be stable. However, with Strong skipping disabled, the
++compiler does not memoize them and the runtime allocates them during
++recomposition. As such, lambdas with unstable captures cause Compose not to skip
++composables because they have unequal parameters.
+ 
+ ### Avoid memoization
+ 
+ If you have a lambda that you don't want to memoize, use the `@DontMemoize`
+ annotation.
+ 
+-    val lambda = @DontMemoize {
+-        ...
+-    }
++```
++val lambda = @DontMemoize {
++    ...
++}
++```
+ 
+ ## APK Size
+ 

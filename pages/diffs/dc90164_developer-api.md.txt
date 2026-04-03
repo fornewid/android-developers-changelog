@@ -1,0 +1,12 @@
+diff --git a/docs/google/play/developer-api.md b/docs/google/play/developer-api.md
+index 5cdf47c..8fa2fb0 100644
+--- a/docs/google/play/developer-api.md
++++ b/docs/google/play/developer-api.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ## Overview
+ 
+ The Google Play Console provides a suite of REST-based web service APIs that let

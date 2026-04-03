@@ -1,0 +1,592 @@
+diff --git a/docs/studio/known-issues.md b/docs/studio/known-issues.md
+index 35e2834..0aeabb6 100644
+--- a/docs/studio/known-issues.md
++++ b/docs/studio/known-issues.md
+@@ -1,20 +1,29 @@
+ ---
+-title: https://developer.android.com/studio/known-issues
++title: Known issues with Android Studio and Android Gradle Plugin  |  Android Developers
+ url: https://developer.android.com/studio/known-issues
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Studio](https://developer.android.com/studio)
++* [IDE guides](https://developer.android.com/studio/intro)
++
++# Known issues with Android Studio and Android Gradle Plugin Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ This page tracks known issues with
+ Android Studio
+ Panda 3 and Android Gradle plugin
+ 9.1.0. If you experience an issue not already included
+-here, please [report a bug](https://developer.android.com/studio/report-bugs).
+-
++here, please [report a bug](/studio/report-bugs).
+ 
+ **Upgrade to preview:** Each release of Android Studio and the Android
+ Gradle plugin aims to improve stability and performance, and add new features.
+ To experience the benefits of upcoming releases now, download and install
+-[Android Studio Preview](https://developer.android.com/studio/preview).
++[Android Studio Preview](/studio/preview).
+ 
+ ## Known Issues with Android Studio
+ 
+@@ -25,7 +34,9 @@ This section describes known issues that exist in Android Studio.
+ When using the Develocity IDE plugin v1.2.0, starting with Android Studio Panda 3 Canary 1,
+ the run action fails with the following error ([issue #492439205](https://issuetracker.google.com/492439205)):
+ 
+-    Found interface com.android.tools.idea.gradle.project.build.invoker.GradleBuildInvoker$Request, but class was expected
++```
++Found interface com.android.tools.idea.gradle.project.build.invoker.GradleBuildInvoker$Request, but class was expected
++```
+ 
+ Develocity developers are [working on a fix](https://github.com/gradle/develocity-intellij-plugin/issues/7)
+ for the new version.
+@@ -41,11 +52,13 @@ can't navigate to the source code of the lambda as usual.
+ **Workaround**: Add the compiler option below as a workaround until this
+ issue is fixed:
+ 
+-    kotlin {
+-      compilerOptions {
+-        freeCompilerArgs.add("-Xlambdas=class")
+-      }
+-    }
++```
++kotlin {
++  compilerOptions {
++    freeCompilerArgs.add("-Xlambdas=class")
++  }
++}
++```
+ 
+ ### Run configuration without "Before launch" Gradle-aware Make leads to deployment error
+ 
+@@ -54,34 +67,34 @@ run configuration information from projects that were opened with that version.
+ If you opened your project with that version at some point, and running your
+ app results in the error "loading build artifacts," verify that the active run
+ configuration has the "Gradle-aware Make" step in the "Before launch" section.
+-To verify this click **Run/Debug Configurations \> Edit Configurations**, click
++To verify this click **Run/Debug Configurations > Edit Configurations**, click
+ the active run configuration and confirm that there is a "Gradle-aware Make"
+ step in the "Before launch" section. Unfortunately Android Studio can't
+ fix this issue automatically because some run configurations may have been
+ intentionally set up without a "Gradle-aware Make" step.
+ 
+-### 'Apply Changes \& Restart Activity' does not restart the activity on API level 35 devices or emulators
++### 'Apply Changes & Restart Activity' does not restart the activity on API level 35 devices or emulators
+ 
+ When you deploy code changes to an API 35 device with
+-'Apply Changes \& Restart Activity', the app won't be restarted and you won't
++'Apply Changes & Restart Activity', the app won't be restarted and you won't
+ see the effect of the changes. If you rerun the application you will see
+ the effect of the code changes. Our team is actively investigating this.
+ 
+ ### Firebase assistant window displays an error message
+ 
+-If the Firebase Assistant Window (Tools \> Firebase from the main menu) displays an error message,
++If the Firebase Assistant Window (Tools > Firebase from the main menu) displays an error message,
+ invalidate the caches and restart Android Studio to fix the error.
+ 
+ ### Can't isolate a view using Layout Inspector
+ 
+ The ability to isolate a view using the embedded
+-[Layout Inspector](https://developer.android.com/studio/debug/layout-inspector) is temporarily unavailable.
++[Layout Inspector](/studio/debug/layout-inspector) is temporarily unavailable.
+ We're working on fixing this issue in a future release.
+ 
+ ### Compose nodes are not all inspectable using Layout Inspector
+ 
+ If you notice that not all Compose nodes are inspectable when you're using
+-[Layout Inspector](https://developer.android.com/studio/debug/layout-inspector), this is likely due to a bug
++[Layout Inspector](/studio/debug/layout-inspector), this is likely due to a bug
+ that has been fixed in Compose version 1.5.0-alpha04. If you're experiencing
+ this issue, make sure that you upgrade to Compose version 1.5.0-alpha04 or
+ higher.
+@@ -108,13 +121,15 @@ in the issues panel, make sure to include a `debugImplementation` dependency to
+ Starting with version 4.2, Android Studio now runs on JDK 11. This update
+ causes an underlying behavior change related to signing keys.
+ 
+-When you navigate to **Build \> Generate
++When you navigate to **Build > Generate
+ Signed Bundle / APK** and attempt to configure app signing for an app bundle or
+ an APK, entering different passwords for the key and keystore may result in the
+ following error:
+ 
+-    Key was created with errors:
+-    Warning: Different store and Key passwords not supported for PKCS12 Key stores
++```
++Key was created with errors:
++Warning: Different store and Key passwords not supported for PKCS12 Key stores
++```
+ 
+ To work around this issue, enter the same password for both the key and
+ keystore.
+@@ -127,7 +142,7 @@ JDK 11. If that process fails, the IDE may not start for certain users who
+ set custom VM options in the *.vmoptions* file.
+ 
+ To work around this issue, we recommend commenting out custom options
+-in *.vmoptions* (using the "#" character). The *.vmoptions* file can be
++in *.vmoptions* (using the “#” character). The *.vmoptions* file can be
+ found in the following locations:
+ 
+ **Windows**
+@@ -143,7 +158,7 @@ found in the following locations:
+ `~/.config/Google/AndroidStudio4.2/studio64.vmoptions`
+ 
+ If Studio still doesn't start after trying this workaround,
+-see [Studio doesn't start after upgrade](https://developer.android.com/studio/known-issues#studio-config-directories)
++see [Studio doesn't start after upgrade](/studio/known-issues#studio-config-directories)
+ below.
+ 
+ ### Apps using Database Inspector crash on Android 11 emulator
+@@ -151,14 +166,16 @@ below.
+ Apps using the Database Inspector may crash when running on the Android 11
+ emulator, with an error like the following appearing in logcat:
+ 
+-     Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR)
++```
++ Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR)
++```
+ 
+ To fix this issue, upgrade your Android 11 emulator to version 9 or higher by
+-navigating to **Tools \> SDK Manager** . In the **SDK Platforms** tab, check
++navigating to **Tools > SDK Manager**. In the **SDK Platforms** tab, check
+ the box labeled **Show Package Details** and select revision 9 or higher of
+ the Android 11 emulator.
+ 
+-![](https://developer.android.com/static/studio/images/emulator-sdk-manager.png)
++![](/static/studio/images/emulator-sdk-manager.png)
+ 
+ ### Studio doesn't start after upgrade
+ 
+@@ -171,30 +188,26 @@ Studio to its default state, with all third-party plugins removed.
+ 
+ For Android Studio 4.1 and later:
+ 
+-- **Windows:** `%APPDATA%\Google\AndroidStudio<version>`
+-
++* **Windows:** `%APPDATA%\Google\AndroidStudio<version>`
++    
+   Example: `C:\Users\your_user_name\AppData\Roaming\Google\AndroidStudio4.1`
+-
+-- **macOS:** `~/Library/Application Support/Google/AndroidStudio<version>`
+-
++* **macOS:** `~/Library/Application Support/Google/AndroidStudio<version>`
++    
+   Example: `~/Library/Application Support/Google/AndroidStudio4.1`
+-
+-- **Linux:** `~/.config/Google/AndroidStudio<version>` and `~/.local/share/Google/AndroidStudio<version>`
+-
++* **Linux:** `~/.config/Google/AndroidStudio<version>` and `~/.local/share/Google/AndroidStudio<version>`
++    
+   Example: `~/.config/Google/AndroidStudio4.1` and `~/.local/share/Google/AndroidStudio4.1`
+ 
+ For Android Studio 4.0 and earlier:
+ 
+-- **Windows:** `%HOMEPATH%\.AndroidStudio<version>\config`
+-
++* **Windows:** `%HOMEPATH%\.AndroidStudio<version>\config`
++    
+   Example: `C:\Users\your_user_name\.AndroidStudio3.6\config`
+-
+-- **macOS:** `~/Library/Preferences/AndroidStudio<version>`
+-
++* **macOS:** `~/Library/Preferences/AndroidStudio<version>`
++    
+   Example: `~/Library/Preferences/AndroidStudio3.6`
+-
+-- **Linux:** `~/.AndroidStudio<version>/config`
+-
++* **Linux:** `~/.AndroidStudio<version>/config`
++    
+   Example: `~/.AndroidStudio3.6/config`
+ 
+ Note that the configuration directory for Canary and Beta releases of Android
+@@ -223,11 +236,11 @@ in [IntelliJ's bug tracker](https://youtrack.jetbrains.com/issue/IDEABKL-7660).
+ On ChromeOS, text might appear much smaller than in previous releases. To work
+ around this issue, do the following:
+ 
+-1. Open the **Settings** window by clicking **File \> Settings**
+-2. Navigate to **Appearance \& Behavior \> Appearance**.
++1. Open the **Settings** window by clicking **File > Settings**
++2. Navigate to **Appearance & Behavior > Appearance**.
+ 3. Select **Use custom font**.
+ 4. Increase the font size.
+-5. In the **Settings** window, navigate to **Editor \> Font**.
++5. In the **Settings** window, navigate to **Editor > Font**.
+ 6. Increase the font size.
+ 7. Click **OK**.
+ 
+@@ -242,22 +255,38 @@ interactions between the iBus daemon on Linux and Android Studio. In some
+ scenarios, the IDE stops responding to keyboard input or starts inputting
+ random characters. This bug is triggered by some missing synchronization
+ between iBus and XLib + AWT, and has already been reported upstream to
+-[JetBrains](https://youtrack.jetbrains.com/oauth?state=/issue/IDEA-78860)
++[JetBrains](https://youtrack.jetbrains.com/oauth?state=%2Fissue%2FIDEA-78860)
+ and [iBus](https://code.google.com/archive/p/ibus/issues/1770). There are
+ three current workarounds for this issue:
+ 
+-- **Workaround 1:** Force iBus into synchronous mode. Before starting Android Studio, run the following on the command line:
++* **Workaround 1:** Force iBus into synchronous mode. Before starting Android
++  Studio, run the following on the command line:
+ 
+   ```
+   $ IBUS_ENABLE_SYNC_MODE=1 ibus-daemon -xrd
+   ```
+-- **Workaround 2:** Disable iBus input in Android Studio. To disable iBus input for Android Studio only, run the following on the command line:
++* **Workaround 2:** Disable iBus input in Android Studio. To disable iBus input
++  for Android Studio only, run the following on the command line:
+ 
+   ```
+   $ XMODIFIERS= ./bin/studio
+   ```
+-  This workaround only disables input methods for Android Studio, not any other applications you may be running. Note that if you restart the daemon while Android Studio is running (for example, by running `ibus-daemon -rd`), you effectively disable the input methods for all other applications and may also crash Android Studio's JVM with a segmentation fault.
+-- **Workaround 3:** Double-check the shortcut bindings to make sure that the **Next input shortcut** is not set to Control+Space, since this is also the code completion shortcut in Android Studio. Ubuntu 14.04 (Trusty) makes Super+Space the default shortcut, but settings from previous versions may still be around. To check your shortcut bindings, run `ibus-setup` on the command line to open the IBus Preferences window. Under **Keyboard Shortcuts** , check the **Next input method**. If it is set to Control+Space, change it to Super+Space, or another shortcut of your choice.
++
++  This workaround only disables input methods for Android Studio, not
++  any other applications you may be running. Note that if you restart the
++  daemon while Android Studio is running (for example, by running
++  `ibus-daemon -rd`), you effectively disable the input methods for all
++  other applications and may also crash Android Studio's JVM with a
++  segmentation fault.
++* **Workaround 3:** Double-check the shortcut bindings to make sure that the
++  **Next input shortcut** is not set to Control+Space, since this is also
++  the code completion shortcut in Android Studio. Ubuntu 14.04 (Trusty)
++  makes Super+Space the default shortcut, but settings from previous
++  versions may still be around. To check your shortcut bindings, run
++  `ibus-setup` on the command line to open the IBus Preferences window.
++  Under **Keyboard Shortcuts**, check the **Next input method**. If it is
++  set to Control+Space, change it to Super+Space, or another shortcut of
++  your choice.
+ 
+ ### Project configuration
+ 
+@@ -268,12 +297,17 @@ sync.
+ 
+ The issue is that the Gradle daemon is trying to use IPv4 instead of IPv6.
+ 
+-- Workaround 1: On Linux, put the following in your `~/.profile` or `~/.bash_profile`:
++* Workaround 1: On Linux, put the following in your `~/.profile` or
++  `~/.bash_profile`:
+ 
+-      export _JAVA_OPTIONS="-Djava.net.preferIPv6Addresses=true"
+-
+-- Workaround 2: in Android Studio's [vmoptions
+-  file](https://sites.google.com/a/android.com/tools/tech-docs/configuration), change the line `-Djava.net.preferIPv4Addresses=true` to `-Djava.net.preferIPv6Addresses=true` For more information, see the [Networking IPv6 User
++  ```
++  export _JAVA_OPTIONS="-Djava.net.preferIPv6Addresses=true"
++  ```
++* Workaround 2: in Android Studio's [vmoptions
++  file](https://sites.google.com/a/android.com/tools/tech-docs/configuration),
++  change the line `-Djava.net.preferIPv4Addresses=true` to
++  `-Djava.net.preferIPv6Addresses=true` For more information, see the
++  [Networking IPv6 User
+   Guide](http://docs.oracle.com/javase/1.5.0/docs/guide/net/ipv6_guide/).
+ 
+ #### "peer not authenticated" errors from Gradle sync or SDK Manager
+@@ -282,8 +316,14 @@ The root cause of these errors is a missing certificate in
+ `$JAVA_HOME/jre/lib/certificates/cacerts`. To resolve these errors, proceed
+ as follows:
+ 
+-- If you're behind a proxy, try to connect directly. If the direct connection works, then in order to connect via the proxy you may need to use `keytool` to add the proxy server's certificate to the cacerts file.
+-- Re-install a supported, unmodified JDK. There's a [known issue](https://bugs.launchpad.net/ubuntu/+source/ca-certificates-java/+bug/1396760) affecting Ubuntu users, which results in an empty `/etc/ssl/certs/java/cacerts`. To work around this issue, execute the following on the command line:
++* If you're behind a proxy, try to connect directly. If the direct
++  connection works, then in order to connect via the proxy you may need to
++  use `keytool` to add the proxy server's certificate to the cacerts file.
++* Re-install a supported, unmodified JDK. There's a
++  [known issue](https://bugs.launchpad.net/ubuntu/+source/ca-certificates-java/+bug/1396760)
++  affecting Ubuntu users, which results in an empty
++  `/etc/ssl/certs/java/cacerts`. To work around this issue, execute the
++  following on the command line:
+ 
+   ```
+   sudo /var/lib/dpkg/info/ca-certificates-java.postinst configure
+@@ -294,7 +334,7 @@ as follows:
+ This section describes known issues related to deploying your app to a connected
+ device.
+ 
+-#### \[Mac OS only\] Incremental updates are not applied due to an issue with Gradle file watching on projects saved under `/System/Volumes/Data`
++#### [Mac OS only] Incremental updates are not applied due to an issue with Gradle file watching on projects saved under `/System/Volumes/Data`
+ 
+ [Gradle issue 18149](https://github.com/gradle/gradle/issues/18149) affects
+ Android Gradle Plugin versions 7.0 and higher because they [require Gradle version 7.0 and higher](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle). Starting in Gradle 7.0, file watching is enabled by default.
+@@ -317,12 +357,13 @@ compatibility and stability with macOS. However, macOS 10.13 has a more
+ involved process to install kernel extensions such as HAXM. You need
+ to manually allow the kernel extension itself to be installed as follows:
+ 
+-1. First, attempt to install the latest version of HAXM from the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager).
+-2. In MacOS, go to **System Preferences \> Security and Privacy**.
++1. First, attempt to install the latest version of HAXM from the
++   [SDK Manager](/studio/intro/update#sdk-manager).
++2. In MacOS, go to **System Preferences > Security and Privacy**.
+ 3. If you see an alert that *System software from developer "Intel Corporation
+-   Apps" was blocked from loading* , click **Allow**:
++   Apps" was blocked from loading*, click **Allow**:
+ 
+-   ![](https://developer.android.com/static/studio/images/unblock-haxm-install-10-13.png)
++   ![](/static/studio/images/unblock-haxm-install-10-13.png)
+ 
+ For more information and workarounds, see
+ [this Apple webpage](https://developer.apple.com/library/content/technotes/tn2459/_index.html) and [issue 62395878](https://issuetracker.google.com/issues/62395878).
+@@ -330,23 +371,23 @@ For more information and workarounds, see
+ ### Apply Changes
+ 
+ This section describes known issues that are related to [Apply
+-Changes](https://developer.android.com/studio/run#apply-changes).
++Changes](/studio/run#apply-changes).
+ 
+ #### New app name not applied
+ 
+ If you rename your app and then try to apply that change, the updated name might
+ not be reflected. To work around this issue, click **Run**
+-![Run icon](https://developer.android.com/static/studio/images/buttons/toolbar-run.png)
++![Run icon](/static/studio/images/buttons/toolbar-run.png)
+ to re-deploy your app and see your changes.
+ 
+ #### Issue in Android Runtime throws error
+ 
+ If you're using a device that runs Android 8.0 or 8.1, you might encounter
+-"VERIFICATION_ERROR" messages when trying to apply certain types of changes
++"VERIFICATION\_ERROR" messages when trying to apply certain types of changes
+ (especially if you're using Kotlin). This message is caused by an issue with the
+ Android Runtime that is fixed in Android 9.0 and higher. Although the issue
+ causes Apply Changes to fail, you can still **Run**
+-![Run icon](https://developer.android.com/static/studio/images/buttons/toolbar-run.png)
++![Run icon](/static/studio/images/buttons/toolbar-run.png)
+ your app again to see your changes. However, we recommend that you upgrade the
+ device to Android 9.0 or greater.
+ 
+@@ -367,8 +408,12 @@ This issue occurs because as of IntelliJ 13, which requires that you only have
+ a single folder as the classpath. IntelliJ's builder copies all resources
+ into that build folder, but Gradle doesn't copy over the resources.
+ 
+-- Workaround 1: Run the Gradle `check` task from the IDE rather than running a unit test.
+-- Workaround 2: Update your build script to manually copy resources into the build folder. See [comment #13](https://code.google.com/p/android/issues/detail?id=64887#c13) for more information.
++* Workaround 1: Run the Gradle `check` task from the IDE rather than
++  running a unit test.
++* Workaround 2: Update your build script to manually copy resources into
++  the build folder. See
++  [comment #13](https://code.google.com/p/android/issues/detail?id=64887#c13)
++  for more information.
+ 
+ #### Running JUnit tests may compile the code twice
+ 
+@@ -376,11 +421,13 @@ When creating a new project, the template JUnit configuration might be created
+ with two "Before launch" steps: Make and Gradle-aware Make. This configuration
+ is then propagated to all created JUnit run configurations.
+ 
+-- To fix the issue for the current project, click **Run \> Edit
+-  Configurations** and change the default JUnit configuration to only include the Gradle-aware Make step.
+-- To fix the issue for all future projects, click **File \> Close
+-  Project** . You should see the welcome screen. Then click **Configure \>
+-  Project Defaults \> Run Configurations** and change the JUnit configuration to only include the Gradle-aware Make step.
++* To fix the issue for the current project, click **Run > Edit
++  Configurations** and change the default JUnit configuration to only
++  include the Gradle-aware Make step.
++* To fix the issue for all future projects, click **File > Close
++  Project**. You should see the welcome screen. Then click **Configure >
++  Project Defaults > Run Configurations** and change the JUnit
++  configuration to only include the Gradle-aware Make step.
+ 
+ #### Some test run configurations don't work
+ 
+@@ -388,12 +435,16 @@ Not all run configurations that
+ are available when right-clicking a test method are valid. Specifically, the
+ following configurations are not valid:
+ 
+-- Gradle run configurations (which have a Gradle logo as the icon) don't work.
+-- JUnit run configurations (which have an icon without the green Android) don't apply to instrumentation tests, which cannot be run on the local JVM.
++* Gradle run configurations (which have a Gradle logo as the icon) don't
++  work.
++* JUnit run configurations (which have an icon without the green Android)
++  don't apply to instrumentation tests, which cannot be run on the local JVM.
+ 
+-Android Studio also remembers the run configuration created in a given context (for example, right-clicking a specific class or method), and will not offer to run in a different configuration in the future. To fix this, click **Run \> Edit Configurations** and remove the incorrectly-created configurations.
+-
+-<br />
++Android Studio also remembers the run configuration created in a given
++context (for example, right-clicking a specific class or method), and will not
++offer to run in a different configuration in the future. To fix this, click
++**Run > Edit Configurations** and remove the incorrectly-created
++configurations.
+ 
+ #### Adding Java breakpoints while debugging native code
+ 
+@@ -410,9 +461,9 @@ While using the **Auto** or **Dual** debugger to
+ debug Java and native code, if you step into a native function *from*
+ your Java code (for example, the debugger pauses execution at a line in your
+ Java code that calls a native function and you click **Step Into**
+-![](https://developer.android.com/static/studio/images/debug/debugger_button_stepinto_2-0.png)) and you want to return to your Java code, click
+-**Resume Program** ![](https://developer.android.com/static/studio/images/debug/debugger_button_resume_2-0.png) (instead of **Step Out** ![](https://developer.android.com/static/studio/images/debug/debugger_button_stepout_2-0.png) or **Step Over** ![](https://developer.android.com/static/studio/images/debug/debugger_button_stepover_2-0.png)). Your app process will still be paused, so click **Resume
+-Program** ![](https://developer.android.com/static/studio/images/debug/debugger_button_resume_2-0.png) in the **<var translate="no">your-module</var>-java**
++![](/static/studio/images/debug/debugger_button_stepinto_2-0.png)) and you want to return to your Java code, click
++**Resume Program** ![](/static/studio/images/debug/debugger_button_resume_2-0.png) (instead of **Step Out** ![](/static/studio/images/debug/debugger_button_stepout_2-0.png) or **Step Over** ![](/static/studio/images/debug/debugger_button_stepover_2-0.png)). Your app process will still be paused, so click **Resume
++Program** ![](/static/studio/images/debug/debugger_button_resume_2-0.png) in the **your-module-java**
+ tab to resume it. For more information, see [issue
+ 224385](https://code.google.com/p/android/issues/detail?id=224385).
+ 
+@@ -469,18 +520,21 @@ that includes the make/model of your device(s) and any relevant entries from
+ When using Platform Tools 29.0.3, native debugging and the Android Studio
+ Profilers might not work properly, and you might see either
+ "AdbCommandRejectedException" or "Failed to connect port" in the `idea.log`
+-file when you select **Help \> Show Log**. Upgrading the Platform Tools to
++file when you select **Help > Show Log**. Upgrading the Platform Tools to
+ 29.0.4 or higher fixes both issues.
+ 
+ To upgrade the Platform Tools, do the following:
+ 
+-1. Open the SDK Manager from Android Studio by clicking **Tools \>
+-   SDK Manager** or click **SDK Manager** ![](https://developer.android.com/static/studio/images/buttons/toolbar-sdk-manager.png) in the toolbar.
+-2. Click the checkbox next to **Android SDK
+-   Platform-Tools** so it shows a checkmark. A download icon ![](https://developer.android.com/static/images/tools/studio-sdk-dwnld-icon.png) should appear in the left column.
+-3. Click **Apply** or **OK**.
++1. Open the SDK Manager from Android Studio by clicking **Tools >
++   SDK Manager** or click **SDK Manager**
++   ![](/static/studio/images/buttons/toolbar-sdk-manager.png)
++   in the toolbar.
++
++- Click the checkbox next to **Android SDK
++  Platform-Tools** so it shows a checkmark. A download icon
++  ![](/static/images/tools/studio-sdk-dwnld-icon.png) should appear in the left column.
+ 
+-<br />
++- Click **Apply** or **OK**.
+ 
+ ### Plugin prevents Build Output window from working
+ 
+@@ -503,9 +557,9 @@ directory. On Windows, to clear the cache use
+ ### Espresso Test Recorder doesn't work with Compose
+ 
+ The
+-[Espresso Test Recorder](https://developer.android.com/studio/test/other-testing-tools/espresso-test-recorder)
++[Espresso Test Recorder](/studio/test/other-testing-tools/espresso-test-recorder)
+ doesn't work with projects that include Compose. To create UI tests for projects
+-that include Compose, see [Testing your Compose layout](https://developer.android.com/jetpack/compose/testing).
++that include Compose, see [Testing your Compose layout](/jetpack/compose/testing).
+ 
+ ### Logcat shortcut conflicts with non-English keyboard layouts
+ 
+@@ -513,7 +567,7 @@ If you're using a non-English keyboard layout, a default Logcat keyboard
+ shortcut might conflict with the layout and prevent you from typing certain
+ characters when editing text in Android Studio. To work around this issue,
+ delete or re-map the conflicting Logcat keymap. To edit the Logcat keymaps in
+-Android Studio, go to **Android Studio \> Settings \> Keymap** and search for
++Android Studio, go to **Android Studio > Settings > Keymap** and search for
+ `Logcat` in the list of keymaps. For more information, see
+ [issue #263475910](https://issuetracker.google.com/issues/263475910).
+ 
+@@ -544,10 +598,10 @@ Using the Variant API to manipulate variant outputs is broken with the new
+ plugin. It still works for simple tasks, such as changing the APK name during
+ build time, as shown below:
+ 
+-```kotlin
++```
+ // If you use each() to iterate through the variant objects,
+ // you need to start using all(). That's because each() iterates
+-// through only the objects that already exist during configuration time---
++// through only the objects that already exist during configuration time—
+ // but those object don't exist at configuration time with the new model.
+ // However, all() adapts to the new model by picking up object as they are
+ // added during execution.
+@@ -558,8 +612,6 @@ android.applicationVariants.all { variant ->
+ }
+ ```
+ 
+-<br />
+-
+ However, more complicated tasks that involve accessing `outputFile` objects
+ no longer work. That's because variant-specific tasks are no longer created
+ during the configuration stage. This results in the plugin not knowing
+@@ -577,15 +629,13 @@ A problem occurred configuring project ':myapp'.
+    com.android.build.gradle.tasks.ProcessManifest.
+ ```
+ 
+-<br />
+-
+ Instead of calling `manifestOutputFile()` to get the manifest file for each
+ variant, you can call `processManifest.manifestOutputDirectory()` to return the
+ path of the directory that contains all generated manifests. You can then
+ locate a manifest and apply your logic to it. The sample below dynamically
+ changes the version code in the manifest:
+ 
+-```kotlin
++```
+ android.applicationVariants.all { variant ->
+     variant.outputs.all { output ->
+         output.processManifest.doLast {
+@@ -615,30 +665,44 @@ continue to use Kotlin 1.6.21.
+ 
+ This section describes known issues that have been fixed in a recent release. If
+ you are experiencing any of these issues, you should [update Android
+-Studio](https://developer.android.com/studio) to the latest stable or [preview version](https://developer.android.com/studio/preview).
++Studio](/studio) to the latest stable or [preview version](/studio/preview).
+ 
+ **Fixed in Android Studio 2021.1.1**
+ 
+-- **Missing lint output** : There is no lint text output printed to `stdout` when the lint task is `UP-TO-DATE` ([issue #191897708](https://issuetracker.google.com/issues/191897708)). Fixed in AGP 7.1.0-alpha05.
+-- **Problems with unit testing an app project that uses the Hilt plugin** : The unit test classpath contains the non-instrumented app classes, which means Hilt does not instrument the app classes to handle dependency injection when running unit tests ([issue #213534628](https://issuetracker.google.com/issues/213534628)). Fixed in AGP 7.1.1.
++* **Missing lint output**: There is no lint text output printed to `stdout` when
++  the lint task is `UP-TO-DATE`
++  ([issue #191897708](https://issuetracker.google.com/issues/191897708)). Fixed in
++  AGP 7.1.0-alpha05.
++* **Problems with unit testing an app project that uses the Hilt plugin**:
++  The unit test classpath contains the non-instrumented app classes, which means
++  Hilt does not instrument the app classes to handle dependency injection when
++  running unit tests
++  ([issue #213534628](https://issuetracker.google.com/issues/213534628)).
++  Fixed in AGP 7.1.1.
+ 
+ **Fixed in Android Studio 2020.3.1**
+ 
+-- **Lint exceptions in Kotlin projects:** Kotlin projects that set `checkDependencies = true` may encounter null pointer exceptions or errors ([issue #158777858](http://issuetracker.google.com/158777858)).
++* **Lint exceptions in Kotlin projects:** Kotlin projects that set
++  `checkDependencies = true` may encounter null pointer exceptions or errors
++  ([issue #158777858](http://issuetracker.google.com/158777858)).
+ 
+ **Fixed in Android Studio 4.2**
+ 
+-- **IDE freezes on macOS Big Sur:** Android Studio 4.1 might freeze when you open a dialog.
++* **IDE freezes on macOS Big Sur:** Android Studio 4.1 might freeze when you
++  open a dialog.
+ 
+ **Fixed in Android Studio 4.1**
+ 
+-- **Restart to apply memory settings from previous version of IDE:** After updating Android Studio, you need to restart Android Studio to apply any memory settings migrated from an earlier version of the IDE.
+-- **Manifest class with custom permission strings is no longer generated by
+-  default:** If you want to generate the class, set `android.generateManifestClass = true`.
++* **Restart to apply memory settings from previous version of IDE:** After
++  updating Android Studio, you need to restart Android Studio to apply any
++  memory settings migrated from an earlier version of the IDE.
++* **Manifest class with custom permission strings is no longer generated by
++  default:** If you want to generate the class, set
++  `android.generateManifestClass = true`.
+ 
+ **Fixed in Android Studio 3.6**
+ 
+-- **APK installation error on LineageOS** : Deploying your app to devices
++* **APK installation error on LineageOS**: Deploying your app to devices
+   running certain versions of LineageOS or CyanogenMod might fail and throw
+   an `INSTALL_PARSE_FAILED_NOT_APK` exception.
+ 
+@@ -649,11 +713,13 @@ Studio](https://developer.android.com/studio) to the latest stable or [preview v
+ 
+ **Fixed in Android Studio 3.5.2**
+ 
+-- **Broken XML code style** : When editing XML code, the IDE applied an incorrect code style when you selected **Code \> Reformat Code** from the menu bar.
++* **Broken XML code style**: When editing XML code, the IDE applied an
++  incorrect code style when you selected **Code > Reformat Code** from the
++  menu bar.
+ 
+ **Fixed in Android Studio 3.3.1**
+ 
+-- **Out of memory errors when scanning C++-based projects**: When Gradle scans
++* **Out of memory errors when scanning C++-based projects**: When Gradle scans
+   a project that has C++ code in more than one location on the same drive, the
+   scan includes all directories below the first common directory. Scanning
+   a large number of directories and files may lead to out of memory errors.

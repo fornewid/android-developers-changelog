@@ -1,0 +1,12 @@
+diff --git a/docs/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md b/docs/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md
+index 6cd1a44..5ec111d 100644
+--- a/docs/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md
++++ b/docs/media/media3/exoplayer/preloading-media/preloadmanager/manage-play.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page describes how to use a preload manager to manage video content. By
+ using a preload manager, you can give the user a better experience; when the
+ user switches from one media item to another, the playback starts faster because

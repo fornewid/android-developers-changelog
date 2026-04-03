@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/tracing/custom-events.md b/docs/topic/performance/tracing/custom-events.md
+index 4dac042..978a2bd 100644
+--- a/docs/topic/performance/tracing/custom-events.md
++++ b/docs/topic/performance/tracing/custom-events.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ System tracing shows you information about processes only at the system level,
+ so it's sometimes difficult to know which of your app or game's methods are
+ executing at a given time relative to system events.

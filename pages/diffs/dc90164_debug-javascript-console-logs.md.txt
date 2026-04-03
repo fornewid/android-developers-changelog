@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/webapps/debug-javascript-console-logs.md b/docs/develop/ui/views/layout/webapps/debug-javascript-console-logs.md
+index bba662e..6dec8dd 100644
+--- a/docs/develop/ui/views/layout/webapps/debug-javascript-console-logs.md
++++ b/docs/develop/ui/views/layout/webapps/debug-javascript-console-logs.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This document describes different methods for viewing JavaScript console logs to
+ debug content within a WebView.
+ 

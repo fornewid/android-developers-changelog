@@ -1,0 +1,12 @@
+diff --git a/docs/quality/privacy-and-security.md b/docs/quality/privacy-and-security.md
+index 6981679..c7d2dfe 100644
+--- a/docs/quality/privacy-and-security.md
++++ b/docs/quality/privacy-and-security.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ![](https://developer.android.com/static/images/quality/hero-images/privacy_security_highlighted.svg)
+ 
+ ### Design for Safety

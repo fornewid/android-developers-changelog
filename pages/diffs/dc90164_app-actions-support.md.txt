@@ -1,0 +1,59 @@
+diff --git a/docs/develop/devices/assistant/app-actions-support.md b/docs/develop/devices/assistant/app-actions-support.md
+index bfce2ec..e3e1bb2 100644
+--- a/docs/develop/devices/assistant/app-actions-support.md
++++ b/docs/develop/devices/assistant/app-actions-support.md
+@@ -1,19 +1,9 @@
+ ---
+-title: App Actions support  |  Assistant  |  Android Developers
++title: https://developer.android.com/develop/devices/assistant/app-actions-support
+ url: https://developer.android.com/develop/devices/assistant/app-actions-support
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Assistant](https://developer.android.com/develop/devices/assistant/overview)
+-
+-# App Actions support Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ Resources for development questions, reporting issues, and staying connected to
+ the community can be found below.
+ 
+@@ -22,25 +12,19 @@ the community can be found below.
+ If you've got a question or hit a snag, our developer communities are the best
+ places to get answers from other App Actions developers:
+ 
+-* [![](/static/guide/app-actions/images/icon-stackoverflow-01.svg)
+-  Stack Overflow](https://stackoverflow.com/questions/tagged/app-actions)
+-  For help with general development questions - find
+-  answers from the smart home developer community under the
+-  `app-actions` tag.
+-* [![](/static/guide/app-actions/images/icon-reddit-01.svg)
+-  Reddit](https://www.reddit.com/r/GoogleAssistantDev/)
+-  Join the discussion and collaborate on the official Reddit community.
++- [![](https://developer.android.com/static/guide/app-actions/images/icon-stackoverflow-01.svg)
++  Stack Overflow](https://stackoverflow.com/questions/tagged/app-actions) For help with general development questions - find answers from the smart home developer community under the `app-actions` tag.
++- [![](https://developer.android.com/static/guide/app-actions/images/icon-reddit-01.svg)
++  Reddit](https://www.reddit.com/r/GoogleAssistantDev/) Join the discussion and collaborate on the official Reddit community.
+ 
+ ## Google support for Assistant developers
+ 
+ Use [Assistant Developer Support](https://support.google.com/actions-console/contact/support) for the following
+ requests:
+ 
+-* **App review queries**: status updates, policy clarifications, and appeals.
+-* **Action triggering**: requests to improve speech-biasing for certain App
+-  names, and other invocation related issues.
+-* **Bootstrapping opt-out**: Request to remove your App from App Actions
+-  [bootstrapping](/guide/app-actions/overview#building_app_actions).
++- **App review queries**: status updates, policy clarifications, and appeals.
++- **Action triggering**: requests to improve speech-biasing for certain App names, and other invocation related issues.
++- **Bootstrapping opt-out** : Request to remove your App from App Actions [bootstrapping](https://developer.android.com/guide/app-actions/overview#building_app_actions).
+ 
+ ## Report a bug or send developer feedback
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/app-types/branding-elements.md b/docs/design/ui/cars/guides/app-types/branding-elements.md
+index 74779ed..f6d42f9 100644
+--- a/docs/design/ui/cars/guides/app-types/branding-elements.md
++++ b/docs/design/ui/cars/guides/app-types/branding-elements.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Branding elements like icons and colors help users to easily recognize your app.
+ You'll need to provide an app icon and select an accent color to represent your
+ brand wherever your content is visible.

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/devices/chromeos/learn/camera-orientation.md b/docs/develop/devices/chromeos/learn/camera-orientation.md
+index 044c945..7c0dc6c 100644
+--- a/docs/develop/devices/chromeos/learn/camera-orientation.md
++++ b/docs/develop/devices/chromeos/learn/camera-orientation.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If your Android app uses cameras, there are some special considerations when handling orientations. This document presumes you understand the basic concepts of the Android `camera2` API. You can read our [blog post](https://medium.com/google-developers/detecting-camera-features-with-camera2-61675bb7d1bf) or [summary](/reference/android/hardware/camera2/package-summary) for an overview of camera2. We also recommend that you try writing a camera app first before approaching this document.
+ 
+ ## Background

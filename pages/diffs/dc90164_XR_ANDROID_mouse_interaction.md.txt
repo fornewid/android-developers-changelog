@@ -1,0 +1,134 @@
+diff --git a/docs/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction.md b/docs/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction.md
+index f848f2a..417e910 100644
+--- a/docs/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction.md
++++ b/docs/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction.md
+@@ -1,22 +1,9 @@
+ ---
+-title: XR_ANDROID_mouse_interaction OpenXR extension  |  Android XR for OpenXR  |  Android Developers
++title: https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction
+ url: https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-The Android XR SDK has  [reached Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
+-
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Android XR](https://developer.android.com/develop/xr)
+-* [OpenXR](https://developer.android.com/develop/xr/openxr)
+-* [Guides](https://developer.android.com/develop/xr/get-started)
+-
+-# XR\_ANDROID\_mouse\_interaction OpenXR extension Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ **Name String**
+ 
+ `XR_ANDROID_mouse_interaction`
+@@ -69,20 +56,20 @@ for mouse devices to input through the [OpenXR action system](https://registry.k
+ The following action pose (i.e. "aim") enables a 3D pointer ray, whether the
+ tracking inputs are provided by a mouse device or a trackpad device.
+ 
+-The *…/input/aim/pose* action subpath will be supported on all
++The *.../input/aim/pose* action subpath will be supported on all
+ [interaction profiles](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#semantic-paths-interaction-profiles) that are valid for the user path of */user/mouse*,
+ including those interaction profiles enabled through extensions.
+ 
+ ### Aim pose
+ 
+-The *…/input/aim/pose* is designed for interacting with objects through a mouse
++The *.../input/aim/pose* is designed for interacting with objects through a mouse
+ pointer in 3D space. For example, using a virtual laser pointer to aim at a
+ virtual button on the wall is an interaction suited to the "aim" pose.
+ 
+ This is the same "aim" pose defined in [Standard pose identifiers](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#semantic-paths-standard-pose-identifiers). Every
+ tracked controller profile already supports this pose.
+ 
+-![Example aim pose](/static/images/develop/xr/openxr/mouse-interaction-aim-pose-1.png)
++![Example aim pose](https://developer.android.com/static/images/develop/xr/openxr/mouse-interaction-aim-pose-1.png)
+ 
+ **Position**
+ 
+@@ -106,7 +93,7 @@ the aiming ray is pointing at.
+ The relative X,Y movement of the mouse is used to compute the relative movement
+ of the mouse along a sphere around the user's head.
+ 
+-![Example aim pose](/static/images/develop/xr/openxr/mouse-interaction-aim-pose-2.png)
++![Example aim pose](https://developer.android.com/static/images/develop/xr/openxr/mouse-interaction-aim-pose-2.png)
+ 
+ Depth movement will be supported using primary click and scroll.
+ When an action to move in depth is in process, the position is offset from the
+@@ -123,42 +110,42 @@ scroll, and action pose to the [OpenXR action system](https://registry.khronos.o
+ 
+ Interaction profile path:
+ 
+-* */interaction\_profiles/android/mouse\_interaction\_android*
++- */interaction_profiles/android/mouse_interaction_android*
+ 
+ Valid for top level user path:
+ 
+-* */user/mouse*
++- */user/mouse*
+ 
+ Supported component paths:
+ 
+-* *…/input/aim/pose*
+-* *…/input/select/click*
+-* *…/input/secondary\_android/click*
+-* *…/input/tertiary\_android/click*
+-* *…/input/scroll\_android/value*
++- *.../input/aim/pose*
++- *.../input/select/click*
++- *.../input/secondary_android/click*
++- *.../input/tertiary_android/click*
++- *.../input/scroll_android/value*
+ 
+-This interaction profile supports the [action pose](#android_mouse_interaction-action-pose) described in this
++This interaction profile supports the [action pose](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_mouse_interaction#android_mouse_interaction-action-pose) described in this
+ section, as well as the following two groups of action inputs.
+ 
+ ### Click action
+ 
+-This interaction profile supports *…/input/select/click,
+-…/input/secondary\_android/click* and /input/tertiary\_android/click actions.
++This interaction profile supports *.../input/select/click,
++.../input/secondary_android/click* and /input/tertiary_android/click actions.
+ 
+-The *…/input/select/click* is a boolean input, where the value `XR_TRUE`
++The *.../input/select/click* is a boolean input, where the value `XR_TRUE`
+ indicates that the primary button on the mouse or trackpad is pressed.
+ 
+-The *…/input/secondary\_android/click* is a boolean input, where the value `XR_TRUE`
++The *.../input/secondary_android/click* is a boolean input, where the value `XR_TRUE`
+ indicates that the secondary button on the mouse or trackpad is pressed.
+ 
+-The *…/input/tertiary\_android/click* is a boolean input, where the value `XR_TRUE`
++The *.../input/tertiary_android/click* is a boolean input, where the value `XR_TRUE`
+ indicates that the mouse scroll or the tertiary button is pressed.
+ 
+ ### Scroll action
+ 
+-This interaction profile supports *…/input/scroll\_android/value* actions.
++This interaction profile supports *.../input/scroll_android/value* actions.
+ 
+-The *…/input/scroll\_android/value* is a 1D input component varying from -1 to 1 to map
++The *.../input/scroll_android/value* is a 1D input component varying from -1 to 1 to map
+ to scroll down and scroll up.
+ 
+ **New Object Types**
+@@ -177,10 +164,10 @@ to scroll down and scroll up.
+ 
+ **Version History**
+ 
+-* Revision 1, 2024-08-29 (Levana Chen)
+-  + Initial extension description
++- Revision 1, 2024-08-29 (Levana Chen)
++  - Initial extension description
+ 
+----
++*** ** * ** ***
+ 
+ OpenXR™ and the OpenXR logo are trademarks owned
+ by The Khronos Group Inc. and are registered as a trademark in China,
