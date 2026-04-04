@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page describes how to capture high-quality images with CameraX. You do so
 with the [`ImageCapture`](/reference/androidx/camera/core/ImageCapture) class and its associated methods.
 

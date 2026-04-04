@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **Note:** If you're using Kotlin 2.0 or higher, configure Compose using the [Compose
 Compiler Gradle plugin](/develop/ui/compose/compiler). When you use the Compose
 Compiler Gradle plugin, you don't have to check Compose to Kotlin compatibility.

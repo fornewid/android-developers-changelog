@@ -1,10 +1,18 @@
 ---
-title: https://developer.android.com/training/backward-compatible-ui/older-implementation
+title: Create an implementation with older APIs  |  Views  |  Android Developers
 url: https://developer.android.com/training/backward-compatible-ui/older-implementation
-source: md.txt
+source: html-scrape
 ---
 
-# Create an implementation with older APIs
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Create an implementation with older APIs Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 This lesson discusses how to create an implementation that mirrors newer APIs yet supports older devices.
 
@@ -12,28 +20,26 @@ This lesson discusses how to create an implementation that mirrors newer APIs ye
 
 The most challenging task in using newer UI features in a backward-compatible way is deciding on and implementing an older (fallback) solution for older platform versions. In many cases, it's possible to fulfill the purpose of these newer UI components using older UI framework features. For example:
 
-- Action bars can be implemented using a horizontal[LinearLayout](https://developer.android.com/reference/android/widget/LinearLayout)containing image buttons, either as custom title bars or as views in your activity layout. Overflow actions can be presented under the device*Menu*button.
+* Action bars can be implemented using a horizontal `LinearLayout` containing image buttons, either as custom title bars or as views in your activity layout. Overflow actions can be presented under the device *Menu* button.
+* Action bar tabs can be implemented using a horizontal `LinearLayout` containing buttons, or using the `TabWidget` UI element.
+* `NumberPicker` and `Switch` widgets can be implemented using `Spinner` and `ToggleButton` widgets, respectively.
+* `ListPopupWindow` and `PopupMenu` widgets can be implemented using `PopupWindow` widgets.
 
-- Action bar tabs can be implemented using a horizontal[LinearLayout](https://developer.android.com/reference/android/widget/LinearLayout)containing buttons, or using the[TabWidget](https://developer.android.com/reference/android/widget/TabWidget)UI element.
-
-- [NumberPicker](https://developer.android.com/reference/android/widget/NumberPicker)and[Switch](https://developer.android.com/reference/android/widget/Switch)widgets can be implemented using[Spinner](https://developer.android.com/reference/android/widget/Spinner)and[ToggleButton](https://developer.android.com/reference/android/widget/ToggleButton)widgets, respectively.
-
-- [ListPopupWindow](https://developer.android.com/reference/android/widget/ListPopupWindow)and[PopupMenu](https://developer.android.com/reference/android/widget/PopupMenu)widgets can be implemented using[PopupWindow](https://developer.android.com/reference/android/widget/PopupWindow)widgets.
-
-There generally isn't a one-size-fits-all solution for backporting newer UI components to older devices. Be mindful of the user experience: on older devices, users may not be familiar with newer design patterns and UI components. Give some thought as to how the same functionality can be delivered using familiar elements. In many cases this is less of a concern---if newer UI components are prominent in the application ecosystem (such as the action bar), or where the interaction model is extremely simple and intuitive (such as swipe views using a[ViewPager](https://developer.android.com/reference/androidx/viewpager/widget/ViewPager)).
+There generally isn't a one-size-fits-all solution for backporting newer UI components to older devices. Be mindful of the user experience: on older devices, users may not be familiar with newer design patterns and UI components. Give some thought as to how the same functionality can be delivered using familiar elements. In many cases this is less of a concern—if newer UI components are prominent in the application ecosystem (such as the action bar), or where the interaction model is extremely simple and intuitive (such as swipe views using a `ViewPager`).
 
 ## Implement tabs using older APIs
 
-To create an older implementation of action bar tabs, you can use a[TabWidget](https://developer.android.com/reference/android/widget/TabWidget)and[TabHost](https://developer.android.com/reference/android/widget/TabHost)(although one can alternatively use horizontally laid-out[Button](https://developer.android.com/reference/android/widget/Button)widgets). Implement this in classes called`TabHelperEclair`and`CompatTabEclair`, since this implementation uses APIs introduced no later than Android 2.0 (Eclair).
-![Class diagram for the Eclair implementation of tabs.](https://developer.android.com/static/images/training/backward-compatible-ui-classes-eclair.png)
+To create an older implementation of action bar tabs, you can use a `TabWidget` and `TabHost` (although one can alternatively use horizontally laid-out `Button` widgets). Implement this in classes called `TabHelperEclair` and `CompatTabEclair`, since this implementation uses APIs introduced no later than Android 2.0 (Eclair).
 
-**Figure 1.**Class diagram for the Eclair implementation of tabs.
+![Class diagram for the Eclair implementation of tabs.](/static/images/training/backward-compatible-ui-classes-eclair.png)
 
-The`CompatTabEclair`implementation stores tab properties such as the tab text and icon in instance variables, since there isn't an[ActionBar.Tab](https://developer.android.com/reference/android/app/ActionBar.Tab)object available to handle this storage:  
+**Figure 1.** Class diagram for the Eclair implementation of tabs.
+
+The `CompatTabEclair` implementation stores tab properties such as the tab text and icon in instance variables, since there isn't an `ActionBar.Tab` object available to handle this storage:
 
 ### Kotlin
 
-```kotlin
+```
 class CompatTabEclair internal constructor(val activity: FragmentActivity, tag: String) :
         CompatTab(tag) {
 
@@ -56,7 +62,7 @@ class CompatTabEclair internal constructor(val activity: FragmentActivity, tag: 
 
 ### Java
 
-```java
+```
 public class CompatTabEclair extends CompatTab {
     // Store these properties in the instance,
     // as there is no ActionBar.Tab object.
@@ -75,11 +81,13 @@ public class CompatTabEclair extends CompatTab {
 }
 ```
 
-The`TabHelperEclair`implementation makes use of methods on the[TabHost](https://developer.android.com/reference/android/widget/TabHost)widget for creating[TabHost.TabSpec](https://developer.android.com/reference/android/widget/TabHost.TabSpec)objects and tab indicators:  
+The `TabHelperEclair` implementation makes use of methods on the
+`TabHost` widget for creating `TabHost.TabSpec`
+objects and tab indicators:
 
 ### Kotlin
 
-```kotlin
+```
 class TabHelperEclair internal constructor(activity: FragmentActivity) : TabHelper(activity) {
 
     private var tabHost: TabHost? = null
@@ -108,7 +116,7 @@ class TabHelperEclair internal constructor(activity: FragmentActivity) : TabHelp
 
 ### Java
 
-```java
+```
 public class TabHelperEclair extends TabHelper {
     private TabHost tabHost;
     ...
@@ -137,4 +145,16 @@ public class TabHelperEclair extends TabHelper {
 }
 ```
 
-You now have two implementations of`CompatTab`and`TabHelper`: one that works on devices running Android 3.0 or later and uses new APIs, and another that works on devices running Android 2.0 or later and uses older APIs. The next lesson discusses using these implementations in your application.
+You now have two implementations of `CompatTab` and `TabHelper`: one that works on devices running Android 3.0 or later and uses new APIs, and another that works on devices running Android 2.0 or later and uses older APIs. The next lesson discusses using these implementations in your application.
+
+[Previous
+
+arrow\_back
+
+Proxy to newer APIs](/training/backward-compatible-ui/new-implementation)
+
+[Next
+
+Use the version-aware component
+
+arrow\_forward](/training/backward-compatible-ui/using-component)

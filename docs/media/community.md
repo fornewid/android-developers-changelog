@@ -1,52 +1,68 @@
 ---
-title: https://developer.android.com/media/community
+title: Community | Media Developer Center  |  Android media  |  Android Developers
 url: https://developer.android.com/media/community
-source: md.txt
+source: html-scrape
 ---
 
-# Community | Media Developer Center
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Community](https://developer.android.com/media/community)
 
-![](http://developer.android.com/static/images/cluster-illustrations/communal-experiences.svg)  
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+![](https://developer.android.com/static/images/cluster-illustrations/communal-experiences.svg)
 
 ### Android Media community resources
 
 Find highlights, blogs, videos, and other community resources on media apps.
 
-*** ** * ** ***
+---
 
 ## Multidevice media highlights
 
-[![](http://developer.android.com/static/images/media/community/spotify.svg)](http://developer.android.com/multi-device-development#spotify-across-screens)  
+[![](https://developer.android.com/static/images/media/community/spotify.svg)](https://developer.android.com/multi-device-development#spotify-across-screens)
 
-### [Case study: Spotify and multidevice](http://developer.android.com/multi-device-development#spotify-across-screens)
+### [Case study: Spotify and multidevice](https://developer.android.com/multi-device-development#spotify-across-screens)
 
-See how Spotify approached being available across different Android devices and form factors such as Wear OS, foldables and tablets, Android TV, and Android for Cars, and Google Assistant.  
-[Read the story](http://developer.android.com/multi-device-development#spotify-across-screens)  
-[![](http://developer.android.com/static/images/picto-icons/dual-screen-devices.svg)](http://developer.android.com/large-screens/gallery/media)  
+See how Spotify approached being available across different Android devices and form factors such as Wear OS, foldables and tablets, Android TV, and Android for Cars, and Google Assistant.
 
-### [Large screens gallery](http://developer.android.com/large-screens/gallery/media)
+[Read the story](https://developer.android.com/multi-device-development#spotify-across-screens)
 
-Get inspired - explore media designs in the large screen gallery  
-[Go to the gallery](http://developer.android.com/large-screens/gallery/media)  
-[![](http://developer.android.com/static/images/picto-icons/wearable-app.svg)](https://github.com/google/horologist#-media)  
+[![](https://developer.android.com/static/images/picto-icons/dual-screen-devices.svg)](https://developer.android.com/large-screens/gallery/media)
+
+### [Large screens gallery](https://developer.android.com/large-screens/gallery/media)
+
+Get inspired - explore media designs in the large screen gallery
+
+[Go to the gallery](https://developer.android.com/large-screens/gallery/media)
+
+[![](https://developer.android.com/static/images/picto-icons/wearable-app.svg)](https://github.com/google/horologist#-media)
 
 ### [Wear OS media toolkit](https://github.com/google/horologist#-media)
 
-A set of libraries to build Media apps on Wear OS and a sample app that you can run to see the toolkit in action.  
+A set of libraries to build Media apps on Wear OS and a sample app that you can run to see the toolkit in action.
+
 [Go to the Wear OS toolkit](https://github.com/google/horologist#-media)
 
 ### Featured codelab
 
-[![](http://developer.android.com/static/images/media/community/exo-player.png)](http://developer.android.com/codelabs/exoplayer-intro)  
+[![](https://developer.android.com/static/images/media/community/exo-player.png)](https://developer.android.com/codelabs/exoplayer-intro)
 
-### [Get started with ExoPlayer](http://developer.android.com/codelabs/exoplayer-intro)
+### [Get started with ExoPlayer](https://developer.android.com/codelabs/exoplayer-intro)
 
-In this tutorial, you'll create an ExoPlayer instance, integrate it with an app's activity lifecycle, create a playlist, play adaptive video streams, monitor playback state, and customize ExoPlayer UI components.  
-[Take the tutorial](http://developer.android.com/codelabs/exoplayer-intro)[Watch the workshop](https://www.youtube.com/watch?v=Hw0Jeq42FNU)
+In this tutorial, you’ll create an ExoPlayer instance, integrate it with an app's activity lifecycle, create a playlist, play adaptive video streams, monitor playback state, and customize ExoPlayer UI components.
+
+[Take the tutorial](https://developer.android.com/codelabs/exoplayer-intro)
+[Watch the workshop](https://www.youtube.com/watch?v=Hw0Jeq42FNU)
 
 ## Latest Blogs
 
-Get the latest camera and media news and articles  
+Get the latest camera and media news and articles
 
 ## Latest Videos
 

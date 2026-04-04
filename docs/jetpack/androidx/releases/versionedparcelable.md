@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Versionedparcelable
 
 API Reference  

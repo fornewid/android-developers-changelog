@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
+
 Health Connect stores and structures both health and fitness data and medical
 records data. It's important to understand first what data types and permissions
 Health Connect offers so that you can plan your app's requirements.

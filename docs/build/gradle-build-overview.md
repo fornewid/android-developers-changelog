@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android applications are typically built using the [Gradle](https://gradle.org/) build
 system. Before we dive into the details of how to configure your build, we'll
 explore the concepts behind the build so you can see the system as a whole.

@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 To support App Links, you must create a [Digital Asset Links](https://developers.google.com/digital-asset-links)
 JSON file called `assetlinks.json` and publish it in a well-known location on
 your website. This file publicly declares which apps are authorized to handle

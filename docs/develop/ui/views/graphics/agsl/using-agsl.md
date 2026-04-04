@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This page covers AGSL basics, and different ways to use AGSL in your Android
 app.
 

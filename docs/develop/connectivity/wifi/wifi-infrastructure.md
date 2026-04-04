@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 On Android 10 and higher, the Wi-Fi infrastructure includes the Wi-Fi suggestion
 API for internet connectivity and the Wi-Fi network request API for peer-to-peer
 connectivity. On Android 11 and higher, the Settings Intent API lets you

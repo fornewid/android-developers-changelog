@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/training/wearables/wff/groups
+title: Arrange elements into groups  |  Wear OS  |  Android Developers
 url: https://developer.android.com/training/wearables/wff/groups
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Wear OS](https://developer.android.com/training/wearables)
+
+# Arrange elements into groups Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Groups allow you to separate your watch face design into a logical structure.
 
@@ -17,31 +26,27 @@ Here are some examples of how this can be useful. The following `Group` contains
 various `PartText, PartImage` and `PartDraw` elements that make up a single
 logical part of the watch face:
 
-<br />
-
-```xml
+```
 <Group name="decorations" x="100" y="100" width="200" height="200">
     <!-- PartText, PartImage, PartDraw elements go here -->
 </Group>
-```
 
-<br />
+watchface_groups.xml
+```
 
 ## Change ambient behavior
 
 Having defined the `Group`, the visibility of the whole `Group` can be adjusted
 for Ambient mode, for example, to hide the `Group`:
 
-<br />
-
-```xml
+```
 <Group name="decorations" x="100" y="100" width="200" height="200">
     <Variant mode="AMBIENT" target="alpha" value="0" />
     <!-- PartText, PartImage, PartDraw elements go here -->
 </Group>
-```
 
-<br />
+watchface_groups.xml
+```
 
 This avoids the need to add a `Variant` element individually to each child
 element.
@@ -56,14 +61,12 @@ In this example, the `Group` is rotated based on the second. By specifying
 `Group`, irrespective of where each element, such as `PartText` or `PartImage`
 sits within that `Group`:
 
-<br />
-
-```xml
+```
 <Group name="decorations" x="100" y="100" width="200" height="200">
     <!-- One full rotation per minute -->
     <Transform target="angle" value="[SECOND] * 6" />
     <!-- PartText, PartImage, PartDraw elements go here -->
 </Group>
-```
 
-<br />
+watchface_groups.xml
+```

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 In your app's manifest, declare each of your app's foreground services
 with a [`<service>`](/guide/topics/manifest/service-element)
 element. For each service, use an

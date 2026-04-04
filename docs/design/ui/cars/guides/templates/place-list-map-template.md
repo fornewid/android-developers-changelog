@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Place List template presents an ordered list of locations (or containers
 for sublists), overlaid on a map provided by the app library.
 

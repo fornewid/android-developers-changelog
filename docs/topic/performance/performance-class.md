@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 *Performance class* is a standard first introduced in Android 12. A performance
 class defines a set of device capabilities that goes beyond Android's baseline
 requirements.

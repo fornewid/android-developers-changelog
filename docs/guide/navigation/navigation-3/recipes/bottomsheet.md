@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/bottomsheet
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/bottomsheet
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
 
 # Bottom Sheet Recipe
 
@@ -12,16 +22,22 @@ This recipe demonstrates how to display a destination as a modal bottom sheet.
 
 To show a destination as a bottom sheet, you need to do two things:
 
-1. **Use `BottomSheetSceneStrategy`** : Create an instance of `BottomSheetSceneStrategy` and pass it to the `sceneStrategy` parameter of the `NavDisplay` composable.
-
-2. **Add metadata to the destination** : For the destination that you want to display as a bottom sheet, add `BottomSheetSceneStrategy.bottomSheet()` to its metadata. This is done in the `entry` function.
+1. **Use `BottomSheetSceneStrategy`**: Create an instance of `BottomSheetSceneStrategy` and pass it to the `sceneStrategy` parameter of the `NavDisplay` composable.
+2. **Add metadata to the destination**: For the destination that you want to display as a bottom sheet, add `BottomSheetSceneStrategy.bottomSheet()` to its metadata. This is done in the `entry` function.
 
 In this example, `RouteB` is configured to be a bottom sheet. When you navigate from `RouteA` to `RouteB`, `RouteB` will be displayed in a modal bottom sheet that slides up from the bottom of the screen.
 
 The content of the bottom sheet can be styled as needed. In this recipe, the content is clipped to have rounded corners.
 
 For more information, see the official documentation on [custom layouts](https://developer.android.com/guide/navigation/navigation-3/custom-layouts).
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/bottomsheet)
+
+[![](/static/images/picto-icons/code.svg)
+
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/bottomsheet)
 
 ```
 /*
@@ -108,6 +124,8 @@ class BottomSheetActivity : ComponentActivity() {
         }
     }
 }
+
+BottomSheetActivity.kt
 ```
 
 ```
@@ -129,7 +147,7 @@ import com.example.nav3recipes.bottomsheet.BottomSheetSceneStrategy.Companion.bo
 
 /** An [OverlayScene] that renders an [entry] within a [ModalBottomSheet]. */
 @OptIn(ExperimentalMaterial3Api::class)
-internal class BottomSheetScene<T : Any>(
+internal data class BottomSheetScene<T : Any>(
     override val key: T,
     override val previousEntries: List<NavEntry<T>>,
     override val overlaidEntries: List<NavEntry<T>>,
@@ -192,4 +210,6 @@ class BottomSheetSceneStrategy<T : Any> : SceneStrategy<T> {
     }
 
 }
+
+BottomSheetSceneStrategy.kt
 ```

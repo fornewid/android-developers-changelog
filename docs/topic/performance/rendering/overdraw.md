@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page explains what overdraw is, how to diagnose it, and ways to eliminate
 or mitigate it.
 

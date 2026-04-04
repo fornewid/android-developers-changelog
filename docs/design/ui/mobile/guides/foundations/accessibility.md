@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![Greenish decorative hero image design](/static/images/design/ui/mobile/accessibility-hero.png)
 
 According to a [2011 report by the World Health Organization (WHO) and the

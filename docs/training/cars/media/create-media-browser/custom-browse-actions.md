@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Similar to how you use [custom playback actions](/training/cars/media/enable-playback#custom-icons) to support unique
 capabilities in the playback view, you can use custom browse actions to support
 unique capabilities in browsing views. For example, you can use custom browse

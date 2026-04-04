@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 When input focus moves in or out of an editable text field, Android shows or
 hides the input —such as the on-screen keyboard—as
 appropriate. The system also decides how your UI and the text field appear above

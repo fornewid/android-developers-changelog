@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The **call chart** provides a graphical representation of a method trace or
 function trace, where the period and timing of a call is represented on the
 horizontal axis, and its callees are shown along the vertical axis. Calls to

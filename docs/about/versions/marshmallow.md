@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android 6.0 Marshmallow
 
 ![Assorted display of devices including a tablet, mobile phones, and a speaker showcasing Android 6.0](/static/images/home/devices-hero_620px_2x.png)

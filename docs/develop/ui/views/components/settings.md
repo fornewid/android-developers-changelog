@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Settings   Part of [Android Jetpack](/jetpack).
 
 Settings let users change the functionality and behavior of an app. Settings can

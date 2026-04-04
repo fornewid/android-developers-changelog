@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 There are three main ways to interact with UI elements:
 
 * **Finders** let you select one or multiple elements (or *nodes* in the

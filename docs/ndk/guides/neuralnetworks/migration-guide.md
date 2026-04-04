@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Neural Networks API (NNAPI) is deprecated. It was
 [introduced in Android 8.1](/about/versions/oreo/android-8.1#nnapi) to provide a unified interface for hardware
 accelerated inference for on-device machine learning,

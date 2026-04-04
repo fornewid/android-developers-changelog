@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 Specifies the action to perform when the user swipes on the layout. The speed of
 the motion sequence and the motion of the targeted view are affected by the
 speed and direction of the swipe, subject to the limits you set with optional

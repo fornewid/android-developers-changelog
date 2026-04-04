@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android-powered devices have sensors that let you provide users with contextual
 information about their surroundings, including location awareness, motion,
 position, and qualities of the physical environment.

@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Android 13 and Wear OS 4 introduce a way for apps to access body sensors, such
 as heart rate, from the background. This new access model is similar to the one
 that introduced [background location access in Android 10 (API level 29)](/training/location/permissions#request-background-location).

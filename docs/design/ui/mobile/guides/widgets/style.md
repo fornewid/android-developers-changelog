@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Styling widgets effectively is crucial for achieving a visually appealing and
 consistent user experience. This section delves into the key concepts and
 techniques for defining the color and typography to create the most helpful

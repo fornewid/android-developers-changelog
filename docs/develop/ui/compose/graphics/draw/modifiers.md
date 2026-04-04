@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/develop/ui/compose/graphics/draw/modifiers
+title: Graphics modifiers  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/graphics/draw/modifiers
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Graphics modifiers Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 In addition to the `Canvas` composable, Compose has several useful graphics
 `Modifiers` which aid in drawing custom content. These modifiers are useful
@@ -13,9 +24,9 @@ because they can be applied to any composable.
 All drawing commands are done with a drawing modifier in Compose. There are
 three main drawing modifiers in Compose:
 
-- [`drawWithContent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/drawWithContent.modifier#(androidx.compose.ui.Modifier).drawWithContent(kotlin.Function1))
-- [`drawBehind`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/drawBehind.modifier#(androidx.compose.ui.Modifier).drawBehind(kotlin.Function1))
-- [`drawWithCache`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/drawWithCache.modifier#(androidx.compose.ui.Modifier).drawWithCache(kotlin.Function1))
+* [`drawWithContent`](/reference/kotlin/androidx/compose/ui/draw/drawWithContent.modifier#(androidx.compose.ui.Modifier).drawWithContent(kotlin.Function1))
+* [`drawBehind`](/reference/kotlin/androidx/compose/ui/draw/drawBehind.modifier#(androidx.compose.ui.Modifier).drawBehind(kotlin.Function1))
+* [`drawWithCache`](/reference/kotlin/androidx/compose/ui/draw/drawWithCache.modifier#(androidx.compose.ui.Modifier).drawWithCache(kotlin.Function1))
 
 The base modifier for drawing is `drawWithContent`, where you can decide the
 drawing order of your Composable and the drawing commands issued inside the
@@ -26,8 +37,8 @@ mechanism for caching the objects created in them.
 
 ### `Modifier.drawWithContent`: Choose drawing order
 
-[`Modifier.drawWithContent`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/drawWithContent.modifier#(androidx.compose.ui.Modifier).drawWithContent(kotlin.Function1)) lets you
-execute [`DrawScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope) operations before or after the content of the
+[`Modifier.drawWithContent`](/reference/kotlin/androidx/compose/ui/draw/drawWithContent.modifier#(androidx.compose.ui.Modifier).drawWithContent(kotlin.Function1)) lets you
+execute [`DrawScope`](/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope) operations before or after the content of the
 composable. Be sure to call `drawContent` to then render the actual content of
 the composable. With this modifier, you can decide the order of operations, if
 you want your content to be drawn before or after your custom drawing
@@ -36,8 +47,7 @@ operations.
 For example, if you wished to render a radial gradient on top of your content to
 create a flashlight keyhole effect on the UI, you could do the following:
 
-
-```kotlin
+```
 var pointerOffset by remember {
     mutableStateOf(Offset(0f, 0f))
 }
@@ -54,7 +64,7 @@ Column(
         }
         .drawWithContent {
             drawContent()
-            // draws a fully black area with a small keyhole at pointerOffset that'll show part of the UI.
+            // draws a fully black area with a small keyhole at pointerOffset that’ll show part of the UI.
             drawRect(
                 Brush.radialGradient(
                     listOf(Color.Transparent, Color.Black),
@@ -66,23 +76,27 @@ Column(
 ) {
     // Your composables here
 }
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
+[
+
+](/static/develop/ui/compose/images/graphics/modifiers/drawWithContent_flashlight.mp4)
+
 
 **Figure 1**: Modifier.drawWithContent used on top of a Composable to create a flashlight type UI experience.
 
 ### `Modifier.drawBehind`: Drawing behind a composable
 
-[`Modifier.drawBehind`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/drawBehind.modifier#(androidx.compose.ui.Modifier).drawBehind(kotlin.Function1)) lets you perform
+[`Modifier.drawBehind`](/reference/kotlin/androidx/compose/ui/draw/drawBehind.modifier#(androidx.compose.ui.Modifier).drawBehind(kotlin.Function1)) lets you perform
 `DrawScope` operations behind the composable content that is drawn on screen. If
-you take a look at the implementation of [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Canvas), you might notice that it
+you take a look at the implementation of [`Canvas`](/reference/kotlin/androidx/compose/ui/graphics/Canvas), you might notice that it
 is just a convenient wrapper around `Modifier.drawBehind`.
 
 To draw a rounded rectangle behind `Text`:
 
-
-```kotlin
+```
 Text(
     "Hello Compose!",
     modifier = Modifier
@@ -94,16 +108,20 @@ Text(
         }
         .padding(4.dp)
 )
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
-
 Which produces the following result:
-![Text and a background drawn using Modifier.drawBehind](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/modifier_draw_behind.png) **Figure 2**: Text and a background drawn using Modifier.drawBehind
+
+![Text and a background drawn using Modifier.drawBehind](/static/develop/ui/compose/images/graphics/modifiers/modifier_draw_behind.png)
+
+
+**Figure 2**: Text and a background drawn using Modifier.drawBehind
 
 ### `Modifier.drawWithCache`: Drawing and caching draw objects
 
-[`Modifier.drawWithCache`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/drawWithCache.modifier#(androidx.compose.ui.Modifier).drawWithCache(kotlin.Function1)) keeps the objects
+[`Modifier.drawWithCache`](/reference/kotlin/androidx/compose/ui/draw/drawWithCache.modifier#(androidx.compose.ui.Modifier).drawWithCache(kotlin.Function1)) keeps the objects
 that are created inside of it cached. The objects are cached as long as the size
 of the drawing area is the same, or any state objects that are read have not
 changed. This modifier is useful for improving performance of drawing calls as
@@ -115,15 +133,15 @@ modifier. However, this is not always possible as you don't always have access
 to the composition. It can be more performant to use `drawWithCache` if the
 objects are only used for drawing.
 
-> [!NOTE]
-> **Note:** Only use `Modifier.drawWithCache` when you're creating objects that must be cached. Using this modifier without needing to cache objects, can result in unnecessary lambda allocations.
+**Note:** Only use `Modifier.drawWithCache` when you’re creating objects that must
+be cached. Using this modifier without needing to cache objects, can result in
+unnecessary lambda allocations.
 
 For example, if you create a `Brush` to draw a gradient behind a `Text`, using
 `drawWithCache` caches the `Brush` object until the size of the drawing area
 changes:
 
-
-```kotlin
+```
 Text(
     "Hello Compose!",
     modifier = Modifier
@@ -142,25 +160,33 @@ Text(
             }
         }
 )
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
+![Caching the Brush object with drawWithCache](/static/develop/ui/compose/images/graphics/modifiers/modifier_draw_with_cache.png)
 
-![Caching the Brush object with drawWithCache](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/modifier_draw_with_cache.png) **Figure 3**: Caching the Brush object with drawWithCache
+
+**Figure 3**: Caching the Brush object with drawWithCache
 
 ## Graphics modifiers
 
 ### `Modifier.graphicsLayer`: Apply transformations to composables
 
-[Video](https://www.youtube.com/watch?v=KawI7srRvOM)
-
-[`Modifier.graphicsLayer`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/package-summary#(androidx.compose.ui.Modifier.graphicsLayer(kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,androidx.compose.ui.graphics.TransformOrigin,androidx.compose.ui.graphics.Shape,kotlin.Boolean,androidx.compose.ui.graphics.RenderEffect,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.CompositingStrategy)))
+[`Modifier.graphicsLayer`](/reference/kotlin/androidx/compose/ui/graphics/package-summary#(androidx.compose.ui.Modifier.graphicsLayer(kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float,androidx.compose.ui.graphics.TransformOrigin,androidx.compose.ui.graphics.Shape,kotlin.Boolean,androidx.compose.ui.graphics.RenderEffect,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.CompositingStrategy)))
 is a modifier that makes the content of the composable draw into a draw layer. A
 layer provides a few different functions, such as:
 
-- Isolation for its drawing instructions (similar to [`RenderNode`](https://developer.android.com/reference/android/graphics/RenderNode)). Drawing instructions captured as part of a layer can be re-issued efficiently by the rendering pipeline without re-executing application code.
-- Transformations that apply to all the drawing instructions contained within a layer.
-- Rasterization for composition capabilities. When a layer is rasterized, its drawing instructions are executed and the output is captured into an offscreen buffer. [Compositing](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers#heading=%7B:compositing-strategy%7D) such a buffer for subsequent frames is faster than executing the individual instructions, but it will behave as a bitmap when transforms like scaling or rotation are applied.
+* Isolation for its drawing instructions (similar to [`RenderNode`](/reference/android/graphics/RenderNode)). Drawing
+  instructions captured as part of a layer can be re-issued efficiently by the
+  rendering pipeline without re-executing application code.
+* Transformations that apply to all the drawing instructions contained within a
+  layer.
+* Rasterization for composition capabilities. When a layer is rasterized, its
+  drawing instructions are executed and the output is captured into an offscreen
+  buffer. [Compositing](#heading=%7B:compositing-strategy%7D) such a buffer for subsequent frames is faster than
+  executing the individual instructions, but it will behave as a bitmap when
+  transforms like scaling or rotation are applied.
 
 #### Transformations
 
@@ -173,8 +199,8 @@ lambda.
 composable, as it only affects the draw phase. This means that your composable
 might overlap others if it ends up drawing outside of its layout bounds.
 
-> [!NOTE]
-> **Note:** You should prefer the lambda version of this modifier when performing animations or using a `State` object to update a `graphicsLayer` property.
+**Note:** You should prefer the lambda version of this modifier when performing
+animations or using a `State` object to update a `graphicsLayer` property.
 
 The following transformations can be applied with this modifier:
 
@@ -184,8 +210,7 @@ The following transformations can be applied with this modifier:
 direction, respectively. A value of `1.0f` indicates no change in scale, a value
 of `0.5f` means half of the dimension.
 
-
-```kotlin
+```
 Image(
     painter = painterResource(id = R.drawable.sunset),
     contentDescription = "Sunset",
@@ -195,9 +220,14 @@ Image(
             this.scaleY = 0.8f
         }
 )
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
+[
+
+](/static/develop/ui/compose/images/graphics/modifiers/modifier_scale.webm)
+
 
 **Figure 4**: scaleX and scaleY applied to an Image composable
 
@@ -207,8 +237,7 @@ Image(
 `translationX` moves the composable left or right. `translationY` moves the
 composable up or down.
 
-
-```kotlin
+```
 Image(
     painter = painterResource(id = R.drawable.sunset),
     contentDescription = "Sunset",
@@ -218,9 +247,14 @@ Image(
             this.translationY = 10.dp.toPx()
         }
 )
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
+[
+
+](/static/develop/ui/compose/images/graphics/modifiers/graphics_layer_translationX.webm)
+
 
 **Figure 5**: translationX and translationY applied to Image with Modifier.graphicsLayer
 
@@ -230,8 +264,7 @@ Set `rotationX` to rotate horizontally, `rotationY` to rotate vertically and
 `rotationZ` to rotate on the Z axis (standard rotation). This value is specified
 in degrees (0-360).
 
-
-```kotlin
+```
 Image(
     painter = painterResource(id = R.drawable.sunset),
     contentDescription = "Sunset",
@@ -242,9 +275,14 @@ Image(
             this.rotationZ = 180f
         }
 )
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
+[
+
+](/static/develop/ui/compose/images/graphics/modifiers/rotation.webm)
+
 
 **Figure 6**: rotationX, rotationY and rotationZ set on Image by Modifier.graphicsLayer
 
@@ -259,8 +297,7 @@ composable.
 If you change the origin with a `rotationZ` transformation, you can see that the
 item rotates around the top left of the composable:
 
-
-```kotlin
+```
 Image(
     painter = painterResource(id = R.drawable.sunset),
     contentDescription = "Sunset",
@@ -272,9 +309,14 @@ Image(
             this.rotationZ = 180f
         }
 )
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
+[
+
+](/static/develop/ui/compose/images/graphics/modifiers/rotation_with_transform.webm)
+
 
 **Figure 7**: Rotation applied with TransformOrigin set to 0f, 0f
 
@@ -285,8 +327,7 @@ this example, we set two boxes to have two different clips - one using
 `graphicsLayer` clip variable, and the other using the convenient wrapper
 `Modifier.clip`.
 
-
-```kotlin
+```
 Column(modifier = Modifier.padding(16.dp)) {
     Box(
         modifier = Modifier
@@ -310,25 +351,32 @@ Column(modifier = Modifier.padding(16.dp)) {
             .background(Color(0xFF4DB6AC))
     )
 }
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
-
-The contents of the first box (the text saying "Hello Compose") are clipped to
+The contents of the first box (the text saying “Hello Compose”) are clipped to
 the circle shape:
-![Clip applied to Box composable](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/clip_applied.png) **Figure 8**: Clip applied to Box composable
+
+![Clip applied to Box composable](/static/develop/ui/compose/images/graphics/modifiers/clip_applied.png)
+
+
+**Figure 8**: Clip applied to Box composable
 
 If you then apply a `translationY` to the top pink circle, you see that the bounds
 of the Composable are still the same, but the circle draws underneath the bottom
 circle (and outside of its bounds).
-![Clip applied with translationY, and red border for outline](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/clip_applied_red_border.png) **Figure 9**: Clip applied with translationY, and red border for outline
+
+![Clip applied with translationY, and red border for outline](/static/develop/ui/compose/images/graphics/modifiers/clip_applied_red_border.png)
+
+
+**Figure 9**: Clip applied with translationY, and red border for outline
 
 To clip the composable to the region it's drawn in, you can add another
 `Modifier.clip(RectangleShape)` at the start of the modifier chain. The content
 then remains inside of the original bounds.
 
-
-```kotlin
+```
 Column(modifier = Modifier.padding(16.dp)) {
     Box(
         modifier = Modifier
@@ -356,19 +404,21 @@ Column(modifier = Modifier.padding(16.dp)) {
             .background(Color(0xFF4DB6AC))
     )
 }
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
+![Clip applied on top of graphicsLayer transformation](/static/develop/ui/compose/images/graphics/modifiers/clip_applied_everything.png)
 
-![Clip applied on top of graphicsLayer transformation](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/clip_applied_everything.png) **Figure 10**: Clip applied on top of graphicsLayer transformation
+
+**Figure 10**: Clip applied on top of graphicsLayer transformation
 
 #### Alpha
 
 `Modifier.graphicsLayer` can be used to set an `alpha` (opacity) for the whole
 layer. `1.0f` is fully opaque and `0.0f` is invisible.
 
-
-```kotlin
+```
 Image(
     painter = painterResource(id = R.drawable.sunset),
     contentDescription = "clock",
@@ -377,53 +427,55 @@ Image(
             this.alpha = 0.5f
         }
 )
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
+![Image with alpha applied](/static/develop/ui/compose/images/graphics/modifiers/image_alpha.png)
 
-![Image with alpha applied](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/image_alpha.png) **Figure 11**: Image with alpha applied
 
-> [!NOTE]
-> **Note:** When an alpha is set to less than 1.0f, the entire contents of the layer are drawn to an offscreen buffer (if the [`CompositingStrategy`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy) is not set to [`ModulateAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy#ModulateAlpha())). See the `CompositingStrategy` section for more information.
+**Figure 11**: Image with alpha applied
+
+**Note:** When an alpha is set to less than 1.0f, the entire contents of the layer
+are drawn to an offscreen buffer (if the [`CompositingStrategy`](/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy) is not set to
+[`ModulateAlpha`](/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy#ModulateAlpha())). See the `CompositingStrategy` section for more information.
 
 #### Compositing strategy
 
 Working with alpha and transparency might not be as simple as changing a single
 alpha value. In addition to changing an alpha, there is also the option to set a
-[`CompositingStrategy`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy) on a `graphicsLayer`. A `CompositingStrategy` determines how the
+[`CompositingStrategy`](/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy) on a `graphicsLayer`. A `CompositingStrategy` determines how the
 content of the composable is composited (put together) with the other
 content already drawn on screen.
 
-> [!NOTE]
-> **Note:** `CompositingStrategy` was introduced in Compose `1.4.0-alpha02`.
+**Note:** `CompositingStrategy` was introduced in Compose `1.4.0-alpha02`.
 
 The different strategies are:
 
 ##### Auto (default)
 
-The [compositing strategy](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy#Auto()) is determined by the rest of the `graphicsLayer`
+The [compositing strategy](/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy#Auto()) is determined by the rest of the `graphicsLayer`
 parameters. It renders the layer into an offscreen buffer if alpha is less than
 1.0f or a `RenderEffect` is set. Whenever the alpha is less than 1f, a
 compositing layer is created automatically to render the contents and then draw
 this offscreen buffer to the destination with the corresponding alpha. Setting a
-[`RenderEffect`](https://developer.android.com/reference/android/graphics/RenderEffect) or overscroll always renders content into an offscreen
+[`RenderEffect`](/reference/android/graphics/RenderEffect) or overscroll always renders content into an offscreen
 buffer regardless of the `CompositingStrategy` set.
 
 ##### Offscreen
 
 The contents of the composable are **always** rasterized to an offscreen
 texture or bitmap before rendering to the destination. This is useful for
-applying [`BlendMode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/BlendMode) operations to mask content, and for performance when
+applying [`BlendMode`](/reference/kotlin/androidx/compose/ui/graphics/BlendMode) operations to mask content, and for performance when
 rendering complex sets of drawing instructions.
 
-An example of using [`CompositingStrategy.Offscreen`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy#Offscreen()) is with `BlendModes`. Taking a look at the example below,
+An example of using [`CompositingStrategy.Offscreen`](/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy#Offscreen()) is with `BlendModes`. Taking a look at the example below,
 say you want to remove parts of an `Image` composable by issuing a draw command that
 uses `BlendMode.Clear`. If you do not set the `compositingStrategy` to
 `CompositingStrategy.Offscreen`, the `BlendMode` interacts with all the contents
 below it.
 
-
-```kotlin
+```
 Image(
     painter = painterResource(id = R.drawable.dog),
     contentDescription = "Dog",
@@ -479,28 +531,40 @@ Image(
             }
         }
 )
-```
 
-<br />
+GraphicsModifiersSnippets.kt
+```
 
 By setting the `CompositingStrategy` to `Offscreen`, it creates an offscreen
 texture to execute the commands to (applying the `BlendMode` only to the
 contents of this composable). It then renders it on top of what is already
 rendered on screen, not affecting the content already drawn.
-![Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear inside app](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/complex_modifier_example_drawWithCache_background.png) **Figure 12**: Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear and CompositingStrategy.Offscreen inside app
+
+![Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear inside app](/static/develop/ui/compose/images/graphics/modifiers/complex_modifier_example_drawWithCache_background.png)
+
+
+**Figure 12**: Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear and CompositingStrategy.Offscreen inside app
 
 If you didn't use `CompositingStrategy.Offscreen`, the results of applying
 `BlendMode.Clear` clears all the pixels in the destination, regardless of what
-was already set-- leaving the window's rendering buffer (black) visible. Many of
+was already set– leaving the window’s rendering buffer (black) visible. Many of
 the `BlendModes` that involve alpha won't work as expected without an
 offscreen buffer. Note the black ring around the red circle indicator:
-![Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear and no CompositingStrategy set](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/blendmode_without_compositing_strategy.png) **Figure 13**: Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear and no CompositingStrategy set
+
+![Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear and no CompositingStrategy set](/static/develop/ui/compose/images/graphics/modifiers/blendmode_without_compositing_strategy.png)
+
+
+**Figure 13**: Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear and no CompositingStrategy set
 
 To understand this a bit further: if the app had a translucent window
 background, and you did not use the `CompositingStrategy.Offscreen`, the
 `BlendMode` would interact with the whole app. It would clear all of the pixels to show
 the app or wallpaper underneath, as in this example:
-![No CompositingStrategy set and using BlendMode.Clear with an app that has a translucent window background. The pink wallpaper is shown through the area around the red status circle.](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/compositing_strategy_punch_through_to_wallpaper.png) **Figure 14**: No CompositingStrategy set and using BlendMode.Clear with an app that has a translucent window background. Notice how the pink wallpaper is shown through the area around the red status circle.
+
+![No CompositingStrategy set and using BlendMode.Clear with an app that has a translucent window background. The pink wallpaper is shown through the area around the red status circle. ](/static/develop/ui/compose/images/graphics/modifiers/compositing_strategy_punch_through_to_wallpaper.png)
+
+
+**Figure 14**: No CompositingStrategy set and using BlendMode.Clear with an app that has a translucent window background. Notice how the pink wallpaper is shown through the area around the red status circle.
 
 It's worth noting that when using `CompositingStrategy.Offscreen`, an offscreen
 texture that is the size of the drawing area is created and rendered back on
@@ -508,8 +572,7 @@ screen. Any drawing commands that are done with this strategy, are by default be
 clipped to this region. The below code snippet illustrates the differences when
 switching to using offscreen textures:
 
-
-```kotlin
+```
 @Composable
 fun CompositingStrategyExamples() {
     Column(
@@ -548,15 +611,18 @@ fun CompositingStrategyExamples() {
         }
     }
 }
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
+![CompositingStrategy.Auto vs CompositingStrategy.Offscreen - offscreen clips to the region, where auto doesn’t](/static/develop/ui/compose/images/graphics/modifiers/graphics_compositing_strategy.png)
 
-![CompositingStrategy.Auto vs CompositingStrategy.Offscreen - offscreen clips to the region, where auto doesn’t](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/graphics_compositing_strategy.png) **Figure 15**: CompositingStrategy.Auto vs CompositingStrategy.Offscreen - offscreen clips to the region, where auto doesn't
+
+**Figure 15**: CompositingStrategy.Auto vs CompositingStrategy.Offscreen - offscreen clips to the region, where auto doesn’t
 
 ##### `ModulateAlpha`
 
-This [composition strategy](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy#ModulateAlpha()) modulates the alpha for each of the drawing
+This [composition strategy](/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy#ModulateAlpha()) modulates the alpha for each of the drawing
 instructions recorded within the `graphicsLayer`. It won't create an
 offscreen buffer for alpha below 1.0f unless a `RenderEffect` is set, so it can
 be more efficient for alpha rendering. However, it can provide different results
@@ -568,8 +634,7 @@ Another example of different composition strategies is below - applying differen
 alphas to different parts of the composables, and applying a `Modulate`
 strategy:
 
-
-```kotlin
+```
 @Preview
 @Composable
 fun CompositingStrategy_ModulateAlpha() {
@@ -630,16 +695,20 @@ private fun DrawScope.drawSquares() {
 val Purple = Color(0xFF7E57C2)
 val Yellow = Color(0xFFFFCA28)
 val Red = Color(0xFFEF5350)
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
+![ModulateAlpha applies the alpha set to each individual draw command](/static/develop/ui/compose/images/graphics/modifiers/modulate_alpha.png)
 
-![ModulateAlpha applies the alpha set to each individual draw command](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/modulate_alpha.png) **Figure 16**: ModulateAlpha applies the alpha set to each individual draw command
+
+**Figure 16**: ModulateAlpha applies the alpha set to each individual draw command
 
 ## Write contents of a composable to a bitmap
 
-> [!NOTE]
-> **Note:** The `rememberGraphicsLayer()` function used in this snippet is only available from Compose 1.7.0-alpha07+.
+**Note:** The `rememberGraphicsLayer()` function used in this snippet is only
+available from Compose
+1.7.0-alpha07+.
 
 A common use case is to create a `Bitmap` from a composable. To copy the
 contents of your composable to a `Bitmap`, create a `GraphicsLayer` using
@@ -649,8 +718,7 @@ Redirect the drawing commands to the new layer using `drawWithContent()` and
 `graphicsLayer.record{}`. Then draw the layer in the visible canvas using
 `drawLayer`:
 
-
-```kotlin
+```
 val coroutineScope = rememberCoroutineScope()
 val graphicsLayer = rememberGraphicsLayer()
 Box(
@@ -674,9 +742,9 @@ Box(
 ) {
     Text("Hello Android", fontSize = 26.sp)
 }
-```
 
-<br />
+AdvancedGraphicsSnippets.kt
+```
 
 You can save the bitmap to disk and share it. For more details, see the [full
 example snippet](https://github.com/android/snippets/blob/latest/compose/snippets/src/main/java/com/example/compose/snippets/graphics/AdvancedGraphicsSnippets.kt#L123). Be sure to check for on device permissions before trying
@@ -694,8 +762,7 @@ convenient wrappers; for example, `Modifier.background()` is a convenient
 For example, if you wanted to implement a `Modifier` that vertically flips
 content, you can create one as follows:
 
-
-```kotlin
+```
 class FlippedModifier : DrawModifier {
     override fun ContentDrawScope.draw() {
         scale(1f, -1f) {
@@ -705,36 +772,50 @@ class FlippedModifier : DrawModifier {
 }
 
 fun Modifier.flipped() = this.then(FlippedModifier())
-```
 
-<br />
+GraphicsModifiersSnippets.kt
+```
 
 Then use this flipped modifier applied on `Text`:
 
-
-```kotlin
+```
 Text(
     "Hello Compose!",
     modifier = Modifier
         .flipped()
 )
+
+GraphicsModifiersSnippets.kt
 ```
 
-<br />
+![Custom Flipped Modifier on Text](/static/develop/ui/compose/images/graphics/modifiers/modifier_flipped.png)
 
-![Custom Flipped Modifier on Text](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/modifier_flipped.png) **Figure 17**: Custom Flipped Modifier on Text
+
+**Figure 17**: Custom Flipped Modifier on Text
 
 ## Additional resources
 
 For more examples using `graphicsLayer` and custom drawing, check out the
 following resources:
 
-- [Making Jellyfish move in Compose](https://medium.com/androiddevelopers/making-jellyfish-move-in-compose-animating-imagevectors-and-applying-agsl-rendereffects-3666596a8888)
-- [ADS 2022 Layouts and Graphics in Compose](https://youtu.be/xcfEQO0k_gU)
+* [Making Jellyfish move in Compose](https://medium.com/androiddevelopers/making-jellyfish-move-in-compose-animating-imagevectors-and-applying-agsl-rendereffects-3666596a8888)
+* [ADS 2022 Layouts and Graphics in Compose](https://youtu.be/xcfEQO0k_gU)
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview)
-- [Customize an image {:#customize-image}](https://developer.android.com/develop/ui/compose/graphics/images/customize)
-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
+* Note: link text is displayed when JavaScript is off
+* [Graphics in Compose](/develop/ui/compose/graphics/draw/overview)
+* [Customize an image {:#customize-image}](/develop/ui/compose/graphics/images/customize)
+* [Kotlin for Jetpack Compose](/develop/ui/compose/kotlin)
+
+[Previous
+
+arrow\_back
+
+Overview](/develop/ui/compose/graphics/draw/overview)
+
+[Next
+
+Brush
+
+arrow\_forward](/develop/ui/compose/graphics/draw/brush)

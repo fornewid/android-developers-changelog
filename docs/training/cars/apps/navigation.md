@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page details the different features of the Car App Library that you can use
 to implement the functionality of your turn-by-turn navigation app.
 

@@ -1,26 +1,15 @@
 ---
-title: Secure sensitive activities  |  Fraud prevention  |  Android Developers
+title: https://developer.android.com/security/fraud-prevention/activities
 url: https://developer.android.com/security/fraud-prevention/activities
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Fraud prevention](https://developer.android.com/security/fraud-prevention)
-* [Guides](https://developer.android.com/security/fraud-prevention/environment)
-
-# Secure sensitive activities Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 This document details ways to monitor sensitive activities, such as user logins
 and online purchases.
 
-## FLAG\_SECURE
+## FLAG_SECURE
 
-`FLAG_SECURE` is a [Window flag](/reference/android/view/WindowManager.LayoutParams#FLAG_SECURE) that tells Android not to allow screenshots
+`FLAG_SECURE` is a [Window flag](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_SECURE) that tells Android not to allow screenshots
 or to display the window view on a non-secure display (such as Casting the
 screen). This is useful for applications that need to protect sensitive
 information, like banking apps or password managers. When a window is flagged
@@ -45,7 +34,7 @@ For views with the information you want protected, add the following:
 
 ### Kotlin
 
-```
+```kotlin
 window?.setFlags(
     WindowManager.LayoutParams.FLAG_SECURE,
     WindowManager.LayoutParams.FLAG_SECURE
@@ -54,7 +43,7 @@ window?.setFlags(
 
 ### Java
 
-```
+```java
 window.setFlags(
   WindowManager.LayoutParams.FLAG_SECURE,
   WindowManager.LayoutParams.FLAG_SECURE
@@ -68,15 +57,14 @@ attacks. In some cases it does not correctly predict if screen recording is
 active, however it does cover most use cases. To mitigate overlay attacks, read
 the next section about `HIDE_OVERLAY_WINDOWS` permissions.
 
-**Note:** For Android 11 (API 30) and lower `FLAG_SECURE` is able to help around
-70% of the devices reliably. This is because on certain devices keyboard taps
-can be recorded.
+> [!NOTE]
+> **Note:** For Android 11 (API 30) and lower `FLAG_SECURE` is able to help around 70% of the devices reliably. This is because on certain devices keyboard taps can be recorded.
 
-## HIDE\_OVERLAY\_WINDOWS
+## HIDE_OVERLAY_WINDOWS
 
 `HIDE_OVERLAY_WINDOWS` is a permission added in Android 12 where your app can
 opt-out of having application overlays drawn over it. In Android 12 we have made
-it harder to acquire the [`SYSTEM_ALERT_WINDOW`](/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW) permission, essentially
+it harder to acquire the [`SYSTEM_ALERT_WINDOW`](https://developer.android.com/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW) permission, essentially
 allowing your app to block overlays from third-party apps.
 
 ### How this helps mitigate fraud
@@ -87,7 +75,7 @@ protection mechanism against [cloak and dagger](https://cloak-and-dagger.org/) a
 
 ### Implementation
 
-To enable this permission, add [`HIDE_OVERLAY_WINDOWS`](/reference/android/Manifest.permission#HIDE_OVERLAY_WINDOWS) to your project's
+To enable this permission, add [`HIDE_OVERLAY_WINDOWS`](https://developer.android.com/reference/android/Manifest.permission#HIDE_OVERLAY_WINDOWS) to your project's
 manifest.
 
 ### Best practices

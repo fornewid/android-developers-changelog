@@ -1,38 +1,14 @@
 ---
-title: Working with images  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/graphics/images
 url: https://developer.android.com/develop/ui/compose/graphics/images
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Working with images Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Learn how to work with images using these details:
 
-* [Loading images](/develop/ui/compose/graphics/images/loading): Learn how to load
-  an image from disk or the internet
-* [ImageBitmap versus ImageVector](/develop/ui/compose/graphics/images/compare): Learn
-  how to work with the two most common image formats, raster and vector.
-* [Material icons](/develop/ui/compose/graphics/images/material): Learn about a
-  convenient way to draw a single color icon on the screen, following Material
-  Design 3 guidelines.
-* [Customize an image](/develop/ui/compose/graphics/images/customize): Learn how to
-  customize an image using properties of an Image composable.
-* [Custom painter](/develop/ui/compose/graphics/images/custompainter): Learn about custom
-  painter objects to additionally customize your image.
-* [Optimizing performance](/develop/ui/compose/graphics/images/optimization): Learn about
-  how to best work with images to avoid performance issues.
-
-[Next
-
-Loading images
-
-arrow\_forward](/develop/ui/compose/graphics/images/loading)
+- [Loading images](https://developer.android.com/develop/ui/compose/graphics/images/loading): Learn how to load an image from disk or the internet
+- [ImageBitmap versus ImageVector](https://developer.android.com/develop/ui/compose/graphics/images/compare): Learn how to work with the two most common image formats, raster and vector.
+- [Material icons](https://developer.android.com/develop/ui/compose/graphics/images/material): Learn about a convenient way to draw a single color icon on the screen, following Material Design 3 guidelines.
+- [Customize an image](https://developer.android.com/develop/ui/compose/graphics/images/customize): Learn how to customize an image using properties of an Image composable.
+- [Custom painter](https://developer.android.com/develop/ui/compose/graphics/images/custompainter): Learn about custom painter objects to additionally customize your image.
+- [Optimizing performance](https://developer.android.com/develop/ui/compose/graphics/images/optimization): Learn about how to best work with images to avoid performance issues.

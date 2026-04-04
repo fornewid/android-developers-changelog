@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Seamless restore is the mechanism by which a returning player is immediately
 reconnected to their progress upon installing the game on a new device or
 reinstalling the game, removing the friction of a login screen.
@@ -89,8 +88,6 @@ PGS Player ID. You may do this by any of the following methods:
    2. **Retrieve:** On a new device, after PGS auth, you query
       the Recall API. If a token exists, you decrypt it to find the IGA
       ID and restore progress immediately.
-
-
 
 
 

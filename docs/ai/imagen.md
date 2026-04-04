@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Imagen is an image generation model. It can be used to generate
 custom avatars for user profiles or to integrate personalized visual assets into
 existing screen flows to increase user engagement.

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Jetpack Compose supports interoperability with Views — you
 can use Compose in Views, and Views in Compose. This allows adoption of
 Compose in existing View-based apps without having to migrate all Views

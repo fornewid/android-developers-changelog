@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 A project in Android Studio for Platform (ASfP) contains everything that defines
 your workspace for your AOSP codebase, from source code and assets to test code
 and build configurations.

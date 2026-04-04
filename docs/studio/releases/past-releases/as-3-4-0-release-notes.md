@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Studio 3.4 (April 2019)
 
 Android Studio 3.4 is a major release that includes a variety of new features

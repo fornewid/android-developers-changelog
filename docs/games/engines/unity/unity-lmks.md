@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Solving [LMKs](/games/optimize/vitals/lmk) in your Unity game is a systematic process:
 
 ![](/static/images/games/engines/unity/unity-lmk-flowchart.jpg)
@@ -482,6 +483,8 @@ for (int i = 1; i < megabytes * 1024 * 1024; ++i) {
    buffer[i] = 'A' + (i % 26); // Fill with letters A-Z
 }
 ```
+
+
 
 
 

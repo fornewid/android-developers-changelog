@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Reaching new users means supporting an increasing variety of Android platform versions and device specifications.
 To improve the user experience, optimize for common RAM configurations, and screen sizes and resolutions.
 

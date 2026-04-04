@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note**: This page shows you a step of the process for manually managing your
 watch face configuration. If you want to design your watch face using a WYSIWYG
 (what you see is what you get) style tool instead, check out the [Watch Face

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android media router framework allows manufacturers to enable playback on their devices
 through a standardized interface called a `MediaRouteProvider`.
 A route provider defines a common interface for playing media on a receiver device, making it

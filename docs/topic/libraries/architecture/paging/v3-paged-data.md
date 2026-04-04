@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Paging library provides powerful capabilities for loading and displaying
 paged data from a larger dataset. This guide demonstrates how to use the Paging
 library to set up a stream of paged data from a network data source and display

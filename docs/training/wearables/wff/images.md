@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Using images in your watch face can really help bring it to life, from a
 full-screen background image to individual detail images to add interest.
 

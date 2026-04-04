@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Gemini Nano lets you deliver rich generative AI experiences without needing
 a network connection or sending data to the cloud. On-device AI is a great
 solution for use-cases where low cost, and privacy safeguards are your primary

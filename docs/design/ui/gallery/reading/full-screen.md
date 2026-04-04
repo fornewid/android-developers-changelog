@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Remove on-screen distractions and annoyances so readers can focus their
 attention and immerse themselves in their reading. Adapt line lengths and
 whitespace to fit seamlessly with the device's screen size.

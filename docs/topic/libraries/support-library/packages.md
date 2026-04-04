@@ -1,31 +1,33 @@
 ---
-title: https://developer.android.com/topic/libraries/support-library/packages
+title: Support Library Packages  |  Android Developers
 url: https://developer.android.com/topic/libraries/support-library/packages
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+
+# Support Library Packages Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 **Note:** With the release of Support Library 28.0.0, the `android.support`-packaged
-libraries are deprecated and replaced by individually-versioned [Jetpack](https://developer.android.com/jetpack)
-libraries packaged as [`androidx`](https://developer.android.com/jetpack/androidx). The initial 1.0.0
+libraries are deprecated and replaced by individually-versioned [Jetpack](/jetpack)
+libraries packaged as [`androidx`](/jetpack/androidx). The initial 1.0.0
 release of the Jetpack libraries provides parity with Support Library 28.0.0 and provides a
-starting point for [migrating](https://developer.android.com/jetpack/androidx/migrate) to the new `androidx`
+starting point for [migrating](/jetpack/androidx/migrate) to the new `androidx`
 packaging.
-
-<br />
-
-
+  
+  
 The existing `android.support`-packaged libraries will continue to work; however, they
 will not receive any updates beyond 28.0.0 and will not be compatible with new Jetpack libraries.
 Historical artifacts (those versioned 27 and earlier, and packaged as `android.support`)
 will remain available on Google Maven. All new artifacts will be packaged as `androidx`
-and will require [migration](https://developer.android.com/jetpack/androidx/migrate) from `android.support`
+and will require [migration](/jetpack/androidx/migrate) from `android.support`
 to `androidx`.
-
-<br />
-
-
+  
+  
 We recommend using the `androidx` libraries in all new projects. You should also
-consider [migrating](https://developer.android.com/jetpack/androidx/migrate) existing projects to ensure they
+consider [migrating](/jetpack/androidx/migrate) existing projects to ensure they
 continue to receive bug fixes and other library improvements.
 
 The Android Support Library contains several library packages that can be included
@@ -34,7 +36,7 @@ versions and set of features.
 
 In order to use any of the following libraries, you must download the library files to your
 Android SDK installation. Follow the directions for downloading the Support Libraries in
-[Support Library Setup](https://developer.android.com/tools/support-library/setup#download) to
+[Support Library Setup](/tools/support-library/setup#download) to
 complete this step. You must take additional steps to include a specific Support Library in
 your application. See the end of each library section below for important information on how to
 include the library in your application.
@@ -45,16 +47,13 @@ level, as noted below.
 
 ## v4 Support Libraries
 
-
 These libraries include the largest set of APIs compared to the other libraries,
 including support for application components, user interface features,
 accessibility, data handling, network connectivity, and programming
 utilities.
 
-
 For complete, detailed information about the classes and methods provided by
-the v4 support libraries, see the `https://developer.android.com/reference/android/support/v4/app/package-summary` package in the API reference.
-
+the v4 support libraries, see the `android.support.v4` package in the API reference.
 
 **Note:** Prior to Support Library revision 24.2.0, there was a
 single v4 support library. That library was divided into multiple modules to
@@ -65,88 +64,77 @@ the specific modules your app needs.
 
 ### v4 compat library
 
-
 Provides compatibility wrappers for a number of framework APIs, such as
 `Context.obtainDrawable()` and
 `View.performAccessibilityAction()`.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:support-compat:28.0.0
 ```
 
 ### v4 core-utils library
 
-
-Provides a number of utility classes, such as `https://developer.android.com/reference/androidx/loader/content/AsyncTaskLoader` and `https://developer.android.com/reference/androidx/core/content/PermissionChecker`.
-
+Provides a number of utility classes, such as `AsyncTaskLoader` and `PermissionChecker`.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:support-core-utils:28.0.0
 ```
 
 ### v4 core-ui library
 
-
-Implements a variety of UI-related components, such as `https://developer.android.com/reference/androidx/viewpager/widget/ViewPager`, `https://developer.android.com/reference/androidx/core/widget/NestedScrollView`, and `https://developer.android.com/reference/androidx/customview/widget/ExploreByTouchHelper`.
-
+Implements a variety of UI-related components, such as `ViewPager`, `NestedScrollView`, and `ExploreByTouchHelper`.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:support-core-ui:28.0.0
 ```
 
 ### v4 media-compat library
 
-
-Backports portions of the [media](https://developer.android.com/reference/android/media/package-summary) framework,
-including `https://developer.android.com/reference/android/media/browse/MediaBrowser` and `https://developer.android.com/reference/android/media/session/MediaSession`.
-
+Backports portions of the [media](/reference/android/media/package-summary) framework,
+including `MediaBrowser` and `MediaSession`.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:support-media-compat:28.0.0
 ```
 
 ### v4 fragment library
 
-
 Adds support for encapsulation of user interface and functionality with
-[fragments](https://developer.android.com/guide/components/fragments),
+[fragments](/guide/components/fragments),
 enabling applications to provide layouts that adjust between small and
-large-screen devices. This module has dependencies on [compat](https://developer.android.com/topic/libraries/support-library/packages#v4-compat), [core-utils](https://developer.android.com/topic/libraries/support-library/packages#v4-core-utils), [core-ui](https://developer.android.com/topic/libraries/support-library/packages#v4-core-ui), and [media-compat](https://developer.android.com/topic/libraries/support-library/packages#v4-media-compat).
+large-screen devices. This module has dependencies on [compat](#v4-compat), [core-utils](#v4-core-utils), [core-ui](#v4-core-ui), and [media-compat](#v4-media-compat).
 
-**Note:** The [v13 support library](https://developer.android.com/topic/libraries/support-library/packages#v13)
-provides a `https://developer.android.com/reference/androidx/legacy/app/FragmentCompat` class. The v4
-`https://developer.android.com/reference/androidx/fragment/app/Fragment` class is a standalone class that
+**Note:** The [v13 support library](#v13)
+provides a `FragmentCompat` class. The v4
+`Fragment` class is a standalone class that
 provides bugfixes which were added in later platform versions, whereas the
-v13 `https://developer.android.com/reference/androidx/legacy/app/FragmentCompat` class provides
+v13 `FragmentCompat` class provides
 compatibility shims for the framework implementation of the
-`https://developer.android.com/reference/android/app/Fragment` class.
-
+`Fragment` class.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:support-fragment:28.0.0
 ```
 
 ## Multidex Support Library
 
-
 This library provides support for building apps with multiple Dalvik Executable (DEX) files.
 Apps that reference more than 65536 methods are required to use multidex configurations. For
-more information about using multidex, see [Building Apps with Over 64K Methods](https://developer.android.com/tools/building/multidex).
-
+more information about using multidex, see [Building Apps with Over 64K Methods](/tools/building/multidex).
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:multidex:1.0.0
 ```
 
@@ -155,19 +143,18 @@ com.android.support:multidex:1.0.0
 These libraries provide specific feature sets and can be included in your application
 independently from each other.
 
-### v7 appcompat library
-Part of [Android Jetpack](https://developer.android.com/jetpack).
+### v7 appcompat library   Part of [Android Jetpack](/jetpack).
 
-**Note:** The appcompat library has migrated into the
-[AndroidX](https://developer.android.com/jetpack/androidx) library, which is an [Android
-Jetpack](https://developer.android.com/jetpack) component. See it in use in the
+**Note:**The appcompat library has migrated into the
+[AndroidX](/jetpack/androidx) library, which is an [Android
+Jetpack](/jetpack) component. See it in use in the
 [Sunflower](https://github.com/android/sunflower) demo app.
 
 This library adds support for the
-[Action Bar](https://developer.android.com/guide/topics/ui/actionbar) user
+[Action Bar](/guide/topics/ui/actionbar) user
 interface [design
-pattern](https://developer.android.com/design/patterns/actionbar). This library includes support for
-[material design](https://developer.android.com/design/material) user interface
+pattern](/design/patterns/actionbar). This library includes support for
+[material design](/design/material) user interface
 implementations.
 
 **Note:**
@@ -175,47 +162,55 @@ This library depends on the v4 Support Library.
 
 Here are a few of the key classes included in the v7 appcompat library:
 
-- `https://developer.android.com/reference/androidx/appcompat/app/ActionBar` - Provides an implementation of the action bar [user interface pattern](https://developer.android.com/design/patterns/actionbar). For more information on using the Action Bar, see the [Action Bar](https://developer.android.com/guide/topics/ui/actionbar) developer guide.
-- `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity` - Adds an application activity class that can be used as a base class for activities that use the Support Library action bar implementation.
-- `https://developer.android.com/reference/androidx/appcompat/app/AppCompatDialog` - Adds a dialog class that can be used as a base class for AppCompat themed dialogs.
-- `https://developer.android.com/reference/androidx/appcompat/widget/ShareActionProvider` - Adds support for a standardized sharing action (such as email or posting to social applications) that can be included in an action bar.
+* `ActionBar` - Provides an implementation of the action bar
+  [user interface pattern](/design/patterns/actionbar). For more
+  information on using the Action Bar, see the
+  [Action Bar](/guide/topics/ui/actionbar) developer guide.
+* `AppCompatActivity` - Adds an application activity class that can
+  be used as a base class for activities that use the Support Library action bar
+  implementation.
+* `AppCompatDialog` - Adds a dialog class that can be used as a base
+  class for AppCompat themed dialogs.
+* `ShareActionProvider` - Adds support for a standardized
+  sharing action (such as email or posting to social applications) that can be included in an
+  action bar.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:appcompat-v7:28.0.0
 ```
 
 ### v7 cardview library
 
-This library adds support for the `https://developer.android.com/reference/androidx/cardview/widget/CardView`
+This library adds support for the `CardView`
 widget, which lets you show information inside cards that have a consistent look
 on any app. These cards are useful for material design
 implementations, and are used extensively in layouts for TV apps.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:cardview-v7:28.0.0
 ```
 
 ### v7 gridlayout library
 
 After you download the Android Support Libraries, this library adds support for the
-`https://developer.android.com/reference/androidx/gridlayout/widget/GridLayout` class, which
+`GridLayout` class, which
 allows you to arrange user interface elements using a grid of rectangular cells.
 For detailed information about the v7 gridlayout library APIs, see the
-`https://developer.android.com/reference/android/support/v7/widget/package-summary` package in the API reference.
+`android.support.v7.widget` package in the API reference.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:gridlayout-v7:28.0.0
 ```
 
 ### v7 mediarouter library
 
-This library provides `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter`, `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouteProvider`, and related media classes that
+This library provides `MediaRouter`, `MediaRouteProvider`, and related media classes that
 support [Google Cast](https://developers.google.com/cast/).
 
 In general, the APIs in the v7 mediarouter library provide a means of
@@ -224,12 +219,12 @@ external screens, speakers, and other destination devices. The library includes
 APIs for publishing app-specific media route providers, for discovering and
 selecting destination devices, for checking media status, and more. For detailed
 information about the v7 mediarouter library APIs, see the
-`https://developer.android.com/reference/android/support/v7/media/package-summary` package in the API
+`android.support.v7.media` package in the API
 reference.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:mediarouter-v7:28.0.0
 ```
 
@@ -240,50 +235,50 @@ time, we recommend using the library only in connection with [Google Cast](https
 ### v7 palette library
 
 The v7 palette support library includes the
-`https://developer.android.com/reference/androidx/palette/graphics/Palette` class, which lets you extract
+`Palette` class, which lets you extract
 prominent colors from an image. For example, a music app could use a
-`https://developer.android.com/reference/androidx/palette/graphics/Palette` object to extract the major colors
+`Palette` object to extract the major colors
 from an album cover, and use those colors to build a color-coordinated song
 title card.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:palette-v7:28.0.0
 ```
 
 ### v7 recyclerview library
 
-The recyclerview library adds the `https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView`
+The recyclerview library adds the `RecyclerView`
 class. This class provides support for the
-[RecyclerView](https://developer.android.com/training/material/lists-cards)
+[RecyclerView](/training/material/lists-cards)
 widget, a view for efficiently displaying large data sets by providing a
 limited window of data items.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:recyclerview-v7:28.0.0
 ```
 
 ### v7 Preference Support Library
 
 The
-[preference](https://developer.android.com/reference/android/support/v7/preference/package-summary)
+[preference](/reference/android/support/v7/preference/package-summary)
 package provides APIs to support adding preference objects, such as
-`https://developer.android.com/reference/androidx/preference/CheckBoxPreference` and
-`https://developer.android.com/reference/androidx/preference/ListPreference`, for
+`CheckBoxPreference` and
+`ListPreference`, for
 users to modify UI settings.
 
 The v7 Preference library adds support for interfaces, such as
-`https://developer.android.com/reference/androidx/preference/Preference.OnPreferenceChangeListener` and
-`https://developer.android.com/reference/androidx/preference/Preference.OnPreferenceClickListener`, and classes,
-such as `https://developer.android.com/reference/androidx/preference/CheckBoxPreference` and
-`https://developer.android.com/reference/androidx/preference/ListPreference`.
+`Preference.OnPreferenceChangeListener` and
+`Preference.OnPreferenceClickListener`, and classes,
+such as `CheckBoxPreference` and
+`ListPreference`.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:preference-v7:28.0.0
 ```
 
@@ -295,14 +290,13 @@ independently from other libraries.
 ### v8 renderscript library
 
 This library adds support for
-the [RenderScript](https://developer.android.com/guide/topics/renderscript/compute) computation
-framework. These APIs are included in the `https://developer.android.com/reference/android/support/v8/renderscript/package-summary` package. You
+the [RenderScript](/guide/topics/renderscript/compute) computation
+framework. These APIs are included in the `android.support.v8.renderscript` package. You
 should be aware that the steps for including these APIs in your application is *very
 different* from other support library APIs. For more information about using these APIs
 in your application, see the
-[RenderScript](https://developer.android.com/guide/topics/renderscript/compute#access-rs-apis)
+[RenderScript](/guide/topics/renderscript/compute#access-rs-apis)
 developer guide.
-
 
 **Note:** Use of RenderScript with the support library is supported with Android
 Studio and Gradle-based builds. The
@@ -310,7 +304,7 @@ renderscript library is located in the `build-tools/$VERSION/renderscript/` fold
 
 The following example shows the Gradle build script properties for this library:
 
-```groovy
+```
 defaultConfig {
     renderscriptTargetApi 18
     renderscriptSupportModeEnabled true
@@ -320,80 +314,89 @@ defaultConfig {
 ## v13 Support Library
 
 This library adds support
-for the [Fragment](https://developer.android.com/guide/components/fragments) user interface pattern
-with the (`https://developer.android.com/reference/androidx/legacy/app/FragmentCompat`) class and additional fragment support
+for the [Fragment](/guide/components/fragments) user interface pattern
+with the (`FragmentCompat`) class and additional fragment support
 classes. For more information about fragments, see the
-[Fragments](https://developer.android.com/guide/components/fragments) developer guide. For detailed
-information about the v13 Support Library APIs, see the `https://developer.android.com/reference/android/support/v13/app/package-summary` package in the API reference.
+[Fragments](/guide/components/fragments) developer guide. For detailed
+information about the v13 Support Library APIs, see the `android.support.v13` package in the API reference.
 
-**Note:** The [v4 fragment library](https://developer.android.com/topic/libraries/support-library/packages#v4-fragment)
-provides a `https://developer.android.com/reference/androidx/fragment/app/Fragment` class. The v4
-`https://developer.android.com/reference/androidx/fragment/app/Fragment` class is a standalone class that
+**Note:** The [v4 fragment library](#v4-fragment)
+provides a `Fragment` class. The v4
+`Fragment` class is a standalone class that
 provides bugfixes which were added in later platform versions, whereas the
-v13 `https://developer.android.com/reference/androidx/legacy/app/FragmentCompat` class provides
+v13 `FragmentCompat` class provides
 compatibility shims for the framework implementation of the
-`https://developer.android.com/reference/android/app/Fragment` class.
+`Fragment` class.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:support-v13:28.0.0
 ```
 
 ## v14 Preference Support Library
 
-The `https://developer.android.com/reference/android/support/v14/preference/package-summary` package provides APIs to add support
+The `android.support.v14.preference` package provides APIs to add support
 for preference interfaces such as
-`https://developer.android.com/reference/androidx/preference/PreferenceFragment.OnPreferenceStartFragmentCallback`
+`PreferenceFragment.OnPreferenceStartFragmentCallback`
 and
-`https://developer.android.com/reference/androidx/preference/PreferenceFragment.OnPreferenceStartScreenCallback`,
+`PreferenceFragment.OnPreferenceStartScreenCallback`,
 along with classes, such as
-`https://developer.android.com/reference/androidx/preference/MultiSelectListPreference` and
-`https://developer.android.com/reference/androidx/preference/PreferenceFragment`. For detailed
+`MultiSelectListPreference` and
+`PreferenceFragment`. For detailed
 information about the v14 Preference Support Library APIs, see the
-[preference](https://developer.android.com/reference/android/support/v14/preference/package-summary)
+[preference](/reference/android/support/v14/preference/package-summary)
 package in the API reference.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:preference-v14:28.0.0
 ```
 
 ## v17 Preference Support Library for TV
 
-The `https://developer.android.com/reference/android/support/v17/preference/package-summary` package provides APIs for providing preference
+The `android.support.v17.preference` package provides APIs for providing preference
 interfaces on TV devices, including support for the
-`https://developer.android.com/reference/androidx/leanback/preference/LeanbackListPreferenceDialogFragment.ViewHolder.OnItemClickListener`
+`LeanbackListPreferenceDialogFragment.ViewHolder.OnItemClickListener`
 interface and classes, such as
-`https://developer.android.com/reference/androidx/leanback/preference/BaseLeanbackPreferenceFragment` and
-`https://developer.android.com/reference/androidx/leanback/preference/LeanbackPreferenceFragment`. For detailed
+`BaseLeanbackPreferenceFragment` and
+`LeanbackPreferenceFragment`. For detailed
 information about the v17 Preference Support Library APIs, see the
-[preference](https://developer.android.com/reference/android/support/v17/preference/package-summary)
+[preference](/reference/android/support/v17/preference/package-summary)
 package in the API reference.
 
 This package requires API level 17 or higher. The Gradle build script
 dependency identifier for this library is as follows:
 
-```groovy
- com.android.support:preference-leanback-v17:28.0.0 
+```
+ com.android.support:preference-leanback-v17:28.0.0
 ```
 
 ## v17 Leanback Library
 
-The `https://developer.android.com/reference/android/support/v17/leanback/package-summary` package provides APIs to support
+The `android.support.v17.leanback` package provides APIs to support
 building user interfaces
 on TV devices. It provides a number of important widgets for TV apps. Some of the notable classes include:
 
-- `https://developer.android.com/reference/androidx/leanback/app/BrowseFragment` - A fragment for creating a primary layout for browsing categories and rows of media items.
-- `https://developer.android.com/reference/androidx/leanback/app/DetailsFragment` - A wrapper fragment for Leanback details screens.
-- `https://developer.android.com/reference/android/support/v17/leanback/app/PlaybackOverlayFragment` - A subclass of `https://developer.android.com/reference/androidx/leanback/app/DetailsFragment` for displaying playback controls and related content.
-- `https://developer.android.com/reference/androidx/leanback/app/SearchFragment` - A fragment to handle searches. The fragment receives the user's search request and passes it to the application-provided `https://developer.android.com/reference/androidx/leanback/app/SearchFragment.SearchResultProvider`. The `https://developer.android.com/reference/androidx/leanback/app/SearchFragment.SearchResultProvider` returns the search results to the `https://developer.android.com/reference/androidx/leanback/app/SearchFragment`, which renders them into a `https://developer.android.com/reference/androidx/leanback/app/RowsFragment`.
+* `BrowseFragment` - A fragment for
+  creating a primary layout for browsing categories and rows of media
+  items.
+* `DetailsFragment` - A wrapper
+  fragment for Leanback details screens.
+* `PlaybackOverlayFragment` - A
+  subclass of `DetailsFragment` for
+  displaying playback controls and related content.
+* `SearchFragment` - A fragment to
+  handle searches. The fragment receives the user's search request and passes
+  it to the application-provided `SearchResultProvider`. The `SearchResultProvider` returns the search results to the
+  `SearchFragment`, which renders them
+  into a `RowsFragment`.
 
 This package requires API level 17 or higher. The Gradle build script
 dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:leanback-v17:28.0.0
 ```
 
@@ -404,7 +407,7 @@ Provides support for static vector graphics.
 The Gradle build script dependency identifier for this library is as
 follows:
 
-```groovy
+```
 com.android.support:support-vector-drawable:28.0.0
 ```
 
@@ -415,95 +418,92 @@ Provides support for animated vector graphics.
 The Gradle build script dependency identifier for this library is as
 follows:
 
-```groovy
+```
 com.android.support:animated-vector-drawable:28.0.0
 ```
 
 ## Annotations Support Library
 
-The [Annotation](https://developer.android.com/reference/android/support/annotation/package-summary)
+The [Annotation](/reference/android/support/annotation/package-summary)
 package provides APIs to support adding annotation metadata to your apps.
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:support-annotations:28.0.0
 ```
 
 ## Design Support Library
 
 The
-[Design](https://developer.android.com/reference/android/support/design/package-summary) package
+[Design](/reference/android/support/design/package-summary) package
 provides APIs to support adding material design components and patterns to your apps.
 
 The Design Support library adds support for various material design components and patterns for
 app developers to build upon, such as navigation drawers, floating action buttons (*FAB*),
-snackbars, and [tabs](https://developer.android.com/design/building-blocks/tabs).
+snackbars, and [tabs](/design/building-blocks/tabs).
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:design:28.0.0
 ```
 
 ## Custom Tabs Support Library
 
 The
-[Custom Tabs](https://developer.android.com/reference/android/support/customtabs/package-summary)
+[Custom Tabs](/reference/android/support/customtabs/package-summary)
 package provides APIs to support adding and managing custom tabs in your apps.
 
 The Custom Tabs Support library adds support for various classes, such as
 [Custom Tabs
-Service](https://developer.android.com/reference/androidx/browser/customtabs/CustomTabsService)
+Service](/reference/androidx/browser/customtabs/CustomTabsService)
 and
 [Custom Tabs
-Callback](https://developer.android.com/reference/androidx/browser/customtabs/CustomTabsCallback).
+Callback](/reference/androidx/browser/customtabs/CustomTabsCallback).
 
 This package requires API level 15 or higher.
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:customtabs:28.0.0
 ```
 
 ## Percent Support Library
 
 The
-[Percent](https://developer.android.com/reference/android/support/percent/package-summary)
+[Percent](/reference/android/support/percent/package-summary)
 package provides APIs to support adding and managing percentage based
 dimensions in your app.
 
-
 **Note:** As of release 26.0.0, the Percent Support library is deprecated.
-Clients of this module should migrate to the new [`ConstraintLayout`](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout)
+Clients of this module should migrate to the new [`ConstraintLayout`](/reference/androidx/constraintlayout/widget/ConstraintLayout)
 widget, which is provided as a separate artifact in SDK Manager.
 
 The Percent Support library adds support for the
-[PercentLayoutHelper.PercentLayoutParams](https://developer.android.com/reference/androidx/percentlayout/widget/PercentLayoutHelper.PercentLayoutParams) interface
+[PercentLayoutHelper.PercentLayoutParams](/reference/androidx/percentlayout/widget/PercentLayoutHelper.PercentLayoutParams) interface
 and various classes, such as
-[PercentFrameLayout](https://developer.android.com/reference/androidx/percentlayout/widget/PercentFrameLayout)
+[PercentFrameLayout](/reference/androidx/percentlayout/widget/PercentFrameLayout)
 and
-[PercentRelativeLayout](https://developer.android.com/reference/androidx/percentlayout/widget/PercentRelativeLayout).
+[PercentRelativeLayout](/reference/androidx/percentlayout/widget/PercentRelativeLayout).
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:percent:28.0.0
 ```
 
 ## ExifInterface Support Library
 
-
 Exif tags store information such as the orientation, date and time, camera
-information, and the location directly in a JPEG or RAW file. The [`ExifInterface`](https://developer.android.com/reference/androidx/exifinterface/media/ExifInterface)
+information, and the location directly in a JPEG or RAW file. The [`ExifInterface`](/reference/androidx/exifinterface/media/ExifInterface)
 class unbundles support for reading Exif information from JPEG
 and raw (DNG, CR2, NEF, NRW, ARW, RW2, ORF, PEF, SRW and RAF) formatted
 files, and setting the Exif information on JPEG image files.
 
-
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:exifinterface:28.0.0
 ```
 
@@ -511,19 +511,19 @@ com.android.support:exifinterface:28.0.0
 
 The
 [App
-Recommendation](https://developer.android.com/reference/android/support/app/recommendation/package-summary)
+Recommendation](/reference/android/support/app/recommendation/package-summary)
 package provides APIs to support adding content recommendations in your app running on TV devices.
 
 The App library adds support for annotations, such as
-[ContentRecommendation.ContentMaturity](https://developer.android.com/reference/androidx/recommendation/app/ContentRecommendation.ContentMaturity) and various classes, such as
-[ContentRecommendation](https://developer.android.com/reference/androidx/recommendation/app/ContentRecommendation)
+[ContentRecommendation.ContentMaturity](/reference/androidx/recommendation/app/ContentRecommendation.ContentMaturity) and various classes, such as
+[ContentRecommendation](/reference/androidx/recommendation/app/ContentRecommendation)
 and
-[RecommendationExtender](https://developer.android.com/reference/androidx/recommendation/app/RecommendationExtender).
+[RecommendationExtender](/reference/androidx/recommendation/app/RecommendationExtender).
 
 This package requires API level 21 or higher.
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:recommendation:28.0.0
 ```
 
@@ -531,14 +531,14 @@ com.android.support:recommendation:28.0.0
 
 This library has APIs for building user interfaces for Wear apps.
 The APIs, available in the
-[android.support.wear.widget](https://developer.android.com/reference/android/support/wear/widget/package-summary) package,
+[android.support.wear.widget](/reference/android/support/wear/widget/package-summary) package,
 replace the corresponding APIs in the Wearable Support Library.
 
 For more information, see
-[Using the Wear UI Library](https://developer.android.com/training/wearables/ui/wear-ui-library).
+[Using the Wear UI Library](/training/wearables/ui/wear-ui-library).
 
 The Gradle build script dependency identifier for this library is as follows:
 
-```groovy
+```
 com.android.support:wear:28.0.0
 ```

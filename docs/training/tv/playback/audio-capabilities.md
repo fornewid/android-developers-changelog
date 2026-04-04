@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android TV devices can have multiple audio outputs connected at the same time:
 TV speakers, HDMI-connected home cinema, Bluetooth headphones, and so on.
 These audio output devices can support different audio capabilities,

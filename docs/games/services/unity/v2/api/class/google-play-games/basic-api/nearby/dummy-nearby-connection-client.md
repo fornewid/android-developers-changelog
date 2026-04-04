@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # GooglePlayGames.BasicApi.Nearby.DummyNearbyConnectionClient
 
 Dummy implementation of [INearbyConnectionClient](/games/services/unity/v2/api/interface/google-play-games/basic-api/nearby/i-nearby-connection-client#interface_google_play_games_1_1_basic_api_1_1_nearby_1_1_i_nearby_connection_client).

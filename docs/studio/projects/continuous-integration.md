@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Continuous integration systems let you automatically build and test your app
 every time you check in updates to your source control system. You can use any
 continuous integration tool that can initiate a Gradle build to build your

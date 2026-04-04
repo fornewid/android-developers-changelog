@@ -1,21 +1,11 @@
 ---
-title: ndk-stack  |  Android NDK  |  Android Developers
+title: https://developer.android.com/ndk/guides/ndk-stack
 url: https://developer.android.com/ndk/guides/ndk-stack
-source: html-scrape
+source: md.txt
 ---
 
-* [Home](https://developer.android.com/)
-* [NDK](https://developer.android.com/ndk)
-* [Develop](https://developer.android.com/develop)
-* [Guides](https://developer.android.com/ndk/guides)
-
-# ndk-stack Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 The `ndk-stack` tool allows you to symbolize stack traces from
-[`adb logcat`](/tools/help/logcat) or a
+[`adb logcat`](https://developer.android.com/tools/help/logcat) or a
 tombstone in `/data/tombstones/`. It replaces any
 address inside a shared library with the corresponding
 `<source-file>:<line-number>` from your source code,
@@ -101,5 +91,5 @@ For example:
 Google Play uses `ndk-stack` to symbolize stack traces for native
 apps in the Google Play Console. For information on how to enable this for your
 app in a production environment, see how to
-[include a native debug symbols file](/studio/build/shrink-code#strip-native-libraries)
+[include a native debug symbols file](https://developer.android.com/studio/build/shrink-code#strip-native-libraries)
 for your app in the Google Play Console.

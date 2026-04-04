@@ -1,33 +1,15 @@
 ---
-title: Improve frame rates, reduce GPU load, and reduce rendering latency using Android XR Extensions settings  |  Android Developers
+title: https://developer.android.com/develop/xr/unity/performance/androidxr-extension-settings
 url: https://developer.android.com/develop/xr/unity/performance/androidxr-extension-settings
-source: html-scrape
+source: md.txt
 ---
 
-* [Develop](https://developer.android.com/develop)
-* [Guides](https://developer.android.com/develop/xr/get-started)
-
-# Improve frame rates, reduce GPU load, and reduce rendering latency using Android XR Extensions settings Stay organized with collections Save and categorize content based on your preferences.
+<br />
 
 
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
-Applicable XR devices
-
-This guidance helps you build experiences for these types of XR devices.
-
-[Learn about XR device types →](/develop/xr/devices)
-
-![](/static/images/develop/xr/xr-headsets-icon.svg)
-
-
-XR Headsets
-
-![](/static/images/develop/xr/xr-glasses-icon.svg)
-
-
-Wired XR Glasses
-
-[Learn about XR device types →](/develop/xr/devices)
+<br />
 
 Unity provides some performance-related features that are specific to Android XR
 and require the Android XR Extensions package. Enable these features to improve
@@ -39,8 +21,8 @@ reduce tracked rendering latency using late latching.
 Before following this guidance, make sure you've verified and completed the
 following prerequisites:
 
-* Complete all the steps for [setting up your project in Unity](/develop/xr/unity/setup).
-* [Import the Android XR Extensions for Unity package](/develop/xr/unity/xr-extensions-quickstart#import_packages).
+- Complete all the steps for [setting up your project in Unity](https://developer.android.com/develop/xr/unity/setup).
+- [Import the Android XR Extensions for Unity package](https://developer.android.com/develop/xr/unity/xr-extensions-quickstart#import_packages).
 
 ## Enable spacewarp
 
@@ -52,25 +34,23 @@ power and energy use.
 
 ### Benefits
 
-* Reduces GPU rendering workload by synthesizing alternate frames.
-* Significantly reduces computational power and energy consumption.
-* Uses reprojection to reduce latency between user movements and display
-  updates.
+- Reduces GPU rendering workload by synthesizing alternate frames.
+- Significantly reduces computational power and energy consumption.
+- Uses reprojection to reduce latency between user movements and display updates.
 
 ### Enable this feature
 
-1. From the Unity main menu, click **Edit > Project Settings**.
+1. From the Unity main menu, click **Edit \> Project Settings**.
 2. Expand the **XR Plug-in Management** section.
 3. Select the tab that corresponds to your current XR device.
 4. Go to the **OpenXR Feature Groups** section.
 5. In the **All Features** section, enable **Application SpaceWarp**.
 
-   ![Unity settings for spacewarp
-   ](/static/images/develop/xr/unity/performance/spacewarp-settings.png)
+   ![Unity settings for spacewarp](https://developer.android.com/static/images/develop/xr/unity/performance/spacewarp-settings.png)
 
-**Note:** Spacewarp requires your shaders to support motion vectors. For information
-on enabled motion vectors in your shaders, see [Unity's
-guidelines](https://docs.unity3d.com/Packages/com.unity.xr.openxr@1.15/manual/features/spacewarp/spacewarp-shaders.html).
+> [!NOTE]
+> **Note:** Spacewarp requires your shaders to support motion vectors. For information on enabled motion vectors in your shaders, see [Unity's
+> guidelines](https://docs.unity3d.com/Packages/com.unity.xr.openxr@1.15/manual/features/spacewarp/spacewarp-shaders.html).
 
 ## Enable vulkan subsampling
 
@@ -82,20 +62,18 @@ lower resolution.
 
 ### Benefits
 
-* Provides varying improvement when combined with foveated rendering,
-  depending on form factor.
-* Reduces aliasing in peripheral areas through bilinear filtering.
-* Enables efficient variable-rate rendering across different screen regions.
+- Provides varying improvement when combined with foveated rendering, depending on form factor.
+- Reduces aliasing in peripheral areas through bilinear filtering.
+- Enables efficient variable-rate rendering across different screen regions.
 
 ### Enable this feature
 
-1. From the Unity main menu, click **Edit > Project Settings**.
+1. From the Unity main menu, click **Edit \> Project Settings**.
 2. Expand the **XR Plug-in Management** section, and then click **OpenXR**.
 3. Click the cog icon next to **Android XR (Extensions): Session Management**.
 4. Enable **Subsampling (Vulkan)**.
 
-   ![Unity settings for Vulkan subsampling
-   ](/static/images/develop/xr/unity/performance/vulkan-subsampling.png)
+   ![Unity settings for Vulkan subsampling](https://developer.android.com/static/images/develop/xr/unity/performance/vulkan-subsampling.png)
 
 ## Enable late latching
 
@@ -108,56 +86,42 @@ latency by close to a whole frame time.
 
 ### Benefits
 
-* Significantly reduces Motion-to-Photon (MTP) latency.
-* Improves user comfort and reduces motion sickness.
-* Enhances stability and precision.
+- Significantly reduces Motion-to-Photon (MTP) latency.
+- Improves user comfort and reduces motion sickness.
+- Enhances stability and precision.
 
 ### Enable this feature
 
 To enable late latching, turn on the feature at runtime for your app:
 
-```
-private XRDisplaySubsystem xrDisplay;
+    private XRDisplaySubsystem xrDisplay;
 
-private XRDisplaySubsystem.LateLatchNode lateLatchNode = XRDisplaySubsystem.LateLatchNode.Head;
+    private XRDisplaySubsystem.LateLatchNode lateLatchNode = XRDisplaySubsystem.LateLatchNode.Head;
 
-void Start()
-{
-    List<XRDisplaySubsystem> xrDisplaySubsystems = new();
-
-    SubsystemManager.GetSubsystems(xrDisplaySubsystems);
-
-    if (xrDisplaySubsystems.Count >= 1)
+    void Start()
     {
-        xrDisplay = xrDisplaySubsystems[0];
-    }
-}
+        List<XRDisplaySubsystem> xrDisplaySubsystems = new();
 
-void Update()
-{
-    if (xrDisplay != null)
+        SubsystemManager.GetSubsystems(xrDisplaySubsystems);
+
+        if (xrDisplaySubsystems.Count >= 1)
+        {
+            xrDisplay = xrDisplaySubsystems[0];
+        }
+    }
+
+    void Update()
     {
-        transform.position += new Vector3(Mathf.Epsilon, 0, 0);
+        if (xrDisplay != null)
+        {
+            transform.position += new Vector3(Mathf.Epsilon, 0, 0);
 
-        Quaternion rot = transform.rotation;
+            Quaternion rot = transform.rotation;
 
-        rot.x += Mathf.Epsilon;
+            rot.x += Mathf.Epsilon;
 
-        transform.rotation = rot;
+            transform.rotation = rot;
 
-        xrDisplay.MarkTransformLateLatched(transform, lateLatchNode);
+            xrDisplay.MarkTransformLateLatched(transform, lateLatchNode);
+        }
     }
-}
-```
-
-[Previous
-
-arrow\_back
-
-Adjust OpenXR Feature settings for optimal performance](/develop/xr/unity/performance/openxr-feature-settings)
-
-[Next
-
-Optimize GPU rendering
-
-arrow\_forward](/develop/xr/unity/performance/gpu-rendering)

@@ -1,10 +1,24 @@
 ---
-title: https://developer.android.com/agi/frame-trace-gui/report-pane
+title: Report pane  |  Android Developers
 url: https://developer.android.com/agi/frame-trace-gui/report-pane
-source: md.txt
+source: html-scrape
 ---
 
-![Report pane](https://developer.android.com/static/images/agi/report-pane/report-pane.png) **Figure 1.**Report pane
+Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.withgoogle.com/) on March 15!
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Guides](https://developer.android.com/games/guides)
+
+# Report pane Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+![Report pane](/static/images/agi/report-pane/report-pane.png)
+
+
+**Figure 1.** Report pane
 
 The **Report** pane shows any issues found with the capture and its replay.
 This includes issues caused by incorrect parameter usage, invalid command sequences or errors reported by the driver used for replay.

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android Gradle plugin (AGP) Upgrade Assistant is a tool in Android Studio
 that helps you upgrade the version of AGP used by your project.
 

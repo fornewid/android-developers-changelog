@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Wear Material 3 Expressive color system employs three accent layers
 (primary, secondary, tertiary) for key components and two neutral surface
 layers. Each role offers a range of values with consistent contrast, enabling

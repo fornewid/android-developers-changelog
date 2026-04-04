@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 As television screens are typically viewed from a distance, interfaces that use
 larger typography are more legible and comfortable for users. TV Design's
 default type scale includes contrasting and flexible type styles to

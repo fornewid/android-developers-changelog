@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Using one-way data binding, you can set a value on an attribute and set a
 listener that reacts to a change in that attribute:
 

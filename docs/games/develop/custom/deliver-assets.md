@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Use the following best practices to help you deliver assets for your Android
 game.
 
@@ -34,6 +35,8 @@ install, and access asset packs from Google Play.
 
 For more information, see the
 [integrate asset delivery guide](/guide/playcore/asset-delivery/integrate-native).
+
+
 
 
 

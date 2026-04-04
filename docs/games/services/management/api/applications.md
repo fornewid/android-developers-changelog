@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 A resource representing the metadata for an application.
 
 For a list of [methods](#methods) for this resource, see the end of this page.

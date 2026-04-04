@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 AI glasses provide a unique opportunity for new interaction design with the
 overlap of a new, highly-contextual and personal form factor with evolving AI
 patterns. For AI glasses, you will have access to the devices hardware and

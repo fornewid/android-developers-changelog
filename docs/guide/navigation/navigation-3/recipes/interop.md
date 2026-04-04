@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/interop
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/interop
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Interop Recipe
 
@@ -10,15 +19,15 @@ This recipe demonstrates how to use `AndroidFragment` and `AndroidView` within a
 
 ## Features
 
-- **AndroidFragment**: Shows how to embed a Fragment inside a Composable destination.
-- **AndroidView**: Shows how to embed a classic Android View inside a Composable destination.
+* **AndroidFragment**: Shows how to embed a Fragment inside a Composable destination.
+* **AndroidView**: Shows how to embed a classic Android View inside a Composable destination.
 
 ## Key Components
 
-- `InteropActivity`: The main activity hosting the navigation.
-- `MyCustomFragment`: A simple Fragment used in the example.
-- `AndroidFragment<T>`: A Composable that hosts a Fragment.
-- `AndroidView`: A Composable that hosts an Android View.
+* `InteropActivity`: The main activity hosting the navigation.
+* `MyCustomFragment`: A simple Fragment used in the example.
+* `AndroidFragment<T>`: A Composable that hosts a Fragment.
+* `AndroidView`: A Composable that hosts an Android View.
 
 ## Usage
 
@@ -26,7 +35,13 @@ This recipe demonstrates how to use `AndroidFragment` and `AndroidView` within a
 2. The initial screen shows a Fragment.
 3. Click "Go to View" to navigate to a screen displaying a `TextView`.
 
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/interop)
+[![](/static/images/picto-icons/code.svg)
+
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/interop)
 
 ```
 package com.example.nav3recipes.interop
@@ -51,6 +66,8 @@ class MyCustomFragment : Fragment() {
         }
     }
 }
+
+MyCustomFragment.kt
 ```
 
 ```
@@ -121,4 +138,6 @@ class InteropActivity : FragmentActivity() {
         }
     }
 }
+
+InteropActivity.kt
 ```

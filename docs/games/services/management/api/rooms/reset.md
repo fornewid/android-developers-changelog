@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Requires [authorization](#auth)**
 
 Reset all rooms for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for your application.

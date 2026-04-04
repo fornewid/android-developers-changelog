@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Large unfolded displays and unique folded states enable new user experiences on
 foldable devices. To make your app fold aware, use the [Jetpack WindowManager
 library](/jetpack/androidx/releases/window), which provides an API surface for foldable device window features

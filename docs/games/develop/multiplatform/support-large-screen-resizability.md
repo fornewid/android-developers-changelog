@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Expanding from phones to different large screen form factors introduces considerations for how your game handles window management. On [ChromeOS](https://chromeos.dev/en/games/optimizing-games-windowing) and [Google Play Games on PC](/games/playgames/graphics), your game can run in a windowed mode over a main desktop interface. On [new Android tablets and foldables](/guide/practices/screens-distribution#maxAspectRatio) running Android 12L (API level 32) or higher with screen width > 600dp, your game can run side by side in [split-screen mode](/develop/ui/compose/layouts/adaptive/support-multi-window-mode#split-screen_mode) with other applications, be resized, and even be moved between the inner and outer display on [foldable devices](/develop/ui/compose/layouts/adaptive/foldables/make-your-app-fold-aware) resulting in a configuration change for window size and, on some devices, orientation.
 
 [Resizability with Unity games](/games/engines/unity/unity-large-screen)
@@ -188,6 +189,8 @@ boolean isTableTopPosture(FoldingFeature foldFeature) {
            (foldFeature.getOrientation() == FoldingFeature.Orientation.HORIZONTAL);
 }
 ```
+
+
 
 
 

@@ -13,6 +13,5 @@ source: html-scrape
 
 
 
-
 Organizations and professional developers can verify for wide distribution. This
 account type offers unlimited apps and installs.

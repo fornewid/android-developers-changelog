@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **Note:** Gemini in Android Studio is only available in the latest stable channel
 version of Android Studio and major versions released in the previous 10 months.
 If you are using an older version of Android Studio, you will need to update to

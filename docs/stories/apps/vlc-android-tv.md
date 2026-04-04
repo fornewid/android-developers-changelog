@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 ![](/static/images/distribute/stories/vlc-icon.svg)
 
 [VLC](https://www.videolan.org/vlc/index.html)—a free, open

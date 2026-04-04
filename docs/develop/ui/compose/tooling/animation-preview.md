@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Android Studio allows you to inspect animations from Animation Preview. If an
 animation is described in a composable preview, you can inspect the exact value
 of each animated value at a given time, pause the animation, loop it,

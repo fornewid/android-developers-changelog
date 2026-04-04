@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page presents several best practices that have a positive impact by making
 your app more scalable and testable when using coroutines.
 

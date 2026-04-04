@@ -1,11 +1,22 @@
 ---
-title: https://developer.android.com/develop/connectivity/bluetooth/ble/transfer-ble-data
+title: Transfer BLE data  |  Connectivity  |  Android Developers
 url: https://developer.android.com/develop/connectivity/bluetooth/ble/transfer-ble-data
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Connectivity](https://developer.android.com/develop/connectivity)
+* [Guides](https://developer.android.com/develop/connectivity/overview)
+
+# Transfer BLE data Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 Once you have [connected to a BLE GATT
-server](https://developer.android.com/develop/connectivity/bluetooth/connect-gatt-server), you can use
+server](/develop/connectivity/bluetooth/connect-gatt-server), you can use
 the connection to find out what services are available on the device, query data
 from the device, and request notifications when a certain GATT characteristic
 changes.
@@ -17,22 +28,22 @@ to perform service discovery. This provides information about the services
 available on the remote device as well as the service characteristics and their
 descriptors. In the following example, once the service successfully connects to
 the device (indicated by the appropriate call to the
-[`onConnectionStateChange()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onConnectionStateChange(android.bluetooth.BluetoothGatt,%20int,%20int))
+[`onConnectionStateChange()`](/reference/android/bluetooth/BluetoothGattCallback#onConnectionStateChange(android.bluetooth.BluetoothGatt,%20int,%20int))
 function of the
-[`BluetoothGattCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback)),
+[`BluetoothGattCallback`](/reference/android/bluetooth/BluetoothGattCallback)),
 the
-[`discoverServices()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#discoverServices())
+[`discoverServices()`](/reference/android/bluetooth/BluetoothGatt#discoverServices())
 function queries the information from the BLE device.
 
 The service needs to override the
-[`onServicesDiscovered()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onServicesDiscovered(android.bluetooth.BluetoothGatt,%20int))
+[`onServicesDiscovered()`](/reference/android/bluetooth/BluetoothGattCallback#onServicesDiscovered(android.bluetooth.BluetoothGatt,%20int))
 function in the
-[`BluetoothGattCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback).
+[`BluetoothGattCallback`](/reference/android/bluetooth/BluetoothGattCallback).
 This function is called when the device reports on its available services.
 
 ### Kotlin
 
-```kotlin
+```
 class BluetoothLeService : Service() {
 
 ...
@@ -77,7 +88,7 @@ companion object {
 
 ### Java
 
-```java
+```
 class BluetoothLeService extends Service {
 
     public final static String ACTION_GATT_SERVICES_DISCOVERED =
@@ -113,14 +124,14 @@ class BluetoothLeService extends Service {
 }
 ```
 
-The service uses [broadcasts](https://developer.android.com/guide/components/broadcasts) to notify the
+The service uses [broadcasts](/guide/components/broadcasts) to notify the
 activity. Once the services have been discovered, the service can call
-[`getServices()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#getServices()) to
+[`getServices()`](/reference/android/bluetooth/BluetoothGatt#getServices()) to
 get the reported data.
 
 ### Kotlin
 
-```kotlin
+```
 class BluetoothLeService : Service() {
 
 ...
@@ -133,7 +144,7 @@ class BluetoothLeService : Service() {
 
 ### Java
 
-```java
+```
 class BluetoothLeService extends Service {
 
 ...
@@ -150,7 +161,7 @@ indicating that service discovery has finished.
 
 ### Kotlin
 
-```kotlin
+```
 class DeviceControlActivity : AppCompatActivity() {
 
 ...
@@ -178,7 +189,7 @@ class DeviceControlActivity : AppCompatActivity() {
 
 ### Java
 
-```java
+```
 class DeviceControlsActivity extends AppCompatActivity {
 
 ...
@@ -211,7 +222,7 @@ them in the UI:
 
 ### Kotlin
 
-```kotlin
+```
 class DeviceControlActivity : Activity() {
 
     // Demonstrates how to iterate through the supported GATT
@@ -258,7 +269,7 @@ class DeviceControlActivity : Activity() {
 
 ### Java
 
-```java
+```
 public class DeviceControlActivity extends Activity {
     ...
     // Demonstrates how to iterate through the supported GATT
@@ -320,15 +331,15 @@ public class DeviceControlActivity extends Activity {
 
 The GATT service provides a list of characteristics you can read from the
 device. In order to query the data, call the
-[`readCharacteristic()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#readCharacteristic(android.bluetooth.BluetoothGattCharacteristic))
+[`readCharacteristic()`](/reference/android/bluetooth/BluetoothGatt#readCharacteristic(android.bluetooth.BluetoothGattCharacteristic))
 function on the
-[`BluetoothGatt`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt), passing in the
-[`BluetoothGattCharacteristic`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic)
+[`BluetoothGatt`](/reference/android/bluetooth/BluetoothGatt), passing in the
+[`BluetoothGattCharacteristic`](/reference/android/bluetooth/BluetoothGattCharacteristic)
 you want to read.
 
 ### Kotlin
 
-```kotlin
+```
 class BluetoothLeService : Service() {
 
 ...
@@ -346,7 +357,7 @@ class BluetoothLeService : Service() {
 
 ### Java
 
-```java
+```
 class BluetoothLeService extends Service {
 
 ...
@@ -362,15 +373,15 @@ class BluetoothLeService extends Service {
 ```
 
 In this example, the service implements a function to call
-[`readCharacteristic()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#readCharacteristic(android.bluetooth.BluetoothGattCharacteristic)).
+[`readCharacteristic()`](/reference/android/bluetooth/BluetoothGatt#readCharacteristic(android.bluetooth.BluetoothGattCharacteristic)).
 This is an asynchronous call. The results are sent to the
-[`BluetoothGattCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback)
+[`BluetoothGattCallback`](/reference/android/bluetooth/BluetoothGattCallback)
 function
-[`onCharacteristicRead()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onCharacteristicRead(android.bluetooth.BluetoothGatt,%20android.bluetooth.BluetoothGattCharacteristic,%20int)).
+[`onCharacteristicRead()`](/reference/android/bluetooth/BluetoothGattCallback#onCharacteristicRead(android.bluetooth.BluetoothGatt,%20android.bluetooth.BluetoothGattCharacteristic,%20int)).
 
 ### Kotlin
 
-```kotlin
+```
 class BluetoothLeService : Service() {
 
 ...
@@ -394,7 +405,7 @@ class BluetoothLeService : Service() {
 
 ### Java
 
-```java
+```
 class BluetoothLeService extends Service {
 
 ...
@@ -424,7 +435,7 @@ Measurement profile specifications.
 
 ### Kotlin
 
-```kotlin
+```
 private fun broadcastUpdate(action: String, characteristic: BluetoothGattCharacteristic) {
     val intent = Intent(action)
 
@@ -464,7 +475,7 @@ private fun broadcastUpdate(action: String, characteristic: BluetoothGattCharact
 
 ### Java
 
-```java
+```
 private void broadcastUpdate(final String action,
                              final BluetoothGattCharacteristic characteristic) {
     final Intent intent = new Intent(action);
@@ -504,12 +515,12 @@ private void broadcastUpdate(final String action,
 It's common for BLE apps to ask to be notified when a particular characteristic
 changes on the device. In the following example, the service implements a
 function to call the
-[`setCharacteristicNotification()`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#setCharacteristicNotification(android.bluetooth.BluetoothGattCharacteristic,%20boolean))
+[`setCharacteristicNotification()`](/reference/android/bluetooth/BluetoothGatt#setCharacteristicNotification(android.bluetooth.BluetoothGattCharacteristic,%20boolean))
 method:
 
 ### Kotlin
 
-```kotlin
+```
 class BluetoothLeService : Service() {
 
 ...
@@ -536,7 +547,7 @@ class BluetoothLeService : Service() {
 
 ### Java
 
-```java
+```
 class BluetoothLeService extends Service {
 
 ...
@@ -559,12 +570,12 @@ class BluetoothLeService extends Service {
 ```
 
 Once notifications are enabled for a characteristic, an
-[`onCharacteristicChanged()`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback#onCharacteristicChanged(android.bluetooth.BluetoothGatt,%20android.bluetooth.BluetoothGattCharacteristic))
+[`onCharacteristicChanged()`](/reference/android/bluetooth/BluetoothGattCallback#onCharacteristicChanged(android.bluetooth.BluetoothGatt,%20android.bluetooth.BluetoothGattCharacteristic))
 callback is triggered if the characteristic changes on the remote device:
 
 ### Kotlin
 
-```kotlin
+```
 class BluetoothLeService : Service() {
 
 ...
@@ -584,7 +595,7 @@ class BluetoothLeService : Service() {
 
 ### Java
 
-```java
+```
 class BluetoothLeService extends Service {
 
 ...

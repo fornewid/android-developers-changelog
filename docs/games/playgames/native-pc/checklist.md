@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Use this checklist to make sure your game meets all requirements and best
 practices before you submit it for review on Google Play Games on PC.
 

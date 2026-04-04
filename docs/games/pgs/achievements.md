@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Achievements offer engagement by rewarding players for reaching specific
 milestones or completing challenges in the game. They appeal to a broader
 audience, including players who might not be as interested in competitive
@@ -187,8 +186,6 @@ Follow these guidelines when assigning point values to achievements:
 * Assign point values based on the complexity and rarity of the achievement.
 * Always reserve some balance from your total 2000-point allowance. This
   lets you to add new achievements for future game levels or updates.
-
-
 
 
 

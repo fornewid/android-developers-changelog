@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 You can implement your drag-and-drop process in views by responding to events
 that might trigger a drag start and responding and consuming drop events.
 

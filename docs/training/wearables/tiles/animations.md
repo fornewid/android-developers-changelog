@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Tiles support a few different animation approaches, including the following:
 
 * [Sweep transitions](#sweep-transition) using tween animations.

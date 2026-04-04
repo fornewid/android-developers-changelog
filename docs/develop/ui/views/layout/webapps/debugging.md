@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Investigating the behavior of the code running in your WebView, also known as
 debugging, is an essential part of developing Android applications that display
 web content.

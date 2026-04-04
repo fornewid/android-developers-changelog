@@ -1,19 +1,8 @@
 ---
-title: Phone Number Hint  |  Identity  |  Android Developers
+title: https://developer.android.com/identity/phone-number-hint
 url: https://developer.android.com/identity/phone-number-hint
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Identity](https://developer.android.com/identity)
-* [Guides](https://developer.android.com/identity/credential-manager)
-
-# Phone Number Hint Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 The Phone Number Hint API, a library powered by [Google Play services](https://developers.google.com/android),
 provides a frictionless way to show a user's (SIM-based) phone numbers as a
@@ -21,25 +10,21 @@ hint.
 
 The benefits to using Phone Number Hint include the following:
 
-* No additional permission requests are needed
-* Eliminates the need for the user to manually type in the phone number
-* No Google Account is needed
-* Not directly tied to sign-in or sign-up workflows
-* Wider support for Android versions compared to Autofill
+- No additional permission requests are needed
+- Eliminates the need for the user to manually type in the phone number
+- No Google Account is needed
+- Not directly tied to sign-in or sign-up workflows
+- Wider support for Android versions compared to Autofill
 
 ## How it works
 
-The Phone Number Hint API utilizes a [`PendingIntent`](/reference/android/app/PendingIntent)
+The Phone Number Hint API utilizes a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent)
 to initiate the flow. Once the PendingIntent has been launched the user will be
 presented with a UI, listing out all (SIM-based) phone numbers. The user can
 then choose to select a phone number they would like to use or cancel the flow.
 The selected phone number will then be made available to the developer to
-retrieve from the [`Intent`](/reference/android/content/Intent).
-
-![Phone Number Hint UI and Settings.](/static/identity/phone-number-hint/images/phone_number_hint_ui.png)
-
-
-**Figure 1.** Phone Number Hint UI and Settings
+retrieve from the [`Intent`](https://developer.android.com/reference/android/content/Intent).
+![Phone Number Hint UI and Settings.](https://developer.android.com/static/identity/phone-number-hint/images/phone_number_hint_ui.png) **Figure 1.** Phone Number Hint UI and Settings
 
 To prepare your app, complete the steps in the following sections.
 
@@ -47,18 +32,16 @@ To prepare your app, complete the steps in the following sections.
 
 Add the [Google Play services](https://developers.google.com/android)
 dependency for the Phone Number Hint API to your
-[module's Gradle build file](/studio/build#module-level),
+[module's Gradle build file](https://developer.android.com/studio/build#module-level),
 which is commonly `app/build.gradle`:
 
-```
-  apply plugin: 'com.android.application'
+      apply plugin: 'com.android.application'
 
-  ...
+      ...
 
-  dependencies {
-    implementation 'com.google.android.gms:play-services-auth:21.5.1'
-  }
-```
+      dependencies {
+        implementation 'com.google.android.gms:play-services-auth:21.5.1'
+      }
 
 ### Create a GetPhoneNumbeHintIntentRequest object
 
@@ -69,13 +52,13 @@ Phone Number Hint flow.
 
 ### Kotlin
 
-```
+```kotlin
 val request: GetPhoneNumberHintIntentRequest = GetPhoneNumberHintIntentRequest.builder().build()
 ```
 
 ### Java
 
-```
+```java
 GetPhoneNumberHintIntentRequest request = GetPhoneNumberHintIntentRequest.builder().build();
 ```
 
@@ -87,7 +70,7 @@ to retrieve the `PendingIntent` to initiate the Phone Number Hint flow.
 
 ### Kotlin
 
-```
+```kotlin
 val phoneNumberHintIntentResultLauncher = ...
 
 Identity.getSignInClient(activity)
@@ -108,7 +91,7 @@ Identity.getSignInClient(activity)
 
 ### Java
 
-```
+```java
 ActivityResultLauncher phoneNumberHintIntentResultLauncher = ...
 
 Identity.getSignInClient(activity)
@@ -132,7 +115,7 @@ to retrieve the phone number.
 
 ### Kotlin
 
-```
+```kotlin
 val phoneNumberHintIntentResultLauncher =
 registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { result ->
       try {
@@ -145,7 +128,7 @@ registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) 
 
 ### Java
 
-```
+```java
 ActivityResultLauncher phoneNumberHintIntentResultLauncher =
   registerForActivityResult(
       new ActivityResultContracts.StartActivityForResult(),

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This page describes how to create value-based animations in Jetpack Compose,
 focusing on APIs that animate values based on their current and target states.
 

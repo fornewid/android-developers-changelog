@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Many of the watches within the Wear OS ecosystem have different screen sizes.
 When designing for Wear OS, keep in mind that your app surfaces are displayed on
 these different screen sizes.

@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 ## Videos
 
 * [What's new in Play Commerce (2022)](https://www.youtube.com/watch?v=7ky2PZl16i4)
@@ -47,6 +48,8 @@ Send feedback
   With free training courses through Google Play's Academy for App Success,
   you can learn about Play Console features to help you grow your app or game
   business and learn how to stay on the right side of Google Play policies.
+
+
 
 
 

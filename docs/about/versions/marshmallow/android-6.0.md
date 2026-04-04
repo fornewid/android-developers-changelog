@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 6.0 ([M](/reference/android/os/Build.VERSION_CODES#M))
 offers new features for users and app developers. This document provides an introduction to the
 most notable APIs.

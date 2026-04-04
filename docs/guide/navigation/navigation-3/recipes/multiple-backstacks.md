@@ -1,17 +1,8 @@
 ---
-title: App architecture  |  Android Developers
+title: https://developer.android.com/guide/navigation/navigation-3/recipes/multiple-backstacks
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/multiple-backstacks
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Multiple back stacks recipe
 
@@ -27,20 +18,14 @@ The navigation state is converted into `NavEntry`s with `NavigationState.toDecor
 
 Key behaviors:
 
-* This app follows the "exit through home" pattern where the user always exits through the starting back stack. This means that `RouteA`'s entries are *always* in the list of entries.
-* Navigating to a top level route that is not the starting route *replaces* the other entries. For example, navigating A->B->C would result in entries for A+C, B's entries are removed.
+- This app follows the "exit through home" pattern where the user always exits through the starting back stack. This means that `RouteA`'s entries are *always* in the list of entries.
+- Navigating to a top level route that is not the starting route *replaces* the other entries. For example, navigating A-\>B-\>C would result in entries for A+C, B's entries are removed.
 
 Important implementation details:
 
-* Each top level route has its own `SaveableStateHolderNavEntryDecorator`. This is the object responsible for managing the state for the entries in its back stack.
+- Each top level route has its own `SaveableStateHolderNavEntryDecorator`. This is the object responsible for managing the state for the entries in its back stack.
 
-[![](/static/images/picto-icons/code.svg)
-
-Explore
-
-View the full recipe on GitHub.
-
-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/multiplestacks)
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/multiplestacks)
 
 ```
 /*
@@ -89,8 +74,6 @@ class Navigator(val state: NavigationState){
         }
     }
 }
-
-Navigator.kt
 ```
 
 ```
@@ -227,8 +210,6 @@ class NavigationState(
             listOf(startRoute, topLevelRoute)
         }
 }
-
-NavigationState.kt
 ```
 
 ```
@@ -346,8 +327,6 @@ class MultipleStacksActivity : ComponentActivity() {
         }
     }
 }
-
-MultipleStacksActivity.kt
 ```
 
 ```
@@ -460,6 +439,4 @@ fun EntryProviderScope<NavKey>.featureCSection(
         }
     }
 }
-
-Content.kt
 ```

@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 In order to provide the best experience to players for Google Play Games on PC,
 [we require that your Google Play Games on PC and mobile (Android) versions of
 your game](/games/playgames/identity) provide a seamless cross-device
@@ -50,6 +51,8 @@ Here’s a checklist of our required and encouraged behaviors related to Google 
 | 1.2 | Required | Back up and restore player progress by the Play Games Services Player ID.    This is not required when the user understands that the progress is tied to the local device and would be lost when going to another device or the progress is just within the tutorial.    To ensure players do not lose their progress when switching or resetting devices, or if they play on multiple devices, ensure their progress is backed up to a cloud save solution, and use the Play Games Services Player ID as a key, [securely](https://developer.android.com/games/pgs/signin#secure-access) if using your own backend game server. When players sign in with Play Games Services, check whether progress exists for that account and if it does, allow the player to pick up where they left off. You can use your own cloud save solution or Play Games Services [Saved Games](https://developer.android.com/games/pgs/savedgames)    If the player is not signed in with Play Games Services, try to maintain the player's progress locally, then sync that progress when the player eventually signs in to Play Games Services. This helps to prevent losing any of the player's progress if the player postpones signing in to your game. |
 | 1.3 | Best Practice | Provide a sign-in button for signed-out players.    Players may opt out of using Play Games Services and therefore not automatically sign in to your game. By providing a sign-in button for signed out players, you allow players to change their mind and sign-in to Play Games Services as they get more invested in your game.    The sign-in button should be easy for players to find; for example, it should be accessible from your main screen or located in the Settings screen. This button should not be buried multiple levels deep in your game menu. |
 | 1.4 | Good-to-have | Follow Google branding guidelines.    To provide players with an end-to-end experience that is attractive and consistent, implement the [Play Games Services branding guidelines](https://developer.android.com/games/pgs/branding). |
+
+
 
 
 

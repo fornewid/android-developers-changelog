@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Over the life of a smartphone, the cost of a cellular data plan can easily
 exceed the cost of the device itself. On Android 7.0 (API level 24) and
 higher, users can enable Data Saver on a device-wide basis in order to

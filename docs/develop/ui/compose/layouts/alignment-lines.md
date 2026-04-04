@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Compose layout model lets you use [`AlignmentLine`](/reference/kotlin/androidx/compose/ui/layout/AlignmentLine) to create custom
 alignment lines that can be used by parent layouts to align and position their
 children. For example, [`Row`](/reference/kotlin/androidx/compose/foundation/layout/Row.composable#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) can use its children's custom alignment lines

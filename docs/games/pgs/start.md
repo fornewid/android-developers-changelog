@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This page outlines how to set up [Google Play Games Services](/games/pgs/overview) and then
 add features to an Android game. The tasks include setting up the service in
 Google Play Console and adding features to your game, such as
@@ -98,6 +99,8 @@ After you set up Play Games Services and add features to your game, you can use
 the Play Games Services REST APIs for
 [publishing](/games/pgs/publishing/publishing) and
 [management](/games/pgs/management/management) tasks.
+
+
 
 
 

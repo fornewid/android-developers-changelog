@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Use a [badge](https://m3.material.io/components/badges/overview) to display a small visual element to denote status
 or a numeric value on another composable. Here are a few common scenarios where
 you might use a badge:

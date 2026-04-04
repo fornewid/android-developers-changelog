@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Use the code samples below to learn about Android 7.0 capabilities and APIs. To
 download the samples in Android Studio, select the **File > New > Import
 Samples** menu option.

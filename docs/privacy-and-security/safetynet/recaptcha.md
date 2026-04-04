@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Warning:** In order to help you safely grow your business, Google builds tools to
 protect your Android apps and games from abuse. We evolve these solutions as
 the abuse landscape changes. Delivering on this promise, Google is replacing the

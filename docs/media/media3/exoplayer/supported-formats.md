@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 When defining the formats that ExoPlayer supports, it's important to note that
 "media formats" are defined at multiple levels. From the lowest level to the
 highest, these are:

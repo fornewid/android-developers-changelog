@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 As accessibility services navigate through elements on the screen, it is
 important that these elements are grouped, separated, or even hidden at the
 right granularity. When every single low-level composable in your screen is

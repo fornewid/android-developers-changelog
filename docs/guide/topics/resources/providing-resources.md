@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Resources are
 the additional files and static content that your code uses, such as bitmaps, layout
 definitions, user interface strings, animation instructions, and more.

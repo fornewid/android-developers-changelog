@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android platform provides two sensors that let you determine the position
 of a device: the geomagnetic field sensor and the accelerometer. The Android
 platform also provides a sensor that lets you determine how close the face of

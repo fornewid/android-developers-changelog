@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Starting in Android 7.0 (API level 24),
 Android provides enhanced support for multilingual users,
 allowing them to select multiple locales in settings. Android

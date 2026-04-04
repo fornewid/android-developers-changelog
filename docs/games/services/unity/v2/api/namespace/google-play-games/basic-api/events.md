@@ -1,36 +1,28 @@
 ---
-title: GooglePlayGames.BasicApi.Events Namespace  |  API reference  |  Android Developers
+title: https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/events
 url: https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/events
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [API reference](https://developer.android.com/reference)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
+# GooglePlayGames.BasicApi.Events Namespace
 
 # GooglePlayGames.BasicApi.Events
 
 ## Summary
 
-| Enumerations | |
-| --- | --- |
-| `EventVisibility` | enum |
+|                                                                                                    ### Enumerations                                                                                                     ||
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
+| [EventVisibility](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/events#namespace_google_play_games_1_1_basic_api_1_1_events_1ac41bef1102a3a5b4cfc6ca0a575e4337) | enum |
 
-| Interfaces | |
-| --- | --- |
-| [GooglePlayGames.BasicApi.Events.IEvent](/games/services/unity/v2/api/interface/google-play-games/basic-api/events/i-event) | Data object representing an Event. |
-| [GooglePlayGames.BasicApi.Events.IEventsClient](/games/services/unity/v2/api/interface/google-play-games/basic-api/events/i-events-client) | An interface for interacting with events. |
+|                                                                                                   ### Interfaces                                                                                                   ||
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
+| [GooglePlayGames.BasicApi.Events.IEvent](https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/events/i-event)                | Data object representing an Event.        |
+| [GooglePlayGames.BasicApi.Events.IEventsClient](https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/events/i-events-client) | An interface for interacting with events. |
 
 ## Enumerations
 
 ### EventVisibility
 
-```
+```c#
  EventVisibility
 ```

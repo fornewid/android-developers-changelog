@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/wear/images/pickers/picker-hero.png)
 
 The [Picker](/reference/kotlin/androidx/wear/compose/material/Picker.composable#Picker(androidx.wear.compose.material.PickerState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function1,androidx.wear.compose.material.ScalingParams,androidx.compose.ui.unit.Dp,kotlin.Float,androidx.compose.ui.graphics.Color,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Function2)) helps users select and set specific data.

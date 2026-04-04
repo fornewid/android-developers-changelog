@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 If your app needs to request location or receive permission updates, the
 device needs to enable the appropriate system settings, such as GPS or Wi-Fi
 scanning. Rather than directly enabling services such as the device's GPS,

@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 This document describes how to integrate the Play Billing Library APIs to
 offer external payments in eligible apps. To learn more about this program,
 see [program requirements](https://support.google.com/googleplay/android-developer/answer/16787536).
@@ -491,6 +492,8 @@ configuring license testers.
 
 After you've finished in-app integration, you're ready to [integrate your
 backend](/google/play/billing/outside-gpb-backend).
+
+
 
 
 

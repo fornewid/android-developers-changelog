@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Introduction to Design for Driving
 
 ![](/static/images/design/ui/cars/guides/hero.png)

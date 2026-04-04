@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 | Sample | Demo | Link |
 | --- | --- | --- |
 | Basic shared element with caller managed visibility:  Two boxes moving around |  | [SharedElementWithCallerManagedVisibility](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/animation/animation/integration-tests/animation-demos/src/main/java/androidx/compose/animation/demos/sharedelement/CallerManagedVisibilityDemo.kt;l=47) |

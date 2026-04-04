@@ -1,15 +1,24 @@
 ---
-title: https://developer.android.com/develop/ui/compose/touch-input/pointer-input/multi-touch
+title: Multitouch: Panning, zooming, rotating  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/touch-input/pointer-input/multi-touch
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Multitouch: Panning, zooming, rotating Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 To detect multitouch gestures used for panning, zooming and rotating, you can
 use the `transformable` modifier. This modifier does not transform elements by
 itself, it only detects the gestures.
 
-
-```kotlin
+```
 @Composable
 private fun TransformableSample() {
     // set up all transformation states
@@ -39,18 +48,24 @@ private fun TransformableSample() {
             .fillMaxSize()
     )
 }
+
+GesturesSnippets.kt
 ```
 
-<br />
-
-![A UI element responding to multitouch gestures—panning, zooming, and rotating](https://developer.android.com/static/develop/ui/compose/images/gestures-multitouch.gif)
+![A UI element responding to multitouch gestures—panning, zooming, and rotating](/static/develop/ui/compose/images/gestures-multitouch.gif)
 
 If you need to combine zooming, panning and rotation with other gestures, you
 can use the
-[`PointerInputScope.detectTransformGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.input.pointer.PointerInputScope).detectTransformGestures(kotlin.Boolean,kotlin.Function4))
+[`PointerInputScope.detectTransformGestures`](/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.input.pointer.PointerInputScope).detectTransformGestures(kotlin.Boolean,kotlin.Function4))
 detector.
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures)
+* Note: link text is displayed when JavaScript is off
+* [Understand gestures](/develop/ui/compose/touch-input/pointer-input/understand-gestures)
+
+[Previous
+
+arrow\_back
+
+Drag, swipe, and fling](/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling)

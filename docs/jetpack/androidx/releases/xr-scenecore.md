@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Jetpack SceneCore
 
 [User Guide](/develop/devices/xr/jetpack-xr-sdk)  [Code Sample](https://github.com/android/xr-samples)

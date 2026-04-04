@@ -1,10 +1,26 @@
 ---
-title: https://developer.android.com/develop/ui/views/search/training/search
+title: Storing and Searching for Data  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/search/training/search
-source: md.txt
+source: html-scrape
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Filter a list →](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Storing and Searching for Data Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+Try the Compose way
+
+Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose.
+
+[Filter a list →](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing)
+
+![](/static/images/android-compose-ui-logo.png)
 
 There are many ways to store your data, such as in an online database, in a local SQLite
 database, or even in a text file. It is up to you to decide what is the best solution for your
@@ -20,7 +36,7 @@ for the table:
 
 ### Kotlin
 
-```kotlin
+```
 class DatabaseTable(context: Context) {
 
     private val databaseOpenHelper = DatabaseOpenHelper(context)
@@ -30,7 +46,7 @@ class DatabaseTable(context: Context) {
 
 ### Java
 
-```java
+```
 public class DatabaseTable {
     private final DatabaseOpenHelper databaseOpenHelper;
 
@@ -40,14 +56,14 @@ public class DatabaseTable {
 }
 ```
 
-Create an inner class in `DatabaseTable` that extends `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper`. The `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper` class
+Create an inner class in `DatabaseTable` that extends `SQLiteOpenHelper`. The `SQLiteOpenHelper` class
 defines abstract methods that you must override so that your database table can be created and
 upgraded when necessary. For example, here is some code that declares a database table that will
 contain words for a dictionary app:
 
 ### Kotlin
 
-```kotlin
+```
 private const val TAG = "DictionaryDatabase"
 
 // The columns we'll include in the dictionary table
@@ -95,7 +111,7 @@ class DatabaseTable(context: Context) {
 
 ### Java
 
-```java
+```
 public class DatabaseTable {
 
     private static final String TAG = "DictionaryDatabase";
@@ -160,7 +176,7 @@ activity of this thread's completion.
 
 ### Kotlin
 
-```kotlin
+```
 private fun loadDictionary() {
     Thread(Runnable {
         try {
@@ -201,7 +217,7 @@ fun addWord(word: String, definition: String): Long {
 
 ### Java
 
-```java
+```
 private void loadDictionary() {
         new Thread(new Runnable() {
             public void run() {
@@ -244,12 +260,12 @@ public long addWord(String word, String definition) {
 ```
 
 Call the `loadDictionary()` method wherever appropriate to populate the table. A
-good place would be in the `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#onCreate(android.database.sqlite.SQLiteDatabase)`
+good place would be in the `onCreate()`
 method of the `DatabaseOpenHelper` class, right after you create the table:
 
 ### Kotlin
 
-```kotlin
+```
 override fun onCreate(db: SQLiteDatabase) {
     database = db
     database.execSQL(FTS_TABLE_CREATE)
@@ -259,7 +275,7 @@ override fun onCreate(db: SQLiteDatabase) {
 
 ### Java
 
-```java
+```
 @Override
 public void onCreate(SQLiteDatabase db) {
     database = db;
@@ -270,12 +286,12 @@ public void onCreate(SQLiteDatabase db) {
 
 ## Search for the Query
 
-When you have the virtual table created and populated, use the query supplied by your `https://developer.android.com/reference/android/widget/SearchView` to search the data. Add the following methods to the
+When you have the virtual table created and populated, use the query supplied by your `SearchView` to search the data. Add the following methods to the
 `DatabaseTable` class to build a SQL statement that searches for the query:
 
 ### Kotlin
 
-```kotlin
+```
 fun getWordMatches(query: String, columns: Array<String>?): Cursor? {
     val selection = "$COL_WORD MATCH ?"
     val selectionArgs = arrayOf("$query*")
@@ -307,7 +323,7 @@ private fun query(
 
 ### Java
 
-```java
+```
 public Cursor getWordMatches(String query, String[] columns) {
     String selection = COL_WORD + " MATCH ?";
     String[] selectionArgs = new String[] {query+"*"};
@@ -333,14 +349,14 @@ private Cursor query(String selection, String[] selectionArgs, String[] columns)
 ```
 
 Search for a query by calling `getWordMatches()`. Any matching results are returned
-in a `https://developer.android.com/reference/android/database/Cursor` that you can iterate through or use to build a `https://developer.android.com/reference/android/widget/ListView`.
+in a `Cursor` that you can iterate through or use to build a `ListView`.
 This example calls `getWordMatches()` in the `handleIntent()` method of the searchable
-activity. Remember that the searchable activity receives the query inside of the `https://developer.android.com/reference/android/content/Intent#ACTION_SEARCH` intent as an extra, because of the intent filter that you
+activity. Remember that the searchable activity receives the query inside of the `ACTION_SEARCH` intent as an extra, because of the intent filter that you
 previously created:
 
 ### Kotlin
 
-```kotlin
+```
 private val db = DatabaseTable(this)
 
 ...
@@ -357,7 +373,7 @@ private fun handleIntent(intent: Intent) {
 
 ### Java
 
-```java
+```
 DatabaseTable db = new DatabaseTable(this);
 
 ...

@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Vectordrawable
 
 [User Guide](/guide/topics/graphics/vector-drawable-resources)

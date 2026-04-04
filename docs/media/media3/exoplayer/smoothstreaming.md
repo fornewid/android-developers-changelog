@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ExoPlayer supports SmoothStreaming with the FMP4 container format. Media streams
 must be demuxed, meaning that video, audio, and text must be defined in distinct
 StreamIndex elements in the SmoothStreaming manifest. The contained audio and

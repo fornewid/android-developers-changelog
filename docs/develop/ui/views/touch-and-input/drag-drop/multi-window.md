@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Devices that run Android 7.0 (API level 24) or higher support [multi-window
 mode](/develop/ui/views/layout/support-multi-window-mode), which lets users
 move data from one app to another by dragging and dropping.

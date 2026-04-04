@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 At startup, the emulator reads the list of DNS servers that your system is
 using. It then stores the IP addresses of up to four servers on this list and
 sets up aliases to them on the emulated addresses `10.0.2.3`, `10.0.2.4`,

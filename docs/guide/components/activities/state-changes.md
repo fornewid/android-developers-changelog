@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Different events, some user-triggered and some system-triggered, can cause an
 [`Activity`](/reference/android/app/Activity) to transition from one state to
 another. This document describes some common cases in which such transitions

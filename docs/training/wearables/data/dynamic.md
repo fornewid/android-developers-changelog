@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Wear OS supports dynamic updates to information that appears in your [tiles](/training/wearables/tiles)
 and [complications](/training/wearables/tiles/complications).
 

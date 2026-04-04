@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 **Note:** This guide is for the Play Games Services v2 SDK. For information on the
 previous version of this SDK, see the [Play Games Services v1
 documentation](/games/pgs/v1/android/stats).
@@ -176,6 +177,8 @@ engagement strategies:
 | Highly engaged players in a low spend percentile. | * Tailor bonuses to incentivize them to invite their friends   to install and join your game. This approach builds on the player's   demonstrated enjoyment of the game to recruit new players. |
 | High spending players showing signs of having peaked and starting to play less frequently. | * Tailor bonuses to freshen their interest, such as by   offering high-value, short-duration tools, weapons, or   discounts. * The next time the player authenticates, show a video that   directs them to community features, like clan attacks, that   drive more frequent and longer engagement. |
 | Players with very high or very low spend probability. | * Unlikely to spend: Give the option to watch an advertisement   video. Show lower-priced items for purchase. * Likely to spend: Direct them to the in-game store early,   and provide special promotions to incentivize them to buy. |
+
+
 
 
 

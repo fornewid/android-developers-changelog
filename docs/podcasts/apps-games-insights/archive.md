@@ -1,11 +1,18 @@
 ---
-title: https://developer.android.com/podcasts/apps-games-insights/archive
+title: Apps, Games, & Insights Archive  |  Apps, Games, & Insights Podcast  |  Android Developers
 url: https://developer.android.com/podcasts/apps-games-insights/archive
-source: md.txt
+source: html-scrape
 ---
 
-# Apps, Games, & Insights Archive
+* [Home](https://developer.android.com/)
+* [Apps, Games, & Insights Podcast](https://developer.android.com/podcasts/apps-games-insights)
 
-### Apps, Games, \& Insights Archive
+Stay organized with collections
 
-[\< Learn more about the podcast](http://developer.android.com/podcasts/apps-games-insights)
+Save and categorize content based on your preferences.
+
+
+
+### Apps, Games, & Insights Archive
+
+[< Learn more about the podcast](https://developer.android.com/podcasts/apps-games-insights)

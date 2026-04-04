@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 On Android 10 (API level 29) and higher devices, you can use a new peer to peer API to
 bootstrap configuration for secondary devices like Chromecast and Google Home
 hardware. This feature enables your app to prompt the user to change the access

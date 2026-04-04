@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android devices may fully or partially support
 [Vulkan extensions](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#extended-functionality-extensions)
 that provide additional functionality.

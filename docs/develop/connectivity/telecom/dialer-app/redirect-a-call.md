@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Devices that run Android 10 or higher manage call intents differently than
 devices that run Android 9 or lower. On Android 10 and higher, the
 [`ACTION_NEW_OUTGOING_CALL`](/reference/android/content/Intent#ACTION_NEW_OUTGOING_CALL)

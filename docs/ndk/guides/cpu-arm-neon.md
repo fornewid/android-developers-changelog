@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/ndk/guides/cpu-arm-neon
+title: Neon support  |  Android NDK  |  Android Developers
 url: https://developer.android.com/ndk/guides/cpu-arm-neon
-source: md.txt
+source: html-scrape
 ---
+
+* [Home](https://developer.android.com/)
+* [NDK](https://developer.android.com/ndk)
+* [Develop](https://developer.android.com/develop)
+* [Guides](https://developer.android.com/ndk/guides)
+
+# Neon support Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The NDK supports ARM Advanced SIMD, commonly known as Neon, an optional
 instruction set extension for ARMv7 and ARMv8. Neon provides scalar/vector
@@ -20,7 +29,7 @@ devices this would affect.
 Alternatively, for maximum compatibility, 32-bit code can perform runtime
 detection to confirm that Neon code can be run on the target device. An app can
 perform this check using any of the options mentioned in
-[CPU features](https://developer.android.com/ndk/guides/cpu-features).
+[CPU features](/ndk/guides/cpu-features).
 
 You should not write explicit Neon intrinsics in your C/C++ code. Clang's
 [portable vector types](https://clang.llvm.org/docs/LanguageExtensions.html#vectors-and-extended-vectors) will automatically use Neon instructions. Clang's Neon
@@ -30,8 +39,11 @@ portable types, just less portable.
 
 ## Build
 
-> [!NOTE]
-> **Note:** For NDK r21 and newer Neon is enabled by default for all API levels. If you need to disable Neon to support non-Neon devices (which are rare), invert the settings described below. Alternatively, the Play Store console can be used to [exclude CPUs](https://support.google.com/googleplay/android-developer/answer/7353455) that do not support Neon to prevent your application from being installed on those devices.
+**Note:** For NDK r21 and newer Neon is enabled by default for all API levels. If
+you need to disable Neon to support non-Neon devices (which are rare), invert
+the settings described below. Alternatively, the Play Store console can be used
+to [exclude CPUs](https://support.google.com/googleplay/android-developer/answer/7353455) that do not support Neon to prevent your application from
+being installed on those devices.
 
 ## Disable Neon globally
 
@@ -46,15 +58,17 @@ application.
 Pass `-DANDROID_ARM_NEON=ON` when invoking CMake. If building with Android
 Studio/Gradle, set the following option in your build.gradle:
 
-    android {
-        defaultConfig {
-            externalNativeBuild {
-                cmake {
-                    arguments "-DANDROID_ARM_NEON=OFF"
-                }
+```
+android {
+    defaultConfig {
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_ARM_NEON=OFF"
             }
         }
     }
+}
+```
 
 ## Disable Neon per module
 
@@ -63,25 +77,28 @@ Studio/Gradle, set the following option in your build.gradle:
 To build all the source files in an ndk-build module without Neon, add the
 following to the module definition in your Android.mk:
 
-    LOCAL_ARM_NEON := false
+```
+LOCAL_ARM_NEON := false
+```
 
 ### CMake
 
 To build all the source files in a CMake target without Neon, add the
 following to your CMakeLists.txt:
 
-    if(ANDROID_ABI STREQUAL armeabi-v7a)
-        set_target_properties(${TARGET} PROPERTIES COMPILE_FLAGS -mfpu=vfpv3-d16)
-    endif()
+```
+if(ANDROID_ABI STREQUAL armeabi-v7a)
+    set_target_properties(${TARGET} PROPERTIES COMPILE_FLAGS -mfpu=vfpv3-d16)
+endif()
+```
 
 Where `${TARGET}` is replaced with the name of your library.
 
 ## Cross-platform support for x86
 
-
 NDK supports cross-platform compilation of your existing ARM SIMD (Neon)
 instrinsic functions into x86 SSE code, through the use of the third-party
-[NEON_2_SSE.h](https://github.com/intel/ARM_NEON_2_x86_SSE).
+[NEON\_2\_SSE.h](https://github.com/intel/ARM_NEON_2_x86_SSE).
 For more information on this topic, see
 [From ARM NEON to Intel SSE-the automatic porting solution, tips and tricks](http://software.intel.com/en-us/blogs/2012/12/12/from-arm-neon-to-intel-mmxsse-automatic-porting-solution-tips-and-tricks).
 

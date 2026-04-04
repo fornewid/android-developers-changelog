@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 eBay gets a 4.7 Google Play rating with tablet optimizations
 
 eBay is a massive online marketplace used by millions of buyers and sellers

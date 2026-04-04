@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This guide describes how to support [in-app updates](/guide/playcore/in-app-updates) in your app using native
 code (C or C++). There are separate guides for cases where your implementation
 uses [the Kotlin programming language or the Java programming language](/guide/playcore/in-app-updates/kotlin-java), and

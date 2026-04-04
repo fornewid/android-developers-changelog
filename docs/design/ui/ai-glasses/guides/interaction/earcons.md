@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Earcons, audio icons, provide brief audio cues or feedback to the user. Glasses
 provide earcons for common interactions.
 

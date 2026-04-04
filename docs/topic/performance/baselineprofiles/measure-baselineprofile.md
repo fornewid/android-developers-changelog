@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 We recommend using [Jetpack Macrobenchmark](/topic/performance/benchmarking/macrobenchmark-overview) to test how an app performs when
 Baseline Profiles are enabled, and then compare those results to a benchmark
 with Baseline Profiles disabled. With this approach, you can measure app startup

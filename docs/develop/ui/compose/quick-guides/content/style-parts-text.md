@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 You can style parts of text to improve readability, increase positive user
 experience, and encourage greater creativity through use of colors and fonts.
 

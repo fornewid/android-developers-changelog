@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 17 introduces great new features and APIs for developers. The following
 sections summarize these features to help you get started with the related APIs.
 
@@ -84,6 +83,30 @@ connections.
 ## Privacy
 
 Android 17 includes the following new features to improve user privacy.
+
+### Encrypted Client Hello (ECH) platform support
+
+Android 17 introduces platform support for Encrypted Client Hello (ECH), a
+significant privacy enhancement for network communications. ECH is a TLS 1.3
+extension that encrypts the Server Name Indication (SNI) during the initial TLS
+handshake. This encryption helps protect user privacy by making it more
+difficult for network intermediaries to identify the specific domain an app is
+connecting to.
+
+The platform now includes the necessary APIs for networking libraries to
+implement ECH. This includes new capabilities in [`DnsResolver`](/reference/android/net/DnsResolver) to query for
+HTTPS DNS records containing ECH configurations, and new methods in Conscrypt's
+SSLEngines and SSLSockets to enable ECH by passing in these configurations when
+connecting to a domain. Developers can configure ECH preferences, such as
+enabling it opportunistically or mandating its use, through the new
+[`<domainEncryption>`](/privacy-and-security/security-config#domainEncryption) element within the Network Security Configuration file,
+applicable globally or on a per-domain basis.
+
+Popular networking libraries such as HttpEngine, WebView, and OkHttp are
+expected to integrate these platform APIs in future updates, making it easier
+for apps to adopt ECH and enhance user privacy.
+
+For more information, see the [Encrypted Client Hello](/privacy-and-security/security-config#EncryptedClientHelloSummary) documentation.
 
 ### Android contacts picker
 

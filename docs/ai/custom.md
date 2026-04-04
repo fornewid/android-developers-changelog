@@ -1,17 +1,8 @@
 ---
-title: Use LiteRT on Android  |  AI  |  Android Developers
+title: https://developer.android.com/ai/custom
 url: https://developer.android.com/ai/custom
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [AI](https://developer.android.com/ai)
-* [Guides](https://developer.android.com/ai/overview)
-
-# Use LiteRT on Android Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 LiteRT on Android provides essentials for deploying high performance, custom ML
 features into your Android app.
@@ -19,7 +10,7 @@ features into your Android app.
 ![Diagram illustrating the architecture of LiteRT, a framework for
 running machine learning models on Android devices. It shows the components
 involved, including the ML runtime, hardware acceleration delegates, and Google
-Play services.](/static/images/ml/litert-architecture.svg)
+Play services.](https://developer.android.com/static/images/ml/litert-architecture.svg)
 
 ## LiteRT for ML runtime
 

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 #### What is Android Dev Summit 2022?
 
 Android Dev Summit 2022 is a hybrid event covering the latest updates in Android development.

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 When your Android-powered device is in USB host mode, it acts as the USB host, powers the bus,
 and enumerates connected USB devices. USB host mode is supported in Android 3.1 and higher.
 

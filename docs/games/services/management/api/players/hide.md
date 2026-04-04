@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 **Requires [authorization](#auth)**
 
 Hide the given player's leaderboard scores from the given application. This method is only available to user accounts for your Play Console.

@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/media/media3/exoplayer/network-stacks
+title: Network stacks  |  Android media  |  Android Developers
 url: https://developer.android.com/media/media3/exoplayer/network-stacks
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Network stacks Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 ExoPlayer is commonly used for streaming media over the internet. It supports
 multiple network stacks for making its underlying network requests. Your choice
@@ -25,24 +34,25 @@ that corresponds to the network stack you wish to use. If your app also
 needs to play non-http(s) content, such as local files, use
 `DefaultDataSource.Factory`:
 
-
 ### Kotlin
 
-```kotlin
+```
 DefaultDataSource.Factory(
   context,
   /* baseDataSourceFactory= */ PreferredHttpDataSource.Factory(context),
 )
+
+NetworkStacks.kt
 ```
 
 ### Java
 
-```java
+```
 new DefaultDataSource.Factory(
     context, /* baseDataSourceFactory= */ new PreferredHttpDataSource.Factory(context));
-```
 
-<br />
+NetworkStacks.java
+```
 
 In this example, `PreferredHttpDataSource.Factory` is the factory corresponding to your
 preferred network stack. The `DefaultDataSource.Factory` layer adds in support
@@ -51,10 +61,9 @@ for non-http(s) sources such as local files.
 The following example shows how to build an `ExoPlayer` that will use the Cronet
 network stack and also support playback of non-http(s) content.
 
-
 ### Kotlin
 
-```kotlin
+```
 // Given a CronetEngine and Executor, build a CronetDataSource.Factory.
 val cronetDataSourceFactory = CronetDataSource.Factory(cronetEngine, executor)
 
@@ -71,11 +80,13 @@ val player =
       DefaultMediaSourceFactory(context).setDataSourceFactory(dataSourceFactory)
     )
     .build()
+
+NetworkStacks.kt
 ```
 
 ### Java
 
-```java
+```
 // Given a CronetEngine and Executor, build a CronetDataSource.Factory.
 CronetDataSource.Factory cronetDataSourceFactory =
     new CronetDataSource.Factory(cronetEngine, executor);
@@ -93,9 +104,9 @@ ExoPlayer player =
         .setMediaSourceFactory(
             new DefaultMediaSourceFactory(context).setDataSourceFactory(dataSourceFactory))
         .build();
-```
 
-<br />
+NetworkStacks.java
+```
 
 ## Supported network stacks
 
@@ -105,18 +116,18 @@ other network stack that works on Android.
 
 ### HttpEngine
 
-[`HttpEngine`](https://developer.android.com/reference/android/net/http/HttpEngine)
+[`HttpEngine`](/reference/android/net/http/HttpEngine)
 is the recommended default network stack on Android from API 34 (or S
 extensions 7). In most cases, it is using the Cronet network stack internally,
 supporting HTTP, HTTP/2, and HTTP/3 over QUIC protocols.
 
 ExoPlayer supports `HttpEngine` with its `HttpEngineDataSource.Factory`. You can
 inject this data source factory as described in [Configuring ExoPlayer to use a
-specific network stack](https://developer.android.com/media/media3/exoplayer/network-stacks#configuring-exoplayer).
+specific network stack](#configuring-exoplayer).
 
 ### Cronet
 
-[Cronet](https://developer.android.com/guide/topics/connectivity/cronet) is the
+[Cronet](/guide/topics/connectivity/cronet) is the
 Chromium network stack made available to Android apps as a library. Cronet takes
 advantage of multiple technologies that reduce the latency and increase the
 throughput of the network requests that your app needs to work, including those
@@ -130,9 +141,18 @@ See the library's `README.md` for detailed instructions on how to use
 it. Note that the Cronet library is able to use three underlying Cronet
 implementations:
 
-1. **Google Play Services:** We recommend using this implementation in most cases, and falling back to Android's built-in network stack (`DefaultHttpDataSource`) if Google Play Services is not available.
-2. **Cronet Embedded:** May be a good choice if a large percentage of your users are in markets where Google Play Services is not widely available, or if you want to control the exact version of the Cronet implementation being used. The major disadvantage of Cronet Embedded is that it adds approximately 8MB to your app.
-3. **Cronet Fallback:** The fallback implementation of Cronet implements Cronet's API as a wrapper around Android's built-in network stack. It should not be used with ExoPlayer, since using Android's built-in network stack directly (by using `DefaultHttpDataSource`) is more efficient.
+1. **Google Play Services:** We recommend using this implementation in most
+   cases, and falling back to Android's built-in network stack
+   (`DefaultHttpDataSource`) if Google Play Services is not available.
+2. **Cronet Embedded:** May be a good choice if a large percentage of your users
+   are in markets where Google Play Services is not widely available, or if you
+   want to control the exact version of the Cronet implementation being used. The
+   major disadvantage of Cronet Embedded is that it adds approximately 8MB to
+   your app.
+3. **Cronet Fallback:** The fallback implementation of Cronet implements
+   Cronet's API as a wrapper around Android's built-in network stack. It should
+   not be used with ExoPlayer, since using Android's built-in network stack
+   directly (by using `DefaultHttpDataSource`) is more efficient.
 
 ### OkHttp
 
@@ -149,8 +169,8 @@ smaller, adding under 1MB to your app.
 
 ### Android's built-in network stack
 
-> [!NOTE]
-> **Note:** On API 34 (or S extensions 7) and above, the recommended built-in network stack is [HttpEngine](https://developer.android.com/media/media3/exoplayer/network-stacks#httpengine).
+**Note:** On API 34 (or S extensions 7) and above, the recommended built-in network
+stack is [HttpEngine](#httpengine).
 
 ExoPlayer supports use of Android's built-in network stack with
 `DefaultHttpDataSource` and `DefaultHttpDataSource.Factory`, which are part of
@@ -178,13 +198,13 @@ The following table outlines the pros and cons of the network stacks supported b
 ExoPlayer.
 
 | Network stack | Protocols | APK size impact | Notes |
-|---|---|---|---|
-| HttpEngine | HTTP HTTP/2 HTTP/3 over QUIC | None | Only available on API 34, or S Extensions 7 |
-| Cronet (Google Play Services) | HTTP HTTP/2 HTTP/3 over QUIC | Small (\<100KB) | Requires Google Play Services. Cronet version updated automatically |
-| Cronet (Embedded) | HTTP HTTP/2 HTTP/3 over QUIC | Large (\~8MB) | Cronet version controlled by app developer |
-| Cronet (Fallback) | HTTP (varies by device) | Small (\<100KB) | Not recommended for ExoPlayer |
-| OkHttp | HTTP HTTP/2 | Small (\<1MB) |   |
-| Built-in network stack | HTTP (varies by device) | None | Implementation varies by device |
+| --- | --- | --- | --- |
+| HttpEngine | HTTP HTTP/2 HTTP/3 over QUIC | None | Only available on API 34, or S Extensions 7 |
+| Cronet (Google Play Services) | HTTP HTTP/2 HTTP/3 over QUIC | Small (<100KB) | Requires Google Play Services. Cronet version updated automatically |
+| Cronet (Embedded) | HTTP HTTP/2 HTTP/3 over QUIC | Large (~8MB) | Cronet version controlled by app developer |
+| Cronet (Fallback) | HTTP (varies by device) | Small (<100KB) | Not recommended for ExoPlayer |
+| OkHttp | HTTP HTTP/2 | Small (<1MB) |  |
+| Built-in network stack | HTTP (varies by device) | None | Implementation varies by device |
 
 The HTTP/2 and HTTP/3 over QUIC protocols can significantly improve media
 streaming performance. In particular, when streaming adaptive media that is
@@ -211,8 +231,9 @@ for all of the networking performed by your app. This allows resources
 (such as sockets) to be efficiently pooled and shared between ExoPlayer and other
 app components.
 
-> [!NOTE]
-> **Note:** To assist with resource sharing, it's recommended to use a single `HttpEngine`, `CronetEngine` or `OkHttpClient` instance throughout your app, when using HttpEngine, Cronet or OkHttp respectively.
+**Note:** To assist with resource sharing, it's recommended to use a single
+`HttpEngine`, `CronetEngine` or `OkHttpClient` instance throughout your app,
+when using HttpEngine, Cronet or OkHttp respectively.
 
 Because your app will most likely need to perform networking not related
 to media playback, your choice of network stack should ultimately factor in our
@@ -226,16 +247,15 @@ ExoPlayer supports caching loaded bytes to disk to prevent repeatedly loading
 the same bytes from network. This is useful when seeking back in the current
 media or repeating the same item.
 
-> [!NOTE]
-> **Note:** You can also download media more permanently outside of playback as explained in [Downloading Media](https://developer.android.com/media/media3/exoplayer/downloading-media).
+**Note:** You can also download media more permanently outside of playback as
+explained in [Downloading Media](/media/media3/exoplayer/downloading-media).
 
 Caching requires a `SimpleCache` instance pointing to a dedicated cache
 directory and a `CacheDataSource.Factory`:
 
-
 ### Kotlin
 
-```kotlin
+```
 // Note: This should be a singleton in your app.
 val databaseProvider = StandaloneDatabaseProvider(context)
 
@@ -254,11 +274,13 @@ val player =
       DefaultMediaSourceFactory(context).setDataSourceFactory(cacheDataSourceFactory)
     )
     .build()
+
+NetworkStacks.kt
 ```
 
 ### Java
 
-```java
+```
 // Note: This should be a singleton in your app.
 DatabaseProvider databaseProvider = new StandaloneDatabaseProvider(context);
 
@@ -279,6 +301,6 @@ ExoPlayer player =
         .setMediaSourceFactory(
             new DefaultMediaSourceFactory(context).setDataSourceFactory(cacheDataSourceFactory))
         .build();
-```
 
-<br />
+NetworkStacks.java
+```

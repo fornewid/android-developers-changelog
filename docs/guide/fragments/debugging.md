@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This guide covers tools that you can use to debug your
 [fragments](/guide/fragments).
 

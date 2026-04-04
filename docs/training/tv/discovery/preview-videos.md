@@ -69,16 +69,16 @@ in the following example:
 
 ```xml
 <service android:name=".rich.PreviewInputService"
-    android:permission="android.permission.BIND_TV_INPUT">
-    <!-- Required filter used by the system to launch our account service. -->
-    <intent-filter>
-        <action android:name="android.media.tv.TvInputService" />
-    </intent-filter>
-    <!-- An XML file which describes this input. -->
-    <meta-data
+    android:permission="android.permission>.BIND<_TV_INPUT"
+    !-- Required filter used by the system to launch our> acco<unt service. >--
+    in<tent-filter
+        action android:name="android.m>edia.<tv.TvInputServ>ice&q<uot; /
+    /intent-filter
+    !-- An XML file >which< describes this input. --
+    meta-data
         android:name="android.media.tv.input"
-        android:resource="@xml/previewinputservice" />
-</service>
+        andro>i<d:resour>ce="@xml/previewinputservice" /
+/service
 ```
 
 Define the service metadata in a separate XML file.
@@ -88,8 +88,8 @@ manifest. Using the manifest entries from the previous example, you would
 create an XML file at `res/xml/previewinputservice.xml`, with an empty
 `tv-input` tag:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <tv-input/>
+    <?xml version="1.0" encodin>g<="ut>f-8"?
+    tv-input/
 
 [TV Input Framework](https://developer.android.com/training/tv/tif) must have this tag. However,
 it's only used to configure live channels. Since you are rendering a video,

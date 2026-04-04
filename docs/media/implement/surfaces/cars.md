@@ -1,17 +1,8 @@
 ---
-title: Extend your media app to Android for Cars  |  Android media  |  Android Developers
+title: https://developer.android.com/media/implement/surfaces/cars
 url: https://developer.android.com/media/implement/surfaces/cars
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Extend your media app to Android for Cars Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Bring your app to vehicles running either Android Auto or Android Automotive OS.
 Use one app architecture that works for both cases so every user can enjoy your
@@ -40,8 +31,8 @@ connecting their phone. You enable Android Auto to connect with your phone app
 by creating services that Android Auto uses to display a driver-optimized
 interface to the driver.
 
-**Note:** Android Auto is only compatible with phones running Android 9
-(API level 28) or higher.
+> [!NOTE]
+> **Note:** Android Auto is only compatible with phones running Android 9 (API level 28) or higher.
 
 ### Android Automotive OS
 
@@ -52,18 +43,16 @@ directly onto the car instead of their phones.
 
 ### Supported app categories
 
-**Important:** Media and video apps are considered separate categories for cars,
-which is explained further in the
-[Apps category table](/training/cars#supported-app-categories). For details on
-apps that play video, see [Video category](/training/cars#video).
+> [!IMPORTANT]
+> **Important:** Media and video apps are considered separate categories for cars, which is explained further in the [Apps category table](https://developer.android.com/training/cars#supported-app-categories). For details on apps that play video, see [Video category](https://developer.android.com/training/cars#video).
 
 Media apps let users browse and play music, radio, audiobooks, and other audio
 content in the car. For more information, see
-[Build audio playback apps for cars](/media/implement/surfaces/cars#build_audio_playback_apps_for_cars). Further information is also available at
-[Build media apps for cars](/training/cars/media).
+[Build audio playback apps for cars](https://developer.android.com/media/implement/surfaces/cars#build_audio_playback_apps_for_cars). Further information is also available at
+[Build media apps for cars](https://developer.android.com/training/cars/media).
 
-Media apps are built using [`MediaLibraryService`](/reference/androidx/media3/session/MediaLibraryService)
-and [`MediaSession`](/reference/androidx/media3/session/MediaSession).
+Media apps are built using [`MediaLibraryService`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService)
+and [`MediaSession`](https://developer.android.com/reference/androidx/media3/session/MediaSession).
 On Android
 Automotive OS, you can also build sign-in and settings screens (for use while
 parked) using Views or Compose.
@@ -71,15 +60,15 @@ parked) using Views or Compose.
 Video apps let users view streaming videos while the car is parked. The core
 purpose of these apps is to display streaming videos. These apps are built
 using Views or Compose. For more information, see
-[Build video playback apps for Android Automotive OS](/media/implement/surfaces/cars#build_video_playback_apps_for_Android_Automotive_OS). Further information
+[Build video playback apps for Android Automotive OS](https://developer.android.com/media/implement/surfaces/cars#build_video_playback_apps_for_Android_Automotive_OS). Further information
 is available at
-[Build video apps for Android Automotive OS](/training/cars/parked/video).
+[Build video apps for Android Automotive OS](https://developer.android.com/training/cars/parked/video).
 
 ## Build audio playback apps for cars
 
 This guide assumes you have a basic media playback app already. If you don't,
 to get started, go to
-[Create a basic media player app](/media/implement/playback-app#getting_started).
+[Create a basic media player app](https://developer.android.com/media/implement/playback-app#getting_started).
 
 This guide gives you information on what you need to do, including links to
 further resources with specific guidance.
@@ -92,33 +81,25 @@ previous Android media libraries.
 
 The following diagram demonstrates how these components come together in a
 typical app.
-
 ![The different components of a media app that uses Media3 connect
-  together in several simple ways owing to their sharing of interfaces
-   and classes.](/static/media/images/cars_media3_diagram.svg)
+together in several simple ways owing to their sharing of interfaces
+and classes.](https://developer.android.com/static/media/images/cars_media3_diagram.svg) **Figure 1**: Media app components
 
-
-**Figure 1**: Media app components
-
-**Important:** One of the primary characteristics that distinguishes Media3 from
-previous media APIs is that there is no longer a need for connectors between
-components. The new `MediaSession` class takes any class that implements the
-`Player` interface, as can the UI. Both `ExoPlayer` and `MediaController` are
-classes which implement that interface. This facilitates much better
-interaction between the components.
+> [!IMPORTANT]
+> **Important:** One of the primary characteristics that distinguishes Media3 from previous media APIs is that there is no longer a need for connectors between components. The new `MediaSession` class takes any class that implements the `Player` interface, as can the UI. Both `ExoPlayer` and `MediaController` are classes which implement that interface. This facilitates much better interaction between the components.
 
 For more information,
-see [Playback components](/guide/topics/media/media3#components).
+see [Playback components](https://developer.android.com/guide/topics/media/media3#components).
 
 ### Implement a `MediaLibraryService` and `MediaLibrarySession`
 
-A [`MediaLibraryService`](/reference/androidx/media3/session/MediaLibraryService)
+A [`MediaLibraryService`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService)
 provides a standardized API to serve and allow access to your media library.
 This is required when adding support for Android Auto or Android Automotive
 OS to your media app, since these platforms provide their own driver-safe UI
 for your media library. For more information about implementing and using a
 `MediaLibraryService`, see
-[Serve content with MediaLibraryService](/guide/topics/media/session/medialibraryservice).
+[Serve content with MediaLibraryService](https://developer.android.com/guide/topics/media/session/medialibraryservice).
 
 For playback controls, use a media session. The `MediaSession` API provides a
 universal way of interacting with an audio or video player. The Jetpack Media3
@@ -129,18 +110,21 @@ Connecting a media session to a player lets an app
 advertise media playback externally and to receive playback commands from
 external sources such as Android Auto, Android Automotive OS, or Google
 Assistant. For more information, see
-[Control and advertise playback using a MediaSession](/guide/topics/media/session/mediasession)
-and [Use a MediaLibrarySession](/guide/topics/media/session/medialibraryservice#use).
+[Control and advertise playback using a MediaSession](https://developer.android.com/guide/topics/media/session/mediasession)
+and [Use a MediaLibrarySession](https://developer.android.com/guide/topics/media/session/medialibraryservice#use).
 
 At minimum, your media session should declare support for the following player
 commands:
 
-* [`COMMAND_PLAY_PAUSE`](/reference/androidx/media3/common/Player#COMMAND_PLAY_PAUSE())
-* [`COMMAND_STOP`](/reference/androidx/media3/common/Player#COMMAND_STOP())
-* [`COMMAND_SET_MEDIA_ITEM`](/reference/androidx/media3/common/Player#COMMAND_SET_MEDIA_ITEM())
-* [`COMMAND_PREPARE`](/reference/androidx/media3/common/Player#COMMAND_PREPARE())
+- [`COMMAND_PLAY_PAUSE`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_PLAY_PAUSE())
 
-The [Enable playback controls](/training/cars/media/enable-playback) guide
+- [`COMMAND_STOP`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_STOP())
+
+- [`COMMAND_SET_MEDIA_ITEM`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_SET_MEDIA_ITEM())
+
+- [`COMMAND_PREPARE`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_PREPARE())
+
+The [Enable playback controls](https://developer.android.com/training/cars/media/enable-playback) guide
 describes the ways you can customize your playback controls in cars.
 
 When Android Auto or Android Automotive OS connect to your app, they request a
@@ -151,10 +135,10 @@ Android Automotive OS are trying to browse deeper levels of your content
 library.
 
 These platforms enforce additional
-[limits](/training/cars/media#root-menu-structure) on how your content library
+[limits](https://developer.android.com/training/cars/media#root-menu-structure) on how your content library
 is structured. For details on customizing how your content library is displayed,
 see the
-[Create your media browser service](/training/cars/media#implement_browser)
+[Create your media browser service](https://developer.android.com/training/cars/media#implement_browser)
 guide.
 
 ### Declare support for Android Auto
@@ -162,25 +146,21 @@ guide.
 Use the following manifest entry to declare that your phone app supports
 Android Auto:
 
-```
-<application>
-    ...
-    <meta-data android:name="com.google.android.gms.car.application"
-        android:resource="@xml/automotive_app_desc"/>
-    ...
-</application>
-```
+    <application>
+        ...
+        <meta-data android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc"/>
+        ...
+    </application>
 
 This manifest entry refers to an XML file that declares what automotive
 capabilities your app supports. To indicate that you have a media app, add an
 XML file named `automotive_app_desc.xml` to the `res/xml/` directory in your
 project. This file should include the following content:
 
-```
-<automotiveApp>
-    <uses name="media"/>
-</automotiveApp>
-```
+    <automotiveApp>
+        <uses name="media"/>
+    </automotiveApp>
 
 ### Declare support for Android Automotive OS
 
@@ -192,49 +172,46 @@ such as the code used for your mobile app.
 
 Follow these steps to add an automotive module to your project:
 
-1. In Android Studio, click **File > New > New Module**.
-2. Select **Automotive Module**, then click **Next**.
-3. Enter an **Application/Library name**. This is the name that users see for
-   your app on Android Automotive OS.
+1. In Android Studio, click **File \> New \> New Module**.
+2. Select **Automotive Module** , then click **Next**.
+3. Enter an **Application/Library name**. This is the name that users see for your app on Android Automotive OS.
 4. Enter a **Module name**.
 5. Adjust the **Package name** to match your app.
-6. Select **API 28: Android 9.0 (Pie)** for the **Minimum SDK**, and then click
+6. Select **API 28: Android 9.0 (Pie)** for the **Minimum SDK** , and then click
    **Next**.
 
    All cars that support Android Automotive OS run on Android 9 (API level 28) or
    higher, so selecting this value targets all
    compatible cars.
-7. Select **No Activity**, and then click **Finish**.
+7. Select **No Activity** , and then click **Finish**.
 
 After creating your module in Android Studio, open the `AndroidManifest.xml` in
 your new automotive module:
 
-```
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.media">
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.example.media">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme" />
+        <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme" />
 
-    <uses-feature
-        android:name="android.hardware.type.automotive"
-        android:required="true" />
+        <uses-feature
+            android:name="android.hardware.type.automotive"
+            android:required="true" />
 
-</manifest>
-```
+    </manifest>
 
-The [`application`](/guide/topics/manifest/application-element)
+The [`application`](https://developer.android.com/guide/topics/manifest/application-element)
 element has some standard app information as well as a
-[`uses-feature`](/guide/topics/manifest/uses-feature-element)
+[`uses-feature`](https://developer.android.com/guide/topics/manifest/uses-feature-element)
 element that declares support for Android Automotive OS. Note that there
 are no activities declared in the manifest.
 
-If you implement [settings or sign-in activities](/training/cars/media/automotive-os#settings-sign-in),
+If you implement [settings or sign-in activities](https://developer.android.com/training/cars/media/automotive-os#settings-sign-in),
 add them here. These activities are triggered by the system using explicit
 intents and are the only activities you declare within the manifest for your
 Android Automotive OS app.
@@ -243,7 +220,7 @@ After adding any settings or sign-in activities, complete your manifest file by
 setting the `android:appCategory="audio"` attribute in the `application` element
 and adding the following `uses-feature` elements:
 
-```
+```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.media">
 
@@ -280,14 +257,12 @@ devices.
 Use the following manifest entry to declare that your app supports Android
 Automotive OS:
 
-```
-<application>
-    ...
-    <meta-data android:name="com.android.automotive"
-        android:resource="@xml/automotive_app_desc"/>
-    ...
-</application>
-```
+    <application>
+        ...
+        <meta-data android:name="com.android.automotive"
+            android:resource="@xml/automotive_app_desc"/>
+        ...
+    </application>
 
 This manifest entry refers to an XML file that declares the automotive
 capabilities that your app supports.
@@ -296,42 +271,37 @@ To indicate that you have a media app, add an XML file named
 `automotive_app_desc.xml` to the `res/xml/` directory in your project. Include
 the following content in this file:
 
-```
-<automotiveApp>
-    <uses name="media"/>
-</automotiveApp>
-```
+    <automotiveApp>
+        <uses name="media"/>
+    </automotiveApp>
 
-**Note:** Don't include any references to the
-`com.google.android.gms.car.application` attribute that is required for Android
-Auto in your Android Automotive OS app.
+> [!NOTE]
+> **Note:** Don't include any references to the `com.google.android.gms.car.application` attribute that is required for Android Auto in your Android Automotive OS app.
 
 #### Intent filters
 
 Android Automotive OS uses explicit intents to trigger activities in your media
 app. Don't include any activities that have
-[`CATEGORY_LAUNCHER`](/reference/android/content/Intent#CATEGORY_LAUNCHER)
-or [`ACTION_MAIN`](/reference/android/content/Intent#ACTION_MAIN) intent
+[`CATEGORY_LAUNCHER`](https://developer.android.com/reference/android/content/Intent#CATEGORY_LAUNCHER)
+or [`ACTION_MAIN`](https://developer.android.com/reference/android/content/Intent#ACTION_MAIN) intent
 filters in the manifest file.
 
 Activities like the one in the following example usually target a phone or some
 other mobile device. Declare these activities in the module that builds the
 phone app, not in the module that builds your Android Automotive OS app.
 
-```
-<activity android:name=".MyActivity">
-<intent-filter>
-<!-- You can't use either of these intents for Android Automotive OS -->
-<action android:name="android.intent.action.MAIN" />
-<category android:name="android.intent.category.LAUNCHER" />
-<!--
-In their place, you can include other intent filters for any activities
-that your app needs for Android Automotive OS, such as settings or
-sign-in activities.
--->
-</intent-filter>
-</activity>
-```
+    <activity android:name=".MyActivity">
+    <intent-filter>
+    <!-- You can't use either of these intents for Android Automotive OS -->
+    <action android:name="android.intent.action.MAIN" />
+    <category android:name="android.intent.category.LAUNCHER" />
+    <!--
+    In their place, you can include other intent filters for any activities
+    that your app needs for Android Automotive OS, such as settings or
+    sign-in activities.
+    -->
+    </intent-filter>
+    </activity>
 
 ### Further steps
 
@@ -339,25 +309,23 @@ Now that you have an app for Android Auto and Android Automotive OS, you might
 want to take additional steps to optimize your app to be more safely used while
 driving. For more recommendations to help ensure a safe and convenient user
 experience, see the technical guides for
-[Voice actions](/training/cars/media#support_voice),
-[Distraction safeguards](/training/cars/media#implement_distraction_safeguards),
-and [Error handling](/training/cars/media#errors).
+[Voice actions](https://developer.android.com/training/cars/media#support_voice),
+[Distraction safeguards](https://developer.android.com/training/cars/media#implement_distraction_safeguards),
+and [Error handling](https://developer.android.com/training/cars/media#errors).
 
 ## Build video playback apps for Android Automotive OS
 
 Since video apps are categorized separately from media apps in cars, you need to
 be aware of some specific requirements for video apps, as described in
-[Build parked apps for cars](/training/cars/parked), and
-[Build video apps for Android Automotive OS](/training/cars/parked/video).
+[Build parked apps for cars](https://developer.android.com/training/cars/parked), and
+[Build video apps for Android Automotive OS](https://developer.android.com/training/cars/parked/video).
 You need to use the following instructions.
 
-**Design guidelines:**
-Refer to [Adapt video apps](https://developers.google.com/cars/design/create-apps/parked-passenger-apps/overview) for UX guidance specific to video apps.
-**Important:** Google takes driver distraction very seriously. Your app must meet
-specific criteria before it can be listed on Google Play for Android Automotive
-OS. By adhering to these requirements, you can make it more efficient to build
-and test your app. For more information, see
-[Android app quality for cars](/docs/quality-guidelines/car-app-quality?category=video).
+> [!NOTE]
+> **Design guidelines:** Refer to [Adapt video apps](https://developers.google.com/cars/design/create-apps/parked-passenger-apps/overview) for UX guidance specific to video apps.
+
+> [!IMPORTANT]
+> **Important:** Google takes driver distraction very seriously. Your app must meet specific criteria before it can be listed on Google Play for Android Automotive OS. By adhering to these requirements, you can make it more efficient to build and test your app. For more information, see [Android app quality for cars](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=video).
 
 ### Mark your app as a video app
 
@@ -365,21 +333,15 @@ To indicate that your app supports video, add an XML file named
 `automotive_app_desc.xml` to the res/xml/ directory in your project. In this
 file, include the following content:
 
-```
-<automotiveApp>
-    <uses name="video"/>
-</automotiveApp>
-```
+    <automotiveApp>
+        <uses name="video"/>
+    </automotiveApp>
 
-**Note:** You might see a lint error in Android Studio that says "Expecting one of
-media, notification, sms, or template for the name attribute in uses tag." This
-can be safely ignored by adding `tools:ignore="InvalidUsesTagAttribute"` to the
-`uses` element.
+> [!NOTE]
+> **Note:** You might see a lint error in Android Studio that says "Expecting one of media, notification, sms, or template for the name attribute in uses tag." This can be safely ignored by adding `tools:ignore="InvalidUsesTagAttribute"` to the `uses` element.
 
 Then, within the `application` element of your manifest, add the following
 `meta-data` element referencing the XML file:
 
-```
-<meta-data android:name="com.android.automotive"
-    android:resource="@xml/automotive_app_desc"/>
-```
+    <meta-data android:name="com.android.automotive"
+        android:resource="@xml/automotive_app_desc"/>

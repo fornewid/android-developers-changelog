@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/training/wearables/data/client-types
+title: Choose a client type  |  Wear OS  |  Android Developers
 url: https://developer.android.com/training/wearables/data/client-types
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Wear OS](https://developer.android.com/training/wearables)
+
+# Choose a client type Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 The Wear OS data layer APIs consist of several different types of clients, which
 are useful for different types of data and during different connectivity
@@ -16,18 +26,17 @@ the set of client types that works best for your app.
 
 Use the Data Layer API when the interaction is strictly between the local watch
 and the local phone. For detailed examples, see the
-[Data Layer common use cases](https://developer.android.com/training/wearables/data/overview#common-use-cases).
+[Data Layer common use cases](/training/wearables/data/overview#common-use-cases).
 
 ## Data client
 
 A [`DataClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataClient) object lets you read or write to a [`DataItem`](https://developers.google.com/android/reference/com/google/android/gms/wearable/DataItem) or
 [`Asset`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Asset):
 
-- Each `DataItem` is a unit of information that's broadcast and synchronized
+* Each `DataItem` is a unit of information that's broadcast and synchronized
   across all nearby devices that a user owns. A `DataItem` is stored persistently,
   and your device can read its contents until the data item is deleted.
-
-- An `Asset` is meant for larger data payloads, such as images or media files.
+* An `Asset` is meant for larger data payloads, such as images or media files.
 
 ## Message client
 
@@ -45,8 +54,7 @@ it doesn't contain any built-in retry mechanism. If the target device
 disconnects before the network transfer starts, the method returns
 `TARGET_NODE_NOT_CONNECTED`.
 
-> [!NOTE]
-> **Note:** To help preserve power, consider sending messages only to nearby devices.
+**Note:** To help preserve power, consider sending messages only to nearby devices.
 
 ## Channel client
 
@@ -54,9 +62,12 @@ A [`ChannelClient`](https://developers.google.com/android/reference/com/google/a
 devices. A *channel* is a bidirectional communication pipe between two nodes,
 which is useful for use cases such as the following:
 
-- Transfer data files between two or more connected devices when the internet isn't available. `ChannelClient` saves disk space over `DataClient`, which creates a copy of the assets on the local device before synchronizing with connected devices.
-- Reliably send a file that's too large to send using a `MessageClient`.
-- Transfer streamed data, such as voice data from the microphone.
+* Transfer data files between two or more connected devices when the internet
+  isn't available. `ChannelClient` saves disk space over `DataClient`, which
+  creates a copy of the assets on the local device before synchronizing with
+  connected devices.
+* Reliably send a file that's too large to send using a `MessageClient`.
+* Transfer streamed data, such as voice data from the microphone.
 
 After you open a channel, you can send and receive data in a continuous byte
 stream, rather than the discrete `DataItem` units that data clients require.
@@ -69,12 +80,12 @@ that data clients do.
 
 The following table compares the capabilities of the different clients:
 
-| Client type | Data persistence | Supports data larger than 100 KB? | Network to use | Works offline? |
-|---|---|---|---|---|
+| Client type | Data persistence | Supports data larger than 100 KB? | Network to use | Works offline? |
+| --- | --- | --- | --- | --- |
 | **Data client** | Data is persisted indefinitely | Yes (use [`Asset`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Asset) objects) | Bluetooth preferred. Data is backed up to the cloud; if Bluetooth is available, this backup is done asynchronously | Yes, for both read and write |
 | **Message client** | No persistence and no retry | No | Bluetooth preferred, but can use Wi-Fi if it's the only type of connection available | No |
 | **Channel client** | No persistence (connection-oriented) | Yes | Bluetooth preferred, but can use Wi-Fi if it's the only type of connection available | No |
 
 For further information on working with the Data Layer APIs, see the
-[Sync data](https://developer.android.com/training/wearables/data/sync) guide. For power considerations when using the Data Layer APIs,
-see the [Conserve power](https://developer.android.com/training/wearables/apps/power#data_layer) guide.
+[Sync data](/training/wearables/data/sync) guide. For power considerations when using the Data Layer APIs,
+see the [Conserve power](/training/wearables/apps/power#data_layer) guide.

@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Android devices are available in a variety of form factors and screen sizes. Common categories include:
 
 * Mobile phones
@@ -314,8 +313,6 @@ Layout.
 * [Defold Manual - Render pipeline](https://defold.com/manuals/render)
 * [Defold Manual - GUI Scenes](https://defold.com/manuals/gui/)
 * [Defold Manual - GUI Layouts](https://defold.com/manuals/gui-layouts/)
-
-
 
 
 

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 There are two steps to launching a foreground service from your app. First, you
 must start the service by calling
 [`context.startForegroundService()`](/reference/android/content/Context#startForegroundService(android.content.Intent)). Then, have the

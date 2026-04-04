@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Users often invest significant time and effort creating an identity, adding
 data, and customizing settings and preferences within your app. Preserving this
 data and personalization for users when they upgrade to a new device or

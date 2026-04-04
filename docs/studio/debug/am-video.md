@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ![Device Video](/static/images/tools/am-video.jpg)
 
 **Figure 1.** Record a video of your app.

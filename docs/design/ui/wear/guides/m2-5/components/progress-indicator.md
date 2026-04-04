@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/wear/images/progress-indicator/progress-indicator-hero.png)
 
 [Progress indicators](/reference/kotlin/androidx/wear/compose/material/CircularProgressIndicator.composable#CircularProgressIndicator(kotlin.Float,androidx.compose.ui.Modifier,kotlin.Float,kotlin.Float,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp)) are circular displays of the length of a process or an otherwise unspecified wait time.

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ChromeOS supports Android apps in multiple windows. The system renders apps
 into window containers whose size is determined by the form factor of the
 device, as shown in figure 1.

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Permissions aren't only for requesting system functionality. You can also
 restrict how other apps can interact with your app's components.
 

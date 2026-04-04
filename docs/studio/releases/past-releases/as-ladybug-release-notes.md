@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/studio/releases/past-releases/as-ladybug-release-notes
+title: Android Studio Ladybug | 2024.2.1 (October 2024)  |  Android Developers
 url: https://developer.android.com/studio/releases/past-releases/as-ladybug-release-notes
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [IDE guides](https://developer.android.com/studio/releases/past-releases)
+
+# Android Studio Ladybug | 2024.2.1 (October 2024) Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 The following are new features in Android Studio Ladybug.
 

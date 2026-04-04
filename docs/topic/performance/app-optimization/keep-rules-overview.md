@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 When you [enable app optimization](/topic/performance/app-optimization/enable-app-optimization) with the default settings, R8 performs
 extensive optimizations in order to maximize your performance benefits. R8 makes
 substantial modifications to the code including renaming, moving, and removing

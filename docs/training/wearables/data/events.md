@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 When you make a call to the Data Layer API, you can receive the status of the
 call when it completes. You also can listen for data events resulting from data
 changes that your app makes anywhere on the Wear OS by Google network.

@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Studio 3.6 (February 2020)
 
 Android Studio 3.6 is a major release that includes a variety of new features

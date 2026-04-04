@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 If your application requires a
 [custom view component](/guide/topics/ui/custom-components),
 you must make the view more accessible. The following steps can improve your custom view's

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Google Assistant helps drivers perform tasks they're already doing while driving.
 It reduces distraction by providing glanceable, voice-forward multimodal
 experiences. Driving mode helps make every drive safer, more informed,

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 All versions of the Watch Face Format offer the following capabilities:
 
 * **Style editing:** Customize the watch face, including its color, background

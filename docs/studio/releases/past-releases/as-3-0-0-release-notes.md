@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Studio 3.0 (October 2017)
 
 Android Studio 3.0.0 is a major release that includes a variety of new

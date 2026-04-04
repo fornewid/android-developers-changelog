@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Handle other form factors   Part of [Android Jetpack](/jetpack).
 
 This topic outlines using the Preference Library with other supported form

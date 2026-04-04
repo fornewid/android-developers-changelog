@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Background location usage can significantly impact battery life. Android
 supports limits to background location gathering, prompting developers to
 optimize their applications for better battery efficiency. These optimizations

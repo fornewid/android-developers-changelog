@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 [`RecyclerView`](/develop/ui/views/layout/recyclerview) is a View component that makes it easy to efficiently display
 large sets of data. Instead of creating views for each item in the data set,
 `RecyclerView` improves the performance of your app by keeping a small pool of

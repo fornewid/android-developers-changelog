@@ -1,15 +1,15 @@
 ---
-title: Overview  |  Android Developers
+title: https://developer.android.com/develop/sensors-and-location/overview
 url: https://developer.android.com/develop/sensors-and-location/overview
-source: html-scrape
+source: md.txt
 ---
 
-# Overview Stay organized with collections Save and categorize content based on your preferences.
+<br />
 
 
-
-
-book: /develop/CORE\_DOCS\_AREA/\_book.yaml
-project: /develop/CORE\_DOCS\_AREA/\_project.yaml
+book: /develop/CORE_DOCS_AREA/_book.yaml
+project: /develop/CORE_DOCS_AREA/_project.yaml
 keywords: KEYWORD NAME
-description: INSERT\_DESCRIPTION\_HERE
+description: INSERT_DESCRIPTION_HERE
+
+<br />

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Wear OS devices are often used for long-running experiences, such as tracking a
 workout. This presents a user experience challenge: if a user starts a task and
 then navigates away to the watch face, how do they get back? Returning to the

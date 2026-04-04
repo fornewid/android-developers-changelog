@@ -1,28 +1,42 @@
 ---
-title: https://developer.android.com/ndk/guides/wrap-script
+title: Wrap shell script  |  Android NDK  |  Android Developers
 url: https://developer.android.com/ndk/guides/wrap-script
-source: md.txt
+source: html-scrape
 ---
 
-When debugging and profiling apps with native code, it's often useful to use
+* [Home](https://developer.android.com/)
+* [NDK](https://developer.android.com/ndk)
+* [Develop](https://developer.android.com/develop)
+* [Guides](https://developer.android.com/ndk/guides)
+
+# Wrap shell script Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+When debugging and profiling apps with native code, it’s often useful to use
 debugging tools that need to be enabled at process startup. This requires that
 you run your app in a fresh process rather than cloning from the zygote.
 Examples include:
 
-- Tracing system calls with [strace](https://strace.io/).
-- Finding memory bugs with [malloc debug](https://android.googlesource.com/platform/bionic/+/master/libc/malloc_debug/README.md) or [Address Sanitizer (ASan)](https://github.com/google/sanitizers/wiki/AddressSanitizerOnAndroid).
-- Profiling with [Simpleperf](https://developer.android.com/ndk/guides/simpleperf.html).
+* Tracing system calls with [strace](https://strace.io/).
+* Finding memory bugs with
+  [malloc debug](https://android.googlesource.com/platform/bionic/+/master/libc/malloc_debug/README.md)
+  or
+  [Address Sanitizer (ASan)](https://github.com/google/sanitizers/wiki/AddressSanitizerOnAndroid).
+* Profiling with [Simpleperf](https://developer.android.com/ndk/guides/simpleperf.html).
 
 ## Use the wrap shell script
 
-> [!NOTE]
-> **Note:** `wrap.sh` is only available for API level 27 and above.
+**Note:** `wrap.sh` is only available for API level 27 and above.
 
 Using `wrap.sh` is easy:
 
 1. Compile a custom debuggable APK that packages the following:
-   - A shell script named `wrap.sh`. See [Create the wrap shell script](https://developer.android.com/ndk/guides/wrap-script#creating_the_wrap_shell_script) and [Package wrap.sh](https://developer.android.com/ndk/guides/wrap-script#packaging_wrapsh) for more details.
-   - Any extra tools your shell script needs (such as your own `strace` binary).
+   * A shell script named `wrap.sh`. See
+     [Create the wrap shell script](#creating_the_wrap_shell_script) and
+     [Package wrap.sh](#packaging_wrapsh) for more details.
+   * Any extra tools your shell script needs (such as your own `strace` binary).
 2. Install the debuggable APK on a device.
 3. Launch the app.
 
@@ -56,7 +70,7 @@ LIBC_DEBUG_MALLOC_OPTIONS=backtrace logwrapper "$@"
 ### ASan
 
 There's an example of how to do this for ASan in the
-[ASan documentation](https://developer.android.com/ndk/guides/asan).
+[ASan documentation](/ndk/guides/asan).
 
 ## Package wrap.sh
 
@@ -65,9 +79,9 @@ To take advantage of `wrap.sh`, your APK must be debuggable. Make sure that the
 [`<application>`](https://developer.android.com/guide/topics/manifest/application-element.html)
 element in your Android manifest, or if you are using Android Studio that
 you've configured a debug build in the
-[`build.gradle`](https://developer.android.com/studio/build/build-variants#build-types) file.
+[`build.gradle`](/studio/build/build-variants#build-types) file.
 
-It's also necessary to set [`useLegacyPackaging`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/JniLibsPackagingOptions#uselegacypackaging)
+It's also necessary to set [`useLegacyPackaging`](/reference/tools/gradle-api/7.1/com/android/build/api/dsl/JniLibsPackagingOptions#uselegacypackaging)
 to `true` in your app's `build.gradle` file. In most cases, this option is set
 to `false` by default, so you might want to set this explicitly to `true` to
 avoid any surprises.
@@ -101,7 +115,7 @@ correctly.
 Note that `resources/lib/x86` will be displayed in the UI as
 `lib.x86`, but it should actually be a subdirectory:
 
-![Example of packaging wrap.sh in Android Studio](https://developer.android.com/static/ndk/guides/images/wrap_sh_studio.png)
+![Example of packaging wrap.sh in Android Studio](/static/ndk/guides/images/wrap_sh_studio.png)
 
 ## Debug when using wrap.sh
 
@@ -110,19 +124,21 @@ need to manually enable debugging. How to do this has varied between releases,
 so this example shows how to add the appropriate options for all releases that
 support `wrap.sh`:
 
-    #!/system/bin/sh
+```
+#!/system/bin/sh
 
-    cmd=$1
-    shift
+cmd=$1
+shift
 
-    os_version=$(getprop ro.build.version.sdk)
+os_version=$(getprop ro.build.version.sdk)
 
-    if [ "$os_version" -eq "27" ]; then
-      cmd="$cmd -Xrunjdwp:transport=dt_android_adb,suspend=n,server=y -Xcompiler-option --debuggable $@"
-    elif [ "$os_version" -eq "28" ]; then
-      cmd="$cmd -XjdwpProvider:adbconnection -XjdwpOptions:suspend=n,server=y -Xcompiler-option --debuggable $@"
-    else
-      cmd="$cmd -XjdwpProvider:adbconnection -XjdwpOptions:suspend=n,server=y $@"
-    fi
+if [ "$os_version" -eq "27" ]; then
+  cmd="$cmd -Xrunjdwp:transport=dt_android_adb,suspend=n,server=y -Xcompiler-option --debuggable $@"
+elif [ "$os_version" -eq "28" ]; then
+  cmd="$cmd -XjdwpProvider:adbconnection -XjdwpOptions:suspend=n,server=y -Xcompiler-option --debuggable $@"
+else
+  cmd="$cmd -XjdwpProvider:adbconnection -XjdwpOptions:suspend=n,server=y $@"
+fi
 
-    exec $cmd
+exec $cmd
+```

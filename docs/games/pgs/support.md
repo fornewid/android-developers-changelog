@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 There are several ways to get help with your app, depending on the issue. This
 page provides information on the support options and resources available.
 
@@ -59,8 +58,6 @@ Ask questions and get help from the developer community on Stack Overflow by usi
 To report an issue with a Play Games Services
 [sample app](https://github.com/playgameservices/), go to the
 sample repo on Github to file the issue.
-
-
 
 
 

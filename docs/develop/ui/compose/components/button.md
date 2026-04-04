@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Buttons are fundamental components that allow the user to trigger a defined
 action. There are five types of buttons. This table describes the
 appearance of each of the five button types, as well as where you should use

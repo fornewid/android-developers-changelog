@@ -8,7 +8,6 @@ source: html-scrape
 
 
 
-
 ### 1. Analysis scope
 
 **Action:** Use find files and examine all XML layout files within the project (typically located in `res`directories). For each file, parse the view hierarchy and metadata.

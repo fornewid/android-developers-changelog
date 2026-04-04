@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Test your app's UI to verify that behavior of your Compose code is
 correct. This lets you catch errors early and improve the quality of your app.
 

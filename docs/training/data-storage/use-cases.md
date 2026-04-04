@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To give users more control over their files and limit file clutter,
 Android 10 introduced a new storage paradigm for apps called
 [scoped storage](/training/data-storage#scoped-storage). Scoped storage changes

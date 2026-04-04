@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 In addition to the
 [Watch Next guidelines for app developers](/training/tv/discovery/guidelines-app-developers),
 Live TV providers must follow these guidelines when inserting content into the

@@ -1,16 +1,27 @@
 ---
-title: https://developer.android.com/design/ui/xr/guides/3d-content
+title: 3D model design  |  XR Headsets & wired XR Glasses  |  Android Developers
 url: https://developer.android.com/design/ui/xr/guides/3d-content
-source: md.txt
+source: html-scrape
 ---
+
+The Android XR SDK is now available in Developer Preview. We want your feedback! Visit our [support page](/develop/xr/support) to reach out.
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [UI Design](https://developer.android.com/design/ui)
+* [XR Headsets & wired XR Glasses](https://developer.android.com/design/ui/xr)
+* [Guides](https://developer.android.com/design/ui/xr/guides/get-started)
+
+# 3D model design Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 In Android XR, 3D models are digital objects rendered with depth and volume to
 add a sense of realism and spatial understanding to your app. Users can
 naturally interact with 3D models, creating a transformative and engaging
 experience.
 
-> [!WARNING]
-> **Preview:** Currently, 3D models are only available in Full Space.
+**Preview:** Currently, 3D models are only available in Full Space.
 
 Android XR supports 3D models with either a `.glTF` or `.glb` file extension.
 [GL Transmission Format (glTF)](https://www.khronos.org/glTF) is a standard 3D file format that
@@ -21,17 +32,29 @@ among others.
 
 To optimize performance, prioritize small file sizes. Avoid excessive polygon
 counts or high-resolution textures that could impact rendering speed.
-Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/3d-content-shark.mp4) and watch it with a video player.
+
+[
+
+Alas, your browser doesn't support HTML5 video. That's OK! You can still
+[download the video](/static/videos/design/ui/xr/3d-content-shark.mp4)
+and watch it with a video player.
+](/static/videos/design/ui/xr/3d-content-shark.mp4)
 
 ## Methods to integrate 3D models
 
 Android XR offers different tools to add interactive 3D models in your app: with
 SceneCore APIs or Scene Viewer. If you're building with Compose for XR, you can
 place 3D models relative to your UI using the [`SceneCoreEntity` subspace
-composable](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose#use-scenecoreentity).
+composable](/develop/xr/jetpack-xr-sdk/ui-compose#use-scenecoreentity).
 
-- **SceneCore APIs** . You can create your own interactions including rotate, move, and scale. This allows users to interact with 3D models alongside your app's spatial panels and environment. You can also create parent relationships between panels and 3D models. [Learn about SceneCore APIs](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities).
-- **Scene Viewer** can be used to load and display 3D models with interactions including rotate, move, and scale. However, Scene Viewer runs as a separate app. As a result, users won't be able to see your app's panels and environment while interacting with 3D models. [Learn about Scene Viewer](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models#load-3d).
+* **SceneCore APIs**. You can create your own interactions including rotate,
+  move, and scale. This allows users to interact with 3D models alongside your
+  app's spatial panels and environment. You can also create parent
+  relationships between panels and 3D models. [Learn about SceneCore APIs](/develop/xr/jetpack-xr-sdk/work-with-entities).
+* **Scene Viewer** can be used to load and display 3D models with interactions
+  including rotate, move, and scale. However, Scene Viewer runs as a separate
+  app. As a result, users won't be able to see your app's panels and
+  environment while interacting with 3D models. [Learn about Scene Viewer](/develop/xr/jetpack-xr-sdk/add-3d-models#load-3d).
 
 ## SceneCore APIs
 
@@ -43,33 +66,51 @@ user's physical space.
 
 With SceneCore, you can also add:
 
-- Annotations to the 3D models
-- Playback of [animations](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models#animate-3d) embedded in 3D models
-- Multiple 3D models
-- A custom menu and launch positions
+* Annotations to the 3D models
+* Playback of [animations](/develop/xr/jetpack-xr-sdk/add-3d-models#animate-3d) embedded in 3D models
+* Multiple 3D models
+* A custom menu and launch positions
 
 ### Relationships
 
 3D models can have parent relationships with panels or other 3D models, so that
 the child element follows the parent's movement.
-Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/3d-content-parent-child.mp4) and watch it with a video player.
+
+[
+
+Alas, your browser doesn't support HTML5 video. That's OK! You can still
+[download the video](/static/videos/design/ui/xr/3d-content-parent-child.mp4)
+and watch it with a video player.
+](/static/videos/design/ui/xr/3d-content-parent-child.mp4)
 
 ### Anchors
 
 Users can fix 3D models to a specific point in the real world. You have the
 option to add anchors to general horizontal or vertical surfaces or specific
 surfaces such as the floor or wall.
-Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/3d-content-anchor.mp4) and watch it with a video player.
+
+[
+
+Alas, your browser doesn't support HTML5 video. That's OK! You can still
+[download the video](/static/videos/design/ui/xr/3d-content-anchor.mp4)
+and watch it with a video player.
+](/static/videos/design/ui/xr/3d-content-anchor.mp4)
 
 ### Scene Viewer
 
 Scene Viewer allows users to see and interact with 3D models. Users can open
 supported .glTF 3D models like a .glb file and place objects in space. You can
-[integrate the 3D viewer](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models#load-3d) in your app to make it simple for users to
+[integrate the 3D viewer](/develop/xr/jetpack-xr-sdk/add-3d-models#load-3d) in your app to make it simple for users to
 visualize products, explore educational content, and experience 3D models. Scene
 Viewer provides built-in UI for basic interactions including moving, rotating,
 scaling, and anchoring.
-Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/3d-content-spawn.mp4) and watch it with a video player.
+
+[
+
+Alas, your browser doesn't support HTML5 video. That's OK! You can still
+[download the video](/static/videos/design/ui/xr/3d-content-spawn.mp4)
+and watch it with a video player.
+](/static/videos/design/ui/xr/3d-content-spawn.mp4)
 
 ### Launch position
 
@@ -78,13 +119,19 @@ the center of their field of view. They open in the miniature size of 1.5 meters
 per axis.
 
 ![A map showing the distance between a woman's line of sight and a 3D
-globe.](https://developer.android.com/static/images/design/ui/xr/guides/3d-content-spawn-still.jpg)
+globe.](/static/images/design/ui/xr/guides/3d-content-spawn-still.jpg)
 
 ### Interactions Includes
 
 UI and interactions that allow users to move, rotate, anchor, and scale 3D
 models using natural gestures.
-Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/3d-content-gestures.mp4) and watch it with a video player.
+
+[
+
+Alas, your browser doesn't support HTML5 video. That's OK! You can still
+[download the video](/static/videos/design/ui/xr/3d-content-gestures.mp4)
+and watch it with a video player.
+](/static/videos/design/ui/xr/3d-content-gestures.mp4)
 
 ### Interaction menu
 
@@ -95,4 +142,4 @@ and return to the app, users can click the mandatory close button.
 
 ![To increase a 3D globe's size from 100% to 135%, a user pinches their thumb
 and index finger on each hand, and gestures
-outward.](https://developer.android.com/static/images/design/ui/xr/guides/3d-content-globe.jpg)
+outward.](/static/images/design/ui/xr/guides/3d-content-globe.jpg)

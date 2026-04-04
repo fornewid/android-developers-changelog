@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The [`AndroidJUnitRunner`](/reference/androidx/test/runner/AndroidJUnitRunner) class is a [JUnit](http://junit.org/junit4/) test runner that
 lets you run instrumented [JUnit 4](https://junit.org/junit4/) tests on Android devices,
 including those using the [Espresso](/training/testing/espresso), [UI Automator](/training/testing/ui-automator), and [Compose](/jetpack/compose/testing)

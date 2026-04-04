@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Wear OS is a great platform for Android users to engage with a variety of audio
 content—such as audiobooks, music, podcasts, and radio—while on the go. [Wear OS
 by Google](/wear) lets you write apps for a variety of categories, including

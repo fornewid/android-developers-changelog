@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/wear/images/toggle-chips/toggle-chips-hero.png)
 
 A [ToggleChip](/reference/kotlin/androidx/wear/compose/material/package-summary#ToggleChip(kotlin.Boolean,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.wear.compose.material.ToggleChipColors,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.graphics.Shape,kotlin.Function0)) is a specialized chip that allows users to select various options.

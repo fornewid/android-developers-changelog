@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/wear/images/design/tiles-responsiveadaptive-hero-updated.png)
 
 To accommodate the increasing screen size, we've incorporated responsive behavior into the [ProtoLayout Material layout templates](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).primaryLayout(kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.material3.PrimaryLayoutMargins)) and Figma design layouts, allowing the slots to automatically adapt. In essence, slots are designed to fill the available width. Our margins are set as percentages, with additional inner margins added to slots at the bottom and top of the screen, accounting for fluctuations in the curve of the screen as it enlarges.

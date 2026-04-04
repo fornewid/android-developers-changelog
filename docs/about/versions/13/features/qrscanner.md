@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 13 (with backwards compatibility for Android 12) supports UPI
 payment flows by adding a dedicated QR Code scanner that users can access
 directly from the corresponding Quick Settings tile. Users can launch

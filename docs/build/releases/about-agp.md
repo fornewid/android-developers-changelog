@@ -188,6 +188,7 @@ can still open and update your project using an
 
 | Android Studio version | Required AGP version |
 | --- | --- |
+| Panda 3 | 2025.3.3 | 4.0-9.1 |
 | Panda 2 | 2025.3.2 | 4.0-9.1 |
 | Panda 1 | 2025.3.1 | 4.0-9.0 |
 | Otter 3 Feature Drop | 2025.2.3 | 4.0-9.0 |

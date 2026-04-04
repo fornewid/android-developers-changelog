@@ -4,9 +4,8 @@ url: https://developer.android.com/google/play/integrity/device-recall
 source: md.txt
 ---
 
-# Detect repeat abuse using device recall (beta)
-
-| **Important:** Device recall is a new feature in Play Integrity API that is available in beta and subject to change. [Express interest](https://forms.gle/2d24B4gNyoVrqztG6) in joining the beta program.
+> [!IMPORTANT]
+> **Important:** Device recall is a new feature in Play Integrity API that is available in beta and subject to change. [Express interest](https://forms.gle/2d24B4gNyoVrqztG6) in joining the beta program.
 
 This page describes how to use device recall to store and retrieve custom data
 with specific devices. You can reliably recall the custom data again later when
@@ -60,8 +59,9 @@ recall works as follows:
 
 ## Turn on device recall
 
-| **Note:** To turn on device recall, you must first complete the [device recall beta
-| interest form](https://forms.gle/2d24B4gNyoVrqztG6). Once approved, you will be able to turn on device recall in the Play Console.
+> [!NOTE]
+> **Note:** To turn on device recall, you must first complete the [device recall beta
+> interest form](https://forms.gle/2d24B4gNyoVrqztG6). Once approved, you will be able to turn on device recall in the Play Console.
 
 When you are ready, turn on device recall in the Play Console:
 
@@ -98,7 +98,7 @@ delay between writing bits and being able to read them back in the verdict. This
 delay can be as long as 30 seconds, though it is generally much shorter. Device
 recall write requests should be less frequent than your integrity token
 requests. They are not counted in your integrity token request quota but are
-subject to non-public, defensive rate limits.  
+subject to non-public, defensive rate limits.
 
 ```
 playintegrity.googleapis.com/v1/PACKAGE_NAME/deviceRecall:write -d \
@@ -110,8 +110,12 @@ playintegrity.googleapis.com/v1/PACKAGE_NAME/deviceRecall:write -d \
   }
 }'
 ```
-| **Note:** The integrity token should be validated during a user action (i.e. you should verify the nonce or request hash) and then used for writing recall bits. It will be valid for up to 14 days.
-> **Tip:** If you are using the [Golang library for the Play Integrity API](https://pkg.go.dev/google.golang.org/api/playintegrity/v1), remember to add the field name to [ForceSendFields](https://pkg.go.dev/google.golang.org/api#hdr-ForceSendFields) when setting a bit value to false, as in the following snippet.  
+
+> [!NOTE]
+> **Note:** The integrity token should be validated during a user action (i.e. you should verify the nonce or request hash) and then used for writing recall bits. It will be valid for up to 14 days.
+
+> > [!TIP]
+> > **Tip:** If you are using the [Golang library for the Play Integrity API](https://pkg.go.dev/google.golang.org/api/playintegrity/v1), remember to add the field name to [ForceSendFields](https://pkg.go.dev/google.golang.org/api#hdr-ForceSendFields) when setting a bit value to false, as in the following snippet.
 >
 >     newValues.BitFirst = true // ForceSendFields optional for value true
 >     newValues.BitSecond = false // ForceSendFields required for value false

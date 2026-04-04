@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Common UI Recipe
 
 This recipe demonstrates how to implement a common navigation UI pattern with a bottom navigation bar and multiple back stacks, where each tab in the navigation bar has its own navigation history.

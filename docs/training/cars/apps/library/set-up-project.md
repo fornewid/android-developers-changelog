@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page describes how to install the Car App library and now to configure
 the manifest file for your app.
 

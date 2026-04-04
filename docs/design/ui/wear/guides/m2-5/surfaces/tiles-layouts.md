@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/wear/images/surfaces/tiles-layouts-hero.png)
 
 Understand the ProtoLayout Material layout templates and sample design layouts

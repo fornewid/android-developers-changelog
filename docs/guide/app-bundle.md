@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 **Important:** From August 2021, new apps are required to publish with the
 [Android App Bundle](/guide/app-bundle) on
 Google Play. New apps larger than 200 MB are now supported by either

@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/training/app-links/faq
+title: App Links FAQ  |  App architecture  |  Android Developers
 url: https://developer.android.com/training/app-links/faq
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# App Links FAQ Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 ### What happens on devices running lower versions of Android?
 
@@ -27,8 +36,8 @@ paths.
 ### What's the best way to get the SHA-256 fingerprint for the assetlinks.json file?
 
 The most reliable way is to get it from the Google Play Console. Navigate to
-your app's **Setup \> App integrity** page. Under
-**App signing key certificate** , you will find the SHA-256 certificate
+your app's **Setup > App integrity** page. Under
+**App signing key certificate**, you will find the SHA-256 certificate
 fingerprint. This is the same key that Google Play uses to sign your app
 release. Alternatively, for local builds, you can use the `keytool`
 command-line utility on your keystore file.

@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ### Privacy in Android 11
 
 Android 11 builds upon earlier versions of Android, adding features and updates to keep users secure and increase transparency and control. All developers should review the privacy features and test their apps. Impacts can vary based on each app's core functionality, targeting, and other factors.

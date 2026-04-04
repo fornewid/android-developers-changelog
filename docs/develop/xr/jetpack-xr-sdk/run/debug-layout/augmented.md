@@ -17,7 +17,6 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
 
 
 
-
 Applicable XR devices
 
 This guidance helps you build experiences for these types of XR devices.

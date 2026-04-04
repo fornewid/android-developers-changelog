@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The native-activity sample resides under the
 [NDK samples root](https://github.com/android/ndk-samples/), in folder
 `native-activity`. It is a very simple example of a purely native

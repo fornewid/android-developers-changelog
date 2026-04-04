@@ -19,7 +19,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # TextInput in GameActivity   Part of [Android Game Development Kit](/games/agdk/overview).
 
 [GameActivity](/reference/games/game-activity) integrates
@@ -195,8 +194,6 @@ Developers might find the following resources helpful when creating
 
 GameActivity and GameTextInput are both part of Jetpack games library. For any
 issues and questions, create [a bug on the Google IssueTracker](https://issuetracker.google.com/issues/new?component=897320&pli=1&template=1456805).
-
-
 
 
 

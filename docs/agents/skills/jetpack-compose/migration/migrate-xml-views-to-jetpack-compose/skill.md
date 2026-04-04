@@ -1,17 +1,8 @@
 ---
-title: Migrate XML View to Jetpack Compose  |  Android Developers
+title: https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill
 url: https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-
-# Migrate XML View to Jetpack Compose Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This skill guides through the process of migrating an existing Android XML View to Jetpack Compose. It performs a stable, safe and visually consistent transition by following a structured, 10-step methodology. This skill migrates UI (XML to Jetpack Compose) only.
 
@@ -55,11 +46,11 @@ Using the outputs and analysis done in the Step 1 and 2, generate a step-by-step
 
 ### Step 5: Set up Compose dependencies and compiler
 
-Check `build.gradle` or `libs.versions.toml` for Compose dependencies and compiler setup. If missing, use [Setup Compose Dependencies and Compiler](/develop/ui/compose/setup-compose-dependencies-and-compiler). Run a sync to ensure dependencies resolve without errors.
+Check `build.gradle` or `libs.versions.toml` for Compose dependencies and compiler setup. If missing, use [Setup Compose Dependencies and Compiler](https://developer.android.com/develop/ui/compose/setup-compose-dependencies-and-compiler). Run a sync to ensure dependencies resolve without errors.
 
 ### Step 6: Set up Compose theming
 
-If the project already has Compose theming setup, proceed to Step 7. If Compose theming is missing, initialize it. For Material-based projects, follow [Material 3 migration guidelines](/develop/ui/compose/designsystems/migrate-xml-theme-to-compose). For custom design systems, apply expert judgment to migrate XML theming and match existing styles.
+If the project already has Compose theming setup, proceed to Step 7. If Compose theming is missing, initialize it. For Material-based projects, follow [Material 3 migration guidelines](https://developer.android.com/develop/ui/compose/designsystems/migrate-xml-theme-to-compose). For custom design systems, apply expert judgment to migrate XML theming and match existing styles.
 **Constraints:** Do not migrate the entire theme. Implement only the minimum theming required for the specific XML candidate. Maintain original XML themes for interoperability. Maintain existing project code conventions, patterns, names and values.
 
 ### Step 7: Migrate the XML View to Compose
@@ -69,8 +60,8 @@ Convert the XML candidate to Jetpack Compose code, referencing `./xml-layout-mig
 ### Step 8: Replace usages
 
 Replace the usages of the migrated XML layout to use the new Compose component.
-- To add Compose in Views, use [Compose in Views](/developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views).
-- To add Views in Compose, use [Views in Compose](/developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose).
+- To add Compose in Views, use [Compose in Views](https://developer.android.com/developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views).
+- To add Views in Compose, use [Views in Compose](https://developer.android.com/developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose).
 
 ### Step 9: Validate the migration
 

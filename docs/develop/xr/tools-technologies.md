@@ -16,7 +16,6 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
 
 
 
-
 When building an app for Android XR, you can choose from the following
 development platforms and technologies:
 

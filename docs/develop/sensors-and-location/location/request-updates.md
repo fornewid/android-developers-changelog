@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Appropriate use of location information can be beneficial to users of your
 app. For example, if your app helps the user find their way while walking or
 driving, or if your app tracks the location of assets, it needs to get the

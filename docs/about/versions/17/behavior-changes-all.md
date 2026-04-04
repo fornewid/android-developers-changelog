@@ -1,47 +1,40 @@
 ---
-title: Behavior changes: all apps  |  Android Developers
+title: https://developer.android.com/about/versions/17/behavior-changes-all
 url: https://developer.android.com/about/versions/17/behavior-changes-all
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Releases](https://developer.android.com/about/versions)
-
-# Behavior changes: all apps Stay organized with collections Save and categorize content based on your preferences.
-
-
-
+<br />
 
 The Android 17 platform includes behavior changes that might affect your app.
 The following behavior changes apply to *all apps* when they run on Android 17,
-regardless of [`targetSdkVersion`](/guide/topics/manifest/uses-sdk-element#target). You should test your app and then modify
+regardless of [`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target). You should test your app and then modify
 it as needed to support these changes, where applicable.
 
 Make sure to also review the list of [behavior changes that only affect apps
-targeting Android 17](/about/versions/17/behavior-changes-17).
+targeting Android 17](https://developer.android.com/about/versions/17/behavior-changes-17).
 
-**Note:** This page lists some of the more important changes. For more detailed
-information, see the [Android 17 release notes](/about/versions/17/release-notes).
+> [!NOTE]
+> **Note:** This page lists some of the more important changes. For more detailed information, see the [Android 17 release notes](https://developer.android.com/about/versions/17/release-notes).
 
 ## Security
 
-Android 17 includes the following improvements to device and app
+Android 17 includes the following improvements to device and app
 security.
 
 ### usesClearTraffic deprecation plan
 
 In a future release, we plan to deprecate the `usesCleartextTraffic` element.
 Apps that need to make unencrypted (HTTP) connections should migrate to
-using a [network security configuration](/privacy-and-security/security-config) file, which lets you
+using a [network security configuration](https://developer.android.com/privacy-and-security/security-config) file, which lets you
 specify which domains your app needs to make cleartext connections to.
 
 Be aware that network security configuration files are only supported on API
 levels 24 and higher. If your app has a minimum API level lower than 24, you
 should do *both* of the following:
 
-* Set the `usesCleartextTraffic` attribute to `true`
-* Use a network configuration file
+- Set the `usesCleartextTraffic` attribute to `true`
+- Use a network configuration file
 
 If your app's minimum API level is 24 or higher, you can use a network
 configuration file and you don't need to set `usesCleartextTraffic`.
@@ -59,29 +52,28 @@ them.
 
 Apps should avoid creating excessive numbers of keys in Android Keystore,
 because it is a shared resource for all apps on the device. Beginning with
-Android 17, the system enforces a limit on the number of keys an app can
+Android 17, the system enforces a limit on the number of keys an app can
 own. The limit is 50,000 keys for non-system apps targeting
-Android 17 (API level 37) or higher, and 200,000 keys for all other apps.
+Android 17 (API level 37) or higher, and 200,000 keys for all other apps.
 System apps have a limit of 200,000 keys, regardless of which API level they
 target.
 
 If an app attempts to create keys beyond the limit, the creation fails with a
-[`KeyStoreException`](/reference/java/security/KeyStoreException). The exception's message string contains information
-about the key limit. If the app calls [`getNumericErrorCode()`](/reference/android/security/KeyStoreException#getNumericErrorCode()) on the
+[`KeyStoreException`](https://developer.android.com/reference/java/security/KeyStoreException). The exception's message string contains information
+about the key limit. If the app calls [`getNumericErrorCode()`](https://developer.android.com/reference/android/security/KeyStoreException#getNumericErrorCode()) on the
 exception, the return value depends on what API level the app targets:
 
-* Apps targeting Android 17 (API level 37) or higher:
-  `getNumericErrorCode()` returns the new `ERROR_TOO_MANY_KEYS` value.
-* All other apps: `getNumericErrorCode()` returns `ERROR_INCORRECT_USAGE`.
+- Apps targeting Android 17 (API level 37) or higher: `getNumericErrorCode()` returns the new `ERROR_TOO_MANY_KEYS` value.
+- All other apps: `getNumericErrorCode()` returns `ERROR_INCORRECT_USAGE`.
 
 ## User experience and system UI
 
-Android 17 includes the following changes that are intended
+Android 17 includes the following changes that are intended
 to create a more consistent, intuitive user experience.
 
 ### Restoring default IME visibility after rotation
 
-Beginning with Android 17, when the device's configuration changes (for
+Beginning with Android 17, when the device's configuration changes (for
 example, through rotation), and this is not handled by the app itself, the
 previous IME visibility is not restored.
 
@@ -90,38 +82,37 @@ app needs the keyboard to be visible after the change,
 you must explicitly request this. You can make this request in one of the
 following ways:
 
-* Set the `android:windowSoftInputMode` attribute to `stateAlwaysVisible`.
-* Programmatically request the soft keyboard in your activity's `onCreate()`
-  method, or add the `onConfigurationChanged()` method.
+- Set the `android:windowSoftInputMode` attribute to `stateAlwaysVisible`.
+- Programmatically request the soft keyboard in your activity's `onCreate()` method, or add the `onConfigurationChanged()` method.
 
 ## Human input
 
-Android 17 includes the following changes that affect how
+Android 17 includes the following changes that affect how
 apps interact with human input devices like keyboards and touchpads.
 
 ### Touchpads deliver relative events by default during pointer capture
 
-Beginning with Android 17, if an app requests pointer capture using
-[`View.requestPointerCapture()`](/reference/android/view/View#requestPointerCapture()) and the user uses a touchpad, the system
+Beginning with Android 17, if an app requests pointer capture using
+[`View.requestPointerCapture()`](https://developer.android.com/reference/android/view/View#requestPointerCapture()) and the user uses a touchpad, the system
 recognizes pointer movement and scrolling gestures from the user's touches and
 reports them to the app in the same way as pointer and scroll wheel movements
 from a captured mouse. In most cases, this removes the need for apps that
 support captured mice to add special handling logic for touchpads. For more
-details, see the documentation for [`View.POINTER_CAPTURE_MODE_RELATIVE`](/reference/android/view/View#POINTER_CAPTURE_MODE_RELATIVE).
+details, see the documentation for [`View.POINTER_CAPTURE_MODE_RELATIVE`](https://developer.android.com/reference/android/view/View#POINTER_CAPTURE_MODE_RELATIVE).
 
 Previously, the system did not attempt to recognize gestures from the touchpad,
 and instead delivered the raw, absolute finger locations to the app in a similar
 format to touchscreen touches. If an app still requires this absolute data, it
-should call the new [`View.requestPointerCapture(int)`](/reference/android/view/View#requestPointerCapture(int)) method with
-[`View.POINTER_CAPTURE_MODE_ABSOLUTE`](/reference/android/view/View#POINTER_CAPTURE_MODE_ABSOLUTE) instead.
+should call the new [`View.requestPointerCapture(int)`](https://developer.android.com/reference/android/view/View#requestPointerCapture(int)) method with
+[`View.POINTER_CAPTURE_MODE_ABSOLUTE`](https://developer.android.com/reference/android/view/View#POINTER_CAPTURE_MODE_ABSOLUTE) instead.
 
 ## Media
 
-Android 17 includes the following changes to media behavior.
+Android 17 includes the following changes to media behavior.
 
 ### Background audio hardening
 
-Beginning with Android 17, the audio framework enforces restrictions on
+Beginning with Android 17, the audio framework enforces restrictions on
 background audio interactions including audio playback, audio focus requests,
 and volume change APIs to ensure that these changes are started intentionally by
 the user.
@@ -132,4 +123,35 @@ exception or providing a failure message. The audio focus API fails with the
 result code `AUDIOFOCUS_REQUEST_FAILED`.
 
 For more information, including mitigation strategies, see [Background audio
-hardening](/about/versions/17/changes/bg-audio).
+hardening](https://developer.android.com/about/versions/17/changes/bg-audio).
+
+## Connectivity
+
+Android 17 includes the following changes to enhance device
+connectivity.
+
+### Autonomous re-pairing for Bluetooth bond losses
+
+Android 17 introduces autonomous re-pairing, a system-level enhancement
+designed to automatically resolve Bluetooth bond loss.
+
+Previously, if a bond was lost, users had to manually navigate to Settings to
+unpair and then re-pair the peripheral. This feature builds upon the security
+improvement of Android 16 by allowing the system to re-establish bonds
+in the background without requiring users to manually navigate to Settings to
+unpair and re-pair peripherals.
+
+While most apps will not require code changes, developers should be aware of the
+following behavior changes in Bluetooth stack:
+
+- **New pairing context:** The [`ACTION_PAIRING_REQUEST`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#ACTION_PAIRING_REQUEST) now includes the [`EXTRA_PAIRING_CONTEXT`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#EXTRA_PAIRING_CONTEXT) extra which allows apps to distinguish between a standard pairing request and an autonomous system-initiated re-pairing attempt.
+- **Conditional key updates:** Existing security keys will only be replaced if the re-pairing is successful and new connection meets or exceeds the security level of the previous bond.
+- **Modified intent timing:** The [`ACTION_KEY_MISSING`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#ACTION_KEY_MISSING) intent is now broadcast only if the autonomous re-pairing attempt fails. This reduces unnecessary error handling in the app if the system successfully recovers the bond in the background.
+- **User notification:** The system manages re-pairing via new UI notifications and dialogs. Users will be prompted to confirm the re-pairing attempt to ensure they are aware of the reconnection.
+
+Peripheral device manufacturers and companion app developers should verify that
+hardware and app gracefully handle bond transitions. To test this behavior,
+simulate a remote bond loss using either of the following methods:
+
+- Manually remove the bond information from the peripheral device
+- Manually unpair the device in: Settings \> Connected devices

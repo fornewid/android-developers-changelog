@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Basic Saveable Recipe
 
 This recipe shows a basic example of how to create a persistent back stack that survives configuration changes.

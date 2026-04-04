@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/modular-koin
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/modular-koin
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Modular Navigation Recipe (Koin)
 
@@ -12,17 +21,22 @@ This recipe demonstrates how to structure a multi-module application using Navig
 
 The application is divided into several Android modules:
 
-- **`app` module** : This is the main application module. It `includes()` the feature modules and initializes a common `Navigator`.
+* **`app` module**: This is the main application module. It `includes()` the feature modules and initializes a common `Navigator`.
+* **`common` module**: This module contains the core navigation logic used by both the application module and the feature modules. Namely, it defines a `Navigator` class that manages the back stack.
+* **Feature modules (e.g., `conversation`, `profile`)**: Each feature is split into two sub-modules:
 
-- **`common` module** : This module contains the core navigation logic used by both the application module and the feature modules. Namely, it defines a `Navigator` class that manages the back stack.
-
-- **Feature modules (e.g., `conversation`, `profile`)**: Each feature is split into two sub-modules:
-
-  - **`api` module**: Defines the public API for the feature, including its navigation routes. This allows other modules to navigate to this feature without needing to know about its implementation details.
-  - **`impl` module** : Provides the implementation of the feature, including its composables and Koin `Module`. The Koin module uses the [`navigation`](https://insert-koin.io/docs/reference/koin-compose/navigation3/#declaring-navigation-entries) DSL to define the entry provider installers for the feature module.
+  + **`api` module**: Defines the public API for the feature, including its navigation routes. This allows other modules to navigate to this feature without needing to know about its implementation details.
+  + **`impl` module**: Provides the implementation of the feature, including its composables and Koin `Module`. The Koin module uses the [`navigation`](https://insert-koin.io/docs/reference/koin-compose/navigation3/#declaring-navigation-entries) DSL to define the entry provider installers for the feature module.
 
 This modular approach allows for a clean separation of concerns, making the codebase more scalable and maintainable. Each feature is responsible for its own navigation logic, and the `app` module only combines these pieces together.
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/modular/koin)
+
+[![](/static/images/picto-icons/code.svg)
+
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/modular/koin)
 
 ```
 package com.example.nav3recipes.modular.koin
@@ -72,6 +86,8 @@ private fun ProfileScreen() {
         )
     }
 }
+
+ProfileModule.kt
 ```
 
 ```
@@ -187,6 +203,8 @@ private fun ConversationDetailScreen(
         }
     }
 }
+
+ConversationModule.kt
 ```
 
 ```
@@ -206,6 +224,8 @@ class Navigator(startDestination: Any) {
         backStack.removeLastOrNull()
     }
 }
+
+CommonModule.kt
 ```
 
 ```
@@ -223,6 +243,8 @@ val appModule = module {
         }
     }
 }
+
+AppModule.kt
 ```
 
 ```
@@ -290,4 +312,6 @@ class KoinModularActivity : ComponentActivity(), AndroidScopeComponent, KoinComp
     }
 
 }
+
+KoinModularActivity.kt
 ```

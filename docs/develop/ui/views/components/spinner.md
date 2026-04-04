@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Spinners provide a quick way to select one value from a set. In the default
 state, a spinner shows its currently selected value. Tapping the spinner
 displays a menu showing all other values the user can select.

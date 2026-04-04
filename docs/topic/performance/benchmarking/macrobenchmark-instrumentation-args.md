@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Configure the behavior of the library with the following instrumentation
 arguments. You can either add these to your Gradle configuration or apply them
 directly when running instrumentation from the command line. To set these

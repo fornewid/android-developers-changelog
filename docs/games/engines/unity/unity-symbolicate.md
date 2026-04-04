@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Crashes and ANRs on Android produce a stack trace, which is a snapshot of the
 sequence of nested functions called in your game up to the moment it crashed.
 These snapshots can help you identify and fix any problems in the source.
@@ -59,6 +60,8 @@ Otherwise, you can follow the
 [Symbolicate Android crash](https://support.unity.com/hc/en-us/articles/115000292166-Symbolicate-Android-crash) article from
 Unity to manually resolve the stack trace or generate symbol files for lower
 versions of Unity.
+
+
 
 
 

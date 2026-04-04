@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 Making adept use of threads on Android can help you boost your app’s
 performance. This page discusses several aspects of working with threads:
 working with the UI, or main, thread; the relationship between app lifecycle and

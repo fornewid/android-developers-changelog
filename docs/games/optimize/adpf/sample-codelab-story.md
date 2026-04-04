@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 ## Sample App
 
 The [ADPF sample app](https://github.com/android/games-samples/tree/main/agdk/adpf)
@@ -63,6 +64,8 @@ power consumption using Adaptability APIs in these developer success stories!
 * [NCSoft Lineage W improves sustained performance and prevents thermal throttling by using ADPF](/stories/games/lineagew-adpf)
 * [ARM getting started with Android Dynamic Performance Framework (ADPF) in Unreal Engine](/stories/games/arm-adpf)
 * [Netmarble Games: Optimizing Performance with ADPF](/stories/games/netmarble-got-adpf)
+
+
 
 
 

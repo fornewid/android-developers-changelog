@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android Studio for Platform (ASfP) is the official Integrated Development
 Environment (IDE) designed specifically for Android platform development. Built
 on the powerful foundation of IntelliJ IDEA, ASfP is tailored to enhance

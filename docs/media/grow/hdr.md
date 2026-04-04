@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 HDR (High Dynamic Range) is a set of technologies and approaches that let your
 app display content with a greater range of brightness and intensity than SDR
 (Standard Dynamic Range), as well as more vivid colors.

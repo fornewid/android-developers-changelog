@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 **Caution:** Adaptive refresh rate is supported on devices that implement [specific
 HAL APIs](https://source.android.com/docs/core/graphics/arr#implementation) and run on Android 15-QPR1 and above. To check device
 support, use the [`hasArrSupport()`](/reference/android/view/Display#hasArrSupport()) API.

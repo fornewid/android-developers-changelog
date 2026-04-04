@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The `Chip` component is a compact, interactive UI element. It represents complex
 entities like a contact or tag, often with an icon and label. It can be
 checkable, dismissible, or clickable.

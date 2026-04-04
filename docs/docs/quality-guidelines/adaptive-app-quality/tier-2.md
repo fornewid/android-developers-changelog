@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Optimized apps fully support all screen types and device states, including state
 transitions.
 

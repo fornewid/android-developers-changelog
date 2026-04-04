@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 The
 [Developing Android Apps in Kotlin course](https://codelabs.developers.google.com/codelabs/kotlin-android-training-welcome/index.html?index=..%2F..index#0)
 assumes that you are familiar with the concept and terminology of

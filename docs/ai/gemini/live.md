@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 For applications that require real-time and low latency voice support, such as
 chatbots or agentic interactions, the **Gemini Live API** provides an optimized
 way to stream both input and output for a Gemini model. By using Firebase AI

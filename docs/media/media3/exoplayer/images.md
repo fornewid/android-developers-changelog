@@ -1,35 +1,25 @@
 ---
-title: Images  |  Android media  |  Android Developers
+title: https://developer.android.com/media/media3/exoplayer/images
 url: https://developer.android.com/media/media3/exoplayer/images
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Images Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 ExoPlayer supports the following image formats. See
-[Image Loading Libraries](/media/media3/exoplayer/images#image-loading-libraries)
+[Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images#image-loading-libraries)
 for how to integrate with external libraries that may provide support for a
 different set of formats.
 
 | Image format | Supported | Notes |
-| --- | --- | --- |
-| BMP | YES |  |
+|---|---|---|
+| BMP | YES |   |
 | GIF | NO | No Extractor support |
-| JPEG | YES |  |
+| JPEG | YES |   |
 | JPEG Motion Photo | YES | Still image and video supported |
 | JPEG Ultra HDR | YES | Falls back to SDR before Android 14 or on non-HDR displays |
-| PNG | YES |  |
-| WebP | YES |  |
-| HEIF/HEIC | YES |  |
-| HEIC Motion Photo | YES |  |
+| PNG | YES |   |
+| WebP | YES |   |
+| HEIF/HEIC | YES |   |
+| HEIC Motion Photo | YES |   |
 | AVIF (baseline) | YES | Decoded on Android 14+ only |
 
 ## Using MediaItem
@@ -38,48 +28,47 @@ To play an image as part of a playlist, create a `MediaItem` with the image URI
 and pass it to the player. The `MediaItem` must have a `imageDurationMs` to
 specify for how long the image should be displayed.
 
+
 ### Kotlin
 
-```
+```kotlin
 // Create a player instance.
 val player = ExoPlayer.Builder(context).build()
 // Set the media item to be played with the desired duration.
 player.setMediaItem(MediaItem.Builder().setUri(imageUri).setImageDurationMs(2000).build())
 // Prepare the player.
 player.prepare()
-
-Images.kt
 ```
 
 ### Java
 
-```
+```java
 // Create a player instance.
 ExoPlayer player = new ExoPlayer.Builder(context).build();
 // Set the media item to be played with the desired duration.
 player.setMediaItem(new MediaItem.Builder().setUri(imageUri).setImageDurationMs(2000).build());
 // Prepare the player.
 player.prepare();
-
-Images.java
 ```
+
+<br />
 
 ### Motion Photos
 
 Motion photos are files combining a still image with a short video.
 
-* If the image duration is defined with `setImageDuration`, the motion photo is
-  displayed for the declared duration as a still image.
-* If the image duration is undefined, the motion photo is played as a video.
+- If the image duration is defined with `setImageDuration`, the motion photo is displayed for the declared duration as a still image.
+- If the image duration is undefined, the motion photo is played as a video.
 
 ## Using ProgressiveMediaSource
 
 For more customization options, you can create a `ProgressiveMediaSource` and
 pass it directly to the player instead of a `MediaItem`.
 
+
 ### Kotlin
 
-```
+```kotlin
 // Create a data source factory.
 val dataSourceFactory: DataSource.Factory = DefaultHttpDataSource.Factory()
 // Create a media item with the image URI and the desired duration.
@@ -92,13 +81,11 @@ val player = ExoPlayer.Builder(context).build()
 player.setMediaSource(mediaSource)
 // Prepare the player.
 player.prepare()
-
-Images.kt
 ```
 
 ### Java
 
-```
+```java
 // Create a data source factory.
 DataSource.Factory dataSourceFactory = new DefaultHttpDataSource.Factory();
 // Create a media item with the image URI and the desired duration.
@@ -112,14 +99,14 @@ ExoPlayer player = new ExoPlayer.Builder(context).build();
 player.setMediaSource(mediaSource);
 // Prepare the player.
 player.prepare();
-
-Images.java
 ```
+
+<br />
 
 ## Customizing playback
 
 ExoPlayer provides multiple ways for you to tailor playback experience to your
-app's needs. See the [Customization page](/guide/topics/media/exoplayer/customization) for examples.
+app's needs. See the [Customization page](https://developer.android.com/guide/topics/media/exoplayer/customization) for examples.
 
 ## Image Loading Libraries
 
@@ -130,8 +117,7 @@ Images are often managed by external image loading libraries, for example
 Integrating these libraries into the playback pipeline requires 3 steps:
 
 1. Define a `MediaItem` with `APPLICATION_EXTERNALLY_LOADED_IMAGE` MIME type.
-2. Provide an image decoder to retrieve a `Bitmap` from the image loading
-   library.
+2. Provide an image decoder to retrieve a `Bitmap` from the image loading library.
 3. Provide an external loader to trigger caching and preloading.
 
 ### MediaItem with externally loaded image MIME type
@@ -140,29 +126,28 @@ The `MediaItem` added to the `Player` must define the
 `APPLICATION_EXTERNALLY_LOADED_IMAGE` MIME type explicitly to use the image
 loading library code paths:
 
+
 ### Kotlin
 
-```
+```kotlin
 val mediaItem =
   MediaItem.Builder()
     .setUri(imageUri)
     .setMimeType(MimeTypes.APPLICATION_EXTERNALLY_LOADED_IMAGE)
     .build()
-
-Images.kt
 ```
 
 ### Java
 
-```
+```java
 MediaItem mediaItem =
     new MediaItem.Builder()
         .setUri(imageUri)
         .setMimeType(MimeTypes.APPLICATION_EXTERNALLY_LOADED_IMAGE)
         .build();
-
-Images.java
 ```
+
+<br />
 
 ### Image decoder using an image loading library
 
@@ -173,9 +158,10 @@ The image renderer needs an `ExternallyLoadedImageDecoder` to retrieve the
 The following example uses Glide to load an image, limiting the output to
 the display size to avoid creating very large `Bitmap` objects:
 
+
 ### Kotlin
 
-```
+```kotlin
 val glideImageDecoderFactory: ImageDecoder.Factory =
   ExternallyLoadedImageDecoder.Factory { request: ExternalImageRequest ->
     val displaySize = Util.getCurrentDisplayModeSize(context)
@@ -196,13 +182,11 @@ val player: Player =
       }
     )
     .build()
-
-Images.kt
 ```
 
 ### Java
 
-```
+```java
 ImageDecoder.Factory glideImageDecoderFactory =
     new ExternallyLoadedImageDecoder.Factory(
         request -> {
@@ -223,9 +207,9 @@ Player player =
               }
             })
         .build();
-
-Images.java
 ```
+
+<br />
 
 ### Image preloading with an image loading library
 
@@ -238,9 +222,10 @@ can do nothing.
 The following example uses Glide to ensure that the requested image is preloaded
 to disk:
 
+
 ### Kotlin
 
-```
+```kotlin
 val glidePreloader = ExternalLoader { request: LoadRequest ->
   GlideFutures.submit(
     Glide.with(context)
@@ -259,13 +244,11 @@ val player: Player =
       DefaultMediaSourceFactory(context).setExternalImageLoader(glidePreloader)
     )
     .build()
-
-Images.kt
 ```
 
 ### Java
 
-```
+```java
 ExternalLoader glidePreloader =
     request ->
         GlideFutures.submit(
@@ -281,6 +264,6 @@ Player player =
         .setMediaSourceFactory(
             new DefaultMediaSourceFactory(context).setExternalImageLoader(glidePreloader))
         .build();
-
-Images.java
 ```
+
+<br />

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Wear OS 6 is based on Android 16 (API level 36). When you prepare your Wear OS
 app for use on Wear OS 6, handle the system
 [behavior changes that affect all apps in Android 16](/about/versions/16/behavior-changes-all), as well as the

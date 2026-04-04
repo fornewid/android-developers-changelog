@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 This document lists the Google Play Developer APIs and the related
 features which are in a deprecation period.
 
@@ -93,6 +94,8 @@ so you can continue using
 and
 [`purchases.subscriptions:revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/revoke)
 as you did before.
+
+
 
 
 

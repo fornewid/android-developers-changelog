@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/ndk/guides/common-problems
+title: Common problems and solutions  |  Android NDK  |  Android Developers
 url: https://developer.android.com/ndk/guides/common-problems
-source: md.txt
+source: html-scrape
 ---
+
+* [Home](https://developer.android.com/)
+* [NDK](https://developer.android.com/ndk)
+* [Develop](https://developer.android.com/develop)
+* [Guides](https://developer.android.com/ndk/guides)
+
+# Common problems and solutions Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 This document is a partial list of the most commonly encountered non-bugs you
 might encounter when using the NDK, and their solutions (if available).
@@ -19,17 +29,19 @@ functions being available.
 This problem is explained in detail in the [r16 blog post](https://android-developers.googleblog.com/2017/09/introducing-android-native-development.html) and in the [bionic
 documentation](https://android.googlesource.com/platform/bionic/+/master/docs/32-bit-abi.md).
 
-**Problem** : Your build is asking for APIs that do not exist in your
+**Problem**: Your build is asking for APIs that do not exist in your
 `minSdkVersion`.
 
-**Solution** : Disable `_FILE_OFFSET_BITS=64` or raise your `minSdkVersion`.
+**Solution**: Disable `_FILE_OFFSET_BITS=64` or raise your `minSdkVersion`.
 
 ### Undeclared or implicit definition of `mmap`
 
 You may see the following error in C++:
+
 > error: use of undeclared identifier 'mmap'
 
 or the following error in C:
+
 > warning: implicit declaration of function 'mmap' is invalid in C99
 
 Using `_FILE_OFFSET_BITS=64` instructs the C library to use `mmap64` instead of
@@ -37,11 +49,9 @@ Using `_FILE_OFFSET_BITS=64` instructs the C library to use `mmap64` instead of
 value is lower than 21, the C library does not contain an `mmap` that is
 compatible with `_FILE_OFFSET_BITS=64`, so the function is unavailable.
 
-> [!NOTE]
-> **Note:** `mmap` is only the most common manifestation of this problem. The same is true of any function in the C library that has an `off_t` parameter.
-
-> [!NOTE]
-> **Note:** Since r16 beta 2, the C library exposes `mmap64` as an inline function to mitigate this instance of this issue.
+**Note:** `mmap` is only the most common manifestation of this problem. The same is
+true of any function in the C library that has an `off_t` parameter.**Note:** Since r16 beta 2, the C library exposes `mmap64` as an inline function to
+mitigate this instance of this issue.
 
 ## `minSdkVersion` set higher than device API level
 
@@ -50,8 +60,8 @@ The API level you build against with the NDK has a very different meaning than
 supported API level. In ndk-build, this is your `APP_PLATFORM` setting. With
 CMake, this is `-DANDROID_PLATFORM`.
 
-> [!NOTE]
-> **Note:** If you're using [externalNativeBuild](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/ExternalNativeBuild), it automatically uses your `minSdkVersion`.
+**Note:** If you're using [externalNativeBuild](/reference/tools/gradle-api/current/com/android/build/api/dsl/ExternalNativeBuild), it automatically uses your
+`minSdkVersion`.
 
 Since references to functions are typically resolved when libraries are
 loaded rather than when they are first called, you cannot reference APIs that
@@ -61,21 +71,22 @@ referred to at all, they must be present.
 **Problem**: Your NDK API level is higher than the API supported by your
 device.
 
-**Solution** : Set your NDK API level (`APP_PLATFORM`) to the minimum version
+**Solution**: Set your NDK API level (`APP_PLATFORM`) to the minimum version
 of Android your app supports.
 
 | Build System | Setting |
-|---|---|
-| [ndk-build](https://developer.android.com/ndk/guides/application_mk) | `APP_PLATFORM` |
-| [CMake](https://developer.android.com/ndk/guides/cmake) | `ANDROID_PLATFORM` |
-| [externalNativeBuild](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/ExternalNativeBuild) | `android.minSdkVersion` |
+| --- | --- |
+| [ndk-build](/ndk/guides/application_mk) | `APP_PLATFORM` |
+| [CMake](/ndk/guides/cmake) | `ANDROID_PLATFORM` |
+| [externalNativeBuild](/reference/tools/gradle-api/current/com/android/build/api/dsl/ExternalNativeBuild) | `android.minSdkVersion` |
 
 For other build systems, see [Use the NDK with other build
-systems](https://developer.android.com/ndk/guides/other_build_systems).
+systems](/ndk/guides/other_build_systems).
 
 ### Cannot locate `__aeabi` Symbols
 
 The following message:
+
 > UnsatisfiedLinkError: dlopen failed: cannot locate symbol "`__aeabi_memcpy`"
 
 is one example of possible *runtime* errors. These errors appear in the log when
@@ -88,6 +99,7 @@ This problem is documented in [Issue
 ### Cannot locate symbol `rand`
 
 For the following error log message:
+
 > UnsatisfiedLinkError: dlopen failed: cannot locate symbol "`rand`"
 
 See this detailed [Stack Overflow
@@ -95,25 +107,26 @@ answer](http://stackoverflow.com/a/27338365/632035).
 
 ## Undefined reference to `__atomic_*`
 
-**Problem** : Some ABIs need `libatomic` to provide some implementations for
+**Problem**: Some ABIs need `libatomic` to provide some implementations for
 atomic operations.
 
-**Solution** : Add `-latomic` when linking.
+**Solution**: Add `-latomic` when linking.
 
 For the following error message:
+
 > error: undefined reference to '`__atomic_exchange_4`'
 
 the actual symbol here might be anything prefixed with `__atomic_`.
 
-> [!NOTE]
-> **Note:** ndk-build and CMake handle this for you. For other build systems, you may need to do this manually.
+**Note:** ndk-build and CMake handle this for you. For other build systems, you may
+need to do this manually.
 
 ## RTTI/exceptions not working across library boundaries
 
-**Problem** : Exceptions are not being caught when thrown across shared library
+**Problem**: Exceptions are not being caught when thrown across shared library
 boundaries, or `dynamic_cast` is failing.
 
-**Solution** : Add a [key function](https://itanium-cxx-abi.github.io/cxx-abi/abi.html#vague-vtable) to your types. A key function is
+**Solution**: Add a [key function](https://itanium-cxx-abi.github.io/cxx-abi/abi.html#vague-vtable) to your types. A key function is
 the first non-pure, out-of-line virtual function for a type. For an example, see
 the discussion on [Issue 533](https://github.com/android-ndk/ndk/issues/533#issuecomment-335977747).
 
@@ -129,30 +142,31 @@ words, via `dlopen` or `System.loadLibrary`), it may not be possible for the
 loader to merge type infos for the loaded libraries. When this happens, the
 two types are not considered equal.
 
-> [!NOTE]
-> **Note:** For non-polymorphic types, the type cannot have a key function. For non-polymorphic types, RTTI is unnecessary, since `std::is_same` can be used to determine type equality at compile time.
+**Note:** For non-polymorphic types, the type cannot have a key function. For
+non-polymorphic types, RTTI is unnecessary, since `std::is_same` can be used to
+determine type equality at compile time.
 
 ## Using mismatched prebuilt libraries
 
-Using prebuilt libraries---these are typically third-party
-libraries---in your application requires a bit of extra care. In general, be
+Using prebuilt libraries—these are typically third-party
+libraries—in your application requires a bit of extra care. In general, be
 aware of the following rules:
 
-- The resulting app's minimum API level is the maximum of the `minSdkVersion`s
+* The resulting app's minimum API level is the maximum of the `minSdkVersion`s
   of all the app's libraries.
 
   If your `minSdkVersion` is 16, but you're using a prebuilt library that was
   built against 21, the resulting app's minimum API level is 21. Failure to
   adhere to this will be visible at build time if the prebuilt library is
   static, but may not appear until run time for prebuilt shared libraries.
-- All libraries should be generated with the same NDK version.
+* All libraries should be generated with the same NDK version.
 
   This rule is a bit more flexible than most since breakages are rare, but
   compatibility between libraries that were built with different major versions
   of the NDK is not guaranteed. The C++ ABI is not stable and has changed in the
   past.
-- Apps with multiple shared libraries must use a [shared
-  STL](https://developer.android.com/ndk/guides/cpp-support#sr).
+* Apps with multiple shared libraries must use a [shared
+  STL](/ndk/guides/cpp-support#sr).
 
   As with mismatched STLs, the problems caused by this can be avoided if great
   care is taken, but it's better to just avoid the problem. The best way to

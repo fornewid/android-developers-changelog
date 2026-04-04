@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 As users connect their televisions, home theater systems, and music players with wireless
 technologies, they want to be able to play content from Android apps on these larger,
 louder devices. Enabling this kind of playback can turn your one-device, one-user app

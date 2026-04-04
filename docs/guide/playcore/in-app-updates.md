@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 When your users keep your app up to date on their devices, they can try new
 features, as well as benefit from performance improvements and bug fixes.
 Although some users enable background updates when their device is connected to

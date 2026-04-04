@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 A very popular way to implement a game loop looks like this:
 
 ```
@@ -153,6 +154,8 @@ when the drawing starts.
 For a scene with any complexity you'd want to create a list of upcoming events
 sorted by wake time, and sleep until the next event is due, but it's the same
 idea.
+
+
 
 
 

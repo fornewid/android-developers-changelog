@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Your game must meet playability requirements before you can release the game on
 [Google Play Games on PC](/games/playgames/overview). Once the game is on the
 platform, you can work toward full certification by adding platform features
@@ -135,6 +136,8 @@ You can sideload an APK to the emulator through [Android Studio](/studio) or the
 
 See [Use the developer emulator](/games/playgames/pg-emulator) for more
 information.
+
+
 
 
 

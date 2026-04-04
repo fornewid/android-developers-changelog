@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-advanced
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-advanced
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
 
 # Deep Link Advanced Recipe
 
@@ -14,24 +24,31 @@ managing a synthetic backStack and Task stacks.
 This recipe simulates a real-world scenario where "App A" deeplinks
 into "App B".
 
-"App A" is simulated by the module [com.example.nav3recipes.deeplink.advanced](https://developer.android.com/app/src/main/java/com/example/nav3recipes/deeplink/advanced), which
+"App A" is simulated by the module [com.example.nav3recipes.deeplink.advanced](/app/src/main/java/com/example/nav3recipes/deeplink/advanced), which
 contains the `CreateAdvancedDeepLinkActivity` that allows you to create a deeplink intent and
 trigger that in either the existing Task, or in a new Task.
 
-"App B" is simulated by the module [advanceddeeplinkapp](https://developer.android.com/advanceddeeplinkapp/src/main/java/com/example/nav3recipes/deeplink/advanced), which contains
+"App B" is simulated by the module [advanceddeeplinkapp](/advanceddeeplinkapp/src/main/java/com/example/nav3recipes/deeplink/advanced), which contains
 the MainActivity that you deeplink into. That module shows you how to build a synthetic backStack
 and how to manage the Task stack properly in order to support both Back and Up buttons.
 
 # Core implementation
 
 The core helper functions for navigateUp and building synthetic backStack can be
-found [here](https://developer.android.com/static/advanceddeeplinkapp/src/main/java/com/example/nav3recipes/deeplink/advanced/util/DeepLinkBackStackUtil.kt)
+found [here](/static/advanceddeeplinkapp/src/main/java/com/example/nav3recipes/deeplink/advanced/util/DeepLinkBackStackUtil.kt)
 
 # Further Read
 
-Check out the [deep link guide](https://developer.android.com/docs/deeplink-guide) for a
+Check out the [deep link guide](/docs/deeplink-guide) for a
 comprehensive guide on Deep linking principles and how to apply them in Navigation 3.
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/deeplink/advanced)
+
+[![](/static/images/picto-icons/code.svg)
+
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/deeplink/advanced)
 
 ```
 package com.example.nav3recipes.deeplink.advanced
@@ -156,4 +173,6 @@ private val MENU_OPTIONS_LOCATION = mapOf(
 private val MENU_OPTIONS_TASK_STACK = mapOf(
     TAG_TASK_STACK to listOf(TAG_CURRENT_TASK, TAG_NEW_TASK),
 )
+
+AdvancedCreateDeepLinkActivity.kt
 ```

@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/games/playgames/native-pc/unity/billing
+title: Billing  |  Play for Native PC  |  Android Developers
 url: https://developer.android.com/games/playgames/native-pc/unity/billing
-source: md.txt
+source: html-scrape
 ---
+
+* [Home](https://developer.android.com/)
+* [Play for Native PC](https://developer.android.com/games/playgames/native-pc)
+* [Guides](https://developer.android.com/games/playgames/native-pc/setup)
+
+# Billing Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 The Billing API lets you to sell digital goods and subscriptions. The C#
 wrapper provides a type-safe, asynchronous interface for the underlying Google
@@ -17,7 +26,7 @@ Play Billing Library.
 Always use the factory to create a `BillingClient`. This ensures that Unity-safe
 callbacks are automatically registered.
 
-```c#
+```
 using UnityEngine;
 using System;
 using System.Threading.Tasks;
@@ -57,7 +66,7 @@ public class BillingManager : MonoBehaviour
 Before displaying items for sale, you must query details like price, title, and
 description from Google Play.
 
-```c#
+```
 public async Task GetProductDetailsAsync()
 {
     try
@@ -106,7 +115,7 @@ public async Task GetProductDetailsAsync()
 To initiate a purchase, call `LaunchPurchaseFlowAsync` with the `OfferToken`
 from the product details step.
 
-```c#
+```
 public async Task BuyItemAsync(string offerToken)
 {
     try
@@ -159,7 +168,7 @@ example, after a game reinstallation, or to check for pending transactions.
 This example demonstrates how to route purchases to *Acknowledge* for
 permanent items or *Consume* for consumables.
 
-```c#
+```
 public async Task CheckExistingPurchasesAsync()
 {
     try
@@ -212,7 +221,7 @@ Non-consumable items (for example, "Premium Upgrade" or "Level Pack") must be
 acknowledged. This indicates to Google Play that you have granted the item to
 the user.
 
-```c#
+```
 public async Task AcknowledgeItemAsync(string purchaseToken)
 {
     try
@@ -245,7 +254,7 @@ public async Task AcknowledgeItemAsync(string purchaseToken)
 Consumable items, such as "100 Gems" or "Health Potion", must be consumed to
 allow for repurchase.
 
-```c#
+```
 public async Task ConsumeItemAsync(string purchaseToken)
 {
     try

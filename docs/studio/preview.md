@@ -22,7 +22,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ### Preview release
 
 Get early access to the latest features and improvements in Android Studio.
@@ -71,7 +70,7 @@ We want to hear from you! Let us know what you think, report bugs and ask questi
 
 [See more](https://androidstudio.googleblog.com)
 
-## Download Android Studio Panda 4 | 2025.3.4 Canary 2
+## Download Android Studio Panda 4 | 2025.3.4 Canary 3
 
 Before downloading, you must agree to the following terms and conditions.
 
@@ -177,15 +176,15 @@ This is the Android Software Development Kit License Agreement
 
 I have read and agree with the above terms and conditions
 
-Download Android Studio Panda 4 | 2025.3.4 Canary 2
+Download Android Studio Panda 4 | 2025.3.4 Canary 3
 for Windows
-[Download Android Studio Panda 4 | 2025.3.4 Canary 2
+[Download Android Studio Panda 4 | 2025.3.4 Canary 3
 for
-Windows](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.2/android-studio-panda4-canary2-windows.exe)
+Windows](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.3/android-studio-panda4-canary3-windows.exe)
 
-*android-studio-panda4-canary2-windows.exe*
+*android-studio-panda4-canary3-windows.exe*
 
-## Download Android Studio Panda 4 | 2025.3.4 Canary 2
+## Download Android Studio Panda 4 | 2025.3.4 Canary 3
 
 Before downloading, you must agree to the following terms and conditions.
 
@@ -293,21 +292,21 @@ I have read and agree with the above terms and conditions
 
 ### Select the version of Android Studio that's right for your Mac:
 
-#### Android Studio Panda 4 | 2025.3.4 Canary 2
+#### Android Studio Panda 4 | 2025.3.4 Canary 3
 
 Mac with Apple chip
-[Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.2/android-studio-panda4-canary2-mac_arm.dmg)
+[Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.3/android-studio-panda4-canary3-mac_arm.dmg)
 
-*android-studio-panda4-canary2-mac\_arm.dmg*
+*android-studio-panda4-canary3-mac\_arm.dmg*
 
 Mac with Intel chip
-[Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.2/android-studio-panda4-canary2-mac.dmg)
+[Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.3/android-studio-panda4-canary3-mac.dmg)
 
-*android-studio-panda4-canary2-mac.dmg*
+*android-studio-panda4-canary3-mac.dmg*
 
  
 
-## Download Android Studio Panda 4 | 2025.3.4 Canary 2
+## Download Android Studio Panda 4 | 2025.3.4 Canary 3
 
 Before downloading, you must agree to the following terms and conditions.
 
@@ -413,15 +412,15 @@ This is the Android Software Development Kit License Agreement
 
 I have read and agree with the above terms and conditions
 
-Download Android Studio Panda 4 | 2025.3.4 Canary 2
+Download Android Studio Panda 4 | 2025.3.4 Canary 3
 for Linux
-[Download Android Studio Panda 4 | 2025.3.4 Canary 2
+[Download Android Studio Panda 4 | 2025.3.4 Canary 3
 for
-Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.2/android-studio-panda4-canary2-linux.tar.gz)
+Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.3/android-studio-panda4-canary3-linux.tar.gz)
 
-*android-studio-panda4-canary2-linux.tar.gz*
+*android-studio-panda4-canary3-linux.tar.gz*
 
-## Download Android Studio Panda 4 | 2025.3.4 Canary 2
+## Download Android Studio Panda 4 | 2025.3.4 Canary 3
 
 Before downloading, you must agree to the following terms and conditions.
 
@@ -527,13 +526,13 @@ This is the Android Software Development Kit License Agreement
 
 I have read and agree with the above terms and conditions
 
-Download Android Studio Panda 4 | 2025.3.4 Canary 2
+Download Android Studio Panda 4 | 2025.3.4 Canary 3
 for ChromeOS
-[Download Android Studio Panda 4 | 2025.3.4 Canary 2
+[Download Android Studio Panda 4 | 2025.3.4 Canary 3
 for
-ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.2/android-studio-panda4-canary2-cros.deb)
+ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.3/android-studio-panda4-canary3-cros.deb)
 
-*android-studio-panda4-canary2-cros.deb*
+*android-studio-panda4-canary3-cros.deb*
 
 ## Download Android Studio Panda 3 | 2025.3.3 RC 1
 

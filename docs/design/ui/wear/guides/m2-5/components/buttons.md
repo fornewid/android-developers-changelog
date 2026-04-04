@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/wear/images/buttons/button-hero.png)
 
 Use a [Button](/reference/kotlin/androidx/wear/compose/material/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.wear.compose.material.ButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.wear.compose.material.ButtonBorder,kotlin.Function1)) component for actions that are well understood by users and don't need a text label. Buttons are distinguished from chips by their circular shape.

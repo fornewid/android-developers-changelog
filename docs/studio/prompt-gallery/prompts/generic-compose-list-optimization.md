@@ -1,36 +1,23 @@
 ---
-title: Generic Compose list optimization  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/prompt-gallery/prompts/generic-compose-list-optimization
 url: https://developer.android.com/studio/prompt-gallery/prompts/generic-compose-list-optimization
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
-
-# Generic Compose list optimization Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Optimize and measure the performance of a large list.
 
----
+*** ** * ** ***
 
-```
-In this Compose file below, I have a LazyColumn or LazyRow displaying a list of items. Optimize its performance for large lists.
+    In this Compose file below, I have a LazyColumn or LazyRow displaying a list of items. Optimize its performance for large lists.
 
-Suggest specific optimizations, like item recycling, using remember, derivedStateOf, or optimizing image loading, and provide code examples to implement these changes.
+    Suggest specific optimizations, like item recycling, using remember, derivedStateOf, or optimizing image loading, and provide code examples to implement these changes.
 
-Add logging or other performance metrics to measure the improvement.
+    Add logging or other performance metrics to measure the improvement.
 
-$CURRENT_FILE
-```
+    $CURRENT_FILE
 
+> [!NOTE]
+> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
+> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
 
-To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.
-  
-To save and retrieve prompts in the Studio IDE, go to **Settings > Gemini > Prompt Library**.
-
-
----
+*** ** * ** ***

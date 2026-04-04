@@ -1,17 +1,8 @@
 ---
-title: Support voice actions  |  Android for Cars  |  Android Developers
+title: https://developer.android.com/training/cars/media/voice-actions
 url: https://developer.android.com/training/cars/media/voice-actions
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Android for Cars](https://developer.android.com/training/cars)
-
-# Support voice actions Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Integrate voice actions into your media app to enhance driver safety and
 convenience by minimizing distractions. When Android Auto or Android Automotive
@@ -24,16 +15,16 @@ categories, such as genre, artist, album, song name, radio station, or playlist.
 Additionally, your app must handle an empty query string, which indicates a
 general request for music.
 
-If your app is playing one media item, the user can say "Play [song title]"
+If your app is playing one media item, the user can say "Play \[song title\]"
 to tell your app to play a different song without looking at or touching the
 car's display. Users can initiate queries by clicking the appropriate buttons
 on their steering wheel or speaking the hotwords "OK Google."
 
-**Design guidelines:** To learn more, see
-[Create apps](/cars/design/create-apps).
+> [!NOTE]
+> **Design guidelines:** To learn more, see [Create apps](https://developer.android.com/cars/design/create-apps).
 
 When Android Auto or AAOS detects and interprets a voice action, Android Auto or
-AAOS delivers that voice action to the app through [`onPlayFromSearch`](/reference/android/support/v4/media/session/MediaSessionCompat.Callback#onPlayFromSearch(java.lang.String,%20android.os.Bundle)). Upon
+AAOS delivers that voice action to the app through [`onPlayFromSearch`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback#onPlayFromSearch(java.lang.String,%20android.os.Bundle)). Upon
 receiving this callback, the app finds content to match the `query` string and
 then starts playback.
 
@@ -44,11 +35,11 @@ If Android Auto or AAOS detects that a given query fits into a specific
 category, extras are appended in the `extras` parameter. You can send these
 extras:
 
-* [`EXTRA_MEDIA_ALBUM`](/reference/android/provider/MediaStore#EXTRA_MEDIA_ALBUM)
-* [`EXTRA_MEDIA_ARTIST`](/reference/android/provider/MediaStore#EXTRA_MEDIA_ARTIST)
-* [`EXTRA_MEDIA_GENRE`](/reference/android/provider/MediaStore#EXTRA_MEDIA_GENRE)
-* [`EXTRA_MEDIA_PLAYLIST`](/reference/android/provider/MediaStore#EXTRA_MEDIA_PLAYLIST)
-* [`EXTRA_MEDIA_TITLE`](/reference/android/provider/MediaStore#EXTRA_MEDIA_TITLE)
+- [`EXTRA_MEDIA_ALBUM`](https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_ALBUM)
+- [`EXTRA_MEDIA_ARTIST`](https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_ARTIST)
+- [`EXTRA_MEDIA_GENRE`](https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_GENRE)
+- [`EXTRA_MEDIA_PLAYLIST`](https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_PLAYLIST)
+- [`EXTRA_MEDIA_TITLE`](https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_TITLE)
 
 Account for an empty `query` string, which can be sent by Android Auto or AAOS
 if the user doesn't specify search terms. For example, if the user says
@@ -56,7 +47,7 @@ if the user doesn't specify search terms. For example, if the user says
 track.
 
 If your app can't process a search quickly, don't block in `onPlayFromSearch`.
-Instead, set the playback state to [`STATE_CONNECTING`](/reference/android/support/v4/media/session/PlaybackStateCompat#STATE_CONNECTING()) and perform the
+Instead, set the playback state to [`STATE_CONNECTING`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#STATE_CONNECTING()) and perform the
 search on an async thread.
 
 When playback starts, consider populating the media session's queue with
@@ -68,4 +59,4 @@ control playback like "pause music" and "next song" and match these commands to
 the appropriate media session callbacks, such as `onPause` and `onSkipToNext`.
 
 To learn more about implementing voice-enabled playback actions, see
-[Google Assistant and media apps](/media/implement/assistant).
+[Google Assistant and media apps](https://developer.android.com/media/implement/assistant).

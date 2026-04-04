@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 On devices running Android 8.0 (API level 26) and higher, launchers that let
 users create [pinned shortcuts](/guide/topics/ui/shortcuts#shortcut-types) also
 let them pin widgets onto their home screen. Similar to pinned shortcuts, these

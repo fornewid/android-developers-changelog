@@ -1,10 +1,19 @@
 ---
-title: https://developer.android.com/studio/write/firebase
+title: Connect to Firebase  |  Android Studio  |  Android Developers
 url: https://developer.android.com/studio/write/firebase
-source: md.txt
+source: html-scrape
 ---
 
-![](https://developer.android.com/static/studio/images/write/assistant-window_2-2_2x.png)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [IDE guides](https://developer.android.com/studio/intro)
+
+# Connect to Firebase Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+![](/static/studio/images/write/assistant-window_2-2_2x.png)
 
 **Figure 1.** The Assistant tool window in
 Android Studio.
@@ -17,14 +26,15 @@ your needs, with
 the core. You can explore and integrate Firebase services in your app directly
 from Android Studio using the **Assistant** window shown in figure 1.
 
-First, make sure you have [added Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) to your project configuration.
+First, make sure you have [added Google's Maven repository](/studio/build/dependencies#google-maven) to your project configuration.
 
 You can open and use the **Assistant** window in Android Studio by
 following these steps:
 
-1. Select **Tools \> Firebase** to open the **Assistant** window.
+1. Select **Tools > Firebase** to open the **Assistant** window.
 2. Click to expand one of the listed features.
-3. Click **Get Started with Firebase Analytics** to open a tutorial that connects you to Firebase and adds the necessary code to your app.
+3. Click **Get Started with Firebase Analytics** to open a tutorial that
+   connects you to Firebase and adds the necessary code to your app.
 
 For more information about using Firebase services, see the
 [Firebase documentation](https://firebase.google.com/docs/).

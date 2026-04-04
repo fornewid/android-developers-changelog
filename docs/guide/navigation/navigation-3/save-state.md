@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/save-state
+title: Save and manage navigation state  |  App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/save-state
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Save and manage navigation state Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 The following sections describe strategies for saving your back stack and
 storing state associated with entries on your back stack.
@@ -14,7 +23,7 @@ including configuration changes and process death, is crucial for a good user
 experience. In Navigation 3, you own your back stack, so there aren't strict
 guidelines on how you should create or save it. However, Navigation 3 does offer
 a convenience method that provides you with a saveable back stack:
-[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/rememberNavBackStack.composable#rememberNavBackStack(kotlin.Array)).
+[`rememberNavBackStack`](/reference/kotlin/androidx/navigation3/runtime/rememberNavBackStack.composable#rememberNavBackStack(kotlin.Array)).
 
 ### Use `rememberNavBackStack`
 
@@ -24,13 +33,16 @@ stack that persists across configuration changes and process death.
 For `rememberNavBackStack` to function correctly, each key in your back stack
 must adhere to specific requirements:
 
-- **Implement `NavKey` interface** : Every key in the back stack must implement the [`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey) interface. This acts as a marker interface that signals to the library that the key can be saved.
-- **Have the `@Serializable` annotation** : In addition to implementing `NavKey`, your key classes and objects must be marked with the `@Serializable` annotation.
+* **Implement `NavKey` interface**: Every key in the back stack must implement
+  the [`NavKey`](/reference/kotlin/androidx/navigation3/runtime/NavKey) interface. This acts as a marker interface that signals to
+  the library that the key can be saved.
+* **Have the `@Serializable` annotation**: In addition to implementing `NavKey`,
+  your key classes and objects must be marked with the `@Serializable`
+  annotation.
 
 The following snippet shows a correct implementation of `rememberNavBackStack`:
 
-
-```kotlin
+```
 @Serializable
 data object Home : NavKey
 
@@ -38,9 +50,9 @@ data object Home : NavKey
 fun NavBackStack() {
     val backStack = rememberNavBackStack(Home)
 }
-```
 
-<br />
+SavingStateSnippets.kt
+```
 
 ### Alternative: Storing in a `ViewModel`
 
@@ -48,8 +60,13 @@ Another approach to managing your back stack is to store it in a `ViewModel`.
 For persistence through process death when using a `ViewModel` or any other
 custom storage, you need to:
 
-- **Ensure your keys are serializable** : Just like with `rememberNavBackStack`, your navigation keys must be serializable.
-- **Handle serialization and deserialization manually** : You're responsible for manually saving the serialized representation of each key to, and deserializing it from, persistent storage (e.g., `SharedPreferences`, a database, or a file) when your app is going into the background or being restored.
+* **Ensure your keys are serializable**: Just like with `rememberNavBackStack`,
+  your navigation keys must be serializable.
+* **Handle serialization and deserialization manually**: You're responsible for
+  manually saving the serialized representation of each key to, and
+  deserializing it from, persistent storage (e.g., `SharedPreferences`, a
+  database, or a file) when your app is going into the background or being
+  restored.
 
 ## Scoping `ViewModel`s to `NavEntry`s
 
@@ -64,22 +81,23 @@ that particular `NavEntry` is part of the back stack, and is cleared when the
 `NavEntry` is popped.
 
 The `androidx.lifecycle:lifecycle-viewmodel-navigation3` add-on library provides
-a [`NavEntryDecorator`](https://developer.android.com/guide/navigation/navigation-3/naventrydecorators) that facilitates this. This decorator provides a
+a [`NavEntryDecorator`](/guide/navigation/navigation-3/naventrydecorators) that facilitates this. This decorator provides a
 `ViewModelStoreOwner` for each `NavEntry`. When you create a `ViewModel` inside a
 `NavEntry`'s content (e.g., using `viewModel()` in Compose), it is automatically
 scoped to that specific `NavEntry`'s key on the back stack. This means the
 `ViewModel` is created when the `NavEntry` is added to the back stack, and
 cleared when it's removed.
 
-To use [`NavEntryDecorator`](https://developer.android.com/guide/navigation/navigation-3/naventrydecorators#apply-decorators) for scoping `ViewModel`s to `NavEntry`s, follow
+To use [`NavEntryDecorator`](/guide/navigation/navigation-3/naventrydecorators#apply-decorators) for scoping `ViewModel`s to `NavEntry`s, follow
 these steps:
 
-1. Add the `androidx.lifecycle:lifecycle-viewmodel-navigation3` dependency to your `app/build.gradle.kts` file.
-2. Add the default [`rememberSaveableStateHolderNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/rememberSaveableStateHolderNavEntryDecorator.composable#rememberSaveableStateHolderNavEntryDecorator(androidx.compose.runtime.saveable.SaveableStateHolder)) to the list of `entryDecorators` when constructing a `NavDisplay`.
-3. Add [`rememberViewModelStoreNavEntryDecorator()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/navigation3/rememberViewModelStoreNavEntryDecorator.composable#rememberViewModelStoreNavEntryDecorator(androidx.lifecycle.ViewModelStoreOwner,kotlin.Function0)) to the list of `entryDecorators`.
+1. Add the `androidx.lifecycle:lifecycle-viewmodel-navigation3` dependency to
+   your `app/build.gradle.kts` file.
+2. Add the default [`rememberSaveableStateHolderNavEntryDecorator()`](/reference/kotlin/androidx/navigation3/runtime/rememberSaveableStateHolderNavEntryDecorator.composable#rememberSaveableStateHolderNavEntryDecorator(androidx.compose.runtime.saveable.SaveableStateHolder))
+   to the list of `entryDecorators` when constructing a `NavDisplay`.
+3. Add [`rememberViewModelStoreNavEntryDecorator()`](/reference/kotlin/androidx/lifecycle/viewmodel/navigation3/rememberViewModelStoreNavEntryDecorator.composable#rememberViewModelStoreNavEntryDecorator(androidx.lifecycle.ViewModelStoreOwner,kotlin.Function0)) to the list of `entryDecorators`.
 
-
-```kotlin
+```
 NavDisplay(
     entryDecorators = listOf(
         // Add the default decorators for managing scenes and saving state
@@ -90,6 +108,6 @@ NavDisplay(
     backStack = backStack,
     entryProvider = entryProvider { },
 )
-```
 
-<br />
+SavingStateSnippets.kt
+```

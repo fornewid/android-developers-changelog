@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The Android platform offers a spell checker framework that lets you
 implement and access spell checking in your app. The framework is one of the
 Text Service APIs.

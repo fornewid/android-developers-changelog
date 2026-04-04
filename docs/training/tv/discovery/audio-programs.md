@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Attributes for audio programs depend on the type of the content. The program
 type tells the system what metadata to expect so that the UI can be filled in
 appropriately. Audio programs can be one of these types:

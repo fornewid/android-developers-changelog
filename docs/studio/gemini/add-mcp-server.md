@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Gemini in Android Studio's agent can interact with external tools using the
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction). This feature provides a
 standardized way for Agent mode to use tools and extend knowledge and

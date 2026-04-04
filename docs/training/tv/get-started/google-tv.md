@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android TV OS powers millions of TVs, streaming devices, and PayTV set-top boxes.
 Google TV is a brand-new experience available first on the Chromecast with
 Google TV and to more devices over time.

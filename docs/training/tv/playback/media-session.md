@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Create a
 [`MediaSession`](/reference/android/media/session/MediaSession#MediaSession(android.content.Context,%20java.lang.String))
 when your app is preparing to play media. The following code snippet

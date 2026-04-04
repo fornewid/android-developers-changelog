@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Being able to define shapes to be drawn in the context of an OpenGL ES view is the first step in
 creating high-end graphics for your app. Drawing with OpenGL ES can be a little tricky without
 knowing a few basic things about how OpenGL ES expects you to define graphic objects.

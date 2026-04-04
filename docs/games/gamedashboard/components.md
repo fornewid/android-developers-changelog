@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 The Game Dashboard is composed of multiple components that provide quick access
 to commonly used features.
 
@@ -88,8 +87,6 @@ minimize its presence over the game.
 ![Shortcut Bar Docked!](/static/images/games/game-dashboard/shortcutbar-docked.png "Shortcut Bar Docked")
 
 ![Shortcut Bar Expanded!](/static/images/games/game-dashboard/shortcutbar-expanded.png "Shortcut Bar Expanded")
-
-
 
 
 

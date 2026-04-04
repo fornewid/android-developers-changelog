@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 The following example shows you how to read raw data as part of the common
 workflow.
 

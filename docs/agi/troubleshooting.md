@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/agi/troubleshooting
+title: Troubleshooting AGI  |  Android Developers
 url: https://developer.android.com/agi/troubleshooting
-source: md.txt
+source: html-scrape
 ---
+
+Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.withgoogle.com/) on March 15!
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Guides](https://developer.android.com/games/guides)
+
+# Troubleshooting AGI Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 This topic describes how to fix common issues when using Android GPU Inspector
 (AGI) .
@@ -16,14 +27,13 @@ recently opened traces and device validation results.
 ## AGI fails on some devices
 
 Please make sure that your setup meets all the
-[requirements](https://developer.android.com/agi/getting-started#requirements).
+[requirements](/agi/getting-started#requirements).
 
 The following can also help:
 
-- Stop any program that may interact with the device over ADB, such as Android
+* Stop any program that may interact with the device over ADB, such as Android
   Studio.
-
-- Enable the `Stay awake` option (under Developer options on Android) to
+* Enable the `Stay awake` option (under Developer options on Android) to
   prevent issues that arise when the device screen turns off due to sleep mode.
 
 ## System profiler doesn't report GPU activity for OpenGL ES games
@@ -52,16 +62,18 @@ the "Process name" field in trace options.
 To identify this issue, you can check the logcat output while you create a trace
 and verify whether a different process is starting:
 
-    # Clear the logcat output
-    adb logcat -c
+```
+# Clear the logcat output
+adb logcat -c
 
-    ## Use AGI to attempt to create a frame profile trace
+## Use AGI to attempt to create a frame profile trace
 
-    Look at the logcat output to identify the processes that are running AGI. 
+Look at the logcat output to identify the processes that are running AGI. 
 
-    adb logcat | grep "this process name"
-    I GAPID   : gapii [gapii/cc/spy.cpp:109] this process name: com.example.mygame
-    I GAPID   : gapii [gapii/cc/spy.cpp:109] this process name: com.example.mygame:GameProcess
+adb logcat | grep "this process name"
+I GAPID   : gapii [gapii/cc/spy.cpp:109] this process name: com.example.mygame
+I GAPID   : gapii [gapii/cc/spy.cpp:109] this process name: com.example.mygame:GameProcess
+```
 
 Most games have only one process, the example above shows what to expect for a
 game that has more than one process.
@@ -78,36 +90,32 @@ the trace option dialog.
 If a trace does not terminate properly, AGI may leave some Android settings in
 a state that may interrupt subsequent runs of the app. These settings are:
 
-- Vulkan layers related settings:
+* Vulkan layers related settings:
 
-  - `enable_gpu_debug_layers`
+  + `enable_gpu_debug_layers`
+  + `gpu_debug_app`
+  + `gpu_debug_layers`
+  + `gpu_debug_layer_app`
+* ANGLE related settings:
 
-  - `gpu_debug_app`
-
-  - `gpu_debug_layers`
-
-  - `gpu_debug_layer_app`
-
-- ANGLE related settings:
-
-  - `angle_debug_package`
-
-  - `angle_gl_driver_selection_values`
-
-  - `angle_gl_driver_selection_pkgs`
+  + `angle_debug_package`
+  + `angle_gl_driver_selection_values`
+  + `angle_gl_driver_selection_pkgs`
 
 If your app has any issues after using AGI, you can try clearing these
 settings with the following adb commands:
 
-    # Vulkan layers
-    adb shell settings delete global enable_gpu_debug_layers
-    adb shell settings delete global gpu_debug_app
-    adb shell settings delete global gpu_debug_layers
-    adb shell settings delete global gpu_debug_layer_app
-    # ANGLE
-    adb shell settings delete global angle_debug_package
-    adb shell settings delete global angle_gl_driver_selection_values
-    adb shell settings delete global angle_gl_driver_selection_pkgs
+```
+# Vulkan layers
+adb shell settings delete global enable_gpu_debug_layers
+adb shell settings delete global gpu_debug_app
+adb shell settings delete global gpu_debug_layers
+adb shell settings delete global gpu_debug_layer_app
+# ANGLE
+adb shell settings delete global angle_debug_package
+adb shell settings delete global angle_gl_driver_selection_values
+adb shell settings delete global angle_gl_driver_selection_pkgs
+```
 
 ## Your game looks different when launching it via AGI while creating a frame profile trace
 
@@ -126,7 +134,7 @@ trying the following.
 
 The **Include Unknown Extensions** tracing option controls whether AGI should
 include Vulkan extensions it does not support. (Browse
-[a list of supported extensions](https://developer.android.com/agi/vulkan-extensions).)
+[a list of supported extensions](/agi/vulkan-extensions).)
 
 If your app uses an extension that isn't supported by AGI, you might encounter
 undesirable behavior, including subtle errors or crashes, when replaying the
@@ -147,12 +155,14 @@ AGI is named `org.chromium.angle.agi`.
 
 To force your game to run on ANGLE, use the following commands:
 
-    # Make sure that the AGI capture layer will be ignored
-    adb shell settings delete global enable_gpu_debug_layers
-    # Force the package com.example.mygame to use ANGLE
-    adb shell settings put global angle_debug_package org.chromium.angle.agi
-    adb shell settings put global angle_gl_driver_selection_values angle
-    adb shell settings put global angle_gl_driver_selection_pkgs com.example.mygame
+```
+# Make sure that the AGI capture layer will be ignored
+adb shell settings delete global enable_gpu_debug_layers
+# Force the package com.example.mygame to use ANGLE
+adb shell settings put global angle_debug_package org.chromium.angle.agi
+adb shell settings put global angle_gl_driver_selection_values angle
+adb shell settings put global angle_gl_driver_selection_pkgs com.example.mygame
+```
 
 If the game looks different with these settings, then it is probably a bug in
 ANGLE, and not AGI. If the game looks correct with these settings, but looks

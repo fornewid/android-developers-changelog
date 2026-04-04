@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 [Cocos Creator](https://www.cocos.com) is a cross-platform game
 engine used by many developers all over the world. It helps you create 2D and 3D
 games and applications with great efficiency.
@@ -86,8 +85,6 @@ low-overhead, cross-platform API for high-performance 3D graphics, is supported
 in Cocos Creator as one of the graphics API backends. Developers can select
 Vulkan as the graphics API for Android from the build panel in
 Cocos Creator.
-
-
 
 
 

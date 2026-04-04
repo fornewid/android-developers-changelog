@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/tools/bundletool
+title: bundletool  |  Android Studio  |  Android Developers
 url: https://developer.android.com/tools/bundletool
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [SDK tools guides](https://developer.android.com/tools)
+
+# bundletool Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 `bundletool` is the underlying tool that Android Studio, the Android Gradle
 plugin, and Google Play use to build an Android App Bundle. `bundletool`
@@ -12,7 +21,7 @@ Android SDK Bundles (ASBs) and their APKs are built with `bundletool`. It is
 also available as a command-line tool, so you can build app bundles and
 SDK bundles yourself and re-create Google Play's server-side build of your app's
 APKs or your
-[runtime-enabled SDK's](https://developer.android.com/design-for-safety/privacy-sandbox/sdk-runtime) APKs.
+[runtime-enabled SDK's](/design-for-safety/privacy-sandbox/sdk-runtime) APKs.
 
 ## Download `bundletool`
 
@@ -27,19 +36,18 @@ Android App Bundle and then test generating APKs from this app bundle.
 ### Build an app bundle
 
 Use Android Studio and the Android Gradle plugin to
-[build and sign an Android App Bundle](https://developer.android.com/studio/publish/app-signing#sign-apk).
-However, if using the IDE is not an option---for example, because you are using
-a continuous build server---you can also
-[build your app bundle from the command line](https://developer.android.com/studio/build/building-cmdline#build_bundle)
+[build and sign an Android App Bundle](/studio/publish/app-signing#sign-apk).
+However, if using the IDE is not an option—for example, because you are using
+a continuous build server—you can also
+[build your app bundle from the command line](/studio/build/building-cmdline#build_bundle)
 and sign it using
 [`jarsigner`](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jarsigner.html).
 
-> [!NOTE]
-> **Note:** You can't use `apksigner` to sign your app bundle.
+**Note:** You can't use `apksigner` to sign your app bundle.
 
 For more information about building app bundles with `bundletool`,
 see
-[Build an app bundle using bundletool](https://developer.android.com/studio/build/building-cmdline#bundletool-build).
+[Build an app bundle using bundletool](/studio/build/building-cmdline#bundletool-build).
 
 ### Generate a set of APKs from your app bundle
 
@@ -48,13 +56,14 @@ uses it to generate APKs and how those APKs behave when deployed to a device.
 
 There are two ways you can test your app bundle:
 
-- Use the `bundletool` command-line tool locally.
-- [Upload your bundle to the Play Console](https://developer.android.com/studio/publish/upload-bundle) through Google Play by using a test track.
+* Use the `bundletool` command-line tool locally.
+* [Upload your bundle to the Play Console](/studio/publish/upload-bundle)
+  through Google Play by using a test track.
 
 This section explains how to use `bundletool` to test your app bundle locally.
 
 When `bundletool` generates APKs from your app bundle, it includes the generated
-APKs in a container called an *APK set archive* , which uses the `.apks` file
+APKs in a container called an *APK set archive*, which uses the `.apks` file
 extension. To generate an APK set for all device configurations your app
 supports from your app bundle, use the `bundletool build-apks` command, as
 shown:
@@ -83,20 +92,20 @@ using the `bundletool build-apks` command in greater detail:
 `bundletool build-apks` command
 
 | Flag | Description |
-|---|---|
-| `--bundle=path` | **(Required)** Specifies the path to the app bundle you built using Android Studio. To learn more, read [Build your project](https://developer.android.com/studio/run#reference). |
-| `--output=path` | **(Required)** Specifies the name of the output `.apks` file, which contains all the APK artifacts for your app. To test the artifacts in this file on a device, follow the steps in the section about how to [deploy APKs to a connected device](https://developer.android.com/tools/bundletool#deploy_with_bundletool). |
+| --- | --- |
+| `--bundle=path` | **(Required)** Specifies the path to the app bundle you built using Android Studio. To learn more, read [Build your project](/studio/run#reference). |
+| `--output=path` | **(Required)** Specifies the name of the output `.apks` file, which contains all the APK artifacts for your app. To test the artifacts in this file on a device, follow the steps in the section about how to [deploy APKs to a connected device](#deploy_with_bundletool). |
 | `--overwrite` | Overwrites any existing output file with the path you specify using the `--output` option. If you don't include this flag and the output file already exists, you get a build error. |
 | `--aapt2=path` | Specifies a custom path to AAPT2. By default, `bundletool` includes its own version of AAPT2. |
 | `--ks=path` | (Optional) Specifies the path to the deployment keystore used to sign the APKs. If you don't include this flag, `bundletool` attempts to sign your APKs with a debug signing key. |
-| `--ks-pass=pass:password` or `--ks-pass=file:/path/to/file` | Specifies your keystore password. If you specify a password in plain text, qualify it with `pass:`. If you pass the path to a file that contains the password, qualify it with `file:`. If you specify a keystore using the `--ks` flag without specifying `--ks-pass`, `bundletool` prompts you for a password from the command line. |
+| `--ks-pass=pass:password`  or  `--ks-pass=file:/path/to/file` | Specifies your keystore password. If you specify a password in plain text, qualify it with `pass:`. If you pass the path to a file that contains the password, qualify it with `file:`. If you specify a keystore using the `--ks` flag without specifying `--ks-pass`, `bundletool` prompts you for a password from the command line. |
 | `--ks-key-alias=alias` | Specifies the alias of the signing key you want to use. |
-| `--key-pass=pass:password` or `--key-pass=file:/path/to/file` | Specifies the password for the signing key. If you specify a password in plain text, qualify it with `pass:`. If you pass the path to a file that contains the password, qualify it with `file:`. If this password is identical to the one for the keystore itself, you can omit this flag. |
+| `--key-pass=pass:password`  or  `--key-pass=file:/path/to/file` | Specifies the password for the signing key. If you specify a password in plain text, qualify it with `pass:`. If you pass the path to a file that contains the password, qualify it with `file:`. If this password is identical to the one for the keystore itself, you can omit this flag. |
 | `--connected-device` | Instructs `bundletool` to build APKs that target the configuration of a connected device. If you don't include this flag, `bundletool` generates APKs for all device configurations your app supports. |
 | `--device-id=serial-number` | If you have more than one connected device, use this flag to specify the serial ID of the device to which you want to deploy your app. |
-| `--device-spec=spec_json` | Provides a path to a `.json` file that specifies the device configuration you want to target. To learn more, go to the section about how to [Generate and use device specification JSON files](https://developer.android.com/tools/bundletool#generate_use_json). |
-| `--mode=universal` | Sets the mode to `universal`. Use this option if you want `bundletool` to build a single APK that includes all of your app's code and resources, so that the APK is compatible with all device configurations your app supports. **Note:** `bundletool` includes only feature modules that specify `<dist:fusing dist:include="true"/>` in their manifest in a universal APK. To learn more, read about the [feature module manifest](https://developer.android.com/studio/projects/dynamic-delivery#dynamic_feature_manifest). Keep in mind, these APKs are larger than those optimized for a particular device configuration. However, they're easier to share with internal testers who, for example, want to test your app on multiple device configurations. |
-| `--local-testing` | Enables your app bundle for local testing. Local testing allows for quick, iterative testing cycles without the need to upload to Google Play servers. For an example of how to test module installation using the `--local-testing` flag, see [Locally test module installs](https://developer.android.com/guide/app-bundle/test/testing-fakesplitinstallmanager). |
+| `--device-spec=spec_json` | Provides a path to a `.json` file that specifies the device configuration you want to target. To learn more, go to the section about how to [Generate and use device specification JSON files](#generate_use_json). |
+| `--mode=universal` | Sets the mode to `universal`. Use this option if you want `bundletool` to build a single APK that includes all of your app's code and resources, so that the APK is compatible with all device configurations your app supports. **Note:** `bundletool` includes only feature modules that specify `<dist:fusing dist:include="true"/>` in their manifest in a universal APK. To learn more, read about the [feature module manifest](/studio/projects/dynamic-delivery#dynamic_feature_manifest).  Keep in mind, these APKs are larger than those optimized for a particular device configuration. However, they're easier to share with internal testers who, for example, want to test your app on multiple device configurations. |
+| `--local-testing` | Enables your app bundle for local testing. Local testing allows for quick, iterative testing cycles without the need to upload to Google Play servers.   For an example of how to test module installation using the `--local-testing` flag, see [Locally test module installs](/guide/app-bundle/test/testing-fakesplitinstallmanager). |
 
 ### Deploy APKs to a connected device
 
@@ -120,8 +129,8 @@ specify a target device by adding the
 bundletool install-apks --apks=/MyApp/my_app.apks
 ```
 
-> [!NOTE]
-> **Note:** If you're using the `--local-testing` flag with the `build-apks` command, use `install-apks` to install your APKs to ensure that local testing works correctly.
+**Note:** If you're using the `--local-testing` flag with the `build-apks` command,
+use `install-apks` to install your APKs to ensure that local testing works correctly.
 
 ### Generate a device-specific set of APKs
 
@@ -158,15 +167,17 @@ bundletool build-apks --device-spec=/MyApp/pixel2.json
 #### Manually create a device specification JSON
 
 If you don't have access to the device for which you want to build a targeted
-APK set---for example, if you want to try your app with a device you don't
-have on hand---you can manually create a JSON file using the following format:
+APK set—for example, if you want to try your app with a device you don't
+have on hand—you can manually create a JSON file using the following format:
 
-    {
-      "supportedAbis": ["arm64-v8a", "armeabi-v7a"],
-      "supportedLocales": ["en", "fr"],
-      "screenDensity": 640,
-      "sdkVersion": 27
-    }
+```
+{
+  "supportedAbis": ["arm64-v8a", "armeabi-v7a"],
+  "supportedLocales": ["en", "fr"],
+  "screenDensity": 640,
+  "sdkVersion": 27
+}
+```
 
 You can then pass this JSON to the `bundle extract-apks` command, as described
 in the previous section.
@@ -200,10 +211,9 @@ following flags:
 `get-size total` command
 
 | Flag | Description |
-|---|---|
 | `--apks=path` | **(Required)** Specifies the path to the existing APK set file whose download size is being measured. |
 | `--device-spec=path` | Specifies the path to the device spec file (from `get-device-spec` or constructed manually) to use for matching. You can specify a partial path to evaluate a set of configurations. |
-| `--dimensions=dimensions` | Specifies the dimensions used when computing the size estimates. Accepts a comma-separated list of: `SDK`, `ABI`, `SCREEN_DENSITY`, and `LANGUAGE`. To measure across all dimensions, specify `ALL`. |
+| `--dimensions=dimensions` Specifies the dimensions used when computing the size estimates. Accepts a comma-separated list of: `SDK`, `ABI`, `SCREEN_DENSITY`, and `LANGUAGE`. To measure across all dimensions, specify `ALL`. | |
 | `--instant` | Measures the download size of the instant-enabled APKs instead of the installable APKs. By default, `bundletool` measures the installable APK download sizes. |
 | `--modules=modules` | Specifies a comma-separated list of modules in the APK set to consider in the measurement. The `bundletool` command automatically includes any dependent modules for the specified set. By default, the command measures the download size of all modules installed during the first download. |
 

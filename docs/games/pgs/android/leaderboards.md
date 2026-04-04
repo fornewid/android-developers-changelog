@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 **Note:** This guide is for the Play Games Services v2 SDK. For information on the
 previous version of this SDK, see the [Play Games Services v1
 documentation](/games/pgs/v1/android/leaderboards).
@@ -109,8 +108,6 @@ so that the API can obtain the identity of the calling package. An example of
 the default leaderboard UI is shown below.
 
 ![](/static/images/games/pgs/leaderboard_android.png)
-
-
 
 
 

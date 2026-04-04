@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ExoPlayer supports both live and on demand RTSP. Supported sample formats and
 network types are listed below.
 

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![](/static/wear/images/design/getting-started-adaptive-header.png)
 
 The Wear OS ecosystem is made up of devices that have a wide variety of screen

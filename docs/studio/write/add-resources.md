@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 App resources, such as bitmaps and layouts, are organized into type-specific
 directories inside each module's `res/` directory. You can also add alternative
 versions of each file that are optimized for different device

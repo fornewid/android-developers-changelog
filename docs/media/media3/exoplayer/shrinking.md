@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Minimizing APK size is an important aspect of developing a good Android
 app. This is particularly true when targeting developing markets, and
 also when developing an Android Instant App. For such cases, it may be desirable

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Turn shopping into buying with assistive features like product filters for
 targeted searches or a checklist of suggested products.
 Leverage large screen space to keep assistance readily accessible in a

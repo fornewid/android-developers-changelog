@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 This section describes some typical location-gathering scenarios, along with
 recommendations for optimal use of the geofencing and fused location provider
 APIs.

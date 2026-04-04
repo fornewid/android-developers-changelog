@@ -1,25 +1,34 @@
 ---
-title: https://developer.android.com/develop/sensors-and-location/location/battery/optimize
+title: Optimize location use for battery life  |  Sensors and location  |  Android Developers
 url: https://developer.android.com/develop/sensors-and-location/location/battery/optimize
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Sensors and location](https://developer.android.com/develop/sensors-and-location)
+
+# Optimize location use for battery life Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 Take the following actions to [improve your app's
-impact on a device's battery life](https://developer.android.com/develop/sensors-and-location/location/battery) when using location services.
+impact on a device's battery life](/develop/sensors-and-location/location/battery) when using location services.
 
 ## Remove location updates
 
 A common source of unnecessary battery drain is the failure to remove location
 updates when they are no longer needed.
 
-This can happen when an activity's [`onStart()`](https://developer.android.com/reference/android/app/Activity#onStart()) or [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume())
+This can happen when an activity's [`onStart()`](/reference/android/app/Activity#onStart()) or [`onResume()`](/reference/android/app/Activity#onResume())
 lifecycle methods contain a call to [`requestlocationUpdates()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#requestLocationUpdates(com.google.android.gms.location.LocationRequest,%20android.app.PendingIntent)) without a
-corresponding call to [`removeLocationUpdates()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient.html#removeLocationUpdates(com.google.android.gms.location.LocationCallback)) in the [`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()) or
-[`onStop()`](https://developer.android.com/reference/android/app/Activity#onStop()) lifecycle methods.
+corresponding call to [`removeLocationUpdates()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient.html#removeLocationUpdates(com.google.android.gms.location.LocationCallback)) in the [`onPause()`](/reference/android/app/Activity#onPause()) or
+[`onStop()`](/reference/android/app/Activity#onStop()) lifecycle methods.
 
 You can use lifecycle-aware components to better manage the lifecycle of the
 activities in your app. For more information, see [Handling Lifecycles with
-Lifecycle-Aware Components](https://developer.android.com/topic/libraries/architecture/lifecycle).
+Lifecycle-Aware Components](/topic/libraries/architecture/lifecycle).
 
 ## Set timeouts
 
@@ -47,15 +56,19 @@ the interval at which location is *delivered* to your app. Pass a value to the
 
 ### Kotlin
 
-    val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10 * 60 * 1000)
-    .setMaxUpdateDelayMillis(60 * 60 * 1000)
-    .build()
+```
+val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10 * 60 * 1000)
+.setMaxUpdateDelayMillis(60 * 60 * 1000)
+.build()
+```
 
 ### Java
 
-    LocationRequest request = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10 * 60 * 1000)
-        .setMaxUpdateDelayMillis(60 * 60 * 1000)
-        .build();
+```
+LocationRequest request = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10 * 60 * 1000)
+    .setMaxUpdateDelayMillis(60 * 60 * 1000)
+    .build();
+```
 
 In this case, the system computes location roughly every ten minutes and
 delivers approximately six location data points in a batch approximately every
@@ -75,15 +88,19 @@ request, which opportunistically consumes location data:
 
 ### Kotlin
 
-    val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 15 * 60 * 1000)
-    .setMinUpdateIntervalMillis(2 * 60 * 1000)
-    .build()
+```
+val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 15 * 60 * 1000)
+.setMinUpdateIntervalMillis(2 * 60 * 1000)
+.build()
+```
 
 ### Java
 
-    LocationRequest request = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 15 * 60 * 1000)
-        .setMinUpdateIntervalMillis(2 * 60 * 1000)
-        .build();
+```
+LocationRequest request = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 15 * 60 * 1000)
+    .setMinUpdateIntervalMillis(2 * 60 * 1000)
+    .build();
+```
 
 In the previous example, the app's location computes roughly every 15 minutes.
 If other apps request location, the app receives the data at a maximum interval

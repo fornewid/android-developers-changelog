@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 When you sell digital products through your app, you must consider the entire
 user experience. In-app integration lets you launch purchase flows and
 manage the user experience, but it's crucial to keep your backend up-to-date on
@@ -120,8 +119,6 @@ See the following guides to learn more about these scenarios:
 
 * [One-time purchase lifecycle](/google/play/billing/lifecycle/one-time)
 * [Subscription purchase lifecycle](/google/play/billing/lifecycle/subscriptions)
-
-
 
 
 

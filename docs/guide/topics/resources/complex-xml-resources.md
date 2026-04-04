@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Certain resource types are a composition of multiple complex resources represented by XML files.
 One example is an animated vector drawable, which is a drawable resource encapsulating a vector
 drawable and an animation. This requires the use of at least three XML files, as shown in the

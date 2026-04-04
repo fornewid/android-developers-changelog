@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 To learn more about animation in Jetpack Compose, consult the following
 additional resources:
 

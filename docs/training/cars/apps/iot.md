@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 IOT apps enable users to take relevant actions on connected devices from within
 the car. Examples include controlling the state of certain devices, such as
 opening a garage door, flipping home light switches, or enabling home security.

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Certain apps need to keep the screen turned on, such as games or movie apps.
 Some Android APIs automatically keep the screen on for you. In other cases,
 you can set a flag to manually keep the screen on.

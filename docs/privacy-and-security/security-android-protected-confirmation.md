@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/privacy-and-security/security-android-protected-confirmation
+title: Android Protected Confirmation  |  Security  |  Android Developers
 url: https://developer.android.com/privacy-and-security/security-android-protected-confirmation
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [Security](https://developer.android.com/security)
+* [Guides](https://developer.android.com/privacy-and-security/security-tips)
+
+# Android Protected Confirmation Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 To help you confirm users' intentions when they initiate a sensitive
 transaction, such as making a payment, supported devices that run Android 9 (API
@@ -13,7 +23,8 @@ statement that reaffirms their intent to complete the sensitive transaction.
 If the user accepts the statement, your app can use a key from Android Keystore
 to sign the message shown in the dialog. The signature indicates, with very high
 confidence, that the user has seen the statement and has agreed to it.
-**Caution:**Android Protected Confirmation doesn't provide a
+
+**Caution:** Android Protected Confirmation doesn't provide a
 secure information channel for the user. Your app can't assume any
 confidentiality guarantees beyond those that the Android platform offers. In
 particular, don't use this workflow to display sensitive information that you
@@ -26,17 +37,15 @@ confidentiality of the signed message.
 To provide support for high-assurance user confirmation in your app, complete
 the following steps:
 
-1. [Generate an asymmetric signing key](https://developer.android.com/training/articles/keystore#GeneratingANewPrivateKey)
+1. [Generate an asymmetric signing key](/training/articles/keystore#GeneratingANewPrivateKey)
    using the
-   [`KeyGenParameterSpec.Builder`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder)
+   [`KeyGenParameterSpec.Builder`](/reference/android/security/keystore/KeyGenParameterSpec.Builder)
    class. When creating the key, pass `true` into
-   [`setUserConfirmationRequired()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setUserConfirmationRequired(boolean)).
-   Also, call [`setAttestationChallenge()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setAttestationChallenge(byte%5B%5D)),
+   [`setUserConfirmationRequired()`](/reference/android/security/keystore/KeyGenParameterSpec.Builder#setUserConfirmationRequired(boolean)).
+   Also, call [`setAttestationChallenge()`](/reference/android/security/keystore/KeyGenParameterSpec.Builder#setAttestationChallenge(byte%5B%5D)),
    passing a suitable challenge value provided by the relying party.
-
 2. Enroll the newly generated key and your key's attestation certificate with
    the appropriate relying party.
-
 3. Send transaction details to your server and have it generate and return a
    binary large object (BLOB) of *extra data*. Extra data might include the
    to-be-confirmed data or parsing hints, such as the locale of the prompt string.
@@ -46,17 +55,18 @@ the following steps:
    [replay attacks](https://www.pcmag.com/encyclopedia/term/50439/replay-attack)
    and to disambiguate transactions.
 
-   > [!CAUTION]
-   > **Caution:** If the extra data field includes to-be-confirmed data, the relying party must verify the equivalent data that's sent with the prompt string. Android Protected Confirmation doesn't render the extra data, so your app can't assume that the user confirmed this data.
-
+   **Caution:** If the extra data field includes to-be-confirmed data, the relying
+   party must verify the equivalent data that's sent with the prompt string.
+   Android Protected Confirmation doesn't render the extra data, so your app
+   can't assume that the user confirmed this data.
 4. Set up the
-   [`ConfirmationCallback`](https://developer.android.com/reference/android/security/ConfirmationCallback)
+   [`ConfirmationCallback`](/reference/android/security/ConfirmationCallback)
    object that informs your app when the user has accepted the prompt shown in a
    confirmation dialog:
 
    ### Kotlin
 
-   ```kotlin
+   ```
    class MyConfirmationCallback : ConfirmationCallback() {
 
          override fun onConfirmed(dataThatWasConfirmed: ByteArray?) {
@@ -86,7 +96,7 @@ the following steps:
 
    ### Java
 
-   ```java
+   ```
    public class MyConfirmationCallback extends ConfirmationCallback {
 
      @Override
@@ -123,27 +133,43 @@ the following steps:
    [CBOR data structure](http://cbor.io/) that contains,
    among other details, the prompt text that the user saw as well as the extra
    data that you passed into the
-   [`ConfirmationPrompt`](https://developer.android.com/reference/android/security/ConfirmationPrompt)
+   [`ConfirmationPrompt`](/reference/android/security/ConfirmationPrompt)
    builder. Use the previously created key to sign the
    `dataThatWasConfirmed` BLOB, then pass this BLOB, along with the
    signature and transaction details, back to the relying party.
 
-   > [!NOTE]
-   > **Note:** Because the key was created using [`setUserConfirmationRequired()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setUserConfirmationRequired(boolean)), it can only be used to sign data that's returned in the `dataThatWasConfirmed` parameter. Attempting to sign any other kind of data fails.
+   **Note:** Because the key was created using
+   [`setUserConfirmationRequired()`](/reference/android/security/keystore/KeyGenParameterSpec.Builder#setUserConfirmationRequired(boolean)),
+   it can only be used to sign data that's returned in the
+   `dataThatWasConfirmed` parameter. Attempting to sign any other kind of data
+   fails.
 
    To make full use of the security assurance that Android Protected
    Confirmation offers, the relying party must perform the following steps upon
    receiving a signed message:
-   1. Check the signature over the message as well as the attestation certificate chain of the signing key.
-   2. Check that the attestation certificate has the `TRUSTED_CONFIRMATION_REQUIRED` flag set, which indicates that the signing key requires trusted user confirmation. If the signing key is an RSA key, check that it doesn't have the [`PURPOSE_ENCRYPT`](https://developer.android.com/reference/android/security/keystore/KeyProperties#PURPOSE_ENCRYPT) or [`PURPOSE_DECRYPT`](https://developer.android.com/reference/android/security/keystore/KeyProperties#PURPOSE_DECRYPT) property.
-   3. Check `extraData` to make sure that this confirmation message belongs to a new request and hasn't been processed yet. This step protects against replay attacks.
-   4. Parse the `promptText` for information about the confirmed action or request. Remember that the `promptText` is the only part of the message that the user actually confirmed. The relying party must never assume that to-be confirmed data included in `extraData` corresponds to the `promptText`.
+
+   1. Check the signature over the message as well as the attestation
+      certificate chain of the signing key.
+   2. Check that the attestation certificate has the
+      `TRUSTED_CONFIRMATION_REQUIRED` flag set, which indicates that the signing
+      key requires trusted user confirmation. If the signing key is an RSA key,
+      check that it doesn't have the
+      [`PURPOSE_ENCRYPT`](/reference/android/security/keystore/KeyProperties#PURPOSE_ENCRYPT)
+      or [`PURPOSE_DECRYPT`](/reference/android/security/keystore/KeyProperties#PURPOSE_DECRYPT)
+      property.
+   3. Check `extraData` to make sure that this confirmation message belongs to
+      a new request and hasn't been processed yet. This step protects against
+      replay attacks.
+   4. Parse the `promptText` for information about the confirmed action or
+      request. Remember that the `promptText` is the only part of the message that
+      the user actually confirmed. The relying party must never assume that to-be
+      confirmed data included in `extraData` corresponds to the `promptText`.
 5. Add logic similar to that shown in the following code snippet to display the
    dialog itself:
 
    ### Kotlin
 
-   ```kotlin
+   ```
    // This data structure varies by app type. This is an example.
      data class ConfirmationPromptData(val sender: String,
              val receiver: String, val amount: String)
@@ -164,7 +190,7 @@ the following steps:
 
    ### Java
 
-   ```java
+   ```
      // This data structure varies by app type. This is an example.
      class ConfirmationPromptData {
          String sender, receiver, amount;
@@ -186,8 +212,9 @@ the following steps:
      dialog.presentPrompt(threadReceivingCallback, callback);
    ```
 
-   > [!NOTE]
-   > **Note:** The confirmation prompt UI, which consists of a full-screen dialog, isn't customizable. However, the framework takes care of localizing button text for you.
+   **Note:** The confirmation prompt UI, which consists of a full-screen dialog,
+   isn't customizable. However, the framework takes care of localizing button
+   text for you.
 
 ## Additional resources
 
@@ -196,5 +223,5 @@ resources.
 
 ### Blogs
 
-- [Android Protected Confirmation: Taking transaction security to the next
+* [Android Protected Confirmation: Taking transaction security to the next
   level](https://android-developers.googleblog.com/2018/10/android-protected-confirmation.html)

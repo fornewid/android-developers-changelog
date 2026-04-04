@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 For workloads where GPU compute is ideal, migrating RenderScript scripts to
 Vulkan compute gives your app more direct control over GPU hardware, potentially
 unlocking additional performance compared to other APIs.

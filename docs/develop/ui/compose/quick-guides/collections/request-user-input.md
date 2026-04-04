@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ## Quick Guides Collection Request user input
 
 Make your app interactive by enabling users to enter text and other inputs.

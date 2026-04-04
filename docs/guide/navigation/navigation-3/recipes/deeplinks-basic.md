@@ -1,17 +1,8 @@
 ---
-title: App architecture  |  Android Developers
+title: https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-basic
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-basic
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Deep Link Basic Recipe
 
@@ -39,13 +30,7 @@ This recipe consists of three main packages:
 2. `basic.deeplink.ui` - Contains the activity UI code, i.e. global string variables, deeplink URLs etc
 3. `basic.deeplink.util` - Contains the classes and helper methods to parse and match the deeplinks
 
-[![](/static/images/picto-icons/code.svg)
-
-Explore
-
-View the full recipe on GitHub.
-
-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/deeplink/basic)
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/deeplink/basic)
 
 ```
 package com.example.nav3recipes.deeplink.basic
@@ -87,8 +72,6 @@ internal data class SearchKey(
 ): NavRecipeKey {
     override val name: String = STRING_LITERAL_SEARCH
 }
-
-NavRecipeKey.kt
 ```
 
 ```
@@ -217,8 +200,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-MainActivity.kt
 ```
 
 ```
@@ -414,7 +395,6 @@ private val MENU_OPTIONS_SEARCH = mapOf(
 
 private val MENU_LABELS_SEARCH = listOf(SearchKey::ageMin.name, SearchKey::ageMax.name)
 
-CreateDeepLinkActivity.kt
 ```
 
 ```
@@ -488,8 +468,6 @@ internal class KeyDecoder(
     // we want to know if it is not null, so its !isNull
     override fun decodeNotNullMark(): Boolean = arguments[elementName] != null
 }
-
-KeyDecoder.kt
 ```
 
 ```
@@ -521,11 +499,9 @@ internal class DeepLinkRequest(
 
     // TODO add parsing for other Uri components, i.e. fragments, mimeType, action
 }
-
-DeepLinkRequest.kt
 ```
 
-```
+````
 package com.example.nav3recipes.deeplink.basic.util
 
 import android.net.Uri
@@ -653,9 +629,7 @@ private fun getTypeParser(kind: SerialKind): TypeParser {
         )
     }
 }
-
-DeepLinkPattern.kt
-```
+````
 
 ```
 package com.example.nav3recipes.deeplink.basic.util
@@ -743,8 +717,6 @@ internal data class DeepLinkMatchResult<T : NavKey>(
 )
 
 const val TAG_LOG_ERROR = "Nav3RecipesDeepLink"
-
-DeepLinkMatcher.kt
 ```
 
 ```
@@ -771,6 +743,4 @@ internal val URL_SEARCH = "$PATH_BASE/$PATH_SEARCH" +
         "&${SearchKey::ageMax.name}={${SearchKey::ageMax.name}}" +
         "&${SearchKey::firstName.name}={${SearchKey::firstName.name}}" +
         "&${SearchKey::location.name}={${SearchKey::location.name}}"
-
-UrlResources.kt
 ```

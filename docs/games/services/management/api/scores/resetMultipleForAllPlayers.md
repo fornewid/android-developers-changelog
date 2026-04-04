@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 **Requires [authorization](#auth)**
 
 Resets scores for the leaderboards with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft leaderboards may be reset.

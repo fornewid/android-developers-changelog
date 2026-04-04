@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Common design layouts—also known as canonical design layouts—are proven,
 versatile app layouts that provide an optimal user experience on the wide
 variety of screen sizes that are available with Wear OS.

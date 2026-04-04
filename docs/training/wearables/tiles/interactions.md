@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Tiles can do more than just display information; they can also be interactive.
 To make an element such as [`textButton()`](/reference/kotlin/androidx/wear/protolayout/material3/MaterialScope#(androidx.wear.protolayout.material3.MaterialScope).textButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,androidx.wear.protolayout.material3.TextButtonStyle,androidx.wear.protolayout.ModifiersBuilders.Padding)) respond to taps, generate a click
 handler using [`clickable()`](/reference/kotlin/androidx/wear/protolayout/modifiers/package-summary#clickable(androidx.wear.protolayout.ActionBuilders.Action,kotlin.String,kotlin.Float,kotlin.Float)) and associate it with the layout element.

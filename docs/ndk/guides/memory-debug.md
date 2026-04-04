@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android supports multiple tools for debugging memory errors. There are tradeoffs
 to each, so read below to decide which is best for your use case. This doc gives
 you an overview of the tools available so you can decide which to investigate

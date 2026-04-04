@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To assist users with accessibility needs, the Android framework lets you
 create an accessibility service that can present content from apps to users
 and also operate apps on their behalf.

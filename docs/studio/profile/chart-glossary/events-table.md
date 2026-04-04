@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The **events table** lists all calls in the selected thread. You can
 sort them by clicking on the column headers. By selecting a row in the table,
 you can navigate the timeline to the start and end time of the selected call.

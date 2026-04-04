@@ -1,16 +1,8 @@
 ---
-title: Play Integrity  |  Play for Native PC  |  Android Developers
+title: https://developer.android.com/games/playgames/native-pc/unity/integrity
 url: https://developer.android.com/games/playgames/native-pc/unity/integrity
-source: html-scrape
+source: md.txt
 ---
-
-* [Home](https://developer.android.com/)
-* [Play for Native PC](https://developer.android.com/games/playgames/native-pc)
-* [Guides](https://developer.android.com/games/playgames/native-pc/setup)
-
-# Play Integrity Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 The Play Integrity API protects your game from risky and fraudulent interactions
 with an integrity verdict token that you verify on your backend server.
@@ -25,7 +17,7 @@ Use the factory to create the `IntegrityClient`. The factory registers
 Unity-specific callbacks and disposes of the client when the script is
 destroyed.
 
-```
+```c#
 using UnityEngine;
 using System;
 using System.Threading.Tasks;
@@ -63,11 +55,12 @@ public class IntegrityManager : MonoBehaviour
 
 Requesting an integrity token is a two-step process:
 
-* **Prepare.** Warms up the integrity service and generates a session ID.
-* **Request.** Uses the session ID from the preparation step to request the
+- **Prepare.** Warms up the integrity service and generates a session ID.
+
+- **Request.** Uses the session ID from the preparation step to request the
   actual signed token.
 
-```
+```c#
 public async Task RequestIntegrityTokenAsync()
 {
     try
@@ -75,9 +68,9 @@ public async Task RequestIntegrityTokenAsync()
         // Replace with your actual Google Cloud Project Number
         long myCloudProjectNumber = 123456789;
 
-        // ---------------------------------------------------------
+        // ---
         // Step 1: Prepare the Token
-        // ---------------------------------------------------------
+        // ---
         var prepareParams = new PrepareIntegrityTokenParams
         {
             CloudProjectNumber = myCloudProjectNumber
@@ -92,9 +85,9 @@ public async Task RequestIntegrityTokenAsync()
             return;
         }
 
-        // ---------------------------------------------------------
+        // ---
         // Step 2: Request the Token
-        // ---------------------------------------------------------
+        // ---
         // You must use the RequestTokenData returned from the prepare step
         var requestParams = new RequestIntegrityTokenParams
         {

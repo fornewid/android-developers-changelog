@@ -88,17 +88,30 @@ nature of the text modification.
 
 Android 17 includes the following changes to improve user privacy.
 
+### ECH (Encrypted Client Hello) opportunistically enabled
+
+Android 17 introduces platform support for Encrypted Client Hello (ECH), a TLS
+extension that enhances user privacy by encrypting the Server Name Indication
+(SNI) in the TLS handshake. This encryption helps prevent network observers from
+easily identifying the specific domain your app is connecting to.
+
+For apps targeting Android 17 (API level 37) or higher, ECH is
+opportunistically used for TLS connections. ECH is active only if the networking
+library used by the app (for example, HttpEngine, WebView, or OkHttp) has
+integrated ECH support and the remote server also supports the ECH protocol. If
+ECH cannot be negotiated, the connection automatically falls back to a standard
+TLS handshake without SNI encryption.
+
+To allow apps to customize this behavior, Android 17 adds a new
+[`<domainEncryption>`](/privacy-and-security/security-config#domainEncryption) element to the Network Security Configuration file.
+Developers can use `<domainEncryption>` within `<base-config>` or
+`<domain-config>` tags to select an ECH mode (for example,
+`"opportunistic"`, `"enabled"`, or `"disabled"`) on a global or per-domain
+basis.
+
+For more information, see the [Encrypted Client Hello](/privacy-and-security/security-config#EncryptedClientHelloSummary) documentation.
+
 ### Local network permission required for apps targeting Android 17
-
-|  |  |
-| --- | --- |
-| Available to test? *(Required build)* | Yes *(Android 17 or later)* |
-| Requires changing `targetSDKVersion`? *(API level)* | Yes *(API Level 37) See the [manifest attribute documentation](/guide/topics/manifest/uses-sdk-element#target) for more information about this value.* |
-
-**Content included from the public site**  
-The following documentation mirrors the [public
-Android 17 site](/about/versions/17) on developer.android.com and is provided here for your
-convenience.
 
 Android 17 introduces the [`ACCESS_LOCAL_NETWORK`](/reference/android/Manifest.permission#ACCESS_LOCAL_NETWORK) runtime permission
 to protect users from unauthorized local network access. Because this falls

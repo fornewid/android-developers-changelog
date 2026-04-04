@@ -1,24 +1,13 @@
 ---
-title: Wi-Fi location: ranging with RTT  |  Connectivity  |  Android Developers
+title: https://developer.android.com/develop/connectivity/wifi/wifi-rtt
 url: https://developer.android.com/develop/connectivity/wifi/wifi-rtt
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Connectivity](https://developer.android.com/develop/connectivity)
-* [Guides](https://developer.android.com/develop/connectivity/overview)
-
-# Wi-Fi location: ranging with RTT Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 You can use the Wi-Fi location functionality provided by the
-[Wi-Fi RTT (Round-Trip-Time) API](/reference/android/net/wifi/rtt/package-summary)
+[Wi-Fi RTT (Round-Trip-Time) API](https://developer.android.com/reference/android/net/wifi/rtt/package-summary)
 to measure the distance to nearby RTT-capable Wi-Fi access points and peer
-[Wi-Fi Aware](/develop/connectivity/wifi-aware) devices.
+[Wi-Fi Aware](https://developer.android.com/develop/connectivity/wifi-aware) devices.
 
 If you measure the distance to three or more access points, you can use a
 multilateration algorithm to estimate the device position that best fits those
@@ -51,13 +40,13 @@ to determine a device's position using multilateration with devices running
 Android 9, you need to have access to pre-determined access point (AP) locations
 data in your app. It is up to you to decide how to store and retrieve this data.
 
-On devices running Android 10 (API level 29) and higher, AP location data can be
+On devices running Android 10 (API level 29) and higher, AP location data can be
 represented as
-[`ResponderLocation`](/reference/android/net/wifi/rtt/ResponderLocation)
+[`ResponderLocation`](https://developer.android.com/reference/android/net/wifi/rtt/ResponderLocation)
 objects, which include latitude, longitude, and altitude. For Wi-Fi RTT APs that
 support Location Configuration Information/Location Civic Report (LCI/LCR data),
 the protocol will return a `ResponderLocation` object during the
-[ranging process](#request-ranging).
+[ranging process](https://developer.android.com/develop/connectivity/wifi/wifi-rtt#request-ranging).
 
 This feature allows apps to query APs to ask them for their position directly
 rather than needing to store this information ahead of time. So, your app can
@@ -67,7 +56,7 @@ such as when a user enters a new building.
 IEEE 802.11az NTB ranging support is available on devices running Android 15
 (API level 35) and higher. That means that if the device supports IEEE 802.11az
 NTB initiator mode (indicated by
-[`WifiRttManager.CHARACTERISTICS_KEY_BOOLEAN_NTB_INITIATOR`](/reference/android/net/wifi/rtt/WifiRttManager#CHARACTERISTICS_KEY_BOOLEAN_NTB_INITIATOR)),
+[`WifiRttManager.CHARACTERISTICS_KEY_BOOLEAN_NTB_INITIATOR`](https://developer.android.com/reference/android/net/wifi/rtt/WifiRttManager#CHARACTERISTICS_KEY_BOOLEAN_NTB_INITIATOR)),
 your app can find both IEEE 802.11mc and IEEE 802.11az capable APs with a single
 range request. The `RangingResult` API has been extended to provide information
 about the minimum and maximum value that can be used for the interval between
@@ -75,25 +64,13 @@ ranging measurements, leaving the exact interval in the control of your app.
 
 ## Requirements
 
-* The hardware of the device making the ranging request must implement the
-  802.11-2016 FTM standard or 802.11az standard (non-trigger based ranging).
-* The device making the ranging request must be running Android 9 (API level
-  28) or later. IEEE 802.11az non-trigger based ranging is enabled on devices
-  running Android 15 (API level 35) and higher.
-* The device making the ranging request must have location services enabled
-  and Wi-Fi scanning turned on (under **Settings > Location**).
-* If the app that's making the ranging request targets
-  Android 13 (API level 33) or higher, it must have the
-  [`NEARBY_WIFI_DEVICES`](/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES)
-  permission. If such an app targets an earlier version of Android, it must
-  have the
-  [`ACCESS_FINE_LOCATION`](/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
-  permission instead.
-* The app must query the range of access points while the app is visible or in
-  a foreground service. The app cannot [access location information from the
-  background](/training/location/background).
-* The access point must implement the IEEE 802.11-2016 FTM standard or IEEE
-  802.11az standard (non-trigger based ranging).
+- The hardware of the device making the ranging request must implement the 802.11-2016 FTM standard or 802.11az standard (non-trigger based ranging).
+- The device making the ranging request must be running Android 9 (API level 28) or later. IEEE 802.11az non-trigger based ranging is enabled on devices running Android 15 (API level 35) and higher.
+- The device making the ranging request must have location services enabled and Wi-Fi scanning turned on (under **Settings \> Location**).
+- If the app that's making the ranging request targets Android 13 (API level 33) or higher, it must have the [`NEARBY_WIFI_DEVICES`](https://developer.android.com/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES) permission. If such an app targets an earlier version of Android, it must have the [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permission instead.
+- The app must query the range of access points while the app is visible or in a foreground service. The app cannot [access location information from the
+  background](https://developer.android.com/training/location/background).
+- The access point must implement the IEEE 802.11-2016 FTM standard or IEEE 802.11az standard (non-trigger based ranging).
 
 ## Setup
 
@@ -103,46 +80,44 @@ To set up your app to use Wi-Fi RTT, perform the following steps.
 
 Request the following permissions in your app's manifest:
 
-```
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-<!-- If your app targets Android 13 (API level 33)
-     or higher, you must declare the NEARBY_WIFI_DEVICES permission. -->
-<uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"
-                 <!-- If your app derives location information from Wi-Fi APIs,
-                      don't include the "usesPermissionFlags" attribute. -->
-                 android:usesPermissionFlags="neverForLocation" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
-                 <!-- If any feature in your app relies on precise location
-                      information, don't include the "maxSdkVersion"
-                      attribute. -->
-                 android:maxSdkVersion="32" />
-```
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- If your app targets Android 13 (API level 33)
+         or higher, you must declare the NEARBY_WIFI_DEVICES permission. -->
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"
+                     <!-- If your app derives location information from Wi-Fi APIs,
+                          don't include the "usesPermissionFlags" attribute. -->
+                     android:usesPermissionFlags="neverForLocation" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+                     <!-- If any feature in your app relies on precise location
+                          information, don't include the "maxSdkVersion"
+                          attribute. -->
+                     android:maxSdkVersion="32" />
 
 The `NEARBY_WIFI_DEVICES` and `ACCESS_FINE_LOCATION` permissions are dangerous
 permissions, so you need to request them at runtime every time the user wants to
 perform an RTT scan operation. Your app will need to request the user's
 permission if the permission has not already been granted. For more information
 about runtime permissions, see
-[Request App Permissions](/training/permissions/requesting).
+[Request App Permissions](https://developer.android.com/training/permissions/requesting).
 
-**Note:** If the necessary permission is revoked during a ranging operation, the
-operation will be aborted and a failure reported.
+> [!NOTE]
+> **Note:** If the necessary permission is revoked during a ranging operation, the operation will be aborted and a failure reported.
 
 #### 2. Check whether the device supports Wi-Fi RTT
 
 To check whether the device supports Wi-Fi RTT, use the
-[`PackageManager`](/reference/android/content/pm/PackageManager) API:
+[`PackageManager`](https://developer.android.com/reference/android/content/pm/PackageManager) API:
 
 ### Kotlin
 
-```
+```kotlin
 context.packageManager.hasSystemFeature(PackageManager.FEATURE_WIFI_RTT)
 ```
 
 ### Java
 
-```
+```java
 context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_WIFI_RTT);
 ```
 
@@ -152,12 +127,12 @@ Wi-Fi RTT may exist on the device, but it may not be available because the user
 has disabled Wi-Fi. Depending on their hardware and firmware capabilities, some
 devices may not support Wi-Fi RTT if SoftAP or tethering are in use. To check
 whether Wi-Fi RTT is available, call
-[`isAvailable()`](/reference/android/net/wifi/rtt/WifiRttManager#isAvailable()).
+[`isAvailable()`](https://developer.android.com/reference/android/net/wifi/rtt/WifiRttManager#isAvailable()).
 
 The availability of Wi-Fi RTT can change at any time. Your app should register a
-[`BroadcastReceiver`](/reference/android/content/BroadcastReceiver)
+[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver)
 to receive
-[`ACTION_WIFI_RTT_STATE_CHANGED`](/reference/android/net/wifi/rtt/WifiRttManager#ACTION_WIFI_RTT_STATE_CHANGED),
+[`ACTION_WIFI_RTT_STATE_CHANGED`](https://developer.android.com/reference/android/net/wifi/rtt/WifiRttManager#ACTION_WIFI_RTT_STATE_CHANGED),
 which is sent when availability changes. When your app receives the broadcast
 intent, the app should check the current state of availability and adjust its
 behavior accordingly.
@@ -166,15 +141,15 @@ For example:
 
 ### Kotlin
 
-```
+```kotlin
 val filter = IntentFilter(WifiRttManager.ACTION_WIFI_RTT_STATE_CHANGED)
 val myReceiver = object: BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         if (wifiRttManager.isAvailable) {
-            …
+            ...
         } else {
-            …
+            ...
         }
     }
 }
@@ -183,43 +158,42 @@ context.registerReceiver(myReceiver, filter)
 
 ### Java
 
-```
+```java
 IntentFilter filter =
     new IntentFilter(WifiRttManager.ACTION_WIFI_RTT_STATE_CHANGED);
 BroadcastReceiver myReceiver = new BroadcastReceiver() {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (wifiRttManager.isAvailable()) {
-            …
+            ...
         } else {
-            …
+            ...
         }
     }
 };
 context.registerReceiver(myReceiver, filter);
 ```
 
-**Note:** Make sure that you register the broadcast receiver before checking
-availability. Otherwise, there could be a period of time when the app thinks
-that Wi-Fi RTT is available but isn't notified if availability changes.
+> [!NOTE]
+> **Note:** Make sure that you register the broadcast receiver before checking availability. Otherwise, there could be a period of time when the app thinks that Wi-Fi RTT is available but isn't notified if availability changes.
 
-For more information, see [Broadcasts](/guide/components/broadcasts).
+For more information, see [Broadcasts](https://developer.android.com/guide/components/broadcasts).
 
 ## Create a ranging request
 
 A ranging request
-([`RangingRequest`](/reference/android/net/wifi/rtt/RangingRequest)) is created
+([`RangingRequest`](https://developer.android.com/reference/android/net/wifi/rtt/RangingRequest)) is created
 by specifying a list of APs or Wi-Fi Aware peers to which a range
 is requested. Multiple access points or Wi-Fi Aware peers can be specified in a
 single ranging request; the distances to all devices are measured and returned.
 
 For example, a request can use the
-[`addAccessPoint()`](/reference/android/net/wifi/rtt/RangingRequest.Builder#addAccessPoint(android.net.wifi.ScanResult))
+[`addAccessPoint()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingRequest.Builder#addAccessPoint(android.net.wifi.ScanResult))
 method to specify an access point to which to measure the distance:
 
 ### Kotlin
 
-```
+```kotlin
 val req: RangingRequest = RangingRequest.Builder().run {
     addAccessPoint(ap1ScanResult)
     addAccessPoint(ap2ScanResult)
@@ -229,7 +203,7 @@ val req: RangingRequest = RangingRequest.Builder().run {
 
 ### Java
 
-```
+```java
 RangingRequest.Builder builder = new RangingRequest.Builder();
 builder.addAccessPoint(ap1ScanResult);
 builder.addAccessPoint(ap2ScanResult);
@@ -238,11 +212,11 @@ RangingRequest req = builder.build();
 ```
 
 An access point is identified by its
-[`ScanResult`](/reference/android/net/wifi/ScanResult) object, which can be
+[`ScanResult`](https://developer.android.com/reference/android/net/wifi/ScanResult) object, which can be
 obtained by calling
-[`WifiManager.getScanResults()`](/reference/android/net/wifi/WifiManager#getscanresults).
+[`WifiManager.getScanResults()`](https://developer.android.com/reference/android/net/wifi/WifiManager#getscanresults).
 You can use
-[`addAccessPoints(List<ScanResult>)`](/reference/android/net/wifi/rtt/RangingRequest.Builder#addaccesspoints)
+[`addAccessPoints(List<ScanResult>)`](https://developer.android.com/reference/android/net/wifi/rtt/RangingRequest.Builder#addaccesspoints)
 to add multiple access points in a batch.
 
 `ScanResult` objects can contain both IEEE 802.11mc (`is80211mcResponder()`) and
@@ -253,42 +227,42 @@ the AP supports both. Devices that don't support IEEE 802.11az perform all
 ranging using the IEEE 802.11mc protocol.
 
 Similarly, a ranging request can add a Wi-Fi Aware peer using either its MAC
-address or its [`PeerHandle`](/reference/android/net/wifi/aware/PeerHandle), using
+address or its [`PeerHandle`](https://developer.android.com/reference/android/net/wifi/aware/PeerHandle), using
 the
-[`addWifiAwarePeer(MacAddress peer)`](/reference/android/net/wifi/rtt/RangingRequest.Builder#addwifiawarepeer)
-and [`addWifiAwarePeer(PeerHandle peer)`](/reference/android/net/wifi/rtt/RangingRequest.Builder#addwifiawarepeer_3)
+[`addWifiAwarePeer(MacAddress peer)`](https://developer.android.com/reference/android/net/wifi/rtt/RangingRequest.Builder#addwifiawarepeer)
+and [`addWifiAwarePeer(PeerHandle peer)`](https://developer.android.com/reference/android/net/wifi/rtt/RangingRequest.Builder#addwifiawarepeer_3)
 methods, respectively. For more information about discovering Wi-Fi Aware peers,
-see the [Wi-Fi Aware documentation](/develop/connectivity/wifi-aware).
+see the [Wi-Fi Aware documentation](https://developer.android.com/develop/connectivity/wifi-aware).
 
 ## Request ranging
 
 An app issues a ranging request using the
-[`WifiRttManager.startRanging()`](/reference/android/net/wifi/rtt/WifiRttManager#startRanging(android.net.wifi.rtt.RangingRequest,%20java.util.concurrent.Executor,%20android.net.wifi.rtt.RangingResultCallback))
+[`WifiRttManager.startRanging()`](https://developer.android.com/reference/android/net/wifi/rtt/WifiRttManager#startRanging(android.net.wifi.rtt.RangingRequest,%20java.util.concurrent.Executor,%20android.net.wifi.rtt.RangingResultCallback))
 method and providing the following: a
-[`RangingRequest`](/reference/android/net/wifi/rtt/RangingRequest) to specify the
-operation, an [`Executor`](/reference/java/util/concurrent/Executor) to specify
+[`RangingRequest`](https://developer.android.com/reference/android/net/wifi/rtt/RangingRequest) to specify the
+operation, an [`Executor`](https://developer.android.com/reference/java/util/concurrent/Executor) to specify
 the callback context, and a
-[`RangingResultCallback`](/reference/android/net/wifi/rtt/RangingResultCallback)
+[`RangingResultCallback`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResultCallback)
 to receive the results.
 
 For example:
 
 ### Kotlin
 
-```
+```kotlin
 val mgr = context.getSystemService(Context.WIFI_RTT_RANGING_SERVICE) as WifiRttManager
 val request: RangingRequest = myRequest
 mgr.startRanging(request, executor, object : RangingResultCallback() {
 
-    override fun onRangingResults(results: List<RangingResult>) { … }
+    override fun onRangingResults(results: List<RangingResult>) { ... }
 
-    override fun onRangingFailure(code: Int) { … }
+    override fun onRangingFailure(code: Int) { ... }
 })
 ```
 
 ### Java
 
-```
+```java
 WifiRttManager mgr =
       (WifiRttManager) Context.getSystemService(Context.WIFI_RTT_RANGING_SERVICE);
 
@@ -296,47 +270,34 @@ RangingRequest request ...;
 mgr.startRanging(request, executor, new RangingResultCallback() {
 
   @Override
-  public void onRangingFailure(int code) { … }
+  public void onRangingFailure(int code) { ... }
 
   @Override
-  public void onRangingResults(List<RangingResult> results) { … }
+  public void onRangingResults(List<RangingResult> results) { ... }
 });
 ```
 
 The ranging operation is performed asynchronously, and ranging results are
 returned in one of the callbacks of
-[`RangingResultCallback`](/reference/android/net/wifi/rtt/RangingResultCallback):
+[`RangingResultCallback`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResultCallback):
 
-* If the whole ranging operation fails, the
-  [`onRangingFailure`](/reference/android/net/wifi/rtt/RangingResultCallback#onrangingfailure)
-  callback is triggered with a status code described in
-  [`RangingResultCallback`](/reference/android/net/wifi/rtt/RangingResultCallback).
-  Such a failure may happen if the service cannot execute a ranging operation
-  at the time--for example, because Wi-Fi is disabled, because the application
-  has requested too many ranging operations and is throttled, or because of a
-  permission issue.
-* When the ranging operation completes, the
-  [`onRangingResults`](/reference/android/net/wifi/rtt/RangingResultCallback#onrangingresults)
-  callback is triggered with a list of results that matches the list of
-  requests—one result for each request. The order of the results does not
-  necessarily match the order of the requests. Note that ranging operation may
-  complete but each result may still indicate a failure of that specific
-  measurement.
+- If the whole ranging operation fails, the [`onRangingFailure`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResultCallback#onrangingfailure) callback is triggered with a status code described in [`RangingResultCallback`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResultCallback). Such a failure may happen if the service cannot execute a ranging operation at the time--for example, because Wi-Fi is disabled, because the application has requested too many ranging operations and is throttled, or because of a permission issue.
+- When the ranging operation completes, the [`onRangingResults`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResultCallback#onrangingresults) callback is triggered with a list of results that matches the list of requests---one result for each request. The order of the results does not necessarily match the order of the requests. Note that ranging operation may complete but each result may still indicate a failure of that specific measurement.
 
 ## Interpret ranging results
 
 Each of the results returned by the
-[`onRangingResults`](/reference/android/net/wifi/rtt/RangingResultCallback#onrangingresults)
-callback is specified by a [`RangingResult`](/reference/android/net/wifi/rtt/RangingResult)
+[`onRangingResults`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResultCallback#onrangingresults)
+callback is specified by a [`RangingResult`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult)
 object. On each request, do the following.
 
 #### 1. Identify the request
 
 Identify the request based on the information provided when creating the
-[`RangingRequest`](/reference/android/net/wifi/rtt/RangingRequest):
+[`RangingRequest`](https://developer.android.com/reference/android/net/wifi/rtt/RangingRequest):
 most often a MAC address provided in the `ScanResult` identifying an access
 point. The MAC address can be obtained from the ranging result using the
-[`getMacAddress()`](/reference/android/net/wifi/rtt/RangingResult#getMacAddress())
+[`getMacAddress()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#getMacAddress())
 method.
 
 The list of ranging results may be in different order than the peers (access
@@ -346,43 +307,43 @@ identify the peer, not the order of results.
 #### 2. Determine whether each measurement was successful
 
 To determine whether a measurement was successful, use the
-[`getStatus()`](/reference/android/net/wifi/rtt/RangingResult#getstatus)
+[`getStatus()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#getstatus)
 method. Any value other than
-[`STATUS_SUCCESS`](/reference/android/net/wifi/rtt/RangingResult#status_success)
+[`STATUS_SUCCESS`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#status_success)
 indicates a failure. A failure means that all other fields of this result
 (except the request identification above) are invalid, and the corresponding
 `get*` method will fail with an
-[`IllegalStateException`](/reference/java/lang/IllegalStateException) exception.
+[`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException) exception.
 
 #### 3. Get results for each successful measurement
 
 For each successful measurement (`RangingResult`), you can retrieve result
 values with the respective `get` methods:
 
-* Distance, in mm, and the standard deviation of the measurement:
+- Distance, in mm, and the standard deviation of the measurement:
 
-  [`getDistanceMm()`](/reference/android/net/wifi/rtt/RangingResult#getdistancemm)
+  [`getDistanceMm()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#getdistancemm)
 
-  [`getDistanceStdDevMm()`](/reference/android/net/wifi/rtt/RangingResult#getdistancestddevmm)
-* RSSI of the packets used for the measurements:
+  [`getDistanceStdDevMm()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#getdistancestddevmm)
+- RSSI of the packets used for the measurements:
 
-  [`getRssi()`](/reference/android/net/wifi/rtt/RangingResult#getrssi)
-* Time in milliseconds at which the measurement was taken (indicating time
+  [`getRssi()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#getrssi)
+- Time in milliseconds at which the measurement was taken (indicating time
   since boot):
 
-  [`getRangingTimestampMillis()`](/reference/android/net/wifi/rtt/RangingResult#getrangingtimestampmillis)
-* Number of measurements that were attempted and the number of measurements
+  [`getRangingTimestampMillis()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#getrangingtimestampmillis)
+- Number of measurements that were attempted and the number of measurements
   that succeeded (and on which the distance measurements are based):
 
-  [`getNumAttemptedMeasurements()`](/reference/android/net/wifi/rtt/RangingResult#getnumattemptedmeasurements)
+  [`getNumAttemptedMeasurements()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#getnumattemptedmeasurements)
 
-  [`getNumSuccessfulMeasurements()`](/reference/android/net/wifi/rtt/RangingResult#getnumsuccessfulmeasurements)
-* Minimum and maximum time a client device must wait between 11az NTB
+  [`getNumSuccessfulMeasurements()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#getnumsuccessfulmeasurements)
+- Minimum and maximum time a client device must wait between 11az NTB
   measurements:
 
-  [`getMinTimeBetweenNtbMeasurementsMicros()`](/reference/android/net/wifi/rtt/RangingResult#getMinTimeBetweenNtbMeasurementsMicros())
+  [`getMinTimeBetweenNtbMeasurementsMicros()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#getMinTimeBetweenNtbMeasurementsMicros())
   and
-  [`getMaxTimeBetweenNtbMeasurementsMicros()`](/reference/android/net/wifi/rtt/RangingResult#getMaxTimeBetweenNtbMeasurementsMicros())
+  [`getMaxTimeBetweenNtbMeasurementsMicros()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#getMaxTimeBetweenNtbMeasurementsMicros())
   return the minimum and maximum time. If the next ranging measurement is
   requested before the minimum time has elapsed, then the API returns the
   cached ranging result. If the next ranging measurement is requested after
@@ -393,25 +354,25 @@ values with the respective `get` methods:
   non-trigger based ranging efficiency, trigger the next ranging request
   between the minimum and maximum measurement time specified in the previous
   `RangingResult` measurement.
-* Long Training Field (LTF) repetitions that responder and initiator stations
+- Long Training Field (LTF) repetitions that responder and initiator stations
   used in the preamble for the IEEE 802.11az NTB result:
 
-  [`get80211azResponderTxLtfRepetitionsCount()`](/reference/android/net/wifi/rtt/RangingResult#get80211azResponderTxLtfRepetitionsCount())
+  [`get80211azResponderTxLtfRepetitionsCount()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#get80211azResponderTxLtfRepetitionsCount())
 
-  [`get80211azInitiatorTxLtfRepetitionsCount()`](/reference/android/net/wifi/rtt/RangingResult#get80211azInitiatorTxLtfRepetitionsCount())
-* Number of transmit and receive spatial time streams (STS) that the initiator
+  [`get80211azInitiatorTxLtfRepetitionsCount()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#get80211azInitiatorTxLtfRepetitionsCount())
+- Number of transmit and receive spatial time streams (STS) that the initiator
   station used for the IEEE 802.11az NTB result:
 
-  [`get80211azNumberOfTxSpatialStreams()`](/reference/android/net/wifi/rtt/RangingResult#get80211azNumberOfTxSpatialStreams())
+  [`get80211azNumberOfTxSpatialStreams()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#get80211azNumberOfTxSpatialStreams())
 
-  [`get80211azNumberOfRxSpatialStreams()`](/reference/android/net/wifi/rtt/RangingResult#get80211azNumberOfRxSpatialStreams())
+  [`get80211azNumberOfRxSpatialStreams()`](https://developer.android.com/reference/android/net/wifi/rtt/RangingResult#get80211azNumberOfRxSpatialStreams())
 
-**Note:** Both LTF repetitions and number of transmit and receive space time streams
-(STS) can be used to estimate the accuracy of an IEEE 802.11az NTB result.
+> [!NOTE]
+> **Note:** Both LTF repetitions and number of transmit and receive space time streams (STS) can be used to estimate the accuracy of an IEEE 802.11az NTB result.
 
 ## Android devices that support WiFi-RTT
 
-The following tables list some [phones](#supported-phones), [access points](#supported-aps), and [retail, warehousing and distribution center devices](#retail-devices)
+The following tables list some [phones](https://developer.android.com/develop/connectivity/wifi/wifi-rtt#supported-phones), [access points](https://developer.android.com/develop/connectivity/wifi/wifi-rtt#supported-aps), and [retail, warehousing and distribution center devices](https://developer.android.com/develop/connectivity/wifi/wifi-rtt#retail-devices)
 that support WiFi-RTT. These are far from comprehensive. We encourage you to
 [reach out to us](mailto:Location-Partners-Feedback@google.com?subject=%5BRTT%5D)
 to list your RTT capable-products here.
@@ -419,7 +380,7 @@ to list your RTT capable-products here.
 ### Access points
 
 | Manufacturer and model | Support date | Protocol |
-| --- | --- | --- |
+|---|---|---|
 | [Nest Wifi Pro (Wi-Fi 6E)](https://store.google.com/product/nest_wifi_pro) | Supported | mc |
 | [Compulab WILD AP](https://fit-iot.com/web/products/wild/) | Supported | mc |
 | [Google Wi-Fi](https://store.google.com/product/google_wifi_first_gen) | Supported | mc |
@@ -455,7 +416,7 @@ to list your RTT capable-products here.
 ### Phones
 
 | Manufacturer and model | Android version |
-| --- | --- |
+|---|---|
 | Google Pixel 9 Pro XL | 14+ |
 | Google Pixel 9 | 14+ |
 | Google Pixel 9 Pro | 14+ |
@@ -532,7 +493,7 @@ to list your RTT capable-products here.
 ### Retail, warehousing, and distribution center devices
 
 | Manufacturer and model | Android version |
-| --- | --- |
+|---|---|
 | Zebra PS20 | 10.0+ |
 | Zebra TC52/TC52HC | 10.0+ |
 | Zebra TC57 | 10.0+ |

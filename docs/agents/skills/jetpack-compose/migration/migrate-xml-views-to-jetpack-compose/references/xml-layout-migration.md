@@ -1,15 +1,10 @@
 ---
-title: XML layout migration  |  Android Developers
+title: https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/xml-layout-migration
 url: https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/xml-layout-migration
-source: html-scrape
+source: md.txt
 ---
 
-# XML layout migration Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-## 1. Structural analysis & mapping
+## 1. Structural analysis \& mapping
 
 **Identify the precise mapping** between XML elements and Compose equivalents. You must determine:
 \* The exact `@Composable` functions (e.g., `ConstraintLayout`, `Column`, `LazyColumn`) that replace the XML tag hierarchy.
@@ -20,19 +15,19 @@ source: html-scrape
 
 **Convert the XML layout code to Jetpack Compose**, ensuring the visual hierarchy and layout logic are preserved while leveraging Compose's declarative nature.
 
-## 3. Theming & design system integrity
+## 3. Theming \& design system integrity
 
 **Do not use hard-coded values.** Follow these rules for styling:
 \* **Token Alignment:** Cross-reference XML dimension, color, and style attributes with the existing Compose `Theme` (e.g., `MaterialTheme.colorScheme` or custom design system tokens).
 \* **Reuse over Creation:** If matching values exist in the current Compose theme, reuse them. If a value is missing but required for the design, define it within the theme structure rather than hard-coding it in the Composable.
 \* **Project Consistency:** You **MUST** strictly adhere to existing code conventions, naming standards, and implementation patterns found in the project. **Prioritize** project-specific reusable components over generic Material defaults.
 
-## 4. Component layering & reusability
+## 4. Component layering \& reusability
 
 Evaluate if the XML layout serves as a foundation-level design system component (reused across the app with a distinct role). If it is:
 \* **Create a reusable composable:** Do not just inline the code. Define a new standalone `@Composable`.
 \* **Parameterization:** Expose specific parameters for variable data (text, colors, styles) and use `Modifier` for layout-specific customizations.
-\* **Feature parity & restriction:** Ensure the new composable enforces the same UI constraints as the original XML component, preventing unauthorized style overrides while maintaining the intended flexibility.
+\* **Feature parity \& restriction:** Ensure the new composable enforces the same UI constraints as the original XML component, preventing unauthorized style overrides while maintaining the intended flexibility.
 
 Example before migration:
 `xml
@@ -48,10 +43,38 @@ parent="Widget.Button.Borderless">
 
 Example after migration:
 
-## ``` @Composable fun RoundedBorderlessButton( text: String, onClick: () -> Unit, modifier: Modifier = Modifier, enabled: Boolean = true ) { TextButton( onClick, modifier .defaultMinSize(minWidth = dimensionResource(R.dimen.min_width)) .padding( start = dimensionResource(R.dimen.padding_2), end = dimensionResource(R.dimen.padding_2) ), enabled, shape = RoundedCornerShape(8.dp), colors = ButtonDefaults.textButtonColors( contentColor = MaterialTheme.colorScheme.primary ) ) { Text( text = text, style = MaterialTheme.typography.bodyMedium.copy( fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.Medium ) ) } } MigrationSkillSnippets.kt ```
+## ```kotlin
+@Composable
+fun RoundedBorderlessButton(
+text: String,
+onClick: () -> Unit,
+modifier: Modifier = Modifier,
+enabled: Boolean = true
+) {
+TextButton(
+onClick, modifier
+.defaultMinSize(minWidth = dimensionResource(R.dimen.min_width))
+.padding(
+start = dimensionResource(R.dimen.padding_2),
+end = dimensionResource(R.dimen.padding_2)
+), enabled, shape = RoundedCornerShape(8.dp),
+colors = ButtonDefaults.textButtonColors(
+contentColor = MaterialTheme.colorScheme.primary
+)
+) {
+Text(
+text = text,
+style = MaterialTheme.typography.bodyMedium.copy(
+fontFamily = FontFamily.SansSerif,
+fontWeight = FontWeight.Medium
+)
+)
+}
+}
+```
 
 ## 5. Output requirements
 
-* Provide the full Kotlin file content.
-* Include necessary imports.
-* Add documentation comments (`/** ... */`) explaining the mapping logic for complex transformations.
+- Provide the full Kotlin file content.
+- Include necessary imports.
+- Add documentation comments (`/** ... */`) explaining the mapping logic for complex transformations.

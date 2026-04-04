@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 A video program's attributes depend on the type of its content. The program type
 tells the system what metadata to expect so that the UI can be filled in
 appropriately.

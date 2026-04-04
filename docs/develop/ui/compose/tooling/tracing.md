@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Traces are often the best source of information when first looking into a
 performance issue. They allow you to form a hypothesis of what the issue is and
 where to start looking.

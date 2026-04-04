@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Buttons let the user trigger a defined action. There are five types of
 button:
 

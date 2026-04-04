@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 This page describes how to retrieve traces and visualize them in the Perfetto
 UI.
 

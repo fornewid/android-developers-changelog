@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The following best practices help optimize your app without sacrificing quality.
 
 ## Use Baseline Profiles

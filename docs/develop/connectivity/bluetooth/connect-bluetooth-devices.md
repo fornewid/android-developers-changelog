@@ -1,14 +1,25 @@
 ---
-title: https://developer.android.com/develop/connectivity/bluetooth/connect-bluetooth-devices
+title: Connect Bluetooth devices  |  Connectivity  |  Android Developers
 url: https://developer.android.com/develop/connectivity/bluetooth/connect-bluetooth-devices
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Connectivity](https://developer.android.com/develop/connectivity)
+* [Guides](https://developer.android.com/develop/connectivity/overview)
+
+# Connect Bluetooth devices Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 To create a connection between two devices, you must implement both the
 server-side and client-side mechanisms because one device must open a server
 socket, and the other one must initiate the connection using the server device's
 MAC address. The server device and the client device each obtain the required
-[`BluetoothSocket`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket) in different
+[`BluetoothSocket`](/reference/android/bluetooth/BluetoothSocket) in different
 ways. The server receives socket information when an incoming connection is
 accepted. The client provides socket information when it opens an RFCOMM channel
 to the server.
@@ -17,12 +28,12 @@ The server and client are considered connected to each other when they each have
 a connected `BluetoothSocket` on the same RFCOMM channel. At this point, each
 device can obtain input and output streams, and data transfer can begin, which
 is discussed in the section about [transferring Bluetooth
-data](https://developer.android.com/develop/connectivity/bluetooth/transfer-data). This section
+data](/develop/connectivity/bluetooth/transfer-data). This section
 describes how to initiate the connection between two devices.
 
 Make sure you have the appropriate
-[Bluetooth permissions](https://developer.android.com/develop/connectivity/bluetooth/bt-permissions) and
-[set up your app for Bluetooth](https://developer.android.com/develop/connectivity/bluetooth/setup) before
+[Bluetooth permissions](/develop/connectivity/bluetooth/bt-permissions) and
+[set up your app for Bluetooth](/develop/connectivity/bluetooth/setup) before
 attempting to find Bluetooth devices.
 
 ## Connection techniques
@@ -33,29 +44,33 @@ this case, either device can initiate a connection with the other and become the
 client. Alternatively, one device can explicitly host the connection and open a
 server socket on demand, and the other device initiates the connection.
 
-![](https://developer.android.com/static/images/develop/connectivity/bluetooth/bluetooth-pairing.png)   
-
+![](/static/images/develop/connectivity/bluetooth/bluetooth-pairing.png)   
 **Figure 1.** The Bluetooth pairing dialog.
 
-> [!NOTE]
-> **Note:** If the two devices have not been previously paired, then the Android framework automatically shows a pairing request notification or dialog to the user during the connection procedure, as shown in figure 1. Therefore, when your app attempts to connect devices, it doesn't need to be concerned about whether or not the devices are paired. Your RFCOMM connection attempt gets blocked until the user has successfully paired the two devices, and the attempt fails if the user rejects pairing, or if the pairing process fails or times out.
+**Note:** If the two devices have not been previously paired, then the Android
+framework automatically shows a pairing request notification or dialog to the
+user during the connection procedure, as shown in figure 1. Therefore, when your
+app attempts to connect devices, it doesn't need to be concerned about
+whether or not the devices are paired. Your RFCOMM connection attempt gets
+blocked until the user has successfully paired the two devices, and the attempt
+fails if the user rejects pairing, or if the pairing process fails or times out.
 
 ### Connect as a server
 
 When you want to connect two devices, one must act as a server by holding an
 open
-[`BluetoothServerSocket`](https://developer.android.com/reference/android/bluetooth/BluetoothServerSocket).
+[`BluetoothServerSocket`](/reference/android/bluetooth/BluetoothServerSocket).
 The purpose of the server socket is to listen for incoming connection requests
 and provide a connected `BluetoothSocket` after a request is accepted. When the
 `BluetoothSocket` is acquired from the `BluetoothServerSocket`, the
-`BluetoothServerSocket` can---and should---be discarded, unless you want
+`BluetoothServerSocket` can—and should—be discarded, unless you want
 the device to accept more connections.
 
 To set up a server socket and accept a connection, complete the following
 sequence of steps:
 
 1. Get a `BluetoothServerSocket` by calling
-   [`listenUsingRfcommWithServiceRecord(String, UUID)`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#listenUsingRfcommWithServiceRecord(java.lang.String,%20java.util.UUID)).
+   [`listenUsingRfcommWithServiceRecord(String, UUID)`](/reference/android/bluetooth/BluetoothAdapter#listenUsingRfcommWithServiceRecord(java.lang.String,%20java.util.UUID)).
 
    The string is an identifiable name of your service, which the system
    automatically writes to a new Service Discovery Protocol (SDP) database entry
@@ -73,11 +88,11 @@ sequence of steps:
    of a centralized authority. In this case, it's used to uniquely identify your
    app's Bluetooth service. To get a UUID to use with your app, you can use one
    of the many random
-   [`UUID`](https://developer.android.com/reference/java/util/UUID) generators on the web, then initialize a
+   [`UUID`](/reference/java/util/UUID) generators on the web, then initialize a
    UUID with
-   [`fromString(String)`](https://developer.android.com/reference/java/util/UUID#fromString(java.lang.String)).
+   [`fromString(String)`](/reference/java/util/UUID#fromString(java.lang.String)).
 2. Start listening for connection requests by calling
-   [`accept()`](https://developer.android.com/reference/android/bluetooth/BluetoothServerSocket#accept()).
+   [`accept()`](/reference/android/bluetooth/BluetoothServerSocket#accept()).
 
    This is a blocking call. It returns when either a connection has been
    accepted or an exception has occurred. A connection is accepted only when a
@@ -85,7 +100,7 @@ sequence of steps:
    the one registered with this listening server socket. When successful,
    `accept()` returns a connected `BluetoothSocket`.
 3. Unless you want to accept additional connections, call
-   [`close()`](https://developer.android.com/reference/android/bluetooth/BluetoothServerSocket#close()).
+   [`close()`](/reference/android/bluetooth/BluetoothServerSocket#close()).
 
    This method call releases the server socket and all its resources, but
    doesn't close the connected `BluetoothSocket` that's been returned by
@@ -109,7 +124,7 @@ incoming connections:
 
 ### Kotlin
 
-```kotlin
+```
 private inner class AcceptThread : Thread() {
 
    private val mmServerSocket: BluetoothServerSocket? by lazy(LazyThreadSafetyMode.NONE) {
@@ -148,7 +163,7 @@ private inner class AcceptThread : Thread() {
 
 ### Java
 
-```java
+```
 private class AcceptThread extends Thread {
    private final BluetoothServerSocket mmServerSocket;
 
@@ -204,13 +219,13 @@ acquired `BluetoothSocket` to a separate thread, closes the
 
 Note that when `accept()` returns the `BluetoothSocket`, the socket is already
 connected. Therefore, you shouldn't call
-[`connect()`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket#connect()), as you do
+[`connect()`](/reference/android/bluetooth/BluetoothSocket#connect()), as you do
 from the client side.
 
 The app-specific `manageMyConnectedSocket()` method is designed to initiate the
 thread for transferring data, which is discussed in the topic about
 [transferring Bluetooth
-data](https://developer.android.com/develop/connectivity/bluetooth/transfer-data).
+data](/develop/connectivity/bluetooth/transfer-data).
 
 Usually, you should close your `BluetoothServerSocket` as soon as you are done
 listening for incoming connections. In this example, `close()` is called as soon
@@ -224,19 +239,19 @@ In order to initiate a connection with a remote device that is accepting
 connections on an open server socket, you must first obtain a `BluetoothDevice`
 object that represents the remote device. To learn how to create a
 `BluetoothDevice`, see [Find Bluetooth
-devices](https://developer.android.com/develop/connectivity/bluetooth/find-bluetooth-devices). You must
+devices](/develop/connectivity/bluetooth/find-bluetooth-devices). You must
 then use the `BluetoothDevice` to acquire a `BluetoothSocket` and initiate the
 connection.
 
 The basic procedure is as follows:
 
 1. Using the `BluetoothDevice`, get a `BluetoothSocket` by calling
-   [`createRfcommSocketToServiceRecord(UUID)`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#createRfcommSocketToServiceRecord(java.util.UUID)).
+   [`createRfcommSocketToServiceRecord(UUID)`](/reference/android/bluetooth/BluetoothDevice#createRfcommSocketToServiceRecord(java.util.UUID)).
 
    This method initializes a `BluetoothSocket` object that allows the client to
    connect to a `BluetoothDevice`. The UUID passed here must match the UUID used
    by the server device when it called
-   [`listenUsingRfcommWithServiceRecord(String, UUID)`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#listenUsingRfcommWithServiceRecord(java.lang.String,%20java.util.UUID))
+   [`listenUsingRfcommWithServiceRecord(String, UUID)`](/reference/android/bluetooth/BluetoothAdapter#listenUsingRfcommWithServiceRecord(java.lang.String,%20java.util.UUID))
    to open its `BluetoothServerSocket`. To use a matching UUID, hard-code the
    UUID string into your app, and then reference it from both the server
    and client code.
@@ -248,7 +263,7 @@ The basic procedure is as follows:
    remote device accepts the connection, it shares the RFCOMM channel to use
    during the connection, and the `connect()` method returns. If the connection
    fails, or if the `connect()` method times out (after about 12 seconds), then
-   the method throws an [`IOException`](https://developer.android.com/reference/java/io/IOException).
+   the method throws an [`IOException`](/reference/java/io/IOException).
 
 Because `connect()` is a blocking call, you should always perform this
 connection procedure in a thread that is separate from the main activity (UI)
@@ -261,7 +276,7 @@ connection:
 
 ### Kotlin
 
-```kotlin
+```
 private inner class ConnectThread(device: BluetoothDevice) : Thread() {
 
    private val mmSocket: BluetoothSocket? by lazy(LazyThreadSafetyMode.NONE) {
@@ -296,7 +311,7 @@ private inner class ConnectThread(device: BluetoothDevice) : Thread() {
 
 ### Java
 
-```java
+```
 private class ConnectThread extends Thread {
    private final BluetoothSocket mmSocket;
    private final BluetoothDevice mmDevice;
@@ -356,11 +371,11 @@ attempt occurs. You should always call `cancelDiscovery()` before `connect()`,
 especially because `cancelDiscovery()` succeeds regardless of whether device
 discovery is currently in progress. If your app needs to determine whether
 device discovery is in progress, you can check using
-[`isDiscovering()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#isDiscovering()).
+[`isDiscovering()`](/reference/android/bluetooth/BluetoothAdapter#isDiscovering()).
 
 The app-specific `manageMyConnectedSocket()` method is designed to initiate the
 thread for transferring data, which is discussed in the section about
-[transferring Bluetooth data](https://developer.android.com/develop/connectivity/bluetooth/transfer-data).
+[transferring Bluetooth data](/develop/connectivity/bluetooth/transfer-data).
 
 When you're done with your `BluetoothSocket`, always call `close()`. Doing so
 immediately closes the connected socket and releases all related internal

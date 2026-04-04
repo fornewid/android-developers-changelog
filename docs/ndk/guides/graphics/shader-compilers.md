@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 A Vulkan app must manage shaders differently from the way an OpenGL ES app does:
 In OpenGL ES, you provide a shader as a set of strings forming the source text of a
 GLSL shader program. By contrast, the Vulkan API requires you to provide a shader in

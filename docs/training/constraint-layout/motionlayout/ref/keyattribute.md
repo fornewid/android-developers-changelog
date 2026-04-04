@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 Specifies view attributes at a specific moment during the motion sequence. You
 can use `<KeyAttribute>` to set the view's [standard attributes](/reference/android/support/constraint/motion/MotionLayout#standard-attributes).
 

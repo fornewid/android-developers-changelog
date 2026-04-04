@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Compose considers types to be either stable or unstable. A type is stable if it
 is immutable, or if it is possible for Compose to know whether its value has
 changed between recompositions. A type is unstable if Compose can't know whether

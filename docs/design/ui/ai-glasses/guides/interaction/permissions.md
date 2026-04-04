@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 When an app needs permissions to be granted the glasses, it should direct the
 user to the phone where a permissions dialog will display.
 

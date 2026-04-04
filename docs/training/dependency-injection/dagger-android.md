@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The [Dagger basics](/training/dependency-injection/dagger-basics) page explained how Dagger can help you automate dependency
 injection in your app. With Dagger, you don't have to write tedious and
 error-prone boilerplate code.

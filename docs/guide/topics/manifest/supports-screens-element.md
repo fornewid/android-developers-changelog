@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 syntax:
 :   ```
     <supports-screens android:resizeable=["true"| "false"]

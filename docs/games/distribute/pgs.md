@@ -13,6 +13,7 @@ Send feedback
 
 
 
+
 The Play Games SDK provides cross-platform Google Play games services that lets you easily integrate popular gaming features such as achievements, leaderboards, and Saved Games in your tablet and mobile games.
 
 [Get started](https://developers.google.com/games/services/android/quickstart)
@@ -25,6 +26,8 @@ For additional details, refer to the following documentation:
 * [Leaderboards](https://developers.google.com/games/services/android/leaderboards)
 * [Friends](https://developers.google.com/games/services/android/friends)
 * [Saved Games](https://developers.google.com/games/services/android/savedgames)
+
+
 
 
 

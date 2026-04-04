@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 When an extended or connected display is available the system UI adapts to a
 desktop-like environment.
 

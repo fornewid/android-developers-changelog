@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Content providers can help an application manage access to data stored by itself or
 stored by other apps and provide a way to share data with other apps. They encapsulate the
 data and provide mechanisms for defining data security. Content providers are the standard

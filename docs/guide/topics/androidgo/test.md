@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Similar to devices running on the Android platform, apps on Go devices
 should still be performant for end-users. There are ways to minimize inefficient
 uses of resources, such as CPU, memory, graphics, network, or device battery.

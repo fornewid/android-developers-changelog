@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # DataStore
 
 [User Guide](https://developer.android.com/datastore)  [Codelab](https://codelabs.developers.google.com/codelabs/android-preferences-datastore)

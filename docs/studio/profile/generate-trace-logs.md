@@ -1,46 +1,56 @@
 ---
-title: https://developer.android.com/studio/profile/generate-trace-logs
+title: Generate Trace Logs by Instrumenting Your App  |  Android Studio  |  Android Developers
 url: https://developer.android.com/studio/profile/generate-trace-logs
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [IDE guides](https://developer.android.com/studio/intro)
+
+# Generate Trace Logs by Instrumenting Your App Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 To generate a method trace of your app's execution, you can instrument your app
-using the `https://developer.android.com/reference/android/os/Debug`
+using the `Debug`
 class. Instrumenting your app this way gives you more control over exactly when
 the device starts and stops recording tracing information. The device also saves
 your trace logs using the names you specify, so you can easily identify each log
 later. You can then view each trace log using the Android Studio
-[CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler).
+[CPU Profiler](/studio/profile/cpu-profiler).
 
 You can also
-[start and stop tracing in the CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler#method_traces)
+[start and stop tracing in the CPU Profiler](/studio/profile/cpu-profiler#method_traces)
 without instrumenting your app's code.
 
 Before you start generating trace logs, make sure your app has added logic to
 save trace logs to its [app-specific
-directory](https://developer.android.com/training/data-storage/app-specific).
+directory](/training/data-storage/app-specific).
 
 ## Instrument your app
 
-To create trace logs, call `https://developer.android.com/reference/android/os/Debug#startMethodTracing()`
+To create trace logs, call `startMethodTracing()`
 where you want the system to start logging tracing data.
 
 In the call, you can specify the name for the
 `.trace` file, and the system saves it to a package-specific
-directory that's intended for persistent app data on the target device---this is
+directory that's intended for persistent app data on the target device—this is
 the same directory that is returned by
-`https://developer.android.com/reference/android/content/Context#getExternalFilesDir(java.lang.String)`
+`getExternalFilesDir()`
 and is located in the `~/sdcard/` directory on most devices.
 This file contains the binary method trace data and a mapping table with thread
 and method names. To stop tracing, call
-`https://developer.android.com/reference/android/os/Debug#stopMethodTracing()`.
+`stopMethodTracing()`.
 
 The following sample starts and stops recording a trace log with the name
 `sample.trace`:
 
 ### Kotlin
 
-```kotlin
+```
 // Starts recording a trace log with the name you provide. For example, the
 // following code tells the system to start recording a .trace file to the
 // device with the name "sample.trace".
@@ -54,7 +64,7 @@ Debug.stopMethodTracing()
 
 ### Java
 
-```java
+```
 // Starts recording a trace log with the name you provide. For example, the
 // following code tells the system to start recording a .trace file to the
 // device with the name "sample.trace".
@@ -67,21 +77,21 @@ Debug.stopMethodTracing();
 ```
 
 Note that if your app calls the
-`https://developer.android.com/reference/android/os/Debug#startMethodTracing()`
+`startMethodTracing()`
 again without changing the name of the trace log, it overwrites the existing log
 saved to the device. To learn how to dynamically change the name of each trace
-log, go to the section about [saving multiple logs](https://developer.android.com/studio/profile/generate-trace-logs#save_multiple_logs).
+log, go to the section about [saving multiple logs](#save_multiple_logs).
 
 If the system reaches the maximum buffer size before you call
-`https://developer.android.com/reference/android/os/Debug#stopMethodTracing()`,
+`stopMethodTracing()`,
 the system stops tracing and sends a notification to the console.
 The methods that start and stop traces work across your entire app process. That
 is, you could call
-`https://developer.android.com/reference/android/os/Debug#startMethodTracing()`
+`startMethodTracing()`
 in your activity's
-`https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)`
-method, and call `https://developer.android.com/reference/android/os/Debug#stopMethodTracing()`
-in that activity's `https://developer.android.com/reference/android/app/Activity#onDestroy()`
+`onCreate(Bundle)`
+method, and call `stopMethodTracing()`
+in that activity's `onDestroy()`
 method.
 
 Note that your app runs more slowly when profiling is enabled. That is, you
@@ -93,24 +103,24 @@ changes make your app faster or slower.
 When deploying to devices running Android 5.0 (API level 21) and higher, you can
 use sample-based profiling to profile with less runtime performance impact. To
 enable sample profiling, call
-`https://developer.android.com/reference/android/os/Debug#startMethodTracingSampling(java.lang.String, int, int)`
+`startMethodTracingSampling()`
 (instead of calling `startMethodTracing()`) with a specified sampling
 interval. The system gathers samples periodically until your app calls
-`https://developer.android.com/reference/android/os/Debug#stopMethodTracing()`.
+`stopMethodTracing()`.
 
 ### Save multiple logs
 
 If your app starts and stops a method trace multiple times without specifying a
 new name for the trace log, the device overwrites the older trace log with the
-new one---that is, it only keeps the most recent trace log. To save multiple
+new one—that is, it only keeps the most recent trace log. To save multiple
 trace logs to your device, dynamically rename the trace log each time your app
-calls `https://developer.android.com/reference/android/os/Debug#startMethodTracing()`.
-The sample below uses the `https://developer.android.com/reference/java/text/SimpleDateFormat`
+calls `startMethodTracing()`.
+The sample below uses the `SimpleDateFormat`
 class to include the current date and time when naming each trace log:
 
 ### Kotlin
 
-```kotlin
+```
 // Uses the <code><a href="/reference/java/text/SimpleDateFormat.html">SimpleDateFormat</a></code> class to create a String with
 // the current date and time.
 val dateFormat: DateFormat = SimpleDateFormat("dd_MM_yyyy_hh_mm_ss", Locale.getDefault())
@@ -121,7 +131,7 @@ Debug.startMethodTracing("sample-$logDate")
 
 ### Java
 
-```java
+```
 // Uses the <code><a href="/reference/java/text/SimpleDateFormat.html">SimpleDateFormat</a></code> class to create a String with
 // the current date and time.
 SimpleDateFormat dateFormat =
@@ -137,22 +147,18 @@ Debug.startMethodTracing(
 After the system creates the trace log on your device, you can access the file
 in one of the following ways:
 
-- [Use the Device Explorer](https://developer.android.com/studio/debug/device-file-explorer).
+* [Use the Device Explorer](/studio/debug/device-file-explorer).
   To open the Device Explorer, click
-  **View \> Tool Windows \> Device Explorer** (or click the
+  **View > Tool Windows > Device Explorer** (or click the
   **Device Explorer**
-  ![](https://developer.android.com/static/studio/images/buttons/device-explorer-icon.png) button in the tool window bar). As shown in figure 1
+  ![](/static/studio/images/buttons/device-explorer-icon.png) button in the tool window bar). As shown in figure 1
   you can locate the `.trace` files by navigating to your app's
   package-specific directory.
 
-  ![](https://developer.android.com/static/studio/images/profile/locating_log_with_device_explorer-2X.png)
-
+  ![](/static/studio/images/profile/locating_log_with_device_explorer-2X.png)
 
   **Figure 1.** Locating the trace logs using the Device Explorer.
-
-  <br />
-
-- Copy the file to your local machine using the `adb pull` command.
+* Copy the file to your local machine using the `adb pull` command.
   The command below copies a trace log named `sample.trace` from the device to
   the `~/Documents/trace-logs/` directory of your local machine.
 
@@ -160,7 +166,5 @@ in one of the following ways:
   adb pull path-on-device/sample.trace ~/Documents/trace-logs/
   ```
 
-  <br />
-
 You can then
-[import the trace file](https://developer.android.com/studio/profile/import-traces) with the CPU Profiler.
+[import the trace file](/studio/profile/import-traces) with the CPU Profiler.

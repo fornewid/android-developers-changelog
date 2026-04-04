@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The following are new features in Android Studio Panda 1.
 
 ## Simplified JDK management with Gradle Daemon JVM Criteria

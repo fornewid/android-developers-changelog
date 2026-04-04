@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 `dmtracedump` is a tool that generates
 graphical call-stack diagrams from trace log files. The tool uses the Graphviz
 Dot utility to create the graphical output, so you need to install Graphviz

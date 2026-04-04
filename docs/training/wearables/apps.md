@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 An app is a focused view that handles tasks that are too complex for a
 complication, tile, or notification. Apps on Wear OS are similar to a mobile
 app's main user interface. Use surfaces such as tiles, complications, and

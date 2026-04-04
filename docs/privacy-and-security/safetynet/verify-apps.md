@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 **Note:** We recommend using the Play Integrity API to check the status of
 Play Protect on a device because it offers several benefits over the SafetyNet
 Verify Apps API. [Learn more](/google/play/integrity/overview).

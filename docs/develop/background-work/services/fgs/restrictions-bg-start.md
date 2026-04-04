@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Apps that target Android 12 (API level 31) or higher can't start foreground
 services while the app is running in the background, except for [a few special
 cases](#background-start-restriction-exemptions). If an app tries to start a

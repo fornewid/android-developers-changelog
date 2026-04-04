@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You can play media in the background even when your application is not on
 screen, for example, while the user is interacting with other applications.
 

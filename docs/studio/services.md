@@ -1,17 +1,8 @@
 ---
-title: Service integrations in Android Studio  |  Android Developers
+title: https://developer.android.com/studio/services
 url: https://developer.android.com/studio/services
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [IDE guides](https://developer.android.com/studio/intro)
-
-# Service integrations in Android Studio Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Android Studio offers a set of service integrations to increase your
 productivity as you develop, release, and maintain Android apps. For example,
@@ -24,9 +15,7 @@ As an admin, you have the ability to control the Cloud services available to
 users in your organization. For some Cloud services, this can be
 done through the [Google Admin Console](https://support.google.com/a/answer/55955?ref_topic=2413312&sjid=9410998059586788964-EU):
 
-* [Google Cloud](https://support.google.com/a/answer/9197205?sjid=15762865756081758884-EU): If disabled, it would prevent developers in your
-  organization from using services such as Firebase Device Streaming, Firebase
-  Crashlytics, or Gemini Code Assist.
+- [Google Cloud](https://support.google.com/a/answer/9197205?sjid=15762865756081758884-EU): If disabled, it would prevent developers in your organization from using services such as Firebase Device Streaming, Firebase Crashlytics, or Gemini Code Assist.
 
 Additionally, you can limit access to Cloud services through permissions. For
 example, you can limit which developers can access Play Vitals data through
@@ -49,8 +38,8 @@ The following table describes the permissions that Android Studio will have
 when specific cloud services are enabled.
 
 | Cloud service integration | Permissions |
-| --- | --- |
+|---|---|
 | Android Vitals (Google Play) | Access metrics and data about your apps in your Google Play Developer account. |
-| Gemini in Android Studio | Manage your Google Cloud data.   Submit data to Google for AI-based developer assistance. |
-| Firebase Device Streaming & Crashlytics | Manage your Google Cloud data.   Manage all your Firebase data and settings. |
-| Backup & Sync | Manage Android Studio configuration data in your Google Drive. |
+| Gemini in Android Studio | Manage your Google Cloud data. Submit data to Google for AI-based developer assistance. |
+| Firebase Device Streaming \& Crashlytics | Manage your Google Cloud data. Manage all your Firebase data and settings. |
+| Backup \& Sync | Manage Android Studio configuration data in your Google Drive. |

@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 With [Google Play Instant](/topic/google-play-instant), people can use an app or
 game without installing it first. Increase engagement with your Android app or
 gain more installs by surfacing your instant app across the Play Store and
@@ -45,6 +46,8 @@ app.
    Apps Development SDK (for Mac). If downloads were unsuccessful, you may have
    to set up HTTP proxies for Android Studio. ![googlelay instant sdk
    download](/static/images/games/engines/cocos/google-instant-sdk-dl.png)
+
+
 
 
 

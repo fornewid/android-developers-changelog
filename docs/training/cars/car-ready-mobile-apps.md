@@ -1,35 +1,27 @@
 ---
-title: Car ready mobile apps  |  Android for Cars  |  Android Developers
+title: https://developer.android.com/training/cars/car-ready-mobile-apps
 url: https://developer.android.com/training/cars/car-ready-mobile-apps
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Android for Cars](https://developer.android.com/training/cars)
-
-# Car ready mobile apps Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 The *Car ready mobile apps* program distributes eligible mobile apps in the
-[video](/training/cars#video), [games](/training/cars#games), and
-[browsers](/training/cars#browser) categories to cars with little to no
+[video](https://developer.android.com/training/cars#video), [games](https://developer.android.com/training/cars#games), and
+[browsers](https://developer.android.com/training/cars#browser) categories to cars with little to no
 additional development work. Starting in February 2025, eligible apps will be
 available for download from the Google Play Store in cars that run
 Android Automotive OS with Google built-in.
 
-**Note:** At a later date, Android Auto will add support for these apps.
+> [!NOTE]
+> **Note:** At a later date, Android Auto will add support for these apps.
 
 ## Eligibility
 
 To be eligible for distribution through this program, your app must meet all of
-the [Car ready](/docs/quality-guidelines/car-app-quality#car-quality-tiers)
+the [Car ready](https://developer.android.com/docs/quality-guidelines/car-app-quality#car-quality-tiers)
 quality guidelines for your app's category. If your app does not already meet
-some of these guidelines – [`AN-1`](/docs/quality-guidelines/car-app-quality#AN-1),
-for example – they might still be met when run in the [compatibility
-mode](/training/cars/platforms/automotive-os/compatibility-mode) used to run apps
+some of these guidelines -- [`AN-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality#AN-1),
+for example -- they might still be met when run in the [compatibility
+mode](https://developer.android.com/training/cars/platforms/automotive-os/compatibility-mode) used to run apps
 distributed through the program.
 
 ### Address common eligibility issues
@@ -41,18 +33,18 @@ common eligibility issues.
 #### Feature requirements preventing distribution
 
 To make your app eligible for distribution to any compatible car with Google
-built-in, it must [meet Google Play feature requirements](/training/cars/platforms/automotive-os#play-feature-requirements).
+built-in, it must [meet Google Play feature requirements](https://developer.android.com/training/cars/platforms/automotive-os#play-feature-requirements).
 
 #### Dependency on an unavailable Google Play service
 
 If your app has a breaking dependency on a Google Play service that is not
-[available on Cars with Google built-in](/training/cars/platforms/automotive-os/google-play/google-services),
+[available on Cars with Google built-in](https://developer.android.com/training/cars/platforms/automotive-os/google-play/google-services),
 you'll need to implement an alternative or remove the dependency.
 
 ## Test your app
 
 To test your app on Android Automotive OS, you can use the
-[generic system images with compatibility mode](/training/cars/testing/emulator?filter=compatibility-mode#generic-images).
+[generic system images with compatibility mode](https://developer.android.com/training/cars/testing/emulator?filter=compatibility-mode#generic-images).
 
 These emulator system images include the compatibility mode that is required for
 cars to receive apps distributed through the *Car ready mobile apps* program, so
@@ -65,7 +57,7 @@ Participation in the program is by invite only. You can nominate your app for
 consideration by submitting the [interest form](https://forms.gle/uBF9nyFdABnLh7wQ7).
 
 If your app is not accepted into the program, you can still bring your app to
-cars. See [Build parked apps](/training/cars/parked) for more details.
+cars. See [Build parked apps](https://developer.android.com/training/cars/parked) for more details.
 
 ### How will I know if my app has been selected for the program?
 
@@ -83,7 +75,7 @@ During the notification period, you can opt out of the program by submitting the
 
 After the notification period has passed and your app has been opted in to the
 program, you can opt out through the Google Play Console by following the steps
-detailed in [Distribute to cars](/training/cars/distribute#opt-out).
+detailed in [Distribute to cars](https://developer.android.com/training/cars/distribute#opt-out).
 
 ## Analyze usage in cars
 
@@ -91,8 +83,8 @@ If your app is made available through the *Car ready mobile apps* program, you
 can do the following to understand how it is being installed and used in cars.
 
 | Platform | Play Console | On device |
-| --- | --- | --- |
-| Android Automotive OS | In the Google Play Console, you can filter by the "Car" form factor to get information about your app's performance in Cars with Google built-in on the *Reach and devices*, *Statistics*, and *Rating and reviews* pages. | You can use the [`hasSystemFeature`](/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)) API to detect whether your app is running on Android Automotive OS by checking for the [`FEATURE_AUTOMOTIVE`](/reference/android/content/pm/PackageManager#FEATURE_AUTOMOTIVE) feature. |
+|---|---|---|
+| Android Automotive OS | In the Google Play Console, you can filter by the "Car" form factor to get information about your app's performance in Cars with Google built-in on the *Reach and devices* , *Statistics* , and *Rating and reviews* pages. | You can use the [`hasSystemFeature`](https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)) API to detect whether your app is running on Android Automotive OS by checking for the [`FEATURE_AUTOMOTIVE`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_AUTOMOTIVE) feature. |
 
 ## Frequently asked questions
 
@@ -118,7 +110,7 @@ new and existing devices in the coming months and years.
 
 ### How can I test my app's experience in cars?
 
-See the [Test your app](#test) section of this page.
+See the [Test your app](https://developer.android.com/training/cars/car-ready-mobile-apps#test) section of this page.
 
 ### If I choose to participate, what happens if I want to opt-out at a later date?
 
@@ -134,7 +126,7 @@ later date.
 ### My app wasn't chosen for inclusion in the program. Can I still distribute it to cars?
 
 Yes, you can still distribute your app to cars. See
-[Distribute to cars](/training/cars/distribute) for more details.
+[Distribute to cars](https://developer.android.com/training/cars/distribute) for more details.
 
 ### When will Android Auto be supported?
 

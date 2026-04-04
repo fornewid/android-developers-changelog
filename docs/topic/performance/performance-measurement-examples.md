@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/topic/performance/performance-measurement-examples
+title: Examples of performance measurement and analysis  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/performance-measurement-examples
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App quality](https://developer.android.com/quality)
+* [Technical quality](https://developer.android.com/quality/technical)
+
+# Examples of performance measurement and analysis Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 These examples show how to use system tracing with Macrobenchmark, along with
 memory profiling, to measure and improve certain kinds of performance problems.
@@ -28,59 +37,67 @@ Performance](https://www.youtube.com/watch?v=qXVxuLvzKek).
 In order to analyze startup time, you must first understand what happens
 during startup. If you want more information than what is explained
 on this page, the
-[documentation on App startup time](https://developer.android.com/topic/performance/vitals/launch-time)
+[documentation on App startup time](/topic/performance/vitals/launch-time)
 provides an overview of the application startup process.
 
 The stages of app startup are:
 
-- Launch the process
-- Initialize generic application objects
-- Create and initialize activity
-- Inflate the layout
-- Draw the first frame
+* Launch the process
+* Initialize generic application objects
+* Create and initialize activity
+* Inflate the layout
+* Draw the first frame
 
 Startup types have the following stages:
 
-- Cold start: This occurs when the application is being started for the first time since boot, or since the application process was killed, either by the user or by the system. Startup creates a new process with no [saved state](https://developer.android.com/reference/android/os/Bundle).
-- Warm start: This occurs when the application is already running in the background, but the activity must be recreated and brought to the foreground. The activity is either recreated while reusing the existing process, or the process is recreated with saved state. The Macrobenchmark testing library supports consistent warm startup testing using the first option.
-- Hot start: This occurs when the process and activity are still running and merely need to be brought to the foreground, possibly recreating some objects as necessary, as well as rendering the new foreground activity. This is the shortest startup scenario.
+* Cold start: This occurs when the application is being started for the
+  first time since boot, or since the application process was killed, either
+  by the user or by the system. Startup creates a new process with no
+  [saved state](/reference/android/os/Bundle).
+* Warm start: This occurs when the application is already running
+  in the background, but the activity must be recreated and brought
+  to the foreground. The activity is either recreated while reusing the
+  existing process, or the process is recreated with saved state.
+  The Macrobenchmark testing library supports consistent warm startup
+  testing using the first option.
+* Hot start: This occurs when the
+  process and activity are still running and merely need to be brought
+  to the foreground, possibly recreating some objects as necessary, as
+  well as rendering the new foreground activity. This is the shortest startup
+  scenario.
 
 We recommend capturing systraces
-[using the on-device system tracing app available in Developer Options](https://developer.android.com/topic/performance/tracing/on-device).
+[using the on-device system tracing app available in Developer Options](/topic/performance/tracing/on-device).
 If you'd like to use command-line tools, [Perfetto](http://perfetto.dev/docs)
 is available for use with Android 10 (API level 29) and higher, while devices
 on earlier versions should use
-[systrace](https://developer.android.com/topic/performance/vitals/launch-time).
+[systrace](/topic/performance/vitals/launch-time).
 
-Note that the term "first frame" is a bit of a misnomer since applications can
+Note that the term “first frame” is a bit of a misnomer since applications can
 vary significantly in how they handle startup after creating the initial
 activity. Some applications will continue inflation for several frames, while
 others will even immediately launch into a secondary activity.
 
 When possible, we recommend that you include a
-[`reportFullyDrawn`](https://developer.android.com/reference/android/app/Activity#reportFullyDrawn())
+[`reportFullyDrawn`](/reference/android/app/Activity#reportFullyDrawn())
 call (available on Android 10 and higher) when startup is completed from the
-application's perspective.
+application’s perspective.
 
 Some things to look for in these system traces include:
 
-![Monitor contention](https://developer.android.com/static/topic/performance/images/benchmark_images/monitor_contention.png "Monitor contention")   
-
+![Monitor contention](/static/topic/performance/images/benchmark_images/monitor_contention.png "Monitor contention")   
 **Figure 1.** Competition for monitor-protected resources can introduce
 significant delay in app startup.
 
-![Synchronous binder transactions](https://developer.android.com/static/topic/performance/images/benchmark_images/synchronous_binder_transactions.png)   
+![Synchronous binder transactions](/static/topic/performance/images/benchmark_images/synchronous_binder_transactions.png)   
+**Figure 2.** Look for unnecessary transactions in your application’s critical path.
 
-**Figure 2.** Look for unnecessary transactions in your application's critical path.
-
-![Concurrent garbage collection](https://developer.android.com/static/topic/performance/images/benchmark_images/concurrent_gc.png)   
-
+![Concurrent garbage collection](/static/topic/performance/images/benchmark_images/concurrent_gc.png)   
 **Figure 3.** Concurrent garbage collection is common and has relatively low
-impact, but if you're hitting it often consider investigating it with the
+impact, but if you’re hitting it often consider investigating it with the
 Android Studio memory profiler.
 
-![I/O at startup](https://developer.android.com/static/topic/performance/images/benchmark_images/startup_io.png)   
-
+![I/O at startup](/static/topic/performance/images/benchmark_images/startup_io.png)   
 **Figure 4.** Check for I/O during startup and look for long
 stalls.
 
@@ -92,11 +109,11 @@ watch out for background work during startup. Note that devices can have
 different CPU configurations, so the number of threads that can run in
 parallel can vary across devices.
 
-Also check out the guide on [common sources of jank](https://developer.android.com/topic/performance/vitals/render#common-jank)
+Also check out the guide on [common sources of jank](/topic/performance/vitals/render#common-jank)
 
 ## Use Android Studio memory profiler
 
-The [Android Studio memory profiler](https://developer.android.com/studio/profile/memory-profiler)
+The [Android Studio memory profiler](/studio/profile/memory-profiler)
 is a powerful tool to reduce memory pressure
 that could be caused by memory leaks or bad usage patterns. It provides a
 live view of object allocations and collections.
@@ -113,13 +130,11 @@ To detect memory problems, start by recording a memory profiling session for
 your app. Next, look for an object whose memory footprint is increasing,
 eventually triggering a garbage collection event.
 
-![Increasing object count](https://developer.android.com/static/topic/performance/images/benchmark_images/studio_increasing_object_count.png)   
-
+![Increasing object count](/static/topic/performance/images/benchmark_images/studio_increasing_object_count.png)   
 **Figure 5.** The memory profiler showing increased allocations of objects
 over time.
 
-![Garbage collections](https://developer.android.com/static/topic/performance/images/benchmark_images/studio_gc.png)   
-
+![Garbage collections](/static/topic/performance/images/benchmark_images/studio_gc.png)   
 **Figure 6.** The memory profiler showing garbage collection events.{.:image-caption}
 
 Once you have identified a use case that is adding
@@ -129,8 +144,7 @@ memory pressure, start analyzing for root causes.
 
 Select a range in the timeline to visualize both allocations and shallow size.
 
-![Visualize allocations and shallow size](https://developer.android.com/static/studio/profile/benchmark_images/studio_allocations_and_shallow_size.png)   
-
+![Visualize allocations and shallow size](/static/studio/profile/benchmark_images/studio_allocations_and_shallow_size.png)   
 **Figure 7.** The memory profiler showing allocations and sizes for a selected
 range in the timeline.
 
@@ -143,13 +157,16 @@ Arranging by class is useful when you want to find classes that are generating o
 otherwise be cached or reused from a memory pool.
 
 For example, imagine you see an app creating 2,000 objects of class called
-"Vertex" every second. This would increase the allocations count by 2,000 every
+“Vertex” every second. This would increase the allocations count by 2,000 every
 second and you would see it when sorting by class. Should such objects be
 reused to avoid generating that garbage? If the answer is yes, then likely
 implementing a memory pool will be needed.
 
-> [!NOTE]
-> **Note:** Object pools are not necessarily a recommended approach in general; in most cases, it is better to simply allocate the objects you need. In some limited situations, such as objects that are very expensive to initialize, object pooling can be advantageous, but be sure to profile and measure to see whether it is worthwhile before assuming and implementing in your code.
+**Note:** Object pools are not necessarily a recommended approach in general; in
+most cases, it is better to simply allocate the objects you need. In some
+limited situations, such as objects that are very expensive to initialize,
+object pooling can be advantageous, but be sure to profile and measure to see
+whether it is worthwhile before assuming and implementing in your code.
 
 #### Arrange by callstack
 
@@ -167,13 +184,11 @@ require allocation of other objects and not just primitive fields.
 To get this value, create a memory dump using the memory profiler. The
 objects allocated in that heap are added to the display.
 
-![Full memory dump](https://developer.android.com/static/topic/performance/images/benchmark_images/studio_memory_dump.png)   
-
+![Full memory dump](/static/topic/performance/images/benchmark_images/studio_memory_dump.png)   
 **Figure 8.** You can create a memory dump at any time by clicking on the Dump
 Java heap button in the memory profiler toolbar.
 
-![added as a column](https://developer.android.com/static/topic/performance/images/benchmark_images/studio_retained_size.png)   
-
+![added as a column](/static/topic/performance/images/benchmark_images/studio_retained_size.png)   
 **Figure 9.** Crearting a memory dump displays a column showing object
 allocations in that heap.
 
@@ -187,11 +202,14 @@ memory optimizations.
 
 The ultimate impact of memory improvements such as these is:
 
-- The app will be killed less often due to Out of Memory issues if the app does not constantly have memory pressure.
-- Having fewer GCs improves jank metrics. This is because GCs cause CPU contention, which can lead to rendering tasks being deferred while GC is happening.
+* The app will be killed less often due to Out of Memory
+  issues if the app does not constantly have memory pressure.
+* Having fewer GCs improves jank metrics. This is
+  because GCs cause CPU contention, which can lead to rendering tasks being
+  deferred while GC is happening.
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics)
-- [App startup analysis and optimization {:#app-startup-analysis-optimization}](https://developer.android.com/topic/performance/appstartup/analysis-optimization)
+* Note: link text is displayed when JavaScript is off
+* [Capture Macrobenchmark metrics](/topic/performance/benchmarking/macrobenchmark-metrics)
+* [App startup analysis and optimization {:#app-startup-analysis-optimization}](/topic/performance/appstartup/analysis-optimization)
