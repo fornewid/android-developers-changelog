@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/surfaces/tiles-layouts.md b/docs/design/ui/wear/guides/m2-5/surfaces/tiles-layouts.md
+index 39e0413..94a84cd 100644
+--- a/docs/design/ui/wear/guides/m2-5/surfaces/tiles-layouts.md
++++ b/docs/design/ui/wear/guides/m2-5/surfaces/tiles-layouts.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![](/static/wear/images/surfaces/tiles-layouts-hero.png)
+ 
+ Understand the ProtoLayout Material layout templates and sample design layouts

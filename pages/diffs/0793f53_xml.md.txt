@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/network-ops/xml.md b/docs/develop/connectivity/network-ops/xml.md
+index b86f518..8cbcfa0 100644
+--- a/docs/develop/connectivity/network-ops/xml.md
++++ b/docs/develop/connectivity/network-ops/xml.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Extensible Markup Language (XML) is a set of rules for encoding documents in
+ machine-readable form. XML is a popular format for sharing data on the internet.
+ 

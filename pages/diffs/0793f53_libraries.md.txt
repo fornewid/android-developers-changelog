@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/get-started/libraries.md b/docs/training/tv/get-started/libraries.md
+index 732872e..5111427 100644
+--- a/docs/training/tv/get-started/libraries.md
++++ b/docs/training/tv/get-started/libraries.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Most AndroidX libraries can be used with Android TV. Use
+ [Android architecture components](/topic/libraries/architecture), such as
+ [`ViewModel`](/topic/libraries/architecture/viewmodel) for managing

@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/cpu-features.md b/docs/ndk/guides/cpu-features.md
+index 41fd000..07b8695 100644
+--- a/docs/ndk/guides/cpu-features.md
++++ b/docs/ndk/guides/cpu-features.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ There are several ways to check for CPU features in your code, each with a
+ different set of trade-offs.
+ 

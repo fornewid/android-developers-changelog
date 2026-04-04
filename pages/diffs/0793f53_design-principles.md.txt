@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/foundations/design-principles.md b/docs/design/ui/cars/guides/foundations/design-principles.md
+index e2a6b77..593c6ec 100644
+--- a/docs/design/ui/cars/guides/foundations/design-principles.md
++++ b/docs/design/ui/cars/guides/foundations/design-principles.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Introduction to Design for Driving
+ 
+ ![](/static/images/design/ui/cars/guides/hero.png)

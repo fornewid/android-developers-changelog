@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/touch-and-input/drag-drop/view.md b/docs/develop/ui/views/touch-and-input/drag-drop/view.md
+index 75c78db..86306c5 100644
+--- a/docs/develop/ui/views/touch-and-input/drag-drop/view.md
++++ b/docs/develop/ui/views/touch-and-input/drag-drop/view.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can implement your drag-and-drop process in views by responding to events
+ that might trigger a drag start and responding and consuming drop events.
+ 

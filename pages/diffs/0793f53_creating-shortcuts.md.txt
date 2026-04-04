@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/launch/shortcuts/creating-shortcuts.md b/docs/develop/ui/views/launch/shortcuts/creating-shortcuts.md
+index bb2f561..0d3a539 100644
+--- a/docs/develop/ui/views/launch/shortcuts/creating-shortcuts.md
++++ b/docs/develop/ui/views/launch/shortcuts/creating-shortcuts.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Shortcuts deliver specific types of content to your users by helping them
+ quickly access parts of your app.
+ 

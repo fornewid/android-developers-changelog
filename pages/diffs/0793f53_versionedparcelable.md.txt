@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/versionedparcelable.md b/docs/jetpack/androidx/releases/versionedparcelable.md
+index 765ce47..32a83fd 100644
+--- a/docs/jetpack/androidx/releases/versionedparcelable.md
++++ b/docs/jetpack/androidx/releases/versionedparcelable.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Versionedparcelable
+ 
+ API Reference  

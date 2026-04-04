@@ -1,0 +1,65 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/material-supportingpane.md b/docs/guide/navigation/navigation-3/recipes/material-supportingpane.md
+index e909cf5..1260ab3 100644
+--- a/docs/guide/navigation/navigation-3/recipes/material-supportingpane.md
++++ b/docs/guide/navigation/navigation-3/recipes/material-supportingpane.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/guide/navigation/navigation-3/recipes/material-supportingpane
++title: App architecture  |  Android Developers
+ url: https://developer.android.com/guide/navigation/navigation-3/recipes/material-supportingpane
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
++
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
++
++
+ # Material Supporting Pane Recipe
+ 
+ This recipe demonstrates how to create an adaptive layout with a main pane and a supporting pane using the `SupportingPaneSceneStrategy` from the Material 3 Adaptive library. This layout is useful for displaying supplementary content alongside the main content on larger screens.
+@@ -16,18 +26,22 @@ This example has three destinations: `MainVideo`, `RelatedVideos`, and `Profile`
+ 
+ The `rememberSupportingPaneSceneStrategy` provides the logic for this adaptive layout.
+ 
+-- **Pane Roles**: Each destination is assigned a role using metadata:
++* **Pane Roles**: Each destination is assigned a role using metadata:
+ 
+-  - `SupportingPaneSceneStrategy.mainPane()`: For the primary content. This pane is always visible.
+-  - `SupportingPaneSceneStrategy.supportingPane()`: For the supplementary content. This pane is shown alongside the main pane on larger screens.
+-  - `SupportingPaneSceneStrategy.extraPane()`: For tertiary content that can be displayed alongside the supporting pane on even larger screens.
+-- **Adaptive Layout** : The `SupportingPaneSceneStrategy` automatically handles the layout. On smaller screens, only the main pane is shown. On larger screens, the supporting pane is shown next to the main pane.
++  + `SupportingPaneSceneStrategy.mainPane()`: For the primary content. This pane is always visible.
++  + `SupportingPaneSceneStrategy.supportingPane()`: For the supplementary content. This pane is shown alongside the main pane on larger screens.
++  + `SupportingPaneSceneStrategy.extraPane()`: For tertiary content that can be displayed alongside the supporting pane on even larger screens.
++* **Adaptive Layout**: The `SupportingPaneSceneStrategy` automatically handles the layout. On smaller screens, only the main pane is shown. On larger screens, the supporting pane is shown next to the main pane.
++* **Back Navigation**: The `BackNavigationBehavior` is customized in this example to `PopUntilCurrentDestinationChange`. This means that when the user presses the back button, the supporting pane will be dismissed, revealing the main pane underneath.
++* **Navigation**: Navigation is handled by adding and removing destinations from the back stack. The `SupportingPaneSceneStrategy` observes these changes and adjusts the layout accordingly.
+ 
+-- **Back Navigation** : The `BackNavigationBehavior` is customized in this example to `PopUntilCurrentDestinationChange`. This means that when the user presses the back button, the supporting pane will be dismissed, revealing the main pane underneath.
++[![](/static/images/picto-icons/code.svg)
+ 
+-- **Navigation** : Navigation is handled by adding and removing destinations from the back stack. The `SupportingPaneSceneStrategy` observes these changes and adjusts the layout accordingly.
++Explore
+ 
+-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/material/supportingpane)
++View the full recipe on GitHub.
++
++arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/material/supportingpane)
+ 
+ ```
+ package com.example.nav3recipes.material.supportingpane
+@@ -148,4 +162,6 @@ class MaterialSupportingPaneActivity : ComponentActivity() {
+         }
+     }
+ }
++
++MaterialSupportingPaneActivity.kt
+ ```
+\ No newline at end of file

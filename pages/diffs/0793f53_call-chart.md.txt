@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/chart-glossary/call-chart.md b/docs/studio/profile/chart-glossary/call-chart.md
+index 5a72fa5..007f301 100644
+--- a/docs/studio/profile/chart-glossary/call-chart.md
++++ b/docs/studio/profile/chart-glossary/call-chart.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The **call chart** provides a graphical representation of a method trace or
+ function trace, where the period and timing of a call is represented on the
+ horizontal axis, and its callees are shown along the vertical axis. Calls to

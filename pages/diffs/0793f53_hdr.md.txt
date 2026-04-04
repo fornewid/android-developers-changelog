@@ -1,0 +1,12 @@
+diff --git a/docs/media/grow/hdr.md b/docs/media/grow/hdr.md
+index 1e05ce2..53f7f87 100644
+--- a/docs/media/grow/hdr.md
++++ b/docs/media/grow/hdr.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ HDR (High Dynamic Range) is a set of technologies and approaches that let your
+ app display content with a greater range of brightness and intensity than SDR
+ (Standard Dynamic Range), as well as more vivid colors.

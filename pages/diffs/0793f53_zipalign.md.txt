@@ -1,0 +1,12 @@
+diff --git a/docs/tools/zipalign.md b/docs/tools/zipalign.md
+index fbfea20..05d094f 100644
+--- a/docs/tools/zipalign.md
++++ b/docs/tools/zipalign.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ `zipalign` is a zip archive alignment tool that helps ensure that all uncompressed files
+ in the archive
+ are aligned relative to the start of the file. This lets the files be accessed directly via

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/migrate/migration-scenarios/recycler-view.md b/docs/develop/ui/compose/migrate/migration-scenarios/recycler-view.md
+index 6881cb1..66e657b 100644
+--- a/docs/develop/ui/compose/migrate/migration-scenarios/recycler-view.md
++++ b/docs/develop/ui/compose/migrate/migration-scenarios/recycler-view.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ [`RecyclerView`](/develop/ui/views/layout/recyclerview) is a View component that makes it easy to efficiently display
+ large sets of data. Instead of creating views for each item in the data set,
+ `RecyclerView` improves the performance of your app by keeping a small pool of

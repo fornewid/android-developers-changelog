@@ -1,0 +1,20 @@
+diff --git a/docs/games/develop/gameloops.md b/docs/games/develop/gameloops.md
+index 9b4200a..b438e2e 100644
+--- a/docs/games/develop/gameloops.md
++++ b/docs/games/develop/gameloops.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ A very popular way to implement a game loop looks like this:
+ 
+ ```
+@@ -157,4 +158,6 @@ idea.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

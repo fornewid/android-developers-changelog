@@ -1,0 +1,33 @@
+diff --git a/docs/google/play/billing/alternative.md b/docs/google/play/billing/alternative.md
+index ac2995e..df24df8 100644
+--- a/docs/google/play/billing/alternative.md
++++ b/docs/google/play/billing/alternative.md
+@@ -14,6 +14,7 @@ Send feedback
+ 
+ 
+ 
++
+ **Note:** Manual reporting of alternative billing only and user choice billing is
+ being sunset. Please find more details about migration deadlines [here](https://support.google.com/googleplay/android-developer/answer/13821247). To
+ learn about what transactions need to be migrated and how to migrate see
+@@ -225,9 +226,9 @@ subsequent purchases made by the same user in your app on the same device. Note
+ that there may be times when the dialog is shown again to a user in situations
+ such as if the user clears caches on their device.
+ 
+-|  |  |
+-| --- | --- |
+-| Information screen for users in the US. | Information screen for users in the EEA. |
++|  |
++| --- |
++| Information screen for users |
+ 
+ Example for illustrative purposes only.
+ 
+@@ -239,4 +240,6 @@ for both [in-app integration](/google/play/billing/alternative/alternative-billi
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

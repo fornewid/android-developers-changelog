@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/explorer.md b/docs/jetpack/androidx/explorer.md
+index 3cfb87e..d28503e 100644
+--- a/docs/jetpack/androidx/explorer.md
++++ b/docs/jetpack/androidx/explorer.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Select a category:
+ 
+ All

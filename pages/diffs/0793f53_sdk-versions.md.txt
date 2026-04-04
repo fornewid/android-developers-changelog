@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/sdk-versions.md b/docs/ndk/guides/sdk-versions.md
+index c2da860..c36f5e3 100644
+--- a/docs/ndk/guides/sdk-versions.md
++++ b/docs/ndk/guides/sdk-versions.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android applications can set a number of SDK version properties in their
+ `build.gradle` file. The [Android `build.gradle`](/studio/build#module-level) documentation explains what
+ those properties mean for the application in general. This document explains how

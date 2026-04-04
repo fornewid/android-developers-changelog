@@ -1,0 +1,12 @@
+diff --git a/docs/training/testing/espresso.md b/docs/training/testing/espresso.md
+index 1a8cfa4..85e0c5a 100644
+--- a/docs/training/testing/espresso.md
++++ b/docs/training/testing/espresso.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Use Espresso to write concise, beautiful, and reliable Android UI tests.
+ 
+ The following code snippet shows an example of an Espresso test:

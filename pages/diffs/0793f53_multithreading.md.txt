@@ -1,0 +1,12 @@
+diff --git a/docs/courses/extras/multithreading.md b/docs/courses/extras/multithreading.md
+index b0b7588..5c17cf2 100644
+--- a/docs/courses/extras/multithreading.md
++++ b/docs/courses/extras/multithreading.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The
+ [Developing Android Apps in Kotlin course](https://codelabs.developers.google.com/codelabs/kotlin-android-training-welcome/index.html?index=..%2F..index#0)
+ assumes that you are familiar with the concept and terminology of

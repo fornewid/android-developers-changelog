@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/gallery/social/comments.md b/docs/design/ui/gallery/social/comments.md
+index 2968f6d..5350d7a 100644
+--- a/docs/design/ui/gallery/social/comments.md
++++ b/docs/design/ui/gallery/social/comments.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Display comments and posts in a supporting pane for context, color, and
+ connection without missing a mention or meme.
+ 

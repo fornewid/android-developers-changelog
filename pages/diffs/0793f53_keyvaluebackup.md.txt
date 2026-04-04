@@ -1,0 +1,12 @@
+diff --git a/docs/identity/data/keyvaluebackup.md b/docs/identity/data/keyvaluebackup.md
+index e232663..9faa868 100644
+--- a/docs/identity/data/keyvaluebackup.md
++++ b/docs/identity/data/keyvaluebackup.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android Backup Service provides cloud storage backup and restore for key-value
+ data in your Android app. During a key-value backup operation, the app's backup
+ data is passed to the device's backup transport. If the device is using the

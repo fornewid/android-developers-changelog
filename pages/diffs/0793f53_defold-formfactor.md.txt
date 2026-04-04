@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/defold/defold-formfactor.md b/docs/games/engines/defold/defold-formfactor.md
+index 701bc8d..ffbba92 100644
+--- a/docs/games/engines/defold/defold-formfactor.md
++++ b/docs/games/engines/defold/defold-formfactor.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ Android devices are available in a variety of form factors and screen sizes. Common categories include:
+ 
+ * Mobile phones
+@@ -318,6 +317,4 @@ Layout.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

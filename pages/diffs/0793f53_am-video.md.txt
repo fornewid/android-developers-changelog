@@ -1,0 +1,12 @@
+diff --git a/docs/studio/debug/am-video.md b/docs/studio/debug/am-video.md
+index e25408d..b8288e0 100644
+--- a/docs/studio/debug/am-video.md
++++ b/docs/studio/debug/am-video.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![Device Video](/static/images/tools/am-video.jpg)
+ 
+ **Figure 1.** Record a video of your app.

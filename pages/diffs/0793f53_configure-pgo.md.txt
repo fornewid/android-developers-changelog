@@ -1,0 +1,136 @@
+diff --git a/docs/games/agde/configure-pgo.md b/docs/games/agde/configure-pgo.md
+index 0c79c7b..aaf2d8a 100644
+--- a/docs/games/agde/configure-pgo.md
++++ b/docs/games/agde/configure-pgo.md
+@@ -1,21 +1,9 @@
+ ---
+-title: Configuring Profile-Guided Optimization in Visual Studio  |  Android game development  |  Android Developers
++title: https://developer.android.com/games/agde/configure-pgo
+ url: https://developer.android.com/games/agde/configure-pgo
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-* [Games dev center](https://developer.android.com/games)
+-* [Guides](https://developer.android.com/games/guides)
+-
+-Send feedback
+-
+-# Configuring Profile-Guided Optimization in Visual Studio Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ Profile-Guided Optimization support was introduced in AGDE
+ version 22.2.71.
+ 
+@@ -31,7 +19,7 @@ project.](https://developer.android.com/games/agde/images/solution-explorer-proj
+ Make sure that your Platform is set to an Android configuration (for example,
+ *Android-arm64-v8a*).
+ 
+-In the left-hand panel, select **Configuration Properties > General**. Look for
++In the left-hand panel, select **Configuration Properties \> General** . Look for
+ the property group called **PGO**.
+ 
+ ![The project properties dialog with General properties shown, and PGO settings
+@@ -39,9 +27,9 @@ highlighted](https://developer.android.com/games/agde/images/project-properties-
+ 
+ **Figure 2:** The Project Properties dialog.
+ 
+-**Note:** If these options (or the Android- platform types) are missing, you should
+-[configure your project for use with
+-AGDE](/games/agde/adapt-existing-project).
++> [!NOTE]
++> **Note:** If these options (or the Android- platform types) are missing, you should [configure your project for use with
++> AGDE](https://developer.android.com/games/agde/adapt-existing-project).
+ 
+ ## Enable PGO-Instrumented Builds in the Project
+ 
+@@ -50,7 +38,7 @@ on the configuration you use during development for testing, which should be
+ your traditional optimized build (you can still have additional debugging
+ features enabled as long as you preserve the compiler optimization settings).
+ 
+-Click on **Configuration Manager…** in the Property page dialog.
++Click on **Configuration Manager...** in the Property page dialog.
+ 
+ ![The top of the Property Pages dialog, showing the Active Solution
+ Configuration and Platform drop-downs, and the Configuration Manager
+@@ -59,7 +47,7 @@ button](https://developer.android.com/games/agde/images/project-property-config-
+ **Figure 3:** The Configuration Manager dialog.
+ 
+ In the Configuration Manager dialog, select the **Active solution
+-configuration** drop-down and choose **<New…>**.
++configuration** drop-down and choose **\<New...\>**.
+ 
+ ![The Configuration Manager dialog, with the Active Solution Configuration
+ drop-down opened and the New option
+@@ -67,7 +55,7 @@ highlighted.](https://developer.android.com/games/agde/images/configuration-mana
+ 
+ **Figure 4:** Creating a New build configuration.
+ 
+-… and create a new PGO-Instrumented configuration.
++... and create a new PGO-Instrumented configuration.
+ 
+ ![The New Solution Configuration dialog, creating a new PGO-Instrumented build
+ configuration based on the existing Release build
+@@ -88,8 +76,8 @@ Instrumented.](https://developer.android.com/games/agde/images/project-propertie
+ For the **Profile Guided Optimization Profiles** setting, enter the path to the
+ folder to write the raw output profile data file to on your Android device.
+ Typically this value should be something like `/data/data/<package
+-name>/cache/` – where `<package name>` is the full package name of your
+-APK – for example, **com.google.sample.tunnel**.
++name>/cache/` -- where `<package name>` is the full package name of your
++APK -- for example, **com.google.sample.tunnel**.
+ 
+ For more in-depth information about how this works, see the [Clang
+ documentation](https://clang.llvm.org/docs/UsersManual.html#cmdoption-fprofile-generate).
+@@ -97,7 +85,7 @@ documentation](https://clang.llvm.org/docs/UsersManual.html#cmdoption-fprofile-g
+ ## Writing PGO-Instrumented profile data to your device
+ 
+ PGO data is usually written to the device by the PGO instrumentation system when
+-a process exits. On Android, apps don't exit – they're always terminated. This
++a process exits. On Android, apps don't exit -- they're always terminated. This
+ means the default "write to disk" functionality never triggers, requiring your
+ app to write PGO data manually.
+ 
+@@ -106,13 +94,11 @@ profile data. This symbol is only available when building a PGO-instrumented
+ build. To make this easier, we recommend using the following pattern when
+ forward declaring `__llvm_profile_write_file`.
+ 
+-```
+-#ifdef PGO_INSTRUMENT
+-extern "C" int __llvm_profile_write_file(void);
+-#else
+-extern "C" int __llvm_profile_write_file(void) { return 0; }
+-#endif
+-```
++    #ifdef PGO_INSTRUMENT
++    extern "C" int __llvm_profile_write_file(void);
++    #else
++    extern "C" int __llvm_profile_write_file(void) { return 0; }
++    #endif
+ 
+ Calling this function writes the profile data to the folder that you specified
+ earlier.
+@@ -173,15 +159,8 @@ or by using the Android Device Explorer.
+ If you are using a build system that is not supported by AGDE you may need to
+ edit your build directly. [Clang's
+ documentation](https://clang.llvm.org/docs/UsersManual.html#profile-guided-optimization)
+-covers the necessary switches – `-fprofile-generate`, and
++covers the necessary switches -- `-fprofile-generate`, and
+ `-fprofile-use`.
+ 
+ If you are using a middleware engine for your game, consult the documentation
+-for your engine to see how to enable PGO (if it is supported).
+-
+-
+-
+-
+-
+-
+-Send feedback
+\ No newline at end of file
++for your engine to see how to enable PGO (if it is supported).
+\ No newline at end of file

@@ -1,0 +1,301 @@
+diff --git a/docs/training/dependency-injection.md b/docs/training/dependency-injection.md
+index 6f3c4d4..bc881f4 100644
+--- a/docs/training/dependency-injection.md
++++ b/docs/training/dependency-injection.md
+@@ -1,27 +1,18 @@
+ ---
+-title: Dependency injection in Android  |  App architecture  |  Android Developers
++title: https://developer.android.com/training/dependency-injection
+ url: https://developer.android.com/training/dependency-injection
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [App architecture](https://developer.android.com/topic/architecture/intro)
+-
+-# Dependency injection in Android Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ Dependency injection (DI) is a technique widely used in programming and well
+ suited to Android development. By following the principles of DI, you lay the
+ groundwork for good app architecture.
+ 
+ Implementing dependency injection provides you with the following advantages:
+ 
+-* Reusability of code
+-* Ease of refactoring
+-* Ease of testing
++- Reusability of code
++- Ease of refactoring
++- Ease of testing
+ 
+ ## Fundamentals of dependency injection
+ 
+@@ -32,21 +23,14 @@ a more general overview of how dependency injection works.
+ 
+ Classes often require references to other classes. For example, a `Car` class
+ might need a reference to an `Engine` class. These required classes are called
+-*dependencies*, and in this example the `Car` class is dependent on
++*dependencies* , and in this example the `Car` class is dependent on
+ having an instance of the `Engine` class to run.
+ 
+ There are three ways for a class to get an object it needs:
+ 
+-1. The class constructs the dependency it needs. In the example above,
+-   `Car` would create and initialize its own instance of
+-   `Engine`.
+-2. Grab it from somewhere else. Some Android APIs, such as
+-   `Context` getters and `getSystemService()`, work this
+-   way.
+-3. Have it supplied as a parameter. The app can provide these
+-   dependencies when the class is constructed or pass them in to the functions
+-   that need each dependency. In the example above, the `Car`
+-   constructor would receive `Engine` as a parameter.
++1. The class constructs the dependency it needs. In the example above, `Car` would create and initialize its own instance of `Engine`.
++2. Grab it from somewhere else. Some Android APIs, such as `Context` getters and `getSystemService()`, work this way.
++3. Have it supplied as a parameter. The app can provide these dependencies when the class is constructed or pass them in to the functions that need each dependency. In the example above, the `Car` constructor would receive `Engine` as a parameter.
+ 
+ The third option is dependency injection! With this approach you take the
+ dependencies of a class and provide them rather than having the class
+@@ -57,7 +41,7 @@ creates its own `Engine` dependency in code looks like this:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class Car {
+ 
+     private val engine = Engine()
+@@ -75,7 +59,7 @@ fun main(args: Array) {
+ 
+ ### Java
+ 
+-```
++```java
+ class Car {
+ 
+     private Engine engine = new Engine();
+@@ -93,18 +77,18 @@ class MyApp {
+     }
+ }
+ ```
+-
+-![Car class without dependency injection](/static/images/training/dependency-injection/1-car-engine-no-di.png)
++![Car class without dependency injection](https://developer.android.com/static/images/training/dependency-injection/1-car-engine-no-di.png)
+ 
+ This is not an example of dependency injection because the `Car` class is
+ constructing its own `Engine`. This can be problematic because:
+ 
+-* `Car` and `Engine` are tightly coupled - an instance of `Car` uses one
++- `Car` and `Engine` are tightly coupled - an instance of `Car` uses one
+   type of `Engine`, and no subclasses or alternative implementations can easily be
+   used. If the `Car` were to construct its own `Engine`, you would have to create
+   two types of `Car` instead of just reusing the same `Car` for engines of type
+   `Gas` and `Electric`.
+-* The hard dependency on `Engine` makes testing more difficult. `Car` uses a
++
++- The hard dependency on `Engine` makes testing more difficult. `Car` uses a
+   real instance of `Engine`, thus preventing you from using a
+   [test double](https://en.wikipedia.org/wiki/Test_double) to modify `Engine` for different test cases.
+ 
+@@ -114,7 +98,7 @@ of `Car` constructing its own `Engine` object on initialization, it receives an
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class Car(private val engine: Engine) {
+     fun start() {
+         engine.start()
+@@ -130,7 +114,7 @@ fun main(args: Array) {
+ 
+ ### Java
+ 
+-```
++```java
+ class Car {
+ 
+     private final Engine engine;
+@@ -153,34 +137,35 @@ class MyApp {
+     }
+ }
+ ```
+-
+-![Car class using dependency injection](/static/images/training/dependency-injection/1-car-engine-di.png)
++![Car class using dependency injection](https://developer.android.com/static/images/training/dependency-injection/1-car-engine-di.png)
+ 
+ The `main` function uses `Car`. Because `Car` depends on `Engine`, the app creates an
+ instance of `Engine` and then uses it to construct an instance of `Car`. The
+ benefits of this DI-based approach are:
+ 
+-* Reusability of `Car`. You can pass in different implementations of `Engine` to
++- Reusability of `Car`. You can pass in different implementations of `Engine` to
+   `Car`. For example, you might define a new subclass of `Engine` called
+   `ElectricEngine` that you want `Car` to use. If you use DI, all you need to do is
+   pass in an instance of the updated `ElectricEngine` subclass, and `Car` still works
+   without any further changes.
+-* Easy testing of `Car`. You can pass in test doubles to test your different
++
++- Easy testing of `Car`. You can pass in test doubles to test your different
+   scenarios. For example, you might create a test double of `Engine` called
+   `FakeEngine` and configure it for different tests.
+ 
+ There are two major ways to do dependency injection in Android:
+ 
+-* **Constructor Injection**. This is the way described above. You pass the
++- **Constructor Injection**. This is the way described above. You pass the
+   dependencies of a class to its constructor.
+-* **Field Injection (or Setter Injection)**. Certain Android framework classes
++
++- **Field Injection (or Setter Injection)**. Certain Android framework classes
+   such as activities and fragments are instantiated by the system, so constructor
+   injection is not possible. With field injection, dependencies are instantiated
+   after the class is created. The code would look like this:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class Car {
+     lateinit var engine: Engine
+ 
+@@ -198,7 +183,7 @@ fun main(args: Array) {
+ 
+ ### Java
+ 
+-```
++```java
+ class Car {
+ 
+     private Engine engine;
+@@ -221,35 +206,36 @@ class MyApp {
+ }
+ ```
+ 
+-**Note:** Dependency injection is based on the
+-[Inversion of Control](https://en.wikipedia.org/wiki/Inversion_of_control) principle in which generic code controls
+-the execution of specific code.
++> [!NOTE]
++> **Note:** Dependency injection is based on the [Inversion of Control](https://en.wikipedia.org/wiki/Inversion_of_control) principle in which generic code controls the execution of specific code.
+ 
+ ### Automated dependency injection
+ 
+ In the previous example, you created, provided, and managed the dependencies
+ of the different classes yourself, without relying on a library. This is called
+-*dependency injection by hand*, or *manual dependency injection*. In the `Car`
++*dependency injection by hand* , or *manual dependency injection* . In the `Car`
+ example, there was only one dependency, but more dependencies and classes can
+ make manual injection of dependencies more tedious. Manual dependency injection
+ also presents several problems:
+ 
+-* For big apps, taking all the dependencies and connecting them
++- For big apps, taking all the dependencies and connecting them
+   correctly can require a large amount of boilerplate code. In a multi-layered
+   architecture, in order to create an object for a top layer, you have to provide
+   all the dependencies of the layers below it. As a concrete example, to build a
+   real car you might need an engine, a transmission, a chassis, and other parts;
+   and an engine in turn needs cylinders and spark plugs.
+-* When you're not able to construct dependencies before passing them in — for
++
++- When you're not able to construct dependencies before passing them in --- for
+   example when using lazy initializations or scoping objects to flows of your
+-  app — you need to write and maintain a custom container (or graph of
++  app --- you need to write and maintain a custom container (or graph of
+   dependencies) that manages the lifetimes of your dependencies in memory.
+ 
+ There are libraries that solve this problem by automating the process of
+ creating and providing dependencies. They fit into two categories:
+ 
+-* Reflection-based solutions that connect dependencies at runtime.
+-* Static solutions that generate the code to connect dependencies
++- Reflection-based solutions that connect dependencies at runtime.
++
++- Static solutions that generate the code to connect dependencies
+   at compile time.
+ 
+ [Dagger](https://dagger.dev/) is a popular dependency injection library for Java,
+@@ -269,7 +255,7 @@ provides those dependencies on demand.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ object ServiceLocator {
+     fun getEngine(): Engine = Engine()
+ }
+@@ -290,7 +276,7 @@ fun main(args: Array) {
+ 
+ ### Java
+ 
+-```
++```java
+ class ServiceLocator {
+ 
+     private static ServiceLocator instance = null;
+@@ -335,48 +321,52 @@ the app has control and proactively injects the required objects.
+ 
+ Compared to dependency injection:
+ 
+-* The collection of dependencies required by a service locator makes code
++- The collection of dependencies required by a service locator makes code
+   harder to test because all the tests have to interact with the same global
+   service locator.
+-* Dependencies are encoded in the class implementation, not in the API surface.
++
++- Dependencies are encoded in the class implementation, not in the API surface.
+   As a result, it's harder to know what a class needs from the outside. As a result, changes to
+   `Car` or the dependencies available in the service locator might result in runtime or test
+   failures by causing references to fail.
+-* Managing lifetimes of objects is more difficult if you want to scope to
++
++- Managing lifetimes of objects is more difficult if you want to scope to
+   anything other than the lifetime of the entire app.
+ 
+ ## Use Hilt in your Android app
+ 
+-[Hilt](/training/dependency-injection/hilt-android) is Jetpack's recommended
++[Hilt](https://developer.android.com/training/dependency-injection/hilt-android) is Jetpack's recommended
+ library for dependency injection in Android. Hilt defines a standard way to do
+ DI in your application by providing containers for every Android class in your
+ project and managing their lifecycles automatically for you.
+ 
+ Hilt is built on top of the popular DI library
+-[Dagger](/training/dependency-injection/dagger-basics) to benefit from the
++[Dagger](https://developer.android.com/training/dependency-injection/dagger-basics) to benefit from the
+ compile time correctness, runtime performance, scalability, and Android Studio
+ support that Dagger provides.
+ 
+ To learn more about Hilt see
+-[Dependency Injection with Hilt](/training/dependency-injection/hilt-android).
++[Dependency Injection with Hilt](https://developer.android.com/training/dependency-injection/hilt-android).
+ 
+ ## Conclusion
+ 
+ Dependency injection provides your app with the following advantages:
+ 
+-* Reusability of classes and decoupling of dependencies: It's easier to swap out
++- Reusability of classes and decoupling of dependencies: It's easier to swap out
+   implementations of a dependency. Code reuse is improved because of inversion
+   of control, and classes no longer control how their dependencies are created,
+   but instead work with any configuration.
+-* Ease of refactoring: The dependencies become a verifiable part of the API
++
++- Ease of refactoring: The dependencies become a verifiable part of the API
+   surface, so they can be checked at object-creation time or at compile time
+   rather than being hidden as implementation details.
+-* Ease of testing: A class doesn't manage its dependencies, so when you're
++
++- Ease of testing: A class doesn't manage its dependencies, so when you're
+   testing it, you can pass in different implementations to test all of
+   your different cases.
+ 
+ To fully understand the benefits of dependency injection, you should try it
+-manually in your app as shown in [Manual dependency injection](/training/dependency-injection/manual).
++manually in your app as shown in [Manual dependency injection](https://developer.android.com/training/dependency-injection/manual).
+ 
+ ## Additional resources
+ 

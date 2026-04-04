@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones.md b/docs/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones.md
+index d13b930..0d0478c 100644
+--- a/docs/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones.md
++++ b/docs/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Your app works great on phones in portrait orientation, so you've restricted the
+ app to portrait only. But you see an opportunity to do more on large screens in
+ landscape orientation or unfolded foldables.

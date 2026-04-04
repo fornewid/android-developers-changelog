@@ -1,0 +1,12 @@
+diff --git a/docs/studio/inspect/task.md b/docs/studio/inspect/task.md
+index a33f8bb..3b83e3e 100644
+--- a/docs/studio/inspect/task.md
++++ b/docs/studio/inspect/task.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Background Task Inspector helps
+ you visualize, monitor, and debug your app's background workers when using
+ [WorkManager library](/jetpack/androidx/releases/work) 2.5.0 or higher.

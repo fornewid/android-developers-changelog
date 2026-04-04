@@ -1,0 +1,12 @@
+diff --git a/docs/tools/dmtracedump.md b/docs/tools/dmtracedump.md
+index 5356a49..c5b28b1 100644
+--- a/docs/tools/dmtracedump.md
++++ b/docs/tools/dmtracedump.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ `dmtracedump` is a tool that generates
+ graphical call-stack diagrams from trace log files. The tool uses the Graphviz
+ Dot utility to create the graphical output, so you need to install Graphviz

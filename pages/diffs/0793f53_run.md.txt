@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run.md b/docs/studio/run.md
+index 08aba00..e7cb075 100644
+--- a/docs/studio/run.md
++++ b/docs/studio/run.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** Android Studio Meerkat updated the labels and ordering of some Build
+ actions. [Learn more](/studio/releases#build-actions-update)
+ 

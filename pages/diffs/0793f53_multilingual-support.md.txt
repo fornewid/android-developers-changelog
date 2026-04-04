@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/resources/multilingual-support.md b/docs/guide/topics/resources/multilingual-support.md
+index 6414f9c..83d6a9b 100644
+--- a/docs/guide/topics/resources/multilingual-support.md
++++ b/docs/guide/topics/resources/multilingual-support.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Starting in Android 7.0 (API level 24),
+ Android provides enhanced support for multilingual users,
+ allowing them to select multiple locales in settings. Android

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/sensors-and-location/sensors/sensors_position.md b/docs/develop/sensors-and-location/sensors/sensors_position.md
+index 33f6067..f036c88 100644
+--- a/docs/develop/sensors-and-location/sensors/sensors_position.md
++++ b/docs/develop/sensors-and-location/sensors/sensors_position.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android platform provides two sensors that let you determine the position
+ of a device: the geomagnetic field sensor and the accelerometer. The Android
+ platform also provides a sensor that lets you determine how close the face of

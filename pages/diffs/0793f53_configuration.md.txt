@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/camerax/configuration.md b/docs/media/camera/camerax/configuration.md
+index b2473ac..5d5306c 100644
+--- a/docs/media/camera/camerax/configuration.md
++++ b/docs/media/camera/camerax/configuration.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You configure each CameraX use case to control different aspects of the use
+ case's operations.
+ 

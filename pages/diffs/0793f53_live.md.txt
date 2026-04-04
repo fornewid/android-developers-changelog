@@ -1,0 +1,12 @@
+diff --git a/docs/ai/gemini/live.md b/docs/ai/gemini/live.md
+index 77ff560..0bf26ae 100644
+--- a/docs/ai/gemini/live.md
++++ b/docs/ai/gemini/live.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ For applications that require real-time and low latency voice support, such as
+ chatbots or agentic interactions, the **Gemini Live API** provides an optimized
+ way to stream both input and output for a Gemini model. By using Firebase AI

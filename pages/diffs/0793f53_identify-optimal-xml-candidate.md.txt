@@ -1,0 +1,12 @@
+diff --git a/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate.md b/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate.md
+index 42a9ef4..33c8a19 100644
+--- a/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate.md
++++ b/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate.md
+@@ -8,7 +8,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ### 1. Analysis scope
+ 
+ **Action:** Use find files and examine all XML layout files within the project (typically located in `res`directories). For each file, parse the view hierarchy and metadata.

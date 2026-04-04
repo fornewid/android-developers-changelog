@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/accessibility-review.md b/docs/studio/prompt-gallery/prompts/accessibility-review.md
+index 53f0415..744ba0e 100644
+--- a/docs/studio/prompt-gallery/prompts/accessibility-review.md
++++ b/docs/studio/prompt-gallery/prompts/accessibility-review.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Make updates to improve accessibility of your UI.
+ 
+ ---

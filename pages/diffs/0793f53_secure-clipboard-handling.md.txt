@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/secure-clipboard-handling.md b/docs/privacy-and-security/risks/secure-clipboard-handling.md
+index 12491f6..0086c91 100644
+--- a/docs/privacy-and-security/risks/secure-clipboard-handling.md
++++ b/docs/privacy-and-security/risks/secure-clipboard-handling.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **OWASP category:** [MASVS-CODE: Code Quality](https://mas.owasp.org/MASVS/10-MASVS-CODE)
+ 
+ ## Overview

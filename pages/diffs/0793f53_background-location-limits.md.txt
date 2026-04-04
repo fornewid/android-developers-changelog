@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/oreo/background-location-limits.md b/docs/about/versions/oreo/background-location-limits.md
+index 2d2d645..d673b41 100644
+--- a/docs/about/versions/oreo/background-location-limits.md
++++ b/docs/about/versions/oreo/background-location-limits.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ In an effort to reduce power consumption, Android 8.0 (API level 26) limits
+ how frequently an app can retrieve the user's current location while the app is
+ [running in the background](/guide/background). Under these

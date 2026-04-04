@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/arch.md b/docs/ndk/guides/arch.md
+index 1356e27..ed0b536 100644
+--- a/docs/ndk/guides/arch.md
++++ b/docs/ndk/guides/arch.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When you're working with native code, hardware matters. The NDK lets you ensure
+ you're compiling for the right architectures and CPUs by giving you a variety
+ of ABIs from which to choose.

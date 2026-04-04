@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/graphics/images/loading.md b/docs/develop/ui/compose/graphics/images/loading.md
+index 64f70b4..a752a3c 100644
+--- a/docs/develop/ui/compose/graphics/images/loading.md
++++ b/docs/develop/ui/compose/graphics/images/loading.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ## Load an image from the disk
+ 
+ Use the [`Image`](/reference/kotlin/androidx/compose/foundation/Image.composable) composable to display a graphic on screen. To load an image

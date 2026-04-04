@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/styles/typography/type-scale-tokens.md b/docs/design/ui/wear/guides/styles/typography/type-scale-tokens.md
+index 55356bc..57c90ba 100644
+--- a/docs/design/ui/wear/guides/styles/typography/type-scale-tokens.md
++++ b/docs/design/ui/wear/guides/styles/typography/type-scale-tokens.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Material 3 Expressive type scale features a combination of 21 styles, each
+ with an intended application and meaning. They're assigned based on use (such as
+ display or label), and grouped more broadly into categories based on scale (such

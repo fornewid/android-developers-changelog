@@ -1,0 +1,12 @@
+diff --git a/docs/training/app-links/about.md b/docs/training/app-links/about.md
+index 80e4936..12ddcc2 100644
+--- a/docs/training/app-links/about.md
++++ b/docs/training/app-links/about.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android App Links is a special deep linking capability in Android 6 and later
+ that allows your verified website URLs to immediately open corresponding content
+ in your Android app, without requiring the user to select your app from a

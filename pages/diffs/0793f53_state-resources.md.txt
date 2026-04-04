@@ -1,0 +1,12 @@
+diff --git a/docs/media/platform/mediaplayer/state-resources.md b/docs/media/platform/mediaplayer/state-resources.md
+index 99abc5a..82dfb1e 100644
+--- a/docs/media/platform/mediaplayer/state-resources.md
++++ b/docs/media/platform/mediaplayer/state-resources.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This document covers two areas with potential pitfalls.
+ 
+ * **State.** With "Medialayer`, certain operations are valid only in specific

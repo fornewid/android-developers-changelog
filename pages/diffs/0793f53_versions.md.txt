@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/versions.md b/docs/jetpack/androidx/versions.md
+index 1cc2eef..c2f5765 100644
+--- a/docs/jetpack/androidx/versions.md
++++ b/docs/jetpack/androidx/versions.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ---
+ 
+ Overview

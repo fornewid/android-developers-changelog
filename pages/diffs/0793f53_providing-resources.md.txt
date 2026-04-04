@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/resources/providing-resources.md b/docs/guide/topics/resources/providing-resources.md
+index afafd86..e110afd 100644
+--- a/docs/guide/topics/resources/providing-resources.md
++++ b/docs/guide/topics/resources/providing-resources.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Resources are
+ the additional files and static content that your code uses, such as bitmaps, layout
+ definitions, user interface strings, animation instructions, and more.

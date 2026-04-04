@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2022.3.1.md b/docs/studio/releases/fixed-bugs/studio/2022.3.1.md
+index 8746fe4..32bf775 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2022.3.1.md
++++ b/docs/studio/releases/fixed-bugs/studio/2022.3.1.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ### Android Studio Giraffe | 2022.3.1 Patch 4
+ 
+ **Released together with:**

@@ -1,0 +1,21 @@
+diff --git a/docs/training/wearables/watch-face-push.md b/docs/training/wearables/watch-face-push.md
+index 6960c45..603bc0b 100644
+--- a/docs/training/wearables/watch-face-push.md
++++ b/docs/training/wearables/watch-face-push.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Wear OS 6 introduces a new API, Watch Face Push, which creates opportunities for
+ more advanced watch face publishing use cases.
+ 
+@@ -184,7 +185,7 @@ println("FAILURE: ${failure.name()}: ${failure.failureMessage()}")
+ }
+ }
+ 
+-[Main.kt](https://github.com/android/snippets/blob/b17a50993cce9a7469f3bee2594a4a0dff3b5c11/watchfacepush/validator/src/main/kotlin/com/example/validator/Main.kt#L39-L54)
++[Main.kt](https://github.com/android/snippets/blob/0e26519d6d4e3c3ff70cf0806b9a2df65d3929b6/watchfacepush/validator/src/main/kotlin/com/example/validator/Main.kt#L39-L54)
+ 
+ For an example of using this library, see the [GitHub sample](https://github.com/android/wear-os-samples/tree/main/WatchFacePush). See also the
+ [Portable Asset Compiler Kit (Pack)](https://github.com/google/pack) library, which is useful for building

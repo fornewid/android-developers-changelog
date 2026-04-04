@@ -1,0 +1,12 @@
+diff --git a/docs/identity/data/backup.md b/docs/identity/data/backup.md
+index a96559c..5952b8a 100644
+--- a/docs/identity/data/backup.md
++++ b/docs/identity/data/backup.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Users often invest significant time and effort creating an identity, adding
+ data, and customizing settings and preferences within your app. Preserving this
+ data and personalization for users when they upgrade to a new device or

@@ -1,0 +1,358 @@
+diff --git a/docs/develop/ui/compose/mental-model.md b/docs/develop/ui/compose/mental-model.md
+index 34d1893..2e9d78c 100644
+--- a/docs/develop/ui/compose/mental-model.md
++++ b/docs/develop/ui/compose/mental-model.md
+@@ -1,10 +1,18 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/mental-model
++title: Thinking in Compose  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/mental-model
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-[Video](https://www.youtube.com/watch?v=4zf30a34OOA)
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Thinking in Compose Stay organized with collections Save and categorize content based on your preferences.
++
++
+ 
+ Jetpack Compose is a modern declarative UI Toolkit for Android. Compose
+ simplifies writing and maintaining your app UI by providing a
+@@ -18,7 +26,7 @@ Historically, an Android view hierarchy has been representable as a tree of UI
+ widgets. As the state of the app changes because of things like user
+ interactions, the UI hierarchy needs to be updated to display the current data.
+ The most common way of updating the UI is to walk the tree using functions like
+-[`findViewById()`](https://developer.android.com/reference/android/view/View#findViewById(int)), and change
++[`findViewById()`](/reference/android/view/View#findViewById(int)), and change
+ nodes by calling methods like `button.setText(String)`,
+ `container.addChild(View)`, or `img.setImageBitmap(Bitmap)`. These methods
+ change the internal state of the widget.
+@@ -41,7 +49,7 @@ One challenge with regenerating the entire screen is that it is potentially
+ expensive, in terms of time, computing power, and battery usage. To mitigate
+ this cost, Compose intelligently chooses which parts of the UI need to be
+ redrawn at any given time. This does have some implications for how you design
+-your UI components, as discussed in [Recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition).
++your UI components, as discussed in [Recomposition](#recomposition).
+ 
+ ## An example composable function
+ 
+@@ -49,23 +57,40 @@ Using Compose, you can build your user interface by defining a set of
+ *composable* functions that take in data and emit UI elements. An example
+ is a `Greeting` widget, which takes in a `String` and emits a `Text` widget
+ which displays a greeting message.
++
+ ![A phone showing the text Hello World, and the code for the composable function that generates that
+-UI.](https://developer.android.com/static/develop/ui/compose/images/mmodel-simple.png) **Figure 1.** A composable function that is passed data and uses it to render a text widget on the screen.
++  UI.](/static/develop/ui/compose/images/mmodel-simple.png)
++
++
++**Figure 1.** A composable function that is passed data and uses it to
++render a text widget on the screen.
+ 
+ A few noteworthy things about this function:
+ 
+-- **Annotation:** The function is annotated with the `@Composable` annotation. All composable functions must have this annotation. This annotation informs the Compose compiler that this function is intended to convert data into UI.
+-- **Data input:** The function takes in data. Composable functions can accept parameters, which let the app logic describe the UI. In this case, our widget accepts a `String` so it can greet the user by name.
+-- **UI display:** The function displays text in the UI. It does so by calling the `Text()` composable function, which actually creates the text UI element. Composable functions emit UI hierarchy by calling other composable functions.
+-- **No return value:** The function doesn't return anything. Compose functions that emit UI don't need to return anything, because they describe the target screen state instead of constructing UI widgets.
+-- **Properties:** This function is fast,
++* **Annotation:** The function is annotated with the `@Composable` annotation.
++  All composable functions must have this annotation. This annotation informs
++  the Compose compiler that this function is intended to convert data into UI.
++* **Data input:** The function takes in data. Composable functions can accept
++  parameters, which let the app logic describe the UI. In this case, our
++  widget accepts a `String` so it can greet the user by name.
++* **UI display:** The function displays text in the UI. It does so by calling
++  the `Text()` composable function, which actually creates the text UI
++  element. Composable functions emit UI hierarchy by calling other composable
++  functions.
++* **No return value:** The function doesn't return anything. Compose functions
++  that emit UI don't need to return anything, because they describe the target
++  screen state instead of constructing UI widgets.
++* **Properties:** This function is fast,
+   [idempotent](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning), and free of *side-effects*.
+ 
+-  - The function behaves the same way when called multiple times with the same argument, and it does not use other values such as global variables or calls to `random()`.
+-  - The function describes the UI without any side-effects, such as modifying properties or global variables.
++  + The function behaves the same way when called multiple times with the
++    same argument, and it does not use other values such as global variables
++    or calls to `random()`.
++  + The function describes the UI without any side-effects, such as
++    modifying properties or global variables.
+ 
+   In general, all composable functions must be written with these
+-  properties, for reasons discussed in [Recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition).
++  properties, for reasons discussed in [Recomposition](#recomposition).
+ 
+ ## The declarative paradigm shift
+ 
+@@ -78,20 +103,32 @@ In Compose's declarative approach, widgets are relatively stateless and don't
+ expose setter or getter functions. In fact, widgets are not exposed as objects.
+ You update the UI by calling the same composable function with different
+ arguments. This simplifies providing state to architectural patterns such as
+-a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel), as described in the
+-[Guide to app architecture](https://developer.android.com/jetpack/guide). Then, your composables are
++a [`ViewModel`](/reference/androidx/lifecycle/ViewModel), as described in the
++[Guide to app architecture](/jetpack/guide). Then, your composables are
+ responsible for transforming the current application state into a UI every time
+ the observable data updates.
++
+ ![Illustration of the flow of data in a Compose UI, from high-level objects down
+-to their children.](https://developer.android.com/static/develop/ui/compose/images/mmodel-flow-data.png) **Figure 2.** The app logic provides data to the top-level composable function. That function uses the data to describe the UI by calling other composables, and passes the appropriate data to those composables, and on down the hierarchy.
++to their children.](/static/develop/ui/compose/images/mmodel-flow-data.png)
++
++
++**Figure 2.** The app logic provides data to the top-level composable function.
++That function uses the data to describe the UI by calling other composables, and
++passes the appropriate data to those composables, and on down the hierarchy.
+ 
+ When the user interacts with the UI, the UI raises events such as `onClick`.
+ Those events should notify the app logic, which can then change the app's state.
+ When the state changes, the composable functions are called again with the new
+ data. This causes the UI elements to be redrawn--this process is called
+ *recomposition*.
++
+ ![Illustration of how UI elements respond to interaction, by triggering events that are handled by the app
+-logic.](https://developer.android.com/static/develop/ui/compose/images/mmodel-flow-events.png) **Figure 3.** The user interacted with a UI element, causing an event to be triggered. The app logic responds to the event, then the composable functions are automatically called again with new parameters, if necessary.
++logic.](/static/develop/ui/compose/images/mmodel-flow-events.png)
++
++
++**Figure 3.** The user interacted with a UI element, causing an event to be
++triggered. The app logic responds to the event, then the composable functions
++are automatically called again with new parameters, if necessary.
+ 
+ ## Dynamic content
+ 
+@@ -99,17 +136,16 @@ Because composable functions are written in Kotlin instead of XML, they can be
+ as dynamic as any other Kotlin code. For example, suppose you want to build a UI
+ that greets a list of users:
+ 
+-
+-```kotlin
++```
+ @Composable
+ fun Greeting(names: List<String>) {
+     for (name in names) {
+         Text("Hello $name")
+     }
+ }
+-```
+ 
+-<br />
++ThinkingInComposeSnippets.kt
++```
+ 
+ This function takes in a list of names and generates a greeting for each user.
+ Composable functions can be quite sophisticated. You can use `if` statements to
+@@ -127,17 +163,16 @@ framework can intelligently recompose only the components that changed.
+ 
+ For example, consider this composable function which displays a button:
+ 
+-
+-```kotlin
++```
+ @Composable
+ fun ClickCounter(clicks: Int, onClick: () -> Unit) {
+     Button(onClick = onClick) {
+         Text("I've been clicked $clicks times")
+     }
+ }
+-```
+ 
+-<br />
++ThinkingInComposeSnippets.kt
++```
+ 
+ Every time the button is clicked, the caller updates the value of `clicks`.
+ Compose calls the lambda with the `Text` function again to show the new value;
+@@ -159,9 +194,9 @@ and unpredictable behavior in your app. A side-effect is any change that is
+ visible to the rest of your app. For example, these actions are all dangerous
+ side-effects:
+ 
+-- Writing to a property of a shared object
+-- Updating an observable in `ViewModel`
+-- Updating shared preferences
++* Writing to a property of a shared object
++* Updating an observable in `ViewModel`
++* Updating shared preferences
+ 
+ Composable functions might be re-executed as often as every frame, such as when
+ an animation is being rendered. Composable functions should be fast to avoid
+@@ -175,8 +210,7 @@ preferences itself. Instead, this code moves the read and write to a `ViewModel`
+ in a background coroutine. The app logic passes the current value with a
+ callback to trigger an update.
+ 
+-
+-```kotlin
++```
+ @Composable
+ fun SharedPrefsToggle(
+     text: String,
+@@ -188,17 +222,18 @@ fun SharedPrefsToggle(
+         Checkbox(checked = value, onCheckedChange = onValueChanged)
+     }
+ }
+-```
+ 
+-<br />
++ThinkingInComposeSnippets.kt
++```
+ 
+ This document discusses a number of things to be aware of when you use Compose:
+ 
+-- Recomposition skips as many composable functions and lambdas as possible.
+-- Recomposition is optimistic and may be canceled.
+-- A composable function might be run quite frequently, as often as every frame of an animation.
+-- Composable functions can execute in parallel.
+-- Composable functions can execute in any order.
++* Recomposition skips as many composable functions and lambdas as possible.
++* Recomposition is optimistic and may be canceled.
++* A composable function might be run quite frequently, as often as every frame
++  of an animation.
++* Composable functions can execute in parallel.
++* Composable functions can execute in any order.
+ 
+ The following sections will cover how to build composable functions to support
+ recomposition. In every case, the best practice is to keep your composable
+@@ -215,8 +250,7 @@ Every composable function and lambda might recompose by itself. The following
+ example demonstrates how recomposition can skip some elements when
+ rendering a list:
+ 
+-
+-```kotlin
++```
+ /**
+  * Display a list of names the user can click with a header
+  */
+@@ -250,9 +284,9 @@ fun NamePicker(
+ private fun NamePickerItem(name: String, onClicked: (String) -> Unit) {
+     Text(name, Modifier.clickable(onClick = { onClicked(name) }))
+ }
+-```
+ 
+-<br />
++ThinkingInComposeSnippets.kt
++```
+ 
+ Each of these scopes might be the only thing to execute during a recomposition.
+ Compose might skip to the `Column` lambda without executing any of its parents
+@@ -295,8 +329,9 @@ the resulting value to the composable function as a parameter using
+ 
+ ### Composable functions could run in parallel
+ 
+-> [!NOTE]
+-> **Note:** Composable functions cannot currently be run in parallel, but you should write Compose code in a multithreaded way. In the future, Compose may be multithreaded.
++**Note:** Composable functions cannot currently be run in parallel, but you
++should write Compose code in a multithreaded way. In the future, Compose may
++be multithreaded.
+ 
+ Compose could optimize recomposition by running composable functions in
+ parallel. This would let Compose take advantage of multiple cores, and run
+@@ -313,13 +348,12 @@ have no side-effects. Instead, trigger side-effects from callbacks such as
+ 
+ When a composable function is invoked, the invocation might occur on a different
+ thread from the caller. That means code that modifies variables in a composable
+-lambda should be avoided--both because such code is not thread-safe, and because
++lambda should be avoided–both because such code is not thread-safe, and because
+ it is an impermissible side-effect of the composable lambda.
+ 
+ Here's an example showing a composable that displays a list and its count:
+ 
+-
+-```kotlin
++```
+ @Composable
+ fun ListComposable(myList: List<String>) {
+     Row(horizontalArrangement = Arrangement.SpaceBetween) {
+@@ -331,16 +365,15 @@ fun ListComposable(myList: List<String>) {
+         Text("Count: ${myList.size}")
+     }
+ }
+-```
+ 
+-<br />
++ThinkingInComposeSnippets.kt
++```
+ 
+ This code is side-effect free, and transforms the input list to UI. This is
+ great code for displaying a small list. However, if the function writes to a
+ local variable, this code won't be thread-safe or correct:
+ 
+-
+-```kotlin
++```
+ @Composable
+ fun ListWithBug(myList: List<String>) {
+     var items = 0
+@@ -357,9 +390,9 @@ fun ListWithBug(myList: List<String>) {
+         Text("Count: $items")
+     }
+ }
+-```
+ 
+-<br />
++ThinkingInComposeSnippets.kt
++```
+ 
+ In this example, `items` is modified with every recomposition. That could be
+ every frame of an animation, or when the list updates. Either way, the UI will
+@@ -369,8 +402,10 @@ to execute composable lambdas.
+ 
+ ### Composable functions can execute in any order
+ 
+-> [!NOTE]
+-> **Note:** Compose operates on the main thread, but it has been designed from the start with multithreading in mind, and we don't guarantee a single threaded model will remain in the future. Because of this, you should always write your composables as if they can be run on multiple threads.
++**Note:** Compose operates on the main thread, but it has been designed from the
++start with multithreading in mind, and we don't guarantee a single threaded
++model will remain in the future. Because of this, you should always write your
++composables as if they can be run on multiple threads.
+ 
+ If you look at the code for a composable function, you might assume that the
+ code is run in the order it appears. But this isn't guaranteed to be true. If a
+@@ -381,8 +416,7 @@ some UI elements are higher priority than others, and drawing them first.
+ For example, suppose you have code like this to draw three screens in a tab
+ layout:
+ 
+-
+-```kotlin
++```
+ @Composable
+ fun ButtonRow() {
+     MyFancyNavigation {
+@@ -391,9 +425,9 @@ fun ButtonRow() {
+         EndScreen()
+     }
+ }
+-```
+ 
+-<br />
++ThinkingInComposeSnippets.kt
++```
+ 
+ The calls to `StartScreen`, `MiddleScreen`, and `EndScreen` might happen in any
+ order. This means you can't, for example, have `StartScreen()` set some global
+@@ -407,11 +441,11 @@ the following additional resources.
+ 
+ ### Videos
+ 
+-- [Composable functions - MAD Skills](https://www.youtube.com/watch?v=fFLBCgoHHys)
++* [Composable functions - MAD Skills](https://www.youtube.com/watch?v=fFLBCgoHHys)
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Kotlin for Jetpack Compose](https://developer.android.com/develop/ui/compose/kotlin)
+-- [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state)
+-- [Jetpack Compose architectural layering](https://developer.android.com/develop/ui/compose/layering)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Kotlin for Jetpack Compose](/develop/ui/compose/kotlin)
++* [State and Jetpack Compose](/develop/ui/compose/state)
++* [Jetpack Compose architectural layering](/develop/ui/compose/layering)
+\ No newline at end of file

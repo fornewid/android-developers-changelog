@@ -1,0 +1,12 @@
+diff --git a/docs/agents/skills/r8-analyzer/references/REFLECTION-GUIDE.md b/docs/agents/skills/r8-analyzer/references/REFLECTION-GUIDE.md
+index d215941..c9889e8 100644
+--- a/docs/agents/skills/r8-analyzer/references/REFLECTION-GUIDE.md
++++ b/docs/agents/skills/r8-analyzer/references/REFLECTION-GUIDE.md
+@@ -8,6 +8,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A categorized summary of the keep rule examples, including the code patterns to
+ look for (imports/usage) and the corresponding suggested rules.
+ 

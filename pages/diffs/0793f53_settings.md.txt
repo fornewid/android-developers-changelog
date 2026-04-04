@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/components/settings.md b/docs/develop/ui/views/components/settings.md
+index 09d1f6a..5ce52b3 100644
+--- a/docs/develop/ui/views/components/settings.md
++++ b/docs/develop/ui/views/components/settings.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Settings   Part of [Android Jetpack](/jetpack).
+ 
+ Settings let users change the functionality and behavior of an app. Settings can

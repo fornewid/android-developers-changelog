@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/use-window-size-classes.md b/docs/develop/ui/compose/layouts/adaptive/use-window-size-classes.md
+index bb0ede7..2ad6ebe 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/use-window-size-classes.md
++++ b/docs/develop/ui/compose/layouts/adaptive/use-window-size-classes.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Window size classes are a set of opinionated viewport breakpoints that help you
+ design, develop, and test responsive/adaptive layouts. The breakpoints balance
+ layout simplicity with the flexibility of optimizing your app for unique cases.

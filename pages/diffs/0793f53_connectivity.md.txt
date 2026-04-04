@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/build-for-billions/connectivity.md b/docs/docs/quality-guidelines/build-for-billions/connectivity.md
+index e577769..9192e11 100644
+--- a/docs/docs/quality-guidelines/build-for-billions/connectivity.md
++++ b/docs/docs/quality-guidelines/build-for-billions/connectivity.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Over half of all users worldwide will experience your app over a 2G
+ connection. To improve their experience, optimize for low-speed
+ connections and offline working by storing data, queuing requests, and handling

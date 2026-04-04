@@ -1,0 +1,127 @@
+diff --git a/docs/courses/quizzes/android-development-with-kotlin-4/android-development-with-kotlin-4.md b/docs/courses/quizzes/android-development-with-kotlin-4/android-development-with-kotlin-4.md
+index 87fe9a4..4d7bfd0 100644
+--- a/docs/courses/quizzes/android-development-with-kotlin-4/android-development-with-kotlin-4.md
++++ b/docs/courses/quizzes/android-development-with-kotlin-4/android-development-with-kotlin-4.md
+@@ -1,77 +1,67 @@
+ ---
+-title: Lesson 4: Build your first Android app  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-4/android-development-with-kotlin-4
+ url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-4/android-development-with-kotlin-4
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Lesson 4: Build your first Android app
+ 
+-Return to pathway
+-
+-
+-
+-1. ## Which method on an `Activity` inflates the app's layout and makes its views available as objects?
+-
+-   `onCreate()`
+-
+-   `setClickListener()`
+-
+-   `setContentView()`
+-
+-   `show()`
+-2. ## Which view attribute do you use to set the width of a `View` so that it adjusts to fit the content?
+-
+-   `android:view_width="wrap"`
+-
+-   `android:layout_width="wrap_content"`
+-
+-   `android:layout_height="wrap_content"`
+-
+-   `android:layout_width="match_parent"`
+-3. ## Which method changes the image resource for an `ImageView` in Kotlin code?
+-
+-   `setImageResource()`
++# Lesson 4: Build your first Android app
+ 
+-   `setImageURI()`
++<br />
+ 
+-   `setImage()`
+ 
+-   `setImageRes()`
+-4. ## What does the `lateinit` keyword in a variable declaration indicate in Kotlin code?
++Return to pathway  
++1.
+ 
+-   The variable is never initialized.
++   ## Which method on an `Activity` inflates the app's layout and makes its views available as objects?
+ 
+-   The variable is only initialized at app runtime.
++   `onCreate()`  
++   `setClickListener()`  
++   `setContentView()`  
++   `show()`  
++2.
+ 
+-   The variable is automatically initialized to `null`.
++   ## Which view attribute do you use to set the width of a `View` so that it adjusts to fit the content?
+ 
+-   The variable will be initialized later. I promise!
+-5. ## Which Gradle configuration indicates the most recent API level your app has been tested with?
++   `android:view_width="wrap"`  
++   `android:layout_width="wrap_content"`  
++   `android:layout_height="wrap_content"`  
++   `android:layout_width="match_parent"`  
++3.
+ 
+-   `minSdkVersion`
++   ## Which method changes the image resource for an `ImageView` in Kotlin code?
+ 
+-   `compileSdkVersion`
++   `setImageResource()`  
++   `setImageURI()`  
++   `setImage()`  
++   `setImageRes()`  
++4.
+ 
+-   `targetSdkVersion`
++   ## What does the `lateinit` keyword in a variable declaration indicate in Kotlin code?
+ 
+-   `testSdkVersion`
+-6. ## Which of the following accessibility tools comes built in with most Android devices?
++   The variable is never initialized.  
++   The variable is only initialized at app runtime.  
++   The variable is automatically initialized to `null`.  
++   The variable will be initialized later. I promise!  
++5.
+ 
+-   In Android Studio, Refactor > Add RTL support where possible
++   ## Which Gradle configuration indicates the most recent API level your app has been tested with?
+ 
+-   Accessibility Scanner
++   `minSdkVersion`  
++   `compileSdkVersion`  
++   `targetSdkVersion`  
++   `testSdkVersion`  
++6.
+ 
+-   TalkBack
++   ## Which of the following accessibility tools comes built in with most Android devices?
+ 
+-   Lint
++   In Android Studio, Refactor \> Add RTL support where possible  
++   Accessibility Scanner  
++   TalkBack  
++   Lint  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++
++*error_outline* An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

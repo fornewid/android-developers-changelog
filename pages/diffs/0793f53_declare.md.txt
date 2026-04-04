@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/services/fgs/declare.md b/docs/develop/background-work/services/fgs/declare.md
+index 06afcc4..9360d7c 100644
+--- a/docs/develop/background-work/services/fgs/declare.md
++++ b/docs/develop/background-work/services/fgs/declare.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ In your app's manifest, declare each of your app's foreground services
+ with a [`<service>`](/guide/topics/manifest/service-element)
+ element. For each service, use an

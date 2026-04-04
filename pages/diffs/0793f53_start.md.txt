@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/start.md b/docs/games/playgames/start.md
+index 39c5535..0d59ade 100644
+--- a/docs/games/playgames/start.md
++++ b/docs/games/playgames/start.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Your game must meet playability requirements before you can release the game on
+ [Google Play Games on PC](/games/playgames/overview). Once the game is on the
+ platform, you can work toward full certification by adding platform features
+@@ -139,4 +140,6 @@ information.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,258 @@
+diff --git a/docs/training/tv/playback/leanback/transport-controls.md b/docs/training/tv/playback/leanback/transport-controls.md
+index 3087da6..da66b2d 100644
+--- a/docs/training/tv/playback/leanback/transport-controls.md
++++ b/docs/training/tv/playback/leanback/transport-controls.md
+@@ -1,14 +1,28 @@
+ ---
+-title: https://developer.android.com/training/tv/playback/leanback/transport-controls
++title: Use transport controls  |  Android TV  |  Android Developers
+ url: https://developer.android.com/training/tv/playback/leanback/transport-controls
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-Build better with Compose Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS. [Compose for TV →](https://developer.android.com/training/tv/playback/compose) ![](https://developer.android.com/static/images/android-compose-tv-logo.png)
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Android TV](https://developer.android.com/training/tv)
+ 
+-> [!WARNING]
+-> **Warning:** The Leanback library is deprecated. Use [Jetpack Compose for
+-> Android TV OS](https://developer.android.com/training/tv/playback/compose) instead.
++# Use transport controls Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++Build better with Compose
++
++Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS.
++
++[Compose for TV →](https://developer.android.com/training/tv/playback/compose)
++
++![](/static/images/android-compose-tv-logo.png)
++
++**Warning:** The Leanback library is deprecated. Use [Jetpack Compose for
++Android TV OS](/training/tv/playback/compose) instead.
+ 
+ The Leanback UI toolkit has playback controls that provide an improved
+ user experience. For video apps, the transport controls support video scrubbing
+@@ -31,24 +45,24 @@ optionally the video) and a *player adapter* to encapsulate a media player.
+ ### Playback fragment
+ 
+ Your app's UI Activity should use a
+-`https://developer.android.com/reference/androidx/leanback/app/PlaybackSupportFragment` or a
+-`https://developer.android.com/reference/androidx/leanback/app/VideoSupportFragment`.
++`PlaybackSupportFragment` or a
++`VideoSupportFragment`.
+ Both contain the leanback transport controls:
+ 
+-- A `https://developer.android.com/reference/androidx/leanback/app/PlaybackSupportFragment` animates its transport controls to hide/show them as needed.
+-- A `https://developer.android.com/reference/androidx/leanback/app/VideoSupportFragment` extends `PlaybackSupportFragment`and has a `https://developer.android.com/reference/android/view/SurfaceView` to render video.
++* A `PlaybackSupportFragment` animates its transport controls to hide/show them as needed.
++* A `VideoSupportFragment` extends `PlaybackSupportFragment`and has a `SurfaceView` to render video.
+ 
+ You can customize a fragment's
+-`https://developer.android.com/reference/androidx/leanback/widget/ObjectAdapter`
++`ObjectAdapter`
+ to enhance the UI. For example, use
+-`https://developer.android.com/reference/androidx/leanback/app/PlaybackSupportFragment#setAdapter(androidx.leanback.widget.ObjectAdapter)`
++`setAdapter()`
+ to add a "related videos" row.
+ 
+ ### PlayerAdapter
+ 
+-`https://developer.android.com/reference/androidx/leanback/media/PlayerAdapter` is an abstract class that
++`PlayerAdapter` is an abstract class that
+ controls the underlying media player. Developers can choose
+-the pre-built `https://developer.android.com/reference/androidx/leanback/media/MediaPlayerAdapter` implementation, or write
++the pre-built `MediaPlayerAdapter` implementation, or write
+ their own implementation of this class.
+ 
+ ## Glueing the pieces together
+@@ -57,21 +71,26 @@ You must use some "control glue" to connect the playback fragment
+ to the player. The leanback
+ library provides two kinds of glue:
+ 
+-- `https://developer.android.com/reference/androidx/leanback/media/PlaybackBannerControlGlue` draws the transport controls in the playback fragment in the "old style", placing them inside an opaque background. (`PlaybackBannerControlGlue` replaces `https://developer.android.com/reference/androidx/leanback/media/PlaybackControlGlue`, which has been deprecated.)
+-- `https://developer.android.com/reference/androidx/leanback/media/PlaybackTransportControlGlue` uses "new style" controls with a transparent background.
++* `PlaybackBannerControlGlue` draws the
++  transport controls in the playback fragment in the "old style", placing them
++  inside an opaque background. (`PlaybackBannerControlGlue`
++  replaces `PlaybackControlGlue`,
++  which has been deprecated.)
++* `PlaybackTransportControlGlue`
++  uses "new style" controls with a transparent background.
+ 
+ ![leanback transport control glue](https://developer.android.com/training/tv/playback/images/glue_side_by_side.png)
+ 
+ If you want your app to support video scrubbing you must use
+-`https://developer.android.com/reference/androidx/leanback/media/PlaybackTransportControlGlue`.
++`PlaybackTransportControlGlue`.
+ 
+ You also need to specify a "glue host" that
+ binds the glue to the playback
+ fragment, draws the transport controls in the UI and maintains their state, and
+ passes transport control events back to the glue. The host must match the playback fragment type. Use
+-`https://developer.android.com/reference/androidx/leanback/app/PlaybackSupportFragmentGlueHost` with
++`PlaybackSupportFragmentGlueHost` with
+ a `PlaybackFragment`, and
+-`https://developer.android.com/reference/androidx/leanback/app/VideoSupportFragmentGlueHost` with a
++`VideoSupportFragmentGlueHost` with a
+ `VideoFragment`.
+ 
+ Here's an illustration showing how the pieces of a leanback transport control
+@@ -92,7 +111,7 @@ that extends the `VideoSupportFragment`.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class MyVideoFragment : VideoSupportFragment() {
+ 
+   fun onCreate(savedInstanceState: Bundle) {
+@@ -118,7 +137,7 @@ class MyVideoFragment : VideoSupportFragment() {
+ 
+ ### Java
+ 
+-```java
++```
+ public class MyVideoFragment extends VideoSupportFragment {
+ 
+   @Override
+@@ -145,7 +164,7 @@ public class MyVideoFragment extends VideoSupportFragment {
+ }
+ ```
+ 
+-Note that the setup code also defines a `https://developer.android.com/reference/androidx/leanback/media/PlayerAdapter.Callback` to handle events from
++Note that the setup code also defines a `PlayerAdapter.Callback` to handle events from
+ the media player.
+ 
+ ## Customizing the UI glue
+@@ -153,17 +172,17 @@ the media player.
+ You can customize
+ the `PlaybackBannerControlGlue` and `PlaybackTransportControlGlue`
+ to change the
+-`https://developer.android.com/reference/androidx/leanback/widget/PlaybackControlsRow`.
++`PlaybackControlsRow`.
+ 
+ ### Customizing the title and description
+ 
+ To customize the title and description at the top of the
+ playback controls, override
+-`https://developer.android.com/reference/androidx/leanback/media/PlaybackTransportControlGlue#onCreateRowPresenter()`:
++`onCreateRowPresenter()`:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onCreateRowPresenter(): PlaybackRowPresenter {
+     return super.onCreateRowPresenter().apply {
+         (this as? PlaybackTransportRowPresenter)
+@@ -174,7 +193,7 @@ override fun onCreateRowPresenter(): PlaybackRowPresenter {
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ protected PlaybackRowPresenter onCreateRowPresenter() {
+   PlaybackTransportRowPresenter presenter = (PlaybackTransportRowPresenter) super.onCreateRowPresenter();
+@@ -185,7 +204,7 @@ protected PlaybackRowPresenter onCreateRowPresenter() {
+ 
+ ### Adding controls
+ 
+-The control glue displays controls for actions in a `https://developer.android.com/reference/androidx/leanback/widget/PlaybackControlsRow`.
++The control glue displays controls for actions in a `PlaybackControlsRow`.
+ 
+ The actions in the `PlaybackControlsRow`
+ are assigned to two groups: *primary actions* and *secondary
+@@ -194,12 +213,12 @@ secondary group appear below the seek bar. Initially, there is only a single pri
+ for the play/pause button, and no secondary actions.
+ 
+ You can add actions to the primary and secondary groups by overriding
+-`https://developer.android.com/reference/androidx/leanback/media/PlaybackControlGlue#onCreatePrimaryActions(androidx.leanback.widget.SparseArrayObjectAdapter)` and
+-`https://developer.android.com/reference/androidx/leanback/media/PlaybackControlGlue#onCreateSecondaryActions(androidx.leanback.widget.ArrayObjectAdapter)`.
++`onCreatePrimaryActions()` and
++`onCreateSecondaryActions()`.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private lateinit var repeatAction: PlaybackControlsRow.RepeatAction
+ private lateinit var pipAction: PlaybackControlsRow.PictureInPictureAction
+ private lateinit var thumbsUpAction: PlaybackControlsRow.ThumbsUpAction
+@@ -234,7 +253,7 @@ override fun onCreateSecondaryActions(adapter: ArrayObjectAdapter?) {
+ 
+ ### Java
+ 
+-```java
++```
+ private PlaybackControlsRow.RepeatAction repeatAction;
+ private PlaybackControlsRow.PictureInPictureAction pipAction;
+ private PlaybackControlsRow.ThumbsUpAction thumbsUpAction;
+@@ -266,11 +285,11 @@ protected void onCreateSecondaryActions(ArrayObjectAdapter adapter) {
+ ```
+ 
+ You must override
+-`https://developer.android.com/reference/androidx/leanback/widget/OnActionClickedListener#onActionClicked(androidx.leanback.widget.Action)` to handle the new actions.
++`onActionClicked()` to handle the new actions.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onActionClicked(action: Action) {
+     when(action) {
+         rewindAction -> {
+@@ -303,7 +322,7 @@ override fun previous() {
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public void onActionClicked(Action action) {
+     if (action == rewindAction) {
+@@ -333,9 +352,9 @@ public void previous() {
+ ```
+ 
+ In special cases, you might want to implement your own
+-`https://developer.android.com/reference/androidx/leanback/widget/PlaybackTransportRowPresenter`
++`PlaybackTransportRowPresenter`
+ to render custom controls and respond to seek actions using the
+-`https://developer.android.com/reference/androidx/leanback/widget/PlaybackSeekUi`.
++`PlaybackSeekUi`.
+ 
+ ## Video scrubbing
+ 
+@@ -344,10 +363,22 @@ If your app uses a `VideoSupportFragment` and you want to support video scrubbin
+ ![scrubbing](https://developer.android.com/training/tv/playback/images/leanback-scrubbing.gif)
+ 
+ You
+-need to provide an implementation of `https://developer.android.com/reference/androidx/leanback/widget/PlaybackSeekDataProvider`.
++need to provide an implementation of `PlaybackSeekDataProvider`.
+ This component provides the video thumbnails used when scrolling.
+ You must implement your own provider by extending
+-`https://developer.android.com/reference/androidx/leanback/widget/PlaybackSeekDataProvider`.
++`PlaybackSeekDataProvider`.
+ See the example in the
+ [Leanback Showcase app](https://github.com/android/tv-samples/tree/main/LeanbackShowcase).
+-.
+\ No newline at end of file
++.
++
++[Previous
++
++arrow\_back
++
++Build a details view](/training/tv/playback/leanback/details)
++
++[Next
++
++Introduce first-time users to your app
++
++arrow\_forward](/training/tv/playback/leanback/onboarding)
+\ No newline at end of file

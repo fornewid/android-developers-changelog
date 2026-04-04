@@ -1,0 +1,12 @@
+diff --git a/docs/develop/devices/assistant/test-tool.md b/docs/develop/devices/assistant/test-tool.md
+index 8c13d87..29d02db 100644
+--- a/docs/develop/devices/assistant/test-tool.md
++++ b/docs/develop/devices/assistant/test-tool.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Google Assistant plugin tests App Actions within Android Studio.
+ During development and testing, you use the plugin to create a preview of your
+ App Actions in Assistant for your Google Account. You can then test how your

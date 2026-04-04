@@ -1,0 +1,12 @@
+diff --git a/docs/training/data-storage/room/accessing-data.md b/docs/training/data-storage/room/accessing-data.md
+index e9f3dde..1ef93e0 100644
+--- a/docs/training/data-storage/room/accessing-data.md
++++ b/docs/training/data-storage/room/accessing-data.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When you use the Room persistence library to store your app's data, you interact
+ with the stored data by defining *data access objects*, or DAOs. Each DAO
+ includes methods that offer abstract access to your app's database. At compile

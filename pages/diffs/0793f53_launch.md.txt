@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/services/fgs/launch.md b/docs/develop/background-work/services/fgs/launch.md
+index 6286ed6..603c788 100644
+--- a/docs/develop/background-work/services/fgs/launch.md
++++ b/docs/develop/background-work/services/fgs/launch.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ There are two steps to launching a foreground service from your app. First, you
+ must start the service by calling
+ [`context.startForegroundService()`](/reference/android/content/Context#startForegroundService(android.content.Intent)). Then, have the

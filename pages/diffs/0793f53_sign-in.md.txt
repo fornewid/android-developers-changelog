@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/behaviors-and-patterns/sign-in.md b/docs/design/ui/wear/guides/m2-5/behaviors-and-patterns/sign-in.md
+index e677914..813c991 100644
+--- a/docs/design/ui/wear/guides/m2-5/behaviors-and-patterns/sign-in.md
++++ b/docs/design/ui/wear/guides/m2-5/behaviors-and-patterns/sign-in.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Keep in mind the following best practices when designing sign-in experiences.
+ 
+ ## Use Credential Manager

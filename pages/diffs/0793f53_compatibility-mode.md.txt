@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/platforms/automotive-os/compatibility-mode.md b/docs/training/cars/platforms/automotive-os/compatibility-mode.md
+index 987d12f..9cf7c3d 100644
+--- a/docs/training/cars/platforms/automotive-os/compatibility-mode.md
++++ b/docs/training/cars/platforms/automotive-os/compatibility-mode.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To simplify the process of bringing mobile apps to Android Automotive OS devices,
+ certain cars come with a compatibility mode that addresses common issues
+ faced when bringing existing mobile apps into cars.

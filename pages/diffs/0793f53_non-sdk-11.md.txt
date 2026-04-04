@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/11/non-sdk-11.md b/docs/about/versions/11/non-sdk-11.md
+index 0e3d14b..8b1dfa6 100644
+--- a/docs/about/versions/11/non-sdk-11.md
++++ b/docs/about/versions/11/non-sdk-11.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android 11 includes updated lists of restricted non-SDK
+ interfaces based on collaboration with Android developers and the latest
+ internal testing. Whenever possible, we make sure that public alternatives are

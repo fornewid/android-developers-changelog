@@ -1,0 +1,20 @@
+diff --git a/docs/games/gamedashboard/components.md b/docs/games/gamedashboard/components.md
+index a6a59d8..4b801bb 100644
+--- a/docs/games/gamedashboard/components.md
++++ b/docs/games/gamedashboard/components.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ The Game Dashboard is composed of multiple components that provide quick access
+ to commonly used features.
+ 
+@@ -92,6 +91,4 @@ minimize its presence over the game.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/discovery/video-programs.md b/docs/training/tv/discovery/video-programs.md
+index 4777044..2c92ade 100644
+--- a/docs/training/tv/discovery/video-programs.md
++++ b/docs/training/tv/discovery/video-programs.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ A video program's attributes depend on the type of its content. The program type
+ tells the system what metadata to expect so that the UI can be filled in
+ appropriately.

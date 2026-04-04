@@ -1,0 +1,145 @@
+diff --git a/docs/games/optimize/display-refresh-rate-change.md b/docs/games/optimize/display-refresh-rate-change.md
+index 1cf2c51..15dd075 100644
+--- a/docs/games/optimize/display-refresh-rate-change.md
++++ b/docs/games/optimize/display-refresh-rate-change.md
+@@ -1,23 +1,12 @@
+ ---
+-title: Optimize refresh rates  |  Android game development  |  Android Developers
++title: https://developer.android.com/games/optimize/display-refresh-rate-change
+ url: https://developer.android.com/games/optimize/display-refresh-rate-change
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-* [Games dev center](https://developer.android.com/games)
+-* [Guides](https://developer.android.com/games/guides)
+-
+-Send feedback
+-
+-# Optimize refresh rates Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-[Android 15](/about/versions/15) sets a default 60Hz refresh rate for games to optimize
++[Android 15](https://developer.android.com/about/versions/15) sets a default 60Hz refresh rate for games to optimize
+ power consumption. To unlock higher frame rates like 120 FPS, you must now
+-explicitly request them using the [Frame Rate API](/media/optimize/performance/frame-rate) or the Swappy
++explicitly request them using the [Frame Rate API](https://developer.android.com/media/optimize/performance/frame-rate) or the Swappy
+ library.
+ 
+ However, the system may override this request based on factors like battery
+@@ -26,33 +15,31 @@ smoothness, they also demand more power and generate additional heat. Therefore,
+ it's crucial to offer users the option to choose their preferred refresh rate
+ and carefully monitor performance to ensure a balanced user experience.
+ 
+-## Use the [`setFrameRate()`](/reference/android/view/Surface#setFrameRate(float,%20int)) API
++## Use the [`setFrameRate()`](https://developer.android.com/reference/android/view/Surface#setFrameRate(float,%20int)) API
+ 
+-The [`setFrameRate()`](/reference/android/view/Surface#setFrameRate(float,%20int)) API allows the game devs to use a specific display
++The [`setFrameRate()`](https://developer.android.com/reference/android/view/Surface#setFrameRate(float,%20int)) API allows the game devs to use a specific display
+ refresh rate. There are two steps to doing this:
+ 
+ 1. Verify device and Android version compatibility.
+-2. Request high FPS using [`setFrameRate()`](/reference/android/view/Surface#setFrameRate(float,%20int)).
++2. Request high FPS using [`setFrameRate()`](https://developer.android.com/reference/android/view/Surface#setFrameRate(float,%20int)).
+ 
+ ### Verify Device and Android Version Compatibility:
+ 
+-Use methods [`Display.getSupportedModes()`](/reference/android/view/Display#getSupportedModes()) to determine if the device
++Use methods [`Display.getSupportedModes()`](https://developer.android.com/reference/android/view/Display#getSupportedModes()) to determine if the device
+ supports 90Hz, 120Hz, or other refresh rates. If the device is limited to 60Hz,
+ it is not possible to exceed this limit.
+ 
+ ### Kotlin
+ 
+-```
+-val display = windowManager.defaultDisplay
+-val supportedModes = display.supportedModes
+-for (mode in supportedModes) {
+-  Log.d("DisplayInfo", "Supported mode: ${mode.physicalWidth}x${mode.physicalHeight}, ${mode.refreshRate}Hz")
+-}
+-```
++    val display = windowManager.defaultDisplay
++    val supportedModes = display.supportedModes
++    for (mode in supportedModes) {
++      Log.d("DisplayInfo", "Supported mode: ${mode.physicalWidth}x${mode.physicalHeight}, ${mode.refreshRate}Hz")
++    }
+ 
+ ### Request High FPS
+ 
+-Invoke [`setFrameRate()`](/reference/android/view/Surface#setFrameRate(float,%20int)) when your rendering loop starts, during game window
++Invoke [`setFrameRate()`](https://developer.android.com/reference/android/view/Surface#setFrameRate(float,%20int)) when your rendering loop starts, during game window
+ initialization, or when the target FPS needs to change the display refresh rate.
+ 
+ Even if you request a higher rate, the system might still limit the refresh rate
+@@ -66,30 +53,28 @@ the `setFrameRate()` API.
+ 
+ ### Kotlin
+ 
+-```
+-val targetFps = 120f
+-if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+-  window.setFrameRate(
+-      targetFps,
+-      Window.FrameRateCompatibility.FRAME_RATE_COMPATIBILITY_FIXED_SOURCE,
+-      0
+-  )
+-}
+-```
++    val targetFps = 120f
++    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
++      window.setFrameRate(
++          targetFps,
++          Window.FrameRateCompatibility.FRAME_RATE_COMPATIBILITY_FIXED_SOURCE,
++          0
++      )
++    }
+ 
+-[The Framerate page](/media/optimize/performance/frame-rate) provides more detailed information for further reading.
++[The Framerate page](https://developer.android.com/media/optimize/performance/frame-rate) provides more detailed information for further reading.
+ 
+ ## Use Frame pacing library
+ 
+-[The frame pacing library](/media/optimize/performance/frame-rate), or Swappy, is an open-source library designed to
++[The frame pacing library](https://developer.android.com/media/optimize/performance/frame-rate), or Swappy, is an open-source library designed to
+ simplify [VSync](https://en.wikipedia.org/wiki/Vertical_blanking_interval) management and frame scheduling in C/C++ Android game
+ engines.
+ This tool streamlines the process of optimizing refresh rates, effectively
+ acting as a higher-level abstraction layer over functionalities like
+-[`setFrameRate()`](/reference/android/view/Surface#setFrameRate(float,%20int)). Furthermore, Swappy provides additional features that can
++[`setFrameRate()`](https://developer.android.com/reference/android/view/Surface#setFrameRate(float,%20int)). Furthermore, Swappy provides additional features that can
+ enhance your game's overall smoothness and performance.
+ 
+-[The Swappy page](/media/optimize/performance/frame-rate) gives more detailed information.
++[The Swappy page](https://developer.android.com/media/optimize/performance/frame-rate) gives more detailed information.
+ 
+ ## Additional Tips for Best Results
+ 
+@@ -107,10 +92,10 @@ seamlessly transition between higher refresh rates like 120Hz for smoother
+ gameplay during demanding scenes, and lower rates like 60Hz during less
+ intensive moments or when battery life is a concern or targeting under 60FPS.
+ Constantly running at 120Hz can lead to excessive
+-[heat generation](/games/optimize/adpf/thermal) and rapid battery drain, potentially resulting in a
++[heat generation](https://developer.android.com/games/optimize/adpf/thermal) and rapid battery drain, potentially resulting in a
+ negative user experience. By intelligently adjusting the refresh rate based on
+ the current rendering load and device conditions, you can strike a balance
+-between visual fidelity and [power efficiency](/games/optimize/power).
++between visual fidelity and [power efficiency](https://developer.android.com/games/optimize/power).
+ 
+ ### Performance Monitoring
+ 
+@@ -131,9 +116,4 @@ Your game should detect the maximum display refresh rate supported by the
+ current device, such as 60Hz, 90Hz, or 120Hz, and limit the FPS settings
+ accordingly. For example, if the device only supports up to 60Hz, it is
+ advisable to disable any options higher than 60FPS in the game settings to
+-avoid confusing the player.
+-
+-
+-
+-
+-Send feedback
+\ No newline at end of file
++avoid confusing the player.
+\ No newline at end of file

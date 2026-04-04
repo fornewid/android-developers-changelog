@@ -1,0 +1,12 @@
+diff --git a/docs/training/dependency-injection/dagger-android.md b/docs/training/dependency-injection/dagger-android.md
+index 48732ea..7b5c86f 100644
+--- a/docs/training/dependency-injection/dagger-android.md
++++ b/docs/training/dependency-injection/dagger-android.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The [Dagger basics](/training/dependency-injection/dagger-basics) page explained how Dagger can help you automate dependency
+ injection in your app. With Dagger, you don't have to write tedious and
+ error-prone boilerplate code.

@@ -1,0 +1,348 @@
+diff --git a/docs/studio/projects.md b/docs/studio/projects.md
+index ff4ef2a..c393599 100644
+--- a/docs/studio/projects.md
++++ b/docs/studio/projects.md
+@@ -1,18 +1,9 @@
+ ---
+-title: Projects overview  |  Android Studio  |  Android Developers
++title: https://developer.android.com/studio/projects
+ url: https://developer.android.com/studio/projects
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Android Studio](https://developer.android.com/studio)
+-* [IDE guides](https://developer.android.com/studio/intro)
+-
+-# Projects overview Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ A *project* in Android Studio contains everything that defines your
+ workspace for an app, from source code and assets to test code and build
+ configurations.
+@@ -20,7 +11,7 @@ configurations.
+ When you start a new project, Android Studio creates the necessary
+ structure for all your files and makes them visible in the
+ **Project** window in Android Studio. To open the window, select **View
+-> Tool Windows > Project**.
++\> Tool Windows \> Project**.
+ 
+ This page provides an overview of the key components inside your project.
+ 
+@@ -38,11 +29,12 @@ different device types, such as phones and wearables, but keep all the files
+ scoped within the same project and share some code.
+ 
+ To add a new module to your project, click **File
+-> New > New Module**.
++\> New \> New Module**.
+ 
+ Android Studio offers a few distinct types of modules:
+ 
+ **Android app module**
++
+ :   Provides a container for your app's
+     source code, resource files, and app-level settings, such as the
+     module-level build file and Android Manifest file. When
+@@ -51,32 +43,35 @@ Android Studio offers a few distinct types of modules:
+     Android Studio offers
+     the following types of app modules:
+ 
+-    * Phone & Tablet
+-    * Automotive
+-    * Wear OS
+-    * Television
++    - Phone \& Tablet
++    - Automotive
++    - Wear OS
++    - Television
+ 
+     Each module provides essential files and some code templates that are
+     appropriate for the corresponding app or device type.
+ 
+     For more information on adding a module, read
+-    [Add a module for a new device](/studio/projects/add-app-module).
++    [Add a module for a new device](https://developer.android.com/studio/projects/add-app-module).
+ 
+ **Feature module**
+-:   Represents a modularized feature of your app that can take advantage of *Play
+-    Feature Delivery*. For example, with feature modules, you can provide your users
++:
++    Represents a modularized feature of your app that can take advantage of *Play
++    Feature Delivery* . For example, with feature modules, you can provide your users
+     with certain features of your app on demand or as instant experiences through
+-    [Google Play Instant](/topic/google-play-instant/overview).
++    [Google Play Instant](https://developer.android.com/topic/google-play-instant/overview).
+ 
+     Android Studio offers the following types of feature modules:
+ 
+-    * Dynamic Feature Module
+-    * Instant Dynamic Feature Library Module
++    - Dynamic Feature Module
++    - Instant Dynamic Feature Library Module
++
+ 
+     To learn more, read about
+-    [Play Feature Delivery](/studio/projects/dynamic-delivery).
++    [Play Feature Delivery](https://developer.android.com/studio/projects/dynamic-delivery).
+ 
+ **Library module**
++
+ :   Provides a container for your reusable code, which you
+     can use as a dependency in other app modules or import into other
+     projects. Structurally, a library module is the same as an app module, but when built,
+@@ -86,63 +81,45 @@ Android Studio offers a few distinct types of modules:
+     In the **Create New Module** window, Android Studio offers
+     the following types of library modules:
+ 
+-    * **Android Library:** Contains all file types supported
+-      in an Android project except native C++ code, including Java and Kotlin source code,
+-      resources, and manifest files.
+-      The build result is an Android Archive (AAR) file that you can add as
+-      a dependency for your Android app modules.
+-    * **Android Native Library:** Contains all file types supported
+-      in an Android project, similar to an Android Library. However, Android Native Libraries also
+-      can contain native C++ source code. The build result is an Android Archive (AAR) file that you can
+-      add as a dependency for your Android app modules.
+-    * **Java or Kotlin Library:** Contains only Kotlin or Java source files.
+-      The build result is a Java Archive (JAR) file that you can add as
+-      a dependency for your Android app modules or otherKotlin or Java projects.
+-    * **Benchmark > Microbenchmark:**
+-      Contains files needed to regularly measure code performance and output benchmarking results.
+-      Microbenchmark modules are especially helpful for measuring the performance of smaller pieces
+-      of code that get used repeatedly. For more information, see
+-      [About Microbenchmark](/topic/performance/benchmarking/microbenchmark-overview).
++    - **Android Library:** Contains all file types supported in an Android project except native C++ code, including Java and Kotlin source code, resources, and manifest files. The build result is an Android Archive (AAR) file that you can add as a dependency for your Android app modules.
++    - **Android Native Library:** Contains all file types supported in an Android project, similar to an Android Library. However, Android Native Libraries also can contain native C++ source code. The build result is an Android Archive (AAR) file that you can add as a dependency for your Android app modules.
++    - **Java or Kotlin Library:** Contains only Kotlin or Java source files. The build result is a Java Archive (JAR) file that you can add as a dependency for your Android app modules or otherKotlin or Java projects.
++    - **Benchmark \> Microbenchmark:** Contains files needed to regularly measure code performance and output benchmarking results. Microbenchmark modules are especially helpful for measuring the performance of smaller pieces of code that get used repeatedly. For more information, see [About Microbenchmark](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview).
+ 
+     When you create a library module and want to add it as a dependency to your
+     Android app module, you must declare it as follows:
+ 
+     ### Groovy
+ 
+-    ```
++    ```groovy
+         dependencies {
+             implementation project(':my-library-module')
+         }
++        
+     ```
+ 
+     ### Kotlin
+ 
+-    ```
++    ```kotlin
+         dependencies {
+             implementation(project(":my-library-module"))
+         }
++        
+     ```
+ 
+ **Test module**
++
+ :   Keeps your tests separate from the rest of your code. You can configure the test module to
+     target specific build variants.
+ 
+     Android Studio offers the following types of test modules:
+ 
+-    * **Baseline Profile Generator:**
+-      [Baseline Profiles](/topic/performance/baselineprofiles) make user interactions,
+-      such as navigation and scrolling, smoother the first time they run. Create Baseline Profiles
+-      for your critical user journeys to improve app performance and user experience.
+-    * **Benchmark > Macrobenchmark:**
+-      Contains files needed to regularly measure code performance and output benchmarking results.
+-      Macrobenchmark modules are especially helpful for measuring the performance of larger use
+-      cases of your app, such as scrolling through a list or other UI manipulations. For more
+-      information, see
+-      [Write a Macrobenchmark](/topic/performance/benchmarking/macrobenchmark-overview).
++    - **Baseline Profile Generator:** [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles) make user interactions, such as navigation and scrolling, smoother the first time they run. Create Baseline Profiles for your critical user journeys to improve app performance and user experience.
++    - **Benchmark \> Macrobenchmark:** Contains files needed to regularly measure code performance and output benchmarking results. Macrobenchmark modules are especially helpful for measuring the performance of larger use cases of your app, such as scrolling through a list or other UI manipulations. For more information, see [Write a Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview).
+ 
+ ## Project files
+ 
+-![](/static/images/tools/projectview-p1.png)
++![](https://developer.android.com/static/images/tools/projectview-p1.png)
+ 
+ By default, Android Studio displays your project files in the
+ **Android** view. This view doesn't reflect
+@@ -153,18 +130,14 @@ certain files or directories that are not commonly used.
+ Some of the structural differences between the **Android** view and the
+ structure on disk are that the **Android** view:
+ 
+-* Shows all the project's build-related configuration files in a top-level
+-  **Gradle Script** group.
+-* Shows all manifest files for each module in a module-level group when you
+-  have different manifest files for different product flavors and build types.
+-* Shows all alternative resource files in a single group
+-  instead of in separate folders per resource qualifier. For example, all density
+-  versions of your launcher icon are visible side by side.
++- Shows all the project's build-related configuration files in a top-level **Gradle Script** group.
++- Shows all manifest files for each module in a module-level group when you have different manifest files for different product flavors and build types.
++- Shows all alternative resource files in a single group instead of in separate folders per resource qualifier. For example, all density versions of your launcher icon are visible side by side.
+ 
+ Within each Android app module, files are shown in the following groups:
+ 
+ **manifests**
+-:   Contains the `AndroidManifest.xml` file.
++:   Contains the `https://developer.android.com/guide/topics/manifest/manifest-intro` file.
+ 
+ **java**
+ :   Contains the Kotlin and Java source code files, separated by package names,
+@@ -173,16 +146,14 @@ Within each Android app module, files are shown in the following groups:
+ **res**
+ :   Contains all non-code resources, such as UI strings and
+     bitmap images, divided into corresponding subdirectories. For more information
+-    about possible resource types, see [App resources overview](/guide/topics/resources/providing-resources).
++    about possible resource types, see [App resources overview](https://developer.android.com/guide/topics/resources/providing-resources).
+ 
+-**Note:** Different module types have different group structures. For
+-example, a native module also contains a `cpp/` folder inside the `main`
+-group, and a Kotlin or Java library doesn't contain `manifests` or `res`
+-groups.
++> [!NOTE]
++> **Note:** Different module types have different group structures. For example, a native module also contains a `cpp/` folder inside the `main` group, and a Kotlin or Java library doesn't contain `manifests` or `res` groups.
+ 
+ ### The Project view
+ 
+-![](/static/images/tools/projectview-p2.png)
++![](https://developer.android.com/static/images/tools/projectview-p2.png)
+ 
+ To see the actual
+ file structure of the project, including all files hidden from the
+@@ -193,7 +164,9 @@ When you select the **Project** view, you can see a lot more files
+ and directories, including the following:
+ 
+ `module-name/`
+-:   `build/`
++:
++
++    `build/`
+     :   Contains build outputs.
+ 
+     `libs/`
+@@ -206,11 +179,11 @@ and directories, including the following:
+         `androidTest/`
+         :   Contains code for instrumentation tests that run on an Android device.
+             For more information, see
+-            [Test in Android Studio](/studio/test/test-in-android-studio).
++            [Test in Android Studio](https://developer.android.com/studio/test/test-in-android-studio).
+ 
+         `cpp/`
+         :   Contains native C or C++ code using the Java Native Interface (JNI). For more information, see
+-            the [Android NDK documentation](/ndk).
++            the [Android NDK documentation](https://developer.android.com/ndk).
+ 
+         `main/`
+         :   Contains the "main" source set files: the Android code and resources
+@@ -221,7 +194,7 @@ and directories, including the following:
+             `AndroidManifest.xml`
+             :   Describes the nature of the application and each of its components.
+                 For more information, see the
+-                [app manifest](/guide/topics/manifest/manifest-intro)
++                [app manifest](https://developer.android.com/guide/topics/manifest/manifest-intro)
+                 overview.
+ 
+             `java/`
+@@ -234,14 +207,14 @@ and directories, including the following:
+             `res/`
+             :   Contains application resources, such as drawable files and UI string files. For more
+                 information, see the
+-                [app resources](/guide/topics/resources) overview.
++                [app resources](https://developer.android.com/guide/topics/resources) overview.
+ 
+             `assets/`
+             :   Contains files to be compiled into an APK file as-is. For example,
+                 this is a good location for textures and game data. You can
+                 navigate this directory in the same way as a typical file system, using
+                 URIs and read files as a stream of bytes using the
+-                `AssetManager`.
++                `https://developer.android.com/reference/android/content/res/AssetManager`.
+ 
+         `test/`
+         :   Contains code for local tests that run on your host JVM.
+@@ -259,57 +232,44 @@ and directories, including the following:
+     in revision control with all other source code.
+ 
+     For information about other build files, see
+-    [Configure your build](/studio/build).
++    [Configure your build](https://developer.android.com/studio/build).
+ 
+-**Note:** To change the default view from the **Android** view to
+-the **Project** view, go to **File** (**Android Studio**
+-on macOS) **> Settings > Advanced Settings > Project View** and select
+-**Set Project view as the default**.
++> [!NOTE]
++> **Note:** To change the default view from the **Android** view to the **Project** view, go to **File** (**Android Studio** on macOS) **\> Settings \> Advanced Settings \> Project View** and select **Set Project view as the default**.
+ 
+ ## Project structure settings
+ 
+ To change various settings for your Android Studio project, open the
+ **Project Structure** dialog by clicking
+-**File > Project Structure**. It contains the
++**File \> Project Structure**. It contains the
+ following sections:
+ 
+-* **Project:** Sets the version for [Gradle and
+-  the Android Gradle plugin](/studio/build#build-files) and the repository location name.
+-* **SDK Location:** Sets the location of the JDK, Android SDK,
+-  and Android NDK that your project uses.
+-* **Variables:** Lets you edit variables that are used within your build
+-  scripts.
+-* **Modules:** Lets you edit module-specific build
+-  configurations, including the target and minimum SDK, the app signature,
+-  and library dependencies. Each module's settings page is divided into the following tabs:
+-  + **Properties:** Specifies the versions of the SDK and build
+-    tools to use to compile the module.
+-  + **Signing:** Specifies the certificate to use to
+-    [sign your
+-    app](/tools/publishing/app-signing#sign-auto).
+-* **Dependencies:** Lists the library, file, and module
++- **Project:** Sets the version for [Gradle and
++  the Android Gradle plugin](https://developer.android.com/studio/build#build-files) and the repository location name.
++- **SDK Location:** Sets the location of the JDK, Android SDK, and Android NDK that your project uses.
++- **Variables:** Lets you edit variables that are used within your build scripts.
++- **Modules:** Lets you edit module-specific build configurations, including the target and minimum SDK, the app signature, and library dependencies. Each module's settings page is divided into the following tabs:
++  - **Properties:** Specifies the versions of the SDK and build tools to use to compile the module.
++  - **Signing:** Specifies the certificate to use to [sign your
++    app](https://developer.android.com/tools/publishing/app-signing#sign-auto).
++- **Dependencies:** Lists the library, file, and module
+   dependencies for this module. You can add, modify, and delete dependencies
+   from this pane. For more information about module dependencies, see
+-  [Configure build variants](/tools/building/configuring-gradle#declareDeps).
+-
+-  **Preview:** If you're using a version catalog, be aware of the issue that dependencies
+-  added through the **Project Structure** dialog are added to the module's
+-  `build.gradle` file, not the catalog. To learn more about Gradle Version Catalogs
+-  support in Android Studio, see the
+-  [preview release note](/studio/preview/features#gradle-version-catalogs).
+-* **Build Variants:** Lets you configure different flavors and build types
++  [Configure build variants](https://developer.android.com/tools/building/configuring-gradle#declareDeps).
++
++  > [!WARNING]
++  > **Preview:** If you're using a version catalog, be aware of the issue that dependencies added through the **Project Structure** dialog are added to the module's `build.gradle` file, not the catalog. To learn more about Gradle Version Catalogs support in Android Studio, see the [preview release note](https://developer.android.com/studio/preview/features#gradle-version-catalogs).
++
++- **Build Variants:** Lets you configure different flavors and build types
+   for your project.
+ 
+-  + **Flavors:** Lets you create multiple build *flavors*, where
++  - **Flavors:** Lets you create multiple build *flavors* , where
+     each flavor specifies a set of configuration settings, such as the
+     module's minimum and target SDK version and the
+     [version code and
+-    version name](/studio/publish/versioning#versioningsettings.html).
++    version name](https://developer.android.com/studio/publish/versioning#versioningsettings.html).
+ 
+     For example, you might define one flavor that has a
+     minimum SDK of 21 and a target SDK of 29, and another flavor that has a
+     minimum SDK of 24 and a target SDK of 33.
+-  + **Build Types:** Lets you create and modify build
+-    configurations, as described in [Configure build variants](/tools/building/configuring-gradle). By default,
+-    every module has *debug* and
+-    *release* build types, and you can define more as needed.
+\ No newline at end of file
++  - **Build Types:** Lets you create and modify build configurations, as described in [Configure build variants](https://developer.android.com/tools/building/configuring-gradle). By default, every module has *debug* and *release* build types, and you can define more as needed.
+\ No newline at end of file

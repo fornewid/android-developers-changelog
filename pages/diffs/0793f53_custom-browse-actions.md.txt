@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/media/create-media-browser/custom-browse-actions.md b/docs/training/cars/media/create-media-browser/custom-browse-actions.md
+index 87dfa80..0cb0809 100644
+--- a/docs/training/cars/media/create-media-browser/custom-browse-actions.md
++++ b/docs/training/cars/media/create-media-browser/custom-browse-actions.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Similar to how you use [custom playback actions](/training/cars/media/enable-playback#custom-icons) to support unique
+ capabilities in the playback view, you can use custom browse actions to support
+ unique capabilities in browsing views. For example, you can use custom browse

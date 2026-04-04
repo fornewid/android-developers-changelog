@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/playback/media-session.md b/docs/training/tv/playback/media-session.md
+index e1a5fc6..19f714c 100644
+--- a/docs/training/tv/playback/media-session.md
++++ b/docs/training/tv/playback/media-session.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Create a
+ [`MediaSession`](/reference/android/media/session/MediaSession#MediaSession(android.content.Context,%20java.lang.String))
+ when your app is preparing to play media. The following code snippet

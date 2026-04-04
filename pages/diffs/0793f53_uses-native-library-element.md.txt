@@ -1,0 +1,121 @@
+diff --git a/docs/guide/topics/manifest/uses-native-library-element.md b/docs/guide/topics/manifest/uses-native-library-element.md
+index 74f0ed7..f392ecb 100644
+--- a/docs/guide/topics/manifest/uses-native-library-element.md
++++ b/docs/guide/topics/manifest/uses-native-library-element.md
+@@ -1,84 +1,76 @@
+ ---
+-title: https://developer.android.com/guide/topics/manifest/uses-native-library-element
++title: <uses-native-library>  |  App architecture  |  Android Developers
+ url: https://developer.android.com/guide/topics/manifest/uses-native-library-element
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-syntax:
+-:
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
++
++# <uses-native-library> Stay organized with collections Save and categorize content based on your preferences.
++
++
+ 
+-    ```xml
++
++syntax:
++:   ```
+     <uses-native-library
+       android:name="string"
+       android:required=["true" | "false"] />
+     ```
+ 
+ contained in:
+-:
+-    `
+-    https://developer.android.com/guide/topics/manifest/application-element
+-    `
++:   `<application>`
+ 
+ description:
+-
+-:
+-    Specifies a [vendor-provided shared native library](https://source.android.com/devices/tech/config/namespaces_libraries#adding-additional-native-libraries)
++:   Specifies a [vendor-provided shared native library](https://source.android.com/devices/tech/config/namespaces_libraries#adding-additional-native-libraries)
+     that the application must be linked against. This element tells the system to make the native
+     library accessible for the package.
+ 
+-
+     NDK libraries are by default accessible and therefore don't require the
+     `<uses-native-library>` tag.
+ 
+-
+     Non-NDK native shared libraries that are provided by silicon vendors or device manufacturers
+-    aren't accessible by default if the app targets Android 12 (API level 31) or higher. The
++    aren't accessible by default if the app targets Android 12 (API level 31) or higher. The
+     libraries are accessible only when they are explicitly requested using the
+     `<uses-native-library>` tag.
+ 
+-
+-    If the app targets Android 11 (API level 30) or lower, the
++    If the app targets Android 11 (API level 30) or lower, the
+     `<uses-native-library>` tag isn't required. In that case, any native shared
+     library is accessible regardless of whether it is an NDK library.
+ 
+-
+     This element also affects the installation of the application on a particular device. If this
+     element is present and its `android:required` attribute is set to
+     `true`, the
+-    `https://developer.android.com/reference/android/content/pm/PackageManager`
++    `PackageManager`
+     framework won't let a user install the application unless the library is present on the
+     user's device.
+ 
+-
+     The `android:required` attribute is described in detail in the following section.
+ 
+ attributes:
+-:
+-
+-    `android:name`
+-    :
+-        The name of the library file.
++:   `android:name`
++    :   The name of the library file.
+ 
+     `android:required`
+-    :
+-        Boolean value that indicates whether the application requires the
++    :   Boolean value that indicates whether the application requires the
+         library specified by `android:name`.
+ 
+-        - `"true"`: the application doesn't function without this library. The system doesn't let the application install on a device that doesn't have the library.
+-        - `"false"`: the application uses the library if present, but is designed to function without it if necessary. The system lets the application install, even if the library isn't present. If you use `"false"`, you are responsible for gracefully handling the absence of the library.
+-
++        * `"true"`: the application doesn't function without this
++          library. The system doesn't let the application install on a device that doesn't
++          have the library.
++        * `"false"`: the application uses the
++          library if present, but is designed to function without it if necessary.
++          The system lets the application install, even if the library isn't
++          present. If you use `"false"`, you are responsible for
++          gracefully handling the absence of the library.
+ 
+         The default is `"true"`.
+ 
+-
+ introduced in:
+ :   API level 31
+ 
+ see also:
+-:
+-    - `https://developer.android.com/reference/android/content/pm/PackageManager`
+-    - `https://developer.android.com/guide/topics/manifest/uses-library-element`
+-    [](https://developer.android.com/guide/topics/manifest/uses-library-element)
+-
+-    [](https://developer.android.com/guide/topics/manifest/uses-library-element)
+-[](https://developer.android.com/guide/topics/manifest/uses-library-element)
+\ No newline at end of file
++:   * `PackageManager`
++    * `<uses-library>`
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/java11-default-support-table.md b/docs/studio/write/java11-default-support-table.md
+index 4652a07..6a51248 100644
+--- a/docs/studio/write/java11-default-support-table.md
++++ b/docs/studio/write/java11-default-support-table.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android Studio includes support for using a number of Java 11+ APIs without
+ requiring a minimum API level for your app. This means that if you use an API
+ introduced in Android 13 (API level 33) the code also works on all previous

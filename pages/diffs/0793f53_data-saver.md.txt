@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/network-ops/data-saver.md b/docs/develop/connectivity/network-ops/data-saver.md
+index 892b081..509a70e 100644
+--- a/docs/develop/connectivity/network-ops/data-saver.md
++++ b/docs/develop/connectivity/network-ops/data-saver.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Over the life of a smartphone, the cost of a cellular data plan can easily
+ exceed the cost of the device itself. On Android 7.0 (API level 24) and
+ higher, users can enable Data Saver on a device-wide basis in order to

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/add-mcp-server.md b/docs/studio/gemini/add-mcp-server.md
+index ee523e4..254b354 100644
+--- a/docs/studio/gemini/add-mcp-server.md
++++ b/docs/studio/gemini/add-mcp-server.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Gemini in Android Studio's agent can interact with external tools using the
+ [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction). This feature provides a
+ standardized way for Agent mode to use tools and extend knowledge and

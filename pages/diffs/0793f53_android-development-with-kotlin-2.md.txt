@@ -1,0 +1,111 @@
+diff --git a/docs/courses/quizzes/android-development-with-kotlin-2/android-development-with-kotlin-2.md b/docs/courses/quizzes/android-development-with-kotlin-2/android-development-with-kotlin-2.md
+index bd6d4bb..06e4d1c 100644
+--- a/docs/courses/quizzes/android-development-with-kotlin-2/android-development-with-kotlin-2.md
++++ b/docs/courses/quizzes/android-development-with-kotlin-2/android-development-with-kotlin-2.md
+@@ -1,68 +1,57 @@
+ ---
+-title: Lesson 2: Functions  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-2/android-development-with-kotlin-2
+ url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-2/android-development-with-kotlin-2
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Lesson 2: Functions
+ 
+-Return to pathway
+-
+-
+-
+-1. ## Functions in Kotlin are created with the following keyword?
+-
+-   `void`
+-
+-   `fun`
+-
+-   `function`
+-
+-   `def`
+-2. ## What is the default return type of any functions defined in Kotlin?
+-
+-   `Int`
+-
+-   `Double`
+-
+-   `void`
+-
+-   `Unit`
+-3. ## The function to print a line in Kotlin is ?
++# Lesson 2: Functions
+ 
+-   `println()`
++<br />
+ 
+-   `printLine()`
++Return to pathway  
++1.
+ 
+-   `linePrint()`
++   ## Functions in Kotlin are created with the following keyword?
+ 
+-   `line()`
+-4. ## The 'when' statement in Kotlin is similar to which statement in other programming languages?
++   `void`  
++   `fun`  
++   `function`  
++   `def`  
++2.
+ 
+-   `if`
++   ## What is the default return type of any functions defined in Kotlin?
+ 
+-   `break`
++   `Int`  
++   `Double`  
++   `void`  
++   `Unit`  
++3.
+ 
+-   `switch`
++   ## The function to print a line in Kotlin is ?
+ 
+-   `continue`
+-5. ## What are lambdas in Kotlin?
++   `println()`  
++   `printLine()`  
++   `linePrint()`  
++   `line()`  
++4.
+ 
+-   A lambda is a Data Type in Kotlin
++   ## The 'when' statement in Kotlin is similar to which statement in other programming languages?
+ 
+-   A lambda is a Class type in Kotlin
++   `if`  
++   `break`  
++   `switch`  
++   `continue`  
++5.
+ 
+-   A lambda is an Interface in Kotlin
++   ## What are lambdas in Kotlin?
+ 
+-   A lambda is an expression that describes a function. But instead of declaring a named function, you declare a function that has no name
++   A lambda is a Data Type in Kotlin  
++   A lambda is a Class type in Kotlin  
++   A lambda is an Interface in Kotlin  
++   A lambda is an expression that describes a function. But instead of declaring a named function, you declare a function that has no name  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

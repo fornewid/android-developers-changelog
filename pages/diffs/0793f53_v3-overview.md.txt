@@ -1,0 +1,12 @@
+diff --git a/docs/topic/libraries/architecture/paging/v3-overview.md b/docs/topic/libraries/architecture/paging/v3-overview.md
+index 4849b94..1f30aa4 100644
+--- a/docs/topic/libraries/architecture/paging/v3-overview.md
++++ b/docs/topic/libraries/architecture/paging/v3-overview.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Paging library overview   Part of [Android Jetpack](/jetpack).
+ 
+ The Paging library helps you load and display pages of data from a larger

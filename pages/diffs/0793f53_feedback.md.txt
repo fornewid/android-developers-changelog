@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/17/feedback.md b/docs/about/versions/17/feedback.md
+index e7890b8..596df26 100644
+--- a/docs/about/versions/17/feedback.md
++++ b/docs/about/versions/17/feedback.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ![](https://developer.android.com/static/images/shared/preview-feedback-header.svg)
+ 
+ ### Feedback and issues

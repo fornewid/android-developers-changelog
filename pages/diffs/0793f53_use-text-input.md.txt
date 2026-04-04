@@ -1,0 +1,20 @@
+diff --git a/docs/games/agdk/game-activity/use-text-input.md b/docs/games/agdk/game-activity/use-text-input.md
+index 3bd9a0d..a4c34ea 100644
+--- a/docs/games/agdk/game-activity/use-text-input.md
++++ b/docs/games/agdk/game-activity/use-text-input.md
+@@ -19,7 +19,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # TextInput in GameActivity   Part of [Android Game Development Kit](/games/agdk/overview).
+ 
+ [GameActivity](/reference/games/game-activity) integrates
+@@ -199,6 +198,4 @@ issues and questions, create [a bug on the Google IssueTracker](https://issuetra
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/pie/android-9.0.md b/docs/about/versions/pie/android-9.0.md
+index 4f5eadb..1054703 100644
+--- a/docs/about/versions/pie/android-9.0.md
++++ b/docs/about/versions/pie/android-9.0.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android 9 (API level 28) introduces great new features and capabilities for
+ users and developers. This document highlights what's new for developers.
+ 

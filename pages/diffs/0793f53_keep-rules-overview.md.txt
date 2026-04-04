@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/app-optimization/keep-rules-overview.md b/docs/topic/performance/app-optimization/keep-rules-overview.md
+index 5d1b7ae..c3df56a 100644
+--- a/docs/topic/performance/app-optimization/keep-rules-overview.md
++++ b/docs/topic/performance/app-optimization/keep-rules-overview.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When you [enable app optimization](/topic/performance/app-optimization/enable-app-optimization) with the default settings, R8 performs
+ extensive optimizations in order to maximize your performance benefits. R8 makes
+ substantial modifications to the code including renaming, moving, and removing

@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/play-developer-apis-deprecations.md b/docs/google/play/billing/play-developer-apis-deprecations.md
+index e3cd49b..320f43d 100644
+--- a/docs/google/play/billing/play-developer-apis-deprecations.md
++++ b/docs/google/play/billing/play-developer-apis-deprecations.md
+@@ -14,6 +14,7 @@ Send feedback
+ 
+ 
+ 
++
+ This document lists the Google Play Developer APIs and the related
+ features which are in a deprecation period.
+ 
+@@ -97,4 +98,6 @@ as you did before.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

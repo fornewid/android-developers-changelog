@@ -1,0 +1,133 @@
+diff --git a/docs/work/dpc/dedicated-devices.md b/docs/work/dpc/dedicated-devices.md
+index 66e1a10..9426338 100644
+--- a/docs/work/dpc/dedicated-devices.md
++++ b/docs/work/dpc/dedicated-devices.md
+@@ -1,19 +1,11 @@
+ ---
+-title: Dedicated devices overview  |  Android Enterprise  |  Android Developers
++title: https://developer.android.com/work/dpc/dedicated-devices
+ url: https://developer.android.com/work/dpc/dedicated-devices
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Android Enterprise](https://developer.android.com/work)
+-
+-# Dedicated devices overview Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Android includes APIs to manage devices that are dedicated to a specific purpose.
+-This developer’s guide introduces these APIs. If you're an enterprise mobility
++This developer's guide introduces these APIs. If you're an enterprise mobility
+ management (EMM) developer or solution integrator, read this guide to get
+ started.
+ 
+@@ -23,9 +15,8 @@ started.
+ fully managed devices that serve a specific purpose. Android provides APIs that
+ can help you create devices that cater to employee- and customer-specific needs:
+ 
+-* **Employee-facing:** Inventory management, field service management, transport
+-  and logistics
+-* **Customer-facing:** Kiosks, digital signage, hospitality check-in
++- **Employee-facing:** Inventory management, field service management, transport and logistics
++- **Customer-facing:** Kiosks, digital signage, hospitality check-in
+ 
+ ## Dedicated device features
+ 
+@@ -33,56 +24,49 @@ Android includes APIs to help people using dedicated devices focus
+ on their tasks. You typically call these APIs from a custom home app that you
+ develop. Your custom home app can use some, or all, of the following APIs:
+ 
+-* Run the system in an immersive, kiosk-like fashion where devices are locked to
+-  an allowlisted set of apps using [lock task
+-  mode](/work/dpc/dedicated-devices/lock-task-mode).
+-* Share a device between multiple users (such as shift workers or public-kiosk
+-  users) by [managing ephemeral and secondary
+-  users](/work/dpc/dedicated-devices/multiple-users).
+-* Avoid devices downloading the same app again for each temporary user by
+-  [caching app packages](/work/dpc/dedicated-devices/cookbook#cache-apps).
+-* Suspend over-the-air (OTA) system updates over critical periods by [freezing
+-  the operating system version](/work/dpc/system-updates#freeze-periods).
++- Run the system in an immersive, kiosk-like fashion where devices are locked to an allowlisted set of apps using [lock task
++  mode](https://developer.android.com/work/dpc/dedicated-devices/lock-task-mode).
++- Share a device between multiple users (such as shift workers or public-kiosk users) by [managing ephemeral and secondary
++  users](https://developer.android.com/work/dpc/dedicated-devices/multiple-users).
++- Avoid devices downloading the same app again for each temporary user by [caching app packages](https://developer.android.com/work/dpc/dedicated-devices/cookbook#cache-apps).
++- Suspend over-the-air (OTA) system updates over critical periods by [freezing
++  the operating system version](https://developer.android.com/work/dpc/system-updates#freeze-periods).
+ 
+ To call these APIs, apps need to be the admin of a fully managed
+-device—explained in the following section.
++device---explained in the following section.
+ 
+ ## Managed devices
+ 
+ Because dedicated devices might be left unattended or used in critical tasks,
+ you need to secure the device. To prevent misuse, dedicated devices are *fully
+-managed* and owned by an [admin component](/reference/android/app/admin/DeviceAdminReceiver) (the admin component typically
++managed* and owned by an [admin component](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver) (the admin component typically
+ manages the users too). Fully managed deployments are for company-owned devices
+ that are used exclusively for work purposes. To learn more about Android device
+ management, read the Android Enterprise [Overview](https://developers.google.com/android/work/overview) guide.
+ 
+-Depending on your solution’s needs and your business goals, you can manage the
++Depending on your solution's needs and your business goals, you can manage the
+ device in one of the following ways:
+ 
+-* [Develop your own device policy controller (DPC)](/work/dpc/build-dpc), combining it
+-  with a [custom home app](#features).
+-* Use the [Android Management
+-  API](https://developers.google.com/android/management/) to manage the device
+-  and any custom apps.
+-* Use a [third-party EMM
+-  solution](https://androidenterprisepartners.withgoogle.com/emm/) that supports
+-  lock task mode and other dedicated device features.
++- [Develop your own device policy controller (DPC)](https://developer.android.com/work/dpc/build-dpc), combining it with a [custom home app](https://developer.android.com/work/dpc/dedicated-devices#features).
++- Use the [Android Management
++  API](https://developers.google.com/android/management/) to manage the device and any custom apps.
++- Use a [third-party EMM
++  solution](https://androidenterprisepartners.withgoogle.com/emm/) that supports lock task mode and other dedicated device features.
+ 
+ ## Testing
+ 
+ If you're planning to support a third-party EMM, develop an end-to-end testing
+-plan using the EMM’s solution.
++plan using the EMM's solution.
+ 
+ We also provide the following resources, which you can
+ use to create your own development or test environment:
+ 
+-* [Test DPC](https://play.google.com/store/search?q=testdpc) app on Google Play
+-* [Dedicated device source
+-  code](https://github.com/googlesamples/android-testdpc/tree/master/src/main/java/com/afwsamples/testdpc/cosu)
+-  (Test DPC) on GitHub
++- [Test DPC](https://play.google.com/store/search?q=testdpc) app on Google Play
++- [Dedicated device source
++  code](https://github.com/googlesamples/android-testdpc/tree/master/src/main/java/com/afwsamples/testdpc/cosu) (Test DPC) on GitHub
+ 
+-While you’re still developing, you can [set your app as the
+-admin](/work/dpc/dedicated-devices/cookbook#dev-setup) of a fully managed device
++While you're still developing, you can [set your app as the
++admin](https://developer.android.com/work/dpc/dedicated-devices/cookbook#dev-setup) of a fully managed device
+ using the Android Debug Bridge (ADB).
+ 
+ ## Provision dedicated devices
+@@ -108,9 +92,7 @@ complete the following steps:
+ To learn more about getting started with dedicated devices, read the following
+ documents:
+ 
+-* [Android Enterprise
+-  overview](https://developers.google.com/android/work/overview) that introduces
+-  device management.
+-* [Build a device policy controller](/work/dpc/build-dpc) explains how to develop a DPC.
+-* [Dedicated devices cookbook](/work/dpc/dedicated-devices/cookbook) gives examples for features typical of
+-  dedicated devices.
+\ No newline at end of file
++- [Android Enterprise
++  overview](https://developers.google.com/android/work/overview) that introduces device management.
++- [Build a device policy controller](https://developer.android.com/work/dpc/build-dpc) explains how to develop a DPC.
++- [Dedicated devices cookbook](https://developer.android.com/work/dpc/dedicated-devices/cookbook) gives examples for features typical of dedicated devices.
+\ No newline at end of file

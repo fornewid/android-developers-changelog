@@ -1,0 +1,655 @@
+diff --git a/docs/work/dpc/security.md b/docs/work/dpc/security.md
+index 71ce4a5..99f821a 100644
+--- a/docs/work/dpc/security.md
++++ b/docs/work/dpc/security.md
+@@ -1,11 +1,19 @@
+ ---
+-title: https://developer.android.com/work/dpc/security
++title: Security  |  Android Enterprise  |  Android Developers
+ url: https://developer.android.com/work/dpc/security
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Enterprise](https://developer.android.com/work)
++
++# Security Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ The features in this guide describe security management capabilities you can
+-implement in your [device policy controller](https://developer.android.com/work/dpc/build-dpc) (DPC) app. This document
++implement in your [device policy controller](/work/dpc/build-dpc) (DPC) app. This document
+ contains code samples and you can also use the [Test DPC](https://github.com/googlesamples/android-testdpc/) app as
+ a source of sample code for Android's enterprise features.
+ 
+@@ -14,15 +22,15 @@ mode on fully managed devices. This table indicates which features are available
+ when the DPC runs in [profile owner mode or device owner mode](https://developers.google.com/android/work/play/emm-api/prov-devices#modes_of_operation):
+ 
+ | **Feature** | **Profile owner** | **Device owner** |
+-|---|---|---|
+-| [Disable access to apps](https://developer.android.com/work/dpc/security#disable_access_to_apps) | ✓ | ✓ |
+-| [Block apps from unknown sources](https://developer.android.com/work/dpc/security#unknown_sources) | ✓ | ✓ |
+-| [Restrict accounts in Google Play](https://developer.android.com/work/dpc/security#google_play_accounts) | ✓ | ✓ |
+-| [Enable enterprise factory reset protection](https://developer.android.com/work/dpc/security#enable_enterprise_frp) |   | ✓ |
+-| [Monitor enterprise process logs and remote bug reports](https://developer.android.com/work/dpc/security#monitor_logs_and_bugreports) |   | ✓ |
+-| [Grant access and remove access to a client certificate](https://developer.android.com/work/dpc/security#grant_and_remove_access_to_a_cc) | ✓ | ✓ |
+-| [Secure passcode reset](https://developer.android.com/work/dpc/security#secure_passcode_reset) | ✓ | ✓ |
+-| [Work profile security challenge](https://developer.android.com/work/dpc/security#work_profile_security_challenge) | ✓ |   |
++| --- | --- | --- |
++| [Disable access to apps](#disable_access_to_apps) | ✓ | ✓ |
++| [Block apps from unknown sources](#unknown_sources) | ✓ | ✓ |
++| [Restrict accounts in Google Play](#google_play_accounts) | ✓ | ✓ |
++| [Enable enterprise factory reset protection](#enable_enterprise_frp) |  | ✓ |
++| [Monitor enterprise process logs and remote bug reports](#monitor_logs_and_bugreports) |  | ✓ |
++| [Grant access and remove access to a client certificate](#grant_and_remove_access_to_a_cc) | ✓ | ✓ |
++| [Secure passcode reset](#secure_passcode_reset) | ✓ | ✓ |
++| [Work profile security challenge](#work_profile_security_challenge) | ✓ |  |
+ 
+ ## Disable access to apps
+ 
+@@ -31,18 +39,18 @@ YouTube on their Android-powered device during certain times of the day, or
+ certain days of the week, a DPC can temporarily disable access to apps.
+ 
+ To disable access to apps, a DPC running in device owner or profile owner mode
+-configures [`setPackagesSuspended()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPackagesSuspended(android.content.ComponentName,%20java.lang.String%5B%5D,%20boolean)), and then the selected app acts as if
++configures [`setPackagesSuspended()`](/reference/android/app/admin/DevicePolicyManager#setPackagesSuspended(android.content.ComponentName,%20java.lang.String%5B%5D,%20boolean)), and then the selected app acts as if
+ it's disabled (the Google launcher grays out the app). When a user taps the app,
+ they see a system dialog saying that the app is suspended.
+ 
+ While an app is suspended, it can't start activities, and notifications to the
+ package are suppressed. Suspended packages don't appear in the [overview
+-screen](https://developer.android.com/guide/components/recents), they can't show dialogs (including toasts and snackbars), and they
++screen](/guide/components/recents), they can't show dialogs (including toasts and snackbars), and they
+ can't play audio or vibrate the device.
+ 
+ Launchers can find out if an app is suspended by calling the
+-[`isPackageSuspended()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#isPackageSuspended(android.content.ComponentName,java.lang.String)) method. For details on how to configure app
+-suspension, see [`setPackagesSuspended`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPackagesSuspended(android.content.ComponentName,%20java.lang.String%5B%5D,%20boolean)).
++[`isPackageSuspended()`](/reference/android/app/admin/DevicePolicyManager#isPackageSuspended(android.content.ComponentName,java.lang.String)) method. For details on how to configure app
++suspension, see [`setPackagesSuspended`](/reference/android/app/admin/DevicePolicyManager#setPackagesSuspended(android.content.ComponentName,%20java.lang.String%5B%5D,%20boolean)).
+ 
+ ## Block apps from unknown sources
+ 
+@@ -52,29 +60,31 @@ when people install these apps.
+ 
+ To prevent somebody installing apps from unknown sources, admin components of
+ fully managed devices and work profiles can add the
+-[`DISALLOW_INSTALL_UNKNOWN_SOURCES`](https://developer.android.com/reference/android/os/UserManager#DISALLOW_INSTALL_UNKNOWN_SOURCES) user restriction.
++[`DISALLOW_INSTALL_UNKNOWN_SOURCES`](/reference/android/os/UserManager#DISALLOW_INSTALL_UNKNOWN_SOURCES) user restriction.
+ 
+ ### Work-profile device-wide restriction
+ 
+-When the admin of a work profile adds [`DISALLOW_INSTALL_UNKNOWN_SOURCES`](https://developer.android.com/reference/android/os/UserManager#DISALLOW_INSTALL_UNKNOWN_SOURCES),
++When the admin of a work profile adds [`DISALLOW_INSTALL_UNKNOWN_SOURCES`](/reference/android/os/UserManager#DISALLOW_INSTALL_UNKNOWN_SOURCES),
+ the restriction only applies to the work profile. However, the admin of a work
+ profile can place a device-wide restriction by setting a
+-[managed configuration](https://developer.android.com/work/managed-configurations) for Google Play. The device-wide restriction is
++[managed configuration](/work/managed-configurations) for Google Play. The device-wide restriction is
+ available in Android 8.0 (or higher) when the installed Google Play app is
+ version 80812500 or higher.
+ 
+ To restrict app installs to Google Play, follow these steps:
+ 
+-1. Set a managed configuration bundle for the Google Play package `com.android.vending`.
+-2. In the bundle, put a boolean value for the `verify_apps:device_wide_unknown_source_block` key.
+-3. Add the [`ENSURE_VERIFY_APPS`](https://developer.android.com/reference/android/os/UserManager#ENSURE_VERIFY_APPS) user restriction.
++1. Set a managed configuration bundle for the Google Play package
++   `com.android.vending`.
++2. In the bundle, put a boolean value for the
++   `verify_apps:device_wide_unknown_source_block` key.
++3. Add the [`ENSURE_VERIFY_APPS`](/reference/android/os/UserManager#ENSURE_VERIFY_APPS) user restriction.
+ 
+ The following example shows how you can check that Google Play supports this
+ setting and set the value to `true`:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ internal val DEVICE_WIDE_UNKNOWN_SOURCES = "verify_apps:device_wide_unknown_source_block"
+ internal val GOOGLE_PLAY_APK = "com.android.vending"
+ 
+@@ -96,7 +106,7 @@ dpm.addUserRestriction(adminName, UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES)
+ 
+ ### Java
+ 
+-```java
++```
+ static final String DEVICE_WIDE_UNKNOWN_SOURCES =
+     "verify_apps:device_wide_unknown_source_block";
+ static final String GOOGLE_PLAY_APK = "com.android.vending";
+@@ -121,12 +131,12 @@ dpm.addUserRestriction(adminName, UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES);
+ ```
+ 
+ The user interface in the system settings remains active but the system blocks
+-app installation. This restriction affects future installations---previously
++app installation. This restriction affects future installations—previously
+ installed apps remain on the device. Device users can continue to install apps
+-into the personal profile using the [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb).
++into the personal profile using the [Android Debug Bridge (adb)](/studio/command-line/adb).
+ 
+ To learn more about unknown sources, read [Alternative distribution
+-options](https://developer.android.com/distribute/marketing-tools/alternative-distribution#unknown-sources).
++options](/distribute/marketing-tools/alternative-distribution#unknown-sources).
+ 
+ ## Restrict accounts in Google Play
+ 
+@@ -136,20 +146,22 @@ account to install apps. Your DPC can set a list of accounts people can use in
+ Google Play.
+ 
+ Admin components of fully managed devices or work profiles can restrict the
+-accounts by setting a [managed configuration](https://developer.android.com/work/managed-configurations) for Google Play. The account
++accounts by setting a [managed configuration](/work/managed-configurations) for Google Play. The account
+ restriction is available when the installed Google Play app is version 80970100
+ or higher.
+ 
+ To limit the accounts in Google Play, do the following:
+ 
+-1. Set a managed configuration bundle for the Google Play package `com.android.vending`.
+-2. In the bundle, put the comma-separated email addresses as a string value for the `allowed_accounts` key.
++1. Set a managed configuration bundle for the Google Play package
++   `com.android.vending`.
++2. In the bundle, put the comma-separated email addresses as a string value for
++   the `allowed_accounts` key.
+ 
+ The following example shows how you can limit accounts:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ internal val ALLOWED_ACCOUNTS = "allowed_accounts"
+ internal val GOOGLE_PLAY_APK = "com.android.vending"
+ 
+@@ -168,7 +180,7 @@ dpm.setApplicationRestrictions(adminName, GOOGLE_PLAY_APK, newConfig)
+ 
+ ### Java
+ 
+-```java
++```
+ static final String ALLOWED_ACCOUNTS = "allowed_accounts";
+ static final String GOOGLE_PLAY_APK = "com.android.vending";
+ 
+@@ -207,13 +219,13 @@ organization doesn't know an employee's account credentials, factory reset
+ protection can block the organization's ability to issue a device to another
+ employee.
+ 
+-> [!NOTE]
+-> **Note:** Factory reset protection is disabled if OEM unlocking is enabled in Developer Options.
++**Note:** Factory reset protection is disabled if OEM unlocking is enabled in
++Developer Options.
+ 
+ ### Control provisioning after a factory reset
+ 
+ When running in device owner mode, your DPC can use
+-[`setFactoryResetProtectionPolicy()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setFactoryResetProtectionPolicy(android.content.ComponentName,%20android.app.admin.FactoryResetProtectionPolicy)) to control which accounts are
++[`setFactoryResetProtectionPolicy()`](/reference/android/app/admin/DevicePolicyManager#setFactoryResetProtectionPolicy(android.content.ComponentName,%20android.app.admin.FactoryResetProtectionPolicy)) to control which accounts are
+ authorized to provision a device after a factory reset. If this configuration
+ is set to `null` or set to an empty list, the accounts authorized to provision
+ a device after a factory reset are the accounts on the personal profile of the
+@@ -222,17 +234,29 @@ device.
+ A DPC can configure these accounts throughout the lifetime of a fully managed
+ device.
+ 
+-> [!NOTE]
+-> **Note:** The DPC uses the `userID` value to configure which accounts can provision a device after a factory reset.
+-
+-1. The IT admin can use the [`people.get`](https://developers.google.com/people/api/rest/v1/people/get) method from the People API [with the special value `me`](https://developers.google.com/people/api/rest/v1/people/get?apix_params=%7B%22resourceName%22:%22people/me%22,%22personFields%22:%22names%22%7D). This retrieves the `userId` for the logged in account. The `userID` is returned in the `resourceName` key in the form `people/[userId]` as an integer string. Newly-created accounts might not be available for factory reset purposes for 72 hours.
+-2. You may also want to enable one or more IT admins to unlock the device after a factory reset. Have each of these IT admins log into their Google Account and also follow step 1 and share their `userId` with you, so that you can add these `userIds` to the List in the next step.
+-3. The DPC sets an appropriate app restriction using `setFactoryResetProtectionPolicy()` to set the List of `userId` that can provision a factory reset device.
+-4. The DPC enables the accounts that can provision devices after a factory reset by sending the broadcast `com.google.android.gms.auth.FRP_CONFIG_CHANGED` as an explicit intent to prevent being dropped due to background restrictions.
++**Note:** The DPC uses the `userID` value to configure which accounts can provision
++a device after a factory reset.
++
++1. The IT admin can use the [`people.get`](https://developers.google.com/people/api/rest/v1/people/get) method from the People API
++   [with the special value `me`](https://developers.google.com/people/api/rest/v1/people/get?apix_params=%7B%22resourceName%22%3A%22people%2Fme%22%2C%22personFields%22%3A%22names%22%7D). This retrieves the `userId` for the
++   logged in account. The `userID` is returned in the `resourceName` key in
++   the form `people/[userId]` as an integer string. Newly-created accounts might
++   not be available for factory reset purposes for 72 hours.
++2. You may also want to enable one or more IT admins to unlock the device after
++   a factory reset. Have each of these IT admins log into their Google Account and
++   also follow step 1 and share their `userId` with you, so that you can add these
++   `userIds` to the List in the next step.
++3. The DPC sets an appropriate app restriction using
++   `setFactoryResetProtectionPolicy()` to set the List of `userId` that can
++   provision a factory reset device.
++4. The DPC enables the accounts that can provision devices after a factory
++   reset by sending the broadcast
++   `com.google.android.gms.auth.FRP_CONFIG_CHANGED` as an explicit intent to
++   prevent being dropped due to background restrictions.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ const val ACTION_FRP_CONFIG_CHANGED =
+     "com.google.android.gms.auth.FRP_CONFIG_CHANGED"
+ const val GMSCORE_PACKAGE = "com.google.android.gms"
+@@ -259,7 +283,7 @@ context.sendBroadcast(frpChangedIntent)
+ 
+ ### Java
+ 
+-```java
++```
+ static final String ACTION_FRP_CONFIG_CHANGED =
+     "com.google.android.gms.auth.FRP_CONFIG_CHANGED";
+ static final String GMSCORE_PACKAGE = "com.google.android.gms";
+@@ -287,13 +311,13 @@ context.sendBroadcast(frpChangedIntent);
+ #### Legacy
+ 
+ For devices that cannot use `setFactoryResetProtectionPolicy()`, introduced with
+-API Level 30, your DPC can use [`setApplicationRestrictions`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setApplicationRestrictions(android.content.ComponentName,%20java.lang.String,%20android.os.Bundle)) to add
++API Level 30, your DPC can use [`setApplicationRestrictions`](/reference/android/app/admin/DevicePolicyManager#setApplicationRestrictions(android.content.ComponentName,%20java.lang.String,%20android.os.Bundle)) to add
+ the chosen accounts to the `factoryResetProtectionAdmin` managed configuration
+ for the `com.google.android.gms` package.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ const val GOOGLE_PLAY_APK = "com.android.vending"
+ const val FACTORY_RESET_PROTECTION_ADMIN = "factoryResetProtectionAdmin"
+ const val DISABLE_FACTORY_RESET_PROTECTION_ADMIN = "disableFactoryResetProtectionAdmin"
+@@ -315,7 +339,7 @@ context.sendBroadcast(frpChangedIntent)
+ 
+ ### Java
+ 
+-```java
++```
+ static final String GOOGLE_PLAY_APK = "com.android.vending";
+ static final String FACTORY_RESET_PROTECTION_ADMIN = "factoryResetProtectionAdmin";
+ static final String DISABLE_FACTORY_RESET_PROTECTION_ADMIN = "disableFactoryResetProtectionAdmin";
+@@ -344,7 +368,7 @@ To disable factory reset protection, your DPC can use
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ const val ACTION_FRP_CONFIG_CHANGED =
+     "com.google.android.gms.auth.FRP_CONFIG_CHANGED"
+ const val GMSCORE_PACKAGE = "com.google.android.gms"
+@@ -361,7 +385,7 @@ context.sendBroadcast(frpChangedIntent)
+ 
+ ### Java
+ 
+-```java
++```
+ static final String ACTION_FRP_CONFIG_CHANGED =
+     "com.google.android.gms.auth.FRP_CONFIG_CHANGED";
+ static final String GMSCORE_PACKAGE = "com.google.android.gms";
+@@ -379,16 +403,16 @@ context.sendBroadcast(frpChangedIntent);
+ #### Legacy
+ 
+ For devices that cannot use `setFactoryResetProtectionPolicy()`, introduced with
+-API Level 30, your DPC can use [`setApplicationRestrictions`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setApplicationRestrictions(android.content.ComponentName,%20java.lang.String,%20android.os.Bundle)) to set a key
++API Level 30, your DPC can use [`setApplicationRestrictions`](/reference/android/app/admin/DevicePolicyManager#setApplicationRestrictions(android.content.ComponentName,%20java.lang.String,%20android.os.Bundle)) to set a key
+ value of `true` in the `disableFactoryResetProtectionAdmin` managed
+ configuration for the `com.google.android.gms` package.
+ 
+-> [!NOTE]
+-> **Note:** Simply leaving `factoryResetProtectionAdmin` managed configuration unset does *not* disable factory reset protection.
++**Note:** Simply leaving `factoryResetProtectionAdmin` managed configuration unset
++does *not* disable factory reset protection.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ const val GOOGLE_PLAY_APK = "com.android.vending"
+ const val FACTORY_RESET_PROTECTION_ADMIN = "factoryResetProtectionAdmin"
+ const val DISABLE_FACTORY_RESET_PROTECTION_ADMIN = "disableFactoryResetProtectionAdmin"
+@@ -412,7 +436,7 @@ context.sendBroadcast(frpChangedIntent)
+ 
+ ### Java
+ 
+-```java
++```
+ static final String GOOGLE_PLAY_APK = "com.android.vending";
+ static final String FACTORY_RESET_PROTECTION_ADMIN = "factoryResetProtectionAdmin";
+ static final String DISABLE_FACTORY_RESET_PROTECTION_ADMIN = "disableFactoryResetProtectionAdmin";
+@@ -445,37 +469,39 @@ A DPC running in device owner mode can identify suspicious activity by remotely
+ tracking device activity, including app launches, Android Debug Bridge (adb)
+ activity, and screen unlocks. Process logs don't require user consent.
+ 
+-To enable or disable logging, a DPC calls [`setSecurityLoggingEnabled()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setSecurityLoggingEnabled(android.content.ComponentName,%20boolean)).
++To enable or disable logging, a DPC calls [`setSecurityLoggingEnabled()`](/reference/android/app/admin/DevicePolicyManager#setSecurityLoggingEnabled(android.content.ComponentName,%20boolean)).
+ 
+ When a new batch of logs is available, a `DeviceAdminReceiver` receives the
+-[`onSecurityLogsAvailable()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onSecurityLogsAvailable(android.content.Context,android.content.Intent)) callback. To retrieve the logs (after
+-receiving the callback), a DPC calls [`retrieveSecurityLogs()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#retrieveSecurityLogs(android.content.ComponentName)).
++[`onSecurityLogsAvailable()`](/reference/android/app/admin/DeviceAdminReceiver#onSecurityLogsAvailable(android.content.Context,android.content.Intent)) callback. To retrieve the logs (after
++receiving the callback), a DPC calls [`retrieveSecurityLogs()`](/reference/android/app/admin/DevicePolicyManager#retrieveSecurityLogs(android.content.ComponentName)).
+ 
+-DPCs can also call [`retrievePreRebootSecurityLogs()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#retrievePreRebootSecurityLogs(android.content.ComponentName)) to fetch security
++DPCs can also call [`retrievePreRebootSecurityLogs()`](/reference/android/app/admin/DevicePolicyManager#retrievePreRebootSecurityLogs(android.content.ComponentName)) to fetch security
+ logs generated in the previous reboot cycle. This is the interval between the
+ last device reboot and its preceding reboot. Devices that don't support
+ `retrieveSecurityLogs()` returns `null`. If your app retrieves logs using both
+ `retrievePreRebootSecurityLogs()` and `retrieveSecurityLogs()`, you need to
+ check for duplicate entries.
+-
+-
++  
+ Note: This feature only logs activity on fully managed devices with a single
+-user or [affiliated users](https://developer.android.com/work/dpc/work-profile-on-managed-device#affiliated-users) on the device. This feature doesn't work on
++user or [affiliated users](/work/dpc/work-profile-on-managed-device#affiliated-users) on the device. This feature doesn't work on
+ personal devices, because it logs device-wide activity.
+ 
+ This setting can be useful in post-security-event auditing because it logs the
+ following types of actions:
+ 
+-- Every time the app is freshly started. This could help identify if there's malware that starts with a compromised app.
+-- Unsuccessful unlock attempts on a device. This could identify if there are several failed unlock attempts in a short period of time.
+-- Potentially harmful adb commands when a user connects the device to a computer using a USB cable.
++* Every time the app is freshly started. This could help identify if there's
++  malware that starts with a compromised app.
++* Unsuccessful unlock attempts on a device. This could identify if there are
++  several failed unlock attempts in a short period of time.
++* Potentially harmful adb commands when a user connects
++  the device to a computer using a USB cable.
+ 
+-For details on how to read logs, see [`SecurityLog`](https://developer.android.com/reference/android/app/admin/SecurityLog).
++For details on how to read logs, see [`SecurityLog`](/reference/android/app/admin/SecurityLog).
+ 
+ While you're developing and testing, you can force the system to make any
+-existing security logs available to your DPC---you don't have to wait for a full
++existing security logs available to your DPC—you don't have to wait for a full
+ batch. In Android 9.0 (API level 28) or higher, run the following
+-[Android Debug Bridge](https://developer.android.com/studio/command-line/adb) (adb) command in your terminal:
++[Android Debug Bridge](/studio/command-line/adb) (adb) command in your terminal:
+ 
+ ```
+ adb shell dpm force-security-logs
+@@ -483,53 +509,63 @@ adb shell dpm force-security-logs
+ 
+ The system limits how frequently you can use the tool and reports any
+ intentional slowing in the terminal output. If there are logs available, your
+-DPC receives the [`onSecurityLogsAvailable()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onSecurityLogsAvailable(android.content.Context,android.content.Intent)) callback.
++DPC receives the [`onSecurityLogsAvailable()`](/reference/android/app/admin/DeviceAdminReceiver#onSecurityLogsAvailable(android.content.Context,android.content.Intent)) callback.
+ 
+ ### Remotely request a bug report
+ 
+ A DPC running in device owner mode can remotely request bug reports for user
+-devices with only one user or [affiliated users](https://developer.android.com/work/dpc/work-profile-on-managed-device#affiliated-users). The bug report captures
++devices with only one user or [affiliated users](/work/dpc/work-profile-on-managed-device#affiliated-users). The bug report captures
+ the device activity the exact moment the bug report is requested, but may also
+ include activity from the previous few hours, depending on how often the logcat
+ buffer refreshes.
+ 
+-To remotely request bug reports, the DPC calls [`requestBugreport()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#requestBugreport(android.content.ComponentName)):
++To remotely request bug reports, the DPC calls [`requestBugreport()`](/reference/android/app/admin/DevicePolicyManager#requestBugreport(android.content.ComponentName)):
+ 
+-- If a user accepts sharing the bug report, the DPC receives the bug report using [`onBugreportShared()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onBugreportShared(android.content.Context,%20android.content.Intent,%20java.lang.String)).
+-- If a user denies sharing the bug report, the DPC receives a sharing request denied message using [`onBugreportSharingDeclined()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onBugreportSharingDeclined(android.content.Context,%20android.content.Intent)).
+-- If the bug report fails, the DPC sees [`onBugreportFailed()`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#onBugreportFailed(android.content.Context,%20android.content.Intent,%20int)) with [`BUGREPORT_FAILURE_FAILED_COMPLETING`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#BUGREPORT_FAILURE_FAILED_COMPLETING) or [`BUGREPORT_FAILURE_FILE_NO_LONGER_AVAILABLE`](https://developer.android.com/reference/android/app/admin/DeviceAdminReceiver#BUGREPORT_FAILURE_FILE_NO_LONGER_AVAILABLE).
++* If a user accepts sharing the bug report, the DPC receives the bug
++  report using
++  [`onBugreportShared()`](/reference/android/app/admin/DeviceAdminReceiver#onBugreportShared(android.content.Context,%20android.content.Intent,%20java.lang.String)).
++* If a user denies sharing the bug report, the DPC receives a sharing
++  request denied message using
++  [`onBugreportSharingDeclined()`](/reference/android/app/admin/DeviceAdminReceiver#onBugreportSharingDeclined(android.content.Context,%20android.content.Intent)).
++* If the bug report fails, the DPC sees [`onBugreportFailed()`](/reference/android/app/admin/DeviceAdminReceiver#onBugreportFailed(android.content.Context,%20android.content.Intent,%20int)) with
++  [`BUGREPORT_FAILURE_FAILED_COMPLETING`](/reference/android/app/admin/DeviceAdminReceiver#BUGREPORT_FAILURE_FAILED_COMPLETING) or
++  [`BUGREPORT_FAILURE_FILE_NO_LONGER_AVAILABLE`](/reference/android/app/admin/DeviceAdminReceiver#BUGREPORT_FAILURE_FILE_NO_LONGER_AVAILABLE).
+ 
+ ## Grant access and remove access to a client certificate
+ 
+ If a DPC running in profile owner or device owner mode grants a third-party app
+ the ability to manage certificates, the app can grant itself access to
+ certificates it installs without intervention by a user. To install a
+-certificate that all apps in a profile can access, use [`installKeyPair()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#installKeyPair(android.content.ComponentName,%20java.security.PrivateKey,%20java.security.cert.Certificate,%20java.lang.String)).
++certificate that all apps in a profile can access, use [`installKeyPair()`](/reference/android/app/admin/DevicePolicyManager#installKeyPair(android.content.ComponentName,%20java.security.PrivateKey,%20java.security.cert.Certificate,%20java.lang.String)).
+ 
+-For which parameters to configure, see [`installKeyPair()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#installKeyPair(android.content.ComponentName,%20java.security.PrivateKey,%20java.security.cert.Certificate,%20java.lang.String)). This feature
++For which parameters to configure, see [`installKeyPair()`](/reference/android/app/admin/DevicePolicyManager#installKeyPair(android.content.ComponentName,%20java.security.PrivateKey,%20java.security.cert.Certificate,%20java.lang.String)). This feature
+ works in conjunction with the existing API for managing certificates.
+ 
+ #### Deployment scenario
+ 
+ Without the `installKeyPair()` method:
+ 
+-- Users need to tap the name of the certificate and tap **Allow** each time they want to grant access to a certificate.
+-- Users see a prompt when installing a certificate and must name the certificate.
++* Users need to tap the name of the certificate and tap **Allow** each time
++  they want to grant access to a certificate.
++* Users see a prompt when installing a certificate and must name the
++  certificate.
+ 
+ With the `installKeyPair()` method:
+ 
+-- Users don't need to tap **Allow** each time they want to grant access to a certificate.
+-- Users can't rename certificates.
+-- Admins have more control in that they can block certificates for apps that shouldn't have access to specific certificates.
++* Users don't need to tap **Allow** each time they want to grant access to a
++  certificate.
++* Users can't rename certificates.
++* Admins have more control in that they can block certificates for
++  apps that shouldn't have access to specific certificates.
+ 
+ ### Remove a client certificate
+ 
+ After granting access to a client certificate, to remotely remove client
+-certificates installed through [`installKeyPair()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#installKeyPair(android.content.ComponentName,%20java.security.PrivateKey,%20java.security.cert.Certificate,%20java.lang.String)), call
+-[`removeKeyPair()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#removeKeyPair(android.content.ComponentName,%20java.lang.String)).
++certificates installed through [`installKeyPair()`](/reference/android/app/admin/DevicePolicyManager#installKeyPair(android.content.ComponentName,%20java.security.PrivateKey,%20java.security.cert.Certificate,%20java.lang.String)), call
++[`removeKeyPair()`](/reference/android/app/admin/DevicePolicyManager#removeKeyPair(android.content.ComponentName,%20java.lang.String)).
+ 
+ A DPC running in device owner mode or profile owner mode, or delegated
+-certificate installer can call [`removeKeyPair()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#removeKeyPair(android.content.ComponentName,%20java.lang.String)). This removes a
++certificate installer can call [`removeKeyPair()`](/reference/android/app/admin/DevicePolicyManager#removeKeyPair(android.content.ComponentName,%20java.lang.String)). This removes a
+ certificate and private key pair installed under a given private key alias.
+ 
+ #### Deployment scenario
+@@ -544,15 +580,18 @@ certificates after the migration is complete.
+ Your DPC can reset a user's password by authorizing the change with a
+ preregistered, secure token. Device owners and profile owners can call secure
+ passcode reset APIs to change the password of devices and work profiles
+-respectively. Secure passcode reset replaces [`resetPassword()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#resetPassword(java.lang.String,%20int)) with the
++respectively. Secure passcode reset replaces [`resetPassword()`](/reference/android/app/admin/DevicePolicyManager#resetPassword(java.lang.String,%20int)) with the
+ following improvements:
+ 
+-- Your DPC can reset the passcode before the user unlocks the device or profile after a reboot on devices using [file-based encryption](https://source.android.com/security/encryption/file-based).
+-- The Android Keystore retains [user-authenticated keys](https://developer.android.com/training/articles/keystore#UserAuthentication) after a passcode reset.
++* Your DPC can reset the passcode before the user unlocks the device or profile
++  after a reboot on devices using
++  [file-based encryption](https://source.android.com/security/encryption/file-based).
++* The Android Keystore retains [user-authenticated keys](/training/articles/keystore#UserAuthentication)
++  after a passcode reset.
+ 
+ You should use secure passcode reset if your DPC build targets Android 8.0 (API
+ level 26) or higher. Calling `resetPassword()` throws a
+-[`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException) in DPCs targeting Android 8.0 or higher so you might
++[`SecurityException`](/reference/java/lang/SecurityException) in DPCs targeting Android 8.0 or higher so you might
+ need to update your DPC.
+ 
+ ### Set and activate a token
+@@ -562,11 +601,14 @@ your DPC might not be able to use the token straightaway, you set the token
+ ahead of the time an IT admin might need to use it.
+ 
+ A password reset token is a cryptographically strong random value and needs to
+-be at least 32 bytes long. Create a token for each device and profile---don't
++be at least 32 bytes long. Create a token for each device and profile—don't
+ reuse or share your generated tokens.
+ 
+-> [!WARNING]
+-> **Warning:** Treat the token as you would treat user credentials. Never store the token on the device as plain text, especially in device encrypted storage. Your organization should carefully consider how you store the tokens on a server and who gets access to the tokens. Tokens might be subject to legal requests for device access.
++**Warning:** Treat the token as you would treat user credentials. Never store the
++token on the device as plain text, especially in device encrypted storage. Your
++organization should carefully consider how you store the tokens on a server and
++who gets access to the tokens. Tokens might be subject to legal requests for
++device access.
+ 
+ We recommend storing tokens, or the means to decrypt an encrypted token, on a
+ server. If you store tokens locally in credential encrypted storage, your DPC
+@@ -581,7 +623,7 @@ server:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val token = ByteArray(32)
+ 
+ // Generate a new token
+@@ -602,7 +644,7 @@ if (success) {
+ 
+ ### Java
+ 
+-```java
++```
+ byte token[] = new byte[32]; // Minimum size token accepted
+ 
+ // Generate a new token
+@@ -625,14 +667,14 @@ In most cases, your DPC needs to activate a token after setting it. But, when
+ the user doesn't have a lock screen password, the system activates a token
+ straightaway. To activate a token, ask the user to confirm their credentials.
+ Your DPC can call the `KeyguardManager` method
+-[`createConfirmDeviceCredentialIntent()`](https://developer.android.com/reference/android/app/KeyguardManager#createConfirmDeviceCredentialIntent(java.lang.CharSequence,%20java.lang.CharSequence)) to get an `Intent` that starts the
++[`createConfirmDeviceCredentialIntent()`](/reference/android/app/KeyguardManager#createConfirmDeviceCredentialIntent(java.lang.CharSequence,%20java.lang.CharSequence)) to get an `Intent` that starts the
+ confirmation. Explain to the device user in the user interface, why you're
+ asking them to authenticate. The snippet below shows how you might activate a
+ token in your DPC:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // In your DPC, you'll need to localize the user prompt
+ val ACTIVATE_TOKEN_PROMPT = "Use your credentials to enable remote password reset"
+ val ACTIVATE_TOKEN_REQUEST = 1
+@@ -652,7 +694,7 @@ if (confirmIntent != null) {
+ 
+ ### Java
+ 
+-```java
++```
+ // In your DPC, you'll need to localize the user prompt
+ static final String ACTIVATE_TOKEN_PROMPT =
+  "Use your credentials to enable remote password reset";
+@@ -679,7 +721,7 @@ reboot. If the user reboots the device before activating a token, your DPC can
+ set the same token again or generate a new token.
+ 
+ Your DPC can confirm that a token is active by calling
+-[`isResetPasswordTokenActive()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#isResetPasswordTokenActive(android.content.ComponentName)) and checking the result is `true`.
++[`isResetPasswordTokenActive()`](/reference/android/app/admin/DevicePolicyManager#isResetPasswordTokenActive(android.content.ComponentName)) and checking the result is `true`.
+ 
+ After your DPC sets and activates a token, it's valid until your DPC deletes or
+ replaces the token (or the device is factory reset). The token is independent of
+@@ -687,14 +729,14 @@ the password and isn't affected by the user changing or clearing the password.
+ 
+ ### Delete a token
+ 
+-You can call [`clearResetPasswordToken()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#clearResetPasswordToken(android.content.ComponentName)) to delete a token that your DPC
++You can call [`clearResetPasswordToken()`](/reference/android/app/admin/DevicePolicyManager#clearResetPasswordToken(android.content.ComponentName)) to delete a token that your DPC
+ set earlier. You might need to revoke a compromised token or you might want to
+ remove the ability to reset the password. The sample below shows how you can do
+ this in your DPC:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val dpm = getDpm()
+ val admin = DeviceAdminReceiver.getComponentName(requireActivity())
+ 
+@@ -706,7 +748,7 @@ if (!dpm.clearResetPasswordToken(admin)) {
+ 
+ ### Java
+ 
+-```java
++```
+ DevicePolicyManager dpm = getDpm();
+ ComponentName admin = DeviceAdminReceiver.getComponentName(getActivity());
+ 
+@@ -719,12 +761,12 @@ if (!dpm.clearResetPasswordToken(admin)) {
+ ### Reset the password
+ 
+ When an IT admin needs to reset the password, call
+-[`resetPasswordWithToken()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#resetPasswordWithToken(android.content.ComponentName,%20java.lang.String,%20byte%5B%5D,%20int)) and pass the token your DPC set and activated
++[`resetPasswordWithToken()`](/reference/android/app/admin/DevicePolicyManager#resetPasswordWithToken(android.content.ComponentName,%20java.lang.String,%20byte%5B%5D,%20int)) and pass the token your DPC set and activated
+ in advance:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val token: ByteArray = getTokenFromServer()
+ val newPassword = "password"
+ 
+@@ -748,7 +790,7 @@ try {
+ 
+ ### Java
+ 
+-```java
++```
+ byte token[] = getTokenFromServer();
+ String newPassword = "password";
+ 
+@@ -769,8 +811,12 @@ try {
+ A call to `resetPasswordWithToken()` returns `false`, and the password doesn't
+ change, when the new password doesn't meet the following constraints:
+ 
+-- The number of characters meets any minimum password length constraint. Call [`getPasswordMinimumLength()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#getPasswordMinimumLength(android.content.ComponentName)) to know if an IT admin set a length constraint.
+-- The range and complexity of characters in the password meets a composition constraint. Call [`getPasswordQuality()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#getPasswordQuality(android.content.ComponentName)) to know if an IT admin set a composition constraint.
++* The number of characters meets any minimum password length constraint. Call
++  [`getPasswordMinimumLength()`](/reference/android/app/admin/DevicePolicyManager#getPasswordMinimumLength(android.content.ComponentName)) to know if an IT
++  admin set a length constraint.
++* The range and complexity of characters in the password meets a composition
++  constraint. Call [`getPasswordQuality()`](/reference/android/app/admin/DevicePolicyManager#getPasswordQuality(android.content.ComponentName)) to know if an IT
++  admin set a composition constraint.
+ 
+ If the password quality constraints don't require a password to be set, you can
+ pass `null` or an empty string to `resetPasswordWithToken()` to remove the
+@@ -784,26 +830,36 @@ challenge when the user attempts to open any work apps. If the user successfully
+ completes the security challenge, the system unlocks the work profile and
+ decrypts it, if necessary.
+ 
+-> [!NOTE]
+-> **Note:** The separate work challenge is a feature that a user can also set, and if the user chooses the unified lock option, they can access work apps once they unlock their personal lock on the device.
++**Note:** The separate work challenge is a feature that a user can also set, and if
++the user chooses the unified lock option, they can access work apps once they
++unlock their personal lock on the device.
+ 
+ ### How work profile security challenge works
+ 
+-1. If a DPC sends an [`ACTION_SET_NEW_PASSWORD`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#ACTION_SET_NEW_PASSWORD) intent, the system prompts the user to set up a security challenge.
+-2. The DPC can also send an[`ACTION_SET_NEW_PARENT_PROFILE_PASSWORD`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#ACTION_SET_NEW_PARENT_PROFILE_PASSWORD) intent to prompt the user to set a device lock.
++1. If a DPC sends an [`ACTION_SET_NEW_PASSWORD`](/reference/android/app/admin/DevicePolicyManager#ACTION_SET_NEW_PASSWORD) intent, the system prompts
++   the user to set up a security challenge.
++2. The DPC can also send an[`ACTION_SET_NEW_PARENT_PROFILE_PASSWORD`](/reference/android/app/admin/DevicePolicyManager#ACTION_SET_NEW_PARENT_PROFILE_PASSWORD)
++   intent to prompt the user to set a device lock.
+ 
+ A DPC can set the password policies for the work challenge differently from the
+ policies for other device passwords. For example, the minimum length for the
+ device challenge response can be different from the length required for other
+ passwords. A DPC sets the challenge policies using the usual
+-[`DevicePolicyManager`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager) methods, such as [`setPasswordQuality()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordQuality(android.content.ComponentName,%20int)) and
+-[`setPasswordMinimumLength()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumLength(android.content.ComponentName,%20int)).
++[`DevicePolicyManager`](/reference/android/app/admin/DevicePolicyManager) methods, such as [`setPasswordQuality()`](/reference/android/app/admin/DevicePolicyManager#setPasswordQuality(android.content.ComponentName,%20int)) and
++[`setPasswordMinimumLength()`](/reference/android/app/admin/DevicePolicyManager#setPasswordMinimumLength(android.content.ComponentName,%20int)).
+ 
+ ### Considerations
+ 
+-- The DPC can reset the password on the work profile, but can't reset the device (personal) password. If a user chooses to set work and personal passwords to be the same, then [`resetPassword()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#resetPassword(java.lang.String,%20int)) on the work profile causes the password to be reset on work profile only, and the password won't be the same as the one for the device lock screen.
+-- A DPC can customize the credentials screen for the work challenge by using [`setOrganizationColor()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setOrganizationColor(android.content.ComponentName,%20int)) and [`setOrganizationName()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setOrganizationName(android.content.ComponentName,%20java.lang.CharSequence)).
+-- Device admins can't use [`resetPassword()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#resetPassword(java.lang.String,%20int)) to clear passwords or change ones that are already set. Device admins can still set a password, but only when the device has no password, PIN, or pattern.
+-
+-For additional information, see [`getParentProfileInstance()`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#getParentProfileInstance(android.content.ComponentName)) and reference
+-documentation under [`DevicePolicyManager`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager).
+\ No newline at end of file
++* The DPC can reset the password on the work profile, but can't reset the
++  device (personal) password. If a user chooses to set work and personal passwords
++  to be the same, then [`resetPassword()`](/reference/android/app/admin/DevicePolicyManager#resetPassword(java.lang.String,%20int)) on the work profile causes the
++  password to be reset on work profile only, and the password won't be the same
++  as the one for the device lock screen.
++* A DPC can customize the credentials screen for the work challenge by using
++  [`setOrganizationColor()`](/reference/android/app/admin/DevicePolicyManager#setOrganizationColor(android.content.ComponentName,%20int)) and [`setOrganizationName()`](/reference/android/app/admin/DevicePolicyManager#setOrganizationName(android.content.ComponentName,%20java.lang.CharSequence)).
++* Device admins can't use [`resetPassword()`](/reference/android/app/admin/DevicePolicyManager#resetPassword(java.lang.String,%20int)) to clear passwords or change
++  ones that are already set. Device admins can still set a password, but only
++  when the device has no password, PIN, or pattern.
++
++For additional information, see [`getParentProfileInstance()`](/reference/android/app/admin/DevicePolicyManager#getParentProfileInstance(android.content.ComponentName)) and reference
++documentation under [`DevicePolicyManager`](/reference/android/app/admin/DevicePolicyManager).
+\ No newline at end of file

@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/third-party-login-supports.md b/docs/games/playgames/third-party-login-supports.md
+index 2d349fc..69b5013 100644
+--- a/docs/games/playgames/third-party-login-supports.md
++++ b/docs/games/playgames/third-party-login-supports.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This guide describes how to use
+ [`CustomTabsIntent`](/reference/androidx/browser/customtabs/CustomTabsIntent)
+ to support third-party logins.
+@@ -41,6 +40,4 @@ contact.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/get-started/google-tv.md b/docs/training/tv/get-started/google-tv.md
+index 6ef20a3..b239635 100644
+--- a/docs/training/tv/get-started/google-tv.md
++++ b/docs/training/tv/get-started/google-tv.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android TV OS powers millions of TVs, streaming devices, and PayTV set-top boxes.
+ Google TV is a brand-new experience available first on the Chromecast with
+ Google TV and to more devices over time.

@@ -1,0 +1,12 @@
+diff --git a/docs/media/media3/exoplayer/oems.md b/docs/media/media3/exoplayer/oems.md
+index bacdc26..83b968d 100644
+--- a/docs/media/media3/exoplayer/oems.md
++++ b/docs/media/media3/exoplayer/oems.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ExoPlayer is used by a large number of Android apps. As an OEM, it's
+ important to ensure that ExoPlayer works correctly both on new devices, and on
+ new platform builds for existing devices. This page describes compatibility

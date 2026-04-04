@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/animations/transitions/custom-transitions.md b/docs/develop/ui/views/animations/transitions/custom-transitions.md
+index 3e84fe2..77c56f3 100644
+--- a/docs/develop/ui/views/animations/transitions/custom-transitions.md
++++ b/docs/develop/ui/views/animations/transitions/custom-transitions.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to add animations in Compose.

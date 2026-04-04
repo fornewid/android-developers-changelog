@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/migrate/strategy.md b/docs/develop/ui/compose/migrate/strategy.md
+index b966d6f..4b85283 100644
+--- a/docs/develop/ui/compose/migrate/strategy.md
++++ b/docs/develop/ui/compose/migrate/strategy.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ If you have an existing View-based app, you may not want to rewrite its entire
+ UI all at once. This page helps you add new Compose components into your
+ existing app. To get started with using Compose in your app, see [Set up Compose

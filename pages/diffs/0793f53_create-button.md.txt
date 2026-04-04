@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-button.md b/docs/develop/ui/compose/quick-guides/content/create-button.md
+index 4f4dae0..253df9f 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-button.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-button.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Buttons let the user trigger a defined action. There are five types of
+ button:
+ 

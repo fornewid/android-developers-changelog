@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/accessibility/semantics.md b/docs/develop/ui/compose/accessibility/semantics.md
+index 30d4f74..9aa9b9e 100644
+--- a/docs/develop/ui/compose/accessibility/semantics.md
++++ b/docs/develop/ui/compose/accessibility/semantics.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Aside from the primary information that a composable carries, like a text string
+ of a [`Text`](/reference/kotlin/androidx/compose/material3/Text.composable) composable, it can be helpful to have more supplemental
+ information about UI elements.

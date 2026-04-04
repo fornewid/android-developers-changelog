@@ -1,0 +1,12 @@
+diff --git a/docs/google/play/installreferrer/igetinstallreferrerservice.md b/docs/google/play/installreferrer/igetinstallreferrerservice.md
+index 9a7a5eb..ce6e6bb 100644
+--- a/docs/google/play/installreferrer/igetinstallreferrerservice.md
++++ b/docs/google/play/installreferrer/igetinstallreferrerservice.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This documentation provides technical reference for using the
+ Play Install Referrer API. The Play Install Referrer API is an
+ [AIDL Service Interface](https://developer.android.com/guide/components/aidl.html)

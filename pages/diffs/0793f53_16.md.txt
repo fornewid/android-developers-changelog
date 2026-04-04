@@ -1,0 +1,12 @@
+diff --git a/docs/tv/release/16.md b/docs/tv/release/16.md
+index 47e54a3..b22022e 100644
+--- a/docs/tv/release/16.md
++++ b/docs/tv/release/16.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This platform update of Android TV OS brings the improvements from Android 16
+ to compatible consumer devices along with improvements of its own.
+ 

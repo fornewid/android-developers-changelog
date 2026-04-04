@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/tvprovider.md b/docs/jetpack/androidx/releases/tvprovider.md
+index f8759e3..4a3a53f 100644
+--- a/docs/jetpack/androidx/releases/tvprovider.md
++++ b/docs/jetpack/androidx/releases/tvprovider.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # TV Provider
+ 
+ [Code Sample](https://github.com/android/tv-samples)

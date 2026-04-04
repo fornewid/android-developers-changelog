@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/nougat/android-7.1-samples.md b/docs/about/versions/nougat/android-7.1-samples.md
+index be34939..069b25d 100644
+--- a/docs/about/versions/nougat/android-7.1-samples.md
++++ b/docs/about/versions/nougat/android-7.1-samples.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The following code samples are provided for Android 7.1 (API 25). To
+ download the samples in Android Studio, select the **File > New > Import Sample** menu
+ option.

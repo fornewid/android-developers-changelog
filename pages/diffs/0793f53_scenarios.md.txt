@@ -1,0 +1,12 @@
+diff --git a/docs/develop/sensors-and-location/location/battery/scenarios.md b/docs/develop/sensors-and-location/location/battery/scenarios.md
+index fa8c4a2..8d6bcad 100644
+--- a/docs/develop/sensors-and-location/location/battery/scenarios.md
++++ b/docs/develop/sensors-and-location/location/battery/scenarios.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This section describes some typical location-gathering scenarios, along with
+ recommendations for optimal use of the geofencing and fused location provider
+ APIs.

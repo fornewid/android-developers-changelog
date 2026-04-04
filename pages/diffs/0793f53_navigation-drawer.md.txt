@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/tv/guides/components/navigation-drawer.md b/docs/design/ui/tv/guides/components/navigation-drawer.md
+index c317f37..bb77937 100644
+--- a/docs/design/ui/tv/guides/components/navigation-drawer.md
++++ b/docs/design/ui/tv/guides/components/navigation-drawer.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Navigation drawers are essential components in any TV app as they allow users
+ to access different destinations and features. A navigation drawer is the
+ backbone of the app's information architecture, providing a clear and intuitive

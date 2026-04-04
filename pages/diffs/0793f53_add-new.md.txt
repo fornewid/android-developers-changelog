@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/design/add-new.md b/docs/guide/navigation/design/add-new.md
+index c3a954a..c823772 100644
+--- a/docs/guide/navigation/design/add-new.md
++++ b/docs/guide/navigation/design/add-new.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The [`NavController`](/reference/androidx/navigation/NavController) type
+ relies on one or more
+ [`Navigator`](/reference/androidx/navigation/Navigator) objects to perform

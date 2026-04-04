@@ -1,0 +1,12 @@
+diff --git a/docs/media/implement/editing-app.md b/docs/media/implement/editing-app.md
+index e7c1a52..7df873b 100644
+--- a/docs/media/implement/editing-app.md
++++ b/docs/media/implement/editing-app.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Transformer APIs in Jetpack Media3 are designed to make media editing
+ performant and reliable. Transformer supports a number of operations,
+ including:

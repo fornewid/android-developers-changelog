@@ -1,0 +1,12 @@
+diff --git a/docs/media/grow/ultra-hdr/edit.md b/docs/media/grow/ultra-hdr/edit.md
+index e43c706..43905e5 100644
+--- a/docs/media/grow/ultra-hdr/edit.md
++++ b/docs/media/grow/ultra-hdr/edit.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The [Ultra HDR image format](/guide/topics/media/platform/hdr-image-format) encodes luminosity information
+ that lets devices display brighter
+ images with more intense colors. When your app edits an Ultra HDR image, you

@@ -1,0 +1,12 @@
+diff --git a/docs/work/dpc/logging.md b/docs/work/dpc/logging.md
+index 1b6ea9f..e0f0317 100644
+--- a/docs/work/dpc/logging.md
++++ b/docs/work/dpc/logging.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This document explains how a device policy controller (DPC) logs network
+ activity. Continue reading to learn how to add network logging to your DPC.
+ 

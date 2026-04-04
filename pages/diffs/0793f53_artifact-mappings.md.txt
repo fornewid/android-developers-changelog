@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/migrate/artifact-mappings.md b/docs/jetpack/androidx/migrate/artifact-mappings.md
+index c7ad803..d415090 100644
+--- a/docs/jetpack/androidx/migrate/artifact-mappings.md
++++ b/docs/jetpack/androidx/migrate/artifact-mappings.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The following table lists the current mappings from old support library artifacts to `androidx`.
+ You can also download these mappings in
+ [CSV format](/static/topic/libraries/support-library/downloads/androidx-artifact-mapping.csv).

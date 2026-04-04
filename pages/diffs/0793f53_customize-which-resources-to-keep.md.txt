@@ -1,0 +1,203 @@
+diff --git a/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md b/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md
+index a5a4046..81f0f88 100644
+--- a/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md
++++ b/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md
+@@ -1,45 +1,61 @@
+ ---
+-title: https://developer.android.com/topic/performance/app-optimization/customize-which-resources-to-keep
++title: Customize which resources to keep  |  App quality  |  Android Developers
+ url: https://developer.android.com/topic/performance/app-optimization/customize-which-resources-to-keep
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-When you [enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization), the `isShrinkResources = true` setting
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App quality](https://developer.android.com/quality)
++* [Technical quality](https://developer.android.com/quality/technical)
++
++# Customize which resources to keep Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++When you [enable app optimization](/topic/performance/app-optimization/enable-app-optimization), the `isShrinkResources = true` setting
+ instructs the optimizer to remove resources that are unused, which helps reduce
+ the size of your app. Resource shrinking works only in conjunction with code
+ shrinking, so if you're optimizing resources, also set `isMinifyEnabled = true`,
+ for example:
+ 
+-    buildTypes {
+-        release {
+-            isMinifyEnabled = true
+-            isShrinkResources = true
+-            ...
+-        }
++```
++buildTypes {
++    release {
++        isMinifyEnabled = true
++        isShrinkResources = true
++        ...
+     }
++}
++```
+ 
+ If you want to keep or discard specific resources, create an XML *keep* file in
+ your project resources, for example `res/raw/my.package.keep.xml`. The keep file
+ has the following components:
+ 
+-- `<resources>` tag --- Contains all child resource elements and keep/discard attributes.
+-- `tools:keep` attribute --- Accepts a comma-separated list of resource names that identify resources to keep
+-- `tools:discard` attribute --- Accepts a comma-separated list of resource names that identify resources to discard
++* `<resources>` tag — Contains all child resource elements and
++  keep/discard attributes.
++* `tools:keep` attribute — Accepts a comma-separated list of resource
++  names that identify resources to keep
++* `tools:discard` attribute — Accepts a comma-separated list of resource
++  names that identify resources to discard
+ 
+ Use the asterisk character as a wildcard to reference multiple resources in the
+ same folder, for example:
+ 
+-    <?xml version="1.0" encoding="utf-8"?>
+-    <resources xmlns:tools="http://schemas.android.com/tools"
+-        tools:keep="@layout/l_used*_c,@layout/l_used_a,@layout/l_used_b*"
+-        tools:discard="@layout/unused2" />
++```
++<?xml version="1.0" encoding="utf-8"?>
++<resources xmlns:tools="http://schemas.android.com/tools"
++    tools:keep="@layout/l_used*_c,@layout/l_used_a,@layout/l_used_b*"
++    tools:discard="@layout/unused2" />
++```
+ 
+-> [!NOTE]
+-> **Note:**
+->
+-> - Keep files have global scope. Give your keep files unique filenames that include the file's package name. Unique filenames ensure keep files from different libraries won't conflict, causing potential issues with ignored rules or unneeded kept resources, when different libraries are linked together.
+-> - The build doesn't package the keep file into your app.
+-> - You should rarely need to keep resources. The use of [`getIdentifier()`](https://developer.android.com/reference/android/content/res/Resources#getIdentifier(java.lang.String,%20java.lang.String,%20java.lang.String)) is an exception; however, retrieving resources by identifier is more efficient than retrieving them by name with `getIdentifier()`.
++
++**Note:**
++
++* Keep files have global scope. Give your keep files unique filenames that include the file's package name. Unique filenames ensure keep files from different libraries won't conflict, causing potential issues with ignored rules or unneeded kept resources, when different libraries are linked together.
++* The build doesn't package the keep file into your app.
++* You should rarely need to keep resources. The use of [`getIdentifier()`](/reference/android/content/res/Resources#getIdentifier(java.lang.String,%20java.lang.String,%20java.lang.String)) is an exception; however, retrieving resources by identifier is more efficient than retrieving them by name with `getIdentifier()`.
+ 
+ Specifying which resources to discard might seem superfluous when you could
+ instead delete them, but discarding resources can be useful when using build
+@@ -57,7 +73,7 @@ shrinker), but you know it actually won't be used for the given build variant.
+ ## Remove unused alternative resources
+ 
+ The optimizer only removes resources that aren't referenced by your app code,
+-which means the optimizer won't remove [alternative resources](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources) for different
++which means the optimizer won't remove [alternative resources](/guide/topics/resources/providing-resources#AlternativeResources) for different
+ device configurations.
+ 
+ Use the Android Gradle `resConfigs` property in your app's module `build.gradle`
+@@ -73,31 +89,35 @@ Any resources for languages not specified are removed.
+ The following snippets show how to limit your language resources to just English
+ and French:
+ 
+-    android {
+-        defaultConfig {
+-            ...
+-            resourceConfigurations.addAll(listOf("en", "fr"))
+-        }
++```
++android {
++    defaultConfig {
++        ...
++        resourceConfigurations.addAll(listOf("en", "fr"))
+     }
++}
++```
+ 
+ or
+ 
+-    android {
+-        defaultConfig {
+-            ...
+-            resConfigs "en", "fr"
+-        }
++```
++android {
++    defaultConfig {
++        ...
++        resConfigs "en", "fr"
+     }
++}
++```
+ 
+ When you publish an app using the Android App Bundle (AAB) format, by default
+ only languages configured on a user's device are downloaded when the user
+ installs the app. Similarly, only resources matching the device's screen density
+ and native libraries matching the device's ABI are included in the download. For
+-more information, see [Re-enable or disable types of configuration APKs](https://developer.android.com/guide/app-bundle/configure-base#disable_config_apks).
++more information, see [Re-enable or disable types of configuration APKs](/guide/app-bundle/configure-base#disable_config_apks).
+ 
+ For legacy apps releasing with APKs (created before August 2021), you can
+ customize the screen density or ABI resources to include in your APK by
+-[building multiple APKs](https://developer.android.com/studio/build/configure-apk-splits) that target different device configurations.
++[building multiple APKs](/studio/build/configure-apk-splits) that target different device configurations.
+ 
+ ## Avoid conflicts when merging resources
+ 
+@@ -115,11 +135,13 @@ artifact.
+ 
+ AGP looks for duplicate resources in the following locations:
+ 
+-- Main resources, associated with the main source set, generally located in `src/main/res/`
+-- Variant overlays, from the build type and build flavors
+-- Library project dependencies
++* Main resources, associated with the main source set, generally located in
++  `src/main/res/`
++* Variant overlays, from the build type and build flavors
++* Library project dependencies
+ 
+ AGP merges duplicate resources in the following cascading priority order:
++
+ Dependencies → Main → Build flavor → Build type
+ 
+ For example, if a duplicate resource appears in both your main resources and a
+@@ -137,9 +159,11 @@ When you shrink resources, the **Build** window shows a summary of the resources
+ removed from the app. (Click **Toggle view** on the left side of the window to
+ display detailed text output from Gradle.) For example:
+ 
+-    :android:shrinkDebugResources
+-    Removed unused resources: Resource data reduced from 2570KB to 1711KB: Removed 33%
+-    :android:validateDebugSigning
++```
++:android:shrinkDebugResources
++Removed unused resources: Resource data reduced from 2570KB to 1711KB: Removed 33%
++:android:validateDebugSigning
++```
+ 
+ Gradle also creates a diagnostic file named `resources.txt` in
+ `<module-name>/build/outputs/mapping/release/` (the same folder as ProGuard's
+@@ -150,8 +174,10 @@ For example, to find out why `@drawable/ic_plus_anim_016` is still in your app,
+ open the `resources.txt` file and search for that filename. You might find that
+ it's referenced from another resource:
+ 
+-    16:25:48.005 [QUIET] [system.out] @drawable/add_schedule_fab_icon_anim : reachable=true
+-    16:25:48.009 [QUIET] [system.out] @drawable/ic_plus_anim_016
++```
++16:25:48.005 [QUIET] [system.out] @drawable/add_schedule_fab_icon_anim : reachable=true
++16:25:48.009 [QUIET] [system.out] @drawable/ic_plus_anim_016
++```
+ 
+ You now need to know why `@drawable/add_schedule_fab_icon_anim` is reachable;
+ and if you search upwards, you'll find the resource listed under the heading
+@@ -165,8 +191,10 @@ there are string constants that look like they might be used to construct
+ resource names for dynamically loaded resources. In that case, if you search the
+ build output for the resource name, you might find a message like this:
+ 
+-    10:32:50.590 [QUIET] [system.out] Marking drawable:ic_plus_anim_016:2130837506
+-        used because its format-string matches string pool constant ic_plus_anim_%1$d.
++```
++10:32:50.590 [QUIET] [system.out] Marking drawable:ic_plus_anim_016:2130837506
++    used because its format-string matches string pool constant ic_plus_anim_%1$d.
++```
+ 
+ If you see one of these strings and you are certain that the string is not being
+ used to load the given resource dynamically, use the `tools:discard` attribute

@@ -1,0 +1,12 @@
+diff --git a/docs/training/testing/local-tests.md b/docs/training/testing/local-tests.md
+index 82841f2..6b2b6f8 100644
+--- a/docs/training/testing/local-tests.md
++++ b/docs/training/testing/local-tests.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A *local* test runs directly on your own workstation, rather than an Android
+ device or emulator. As such, it uses your local Java Virtual Machine (JVM),
+ rather than an Android device to run tests. Local tests enable you to evaluate

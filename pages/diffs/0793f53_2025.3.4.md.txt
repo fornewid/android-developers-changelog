@@ -1,0 +1,25 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2025.3.4.md b/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
+index 81f5f8f..a85c2a7 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
++++ b/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
+@@ -11,6 +11,20 @@ source: html-scrape
+ 
+ 
+ 
++### Android Studio Panda 4 | 2025.3.4 Canary 3
++
++**Released together with:**
++
++* Android Gradle Plugin 9.2.0-alpha07
++
++| Fixed Issues | |
++| --- | --- |
++| **C++ Build** | |  | | --- | | [Issue #496629068](https://issuetracker.google.com/issues/496629068)  AGP 9.x configureCMakeDebug fails with Gson reflection error on Gradle 9.x + JDK 21 | |
++| **Lint** | |  | | --- | | [Issue #492589793](https://issuetracker.google.com/issues/492589793)  Lint error when resource shrinking is disabled | |
++| **New Code/Templates** | |  | | --- | | [Issue #236781728](https://issuetracker.google.com/issues/236781728)  Sort dependencies in alphabetical order in gradle file | |
++| **Preview** | |  | | --- | | [Issue #432405487](https://issuetracker.google.com/issues/432405487)  You broke pinch-to-zoom in compose preview (design/split) | |
++| **Resource Manager** | |  | | --- | | [Issue #464010035](https://issuetracker.google.com/issues/464010035)  Vector asset studio doesn't embed license in generated XML files | |
++| **Resources** | |  | | --- | | [Issue #496616822](https://issuetracker.google.com/issues/496616822)  processDebugUnitTestManifest fails with "Referenced navigation file not found" when  is used in manifest (regression from AGP 9.0.1 → 9.1.0) | |
+ 
+ ### Android Studio Panda 4 | 2025.3.4 Canary 2
+ 

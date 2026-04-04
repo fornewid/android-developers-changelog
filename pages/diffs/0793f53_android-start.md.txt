@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/android/android-start.md b/docs/games/pgs/android/android-start.md
+index 1deeb51..0ed325f 100644
+--- a/docs/games/pgs/android/android-start.md
++++ b/docs/games/pgs/android/android-start.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ **Note:** This guide is for the Play Games Services v2 SDK. For information on the
+ previous version of this SDK, see the [Play Games Services v1
+ documentation](/games/pgs/v1/android).
+@@ -85,6 +84,4 @@ in order for the game to access Play Games Services features.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

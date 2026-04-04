@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/mobile/guides/widgets/style.md b/docs/design/ui/mobile/guides/widgets/style.md
+index de83410..e649ca7 100644
+--- a/docs/design/ui/mobile/guides/widgets/style.md
++++ b/docs/design/ui/mobile/guides/widgets/style.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Styling widgets effectively is crucial for achieving a visually appealing and
+ consistent user experience. This section delves into the key concepts and
+ techniques for defining the color and typography to create the most helpful

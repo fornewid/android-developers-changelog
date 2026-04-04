@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/services/bound-services.md b/docs/develop/background-work/services/bound-services.md
+index 8a48744..5dc8cce 100644
+--- a/docs/develop/background-work/services/bound-services.md
++++ b/docs/develop/background-work/services/bound-services.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ A bound service is the server in a client-server interface. It lets components
+ such as activities bind to the service, send requests, receive responses, and perform
+ interprocess communication (IPC). A bound service typically lives only while it serves another

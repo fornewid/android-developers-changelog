@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/gallery/reading/news.md b/docs/design/ui/gallery/reading/news.md
+index b2ea149..963a848 100644
+--- a/docs/design/ui/gallery/reading/news.md
++++ b/docs/design/ui/gallery/reading/news.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Create custom news feeds that display the headlines of the day alongside
+ unabridged articles for easy browsing and fully informed reading.
+ 

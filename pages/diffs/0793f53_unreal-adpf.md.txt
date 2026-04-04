@@ -1,0 +1,175 @@
+diff --git a/docs/games/engines/unreal/unreal-adpf.md b/docs/games/engines/unreal/unreal-adpf.md
+index df8589e..54049e3 100644
+--- a/docs/games/engines/unreal/unreal-adpf.md
++++ b/docs/games/engines/unreal/unreal-adpf.md
+@@ -1,10 +1,18 @@
+ ---
+-title: https://developer.android.com/games/engines/unreal/unreal-adpf
++title: ADPF Unreal Engine plugin  |  Android Developers
+ url: https://developer.android.com/games/engines/unreal/unreal-adpf
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-The [Android Dynamic Performance Framework)](https://developer.android.com/games/optimize/adpf) (ADPF) plugin
++* [Android Developers](https://developer.android.com/)
++* [Google Play](https://developer.android.com/distribute)
++* [Guides](https://developer.android.com/games/guides)
++
++# ADPF Unreal Engine plugin Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++The [Android Dynamic Performance Framework)](/games/optimize/adpf) (ADPF) plugin
+ for
+ [Unreal Engine](https://www.unrealengine.com/en-US) provides stable
+ performance and prevents thermal throttling.
+@@ -16,16 +24,15 @@ from GitHub.
+ ## How to use the ADPF Unreal Engine plugin
+ 
+ 1. Download the plugin
+-
+ 2. Copy the plugin into the project plugin folder
+-
+ 3. Enable the ADPF Unreal Engine plugin in the Unreal editor
+-
+ 4. Relaunch Unreal editor
+-
+ 5. Build and [cook](https://dev.epicgames.com/documentation/en-us/unreal-engine/cooking-content-in-unreal-engine?application_version=5.0) the game
+ 
+-![Enable ADPF Unreal Engine plugin.](https://developer.android.com/static/images/games/engines/unreal/unreal-adpf.png) **Figure 1.** Enable ADPF Unreal Engine plugin.
++![Enable ADPF Unreal Engine plugin.](/static/images/games/engines/unreal/unreal-adpf.png)
++
++
++**Figure 1.** Enable ADPF Unreal Engine plugin.
+ 
+ ## Plugin console configuration
+ 
+@@ -34,10 +41,10 @@ The plugin has the following
+ which enable you to change plugin options at runtime:
+ 
+ | CVar | Valid Values | Default Value | Description |
+-|---|---|---|---|
+-| r.AndroidPerformanceEnabled | 0, 1 | 1 | Enable/disable the Android Performance plugin. The plugin uses the Android adaptability API to adjust the game settings based on the thermal status of the device and will adjust the CPU as needed. 0: off (disabled) 1: on (enabled) |
+-| r.AndroidPerformanceHintEnabled | 0, 1 | 1 | Enable/disable the performance hint manager. Enable this setting for optimal thread boosting on supported Android devices. 0: off (disabled) 1: on (enabled) |
+-| r.AndroidPerformanceChangeQualities | 0, 1, 2 | 1 | Choose how the thermal status adjusts the game's fidelity level. 0: The system does not adjust any settings 1: Settings are adjusted according to the thermal headroom 2: Settings are adjusted according to the thermal listener |
++| --- | --- | --- | --- |
++| r.AndroidPerformanceEnabled | 0, 1 | 1 | Enable/disable the Android Performance plugin. The plugin uses the Android adaptability API to adjust the game settings based on the thermal status of the device and will adjust the CPU as needed.  0: off (disabled)  1: on (enabled) |
++| r.AndroidPerformanceHintEnabled | 0, 1 | 1 | Enable/disable the performance hint manager. Enable this setting for optimal thread boosting on supported Android devices.  0: off (disabled)  1: on (enabled) |
++| r.AndroidPerformanceChangeQualities | 0, 1, 2 | 1 | Choose how the thermal status adjusts the game's fidelity level.  0: The system does not adjust any settings  1: Settings are adjusted according to the thermal headroom  2: Settings are adjusted according to the thermal listener |
+ 
+ ## How the ADPF Unreal Engine plugin works
+ 
+@@ -48,9 +55,13 @@ quality is necessary (for example, if the game is thermally throttled or near
+ the thermal throttling threshold) and adjusts the settings accordingly.
+ 
+ The plugin also reports target and actual frame duration to the
+-[performance hint session API](https://developer.android.com/games/optimize/adpf/performance-hint-api) and
++[performance hint session API](/games/optimize/adpf/performance-hint-api) and
+ boosts CPU frequency or adjusts CPU scheduling if needed.
+-![ADPF Unreal Engine plugin flowchart.](https://developer.android.com/static/images/games/engines/unreal/ureal-adpf-flowchart.png) **Figure 2.** ADPF Unreal Engine plugin flowchart.
++
++![ADPF Unreal Engine plugin flowchart.](/static/images/games/engines/unreal/ureal-adpf-flowchart.png)
++
++
++**Figure 2.** ADPF Unreal Engine plugin flowchart.
+ 
+ ## How to change graphic quality based on thermal state
+ 
+@@ -59,12 +70,16 @@ The plugin adjusts graphic quality using
+ based on the feedback from the thermal APIs. Unreal Engine Scalability has four
+ levels from 3 (highest quality) to 0 (lowest quality). Each level is mapped
+ to resolution scale, view distance, anti-aliasing, post-processing, and other features.
+-![Unreal Engine Scalability.](https://developer.android.com/static/images/games/engines/unreal/unreal-adpf-scalability.png) **Figure 3.** Unreal Engine Scalability.
++
++![Unreal Engine Scalability.](/static/images/games/engines/unreal/unreal-adpf-scalability.png)
++
++
++**Figure 3.** Unreal Engine Scalability.
+ 
+ ADPF has two ways to determine the thermal state of the device:
+-[thermal headroom](https://developer.android.com/reference/android/os/PowerManager#getThermalHeadroom(int))
++[thermal headroom](/reference/android/os/PowerManager#getThermalHeadroom(int))
+ and
+-[thermal status](https://developer.android.com/reference/android/os/PowerManager#getCurrentThermalStatus()).
++[thermal status](/reference/android/os/PowerManager#getCurrentThermalStatus()).
+ Thermal headroom provides a more precise value; and so, the plugin uses thermal
+ headroom by default and disables the thermal status API.
+ 
+@@ -72,33 +87,33 @@ The Unreal Engine Scalability changes based on following thermal values:
+ 
+ **Thermal headroom**
+ 
+-- **\< 0.75:** Quality level 3
+-- **0.75 to 0.85:** Quality level 2
+-- **0.85 to 0.95:** Quality level 1
+-- **\> 0.95:** Quality level 0
++* **< 0.75:** Quality level 3
++* **0.75 to 0.85:** Quality level 2
++* **0.85 to 0.95:** Quality level 1
++* **> 0.95:** Quality level 0
+ 
+-> [!NOTE]
+-> **Note:** For reference, a value of 1.0 represents the onset of performance-impacting thermal throttling.
++**Note:** For reference, a value of 1.0 represents the onset of
++performance-impacting thermal throttling.
+ 
+ **Thermal status**
+ 
+-- **None:** Quality level 3
+-- **Light:** Quality level 2
+-- **Moderate:** Quality level 1
+-- **Severe and Critical:** Quality level 0
++* **None:** Quality level 3
++* **Light:** Quality level 2
++* **Moderate:** Quality level 1
++* **Severe and Critical:** Quality level 0
+ 
+-For more information, see [Thermal API](https://developer.android.com/games/optimize/adpf/thermal).
++For more information, see [Thermal API](/games/optimize/adpf/thermal).
+ 
+ ## Performance hint APIs
+ 
+-The plugin has two types of performance hint sessions --- one for the game
++The plugin has two types of performance hint sessions — one for the game
+ thread, the other for render threads (Render and RHI threads). These two
+ types of performance hints are used to report actual and target duration of
+ every frame. The system adjusts CPU frequency and makes better scheduling
+ choices when the actual duration is different from the target duration.
+ 
+ For details, see
+-[Performance Hint API](https://developer.android.com/games/optimize/adpf/performance-hint-api).
++[Performance Hint API](/games/optimize/adpf/performance-hint-api).
+ 
+ ## Best practices
+ 
+@@ -115,6 +130,24 @@ dynamic performance for your game.
+ Here are the three key steps to getting the best results with the ADPF Unreal
+ plugin:
+ 
+-- **Establish a baseline:** Before using ADPF, thoroughly profile your game's performance. This data will serve as a valuable benchmark for comparison after you implement the plugin. ![ADPF Unreal Engine best pracices.](https://developer.android.com/static/images/games/engines/unreal/unreal-adpf-best-practices-1.png) **Figure 4.** Establish a baseline.
+-- **Harness Unreal Scalability:** Experiment with Unreal Scalability, even if it offers only modest performance gains. This will help give performance benefits without much effort. ![ADPF Unreal Engine best pracices.](https://developer.android.com/static/images/games/engines/unreal/unreal-adpf-best-practices-2.png) **Figure 5.** Harness Unreal Scalability.
+-- **Prioritize in-game graphic settings:** Optimize your in-game graphic quality levels. These settings are tailored specifically to your game's content, ensuring smoother frame rates and better thermal management. ![ADPF Unreal Engine best pracices.](https://developer.android.com/static/images/games/engines/unreal/unreal-adpf-best-practices-3.png) **Figure 6.** Prioritize in-game graphic settings.
+\ No newline at end of file
++* **Establish a baseline:** Before using ADPF, thoroughly profile your game's
++  performance. This data will serve as a valuable benchmark for comparison after
++  you implement the plugin.
++  ![ADPF Unreal Engine best pracices.](/static/images/games/engines/unreal/unreal-adpf-best-practices-1.png)
++
++
++  **Figure 4.** Establish a baseline.
++* **Harness Unreal Scalability:** Experiment with Unreal Scalability, even if it
++  offers only modest performance gains. This will help give performance benefits
++  without much effort.
++  ![ADPF Unreal Engine best pracices.](/static/images/games/engines/unreal/unreal-adpf-best-practices-2.png)
++
++
++  **Figure 5.** Harness Unreal Scalability.
++* **Prioritize in-game graphic settings:** Optimize your in-game graphic quality
++  levels. These settings are tailored specifically to your game's content,
++  ensuring smoother frame rates and better thermal management.
++  ![ADPF Unreal Engine best pracices.](/static/images/games/engines/unreal/unreal-adpf-best-practices-3.png)
++
++
++  **Figure 6.** Prioritize in-game graphic settings.
+\ No newline at end of file

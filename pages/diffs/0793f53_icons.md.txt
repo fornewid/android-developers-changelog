@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/styles/icons.md b/docs/design/ui/wear/guides/m2-5/styles/icons.md
+index 9ce5f69..7b8137d 100644
+--- a/docs/design/ui/wear/guides/m2-5/styles/icons.md
++++ b/docs/design/ui/wear/guides/m2-5/styles/icons.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Wear OS follows Material Design’s principles for iconography.
+ 
+ ![](/static/wear/images/design/icon_1.png)

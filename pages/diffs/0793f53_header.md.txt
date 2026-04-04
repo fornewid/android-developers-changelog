@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/components/header.md b/docs/design/ui/cars/guides/components/header.md
+index 9137eea..a506072 100644
+--- a/docs/design/ui/cars/guides/components/header.md
++++ b/docs/design/ui/cars/guides/components/header.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Headers help drivers understand which app and what part of the app they're
+ using. They need to be brief and easy to read at a glance while on the road.
+ 

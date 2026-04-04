@@ -1,0 +1,20 @@
+diff --git a/docs/games/agdk/get-agdk.md b/docs/games/agdk/get-agdk.md
+index 25567ae..2114bee 100644
+--- a/docs/games/agdk/get-agdk.md
++++ b/docs/games/agdk/get-agdk.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ The Android Game Development Kit (AGDK) is a full range of tools and libraries
+ to help you develop, optimize, launch, and iterate on high quality Android
+ games. AGDK brings together new and existing libraries, tools and functionality.
+@@ -2311,4 +2312,6 @@ Linux](https://dl.google.com/developers/android/games/sdk/gamesdk.zip)
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

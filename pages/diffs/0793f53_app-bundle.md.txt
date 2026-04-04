@@ -1,0 +1,12 @@
+diff --git a/docs/guide/app-bundle.md b/docs/guide/app-bundle.md
+index 47a1a9f..a62a173 100644
+--- a/docs/guide/app-bundle.md
++++ b/docs/guide/app-bundle.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Important:** From August 2021, new apps are required to publish with the
+ [Android App Bundle](/guide/app-bundle) on
+ Google Play. New apps larger than 200 MB are now supported by either

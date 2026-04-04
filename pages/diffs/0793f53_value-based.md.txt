@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/animation/value-based.md b/docs/develop/ui/compose/animation/value-based.md
+index 301471b..38c93fe 100644
+--- a/docs/develop/ui/compose/animation/value-based.md
++++ b/docs/develop/ui/compose/animation/value-based.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page describes how to create value-based animations in Jetpack Compose,
+ focusing on APIs that animate values based on their current and target states.
+ 

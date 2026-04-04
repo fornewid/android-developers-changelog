@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/playback/leanback/details.md b/docs/training/tv/playback/leanback/details.md
+index 9dc6ef4..48f4ab3 100644
+--- a/docs/training/tv/playback/leanback/details.md
++++ b/docs/training/tv/playback/leanback/details.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Build better with Compose
+ 
+ Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS.

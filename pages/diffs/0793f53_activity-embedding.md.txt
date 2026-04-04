@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/activity-embedding.md b/docs/develop/ui/views/layout/activity-embedding.md
+index 6bbac23..e3fcf7f 100644
+--- a/docs/develop/ui/views/layout/activity-embedding.md
++++ b/docs/develop/ui/views/layout/activity-embedding.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** Modern android development (MAD) uses a single-activity architecture based
+ on Jetpack APIs, including Jetpack Compose. Activity embedding is designed for
+ multiple-activity, legacy apps that can't be easily updated to MAD. Create new

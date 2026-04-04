@@ -1,0 +1,113 @@
+diff --git a/docs/about/versions/12/12L.md b/docs/about/versions/12/12L.md
+index 82d6d33..ad23d46 100644
+--- a/docs/about/versions/12/12L.md
++++ b/docs/about/versions/12/12L.md
+@@ -1,57 +1,83 @@
+ ---
+-title: https://developer.android.com/about/versions/12/12L
++title: 12L feature drop  |  Android Developers
+ url: https://developer.android.com/about/versions/12/12L
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# 12L feature drop
++The Android 16 Beta is now available. [Try it out today](/about/versions/16) and let us know what you think!
++
++* [Android Developers](https://developer.android.com/)
++* [Essentials](https://developer.android.com/get-started)
++* [Releases](https://developer.android.com/about/versions)
++
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
++
+ 
+ ### 12L feature drop
+ 
+-12L is a special feature drop that makes Android 12 even better on tablets and foldable devices. With 12L, we've optimized and polished the system UI for large screens, made multitasking more powerful and intuitive, and improved compatibility support so apps look better right out of the box. Test your apps on 12L today and optimize for large screen devices!  
+-[Get started](http://developer.android.com/about/versions/12/12L/get)[Optimize your app](http://developer.android.com/about/versions/12/12L#optimize-for-large-screens)
++12L is a special feature drop that makes Android 12 even better on tablets and foldable devices. With 12L, we've optimized and polished the system UI for large screens, made multitasking more powerful and intuitive, and improved compatibility support so apps look better right out of the box. Test your apps on 12L today and optimize for large screen devices!
++
++[Get started](https://developer.android.com/about/versions/12/12L/get)
++[Optimize your app](https://developer.android.com/about/versions/12/12L#optimize-for-large-screens)
++
++## What’s in 12L?
++
++[![](https://developer.android.com/static/images/about/versions/12/12L-foldable-land-shade.png)](https://developer.android.com/about/versions/12/12L/summary#system-ui)
+ 
+-## What's in 12L?
++### [An OS optimized for large screens](https://developer.android.com/about/versions/12/12L/summary#system-ui)
+ 
+-[![](http://developer.android.com/static/images/about/versions/12/12L-foldable-land-shade.png)](http://developer.android.com/about/versions/12/12L/summary#system-ui)  
++In 12L, we’ve refined the UI to make Android more beautiful and easier to use on screens larger than  
++600sp—across notifications, quick settings, lockscreen, overview, home screen, and more. Try your app with the UI updates!
+ 
+-### [An OS optimized for large screens](http://developer.android.com/about/versions/12/12L/summary#system-ui)
++[Learn more](https://developer.android.com/about/versions/12/12L/summary#system-ui)
+ 
+-In 12L, we've refined the UI to make Android more beautiful and easier to use on screens larger than  
+-600sp---across notifications, quick settings, lockscreen, overview, home screen, and more. Try your app with the UI updates!  
+-[Learn more](http://developer.android.com/about/versions/12/12L/summary#system-ui)[![](http://developer.android.com/static/images/about/versions/12/12L-multitasking.gif)](http://developer.android.com/about/versions/12/12L/summary#multitasking)  
++[![](https://developer.android.com/static/images/about/versions/12/12L-multitasking.gif)](https://developer.android.com/about/versions/12/12L/summary#multitasking)
+ 
+-### [Built for multitasking](http://developer.android.com/about/versions/12/12L/summary#multitasking)
++### [Built for multitasking](https://developer.android.com/about/versions/12/12L/summary#multitasking)
+ 
+-We've made multitasking more powerful and intuitive. 12L includes a new taskbar on large screens that lets users drag and drop an app into split-screen mode and instantly switch apps on the fly. Make sure your apps are ready for split-screen mode!  
+-[Learn more](http://developer.android.com/about/versions/12/12L/summary#multitasking)[![](http://developer.android.com/static/images/about/versions/12/12L-compatibility.png)](http://developer.android.com/about/versions/12/12L/summary#compatibility)  
++We’ve made multitasking more powerful and intuitive. 12L includes a new taskbar on large screens that lets users drag and drop an app into split-screen mode and instantly switch apps on the fly. Make sure your apps are ready for split-screen mode!
+ 
+-### [Improved compatibility experience](http://developer.android.com/about/versions/12/12L/summary#compatibility)
++[Learn more](https://developer.android.com/about/versions/12/12L/summary#multitasking)
+ 
+-Visual and stability improvements to compatibility mode in 12L provide a better experience for users and help all apps look better by default. Test your apps to make sure they're optimized for large screens.  
+-[Learn more](http://developer.android.com/about/versions/12/12L/summary#compatibility)![](http://developer.android.com/static/images/picto-icons/foldables.svg)  
++[![](https://developer.android.com/static/images/about/versions/12/12L-compatibility.png)](https://developer.android.com/about/versions/12/12L/summary#compatibility)
++
++### [Improved compatibility experience](https://developer.android.com/about/versions/12/12L/summary#compatibility)
++
++Visual and stability improvements to compatibility mode in 12L provide a better experience for users and help all apps look better by default. Test your apps to make sure they're optimized for large screens.
++
++[Learn more](https://developer.android.com/about/versions/12/12L/summary#compatibility)
++
++![](https://developer.android.com/static/images/picto-icons/foldables.svg)
+ 
+ ## Optimize for large screens
+ 
+-We've got the guidance and sample code you need to get started with large screens.  
++We’ve got the guidance and sample code you need to get started with large screens.
++
+ Developer guides
+ 
+-### [Responsive layouts for large screens](http://developer.android.com/large-screens)
++### [Responsive layouts for large screens](https://developer.android.com/large-screens)
++
++Start here for general resources to help you use responsive layouts that adapt your app to tablets, foldables, and ChromeOS devices, as well as phones.
+ 
+-Start here for general resources to help you use responsive layouts that adapt your app to tablets, foldables, and ChromeOS devices, as well as phones.  
+ Developer guides
+ 
+-### [Large screen app quality](http://developer.android.com/docs/quality-guidelines/large-screen-app-quality)
++### [Large screen app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality)
++
++What does it take to build a quality experience for large screens? These checklists help you understand how to build an app that meets user expectations on tablets, foldables, and ChromeOS devices.
+ 
+-What does it take to build a quality experience for large screens? These checklists help you understand how to build an app that meets user expectations on tablets, foldables, and ChromeOS devices.  
+ Developer guides
+ 
+-### [Migrate your UI to responsive layouts](http://developer.android.com/guide/topics/large-screens/migrate-to-responsive-layouts)
++### [Migrate your UI to responsive layouts](https://developer.android.com/guide/topics/large-screens/migrate-to-responsive-layouts)
++
++Make your app's UI responsive to handle a wide range of display sizes as well as device orientations and other device states.
+ 
+-Make your app's UI responsive to handle a wide range of display sizes as well as device orientations and other device states.  
+ Developer guides
+ 
+-### [Adaptive UI in Jetpack Compose](http://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
++### [Adaptive UI in Jetpack Compose](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
+ 
+ Use the declarative UI toolkit in Jetpack Compose to simplify building for large screens and diverse layouts.
+ 

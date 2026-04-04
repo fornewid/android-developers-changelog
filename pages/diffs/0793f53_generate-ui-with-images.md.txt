@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/generate-ui-with-images.md b/docs/studio/gemini/generate-ui-with-images.md
+index 08c7088..6cd75c0 100644
+--- a/docs/studio/gemini/generate-ui-with-images.md
++++ b/docs/studio/gemini/generate-ui-with-images.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** Image attachment is only available in Gemini's no-cost tier.
+ 
+ The AI agent is uniquely equipped to help you make your Android app UI vision a

@@ -1,0 +1,13 @@
+diff --git a/docs/studio/releases/past-releases/as-0-8-6-release-notes.md b/docs/studio/releases/past-releases/as-0-8-6-release-notes.md
+index f580d2b..df0b952 100644
+--- a/docs/studio/releases/past-releases/as-0-8-6-release-notes.md
++++ b/docs/studio/releases/past-releases/as-0-8-6-release-notes.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Android Studio v0.8.6 (August 2014)
+ 
+ See [tools.android.com](http://tools.android.com/recent) for a full list of changes.
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/network-ops/network-access-optimization.md b/docs/develop/connectivity/network-ops/network-access-optimization.md
+index 890bf16..80ba31a 100644
+--- a/docs/develop/connectivity/network-ops/network-access-optimization.md
++++ b/docs/develop/connectivity/network-ops/network-access-optimization.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Using the wireless radio to transfer data is potentially one of your app's most
+ significant sources of battery drain. To minimize the battery drain associated
+ with network activity, it's critical that you understand how your connectivity

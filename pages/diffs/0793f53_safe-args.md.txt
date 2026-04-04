@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/use-graph/safe-args.md b/docs/guide/navigation/use-graph/safe-args.md
+index 7c69b98..c425e92 100644
+--- a/docs/guide/navigation/use-graph/safe-args.md
++++ b/docs/guide/navigation/use-graph/safe-args.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The recommended way to navigate between destinations is to use the Safe Args
+ Gradle plugin. This plugin generates object and builder classes that enable
+ type-safe navigation between destinations. Use Safe Args for

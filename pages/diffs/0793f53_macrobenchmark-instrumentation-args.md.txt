@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/benchmarking/macrobenchmark-instrumentation-args.md b/docs/topic/performance/benchmarking/macrobenchmark-instrumentation-args.md
+index 4ce5bb8..42f41a4 100644
+--- a/docs/topic/performance/benchmarking/macrobenchmark-instrumentation-args.md
++++ b/docs/topic/performance/benchmarking/macrobenchmark-instrumentation-args.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Configure the behavior of the library with the following instrumentation
+ arguments. You can either add these to your Gradle configuration or apply them
+ directly when running instrumentation from the command line. To set these

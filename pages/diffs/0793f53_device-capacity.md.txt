@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/build-for-billions/device-capacity.md b/docs/docs/quality-guidelines/build-for-billions/device-capacity.md
+index 483e1e1..4205c1f 100644
+--- a/docs/docs/quality-guidelines/build-for-billions/device-capacity.md
++++ b/docs/docs/quality-guidelines/build-for-billions/device-capacity.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Reaching new users means supporting an increasing variety of Android platform versions and device specifications.
+ To improve the user experience, optimize for common RAM configurations, and screen sizes and resolutions.
+ 

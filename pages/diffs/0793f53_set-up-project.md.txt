@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/apps/library/set-up-project.md b/docs/training/cars/apps/library/set-up-project.md
+index a1f4463..9b2ec8a 100644
+--- a/docs/training/cars/apps/library/set-up-project.md
++++ b/docs/training/cars/apps/library/set-up-project.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page describes how to install the Car App library and now to configure
+ the manifest file for your app.
+ 

@@ -1,0 +1,84 @@
+diff --git a/docs/develop/ui/compose/api-guidelines.md b/docs/develop/ui/compose/api-guidelines.md
+index b8ff0f7..fbd15ba 100644
+--- a/docs/develop/ui/compose/api-guidelines.md
++++ b/docs/develop/ui/compose/api-guidelines.md
+@@ -1,10 +1,18 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/api-guidelines
++title: Style guidelines for Jetpack Compose APIs  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/api-guidelines
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-[Video](https://www.youtube.com/watch?v=JvbyGcqdWBA)
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Style guidelines for Jetpack Compose APIs Stay organized with collections Save and categorize content based on your preferences.
++
++
+ 
+ If you're writing Compose code for your app or building Compose libraries and
+ APIs, follow best practices to make your code scalable, more performant, and
+@@ -13,29 +21,40 @@ consistent with the rest of the ecosystem.
+ The following documents provide guidelines for anyone writing code that uses
+ Compose:
+ 
+-- [API Guidelines for Jetpack Compose](https://android.googlesource.com/platform/frameworks/support/+/androidx-main/compose/docs/compose-api-guidelines.md): Outlines patterns, best practices, and prescriptive style guidelines for any system using the Jetpack Compose compiler plugin and runtime. It includes the following topics:
+-  - Kotlin style guidelines for Compose, based on the [Kotlin Coding
++* [API Guidelines for Jetpack Compose](https://android.googlesource.com/platform/frameworks/support/+/androidx-main/compose/docs/compose-api-guidelines.md): Outlines patterns, best
++  practices, and prescriptive style guidelines for any system using the Jetpack
++  Compose compiler plugin and runtime. It includes the following topics:
++  + Kotlin style guidelines for Compose, based on the [Kotlin Coding
+     Conventions](https://kotlinlang.org/docs/coding-conventions.html)
+-  - Guidance for `@Composable` functions and APIs that build on the Compose runtime capabilities
+-  - Guidelines for APIs that use and extend the Compose UI toolkit
+-  - Patterns for addressing use cases when designing a Compose API
+-- [API Guidelines for `@Composable` components in Jetpack Compose](https://android.googlesource.com/platform/frameworks/support/+/androidx-main/compose/docs/compose-component-api-guidelines.md): Provides a set of guidelines and recommendations for creating and using `@Composable` UI components, including the following topics:
+-  - Creating and layering components
+-  - Naming a new component
+-  - Expressing component dependencies
+-  - Parameters in `@Composable` components
+-  - Following correct patterns for creating component-related classes and functions
+-  - Documenting `@Composable` components
+-  - Improving accessibility for components
+-  - Updating component APIs while retaining backwards compatibility
++  + Guidance for `@Composable` functions and APIs that build on the Compose
++    runtime capabilities
++  + Guidelines for APIs that use and extend the Compose UI toolkit
++  + Patterns for addressing use cases when designing a Compose API
++* [API Guidelines for `@Composable` components in Jetpack Compose](https://android.googlesource.com/platform/frameworks/support/+/androidx-main/compose/docs/compose-component-api-guidelines.md):
++  Provides a set of guidelines and recommendations for creating and using
++  `@Composable` UI components, including the following topics:
++  + Creating and layering components
++  + Naming a new component
++  + Expressing component dependencies
++  + Parameters in `@Composable` components
++  + Following correct patterns for creating component-related classes and
++    functions
++  + Documenting `@Composable` components
++  + Improving accessibility for components
++  + Updating component APIs while retaining backwards compatibility
+ 
+ ## Audience
+ 
+ These guidelines are written for the following three audiences:
+ 
+-- **Developers building apps based on Jetpack Compose**. You are in this group if you use Jetpack Compose in some part of your app.
+-- **Developers working on Jetpack Compose framework development** . You are in this group if you make contributions to the [`androidx.compose` libraries](https://developer.android.com/jetpack/androidx/releases/compose).
+-- **Developers creating libraries based on Jetpack Compose**. You are in this group if you create Compose APIs or libraries of Compose UI elements. These libraries of Compose components may be publicly available or local to your company or team.
++* **Developers building apps based on Jetpack Compose**. You are in this group
++  if you use Jetpack Compose in some part of your app.
++* **Developers working on Jetpack Compose framework development**. You are in
++  this group if you make contributions to the [`androidx.compose` libraries](/jetpack/androidx/releases/compose).
++* **Developers creating libraries based on Jetpack Compose**. You are in this
++  group if you create Compose APIs or libraries of Compose UI elements. These
++  libraries of Compose components may be publicly available or local to your
++  company or team.
+ 
+ Depending on the group you're in, you have different strictness levels for each
+ style guideline. For example, Jetpack Compose framework development generally

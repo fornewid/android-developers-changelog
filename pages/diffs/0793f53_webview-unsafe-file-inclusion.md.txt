@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/webview-unsafe-file-inclusion.md b/docs/privacy-and-security/risks/webview-unsafe-file-inclusion.md
+index 2a0c594..30ae96e 100644
+--- a/docs/privacy-and-security/risks/webview-unsafe-file-inclusion.md
++++ b/docs/privacy-and-security/risks/webview-unsafe-file-inclusion.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **OWASP category:** [MASVS-STORAGE: Storage](https://mas.owasp.org/MASVS/05-MASVS-STORAGE)
+ 
+ ## Overview

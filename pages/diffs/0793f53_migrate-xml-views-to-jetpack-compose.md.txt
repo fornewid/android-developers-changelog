@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose.md b/docs/develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose.md
+index 6d306ac..f52ecfb 100644
+--- a/docs/develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose.md
++++ b/docs/develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Jetpack Compose supports interoperability with Views — you
+ can use Compose in Views, and Views in Compose. This allows adoption of
+ Compose in existing View-based apps without having to migrate all Views

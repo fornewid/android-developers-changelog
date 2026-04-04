@@ -1,0 +1,94 @@
+diff --git a/docs/ai/samples/socialite.md b/docs/ai/samples/socialite.md
+index 35acc16..68e9440 100644
+--- a/docs/ai/samples/socialite.md
++++ b/docs/ai/samples/socialite.md
+@@ -1,20 +1,11 @@
+ ---
+-title: Add generative AI responses the SociaLite sample app  |  Android Developers
++title: https://developer.android.com/ai/samples/socialite
+ url: https://developer.android.com/ai/samples/socialite
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [AI](https://developer.android.com/ai)
+-* [Samples](https://developer.android.com/ai/samples)
+-
+-# Add generative AI responses the SociaLite sample app Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ ![Animated screenshot showing the SociaLite chatbot in
+-action](/static/images/ai/socialite-ai-chat.gif)
++action](https://developer.android.com/static/images/ai/socialite-ai-chat.gif)
+ 
+ The [SociaLite sample app](https://github.com/android/socialite) demonstrates how to use Android
+ platform APIs to implement features that are commonly deployed in social network
+@@ -36,28 +27,24 @@ The chatbot implementation is primarily located in the `ChatRepository` class.
+ The `GenerativeModel` class lets you interact with the Gemini API, which is
+ instantiated as follows:
+ 
+-```
+-val generativeModel = GenerativeModel(
+-  // Set the model name to the latest Gemini model.
+-  modelName = "gemini-2.0-flash-lite-001",
+-  // Set a system instruction to set the behavior of the model.
+-  systemInstruction = content {
+-    text("Please respond to this chat conversation like a friendly cat.")
+-  },
+-)
+-```
++    val generativeModel = GenerativeModel(
++      // Set the model name to the latest Gemini model.
++      modelName = "gemini-2.0-flash-lite-001",
++      // Set a system instruction to set the behavior of the model.
++      systemInstruction = content {
++        text("Please respond to this chat conversation like a friendly cat.")
++      },
++    )
+ 
+ In a coroutine scope, initiate a chat by passing `pastMessages` to `startChat()`
+ to ensure that the model has access to conversation history. This gives your
+ chatbot the ability to maintain context and generate coherent responses that
+ build on previous exchanges.
+ 
+-```
+-val pastMessages = getMessageHistory(chatId)
+-val chat = generativeModel.startChat(
+-  history = pastMessages,
+-)
+-```
++    val pastMessages = getMessageHistory(chatId)
++    val chat = generativeModel.startChat(
++      history = pastMessages,
++    )
+ 
+ Use the `sendMessage()` method to pass messages to the model.
+ 
+@@ -65,17 +52,14 @@ Use the `sendMessage()` method to pass messages to the model.
+ 
+ You can test it yourself by following these steps:
+ 
+-1. Check out the code for the [SociaLite sample app](https://github.com/android/socialite) and open it
+-   in Android Studio.
+-2. Set up a Firebase Project, connect your app to the *Gemini Developer API* by
+-   following [these steps](https://firebase.google.com/docs/ai-logic/get-started?platform=android&api=dev),
+-3. Replace google-services.json with your own & Run `app` configuration,
++1. Check out the code for the [SociaLite sample app](https://github.com/android/socialite) and open it in Android Studio.
++2. Set up a Firebase Project, connect your app to the *Gemini Developer API* by following [these steps](https://firebase.google.com/docs/ai-logic/get-started?platform=android&api=dev),
++3. Replace google-services.json with your own \& Run `app` configuration,
+ 4. Sync and run your app.
+-5. In the SociaLite app, tap **Settings**  and then tap **AI Chatbot** so that the button label
+-   reads "*AI Chatbot: enabled*".
++5. In the SociaLite app, tap **Settings** and then tap **AI Chatbot** so that the button label reads "*AI Chatbot: enabled*".
+ 
+ You are now ready to chat!
+ 
+ ## Additional resources
+ 
+-[Learn more about the Firebase AI Logic SDK](/ai/gemini).
+\ No newline at end of file
++[Learn more about the Firebase AI Logic SDK](https://developer.android.com/ai/gemini).
+\ No newline at end of file

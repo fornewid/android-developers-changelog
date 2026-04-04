@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/16/changes/non-sdk-16.md b/docs/about/versions/16/changes/non-sdk-16.md
+index 1b8b3a9..a5898c5 100644
+--- a/docs/about/versions/16/changes/non-sdk-16.md
++++ b/docs/about/versions/16/changes/non-sdk-16.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android 16 includes updated lists of restricted non-SDK interfaces based
+ on collaboration with Android developers and the latest internal testing.
+ Whenever possible, we make sure that public alternatives are available before we

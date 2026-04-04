@@ -1,0 +1,22 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/add-spatial-video.md b/docs/develop/xr/jetpack-xr-sdk/add-spatial-video.md
+index f9499e9..e788b21 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/add-spatial-video.md
++++ b/docs/develop/xr/jetpack-xr-sdk/add-spatial-video.md
+@@ -184,7 +184,7 @@ val hemisphereStereoSurfaceEntity =
+         pose = activitySpacePose,
+         shape = SurfaceEntity.Shape.Hemisphere(1.0f),
+     )
+-// ... and use the surface for playing the media.https://github.com/android/snippets/blob/b17a50993cce9a7469f3bee2594a4a0dff3b5c11/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L61-L72
++// ... and use the surface for playing the media.https://github.com/android/snippets/blob/0e26519d6d4e3c3ff70cf0806b9a2df65d3929b6/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L61-L72
+ ```
+ 
+ <br />
+@@ -201,7 +201,7 @@ val sphereStereoSurfaceEntity =
+         pose = activitySpacePose,
+         shape = SurfaceEntity.Shape.Sphere(1.0f),
+     )
+-// ... and use the surface for playing the media.https://github.com/android/snippets/blob/b17a50993cce9a7469f3bee2594a4a0dff3b5c11/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L78-L88
++// ... and use the surface for playing the media.https://github.com/android/snippets/blob/0e26519d6d4e3c3ff70cf0806b9a2df65d3929b6/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L78-L88
+ ```
+ 
+ <br />

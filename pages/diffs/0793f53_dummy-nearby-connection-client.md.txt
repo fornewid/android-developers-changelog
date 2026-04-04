@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/nearby/dummy-nearby-connection-client.md b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/nearby/dummy-nearby-connection-client.md
+index 080524e..78974e6 100644
+--- a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/nearby/dummy-nearby-connection-client.md
++++ b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/nearby/dummy-nearby-connection-client.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # GooglePlayGames.BasicApi.Nearby.DummyNearbyConnectionClient
+ 
+ Dummy implementation of [INearbyConnectionClient](/games/services/unity/v2/api/interface/google-play-games/basic-api/nearby/i-nearby-connection-client#interface_google_play_games_1_1_basic_api_1_1_nearby_1_1_i_nearby_connection_client).

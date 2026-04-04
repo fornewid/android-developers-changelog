@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/graphics/extensions.md b/docs/ndk/guides/graphics/extensions.md
+index a7e5923..1de376c 100644
+--- a/docs/ndk/guides/graphics/extensions.md
++++ b/docs/ndk/guides/graphics/extensions.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android devices may fully or partially support
+ [Vulkan extensions](https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#extended-functionality-extensions)
+ that provide additional functionality.

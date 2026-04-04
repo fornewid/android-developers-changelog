@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/notifications/ongoing-activity.md b/docs/training/wearables/notifications/ongoing-activity.md
+index ab309f1..55507bf 100644
+--- a/docs/training/wearables/notifications/ongoing-activity.md
++++ b/docs/training/wearables/notifications/ongoing-activity.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Wear OS devices are often used for long-running experiences, such as tracking a
+ workout. This presents a user experience challenge: if a user starts a task and
+ then navigates away to the watch face, how do they get back? Returning to the

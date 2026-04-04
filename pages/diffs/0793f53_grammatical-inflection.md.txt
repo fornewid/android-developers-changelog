@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/14/features/grammatical-inflection.md b/docs/about/versions/14/features/grammatical-inflection.md
+index 0b762a1..412c1ff 100644
+--- a/docs/about/versions/14/features/grammatical-inflection.md
++++ b/docs/about/versions/14/features/grammatical-inflection.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ 3 billion people speak *gendered languages*: languages where grammatical
+ categories—such as nouns, verbs, adjectives, and prepositions—inflect according
+ to the gender of people and objects you talk to or about. Traditionally, many

@@ -1,0 +1,412 @@
+diff --git a/docs/topic/performance/baselineprofiles/create-baselineprofile.md b/docs/topic/performance/baselineprofiles/create-baselineprofile.md
+index 81c9340..6d2270b 100644
+--- a/docs/topic/performance/baselineprofiles/create-baselineprofile.md
++++ b/docs/topic/performance/baselineprofiles/create-baselineprofile.md
+@@ -1,26 +1,17 @@
+ ---
+-title: Create Baseline Profiles  |  App quality  |  Android Developers
++title: https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile
+ url: https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [App quality](https://developer.android.com/quality)
+-* [Technical quality](https://developer.android.com/quality/technical)
+-
+-# Create Baseline Profiles Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Automatically generate profiles for every app release using the [Jetpack
+-Macrobenchmark library](/macrobenchmark) and
+-[`BaselineProfileRule`](/reference/kotlin/androidx/benchmark/macro/junit4/BaselineProfileRule). We recommend that you
++Macrobenchmark library](https://developer.android.com/macrobenchmark) and
++[`BaselineProfileRule`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/junit4/BaselineProfileRule). We recommend that you
+ use `com.android.tools.build:gradle:8.0.0` or higher, which comes with build
+ improvements when using Baseline Profiles.
+ 
+-**Important:** To keep installation turnaround during development low, Baseline Profiles are only installed for
+-release builds.
++> [!IMPORTANT]
++> **Important:** To keep installation turnaround during development low, Baseline Profiles are only installed for release builds.
+ 
+ These are the general steps to create a new Baseline Profile:
+ 
+@@ -40,7 +31,7 @@ Plugin (AGP) 8.2.
+ 
+ The Android Studio Baseline Profile Generator module template automates the
+ creation of a new module to generate and
+-[benchmark](/topic/performance/baselineprofiles/measure-baselineprofile)
++[benchmark](https://developer.android.com/topic/performance/baselineprofiles/measure-baselineprofile)
+ Baseline Profiles. Running the template generates most of the typical build
+ configuration, Baseline Profile generation, and verification code. The template
+ creates code to generate and benchmark Baseline Profiles to measure app
+@@ -50,31 +41,17 @@ startup.
+ 
+ To run the Baseline Profile module template, follow these steps:
+ 
+-1. Select **File > New > New Module**
+-2. Select the **Baseline Profile Generator** template in the
+-   **Templates** panel and configure it:
+-   ![](/static/topic/performance/images/studio/baseline-profile-generator-module-template.png)
+-
+-
+-   **Figure 1.** Baseline Profile Generator module template.
++1. Select **File \> New \> New Module**
++2. Select the **Baseline Profile Generator** template in the **Templates** panel and configure it: ![](https://developer.android.com/static/topic/performance/images/studio/baseline-profile-generator-module-template.png) **Figure 1.** Baseline Profile Generator module template.
+ 
+    The fields in the template are the following:
+-
+-   * **Target application**: defines which app the Baseline Profile is generated for. When you have only a single app module in your project, there is only one item in this list.
+-   * **Module name**: the name you want for the Baseline Profile module
+-     being created.
+-   * **Package name**: the package name you want for the Baseline Profile
+-     module.
+-   * **Language**: whether you want the generated code to be Kotlin or
+-     Java.
+-   * **Build configuration language**: whether you want to use Kotlin
+-     Script (KTS) or Groovy for your build configuration scripts.
+-   * **Use Gradle-managed device**: if you're using
+-     [Gradle-managed devices](/studio/test/gradle-managed-devices) to
+-     test your app.
+-3. Click **Finish** and the new module is created. If you are using source
+-   control, you might be prompted to add the newly created module files to source
+-   control.
++   - **Target application**: defines which app the Baseline Profile is generated for. When you have only a single app module in your project, there is only one item in this list.
++   - **Module name**: the name you want for the Baseline Profile module being created.
++   - **Package name**: the package name you want for the Baseline Profile module.
++   - **Language**: whether you want the generated code to be Kotlin or Java.
++   - **Build configuration language**: whether you want to use Kotlin Script (KTS) or Groovy for your build configuration scripts.
++   - **Use Gradle-managed device** : if you're using [Gradle-managed devices](https://developer.android.com/studio/test/gradle-managed-devices) to test your app.
++3. Click **Finish** and the new module is created. If you are using source control, you might be prompted to add the newly created module files to source control.
+ 
+ ### Define the Baseline Profile generator
+ 
+@@ -85,7 +62,7 @@ related to app startup are in a `rule` block with `includeInStartupProfile` set
+ to `true`; conversely, for optimal performance make sure that any tests not
+ related to app startup are not included in a Startup Profile. App startup
+ optimizations are used to define a special part of a Baseline Profile called a
+-[Startup Profile](/topic/performance/baselineprofiles/dex-layout-optimizations).
++[Startup Profile](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations).
+ 
+ It helps maintainability if you abstract these CUJs outside of the generated
+ Baseline Profile and benchmark code so that they can be used for both. This
+@@ -98,15 +75,10 @@ the Baseline Profile. If you use product flavors, Android Studio creates
+ multiple run configurations so that you can generate separate Baseline Profiles
+ for each flavor.
+ 
+-**Note:** To generate and install the Baseline Profile from the command-line
+-interface, run the `:app:generateBaselineProfile` or
+-`:app:generateVariantBaselineProfile` Gradle tasks.
+-
+-![The Generate Baseline Profile run configuration.](/static/topic/performance/images/studio/generate-baseline-profile.png)
+-
++> [!NOTE]
++> **Note:** To generate and install the Baseline Profile from the command-line interface, run the `:app:generateBaselineProfile` or `:app:generateVariantBaselineProfile` Gradle tasks.
+ 
+-**Figure 2.** Running this configuration generates the Baseline
+-Profile.
++![The Generate Baseline Profile run configuration.](https://developer.android.com/static/topic/performance/images/studio/generate-baseline-profile.png) **Figure 2.** Running this configuration generates the Baseline Profile.
+ 
+ When the **Generate Baseline Profile** run configuration completes, it copies
+ the generated Baseline Profile to the
+@@ -126,23 +98,22 @@ unless you're manually copying it to the target modules (not recommended).
+ ## Create a new Baseline Profile with AGP 8.1
+ 
+ If you aren't able to use the
+-[Baseline Profile module template](#create-new-profile), use the
++[Baseline Profile module template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-new-profile), use the
+ Macrobenchmark module template and the Baseline Profile Gradle plugin to create
+ a new Baseline Profile. We recommend you use these tools starting with Android
+ Studio Giraffe and AGP 8.1.
+ 
+-**Note:** Automatic Baseline Profile generation with the Baseline Profile Gradle
+-plugin is available starting with AGP 8.0, but we recommend using AGP 8.1 for
+-a better experience.
++> [!NOTE]
++> **Note:** Automatic Baseline Profile generation with the Baseline Profile Gradle plugin is available starting with AGP 8.0, but we recommend using AGP 8.1 for a better experience.
+ 
+ Here are the steps to create a new Baseline Profile using the Macrobenchmark
+ module template and Baseline Profile Gradle plugin:
+ 
+ 1. [Set
+-   up a Macrobenchmark module](/topic/performance/benchmarking/macrobenchmark-overview#project-setup) in your Gradle project.
++   up a Macrobenchmark module](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview#project-setup) in your Gradle project.
+ 2. Define a new class called `BaselineProfileGenerator`:
+ 
+-   ```
++   ```kotlin
+    class BaselineProfileGenerator {
+        @get:Rule
+        val baselineProfileRule = BaselineProfileRule()
+@@ -167,6 +138,7 @@ module template and Baseline Profile Gradle plugin:
+ 3. Add the Baseline Profile Gradle plugin
+    (`libs.plugins.androidx.baselineprofile`). The plugin makes it easier
+    to generate Baseline Profiles and maintain them in the future.
++
+ 4. To generate the Baseline Profile, run the
+    `:app:generateBaselineProfile` or
+    `:app:generateVariantBaselineProfile` Gradle tasks in the
+@@ -174,11 +146,12 @@ module template and Baseline Profile Gradle plugin:
+ 
+    Run the generator as an instrumented test
+    on a rooted physical device, emulator, or
+-   [Gradle Managed Device](/studio/test/gradle-managed-devices).
++   [Gradle Managed Device](https://developer.android.com/studio/test/gradle-managed-devices).
+    If you use a Gradle Managed Device, set `aosp` as the `systemImageSource`, because you need root
+    access for the Baseline Profile generator.
+ 
+-   **Note:** When using Jetpack Macrobenchmark 1.2.0-alpha06 and higher, you can generate the Baseline Profile on devices running Android 13 (API 33) and higher without root access.
++   > [!NOTE]
++   > **Note:** When using Jetpack Macrobenchmark 1.2.0-alpha06 and higher, you can generate the Baseline Profile on devices running Android 13 (API 33) and higher without root access.
+ 
+    At the end of the generation task, the Baseline Profile is copied to
+    `app/src/variant/generated/baselineProfiles`.
+@@ -186,36 +159,30 @@ module template and Baseline Profile Gradle plugin:
+ ### Create a new Baseline Profile without templates
+ 
+ We recommend creating a Baseline Profile using the Android Studio
+-[Baseline Profile module template](#create-new-profile)
+-(preferred) or [Macrobenchmark template](#create-new-profile-8-1), but you can
++[Baseline Profile module template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-new-profile)
++(preferred) or [Macrobenchmark template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-new-profile-8-1), but you can
+ also use the Baseline Profile Gradle plugin by itself. To read more about the
+ Baseline Profile Gradle plugin, see
+-[Configure your Baseline Profile generation](/topic/performance/baselineprofiles/use-baselineprofile-gradle-plugin).
++[Configure your Baseline Profile generation](https://developer.android.com/topic/performance/baselineprofiles/use-baselineprofile-gradle-plugin).
+ 
+-**Note:** The Baseline Profile Gradle plugin is already applied if you use the
+-[Baseline Profile module template](/topic/performance/create-baselineprofile#create-new-profile).
++> [!NOTE]
++> **Note:** The Baseline Profile Gradle plugin is already applied if you use the [Baseline Profile module template](https://developer.android.com/topic/performance/create-baselineprofile#create-new-profile).
+ 
+ Here's how to create a Baseline Profile using the Baseline Profile Gradle plugin
+ directly:
+ 
+-1. Create a new `com.android.test` module—for example,
+-   `:baseline-profile`.
++1. Create a new `com.android.test` module---for example, `:baseline-profile`.
+ 2. Configure the `build.gradle.kts` file for
+    `:baseline-profile`:
+ 
+    1. Apply the `androidx.baselineprofile` plugin.
+-   2. Ensure the `targetProjectPath` points to the
+-      `:app` module.
+-   3. Optionally, add a
+-      [Gradle-managed device (GMD)](/studio/test/gradle-managed-devices).
+-      In the following example, it's `pixel6Api31`. If not specified,
+-      the plugin uses a connected device, either emulated or physical.
+-   4. Apply the configuration you want, as shown in the following
+-      example.
++   2. Ensure the `targetProjectPath` points to the `:app` module.
++   3. Optionally, add a [Gradle-managed device (GMD)](https://developer.android.com/studio/test/gradle-managed-devices). In the following example, it's `pixel6Api31`. If not specified, the plugin uses a connected device, either emulated or physical.
++   4. Apply the configuration you want, as shown in the following example.
+ 
+    ### Kotlin
+ 
+-   ```
++   ```kotlin
+    plugins {
+        id("com.android.test")
+        id("androidx.baselineprofile")
+@@ -254,7 +221,7 @@ directly:
+ 
+    ### Groovy
+ 
+-   ```
++   ```groovy
+    plugins {
+        id 'com.android.test'
+        id 'androidx.baselineprofile'
+@@ -296,7 +263,7 @@ directly:
+ 
+    ### Kotlin
+ 
+-   ```
++   ```kotlin
+    class BaselineProfileGenerator {
+    @get:Rule
+    val baselineProfileRule = BaselineProfileRule()
+@@ -313,7 +280,7 @@ directly:
+ 
+    ### Java
+ 
+-   ```
++   ```java
+    public class BaselineProfileGenerator {
+ 
+        @Rule
+@@ -338,7 +305,7 @@ directly:
+ 
+    ### Kotlin
+ 
+-   ```
++   ```kotlin
+    plugins {
+        id("com.android.application")
+        id("androidx.baselineprofile")
+@@ -358,7 +325,7 @@ directly:
+ 
+    ### Groovy
+ 
+-   ```
++   ```groovy
+    plugins {
+        id 'com.android.application'
+        id 'androidx.baselineprofile'
+@@ -377,6 +344,7 @@ directly:
+    ```
+ 5. Generate the profile by running the `:app:generateBaselineProfile`
+    or `:app:generateVariantBaselineProfile` Gradle tasks.
++
+ 6. At the end of the generation task, the Baseline Profile is copied to
+    `app/src/variant/generated/baselineProfiles`.
+ 
+@@ -387,12 +355,12 @@ recommend upgrading to at least AGP 8.1 so you can use the Baseline Profile
+ Gradle plugin and its latest features.
+ 
+ If you need to create Baseline Profiles with AGP 7.3-7.4, the steps are the same
+-as the [steps for AGP 8.1](#create-new-profile-8-1), with the following
++as the [steps for AGP 8.1](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-new-profile-8-1), with the following
+ exceptions:
+ 
+-* Don't add the Baseline Profile Gradle plugin.
+-* To generate the Baseline Profiles, execute the Gradle task `./gradlew [emulator name][flavor][build type]AndroidTest`. For example, `./gradlew :benchmark:pixel6Api31BenchmarkAndroidTest`.
+-* You must [manually apply the generated Baseline Profile rules to your code](#apply-rules).
++- Don't add the Baseline Profile Gradle plugin.
++- To generate the Baseline Profiles, execute the Gradle task `./gradlew [emulator name][flavor][build type]AndroidTest`. For example, `./gradlew :benchmark:pixel6Api31BenchmarkAndroidTest`.
++- You must [manually apply the generated Baseline Profile rules to your code](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#apply-rules).
+ 
+ ### Manually apply generated rules
+ 
+@@ -410,19 +378,18 @@ to your code, follow these steps:
+ 2. Copy the generated profile to `src/main/` and rename the file to
+    `baseline-prof.txt`.
+ 
+-   **Note:** If you're using a version of the Android Gradle plugin earlier than
+-   8.0, the `baseline-prof.txt` file isn't shown in the **Android** view in
+-   Android Studio.
+-3. Add a dependency to the [ProfileInstaller library](/jetpack/androidx/releases/profileinstaller)
++   > [!NOTE]
++   > **Note:** If you're using a version of the Android Gradle plugin earlier than 8.0, the `baseline-prof.txt` file isn't shown in the **Android** view in Android Studio.
++
++3. Add a dependency to the [ProfileInstaller library](https://developer.android.com/jetpack/androidx/releases/profileinstaller)
+    in your app's `build.gradle.kts` file to enable local Baseline Profile
+-   compilation where [Cloud Profiles](/topic/performance/baselineprofiles/overview#cloud-profiles) aren't available. This is
++   compilation where [Cloud Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview#cloud-profiles) aren't available. This is
+    the only way to sideload a Baseline Profile locally.
+ 
+-   ```
+-   dependencies {
+-        implementation("androidx.profileinstaller:profileinstaller:1.4.1")
+-   }
+-   ```
++       dependencies {
++            implementation("androidx.profileinstaller:profileinstaller:1.4.1")
++       }
++
+ 4. Build the production version of your app while the applied HRF rules are
+    compiled into binary form and included in the APK or AAB. Then distribute
+    your app as usual.
+@@ -433,15 +400,10 @@ To benchmark your Baseline Profile, create a new Android Instrumented Test Run
+ configuration from the gutter action that executes the benchmarks defined in
+ the `StartupBenchmarks.kt` or `StartupBencharks.java` file. To learn more about benchmark
+ testing, see [Create a Macrobenchmark
+-class](/topic/performance/benchmarking/macrobenchmark-overview#create-macrobenchmark)
++class](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview#create-macrobenchmark)
+ and [Automate measurement with the Macrobenchmark
+-library](/topic/performance/baselineprofiles/measure-baselineprofile).
+-
+-![](/static/topic/performance/images/studio/gutter-action.png)
+-
+-
+-**Figure 3.** Run Android Tests from the gutter
+-action.
++library](https://developer.android.com/topic/performance/baselineprofiles/measure-baselineprofile).
++![](https://developer.android.com/static/topic/performance/images/studio/gutter-action.png) **Figure 3.** Run Android Tests from the gutter action.
+ 
+ When you run this within Android Studio, the build output contains details of
+ the speed improvements that the Baseline Profile provides:
+@@ -457,28 +419,28 @@ timeToInitialDisplayMs   min 184.7,   median 196.9,   max 202.9
+ 
+ The two key metrics for measuring app startup times are as follows:
+ 
+-[Time to initial display (TTID)](/topic/performance/vitals/launch-time#time-initial)
++[Time to initial display (TTID)](https://developer.android.com/topic/performance/vitals/launch-time#time-initial)
+ :   The time it takes to display the first frame of the application UI.
+ 
+-[Time to full display (TTFD)](/topic/performance/vitals/launch-time#time-full)
++[Time to full display (TTFD)](https://developer.android.com/topic/performance/vitals/launch-time#time-full)
+ :   TTID plus the time to display content that is loaded asynchronously after the initial frame is displayed.
+ 
+ TTFD is reported once the
+-[`reportFullyDrawn()`](/reference/androidx/activity/ComponentActivity#reportFullyDrawn())
++[`reportFullyDrawn()`](https://developer.android.com/reference/androidx/activity/ComponentActivity#reportFullyDrawn())
+ method of the
+-[`ComponentActivity`](/reference/androidx/activity/ComponentActivity)
++[`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity)
+ is called. If `reportFullyDrawn()` is never called, the TTID is reported
+ instead. You might need to delay when `reportFullyDrawn()` is called until after
+ the asynchronous loading is complete. For example, if the UI contains a dynamic
+-list such as a [`RecyclerView`](/develop/ui/views/layout/recyclerview) or [lazy
+-list](/jetpack/compose/lists#lazy), the list might be populated by a background
++list such as a [`RecyclerView`](https://developer.android.com/develop/ui/views/layout/recyclerview) or [lazy
++list](https://developer.android.com/jetpack/compose/lists#lazy), the list might be populated by a background
+ task that completes after the list is first drawn and, therefore, after the UI
+ is marked as fully drawn. In such cases, code that runs after the UI reaches
+ fully drawn state isn't included in the Baseline Profile.
+ 
+ To include the list population as part of your Baseline Profile, get the
+ `FullyDrawnReporter` by using
+-[`getFullyDrawnReporter()`](/reference/androidx/activity/ComponentActivity#getFullyDrawnReporter())
++[`getFullyDrawnReporter()`](https://developer.android.com/reference/androidx/activity/ComponentActivity#getFullyDrawnReporter())
+ and add a reporter to it in your app code. Release the reporter once the
+ background task finishes populating the list. The `FullyDrawnReporter` doesn't
+ call the `reportFullyDrawn()` method until all reporters are released. By doing
+@@ -486,33 +448,16 @@ this, Baseline Profile includes the code paths required to populate the list.
+ This doesn't change the app's behavior for the user, but it lets the Baseline
+ Profile include all the necessary code paths.
+ 
+-If your app uses [Jetpack Compose](/jetpack/compose), use the following APIs to
++If your app uses [Jetpack Compose](https://developer.android.com/jetpack/compose), use the following APIs to
+ indicate fully drawn state:
+ 
+-* [`ReportDrawn`](/reference/kotlin/androidx/activity/compose/ReportDrawn.composable#ReportDrawn())
+-  indicates that your composable is immediately ready for interaction.
+-* [`ReportDrawnWhen`](/reference/kotlin/androidx/activity/compose/ReportDrawnWhen.composable#ReportDrawnWhen(kotlin.Function0))
+-  takes a predicate, such as `list.count > 0`, to indicate when your
+-  composable is ready for interaction.
+-* [`ReportDrawnAfter`](/reference/kotlin/androidx/activity/compose/ReportDrawnAfter.composable#ReportDrawnAfter(kotlin.coroutines.SuspendFunction0))
+-  takes a suspending method that, when it completes, indicates that your
+-  composable is ready for interaction.
++- [`ReportDrawn`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawn.composable#ReportDrawn()) indicates that your composable is immediately ready for interaction.
++- [`ReportDrawnWhen`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawnWhen.composable#ReportDrawnWhen(kotlin.Function0)) takes a predicate, such as `list.count > 0`, to indicate when your composable is ready for interaction.
++- [`ReportDrawnAfter`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawnAfter.composable#ReportDrawnAfter(kotlin.coroutines.SuspendFunction0)) takes a suspending method that, when it completes, indicates that your composable is ready for interaction.
+ 
+ ## Recommended for you
+ 
+-* Note: link text is displayed when JavaScript is off
+-* [Capture Macrobenchmark metrics](/topic/performance/benchmarking/macrobenchmark-metrics)
+-* [Write a Macrobenchmark](/topic/performance/benchmarking/macrobenchmark-overview)
+-* [JankStats library](/topic/performance/jankstats)
+-
+-[Previous
+-
+-arrow\_back
+-
+-Overview](/topic/performance/baselineprofiles/overview)
+-
+-[Next
+-
+-Create Baseline Profiles for a library
+-
+-arrow\_forward](/topic/performance/baselineprofiles/create-baselineprofile-library)
+\ No newline at end of file
++- Note: link text is displayed when JavaScript is off
++- [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics)
++- [Write a Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)
++- [JankStats library](https://developer.android.com/topic/performance/jankstats)
+\ No newline at end of file

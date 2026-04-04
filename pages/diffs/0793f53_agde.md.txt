@@ -1,0 +1,12 @@
+diff --git a/docs/games/agde.md b/docs/games/agde.md
+index 9c4796a..13c725f 100644
+--- a/docs/games/agde.md
++++ b/docs/games/agde.md
+@@ -25,7 +25,6 @@ Easy access to CPU and memory profiling.
+ ## Android Game Development Extension Downloads
+ 
+ Android Game Development Extension (AGDE) gives you access to our latest debugging and profiling tools by adding Android as a target to your existing Visual C++ game project.  
+-Note: Starting with version 23.1.82, AGDE is installed using `.vsix` files. If you have previously installed AGDE using an `.exe` installer, you must uninstall it using Add/Remove Programs before using the `.vsix` installers. Note: Starting with version 23.1.82, AGDE requires JDK 17. If updating `JAVA_HOME` to JDK 17 causes problems with your Gradle build (e.g., you are using an old version of AGP/Gradle or Unreal Engine 5.2 or older that do not support JDK 17), you can keep `JAVA_HOME` set to an older JDK such as JDK 11, but set `AGDE_JAVA_HOME` to JDK 17.
+ 
+ ## Download Android Game Development Extension
+ 

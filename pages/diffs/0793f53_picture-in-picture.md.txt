@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/picture-in-picture.md b/docs/develop/ui/views/picture-in-picture.md
+index 16e90b1..231f874 100644
+--- a/docs/develop/ui/views/picture-in-picture.md
++++ b/docs/develop/ui/views/picture-in-picture.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to support picture-in-picture in Compose.

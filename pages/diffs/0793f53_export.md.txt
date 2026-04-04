@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/watch-face-designer/export.md b/docs/training/wearables/watch-face-designer/export.md
+index 967bba6..5a33904 100644
+--- a/docs/training/wearables/watch-face-designer/export.md
++++ b/docs/training/wearables/watch-face-designer/export.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Watch Face Designer offers several options for seeing your watch face creation
+ come to life on a physical watch or using the [Android emulator](/studio/run/emulator).
+ 

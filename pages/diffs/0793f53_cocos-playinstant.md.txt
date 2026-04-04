@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/cocos/cocos-playinstant.md b/docs/games/engines/cocos/cocos-playinstant.md
+index f7e0e70..d6d509e 100644
+--- a/docs/games/engines/cocos/cocos-playinstant.md
++++ b/docs/games/engines/cocos/cocos-playinstant.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ With [Google Play Instant](/topic/google-play-instant), people can use an app or
+ game without installing it first. Increase engagement with your Android app or
+ gain more installs by surfacing your instant app across the Play Store and
+@@ -49,4 +50,6 @@ app.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

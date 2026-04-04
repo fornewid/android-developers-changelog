@@ -1,0 +1,43 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/dialogscenedecorator.md b/docs/guide/navigation/navigation-3/recipes/dialogscenedecorator.md
+index 88c063f..5195c57 100644
+--- a/docs/guide/navigation/navigation-3/recipes/dialogscenedecorator.md
++++ b/docs/guide/navigation/navigation-3/recipes/dialogscenedecorator.md
+@@ -13,6 +13,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Dialog Scene Decorator Recipe
+ 
+ This recipe demonstrates one approach to displaying a scene within a dialog. For example, this could be used to display a list-detail settings UI as an overlay when the app is in an expanded window, but as full screen pages otherwise.
+@@ -211,6 +212,21 @@ class DialogDecoratorSceneConfiguration(
+ 
+     fun shouldDismissSingleOnBackPress() =
+         dialogProperties.dismissOnBackPress && backDismissalBehavior == DismissalBehavior.Single
++
++    override fun equals(other: Any?): Boolean {
++        if (this === other) return true
++        if (other == null || this::class != other::class) return false
++        other as DialogDecoratorSceneConfiguration
++        return dialogProperties == other.dialogProperties &&
++                backDismissalBehavior == other.backDismissalBehavior &&
++                shape == other.shape
++    }
++
++    override fun hashCode(): Int {
++        return dialogProperties.hashCode() * 31 +
++                backDismissalBehavior.hashCode() * 31 +
++                shape.hashCode() * 31
++    }
+ }
+ 
+ /**
+@@ -224,7 +240,7 @@ class DialogDecoratorSceneConfiguration(
+  * @property onBack The callback to be invoked when a back event should be handled
+  * @property onDismissAll The callback to be invoked when the entire dialog stack should be dismissed
+  **/
+-class DialogDecoratorScene<T : Any>(
++data class DialogDecoratorScene<T : Any>(
+     private val scene: Scene<T>,
+     override val overlaidEntries: List<NavEntry<T>>,
+     private val dialogDecoratorSceneConfiguration: DialogDecoratorSceneConfiguration,

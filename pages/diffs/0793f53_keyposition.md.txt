@@ -1,0 +1,12 @@
+diff --git a/docs/training/constraint-layout/motionlayout/ref/keyposition.md b/docs/training/constraint-layout/motionlayout/ref/keyposition.md
+index 8de1fd4..2ced575 100644
+--- a/docs/training/constraint-layout/motionlayout/ref/keyposition.md
++++ b/docs/training/constraint-layout/motionlayout/ref/keyposition.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Specifies a view's position at a specific moment during the motion sequence.
+ This attribute is used to adjust the default path of the motion.
+ 

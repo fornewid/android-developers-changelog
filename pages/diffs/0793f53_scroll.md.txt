@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/touch-and-input/gestures/scroll.md b/docs/develop/ui/views/touch-and-input/gestures/scroll.md
+index 3aabf5b..6c27a95 100644
+--- a/docs/develop/ui/views/touch-and-input/gestures/scroll.md
++++ b/docs/develop/ui/views/touch-and-input/gestures/scroll.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.

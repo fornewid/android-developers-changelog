@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/adpf/sample-codelab-story.md b/docs/games/optimize/adpf/sample-codelab-story.md
+index 830c1c2..9a48fb4 100644
+--- a/docs/games/optimize/adpf/sample-codelab-story.md
++++ b/docs/games/optimize/adpf/sample-codelab-story.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ ## Sample App
+ 
+ The [ADPF sample app](https://github.com/android/games-samples/tree/main/agdk/adpf)
+@@ -67,4 +68,6 @@ power consumption using Adaptability APIs in these developer success stories!
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

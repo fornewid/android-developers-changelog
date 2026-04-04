@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/user-interactions/drag-and-drop.md b/docs/develop/ui/compose/touch-input/user-interactions/drag-and-drop.md
+index cc47c5d..dbdabd2 100644
+--- a/docs/develop/ui/compose/touch-input/user-interactions/drag-and-drop.md
++++ b/docs/develop/ui/compose/touch-input/user-interactions/drag-and-drop.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Jetpack Compose supports drag and drop with two modifiers:
+ 
+ * [`dragAndDropSource`](/reference/kotlin/androidx/compose/foundation/draganddrop/dragAndDropSource.modifier#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.Function1)): Specifies a composable as the starting point of

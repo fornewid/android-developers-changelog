@@ -1,0 +1,101 @@
+diff --git a/docs/guide/navigation/navigation-event.md b/docs/guide/navigation/navigation-event.md
+index 4d3194b..3473082 100644
+--- a/docs/guide/navigation/navigation-event.md
++++ b/docs/guide/navigation/navigation-event.md
+@@ -1,13 +1,21 @@
+ ---
+-title: https://developer.android.com/guide/navigation/navigation-event
++title: Navigation Event  |  App architecture  |  Android Developers
+ url: https://developer.android.com/guide/navigation/navigation-event
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
++
++# Navigation Event Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Navigation Event is a library that provides a Kotlin Multiplatform (KMP)
+ solution for integrating system-level navigation events into your application.
+ It is designed to be the foundational layer for handling navigation directions
+-across various [supported platforms](https://developer.android.com/kotlin/multiplatform#kotlin-multiplatform-and-jetpack-libraries).
++across various [supported platforms](/kotlin/multiplatform#kotlin-multiplatform-and-jetpack-libraries).
+ 
+ ## Key concepts
+ 
+@@ -17,9 +25,9 @@ such as those found in Jetpack Compose.
+ 
+ ### `NavigationEventDispatcher`
+ 
+-The [`NavigationEventDispatcher`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher) is the central class responsible for
++The [`NavigationEventDispatcher`](/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher) is the central class responsible for
+ managing all registered navigation event consumers
+-([`NavigationEventHandler`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventHandler))) and orchestrating the flow of events.
++([`NavigationEventHandler`](/reference/kotlin/androidx/navigationevent/NavigationEventHandler))) and orchestrating the flow of events.
+ 
+ In a hierarchical setup, all dispatchers within the same chain share a single
+ `NavigationEventProcessor`, which manages the global state and ensures a single,
+@@ -39,17 +47,17 @@ dispatcher and are invoked based on priority and registration order.
+ 
+ ### `NavigationEvent`
+ 
+-[`NavigationEvent`](https://developer.android.com/reference/androidx/navigationevent/NavigationEvent) is a data class that carries the details of the
++[`NavigationEvent`](/reference/androidx/navigationevent/NavigationEvent) is a data class that carries the details of the
+ navigation gesture.
+ 
+ ### `NavigationEventInfo`
+ 
+-[`NavigationEventInfo`](https://developer.android.com/reference/androidx/navigationevent/NavigationEventInfo) is an abstract class that provides contextual
++[`NavigationEventInfo`](/reference/androidx/navigationevent/NavigationEventInfo) is an abstract class that provides contextual
+ information about a navigation state.
+ 
+ ### `NavigationEventInput`
+ 
+-[`NavigationEventInput`](https://developer.android.com/reference/androidx/navigationevent/NavigationEventInput) is an abstract class for components that generate
++[`NavigationEventInput`](/reference/androidx/navigationevent/NavigationEventInput) is an abstract class for components that generate
+ and dispatch navigation events. It acts as the "input" side of the navigation
+ system, translating platform-specific events (like system back gestures or
+ button clicks) into standardized events that can be sent to a
+@@ -65,7 +73,8 @@ methods across platforms.
+ 
+ Different platforms support varying navigation directions:
+ 
+-|---|---|---|---|---|
++|  |  |  |  |  |
++| --- | --- | --- | --- | --- |
+ | **Platform** | **Back** | **Up** | **Forward** | **Home** |
+ | **Android phone** | ✅ | ✅ | 🚫 | ✅ |
+ | **Android tablet** | ✅ | ✅ | 🚫 | ✅ |
+@@ -76,7 +85,8 @@ Different platforms support varying navigation directions:
+ 
+ Input handling is achieved through various mechanisms on each platform:
+ 
+-|---|---|---|---|
++|  |  |  |  |
++| --- | --- | --- | --- |
+ | **Trigger** | **Android Phone** | **Web (Browser)** | **iOS (iPhone/iPad)** |
+ | **Keyboard back button** | ✅ Back | ❓ | ✅ Back |
+ | **Software back button** | 🚫 | ✅ Back | ✅ Back |
+@@ -85,5 +95,14 @@ Input handling is achieved through various mechanisms on each platform:
+ | **Gesture from right** | ✅ Back | ❓ | ✅ Forward |
+ | **Gesture from bottom** | ✅ Home | 🚫 | ✅ Home |
+ 
+-> [!NOTE]
+-> **Note:** The **Web** platform has unique navigation handling, where the browser controls the back stack state. This requires synchronization between the browser window and the application's navigation stack. The question mark represents behavior that is inconsistent because web browsers don't have a single, unified "back" button or gesture.
+\ No newline at end of file
++**Note:** The **Web** platform has unique navigation handling, where the browser
++controls the back stack state. This requires synchronization between the browser
++window and the application's navigation stack. The question mark represents
++behavior that is inconsistent because web browsers don't have a single, unified
++"back" button or gesture.
++
++[Next
++
++Set up development environment
++
++arrow\_forward](/guide/navigation/navigation-event/setup)
+\ No newline at end of file

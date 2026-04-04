@@ -1,0 +1,12 @@
+diff --git a/docs/studio/debug/universal-problems-panel.md b/docs/studio/debug/universal-problems-panel.md
+index 442cfb9..49c1770 100644
+--- a/docs/studio/debug/universal-problems-panel.md
++++ b/docs/studio/debug/universal-problems-panel.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The **Problems** panel in Android Studio is a centralized and shared issue panel
+ for all design tools, such as Compose Preview, Layout Editor, and Layout
+ Validation. To view the tool window, navigate to **View** > **Tool Windows** >

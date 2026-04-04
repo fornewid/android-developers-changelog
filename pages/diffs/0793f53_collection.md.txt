@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/collection.md b/docs/jetpack/androidx/releases/collection.md
+index 67e3c06..dcd449f 100644
+--- a/docs/jetpack/androidx/releases/collection.md
++++ b/docs/jetpack/androidx/releases/collection.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Collection
+ 
+ API Reference  

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/layout-editor.md b/docs/studio/write/layout-editor.md
+index 27cf655..3a1a6a7 100644
+--- a/docs/studio/write/layout-editor.md
++++ b/docs/studio/write/layout-editor.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** We recommend building your UI with Compose instead of Views where
+ possible. To learn how to preview your Compose UI, see
+ [Compose previews](/jetpack/compose/tooling/previews).

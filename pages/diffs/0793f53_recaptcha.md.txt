@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/safetynet/recaptcha.md b/docs/privacy-and-security/safetynet/recaptcha.md
+index 9d928d5..7f0deba 100644
+--- a/docs/privacy-and-security/safetynet/recaptcha.md
++++ b/docs/privacy-and-security/safetynet/recaptcha.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Warning:** In order to help you safely grow your business, Google builds tools to
+ protect your Android apps and games from abuse. We evolve these solutions as
+ the abuse landscape changes. Delivering on this promise, Google is replacing the

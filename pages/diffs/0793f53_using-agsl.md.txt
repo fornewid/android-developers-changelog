@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/graphics/agsl/using-agsl.md b/docs/develop/ui/views/graphics/agsl/using-agsl.md
+index 54f0688..21be50b 100644
+--- a/docs/develop/ui/views/graphics/agsl/using-agsl.md
++++ b/docs/develop/ui/views/graphics/agsl/using-agsl.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page covers AGSL basics, and different ways to use AGSL in your Android
+ app.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/platform/intro.md b/docs/studio/platform/intro.md
+index e9552ba..15c34e0 100644
+--- a/docs/studio/platform/intro.md
++++ b/docs/studio/platform/intro.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android Studio for Platform (ASfP) is the official Integrated Development
+ Environment (IDE) designed specifically for Android platform development. Built
+ on the powerful foundation of IntelliJ IDEA, ASfP is tailored to enhance

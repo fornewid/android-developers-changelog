@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/vpn.md b/docs/develop/connectivity/vpn.md
+index dd6885a..96b73d6 100644
+--- a/docs/develop/connectivity/vpn.md
++++ b/docs/develop/connectivity/vpn.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android provides APIs for developers to create virtual private network (VPN)
+ solutions. After reading this guide, you’ll know how to develop and test your
+ own VPN client for Android-powered devices.

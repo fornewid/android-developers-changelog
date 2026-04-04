@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/tracing/in-process-tracing.md b/docs/topic/performance/tracing/in-process-tracing.md
+index 5fbf7fd..3e39be1 100644
+--- a/docs/topic/performance/tracing/in-process-tracing.md
++++ b/docs/topic/performance/tracing/in-process-tracing.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The new [`androidx.tracing:tracing:2.0.0-alpha04`](/jetpack/androidx/releases/tracing) library is a low-overhead
+ Kotlin API that allows capturing in-process trace events. These events can
+ capture time slices and their context. The library additionally supports context

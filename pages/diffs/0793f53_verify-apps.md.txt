@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/safetynet/verify-apps.md b/docs/privacy-and-security/safetynet/verify-apps.md
+index 99f7064..820fe54 100644
+--- a/docs/privacy-and-security/safetynet/verify-apps.md
++++ b/docs/privacy-and-security/safetynet/verify-apps.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** We recommend using the Play Integrity API to check the status of
+ Play Protect on a device because it offers several benefits over the SafetyNet
+ Verify Apps API. [Learn more](/google/play/integrity/overview).

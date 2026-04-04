@@ -1,0 +1,12 @@
+diff --git a/docs/develop/sensors-and-location/location/request-updates.md b/docs/develop/sensors-and-location/location/request-updates.md
+index b1de2b1..27af7a9 100644
+--- a/docs/develop/sensors-and-location/location/request-updates.md
++++ b/docs/develop/sensors-and-location/location/request-updates.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Appropriate use of location information can be beneficial to users of your
+ app. For example, if your app helps the user find their way while walking or
+ driving, or if your app tracks the location of assets, it needs to get the

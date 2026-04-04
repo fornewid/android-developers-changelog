@@ -1,0 +1,12 @@
+diff --git a/docs/courses/extras/sql-primer.md b/docs/courses/extras/sql-primer.md
+index 9dfc748..68a9654 100644
+--- a/docs/courses/extras/sql-primer.md
++++ b/docs/courses/extras/sql-primer.md
+@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ SQL primer
+ 
+ # SQLite primer

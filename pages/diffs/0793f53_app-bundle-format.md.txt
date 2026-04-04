@@ -1,0 +1,12 @@
+diff --git a/docs/guide/app-bundle/app-bundle-format.md b/docs/guide/app-bundle/app-bundle-format.md
+index 2012d5f..abc05b7 100644
+--- a/docs/guide/app-bundle/app-bundle-format.md
++++ b/docs/guide/app-bundle/app-bundle-format.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ An Android App Bundle is a file (with the `.aab` file extension) that you
+ upload to Google Play.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/retrieve-and-analyze.md b/docs/topic/performance/tracing/profiling-manager/retrieve-and-analyze.md
+index e1cd2b6..349b5e6 100644
+--- a/docs/topic/performance/tracing/profiling-manager/retrieve-and-analyze.md
++++ b/docs/topic/performance/tracing/profiling-manager/retrieve-and-analyze.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This page describes how to retrieve traces and visualize them in the Perfetto
+ UI.
+ 

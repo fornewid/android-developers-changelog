@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/renderscript/migrate/migrate-vulkan.md b/docs/guide/topics/renderscript/migrate/migrate-vulkan.md
+index 432fe06..c7ea926 100644
+--- a/docs/guide/topics/renderscript/migrate/migrate-vulkan.md
++++ b/docs/guide/topics/renderscript/migrate/migrate-vulkan.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ For workloads where GPU compute is ideal, migrating RenderScript scripts to
+ Vulkan compute gives your app more direct control over GPU hardware, potentially
+ unlocking additional performance compared to other APIs.

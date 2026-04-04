@@ -1,0 +1,187 @@
+diff --git a/docs/guide/navigation/navigation-swipe-view-2.md b/docs/guide/navigation/navigation-swipe-view-2.md
+index 130590b..8a1dc68 100644
+--- a/docs/guide/navigation/navigation-swipe-view-2.md
++++ b/docs/guide/navigation/navigation-swipe-view-2.md
+@@ -1,55 +1,45 @@
+ ---
+-title: Create swipe views with tabs using ViewPager2  |  Android Developers
++title: https://developer.android.com/guide/navigation/navigation-swipe-view-2
+ url: https://developer.android.com/guide/navigation/navigation-swipe-view-2
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-
+-# Create swipe views with tabs using ViewPager2 Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
++# Create swipe views with tabs using ViewPager2
+ 
+ Swipe views let you navigate between sibling screens, such as tabs, with a
+-horizontal finger gesture, or *swipe*. This navigation pattern is also referred
++horizontal finger gesture, or *swipe* . This navigation pattern is also referred
+ to as *horizontal paging*.
+ 
+ This topic teaches you how to create a tab layout with swipe views for switching
+ between tabs and how to show a title strip instead of tabs.
+-
+-**Note:** If your app already uses
+-[`ViewPager`](/reference/kotlin/androidx/viewpager/widget/ViewPager), see
+-[Migrate from ViewPager to ViewPager2](/training/animation/vp2-migration).
++| **Note:** If your app already uses [`ViewPager`](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/ViewPager), see [Migrate from ViewPager to ViewPager2](https://developer.android.com/training/animation/vp2-migration).
+ 
+ ## Implement swipe views
+ 
+ You can create swipe views using AndroidX's
+-[`ViewPager2`](/reference/kotlin/androidx/viewpager2/widget/ViewPager2) widget.
++[`ViewPager2`](https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2) widget.
+ To use ViewPager2 and tabs, you need to add a dependency on
+-[ViewPager2](/jetpack/androidx/releases/viewpager2#androidx-deps) and [Material
++[ViewPager2](https://developer.android.com/jetpack/androidx/releases/viewpager2#androidx-deps) and [Material
+ Components](https://material.io/develop/android/docs/getting-started/)
+ to your project.
+ 
+ To set up your layout with `ViewPager2`, add the `<ViewPager2>` element to your
+ XML layout. For example, if each page in the swipe view consumes the entire
+-layout, then your layout looks like this:
++layout, then your layout looks like this:  
+ 
+-```
+-<androidx.viewpager2.widget.ViewPager2
+-    xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:id="@+id/pager"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent" />
+-```
++    <androidx.viewpager2.widget.ViewPager2
++        xmlns:android="http://schemas.android.com/apk/res/android"
++        android:id="@+id/pager"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent" />
+ 
+ To insert child views that represent each page, hook this layout to a
+-[`FragmentStateAdapter`](/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter).
+-Here's how you might use it to swipe across a collection of `Fragment` objects:
++[`FragmentStateAdapter`](https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter).
++Here's how you might use it to swipe across a collection of `Fragment` objects:  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class CollectionDemoFragment : Fragment() {
+     // When requested, this adapter returns a DemoObjectFragment,
+     // representing an object in the collection.
+@@ -111,7 +101,7 @@ class DemoObjectFragment : Fragment() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class CollectionDemoFragment extends Fragment {
+     // When requested, this adapter returns a DemoObjectFragment,
+     // representing an object in the collection.
+@@ -182,46 +172,40 @@ between pages.
+ 
+ ## Add tabs using a TabLayout
+ 
+-A [`TabLayout`](/reference/com/google/android/material/tabs/TabLayout) provides
++A [`TabLayout`](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout) provides
+ a way to display tabs horizontally. When used together with a `ViewPager2`, a
+ `TabLayout` can provide a familiar interface for navigating between pages in a
+ swipe view.
+-
+-![An image showing a TabLayout with four tabs, and the third one is selected.](/static/images/topic/libraries/architecture/navigation-tab-layout.png)
+-
+-
+-**Figure 1.** A `TabLayout` with four tabs.
++![An image showing a TabLayout with four tabs, and the third one is selected.](https://developer.android.com/static/images/topic/libraries/architecture/navigation-tab-layout.png) **Figure 1.** A `TabLayout` with four tabs.
+ 
+ To include a `TabLayout` in a `ViewPager2`, add a `<TabLayout>` element above
+-the `<ViewPager2>` element:
+-
+-```
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    android:orientation="vertical">
++the `<ViewPager2>` element:  
+ 
+-    <com.google.android.material.tabs.TabLayout
+-        android:id="@+id/tab_layout"
++    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="match_parent"
+-        android:layout_height="wrap_content" />
++        android:layout_height="match_parent"
++        android:orientation="vertical">
+ 
+-    <androidx.viewpager2.widget.ViewPager2
+-        android:id="@+id/pager"
+-        android:layout_width="match_parent"
+-        android:layout_height="0dp"
+-        android:layout_weight="1" />
++        <com.google.android.material.tabs.TabLayout
++            android:id="@+id/tab_layout"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content" />
+ 
+-</LinearLayout>
+-```
++        <androidx.viewpager2.widget.ViewPager2
++            android:id="@+id/pager"
++            android:layout_width="match_parent"
++            android:layout_height="0dp"
++            android:layout_weight="1" />
++
++    </LinearLayout>
+ 
+ Next, create a
+-[`TabLayoutMediator`](/reference/com/google/android/material/tabs/TabLayoutMediator)
+-to link the `TabLayout` to the `ViewPager2` and attach it, as follows:
++[`TabLayoutMediator`](https://developer.android.com/reference/com/google/android/material/tabs/TabLayoutMediator)
++to link the `TabLayout` to the `ViewPager2` and attach it, as follows:  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class CollectionDemoFragment : Fragment() {
+     ...
+     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+@@ -236,7 +220,7 @@ class CollectionDemoFragment : Fragment() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class CollectionDemoFragment extends Fragment {
+     ...
+     @Override
+@@ -249,11 +233,7 @@ public class CollectionDemoFragment extends Fragment {
+     ...
+ }
+ ```
+-
+-**Note:** If you have a large or potentially infinite number of pages, set the
+-`android:tabMode` attribute on your `TabLayout` to `"scrollable"`. This prevents
+-`TabLayout` from trying to fit all tabs on the screen at once and lets users
+-scroll through the list of tabs.
++| **Note:** If you have a large or potentially infinite number of pages, set the `android:tabMode` attribute on your `TabLayout` to `"scrollable"`. This prevents `TabLayout` from trying to fit all tabs on the screen at once and lets users scroll through the list of tabs.
+ 
+ For additional design guidance for tab layouts, see the [Material Design
+ documentation for
+@@ -265,8 +245,8 @@ To learn more about `ViewPager2`, see the following additional resources.
+ 
+ ### Samples
+ 
+-* [ViewPager2 samples](https://goo.gle/viewpager2-sample) on GitHub
++- [ViewPager2 samples](https://goo.gle/viewpager2-sample) on GitHub
+ 
+ ### Videos
+ 
+-* [Turning the Page: Migrating to ViewPager2](https://www.youtube.com/watch?v=lAP6cz1HSzA)
+\ No newline at end of file
++- [Turning the Page: Migrating to ViewPager2](https://www.youtube.com/watch?v=lAP6cz1HSzA)
+\ No newline at end of file

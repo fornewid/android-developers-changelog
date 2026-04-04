@@ -1,0 +1,12 @@
+diff --git a/docs/build/r8-execution-profiles.md b/docs/build/r8-execution-profiles.md
+index adf7813..c33796b 100644
+--- a/docs/build/r8-execution-profiles.md
++++ b/docs/build/r8-execution-profiles.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The settings plugin lets you create execution profiles for the R8 tool, letting
+ you configure how R8 runs so it doesn't slow down your build. Depending on the
+ environment, you can use profiles to run R8 in a separate JVM process and set

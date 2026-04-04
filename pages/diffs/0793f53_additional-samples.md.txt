@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/animation/shared-elements/additional-samples.md b/docs/develop/ui/compose/animation/shared-elements/additional-samples.md
+index 53d0e25..69a4760 100644
+--- a/docs/develop/ui/compose/animation/shared-elements/additional-samples.md
++++ b/docs/develop/ui/compose/animation/shared-elements/additional-samples.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ | Sample | Demo | Link |
+ | --- | --- | --- |
+ | Basic shared element with caller managed visibility:  Two boxes moving around |  | [SharedElementWithCallerManagedVisibility](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/animation/animation/integration-tests/animation-demos/src/main/java/androidx/compose/animation/demos/sharedelement/CallerManagedVisibilityDemo.kt;l=47) |

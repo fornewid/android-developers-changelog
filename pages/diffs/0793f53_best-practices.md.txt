@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/appstartup/best-practices.md b/docs/topic/performance/appstartup/best-practices.md
+index a05e284..292ec23 100644
+--- a/docs/topic/performance/appstartup/best-practices.md
++++ b/docs/topic/performance/appstartup/best-practices.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The following best practices help optimize your app without sacrificing quality.
+ 
+ ## Use Baseline Profiles

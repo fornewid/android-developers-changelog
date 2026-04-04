@@ -1,0 +1,12 @@
+diff --git a/docs/media/implement/assistant/driving.md b/docs/media/implement/assistant/driving.md
+index 3ade330..716dfca 100644
+--- a/docs/media/implement/assistant/driving.md
++++ b/docs/media/implement/assistant/driving.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Google Assistant helps drivers perform tasks they're already doing while driving.
+ It reduces distraction by providing glanceable, voice-forward multimodal
+ experiences. Driving mode helps make every drive safer, more informed,

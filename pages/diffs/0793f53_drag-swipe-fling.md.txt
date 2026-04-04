@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling.md b/docs/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling.md
+index 103333f..b63c516 100644
+--- a/docs/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling.md
++++ b/docs/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The
+ [`draggable`](/reference/kotlin/androidx/compose/foundation/gestures/draggable.modifier#(androidx.compose.ui.Modifier).draggable(androidx.compose.foundation.gestures.DraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.coroutines.SuspendFunction2,kotlin.coroutines.SuspendFunction2,kotlin.Boolean))
+ modifier is the high-level entry point to drag gestures in a single orientation,

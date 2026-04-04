@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/unity/unity-symbolicate.md b/docs/games/engines/unity/unity-symbolicate.md
+index b32d9d7..72882e7 100644
+--- a/docs/games/engines/unity/unity-symbolicate.md
++++ b/docs/games/engines/unity/unity-symbolicate.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Crashes and ANRs on Android produce a stack trace, which is a snapshot of the
+ sequence of nested functions called in your game up to the moment it crashed.
+ These snapshots can help you identify and fix any problems in the source.
+@@ -63,4 +64,6 @@ versions of Unity.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/subscription-with-addons.md b/docs/google/play/billing/subscription-with-addons.md
+index 552d591..a878944 100644
+--- a/docs/google/play/billing/subscription-with-addons.md
++++ b/docs/google/play/billing/subscription-with-addons.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ Subscription with add-ons lets you bundle multiple subscription products
+ together that can be purchased, billed and managed together. Your existing
+ product catalog subscriptions can be seamlessly offered as add-ons without any
+@@ -435,6 +434,4 @@ For dashboards in the Play Console:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

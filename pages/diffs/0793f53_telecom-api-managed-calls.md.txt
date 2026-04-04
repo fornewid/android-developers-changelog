@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/bluetooth/ble-audio/telecom-api-managed-calls.md b/docs/develop/connectivity/bluetooth/ble-audio/telecom-api-managed-calls.md
+index 98df32a..a228dda 100644
+--- a/docs/develop/connectivity/bluetooth/ble-audio/telecom-api-managed-calls.md
++++ b/docs/develop/connectivity/bluetooth/ble-audio/telecom-api-managed-calls.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This guide covers how to route audio for Bluetooth devices using the
+ [Telecom API](/develop/connectivity/telecom) and set the connection for
+ VoIP calls. Read the

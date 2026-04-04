@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/insecure-webview-native-bridges.md b/docs/privacy-and-security/risks/insecure-webview-native-bridges.md
+index fb9959d..9d0f84b 100644
+--- a/docs/privacy-and-security/risks/insecure-webview-native-bridges.md
++++ b/docs/privacy-and-security/risks/insecure-webview-native-bridges.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **OWASP category:** [MASVS-PLATFORM: Platform Interaction](https://mas.owasp.org/MASVS/09-MASVS-PLATFORM)
+ 
+ ## Overview

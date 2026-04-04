@@ -1,0 +1,51 @@
+diff --git a/docs/guide/topics/manifest/attribution-element.md b/docs/guide/topics/manifest/attribution-element.md
+index 123be2d..686b0a3 100644
+--- a/docs/guide/topics/manifest/attribution-element.md
++++ b/docs/guide/topics/manifest/attribution-element.md
+@@ -1,15 +1,19 @@
+ ---
+-title: https://developer.android.com/guide/topics/manifest/attribution-element
++title: <attribution>  |  App architecture  |  Android Developers
+ url: https://developer.android.com/guide/topics/manifest/attribution-element
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# &lt;attribution>
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
++
++# <attribution> Stay organized with collections Save and categorize content based on your preferences.
++
+ 
+-syntax:
+-:
+ 
+-    ```xml
++syntax:
++:   ```
+     <attribution android:tag="string"
+                  android:label="string resource">
+         ...
+@@ -17,17 +21,15 @@ syntax:
+     ```
+ 
+ contained in:
+-:   [<manifest>](https://developer.android.com/guide/topics/manifest/manifest-element)
++:   `<manifest>`
+ 
+ description:
+ :   If you develop a multi-purpose app, you can apply this tag to each part
+-    of your app when you [audit its data access](https://developer.android.com/privacy-and-security/audit-data-access).
++    of your app when you [audit its data access](/privacy-and-security/audit-data-access).
+     This helps you trace data access back to logical parts of your code.
+ 
+ attributes:
+-:
+-
+-    `android:tag`
++:   `android:tag`
+     :   A literal string that serves as a label for a particular capability of your app.
+ 
+     `android:label`

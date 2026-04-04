@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/styles/color/roles-tokens.md b/docs/design/ui/wear/guides/styles/color/roles-tokens.md
+index a0caf8d..64206ea 100644
+--- a/docs/design/ui/wear/guides/styles/color/roles-tokens.md
++++ b/docs/design/ui/wear/guides/styles/color/roles-tokens.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Wear Material 3 Expressive color system employs three accent layers
+ (primary, secondary, tertiary) for key components and two neutral surface
+ layers. Each role offers a range of values with consistent contrast, enabling

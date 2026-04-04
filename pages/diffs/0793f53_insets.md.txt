@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/insets.md b/docs/develop/ui/views/layout/insets.md
+index 92d3e70..206274a 100644
+--- a/docs/develop/ui/views/layout/insets.md
++++ b/docs/develop/ui/views/layout/insets.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with WindowInsets in Compose.

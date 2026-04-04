@@ -1,0 +1,12 @@
+diff --git a/docs/develop/devices/chromeos/learn/window-management.md b/docs/develop/devices/chromeos/learn/window-management.md
+index ee6716e..a86585b 100644
+--- a/docs/develop/devices/chromeos/learn/window-management.md
++++ b/docs/develop/devices/chromeos/learn/window-management.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ChromeOS supports Android apps in multiple windows. The system renders apps
+ into window containers whose size is determined by the form factor of the
+ device, as shown in figure 1.

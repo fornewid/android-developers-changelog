@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/ai-glasses/guides/interaction/ai-patterns.md b/docs/design/ui/ai-glasses/guides/interaction/ai-patterns.md
+index 984f7c7..7df62f3 100644
+--- a/docs/design/ui/ai-glasses/guides/interaction/ai-patterns.md
++++ b/docs/design/ui/ai-glasses/guides/interaction/ai-patterns.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ AI glasses provide a unique opportunity for new interaction design with the
+ overlap of a new, highly-contextual and personal form factor with evolving AI
+ patterns. For AI glasses, you will have access to the devices hardware and

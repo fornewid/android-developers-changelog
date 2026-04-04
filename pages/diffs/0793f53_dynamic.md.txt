@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/data/dynamic.md b/docs/training/wearables/data/dynamic.md
+index 7276bbe..cf172fc 100644
+--- a/docs/training/wearables/data/dynamic.md
++++ b/docs/training/wearables/data/dynamic.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Wear OS supports dynamic updates to information that appears in your [tiles](/training/wearables/tiles)
+ and [complications](/training/wearables/tiles/complications).
+ 

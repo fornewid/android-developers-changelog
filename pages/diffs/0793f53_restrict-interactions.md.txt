@@ -1,0 +1,12 @@
+diff --git a/docs/training/permissions/restrict-interactions.md b/docs/training/permissions/restrict-interactions.md
+index 380f1b8..f510a21 100644
+--- a/docs/training/permissions/restrict-interactions.md
++++ b/docs/training/permissions/restrict-interactions.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Permissions aren't only for requesting system functionality. You can also
+ restrict how other apps can interact with your app's components.
+ 
