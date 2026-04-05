@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/save-state.md b/docs/guide/navigation/navigation-3/save-state.md
+index 98c37be..f72c751 100644
+--- a/docs/guide/navigation/navigation-3/save-state.md
++++ b/docs/guide/navigation/navigation-3/save-state.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The following sections describe strategies for saving your back stack and
+ storing state associated with entries on your back stack.
+ 

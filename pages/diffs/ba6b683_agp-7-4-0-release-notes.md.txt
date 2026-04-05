@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/agp-7-4-0-release-notes.md b/docs/build/releases/agp-7-4-0-release-notes.md
+index b133a0a..ae2bb6d 100644
+--- a/docs/build/releases/agp-7-4-0-release-notes.md
++++ b/docs/build/releases/agp-7-4-0-release-notes.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android Gradle Plugin 7.4.0 is a major release that includes a variety of new
+ features and improvements.
+ 

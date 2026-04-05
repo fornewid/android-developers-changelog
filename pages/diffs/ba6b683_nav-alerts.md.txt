@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/components/nav-alerts.md b/docs/design/ui/cars/guides/components/nav-alerts.md
+index 85006c0..5a5bb13 100644
+--- a/docs/design/ui/cars/guides/components/nav-alerts.md
++++ b/docs/design/ui/cars/guides/components/nav-alerts.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can inform users about incidents like traffic events by using
+ [navigation alerts](/design/ui/cars/guides/templates/navigation-template#alerts) in the [Navigation template](/design/ui/cars/guides/templates/navigation-template).
+ 

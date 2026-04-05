@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/memory-overview.md b/docs/topic/performance/memory-overview.md
+index ef90df5..2661cee 100644
+--- a/docs/topic/performance/memory-overview.md
++++ b/docs/topic/performance/memory-overview.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android Runtime (ART) and Dalvik virtual machine use
+ [paging](https://en.wikipedia.org/wiki/Paging)
+ and [memory-mapping](https://en.wikipedia.org/wiki/Memory-mapped_files)

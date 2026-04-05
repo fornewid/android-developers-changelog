@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/auth-response.md b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/auth-response.md
+index fa745df..103d265 100644
+--- a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/auth-response.md
++++ b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/auth-response.md
+@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # GooglePlayGames.BasicApi.AuthResponse
+ 
+ Represents the response received from Play Games Services when requesting a server-side OAuth 2.0 authorization code for the signed-in player.

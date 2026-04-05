@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/insecure-api-usage.md b/docs/privacy-and-security/risks/insecure-api-usage.md
+index 91d9260..d196604 100644
+--- a/docs/privacy-and-security/risks/insecure-api-usage.md
++++ b/docs/privacy-and-security/risks/insecure-api-usage.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **OWASP category:** [MASVS-PLATFORM: Platform Interaction](https://mas.owasp.org/MASVS/09-MASVS-PLATFORM)
+ 
+ ## Overview

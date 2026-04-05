@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/tabs.md b/docs/develop/ui/compose/components/tabs.md
+index 6fac062..3117000 100644
+--- a/docs/develop/ui/compose/components/tabs.md
++++ b/docs/develop/ui/compose/components/tabs.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Tabs allow you to organize groups of related content. There are two types of
+ tabs:
+ 

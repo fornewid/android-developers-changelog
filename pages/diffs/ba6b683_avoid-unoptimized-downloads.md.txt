@@ -1,0 +1,90 @@
+diff --git a/docs/develop/connectivity/avoid-unoptimized-downloads.md b/docs/develop/connectivity/avoid-unoptimized-downloads.md
+index 282c58d..1138d66 100644
+--- a/docs/develop/connectivity/avoid-unoptimized-downloads.md
++++ b/docs/develop/connectivity/avoid-unoptimized-downloads.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/develop/connectivity/avoid-unoptimized-downloads
++title: Avoid unoptimized downloads  |  Connectivity  |  Android Developers
+ url: https://developer.android.com/develop/connectivity/avoid-unoptimized-downloads
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [Connectivity](https://developer.android.com/develop/connectivity)
++* [Guides](https://developer.android.com/develop/connectivity/overview)
++
++# Avoid unoptimized downloads Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Some of your app's users have intermittent access to the internet or have limits
+ on the amount of information they can download onto their devices. You can
+ encourage users to interact with your app more often by reducing the amount of
+@@ -45,7 +55,7 @@ refreshed. For example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // url represents the website containing the content to place into the cache.
+ val conn: HttpsURLConnection = url.openConnection() as HttpsURLConnection
+ val currentTime: Long = System.currentTimeMillis()
+@@ -62,7 +72,7 @@ if (lastModified < lastUpdateTime) {
+ 
+ ### Java
+ 
+-```java
++```
+ // url represents the website containing the content to place into the cache.
+ HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+ long currentTime = System.currentTimeMillis();
+@@ -85,7 +95,7 @@ HTTP caching, as shown in the following code sample:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val cacheDir = Context.getCacheDir()
+ val cacheSize = 10L * 1024L * 1024L // 10 MiB
+ val client: OkHttpClient = OkHttpClient.Builder()
+@@ -95,7 +105,7 @@ val client: OkHttpClient = OkHttpClient.Builder()
+ 
+ ### Java
+ 
+-```java
++```
+ File cacheDir = Context.getCacheDir();
+ long cacheSize = 10L * 1024L * 1024L; // 10 MiB
+ OkHttpClient client = new OkHttpClient.Builder()
+@@ -111,15 +121,15 @@ get stored in the response cache for future requests.
+ 
+ You can cache non-sensitive data in the unmanaged external cache directory by
+ using
+-[`Context.getExternalCacheDir()`](https://developer.android.com/reference/android/content/Context#getExternalCacheDir()).
++[`Context.getExternalCacheDir()`](/reference/android/content/Context#getExternalCacheDir()).
+ Alternatively, you can cache data in the managed, secure application cache by
+ using
+-[`Context.getCacheDir()`](https://developer.android.com/reference/android/content/Context#getCacheDir()).
++[`Context.getCacheDir()`](/reference/android/content/Context#getCacheDir()).
+ Note that this internal cache may be flushed when the system is running low on
+ available storage.
+ 
+-> [!NOTE]
+-> **Note:** Files stored in either cache location are erased when the app is uninstalled.
++**Note:** Files stored in either cache location are erased when the app is
++uninstalled.
+ 
+ ## Use a repository
+ 
+@@ -131,4 +141,4 @@ but provides callers with a cached version of the data in subsequent calls. This
+ layer of indirection allows you to provide a robust caching strategy that's
+ specific to your app. For more information about using the Repository pattern
+ within your app, see the [Guide to app
+-architecture](https://developer.android.com/jetpack/guide).
+\ No newline at end of file
++architecture](/jetpack/guide).
+\ No newline at end of file

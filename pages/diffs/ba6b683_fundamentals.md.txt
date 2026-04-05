@@ -1,0 +1,12 @@
+diff --git a/docs/training/testing/fundamentals.md b/docs/training/testing/fundamentals.md
+index 03cf66a..09149c1 100644
+--- a/docs/training/testing/fundamentals.md
++++ b/docs/training/testing/fundamentals.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page outlines the core tenets of testing Android apps, including the
+ central best practices and their benefits.
+ 

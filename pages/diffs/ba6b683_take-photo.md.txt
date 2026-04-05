@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/camerax/take-photo.md b/docs/media/camera/camerax/take-photo.md
+index 32426d8..abb9c15 100644
+--- a/docs/media/camera/camerax/take-photo.md
++++ b/docs/media/camera/camerax/take-photo.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This page describes how to capture high-quality images with CameraX. You do so
+ with the [`ImageCapture`](/reference/androidx/camera/core/ImageCapture) class and its associated methods.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/baselineprofiles/confirm-startup-profiles.md b/docs/topic/performance/baselineprofiles/confirm-startup-profiles.md
+index 92bb786..b165a2e 100644
+--- a/docs/topic/performance/baselineprofiles/confirm-startup-profiles.md
++++ b/docs/topic/performance/baselineprofiles/confirm-startup-profiles.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can check that your Startup Profiles are working using either Android Studio
+ or looking at the R8 build metadata.
+ 

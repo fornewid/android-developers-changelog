@@ -1,0 +1,234 @@
+diff --git a/docs/media/camera/camera-deprecated/cameradirect.md b/docs/media/camera/camera-deprecated/cameradirect.md
+index f1e1767..b5e3afe 100644
+--- a/docs/media/camera/camera-deprecated/cameradirect.md
++++ b/docs/media/camera/camera-deprecated/cameradirect.md
+@@ -1,17 +1,25 @@
+ ---
+-title: https://developer.android.com/media/camera/camera-deprecated/cameradirect
++title: Control the camera  |  Android media  |  Android Developers
+ url: https://developer.android.com/media/camera/camera-deprecated/cameradirect
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Essentials](https://developer.android.com/get-started)
++* [Camera & media dev center](https://developer.android.com/media)
++* [Guides](https://developer.android.com/media/guides)
++
++# Control the camera Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ In this lesson, we discuss how to control the camera hardware directly using
+ the framework APIs.
+ 
+-
+ **Note:** This page refers to the
+-[Camera](https://developer.android.com/reference/android/hardware/Camera) class, which is deprecated. We
+-recommend using [CameraX](https://developer.android.com/media/camera/camerax) or, for specific use cases,
+-[Camera2](https://developer.android.com/media/camera/camera2). Both CameraX and Camera2 support Android 5.0
++[Camera](/reference/android/hardware/Camera) class, which is deprecated. We
++recommend using [CameraX](/media/camera/camerax) or, for specific use cases,
++[Camera2](/media/camera/camera2). Both CameraX and Camera2 support Android 5.0
+ (API level 21) and higher.
+ 
+ Directly controlling a device camera requires a lot more code than requesting pictures or videos
+@@ -20,25 +28,25 @@ or something fully integrated in your app UI, this lesson shows you how.
+ 
+ Refer to the following related resources:
+ 
+-- [Building a Camera App](https://developer.android.com/guide/topics/media/camera#custom-camera)
++* [Building a Camera App](/guide/topics/media/camera#custom-camera)
+ 
+ ## Open the Camera Object
+ 
+-Getting an instance of the `https://developer.android.com/reference/android/hardware/Camera` object is the first step in the
++Getting an instance of the `Camera` object is the first step in the
+ process of directly controlling the camera. As Android's own Camera application does, the
+-recommended way to access the camera is to open `https://developer.android.com/reference/android/hardware/Camera` on a separate thread
+-that's launched from `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)`. This approach is a good idea
++recommended way to access the camera is to open `Camera` on a separate thread
++that's launched from `onCreate()`. This approach is a good idea
+ since it can take a while and might bog down the UI thread. In a more basic implementation,
+-opening the camera can be deferred to the `https://developer.android.com/reference/android/app/Activity#onResume()` method to facilitate code reuse and keep the flow of
++opening the camera can be deferred to the `onResume()` method to facilitate code reuse and keep the flow of
+ control simple.
+ 
+-Calling `https://developer.android.com/reference/android/hardware/Camera#open()` throws an
++Calling `Camera.open()` throws an
+ exception if the camera is already in use by another application, so we wrap it
+ in a `try` block.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private fun safeCameraOpen(id: Int): Boolean {
+     return try {
+         releaseCameraAndPreview()
+@@ -62,7 +70,7 @@ private fun releaseCameraAndPreview() {
+ 
+ ### Java
+ 
+-```java
++```
+ private boolean safeCameraOpen(int id) {
+     boolean qOpened = false;
+ 
+@@ -88,13 +96,13 @@ private void releaseCameraAndPreview() {
+ ```
+ 
+ Since API level 9, the camera framework supports multiple cameras. If you use the
+-legacy API and call `https://developer.android.com/reference/android/hardware/Camera#open()` without an
++legacy API and call `open()` without an
+ argument, you get the first rear-facing camera.
+ 
+ ## Create the Camera Preview
+ 
+ Taking a picture usually requires that your users see a preview of their subject before clicking
+-the shutter. To do so, you can use a `https://developer.android.com/reference/android/view/SurfaceView` to draw previews of what the
++the shutter. To do so, you can use a `SurfaceView` to draw previews of what the
+ camera sensor is picking up.
+ 
+ ### Preview Class
+@@ -105,7 +113,7 @@ data from the camera hardware to the application.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class Preview(
+         context: Context,
+         val surfaceView: SurfaceView = SurfaceView(context)
+@@ -121,7 +129,7 @@ class Preview(
+ 
+ ### Java
+ 
+-```java
++```
+ class Preview extends ViewGroup implements SurfaceHolder.Callback {
+ 
+     SurfaceView surfaceView;
+@@ -143,20 +151,20 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback {
+ }
+ ```
+ 
+-The preview class must be passed to the `https://developer.android.com/reference/android/hardware/Camera` object before the live
++The preview class must be passed to the `Camera` object before the live
+ image preview can be started, as shown in the next section.
+ 
+ ### Set and Start the Preview
+ 
+ A camera instance and its related preview must be created in a specific
+ order, with the camera object being first. In the snippet below, the
+-process of initializing the camera is encapsulated so that `https://developer.android.com/reference/android/hardware/Camera#startPreview()` is called by the
++process of initializing the camera is encapsulated so that `Camera.startPreview()` is called by the
+ `setCamera()` method, whenever the user does something to change the
+ camera. The preview must also be restarted in the preview class `surfaceChanged()` callback method.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun setCamera(camera: Camera?) {
+     if (mCamera == camera) {
+         return
+@@ -185,7 +193,7 @@ fun setCamera(camera: Camera?) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void setCamera(Camera camera) {
+     if (mCamera == camera) { return; }
+ 
+@@ -219,7 +227,7 @@ see the source code of the Camera application for many more.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun surfaceChanged(holder: SurfaceHolder, format: Int, w: Int, h: Int) {
+     mCamera?.apply {
+         // Now that the size is known, set up the camera parameters and begin
+@@ -239,7 +247,7 @@ override fun surfaceChanged(holder: SurfaceHolder, format: Int, w: Int, h: Int)
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
+     // Now that the size is known, set up the camera parameters and begin
+@@ -259,18 +267,18 @@ public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
+ 
+ Most camera applications lock the display into landscape mode because that is the natural
+ orientation of the camera sensor. This setting does not prevent you from taking portrait-mode
+-photos, because the orientation of the device is recorded in the EXIF header. The `https://developer.android.com/reference/android/hardware/Camera#setDisplayOrientation(int)` method lets you change
++photos, because the orientation of the device is recorded in the EXIF header. The `setCameraDisplayOrientation()` method lets you change
+ how the preview is displayed without affecting how the image is recorded. However, in Android prior
+ to API level 14, you must stop your preview before changing the orientation and then restart it.
+ 
+ ## Take a Picture
+ 
+-Use the `https://developer.android.com/reference/android/hardware/Camera#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)`
+-method to take a picture once the preview is started. You can create `https://developer.android.com/reference/android/hardware/Camera.PictureCallback` and `https://developer.android.com/reference/android/hardware/Camera.ShutterCallback` objects and pass them into `https://developer.android.com/reference/android/hardware/Camera#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)`.
++Use the `Camera.takePicture()`
++method to take a picture once the preview is started. You can create `Camera.PictureCallback` and `Camera.ShutterCallback` objects and pass them into `Camera.takePicture()`.
+ 
+-If you want to grab images continuously, you can create a `https://developer.android.com/reference/android/hardware/Camera.PreviewCallback` that implements `https://developer.android.com/reference/android/hardware/Camera.PreviewCallback#onPreviewFrame(byte[], android.hardware.Camera)`. For
++If you want to grab images continuously, you can create a `Camera.PreviewCallback` that implements `onPreviewFrame()`. For
+ something in between, you can capture only selected preview frames, or set up a
+-delayed action to call `https://developer.android.com/reference/android/hardware/Camera#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)`.
++delayed action to call `takePicture()`.
+ 
+ ## Restart the Preview
+ 
+@@ -280,7 +288,7 @@ the shutter button.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun onClick(v: View) {
+     previewState = if (previewState == K_STATE_FROZEN) {
+         camera?.startPreview()
+@@ -295,7 +303,7 @@ fun onClick(v: View) {
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public void onClick(View v) {
+     switch(previewState) {
+@@ -315,16 +323,16 @@ public void onClick(View v) {
+ ## Stop the Preview and Release the Camera
+ 
+ Once your application is done using the camera, it's time to clean up. In
+-particular, you must release the `https://developer.android.com/reference/android/hardware/Camera` object, or you risk crashing other
++particular, you must release the `Camera` object, or you risk crashing other
+ applications, including new instances of your own application.
+ 
+ When should you stop the preview and release the camera? Well, having your
+-preview surface destroyed is a pretty good hint that it's time to stop the
++preview surface destroyed is a pretty good hint that it’s time to stop the
+ preview and release the camera, as shown in these methods from the `Preview` class.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun surfaceDestroyed(holder: SurfaceHolder) {
+     // Surface will be destroyed when we return, so stop the preview.
+     // Call stopPreview() to stop updating the preview surface.
+@@ -351,7 +359,7 @@ private fun stopPreviewAndFreeCamera() {
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public void surfaceDestroyed(SurfaceHolder holder) {
+     // Surface will be destroyed when we return, so stop the preview.

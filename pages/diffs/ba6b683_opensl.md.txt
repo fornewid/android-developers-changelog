@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/audio/opensl.md b/docs/ndk/guides/audio/opensl.md
+index 6af878e..b71ebb4 100644
+--- a/docs/ndk/guides/audio/opensl.md
++++ b/docs/ndk/guides/audio/opensl.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ WARNING: OpenSL ES is **deprecated**. Developers should use the open source
+ Oboe library which is available on [GitHub](https://github.com/google/oboe).
+ Oboe is a C++ wrapper that provides an API that closely resembles

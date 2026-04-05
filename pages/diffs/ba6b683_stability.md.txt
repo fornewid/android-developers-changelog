@@ -1,0 +1,12 @@
+diff --git a/docs/training/testing/instrumented-tests/stability.md b/docs/training/testing/instrumented-tests/stability.md
+index 7ab6352..282bf10 100644
+--- a/docs/training/testing/instrumented-tests/stability.md
++++ b/docs/training/testing/instrumented-tests/stability.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The asynchronous nature of mobile applications and frameworks oftentimes makes
+ it challenging to write reliable and repeatable tests. When a user event is
+ injected, the testing framework must wait for the app to finish reacting to it,

@@ -1,0 +1,20 @@
+diff --git a/docs/games/agdk/configure-graphics.md b/docs/games/agdk/configure-graphics.md
+index 91119c2..d4c2452 100644
+--- a/docs/games/agdk/configure-graphics.md
++++ b/docs/games/agdk/configure-graphics.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ To draw objects and sprites in your game, you will need to configure the
+ display, surface and context variables, set up rendering in your game loop, and
+ draw each scene and object.
+@@ -298,6 +297,4 @@ Read the following for more information about OpenGL ES and Vulkan:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

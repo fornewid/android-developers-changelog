@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/camera.md b/docs/jetpack/androidx/releases/camera.md
+index d42ddd3..17e4d94 100644
+--- a/docs/jetpack/androidx/releases/camera.md
++++ b/docs/jetpack/androidx/releases/camera.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # CameraX
+ 
+ [User Guide](/training/camerax)  [Code Sample](https://github.com/android/camera-samples)

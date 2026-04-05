@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/weak-prng.md b/docs/privacy-and-security/risks/weak-prng.md
+index bb014a9..205ef23 100644
+--- a/docs/privacy-and-security/risks/weak-prng.md
++++ b/docs/privacy-and-security/risks/weak-prng.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **OWASP category:** [MASVS-CRYPTO: Cryptography](https://mas.owasp.org/MASVS/06-MASVS-CRYPTO)
+ 
+ ## Overview

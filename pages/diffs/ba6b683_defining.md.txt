@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/permissions/defining.md b/docs/guide/topics/permissions/defining.md
+index dcd209d..e594b55 100644
+--- a/docs/guide/topics/permissions/defining.md
++++ b/docs/guide/topics/permissions/defining.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This document describes how app developers can use the
+ security features provided by Android to define their own permissions. By
+ defining custom permissions, an app can share its resources and capabilities

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/touch-and-input/spell-checker-framework.md b/docs/develop/ui/views/touch-and-input/spell-checker-framework.md
+index 659c557..26b2812 100644
+--- a/docs/develop/ui/views/touch-and-input/spell-checker-framework.md
++++ b/docs/develop/ui/views/touch-and-input/spell-checker-framework.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android platform offers a spell checker framework that lets you
+ implement and access spell checking in your app. The framework is one of the
+ Text Service APIs.

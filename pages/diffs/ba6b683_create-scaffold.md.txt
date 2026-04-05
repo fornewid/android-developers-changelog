@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-scaffold.md b/docs/develop/ui/compose/quick-guides/content/create-scaffold.md
+index b7310bc..70bae0d 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-scaffold.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-scaffold.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ In Material Design, a scaffold is a fundamental structure that provides a
+ standardized platform for complex user interfaces. It holds together different
+ parts of the UI, such as app bars and floating action buttons, giving apps a

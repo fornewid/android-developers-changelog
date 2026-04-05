@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/camera-form-factors-support.md b/docs/develop/ui/compose/layouts/adaptive/camera-form-factors-support.md
+index a6ede70..9dbc5c1 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/camera-form-factors-support.md
++++ b/docs/develop/ui/compose/layouts/adaptive/camera-form-factors-support.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android apps run on more form factors than just phones held in portrait mode.
+ With the introduction of desktop windowing, connected displays,
+ and foldable devices, your camera app must adapt to dynamic window sizes,

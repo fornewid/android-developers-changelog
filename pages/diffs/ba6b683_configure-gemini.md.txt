@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/configure-gemini.md b/docs/studio/gemini/configure-gemini.md
+index 205f907..64ecbb8 100644
+--- a/docs/studio/gemini/configure-gemini.md
++++ b/docs/studio/gemini/configure-gemini.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To access Gemini in Android Studio's settings, click on the Gemini icon at
+ the bottom of the Studio IDE ![](/static/studio/gemini/images/gemini-active.png)
+ and select **Configure Gemini**. You can also quickly toggle the

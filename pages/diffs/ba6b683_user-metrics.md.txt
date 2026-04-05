@@ -1,0 +1,12 @@
+diff --git a/docs/quality/core-value/user-metrics.md b/docs/quality/core-value/user-metrics.md
+index 3538852..85b43e7 100644
+--- a/docs/quality/core-value/user-metrics.md
++++ b/docs/quality/core-value/user-metrics.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Google Play cares about app quality and uses various signals to evaluate users'
+ experience of your app. Apps are only eligible for certain features if they meet
+ a minimum quality bar.

@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/foundations/adaptive-design.md b/docs/design/ui/wear/guides/foundations/adaptive-design.md
+index 79db18a..a49ee88 100644
+--- a/docs/design/ui/wear/guides/foundations/adaptive-design.md
++++ b/docs/design/ui/wear/guides/foundations/adaptive-design.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Wear OS ecosystem consists of devices with a wide variety of screen sizes.
+ Using adaptive UI principles is critical to delivering the highest quality
+ experience for everyone.

@@ -1,0 +1,100 @@
+diff --git a/docs/develop/ui/views/graphics/opengl/motion.md b/docs/develop/ui/views/graphics/opengl/motion.md
+index dab0c4c..0fe1af4 100644
+--- a/docs/develop/ui/views/graphics/opengl/motion.md
++++ b/docs/develop/ui/views/graphics/opengl/motion.md
+@@ -1,22 +1,37 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/graphics/opengl/motion
++title: Add motion  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/graphics/opengl/motion
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Add motion
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+ 
+-Drawing objects on screen is a pretty basic feature of OpenGL, but you can do this with other Android graphics framework classes, including[Canvas](https://developer.android.com/reference/android/graphics/Canvas)and[Drawable](https://developer.android.com/reference/android/graphics/drawable/Drawable)objects. OpenGL ES provides additional capabilities for moving and transforming drawn objects in three dimensions or in other unique ways to create compelling user experiences.
++# Add motion Stay organized with collections Save and categorize content based on your preferences.
+ 
+-In this lesson, you take another step forward into using OpenGL ES by learning how to add motion to a shape with rotation.
++
++
++Drawing objects on screen is a pretty basic feature of OpenGL, but you can do this with other
++Android graphics framework classes, including `Canvas` and
++`Drawable` objects. OpenGL ES provides additional capabilities for
++moving and transforming drawn objects in three dimensions or in other unique ways to create
++compelling user experiences.
++
++In this lesson, you take another step forward into using OpenGL ES by learning how to add motion
++to a shape with rotation.
+ 
+ ## Rotate a shape
+ 
+-Rotating a drawing object with OpenGL ES 2.0 is relatively simple. In your renderer, create another transformation matrix (a rotation matrix) and then combine it with your projection and camera view transformation matrices:  
++Rotating a drawing object with OpenGL ES 2.0 is relatively simple. In your renderer, create
++another transformation matrix (a rotation matrix) and then combine it with your projection and
++camera view transformation matrices:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private val rotationMatrix = FloatArray(16)
+ 
+ override fun onDrawFrame(gl: GL10) {
+@@ -41,7 +56,7 @@ override fun onDrawFrame(gl: GL10) {
+ 
+ ### Java
+ 
+-```java
++```
+ private float[] rotationMatrix = new float[16];
+ @Override
+ public void onDrawFrame(GL10 gl) {
+@@ -64,15 +79,19 @@ public void onDrawFrame(GL10 gl) {
+ }
+ ```
+ 
+-If your triangle does not rotate after making these changes, make sure you have commented out the[GLSurfaceView.RENDERMODE_WHEN_DIRTY](https://developer.android.com/reference/android/opengl/GLSurfaceView#RENDERMODE_WHEN_DIRTY)setting, as described in the next section.
++If your triangle does not rotate after making these changes, make sure you have commented out the
++`GLSurfaceView.RENDERMODE_WHEN_DIRTY`
++setting, as described in the next section.
+ 
+ ## Enable continuous rendering
+ 
+-If you have diligently followed along with the example code in this class to this point, make sure you comment out the line that sets the render mode only draw when dirty, otherwise OpenGL rotates the shape only one increment and then waits for a call to[requestRender()](https://developer.android.com/reference/android/opengl/GLSurfaceView#requestRender())from the[GLSurfaceView](https://developer.android.com/reference/android/opengl/GLSurfaceView)container:  
++If you have diligently followed along with the example code in this class to this point, make
++sure you comment out the line that sets the render mode only draw when dirty, otherwise OpenGL
++rotates the shape only one increment and then waits for a call to `requestRender()` from the `GLSurfaceView` container:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class MyGLSurfaceView(context: Context) : GLSurfaceView(context) {
+ 
+     init {
+@@ -86,7 +105,7 @@ class MyGLSurfaceView(context: Context) : GLSurfaceView(context) {
+ 
+ ### Java
+ 
+-```java
++```
+ public class MyGLSurfaceView(Context context) extends GLSurfaceView {
+     ...
+     // Render the view only when there is a change in the drawing data.
+@@ -95,4 +114,6 @@ public class MyGLSurfaceView(Context context) extends GLSurfaceView {
+ }
+ ```
+ 
+-Unless you have objects changing without any user interaction, it's usually a good idea have this flag turned on. Be ready to uncomment this code, because the next lesson makes this call applicable once again.
+\ No newline at end of file
++Unless you have objects changing without any user interaction, it’s usually a good idea have this
++flag turned on. Be ready to uncomment this code, because the next lesson makes this call applicable
++once again.
+\ No newline at end of file

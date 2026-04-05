@@ -1,0 +1,69 @@
+diff --git a/docs/training/tv.md b/docs/training/tv.md
+index 5edb1ea..c6f3590 100644
+--- a/docs/training/tv.md
++++ b/docs/training/tv.md
+@@ -1,17 +1,10 @@
+ ---
+-title: Android TV overview  |  Android Developers
++title: https://developer.android.com/training/tv
+ url: https://developer.android.com/training/tv
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Android TV](https://developer.android.com/training/tv)
+-
+-# Android TV overview Stay organized with collections Save and categorize content based on your preferences.
+-
+-
++[Video](https://www.youtube.com/watch?v=Vo-UQDVykIs)
+ 
+ If you've got an Android app or game, Android TV can bring it to your users in their living room.
+ Android TV apps use the same architecture as those for phones and tablets. This approach means you
+@@ -20,25 +13,24 @@ your existing apps to also run on TV devices.
+ 
+ ## Documentation
+ 
+-* Designing TV apps:
+-  + [Design TV UI ⍈](/design/ui/tv)
+-* Building TV apps:
+-  + [Get started with TV apps](/training/tv/get-started)
+-  + [Build TV playback apps](/training/tv/playback), adjust the [audio](/training/tv/playback/audio-capabilities) and
+-    [display](/training/tv/playback/framerate) settings for optimal playback, and [help users find your
+-    content on TV](/training/tv/discovery)
+-  + [Build TV games](/training/tv/games)
+-  + [Build TV input services](/training/tv/tif)
+-  + [Accessibility best practices](/training/tv/accessibility)
+-  + [Memory optimization best practices](/training/tv/playback/memory)
+-* Publishing TV apps:
+-  + [TV Apps checklist](/training/tv/publishing/checklist)
+-  + [Distributing TV apps on Google Play](/training/tv/publishing/distribute)
+-* Android TV OS releases:
+-  + [Android 12 for TV](/tv/release/12)
+-  + [Android 13 for TV](/tv/release/13)
+-  + [Android 14 for TV](/tv/release/14)
+-  + [Android 16 for TV](/tv/release/16)
++- Designing TV apps:
++  - [Design TV UI ⍈](https://developer.android.com/design/ui/tv)
++- Building TV apps:
++  - [Get started with TV apps](https://developer.android.com/training/tv/get-started)
++  - [Build TV playback apps](https://developer.android.com/training/tv/playback), adjust the [audio](https://developer.android.com/training/tv/playback/audio-capabilities) and [display](https://developer.android.com/training/tv/playback/framerate) settings for optimal playback, and [help users find your
++    content on TV](https://developer.android.com/training/tv/discovery)
++  - [Build TV games](https://developer.android.com/training/tv/games)
++  - [Build TV input services](https://developer.android.com/training/tv/tif)
++  - [Accessibility best practices](https://developer.android.com/training/tv/accessibility)
++  - [Memory optimization best practices](https://developer.android.com/training/tv/playback/memory)
++- Publishing TV apps:
++  - [TV Apps checklist](https://developer.android.com/training/tv/publishing/checklist)
++  - [Distributing TV apps on Google Play](https://developer.android.com/training/tv/publishing/distribute)
++- Android TV OS releases:
++  - [Android 12 for TV](https://developer.android.com/tv/release/12)
++  - [Android 13 for TV](https://developer.android.com/tv/release/13)
++  - [Android 14 for TV](https://developer.android.com/tv/release/14)
++  - [Android 16 for TV](https://developer.android.com/tv/release/16)
+ 
+ ## Additional resources
+ 

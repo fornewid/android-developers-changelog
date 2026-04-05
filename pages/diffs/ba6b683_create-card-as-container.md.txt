@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-card-as-container.md b/docs/develop/ui/compose/quick-guides/content/create-card-as-container.md
+index 41f1fbb..813b9ee 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-card-as-container.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-card-as-container.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The [`Card`](/reference/kotlin/androidx/compose/material3/Card.composable#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable acts as a Material Design container for your UI.
+ Cards present a single coherent piece of content, such as:
+ 

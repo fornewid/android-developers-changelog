@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/styles/color/system.md b/docs/design/ui/wear/guides/styles/color/system.md
+index 2c30f34..f24f9f6 100644
+--- a/docs/design/ui/wear/guides/styles/color/system.md
++++ b/docs/design/ui/wear/guides/styles/color/system.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Material 3 Expressive color framework uses dynamic color theming, based on
+ two seed colors mapped on the HCT (Hue, Chroma and Tone) color system.
+ 

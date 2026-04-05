@@ -1,0 +1,246 @@
+diff --git a/docs/training/wearables/tiles/interactions.md b/docs/training/wearables/tiles/interactions.md
+index 9f31276..517dce8 100644
+--- a/docs/training/wearables/tiles/interactions.md
++++ b/docs/training/wearables/tiles/interactions.md
+@@ -1,48 +1,32 @@
+ ---
+-title: Interact with tiles  |  Wear OS  |  Android Developers
++title: https://developer.android.com/training/wearables/tiles/interactions
+ url: https://developer.android.com/training/wearables/tiles/interactions
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Wear OS](https://developer.android.com/training/wearables)
+-
+-# Interact with tiles Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Tiles can do more than just display information; they can also be interactive.
+-To make an element such as [`textButton()`](/reference/kotlin/androidx/wear/protolayout/material3/MaterialScope#(androidx.wear.protolayout.material3.MaterialScope).textButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,androidx.wear.protolayout.material3.TextButtonStyle,androidx.wear.protolayout.ModifiersBuilders.Padding)) respond to taps, generate a click
+-handler using [`clickable()`](/reference/kotlin/androidx/wear/protolayout/modifiers/package-summary#clickable(androidx.wear.protolayout.ActionBuilders.Action,kotlin.String,kotlin.Float,kotlin.Float)) and associate it with the layout element.
++To make an element such as [`textButton()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/MaterialScope#(androidx.wear.protolayout.material3.MaterialScope).textButton(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,androidx.wear.protolayout.material3.TextButtonStyle,androidx.wear.protolayout.ModifiersBuilders.Padding)) respond to taps, generate a click
++handler using [`clickable()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/modifiers/package-summary#clickable(androidx.wear.protolayout.ActionBuilders.Action,kotlin.String,kotlin.Float,kotlin.Float)) and associate it with the layout element.
+ 
+ You can configure a `Clickable` to trigger an action in two main ways:
+ 
+-1. **Launch an activity directly**: Use [`launchAction()`](/reference/androidx/wear/protolayout/ActionBuilders#launchAction(android.content.ComponentName)) for cases where
+-   you need to open an activity immediately.
+-2. **Delegate to your tile service**: Use [`loadAction()`](/reference/kotlin/androidx/wear/protolayout/modifiers/package-summary#loadAction(androidx.wear.protolayout.expression.DynamicDataMap)) to trigger logic
+-   within your `TileService`. This is a more flexible approach that lets you
+-   refresh the tile's content, update its state, or launch a more complex
+-   activity.
++1. **Launch an activity directly** : Use [`launchAction()`](https://developer.android.com/reference/androidx/wear/protolayout/ActionBuilders#launchAction(android.content.ComponentName)) for cases where you need to open an activity immediately.
++2. **Delegate to your tile service** : Use [`loadAction()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/modifiers/package-summary#loadAction(androidx.wear.protolayout.expression.DynamicDataMap)) to trigger logic within your `TileService`. This is a more flexible approach that lets you refresh the tile's content, update its state, or launch a more complex activity.
+ 
+-**Note:** The system automatically creates a tappable area of at least 48dp x 48dp
+-around each `Clickable` element for accessibility purposes. If you have multiple
+-interactive elements, maintain enough spacing between them to prevent their
+-touch targets from overlapping. [Material components for tiles](/reference/kotlin/androidx/wear/protolayout/material3/package-summary) already
+-follow this guidance.
++> [!NOTE]
++> **Note:** The system automatically creates a tappable area of at least 48dp x 48dp around each `Clickable` element for accessibility purposes. If you have multiple interactive elements, maintain enough spacing between them to prevent their touch targets from overlapping. [Material components for tiles](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary) already follow this guidance.
+ 
+ ## Launch an exported activity
+ 
+-If a user tap should immediately launch an activity, use [`launchAction()`](/reference/androidx/wear/protolayout/ActionBuilders#launchAction(android.content.ComponentName)).
++If a user tap should immediately launch an activity, use [`launchAction()`](https://developer.android.com/reference/androidx/wear/protolayout/ActionBuilders#launchAction(android.content.ComponentName)).
+ Provide a `ComponentName` to identify the activity. The activity must be
+-[exported](/guide/topics/manifest/activity-element#exported). With this approach, you can pass `Intent` extras with the action.
++[exported](https://developer.android.com/guide/topics/manifest/activity-element#exported). With this approach, you can pass `Intent` extras with the action.
+ However, it's not possible to set custom `Intent` flags.
+ 
+ The following example shows how to create a `Clickable` to launch `TileActivity`
+ with two extras, `name` and `age`:
+ 
+-```
++```kotlin
+ textButton(
+     labelContent = {
+         text("launchAction()".layoutString, typography = BODY_LARGE)
+@@ -62,13 +46,11 @@ textButton(
+         )
+     ),
+ )
+-
+-Interaction.kt
+ ```
+ 
+ Inside the launched activity, retrieve the values from the intent extras:
+ 
+-```
++```kotlin
+ override fun onCreate(savedInstanceState: Bundle?) {
+     super.onCreate(savedInstanceState)
+ 
+@@ -79,50 +61,43 @@ override fun onCreate(savedInstanceState: Bundle?) {
+ 
+     // ...
+ }
+-
+-TileActivity.kt
+ ```
+ 
+ ## Handle interactions in your tile service
+ 
+-For more flexible interactions, use [`loadAction()`](/reference/kotlin/androidx/wear/protolayout/modifiers/package-summary#loadAction(androidx.wear.protolayout.expression.DynamicDataMap)). When a user taps an
++For more flexible interactions, use [`loadAction()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/modifiers/package-summary#loadAction(androidx.wear.protolayout.expression.DynamicDataMap)). When a user taps an
+ element configured with `loadAction`, the system re-invokes your
+-[`TileService.onTileRequest()`](/reference/androidx/wear/tiles/TileService#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest)). This lets you run logic in your service to
++[`TileService.onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest)). This lets you run logic in your service to
+ update the tile, change its state, and perform more complex tasks.
+ 
+ ### Refresh the tile's content
+ 
+-The simplest use of `loadAction` is to signal a refresh. Call [`loadAction`](/reference/kotlin/androidx/wear/protolayout/modifiers/package-summary#loadAction(androidx.wear.protolayout.expression.DynamicDataMap))
++The simplest use of `loadAction` is to signal a refresh. Call [`loadAction`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/modifiers/package-summary#loadAction(androidx.wear.protolayout.expression.DynamicDataMap))
+ with no arguments. When tapped, the system calls `onTileRequest()`, allowing
+ your service to return a new layout with updated content.
+ 
+-```
++```kotlin
+ textButton(
+     onClick = clickable(loadAction()),
+     labelContent = { text("Refresh".layoutString) },
+ )
+-
+-Interaction.kt
+ ```
+ 
+-**Note:** To avoid a visual flicker when the tile reloads, design your layout so
+-that only the content that changes is updated. The overall layout structure and
+-animations should remain consistent between reloads.
++> [!NOTE]
++> **Note:** To avoid a visual flicker when the tile reloads, design your layout so that only the content that changes is updated. The overall layout structure and animations should remain consistent between reloads.
+ 
+ ### Distinguish among multiple interactive elements
+ 
+ If your tile contains multiple interactive elements, you can associate an ID
+ with the `Clickable` modifier:
+ 
+-```
++```kotlin
+ textButton(
+     labelContent = {
+         text("Deep Link me!".layoutString, typography = BODY_LARGE)
+     },
+     onClick = clickable(id = "foo", action = loadAction()),
+ )
+-
+-Interaction.kt
+ ```
+ 
+ Inside `onTileRequest()`, you can check this ID using
+@@ -130,18 +105,18 @@ Inside `onTileRequest()`, you can check this ID using
+ 
+ **Example: Launching an activity with a deep link**
+ 
+-This pattern is ideal for launching an activity with a [deep link](/develop/ui/compose/navigation#deeplinks). The user
++This pattern is ideal for launching an activity with a [deep link](https://developer.android.com/develop/ui/compose/navigation#deeplinks). The user
+ tap reloads the tile, your service inspects the ID, and then launches the new
+ activity. To control the back stack, use a `TaskStackBuilder` to provide a
+ better navigation experience for the user. When the user taps the element, they
+ are taken directly to the deep-linked screen (the `message_detail/1` screen from
+-the example). Because [`.addNextIntentWithParentStack()`](/reference/android/app/TaskStackBuilder#addNextIntentWithParentStack(android.content.Intent)) was used, the
++the example). Because [`.addNextIntentWithParentStack()`](https://developer.android.com/reference/android/app/TaskStackBuilder#addNextIntentWithParentStack(android.content.Intent)) was used, the
+ parent activity is also added to the back stack. This means if the user swipes
+ back, they will navigate up to the app's main screen (`MessageList` in the
+ example) instead of immediately exiting to the tile. Swiping back a second time
+ returns them to the tile.
+ 
+-```
++```kotlin
+ override fun onTileRequest(
+     requestParams: RequestBuilders.TileRequest
+ ): ListenableFuture<Tile?> {
+@@ -161,14 +136,12 @@ override fun onTileRequest(
+     // ... User didn't tap a button (either first load or tapped somewhere else)
+     // ...
+ }
+-
+-Interaction.kt
+ ```
+ 
+ Then, in `TileActivity`, configure your navigation to match the
+ `googleandroidsnippets://app/message_detail/{id}` pattern.
+ 
+-```
++```kotlin
+ AppScaffold {
+     val navController = rememberSwipeDismissableNavController()
+     SwipeDismissableNavHost(
+@@ -190,28 +163,26 @@ AppScaffold {
+         }
+     }
+ }
+-
+-TileActivity.kt
+ ```
+ 
+ Use `TaskStackBuilder` to provide a better navigation experience for the user.
+ When the user taps the element, they are taken directly to the deep-linked
+-screen—in this example, that's the `message_detail/1` screen. Because
+-[`.addNextIntentWithParentStack()`](/develop/ui/compose/navigation#deeplinks) was used, the parent activity is also
++screen---in this example, that's the `message_detail/1` screen. Because
++[`.addNextIntentWithParentStack()`](https://developer.android.com/develop/ui/compose/navigation#deeplinks) was used, the parent activity is also
+ added to the back stack. This means if the user swipes back, they will navigate
+-up to the app's main screen—`MessageList` in the example—instead of immediately
++up to the app's main screen---`MessageList` in the example---instead of immediately
+ exiting to the tile. Swiping back a second time returns them to the tile.
+ 
+ ### Update state within the tile
+ 
+-Your tile has a [`StateBuilders.State`](/reference/kotlin/androidx/wear/protolayout/StateBuilders.State) object that stores key-value pairs
++Your tile has a [`StateBuilders.State`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/StateBuilders.State) object that stores key-value pairs
+ and persists across reloads. You can use `loadAction()` to update this state
+ when a user interacts with the tile.
+ 
+-To do this, pass a [`DynamicDataMap`](/reference/androidx/wear/protolayout/expression/DynamicDataMap) to `loadAction()` containing the new
++To do this, pass a [`DynamicDataMap`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicDataMap) to `loadAction()` containing the new
+ state values.
+ 
+-```
++```kotlin
+ textButton(
+     labelContent = {
+         text("loadAction()".layoutString, typography = BODY_LARGE)
+@@ -227,8 +198,6 @@ textButton(
+         )
+     ),
+ )
+-
+-Interaction.kt
+ ```
+ 
+ When `onTileRequest()` is triggered by this action, you can read the updated
+@@ -236,7 +205,7 @@ data from `requestParams.currentState.stateMap`. This is useful for interactions
+ that directly modify data on the tile, like incrementing a counter or toggling a
+ setting.
+ 
+-```
++```kotlin
+ override fun onTileRequest(
+     requestParams: RequestBuilders.TileRequest
+ ): ListenableFuture<Tile> {
+@@ -250,12 +219,10 @@ override fun onTileRequest(
+ 
+     // ...
+ }
+-
+-Interaction.kt
+ ```
+ 
+ ## Recommended for you
+ 
+-* [Create your first Tile in Wear OS](/codelabs/wear-tiles)
+-* [Migrate to ProtoLayout namespaces](/training/wearables/tiles/migrate-to-protolayout)
+-* [Show dynamic updates in tiles](/training/wearables/tiles/dynamic)
+\ No newline at end of file
++- [Create your first Tile in Wear OS](https://developer.android.com/codelabs/wear-tiles)
++- [Migrate to ProtoLayout namespaces](https://developer.android.com/training/wearables/tiles/migrate-to-protolayout)
++- [Show dynamic updates in tiles](https://developer.android.com/training/wearables/tiles/dynamic)
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/graphics/cache-bitmap.md b/docs/topic/performance/graphics/cache-bitmap.md
+index 28e332e..6ec93f0 100644
+--- a/docs/topic/performance/graphics/cache-bitmap.md
++++ b/docs/topic/performance/graphics/cache-bitmap.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** For most cases, we recommend
+ that you use the [Glide](https://github.com/bumptech/glide)
+ library to fetch, decode, and display bitmaps in your app. Glide abstracts out most of

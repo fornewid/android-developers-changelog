@@ -1,0 +1,12 @@
+diff --git a/docs/games/pgs/branding.md b/docs/games/pgs/branding.md
+index df258e8..350da60 100644
+--- a/docs/games/pgs/branding.md
++++ b/docs/games/pgs/branding.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This page describes the design guidelines for Google Play Games Services branding elements.
+ You can use these elements in your app without pre-approval provided you follow
+ these guidelines. Use of Google brands in ways not expressly covered by these

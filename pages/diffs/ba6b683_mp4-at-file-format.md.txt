@@ -1,0 +1,12 @@
+diff --git a/docs/media/platform/mp4-at-file-format.md b/docs/media/platform/mp4-at-file-format.md
+index dc28c70..91251c9 100644
+--- a/docs/media/platform/mp4-at-file-format.md
++++ b/docs/media/platform/mp4-at-file-format.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The **MP4-AT** file format supports storing auxiliary tracks that are useful for
+ post-capture editing and composition (for example, a depth map video track)
+ alongside playable media data in an ISOBMFF/MP4 structure.

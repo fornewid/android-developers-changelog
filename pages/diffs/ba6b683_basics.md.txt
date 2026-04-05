@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/watch-face-designer/basics.md b/docs/training/wearables/watch-face-designer/basics.md
+index c86b906..062d6fa 100644
+--- a/docs/training/wearables/watch-face-designer/basics.md
++++ b/docs/training/wearables/watch-face-designer/basics.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This guide explains how to create a watch face, add time-based elements, and
+ include support for user-selected photos, including a multi-photo gallery. For
+ additional features, see the [advanced](/training/wearables/watch-face-designer/advanced) guide.

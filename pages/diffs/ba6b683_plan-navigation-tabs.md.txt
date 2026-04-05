@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/app-types/plan-navigation-tabs.md b/docs/design/ui/cars/guides/app-types/plan-navigation-tabs.md
+index b62bd23..6b34a7a 100644
+--- a/docs/design/ui/cars/guides/app-types/plan-navigation-tabs.md
++++ b/docs/design/ui/cars/guides/app-types/plan-navigation-tabs.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Help minimize distractions for drivers by prioritizing simple and clear
+ top-level navigation for media apps.
+ 

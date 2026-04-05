@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/wff/ambient.md b/docs/training/wearables/wff/ambient.md
+index 97fd050..cc558c0 100644
+--- a/docs/training/wearables/wff/ambient.md
++++ b/docs/training/wearables/wff/ambient.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ All watch faces should have not only an interactive mode, but also ambient mode.
+ The Wear OS App Quality guidelines specify that only [15% of pixels are
+ illuminated in ambient mode](/docs/quality-guidelines/wear-app-quality#wff).

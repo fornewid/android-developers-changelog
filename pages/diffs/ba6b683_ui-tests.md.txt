@@ -1,0 +1,12 @@
+diff --git a/docs/training/testing/ui-tests.md b/docs/training/testing/ui-tests.md
+index afdbaa7..cacd1f3 100644
+--- a/docs/training/testing/ui-tests.md
++++ b/docs/training/testing/ui-tests.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Testing user interactions helps ensure users don't encounter unexpected results
+ or have a poor experience when interacting with your app. You should get into
+ the habit of creating user interface (UI) tests if you need to verify that the

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/manifest/manifest-intro.md b/docs/guide/topics/manifest/manifest-intro.md
+index a033c0e..b56bf44 100644
+--- a/docs/guide/topics/manifest/manifest-intro.md
++++ b/docs/guide/topics/manifest/manifest-intro.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Every app project must have an `AndroidManifest.xml` file, with precisely that
+ name,
+ at the root of the [project source set](/studio/build#sourcesets).

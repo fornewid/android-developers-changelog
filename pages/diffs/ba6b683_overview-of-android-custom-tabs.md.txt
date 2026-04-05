@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/webapps/overview-of-android-custom-tabs.md b/docs/develop/ui/views/layout/webapps/overview-of-android-custom-tabs.md
+index 5fded3e..b6c8b72 100644
+--- a/docs/develop/ui/views/layout/webapps/overview-of-android-custom-tabs.md
++++ b/docs/develop/ui/views/layout/webapps/overview-of-android-custom-tabs.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Custom Tabs are a feature in Android browsers that gives app developers
+ a way to add a customized browser experience directly within their app.
+ 

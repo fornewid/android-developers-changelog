@@ -1,0 +1,154 @@
+diff --git a/docs/health-and-fitness/health-services.md b/docs/health-and-fitness/health-services.md
+index 0dae845..69f30b4 100644
+--- a/docs/health-and-fitness/health-services.md
++++ b/docs/health-and-fitness/health-services.md
+@@ -1,22 +1,11 @@
+ ---
+-title: Health Services on Wear OS  |  Android health & fitness  |  Android Developers
++title: https://developer.android.com/health-and-fitness/health-services
+ url: https://developer.android.com/health-and-fitness/health-services
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Starting in 2026, we'll be transitioning away from Google Fit APIs. For more information on the Google Fit migration, see the [Migration Guide](/health-and-fitness/guides/health-connect/migrate/migration-guide).
+-
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Health & fitness dev center](https://developer.android.com/health-and-fitness)
+-* [Fitness Guides](https://developer.android.com/health-and-fitness/fitness)
+-
+-# Health Services on Wear OS Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Wear OS 3 and higher includes a service called
+-[Health Services](/jetpack/androidx/releases/health).
++[Health Services](https://developer.android.com/jetpack/androidx/releases/health).
+ Health Services acts as an intermediary to the various sensors and related
+ algorithms on the device to provide apps with high-quality data related to
+ activity, exercise, and health.
+@@ -31,7 +20,7 @@ Without Health Services, apps must connect to one or multiple sensors,
+ configure each of them appropriately, receive raw sensor data, and use their
+ own algorithms to derive meaningful information. For example, an app might
+ register for updates of
+-[`Sensor.TYPE_PRESSURE`](/reference/kotlin/android/hardware/Sensor#type_pressure)
++[`Sensor.TYPE_PRESSURE`](https://developer.android.com/reference/kotlin/android/hardware/Sensor#type_pressure)
+ to get the current air pressure, use it to compute the current altitude, and
+ aggregate this data over time to show the elevation changes during a user's
+ activity session.
+@@ -40,24 +29,15 @@ Health Services automatically configures all fitness and health
+ related sensors appropriately for the use-case, collects sensor data, and
+ computes metrics like heart rate, distance, calories, elevation, floors, speed,
+ pace, and more. Apps can register for this data directly from Health Services.
+-
+-![Health Services architecture diagram](/static/wear/images/with_health_services.png)
+-
+-
+-**Figure 1**: Health Services architecture
++![Health Services architecture diagram](https://developer.android.com/static/wear/images/with_health_services.png) **Figure 1**: Health Services architecture
+ 
+ Some of the benefits of using Health Services include the following:
+ 
+-* Takes advantage of powerful algorithms running natively on the platform.
+-* Conserves battery by using sensor configurations from Health Services that
+-  are optimized for power efficiency.
+-* Future-proofs an app for Wear 3+ devices. The Health Services API is
+-  consistent across Wear 3+ devices, making it easier to keep your app up to
+-  date.
+-* Verifies data consistency across all applications on the same device by
+-  using standardized platform computations.
+-* Enables activity-aware experiences, including the ability to detect an
+-  ongoing exercise started from another app.
++- Takes advantage of powerful algorithms running natively on the platform.
++- Conserves battery by using sensor configurations from Health Services that are optimized for power efficiency.
++- Future-proofs an app for Wear 3+ devices. The Health Services API is consistent across Wear 3+ devices, making it easier to keep your app up to date.
++- Verifies data consistency across all applications on the same device by using standardized platform computations.
++- Enables activity-aware experiences, including the ability to detect an ongoing exercise started from another app.
+ 
+ These benefits let developers focus on developing unique features and user
+ experiences, while relying on the platform to provide robust and consistent
+@@ -74,7 +54,7 @@ from all the available sources on the device. The data falls into two
+ broad categories: data sampled at a single point in time, such as
+ `HEART_RATE_BPM`, and data taken over a time interval, such as `DISTANCE`.
+ 
+-For more information, see the full list of [Data types](/reference/kotlin/androidx/health/services/client/data/DataType).
++For more information, see the full list of [Data types](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/DataType).
+ 
+ ### Events
+ 
+@@ -84,8 +64,8 @@ the app notifies the user when they have run a certain distance.
+ Alternatively, use a passive goal for situations like the user hitting a
+ certain step count or falling asleep.
+ 
+-For more information, see [Exercise goals](/reference/kotlin/androidx/health/services/client/data/ExerciseGoal) and
+-[Passive goals](/reference/kotlin/androidx/health/services/client/data/PassiveGoal).
++For more information, see [Exercise goals](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/ExerciseGoal) and
++[Passive goals](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/PassiveGoal).
+ 
+ ### Exercise types
+ 
+@@ -94,7 +74,7 @@ multitude of exercise types, such as running or skiing. While an exercise is in
+ progress, Health Services can collect metrics on selected data types and report
+ back to the app that manages the exercise.
+ 
+-For more information, see the full list of [exercise types](/reference/kotlin/androidx/health/services/client/data/ExerciseType).
++For more information, see the full list of [exercise types](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/ExerciseType).
+ 
+ ## Create apps using Health Services
+ 
+@@ -104,12 +84,12 @@ sections.
+ ### Passive experiences
+ 
+ Using
+-[`PassiveMonitoringClient`](/reference/kotlin/androidx/health/services/client/PassiveMonitoringClient),
++[`PassiveMonitoringClient`](https://developer.android.com/reference/kotlin/androidx/health/services/client/PassiveMonitoringClient),
+ your app implements a `PassiveListenerService` that receives updates about a
+ data type or an event. This is suited for long-lived experiences where data
+ updates are relatively infrequent.
+ 
+-See [Passive data updates](/training/wearables/health-services/passive)
++See [Passive data updates](https://developer.android.com/training/wearables/health-services/passive)
+ for more information.
+ 
+ ### Active experiences
+@@ -121,7 +101,7 @@ spends with a registered listener, because it increases the sensor sampling rate
+ and thus increases power consumption. This API is not intended for background
+ capture or workout tracking.
+ 
+-See [Take spot health measurements with MeasureClient](/training/wearables/health-services/active-data/measure-client)
++See [Take spot health measurements with MeasureClient](https://developer.android.com/training/wearables/health-services/active-data/measure-client)
+ for more information.
+ 
+ Using `ExerciseClient`, your app can manage a user's workout, set exercise
+@@ -131,7 +111,7 @@ belongs to your app. `ExerciseClient` can be used for apps such as a running app
+ that lets users record their run, displays live metrics on their device, and
+ records data for further analysis.
+ 
+-See [Record an exercise with ExerciseClient](/training/wearables/health-services/active-data)
++See [Record an exercise with ExerciseClient](https://developer.android.com/training/wearables/health-services/active-data)
+ for more information.
+ 
+ ### Test with synthetic data
+@@ -139,13 +119,13 @@ for more information.
+ To test that your app is receiving data updates from Health Services, manually
+ set your device to emit data as if a user were engaged in an exercise.
+ 
+-See [Use synthetic data with Health Services](/training/wearables/health-services/synthetic-data) for more
++See [Use synthetic data with Health Services](https://developer.android.com/training/wearables/health-services/synthetic-data) for more
+ information.
+ 
+ ## Recommended for you
+ 
+-* Note: link text is displayed when JavaScript is off
+-* [Record an exercise with ExerciseClient](/training/wearables/health-services/active-data)
+-* [Take spot health measurements with MeasureClient](/training/wearables/health-services/active-data/measure-client)
+-* [Passive data updates](/training/wearables/health-services/passive)
+-* [Enhance app compatibility across Wear OS devices](/training/wearables/health-services/compatibility)
+\ No newline at end of file
++- Note: link text is displayed when JavaScript is off
++- [Record an exercise with ExerciseClient](https://developer.android.com/training/wearables/health-services/active-data)
++- [Take spot health measurements with MeasureClient](https://developer.android.com/training/wearables/health-services/active-data/measure-client)
++- [Passive data updates](https://developer.android.com/training/wearables/health-services/passive)
++- [Enhance app compatibility across Wear OS devices](https://developer.android.com/training/wearables/health-services/compatibility)
+\ No newline at end of file

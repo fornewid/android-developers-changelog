@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect/delete-data.md b/docs/health-and-fitness/health-connect/delete-data.md
+index 6f4ed11..07703e8 100644
+--- a/docs/health-and-fitness/health-connect/delete-data.md
++++ b/docs/health-and-fitness/health-connect/delete-data.md
+@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
+-
+ Deleting data is a key part of the CRUD operations in Health Connect. This guide
+ shows you how you can delete records in two ways.
+ 

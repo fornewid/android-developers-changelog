@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/externalpaymentlinks.md b/docs/google/play/billing/externalpaymentlinks.md
+index 2a139ad..db42a32 100644
+--- a/docs/google/play/billing/externalpaymentlinks.md
++++ b/docs/google/play/billing/externalpaymentlinks.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ The external payments program lets you lead users in Japan, including
+ through external payment links, to your in-app digital features or services
+ that are available for purchase outside your apps. When linking users to
+@@ -138,6 +137,4 @@ for both [in-app integration](/google/play/billing/externalpaymentlinks/integrat
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

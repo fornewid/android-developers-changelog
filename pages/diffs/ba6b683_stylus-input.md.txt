@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/touch-and-input/stylus-input.md b/docs/develop/ui/views/touch-and-input/stylus-input.md
+index fa8ec26..93c07e5 100644
+--- a/docs/develop/ui/views/touch-and-input/stylus-input.md
++++ b/docs/develop/ui/views/touch-and-input/stylus-input.md
+@@ -16,6 +16,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ ### Stylus
+ 
+ ![](https://developer.android.com/static/images/jetpack/compose/touchinput/stylus/hero.png)

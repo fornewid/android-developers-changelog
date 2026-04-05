@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/sql-injection.md b/docs/privacy-and-security/risks/sql-injection.md
+index def9674..c50670e 100644
+--- a/docs/privacy-and-security/risks/sql-injection.md
++++ b/docs/privacy-and-security/risks/sql-injection.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **OWASP category:** [MASVS-CODE: Code Quality](https://mas.owasp.org/MASVS/10-MASVS-CODE)
+ 
+ ## Overview

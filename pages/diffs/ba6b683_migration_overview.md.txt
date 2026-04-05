@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/migration_overview.md b/docs/games/pgs/migration_overview.md
+index f4f4b8c..804541c 100644
+--- a/docs/games/pgs/migration_overview.md
++++ b/docs/games/pgs/migration_overview.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Google Play Games Services, games v1 SDK relies on Google Sign-In for Android which is
+ deprecated and will be removed from the
+ [Google Play services Auth SDK](https://maven.google.com/web/index.html?q=play-services-auth#com.google.android.gms:play-services-auth)
+@@ -123,4 +124,6 @@ SDKs:
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

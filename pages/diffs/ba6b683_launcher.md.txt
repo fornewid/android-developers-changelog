@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/apps/launcher.md b/docs/training/wearables/apps/launcher.md
+index 6200c16..d455e31 100644
+--- a/docs/training/wearables/apps/launcher.md
++++ b/docs/training/wearables/apps/launcher.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The [launcher](/training/wearables/user-interfaces#app_launcher_entries) displays a label and icon for any recently resumed [tasks](/guide/components/activities/tasks-and-back-stack).
+ If your app package has multiple apps as separate launcher activities, the
+ launcher doesn't know which label and icon to display for non-launcher

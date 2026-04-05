@@ -1,0 +1,102 @@
+diff --git a/docs/training/cars/platforms/automotive-os/coarse-location.md b/docs/training/cars/platforms/automotive-os/coarse-location.md
+index dd1580c..ed07eab 100644
+--- a/docs/training/cars/platforms/automotive-os/coarse-location.md
++++ b/docs/training/cars/platforms/automotive-os/coarse-location.md
+@@ -1,35 +1,43 @@
+ ---
+-title: https://developer.android.com/training/cars/platforms/automotive-os/coarse-location
++title: Coarse location on Android Automotive OS  |  Android for Cars  |  Android Developers
+ url: https://developer.android.com/training/cars/platforms/automotive-os/coarse-location
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Android for Cars](https://developer.android.com/training/cars)
++
++# Coarse location on Android Automotive OS Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ To respect user privacy, app developers are encouraged to only request coarse
+ location permissions. Apps that need an approximate coarse position typically
+ use the fused network location (FLP) because it's fast and consumes less power.
+ As compared to Android-based mobile devices, network location in automotive apps
+ can be more challenging. You can use two Android APIs:
+ 
+-- LocationManager API requires that you use [`requestLocationUpdates`](https://developer.android.com/reference/android/location/LocationManager#requestLocationUpdates(java.lang.String,%20long,%20float,%20android.location.LocationListener)) to
++* LocationManager API requires that you use [`requestLocationUpdates`](/reference/android/location/LocationManager#requestLocationUpdates(java.lang.String,%20long,%20float,%20android.location.LocationListener)) to
+   explicitly identify the preferred location provider.
+-
+-- Google Play services API offers a more straightforward way for you to
++* Google Play services API offers a more straightforward way for you to
+   work with location in [`FusedLocationProviderClient`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient).
+ 
+ Many automotive apps use the FLP from the Google Play services API instead of
+ `LocationManager`. FLP selects the optimal location provider based on location
+ request criteria and policies (power and accuracy) needed by the vehicle.
+ 
+-You can instead opt to explicitly request and use [`NETWORK_PROVIDER`](https://developer.android.com/reference/android/location/LocationManager#NETWORK_PROVIDER)
+-as well as [`GPS_PROVIDER`](https://developer.android.com/reference/android/location/LocationManager#GPS_PROVIDER) for
+-fine positions, which uses [`android.permission.ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
+-permissions. On Android 12 (API level 31) and higher, the [`FUSED_PROVIDER`](https://developer.android.com/reference/android/location/LocationManager#FUSED_PROVIDER),
++You can instead opt to explicitly request and use [`NETWORK_PROVIDER`](/reference/android/location/LocationManager#NETWORK_PROVIDER)
++as well as [`GPS_PROVIDER`](/reference/android/location/LocationManager#GPS_PROVIDER) for
++fine positions, which uses [`android.permission.ACCESS_FINE_LOCATION`](/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
++permissions. On Android 12 (API level 31) and higher, the [`FUSED_PROVIDER`](/reference/android/location/LocationManager#FUSED_PROVIDER),
+ previously accessible only through the Google Play services API, is
+ available as a location provider to `LocationManager`. You can see an
+ implementation of FLP in [`FusedLocationProvider.java`](https://cs.android.com/android/platform/superproject/+/master:frameworks/base/packages/FusedLocation/src/com/android/location/fused/FusedLocationProvider.java;l=49;drc=1679ed09011e7756e415be9086a9f0ca5dff816b).
+ 
+-While it's possible to use `GPS_PROVIDER` with coarse permission rights only ---
+-the framework artificially degrades accuracy to align with expectations --- it
++While it's possible to use `GPS_PROVIDER` with coarse permission rights only —
++the framework artificially degrades accuracy to align with expectations — it
+ makes little sense for developers targeting Android phones because overall
+ availability is poor and often slower to obtain a coarse position.
+ 
+@@ -63,7 +71,7 @@ usage, no additional functional implementation of NLP is provided.
+ 
+ The mobile FLP, in addition to smartly using network and GPS providers as
+ appropriate, fuses information from other sensors to further enhance the
+-quality of locations. The current implementation of Automotive's FLP on the
++quality of locations. The current implementation of Automotive’s FLP on the
+ other hand takes advantage of the aforementioned assumptions and uses the
+ `GPS_PROVIDER` as an underlying source all the time. It fudges the positions
+ from GNSS, adding some errors to be more inaccurate when needed. For example,
+@@ -73,24 +81,26 @@ As such, in a very few instances, there can be a longer than usual time for the
+ first position to be available. For example, the very first time a vehicle or,
+ to be more precise, its location subsystem is used or after getting towed.
+ 
+-> [!NOTE]
+-> **Note:** Automotive apps should have no expectation that an NLP can be leveraged nor is it expected that the FLP perform any sensor fusion.
++**Note:** Automotive apps should have no expectation that an NLP can be leveraged
++nor is it expected that the FLP perform any sensor fusion.
+ 
+ ### Design apps to target mobile and automotive uses
+ 
+ For apps targeting mobile *and* automotive devices that don't
+ require a higher quality of precision, request
+-[`android.permission.ACCESS_COARSE_LOCATION`](https://developer.android.com/reference/android/location/LocationManager#FUSED_PROVIDER) *only* and fall back to using
++[`android.permission.ACCESS_COARSE_LOCATION`](/reference/android/location/LocationManager#FUSED_PROVIDER) *only* and fall back to using
+ FLP when available. Alternatively, use `GPS_PROVIDER` directly with the same
+ permissions. The framework degrades the precision of the underlying GNSS
+-position to align with API expectations. To learn more, see [Accuracy](https://developer.android.com/training/location/permissions#accuracy)
+-in [Request location permissions](https://developer.android.com/develop/sensors-and-location/location/permissions).
++position to align with API expectations. To learn more, see [Accuracy](/training/location/permissions#accuracy)
++in [Request location permissions](/develop/sensors-and-location/location/permissions).
+ 
+ In addition, these apps must explicitly declare the
+-[`android.hardware.location.network`](https://developer.android.com/guide/topics/manifest/uses-feature-element#location-hw-features) feature as *optional* in their
++[`android.hardware.location.network`](/guide/topics/manifest/uses-feature-element#location-hw-features) feature as *optional* in their
+ manifest. For example:
+ 
+-    <uses-feature android:name="android.hardware.location.network" android:required="false" />
++```
++<uses-feature android:name="android.hardware.location.network" android:required="false" />
++```
+ 
+ This approach helps achieve greater compatibility with devices across form
+ factors and, therefore, maximum app availability with no code differences for

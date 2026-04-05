@@ -1,0 +1,12 @@
+diff --git a/docs/identity/passkeys/create-passkeys.md b/docs/identity/passkeys/create-passkeys.md
+index 538b999..3af2e50 100644
+--- a/docs/identity/passkeys/create-passkeys.md
++++ b/docs/identity/passkeys/create-passkeys.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Before your users can authenticate with passkeys, your app must first register
+ or create the passkey for their account.
+ 

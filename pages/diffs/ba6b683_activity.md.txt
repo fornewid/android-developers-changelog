@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/activity.md b/docs/jetpack/androidx/releases/activity.md
+index 81463c1..09cd402 100644
+--- a/docs/jetpack/androidx/releases/activity.md
++++ b/docs/jetpack/androidx/releases/activity.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Activity
+ 
+ [User Guide](/guide/components/activities/intro-activities)

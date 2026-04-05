@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playpoints/test-one-time.md b/docs/guide/playpoints/test-one-time.md
+index 71d400a..91fac8e 100644
+--- a/docs/guide/playpoints/test-one-time.md
++++ b/docs/guide/playpoints/test-one-time.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can test your one-time products for Play Points using
+ [Test promo codes](/google/play/billing/test#promo). To do so, do the following:
+ 

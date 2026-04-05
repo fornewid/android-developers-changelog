@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/adpf/gamemode/about-API-and-interventions.md b/docs/games/optimize/adpf/gamemode/about-API-and-interventions.md
+index 7bd2482..5ddb54e 100644
+--- a/docs/games/optimize/adpf/gamemode/about-API-and-interventions.md
++++ b/docs/games/optimize/adpf/gamemode/about-API-and-interventions.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ The [Game Mode API](/games/optimize/adpf/gamemode/gamemode-api) and
+ [Game Mode interventions](/games/optimize/adpf/gamemode/gamemode-interventions)
+ allow you to optimize gameplay by prioritizing characteristics, such as
+@@ -50,4 +51,6 @@ feedback.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

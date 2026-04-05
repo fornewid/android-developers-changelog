@@ -1,0 +1,12 @@
+diff --git a/docs/training/data-storage/shared/media.md b/docs/training/data-storage/shared/media.md
+index 29346bc..d40f239 100644
+--- a/docs/training/data-storage/shared/media.md
++++ b/docs/training/data-storage/shared/media.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To provide a more enriched user experience, many apps let users contribute
+ and access media that's available on an external storage volume. The framework
+ provides an optimized index into media collections, called the *media store*,

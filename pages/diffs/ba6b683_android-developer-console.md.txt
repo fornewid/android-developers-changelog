@@ -1,0 +1,12 @@
+diff --git a/docs/developer-verification/guides/android-developer-console.md b/docs/developer-verification/guides/android-developer-console.md
+index 6fce1fd..06d7bc5 100644
+--- a/docs/developer-verification/guides/android-developer-console.md
++++ b/docs/developer-verification/guides/android-developer-console.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If you distribute apps only outside of Google Play, use the Android Developer
+ Console to manage your developer identity and register your app's package names.
+ This guide explains how to verify your account and ensure your apps are

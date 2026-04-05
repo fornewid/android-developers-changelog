@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/manifest/intent-filter-element.md b/docs/guide/topics/manifest/intent-filter-element.md
+index c03973f..8d50a66 100644
+--- a/docs/guide/topics/manifest/intent-filter-element.md
++++ b/docs/guide/topics/manifest/intent-filter-element.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ syntax:
+ :   ```
+     <intent-filter android:icon="drawable resource"

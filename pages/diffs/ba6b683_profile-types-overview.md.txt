@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/tracing/profile-types-overview.md b/docs/topic/performance/tracing/profile-types-overview.md
+index 673af9c..49555b4 100644
+--- a/docs/topic/performance/tracing/profile-types-overview.md
++++ b/docs/topic/performance/tracing/profile-types-overview.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can record several types of performance profiles in Android. Collecting a
+ profile helps you debug issues related to how fast your app runs, how much
+ memory it uses, how much power it consumes, and more.

@@ -1,0 +1,20 @@
+diff --git a/docs/games/develop/develop-as.md b/docs/games/develop/develop-as.md
+index fcc9f3d..f664ea7 100644
+--- a/docs/games/develop/develop-as.md
++++ b/docs/games/develop/develop-as.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ You can use Android Studio with C/C++ to bring your game to life on Android.
+ 
+ [Android Studio](/studio) is the official Integrated Development Environment
+@@ -82,6 +81,4 @@ links, and the user guide, visit the [Android Studio](/studio) page.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

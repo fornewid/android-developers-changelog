@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/17/gsi-release-notes.md b/docs/about/versions/17/gsi-release-notes.md
+index ba362b2..9f3d1a0 100644
+--- a/docs/about/versions/17/gsi-release-notes.md
++++ b/docs/about/versions/17/gsi-release-notes.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android [Generic System Image (GSI)](/topic/generic-system-image) binaries are available to developers for
+ app testing and validation purposes on [supported Treble-compliant devices](/topic/generic-system-image#device-compliance).
+ Developers can use these images to address

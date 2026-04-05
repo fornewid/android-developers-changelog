@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/marshmallow/android-6.0-testing.md b/docs/about/versions/marshmallow/android-6.0-testing.md
+index 4f5543f..7d772f8 100644
+--- a/docs/about/versions/marshmallow/android-6.0-testing.md
++++ b/docs/about/versions/marshmallow/android-6.0-testing.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android 6.0 gives you an opportunity to ensure your apps work with the next
+ version of the platform. This release includes a number of APIs and behavior changes that can
+ impact your app, as described in the [API

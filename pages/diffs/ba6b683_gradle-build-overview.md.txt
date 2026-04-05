@@ -1,0 +1,12 @@
+diff --git a/docs/build/gradle-build-overview.md b/docs/build/gradle-build-overview.md
+index f8dee6f..a0d9e75 100644
+--- a/docs/build/gradle-build-overview.md
++++ b/docs/build/gradle-build-overview.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android applications are typically built using the [Gradle](https://gradle.org/) build
+ system. Before we dive into the details of how to configure your build, we'll
+ explore the concepts behind the build so you can see the system as a whole.

@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/lighting-for-mobile-games-with-unity.md b/docs/games/optimize/lighting-for-mobile-games-with-unity.md
+index ea24b5d..58ada9e 100644
+--- a/docs/games/optimize/lighting-for-mobile-games-with-unity.md
++++ b/docs/games/optimize/lighting-for-mobile-games-with-unity.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ Lighting is one of the most important aspects of a game. It can set the mood,
+ lead the player, identify threats or objectives, and more. Lighting can make or
+ break the visuals of a game. For example, good lighting can make a bad model
+@@ -398,6 +397,4 @@ OpenGL ES 2.0, there is a limit of four lights per object.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

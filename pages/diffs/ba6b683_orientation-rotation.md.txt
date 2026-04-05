@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/camerax/orientation-rotation.md b/docs/media/camera/camerax/orientation-rotation.md
+index 9cd67ee..1f51352 100644
+--- a/docs/media/camera/camerax/orientation-rotation.md
++++ b/docs/media/camera/camerax/orientation-rotation.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This topic showcases how to set up CameraX use cases inside your app to get
+ images with the correct rotation information, whether it’s from the
+ `ImageAnalysis` or the `ImageCapture` use case. So:

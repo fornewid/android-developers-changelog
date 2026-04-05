@@ -1,0 +1,157 @@
+diff --git a/docs/about/versions/11/non-sdk-11.md b/docs/about/versions/11/non-sdk-11.md
+index 8b1dfa6..530ac9a 100644
+--- a/docs/about/versions/11/non-sdk-11.md
++++ b/docs/about/versions/11/non-sdk-11.md
+@@ -1,78 +1,66 @@
+ ---
+-title: Updates to non-SDK interface restrictions in Android 11  |  Android Developers
++title: https://developer.android.com/about/versions/11/non-sdk-11
+ url: https://developer.android.com/about/versions/11/non-sdk-11
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Releases](https://developer.android.com/about/versions)
+-
+-# Updates to non-SDK interface restrictions in Android 11 Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-Android 11 includes updated lists of restricted non-SDK
++Android 11 includes updated lists of restricted non-SDK
+ interfaces based on collaboration with Android developers and the latest
+ internal testing. Whenever possible, we make sure that public alternatives are
+ available before we restrict non-SDK interfaces.
+ 
+-If your app does not target Android 11, some of these changes
++If your app does not target Android 11, some of these changes
+ might not immediately affect you. However, while you can currently use some
+-non-SDK interfaces ([depending on your app's target API level](/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)),
++non-SDK interfaces ([depending on your app's target API level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)),
+ using any non-SDK method or field always carries a high risk of breaking your
+ app.
+ 
+ If you are unsure if your app uses non-SDK interfaces, you can [test your
+-app](/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk)
++app](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk)
+ to find out. If your app relies on non-SDK interfaces, you should begin planning
+ a migration to SDK alternatives. Nevertheless, we understand that some apps have
+ valid use cases for using non-SDK interfaces. If you cannot find an alternative
+ to using a non-SDK interface for a feature in your app, you should [request a
+-new public API](/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
++new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
+ 
+ ## Non-SDK test APIs now restricted
+ 
+-Starting in Android 11, non-SDK test APIs—those annotated with
+-`@TestApi` in AOSP—are now blocked by default. These non-SDK interfaces are
++Starting in Android 11, non-SDK test APIs---those annotated with
++`@TestApi` in AOSP---are now blocked by default. These non-SDK interfaces are
+ used to perform internal testing on the Android platform. Apps can continue to
+ use non-SDK test APIs that are not [restricted at their target API
+-level](/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names),
++level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names),
+ but any new test APIs will be included in the blocklist.
+ 
+-## List changes for Android 11
++## List changes for Android 11
+ 
+ The list changes in Android 11 fall into the following categories:
+ 
+-* Non-SDK interfaces that were unsupported (greylisted) in Android 10 (API
+-  level 29) that are now [blocked in Android 11 (API level 30)](#new-blocked).
+-* Non-SDK interfaces that were [added to the Android SDK in Android 11](#new-sdk).
++- Non-SDK interfaces that were unsupported (greylisted) in Android 10 (API level 29) that are now [blocked in Android 11 (API level 30)](https://developer.android.com/about/versions/11/non-sdk-11#new-blocked).
++- Non-SDK interfaces that were [added to the Android SDK in Android 11](https://developer.android.com/about/versions/11/non-sdk-11#new-sdk).
+ 
+-For a complete list of all non-SDK interfaces for Android 11 (API level 30),
++For a complete list of all non-SDK interfaces for Android 11 (API level 30),
+ download the following file: [`hiddenapi-flags.csv`](https://dl.google.com/developers/android/rvc/non-sdk/hiddenapi-flags.csv).
+ 
+ ### Non-SDK interfaces that are now blocked in Android 11
+ 
+ ### Change details
+ 
+-**Change Name**: `HIDE_MAXTARGETSDK_Q_HIDDEN_APIS`
++**Change Name** : `HIDE_MAXTARGETSDK_Q_HIDDEN_APIS`
+ 
+-**Change ID**: `149994052`
++**Change ID** : `149994052`
+ 
+ ### How to toggle
+ 
+-As you test your app's compatibility with Android 11, you can toggle this change on or off
++As you test your app's compatibility with Android 11, you can toggle this change on or off
+ using the following ADB commands:
+ 
+-```
+-adb shell am compat enable (149994052|HIDE_MAXTARGETSDK_Q_HIDDEN_APIS) PACKAGE_NAME
+-adb shell am compat disable (149994052|HIDE_MAXTARGETSDK_Q_HIDDEN_APIS) PACKAGE_NAME
+-```
++    adb shell am compat enable (149994052|HIDE_MAXTARGETSDK_Q_HIDDEN_APIS) PACKAGE_NAME
++    adb shell am compat disable (149994052|HIDE_MAXTARGETSDK_Q_HIDDEN_APIS) PACKAGE_NAME
+ 
+ For more information about the compatibility framework and toggling changes, see
+ [Test and debug platform behavior changes in
+-your app](/guide/app-compatibility/test-debug).
++your app](https://developer.android.com/guide/app-compatibility/test-debug).
+ 
+ The following code box lists all of the non-SDK interfaces that were unsupported
+ (greylisted) in Android 10 (API level 29) that are blocked in Android 11 (API
+@@ -84,7 +72,7 @@ Our goal is to make sure that public alternatives are available before we
+ restrict non-SDK interfaces, and we understand that your app might have a valid
+ use case for using these interfaces. If an interface that your app uses in a
+ prior version is blocked in Android 11, you should [request a new public
+-API](/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
++API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
+ for that interface.
+ 
+ ```
+@@ -176,7 +164,7 @@ Landroid/telephony/TelephonyManager;->getNetworkCountryIsoForPhone(I)Ljava/lang/
+ Landroid/telephony/ims/ImsReasonInfo;->mCode:I   # getCode().
+ Landroid/telephony/ims/ImsReasonInfo;->mExtraCode:I   # getExtraCode().
+ Landroid/telephony/ims/ImsReasonInfo;->mExtraMessage:Ljava/lang/String;   # getExtraMessage().
+-Landroid/view/inputmethod/InputMethodManager;->windowDismissed(Landroid/os/IBinder;)V   # See androidx.activity.ComponentActivity.
++Landroid/view/inputmethod/InputMethodManager;->windowDismissed(Landroid/os/IBinder;)V   # See https://developer.android.com/reference/androidx/activity/ComponentActivity.
+ Landroid/view/textclassifier/logging/SmartSelectionEventTracker$SelectionEvent;->selectionAction(III)Landroid/view/textclassifier/logging/SmartSelectionEventTracker$SelectionEvent;   # See android.view.textclassifier.TextClassifier.
+ Landroid/view/textclassifier/logging/SmartSelectionEventTracker$SelectionEvent;->selectionAction(IIILandroid/view/textclassifier/TextClassification;)Landroid/view/textclassifier/logging/SmartSelectionEventTracker$SelectionEvent;   # See android.view.textclassifier.TextClassifier.
+ Landroid/view/textclassifier/logging/SmartSelectionEventTracker$SelectionEvent;->selectionModified(II)Landroid/view/textclassifier/logging/SmartSelectionEventTracker$SelectionEvent;   # See android.view.textclassifier.TextClassifier.
+@@ -188,16 +176,16 @@ Landroid/view/textclassifier/logging/SmartSelectionEventTracker;->logEvent(Landr
+ Landroid/view/View$AttachInfo;->mContentInsets:Landroid/graphics/Rect;   # Use WindowInsets#getInsets(int) instead.
+ Landroid/view/View$AttachInfo;->mStableInsets:Landroid/graphics/Rect;   # Use WindowInsets#getInsets(int) instead.
+ Landroid/view/View$AttachInfo;->mVisibleInsets:Landroid/graphics/Rect;   # Use WindowInsets#getInsets(int) instead.
+-Landroid/widget/TabHost$IntentContentStrategy;->getContentView()Landroid/view/View;   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See TabLayout and ViewPager.
+-Landroid/widget/TabHost$IntentContentStrategy;->tabClosed()V   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See TabLayout and ViewPager.
+-Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See TabLayout and ViewPager.
+-Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See TabLayout and ViewPager.
+-Landroid/widget/TabHost;->mCurrentTab:I   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See TabLayout and ViewPager.
+-Landroid/widget/TabHost;->mOnTabChangeListener:Landroid/widget/TabHost$OnTabChangeListener;   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See TabLayout and ViewPager.
+-Landroid/widget/TabHost;->mTabSpecs:Ljava/util/List;   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See TabLayout and ViewPager.
+-Landroid/widget/TabWidget;->mDrawBottomStrips:Z   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See TabLayout and ViewPager.
+-Landroid/widget/TabWidget;->mSelectedTab:I   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See TabLayout and ViewPager.
+-Landroid/widget/TabWidget;->setTabSelectionListener(Landroid/widget/TabWidget$OnTabSelectionChanged;)V   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See TabLayout and ViewPager.
++Landroid/widget/TabHost$IntentContentStrategy;->getContentView()Landroid/view/View;   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See https://developer.android.com/guide/navigation/navigation-swipe-view.
++Landroid/widget/TabHost$IntentContentStrategy;->tabClosed()V   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See https://developer.android.com/guide/navigation/navigation-swipe-view.
++Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See https://developer.android.com/guide/navigation/navigation-swipe-view.
++Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See https://developer.android.com/guide/navigation/navigation-swipe-view.
++Landroid/widget/TabHost;->mCurrentTab:I   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See https://developer.android.com/guide/navigation/navigation-swipe-view.
++Landroid/widget/TabHost;->mOnTabChangeListener:Landroid/widget/TabHost$OnTabChangeListener;   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See https://developer.android.com/guide/navigation/navigation-swipe-view.
++Landroid/widget/TabHost;->mTabSpecs:Ljava/util/List;   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See https://developer.android.com/guide/navigation/navigation-swipe-view.
++Landroid/widget/TabWidget;->mDrawBottomStrips:Z   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See https://developer.android.com/guide/navigation/navigation-swipe-view.
++Landroid/widget/TabWidget;->mSelectedTab:I   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See https://developer.android.com/about/versions/11/guide/navigation/navigation-swipe-view.
++Landroid/widget/TabWidget;->setTabSelectionListener(Landroid/widget/TabWidget$OnTabSelectionChanged;)V   # Use androidx.viewpager.widget.ViewPager and com.google.android.material.tabs.TabLayout instead. See https://developer.android.com/guide/navigation/navigation-swipe-view.
+ Lcom/android/internal/telephony/MccTable$MccEntry;->mIso:Ljava/lang/String;   # There is no alternative for MccTable.MccEntry.mIso, but it was included in hidden APIs due to a static analysis false positive and has been added to this max-target-q (greylist-max-q) list. Please file a bug if you still require this API.
+ Lcom/android/internal/telephony/MccTable;->entryForMcc(I)Lcom/android/internal/telephony/MccTable$MccEntry;   # There is no alternative for MccTable.entryForMcc, but it was included in hidden APIs due to a static analysis false positive and has been added to this max-target-q (greylist-max-q) list. Please file a bug if you still require this API.
+ Lcom/android/internal/telephony/MccTable;->smallestDigitsMccForMnc(I)I   # There is no alternative for MccTable.smallestDigitsMccForMnc, but it was included in hidden APIs due to a static analysis false positive and has been added to this max-target-q (greylist-max-q) list. Please file a bug if you still require this API.
+@@ -221,7 +209,7 @@ Llibcore/util/EmptyArray;->LONG:[J   # Use new long[0] instead.
+ Llibcore/util/EmptyArray;->OBJECT:[Ljava/lang/Object;   # Use new Object[0] instead.
+ 
+ # All of the following non-SDK interfaces are resource IDs. Apps should not directly access resource IDs.
+-# Instead, access resource IDs using resource.xml files or the getIdentifier() method.
++# Instead, access resource IDs using resource.xml files or the https://developer.android.com/reference/android/content/res/Resources#getIdentifier(java.lang.String,%2520java.lang.String,%2520java.lang.String) method.
+ 
+ Landroid/R$styleable;->ActionBar:[I
+ Landroid/R$styleable;->ActionBar_background:I

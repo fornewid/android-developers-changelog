@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/memory-allocation.md b/docs/games/optimize/memory-allocation.md
+index e232f8d..a4e180a 100644
+--- a/docs/games/optimize/memory-allocation.md
++++ b/docs/games/optimize/memory-allocation.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ On the Android platform, the system tries to use as much system memory (RAM) as
+ possible and performs various memory optimizations to free up space when needed.
+ These optimizations can have a negative effect on your game, either by slowing
+@@ -207,4 +208,6 @@ For more information, see
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

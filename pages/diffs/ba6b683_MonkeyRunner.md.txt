@@ -1,0 +1,12 @@
+diff --git a/docs/studio/test/monkeyrunner/MonkeyRunner.md b/docs/studio/test/monkeyrunner/MonkeyRunner.md
+index d61bb60..25e2da3 100644
+--- a/docs/studio/test/monkeyrunner/MonkeyRunner.md
++++ b/docs/studio/test/monkeyrunner/MonkeyRunner.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A monkeyrunner class that contains static utility methods.
+ 
+ ## Summary

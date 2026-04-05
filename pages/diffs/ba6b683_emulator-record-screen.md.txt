@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/emulator-record-screen.md b/docs/studio/run/emulator-record-screen.md
+index 4ed3d75..99b6335 100644
+--- a/docs/studio/run/emulator-record-screen.md
++++ b/docs/studio/run/emulator-record-screen.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can record video and audio from the Android Emulator and save the recording
+ to a WebM or animated GIF file.
+ 

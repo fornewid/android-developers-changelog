@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/validate-input.md b/docs/develop/ui/compose/quick-guides/content/validate-input.md
+index 5fa52c8..e028047 100644
+--- a/docs/develop/ui/compose/quick-guides/content/validate-input.md
++++ b/docs/develop/ui/compose/quick-guides/content/validate-input.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can validate input as the user types in a text field, such as entering a
+ name, email, address, or other contact information. This validation reduces
+ errors and saves your users time.

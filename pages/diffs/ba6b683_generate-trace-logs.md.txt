@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/generate-trace-logs.md b/docs/studio/profile/generate-trace-logs.md
+index 1f1aef0..264c24a 100644
+--- a/docs/studio/profile/generate-trace-logs.md
++++ b/docs/studio/profile/generate-trace-logs.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To generate a method trace of your app's execution, you can instrument your app
+ using the `Debug`
+ class. Instrumenting your app this way gives you more control over exactly when

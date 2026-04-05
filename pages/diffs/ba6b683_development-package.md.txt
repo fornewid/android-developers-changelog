@@ -1,0 +1,12 @@
+diff --git a/docs/games/playgames/development-package.md b/docs/games/playgames/development-package.md
+index d533d6e..91f36c4 100644
+--- a/docs/games/playgames/development-package.md
++++ b/docs/games/playgames/development-package.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Since Google Play Games on PC provides a standard Android runtime environment,
+ there are no differences between packing your game for mobile or PC outside of
+ ensuring that you include x86 or x86-64 binaries. When possible, you should use

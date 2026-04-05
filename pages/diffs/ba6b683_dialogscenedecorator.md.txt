@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/dialogscenedecorator.md b/docs/guide/navigation/navigation-3/recipes/dialogscenedecorator.md
+index 5195c57..da22a84 100644
+--- a/docs/guide/navigation/navigation-3/recipes/dialogscenedecorator.md
++++ b/docs/guide/navigation/navigation-3/recipes/dialogscenedecorator.md
+@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Dialog Scene Decorator Recipe
+ 
+ This recipe demonstrates one approach to displaying a scene within a dialog. For example, this could be used to display a list-detail settings UI as an overlay when the app is in an expanded window, but as full screen pages otherwise.

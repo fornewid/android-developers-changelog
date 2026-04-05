@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/externalpaymentlinks/integration.md b/docs/google/play/billing/externalpaymentlinks/integration.md
+index 3296bfe..98c35d1 100644
+--- a/docs/google/play/billing/externalpaymentlinks/integration.md
++++ b/docs/google/play/billing/externalpaymentlinks/integration.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This document describes how to integrate the Play Billing Library APIs to
+ offer external payments in eligible apps. To learn more about this program,
+ see [program requirements](https://support.google.com/googleplay/android-developer/answer/16787536).
+@@ -496,6 +495,4 @@ backend](/google/play/billing/outside-gpb-backend).
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

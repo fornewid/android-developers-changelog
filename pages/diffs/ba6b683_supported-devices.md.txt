@@ -1,0 +1,43 @@
+diff --git a/docs/media/camera/supported-devices.md b/docs/media/camera/supported-devices.md
+index 7655aaa..5e68f81 100644
+--- a/docs/media/camera/supported-devices.md
++++ b/docs/media/camera/supported-devices.md
+@@ -1,30 +1,22 @@
+ ---
+-title: Supported devices  |  Android media  |  Android Developers
++title: https://developer.android.com/media/camera/supported-devices
+ url: https://developer.android.com/media/camera/supported-devices
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Camera & media dev center](https://developer.android.com/media)
+-* [Guides](https://developer.android.com/media/guides)
++This page lists known devices with [camera extensions](https://developer.android.com/training/camera/camera-extensions) support. Use the filter field to search for a device.
+ 
+-# Supported devices Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-This page lists known devices with [camera extensions](/training/camera/camera-extensions) support. Use the filter field to search for a device.
+-
+-**Note:** This is not an exhaustive list of all supported devices.
++> [!NOTE]
++> **Note:** This is not an exhaustive list of all supported devices.
+ 
+ If you don't see your device on this list, check if your device
+ has extensions support using the Extensions samples on Github:
+ 
+-* For Camera2 extensions support, use the [Camera2Extensions](https://github.com/android/camera-samples/tree/main/Camera2Extensions) sample.
+-* For CameraX extensions support, use the [CameraXExtensions](https://github.com/android/camera-samples/tree/main/CameraXExtensions) sample.
++- For Camera2 extensions support, use the [Camera2Extensions](https://github.com/android/camera-samples/tree/main/Camera2Extensions) sample.
++- For CameraX extensions support, use the [CameraXExtensions](https://github.com/android/camera-samples/tree/main/CameraXExtensions) sample.
+ 
+ | **Device name** |
+-| --- |
++|---|
+ | CMF by Nothing Phone 1 |
+ | Honor 200 |
+ | Honor 200 Pro |

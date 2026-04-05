@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-range-slider.md b/docs/develop/ui/compose/quick-guides/content/create-range-slider.md
+index 88778ce..ae056dc 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-range-slider.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-range-slider.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The [`Slider`](/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) composable lets users make selections from a range of
+ values. You might use a slider to let the user do the following:
+ 

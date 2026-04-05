@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/video/testing-in-compose.md b/docs/develop/ui/compose/quick-guides/content/video/testing-in-compose.md
+index abd8572..68e4196 100644
+--- a/docs/develop/ui/compose/quick-guides/content/video/testing-in-compose.md
++++ b/docs/develop/ui/compose/quick-guides/content/video/testing-in-compose.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Write your first Compose UI test. This video covers finders, assertions,
+ actions, and matchers and takes a quick look at the semantics tree.
+ 

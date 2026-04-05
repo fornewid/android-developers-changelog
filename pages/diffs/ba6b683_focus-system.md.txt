@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/tv/guides/styles/focus-system.md b/docs/design/ui/tv/guides/styles/focus-system.md
+index d7b635c..622d60d 100644
+--- a/docs/design/ui/tv/guides/styles/focus-system.md
++++ b/docs/design/ui/tv/guides/styles/focus-system.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Unlike touch interfaces, TV heavily relies on different main states
+ (default, focused, pressed) to draw the user's attention to the focused
+ element. This serves as the starting point for navigation.

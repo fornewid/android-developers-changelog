@@ -1,0 +1,278 @@
+diff --git a/docs/games/pgs/unity/saved-games.md b/docs/games/pgs/unity/saved-games.md
+index 710b6b9..8ba3023 100644
+--- a/docs/games/pgs/unity/saved-games.md
++++ b/docs/games/pgs/unity/saved-games.md
+@@ -1,19 +1,29 @@
+ ---
+-title: https://developer.android.com/games/pgs/unity/saved-games
++title: Saved games in Unity games  |  Android game development  |  Android Developers
+ url: https://developer.android.com/games/pgs/unity/saved-games
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Google Play](https://developer.android.com/distribute)
++* [Games dev center](https://developer.android.com/games)
++* [Guides](https://developer.android.com/games/guides)
++
++Send feedback
++
++# Saved games in Unity games Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ This topics describes how to use saved games for Play Games Services in Unity
+ games.
+ 
+ ## Before you start
+ 
+-- Set up your project and the Google Play Games plugin for Unity. For details,
+-  see the [Get started guide](https://developer.android.com/games/pgs/unity/unity-start).
+-
+-- Enabled saved games. See the
+-  [saved games](https://developer.android.com/games/pgs/console/enable-features#enable_saved_games) for
++* Set up your project and the Google Play Games plugin for Unity. For details,
++  see the [Get started guide](/games/pgs/unity/unity-start).
++* Enabled saved games. See the
++  [saved games](/games/pgs/console/enable-features#enable_saved_games) for
+   details.
+ 
+ ## Display the saved games UI
+@@ -21,26 +31,28 @@ games.
+ The standard UI for selecting or creating a saved game entry is displayed by
+ calling:
+ 
+-        void ShowSelectUI() {
+-            uint maxNumToDisplay = 5;
+-            bool allowCreateNew = false;
+-            bool allowDelete = true;
+-
+-            ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+-            savedGameClient.ShowSelectSavedGameUI("Select saved game",
+-                maxNumToDisplay,
+-                allowCreateNew,
+-                allowDelete,
+-                OnSavedGameSelected);
+-        }
+-
+-        public void OnSavedGameSelected (SelectUIStatus status, ISavedGameMetadata game) {
+-            if (status == SelectUIStatus.SavedGameSelected) {
+-                // handle selected game save
+-            } else {
+-                // handle cancel or error
+-            }
++```
++    void ShowSelectUI() {
++        uint maxNumToDisplay = 5;
++        bool allowCreateNew = false;
++        bool allowDelete = true;
++
++        ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
++        savedGameClient.ShowSelectSavedGameUI("Select saved game",
++            maxNumToDisplay,
++            allowCreateNew,
++            allowDelete,
++            OnSavedGameSelected);
++    }
++
++    public void OnSavedGameSelected (SelectUIStatus status, ISavedGameMetadata game) {
++        if (status == SelectUIStatus.SavedGameSelected) {
++            // handle selected game save
++        } else {
++            // handle cancel or error
+         }
++    }
++```
+ 
+ ## Open a saved game
+ 
+@@ -57,22 +69,24 @@ type and automatically resolves the conflicts. The other method,
+ **OpenWithManualConflictResolution** accepts a callback method to allow the
+ manual resolution of the conflict.
+ 
+-See [ISavedGameClient](https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/saved-game/i-saved-game-client) for more details
++See [ISavedGameClient](/games/services/unity/v2/api/interface/google-play-games/basic-api/saved-game/i-saved-game-client) for more details
+ on these methods.
+ 
+-        void OpenSavedGame(string filename) {
+-            ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+-            savedGameClient.OpenWithAutomaticConflictResolution(filename, DataSource.ReadCacheOrNetwork,
+-                ConflictResolutionStrategy.UseLongestPlaytime, OnSavedGameOpened);
+-        }
+-
+-        public void OnSavedGameOpened(SavedGameRequestStatus status, ISavedGameMetadata game) {
+-            if (status == SavedGameRequestStatus.Success) {
+-                // handle reading or writing of saved game.
+-            } else {
+-                // handle error
+-            }
++```
++    void OpenSavedGame(string filename) {
++        ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
++        savedGameClient.OpenWithAutomaticConflictResolution(filename, DataSource.ReadCacheOrNetwork,
++            ConflictResolutionStrategy.UseLongestPlaytime, OnSavedGameOpened);
++    }
++
++    public void OnSavedGameOpened(SavedGameRequestStatus status, ISavedGameMetadata game) {
++        if (status == SavedGameRequestStatus.Success) {
++            // handle reading or writing of saved game.
++        } else {
++            // handle error
+         }
++    }
++```
+ 
+ ## Write a saved game
+ 
+@@ -85,80 +99,91 @@ CommitUpdate:
+ 3. the actual byte array of data
+ 4. a callback to call when the commit is complete.
+ 
+-        void SaveGame (ISavedGameMetadata game, byte[] savedData, TimeSpan totalPlaytime) {
+-            ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+-
+-            SavedGameMetadataUpdate.Builder builder = new SavedGameMetadataUpdate.Builder();
+-            builder = builder
+-                .WithUpdatedPlayedTime(totalPlaytime)
+-                .WithUpdatedDescription("Saved game at " + DateTime.Now());
+-            if (savedImage != null) {
+-                // This assumes that savedImage is an instance of Texture2D
+-                // and that you have already called a function equivalent to
+-                // getScreenshot() to set savedImage
+-                // NOTE: see sample definition of getScreenshot() method below
+-                byte[] pngData = savedImage.EncodeToPNG();
+-                builder = builder.WithUpdatedPngCoverImage(pngData);
+-            }
+-            SavedGameMetadataUpdate updatedMetadata = builder.Build();
+-            savedGameClient.CommitUpdate(game, updatedMetadata, savedData, OnSavedGameWritten);
++```
++    void SaveGame (ISavedGameMetadata game, byte[] savedData, TimeSpan totalPlaytime) {
++        ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
++
++        SavedGameMetadataUpdate.Builder builder = new SavedGameMetadataUpdate.Builder();
++        builder = builder
++            .WithUpdatedPlayedTime(totalPlaytime)
++            .WithUpdatedDescription("Saved game at " + DateTime.Now());
++        if (savedImage != null) {
++            // This assumes that savedImage is an instance of Texture2D
++            // and that you have already called a function equivalent to
++            // getScreenshot() to set savedImage
++            // NOTE: see sample definition of getScreenshot() method below
++            byte[] pngData = savedImage.EncodeToPNG();
++            builder = builder.WithUpdatedPngCoverImage(pngData);
+         }
+-
+-        public void OnSavedGameWritten (SavedGameRequestStatus status, ISavedGameMetadata game) {
+-            if (status == SavedGameRequestStatus.Success) {
+-                // handle reading or writing of saved game.
+-            } else {
+-                // handle error
+-            }
++        SavedGameMetadataUpdate updatedMetadata = builder.Build();
++        savedGameClient.CommitUpdate(game, updatedMetadata, savedData, OnSavedGameWritten);
++    }
++
++    public void OnSavedGameWritten (SavedGameRequestStatus status, ISavedGameMetadata game) {
++        if (status == SavedGameRequestStatus.Success) {
++            // handle reading or writing of saved game.
++        } else {
++            // handle error
+         }
++    }
+ 
+-        public Texture2D getScreenshot() {
+-            // Create a 2D texture that is 1024x700 pixels from which the PNG will be
+-            // extracted
+-            Texture2D screenShot = new Texture2D(1024, 700);
++    public Texture2D getScreenshot() {
++        // Create a 2D texture that is 1024x700 pixels from which the PNG will be
++        // extracted
++        Texture2D screenShot = new Texture2D(1024, 700);
+ 
+-            // Takes the screenshot from top left hand corner of screen and maps to top
+-            // left hand corner of screenShot texture
+-            screenShot.ReadPixels(
+-                new Rect(0, 0, Screen.width, (Screen.width/1024)*700), 0, 0);
+-            return screenShot;
+-        }
++        // Takes the screenshot from top left hand corner of screen and maps to top
++        // left hand corner of screenShot texture
++        screenShot.ReadPixels(
++            new Rect(0, 0, Screen.width, (Screen.width/1024)*700), 0, 0);
++        return screenShot;
++    }
++```
+ 
+ ## Read a saved game
+ 
+ Once the saved game file is opened, it can be read to load the game state. This
+ is done by calling **ReadBinaryData**.
+ 
+-        void LoadGameData (ISavedGameMetadata game) {
+-            ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+-            savedGameClient.ReadBinaryData(game, OnSavedGameDataRead);
+-        }
+-
+-        public void OnSavedGameDataRead (SavedGameRequestStatus status, byte[] data) {
+-            if (status == SavedGameRequestStatus.Success) {
+-                // handle processing the byte array data
+-            } else {
+-                // handle error
+-            }
++```
++    void LoadGameData (ISavedGameMetadata game) {
++        ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
++        savedGameClient.ReadBinaryData(game, OnSavedGameDataRead);
++    }
++
++    public void OnSavedGameDataRead (SavedGameRequestStatus status, byte[] data) {
++        if (status == SavedGameRequestStatus.Success) {
++            // handle processing the byte array data
++        } else {
++            // handle error
+         }
++    }
++```
+ 
+ ## Delete a saved game
+ 
+ Once the saved game file is opened, it can be deleted. This is done by calling
+ **Delete**.
+ 
+-        void DeleteGameData (string filename) {
+-            // Open the file to get the metadata.
++```
++    void DeleteGameData (string filename) {
++        // Open the file to get the metadata.
++        ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
++        savedGameClient.OpenWithAutomaticConflictResolution(filename, DataSource.ReadCacheOrNetwork,
++            ConflictResolutionStrategy.UseLongestPlaytime, DeleteSavedGame);
++    }
++
++    public void DeleteSavedGame(SavedGameRequestStatus status, ISavedGameMetadata game) {
++        if (status == SavedGameRequestStatus.Success) {
+             ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+-            savedGameClient.OpenWithAutomaticConflictResolution(filename, DataSource.ReadCacheOrNetwork,
+-                ConflictResolutionStrategy.UseLongestPlaytime, DeleteSavedGame);
++            savedGameClient.Delete(game);
++        } else {
++            // handle error
+         }
++    }
++```
++
++
++
+ 
+-        public void DeleteSavedGame(SavedGameRequestStatus status, ISavedGameMetadata game) {
+-            if (status == SavedGameRequestStatus.Success) {
+-                ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+-                savedGameClient.Delete(game);
+-            } else {
+-                // handle error
+-            }
+-        }
+\ No newline at end of file
++Send feedback
+\ No newline at end of file

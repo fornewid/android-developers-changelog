@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/tracing/choose-right-method.md b/docs/topic/performance/tracing/choose-right-method.md
+index bfd8394..e32985e 100644
+--- a/docs/topic/performance/tracing/choose-right-method.md
++++ b/docs/topic/performance/tracing/choose-right-method.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can collect profiles using two primary methods: manual profile collection
+ and the `ProfilingManager` API.
+ 

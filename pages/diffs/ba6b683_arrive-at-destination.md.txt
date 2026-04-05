@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/app-types/arrive-at-destination.md b/docs/design/ui/cars/guides/app-types/arrive-at-destination.md
+index 9d85cbc..b72a220 100644
+--- a/docs/design/ui/cars/guides/app-types/arrive-at-destination.md
++++ b/docs/design/ui/cars/guides/app-types/arrive-at-destination.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can show a user that they've arrived at their destination using the
+ [Navigation template](/design/ui/cars/guides/templates/navigation-template).
+ Simply switch the routing card from

@@ -1,0 +1,430 @@
+diff --git a/docs/topic/libraries/data-binding/observability.md b/docs/topic/libraries/data-binding/observability.md
+index ccfd165..caa6d27 100644
+--- a/docs/topic/libraries/data-binding/observability.md
++++ b/docs/topic/libraries/data-binding/observability.md
+@@ -1,19 +1,28 @@
+ ---
+-title: https://developer.android.com/topic/libraries/data-binding/observability
++title: Work with observable data objects  |  App architecture  |  Android Developers
+ url: https://developer.android.com/topic/libraries/data-binding/observability
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
++
++# Work with observable data objects Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ *Observability* refers to the capability of an object to notify others about
+ changes in its data. The Data Binding Library lets you make objects, fields, or
+ collections observable.
+ 
+ You can use any object for data binding, but modifying the object doesn't
+ automatically cause the UI to update. You can use data binding to give your data
+-objects the ability to notify other objects---known as listeners---when
++objects the ability to notify other objects—known as listeners—when
+ their data changes. There are three types of observable classes:
+-[fields](https://developer.android.com/topic/libraries/data-binding/observability#observable_fields), [collections](https://developer.android.com/topic/libraries/data-binding/observability#observable_collections), and
+-[objects](https://developer.android.com/topic/libraries/data-binding/observability#observable_objects).
++[fields](#observable_fields), [collections](#observable_collections), and
++[objects](#observable_objects).
+ 
+ When one of these observable data objects is bound to the UI and a property of
+ the data object changes, the UI updates automatically.
+@@ -22,19 +31,19 @@ the data object changes, the UI updates automatically.
+ 
+ If your classes only have a few properties, it might not be worth the effort to
+ create classes that implement the
+-[`Observable`](https://developer.android.com/reference/android/databinding/Observable) interface. In this
++[`Observable`](/reference/android/databinding/Observable) interface. In this
+ case, you can use the generic `Observable` class and the following
+ primitive-specific classes to make fields observable:
+ 
+-- [`ObservableBoolean`](https://developer.android.com/reference/android/databinding/ObservableBoolean)
+-- [`ObservableByte`](https://developer.android.com/reference/android/databinding/ObservableByte)
+-- [`ObservableChar`](https://developer.android.com/reference/android/databinding/ObservableChar)
+-- [`ObservableShort`](https://developer.android.com/reference/android/databinding/ObservableShort)
+-- [`ObservableInt`](https://developer.android.com/reference/android/databinding/ObservableInt)
+-- [`ObservableLong`](https://developer.android.com/reference/android/databinding/ObservableLong)
+-- [`ObservableFloat`](https://developer.android.com/reference/android/databinding/ObservableFloat)
+-- [`ObservableDouble`](https://developer.android.com/reference/android/databinding/ObservableDouble)
+-- [`ObservableParcelable`](https://developer.android.com/reference/android/databinding/ObservableParcelable)
++* [`ObservableBoolean`](/reference/android/databinding/ObservableBoolean)
++* [`ObservableByte`](/reference/android/databinding/ObservableByte)
++* [`ObservableChar`](/reference/android/databinding/ObservableChar)
++* [`ObservableShort`](/reference/android/databinding/ObservableShort)
++* [`ObservableInt`](/reference/android/databinding/ObservableInt)
++* [`ObservableLong`](/reference/android/databinding/ObservableLong)
++* [`ObservableFloat`](/reference/android/databinding/ObservableFloat)
++* [`ObservableDouble`](/reference/android/databinding/ObservableDouble)
++* [`ObservableParcelable`](/reference/android/databinding/ObservableParcelable)
+ 
+ Observable fields are self-contained observable objects that have a single
+ field. The primitive versions avoid boxing and unboxing during access
+@@ -44,7 +53,7 @@ following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class User {
+     val firstName = ObservableField<String>()
+     val lastName = ObservableField<String>()
+@@ -54,7 +63,7 @@ class User {
+ 
+ ### Java
+ 
+-```java
++```
+ private static class User {
+     public final ObservableField<String> firstName = new ObservableField<>();
+     public final ObservableField<String> lastName = new ObservableField<>();
+@@ -63,21 +72,21 @@ private static class User {
+ ```
+ 
+ To access the field value, use the
+-[`set()`](https://developer.android.com/reference/android/databinding/ObservableField#set) and
+-[`get()`](https://developer.android.com/reference/android/databinding/ObservableField#get) accessor methods
++[`set()`](/reference/android/databinding/ObservableField#set) and
++[`get()`](/reference/android/databinding/ObservableField#get) accessor methods
+ or use [Kotlin property
+ syntax](https://kotlinlang.org/docs/reference/properties.html#declaring-properties):
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ user.firstName = "Google"
+ val age = user.age
+ ```
+ 
+ ### Java
+ 
+-```java
++```
+ user.firstName.set("Google");
+ int age = user.age.get();
+ ```
+@@ -86,13 +95,13 @@ int age = user.age.get();
+ 
+ Some apps use dynamic structures to hold data. Observable collections allow
+ access to these structures by using a key. The
+-[`ObservableArrayMap`](https://developer.android.com/reference/android/databinding/ObservableArrayMap) class
++[`ObservableArrayMap`](/reference/android/databinding/ObservableArrayMap) class
+ is useful when the key is a reference type, such as `String`, as shown in the
+ following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ ObservableArrayMap<String, Any>().apply {
+     put("firstName", "Google")
+     put("lastName", "Inc.")
+@@ -102,7 +111,7 @@ ObservableArrayMap<String, Any>().apply {
+ 
+ ### Java
+ 
+-```java
++```
+ ObservableArrayMap<String, Object> user = new ObservableArrayMap<>();
+ user.put("firstName", "Google");
+ user.put("lastName", "Inc.");
+@@ -112,26 +121,28 @@ user.put("age", 17);
+ In the layout, you can find the map using the string keys, as shown in the
+ following example:
+ 
+-    <data>
+-        <import type="android.databinding.ObservableMap"/>
+-        <variable name="user" type="ObservableMap&lt;String, Object&gt;"/>
+-    </data>
+-    ...
+-    <TextView
+-        android:text="@{user.lastName}"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"/>
+-    <TextView
+-        android:text="@{String.valueOf(1 + (Integer)user.age)}"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"/>
+-
+-The [`ObservableArrayList`](https://developer.android.com/reference/android/databinding/ObservableArrayList)
++```
++<data>
++    <import type="android.databinding.ObservableMap"/>
++    <variable name="user" type="ObservableMap&lt;String, Object&gt;"/>
++</data>
++…
++<TextView
++    android:text="@{user.lastName}"
++    android:layout_width="wrap_content"
++    android:layout_height="wrap_content"/>
++<TextView
++    android:text="@{String.valueOf(1 + (Integer)user.age)}"
++    android:layout_width="wrap_content"
++    android:layout_height="wrap_content"/>
++```
++
++The [`ObservableArrayList`](/reference/android/databinding/ObservableArrayList)
+ class is useful when the key is an integer, as follows:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ ObservableArrayList<Any>().apply {
+     add("Google")
+     add("Inc.")
+@@ -141,7 +152,7 @@ ObservableArrayList<Any>().apply {
+ 
+ ### Java
+ 
+-```java
++```
+ ObservableArrayList<Object> user = new ObservableArrayList<>();
+ user.add("Google");
+ user.add("Inc.");
+@@ -151,20 +162,22 @@ user.add(17);
+ In the layout, you can access the list through the indexes, as shown in the
+ following example:
+ 
+-    <data>
+-        <import type="android.databinding.ObservableList"/>
+-        <import type="com.example.my.app.Fields"/>
+-        <variable name="user" type="ObservableList&lt;Object&gt;"/>
+-    </data>
+-    ...
+-    <TextView
+-        android:text='@{user[Fields.LAST_NAME]}'
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"/>
+-    <TextView
+-        android:text='@{String.valueOf(1 + (Integer)user[Fields.AGE])}'
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"/>
++```
++<data>
++    <import type="android.databinding.ObservableList"/>
++    <import type="com.example.my.app.Fields"/>
++    <variable name="user" type="ObservableList&lt;Object&gt;"/>
++</data>
++…
++<TextView
++    android:text='@{user[Fields.LAST_NAME]}'
++    android:layout_width="wrap_content"
++    android:layout_height="wrap_content"/>
++<TextView
++    android:text='@{String.valueOf(1 + (Integer)user[Fields.AGE])}'
++    android:layout_width="wrap_content"
++    android:layout_height="wrap_content"/>
++```
+ 
+ ## Observable objects
+ 
+@@ -175,17 +188,17 @@ object.
+ The `Observable` interface has a mechanism to add and remove listeners, but you
+ decide when notifications are sent. To make development easier, the Data
+ Binding Library provides the
+-[`BaseObservable`](https://developer.android.com/reference/android/databinding/BaseObservable) class, which
++[`BaseObservable`](/reference/android/databinding/BaseObservable) class, which
+ implements the listener registration mechanism. The data class that implements
+ `BaseObservable` is responsible for notifying when the properties change. To do
+-this, assign a [`Bindable`](https://developer.android.com/reference/android/databinding/Bindable) annotation
++this, assign a [`Bindable`](/reference/android/databinding/Bindable) annotation
+ to the getter and call the
+-[`notifyPropertyChanged()`](https://developer.android.com/reference/android/databinding/BaseObservable#notifypropertychanged)
++[`notifyPropertyChanged()`](/reference/android/databinding/BaseObservable#notifypropertychanged)
+ method in the setter, as shown in the following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class User : BaseObservable() {
+ 
+     @get:Bindable
+@@ -206,7 +219,7 @@ class User : BaseObservable() {
+ 
+ ### Java
+ 
+-```java
++```
+ private static class User extends BaseObservable {
+     private String firstName;
+     private String lastName;
+@@ -238,7 +251,7 @@ the IDs of the resources used for data binding. The `Bindable` annotation
+ generates an entry in the `BR` class file during compilation. If the base class
+ for data classes can't be changed, you can implement the `Observable` interface
+ using a
+-[`PropertyChangeRegistry`](https://developer.android.com/reference/android/databinding/PropertyChangeRegistry)
++[`PropertyChangeRegistry`](/reference/android/databinding/PropertyChangeRegistry)
+ object to register and notify listeners efficiently.
+ 
+ ## Lifecycle-aware objects
+@@ -248,62 +261,70 @@ notify the UI about changes in the data. That way, your bindings are
+ lifecycle aware and are only triggered when the UI is visible on the screen.
+ 
+ Data binding supports
+-[`StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow) and
+-[`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata). For more information about
++[`StateFlow`](/kotlin/flow/stateflow-and-sharedflow) and
++[`LiveData`](/topic/libraries/architecture/livedata). For more information about
+ using `LiveData` in data binding, see [Use LiveData to notify the UI about data
+-changes](https://developer.android.com/topic/libraries/data-binding/architecture#livedata).
++changes](/topic/libraries/data-binding/architecture#livedata).
+ 
+-> [!NOTE]
+-> **Note:** Consider using `LiveData` if your project already depends on the `LiveData` library. If you don't have an initial value to provide, make sure `StateFlow` has one. If you don't want to manually unregister the consumer, `LiveData` automatically unregisters when the view goes to the `STOPPED` state.
++**Note:** Consider using `LiveData` if your project already depends on the `LiveData`
++library. If you don't have an initial value to provide, make sure `StateFlow`
++has one. If you don't want to manually unregister the consumer, `LiveData`
++automatically unregisters when the view goes to the `STOPPED` state.
+ 
+ ### Use StateFlow
+ 
+-If your app uses Kotlin with [coroutines](https://developer.android.com/kotlin/coroutines), you can use
++If your app uses Kotlin with [coroutines](/kotlin/coroutines), you can use
+ `StateFlow` objects as the data binding source. To use a `StateFlow` object with
+ your binding class, specify a lifecycle owner to define the scope of the
+ `StateFlow` object. The following example specifies the activity as the
+ lifecycle owner after the binding class is instantiated:
+ 
+-    class ViewModelActivity : AppCompatActivity() {
+-        override fun onCreate(savedInstanceState: Bundle?) {
+-            // Inflate view and obtain an instance of the binding class.
+-            val binding: UserBinding = DataBindingUtil.setContentView(this, R.layout.user)
++```
++class ViewModelActivity : AppCompatActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        // Inflate view and obtain an instance of the binding class.
++        val binding: UserBinding = DataBindingUtil.setContentView(this, R.layout.user)
+ 
+-            // Specify the current activity as the lifecycle owner.
+-            binding.lifecycleOwner = this
+-        }
++        // Specify the current activity as the lifecycle owner.
++        binding.lifecycleOwner = this
+     }
++}
++```
+ 
+ As described in [Bind layout views to Architecture
+-Components](https://developer.android.com/topic/libraries/data-binding/architecture#viewmodel), data binding
+-works seamlessly with [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel)
++Components](/topic/libraries/data-binding/architecture#viewmodel), data binding
++works seamlessly with [`ViewModel`](/reference/androidx/lifecycle/ViewModel)
+ objects. You can use `StateFlow` and `ViewModel` together as follows:
+ 
+-    class ScheduleViewModel : ViewModel() {
++```
++class ScheduleViewModel : ViewModel() {
+ 
+-        private val _username = MutableStateFlow<String>("")
+-        val username: StateFlow<String> = _username
++    private val _username = MutableStateFlow<String>("")
++    val username: StateFlow<String> = _username
+ 
+-        init {
+-            viewModelScope.launch {
+-                _username.value = Repository.loadUserName()
+-            }
++    init {
++        viewModelScope.launch {
++            _username.value = Repository.loadUserName()
+         }
+     }
++}
++```
+ 
+ In your layout, assign the properties and methods of your `ViewModel` object to
+ the corresponding views using binding expressions, as shown in the following
+ example:
+ 
+-    <TextView
+-        android:id="@+id/name"
+-        android:text="@{viewmodel.username}" />
++```
++<TextView
++    android:id="@+id/name"
++    android:text="@{viewmodel.username}" />
++```
+ 
+ The UI automatically updates whenever the user's name value changes.
+ 
+-> [!NOTE]
+-> **Note:** `StateFlow` support is a preview feature that requires version `7.0.0-alpha04` or higher of the [Android Gradle
+-> plugin](https://developer.android.com/studio/releases/gradle-plugin).
++**Note:** `StateFlow` support is a preview feature that requires version
++`7.0.0-alpha04` or higher of the [Android Gradle
++plugin](/studio/releases/gradle-plugin).
+ 
+ #### Disable StateFlow support
+ 
+@@ -316,7 +337,7 @@ You can opt out of this functionality by adding the following to your
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ android {
+     ...
+     dataBinding {
+@@ -327,7 +348,7 @@ android {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ android {
+     ...
+     dataBinding {
+@@ -341,13 +362,13 @@ the following line to the `gradle.properties` file:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ android.defaults.databinding.addKtx = false
+ ```
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ android.defaults.databinding.addKtx = false
+ ```
+ 
+@@ -357,19 +378,19 @@ To learn more about data binding, see the following for additional resources:
+ 
+ ### Samples
+ 
+-- [Android Data Binding Library samples](https://github.com/android/databinding-samples)
++* [Android Data Binding Library samples](https://github.com/android/databinding-samples)
+ 
+ ### Codelabs
+ 
+-- [Data Binding in Android](https://codelabs.developers.google.com/codelabs/android-databinding)
++* [Data Binding in Android](https://codelabs.developers.google.com/codelabs/android-databinding)
+ 
+ ### Blog posts
+ 
+-- [Data Binding --- lessons learnt](https://medium.com/androiddevelopers/data-binding-lessons-learnt-4fd16576b719)
++* [Data Binding — lessons learnt](https://medium.com/androiddevelopers/data-binding-lessons-learnt-4fd16576b719)
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Saved State module for ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate)
+-- [Bind layout views to Architecture Components](https://developer.android.com/topic/libraries/data-binding/architecture)
+-- [Paging library overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Saved State module for ViewModel](/topic/libraries/architecture/viewmodel/viewmodel-savedstate)
++* [Bind layout views to Architecture Components](/topic/libraries/data-binding/architecture)
++* [Paging library overview](/topic/libraries/architecture/paging/v3-overview)
+\ No newline at end of file

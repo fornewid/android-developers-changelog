@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/user-input/voice.md b/docs/training/wearables/user-input/voice.md
+index c62b062..7c52623 100644
+--- a/docs/training/wearables/user-input/voice.md
++++ b/docs/training/wearables/user-input/voice.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Every Wear OS device comes with a microphone, so users can use their voice to interact with the
+ device. You can divide these into three types of interactions:
+ 

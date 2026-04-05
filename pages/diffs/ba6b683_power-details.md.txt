@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/power/power-details.md b/docs/topic/performance/power/power-details.md
+index a9ac03f..7ed43b5 100644
+--- a/docs/topic/performance/power/power-details.md
++++ b/docs/topic/performance/power/power-details.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The system prioritizes apps' requests for resources based on the device state,
+ app state and the [app's standby bucket](/topic/performance/appstandby).
+ 

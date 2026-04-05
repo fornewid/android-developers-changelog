@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/animations/reveal-or-hide-view.md b/docs/develop/ui/views/animations/reveal-or-hide-view.md
+index dd143c8..4a84457 100644
+--- a/docs/develop/ui/views/animations/reveal-or-hide-view.md
++++ b/docs/develop/ui/views/animations/reveal-or-hide-view.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Animations in Compose.

@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/wff/setup.md b/docs/training/wearables/wff/setup.md
+index f9238a3..42e5b62 100644
+--- a/docs/training/wearables/wff/setup.md
++++ b/docs/training/wearables/wff/setup.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note**: This page shows you a step of the process for manually managing your
+ watch face configuration. If you want to design your watch face using a WYSIWYG
+ (what you see is what you get) style tool instead, check out the [Watch Face

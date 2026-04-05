@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/modularize.md b/docs/guide/navigation/navigation-3/modularize.md
+index 5d639bd..aa0e39c 100644
+--- a/docs/guide/navigation/navigation-3/modularize.md
++++ b/docs/guide/navigation/navigation-3/modularize.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page is a guide for modularizing your navigation code. It is intended to
+ complement the general [guidance for app modularization](/topic/modularization).
+ 

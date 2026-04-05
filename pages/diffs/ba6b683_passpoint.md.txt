@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/wifi/passpoint.md b/docs/develop/connectivity/wifi/passpoint.md
+index d3c0eb0..f87ec07 100644
+--- a/docs/develop/connectivity/wifi/passpoint.md
++++ b/docs/develop/connectivity/wifi/passpoint.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Passpoint is a Wi-Fi Alliance (WFA) protocol that enables mobile devices to
+ discover and authenticate to Wi-Fi hotspots that provide internet access.
+ 

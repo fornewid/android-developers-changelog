@@ -1,0 +1,20 @@
+diff --git a/docs/games/agde/debugger.md b/docs/games/agde/debugger.md
+index f7c6d92..20aa564 100644
+--- a/docs/games/agde/debugger.md
++++ b/docs/games/agde/debugger.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Debug your project with the Visual Studio Debugger (LLDB) when using the
+ Android Game Development Extension.
+ 
+@@ -267,4 +268,6 @@ file from the Android Game Development Extension toolbar.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

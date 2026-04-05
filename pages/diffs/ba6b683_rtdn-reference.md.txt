@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/rtdn-reference.md b/docs/google/play/billing/rtdn-reference.md
+index efbb1f1..72173aa 100644
+--- a/docs/google/play/billing/rtdn-reference.md
++++ b/docs/google/play/billing/rtdn-reference.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This document lists and describes the types of [Real-time developer notifications](/google/play/billing/getting-ready#configure-rtdn) that you can receive from
+ Google Play.
+ 
+@@ -244,6 +243,4 @@ Here's an example of a test notification:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

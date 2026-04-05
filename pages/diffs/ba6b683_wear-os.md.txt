@@ -1,0 +1,12 @@
+diff --git a/docs/media/implement/surfaces/wear-os.md b/docs/media/implement/surfaces/wear-os.md
+index 9a96f23..cf0a978 100644
+--- a/docs/media/implement/surfaces/wear-os.md
++++ b/docs/media/implement/surfaces/wear-os.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Wear OS is a great platform for Android users to engage with a variety of audio
+ content—such as audiobooks, music, podcasts, and radio—while on the go. [Wear OS
+ by Google](/wear) lets you write apps for a variety of categories, including

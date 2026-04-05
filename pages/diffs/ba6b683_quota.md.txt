@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/quota.md b/docs/games/pgs/quota.md
+index 786be23..2be0a17 100644
+--- a/docs/games/pgs/quota.md
++++ b/docs/games/pgs/quota.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This topic describes how to detect and manage Play Games Services API usage in
+ your game.
+ 
+@@ -76,6 +75,4 @@ experiencing exceptional usage and is obeying the best practices in the
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

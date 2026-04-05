@@ -1,0 +1,12 @@
+diff --git a/docs/studio/platform/tutorial.md b/docs/studio/platform/tutorial.md
+index 9ab5518..2049daa 100644
+--- a/docs/studio/platform/tutorial.md
++++ b/docs/studio/platform/tutorial.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Get up to speed with Android Studio for Platform (ASfP) by watching our video
+ tutorial. This video walks you through the essential steps to get started,
+ including setting up your first project, navigating the interface, and using

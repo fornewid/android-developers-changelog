@@ -1,0 +1,123 @@
+diff --git a/docs/courses/quizzes/kotlin-fundamentals-three/kotlin-fundamentals-three.md b/docs/courses/quizzes/kotlin-fundamentals-three/kotlin-fundamentals-three.md
+index 160e28f..cdd0e2a 100644
+--- a/docs/courses/quizzes/kotlin-fundamentals-three/kotlin-fundamentals-three.md
++++ b/docs/courses/quizzes/kotlin-fundamentals-three/kotlin-fundamentals-three.md
+@@ -1,74 +1,67 @@
+ ---
+-title: Kotlin Fundamentals: Layouts quiz  |  Android Developers
++title: https://developer.android.com/courses/quizzes/kotlin-fundamentals-three/kotlin-fundamentals-three
+ url: https://developer.android.com/courses/quizzes/kotlin-fundamentals-three/kotlin-fundamentals-three
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Kotlin Fundamentals: Layouts quiz
+ 
+-Return to pathway
+-
+-
+-
+-1. ## Which of the following is a ViewGroup?
+-
+-   EditText
+-
+-   LinearLayout
+-
+-   TextView
+-
+-   Button
+-2. ## A ScrollView is a ViewGroup that can contain any number of Views or ViewGroups as its children. True or false?
+-
+-   True.
+-
+-   False.
+-3. ## For EditText views, it's not a good practice to provide hints because hints clutter the input field. True or false?
++# Kotlin Fundamentals: Layouts quiz
+ 
+-   True.
++<br />
+ 
+-   False.
+-4. ## Which one of the following statements is true about Buttons?
++Return to pathway  
++1.
+ 
+-   A Button is a ViewGroup.
++   ## Which of the following is a ViewGroup?
+ 
+-   You can only have a max of three Buttons per screen.
++   EditText  
++   LinearLayout  
++   TextView  
++   Button  
++2.
+ 
+-   Buttons are clickable and, on click, the attached click listener performs an action.
++   ## A ScrollView is a ViewGroup that can contain any number of Views or ViewGroups as its children. True or false?
+ 
+-   Button is an extension of ImageView.
+-5. ## In a ConstraintLayout, which of the following constraints are needed to position a view onscreen?
++   True.  
++   False.  
++3.
+ 
+-   Two horizontal constraints.
++   ## For EditText views, it's not a good practice to provide hints because hints clutter the input field. True or false?
+ 
+-   One vertical constraint.
++   True.  
++   False.  
++4.
+ 
+-   At least one horizontal and one vertical constraint.
++   ## Which one of the following statements is true about Buttons?
+ 
+-   There is no need to constrain the view.
+-6. ## The baseline constraint aligns the text baseline of a view to the text baseline of another view. True or false?
++   A Button is a ViewGroup.  
++   You can only have a max of three Buttons per screen.  
++   Buttons are clickable and, on click, the attached click listener performs an action.  
++   Button is an extension of ImageView.  
++5.
+ 
+-   True.
++   ## In a ConstraintLayout, which of the following constraints are needed to position a view onscreen?
+ 
+-   False.
+-7. ## Why would you want to use data binding instead of calls to findViewById()?
++   Two horizontal constraints.  
++   One vertical constraint.  
++   At least one horizontal and one vertical constraint.  
++   There is no need to constrain the view.  
++6.
+ 
+-   Code is shorter, easier to read, and maintain.
++   ## The baseline constraint aligns the text baseline of a view to the text baseline of another view. True or false?
+ 
+-   findViewById() runs on the main UI thread.
++   True.  
++   False.  
++7.
+ 
+-   These calls can slow down the user interface.
++   ## Why would you want to use data binding instead of calls to findViewById()?
+ 
+-   Your app is less likely to crash.
++   Code is shorter, easier to read, and maintain.  
++   findViewById() runs on the main UI thread.  
++   These calls can slow down the user interface.  
++   Your app is less likely to crash.  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

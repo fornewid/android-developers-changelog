@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/wear-v-mobile.md b/docs/training/wearables/wear-v-mobile.md
+index 030e2ad..8b0b9af 100644
+--- a/docs/training/wearables/wear-v-mobile.md
++++ b/docs/training/wearables/wear-v-mobile.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Wear OS is based on Android and is optimized for the wrist. If you have
+ developed for Android
+ before, you may have used many of the same features and APIs. However, there

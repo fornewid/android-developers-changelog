@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/developer-payload.md b/docs/google/play/billing/developer-payload.md
+index 39c86f8..ced3df8 100644
+--- a/docs/google/play/billing/developer-payload.md
++++ b/docs/google/play/billing/developer-payload.md
+@@ -14,6 +14,7 @@ Send feedback
+ 
+ 
+ 
++
+ Developer payload has historically been used for various purposes, including
+ fraud prevention and attributing purchases to the correct user. With versions
+ 2.2 and higher of the Google Play Billing Library, intended use cases that
+@@ -102,4 +103,6 @@ if the values are within a certain time period of each other.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

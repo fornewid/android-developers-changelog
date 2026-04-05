@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect/aggregate-data.md b/docs/health-and-fitness/health-connect/aggregate-data.md
+index 517fb88..9eda75d 100644
+--- a/docs/health-and-fitness/health-connect/aggregate-data.md
++++ b/docs/health-and-fitness/health-connect/aggregate-data.md
+@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
+-
+ Aggregating data in Health Connect includes basic aggregations or aggregating
+ data into buckets. The following workflows show you how to do both.
+ 

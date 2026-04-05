@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/palette.md b/docs/jetpack/androidx/releases/palette.md
+index 9f6c542..14b9659 100644
+--- a/docs/jetpack/androidx/releases/palette.md
++++ b/docs/jetpack/androidx/releases/palette.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Palette
+ 
+ [Code Sample](https://github.com/android/plaid)

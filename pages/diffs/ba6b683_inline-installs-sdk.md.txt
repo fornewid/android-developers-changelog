@@ -1,0 +1,12 @@
+diff --git a/docs/distribute/marketing-tools/inline-installs-sdk.md b/docs/distribute/marketing-tools/inline-installs-sdk.md
+index 2f8d322..851e15c 100644
+--- a/docs/distribute/marketing-tools/inline-installs-sdk.md
++++ b/docs/distribute/marketing-tools/inline-installs-sdk.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page describes how third-party SDKs can integrate *inline install*, a new
+ test feature for Google Play that presents Google Play app product details in a
+ half sheet interface. Inline install enables users to experience a seamless app

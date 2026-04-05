@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/add-resources.md b/docs/studio/write/add-resources.md
+index 60222ae..d7e94cb 100644
+--- a/docs/studio/write/add-resources.md
++++ b/docs/studio/write/add-resources.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ App resources, such as bitmaps and layouts, are organized into type-specific
+ directories inside each module's `res/` directory. You can also add alternative
+ versions of each file that are optimized for different device

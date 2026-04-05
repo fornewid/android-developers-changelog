@@ -1,0 +1,294 @@
+diff --git a/docs/jetpack/androidx/releases/appfunctions.md b/docs/jetpack/androidx/releases/appfunctions.md
+index 21844e6..c348466 100644
+--- a/docs/jetpack/androidx/releases/appfunctions.md
++++ b/docs/jetpack/androidx/releases/appfunctions.md
+@@ -1,23 +1,35 @@
+ ---
+-title: https://developer.android.com/jetpack/androidx/releases/appfunctions
++title: appfunctions  |  Jetpack  |  Android Developers
+ url: https://developer.android.com/jetpack/androidx/releases/appfunctions
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Get started](https://developer.android.com/get-started/overview)
++* [Jetpack](https://developer.android.com/jetpack)
++* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
++
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
++
+ # appfunctions
+ 
+ API Reference  
+-[androidx.appfunctions](https://developer.android.com/reference/kotlin/androidx/appfunctions/package-summary)  
++[androidx.appfunctions](/reference/kotlin/androidx/appfunctions/package-summary)
++
+ Allows apps to share functionality and data with AI assistants, enabling them to discover and execute tasks directly on the device to fulfill user requests.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+-|---|---|---|---|---|
+-| March 11, 2026 | - | - | - | [1.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha08) |
++| --- | --- | --- | --- | --- |
++| March 11, 2026 | - | - | - | [1.0.0-alpha08](/jetpack/androidx/releases/appfunctions#1.0.0-alpha08) |
+ 
+ ## Declaring dependencies
+ 
+ To add a dependency on appfunctions, you must add the Google Maven repository to your
+-project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
++project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+@@ -25,35 +37,35 @@ your app or module:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ dependencies {
+     implementation "androidx.appfunctions:appfunctions:1.0.0-alpha08"
+     implementation "androidx.appfunctions:appfunctions-service:1.0.0-alpha08"
+     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
+-    // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
++    // See KSP Quickstart to add KSP to your build
+     ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha08"
+ }
+ ```
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ dependencies {
+     implementation("androidx.appfunctions:appfunctions:1.0.0-alpha08")
+     implementation("androidx.appfunctions:appfunctions-service:1.0.0-alpha08")
+     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
+-    // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
++    // See KSP Quickstart to add KSP to your build
+     ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha08")
+ }
+ ```
+ 
+-For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
++For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
+ 
+ ## Feedback
+ 
+ Your feedback helps make Jetpack better. Let us know if you discover new issues or have
+ ideas for improving this library. Please take a look at the
+-[existing issues](https://issuetracker.google.com/issues?q=componentid:1709065+status:open)
++[existing issues](https://issuetracker.google.com/issues?q=componentid:1709065%20status:open)
+ in this library before you create a new one. You can add your vote to an existing issue by
+ clicking the star button.
+ 
+@@ -74,20 +86,20 @@ March 11, 2026
+ 
+ **New Features**
+ 
+-- Added support for Parcelable (s) besides `PendingIntent` ([I8ab9f](https://android-review.googlesource.com/#/q/I8ab9fcc69d0ebe11ce1cc9caeed7c7e3f69984d9))
+-- APIs to convert from/to Platform request and response ([Ifdf20](https://android-review.googlesource.com/#/q/Ifdf20ebaa1e365cae501dfea7f4c326c208d3bfe)),
++* Added support for Parcelable (s) besides `PendingIntent` ([I8ab9f](https://android-review.googlesource.com/#/q/I8ab9fcc69d0ebe11ce1cc9caeed7c7e3f69984d9))
++* APIs to convert from/to Platform request and response ([Ifdf20](https://android-review.googlesource.com/#/q/Ifdf20ebaa1e365cae501dfea7f4c326c208d3bfe)),
+ 
+ **API Changes**
+ 
+-- Parameter conformity with styleguide. ([I69b2d](https://android-review.googlesource.com/#/q/I69b2ddfdf8ae4fdf341cd5f364c056bae23f9c51))
+-- Add APIs to convert from/to Platform request and response ([Ifdf20](https://android-review.googlesource.com/#/q/Ifdf20ebaa1e365cae501dfea7f4c326c208d3bfe), [b/476047880](https://issuetracker.google.com/issues/476047880))
+-- Rename `AppFunctionManagerCompat` to `AppFunctionManager`. ([Id9a78](https://android-review.googlesource.com/#/q/Id9a78b0a74787ec911f0b10b9b5bd237937ca838), [b/448372122](https://issuetracker.google.com/issues/448372122))
+-- Remove get/set APIs for `PendingIntent`. ([Ic7fd6](https://android-review.googlesource.com/#/q/Ic7fd6c9f5a9d69b6d88e752253e99f3369e1fbf1), [b/447530985](https://issuetracker.google.com/issues/447530985))
+-- Add support for Parcelables and migrate `PendingIntent` to be represented as a Parcelable. ([I8ab9f](https://android-review.googlesource.com/#/q/I8ab9fcc69d0ebe11ce1cc9caeed7c7e3f69984d9), [b/447530985](https://issuetracker.google.com/issues/447530985))
++* Parameter conformity with styleguide. ([I69b2d](https://android-review.googlesource.com/#/q/I69b2ddfdf8ae4fdf341cd5f364c056bae23f9c51))
++* Add APIs to convert from/to Platform request and response ([Ifdf20](https://android-review.googlesource.com/#/q/Ifdf20ebaa1e365cae501dfea7f4c326c208d3bfe), [b/476047880](https://issuetracker.google.com/issues/476047880))
++* Rename `AppFunctionManagerCompat` to `AppFunctionManager`. ([Id9a78](https://android-review.googlesource.com/#/q/Id9a78b0a74787ec911f0b10b9b5bd237937ca838), [b/448372122](https://issuetracker.google.com/issues/448372122))
++* Remove get/set APIs for `PendingIntent`. ([Ic7fd6](https://android-review.googlesource.com/#/q/Ic7fd6c9f5a9d69b6d88e752253e99f3369e1fbf1), [b/447530985](https://issuetracker.google.com/issues/447530985))
++* Add support for Parcelables and migrate `PendingIntent` to be represented as a Parcelable. ([I8ab9f](https://android-review.googlesource.com/#/q/I8ab9fcc69d0ebe11ce1cc9caeed7c7e3f69984d9), [b/447530985](https://issuetracker.google.com/issues/447530985))
+ 
+ **Bug Fixes**
+ 
+-- Moves libraries to use Java 11 target. This means produced bytecode will be Java 11 (class file version 55) and might require desugaring to use the library ([If4c2a](https://android-review.googlesource.com/#/q/If4c2a6fdda1278f42ea080fa365e8b437b2c2ae6), [b/457821470](https://issuetracker.google.com/issues/457821470))
++* Moves libraries to use Java 11 target. This means produced bytecode will be Java 11 (class file version 55) and might require desugaring to use the library ([If4c2a](https://android-review.googlesource.com/#/q/If4c2a6fdda1278f42ea080fa365e8b437b2c2ae6), [b/457821470](https://issuetracker.google.com/issues/457821470))
+ 
+ ### Version 1.0.0-alpha07
+ 
+@@ -97,11 +109,11 @@ November 19, 2025
+ 
+ **API Changes**
+ 
+-- Support deprecating `AppFunction` ([I39229](https://android-review.googlesource.com/#/q/I392294f4cda7036d967d010c41f5acb2b1136abb), [b/454661174](https://issuetracker.google.com/issues/454661174))
++* Support deprecating `AppFunction` ([I39229](https://android-review.googlesource.com/#/q/I392294f4cda7036d967d010c41f5acb2b1136abb), [b/454661174](https://issuetracker.google.com/issues/454661174))
+ 
+ **Bug Fixes**
+ 
+-- Fix issue with non-null required top-level parameters ([Ic60fc](https://android-review.googlesource.com/#/q/Ic60fc80c67ad724866313c3c744954493b9c0e78), [b/456717542](https://b.corp.google.com/issues/456717542))
++* Fix issue with non-null required top-level parameters ([Ic60fc](https://android-review.googlesource.com/#/q/Ic60fc80c67ad724866313c3c744954493b9c0e78), [b/456717542](https://b.corp.google.com/issues/456717542))
+ 
+ ### Version 1.0.0-alpha06
+ 
+@@ -111,23 +123,23 @@ November 05, 2025
+ 
+ **New Features**
+ 
+-- Support embedding resource as part of AppFunction response
+-- Allow using `FLAG_GRANT_PERSISTABLE_URI_PERMISSION` in `AppFunctionUriGrant`
++* Support embedding resource as part of AppFunction response
++* Allow using `FLAG_GRANT_PERSISTABLE_URI_PERMISSION` in `AppFunctionUriGrant`
+ 
+ **API Changes**
+ 
+-- Add `ResourceHolder` API ([I08c1c](https://android-review.googlesource.com/#/q/I08c1cd97978c0a1008a4d06a4dec7411f74d399c), [b/447530724](https://issuetracker.google.com/issues/447530724))
+-- Add `AppFunctionTextResource` API ([I7d54f](https://android-review.googlesource.com/#/q/I7d54f8f56818addcc43de8bf20960a5a62c4f48d), [b/447530724](https://issuetracker.google.com/issues/447530724))
+-- Add `AppFunctionOneOfTypeMetadata` API ([I12c67](https://android-review.googlesource.com/#/q/I12c67479b526332fa58a03164ccb51cd5daddcd6), [b/449915612](https://issuetracker.google.com/issues/449915612))
+-- Drop Compat suffix from Service APIs. ([Ib9291](https://android-review.googlesource.com/#/q/Ib9291c5faeb6caf1dac723b81b7642350f812674), [b/449797980](https://issuetracker.google.com/issues/449797980), [b/449797980](https://issuetracker.google.com/issues/449797980))
+-- Support build `AppFunctionData` from `AllOfType` ([Ib1176](https://android-review.googlesource.com/#/q/Ib11763755ead6155aaa8919779ffc262e1d69227), [b/447535093](https://issuetracker.google.com/issues/447535093))
+-- Add get/set Parcelable API(s) in `AppFunctionData` ([I3aec7](https://android-review.googlesource.com/#/q/I3aec78ef958a7c9d26d430b1033f51bbbe903de0), [b/447530985](https://issuetracker.google.com/issues/447530985))
++* Add `ResourceHolder` API ([I08c1c](https://android-review.googlesource.com/#/q/I08c1cd97978c0a1008a4d06a4dec7411f74d399c), [b/447530724](https://issuetracker.google.com/issues/447530724))
++* Add `AppFunctionTextResource` API ([I7d54f](https://android-review.googlesource.com/#/q/I7d54f8f56818addcc43de8bf20960a5a62c4f48d), [b/447530724](https://issuetracker.google.com/issues/447530724))
++* Add `AppFunctionOneOfTypeMetadata` API ([I12c67](https://android-review.googlesource.com/#/q/I12c67479b526332fa58a03164ccb51cd5daddcd6), [b/449915612](https://issuetracker.google.com/issues/449915612))
++* Drop Compat suffix from Service APIs. ([Ib9291](https://android-review.googlesource.com/#/q/Ib9291c5faeb6caf1dac723b81b7642350f812674), [b/449797980](https://issuetracker.google.com/issues/449797980), [b/449797980](https://issuetracker.google.com/issues/449797980))
++* Support build `AppFunctionData` from `AllOfType` ([Ib1176](https://android-review.googlesource.com/#/q/Ib11763755ead6155aaa8919779ffc262e1d69227), [b/447535093](https://issuetracker.google.com/issues/447535093))
++* Add get/set Parcelable API(s) in `AppFunctionData` ([I3aec7](https://android-review.googlesource.com/#/q/I3aec78ef958a7c9d26d430b1033f51bbbe903de0), [b/447530985](https://issuetracker.google.com/issues/447530985))
+ 
+ **Bug Fixes**
+ 
+-- Fix the issue that ignoring nullable required field would fail when constructing `AppFunctionData` ([I52195](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3791966))
+-- Fix the issue that using `List<PendingIntent>` with `AppFunction` would fail at compile time ([Iebde7](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3795955))
+-- Fix the issue that `ByteArray`'s metadata was generated incorrectly as `List<ByteArray>` ([I2e499](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3810704))
++* Fix the issue that ignoring nullable required field would fail when constructing `AppFunctionData` ([I52195](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3791966))
++* Fix the issue that using `List<PendingIntent>` with `AppFunction` would fail at compile time ([Iebde7](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3795955))
++* Fix the issue that `ByteArray`’s metadata was generated incorrectly as `List<ByteArray>` ([I2e499](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3810704))
+ 
+ ### Version 1.0.0-alpha05
+ 
+@@ -137,18 +149,18 @@ October 08, 2025
+ 
+ **New Features**
+ 
+-- Enforce required fields are provided when constructing `AppFunctionData`
+-- Validating `AppFunctionData` against constraint values
++* Enforce required fields are provided when constructing `AppFunctionData`
++* Validating `AppFunctionData` against constraint values
+ 
+ **API Changes**
+ 
+-- Add `AppFunctionService` Compat API(s). ([I2f1b1](https://android-review.googlesource.com/#/q/I2f1b1450f3a2402698b43e3559fcfcd0c34b0e64), [b/445388953](https://issuetracker.google.com/issues/445388953))
++* Add `AppFunctionService` Compat API(s). ([I2f1b1](https://android-review.googlesource.com/#/q/I2f1b1450f3a2402698b43e3559fcfcd0c34b0e64), [b/445388953](https://issuetracker.google.com/issues/445388953))
+ 
+ **Bug Fixes**
+ 
+-- Add required field `AppFunctionsData` check. ([I36b16](https://android-review.googlesource.com/#/q/I36b16cd87e420d1dbbb8918a11cfd3df9570911c), [b/394553462](https://issuetracker.google.com/issues/394553462))
+-- Fix the issue that parameter optional state was not respected when overriding an interface.
+-- Generate an empty XML file even when no `AppFunctions` are present since `AppSearch` expects the corresponding file specified in the App manifest.
++* Add required field `AppFunctionsData` check. ([I36b16](https://android-review.googlesource.com/#/q/I36b16cd87e420d1dbbb8918a11cfd3df9570911c), [b/394553462](https://issuetracker.google.com/issues/394553462))
++* Fix the issue that parameter optional state was not respected when overriding an interface.
++* Generate an empty XML file even when no `AppFunctions` are present since `AppSearch` expects the corresponding file specified in the App manifest.
+ 
+ ### Version 1.0.0-alpha04
+ 
+@@ -158,7 +170,7 @@ September 10, 2025
+ 
+ **Bug Fixes**
+ 
+-- Fix R8 issues for release builds.
++* Fix R8 issues for release builds.
+ 
+ ### Version 1.0.0-alpha03
+ 
+@@ -168,34 +180,34 @@ August 13, 2025
+ 
+ **New Features**
+ 
+-- Use KDoc(s) as `AppFunction` descriptions
+-- Restrict values for Int and String types using `AppFunctionIntValueConstraint` and `AppFunctionStringValueConstraint` annotations, respectively.
+-- Specify a natural language description for large language models and a user visible description displayed within agent apps.
+-- Automatically grant permissions to URI(s) returned from an app function using `AppFunctionUriGrant` class.
+-- Write Robolectric tests using `AppFunctionTestRule` for testing your app function setup.
++* Use KDoc(s) as `AppFunction` descriptions
++* Restrict values for Int and String types using `AppFunctionIntValueConstraint` and `AppFunctionStringValueConstraint` annotations, respectively.
++* Specify a natural language description for large language models and a user visible description displayed within agent apps.
++* Automatically grant permissions to URI(s) returned from an app function using `AppFunctionUriGrant` class.
++* Write Robolectric tests using `AppFunctionTestRule` for testing your app function setup.
+ 
+ **API Changes**
+ 
+-- Add `AppFunctionStringValueConstraint` ([I10e3f](https://android-review.googlesource.com/#/q/I10e3fdff4693e4bf2088d170c0ac654457e8411c))
+-- Add `AppFunctionIntValueConstraint` ([Ifda13](https://android-review.googlesource.com/#/q/Ifda13b0c50b2caa57de6bd7844b987ce72e70379))
+-- Refactor `AppFunctionPrimitiveTypeMetadata` to specific data type classes. ([I1a3b2](https://android-review.googlesource.com/#/q/I1a3b2e308411bf070c485d90fbe70e399a92642e))
+-- Add description field in `AppFunctionResponseMetadata` ([I2332b](https://android-review.googlesource.com/#/q/I2332bb9f5cd75c6269c3b1d671a38e0cb3b20d3d))
+-- Remove permission requirement from `setAppFunctionEnabled` API ([I1b92a](https://android-review.googlesource.com/#/q/I1b92a6627801c98aa5fd0e49445092467b9120b9))
+-- Add description field in `AppFunctionParameterMetadata` ([I40a67](https://android-review.googlesource.com/#/q/I40a67b95d3f6616e0d747f1be317bb758e1697e6))
+-- Add `AppFunctionUriGrant` ([I67ca9](https://android-review.googlesource.com/#/q/I67ca988737fbe065ce8874f5b9b233c218a2f85b))
+-- Add `resolveAppFunctionAppMetadata` API. ([I17408](https://android-review.googlesource.com/#/q/I174089a944187498e16190cb931197cf1b763fc4))
+-- Add `isDescribedByKdoc` in `@AppFunctionSerializable` annotation ([Ie14e7](https://android-review.googlesource.com/#/q/Ie14e74525a708d7d775c1c0ef579f2349b06e5e8))
+-- Add description field in `AppFunctionDataTypeMetadata` ([I1bcac](https://android-review.googlesource.com/#/q/I1bcacafddd42cd5190655d3d6b343c5058384e5e))
+-- Return `AppPackageMetadata` from `observeAppFunctions` API. ([I68c7e](https://android-review.googlesource.com/#/q/I68c7e47ea7f2dfc7094ae5c19978fbb3263a6868))
+-- Add description field in `AppFunctionMetadata` ([I060e2](https://android-review.googlesource.com/#/q/I060e22469b217a09008ca291d6d76b9d76cf268a))
+-- Add `AppFunctionTestRule` ([Id5ed0](https://android-review.googlesource.com/#/q/Id5ed0992d87e1587fb9e3c4a96a6d9f6b3c33724))
+-- Add `isDescribedByKdoc` in `@AppFunction` annotation ([Ia84d2](https://android-review.googlesource.com/#/q/Ia84d2a381fce668eec266c3555779be61b419315))
++* Add `AppFunctionStringValueConstraint` ([I10e3f](https://android-review.googlesource.com/#/q/I10e3fdff4693e4bf2088d170c0ac654457e8411c))
++* Add `AppFunctionIntValueConstraint` ([Ifda13](https://android-review.googlesource.com/#/q/Ifda13b0c50b2caa57de6bd7844b987ce72e70379))
++* Refactor `AppFunctionPrimitiveTypeMetadata` to specific data type classes. ([I1a3b2](https://android-review.googlesource.com/#/q/I1a3b2e308411bf070c485d90fbe70e399a92642e))
++* Add description field in `AppFunctionResponseMetadata` ([I2332b](https://android-review.googlesource.com/#/q/I2332bb9f5cd75c6269c3b1d671a38e0cb3b20d3d))
++* Remove permission requirement from `setAppFunctionEnabled` API ([I1b92a](https://android-review.googlesource.com/#/q/I1b92a6627801c98aa5fd0e49445092467b9120b9))
++* Add description field in `AppFunctionParameterMetadata` ([I40a67](https://android-review.googlesource.com/#/q/I40a67b95d3f6616e0d747f1be317bb758e1697e6))
++* Add `AppFunctionUriGrant` ([I67ca9](https://android-review.googlesource.com/#/q/I67ca988737fbe065ce8874f5b9b233c218a2f85b))
++* Add `resolveAppFunctionAppMetadata` API. ([I17408](https://android-review.googlesource.com/#/q/I174089a944187498e16190cb931197cf1b763fc4))
++* Add `isDescribedByKdoc` in `@AppFunctionSerializable` annotation ([Ie14e7](https://android-review.googlesource.com/#/q/Ie14e74525a708d7d775c1c0ef579f2349b06e5e8))
++* Add description field in `AppFunctionDataTypeMetadata` ([I1bcac](https://android-review.googlesource.com/#/q/I1bcacafddd42cd5190655d3d6b343c5058384e5e))
++* Return `AppPackageMetadata` from `observeAppFunctions` API. ([I68c7e](https://android-review.googlesource.com/#/q/I68c7e47ea7f2dfc7094ae5c19978fbb3263a6868))
++* Add description field in `AppFunctionMetadata` ([I060e2](https://android-review.googlesource.com/#/q/I060e22469b217a09008ca291d6d76b9d76cf268a))
++* Add `AppFunctionTestRule` ([Id5ed0](https://android-review.googlesource.com/#/q/Id5ed0992d87e1587fb9e3c4a96a6d9f6b3c33724))
++* Add `isDescribedByKdoc` in `@AppFunction` annotation ([Ia84d2](https://android-review.googlesource.com/#/q/Ia84d2a381fce668eec266c3555779be61b419315))
+ 
+ **Bug Fixes**
+ 
+-- `AppFunctionManagerCompat` only supports U+ devices ([Ifa8d0](https://android-review.googlesource.com/#/q/Ifa8d06581a37fabcd8f68b1ab6c89ae889ed57ae))
+-- Add property descriptions of shared serializable types in `AppFunction`'s metadata xml ([I2aab2](https://android-review.googlesource.com/#/q/I2aab2c3148393e6177c20963dd5a274d38defce2))
+-- Add a description element in generated `AppFunction`'s metadata xml ([Ie5bf6](https://android-review.googlesource.com/#/q/Ie5bf6e021da58c3779a8e463a1e3366637e27c08))
++* `AppFunctionManagerCompat` only supports U+ devices ([Ifa8d0](https://android-review.googlesource.com/#/q/Ifa8d06581a37fabcd8f68b1ab6c89ae889ed57ae))
++* Add property descriptions of shared serializable types in `AppFunction`'s metadata xml ([I2aab2](https://android-review.googlesource.com/#/q/I2aab2c3148393e6177c20963dd5a274d38defce2))
++* Add a description element in generated `AppFunction`'s metadata xml ([Ie5bf6](https://android-review.googlesource.com/#/q/Ie5bf6e021da58c3779a8e463a1e3366637e27c08))
+ 
+ ### Version 1.0.0-alpha02
+ 
+@@ -205,18 +217,18 @@ June 4, 2025
+ 
+ **New Features**
+ 
+-- Support Android 16 API(s).
+-- Better support for parameterized `AppFunctionSerializable(s)` at compile time.
++* Support Android 16 API(s).
++* Better support for parameterized `AppFunctionSerializable(s)` at compile time.
+ 
+ **API Changes**
+ 
+-- Introduced `AppFunctionSchemaDefinition` API, enabling agents to define their own predefined function schemas.
++* Introduced `AppFunctionSchemaDefinition` API, enabling agents to define their own predefined function schemas.
+ 
+ **Bug Fixes**
+ 
+-- Error handling for missing runtime enabled state of `AppFunctions`.
+-- Minor bugfix in `observeAppFunctions` API to observe changes in `AppFunctionComponentMetadata`.
+-- Additional error logs.
++* Error handling for missing runtime enabled state of `AppFunctions`.
++* Minor bugfix in `observeAppFunctions` API to observe changes in `AppFunctionComponentMetadata`.
++* Additional error logs.
+ 
+ ### Version 1.0.0-alpha01
+ 
+@@ -228,6 +240,6 @@ May 7, 2025
+ 
+ The `AppFunctions` Jetpack library is built on top of `android.app.appfunctions` platform APIs. This library simplifies exposing your app's functionality to the Assistant and allows the Assistant to interact with the app's exposed functions.
+ 
+-- **`androidx.appfunctions:appfunctions`** : Core client APIs for managing (enable/disable) and interacting with (search/execute) `AppFunctions`.
+-- **`androidx.appfunctions:appfunctions-service`** : Service-side APIs to easily expose your app's functionalities as `AppFunctions`.
+-- **`androidx.appfunctions:appfunctions-compiler`** : Required KSP compiler to generate necessary code for exposing `AppFunctions`.
+\ No newline at end of file
++* **`androidx.appfunctions:appfunctions`**: Core client APIs for managing (enable/disable) and interacting with (search/execute) `AppFunctions`.
++* **`androidx.appfunctions:appfunctions-service`**: Service-side APIs to easily expose your app's functionalities as `AppFunctions`.
++* **`androidx.appfunctions:appfunctions-compiler`**: Required KSP compiler to generate necessary code for exposing `AppFunctions`.
+\ No newline at end of file

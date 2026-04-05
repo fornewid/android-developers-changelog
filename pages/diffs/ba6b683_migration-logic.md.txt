@@ -1,0 +1,173 @@
+diff --git a/docs/agents/skills/play/play-billing-library-version-upgrade/references/migration-logic.md b/docs/agents/skills/play/play-billing-library-version-upgrade/references/migration-logic.md
+index fc10170..6c8451c 100644
+--- a/docs/agents/skills/play/play-billing-library-version-upgrade/references/migration-logic.md
++++ b/docs/agents/skills/play/play-billing-library-version-upgrade/references/migration-logic.md
+@@ -1,23 +1,9 @@
+ ---
+-title: Play Billing  |  Android Developers
++title: https://developer.android.com/agents/skills/play/play-billing-library-version-upgrade/references/migration-logic
+ url: https://developer.android.com/agents/skills/play/play-billing-library-version-upgrade/references/migration-logic
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-* [Play Monetization](https://developer.android.com/google/play/billing)
+-
+-Send feedback
+-
+-
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ ## High-Impact Migration Logic
+ 
+ ### 1. Connection Management (The v8+ Reconnection Shift)
+@@ -25,28 +11,22 @@ Save and categorize content based on your preferences.
+ **Intent**: Move from developer-managed state (manual retries) to
+ library-managed state.
+ 
+-* **Remove**: Manual `startConnection()` calls or retry timers inside
+-  `onServiceDisconnected()`.
+-* **Add**: `.enableAutoServiceReconnection()` to `BillingClient.Builder`.
+-* **Logic**: In v8+, the library handles transient disconnections. Your
+-  `onServiceDisconnected` must only be used for logging or updating UI state
+-  (e.g., "Billing service temporarily unavailable").
++- **Remove** : Manual `startConnection()` calls or retry timers inside `onServiceDisconnected()`.
++- **Add** : `.enableAutoServiceReconnection()` to `BillingClient.Builder`.
++- **Logic** : In v8+, the library handles transient disconnections. Your `onServiceDisconnected` must only be used for logging or updating UI state (e.g., "Billing service temporarily unavailable").
+ 
+-### 2. Product Querying & Models (The v5-v8 Architectural Shift)
++### 2. Product Querying \& Models (The v5-v8 Architectural Shift)
+ 
+ **Intent**: Support the "One Product, Multiple Offers" model introduced in v5
+ and refined in v8.
+ 
+-* **Data Model Swap**:
+-  + **Legacy**: `SkuDetails` (1:1 mapping of ID to price).
+-  + **Modern**: `ProductDetails`. A single `ProductDetails` can contain
+-    multiple `SubscriptionOfferDetails` (Base Plans + Offers).
+-* **Result Handling (v8+ Logic)**:
+-  + **Change**: `queryProductDetailsAsync` no longer returns a list in the
+-    listener.
+-  + **New Intent**: You must receive a `QueryProductDetailsResult` object.
+-  + **Refactor**:
+-    `kotlin
++- **Data Model Swap** :
++  - **Legacy** : `SkuDetails` (1:1 mapping of ID to price).
++  - **Modern** : `ProductDetails`. A single `ProductDetails` can contain multiple `SubscriptionOfferDetails` (Base Plans + Offers).
++- **Result Handling (v8+ Logic)** :
++  - **Change** : `queryProductDetailsAsync` no longer returns a list in the listener.
++  - **New Intent** : You must receive a `QueryProductDetailsResult` object.
++  - **Refactor** : `kotlin
+     // PBL 8+ Pattern
+     billingClient.queryProductDetailsAsync(params) { result: QueryProductDetailsResult ->
+     val responseCode = result.billingResult.responseCode
+@@ -54,71 +34,49 @@ and refined in v8.
+     // Process list...
+     }`
+ 
+-### 3. Subscription Modernization (v6 & v7)
++### 3. Subscription Modernization (v6 \& v7)
+ 
+ **Intent**: Support "Base Plans" and "Offers" instead of legacy standalone SKUs.
+ 
+-* **Subscription Upgrades/Downgrades (v6+)**:
++- **Subscription Upgrades/Downgrades (v6+)**:
+ 
+-  + **Legacy**: `setOldSkuPurchaseToken()` in `BillingFlowParams`.
+-  + **Modern**: Use `SubscriptionUpdateParams`. You must specify the
+-    `PurchaseToken` of the existing subscription and the
+-    `ReplacementMode` (which replaces the deprecated `ProrationMode`).
+-  + **Logic**: Verify that the `ReplacementMode` matches the business intent
+-    (e.g., `CHARGE_FULL_PRICE` versus `WITH_TIME_PRORATION`).
+-* **Installment Plans (v7+)**:
++  - **Legacy** : `setOldSkuPurchaseToken()` in `BillingFlowParams`.
++  - **Modern** : Use `SubscriptionUpdateParams`. You must specify the `PurchaseToken` of the existing subscription and the `ReplacementMode` (which replaces the deprecated `ProrationMode`).
++  - **Logic** : Verify that the `ReplacementMode` matches the business intent (e.g., `CHARGE_FULL_PRICE` versus `WITH_TIME_PRORATION`).
++- **Installment Plans (v7+)**:
+ 
+-  + **Intent**: Allow users to pay for a subscription in monthly
+-    installments.
+-  + **Check**: Look for `InstallmentPlanDetails` within
+-    `SubscriptionOfferDetails`. If the app supports high-ticket
+-    subscriptions, it is mandatory to implement the
+-    `installmentPlanDetails` UI.
++  - **Intent**: Allow users to pay for a subscription in monthly installments.
++  - **Check** : Look for `InstallmentPlanDetails` within `SubscriptionOfferDetails`. If the app supports high-ticket subscriptions, it is mandatory to implement the `installmentPlanDetails` UI.
+ 
+-### 4. Purchase Handling & History (v6+)
++### 4. Purchase Handling \& History (v6+)
+ 
+ **Intent**: Move away from local-only purchase caches to real-time status
+ checks.
+ 
+-* **Active Purchases**:
+-  + **Deprecated**: `queryPurchases()` (synchronous).
+-  + **Mandatory**: `queryPurchasesAsync()`. You must pass
+-    `QueryPurchasesParams` containing the `ProductType` (`INAPP` or `SUBS`).
+-* **Purchase History (Pagination Intent)**:
+-  + **v6+ Change**: `queryPurchaseHistoryAsync` is optimized for pagination.
+-  + **Logic**: If the app has thousands of historical transactions, verify
+-    you are using the `PurchaseHistoryRecord` list correctly to avoid memory
+-    overhead.
+-
+-### 5. Security & Pending Transactions (The "Always On" Rule)
+-
+-* **Mandatory**: `enablePendingPurchases()` has been required since v3, but in
+-  v8+, verify that it is called before `.build()`. You must also include
+-  `.enableOneTimeProducts()` on the `enablePendingPurchases()` builder.
+-* **Optional**: If the app sells prepaid subscriptions, you must also include
+-  `.enablePrepaidPlans()`.
+-* **Intent**: This handles "Slow/Delayed" payments (like cash or bank
+-  transfers). Without this, the app will crash on initialization in modern
+-  versions.
+-
+-### 6. SDK & Environment Requirements
+-
+-* **PBL 7.0**: Requires `compileSdk 34` or higher.
+-* **PBL 8.0**: Requires `compileSdk 35`.
+-* **Kotlin**: Verify that `kotlin-stdlib` is updated to at least 1.9.x to
+-  support new library coroutine extensions.
++- **Active Purchases** :
++  - **Deprecated** : `queryPurchases()` (synchronous).
++  - **Mandatory** : `queryPurchasesAsync()`. You must pass `QueryPurchasesParams` containing the `ProductType` (`INAPP` or `SUBS`).
++- **Purchase History (Pagination Intent)** :
++  - **v6+ Change** : `queryPurchaseHistoryAsync` is optimized for pagination.
++  - **Logic** : If the app has thousands of historical transactions, verify you are using the `PurchaseHistoryRecord` list correctly to avoid memory overhead.
+ 
+-### 7. User-Facing Features (Post-Upgrade Recommendations)
++### 5. Security \& Pending Transactions (The "Always On" Rule)
+ 
+-Once the upgrade is complete, the following features are enabled by these
+-versions:
++- **Mandatory** : `enablePendingPurchases()` has been required since v3, but in v8+, verify that it is called before `.build()`. You must also include `.enableOneTimeProducts()` on the `enablePendingPurchases()` builder.
++- **Optional** : If the app sells prepaid subscriptions, you must also include `.enablePrepaidPlans()`.
++- **Intent**: This handles "Slow/Delayed" payments (like cash or bank transfers). Without this, the app will crash on initialization in modern versions.
+ 
+-* **v7**: **Installments** (Monthly payments for annual plans).
+-* **v8**: **Prepaid Plans** (Users can top-up time without auto-renewing).
+-* **v8**: **Personalized Pricing** (Show legal disclosure if price varies by
+-  user).
++### 6. SDK \& Environment Requirements
+ 
++- **PBL 7.0** : Requires `compileSdk 34` or higher.
++- **PBL 8.0** : Requires `compileSdk 35`.
++- **Kotlin** : Verify that `kotlin-stdlib` is updated to at least 1.9.x to support new library coroutine extensions.
+ 
++### 7. User-Facing Features (Post-Upgrade Recommendations)
+ 
++Once the upgrade is complete, the following features are enabled by these
++versions:
+ 
+-Send feedback
+\ No newline at end of file
++- **v7** : **Installments** (Monthly payments for annual plans).
++- **v8** : **Prepaid Plans** (Users can top-up time without auto-renewing).
++- **v8** : **Personalized Pricing** (Show legal disclosure if price varies by user).
+\ No newline at end of file

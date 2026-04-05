@@ -1,0 +1,12 @@
+diff --git a/docs/stories/apps/vlc-android-tv.md b/docs/stories/apps/vlc-android-tv.md
+index 616bd5b..49b04c7 100644
+--- a/docs/stories/apps/vlc-android-tv.md
++++ b/docs/stories/apps/vlc-android-tv.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ![](/static/images/distribute/stories/vlc-icon.svg)
+ 
+ [VLC](https://www.videolan.org/vlc/index.html)—a free, open

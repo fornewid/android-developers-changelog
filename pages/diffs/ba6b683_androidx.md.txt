@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx.md b/docs/jetpack/androidx.md
+index 4d624ac..01fa1d5 100644
+--- a/docs/jetpack/androidx.md
++++ b/docs/jetpack/androidx.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The `androidx` namespace comprises the [Android Jetpack](/jetpack) libraries. Like the Support Library, libraries in the `androidx` namespace ship separately from the Android platform and provide backward compatibility across Android releases.
+ 
+ AndroidX is a major improvement to the original Android

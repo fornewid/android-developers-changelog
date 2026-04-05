@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/management/api/events/resetAll.md b/docs/games/services/management/api/events/resetAll.md
+index 8c061ba..16761f9 100644
+--- a/docs/games/services/management/api/events/resetAll.md
++++ b/docs/games/services/management/api/events/resetAll.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Requires [authorization](#auth)**
+ 
+ Resets all player progress on all events for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.

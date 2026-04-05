@@ -1,0 +1,12 @@
+diff --git a/docs/kotlin/multiplatform/navigation-event.md b/docs/kotlin/multiplatform/navigation-event.md
+index d6546b7..f320e92 100644
+--- a/docs/kotlin/multiplatform/navigation-event.md
++++ b/docs/kotlin/multiplatform/navigation-event.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Navigation Event is a library that provides a Kotlin Multiplatform (KMP)
+ solution for integrating system-level navigation events into your application.
+ It is designed to be the foundational layer for handling navigation directions

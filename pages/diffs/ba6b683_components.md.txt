@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/tv/guides/components.md b/docs/design/ui/tv/guides/components.md
+index 44c1e76..0b7bda8 100644
+--- a/docs/design/ui/tv/guides/components.md
++++ b/docs/design/ui/tv/guides/components.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Components are interactive building blocks for creating a user interface.
+ They can be organized into five categories based on their purpose:
+ Action, containment, navigation, selection, and text input.

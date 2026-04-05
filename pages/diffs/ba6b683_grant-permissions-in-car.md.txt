@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/flows/grant-permissions-in-car.md b/docs/design/ui/cars/guides/flows/grant-permissions-in-car.md
+index d98a593..1373a36 100644
+--- a/docs/design/ui/cars/guides/flows/grant-permissions-in-car.md
++++ b/docs/design/ui/cars/guides/flows/grant-permissions-in-car.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ On Android Automotive OS, the permissions flow is the same as granting
+ permissions on Android Auto, except the user sees permission
+ details on the car screen instead of the phone.

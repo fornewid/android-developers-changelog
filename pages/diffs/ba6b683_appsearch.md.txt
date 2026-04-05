@@ -1,0 +1,375 @@
+diff --git a/docs/develop/ui/views/search/appsearch.md b/docs/develop/ui/views/search/appsearch.md
+index 083da0c..30d85a8 100644
+--- a/docs/develop/ui/views/search/appsearch.md
++++ b/docs/develop/ui/views/search/appsearch.md
+@@ -1,28 +1,40 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/search/appsearch
++title: AppSearch  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/search/appsearch
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# AppSearch Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ AppSearch is a high-performance on-device search solution for managing locally
+ stored, structured data. It contains APIs for indexing data and retrieving data
+ using full-text search. Applications can use AppSearch to offer custom in-app
+ search capabilities, allowing users to search for content even while offline.
+-![Diagram illustrating indexing and searching within AppSearch](https://developer.android.com/static/images/guide/topics/search/appsearch.png)
++
++![Diagram illustrating indexing and searching within AppSearch](/static/images/guide/topics/search/appsearch.png)
+ 
+ AppSearch provides the following features:
+ 
+-- A fast, mobile-first storage implementation with low I/O use
+-- Highly efficient indexing and querying over large data sets
+-- Multi-language support, such as English and Spanish
+-- Relevance ranking and usage scoring
++* A fast, mobile-first storage implementation with low I/O use
++* Highly efficient indexing and querying over large data sets
++* Multi-language support, such as English and Spanish
++* Relevance ranking and usage scoring
+ 
+ Due to lower I/O use, AppSearch offers lower latency for indexing and searching
+ over large datasets compared to SQLite. AppSearch simplifies cross-type queries
+ by supporting single queries whereas SQLite merges results from multiple tables.
+ 
+-To illustrate AppSearch's features, let's take the example of a music
+-application that manages users' favorite songs and allows users to easily search
++To illustrate AppSearch’s features, let’s take the example of a music
++application that manages users’ favorite songs and allows users to easily search
+ for them. Users enjoy music from around the world with song titles in different
+ languages, which AppSearch natively supports indexing and querying for. When the
+ user searches for a song by title or artist name, the application simply passes
+@@ -37,9 +49,9 @@ application's `build.gradle` file:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ dependencies {
+-    def appsearch_version = "1.1.0"
++    def appsearch_version = "1.2.0-alpha01"
+ 
+     implementation "androidx.appsearch:appsearch:$appsearch_version"
+     // Use kapt instead of annotationProcessor if writing Kotlin classes
+@@ -59,9 +71,9 @@ dependencies {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ dependencies {
+-    val appsearch_version = "1.1.0"
++    val appsearch_version = "1.2.0-alpha01"
+ 
+     implementation("androidx.appsearch:appsearch:$appsearch_version")
+     // Use annotationProcessor instead of kapt if writing Java classes
+@@ -87,7 +99,7 @@ The following diagram illustrates AppSearch concepts and their interactions.
+ ![Diagram
+ outline of a client application and its interactions with the following
+ AppSearch concepts: AppSearch database, schema, schema types, documents,
+-session, and search.](https://developer.android.com/static/images/search/appsearch_overview_diagram.png)
++session, and search.](/static/images/search/appsearch_overview_diagram.png)
+ **Figure 1.** Diagram of AppSearch concepts: AppSearch database, schema,
+ schema types, documents, session, and search.
+ 
+@@ -98,7 +110,7 @@ schema. Client applications create a database by providing their application
+ context and a database name. Databases can be opened only by the application
+ that created them. When a database is opened, a session is returned to interact
+ with the database. The session is the entry point for calling the AppSearch APIs
+-and remains open until it's closed by the client application.
++and remains open until it’s closed by the client application.
+ 
+ ### Schema and schema types
+ 
+@@ -133,7 +145,7 @@ or matches another search specification. Results are ordered based on their
+ score and ranking strategy. Search results are represented by pages that you can
+ retrieve sequentially.
+ 
+-AppSearch offers [customizations](https://developer.android.com/reference/androidx/appsearch/app/SearchSpec)
++AppSearch offers [customizations](/reference/androidx/appsearch/app/SearchSpec)
+ for search, such as filters, page size configuration, and snippeting.
+ 
+ ## Platform Storage, Local Storage or Play Services Storage
+@@ -151,7 +163,7 @@ interchanged based on a device's version:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ if (BuildCompat.isAtLeastS()) {
+     appSearchSessionFuture.setFuture(
+         PlatformStorage.createSearchSession(
+@@ -180,7 +192,7 @@ if (BuildCompat.isAtLeastS()) {
+ 
+ ### Java
+ 
+-```java
++```
+ if (BuildCompat.isAtLeastS()) {
+     mAppSearchSessionFuture.setFuture(PlatformStorage.createSearchSession(
+             new PlatformStorage.SearchContext.Builder(mContext, DATABASE_NAME)
+@@ -203,22 +215,22 @@ securely share data with other applications to allow them to search over
+ your app's data as well. Read-only application data sharing is granted
+ using a certificate handshake to ensure that the other application has
+ permission to read the data. Read more about this API in the documentation
+-for [`setSchemaTypeVisibilityForPackage()`](https://developer.android.com/reference/androidx/appsearch/app/SetSchemaRequest.Builder#setSchemaTypeVisibilityForPackage(java.lang.String,%20boolean,%20androidx.appsearch.app.PackageIdentifier)).
++for [`setSchemaTypeVisibilityForPackage()`](/reference/androidx/appsearch/app/SetSchemaRequest.Builder#setSchemaTypeVisibilityForPackage(java.lang.String,%20boolean,%20androidx.appsearch.app.PackageIdentifier)).
+ 
+ Additionally with `PlatformStorage`, data that is indexed can be displayed
+ on System UI surfaces. Applications can opt out of some or all of their data
+ being displayed on System UI surfaces. Read more about this API in the
+-documentation for [`setSchemaTypeDisplayedBySystem()`](https://developer.android.com/reference/androidx/appsearch/app/SetSchemaRequest.Builder#setSchemaTypeDisplayedBySystem(java.lang.String,%20boolean)).
++documentation for [`setSchemaTypeDisplayedBySystem()`](/reference/androidx/appsearch/app/SetSchemaRequest.Builder#setSchemaTypeDisplayedBySystem(java.lang.String,%20boolean)).
+ 
+ | Features | `LocalStorage` (compatible with Android 5.0+) | `PlatformStorage` (compatible with Android 12+) | `PlayServicesStorage` (compatible with Android 5.0+) |
+-|---|---|---|---|
+-| Efficient full-text search | Yes | Yes | Yes |
+-| Multi-language support | Yes | Yes | Yes |
+-| Reduced binary size | No | Yes | Yes |
+-| Application-to-application data sharing | No | Yes | Yes |
+-| Capability to display data on System UI surfaces | No | Yes | No |
+-| Unlimited document size and count can be indexed | Yes | No | No |
+-| Faster operations without additional binder latency | Yes | No | No |
++| --- | --- | --- | --- |
++| Efficient full-text search |  |  |  |
++| Multi-language support |  |  |  |
++| Reduced binary size |  |  |  |
++| Application-to-application data sharing |  |  |  |
++| Capability to display data on System UI surfaces |  |  |  |
++| Unlimited document size and count can be indexed |  |  |  |
++| Faster operations without additional binder latency |  |  |  |
+ 
+ There are additional trade-offs to consider when choosing between `LocalStorage`
+ and `PlatformStorage`. Because `PlatformStorage` wraps Jetpack APIs over the
+@@ -239,17 +251,17 @@ with a hypothetical note-keeping application.
+ 
+ The first step to integrate with AppSearch is to write a document class to
+ describe the data to insert into the database. Mark a class as a document class
+-by using the [`@Document`](https://developer.android.com/reference/androidx/appsearch/annotation/Document)
++by using the [`@Document`](/reference/androidx/appsearch/annotation/Document)
+ annotation.You can use instances of the document class to put documents in and
+ retrieve documents from the database.
+ 
+ The following code defines a Note document class with a
+-[`@Document.StringProperty`](https://developer.android.com/reference/androidx/appsearch/annotation/Document.StringProperty) annotated
+-field for indexing a Note object's text.
++[`@Document.StringProperty`](/reference/androidx/appsearch/annotation/Document.StringProperty) annotated
++field for indexing a Note object’s text.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ @Document
+ public data class Note(
+ 
+@@ -276,7 +288,7 @@ public data class Note(
+ 
+ ### Java
+ 
+-```java
++```
+ @Document
+ public class Note {
+ 
+@@ -331,13 +343,13 @@ public class Note {
+ 
+ You must create a database before working with documents. The following code
+ creates a new database with the name `notes_app` and gets a `ListenableFuture`
+-for an [`AppSearchSession`](https://developer.android.com/reference/androidx/appsearch/app/AppSearchSession),
++for an [`AppSearchSession`](/reference/androidx/appsearch/app/AppSearchSession),
+ which represents the connection to the database and provides the APIs for
+ database operations.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val context: Context = getApplicationContext()
+ val sessionFuture = LocalStorage.createSearchSession(
+     LocalStorage.SearchContext.Builder(context, /*databaseName=*/"notes_app")
+@@ -347,7 +359,7 @@ val sessionFuture = LocalStorage.createSearchSession(
+ 
+ ### Java
+ 
+-```java
++```
+ Context context = getApplicationContext();
+ ListenableFuture<AppSearchSession> sessionFuture = LocalStorage.createSearchSession(
+        new LocalStorage.SearchContext.Builder(context, /*databaseName=*/ "notes_app")
+@@ -364,7 +376,7 @@ schema by providing the document class as a schema type.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val setSchemaRequest = SetSchemaRequest.Builder().addDocumentClasses(Note::class.java)
+     .build()
+ val setSchemaFuture = Futures.transformAsync(
+@@ -377,7 +389,7 @@ val setSchemaFuture = Futures.transformAsync(
+ 
+ ### Java
+ 
+-```java
++```
+ SetSchemaRequest setSchemaRequest = new SetSchemaRequest.Builder().addDocumentClasses(Note.class)
+        .build();
+ ListenableFuture<SetSchemaResponse> setSchemaFuture =
+@@ -394,7 +406,7 @@ and a listener is attached to process the result of the put operation.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val note = Note(
+     namespace="user1",
+     id="noteId",
+@@ -432,7 +444,7 @@ Futures.addCallback(
+ 
+ ### Java
+ 
+-```java
++```
+ Note note = new Note(/*namespace=*/"user1", /*id=*/
+                 "noteId", /*score=*/ 10, /*text=*/ "Buy fresh fruit!");
+ 
+@@ -467,7 +479,7 @@ database for documents that belong to the `user1` namespace.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val searchSpec = SearchSpec.Builder()
+     .addFilterNamespaces("user1")
+     .build();
+@@ -496,7 +508,7 @@ Futures.addCallback(
+ 
+ ### Java
+ 
+-```java
++```
+ SearchSpec searchSpec = new SearchSpec.Builder()
+        .addFilterNamespaces("user1")
+        .build();
+@@ -521,15 +533,15 @@ Futures.addCallback(searchFuture,
+ 
+ ### Iterate through SearchResults
+ 
+-Searches return a [`SearchResults`](https://developer.android.com/reference/androidx/appsearch/app/SearchResults)
+-instance, which gives access to the pages of [`SearchResult`](https://developer.android.com/reference/androidx/appsearch/app/SearchResult) objects. Each `SearchResult`
+-holds its matched [`GenericDocument`](https://developer.android.com/reference/androidx/appsearch/app/GenericDocument), the general form of a
++Searches return a [`SearchResults`](/reference/androidx/appsearch/app/SearchResults)
++instance, which gives access to the pages of [`SearchResult`](/reference/androidx/appsearch/app/SearchResult) objects. Each `SearchResult`
++holds its matched [`GenericDocument`](/reference/androidx/appsearch/app/GenericDocument), the general form of a
+ document that all documents are converted to. The following code gets the first
+ page of search results and converts the result back into a `Note` document.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ Futures.transform(
+     searchResults?.nextPage,
+     { page: List<SearchResult>? ->
+@@ -557,7 +569,7 @@ Futures.transform(
+ 
+ ### Java
+ 
+-```java
++```
+ Futures.transform(searchResults.getNextPage(), page -> {
+   // Gets GenericDocument from SearchResult.
+   GenericDocument genericDocument = page.get(0).getGenericDocument();
+@@ -587,7 +599,7 @@ document from the database by Id.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val removeRequest = RemoveByDocumentIdRequest.Builder("user1")
+     .addIds("noteId")
+     .build()
+@@ -602,7 +614,7 @@ val removeFuture = Futures.transformAsync(
+ 
+ ### Java
+ 
+-```java
++```
+ RemoveByDocumentIdRequest removeRequest = new RemoveByDocumentIdRequest.Builder("user1")
+        .addIds("noteId")
+        .build();
+@@ -614,13 +626,13 @@ ListenableFuture<AppSearchBatchResult<String, Void>> removeFuture =
+ ### Persist to disk
+ 
+ Updates to a database should be periodically persisted to disk by calling
+-[`requestFlush()`](https://developer.android.com/reference/androidx/appsearch/app/AppSearchSession#requestFlush()). The
++[`requestFlush()`](/reference/androidx/appsearch/app/AppSearchSession#requestFlush()). The
+ following code calls `requestFlush()` with a listener to determine if the call
+ was successful.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val requestFlushFuture = Futures.transformAsync(
+     sessionFuture,
+     { session -> session?.requestFlush() }, mExecutor
+@@ -639,7 +651,7 @@ Futures.addCallback(requestFlushFuture, object : FutureCallback<Void?> {
+ 
+ ### Java
+ 
+-```java
++```
+ ListenableFuture<Void> requestFlushFuture = Futures.transformAsync(sessionFuture,
+         session -> session.requestFlush(), mExecutor);
+ 
+@@ -658,14 +670,14 @@ Futures.addCallback(requestFlushFuture, new FutureCallback<Void>() {
+ 
+ ### Close a session
+ 
+-An [`AppSearchSession`](https://developer.android.com/reference/androidx/appsearch/app/AppSearchSession)
++An [`AppSearchSession`](/reference/androidx/appsearch/app/AppSearchSession)
+ should be closed when an application will no longer be calling any database
+ operations. The following code closes the AppSearch session that was opened
+ previously and persists all updates to disk.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val closeFuture = Futures.transform<AppSearchSession, Unit>(sessionFuture,
+     { session ->
+         session?.close()
+@@ -676,7 +688,7 @@ val closeFuture = Futures.transform<AppSearchSession, Unit>(sessionFuture,
+ 
+ ### Java
+ 
+-```java
++```
+ ListenableFuture<Void> closeFuture = Futures.transform(sessionFuture, session -> {
+    session.close();
+    return null;
+@@ -689,7 +701,9 @@ To learn more about AppSearch, see the following additional resources:
+ 
+ ### Samples
+ 
+-- [Android AppSearch Sample (Kotlin)](https://github.com/android/search-samples/tree/main/AppSearchSample), a note taking app that uses AppSearch to index a user's notes and allows users to search over their notes.
++* [Android AppSearch Sample (Kotlin)](https://github.com/android/search-samples/tree/main/AppSearchSample),
++  a note taking app that uses AppSearch to index a user's notes and allows users
++  to search over their notes.
+ 
+ ## Provide feedback
+ 

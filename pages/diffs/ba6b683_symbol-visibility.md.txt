@@ -1,0 +1,276 @@
+diff --git a/docs/ndk/guides/symbol-visibility.md b/docs/ndk/guides/symbol-visibility.md
+index 649775c..6a4c461 100644
+--- a/docs/ndk/guides/symbol-visibility.md
++++ b/docs/ndk/guides/symbol-visibility.md
+@@ -1,25 +1,15 @@
+ ---
+-title: Control symbol visibility  |  Android NDK  |  Android Developers
++title: https://developer.android.com/ndk/guides/symbol-visibility
+ url: https://developer.android.com/ndk/guides/symbol-visibility
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Home](https://developer.android.com/)
+-* [NDK](https://developer.android.com/ndk)
+-* [Develop](https://developer.android.com/develop)
+-* [Guides](https://developer.android.com/ndk/guides)
+-
+-# Control symbol visibility Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ Controlling symbol visibility can reduce APK size, improve load times, and help
+ other developers avoid accidental dependencies on implementation details. The
+ most robust way to do this is with version scripts.
+ 
+ [Version scripts](https://www.gnu.org/software/gnulib/manual/html_node/LD-Version-Scripts.html) are a feature of ELF linkers that can be used as a more robust
+-form of `-fvisibility=hidden`. See [Benefits](#benefits) below for a more
++form of `-fvisibility=hidden`. See [Benefits](https://developer.android.com/ndk/guides/symbol-visibility#benefits) below for a more
+ detailed explanation, or read on to learn how to use version scripts in your
+ project.
+ 
+@@ -34,50 +24,41 @@ process. For the topic of this doc, don't worry about terms like "symbol
+ version". If you're not defining multiple versions of the same symbol, "symbol
+ version" is just an arbitrary named grouping of symbols in the file.
+ 
+-**Important:** In this document "linker" without additional qualifications refers to
+-the [static linker](https://en.wikipedia.org/wiki/Linker_(computing)), `ld.lld`, which is run as part of the build process. The
+-[dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker), `/system/bin/linker64`, which is the part of the Android OS
+-that loads those libraries at run-time, will be explicitly named as such.
++> [!IMPORTANT]
++> **Important:** In this document "linker" without additional qualifications refers to the [static linker](https://en.wikipedia.org/wiki/Linker_(computing)), `ld.lld`, which is run as part of the build process. The [dynamic linker](https://en.wikipedia.org/wiki/Dynamic_linker), `/system/bin/linker64`, which is the part of the Android OS that loads those libraries at run-time, will be explicitly named as such.
+ 
+ If you're a library author (whether your interface is C/C++, or if it's
+ Java/Kotlin and your native code is merely an implementation detail) rather than
+-an app developer, be sure to also read [Advice for middleware vendors](/ndk/guides/middleware-vendors).
++an app developer, be sure to also read [Advice for middleware vendors](https://developer.android.com/ndk/guides/middleware-vendors).
+ 
+ ## Write a version script
+ 
+ In the ideal case, an app (or AAR) that includes native code will contain
+ exactly one shared library, with all its dependencies statically linked into
+ that one library, and the complete public interface of that library is
+-`JNI_OnLoad`. This allows the [benefits](#benefits) described on this page to be
++`JNI_OnLoad`. This allows the [benefits](https://developer.android.com/ndk/guides/symbol-visibility#benefits) described on this page to be
+ applied as broadly as possible. In that case, assuming that library is named
+ `libapp.so`, create a `libapp.map.txt` file (the name doesn't need to match, and
+ the `.map.txt` suffix is just a convention) with the following contents (you can
+ omit the comments):
+ 
+-```
+-# The name used here also doesn't matter. This is the name of the "version"
+-# which matters when the version script is actually used to create multiple
+-# versions of the same symbol, but that's not what we're doing.
+-LIBAPP {
+-  global:
+-    # Every symbol named in this section will have "default" (that is, public)
+-    # visibility. See below for how to refer to C++ symbols without mangling.
+-    JNI_OnLoad;
+-  local:
+-    # Every symbol in this section will have "local" (that is, hidden)
+-    # visibility. The wildcard * is used to indicate that all symbols not listed
+-    # in the global section should be hidden.
+-    *;
+-};
+-```
+-
+-**Note:** Version scripts do not apply when creating static libraries. They can be
+-applied to the code in a static library, but that must be done downstream where
+-the static library is consumed. The only consequence that's likely to be
+-relevant is that if you ship a static library and require certain symbols to be
+-visible (such as your own JNI functions), be sure to document that for the
+-consumers of your library, because if *they* use a version script, they'll need
+-to include your library's public symbols in their version script.
++    # The name used here also doesn't matter. This is the name of the "version"
++    # which matters when the version script is actually used to create multiple
++    # versions of the same symbol, but that's not what we're doing.
++    LIBAPP {
++      global:
++        # Every symbol named in this section will have "default" (that is, public)
++        # visibility. See below for how to refer to C++ symbols without mangling.
++        JNI_OnLoad;
++      local:
++        # Every symbol in this section will have "local" (that is, hidden)
++        # visibility. The wildcard * is used to indicate that all symbols not listed
++        # in the global section should be hidden.
++        *;
++    };
++
++> [!NOTE]
++> **Note:** Version scripts do not apply when creating static libraries. They can be applied to the code in a static library, but that must be done downstream where the static library is consumed. The only consequence that's likely to be relevant is that if you ship a static library and require certain symbols to be visible (such as your own JNI functions), be sure to document that for the consumers of your library, because if *they* use a version script, they'll need to include your library's public symbols in their version script.
+ 
+ If your app has more than one shared library, you must add one version script
+ per library.
+@@ -85,49 +66,48 @@ per library.
+ For JNI libraries that are not using `JNI_OnLoad` and `RegisterNatives()`, you
+ can instead list each of the JNI methods with their JNI mangled names.
+ 
+-**Tip:** If you're not already using `RegisterNatives()`, you probably should be! See [the
+-Native Libraries section of JNI tips](/training/articles/perf-jni#native-libraries) for more information.
++> [!TIP]
++> **Tip:** If you're not already using `RegisterNatives()`, you probably should be! See [the
++> Native Libraries section of JNI tips](https://developer.android.com/training/articles/perf-jni#native-libraries) for more information.
+ 
+ For non-JNI libraries (dependencies of JNI libraries, typically), you'll need to
+ enumerate your full API surface. If your interface is C++ rather than C, you can
+ use `extern "C++" { ... }` in a version script the same way you would in a
+ header file. For example:
+ 
+-```
+-LIBAPP {
+-  global:
+-    extern "C++" {
+-      # A class that exposes only some methods. Note that any methods that are
+-      # `private` in the class will still need to be visible in the library if
+-      # they are called by `inline` or `template` functions.
+-      #
+-      # Non-static members do not need to be enumerated as they do not have
+-      # symbols associated with them, but static members must be included.
+-      #
+-      # The * exposes all overloads of the MyClass constructor, but note that it
+-      # will also expose methods like MyClass::MyClassNonConstructor.
+-      MyClass::MyClass*;
+-      MyClass::DoSomething;
+-      MyClass::static_member;
+-
+-      # All members/methods of a class, including those that are `private` in
+-      # the class.
+-      MyOtherClass::*;
+-      #
+-
+-      # If you wish to only expose some overloads, name the full signature.
+-      # You'll need to wrap the name in quotes, otherwise you'll get a warning
+-      # like "ignoring invalid character '(' in script" and the symbol will
+-      # remain hidden (pass -Wl,--no-undefined-version to convert that warning
+-      # to an error as described below).
+-      "MyClass::MyClass()";
+-      "MyClass::MyClass(const MyClass&)";
+-      "MyClass::~MyClass()";
++    LIBAPP {
++      global:
++        extern "C++" {
++          # A class that exposes only some methods. Note that any methods that are
++          # `private` in the class will still need to be visible in the library if
++          # they are called by `inline` or `template` functions.
++          #
++          # Non-static members do not need to be enumerated as they do not have
++          # symbols associated with them, but static members must be included.
++          #
++          # The * exposes all overloads of the MyClass constructor, but note that it
++          # will also expose methods like MyClass::MyClassNonConstructor.
++          MyClass::MyClass*;
++          MyClass::DoSomething;
++          MyClass::static_member;
++
++          # All members/methods of a class, including those that are `private` in
++          # the class.
++          MyOtherClass::*;
++          #
++
++          # If you wish to only expose some overloads, name the full signature.
++          # You'll need to wrap the name in quotes, otherwise you'll get a warning
++          # like "ignoring invalid character '(' in script" and the symbol will
++          # remain hidden (pass -Wl,--no-undefined-version to convert that warning
++          # to an error as described below).
++          "MyClass::MyClass()";
++          "MyClass::MyClass(const MyClass&)";
++          "MyClass::~MyClass()";
++        };
++      local:
++        *;
+     };
+-  local:
+-    *;
+-};
+-```
+ 
+ ## Use the version script when building
+ 
+@@ -136,40 +116,36 @@ appropriate to your build system below.
+ 
+ ### CMake
+ 
+-```
+-# Assuming that your app library's target is named "app":
+-target_link_options(app
+-    PRIVATE
+-    -Wl,--version-script,${CMAKE_SOURCE_DIR}/libapp.map.txt
+-    # This causes the linker to emit an error when a version script names a
+-    # symbol that is not found, rather than silently ignoring that line.
+-    -Wl,--no-undefined-version
+-)
+-
+-# Without this, changes to the version script will not cause the library to
+-# relink.
+-set_target_properties(app
+-    PROPERTIES
+-    LINK_DEPENDS ${CMAKE_SOURCE_DIR}/libapp.map.txt
+-)
+-```
++    # Assuming that your app library's target is named "app":
++    target_link_options(app
++        PRIVATE
++        -Wl,--version-script,${CMAKE_SOURCE_DIR}/libapp.map.txt
++        # This causes the linker to emit an error when a version script names a
++        # symbol that is not found, rather than silently ignoring that line.
++        -Wl,--no-undefined-version
++    )
++
++    # Without this, changes to the version script will not cause the library to
++    # relink.
++    set_target_properties(app
++        PROPERTIES
++        LINK_DEPENDS ${CMAKE_SOURCE_DIR}/libapp.map.txt
++    )
+ 
+ ### ndk-build
+ 
+-```
+-# Add to an existing `BUILD_SHARED_LIBRARY` stanza (use `+=` instead of `:=` if
+-# the module already sets `LOCAL_LDFLAGS`):
+-LOCAL_LDFLAGS := -Wl,--version-script,$(LOCAL_PATH)/libapp.map.txt
++    # Add to an existing `BUILD_SHARED_LIBRARY` stanza (use `+=` instead of `:=` if
++    # the module already sets `LOCAL_LDFLAGS`):
++    LOCAL_LDFLAGS := -Wl,--version-script,$(LOCAL_PATH)/libapp.map.txt
+ 
+-# This causes the linker to emit an error when a version script names a symbol
+-# that is not found, rather than silently ignoring that line.
+-LOCAL_ALLOW_UNDEFINED_VERSION_SCRIPT_SYMBOLS := false
++    # This causes the linker to emit an error when a version script names a symbol
++    # that is not found, rather than silently ignoring that line.
++    LOCAL_ALLOW_UNDEFINED_VERSION_SCRIPT_SYMBOLS := false
+ 
+-# ndk-build doesn't have a mechanism for specifying that libapp.map.txt is a
+-# dependency of the module. You may need to do a clean build or otherwise force
+-# the library to rebuild (such as by changing a source file) when altering the
+-# version script.
+-```
++    # ndk-build doesn't have a mechanism for specifying that libapp.map.txt is a
++    # dependency of the module. You may need to do a clean build or otherwise force
++    # the library to rebuild (such as by changing a source file) when altering the
++    # version script.
+ 
+ ### Other
+ 
+@@ -178,9 +154,7 @@ that.
+ 
+ Otherwise, use the following linker flags:
+ 
+-```
+--Wl,--version-script,path/to/libapp.map.txt -Wl,--no-version-undefined
+-```
++    -Wl,--version-script,path/to/libapp.map.txt -Wl,--no-version-undefined
+ 
+ How those are specified will depend on your build system, but there's typically
+ an option named `LDFLAGS` or something similar. `path/to/libapp.map.txt` needs
+@@ -204,7 +178,7 @@ symbols allows the linker to remove functions that are not called, reducing the
+ size of the library.
+ 
+ Library load performance is improved for similar reasons: [relocations](https://en.wikipedia.org/wiki/Relocation_(computing)) are
+-required for visible symbols because those symbols are [interposable](/ndk/guides/that's%0Ahow%20behaviors%20like%20%60operator%20new%60%20and%20%60operator%20delete%60%20replacement%20work).
++required for visible symbols because those symbols are [interposable](https://developer.android.com/ndk/guides/that's%0Ahow%20behaviors%20like%20%60operator%20new%60%20and%20%60operator%20delete%60%20replacement%20work).
+ That's almost never the desired behavior, but it what's required by the ELF
+ specification, so it's the default. but because the linker can't know which (if
+ any) symbols you intend to be interposable, it must create relocations for every

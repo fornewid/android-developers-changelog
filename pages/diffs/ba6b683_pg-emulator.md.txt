@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/pg-emulator.md b/docs/games/playgames/pg-emulator.md
+index a8c1589..28d44ce 100644
+--- a/docs/games/playgames/pg-emulator.md
++++ b/docs/games/playgames/pg-emulator.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ The [Google Play Games on PC Developer Emulator](/games/playgames/emulator) is a developer-focused emulator for
+ Google Play Games on PC. Unlike the player experience, you can install and
+ debug your own packages. You also can simulate various player configurations
+@@ -435,6 +434,4 @@ to test the end to end player experience after the initial release.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

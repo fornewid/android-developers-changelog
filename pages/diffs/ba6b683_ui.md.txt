@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/tif/ui.md b/docs/training/tv/tif/ui.md
+index c6fe10d..a2faa46 100644
+--- a/docs/training/tv/tif/ui.md
++++ b/docs/training/tv/tif/ui.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ In the live TV experience, the user changes channels and is presented with
+ channel and program information briefly before the information disappears. Other types of information,
+ such as messages ("DO NOT ATTEMPT AT HOME"), subtitles, or ads may need to persist. As with any TV

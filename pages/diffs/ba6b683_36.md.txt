@@ -1,0 +1,115 @@
+diff --git a/docs/studio/releases/fixed-bugs/emulator/36.md b/docs/studio/releases/fixed-bugs/emulator/36.md
+index 5a9e71c..e367bb3 100644
+--- a/docs/studio/releases/fixed-bugs/emulator/36.md
++++ b/docs/studio/releases/fixed-bugs/emulator/36.md
+@@ -1,9 +1,16 @@
+ ---
+-title: https://developer.android.com/studio/releases/fixed-bugs/emulator/36
++title: Android Emulator 36 Closed Issues  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/studio/releases/fixed-bugs/emulator/36
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Android Studio](https://developer.android.com/studio)
++
++# Android Emulator 36 Closed Issues Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ ### Android Emulator 36.5.10 Stable
+ 
+ *This release includes minor fixes and improvements.*
+@@ -30,9 +37,9 @@ source: md.txt
+ 
+ ### Android Emulator 36.5.6 Canary
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #333628462](https://issuetracker.google.com/issues/333628462) crashpad_handler \>90% CPU usage | |
++| Fixed Issues | |
++| --- | --- |
++| **Emulator** | |  | | --- | | [Issue #333628462](https://issuetracker.google.com/issues/333628462)  crashpad\_handler >90% CPU usage | |
+ 
+ ### Android Emulator 36.5.4 Canary
+ 
+@@ -60,9 +67,9 @@ source: md.txt
+ 
+ ### Android Emulator 36.4.7 Canary
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #471008659](https://issuetracker.google.com/issues/471008659) Memory leak on the Host side of the emulator when opening/closing activities | |
++| Fixed Issues | |
++| --- | --- |
++| **Emulator** | |  | | --- | | [Issue #471008659](https://issuetracker.google.com/issues/471008659)  Memory leak on the Host side of the emulator when opening/closing activities | |
+ 
+ ### Android Emulator 36.4.6 Canary
+ 
+@@ -106,9 +113,9 @@ source: md.txt
+ 
+ ### Android Emulator 36.3.6 Canary
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #452843321](https://issuetracker.google.com/issues/452843321) Degraded performance when pushing large files into the emulator on Android API 34 and above | |
++| Fixed Issues | |
++| --- | --- |
++| **Emulator** | |  | | --- | | [Issue #452843321](https://issuetracker.google.com/issues/452843321)  Degraded performance when pushing large files into the emulator on Android API 34 and above | |
+ 
+ ### Android Emulator 36.3.5 Canary
+ 
+@@ -158,15 +165,13 @@ source: md.txt
+ 
+ The following updates are included in this release:
+ 
+-- Change the WiFi packets handler to go through netsimd.
+-- Update libslirp stack
+-- Support for WiFi Direct (WifiP2p) between multiple AVDs, mDNS (network service discovery), and also hotspot (SoftAp)
+-
+-<br />
++* Change the WiFi packets handler to go through netsimd.
++* Update libslirp stack
++* Support for WiFi Direct (WifiP2p) between multiple AVDs, mDNS (network service discovery), and also hotspot (SoftAp)
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #340322888](https://issuetracker.google.com/issues/340322888) Can't start AVD when there are not empty space on device | | [Issue #150758736](https://issuetracker.google.com/issues/150758736) Intermittent single-byte data loss on TCP connections in emulator | |
++| Fixed Issues | |
++| --- | --- |
++| **Emulator** | |  | | --- | | [Issue #340322888](https://issuetracker.google.com/issues/340322888)  Can't start AVD when there are not empty space on device | | [Issue #150758736](https://issuetracker.google.com/issues/150758736)  Intermittent single-byte data loss on TCP connections in emulator | |
+ 
+ ### Android Emulator 36.2.5 Canary
+ 
+@@ -174,9 +179,9 @@ The following updates are included in this release:
+ 
+ ### Android Emulator 36.2.3 Canary
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #434774381](https://issuetracker.google.com/issues/434774381) Guest kernel crashed after quick boot for API36 and 35 (maybe more) on Windows 11 using WHPX on i7-11850H | |
++| Fixed Issues | |
++| --- | --- |
++| **Emulator** | |  | | --- | | [Issue #434774381](https://issuetracker.google.com/issues/434774381)  Guest kernel crashed after quick boot for API36 and 35 (maybe more) on Windows 11 using WHPX on i7-11850H | |
+ 
+ ### Android Emulator 36.1.9 Stable
+ 
+@@ -196,13 +201,13 @@ The following updates are included in this release:
+ 
+ ### Android Emulator 36.1.7 Canary
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #419157428](https://issuetracker.google.com/issues/419157428) UTF-8 characters in the user name or in the AVD path could prevent the emulator to start | |
++| Fixed Issues | |
++| --- | --- |
++| **Emulator** | |  | | --- | | [Issue #419157428](https://issuetracker.google.com/issues/419157428)  UTF-8 characters in the user name or in the AVD path could prevent the emulator to start | |
+ 
+ ### Android Emulator 36.1.6 Canary
+ 
+-If you are experiencing issues with launching emulator on X11, then consider using software rendering. Please see [this page](https://developer.android.com/studio/run/emulator-acceleration#avd-gpu) for how to configure software rendering.
++If you are experiencing issues with launching emulator on X11, then consider using software rendering. Please see [this page](/studio/run/emulator-acceleration#avd-gpu) for how to configure software rendering.
+ 
+ *This release includes minor fixes and improvements.*
+ 

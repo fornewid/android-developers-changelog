@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/mqf.md b/docs/training/tv/mqf.md
+index 5623907..ef6f205 100644
+--- a/docs/training/tv/mqf.md
++++ b/docs/training/tv/mqf.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Media Quality framework is being introduced in Android 16 for
+ Android TV with the objective of establishing a standardized API for Picture
+ Quality (PQ) and Audio Quality (AQ) adjustments. The primary goal is to provide

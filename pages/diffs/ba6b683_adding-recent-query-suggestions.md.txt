@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/search/adding-recent-query-suggestions.md b/docs/develop/ui/views/search/adding-recent-query-suggestions.md
+index b052dc3..96c6873 100644
+--- a/docs/develop/ui/views/search/adding-recent-query-suggestions.md
++++ b/docs/develop/ui/views/search/adding-recent-query-suggestions.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose.

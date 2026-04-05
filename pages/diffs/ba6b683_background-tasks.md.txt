@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks.md b/docs/develop/background-work/background-tasks.md
+index 8989968..4aeb377 100644
+--- a/docs/develop/background-work/background-tasks.md
++++ b/docs/develop/background-work/background-tasks.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Apps frequently need to do more than one thing at a time. The Android APIs
+ provide a lot of different ways to let you do this. Choosing the right option is
+ very important; an option might be right for one situation but very wrong for

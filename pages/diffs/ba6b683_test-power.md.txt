@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/power/test-power.md b/docs/topic/performance/power/test-power.md
+index 1fe1065..77458ed 100644
+--- a/docs/topic/performance/power/test-power.md
++++ b/docs/topic/performance/power/test-power.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The power management features released in Android 9 (API level 28) affect all apps running on
+ this version, whether the apps target this version or not. It's important to make sure your app
+ behaves properly on these devices.

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/video/animation-in-compose.md b/docs/develop/ui/compose/quick-guides/content/video/animation-in-compose.md
+index 707e71f..d53730b 100644
+--- a/docs/develop/ui/compose/quick-guides/content/video/animation-in-compose.md
++++ b/docs/develop/ui/compose/quick-guides/content/video/animation-in-compose.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ See how to animate state values, using transitions, animating visibility or size
+ changes and crossfades by using the Compose animation APIs.
+ 

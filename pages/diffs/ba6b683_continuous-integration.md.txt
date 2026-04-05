@@ -1,0 +1,12 @@
+diff --git a/docs/studio/projects/continuous-integration.md b/docs/studio/projects/continuous-integration.md
+index 12f4292..9238088 100644
+--- a/docs/studio/projects/continuous-integration.md
++++ b/docs/studio/projects/continuous-integration.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Continuous integration systems let you automatically build and test your app
+ every time you check in updates to your source control system. You can use any
+ continuous integration tool that can initiate a Gradle build to build your

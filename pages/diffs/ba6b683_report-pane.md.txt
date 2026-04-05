@@ -1,0 +1,12 @@
+diff --git a/docs/agi/frame-trace-gui/report-pane.md b/docs/agi/frame-trace-gui/report-pane.md
+index 9714d8d..e272ea5 100644
+--- a/docs/agi/frame-trace-gui/report-pane.md
++++ b/docs/agi/frame-trace-gui/report-pane.md
+@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
+ 
+ 
+ 
+-
+ ![Report pane](/static/images/agi/report-pane/report-pane.png)
+ 
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2022.1.1.md b/docs/studio/releases/fixed-bugs/studio/2022.1.1.md
+index 2b1ea4a..04287a9 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2022.1.1.md
++++ b/docs/studio/releases/fixed-bugs/studio/2022.1.1.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ### Android Studio Electric Eel Patch 2 (2022.1.1.21)
+ 
+ **Released together with:**

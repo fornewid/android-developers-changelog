@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/accessibility/talkback-support.md b/docs/training/tv/accessibility/talkback-support.md
+index 8bcb4fa..e1a85df 100644
+--- a/docs/training/tv/accessibility/talkback-support.md
++++ b/docs/training/tv/accessibility/talkback-support.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ TV apps sometimes have use cases that make it difficult for users who rely on
+ [TalkBack](/guide/topics/ui/accessibility/testing#talkback) to use the app. To provide a better TalkBack experience for these
+ users, review each of the sections in this guide and implement changes in your

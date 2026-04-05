@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md b/docs/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md
+index 9ef4309..0d9fe9a 100644
+--- a/docs/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md
++++ b/docs/develop/ui/compose/migrate/interoperability-apis/views-in-compose.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can include an Android View hierarchy in a Compose UI. This approach is
+ particularly useful if you want to use UI elements that are not yet available in
+ Compose, like

@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/foundations/design-process.md b/docs/design/ui/cars/guides/foundations/design-process.md
+index 8fb6c21..1e772a8 100644
+--- a/docs/design/ui/cars/guides/foundations/design-process.md
++++ b/docs/design/ui/cars/guides/foundations/design-process.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The type of app and its use case — whether it's for use while driving or parked
+ — determines the design process for *Android for Cars* apps.
+ 

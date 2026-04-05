@@ -1,0 +1,12 @@
+diff --git a/docs/training/monitoring-device-state/docking-monitoring.md b/docs/training/monitoring-device-state/docking-monitoring.md
+index 527834e..89db04d 100644
+--- a/docs/training/monitoring-device-state/docking-monitoring.md
++++ b/docs/training/monitoring-device-state/docking-monitoring.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android-powered devices can be docked into different kinds of docks. These
+ include car docks, home docks, and digital or analog docks. The dock state is
+ typically closely linked to the charging state, as many docks provide power to

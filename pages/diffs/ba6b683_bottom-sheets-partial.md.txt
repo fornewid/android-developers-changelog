@@ -1,0 +1,110 @@
+diff --git a/docs/develop/ui/compose/components/bottom-sheets-partial.md b/docs/develop/ui/compose/components/bottom-sheets-partial.md
+index 5e0251e..82c0a3f 100644
+--- a/docs/develop/ui/compose/components/bottom-sheets-partial.md
++++ b/docs/develop/ui/compose/components/bottom-sheets-partial.md
+@@ -1,26 +1,35 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/components/bottom-sheets-partial
++title: Partial bottom sheet  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/components/bottom-sheets-partial
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-You can partially show a [bottom sheet](https://developer.android.com/develop/ui/compose/components/bottom-sheets) and then let the user either make it
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Partial bottom sheet Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++You can partially show a [bottom sheet](/develop/ui/compose/components/bottom-sheets) and then let the user either make it
+ full screen or dismiss it.
+ 
+-To do so, pass your [`ModalBottomSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable) an instance of [`SheetState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SheetState)
++To do so, pass your [`ModalBottomSheet`](/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable) an instance of [`SheetState`](/reference/kotlin/androidx/compose/material3/SheetState)
+ with `skipPartiallyExpanded` set to `false`.
+ 
+-> [!NOTE]
+-> **Note:** `ModalBottomSheet` is experimental. File any issues on the [issue
+-> tracker](https://issuetracker.google.com/issues/new?component=856989&template=1425922).
++**Note:** `ModalBottomSheet` is experimental. File any issues on the [issue
++tracker](https://issuetracker.google.com/issues/new?component=856989&template=1425922).
+ 
+ ## Example
+ 
+ This example demonstrates how you can use the `sheetState` property of
+ `ModalBottomSheet` to display the sheet only partially at first:
+ 
+-
+-```kotlin
++```
+ @Composable
+ fun PartialBottomSheet() {
+     var showBottomSheet by remember { mutableStateOf(false) }
+@@ -52,32 +61,45 @@ fun PartialBottomSheet() {
+         }
+     }
+ }
+-```
+ 
+-<br />
++BottomSheet.kt
++```
+ 
+ ### Key points about the code
+ 
+ In this example, note the following:
+ 
+-- `showBottomSheet` controls whether the app displays the bottom sheet.
+-- `sheetState` is an instance of [`SheetState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SheetState) where `skipPartiallyExpanded` is false.
+-- [`ModalBottomSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable) takes a modifier that ensures it fills the screen when fully expanded.
+-- `ModalBottomSheet` takes `sheetState` as the value for its `sheetState` parameter.
+-  - As a result, the sheet only partially displays when first opened. The user can then drag or swipe it to make it full screen or dismiss it.
+-- The `onDismissRequest` lambda controls what happens when the user tries to dismiss the bottom sheet. In this case, it only removes the sheet.
++* `showBottomSheet` controls whether the app displays the bottom sheet.
++* `sheetState` is an instance of [`SheetState`](/reference/kotlin/androidx/compose/material3/SheetState) where
++  `skipPartiallyExpanded` is false.
++* [`ModalBottomSheet`](/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable) takes a modifier that ensures it fills the screen
++  when fully expanded.
++* `ModalBottomSheet` takes `sheetState` as the value for its `sheetState`
++  parameter.
++  + As a result, the sheet only partially displays when first opened. The
++    user can then drag or swipe it to make it full screen or dismiss it.
++* The `onDismissRequest` lambda controls what happens when the user tries to
++  dismiss the bottom sheet. In this case, it only removes the sheet.
+ 
+ ### Results
+ 
+ When the user first presses the button, the sheet displays partially:
+-![A bottom sheet that initially only fills part of the screen. The user can swipe to fill the screen with it, or dismiss it](https://developer.android.com/static/develop/ui/compose/images/components/bottom-sheet-partial.png) **Figure 1.** Partially displayed bottom sheet.
++
++![A bottom sheet that initially only fills part of the screen. The user can swipe to fill the screen with it, or dismiss it](/static/develop/ui/compose/images/components/bottom-sheet-partial.png)
++
++
++**Figure 1.** Partially displayed bottom sheet.
+ 
+ If the user swipes up on the sheet, it fills the screen:
+-![A bottom sheet that the user has expanded to fill the screen.](https://developer.android.com/static/develop/ui/compose/images/components/bottom-sheet-fullscreen.png) **Figure 2.** Full-screen bottom sheet.
+ 
+-> [!NOTE]
+-> **Note:** If you set `skipPartiallyExpanded` to true, the sheet opens immediately to full screen.
++![A bottom sheet that the user has expanded to fill the screen.](/static/develop/ui/compose/images/components/bottom-sheet-fullscreen.png)
++
++
++**Figure 2.** Full-screen bottom sheet.
++
++**Note:** If you set `skipPartiallyExpanded` to true, the sheet opens immediately to
++full screen.
+ 
+ ## Additional resources
+ 
+-- [Bottom sheets](https://developer.android.com/develop/ui/compose/components/bottom-sheets)
+\ No newline at end of file
++* [Bottom sheets](/develop/ui/compose/components/bottom-sheets)
+\ No newline at end of file

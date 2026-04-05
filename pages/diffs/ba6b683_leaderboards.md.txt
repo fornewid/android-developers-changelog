@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/leaderboards.md b/docs/games/pgs/leaderboards.md
+index 682fb4c..406925a 100644
+--- a/docs/games/pgs/leaderboards.md
++++ b/docs/games/pgs/leaderboards.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ Leaderboards can be a fun way to drive competition among your players, both for
+ your most hardcore fans (who will be fighting for the top spot in a public
+ leaderboard) and for your more casual players (who will be interested in
+@@ -347,6 +346,4 @@ resources:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

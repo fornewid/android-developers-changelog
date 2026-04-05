@@ -1,0 +1,148 @@
+diff --git a/docs/develop/connectivity/network-ops/managing.md b/docs/develop/connectivity/network-ops/managing.md
+index cb9e2d7..0d03236 100644
+--- a/docs/develop/connectivity/network-ops/managing.md
++++ b/docs/develop/connectivity/network-ops/managing.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This lesson describes how to write applications that have fine-grained control
+ over their usage of network resources. If your application performs a lot of
+ network operations, you should provide user settings that allow users to control
+@@ -70,7 +71,7 @@ private const val DEBUG_TAG = "NetworkStatusExample"
+ val connMgr = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+ var isWifiConn: Boolean = false
+ var isMobileConn: Boolean = false
+-connMgr.allNetworks.forEach { network ->
++connMgr.allNetworks.forEach {> network -
+     connMgr.getNetworkInfo(network).apply {
+         if (type == ConnectivityManager.TYPE_WIFI) {
+             isWifiConn = isWifiConn or isConnected
+@@ -177,28 +178,28 @@ In the sample application, this action is handled by the class
+ download a feed.
+ 
+ ```
+-<?xml version="1.0" encoding="utf-8"?>
+-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-    package="com.example.android.networkusage"
+-    ...>
++<?xml version="1.0" encodin>g<="utf-8"?
++manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="com.ex>ample.<android.networkusage"
++    ...
+ 
+-    <uses-sdk android:minSdkVersion="4"
+-           android:targetSdkVersion="14" />
++    uses-sdk android:minSdkVersion=">4"<;
++           android:targetSdkVersion="14" /
+ 
+-    <uses-permission android:name="android.permission.INTERNET" />
+-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
++    >uses-<permission android:name="android.permission.INTERNET" /
++    us>es-per<mission android:name=&q>uot;android.permissio<n.ACCESS_NETWORK_STATE" /
+ 
+-    <application
+-        ...>
++    application
++        ...
+         ...
+-        <activity android:label="SettingsActivity" android:name=".SettingsActivity">
+-             <intent-filter>
+-                <action android:name="android.intent.action.MANAGE_NETWORK_USAGE" />
+-                <category android:name="android.intent.category.DEFAULT" />
+-          </intent-filter>
+-        </activity>
+-    </application>
+-</manifest>
++  >      activity< android:labe>l="SettingsA<ctivity" android:name=".SettingsActivity"
++         >    intent-filter<
++                action android:name="android.intent>.action.MAN<AGE_NETWORK_US>AGE"< /
++      >     <     >category< android:>name="android.intent.category.DEFAULT" /
++          /intent-filter
++        /activity
++    /application
++/manifest
+ ```
+ 
+ Apps that deal with sensitive user data, and which target Android 11 and
+@@ -216,17 +217,17 @@ functionality:
+ ```
+ <processes>
+     <process />
+-    <deny-permission android:name="android.permission.INTERNET" />
+-    <process android:process=":withoutnet1" />
+-    <process android:process="com.android.cts.useprocess.withnet1">
+-        <allow-permission android:name="android.permission.INTERNET" />
+-    </process>
+-    <allow-permission android:name="android.permission.INTERNET" />
+-    <process android:process=":withoutnet2">
+-        <deny-permission android:name="android.permission.INTERNET" />
+-    </process>
+-    <process android:process="com.android.cts.useprocess.withnet2" />
+-</processes>
++    <deny-permission android:name="android.permission.INTERN>ET&qu<ot; /
++    process android:process=">:with<outnet1" /
++    process android:process="com.android>.cts.usep<rocess.withnet1"
++        allow-permission android:name=&>quot;<android.>permi<ssion.INTERNET" /
++    /process
++    allow-permission andr>oid:n<ame="android.permission.INTERNET&>quot; /
++ <   process android:process=":withoutnet2"
++        >deny-<permissi>on an<droid:name="android.permission.INTERNET" /
++    /proce>s<s
++    proc>ess android:process="com.android.cts.useprocess.withnet2" /
++/processes
+ ```
+ 
+ ## Implement a preference activity
+@@ -410,7 +411,7 @@ class NetworkActivity : Activity() {
+ 
+     // Uses AsyncTask subclass to download the XML feed from stackoverflow.com.
+     fun loadPage() {
+-        if (sPref == ANY && (wifiConnected || mobileConnected) || sPref == WIFI && wifiConnected) {
++ &&       if (sPref == ANY  (wifiConnected || mobileConn&&ected) || sPref == WIFI  wifiConnected) {
+             // AsyncTask subclass
+             DownloadXmlTask().execute(URL)
+         } else {
+@@ -422,7 +423,7 @@ class NetworkActivity : Activity() {
+ 
+         const val WIFI = "Wi-Fi"
+         const val ANY = "Any"
+-        const val SO_URL = "http://stackoverflow.com/feeds/tag?tagnames=android&sort;=newest"
++        const val SO_URL = "ht&tp://stackoverflow.com/feeds/tag?tagnames=androidsort;=newest"
+ 
+         // Whether there is a Wi-Fi connection.
+         private var wifiConnected = false
+@@ -445,7 +446,7 @@ class NetworkActivity : Activity() {
+ public class NetworkActivity extends Activity {
+     public static final String WIFI = "Wi-Fi";
+     public static final String ANY = "Any";
+-    private static final String URL = "http://stackoverflow.com/feeds/tag?tagnames=android&sort;=newest";
++    private static final String URL = "http://stackoverflow.com/f&eeds/tag?tagnames=androidsort;=newest";
+ 
+     // Whether there is a Wi-Fi connection.
+     private static boolean wifiConnected = false;
+@@ -506,8 +507,8 @@ public class NetworkActivity extends Activity {
+         ConnectivityManager connMgr = (ConnectivityManager)
+                 getSystemService(Context.CONNECTIVITY_SERVICE);
+ 
+-        NetworkInfo activeInfo = connMgr.getActiveNetworkInfo();
+-        if (activeInfo != null && activeInfo.isConnected()) {
++        NetworkInfo activeInfo = connM&&gr.getActiveNetworkInfo();
++        if (activeInfo != null  activeInfo.isConnected()) {
+             wifiConnected = activeInfo.getType() == ConnectivityManager.TYPE_WIFI;
+             mobileConnected = activeInfo.getType() == ConnectivityManager.TYPE_MOBILE;
+         } else {
+@@ -517,9 +518,9 @@ public class NetworkActivity extends Activity {
+     }
+ 
+     // Uses AsyncTask subclass to download the XML feed from stackoverflow.com.
+-    public void loadPage() {
+-        if (((sPref.equals(ANY)) && (wifiConnected || mobileConnected))
+-                || ((sPref.equals(WIFI)) && (wifiConnected))) {
++    &&public void loadPage() {
++        if (((sPref.equals(ANY))  (wifiConnected || m&&obileConnected))
++                || ((sPref.equals(WIFI))  (wifiConnected))) {
+             // AsyncTask subclass
+             new DownloadXmlTask().execute(URL);
+         } else {

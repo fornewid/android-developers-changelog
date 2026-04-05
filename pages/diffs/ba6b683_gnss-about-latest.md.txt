@@ -1,0 +1,12 @@
+diff --git a/docs/develop/sensors-and-location/sensors/gnss-about-latest.md b/docs/develop/sensors-and-location/sensors/gnss-about-latest.md
+index c1ae024..617436b 100644
+--- a/docs/develop/sensors-and-location/sensors/gnss-about-latest.md
++++ b/docs/develop/sensors-and-location/sensors/gnss-about-latest.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **[GnssLogger v3.1](https://play.google.com/store/apps/details?id=com.google.android.apps.location.gps.gnsslogger)** adds support for performing the following tasks:
+ 
+ * [Detect GNSS jamming and spoofing](/develop/sensors-and-location/sensors/gnss-spoof-jam)

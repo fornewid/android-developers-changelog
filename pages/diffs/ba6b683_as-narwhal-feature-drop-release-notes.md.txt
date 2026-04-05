@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/past-releases/as-narwhal-feature-drop-release-notes.md b/docs/studio/releases/past-releases/as-narwhal-feature-drop-release-notes.md
+index bcfe4d9..5c8f85c 100644
+--- a/docs/studio/releases/past-releases/as-narwhal-feature-drop-release-notes.md
++++ b/docs/studio/releases/past-releases/as-narwhal-feature-drop-release-notes.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The following are new features in Android Studio Narwhal Feature Drop.
+ 
+ ## Patch releases

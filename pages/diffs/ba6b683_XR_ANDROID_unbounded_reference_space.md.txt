@@ -1,0 +1,159 @@
+diff --git a/docs/develop/xr/openxr/extensions/XR_ANDROID_unbounded_reference_space.md b/docs/develop/xr/openxr/extensions/XR_ANDROID_unbounded_reference_space.md
+index ca8b58c..d1e9a4d 100644
+--- a/docs/develop/xr/openxr/extensions/XR_ANDROID_unbounded_reference_space.md
++++ b/docs/develop/xr/openxr/extensions/XR_ANDROID_unbounded_reference_space.md
+@@ -1,9 +1,22 @@
+ ---
+-title: https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_unbounded_reference_space
++title: XR_ANDROID_unbounded_reference_space OpenXR extension  |  Android XR for OpenXR  |  Android Developers
+ url: https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_unbounded_reference_space
+-source: md.txt
++source: html-scrape
+ ---
+ 
++The Android XR SDK has  [reached Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
++
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Android XR](https://developer.android.com/develop/xr)
++* [OpenXR](https://developer.android.com/develop/xr/openxr)
++* [Guides](https://developer.android.com/develop/xr/get-started)
++
++# XR\_ANDROID\_unbounded\_reference\_space OpenXR extension Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ **Name String**
+ 
+ `XR_ANDROID_unbounded_reference_space`
+@@ -61,22 +74,24 @@ To create an `UNBOUNDED_ANDROID` reference space, the application **can** set
+ `XR_REFERENCE_SPACE_TYPE_UNBOUNDED_ANDROID` and pass to
+ [xrCreateReferenceSpace](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrCreateReferenceSpace).
+ 
+-    XrInstance instance; // previously initialized
+-    XrSession session; // previously initialized
+-    XrPosef pose; // previously initialized
+-
+-    // Use the new reference space type in the create info struct
+-    XrReferenceSpaceCreateInfo createInfo = {
+-        .type = XR_REFERENCE_SPACE_CREATE_INFO;
+-        .next = nullptr;
+-        .referenceSpaceType = XR_REFERENCE_SPACE_TYPE_UNBOUNDED_ANDROID;
+-        .poseInReferenceSpace = pose;
+-    }
+-    XrSpace referenceSpace;
+-    CHK_XR(xrCreateReferenceSpace(session, &createInfo, &referenceSpace));
+-
+-    // After usage
+-    CHK_XR(xrDestroySpace(referenceSpace));
++```
++XrInstance instance; // previously initialized
++XrSession session; // previously initialized
++XrPosef pose; // previously initialized
++
++// Use the new reference space type in the create info struct
++XrReferenceSpaceCreateInfo createInfo = {
++    .type = XR_REFERENCE_SPACE_CREATE_INFO;
++    .next = nullptr;
++    .referenceSpaceType = XR_REFERENCE_SPACE_TYPE_UNBOUNDED_ANDROID;
++    .poseInReferenceSpace = pose;
++}
++XrSpace referenceSpace;
++CHK_XR(xrCreateReferenceSpace(session, &createInfo, &referenceSpace));
++
++// After usage
++CHK_XR(xrDestroySpace(referenceSpace));
++```
+ 
+ The `UNBOUNDED_ANDROID` reference space establishes a world-locked origin of the
+ headset's position when the device tracking starts. It is gravity-aligned to
+@@ -90,9 +105,17 @@ An `UNBOUNDED_ANDROID` space maintains stability near the viewer by adjusting
+ its origin over time. It **can** make **slight** and **huge** adjustments as
+ necessary to maintain device tracking.
+ 
+-- The runtime **should** not queue the [XrEventDataReferenceSpaceChangePending](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrEventDataReferenceSpaceChangePending) event in response to **minor adjustments**.
+-- The runtime **should** queue the [XrEventDataReferenceSpaceChangePending](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrEventDataReferenceSpaceChangePending) event in response to **huge adjustments** . For example, the pose in `UNBOUNDED_ANDROID` space is reset due to a tracking loss and the tracking is re-established on a disconnected estimate of the world (a "new map").
+-- The system is constantly updating its understanding of the world and adjusting device tracking. If an application requires a persisted location regardless of tracking resets, an anchor **can** be used in this case.
++* The runtime **should** not queue the
++  [XrEventDataReferenceSpaceChangePending](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrEventDataReferenceSpaceChangePending) event in response to
++  **minor adjustments**.
++* The runtime **should** queue the
++  [XrEventDataReferenceSpaceChangePending](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrEventDataReferenceSpaceChangePending) event in response to
++  **huge adjustments**. For example, the pose in `UNBOUNDED_ANDROID` space is
++  reset due to a tracking loss and the tracking is re-established on a
++  disconnected estimate of the world (a "new map").
++* The system is constantly updating its understanding of the world and
++  adjusting device tracking. If an application requires a persisted location
++  regardless of tracking resets, an anchor **can** be used in this case.
+ 
+ ## Reference space change event
+ 
+@@ -100,26 +123,30 @@ For parameters defined by
+ [XrEventDataReferenceSpaceChangePending](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrEventDataReferenceSpaceChangePending) structure that returned
+ on world changing or optimizing relocalization events:
+ 
+-    typedef struct XrEventDataReferenceSpaceChangePending {
+-        XrStructureType         type;
+-        const void*             next;
+-        XrSession               session;
+-        XrReferenceSpaceType    referenceSpaceType;
+-        XrTime                  changeTime;
+-        XrBool32                poseValid;
+-        XrPosef                 poseInPreviousSpace;
+-    } XrEventDataReferenceSpaceChangePending;
++```
++typedef struct XrEventDataReferenceSpaceChangePending {
++    XrStructureType         type;
++    const void*             next;
++    XrSession               session;
++    XrReferenceSpaceType    referenceSpaceType;
++    XrTime                  changeTime;
++    XrBool32                poseValid;
++    XrPosef                 poseInPreviousSpace;
++} XrEventDataReferenceSpaceChangePending;
++```
+ 
+ ### Member Descriptions
+ 
+-- `referenceSpaceType` is `XR_REFERENCE_SPACE_TYPE_UNBOUNDED_ANDROID`.
+-- `changeTime` will represent the [`XrTime`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrTime) at which relocalization completed.
+-- `poseValid` will be `false` due to the disconnected estimate or `true` after reconnected.
+-- `poseInPreviousSpace` won't be valid when `poseValid` is `false`.
++* `referenceSpaceType` is `XR_REFERENCE_SPACE_TYPE_UNBOUNDED_ANDROID`.
++* `changeTime` will represent the [`XrTime`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrTime) at which
++  relocalization completed.
++* `poseValid` will be `false` due to the disconnected estimate or `true` after
++  reconnected.
++* `poseInPreviousSpace` won't be valid when `poseValid` is `false`.
+ 
+ When views, controllers or other spaces experience tracking loss relative to the
+ `UNBOUNDED_ANDROID` space, applications **can** continue to receive inferred
+-or last-known `position` and `orientation` values. These inferred poses **can** ,
++or last-known `position` and `orientation` values. These inferred poses **can**,
+ for example, be based on neck model updates, inertial dead reckoning, or a
+ last-known position. An application can assume that it will continue to have the
+ `XR_SPACE_LOCATION_POSITION_VALID_BIT` and
+@@ -142,7 +169,7 @@ use.
+ 
+ [XrReferenceSpaceType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrReferenceSpaceType) enumeration is extended with:
+ 
+-- `XR_REFERENCE_SPACE_TYPE_UNBOUNDED_ANDROID`
++* `XR_REFERENCE_SPACE_TYPE_UNBOUNDED_ANDROID`
+ 
+ **New Enums**
+ 
+@@ -154,10 +181,10 @@ use.
+ 
+ **Version History**
+ 
+-- Revision 1, 2024-09-12 (Levana Chen)
+-  - Initial extension description
++* Revision 1, 2024-09-12 (Levana Chen)
++  + Initial extension description
+ 
+-*** ** * ** ***
++---
+ 
+ OpenXR™ and the OpenXR logo are trademarks owned
+ by The Khronos Group Inc. and are registered as a trademark in China,

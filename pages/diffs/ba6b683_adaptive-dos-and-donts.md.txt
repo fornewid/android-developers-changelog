@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/adaptive-dos-and-donts.md b/docs/develop/ui/compose/layouts/adaptive/adaptive-dos-and-donts.md
+index 058ae51..49e0f31 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/adaptive-dos-and-donts.md
++++ b/docs/develop/ui/compose/layouts/adaptive/adaptive-dos-and-donts.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** For apps that target Android 16 (API level 36), the system ignores screen
+ orientation, aspect ratio, and app resizablility restrictions to improve the
+ layout of apps on form factors with smallest width >= 600dp. See [App

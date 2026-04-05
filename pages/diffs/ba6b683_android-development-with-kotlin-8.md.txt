@@ -1,0 +1,195 @@
+diff --git a/docs/courses/quizzes/android-development-with-kotlin-8/android-development-with-kotlin-8.md b/docs/courses/quizzes/android-development-with-kotlin-8/android-development-with-kotlin-8.md
+index 3ca7910..d1c9174 100644
+--- a/docs/courses/quizzes/android-development-with-kotlin-8/android-development-with-kotlin-8.md
++++ b/docs/courses/quizzes/android-development-with-kotlin-8/android-development-with-kotlin-8.md
+@@ -1,118 +1,103 @@
+ ---
+-title: Lesson 8: App architecture (UI layer)  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-8/android-development-with-kotlin-8
+ url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-8/android-development-with-kotlin-8
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Lesson 8: App architecture (UI layer)
+ 
+-Return to pathway
+-
+-
+-
+-1. ## To avoid losing data during a device-configuration change, you should save app data in which class?
+-
+-   `ViewModel`
+-
+-   `LiveData`
+-
+-   `Fragment`
+-
+-   `Activity`
+-2. ## A `ViewModel` should never contain any references to fragments, activities, or views. True or false?
+-
+-   True, it should never contain any references.
+-
+-   False, it should contain at least a reference to one of the above.
+-3. ## When is a `ViewModel` destroyed?
+-
+-   When the associated UI controller is destroyed and recreated during a device-orientation change.
+-
+-   In an orientation change.
+-
+-   When the associated UI controller is finished (if it is an activity) or detached (if it is a fragment).
+-
+-   When the user presses the Back button.
+-4. ## What is the `ViewModelFactory` interface for?
+-
+-   Instantiating a `ViewModel` object.
+-
+-   Retaining data during orientation changes.
+-
+-   Refreshing the data being displayed on the screen.
+-
+-   Receiving notifications when the app data is changed.
+-5. ## How do you encapsulate the `LiveData` stored in a `ViewModel` so that external objects can read data without being able to update it?
+-
+-   Inside the`ViewModel` object, change the data type of the data to private `LiveData`. Use a backing property to expose read-only data of the type `MutableLiveData`.
+-
+-   Inside the`ViewModel` object, change the data type of the data to private `MutableLiveData`. Use a backing property to expose read-only data of the type `LiveData`.
+-
+-   Inside the UI controller, change the data type of the data to private `MutableLiveData`. Use a backing property to expose read-only data of the type `LiveData`.
+-
+-   Inside the`ViewModel` object, change the data type of the data to `LiveData`. Use a backing property to expose read-only data of the type `LiveData`.
+-6. ## `LiveData` updates a UI controller (such as a fragment) if the UI controller is in which of the following states?
++# Lesson 8: App architecture (UI layer)
+ 
+-   Resumed
++<br />
+ 
+-   In the background
++Return to pathway  
++1.
+ 
+-   Paused
++   ## To avoid losing data during a device-configuration change, you should save app data in which class?
+ 
+-   Stopped
+-7. ## In the `LiveData` observer pattern, what is the observable item (what is observed)?
++   `ViewModel`  
++   `LiveData`  
++   `Fragment`  
++   `Activity`  
++2.
+ 
+-   The observer method
++   ## A`ViewModel`should never contain any references to fragments, activities, or views. True or false?
+ 
+-   The data in a `LiveData` object
++   True, it should never contain any references.  
++   False, it should contain at least a reference to one of the above.  
++3.
+ 
+-   The UI controller
++   ## When is a`ViewModel`destroyed?
+ 
+-   The`ViewModel` object
+-8. ## In which class should you add the data-formatting logic that uses the `Transformations.map()` method to convert `LiveData` to a different value or format?
++   When the associated UI controller is destroyed and recreated during a device-orientation change.  
++   In an orientation change.  
++   When the associated UI controller is finished (if it is an activity) or detached (if it is a fragment).  
++   When the user presses the Back button.  
++4.
+ 
+-   `ViewModel`
++   ## What is the`ViewModelFactory`interface for?
+ 
+-   `Fragment`
++   Instantiating a`ViewModel`object.  
++   Retaining data during orientation changes.  
++   Refreshing the data being displayed on the screen.  
++   Receiving notifications when the app data is changed.  
++5.
+ 
+-   `Activity`
++   ## How do you encapsulate the`LiveData`stored in a`ViewModel`so that external objects can read data without being able to update it?
+ 
+-   `MainActivity`
+-9. ## The `Transformations.map()` method provides an easy way to perform data manipulations on the `LiveData` and returns \_\_\_.
++   Inside the`ViewModel`object, change the data type of the data to private`LiveData`. Use a backing property to expose read-only data of the type`MutableLiveData`.  
++   Inside the`ViewModel`object, change the data type of the data to private`MutableLiveData`. Use a backing property to expose read-only data of the type`LiveData`.  
++   Inside the UI controller, change the data type of the data to private`MutableLiveData`. Use a backing property to expose read-only data of the type`LiveData`.  
++   Inside the`ViewModel`object, change the data type of the data to`LiveData`. Use a backing property to expose read-only data of the type`LiveData`.  
++6.
+ 
+-   A`ViewModel` object
++   ## `LiveData`updates a UI controller (such as a fragment) if the UI controller is in which of the following states?
+ 
+-   A `LiveData` object
++   Resumed  
++   In the background  
++   Paused  
++   Stopped  
++7.
+ 
+-   A formatted `String`
++   ## In the`LiveData`observer pattern, what is the observable item (what is observed)?
+ 
+-   A `RoomDatabase` object
+-10. ## What are the parameters for the `Transformations.map()` method?
++   The observer method  
++   The data in a`LiveData`object  
++   The UI controller  
++   The`ViewModel`object  
++8.
+ 
+-    A source `LiveData` and a function to be applied to the `LiveData`
++   ## In which class should you add the data-formatting logic that uses the`Transformations.map()`method to convert`LiveData`to a different value or format?
+ 
+-    Only a source `LiveData`
++   `ViewModel`  
++   `Fragment`  
++   `Activity`  
++   `MainActivity`  
++9.
+ 
+-    No parameters
++   ## The`Transformations.map()`method provides an easy way to perform data manipulations on the`LiveData`and returns ___.
+ 
+-    `ViewModel` and a function to be applied
+-11. ## The lambda function passed into the `Transformations.map()` method is executed in which thread?
++   A`ViewModel`object  
++   A`LiveData`object  
++   A formatted`String`  
++   A`RoomDatabase`object  
++10.
+ 
+-    Main thread
++    ## What are the parameters for the`Transformations.map()`method?
+ 
+-    Background thread
++    A source`LiveData`and a function to be applied to the`LiveData`  
++    Only a source`LiveData`  
++    No parameters  
++    `ViewModel`and a function to be applied  
++11.
+ 
+-    UI thread
++    ## The lambda function passed into the`Transformations.map()`method is executed in which thread?
+ 
+-    In a coroutine
++    Main thread  
++    Background thread  
++    UI thread  
++    In a coroutine  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/cpu-arm-neon.md b/docs/ndk/guides/cpu-arm-neon.md
+index cd8d1b9..0be34e0 100644
+--- a/docs/ndk/guides/cpu-arm-neon.md
++++ b/docs/ndk/guides/cpu-arm-neon.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The NDK supports ARM Advanced SIMD, commonly known as Neon, an optional
+ instruction set extension for ARMv7 and ARMv8. Neon provides scalar/vector
+ instructions and registers (shared with the FPU) comparable to MMX/SSE/3DNow!

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/responsive-adaptive-design-with-views.md b/docs/develop/ui/views/layout/responsive-adaptive-design-with-views.md
+index 6cd974c..a1121de 100644
+--- a/docs/develop/ui/views/layout/responsive-adaptive-design-with-views.md
++++ b/docs/develop/ui/views/layout/responsive-adaptive-design-with-views.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with responsive layouts in Compose.

@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md b/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
+index 2474056..c47e7bc 100644
+--- a/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
++++ b/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This document provides best practices and troubleshooting steps to help diagnose
+ problems and make sure your Baseline Profiles work correctly to provide the most
+ benefit.

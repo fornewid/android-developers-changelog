@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/versions/5/features.md b/docs/training/wearables/versions/5/features.md
+index 05d1db8..3f1136a 100644
+--- a/docs/training/wearables/versions/5/features.md
++++ b/docs/training/wearables/versions/5/features.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Wear OS 5 introduces several features to help enhance your Wear OS
+ app experience. Before you add these features to your app, [prepare your app](/training/wearables/versions/5/changes)
+ for compatibility with Wear OS 5.

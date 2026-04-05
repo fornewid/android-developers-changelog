@@ -1,0 +1,12 @@
+diff --git a/docs/studio/projects/templates.md b/docs/studio/projects/templates.md
+index a9c8af2..55a6bcd 100644
+--- a/docs/studio/projects/templates.md
++++ b/docs/studio/projects/templates.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android Studio provides code templates that follow the Android design and
+ development best practices to get you on the right track to creating
+ beautiful, functional apps. You can use templates to create new app modules,

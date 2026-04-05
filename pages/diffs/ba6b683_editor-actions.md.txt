@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/tooling/editor-actions.md b/docs/develop/ui/compose/tooling/editor-actions.md
+index 054eb68..c7de0f7 100644
+--- a/docs/develop/ui/compose/tooling/editor-actions.md
++++ b/docs/develop/ui/compose/tooling/editor-actions.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android Studio has features inside the editor area to improve your productivity
+ with Jetpack Compose.
+ 

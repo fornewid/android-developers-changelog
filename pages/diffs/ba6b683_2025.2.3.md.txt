@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2025.2.3.md b/docs/studio/releases/fixed-bugs/studio/2025.2.3.md
+index 8bb3379..c5cda7a 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2025.2.3.md
++++ b/docs/studio/releases/fixed-bugs/studio/2025.2.3.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ### Android Studio Otter 3 Feature Drop | 2025.2.3
+ 
+ **Released together with:**

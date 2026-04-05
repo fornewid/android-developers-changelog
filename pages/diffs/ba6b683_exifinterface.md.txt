@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/exifinterface.md b/docs/jetpack/androidx/releases/exifinterface.md
+index 496aabf..0b8e256 100644
+--- a/docs/jetpack/androidx/releases/exifinterface.md
++++ b/docs/jetpack/androidx/releases/exifinterface.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Exifinterface
+ 
+ [Code Sample](https://github.com/android/camera-samples/blob/master/CameraUtils/lib/src/main/java/com/example/android/camera/utils/ExifUtils.kt)

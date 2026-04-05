@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/watch-faces/performance.md b/docs/training/wearables/watch-faces/performance.md
+index f4195a6..734551c 100644
+--- a/docs/training/wearables/watch-faces/performance.md
++++ b/docs/training/wearables/watch-faces/performance.md
+@@ -17,6 +17,7 @@ Learn more about the user-facing changes in this [Help Center article](https://
+ 
+ 
+ 
++
+ A Wear OS watch face runs continuously, so it must use power efficiently.
+ 
+ Optimize the performance of the watch face as much as possible.

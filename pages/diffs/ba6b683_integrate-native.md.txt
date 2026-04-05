@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/asset-delivery/integrate-native.md b/docs/guide/playcore/asset-delivery/integrate-native.md
+index 4f24d5e..af71801 100644
+--- a/docs/guide/playcore/asset-delivery/integrate-native.md
++++ b/docs/guide/playcore/asset-delivery/integrate-native.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Use the steps in this guide to access your app’s asset packs from your C and C++
+ code.
+ 

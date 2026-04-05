@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/cpp/cpp-setup.md b/docs/games/pgs/cpp/cpp-setup.md
+index 402a3b6..d7d4ab7 100644
+--- a/docs/games/pgs/cpp/cpp-setup.md
++++ b/docs/games/pgs/cpp/cpp-setup.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This document helps you set up your C++ project for
+ v2 Native C or C++ and verify the authentication service.
+ 
+@@ -186,4 +187,6 @@ For more information, see the
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

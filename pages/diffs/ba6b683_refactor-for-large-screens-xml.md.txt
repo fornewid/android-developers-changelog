@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/refactor-for-large-screens-xml.md b/docs/studio/prompt-gallery/prompts/refactor-for-large-screens-xml.md
+index 14f2df7..9bb9803 100644
+--- a/docs/studio/prompt-gallery/prompts/refactor-for-large-screens-xml.md
++++ b/docs/studio/prompt-gallery/prompts/refactor-for-large-screens-xml.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Optimize your layout for an Android table screen.
+ 
+ ---

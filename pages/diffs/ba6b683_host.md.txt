@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/usb/host.md b/docs/develop/connectivity/usb/host.md
+index 0bd7405..43c4e12 100644
+--- a/docs/develop/connectivity/usb/host.md
++++ b/docs/develop/connectivity/usb/host.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When your Android-powered device is in USB host mode, it acts as the USB host, powers the bus,
+ and enumerates connected USB devices. USB host mode is supported in Android 3.1 and higher.
+ 

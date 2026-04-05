@@ -1,0 +1,12 @@
+diff --git a/docs/ai/gemini-nano.md b/docs/ai/gemini-nano.md
+index f4dd9dd..09005cf 100644
+--- a/docs/ai/gemini-nano.md
++++ b/docs/ai/gemini-nano.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Gemini Nano lets you deliver rich generative AI experiences without needing
+ a network connection or sending data to the cloud. On-device AI is a great
+ solution for use-cases where low cost, and privacy safeguards are your primary

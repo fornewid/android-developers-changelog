@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/appwidgets/discoverability.md b/docs/develop/ui/views/appwidgets/discoverability.md
+index 5ae5557..1838545 100644
+--- a/docs/develop/ui/views/appwidgets/discoverability.md
++++ b/docs/develop/ui/views/appwidgets/discoverability.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ On devices running Android 8.0 (API level 26) and higher, launchers that let
+ users create [pinned shortcuts](/guide/topics/ui/shortcuts#shortcut-types) also
+ let them pin widgets onto their home screen. Similar to pinned shortcuts, these

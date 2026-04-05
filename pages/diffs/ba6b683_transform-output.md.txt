@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/camerax/transform-output.md b/docs/media/camera/camerax/transform-output.md
+index d0f0f24..f50d4fd 100644
+--- a/docs/media/camera/camerax/transform-output.md
++++ b/docs/media/camera/camerax/transform-output.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The output of a CameraX use case is twofold: the buffer and the transformation
+ info. The buffer is a byte array and the transformation info is how the buffer
+ should be cropped and rotated before being shown to end users. How to apply the

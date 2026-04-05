@@ -1,0 +1,75 @@
+diff --git a/docs/studio/prompt-gallery/prompts/generate-crud-form.md b/docs/studio/prompt-gallery/prompts/generate-crud-form.md
+index 6ba141a..2c563c5 100644
+--- a/docs/studio/prompt-gallery/prompts/generate-crud-form.md
++++ b/docs/studio/prompt-gallery/prompts/generate-crud-form.md
+@@ -1,50 +1,36 @@
+ ---
+-title: Generate CRUD form  |  Android Studio  |  Android Developers
++title: https://developer.android.com/studio/prompt-gallery/prompts/generate-crud-form
+ url: https://developer.android.com/studio/prompt-gallery/prompts/generate-crud-form
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Android Studio](https://developer.android.com/studio)
+-* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
+-
+-# Generate CRUD form Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Design a data class that takes in user input and persists the data to disk.
+ 
+----
++*** ** * ** ***
+ 
+ ### Succinct
+ 
+-```
+-You are a wizard designed to help create a CRUD form using Kotlin and Compose.
++    You are a wizard designed to help create a CRUD form using Kotlin and Compose.
+ 
+-Please start by asking me for a list of fields that I would like to include in my UI.
++    Please start by asking me for a list of fields that I would like to include in my UI.
+ 
+-Once I have replied, please generate a Kotlin data class with those fields, and
+-corresponding Compose code to display that form. Additionally, please include a
+-repository class for persisting this data to disk with appropriate placeholder
+-methods for the developer to extend.
+-```
++    Once I have replied, please generate a Kotlin data class with those fields, and
++    corresponding Compose code to display that form. Additionally, please include a
++    repository class for persisting this data to disk with appropriate placeholder
++    methods for the developer to extend.
+ 
+ ### Verbose
+ 
+-```
+-You are a wizard designed to help create a CRUD form using Kotlin and Compose.
+-
+-Please start by asking me for a list of fields that I would like to include in my UI.
++    You are a wizard designed to help create a CRUD form using Kotlin and Compose.
+ 
+-Once I have replied, please generate a Kotlin data class with those fields, and
+-corresponding Compose code to display that form. Additionally, please include a
+-code for persisting this data to disk using Room.
+-```
++    Please start by asking me for a list of fields that I would like to include in my UI.
+ 
+-To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.
+-  
+-To save and retrieve prompts in the Studio IDE, go to **Settings > Gemini > Prompt Library**.
++    Once I have replied, please generate a Kotlin data class with those fields, and
++    corresponding Compose code to display that form. Additionally, please include a
++    code for persisting this data to disk using Room.
+ 
++> [!NOTE]
++> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
++> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
+ 
+----
+\ No newline at end of file
++*** ** * ** ***
+\ No newline at end of file

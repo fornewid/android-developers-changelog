@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/emulator-networking-voice.md b/docs/studio/run/emulator-networking-voice.md
+index b340118..83eec90 100644
+--- a/docs/studio/run/emulator-networking-voice.md
++++ b/docs/studio/run/emulator-networking-voice.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The emulator automatically forwards simulated voice calls and SMS messages
+ from one instance to another. To send a voice call or SMS, use the dialer app
+ or SMS app, respectively, from one of the emulators.

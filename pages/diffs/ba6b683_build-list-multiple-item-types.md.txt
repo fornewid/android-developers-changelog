@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/build-list-multiple-item-types.md b/docs/develop/ui/compose/quick-guides/content/build-list-multiple-item-types.md
+index e7dca7c..4d1e427 100644
+--- a/docs/develop/ui/compose/quick-guides/content/build-list-multiple-item-types.md
++++ b/docs/develop/ui/compose/quick-guides/content/build-list-multiple-item-types.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can use a list with multiple item types to display mixed content types such
+ as text, images, and interactive elements.
+ 

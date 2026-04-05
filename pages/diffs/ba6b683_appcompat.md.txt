@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/appcompat.md b/docs/jetpack/androidx/releases/appcompat.md
+index 6d64ae7..ee94326 100644
+--- a/docs/jetpack/androidx/releases/appcompat.md
++++ b/docs/jetpack/androidx/releases/appcompat.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Appcompat
+ 
+ [User Guide](/guide/topics/ui/look-and-feel)  [Code Sample](https://github.com/material-components/material-components-android-examples)

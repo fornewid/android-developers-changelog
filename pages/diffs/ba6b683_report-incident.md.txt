@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/app-types/report-incident.md b/docs/design/ui/cars/guides/app-types/report-incident.md
+index 57c0116..6483022 100644
+--- a/docs/design/ui/cars/guides/app-types/report-incident.md
++++ b/docs/design/ui/cars/guides/app-types/report-incident.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Make it easy for drivers to report traffic incidents quickly.
+ The Grid template included in the Map + Content template
+ will help you reduce the number of steps

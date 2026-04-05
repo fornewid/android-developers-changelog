@@ -1,0 +1,189 @@
+diff --git a/docs/games/engines/engines-overview.md b/docs/games/engines/engines-overview.md
+index cf3548f..a6c3339 100644
+--- a/docs/games/engines/engines-overview.md
++++ b/docs/games/engines/engines-overview.md
+@@ -1,23 +1,13 @@
+ ---
+-title: Using a game engine on Android  |  Android game development  |  Android Developers
++title: https://developer.android.com/games/engines/engines-overview
+ url: https://developer.android.com/games/engines/engines-overview
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-* [Games dev center](https://developer.android.com/games)
+-* [Guides](https://developer.android.com/games/guides)
+-
+-Send feedback
+-
+-# Using a game engine on Android Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
++# Using a game engine on Android
+ 
+ ![Beaker, light-bulb, lightning
+-bolt](/static/images/cluster-illustrations/sample-app-16-9.svg)
++bolt](https://developer.android.com/static/images/cluster-illustrations/sample-app-16-9.svg)
+ 
+ As a developer, using a
+ [game engine](https://en.wikipedia.org/wiki/Game_engine) lets you
+@@ -27,14 +17,14 @@ entire technology stack.
+ ## Take advantage of Android development tools
+ 
+ Android development tools can assist your Android game development no matter
+-which game engine is being used. [Android Studio](/games/develop/develop-as)
++which game engine is being used. [Android Studio](https://developer.android.com/games/develop/develop-as)
+ includes tools you can use to:
+ 
+-* Examine the performance of your game using system, CPU and memory profilers
+-* Inspect the contents of your game's package or application bundle
+-* Integrate additional features of the Android SDK and NDK
++- Examine the performance of your game using system, CPU and memory profilers
++- Inspect the contents of your game's package or application bundle
++- Integrate additional features of the Android SDK and NDK
+ 
+-The [Android GPU Inspector](/agi) can characterize the rendering performance of
++The [Android GPU Inspector](https://developer.android.com/agi) can characterize the rendering performance of
+ your game and help you investigate the details of rendered frames using frame
+ capture.
+ 
+@@ -48,31 +38,28 @@ below.
+ ### Google Play requirements
+ 
+ Starting in August 2021, Google Play will require all Android apps to be
+-submitted as [Android App Bundles](/guide/app-bundle#get_started), and to use a
+-[target API level](/distribute/best-practices/develop/target-sdk) of 30 or
++submitted as [Android App Bundles](https://developer.android.com/guide/app-bundle#get_started), and to use a
++[target API level](https://developer.android.com/distribute/best-practices/develop/target-sdk) of 30 or
+ higher. Verify that the engine you want to use can meet these requirements.
+-
+-**Note:** For apps that target Android 16 (API level 36), the system ignores screen
+-orientation, aspect ratio, and app resizablility restrictions to improve the
+-layout of apps on form factors with smallest width >= 600dp. See [App
+-orientation, aspect ratio, and
+-resizability](/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability).
++| **Note:** For apps that target Android 16 (API level 36), the system ignores screen orientation, aspect ratio, and app resizablility restrictions to improve the layout of apps on form factors with smallest width \>= 600dp. See [App
++| orientation, aspect ratio, and
++| resizability](https://developer.android.com/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability).
+ 
+ ### In-app purchases
+ 
+ If your game design uses in-app purchases verify that your engine has support
+-for the [Google Play Billing Library](/google/play/billing) (GPBL). Depending on
++for the [Google Play Billing Library](https://developer.android.com/google/play/billing) (GPBL). Depending on
+ the engine, GPBL may be directly integrated into the engine, or may be
+ accessible via an add-on or plugin.
+ 
+ ### Google Play Core features
+ 
+-The [Google Play Core Library](/guide/playcore) provides a runtime interface to
++The [Google Play Core Library](https://developer.android.com/guide/playcore) provides a runtime interface to
+ the Google Play Store. With the Play Core Library, you can:
+ 
+-* Notify the user about app updates
+-* Download and access data in asset packs
+-* Request in-app reviews
++- Notify the user about app updates
++- Download and access data in asset packs
++- Request in-app reviews
+ 
+ If you intend to use any of these features, verify the engine supports the
+ Google Play Core Library, either directly or using an add-on or plugin.
+@@ -80,14 +67,14 @@ Google Play Core Library, either directly or using an add-on or plugin.
+ ### Application permissions
+ 
+ Some Android features require user consent before they can be used by a game.
+-The Android [Permissions](/guide/topics/permissions/overview) system is used to
++The Android [Permissions](https://developer.android.com/guide/topics/permissions/overview) system is used to
+ request access to these features. If your game requires permissions, make sure
+ the engine has a method of specifying them in its project options, or allows you
+ to customize the application manifest to include required permissions.
+ 
+ ### Notifications
+ 
+-Android [Notifications](/guide/topics/ui/notifiers/notifications) are used to
++Android [Notifications](https://developer.android.com/guide/topics/ui/notifiers/notifications) are used to
+ notify or message the user when they aren't playing your game. If this feature
+ is important to your game, verify the engine supports sending and processing
+ notifications.
+@@ -113,9 +100,9 @@ supported in the Defold engine through a plugin system.
+ 
+ #### Guides
+ 
+-* [Install and configure projects for Android](/games/engines/defold/defold-configure)
+-* [Support multiple form factors and screen sizes](/games/engines/defold/defold-formfactor)
+-* [Export to Android](/games/engines/defold/defold-export)
++- [Install and configure projects for Android](https://developer.android.com/games/engines/defold/defold-configure)
++- [Support multiple form factors and screen sizes](https://developer.android.com/games/engines/defold/defold-formfactor)
++- [Export to Android](https://developer.android.com/games/engines/defold/defold-export)
+ 
+ ### Godot
+ 
+@@ -131,10 +118,10 @@ debugging support for the GDScript language.
+ 
+ #### Guides
+ 
+-* [Install and configure projects for Android](/games/engines/godot/godot-configure)
+-* [Godot renderer options](/games/engines/godot/godot-renderers)
+-* [Support multiple form factors and screen sizes](/games/engines/godot/godot-formfactor)
+-* [Export to Android](/games/engines/godot/godot-export)
++- [Install and configure projects for Android](https://developer.android.com/games/engines/godot/godot-configure)
++- [Godot renderer options](https://developer.android.com/games/engines/godot/godot-renderers)
++- [Support multiple form factors and screen sizes](https://developer.android.com/games/engines/godot/godot-formfactor)
++- [Export to Android](https://developer.android.com/games/engines/godot/godot-export)
+ 
+ ### Cocos
+ 
+@@ -147,10 +134,10 @@ metaverse, and so on.
+ 
+ #### Guides
+ 
+-* [Steps to build a game for Android in Cocos Creator](/games/engines/cocos/cocos-overview)
+-* [Publish your game as Google Play Instant app in Cocos Creator](/games/engines/cocos/cocos-playinstant)
+-* [Publish your game with Android App Bundle in Cocos Creator](/games/engines/cocos/cocos-aab)
+-* [Remote debugging on Android](/games/engines/cocos/cocos-remotedebugging)
++- [Steps to build a game for Android in Cocos Creator](https://developer.android.com/games/engines/cocos/cocos-overview)
++- [Publish your game as Google Play Instant app in Cocos Creator](https://developer.android.com/games/engines/cocos/cocos-playinstant)
++- [Publish your game with Android App Bundle in Cocos Creator](https://developer.android.com/games/engines/cocos/cocos-aab)
++- [Remote debugging on Android](https://developer.android.com/games/engines/cocos/cocos-remotedebugging)
+ 
+ ### Unity
+ 
+@@ -167,11 +154,11 @@ available for use in Unity projects.
+ 
+ #### Guides
+ 
+-* [Android development with Unity](/games/engines/unity/unity-on-android)
+-* [Create an Android App Bundle with Unity](https://blogs.unity3d.com/2018/10/03/support-for-android-app-bundle-aab-in-unity-2018-3-beta/)
+-* [Integrate Play Asset Delivery](/guide/playcore/asset-delivery/integrate-unity)
+-* [Lighting for mobile games in Unity](/games/optimize/lighting-for-mobile-games-with-unity)
+-* [Use Android Performance Tuner with Unity](/games/sdk/performance-tuner/unity)
++- [Android development with Unity](https://developer.android.com/games/engines/unity/unity-on-android)
++- [Create an Android App Bundle with Unity](https://blogs.unity3d.com/2018/10/03/support-for-android-app-bundle-aab-in-unity-2018-3-beta/)
++- [Integrate Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity)
++- [Lighting for mobile games in Unity](https://developer.android.com/games/optimize/lighting-for-mobile-games-with-unity)
++- [Use Android Performance Tuner with Unity](https://developer.android.com/games/sdk/performance-tuner/unity)
+ 
+ ### Unreal
+ 
+@@ -185,13 +172,6 @@ as C++ code. Epic Games, the developer of Unreal, operates the Unreal Engine
+ Marketplace as a digital storefront for Unreal Engine resources. The Unreal
+ Engine Marketplace has a wide variety of prebuilt art and code assets available,
+ both free and paid, for use in Unreal projects. The [Android Game Development
+-Extension](/games/agde) can be used to debug Unreal projects running on Android.
+-
+-For information, see [Android development with Unreal](/games/engines/unreal/unreal-on-android).
+-
+-
+-
+-
+-
++Extension](https://developer.android.com/games/agde) can be used to debug Unreal projects running on Android.
+ 
+-Send feedback
+\ No newline at end of file
++For information, see [Android development with Unreal](https://developer.android.com/games/engines/unreal/unreal-on-android).
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/collections/display-interactive-components.md b/docs/develop/ui/compose/quick-guides/collections/display-interactive-components.md
+index db988fa..1bbe602 100644
+--- a/docs/develop/ui/compose/quick-guides/collections/display-interactive-components.md
++++ b/docs/develop/ui/compose/quick-guides/collections/display-interactive-components.md
+@@ -16,6 +16,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ ## Quick guides collection Display interactive components
+ 
+ Choose the right component for your UI and see how to implement it in your app.

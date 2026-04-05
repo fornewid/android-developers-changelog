@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/notifications/channels.md b/docs/develop/ui/views/notifications/channels.md
+index fc42ac1..4d46eaf 100644
+--- a/docs/develop/ui/views/notifications/channels.md
++++ b/docs/develop/ui/views/notifications/channels.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Starting in Android 8.0 (API level 26), all notifications must be assigned to a
+ channel. For each channel, you can set the visual and auditory behavior that is
+ applied to all notifications in that channel. Users can change these settings

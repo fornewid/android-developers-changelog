@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/graphics/draw/brush.md b/docs/develop/ui/compose/graphics/draw/brush.md
+index 607ec2d..67d3083 100644
+--- a/docs/develop/ui/compose/graphics/draw/brush.md
++++ b/docs/develop/ui/compose/graphics/draw/brush.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A [`Brush`](/reference/kotlin/androidx/compose/ui/graphics/Brush) in Compose describes how something is drawn on screen: it
+ determines the color(s) that are drawn in the drawing area (i.e. a circle,
+ square, path). There are a few built-in Brushes that are useful for drawing,

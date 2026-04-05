@@ -1,0 +1,531 @@
+diff --git a/docs/develop/ui/compose/custom-modifiers.md b/docs/develop/ui/compose/custom-modifiers.md
+index 61f65e0..5459c9b 100644
+--- a/docs/develop/ui/compose/custom-modifiers.md
++++ b/docs/develop/ui/compose/custom-modifiers.md
+@@ -1,32 +1,18 @@
+ ---
+-title: Create custom modifiers  |  Jetpack Compose  |  Android Developers
++title: https://developer.android.com/develop/ui/compose/custom-modifiers
+ url: https://developer.android.com/develop/ui/compose/custom-modifiers
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+-
+-# Create custom modifiers Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-Compose provides many [modifiers](/develop/ui/compose/modifiers) for common behaviors right out of the box,
++Compose provides many [modifiers](https://developer.android.com/develop/ui/compose/modifiers) for common behaviors right out of the box,
+ but you can also create your own custom modifiers.
+ 
+ Modifiers have multiple parts:
+ 
+-* A modifier factory
+-  + This is an extension function on `Modifier`, which provides an idiomatic
+-    API for your modifier and allows modifiers to be chained together. The
+-    modifier factory produces the modifier elements used by Compose to
+-    modify your UI.
+-* A modifier element
+-  + This is where you can implement the behavior of your modifier.
++- A modifier factory
++  - This is an extension function on `Modifier`, which provides an idiomatic API for your modifier and allows modifiers to be chained together. The modifier factory produces the modifier elements used by Compose to modify your UI.
++- A modifier element
++  - This is where you can implement the behavior of your modifier.
+ 
+ There are multiple ways to implement a custom modifier depending on the
+ functionality needed. Often, the simplest way to implement a custom modifier is
+@@ -38,73 +24,74 @@ flexibility.
+ ## Chain existing modifiers together
+ 
+ It is often possible to create custom modifiers by using existing modifiers. For
+-example, [`Modifier.clip()`](/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).clip(androidx.compose.ui.graphics.Shape)) is implemented using the `graphicsLayer`
++example, [`Modifier.clip()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).clip(androidx.compose.ui.graphics.Shape)) is implemented using the `graphicsLayer`
+ modifier. This strategy uses existing modifier elements, and you provide your
+ own custom modifier factory.
+ 
+ Before implementing your own custom modifier, see if you can use the same
+ strategy.
+ 
+-```
+-fun Modifier.clip(shape: Shape) = graphicsLayer(shape = shape, clip = true)
+ 
+-CustomModifierSnippets.kt
++```kotlin
++fun Modifier.clip(shape: Shape) = graphicsLayer(shape = shape, clip = true)
+ ```
+ 
++<br />
++
+ Or, if you find you are repeating the same group of modifiers often, you can
+ wrap them into your own modifier:
+ 
+-```
++
++```kotlin
+ fun Modifier.myBackground(color: Color) = padding(16.dp)
+     .clip(RoundedCornerShape(8.dp))
+     .background(color)
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ ## Create a custom modifier using a composable modifier factory
+ 
+ You can also create a custom modifier using a composable function to pass values
+ to an existing modifier. This is known as a composable modifier factory.
+ 
+-**Note:** In previous versions of Compose, we recommended against this approach and
+-suggested using [`composed {}`](/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).composed(kotlin.Function1,kotlin.Function1)) instead using a lint rule. Now that
+-`composed {}` is not recommended, the lint rule has been removed.
++> [!NOTE]
++> **Note:** In previous versions of Compose, we recommended against this approach and suggested using [`composed {}`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).composed(kotlin.Function1,kotlin.Function1)) instead using a lint rule. Now that `composed {}` is not recommended, the lint rule has been removed.
+ 
+ Using a composable modifier factory to create a modifier also lets you use
+-higher level compose APIs, such as [`animate*AsState`](/develop/ui/compose/animation/value-based#animate-as-state) and other [Compose
+-state backed animation APIs](/develop/ui/compose/animation/choose-api). For example, the following snippet shows a
++higher level compose APIs, such as [`animate*AsState`](https://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state) and other [Compose
++state backed animation APIs](https://developer.android.com/develop/ui/compose/animation/choose-api). For example, the following snippet shows a
+ modifier that animates an alpha change when enabled/disabled:
+ 
+-```
++
++```kotlin
+ @Composable
+ fun Modifier.fade(enable: Boolean): Modifier {
+     val alpha by animateFloatAsState(if (enable) 0.5f else 1.0f)
+     return this then Modifier.graphicsLayer { this.alpha = alpha }
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
+-**Warning:** When creating custom modifiers, don't break the modifier chain. You
+-must always reference `this` or else any modifiers previously added will be
+-dropped. You can use `this then Modifier` as in the preceding example or
+-implicitly using `return graphicsLayer { this.alpha = alpha }`.
++<br />
++
++> [!WARNING]
++> **Warning:** When creating custom modifiers, don't break the modifier chain. You must always reference `this` or else any modifiers previously added will be dropped. You can use `this then Modifier` as in the preceding example or implicitly using `return graphicsLayer { this.alpha = alpha }`.
+ 
+ If your custom modifier is a convenience method to provide default values from a
+ `CompositionLocal`, the easiest way to implement this is to use a composable
+ modifier factory:
+ 
+-```
++
++```kotlin
+ @Composable
+ fun Modifier.fadedBackground(): Modifier {
+     val color = LocalContentColor.current
+     return this then Modifier.background(color.copy(alpha = 0.5f))
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ This approach has some caveats, which are detailed in the following sections.
+ 
+ #### `CompositionLocal` values are resolved at the call site of the modifier factory
+@@ -115,7 +102,8 @@ used. This can lead to unexpected results. For example, consider the
+ composition local modifier example mentioned previously, implemented slightly
+ differently using a composable function:
+ 
+-```
++
++```kotlin
+ @Composable
+ fun Modifier.myBackground(): Modifier {
+     val color = LocalContentColor.current
+@@ -136,17 +124,17 @@ fun MyScreen() {
+         }
+     }
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ If this is not how you expect your modifier to work, use a custom
+-[`Modifier.Node`](#implement-custom) instead, as composition locals will be
++[`Modifier.Node`](https://developer.android.com/develop/ui/compose/custom-modifiers#implement-custom) instead, as composition locals will be
+ correctly resolved at the usage site and can be safely hoisted.
+ 
+ #### Composable function modifiers are never skipped
+ 
+-Composable factory modifiers are never [skipped](/develop/ui/compose/mental-model#skips) because composable functions
++Composable factory modifiers are never [skipped](https://developer.android.com/develop/ui/compose/mental-model#skips) because composable functions
+ that have return values cannot be skipped. This means your modifier function
+ will be called on every recomposition, which may be expensive if it recomposes
+ frequently.
+@@ -159,7 +147,8 @@ never be hoisted out of composition. In comparison, non-composable modifier
+ factories can be hoisted out of composable functions to allow easier reuse and
+ improve performance:
+ 
+-```
++
++```kotlin
+ val extractedModifier = Modifier.background(Color.Red) // Hoisted to save allocations
+ 
+ @Composable
+@@ -172,31 +161,26 @@ fun Modifier.composableModifier(): Modifier {
+ fun MyComposable() {
+     val composedModifier = Modifier.composableModifier() // Cannot be extracted any higher
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ ## Implement custom modifier behavior using `Modifier.Node`
+ 
+-[`Modifier.Node`](/reference/kotlin/androidx/compose/ui/Modifier.Node) is a lower level API for creating modifiers in Compose. It
++[`Modifier.Node`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node) is a lower level API for creating modifiers in Compose. It
+ is the same API that Compose implements its own modifiers in and is the most
+ performant way to create custom modifiers.
+ 
+-**Note:** There is another API for creating custom modifiers, [`composed {}`](/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).composed(kotlin.Function1,kotlin.Function1)).
+-This API is no longer recommended due to the performance issues it created.
+-`Modifier.Node` was designed from the ground up to be far more performant than
+-composed modifiers. For more details on the problems with composed modifiers,
+-see the Android Dev Summit talk [Compose Modifiers Deep Dive](https://www.youtube.com/watch?v=BjGX2RftXsU).
++> [!NOTE]
++> **Note:** There is another API for creating custom modifiers, [`composed {}`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).composed(kotlin.Function1,kotlin.Function1)). This API is no longer recommended due to the performance issues it created. `Modifier.Node` was designed from the ground up to be far more performant than composed modifiers. For more details on the problems with composed modifiers, see the Android Dev Summit talk [Compose Modifiers Deep Dive](https://www.youtube.com/watch?v=BjGX2RftXsU).
+ 
+ ### Implement a custom modifier using `Modifier.Node`
+ 
+ There are three parts to implementing a custom modifier using Modifier.Node:
+ 
+-* A [`Modifier.Node`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/Modifier.kt;l=184) implementation that holds the logic and
+-  state of your modifier.
+-* A [`ModifierNodeElement`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/ModifierNodeElement.kt;l=39) that creates and updates modifier
+-  node instances.
+-* An optional modifier factory, as detailed previously.
++- A [`Modifier.Node`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/Modifier.kt;l=184) implementation that holds the logic and state of your modifier.
++- A [`ModifierNodeElement`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/ModifierNodeElement.kt;l=39) that creates and updates modifier node instances.
++- An optional modifier factory, as detailed previously.
+ 
+ `ModifierNodeElement` classes are stateless and new instances are allocated each
+ recomposition, whereas `Modifier.Node` classes can be stateful and will survive
+@@ -210,17 +194,18 @@ custom modifier to draw a circle.
+ The `Modifier.Node` implementation (in this example, `CircleNode`) implements
+ the functionality of your custom modifier.
+ 
+-```
++
++```kotlin
+ // Modifier.Node
+ private class CircleNode(var color: Color) : DrawModifierNode, Modifier.Node() {
+     override fun ContentDrawScope.draw() {
+         drawCircle(color)
+     }
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ In this example, it draws the circle with the color passed in to the modifier
+ function.
+ 
+@@ -231,8 +216,7 @@ which lets it override the draw method.
+ 
+ The available types are as follows:
+ 
+-|  |  |  |
+-| --- | --- | --- |
++|---|---|---|
+ | **Node** | **Usage** | **Sample Link** |
+ | [`LayoutModifierNode`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/LayoutModifierNode.kt) | A `Modifier.Node` that changes how its wrapped content is measured and laid out. | [Sample](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/samples/src/main/java/androidx/compose/ui/samples/LayoutSample.kt;l=198) |
+ | [`DrawModifierNode`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/DrawModifierNode.kt) | A `Modifier.Node` that draws into the space of the layout. | [Sample](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/samples/src/main/java/androidx/compose/ui/samples/ModifierSamples.kt;l=313) |
+@@ -243,21 +227,22 @@ The available types are as follows:
+ | [`LayoutAwareModifierNode`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/LayoutAwareModifierNode.kt) | A `Modifier.Node` which receives `onMeasured` and `onPlaced` callbacks. | [Sample](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/samples/src/main/java/androidx/compose/ui/samples/ModifierSamples.kt;l=405) |
+ | [`GlobalPositionAwareModifierNode`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/GlobalPositionAwareModifierNode.kt) | A `Modifier.Node` which receives an `onGloballyPositioned` callback with the final `LayoutCoordinates` of the layout when the global position of the content may have changed. | [Sample](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/samples/src/main/java/androidx/compose/ui/samples/ModifierSamples.kt;l=405) |
+ | [`ObserverModifierNode`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/ObserverModifierNode.kt) | `Modifier.Node`s that implement `ObserverNode` can provide their own implementation of `onObservedReadsChanged` that will be called in response to changes to snapshot objects read within an `observeReads` block. | [Sample](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/samples/src/main/java/androidx/compose/ui/samples/ModifierCompositionLocalSample.kt;l=64) |
+-| [`DelegatingNode`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/DelegatingNode.kt) | A `Modifier.Node` which is able to delegate work to other `Modifier.Node` instances.  This can be useful to compose multiple node implementations into one. | [Sample](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/samples/src/main/java/androidx/compose/ui/samples/ModifierSamples.kt) |
++| [`DelegatingNode`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/DelegatingNode.kt) | A `Modifier.Node` which is able to delegate work to other `Modifier.Node` instances. This can be useful to compose multiple node implementations into one. | [Sample](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/samples/src/main/java/androidx/compose/ui/samples/ModifierSamples.kt) |
+ | [`TraversableNode`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/TraversableNode.kt;l=28) | Allows `Modifier.Node` classes to traverse up/down the node tree for classes of the same type or for a particular key. | [Sample](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/integration-tests/ui-demos/src/main/java/androidx/compose/ui/demos/modifier/TraverseModifierDemo.kt;l=123) |
+ 
+ Nodes are automatically invalidated when update is called on their corresponding
+ element. Because our example is a `DrawModifierNode`, any time update is called
+ on the element, the node triggers a redraw and its color correctly updates. It
+ is possible to opt out of auto-invalidation, as detailed in the
+-[Opt out of node auto-invalidation](#autoinvalidation) section.
++[Opt out of node auto-invalidation](https://developer.android.com/develop/ui/compose/custom-modifiers#autoinvalidation) section.
+ 
+ #### `ModifierNodeElement`
+ 
+ A `ModifierNodeElement` is an immutable class that holds the data to create or
+ update your custom modifier:
+ 
+-```
++
++```kotlin
+ // ModifierNodeElement
+ private data class CircleElement(val color: Color) : ModifierNodeElement<CircleNode>() {
+     override fun create() = CircleNode(color)
+@@ -266,34 +251,21 @@ private data class CircleElement(val color: Color) : ModifierNodeElement<CircleN
+         node.color = color
+     }
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ `ModifierNodeElement` implementations need to override the following methods:
+ 
+-1. `create`: This is the function that instantiates your modifier node. This
+-   gets called to create the node when your modifier is first applied. Usually,
+-   this amounts to constructing the node and configuring it with the parameters
+-   that were passed in to the modifier factory.
+-2. `update`: This function is called whenever this modifier is provided in the
+-   same spot this node already exists, but a property has changed. This is
+-   determined by the `equals` method of the class. The modifier node that was
+-   previously created is sent as a parameter to the `update` call. At this
+-   point, you should update the nodes' properties to correspond with the
+-   updated parameters. The ability for nodes to be reused this way is key to
+-   the performance gains that `Modifier.Node` brings; therefore, you must
+-   update the existing node rather than creating a new one in the `update`
+-   method. In our circle example, the color of the node is updated.
++1. `create`: This is the function that instantiates your modifier node. This gets called to create the node when your modifier is first applied. Usually, this amounts to constructing the node and configuring it with the parameters that were passed in to the modifier factory.
++2. `update`: This function is called whenever this modifier is provided in the same spot this node already exists, but a property has changed. This is determined by the `equals` method of the class. The modifier node that was previously created is sent as a parameter to the `update` call. At this point, you should update the nodes' properties to correspond with the updated parameters. The ability for nodes to be reused this way is key to the performance gains that `Modifier.Node` brings; therefore, you must update the existing node rather than creating a new one in the `update` method. In our circle example, the color of the node is updated.
+ 
+ Additionally, `ModifierNodeElement` implementations also need to implement
+ `equals` and `hashCode`. `update` will only get called if an equals comparison
+ with the previous element returns false.
+ 
+-**Warning:** Your `ModifierNodeElement` must implement `equals` and `hashCode`
+-correctly and not rely on instance equality. Without this, your modifier node
+-will be updated unnecessarily and perform poorly. Use a data class to achieve
+-this automatically.
++> [!WARNING]
++> **Warning:** Your `ModifierNodeElement` must implement `equals` and `hashCode` correctly and not rely on instance equality. Without this, your modifier node will be updated unnecessarily and perform poorly. Use a data class to achieve this automatically.
+ 
+ The preceding example uses a data class to achieve this. These methods are used
+ to check if a node needs updating or not. If your element has properties that
+@@ -307,19 +279,21 @@ data classes for binary compatibility reasons, then you can manually implement
+ This is the public API surface of your modifier. Most implementations create the
+ modifier element and add it to the modifier chain:
+ 
+-```
++
++```kotlin
+ // Modifier factory
+ fun Modifier.circle(color: Color) = this then CircleElement(color)
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ #### Complete example
+ 
+ These three parts come together to create the custom modifier to draw a circle
+ using the `Modifier.Node` APIs:
+ 
+-```
++
++```kotlin
+ // Modifier factory
+ fun Modifier.circle(color: Color) = this then CircleElement(color)
+ 
+@@ -338,10 +312,10 @@ private class CircleNode(var color: Color) : DrawModifierNode, Modifier.Node() {
+         drawCircle(color)
+     }
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ ## Common situations using `Modifier.Node`
+ 
+ When creating custom modifiers with `Modifier.Node`, here are some common
+@@ -354,7 +328,8 @@ furthermore, doesn't need to be a data class. The following is a sample
+ implementation of a modifier that applies a fixed amount of padding to a
+ composable:
+ 
+-```
++
++```kotlin
+ fun Modifier.fixedPadding() = this then FixedPaddingElement
+ 
+ data object FixedPaddingElement : ModifierNodeElement<FixedPaddingNode>() {
+@@ -382,32 +357,32 @@ class FixedPaddingNode : LayoutModifierNode, Modifier.Node() {
+         }
+     }
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ ### Reference composition locals
+ 
+ `Modifier.Node` modifiers don't automatically observe changes to Compose state
+ objects, like `CompositionLocal`. The advantage `Modifier.Node` modifiers have
+ over modifiers that are just created with a composable factory is that they can
+ read the value of the composition local from where the modifier is used in your
+-UI tree, not where the modifier is allocated, using [`currentValueOf`](/reference/kotlin/androidx/compose/ui/node/CompositionLocalConsumerModifierNode#(androidx.compose.ui.node.CompositionLocalConsumerModifierNode).currentValueOf(androidx.compose.runtime.CompositionLocal)).
++UI tree, not where the modifier is allocated, using [`currentValueOf`](https://developer.android.com/reference/kotlin/androidx/compose/ui/node/CompositionLocalConsumerModifierNode#(androidx.compose.ui.node.CompositionLocalConsumerModifierNode).currentValueOf(androidx.compose.runtime.CompositionLocal)).
+ 
+ However, modifier node instances don't automatically observe state changes. To
+ automatically react to a composition local changing, you can read its current
+ value inside a scope:
+ 
+-* `DrawModifierNode`: [`ContentDrawScope`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/DrawModifierNode.kt;l=31)
+-* `LayoutModifierNode`: [`MeasureScope`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/LayoutModifierNode.kt;l=64) &
+-  [`IntrinsicMeasureScope`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/LayoutModifierNode.kt;l=87)
+-* `SemanticsModifierNode`: [`SemanticsPropertyReceiver`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/semantics/SemanticsProperties.kt;l=788)
++- `DrawModifierNode`: [`ContentDrawScope`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/DrawModifierNode.kt;l=31)
++- `LayoutModifierNode`: [`MeasureScope`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/LayoutModifierNode.kt;l=64) \& [`IntrinsicMeasureScope`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/LayoutModifierNode.kt;l=87)
++- `SemanticsModifierNode`: [`SemanticsPropertyReceiver`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/semantics/SemanticsProperties.kt;l=788)
+ 
+ This example observes the value of `LocalContentColor` to draw a background
+ based on its color. As `ContentDrawScope` does observe snapshot changes, this
+ automatically redraws when the value of `LocalContentColor` changes:
+ 
+-```
++
++```kotlin
+ class BackgroundColorConsumerNode :
+     Modifier.Node(),
+     DrawModifierNode,
+@@ -418,10 +393,10 @@ class BackgroundColorConsumerNode :
+         drawContent()
+     }
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ To react to state changes outside of a scope and automatically update your
+ modifier, use an [`ObserverModifierNode`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/commonMain/kotlin/androidx/compose/ui/node/ObserverModifierNode.kt).
+ 
+@@ -429,7 +404,8 @@ For example, [`Modifier.scrollable`](https://cs.android.com/androidx/platform/fr
+ observe changes in `LocalDensity`. A simplified example is shown in the
+ following example:
+ 
+-```
++
++```kotlin
+ class ScrollableNode :
+     Modifier.Node(),
+     ObserverModifierNode,
+@@ -453,20 +429,21 @@ class ScrollableNode :
+         defaultFlingBehavior.flingDecay = splineBasedDecay(density)
+     }
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ ### Animate a modifier
+ 
+ `Modifier.Node` implementations have access to a `coroutineScope`. This allows
+-for use of the [Compose Animatable APIs](/develop/ui/compose/animation/value-based#animatable). For example, this snippet modifies
++for use of the [Compose Animatable APIs](https://developer.android.com/develop/ui/compose/animation/value-based#animatable). For example, this snippet modifies
+ the `CircleNode` shown previously to fade in and out repeatedly:
+ 
+-**Note:** `Modifier.Node` can be reused in a composable. You can set the new state
+-either by setting it in [`onAttach`](/reference/kotlin/androidx/compose/ui/Modifier.Node#onAttach()), or by resetting in [`onReset`](/reference/kotlin/androidx/compose/ui/Modifier.Node#onReset()).
++> [!NOTE]
++> **Note:** `Modifier.Node` can be reused in a composable. You can set the new state either by setting it in [`onAttach`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node#onAttach()), or by resetting in [`onReset`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.Node#onReset()).
+ 
+-```
++
++```kotlin
+ class CircleNode(var color: Color) : Modifier.Node(), DrawModifierNode {
+     private lateinit var alpha: Animatable<Float, AnimationVector1D>
+ 
+@@ -486,10 +463,10 @@ class CircleNode(var color: Color) : Modifier.Node(), DrawModifierNode {
+         }
+     }
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ ### Share state between modifiers using delegation
+ 
+ `Modifier.Node` modifiers can delegate to other nodes. There are many use cases
+@@ -499,7 +476,8 @@ but it can also be used to share common state across modifiers.
+ For example, a basic implementation of a clickable modifier node that shares
+ interaction data:
+ 
+-```
++
++```kotlin
+ class ClickableNode : DelegatingNode() {
+     val interactionData = InteractionData()
+     val focusableNode = delegate(
+@@ -509,10 +487,10 @@ class ClickableNode : DelegatingNode() {
+         IndicationNode(interactionData)
+     )
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
++<br />
++
+ ### Opt out of node auto-invalidation
+ 
+ `Modifier.Node` nodes automatically invalidate when their corresponding
+@@ -529,7 +507,8 @@ A hypothetical example of this is shown in the following example with a modifier
+ that has a `color`, `size`, and `onClick` lambda as properties. This modifier
+ invalidates only what is required, skipping any unneeded invalidation:
+ 
+-```
++
++```kotlin
+ class SampleInvalidatingNode(
+     var color: Color,
+     var size: IntSize,
+@@ -574,18 +553,6 @@ class SampleInvalidatingNode(
+         }
+     }
+ }
+-
+-CustomModifierSnippets.kt
+ ```
+ 
+-[Previous
+-
+-arrow\_back
+-
+-Constraints and modifier order](/develop/ui/compose/layouts/constraints-modifiers)
+-
+-[Next
+-
+-List of modifiers
+-
+-arrow\_forward](/develop/ui/compose/modifiers-list)
+\ No newline at end of file
++<br />
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/media/platform/improve-audio-playback.md b/docs/media/platform/improve-audio-playback.md
+index 1820790..892e4d8 100644
+--- a/docs/media/platform/improve-audio-playback.md
++++ b/docs/media/platform/improve-audio-playback.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When you try to directly access the USB audio peripheral using the USB APIs,
+ problems arise. These problems can include: security issues, limiting media
+ playback from other apps, and loss of alarms, notifications, and ringtones over

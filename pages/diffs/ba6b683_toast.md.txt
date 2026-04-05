@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/components/toast.md b/docs/design/ui/cars/guides/components/toast.md
+index dd039cc..32f6974 100644
+--- a/docs/design/ui/cars/guides/components/toast.md
++++ b/docs/design/ui/cars/guides/components/toast.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ A toast is a short, informational message that an app displays briefly near the
+ bottom of the screen.
+ 

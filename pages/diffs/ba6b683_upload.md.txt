@@ -1,0 +1,92 @@
+diff --git a/docs/games/services/publishing/api/imageConfigurations/upload.md b/docs/games/services/publishing/api/imageConfigurations/upload.md
+index e7ec54d..20f56ec 100644
+--- a/docs/games/services/publishing/api/imageConfigurations/upload.md
++++ b/docs/games/services/publishing/api/imageConfigurations/upload.md
+@@ -1,20 +1,29 @@
+ ---
+-title: https://developer.android.com/games/services/publishing/api/imageConfigurations/upload
++title: ImageConfigurations: upload  |  API reference  |  Android Developers
+ url: https://developer.android.com/games/services/publishing/api/imageConfigurations/upload
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-| **Deprecated:** This API is deprecated and is being removed, so you shouldn't use it. Attempting to use this API causes errors.
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [API reference](https://developer.android.com/reference)
+ 
++# ImageConfigurations: upload Stay organized with collections Save and categorize content based on your preferences.
+ 
+-**Requires [authorization](https://developer.android.com/games/services/publishing/api/imageConfigurations/upload#auth)**
++
++
++**Deprecated:** This API is deprecated and is being removed, so you shouldn't use it.
++Attempting to use this API causes errors.
++
++**Requires [authorization](#auth)**
+ 
+ Uploads an image for a resource with the given ID and image type.
+ 
+ This method supports an **/upload** URI and accepts uploaded media with the following characteristics:
+ 
+-- **Maximum file size:** 15MB
+-- **Accepted Media MIME types:** `image/*`
++* **Maximum file size:** 15MB
++* **Accepted Media MIME types:**
++  `image/*`
+ 
+ ## Request
+ 
+@@ -27,19 +36,19 @@ POST https://www.googleapis.com/upload/games/v1configuration/images/resourceId/i
+ ### Parameters
+ 
+ | Parameter name | Value | Description |
+-|---|---|---|
+-| **Path parameters** |||
+-| `imageType` | `string` | Selects which image in a resource for this method. <br /> <br /> Acceptable values are: - "`ACHIEVEMENT_ICON`": The icon image for an achievement resource. - "`LEADERBOARD_ICON`": The icon image for a leaderboard resource. |
++| --- | --- | --- |
++| **Path parameters** | | |
++| `imageType` | `string` | Selects which image in a resource for this method.   Acceptable values are:  * "`ACHIEVEMENT_ICON`": The icon image for an achievement resource. * "`LEADERBOARD_ICON`": The icon image for a leaderboard resource. |
+ | `resourceId` | `string` | The ID of the resource used by this method. |
+-| **Required query parameters** |||
+-| `uploadType` | `string` | The type of upload request to the **/upload** URI. Acceptable values are: - `media` - [Simple upload](https://developer.android.com/games/services/publishing/upload#simple). Upload the media data. - `resumable` - [Resumable upload](https://developer.android.com/games/services/publishing/upload#resumable). Upload the file in a resumable fashion, using a series of at least two requests. |
++| **Required query parameters** | | |
++| `uploadType` | `string` | The type of upload request to the **/upload** URI. Acceptable values are:  * `media` - [Simple upload](/games/services/publishing/upload#simple). Upload the media data. * `resumable` - [Resumable upload](/games/services/publishing/upload#resumable). Upload the file in a resumable fashion, using a series of at least two requests. |
+ 
+ ### Authorization
+ 
+-This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
++This request requires authorization with the following scope ([read more about authentication and authorization](/accounts/docs/OAuth2)).
+ 
+ | Scope |
+-|---|
++| --- |
+ | `https://www.googleapis.com/auth/androidpublisher` |
+ 
+ ### Request body
+@@ -50,7 +59,7 @@ Do not supply a request body with this method.
+ 
+ If successful, this method returns a response body with the following structure:
+ 
+-```text
++```
+ {
+   "kind": "gamesConfiguration#imageConfiguration",
+   "url": string,
+@@ -60,8 +69,8 @@ If successful, this method returns a response body with the following structure:
+ ```
+ 
+ | Property name | Value | Description | Notes |
+-|---|---|---|---|
+-| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#imageConfiguration`. |   |
+-| `url` | `string` | The url for this image. |   |
+-| `resourceId` | `string` | The resource ID of resource which the image belongs to. |   |
+-| `imageType` | `string` | The image type for the image. <br /> Acceptable values are: - "`ACHIEVEMENT_ICON`" - "`LEADERBOARD_ICON`" |   |
+\ No newline at end of file
++| --- | --- | --- | --- |
++| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesConfiguration#imageConfiguration`. |  |
++| `url` | `string` | The url for this image. |  |
++| `resourceId` | `string` | The resource ID of resource which the image belongs to. |  |
++| `imageType` | `string` | The image type for the image.   Acceptable values are:  * "`ACHIEVEMENT_ICON`" * "`LEADERBOARD_ICON`" |  |
+\ No newline at end of file

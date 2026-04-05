@@ -1,0 +1,12 @@
+diff --git a/docs/quality/core-value.md b/docs/quality/core-value.md
+index 3927fd8..04c7417 100644
+--- a/docs/quality/core-value.md
++++ b/docs/quality/core-value.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ![](/static/images/quality/hero-images/core_value_highlighted.svg)
+ 
+ The ultimate purpose of any app or game is to deliver value to users by being

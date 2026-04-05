@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/rules.md b/docs/studio/gemini/rules.md
+index 8cf49fe..5996e3b 100644
+--- a/docs/studio/gemini/rules.md
++++ b/docs/studio/gemini/rules.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Rules in Gemini let you define preferred coding languages, styles,
+ or output formats that apply to all prompts. When you set these
+ preferences once, they are automatically applied to all subsequent

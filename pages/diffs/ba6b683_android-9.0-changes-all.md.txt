@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/pie/android-9.0-changes-all.md b/docs/about/versions/pie/android-9.0-changes-all.md
+index 3afffe2..7769969 100644
+--- a/docs/about/versions/pie/android-9.0-changes-all.md
++++ b/docs/about/versions/pie/android-9.0-changes-all.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android 9 (API level 28) introduces a number of changes to the Android system.
+ The following behavior changes apply to *all apps* when they
+ run on the Android 9 platform, regardless of the API level that they

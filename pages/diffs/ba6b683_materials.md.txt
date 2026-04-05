@@ -1,0 +1,12 @@
+diff --git a/docs/games/optimize/materials.md b/docs/games/optimize/materials.md
+index d5e2bd8..a07cd79 100644
+--- a/docs/games/optimize/materials.md
++++ b/docs/games/optimize/materials.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Follow these best practices to optimize the use of materials and shaders in your
+ Android game.
+ 

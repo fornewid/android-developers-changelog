@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/copy-and-paste.md b/docs/develop/ui/compose/touch-input/copy-and-paste.md
+index 287761d..ead63a8 100644
+--- a/docs/develop/ui/compose/touch-input/copy-and-paste.md
++++ b/docs/develop/ui/compose/touch-input/copy-and-paste.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Android clipboard-based framework for copying and pasting
+ supports primitive and complex data types, including:
+ 

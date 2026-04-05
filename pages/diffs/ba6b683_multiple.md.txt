@@ -1,0 +1,12 @@
+diff --git a/docs/training/multiple-apks/multiple.md b/docs/training/multiple-apks/multiple.md
+index 261f87b..63ef9ca 100644
+--- a/docs/training/multiple-apks/multiple.md
++++ b/docs/training/multiple-apks/multiple.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If you publish your app to Google Play, you should build and upload an
+ [Android App Bundle](/guide/app-bundle). When you do so, Google Play automatically
+ generates and serves optimized APKs for each user’s device configuration, so they download only

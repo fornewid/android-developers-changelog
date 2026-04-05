@@ -1,0 +1,435 @@
+diff --git a/docs/games/optimize/vulkan-reduced-precision.md b/docs/games/optimize/vulkan-reduced-precision.md
+index 5c5edfd..acc6519 100644
+--- a/docs/games/optimize/vulkan-reduced-precision.md
++++ b/docs/games/optimize/vulkan-reduced-precision.md
+@@ -1,21 +1,32 @@
+ ---
+-title: https://developer.android.com/games/optimize/vulkan-reduced-precision
++title: Optimize with reduced precision  |  Android game development  |  Android Developers
+ url: https://developer.android.com/games/optimize/vulkan-reduced-precision
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Google Play](https://developer.android.com/distribute)
++* [Games dev center](https://developer.android.com/games)
++* [Guides](https://developer.android.com/games/guides)
++
++Send feedback
++
++# Optimize with reduced precision Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ The numerical format of graphics data and shader calculations can have a
+ significant impact on the performance of your game.
+ 
+ Optimal formats do the following:
+ 
+-- Increase efficiency of GPU cache use
+-- Reduce memory bandwidth consumption, saving power and increasing performance
+-- Maximize computational throughput in shader programs
+-- Minimize CPU RAM usage of your game
++* Increase efficiency of GPU cache use
++* Reduce memory bandwidth consumption, saving power and increasing performance
++* Maximize computational throughput in shader programs
++* Minimize CPU RAM usage of your game
+ 
+-> [!NOTE]
+-> **Note:** Guidance on this page is for Vulkan 1.1 or higher.
++**Note:** Guidance on this page is for Vulkan 1.1 or higher.
+ 
+ ## Floating point formats
+ 
+@@ -46,7 +57,7 @@ vectors. The shader compiler may be able to use scalar values in vector
+ operations. However, if you rely on the compiler to optimize scalars, inspect
+ the compiler output to verify vectorization.
+ 
+-Converting to and from 32-bit and 16-bit\&#ndash;precision floating point has a
++Converting to and from 32-bit and 16-bit&#ndash;precision floating point has a
+ computational cost. Reduce overhead by minimizing precision conversions in your
+ code.
+ 
+@@ -73,11 +84,11 @@ A Vulkan device must declare arithmetic support for a numeric format for it to
+ be usable in shader programs. Vulkan devices on Android commonly support the
+ following formats for arithmetic:
+ 
+-- 32-bit integer (mandatory)
+-- 32-bit floating point (mandatory)
+-- 8-bit integer (optional)
+-- 16-bit integer (optional)
+-- 16-bit half-precision floating point (optional)
++* 32-bit integer (mandatory)
++* 32-bit floating point (mandatory)
++* 8-bit integer (optional)
++* 16-bit integer (optional)
++* 16-bit half-precision floating point (optional)
+ 
+ To determine if a Vulkan device supports 16-bit integers for arithmetic,
+ retrieve the device's features by calling the
+@@ -85,40 +96,49 @@ retrieve the device's features by calling the
+ the `shaderInt16` field in the [VkPhysicalDeviceFeatures2](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceFeatures2.html)
+ result structure is true.
+ 
+-> [!NOTE]
+-> **Note:** Support for `shaderInt16` and for version 1.1 of the Vulkan API is required by the 2022 [Android Baseline profile](https://developer.android.com/ndk/guides/graphics/android-baseline-profile) for Vulkan.
++**Note:** Support for `shaderInt16` and for version 1.1 of the Vulkan API is
++required by the 2022 [Android Baseline profile](/ndk/guides/graphics/android-baseline-profile) for Vulkan.
+ 
+ To determine whether a Vulkan device supports 16-bit floats or 8-bit integers,
+ perform the following steps:
+ 
+-1. Check whether the device supports the [VK_KHR_shader_float16_int8](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_shader_float16_int8.html) Vulkan extension. The extension is required for 16-bit float and 8-bit integer support.
+-2. If `VK_KHR_shader_float16_int8` is supported, append a [VkPhysicalDeviceShaderFloat16Int8Features](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceShaderFloat16Int8Features.html) structure pointer to a `VkPhysicalDeviceFeatures2.pNext` chain.
+-3. Check the `shaderFloat16` and `shaderInt8` fields of the `VkPhysicalDeviceShaderFloat16Int8Features` result structure after calling `vkGetPhysicalDeviceFeatures2()`. If the field value is `true`, the format is supported for shader program arithmetic.
+-
+-> [!NOTE]
+-> **Note:** To use 16-bit floats or 8-bit integers in your shaders, you *must* include `VK_KHR_shader_float16_int8` in a list of required extensions when you call the [vkCreateDevice()](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateDevice.html) function.
++1. Check whether the device supports the
++   [VK\_KHR\_shader\_float16\_int8](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_shader_float16_int8.html) Vulkan extension. The extension is
++   required for 16-bit float and 8-bit integer support.
++2. If `VK_KHR_shader_float16_int8` is supported, append a
++   [VkPhysicalDeviceShaderFloat16Int8Features](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceShaderFloat16Int8Features.html) structure pointer
++   to a `VkPhysicalDeviceFeatures2.pNext` chain.
++3. Check the `shaderFloat16` and `shaderInt8` fields of the
++   `VkPhysicalDeviceShaderFloat16Int8Features` result structure after calling
++   `vkGetPhysicalDeviceFeatures2()`. If the field value is `true`, the format is
++   supported for shader program arithmetic.
++
++**Note:** To use 16-bit floats or 8-bit integers in your shaders, you *must*
++include `VK_KHR_shader_float16_int8` in a list of required extensions when you
++call the [vkCreateDevice()](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkCreateDevice.html) function.
+ 
+ While not a requirement in Vulkan 1.1 or the 2022
+-[Android Baseline profile](https://developer.android.com/ndk/guides/graphics/android-baseline-profile), support for the `VK_KHR_shader_float16_int8`
++[Android Baseline profile](/ndk/guides/graphics/android-baseline-profile), support for the `VK_KHR_shader_float16_int8`
+ extension is very common on Android devices.
+ 
+ ### Storage support
+ 
+ A Vulkan device must declare support for an optional numeric format for
+-specific storage types. The [VK_KHR_16bit_storage](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_16bit_storage.html) extension
++specific storage types. The [VK\_KHR\_16bit\_storage](https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_KHR_16bit_storage.html) extension
+ declares support for 16-bit integer and 16-bit floating-point formats. Four
+ storage types are defined by the extension. A device can support 16-bit numbers
+ for none, some, or all storage types.
+ 
+ The storage types are:
+ 
+-- Storage buffer objects
+-- Uniform buffer objects
+-- Push constant blocks
+-- Shader input and output interfaces
++* Storage buffer objects
++* Uniform buffer objects
++* Push constant blocks
++* Shader input and output interfaces
+ 
+-> [!NOTE]
+-> **Note:** Although `VK_KHR_16bit_storage` is included in core Vulkan 1.1, actual 16-bit format support for storage is optional. Check whether a device supports 16-bit formats for a given storage type before use.
++**Note:** Although `VK_KHR_16bit_storage` is included in core Vulkan 1.1, actual
++16-bit format support for storage is optional. Check whether a device
++supports 16-bit formats for a given storage type before use.
+ 
+ Most, but not all, Vulkan 1.1 devices on Android support 16-bit formats in
+ storage buffer objects. Don't assume support based on the GPU model. Devices
+@@ -132,82 +152,84 @@ them.
+ 
+ An example function that tests for Vulkan arithmetic and storage format support:
+ 
+-    struct ReducedPrecisionSupportInfo {
+-      // Arithmetic support
+-      bool has_8_bit_int_ = false;
+-      bool has_16_bit_int_ = false;
+-      bool has_16_bit_float_ = false;
+-      // Storage support
+-      bool has_16_bit_SSBO_ = false;
+-      bool has_16_bit_UBO_ = false;
+-      bool has_16_bit_push_ = false;
+-      bool has_16_bit_input_output_ = false;
+-      // Use 16-bit floats if we have arithmetic
+-      // support and at least SSBO storage support.
+-      bool use_16bit_floats_ = false;
+-    };
+-
+-    void CheckFormatSupport(VkPhysicalDevice physical_device,
+-        ReducedPrecisionSupportInfo &info) {
+-
+-      // Retrieve the device extension list so we
+-      // can check for our desired extensions.
+-      uint32_t device_extension_count;
+-      vkEnumerateDeviceExtensionProperties(physical_device, nullptr,
+-          &device_extension_count, nullptr);
+-      std::vector<VkExtensionProperties> device_extensions(device_extension_count);
+-      vkEnumerateDeviceExtensionProperties(physical_device, nullptr,
+-          &device_extension_count, device_extensions.data());
+-
+-      bool has_16_8_extension = HasDeviceExtension("VK_KHR_shader_float16_int8",
+-          device_extensions);
+-
+-      // Initialize the device features structure and
+-      // chain the storage features structure and 8/16-bit
+-      // support structure if applicable.
+-      VkPhysicalDeviceFeatures2 device_features;
+-      memset(&device_features, 0, sizeof(device_features));
+-      device_features.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2;
+-
+-      VkPhysicalDeviceShaderFloat16Int8Features f16_int8_features;
+-      memset(&f16_int8_features, 0, sizeof(f16_int8_features));
+-      f16_int8_features.sType =
+-          VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FLOAT16_INT8_FEATURES_KHR;
+-
+-      VkPhysicalDevice16BitStorageFeatures storage_features;
+-      memset(&storage_features, 0, sizeof(storage_features));
+-      storage_features.sType =
+-          VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES;
+-      device_features.pNext = &storage_features;
+-
+-      if (has_16_8_extension) {
+-        storage_features.pNext = &f16_int8_features;
+-      }
+-
+-      vkGetPhysicalDeviceFeatures2(physical_device, &device_features);
+-
+-      // Parse the storage features and determine
+-      // what kinds of 16-bit storage access are available.
+-      if (storage_features.storageBuffer16BitAccess ||
+-          storage_features.uniformAndStorageBuffer16BitAccess) {
+-        info.has_16_bit_SSBO_ = true;
+-      }
+-      info.has_16_bit_UBO_ = storage_features.uniformAndStorageBuffer16BitAccess;
+-      info.has_16_bit_push_ = storage_features.storagePushConstant16;
+-      info.has_16_bit_input_output_ = storage_features.storageInputOutput16;
+-
+-      info.has_16_bit_int_ = device_features.features.shaderInt16;
+-      if (has_16_8_extension) {
+-        info.has_16_bit_float_ = f16_int8_features.shaderFloat16;
+-        info.has_8_bit_int_ = f16_int8_features.shaderInt8;
+-      }
+-
+-      // Get arithmetic and at least some form of storage
+-      // support before enabling 16-bit float usage.
+-      if (info.has_16_bit_float_ && info.has_16_bit_SSBO_) {
+-        info.use_16bit_floats_ = true;
+-      }
+-    }
++```
++struct ReducedPrecisionSupportInfo {
++  // Arithmetic support
++  bool has_8_bit_int_ = false;
++  bool has_16_bit_int_ = false;
++  bool has_16_bit_float_ = false;
++  // Storage support
++  bool has_16_bit_SSBO_ = false;
++  bool has_16_bit_UBO_ = false;
++  bool has_16_bit_push_ = false;
++  bool has_16_bit_input_output_ = false;
++  // Use 16-bit floats if we have arithmetic
++  // support and at least SSBO storage support.
++  bool use_16bit_floats_ = false;
++};
++
++void CheckFormatSupport(VkPhysicalDevice physical_device,
++    ReducedPrecisionSupportInfo &info) {
++
++  // Retrieve the device extension list so we
++  // can check for our desired extensions.
++  uint32_t device_extension_count;
++  vkEnumerateDeviceExtensionProperties(physical_device, nullptr,
++      &device_extension_count, nullptr);
++  std::vector<VkExtensionProperties> device_extensions(device_extension_count);
++  vkEnumerateDeviceExtensionProperties(physical_device, nullptr,
++      &device_extension_count, device_extensions.data());
++
++  bool has_16_8_extension = HasDeviceExtension("VK_KHR_shader_float16_int8",
++      device_extensions);
++
++  // Initialize the device features structure and
++  // chain the storage features structure and 8/16-bit
++  // support structure if applicable.
++  VkPhysicalDeviceFeatures2 device_features;
++  memset(&device_features, 0, sizeof(device_features));
++  device_features.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2;
++
++  VkPhysicalDeviceShaderFloat16Int8Features f16_int8_features;
++  memset(&f16_int8_features, 0, sizeof(f16_int8_features));
++  f16_int8_features.sType =
++      VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FLOAT16_INT8_FEATURES_KHR;
++
++  VkPhysicalDevice16BitStorageFeatures storage_features;
++  memset(&storage_features, 0, sizeof(storage_features));
++  storage_features.sType =
++      VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES;
++  device_features.pNext = &storage_features;
++
++  if (has_16_8_extension) {
++    storage_features.pNext = &f16_int8_features;
++  }
++
++  vkGetPhysicalDeviceFeatures2(physical_device, &device_features);
++
++  // Parse the storage features and determine
++  // what kinds of 16-bit storage access are available.
++  if (storage_features.storageBuffer16BitAccess ||
++      storage_features.uniformAndStorageBuffer16BitAccess) {
++    info.has_16_bit_SSBO_ = true;
++  }
++  info.has_16_bit_UBO_ = storage_features.uniformAndStorageBuffer16BitAccess;
++  info.has_16_bit_push_ = storage_features.storagePushConstant16;
++  info.has_16_bit_input_output_ = storage_features.storageInputOutput16;
++
++  info.has_16_bit_int_ = device_features.features.shaderInt16;
++  if (has_16_8_extension) {
++    info.has_16_bit_float_ = f16_int8_features.shaderFloat16;
++    info.has_8_bit_int_ = f16_int8_features.shaderInt8;
++  }
++
++  // Get arithmetic and at least some form of storage
++  // support before enabling 16-bit float usage.
++  if (info.has_16_bit_float_ && info.has_16_bit_SSBO_) {
++    info.use_16bit_floats_ = true;
++  }
++}
++```
+ 
+ ## Precision level for data
+ 
+@@ -221,17 +243,19 @@ artifacts or incorrect rendering.
+ Data types that are good candidates for representation in half-precision
+ floating point include:
+ 
+-- Position data in local space coordinates
+-- Texture UVs for smaller textures with limited UV wrapping that can be constrained to a -1.0 to 1.0 coordinate range
+-- Normal, tangent, and bitangent data
+-- Vertex color data
+-- Data with low precision requirements centered on 0.0
++* Position data in local space coordinates
++* Texture UVs for smaller textures with limited UV wrapping that can be
++  constrained to a -1.0 to 1.0 coordinate range
++* Normal, tangent, and bitangent data
++* Vertex color data
++* Data with low precision requirements centered on 0.0
+ 
+ Data types that are *not* recommended for representation in half-precision float
+ include:
+ 
+-- Position data in global world coordinates
+-- Texture UVs for high-precision use cases like UI element coordinates in an atlas sheet
++* Position data in global world coordinates
++* Texture UVs for high-precision use cases like UI element coordinates in an
++  atlas sheet
+ 
+ ## Precision in shader code
+ 
+@@ -251,10 +275,12 @@ The appropriate GLSL extensions must be defined to enable support for 16-bit or
+ 8-bit numeric formats in storage and uniform buffer structures. The relevant
+ extension declarations are:
+ 
+-    // Enable 16-bit formats in storage and uniform buffers.
+-    #extension GL_EXT_shader_16bit_storage : require
+-    // Enable 8-bit formats in storage and uniform buffers.
+-    #extension GL_EXT_shader_8bit_storage : require
++```
++// Enable 16-bit formats in storage and uniform buffers.
++#extension GL_EXT_shader_16bit_storage : require
++// Enable 8-bit formats in storage and uniform buffers.
++#extension GL_EXT_shader_8bit_storage : require
++```
+ 
+ These extensions are specific to GLSL and don't have an equivalent in HLSL.
+ 
+@@ -265,30 +291,38 @@ single-precision float and the `mediump` qualifier for a half-precision float.
+ GLSL compilers for Vulkan interpret the legacy `lowp` qualifier as `mediump`.
+ Some examples of relaxed precision:
+ 
+-    mediump vec4 my_vector; // Suggest 16-bit half precision
+-    highp mat4 my_matrix;   // Suggest 32-bit single precision
++```
++mediump vec4 my_vector; // Suggest 16-bit half precision
++highp mat4 my_matrix;   // Suggest 32-bit single precision
++```
+ 
+ ### Explicit precision in GLSL
+ 
+ Include the `GL_EXT_shader_explicit_arithmetic_types_float16` extension in your
+ GLSL code to enable use of 16-bit floating point types:
+ 
+-    #extension GL_EXT_shader_explicit_arithmetic_types_float16 : require
++```
++#extension GL_EXT_shader_explicit_arithmetic_types_float16 : require
++```
+ 
+ Declare 16-bit floating point scalar, vector, and matrix types in GLSL using the
+ following keywords:
+ 
+-    float16_t   f16vec2     f16vec3    f16vec4
+-    f16mat2     f16mat3     f16mat4
+-    f16mat2x2   f16mat2x3   f16mat2x4
+-    f16mat3x2   f16mat3x3   f16mat3x4
+-    f16mat4x2   f16mat4x3   f16mat4x4
++```
++float16_t   f16vec2     f16vec3    f16vec4
++f16mat2     f16mat3     f16mat4
++f16mat2x2   f16mat2x3   f16mat2x4
++f16mat3x2   f16mat3x3   f16mat3x4
++f16mat4x2   f16mat4x3   f16mat4x4
++```
+ 
+ Declare 16-bit integer scalar and vector types in GLSL using the following
+ keywords:
+ 
+-    int16_t     i16vec2     i16vec3    i16vec4
+-    uint16_t    u16vec2     u16vec3    u16vec4
++```
++int16_t     i16vec2     i16vec3    i16vec4
++uint16_t    u16vec2     u16vec3    u16vec4
++```
+ 
+ ### Relaxed precision in HLSL
+ 
+@@ -300,9 +334,11 @@ target hardware. A minimal precision 16-bit float is specified by the
+ specified by the `min16int` and `min16uint` keywords respectively. Additional
+ examples of minimal precision declarations include the following:
+ 
+-    // Four element vector and four-by-four matrix types
+-    min16float4 my_vector4;
+-    min16float4x4 my_matrix4x4;
++```
++// Four element vector and four-by-four matrix types
++min16float4 my_vector4;
++min16float4x4 my_matrix4x4;
++```
+ 
+ ### Explicit precision in HLSL
+ 
+@@ -311,10 +347,20 @@ keywords. Signed and unsigned 16-bit integers are specified by the `int16_t`
+ and `uint16_t` keywords respectively. Additional examples of explicit precision
+ declarations include the following:
+ 
+-    // Four element vector and four-by-four matrix types
+-    half4 my_vector4;
+-    half4x4 my_matrix4x4;
++```
++// Four element vector and four-by-four matrix types
++half4 my_vector4;
++half4x4 my_matrix4x4;
++```
++
++**Note:** When using the open source [DirectXShaderCompiler](https://github.com/microsoft/DirectXShaderCompiler) to
++compile HLSL code for Vulkan using 16-bit types, the  
++`-enable-16bit-types`
++command line option *must* be used to enable support for 16-bit numeric formats.
++
++
++
++
++
+ 
+-> [!NOTE]
+-> **Note:** When using the open source [DirectXShaderCompiler](https://github.com/microsoft/DirectXShaderCompiler) to compile HLSL code for Vulkan using 16-bit types, the  
+-> `-enable-16bit-types` command line option *must* be used to enable support for 16-bit numeric formats.
+\ No newline at end of file
++Send feedback
+\ No newline at end of file

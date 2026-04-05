@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/templates/navigation-template.md b/docs/design/ui/cars/guides/templates/navigation-template.md
+index dab5605..a2eda1c 100644
+--- a/docs/design/ui/cars/guides/templates/navigation-template.md
++++ b/docs/design/ui/cars/guides/templates/navigation-template.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Navigation template presents a base map and optional routing information.
+ 
+ When a user is driving without text-based turn-by-turn directions, apps can

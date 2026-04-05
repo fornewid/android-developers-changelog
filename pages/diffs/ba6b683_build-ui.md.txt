@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/glance/build-ui.md b/docs/develop/ui/compose/glance/build-ui.md
+index c4a55d1..f201ef0 100644
+--- a/docs/develop/ui/compose/glance/build-ui.md
++++ b/docs/develop/ui/compose/glance/build-ui.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page describes how to handle sizes and provide flexible and responsive
+ layouts with Glance, using existing Glance components.
+ 

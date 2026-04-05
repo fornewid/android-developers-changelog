@@ -1,0 +1,12 @@
+diff --git a/docs/guide/app-compatibility.md b/docs/guide/app-compatibility.md
+index 6a8c29f..da780f4 100644
+--- a/docs/guide/app-compatibility.md
++++ b/docs/guide/app-compatibility.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ For Android, the term *app compatibility* means that your app runs properly on a
+ specific version of the platform, typically the latest version. With each
+ release, we make integral changes that improve privacy and security, and we

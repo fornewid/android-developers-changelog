@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/wff/images.md b/docs/training/wearables/wff/images.md
+index a582f30..2ec38c9 100644
+--- a/docs/training/wearables/wff/images.md
++++ b/docs/training/wearables/wff/images.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Using images in your watch face can really help bring it to life, from a
+ full-screen background image to individual detail images to add interest.
+ 

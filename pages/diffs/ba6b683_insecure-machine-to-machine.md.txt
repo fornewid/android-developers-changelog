@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/insecure-machine-to-machine.md b/docs/privacy-and-security/risks/insecure-machine-to-machine.md
+index 9ffe3e0..5b52c32 100644
+--- a/docs/privacy-and-security/risks/insecure-machine-to-machine.md
++++ b/docs/privacy-and-security/risks/insecure-machine-to-machine.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **OWASP category:** [MASVS-CODE: Code Quality](https://mas.owasp.org/MASVS/10-MASVS-CODE)
+ 
+ ## Overview

@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md b/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md
+index 81f0f88..f66e8d7 100644
+--- a/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md
++++ b/docs/topic/performance/app-optimization/customize-which-resources-to-keep.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When you [enable app optimization](/topic/performance/app-optimization/enable-app-optimization), the `isShrinkResources = true` setting
+ instructs the optimizer to remove resources that are unused, which helps reduce
+ the size of your app. Resource shrinking works only in conjunction with code

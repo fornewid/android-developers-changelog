@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/emoji.md b/docs/jetpack/androidx/releases/emoji.md
+index d258da3..4e7e669 100644
+--- a/docs/jetpack/androidx/releases/emoji.md
++++ b/docs/jetpack/androidx/releases/emoji.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Emoji
+ 
+ [User Guide](/guide/topics/ui/look-and-feel/emoji-compat)  [Code Sample](https://github.com/android/user-interface-samples)

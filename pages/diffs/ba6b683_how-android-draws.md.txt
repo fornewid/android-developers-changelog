@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/ui/how-android-draws.md b/docs/guide/topics/ui/how-android-draws.md
+index ccdbdd3..b38b80e 100644
+--- a/docs/guide/topics/ui/how-android-draws.md
++++ b/docs/guide/topics/ui/how-android-draws.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn about Compose phases.

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/common-ui.md b/docs/guide/navigation/navigation-3/recipes/common-ui.md
+index 25c76c8..e1f2d95 100644
+--- a/docs/guide/navigation/navigation-3/recipes/common-ui.md
++++ b/docs/guide/navigation/navigation-3/recipes/common-ui.md
+@@ -13,6 +13,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Common UI Recipe
+ 
+ This recipe demonstrates how to implement a common navigation UI pattern with a bottom navigation bar and multiple back stacks, where each tab in the navigation bar has its own navigation history.

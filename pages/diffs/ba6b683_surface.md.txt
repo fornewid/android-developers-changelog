@@ -1,0 +1,12 @@
+diff --git a/docs/media/media3/ui/surface.md b/docs/media/media3/ui/surface.md
+index 870299e..e16e64e 100644
+--- a/docs/media/media3/ui/surface.md
++++ b/docs/media/media3/ui/surface.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page describes the different types of surfaces that can be used for video
+ playback with Media3, and how to choose the right type for your use case. To
+ find out more about Surface objects in Android, read this [graphics

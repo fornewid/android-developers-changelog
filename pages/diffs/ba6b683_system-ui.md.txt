@@ -1,0 +1,12 @@
+diff --git a/docs/training/system-ui.md b/docs/training/system-ui.md
+index 6b23e31..1f986fd 100644
+--- a/docs/training/system-ui.md
++++ b/docs/training/system-ui.md
+@@ -10,7 +10,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![system bars](/static/images/training/system-ui.png)
+ 
+ **Figure 1.** System bars, including the [1] status

@@ -1,0 +1,282 @@
+diff --git a/docs/ndk/guides/using-newer-apis.md b/docs/ndk/guides/using-newer-apis.md
+index 535567e..631a5eb 100644
+--- a/docs/ndk/guides/using-newer-apis.md
++++ b/docs/ndk/guides/using-newer-apis.md
+@@ -1,25 +1,14 @@
+ ---
+-title: Using newer APIs  |  Android NDK  |  Android Developers
++title: https://developer.android.com/ndk/guides/using-newer-apis
+ url: https://developer.android.com/ndk/guides/using-newer-apis
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Home](https://developer.android.com/)
+-* [NDK](https://developer.android.com/ndk)
+-* [Develop](https://developer.android.com/develop)
+-* [Guides](https://developer.android.com/ndk/guides)
+-
+-# Using newer APIs Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ This page explains how your app can use new OS functionality when running on new
+ OS versions while preserving compatibility with older devices.
+ 
+-**Key Point:** Most developers should enable this feature. It is not the default for
+-the reasons explained in [Why isn't this the default](#why_isnt_this_the_default), but if you're writing
+-code for Android, rather than porting non-Android code, this will make it
+-easier.
++> [!IMPORTANT]
++> **Key Point:** Most developers should enable this feature. It is not the default for the reasons explained in [Why isn't this the default](https://developer.android.com/ndk/guides/using-newer-apis#why_isnt_this_the_default), but if you're writing code for Android, rather than porting non-Android code, this will make it easier.
+ 
+ By default, references to NDK APIs in your application are strong references.
+ Android's dynamic loader will eagerly try to resolve them when your library is
+@@ -42,34 +31,17 @@ cannot be safely called, but as long as callsites are guarded to prevent calling
+ the API when it is not available, the rest of your code can be run, and you can
+ call the API normally without needing to use `dlopen()` and `dlsym()`.
+ 
+-**Note:** If you're familiar with lazy binding on other systems (which you get by
+-calling `dlopen()` with the `RTLD_LAZY` flag, or linking with `-z lazy`), weak
+-symbols offer similar behavior but have some important differences that are
+-beneficial for hardening and debugging. With lazy loading the symbol is not
+-looked up until reaching the callsite. Failure to find the symbol at that point
+-is still fatal, and the deferred lookup makes performance less predictable. Weak
+-symbols are still eagerly resolved during library load, but failure to find a
+-symbol results in the function's address being `nullptr` rather than an error.
+-The downside to weak symbols over lazy loading is that if you do incorrectly
+-call an unavailable API the app will segfault without a clear error message,
+-whereas a lazily bound reference would emit a clear error to the log.
+-Fortunately, Clang can diagnose this mistake at build time, so when built with
+-the correct flags (see below), this downside is easily avoided in practice.
+-Android's dynamic linker does not support lazy loading because lazy binding
+-inhibits hardening features like RELRO.
++> [!NOTE]
++> **Note:** If you're familiar with lazy binding on other systems (which you get by calling `dlopen()` with the `RTLD_LAZY` flag, or linking with `-z lazy`), weak symbols offer similar behavior but have some important differences that are beneficial for hardening and debugging. With lazy loading the symbol is not looked up until reaching the callsite. Failure to find the symbol at that point is still fatal, and the deferred lookup makes performance less predictable. Weak symbols are still eagerly resolved during library load, but failure to find a symbol results in the function's address being `nullptr` rather than an error. The downside to weak symbols over lazy loading is that if you do incorrectly call an unavailable API the app will segfault without a clear error message, whereas a lazily bound reference would emit a clear error to the log. Fortunately, Clang can diagnose this mistake at build time, so when built with the correct flags (see below), this downside is easily avoided in practice. Android's dynamic linker does not support lazy loading because lazy binding inhibits hardening features like RELRO.
+ 
+ Weak API references don't require additional support from the dynamic linker,
+ so they can be used with any version of Android.
+ 
+ ## Enabling weak API references in your build
+ 
+-**Warning:** Using this feature circumvents build-time checks that you've linked the
+-appropriate libraries for the affected APIs. If, for example, your
+-`minSdkVersion` is 21 and you call `ANativeWindow_getBuffersDefaultDataSpace()`
+-but forget to link against libnativewindow, your app will build successfully,
+-`__builtin_available()` will return true, but your app will crash when
+-`ANativeWindow_getBuffersDefaultDataSpace()` is called. **The only defense
+-against this problem is testing.**
++> [!WARNING]
++> **Warning:** Using this feature circumvents build-time checks that you've linked the appropriate libraries for the affected APIs. If, for example, your `minSdkVersion` is 21 and you call `ANativeWindow_getBuffersDefaultDataSpace()` but forget to link against libnativewindow, your app will build successfully, `__builtin_available()` will return true, but your app will crash when `ANativeWindow_getBuffersDefaultDataSpace()` is called. **The only defense
++> against this problem is testing.**
+ 
+ ### CMake
+ 
+@@ -77,30 +49,26 @@ Pass `-DANDROID_WEAK_API_DEFS=ON` when running CMake. If you're using CMake via
+ `externalNativeBuild`, add the following to your `build.gradle.kts` (or the
+ Groovy equivalent if you're still using `build.gradle`):
+ 
+-```
+-android {
+-    // Other config...
+-
+-    defaultConfig {
++    android {
+         // Other config...
+ 
+-        externalNativeBuild {
+-            cmake {
+-                arguments.add("-DANDROID_WEAK_API_DEFS=ON")
+-                // Other config...
++        defaultConfig {
++            // Other config...
++
++            externalNativeBuild {
++                cmake {
++                    arguments.add("-DANDROID_WEAK_API_DEFS=ON")
++                    // Other config...
++                }
+             }
+         }
+     }
+-}
+-```
+ 
+ ### ndk-build
+ 
+ Add the following to your `Application.mk` file:
+ 
+-```
+-APP_WEAK_API_DEFS := true
+-```
++    APP_WEAK_API_DEFS := true
+ 
+ If you do not already have an `Application.mk` file, create it in the same
+ directory as your `Android.mk` file. Additional changes to your
+@@ -113,9 +81,7 @@ system to see if there's a recommended way to enable this feature. If your build
+ system doesn't support this option natively, you can enable the feature by
+ passing the following flags when compiling:
+ 
+-```
+--D__ANDROID_UNAVAILABLE_SYMBOLS_ARE_WEAK__ -Werror=unguarded-availability
+-```
++    -D__ANDROID_UNAVAILABLE_SYMBOLS_ARE_WEAK__ -Werror=unguarded-availability
+ 
+ The first configures the NDK headers to allow weak references. The second turns
+ the warning for unsafe API calls into an error.
+@@ -135,34 +101,24 @@ call to an API that isn't available for your app's `minSdkVersion`. If you're
+ using ndk-build or our CMake toolchain file, that warning will be automatically
+ enabled and promoted to an error when enabling this feature.
+ 
+-**Caution:** Be careful when enabling this feature for code which was not written
+-with Android in mind. In particular [configure](https://en.wikipedia.org/wiki/Configure_script)-style checks for APIs will most
+-likely detect APIs as available when this feature is enabled (it depends on
+-how the specific system determines availability), but that code almost certainly
+-does not include the necessary runtime check to make the call safe. Be sure that
+-`-Werror=unguarded-availability` is used and not suppressed: make sure no flags
+-which would disable that error (`-Wno-unguarded-availability`,
+-`-Wno-error=unguarded-availability`, `-Wno-error`, and `-w` would all do it, but
+-may not be a complete list) appear after the initial
+-`-Werror=unguarded-availability`.
++> [!CAUTION]
++> **Caution:** Be careful when enabling this feature for code which was not written with Android in mind. In particular [configure](https://en.wikipedia.org/wiki/Configure_script)-style checks for APIs will most likely detect APIs as available when this feature is enabled (it depends on how the specific system determines availability), but that code almost certainly does not include the necessary runtime check to make the call safe. Be sure that `-Werror=unguarded-availability` is used and not suppressed: make sure no flags which would disable that error (`-Wno-unguarded-availability`, `-Wno-error=unguarded-availability`, `-Wno-error`, and `-w` would all do it, but may not be a complete list) appear after the initial `-Werror=unguarded-availability`.
+ 
+ Here is an example of some code that makes conditional use of an API without
+ this feature enabled, using `dlopen()` and `dlsym()`:
+ 
+-```
+-void LogImageDecoderResult(int result) {
+-    void* lib = dlopen("libjnigraphics.so", RTLD_LOCAL);
+-    CHECK_NE(lib, nullptr) << "Failed to open libjnigraphics.so: " << dlerror();
+-    auto func = reinterpret_cast<decltype(&AImageDecoder_resultToString)>(
+-        dlsym(lib, "AImageDecoder_resultToString")
+-    );
+-    if (func == nullptr) {
+-        LOG(INFO) << "cannot stringify result: " << result;
+-    } else {
+-        LOG(INFO) << func(result);
++    void LogImageDecoderResult(int result) {
++        void* lib = dlopen("libjnigraphics.so", RTLD_LOCAL);
++        CHECK_NE(lib, nullptr) << "Failed to open libjnigraphics.so: " << dlerror();
++        auto func = reinterpret_cast<decltype(&AImageDecoder_resultToString)>(
++            dlsym(lib, "AImageDecoder_resultToString")
++        );
++        if (func == nullptr) {
++            LOG(INFO) << "cannot stringify result: " << result;
++        } else {
++            LOG(INFO) << func(result);
++        }
+     }
+-}
+-```
+ 
+ It's a bit messy to read, there's some duplication of function names (and if
+ you're writing C, the signatures as well), it'll build successfully but always
+@@ -171,27 +127,20 @@ to `dlsym`, and you have to use this pattern for every API.
+ 
+ With weak API references, the function above can be rewritten as:
+ 
+-```
+-void LogImageDecoderResult(int result) {
+-    if (__builtin_available(android 31, *)) {
+-        LOG(INFO) << AImageDecoder_resultToString(result);
+-    } else {
+-        LOG(INFO) << "cannot stringify result: " << result;
++    void LogImageDecoderResult(int result) {
++        if (__builtin_available(android 31, *)) {
++            LOG(INFO) << AImageDecoder_resultToString(result);
++        } else {
++            LOG(INFO) << "cannot stringify result: " << result;
++        }
+     }
+-}
+-```
+ 
+ Under the hood, `__builtin_available(android 31, *)` calls
+ `android_get_device_api_level()`, caches the result, and compares it with `31`
+ (which is the API level that introduced `AImageDecoder_resultToString()`).
+ 
+-**Note:** The `*` argument signifies that the API is unconditionally available for
+-non-Android targets. In rare cases where the API in question is portable across
+-a variety of platforms (obviously iOS will not have Android-specific APIs and
+-vice-versa, but some libraries like libc will have considerable overlap), you
+-can list multiple platforms in a single `__builtin_available()` (for example,
+-`__builtin_available(android 31, iOS 10.0, *)`). In practice, you're unlikely to
+-ever have a need to do that.
++> [!NOTE]
++> **Note:** The `*` argument signifies that the API is unconditionally available for non-Android targets. In rare cases where the API in question is portable across a variety of platforms (obviously iOS will not have Android-specific APIs and vice-versa, but some libraries like libc will have considerable overlap), you can list multiple platforms in a single `__builtin_available()` (for example, `__builtin_available(android 31, iOS 10.0, *)`). In practice, you're unlikely to ever have a need to do that.
+ 
+ The simplest way to determine which value to use for `__builtin_available` is to
+ attempt to build without the guard (or a guard of
+@@ -199,9 +148,7 @@ attempt to build without the guard (or a guard of
+ For example, an unguarded call to `AImageDecoder_createFromAAsset()` with
+ `minSdkVersion 24` will produce:
+ 
+-```
+-error: 'AImageDecoder_createFromAAsset' is only available on Android 30 or newer [-Werror,-Wunguarded-availability]
+-```
++    error: 'AImageDecoder_createFromAAsset' is only available on Android 30 or newer [-Werror,-Wunguarded-availability]
+ 
+ In this case the call should be guarded by `__builtin_available(android 30, *)`.
+ If there is no build error, either the API is always available for your
+@@ -221,27 +168,25 @@ own code as requiring a certain API level. For example, the ImageDecoder APIs
+ themselves were added in API 30, so for functions that make heavy use of those
+ APIs you can do something like:
+ 
+-```
+-#define REQUIRES_API(x) __attribute__((__availability__(android,introduced=x)))
+-#define API_AT_LEAST(x) __builtin_available(android x, *)
++    #define REQUIRES_API(x) __attribute__((__availability__(android,introduced=x)))
++    #define API_AT_LEAST(x) __builtin_available(android x, *)
+ 
+-void DecodeImageWithImageDecoder() REQUIRES_API(30) {
+-    // Call any APIs that were introduced in API 30 or newer without guards.
+-}
++    void DecodeImageWithImageDecoder() REQUIRES_API(30) {
++        // Call any APIs that were introduced in API 30 or newer without guards.
++    }
+ 
+-void DecodeImageFallback() {
+-    // Pay the overhead to call the Java APIs via JNI, or use third-party image
+-    // decoding libraries.
+-}
++    void DecodeImageFallback() {
++        // Pay the overhead to call the Java APIs via JNI, or use third-party image
++        // decoding libraries.
++    }
+ 
+-void DecodeImage() {
+-    if (API_AT_LEAST(30)) {
+-        DecodeImageWithImageDecoder();
+-    } else {
+-        DecodeImageFallback();
++    void DecodeImage() {
++        if (API_AT_LEAST(30)) {
++            DecodeImageWithImageDecoder();
++        } else {
++            DecodeImageFallback();
++        }
+     }
+-}
+-```
+ 
+ ## Quirks of API guards
+ 
+@@ -255,7 +200,7 @@ will emit the `unsupported-availability-guard` warning, as well as
+ Checks for `unguarded-availability` only apply to the function scope where they
+ are used. Clang will emit the warning even if the function with the API call is
+ only ever called from within a guarded scope. To avoid repetition of guards in
+-your own code, see [Avoiding repetition of API guards](#avoiding_repetition_of_api_guards).
++your own code, see [Avoiding repetition of API guards](https://developer.android.com/ndk/guides/using-newer-apis#avoiding_repetition_of_api_guards).
+ 
+ ## Why isn't this the default?
+ 
+@@ -263,7 +208,7 @@ Unless used correctly, the difference between strong API references and weak API
+ references is that the former will fail quickly and obviously, whereas the
+ latter will not fail until the user takes an action that causes the missing API
+ to be called. When this happens, the error message will not be a clear
+-compile- time "AFoo\_bar() is not available" error, it will be a segfault. With
++compile- time "AFoo_bar() is not available" error, it will be a segfault. With
+ strong references, the error message is much clearer, and failing-fast is a
+ safer default.
+ 

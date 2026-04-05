@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/backup-best-practices.md b/docs/privacy-and-security/risks/backup-best-practices.md
+index 4ae9fa1..339083c 100644
+--- a/docs/privacy-and-security/risks/backup-best-practices.md
++++ b/docs/privacy-and-security/risks/backup-best-practices.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **OWASP category:** [MASVS-CODE: Code Quality](https://mas.owasp.org/MASVS/10-MASVS-CODE)
+ 
+ ## Overview

@@ -1,0 +1,386 @@
+diff --git a/docs/studio/test/managed-devices.md b/docs/studio/test/managed-devices.md
+index cc1a844..a56a80a 100644
+--- a/docs/studio/test/managed-devices.md
++++ b/docs/studio/test/managed-devices.md
+@@ -1,24 +1,37 @@
+ ---
+-title: https://developer.android.com/studio/test/managed-devices
++title: Scale your tests with build-managed devices  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/studio/test/managed-devices
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Studio](https://developer.android.com/studio)
++* [IDE guides](https://developer.android.com/studio/intro)
++
++# Scale your tests with build-managed devices Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ Build-managed devices improve consistency, performance, and reliability for
+ your automated instrumented tests. This feature, available for API levels 27 and
+ higher, lets you configure virtual or remote physical test devices in your
+ project's Gradle files. The Android Gradle plugin uses the configurations to
+-fully manage---that is, create, deploy, and tear down---those devices when executing
++fully manage—that is, create, deploy, and tear down—those devices when executing
+ your automated tests.
+ 
+ This feature grants the Android Gradle plugin visibility into not only the tests
+ you're running, but also the lifecycle of the devices, thus improving the
+ quality of your testing experience in the following ways:
+ 
+-- Handles device-related issues in order to ensure your tests are executed
+-- For virtual devices, uses emulator snapshots to improve device startup time and memory usage and restore devices to a clean state between tests
+-- Caches test results and reruns only tests that are likely to provide different results
+-- Provides a consistent environment for running your tests between local and remote test runs
++* Handles device-related issues in order to ensure your tests are executed
++* For virtual devices, uses emulator snapshots to improve device startup time
++  and memory usage and restore devices to a clean state between tests
++* Caches test results and reruns only tests that are likely to provide different
++  results
++* Provides a consistent environment for running your tests between local and
++  remote test runs
+ 
+ ## Create a virtual build-managed device
+ 
+@@ -28,7 +41,7 @@ running API level 30 as a build-managed device.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ android {
+   testOptions {
+     managedDevices {
+@@ -49,7 +62,7 @@ android {
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ android {
+   testOptions {
+     managedDevices {
+@@ -68,8 +81,8 @@ android {
+ }
+ ```
+ 
+-> [!TIP]
+-> **Tip:** If you're using Android Studio to edit you build configuration, you can see available devices and their compatible API levels as autocomplete suggestions.
++**Tip:** If you're using Android Studio to edit you build configuration, you can see
++available devices and their compatible API levels as autocomplete suggestions.
+ 
+ ## Define groups of devices
+ 
+@@ -83,7 +96,7 @@ The example below shows two devices added to a device group called
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ testOptions {
+   managedDevices {
+     localDevices {
+@@ -102,7 +115,7 @@ testOptions {
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ testOptions {
+   managedDevices {
+     localDevices {
+@@ -138,7 +151,7 @@ build variant of your app you want to test, such as `Debug`.
+ gradlew device-nameBuildVariantAndroidTest
+ ```
+ 
+-To run your tests on a [group](https://developer.android.com/studio/test/managed-devices#define-groups) of build-managed devices, use
++To run your tests on a [group](#define-groups) of build-managed devices, use
+ the following command.
+ 
+ ### Linux and macOS
+@@ -159,10 +172,12 @@ gradlew group-nameGroupBuildVariantAndroidTest
+ 
+ The test output includes a path to an HTML file that has the test report. You
+ can also import test results into Android Studio for further analysis by
+-clicking **Run \> Test History** in the IDE.
++clicking **Run > Test History** in the IDE.
+ 
+-> [!NOTE]
+-> **Note:** When using build-managed devices on servers that don't support hardware rendering, such as GitHub Actions, you need to specify the following flag: `-Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect`. If you use PowerShell, you have to surround the flag with quotes.
++**Note:** When using build-managed devices on servers that don't support hardware
++rendering, such as GitHub Actions, you need to specify the following flag:
++`-Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect`. If you
++use PowerShell, you have to surround the flag with quotes.
+ 
+ ## Enable test sharding
+ 
+@@ -174,10 +189,15 @@ time at the cost of additional computational resources.
+ To set the number of shards you want to use in a given test run, set the
+ following in your `gradle.properties` file:
+ 
+-    android.experimental.androidTest.numManagedDeviceShards=<number_of_shards>
++```
++android.experimental.androidTest.numManagedDeviceShards=<number_of_shards>
++```
+ 
+-> [!WARNING]
+-> **Warning:** Depending on the number of shards you specify, enabling this feature can be resource intensive. If Gradle is unable to provision the devices requested, the test run might fail with a timeout error. If the issue persists, try requesting fewer devices by reducing either the number of unique devices or shards per device.
++**Warning:** Depending on the number of shards you specify, enabling this feature
++can be resource intensive. If Gradle is unable to provision the devices
++requested, the test run might fail with a timeout error. If the issue persists,
++try requesting fewer devices by reducing either the number of unique devices or
++shards per device.
+ 
+ When running your tests using this option, build-managed devices provision the
+ number of shards you specify for each device profile in the test run. So, for
+@@ -194,21 +214,22 @@ Build-managed devices support a type of emulator device called the Automated
+ Test Device (ATD), which is optimized to reduce CPU and memory resources when
+ running your instrumented tests. ATDs improve runtime performance in a few ways:
+ 
+-- Remove pre-installed apps that are typically not useful for testing your app
+-- Disable certain background services that are typically not useful for testing your app
+-- Disable hardware rendering
++* Remove pre-installed apps that are typically not useful for testing your app
++* Disable certain background services that are typically not useful for
++  testing your app
++* Disable hardware rendering
+ 
+-> [!WARNING]
+-> **Warning:** Screenshot tests that depend on hardware rendering currently aren't supported when using ATDs.
++**Warning:** Screenshot tests that depend on hardware rendering currently aren't
++supported when using ATDs.
+ 
+ Before getting started, make sure you
+-[update the Android Emulator](https://developer.android.com/studio/releases/emulator) to the latest
++[update the Android Emulator](/studio/releases/emulator) to the latest
+ available version. Then, specify an "-atd" image when defining a build-managed
+ device in your module-level build file, as shown below:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ android {
+   testOptions {
+     managedDevices {
+@@ -229,7 +250,7 @@ android {
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ android {
+   testOptions {
+     managedDevices {
+@@ -248,9 +269,9 @@ android {
+ }
+ ```
+ 
+-You can also [create device groups](https://developer.android.com/studio/test/managed-devices#define-groups) as you can with other
++You can also [create device groups](#define-groups) as you can with other
+ build-managed devices. To further leverage the performance improvements, you
+-can also use ATDs with [test sharding](https://developer.android.com/studio/test/managed-devices#test-sharding) to reduce the total test
++can also use ATDs with [test sharding](#test-sharding) to reduce the total test
+ execution time of your test suite.
+ 
+ ### What's removed from ATD images?
+@@ -262,12 +283,12 @@ we've removed or disabled in ATD images and descriptions of why they might not
+ be useful.
+ 
+ | What's removed in ATD images | Why you might not need this when running automated tests |
+-|---|---|
+-| Google product apps: - Mail - Maps - Chrome - Messages - Play Store, and others | Your automated tests should focus on your own app's logic while assuming that other apps or the platform will function correctly. With [Espresso-Intents](https://developer.android.com/training/testing/espresso/intents), you can match and validate your outgoing intents or even provide stub responses in place of actual intent responses. |
+-| Settings apps and services: - CarrierConfig - EmergencyInfo - OneTimeInitializer - PhotoTable (screensavers) - Provision - Settings app - StorageManager - Telephony APN Configuration - WallpaperCropper - WallpaperPicker | These apps present a GUI for end-users to change platform settings, set up their device, or manage device storage. This is typically outside the scope of app-level automated testing. <br /> **Note:** [Settings provider](https://developer.android.com/reference/android/provider/Settings) is still available in the ATD image. |
+-| Settings apps and services: - CarrierConfig - EmergencyInfo - OneTimeInitializer - PhotoTable (screensavers) - Provision - Settings app - StorageManager - Telephony APN Configuration - WallpaperCropper - WallpaperPicker | These apps present a GUI for end-users to change platform settings, set up their device, or manage device storage. This is typically outside the scope of app-level automated testing. <br /> **Note:** [Settings provider](https://developer.android.com/reference/android/provider/Settings) is still available in the ATD image. |
++| --- | --- |
++| Google product apps:  * Mail* Maps* Chrome* Messages* Play Store, and others | Your automated tests should focus on your own app's logic while assuming that other apps or the platform will function correctly. With [Espresso-Intents](/training/testing/espresso/intents), you can match and validate your outgoing intents or even provide stub responses in place of actual intent responses. |
++| Settings apps and services:  * CarrierConfig* EmergencyInfo* OneTimeInitializer* PhotoTable (screensavers)* Provision* Settings app* StorageManager* Telephony APN Configuration* WallpaperCropper* WallpaperPicker | These apps present a GUI for end-users to change platform settings, set up their device, or manage device storage. This is typically outside the scope of app-level automated testing. **Note:** [Settings provider](/reference/android/provider/Settings) is still available in the ATD image. |
++|
+ | SystemUI | Your automated tests should focus on your own app's logic while assuming that other apps or the platform will function correctly. |
+-| AOSP apps and services: - Browser2 - Calendar - Camera2 - Contacts - Dialer - DeskClock - Gallery2 - LatinIME - Launcher3QuickStep - Music - QuickSearchBox - SettingsIntelligence | These apps and services are typically outside the scope of automated tests for your app's code. |
++| AOSP apps and services:  * Browser2* Calendar* Camera2* Contacts* Dialer* DeskClock* Gallery2* LatinIME* Launcher3QuickStep* Music* QuickSearchBox* SettingsIntelligence | These apps and services are typically outside the scope of automated tests for your app's code. |
+ 
+ ## Use Firebase Test Lab devices
+ 
+@@ -279,8 +300,9 @@ remote Google data centers. With support from build-managed devices, the build
+ system can fully manage running tests against these Test Lab devices based on
+ your configurations.
+ 
+-> [!NOTE]
+-> **Note:** For information about Firebase Test Lab usage and associated costs (if any), see [Usage levels, quotas, and pricing for Test Lab](https://firebase.google.com/docs/test-lab/usage-quotas-pricing).
++**Note:** For information about Firebase Test Lab usage and associated costs (if
++any), see
++[Usage levels, quotas, and pricing for Test Lab](https://firebase.google.com/docs/test-lab/usage-quotas-pricing).
+ 
+ ### Get started
+ 
+@@ -296,12 +318,12 @@ works](https://cloud.google.com/docs/authentication/application-default-credenti
+    **Add project** and follow the on-screen prompts to create a project.
+    Remember your project ID.
+ 
+-   > [!NOTE]
+-   > **Note:** Enabling Google Analytics is optional, and not needed to use Firebase Test Lab. Unless you plan to use one of the listed services that depend on Google Analytics, we recommend that you *not* enable Google Analytics when prompted in the project creation workflow.
+-
++   **Note:** Enabling Google Analytics is optional, and not needed to use Firebase
++   Test Lab. Unless you plan to use one of the listed services that depend on
++   Google Analytics, we recommend that you *not* enable Google Analytics when
++   prompted in the project creation workflow.
+ 2. To install the Google Cloud CLI, follow the steps at
+    [Install the gcloud CLI](https://cloud.google.com/sdk/docs/install).
+-
+ 3. Configure your local environment.
+ 
+    1. Link to your Firebase project in gcloud:
+@@ -312,11 +334,11 @@ works](https://cloud.google.com/docs/authentication/application-default-credenti
+    2. Authorize the use of your user credentials for API access. We recommend
+       authorizing by passing a
+       [service account JSON file](https://firebase.google.com/docs/admin/setup#initialize_the_sdk_in_non-google_environments) to Gradle using the
+-      [DSL](https://developer.android.com/studio/test/managed-devices#ftl-gmd-dsl) in the module-level build script:
++      [DSL](#ftl-gmd-dsl) in the module-level build script:
+ 
+       ### Kotlin
+ 
+-      ```kotlin
++      ```
+       firebaseTestLab {
+         ...
+         serviceAccountCredentials.set(file(SERVICE_ACCOUNT_JSON_FILE))
+@@ -325,7 +347,7 @@ works](https://cloud.google.com/docs/authentication/application-default-credenti
+ 
+       ### Groovy
+ 
+-      ```groovy
++      ```
+       firebaseTestLab {
+         ...
+         serviceAccountCredentials = file(SERVICE_ACCOUNT_JSON_FILE)
+@@ -346,9 +368,10 @@ works](https://cloud.google.com/docs/authentication/application-default-credenti
+       gcloud auth application-default set-quota-project FIREBASE_PROJECT_ID
+       ```
+ 
+-      > [!NOTE]
+-      > **Note:** To access quota beyond the no-cost threshold, your Firebase project must be on the [Blaze pricing plan](https://firebase.google.com/docs/projects/billing/firebase-pricing-plans#switch-between-pricing-plans). You can upgrade to the Blaze pricing plan in the Firebase console.
+-
++      **Note:** To access quota beyond the no-cost threshold, your Firebase project
++      must be on the
++      [Blaze pricing plan](https://firebase.google.com/docs/projects/billing/firebase-pricing-plans#switch-between-pricing-plans).
++      You can upgrade to the Blaze pricing plan in the Firebase console.
+ 4. Enable required APIs.
+ 
+    In the
+@@ -363,7 +386,7 @@ works](https://cloud.google.com/docs/authentication/application-default-credenti
+ 
+       ### Kotlin
+ 
+-      ```kotlin
++      ```
+       plugins {
+         ...
+         id("com.google.firebase.testlab") version "0.0.1-alpha05" apply false
+@@ -372,7 +395,7 @@ works](https://cloud.google.com/docs/authentication/application-default-credenti
+ 
+       ### Groovy
+ 
+-      ```groovy
++      ```
+       plugins {
+         ...
+         id 'com.google.firebase.testlab' version '0.0.1-alpha05' apply false
+@@ -380,14 +403,14 @@ works](https://cloud.google.com/docs/authentication/application-default-credenti
+       ```
+    2. Enable custom device types in the `gradle.properties` file:
+ 
+-      ```groovy
++      ```
+       android.experimental.testOptions.managedDevices.customDevice=true
+       ```
+    3. Add the Firebase Test Lab plugin in the module-level build script:
+ 
+       ### Kotlin
+ 
+-      ```kotlin
++      ```
+       plugins {
+        ...
+        id "com.google.firebase.testlab"
+@@ -396,7 +419,7 @@ works](https://cloud.google.com/docs/authentication/application-default-credenti
+ 
+       ### Groovy
+ 
+-      ```groovy
++      ```
+       plugins {
+        ...
+        id 'com.google.firebase.testlab'
+@@ -413,7 +436,7 @@ Pixel 3 running API level 30 as a build-managed Test Lab device called
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ firebaseTestLab {
+   managedDevices {
+     create("ftlDevice") {
+@@ -427,7 +450,7 @@ firebaseTestLab {
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ firebaseTestLab {
+   managedDevices {
+     ftlDevice {
+@@ -440,10 +463,10 @@ firebaseTestLab {
+ ```
+ 
+ To define a group of build-managed devices including Firebase Test Lab devices,
+-see [Define groups of devices](https://developer.android.com/studio/test/managed-devices#define-groups).
++see [Define groups of devices](#define-groups).
+ 
+ To run your tests, use the [same commands used to run other build-managed
+-devices](https://developer.android.com/studio/test/managed-devices#run-tests). Note that Gradle doesn't run tests in parallel or support
++devices](#run-tests). Note that Gradle doesn't run tests in parallel or support
+ other Google Cloud CLI configurations for Test Lab devices.
+ 
+ ### Optimize test runs with smart sharding
+@@ -461,7 +484,7 @@ should take. You should set the target shard time duration to at least five
+ minutes less than `timeoutMinutes` to avoid the situation where shards are
+ canceled before tests can finish.
+ 
+-```kotlin
++```
+ firebaseTestLab {
+   ...
+   testOptions {
+@@ -471,7 +494,7 @@ firebaseTestLab {
+ ```
+ 
+ To learn more, read about the
+-[Firebase Test Lab device DSL options](https://developer.android.com/studio/test/managed-devices#ftl-gmd-dsl).
++[Firebase Test Lab device DSL options](#ftl-gmd-dsl).
+ 
+ ### Updated DSL for Test Lab devices
+ 
+@@ -479,7 +502,7 @@ There are more DSL options you can configure to help customize your test runs or
+ migrate from other solutions you may already be using. See some of these options
+ as described in the following code snippet.
+ 
+-```kotlin
++```
+ firebaseTestLab {
+   ...
+ 
+@@ -577,7 +600,7 @@ firebaseTestLab {
+ 
+     results {
+       /**
+-       * The name of the Google storage bucket to store the test results ihttps://firebase.google.com/docs/projects/iam/permissions#test-lab
++       * The name of the Google storage bucket to store the test results in.
+        *
+        * If left unspecified, the default bucket is used.
+        *

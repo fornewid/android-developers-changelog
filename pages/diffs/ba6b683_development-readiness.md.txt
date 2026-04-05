@@ -1,0 +1,12 @@
+diff --git a/docs/games/playgames/development-readiness.md b/docs/games/playgames/development-readiness.md
+index d775f43..7374cd7 100644
+--- a/docs/games/playgames/development-readiness.md
++++ b/docs/games/playgames/development-readiness.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Game Readiness Checker is a tool that helps validate your game against review
+ requirements locally in the Google Play Games on PC Developer Emulator. Running your game
+ through this tool helps shorten review time by highlighting common issues before

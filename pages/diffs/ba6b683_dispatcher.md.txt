@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-event/dispatcher.md b/docs/guide/navigation/navigation-event/dispatcher.md
+index 745a75d..841efaa 100644
+--- a/docs/guide/navigation/navigation-event/dispatcher.md
++++ b/docs/guide/navigation/navigation-event/dispatcher.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To implement a robust navigation system, your app needs a centralized way to
+ handle back gestures and other navigation signals. This page describes how to
+ use [`NavigationEventDispatcher`](/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher) to coordinate and distribute these

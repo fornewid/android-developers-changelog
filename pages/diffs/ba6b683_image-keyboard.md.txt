@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/touch-and-input/image-keyboard.md b/docs/develop/ui/views/touch-and-input/image-keyboard.md
+index 66423f1..33d3a4d 100644
+--- a/docs/develop/ui/views/touch-and-input/image-keyboard.md
++++ b/docs/develop/ui/views/touch-and-input/image-keyboard.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Users often want to communicate using emoji, stickers, and other kinds of rich
+ content. In previous versions of Android, soft keyboards—also known as
+ [input method editors](/guide/topics/text/creating-input-method), or

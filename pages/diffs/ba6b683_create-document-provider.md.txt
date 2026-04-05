@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/providers/create-document-provider.md b/docs/guide/topics/providers/create-document-provider.md
+index f126552..2f8a7c3 100644
+--- a/docs/guide/topics/providers/create-document-provider.md
++++ b/docs/guide/topics/providers/create-document-provider.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If you're developing an app that provides storage services for files (such as
+ a cloud save service), you can make your files available through the
+ Storage Access Framework (SAF) by writing a custom document provider.

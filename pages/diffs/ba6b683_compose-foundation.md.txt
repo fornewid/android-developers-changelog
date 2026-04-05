@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/compose-foundation.md b/docs/jetpack/androidx/releases/compose-foundation.md
+index ae376b9..9f0a6da 100644
+--- a/docs/jetpack/androidx/releases/compose-foundation.md
++++ b/docs/jetpack/androidx/releases/compose-foundation.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Compose Foundation
+ 
+ [User Guide](/jetpack/compose/tutorial)  [Code Sample](https://github.com/android/compose-samples)

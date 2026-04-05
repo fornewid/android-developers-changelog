@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/alternative/interim-ux/user-choice.md b/docs/google/play/billing/alternative/interim-ux/user-choice.md
+index 051bdcc..fae6851 100644
+--- a/docs/google/play/billing/alternative/interim-ux/user-choice.md
++++ b/docs/google/play/billing/alternative/interim-ux/user-choice.md
+@@ -14,6 +14,7 @@ Send feedback
+ 
+ 
+ 
++
+ **Note:** Google is sunsetting manual implementation of the interim UX guidelines.
+ Learn more about migration deadlines [here](https://support.google.com/googleplay/android-developer/answer/13821247#alt_billing_API_migration_deadline).
+ If you are offering user choice billing through alternative billing APIs, you can
+@@ -459,4 +460,6 @@ Center](https://support.google.com/googleplay/android-developer/answer/12570971)
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/tools/dumpsys.md b/docs/tools/dumpsys.md
+index e4d8c5e..f69881c 100644
+--- a/docs/tools/dumpsys.md
++++ b/docs/tools/dumpsys.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ `dumpsys` is a tool that runs on Android devices and provides information about
+ system services. Call `dumpsys` from the command line using the
+ [Android Debug Bridge (ADB)](/studio/command-line/adb)

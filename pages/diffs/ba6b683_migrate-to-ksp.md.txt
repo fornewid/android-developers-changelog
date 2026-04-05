@@ -1,0 +1,12 @@
+diff --git a/docs/build/migrate-to-ksp.md b/docs/build/migrate-to-ksp.md
+index a1efdad..57c6e28 100644
+--- a/docs/build/migrate-to-ksp.md
++++ b/docs/build/migrate-to-ksp.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** Kapt is now in maintenance mode, and we recommend that you migrate from
+ kapt to KSP for all processors that support it. In most cases, this
+ migration only requires changes to your project's build configuration.

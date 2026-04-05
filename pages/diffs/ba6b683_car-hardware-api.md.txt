@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/apps/library/car-hardware-api.md b/docs/training/cars/apps/library/car-hardware-api.md
+index b509233..4a6c76e 100644
+--- a/docs/training/cars/apps/library/car-hardware-api.md
++++ b/docs/training/cars/apps/library/car-hardware-api.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Starting with Car App API level 3, you can use Car App Library APIs to access
+ vehicle properties and sensors.
+ 

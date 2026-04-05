@@ -1,0 +1,12 @@
+diff --git a/docs/guide/components/activities/process-lifecycle.md b/docs/guide/components/activities/process-lifecycle.md
+index 7496c00..e03666e 100644
+--- a/docs/guide/components/activities/process-lifecycle.md
++++ b/docs/guide/components/activities/process-lifecycle.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ In most cases, every Android application runs in its own Linux process.
+ This process is created for the application when some of its code needs to
+ run and remains running until the system needs to reclaim its memory for use

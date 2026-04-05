@@ -1,0 +1,100 @@
+diff --git a/docs/develop/ui/views/components/appbar/up-action.md b/docs/develop/ui/views/components/appbar/up-action.md
+index 060696b..f9f50bf 100644
+--- a/docs/develop/ui/views/components/appbar/up-action.md
++++ b/docs/develop/ui/views/components/appbar/up-action.md
+@@ -1,60 +1,32 @@
+ ---
+-title: Add an Up action  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/components/appbar/up-action
+ url: https://developer.android.com/develop/ui/views/components/appbar/up-action
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++# Add an Up action
+ 
+-# Add an Up action Stay organized with collections Save and categorize content based on your preferences.
++Try the Compose way  
++Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose.  
++[Navigate from top app bar →](https://developer.android.com/develop/ui/compose/components/app-bars-navigate)  
++![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
++Users need an easy way to get back to your app's main screen. To do this, provide an*Up* button![](https://developer.android.com/static/images/guide/navigation/up-button.png)on the app bar for all activities except the main one. When the user selects the Up button, the app navigates to the parent activity.
+ 
+-
+-Try the Compose way
+-
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose.
+-
+-[Navigate from top app bar →](https://developer.android.com/develop/ui/compose/components/app-bars-navigate)
+-
+-![](/static/images/android-compose-ui-logo.png)
+-
+-Users need an easy way to get back to your app's main screen. To do this, provide an *Up*
+-button ![](/static/images/guide/navigation/up-button.png) on the app bar
+-for all activities except the main one. When the user selects the Up button, the app navigates to
+-the parent activity.
+-
+-This page shows you how to add an Up button to an app bar using the Jetpack Navigation component.
+-For a more detailed explanation, see
+-[Update UI components with NavigationUI](/guide/navigation/navigation-ui).
+-
+-**Note:** We recommend using the Jetpack Navigation component to handle your app navigation.
+-This component handles navigating up from the current screen in your app when the user taps the Up
+-button. To learn more, see the documentation for the
+-[Jetpack Navigation component](/guide/navigation).
++This page shows you how to add an Up button to an app bar using the Jetpack Navigation component. For a more detailed explanation, see[Update UI components with NavigationUI](https://developer.android.com/guide/navigation/navigation-ui).
++| **Note:** We recommend using the Jetpack Navigation component to handle your app navigation. This component handles navigating up from the current screen in your app when the user taps the Up button. To learn more, see the documentation for the[Jetpack Navigation component](https://developer.android.com/guide/navigation).
+ 
+ ## Configure your app bar
+ 
+-Configure your app bar using an
+-`AppBarConfiguration`.
+-From the `AppBarConfiguration`, you can inform the app bar of your top-level
+-destinations. If the navigation drawer is configured, the drawer menu icon
+-![](/static/images/guide/navigation/drawer-icon.png) displays on the app
+-bar on top-level destinations. If the navigation drawer isn't configured, the navigation button is
+-hidden on top-level destinations.
++Configure your app bar using an[AppBarConfiguration](https://developer.android.com/reference/androidx/navigation/ui/AppBarConfiguration). From the`AppBarConfiguration`, you can inform the app bar of your top-level destinations. If the navigation drawer is configured, the drawer menu icon![](https://developer.android.com/static/images/guide/navigation/drawer-icon.png)displays on the app bar on top-level destinations. If the navigation drawer isn't configured, the navigation button is hidden on top-level destinations.
+ 
+-In both cases, the Up button displays on all other destinations. Pressing the Up button calls
+-`navigateUp()`.
++In both cases, the Up button displays on all other destinations. Pressing the Up button calls[navigateUp()](https://developer.android.com/reference/androidx/navigation/NavController#navigateUp()).
+ 
+-The following example shows how to configure an app bar using
+-`AppBarConfiguration`:
++The following example shows how to configure an app bar using`AppBarConfiguration`:  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+   override fun onCreate(savedInstanceState: Bundle?) {
+     ...
+     val navController = findNavController(R.id.nav_host_fragment_activity_main)
+@@ -66,11 +38,12 @@ The following example shows how to configure an app bar using
+     )
+     binding.myToolbar.setupWithNavController(navController, appBarConfiguration)
+   }
++  
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       ...
+@@ -81,4 +54,5 @@ The following example shows how to configure an app bar using
+               .build();
+       NavigationUI.setupWithNavController(binding.myToolbar, navController, appBarConfiguration);
+   }
++  
+ ```
+\ No newline at end of file

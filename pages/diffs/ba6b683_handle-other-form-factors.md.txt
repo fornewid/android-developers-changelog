@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/components/settings/handle-other-form-factors.md b/docs/develop/ui/views/components/settings/handle-other-form-factors.md
+index 81baa72..be25022 100644
+--- a/docs/develop/ui/views/components/settings/handle-other-form-factors.md
++++ b/docs/develop/ui/views/components/settings/handle-other-form-factors.md
+@@ -16,6 +16,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Handle other form factors   Part of [Android Jetpack](/jetpack).
+ 
+ This topic outlines using the Preference Library with other supported form

@@ -1,0 +1,200 @@
+diff --git a/docs/develop/ui/views/graphics/opengl/draw.md b/docs/develop/ui/views/graphics/opengl/draw.md
+index 12517e1..7f7e408 100644
+--- a/docs/develop/ui/views/graphics/opengl/draw.md
++++ b/docs/develop/ui/views/graphics/opengl/draw.md
+@@ -1,9 +1,20 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/graphics/opengl/draw
++title: Draw shapes  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/graphics/opengl/draw
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Draw shapes Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ After you define shapes to be drawn with OpenGL, you probably want to draw them. Drawing shapes
+ with the OpenGL ES 2.0 takes a bit more code than you might imagine, because the API provides a
+ great deal of control over the graphics rendering pipeline.
+@@ -16,12 +27,12 @@ ES 2.0 API.
+ Before you do any drawing, you must initialize and load the shapes you plan to draw. Unless the
+ structure (the original coordinates) of the shapes you use in your program change during the course
+ of execution, you should initialize them in the
+-`https://developer.android.com/reference/android/opengl/GLSurfaceView.Renderer#onSurfaceCreated(javax.microedition.khronos.opengles.GL10, javax.microedition.khronos.egl.EGLConfig)` method of your
++`onSurfaceCreated()` method of your
+ renderer for memory and processing efficiency.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class MyGLRenderer : GLSurfaceView.Renderer {
+     ...
+     private lateinit var mTriangle: Triangle
+@@ -40,7 +51,7 @@ class MyGLRenderer : GLSurfaceView.Renderer {
+ 
+ ### Java
+ 
+-```java
++```
+ public class MyGLRenderer implements GLSurfaceView.Renderer {
+ 
+     ...
+@@ -64,9 +75,11 @@ Drawing a defined shape using OpenGL ES 2.0 requires a significant amount of cod
+ must provide a lot of details to the graphics rendering pipeline. Specifically, you must define the
+ following:
+ 
+-- *Vertex Shader* - OpenGL ES graphics code for rendering the vertices of a shape.
+-- *Fragment Shader* - OpenGL ES code for rendering the face of a shape with colors or textures.
+-- *Program* - An OpenGL ES object that contains the shaders you want to use for drawing one or more shapes.
++* *Vertex Shader* - OpenGL ES graphics code for rendering the vertices of a shape.
++* *Fragment Shader* - OpenGL ES code for rendering the face of a shape with colors or
++  textures.
++* *Program* - An OpenGL ES object that contains the shaders you want to use for drawing
++  one or more shapes.
+ 
+ You need at least one vertex shader to draw a shape and one fragment shader to color that shape.
+ These shaders must be compiled and then added to an OpenGL ES program, which is then used to draw
+@@ -75,7 +88,7 @@ the shape. Here is an example of how to define basic shaders you can use to draw
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class Triangle {
+ 
+     private val vertexShaderCode =
+@@ -97,7 +110,7 @@ class Triangle {
+ 
+ ### Java
+ 
+-```java
++```
+ public class Triangle {
+ 
+     private final String vertexShaderCode =
+@@ -122,7 +135,7 @@ the OpenGL ES environment. To compile this code, create a utility method in your
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun loadShader(type: Int, shaderCode: String): Int {
+ 
+     // create a vertex shader type (GLES20.GL_VERTEX_SHADER)
+@@ -138,7 +151,7 @@ fun loadShader(type: Int, shaderCode: String): Int {
+ 
+ ### Java
+ 
+-```java
++```
+ public static int loadShader(int type, String shaderCode){
+ 
+     // create a vertex shader type (GLES20.GL_VERTEX_SHADER)
+@@ -154,7 +167,7 @@ public static int loadShader(int type, String shaderCode){
+ ```
+ 
+ In order to draw your shape, you must compile the shader code, add them to a OpenGL ES program
+-object and then link the program. Do this in your drawn object's constructor, so it is only done
++object and then link the program. Do this in your drawn object’s constructor, so it is only done
+ once.
+ 
+ **Note:** Compiling OpenGL ES shaders and linking programs is expensive
+@@ -164,7 +177,7 @@ get created once and then cached for later use.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class Triangle {
+     ...
+ 
+@@ -194,7 +207,7 @@ class Triangle {
+ 
+ ### Java
+ 
+-```java
++```
+ public class Triangle() {
+     ...
+ 
+@@ -229,12 +242,12 @@ to draw and how to draw it. Since drawing options can vary by shape, it's a good
+ shape classes contain their own drawing logic.
+ 
+ Create a `draw()` method for drawing the shape. This code sets the position and
+-color values to the shape's vertex shader and fragment shader, and then executes the drawing
++color values to the shape’s vertex shader and fragment shader, and then executes the drawing
+ function.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private var positionHandle: Int = 0
+ private var mColorHandle: Int = 0
+ 
+@@ -279,7 +292,7 @@ fun draw() {
+ 
+ ### Java
+ 
+-```java
++```
+ private int positionHandle;
+ private int colorHandle;
+ 
+@@ -316,11 +329,11 @@ public void draw() {
+ ```
+ 
+ Once you have all this code in place, drawing this object just requires a call to the
+-`draw()` method from within your renderer's `https://developer.android.com/reference/android/opengl/GLSurfaceView.Renderer#onDrawFrame(javax.microedition.khronos.opengles.GL10)` method:
++`draw()` method from within your renderer’s `onDrawFrame()` method:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onDrawFrame(unused: GL10) {
+     ...
+ 
+@@ -330,7 +343,7 @@ override fun onDrawFrame(unused: GL10) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void onDrawFrame(GL10 unused) {
+     ...
+ 
+@@ -339,18 +352,18 @@ public void onDrawFrame(GL10 unused) {
+ ```
+ 
+ When you run the application, it should look something like this:
+-![](https://developer.android.com/static/images/opengl/ogl-triangle.png)
+ 
++![](/static/images/opengl/ogl-triangle.png)
+ 
+ **Figure 1.** Triangle drawn without a projection or camera view.
+ 
+ There are a few problems with this code example. First of all, it is not going to impress your
+ friends. Secondly, the triangle is a bit squashed and changes shape when you change the screen
+-orientation of the device. The reason the shape is skewed is due to the fact that the object's
++orientation of the device. The reason the shape is skewed is due to the fact that the object’s
+ vertices have not been corrected for the proportions of the screen area where the
+-`https://developer.android.com/reference/android/opengl/GLSurfaceView` is displayed. You can fix that problem using a projection and camera
++`GLSurfaceView` is displayed. You can fix that problem using a projection and camera
+ view in the next lesson.
+ 
+ Lastly, the triangle is stationary, which is a bit boring. In the
+-[Add motion](https://developer.android.com/training/graphics/opengl/motion) lesson, you make this shape
++[Add motion](/training/graphics/opengl/motion) lesson, you make this shape
+ rotate and make more interesting use of the OpenGL ES graphics pipeline.
+\ No newline at end of file

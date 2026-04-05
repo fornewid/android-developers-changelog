@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/profileinstaller.md b/docs/jetpack/androidx/releases/profileinstaller.md
+index 70d8814..9d648f4 100644
+--- a/docs/jetpack/androidx/releases/profileinstaller.md
++++ b/docs/jetpack/androidx/releases/profileinstaller.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # ProfileInstaller
+ 
+ API Reference  

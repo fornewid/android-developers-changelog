@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/gcm.md b/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/gcm.md
+index 54885ca..c10ddfc 100644
+--- a/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/gcm.md
++++ b/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/gcm.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This document explains how to migrate apps to use the WorkManager client library
+ to perform background operations instead of the GCMNetworkManager library. The
+ preferred way for an app to schedule background jobs is to use WorkManager. By

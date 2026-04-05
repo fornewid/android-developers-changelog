@@ -1,0 +1,777 @@
+diff --git a/docs/health-and-fitness/health-connect/experiences/workouts.md b/docs/health-and-fitness/health-connect/experiences/workouts.md
+index c54ec05..6695e79 100644
+--- a/docs/health-and-fitness/health-connect/experiences/workouts.md
++++ b/docs/health-and-fitness/health-connect/experiences/workouts.md
+@@ -1,29 +1,23 @@
+ ---
+-title: Develop Workout Experiences with Health Connect  |  Android health & fitness  |  Android Developers
++title: https://developer.android.com/health-and-fitness/health-connect/experiences/workouts
+ url: https://developer.android.com/health-and-fitness/health-connect/experiences/workouts
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Starting in 2026, we'll be transitioning away from Google Fit APIs. For more information on the Google Fit migration, see the [Migration Guide](/health-and-fitness/guides/health-connect/migrate/migration-guide).
++<br />
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Health & fitness dev center](https://developer.android.com/health-and-fitness)
+-* [Health Connect Guides](https://developer.android.com/health-and-fitness/health-connect)
++> [!NOTE]
++> **Note:** This guide is compatible with Health Connect version [1.1.0](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0).
+ 
+-# Develop Workout Experiences with Health Connect Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-**Note:** This guide is compatible with Health Connect version [1.1.0](/jetpack/androidx/releases/health-connect#1.1.0).
++<br />
+ 
+ If you're looking to build a workout experience in your app, you can use Health
+ Connect to do things like:
+ 
+-* Write exercise sessions
+-* Write workout routes
+-* Write workout metrics such as heart rate, speed, and distance
+-* Read workout data from other apps
++- Write exercise sessions
++- Write workout routes
++- Write workout metrics such as heart rate, speed, and distance
++- Read workout data from other apps
+ 
+ This guide describes how to build these workout features, covering data types,
+ background execution, permissions, recommended workflows, and best practices.
+@@ -33,11 +27,11 @@ background execution, permissions, recommended workflows, and best practices.
+ You can build a comprehensive workout tracking experience using Health Connect
+ by following these core steps:
+ 
+-* Correctly implementing permissions based on Health Permissions.
+-* Recording sessions using [`ExerciseSessionRecord`](/reference/kotlin/androidx/health/connect/client/records/ExerciseSessionRecord).
+-* Writing workout data consistently during the session.
+-* Managing background execution properly to verify continuous data capture.
+-* Reading session data for post-workout summaries and analysis.
++- Correctly implementing permissions based on Health Permissions.
++- Recording sessions using [`ExerciseSessionRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/ExerciseSessionRecord).
++- Writing workout data consistently during the session.
++- Managing background execution properly to verify continuous data capture.
++- Reading session data for post-workout summaries and analysis.
+ 
+ This workflow enables interoperability with other Health Connect apps and
+ verifies user-controlled data access.
+@@ -46,11 +40,10 @@ verifies user-controlled data access.
+ 
+ Before implementing workout features:
+ 
+-* [Integrate Health Connect](/health-and-fitness/health-connect/get-started#step-1) using the appropriate dependency.
+-* [Create a `HealthConnectClient`](/health-and-fitness/health-connect/get-started#step-2) instance.
+-* Verify your app implements runtime [permission flows based on Health Permissions](/health-and-fitness/health-connect/get-started#declare-permissions).
+-* If your workflow uses GPS, set up location permission and a foreground
+-  service.
++- [Integrate Health Connect](https://developer.android.com/health-and-fitness/health-connect/get-started#step-1) using the appropriate dependency.
++- [Create a `HealthConnectClient`](https://developer.android.com/health-and-fitness/health-connect/get-started#step-2) instance.
++- Verify your app implements runtime [permission flows based on Health Permissions](https://developer.android.com/health-and-fitness/health-connect/get-started#declare-permissions).
++- If your workflow uses GPS, set up location permission and a foreground service.
+ 
+ ## Key concepts
+ 
+@@ -66,10 +59,10 @@ is linked to its corresponding session.
+ `ExerciseSessionRecord` is the central record for workout data, representing a
+ single workout session. Each record stores:
+ 
+-* `startTime`
+-* `endTime`
+-* `exerciseType`
+-* Optional session metadata (title, notes)
++- `startTime`
++- `endTime`
++- `exerciseType`
++- Optional session metadata (title, notes)
+ 
+ An `ExerciseSessionRecord` can also contain exercise routes, laps, and
+ segments as part of its data. In addition, other data types such as
+@@ -81,29 +74,27 @@ associated with it.
+ Data associated with workout sessions is represented by individual record
+ types. Common types include:
+ 
+-* [`HeartRateRecord`](/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord): Represents a series of heart rate measurements.
+-* [`SpeedRecord`](/reference/kotlin/androidx/health/connect/client/records/SpeedRecord): Represents a series of speed measurements.
+-* [`DistanceRecord`](/reference/kotlin/androidx/health/connect/client/records/DistanceRecord): Represents distance covered between readings.
+-* [`TotalCaloriesBurnedRecord`](/reference/kotlin/androidx/health/connect/client/records/TotalCaloriesBurnedRecord): Represents total calories burned between
+-  readings.
+-* [`ElevationGainedRecord`](/reference/kotlin/androidx/health/connect/client/records/ElevationGainedRecord): Represents elevation gained between readings.
+-* [`StepsCadenceRecord`](/reference/kotlin/androidx/health/connect/client/records/StepsCadenceRecord): Represents steps cadence between readings.
+-* [`PowerRecord`](/reference/kotlin/androidx/health/connect/client/records/PowerRecord): Represents power output between readings, common in
+-  activities like cycling.
++- [`HeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord): Represents a series of heart rate measurements.
++- [`SpeedRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SpeedRecord): Represents a series of speed measurements.
++- [`DistanceRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/DistanceRecord): Represents distance covered between readings.
++- [`TotalCaloriesBurnedRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/TotalCaloriesBurnedRecord): Represents total calories burned between readings.
++- [`ElevationGainedRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/ElevationGainedRecord): Represents elevation gained between readings.
++- [`StepsCadenceRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsCadenceRecord): Represents steps cadence between readings.
++- [`PowerRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/PowerRecord): Represents power output between readings, common in activities like cycling.
+ 
+ For a complete list of data types, see
+-[Health Connect data types](/health-and-fitness/health-connect/data-types).
++[Health Connect data types](https://developer.android.com/health-and-fitness/health-connect/data-types).
+ 
+ ### Exercise routes
+ 
+ You can associate a route with outdoor workouts using `ExerciseRoute`. Routes
+ consist of sequential `ExerciseRoute.Location` objects each containing:
+ 
+-* Latitude and longitude
+-* Optional altitude
+-* Optional bearing
+-* Accuracy information
+-* Timestamp
++- Latitude and longitude
++- Optional altitude
++- Optional bearing
++- Accuracy information
++- Timestamp
+ 
+ ### Link session routes
+ 
+@@ -124,9 +115,9 @@ and request the necessary permissions for workout data.
+ Workout apps commonly run with the screen off. When in this state, you should
+ use:
+ 
+-* Foreground services for location and sensor sampling
+-* [`WorkManager`](/reference/androidx/work/WorkManager) for deferred write or syncing
+-* Batching strategies for regular record write
++- Foreground services for location and sensor sampling
++- [`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager) for deferred write or syncing
++- Batching strategies for regular record write
+ 
+ Maintain continuity by keeping session ID consistent across all writes.
+ 
+@@ -137,16 +128,16 @@ writing workout data. Common permissions for workouts
+ include exercise sessions, exercise routes, and metrics like heart rate or
+ speed. This includes the following:
+ 
+-* **Exercise sessions:** Read and write permissions for `ExerciseSessionRecord`.
+-* **Exercise routes:** Read and write permissions for `ExerciseRoute`.
+-* **Heart rate:** Read and write permissions for `HeartRateRecord`.
+-* **Speed:** Read and write permissions for `SpeedRecord`.
+-* **Distance:** Read and write permissions for `DistanceRecord`.
+-* **Calories:** Read and write permissions for `TotalCaloriesBurnedRecord`.
+-* **Elevation Gained:** Read and write permissions for `ElevationGainedRecord`.
+-* **Steps Cadence:** Read and write permissions for `StepsCadenceRecord`.
+-* **Power:** Read and write permissions for `PowerRecord`.
+-* **Steps:** Read and write permissions for `StepsRecord`.
++- **Exercise sessions:** Read and write permissions for `ExerciseSessionRecord`.
++- **Exercise routes:** Read and write permissions for `ExerciseRoute`.
++- **Heart rate:** Read and write permissions for `HeartRateRecord`.
++- **Speed:** Read and write permissions for `SpeedRecord`.
++- **Distance:** Read and write permissions for `DistanceRecord`.
++- **Calories:** Read and write permissions for `TotalCaloriesBurnedRecord`.
++- **Elevation Gained:** Read and write permissions for `ElevationGainedRecord`.
++- **Steps Cadence:** Read and write permissions for `StepsCadenceRecord`.
++- **Power:** Read and write permissions for `PowerRecord`.
++- **Steps:** Read and write permissions for `StepsRecord`.
+ 
+ The following shows an example of how to request multiple permissions for a
+ workout session that includes route, heart rate, distance, calories, speed,
+@@ -159,53 +150,49 @@ To do so, create a set of permissions for the required data types.
+ Make sure that the permissions in the set are declared in your Android
+ manifest first.
+ 
+-```
+-// Create a set of permissions for required data types
+-val PERMISSIONS =
+-    setOf(
+-  HealthPermission.getReadPermission(ExerciseSessionRecord::class),
+-  HealthPermission.getWritePermission(ExerciseSessionRecord::class),
+-  HealthPermission.getReadPermission(ExerciseRoute::class),
+-  HealthPermission.getWritePermission(ExerciseRoute::class),
+-  HealthPermission.getReadPermission(HeartRateRecord::class),
+-  HealthPermission.getWritePermission(HeartRateRecord::class),
+-  HealthPermission.getReadPermission(SpeedRecord::class),
+-  HealthPermission.getWritePermission(SpeedRecord::class),
+-  HealthPermission.getReadPermission(DistanceRecord::class),
+-  HealthPermission.getWritePermission(DistanceRecord::class),
+-  HealthPermission.getReadPermission(TotalCaloriesBurnedRecord::class),
+-  HealthPermission.getWritePermission(TotalCaloriesBurnedRecord::class),
+-  HealthPermission.getReadPermission(StepsRecord::class),
+-  HealthPermission.getWritePermission(StepsRecord::class)
+-)
+-```
+-
+-Use [`getGrantedPermissions`](/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
++    // Create a set of permissions for required data types
++    val PERMISSIONS =
++        setOf(
++      HealthPermission.getReadPermission(ExerciseSessionRecord::class),
++      HealthPermission.getWritePermission(ExerciseSessionRecord::class),
++      HealthPermission.getReadPermission(ExerciseRoute::class),
++      HealthPermission.getWritePermission(ExerciseRoute::class),
++      HealthPermission.getReadPermission(HeartRateRecord::class),
++      HealthPermission.getWritePermission(HeartRateRecord::class),
++      HealthPermission.getReadPermission(SpeedRecord::class),
++      HealthPermission.getWritePermission(SpeedRecord::class),
++      HealthPermission.getReadPermission(DistanceRecord::class),
++      HealthPermission.getWritePermission(DistanceRecord::class),
++      HealthPermission.getReadPermission(TotalCaloriesBurnedRecord::class),
++      HealthPermission.getWritePermission(TotalCaloriesBurnedRecord::class),
++      HealthPermission.getReadPermission(StepsRecord::class),
++      HealthPermission.getWritePermission(StepsRecord::class)
++    )
++
++Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
+ required permissions granted. If not, use
+-[`createRequestPermissionResultContract`](/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
++[`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
+ those permissions. This displays the Health Connect permissions screen.
+ 
+-```
+-// Create the permissions launcher
+-val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
+-
+-val requestPermissions = registerForActivityResult(requestPermissionActivityContract) { granted ->
+-  if (granted.containsAll(PERMISSIONS)) {
+-    // Permissions successfully granted
+-  } else {
+-    // Lack of required permissions
+-  }
+-}
+-
+-suspend fun checkPermissionsAndRun(healthConnectClient: HealthConnectClient) {
+-  val granted = healthConnectClient.permissionController.getGrantedPermissions()
+-  if (granted.containsAll(PERMISSIONS)) {
+-    // Permissions already granted; proceed with inserting or reading data
+-  } else {
+-    requestPermissions.launch(PERMISSIONS)
+-  }
+-}
+-```
++    // Create the permissions launcher
++    val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
++
++    val requestPermissions = registerForActivityResult(requestPermissionActivityContract) { granted ->
++      if (granted.containsAll(PERMISSIONS)) {
++        // Permissions successfully granted
++      } else {
++        // Lack of required permissions
++      }
++    }
++
++    suspend fun checkPermissionsAndRun(healthConnectClient: HealthConnectClient) {
++      val granted = healthConnectClient.permissionController.getGrantedPermissions()
++      if (granted.containsAll(PERMISSIONS)) {
++        // Permissions already granted; proceed with inserting or reading data
++      } else {
++        requestPermissions.launch(PERMISSIONS)
++      }
++    }
+ 
+ Because users can grant or revoke permissions at any time, your app needs to
+ check for permissions every time before using them and handle scenarios where
+@@ -213,21 +200,19 @@ permission is lost.
+ 
+ To request permissions, call the `checkPermissionsAndRun` function:
+ 
+-```
+-if (!granted.containsAll(PERMISSIONS)) {
+-    requestPermissions.launch(PERMISSIONS)
+-    // Check if required permissions are not granted, and return
+-  }
+-// Permissions already granted; proceed with inserting or reading data
+-```
++    if (!granted.containsAll(PERMISSIONS)) {
++        requestPermissions.launch(PERMISSIONS)
++        // Check if required permissions are not granted, and return
++      }
++    // Permissions already granted; proceed with inserting or reading data
+ 
+ If you only need to request permissions for a single data type, such as heart
+ rate, include only that data type in your permissions set:
+ 
+ Access to heart rate is protected by the following permissions:
+ 
+-* `android.permission.health.READ_HEART_RATE`
+-* `android.permission.health.WRITE_HEART_RATE`
++- `android.permission.health.READ_HEART_RATE`
++- `android.permission.health.WRITE_HEART_RATE`
+ 
+ To add heart rate capability to your app, start by requesting
+ permissions for the `HeartRateRecord` data type.
+@@ -235,23 +220,19 @@ permissions for the `HeartRateRecord` data type.
+ Here's the permission you need to declare to be able to write
+ heart rate:
+ 
+-```
+-<application>
+-  <uses-permission
+-android:name="android.permission.health.WRITE_HEART_RATE" />
+-...
+-</application>
+-```
++    <application>
++      <uses-permission
++    android:name="android.permission.health.WRITE_HEART_RATE" />
++    ...
++    </application>
+ 
+ To read heart rate, you need to request the following permissions:
+ 
+-```
+-<application>
+-  <uses-permission
+-android:name="android.permission.health.READ_HEART_RATE" />
+-...
+-</application>
+-```
++    <application>
++      <uses-permission
++    android:name="android.permission.health.READ_HEART_RATE" />
++    ...
++    </application>
+ 
+ ## Implement a workout session
+ 
+@@ -261,34 +242,29 @@ This section describes the recommended workflow for recording workout data.
+ 
+ To create a new workout:
+ 
+-1. Generate a unique session ID: Verify this ID is stable. If your app process
+-   is killed and restarted, you must be able to resume using the same ID to
+-   prevent fragmented sessions.
++1. Generate a unique session ID: Verify this ID is stable. If your app process is killed and restarted, you must be able to resume using the same ID to prevent fragmented sessions.
+ 2. Set a `metadata.clientRecordId` to prevent duplicates during sync retries.
+ 3. Write an `ExerciseSessionRecord`: Include the start time.
+-4. Start collecting Data type and GPS data: Only start these after the session
+-   record is successfully initialized.
++4. Start collecting Data type and GPS data: Only start these after the session record is successfully initialized.
+ 
+ Example:
+ 
+-```
+-val sessionId = UUID.randomUUID().toString()
+-val sessionClientId = UUID.randomUUID().toString()
++    val sessionId = UUID.randomUUID().toString()
++    val sessionClientId = UUID.randomUUID().toString()
+ 
+-val session = ExerciseSessionRecord(
+-    id = sessionId,
+-    exerciseType = ExerciseType.EXERCISE_TYPE_RUNNING,
+-    startTime = Instant.now(),
+-    endTime = null,
+-    metadata = Metadata(clientRecordId = sessionClientId),
+-)
++    val session = ExerciseSessionRecord(
++        id = sessionId,
++        exerciseType = ExerciseType.EXERCISE_TYPE_RUNNING,
++        startTime = Instant.now(),
++        endTime = null,
++        metadata = Metadata(clientRecordId = sessionClientId),
++    )
+ 
+-healthConnectClient.insertRecords(listOf(session))
+-```
++    healthConnectClient.insertRecords(listOf(session))
+ 
+ ### Record exercise routes
+ 
+-To learn more about reading guidance see [Read raw data](/health-and-fitness/health-connect/read-data).
++To learn more about reading guidance see [Read raw data](https://developer.android.com/health-and-fitness/health-connect/read-data).
+ 
+ When recording an exercise route, you should batch your data. This means instead
+ of saving every single GPS point as it happens, you collect a group of points
+@@ -297,58 +273,48 @@ and save them all at once in a single call.
+ This is important because every time your app reads or writes to Health Connect,
+ it uses a tiny bit of battery and processing power.
+ 
+-**Best Practice:** Data Integrity: Before batching, validate your GPS
+-accuracy. Filter out points with high horizontal accuracy radius to verify a
+-clean route. You can verify this logic using [Unit tests](/health-and-fitness/health-connect/test/unit-tests) to simulate
+-"noisy" GPS data.
++> [!NOTE]
++> **Best Practice:** Data Integrity: Before batching, validate your GPS accuracy. Filter out points with high horizontal accuracy radius to verify a clean route. You can verify this logic using [Unit tests](https://developer.android.com/health-and-fitness/health-connect/test/unit-tests) to simulate "noisy" GPS data.
+ 
+ The following code shows how to record in batches:
+ 
+-```
+-// 1. Create a list to hold your route locations
+-val routeLocations = mutableListOf<ExerciseRoute.Location>()
++    // 1. Create a list to hold your route locations
++    val routeLocations = mutableListOf<ExerciseRoute.Location>()
+ 
+-// 2. Add points to your list as the exercise happens
+-routeLocations.add(
+-    ExerciseRoute.Location(
+-        time = Instant.now(),
+-        latitude = 37.7749,
+-        longitude = -122.4194
++    // 2. Add points to your list as the exercise happens
++    routeLocations.add(
++        ExerciseRoute.Location(
++            time = Instant.now(),
++            latitude = 37.7749,
++            longitude = -122.4194
++        )
+     )
+-)
+ 
+-// ... keep adding points over a period of time ...
++    // ... keep adding points over a period of time ...
+ 
+-// 3. Save the whole list at once (Batching)
+-val session = ExerciseSessionRecord(
+-    startTime = startTime,
+-    endTime = endTime,
+-    exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
+-    // We pass the whole list here
+-    exerciseRoute = ExerciseRoute(routeLocations)
+-)
++    // 3. Save the whole list at once (Batching)
++    val session = ExerciseSessionRecord(
++        startTime = startTime,
++        endTime = endTime,
++        exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
++        // We pass the whole list here
++        exerciseRoute = ExerciseRoute(routeLocations)
++    )
+ 
+-healthConnectClient.insertRecords(listOf(session))
+-```
++    healthConnectClient.insertRecords(listOf(session))
+ 
+ ### End a session
+ 
+ After stopping data collection:
+ 
+-* Update the record: Your app updates `ExerciseSessionRecord` with an
+-  `endTime`.
+-* Finalize data: Optionally compute summary values (like total distance or
+-  average pace) and write them as additional records.
++- Update the record: Your app updates `ExerciseSessionRecord` with an `endTime`.
++- Finalize data: Optionally compute summary values (like total distance or average pace) and write them as additional records.
+ 
+-**Best Practice:** Avoid Overlaps Before finalizing, verify that this
+-session's **endTime** does not overlap with the **startTime** of any
+-subsequent records. Overlapping sessions are a common cause of write failures.
+-[See Troubleshooting](#troubleshooting) for more.
++> [!NOTE]
++> **Best Practice:** Avoid Overlaps Before finalizing, verify that this session's **endTime** does not overlap with the **startTime** of any subsequent records. Overlapping sessions are a common cause of write failures. [See Troubleshooting](https://developer.android.com/health-and-fitness/health-connect/experiences/workouts#troubleshooting) for more.
+ 
+-```
+-val finishedSession = session.copy(endTime = Instant.now())
+-healthConnectClient.updateRecords(listOf(finishedSession))
+-```
++    val finishedSession = session.copy(endTime = Instant.now())
++    healthConnectClient.updateRecords(listOf(finishedSession))
+ 
+ ## Reading workout data
+ 
+@@ -361,7 +327,7 @@ If you need to sync workout data with a backend server, or keep your app's
+ datastore up-to-date with Health Connect, use ChangeLogs. This lets you retrieve
+ a list of inserted, updated, or deleted records since a specific point in time,
+ which is more efficient than manually tracking changes or repeatedly reading all
+-data. For more information, see [Sync data with Health Connect](/health-and-fitness/health-connect/sync-data).
++data. For more information, see [Sync data with Health Connect](https://developer.android.com/health-and-fitness/health-connect/sync-data).
+ 
+ ### Read sessions
+ 
+@@ -369,26 +335,24 @@ To read exercise sessions, use a `ReadRecordsRequest` with
+ `ExerciseSessionRecord` as the type. You usually filter this by a specific time
+ range.
+ 
+-```
+-suspend fun readExerciseSessions(
+-    healthConnectClient: HealthConnectClient,
+-    startTime: Instant,
+-    endTime: Instant
+-) {
+-    val response = healthConnectClient.readRecords(
+-        ReadRecordsRequest(
+-            recordType = ExerciseSessionRecord::class,
+-            timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
++    suspend fun readExerciseSessions(
++        healthConnectClient: HealthConnectClient,
++        startTime: Instant,
++        endTime: Instant
++    ) {
++        val response = healthConnectClient.readRecords(
++            ReadRecordsRequest(
++                recordType = ExerciseSessionRecord::class,
++                timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
++            )
+         )
+-    )
+ 
+-    for (exerciseRecord in response.records) {
+-        // Process each session
+-        val exerciseType = exerciseRecord.exerciseType
+-        val notes = exerciseRecord.notes
++        for (exerciseRecord in response.records) {
++            // Process each session
++            val exerciseType = exerciseRecord.exerciseType
++            val notes = exerciseRecord.notes
++        }
+     }
+-}
+-```
+ 
+ ### Read routes
+ 
+@@ -396,32 +360,30 @@ Although `ExerciseRoute` data is written as part of an exercise session, it
+ must be read separately. Use the `getExerciseRoute()` method with the session's
+ ID to read its route data:
+ 
+-```
+-suspend fun readExerciseRoute(
+-    healthConnectClient: HealthConnectClient,
+-    exerciseSessionRecord: ExerciseSessionRecord
+-) {
+-    // Check if the session has a route
+-    val route = healthConnectClient.getExerciseRoute(
+-        exerciseSessionRecordId = exerciseSessionRecord.metadata.id
+-    )
++    suspend fun readExerciseRoute(
++        healthConnectClient: HealthConnectClient,
++        exerciseSessionRecord: ExerciseSessionRecord
++    ) {
++        // Check if the session has a route
++        val route = healthConnectClient.getExerciseRoute(
++            exerciseSessionRecordId = exerciseSessionRecord.metadata.id
++        )
+ 
+-    when (route) {
+-        is ExerciseRouteResponse.Success -> {
+-            val locations = route.exerciseRoute.locations
+-            for (location in locations) {
+-                // Use latitude, longitude, and altitude
++        when (route) {
++            is ExerciseRouteResponse.Success -> {
++                val locations = route.exerciseRoute.locations
++                for (location in locations) {
++                    // Use latitude, longitude, and altitude
++                }
++            }
++            is ExerciseRouteResponse.NoData -> {
++                // Handle case where no route exists
++            }
++            is ExerciseRouteResponse.ConsentRequired -> {
++                // Handle case where permissions are missing
+             }
+-        }
+-        is ExerciseRouteResponse.NoData -> {
+-            // Handle case where no route exists
+-        }
+-        is ExerciseRouteResponse.ConsentRequired -> {
+-            // Handle case where permissions are missing
+         }
+     }
+-}
+-```
+ 
+ ### Read data types
+ 
+@@ -429,50 +391,38 @@ To read specific granular data (like heart rate) that occurred during a session,
+ use the session's `startTime` and `endTime` to filter the request for that data
+ type.
+ 
+-```
+-suspend fun readHeartRateData(
+-    healthConnectClient: HealthConnectClient,
+-    exerciseSession: ExerciseSessionRecord
+-) {
+-    val response = healthConnectClient.readRecords(
+-        ReadRecordsRequest(
+-            recordType = HeartRateRecord::class,
+-            timeRangeFilter = TimeRangeFilter.between(
+-                exerciseSession.startTime,
+-                exerciseSession.endTime
++    suspend fun readHeartRateData(
++        healthConnectClient: HealthConnectClient,
++        exerciseSession: ExerciseSessionRecord
++    ) {
++        val response = healthConnectClient.readRecords(
++            ReadRecordsRequest(
++                recordType = HeartRateRecord::class,
++                timeRangeFilter = TimeRangeFilter.between(
++                    exerciseSession.startTime,
++                    exerciseSession.endTime
++                )
+             )
+         )
+-    )
+ 
+-    for (heartRateRecord in response.records) {
+-        for (sample in heartRateRecord.samples) {
+-            val bpm = sample.beatsPerMinute
++        for (heartRateRecord in response.records) {
++            for (sample in heartRateRecord.samples) {
++                val bpm = sample.beatsPerMinute
++            }
+         }
+     }
+-}
+-```
+ 
+ ## Best practices
+ 
+ Follow these guidelines to improve data reliability and user experience:
+ 
+-* **Write Frequency**
+-  + **Active Tracking(Foreground):** For active workouts, write data as it
+-    becomes available or at a maximum interval of 15 minutes.
+-  + **Background Sync:** Use [`WorkManager`](/reference/androidx/work/WorkManager) for deferred
+-    writes. Aim for a 15-minute interval to strike a balance between
+-    real-time data and battery efficiency.
+-  + **Batching:** Do not write every single sensor event individually. Chunk
+-    your requests. Health Connect handles up to 1000 records per write
+-    request.
+-* **Keep session IDs stable and unique:** Use consistent identifiers for your
+-  sessions. If a session is edited or updated, using the same ID prevents it
+-  from being treated as a new, separate workout.
+-* **Use batching for both data types and route points:** To reduce
+-  Input/Output overhead and preserve battery life, group your data points
+-  into a single `insertRecords` call rather than writing each point
+-  individually.
+-* **Avoid writing duplicate data: Use Client IDs** When creating records, set
++- **Write Frequency**
++  - **Active Tracking(Foreground):** For active workouts, write data as it becomes available or at a maximum interval of 15 minutes.
++  - **Background Sync:** Use [`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager) for deferred writes. Aim for a 15-minute interval to strike a balance between real-time data and battery efficiency.
++  - **Batching:** Do not write every single sensor event individually. Chunk your requests. Health Connect handles up to 1000 records per write request.
++- **Keep session IDs stable and unique:** Use consistent identifiers for your sessions. If a session is edited or updated, using the same ID prevents it from being treated as a new, separate workout.
++- **Use batching for both data types and route points:** To reduce Input/Output overhead and preserve battery life, group your data points into a single `insertRecords` call rather than writing each point individually.
++- **Avoid writing duplicate data: Use Client IDs** When creating records, set
+   a `metadata.clientRecordId`. Health Connect uses this to identify unique
+   records. If you attempt to write a record with a `clientRecordId` that
+   already exists, Health Connect will ignore the duplicate or update the
+@@ -480,78 +430,66 @@ Follow these guidelines to improve data reliability and user experience:
+   `metadata.clientRecordId` is the most effective way to prevent duplicates
+   during sync retries or app reinstalls.
+ 
+-  ```
+-  val record = StepsRecord(
+-      count = 100,
+-      startTime = startTime,
+-      endTime = endTime,
+-      startZoneOffset = ZoneOffset.UTC,
+-      endZoneOffset = ZoneOffset.UTC,
+-      metadata = Metadata(
+-          // Use a unique ID from your own database
+-          clientRecordId = "daily_steps_2023_10_27_user_123"
++      val record = StepsRecord(
++          count = 100,
++          startTime = startTime,
++          endTime = endTime,
++          startZoneOffset = ZoneOffset.UTC,
++          endZoneOffset = ZoneOffset.UTC,
++          metadata = Metadata(
++              // Use a unique ID from your own database
++              clientRecordId = "daily_steps_2023_10_27_user_123"
++          )
+       )
+-  )
+-  ```
+-* **Check existing data:** Before syncing, query the time range to see if
++
++- **Check existing data:** Before syncing, query the time range to see if
+   records from your app already exist.
+-* **Validate GPS accuracy:** Filter out low-accuracy GPS samples (For example,
++
++- **Validate GPS accuracy:** Filter out low-accuracy GPS samples (For example,
+   points with a high horizontal accuracy radius) before writing to the
+   `ExerciseRoute` to verify the map looks clean and professional.
+-* **Ensure timestamps do not overlap:** Verify that a new session does not
++
++- **Ensure timestamps do not overlap:** Verify that a new session does not
+   start before the previous one ends. Overlapping sessions can cause conflicts
+   in fitness dashboards and summary calculations.
+-* **Provide clear rationales for permission:** Use the
++
++- **Provide clear rationales for permission:** Use the
+   `Permission.createIntent` flow to explain why your app needs access to
+   health data, such as "To map your runs and calculate calorie burn."
+-* **Support pause and resume:** Verify your app handles pauses correctly.
++
++- **Support pause and resume:** Verify your app handles pauses correctly.
+   When a user pauses, stop collecting route points and data types so that
+   the average pace and duration remain accurate.
+-* **Test long-running sessions:** Monitor battery consumption during sessions
++
++- **Test long-running sessions:** Monitor battery consumption during sessions
+   lasting several hours to verify your batching interval and sensor usage
+   don't drain the device.
+-* **Align timestamps with sensor rates:** Match your record timestamps to the
++
++- **Align timestamps with sensor rates:** Match your record timestamps to the
+   actual frequency of your sensors (For example, 1Hz for GPS) to maintain data
+   high-fidelity.
+ 
+ ## Testing
+ 
+ To verify data correctness and a high-quality user experience, follow these
+-testing strategies and refer to the official [Test top use cases](/health-and-fitness/health-connect/test/test-cases)
++testing strategies and refer to the official [Test top use cases](https://developer.android.com/health-and-fitness/health-connect/test/test-cases)
+ documentation.
+ 
+ ### Verification tools
+ 
+-* **[Health Connect Toolbox](/health-and-fitness/health-connect/test/health-connect-toolbox):** Use this companion app to manually inspect
+-  records, delete test data, and simulate changes to the database. It is the
+-  best way to verify that your records are being stored correctly.
+-* **[Unit testing with `FakeHealthConnectClient`](/health-and-fitness/health-connect/test/unit-tests):** Use the testing library
+-  to verify how your app handles edge cases, like permission revocation or API
+-  exceptions without needing a physical device.
++- **[Health Connect Toolbox](https://developer.android.com/health-and-fitness/health-connect/test/health-connect-toolbox):** Use this companion app to manually inspect records, delete test data, and simulate changes to the database. It is the best way to verify that your records are being stored correctly.
++- **[Unit testing with `FakeHealthConnectClient`](https://developer.android.com/health-and-fitness/health-connect/test/unit-tests):** Use the testing library to verify how your app handles edge cases, like permission revocation or API exceptions without needing a physical device.
+ 
+ ### Quality checklist
+ 
+-**Confirm records in Health Connect:** Open the
+-Health Connect app and navigate to Data and access to verify records appear
+-with expected values.
+-
+-**Read data from other apps:** Test your app's
+-ability to read sessions written by other apps to verify ecosystem
+-compatibility. See [Reading workout data](#reading-workout-data).
+-
+-**Verify route data on a map:** Render the
+-coordinates from your `ExerciseRoute` using a map library to check
+-for continuity and remove "zig-zag" artifacts from low-accuracy points.
+-
+-**Balance write frequency:** Monitor battery usage.
+-Frequent writes provide high detail but increase drain.
++**Confirm records in Health Connect:** Open the Health Connect app and navigate to Data and access to verify records appear with expected values. **Read data from other apps:** Test your app's ability to read sessions written by other apps to verify ecosystem compatibility. See [Reading workout data](https://developer.android.com/health-and-fitness/health-connect/experiences/workouts#reading-workout-data). **Verify route data on a map:** Render the coordinates from your `ExerciseRoute` using a map library to check for continuity and remove "zig-zag" artifacts from low-accuracy points. **Balance write frequency:** Monitor battery usage. Frequent writes provide high detail but increase drain.
+ 
+ ## Typical architecture
+ 
+ A workout implementation commonly includes:
+ 
+ | Component | Manages |
+-| --- | --- |
++|---|---|
+ | Session controller | Session state Timer Batching logic Data types controllers Location sampling |
+ | Repository layer (wraps Health Connect operations:) | Insert session Insert data types Inserts route points Read session summaries |
+ | UI Layer (Displays): | Duration Live data types Map preview Split calculations Live GPS Trace |
+@@ -559,16 +497,14 @@ A workout implementation commonly includes:
+ ## Troubleshooting
+ 
+ | Symptom | Possible cause | Resolution |
+-| --- | --- | --- |
+-| Route not associated with session | Session ID or time range mismatch. | Verify the `ExerciseRoute` is written with a time range that falls entirely within the `ExerciseSessionRecord` duration. Verify you are using consistent IDs if referencing the session later. See [Recording exercise routes](#recording-exercise-routes). |
+-| Missing data types (for example, Heart Rate) | Missing write permissions or incorrect time filters. | Check that you have requested and the user has granted the specific data type permission. Verify your `ReadRecordsRequest` uses a `TimeRangeFilter` that matches the session. See [Permissions](#permissions). |
++|---|---|---|
++| Route not associated with session | Session ID or time range mismatch. | Verify the `ExerciseRoute` is written with a time range that falls entirely within the `ExerciseSessionRecord` duration. Verify you are using consistent IDs if referencing the session later. See [Recording exercise routes](https://developer.android.com/health-and-fitness/health-connect/experiences/workouts#recording-exercise-routes). |
++| Missing data types (For example, Heart Rate) | Missing write permissions or incorrect time filters. | Check that you have requested and the user has granted the specific data type permission. Verify your `ReadRecordsRequest` uses a `TimeRangeFilter` that matches the session. See [Permissions](https://developer.android.com/health-and-fitness/health-connect/experiences/workouts#permissions). |
+ | Session fails to write | Overlapping timestamps. | Health Connect may reject records that overlap with existing data from the same app. Validate that the `startTime` of a new session is after the `endTime` of the previous one. |
+-| No GPS data recorded | Foreground service was killed or inactive. | To collect data while the screen is off, you must use a [Foreground Service](/develop/background-work/services/fgs) with the `foregroundServiceType="health"` or location attribute. |
+-| Duplicate records appear | Missing `clientRecordId`. | Assign a unique `clientRecordId` in the `Metadata` of each record. This allows Health Connect to perform de-duplication if the same data is written twice during a sync retry. See [Best practices](#best-practices). |
++| No GPS data recorded | Foreground service was killed or inactive. | To collect data while the screen is off, you must use a [Foreground Service](https://developer.android.com/develop/background-work/services/fgs) with the `foregroundServiceType="health"` or location attribute. |
++| Duplicate records appear | Missing `clientRecordId` | Assign a unique `clientRecordId` in the `Metadata` of each record. This allows Health Connect to perform de-duplication if the same data is written twice during a sync retry. See [Best practices](https://developer.android.com/health-and-fitness/health-connect/experiences/workouts#best-practices). |
+ 
+ ### Common debugging steps
+ 
+-|  |  |
+-| --- | --- |
+-| Check permission state. | Always call `getPermissionStatus()` before attempting a read or write operation. Users can revoke permissions in system settings at any time. |
+-| Verify execution mode. | If your app is not collecting data in the background, verify that you have declared the correct permissions in your `AndroidManifest.xml` file and that the user hasn't placed the app into "Battery Restricted" mode. |
+\ No newline at end of file
++- **Check Permission state:** Always call `getPermissionStatus()` before attempting a read or write operation. Users can revoke permissions in system settings at any time.
++- **Verify Execution Mode:** If your app is not collecting data in the background, verify you have declared the correct permissions in your `AndroidManifest.xml` and that the user hasn't placed the app into "Battery Restricted" mode.
+\ No newline at end of file
